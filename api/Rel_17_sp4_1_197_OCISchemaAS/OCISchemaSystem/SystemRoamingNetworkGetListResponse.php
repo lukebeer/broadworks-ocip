@@ -20,8 +20,8 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemRoamingNetworkGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                = 'SystemRoamingNetworkGetListResponse';
-    protected $roamingNetworkTable = null;
+    public    $name = 'SystemRoamingNetworkGetListResponse';
+    protected $roamingNetworkTable;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemRoamingNetworkGetListResponse $response
@@ -36,7 +36,6 @@ class SystemRoamingNetworkGetListResponse extends ComplexType implements Complex
      */
     public function setRoamingNetworkTable(TableType $roamingNetworkTable = null)
     {
-        if (!$roamingNetworkTable) return $this;
         $this->roamingNetworkTable = $roamingNetworkTable;
         $this->roamingNetworkTable->setName('roamingNetworkTable');
         return $this;

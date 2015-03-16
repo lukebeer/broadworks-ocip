@@ -20,8 +20,8 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserPriorityAlertGetCriteriaListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name          = 'UserPriorityAlertGetCriteriaListResponse';
-    protected $criteriaTable = null;
+    public    $name = 'UserPriorityAlertGetCriteriaListResponse';
+    protected $criteriaTable;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServicePriorityAlert\UserPriorityAlertGetCriteriaListResponse $response
@@ -36,7 +36,6 @@ class UserPriorityAlertGetCriteriaListResponse extends ComplexType implements Co
      */
     public function setCriteriaTable(TableType $criteriaTable = null)
     {
-        if (!$criteriaTable) return $this;
         $this->criteriaTable = $criteriaTable;
         $this->criteriaTable->setName('criteriaTable');
         return $this;

@@ -21,9 +21,9 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderGetDefaultResponse extends ComplexType implements ComplexInterface
 {
-    public    $name          = 'ServiceProviderGetDefaultResponse';
-    protected $isEnterprise  = null;
-    protected $defaultDomain = null;
+    public    $name = 'ServiceProviderGetDefaultResponse';
+    protected $isEnterprise;
+    protected $defaultDomain;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderGetDefaultResponse $response
@@ -38,7 +38,6 @@ class ServiceProviderGetDefaultResponse extends ComplexType implements ComplexIn
      */
     public function setIsEnterprise($isEnterprise = null)
     {
-        if (!$isEnterprise) return $this;
         $this->isEnterprise = new PrimitiveType($isEnterprise);
         $this->isEnterprise->setName('isEnterprise');
         return $this;
@@ -50,7 +49,7 @@ class ServiceProviderGetDefaultResponse extends ComplexType implements ComplexIn
      */
     public function getIsEnterprise()
     {
-        return $this->isEnterprise->getValue();
+        return ($this->isEnterprise) ? $this->isEnterprise->getValue() : null;
     }
 
     /**
@@ -58,7 +57,6 @@ class ServiceProviderGetDefaultResponse extends ComplexType implements ComplexIn
      */
     public function setDefaultDomain($defaultDomain = null)
     {
-        if (!$defaultDomain) return $this;
         $this->defaultDomain = ($defaultDomain InstanceOf NetAddress)
              ? $defaultDomain
              : new NetAddress($defaultDomain);
@@ -72,6 +70,6 @@ class ServiceProviderGetDefaultResponse extends ComplexType implements ComplexIn
      */
     public function getDefaultDomain()
     {
-        return $this->defaultDomain->getValue();
+        return ($this->defaultDomain) ? $this->defaultDomain->getValue() : null;
     }
 }

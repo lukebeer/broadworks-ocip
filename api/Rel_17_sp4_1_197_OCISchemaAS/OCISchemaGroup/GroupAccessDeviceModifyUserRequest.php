@@ -24,18 +24,18 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupAccessDeviceModifyUserRequest extends ComplexType implements ComplexInterface
 {
-    public    $name              = 'GroupAccessDeviceModifyUserRequest';
-    protected $serviceProviderId = null;
-    protected $groupId           = null;
-    protected $deviceName        = null;
-    protected $linePort          = null;
-    protected $isPrimaryLinePort = null;
+    public    $name = 'GroupAccessDeviceModifyUserRequest';
+    protected $serviceProviderId;
+    protected $groupId;
+    protected $deviceName;
+    protected $linePort;
+    protected $isPrimaryLinePort;
 
     public function __construct(
-         $serviceProviderId,
-         $groupId,
-         $deviceName,
-         $linePort,
+         $serviceProviderId = '',
+         $groupId = '',
+         $deviceName = '',
+         $linePort = '',
          $isPrimaryLinePort = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
@@ -58,7 +58,6 @@ class GroupAccessDeviceModifyUserRequest extends ComplexType implements ComplexI
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
-        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
@@ -72,7 +71,7 @@ class GroupAccessDeviceModifyUserRequest extends ComplexType implements ComplexI
      */
     public function getServiceProviderId()
     {
-        return $this->serviceProviderId->getValue();
+        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
     }
 
     /**
@@ -80,7 +79,6 @@ class GroupAccessDeviceModifyUserRequest extends ComplexType implements ComplexI
      */
     public function setGroupId($groupId = null)
     {
-        if (!$groupId) return $this;
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
@@ -94,7 +92,7 @@ class GroupAccessDeviceModifyUserRequest extends ComplexType implements ComplexI
      */
     public function getGroupId()
     {
-        return $this->groupId->getValue();
+        return ($this->groupId) ? $this->groupId->getValue() : null;
     }
 
     /**
@@ -102,7 +100,6 @@ class GroupAccessDeviceModifyUserRequest extends ComplexType implements ComplexI
      */
     public function setDeviceName($deviceName = null)
     {
-        if (!$deviceName) return $this;
         $this->deviceName = ($deviceName InstanceOf AccessDeviceName)
              ? $deviceName
              : new AccessDeviceName($deviceName);
@@ -116,7 +113,7 @@ class GroupAccessDeviceModifyUserRequest extends ComplexType implements ComplexI
      */
     public function getDeviceName()
     {
-        return $this->deviceName->getValue();
+        return ($this->deviceName) ? $this->deviceName->getValue() : null;
     }
 
     /**
@@ -124,7 +121,6 @@ class GroupAccessDeviceModifyUserRequest extends ComplexType implements ComplexI
      */
     public function setLinePort($linePort = null)
     {
-        if (!$linePort) return $this;
         $this->linePort = ($linePort InstanceOf AccessDeviceEndpointLinePort)
              ? $linePort
              : new AccessDeviceEndpointLinePort($linePort);
@@ -138,7 +134,7 @@ class GroupAccessDeviceModifyUserRequest extends ComplexType implements ComplexI
      */
     public function getLinePort()
     {
-        return $this->linePort->getValue();
+        return ($this->linePort) ? $this->linePort->getValue() : null;
     }
 
     /**
@@ -146,7 +142,6 @@ class GroupAccessDeviceModifyUserRequest extends ComplexType implements ComplexI
      */
     public function setIsPrimaryLinePort($isPrimaryLinePort = null)
     {
-        if (!$isPrimaryLinePort) return $this;
         $this->isPrimaryLinePort = new PrimitiveType($isPrimaryLinePort);
         $this->isPrimaryLinePort->setName('isPrimaryLinePort');
         return $this;
@@ -158,6 +153,6 @@ class GroupAccessDeviceModifyUserRequest extends ComplexType implements ComplexI
      */
     public function getIsPrimaryLinePort()
     {
-        return $this->isPrimaryLinePort->getValue();
+        return ($this->isPrimaryLinePort) ? $this->isPrimaryLinePort->getValue() : null;
     }
 }

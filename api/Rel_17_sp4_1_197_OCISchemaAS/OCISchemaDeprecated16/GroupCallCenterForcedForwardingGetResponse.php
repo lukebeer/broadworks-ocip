@@ -24,19 +24,19 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupCallCenterForcedForwardingGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                             = 'GroupCallCenterForcedForwardingGetResponse';
-    protected $isActive                         = null;
-    protected $forwardToPhoneNumber             = null;
-    protected $allowEnableViaFAC                = null;
-    protected $playAnnouncementBeforeForwarding = null;
-    protected $audioMessageSelection            = null;
-    protected $audioFileUrl                     = null;
-    protected $audioFileDescription             = null;
-    protected $audioMediaType                   = null;
-    protected $videoMessageSelection            = null;
-    protected $videoFileUrl                     = null;
-    protected $videoFileDescription             = null;
-    protected $videoMediaType                   = null;
+    public    $name = 'GroupCallCenterForcedForwardingGetResponse';
+    protected $isActive;
+    protected $forwardToPhoneNumber;
+    protected $allowEnableViaFAC;
+    protected $playAnnouncementBeforeForwarding;
+    protected $audioMessageSelection;
+    protected $audioFileUrl;
+    protected $audioFileDescription;
+    protected $audioMediaType;
+    protected $videoMessageSelection;
+    protected $videoFileUrl;
+    protected $videoFileDescription;
+    protected $videoMediaType;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\GroupCallCenterForcedForwardingGetResponse $response
@@ -51,7 +51,6 @@ class GroupCallCenterForcedForwardingGetResponse extends ComplexType implements 
      */
     public function setIsActive($isActive = null)
     {
-        if (!$isActive) return $this;
         $this->isActive = new PrimitiveType($isActive);
         $this->isActive->setName('isActive');
         return $this;
@@ -63,7 +62,7 @@ class GroupCallCenterForcedForwardingGetResponse extends ComplexType implements 
      */
     public function getIsActive()
     {
-        return $this->isActive->getValue();
+        return ($this->isActive) ? $this->isActive->getValue() : null;
     }
 
     /**
@@ -71,7 +70,6 @@ class GroupCallCenterForcedForwardingGetResponse extends ComplexType implements 
      */
     public function setForwardToPhoneNumber($forwardToPhoneNumber = null)
     {
-        if (!$forwardToPhoneNumber) return $this;
         $this->forwardToPhoneNumber = ($forwardToPhoneNumber InstanceOf OutgoingDNorSIPURI)
              ? $forwardToPhoneNumber
              : new OutgoingDNorSIPURI($forwardToPhoneNumber);
@@ -85,7 +83,7 @@ class GroupCallCenterForcedForwardingGetResponse extends ComplexType implements 
      */
     public function getForwardToPhoneNumber()
     {
-        return $this->forwardToPhoneNumber->getValue();
+        return ($this->forwardToPhoneNumber) ? $this->forwardToPhoneNumber->getValue() : null;
     }
 
     /**
@@ -93,7 +91,6 @@ class GroupCallCenterForcedForwardingGetResponse extends ComplexType implements 
      */
     public function setAllowEnableViaFAC($allowEnableViaFAC = null)
     {
-        if (!$allowEnableViaFAC) return $this;
         $this->allowEnableViaFAC = new PrimitiveType($allowEnableViaFAC);
         $this->allowEnableViaFAC->setName('allowEnableViaFAC');
         return $this;
@@ -105,7 +102,7 @@ class GroupCallCenterForcedForwardingGetResponse extends ComplexType implements 
      */
     public function getAllowEnableViaFAC()
     {
-        return $this->allowEnableViaFAC->getValue();
+        return ($this->allowEnableViaFAC) ? $this->allowEnableViaFAC->getValue() : null;
     }
 
     /**
@@ -113,7 +110,6 @@ class GroupCallCenterForcedForwardingGetResponse extends ComplexType implements 
      */
     public function setPlayAnnouncementBeforeForwarding($playAnnouncementBeforeForwarding = null)
     {
-        if (!$playAnnouncementBeforeForwarding) return $this;
         $this->playAnnouncementBeforeForwarding = new PrimitiveType($playAnnouncementBeforeForwarding);
         $this->playAnnouncementBeforeForwarding->setName('playAnnouncementBeforeForwarding');
         return $this;
@@ -125,7 +121,7 @@ class GroupCallCenterForcedForwardingGetResponse extends ComplexType implements 
      */
     public function getPlayAnnouncementBeforeForwarding()
     {
-        return $this->playAnnouncementBeforeForwarding->getValue();
+        return ($this->playAnnouncementBeforeForwarding) ? $this->playAnnouncementBeforeForwarding->getValue() : null;
     }
 
     /**
@@ -133,7 +129,6 @@ class GroupCallCenterForcedForwardingGetResponse extends ComplexType implements 
      */
     public function setAudioMessageSelection($audioMessageSelection = null)
     {
-        if (!$audioMessageSelection) return $this;
         $this->audioMessageSelection = ($audioMessageSelection InstanceOf ExtendedFileResourceSelection)
              ? $audioMessageSelection
              : new ExtendedFileResourceSelection($audioMessageSelection);
@@ -147,7 +142,7 @@ class GroupCallCenterForcedForwardingGetResponse extends ComplexType implements 
      */
     public function getAudioMessageSelection()
     {
-        return $this->audioMessageSelection->getValue();
+        return ($this->audioMessageSelection) ? $this->audioMessageSelection->getValue() : null;
     }
 
     /**
@@ -155,7 +150,6 @@ class GroupCallCenterForcedForwardingGetResponse extends ComplexType implements 
      */
     public function setAudioFileUrl($audioFileUrl = null)
     {
-        if (!$audioFileUrl) return $this;
         $this->audioFileUrl = ($audioFileUrl InstanceOf URL)
              ? $audioFileUrl
              : new URL($audioFileUrl);
@@ -169,7 +163,7 @@ class GroupCallCenterForcedForwardingGetResponse extends ComplexType implements 
      */
     public function getAudioFileUrl()
     {
-        return $this->audioFileUrl->getValue();
+        return ($this->audioFileUrl) ? $this->audioFileUrl->getValue() : null;
     }
 
     /**
@@ -177,7 +171,6 @@ class GroupCallCenterForcedForwardingGetResponse extends ComplexType implements 
      */
     public function setAudioFileDescription($audioFileDescription = null)
     {
-        if (!$audioFileDescription) return $this;
         $this->audioFileDescription = ($audioFileDescription InstanceOf FileDescription)
              ? $audioFileDescription
              : new FileDescription($audioFileDescription);
@@ -191,7 +184,7 @@ class GroupCallCenterForcedForwardingGetResponse extends ComplexType implements 
      */
     public function getAudioFileDescription()
     {
-        return $this->audioFileDescription->getValue();
+        return ($this->audioFileDescription) ? $this->audioFileDescription->getValue() : null;
     }
 
     /**
@@ -199,7 +192,6 @@ class GroupCallCenterForcedForwardingGetResponse extends ComplexType implements 
      */
     public function setAudioMediaType($audioMediaType = null)
     {
-        if (!$audioMediaType) return $this;
         $this->audioMediaType = ($audioMediaType InstanceOf MediaFileType)
              ? $audioMediaType
              : new MediaFileType($audioMediaType);
@@ -213,7 +205,7 @@ class GroupCallCenterForcedForwardingGetResponse extends ComplexType implements 
      */
     public function getAudioMediaType()
     {
-        return $this->audioMediaType->getValue();
+        return ($this->audioMediaType) ? $this->audioMediaType->getValue() : null;
     }
 
     /**
@@ -221,7 +213,6 @@ class GroupCallCenterForcedForwardingGetResponse extends ComplexType implements 
      */
     public function setVideoMessageSelection($videoMessageSelection = null)
     {
-        if (!$videoMessageSelection) return $this;
         $this->videoMessageSelection = ($videoMessageSelection InstanceOf ExtendedFileResourceSelection)
              ? $videoMessageSelection
              : new ExtendedFileResourceSelection($videoMessageSelection);
@@ -235,7 +226,7 @@ class GroupCallCenterForcedForwardingGetResponse extends ComplexType implements 
      */
     public function getVideoMessageSelection()
     {
-        return $this->videoMessageSelection->getValue();
+        return ($this->videoMessageSelection) ? $this->videoMessageSelection->getValue() : null;
     }
 
     /**
@@ -243,7 +234,6 @@ class GroupCallCenterForcedForwardingGetResponse extends ComplexType implements 
      */
     public function setVideoFileUrl($videoFileUrl = null)
     {
-        if (!$videoFileUrl) return $this;
         $this->videoFileUrl = ($videoFileUrl InstanceOf URL)
              ? $videoFileUrl
              : new URL($videoFileUrl);
@@ -257,7 +247,7 @@ class GroupCallCenterForcedForwardingGetResponse extends ComplexType implements 
      */
     public function getVideoFileUrl()
     {
-        return $this->videoFileUrl->getValue();
+        return ($this->videoFileUrl) ? $this->videoFileUrl->getValue() : null;
     }
 
     /**
@@ -265,7 +255,6 @@ class GroupCallCenterForcedForwardingGetResponse extends ComplexType implements 
      */
     public function setVideoFileDescription($videoFileDescription = null)
     {
-        if (!$videoFileDescription) return $this;
         $this->videoFileDescription = ($videoFileDescription InstanceOf FileDescription)
              ? $videoFileDescription
              : new FileDescription($videoFileDescription);
@@ -279,7 +268,7 @@ class GroupCallCenterForcedForwardingGetResponse extends ComplexType implements 
      */
     public function getVideoFileDescription()
     {
-        return $this->videoFileDescription->getValue();
+        return ($this->videoFileDescription) ? $this->videoFileDescription->getValue() : null;
     }
 
     /**
@@ -287,7 +276,6 @@ class GroupCallCenterForcedForwardingGetResponse extends ComplexType implements 
      */
     public function setVideoMediaType($videoMediaType = null)
     {
-        if (!$videoMediaType) return $this;
         $this->videoMediaType = ($videoMediaType InstanceOf MediaFileType)
              ? $videoMediaType
              : new MediaFileType($videoMediaType);
@@ -301,6 +289,6 @@ class GroupCallCenterForcedForwardingGetResponse extends ComplexType implements 
      */
     public function getVideoMediaType()
     {
-        return $this->videoMediaType->getValue();
+        return ($this->videoMediaType) ? $this->videoMediaType->getValue() : null;
     }
 }

@@ -22,15 +22,15 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class EnterpriseDepartmentModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                   = 'EnterpriseDepartmentModifyRequest';
-    protected $enterpriseId           = null;
-    protected $departmentName         = null;
-    protected $newDepartmentName      = null;
-    protected $newParentDepartmentKey = null;
+    public    $name = 'EnterpriseDepartmentModifyRequest';
+    protected $enterpriseId;
+    protected $departmentName;
+    protected $newDepartmentName;
+    protected $newParentDepartmentKey;
 
     public function __construct(
-         $enterpriseId,
-         $departmentName,
+         $enterpriseId = '',
+         $departmentName = '',
          $newDepartmentName = null,
          EnterpriseDepartmentKey $newParentDepartmentKey = null
     ) {
@@ -53,7 +53,6 @@ class EnterpriseDepartmentModifyRequest extends ComplexType implements ComplexIn
      */
     public function setEnterpriseId($enterpriseId = null)
     {
-        if (!$enterpriseId) return $this;
         $this->enterpriseId = ($enterpriseId InstanceOf ServiceProviderId)
              ? $enterpriseId
              : new ServiceProviderId($enterpriseId);
@@ -67,7 +66,7 @@ class EnterpriseDepartmentModifyRequest extends ComplexType implements ComplexIn
      */
     public function getEnterpriseId()
     {
-        return $this->enterpriseId->getValue();
+        return ($this->enterpriseId) ? $this->enterpriseId->getValue() : null;
     }
 
     /**
@@ -75,7 +74,6 @@ class EnterpriseDepartmentModifyRequest extends ComplexType implements ComplexIn
      */
     public function setDepartmentName($departmentName = null)
     {
-        if (!$departmentName) return $this;
         $this->departmentName = ($departmentName InstanceOf DepartmentName)
              ? $departmentName
              : new DepartmentName($departmentName);
@@ -89,7 +87,7 @@ class EnterpriseDepartmentModifyRequest extends ComplexType implements ComplexIn
      */
     public function getDepartmentName()
     {
-        return $this->departmentName->getValue();
+        return ($this->departmentName) ? $this->departmentName->getValue() : null;
     }
 
     /**
@@ -97,7 +95,6 @@ class EnterpriseDepartmentModifyRequest extends ComplexType implements ComplexIn
      */
     public function setNewDepartmentName($newDepartmentName = null)
     {
-        if (!$newDepartmentName) return $this;
         $this->newDepartmentName = ($newDepartmentName InstanceOf DepartmentName)
              ? $newDepartmentName
              : new DepartmentName($newDepartmentName);
@@ -111,7 +108,7 @@ class EnterpriseDepartmentModifyRequest extends ComplexType implements ComplexIn
      */
     public function getNewDepartmentName()
     {
-        return $this->newDepartmentName->getValue();
+        return ($this->newDepartmentName) ? $this->newDepartmentName->getValue() : null;
     }
 
     /**
@@ -119,8 +116,9 @@ class EnterpriseDepartmentModifyRequest extends ComplexType implements ComplexIn
      */
     public function setNewParentDepartmentKey(EnterpriseDepartmentKey $newParentDepartmentKey = null)
     {
-        if (!$newParentDepartmentKey) return $this;
-        $this->newParentDepartmentKey = $newParentDepartmentKey;
+        $this->newParentDepartmentKey = ($newParentDepartmentKey InstanceOf EnterpriseDepartmentKey)
+             ? $newParentDepartmentKey
+             : new EnterpriseDepartmentKey($newParentDepartmentKey);
         $this->newParentDepartmentKey->setName('newParentDepartmentKey');
         return $this;
     }

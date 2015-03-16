@@ -20,8 +20,8 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserPolycomPhoneServicesGetPrimaryEndpointListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name            = 'UserPolycomPhoneServicesGetPrimaryEndpointListResponse';
-    protected $deviceUserTable = null;
+    public    $name = 'UserPolycomPhoneServicesGetPrimaryEndpointListResponse';
+    protected $deviceUserTable;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServicePolycomPhoneServices\UserPolycomPhoneServicesGetPrimaryEndpointListResponse $response
@@ -36,7 +36,6 @@ class UserPolycomPhoneServicesGetPrimaryEndpointListResponse extends ComplexType
      */
     public function setDeviceUserTable(TableType $deviceUserTable = null)
     {
-        if (!$deviceUserTable) return $this;
         $this->deviceUserTable = $deviceUserTable;
         $this->deviceUserTable->setName('deviceUserTable');
         return $this;

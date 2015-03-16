@@ -25,16 +25,16 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupServiceModifyAuthorizationListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                      = 'GroupServiceModifyAuthorizationListRequest';
-    protected $serviceProviderId         = null;
-    protected $groupId                   = null;
-    protected $servicePackAuthorization  = null;
-    protected $groupServiceAuthorization = null;
-    protected $userServiceAuthorization  = null;
+    public    $name = 'GroupServiceModifyAuthorizationListRequest';
+    protected $serviceProviderId;
+    protected $groupId;
+    protected $servicePackAuthorization;
+    protected $groupServiceAuthorization;
+    protected $userServiceAuthorization;
 
     public function __construct(
-         $serviceProviderId,
-         $groupId,
+         $serviceProviderId = '',
+         $groupId = '',
          ServicePackAuthorization $servicePackAuthorization = null,
          GroupServiceAuthorization $groupServiceAuthorization = null,
          UserServiceAuthorization $userServiceAuthorization = null
@@ -59,7 +59,6 @@ class GroupServiceModifyAuthorizationListRequest extends ComplexType implements 
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
-        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
@@ -73,7 +72,7 @@ class GroupServiceModifyAuthorizationListRequest extends ComplexType implements 
      */
     public function getServiceProviderId()
     {
-        return $this->serviceProviderId->getValue();
+        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
     }
 
     /**
@@ -81,7 +80,6 @@ class GroupServiceModifyAuthorizationListRequest extends ComplexType implements 
      */
     public function setGroupId($groupId = null)
     {
-        if (!$groupId) return $this;
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
@@ -95,7 +93,7 @@ class GroupServiceModifyAuthorizationListRequest extends ComplexType implements 
      */
     public function getGroupId()
     {
-        return $this->groupId->getValue();
+        return ($this->groupId) ? $this->groupId->getValue() : null;
     }
 
     /**
@@ -103,8 +101,9 @@ class GroupServiceModifyAuthorizationListRequest extends ComplexType implements 
      */
     public function setServicePackAuthorization(ServicePackAuthorization $servicePackAuthorization = null)
     {
-        if (!$servicePackAuthorization) return $this;
-        $this->servicePackAuthorization = $servicePackAuthorization;
+        $this->servicePackAuthorization = ($servicePackAuthorization InstanceOf ServicePackAuthorization)
+             ? $servicePackAuthorization
+             : new ServicePackAuthorization($servicePackAuthorization);
         $this->servicePackAuthorization->setName('servicePackAuthorization');
         return $this;
     }
@@ -123,8 +122,9 @@ class GroupServiceModifyAuthorizationListRequest extends ComplexType implements 
      */
     public function setGroupServiceAuthorization(GroupServiceAuthorization $groupServiceAuthorization = null)
     {
-        if (!$groupServiceAuthorization) return $this;
-        $this->groupServiceAuthorization = $groupServiceAuthorization;
+        $this->groupServiceAuthorization = ($groupServiceAuthorization InstanceOf GroupServiceAuthorization)
+             ? $groupServiceAuthorization
+             : new GroupServiceAuthorization($groupServiceAuthorization);
         $this->groupServiceAuthorization->setName('groupServiceAuthorization');
         return $this;
     }
@@ -143,8 +143,9 @@ class GroupServiceModifyAuthorizationListRequest extends ComplexType implements 
      */
     public function setUserServiceAuthorization(UserServiceAuthorization $userServiceAuthorization = null)
     {
-        if (!$userServiceAuthorization) return $this;
-        $this->userServiceAuthorization = $userServiceAuthorization;
+        $this->userServiceAuthorization = ($userServiceAuthorization InstanceOf UserServiceAuthorization)
+             ? $userServiceAuthorization
+             : new UserServiceAuthorization($userServiceAuthorization);
         $this->userServiceAuthorization->setName('userServiceAuthorization');
         return $this;
     }

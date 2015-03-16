@@ -20,8 +20,8 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class EnterpriseBroadWorksMobileManagerGetDomainListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name       = 'EnterpriseBroadWorksMobileManagerGetDomainListResponse';
-    protected $domainName = null;
+    public    $name = 'EnterpriseBroadWorksMobileManagerGetDomainListResponse';
+    protected $domainName;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaEnterprise\EnterpriseBroadWorksMobileManagerGetDomainListResponse $response
@@ -36,7 +36,6 @@ class EnterpriseBroadWorksMobileManagerGetDomainListResponse extends ComplexType
      */
     public function setDomainName($domainName = null)
     {
-        if (!$domainName) return $this;
         $this->domainName = ($domainName InstanceOf BroadWorksMobileManagerDomainName)
              ? $domainName
              : new BroadWorksMobileManagerDomainName($domainName);
@@ -50,6 +49,6 @@ class EnterpriseBroadWorksMobileManagerGetDomainListResponse extends ComplexType
      */
     public function getDomainName()
     {
-        return $this->domainName->getValue();
+        return ($this->domainName) ? $this->domainName->getValue() : null;
     }
 }

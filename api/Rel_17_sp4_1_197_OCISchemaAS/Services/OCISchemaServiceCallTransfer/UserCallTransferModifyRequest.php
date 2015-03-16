@@ -23,17 +23,17 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserCallTransferModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                                      = 'UserCallTransferModifyRequest';
-    protected $userId                                    = null;
-    protected $isRecallActive                            = null;
-    protected $recallNumberOfRings                       = null;
-    protected $useDiversionInhibitorForBlindTransfer     = null;
-    protected $useDiversionInhibitorForConsultativeCalls = null;
-    protected $enableBusyCampOn                          = null;
-    protected $busyCampOnSeconds                         = null;
+    public    $name = 'UserCallTransferModifyRequest';
+    protected $userId;
+    protected $isRecallActive;
+    protected $recallNumberOfRings;
+    protected $useDiversionInhibitorForBlindTransfer;
+    protected $useDiversionInhibitorForConsultativeCalls;
+    protected $enableBusyCampOn;
+    protected $busyCampOnSeconds;
 
     public function __construct(
-         $userId,
+         $userId = '',
          $isRecallActive = null,
          $recallNumberOfRings = null,
          $useDiversionInhibitorForBlindTransfer = null,
@@ -63,7 +63,6 @@ class UserCallTransferModifyRequest extends ComplexType implements ComplexInterf
      */
     public function setUserId($userId = null)
     {
-        if (!$userId) return $this;
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
@@ -77,7 +76,7 @@ class UserCallTransferModifyRequest extends ComplexType implements ComplexInterf
      */
     public function getUserId()
     {
-        return $this->userId->getValue();
+        return ($this->userId) ? $this->userId->getValue() : null;
     }
 
     /**
@@ -85,7 +84,6 @@ class UserCallTransferModifyRequest extends ComplexType implements ComplexInterf
      */
     public function setIsRecallActive($isRecallActive = null)
     {
-        if (!$isRecallActive) return $this;
         $this->isRecallActive = new PrimitiveType($isRecallActive);
         $this->isRecallActive->setName('isRecallActive');
         return $this;
@@ -97,7 +95,7 @@ class UserCallTransferModifyRequest extends ComplexType implements ComplexInterf
      */
     public function getIsRecallActive()
     {
-        return $this->isRecallActive->getValue();
+        return ($this->isRecallActive) ? $this->isRecallActive->getValue() : null;
     }
 
     /**
@@ -105,7 +103,6 @@ class UserCallTransferModifyRequest extends ComplexType implements ComplexInterf
      */
     public function setRecallNumberOfRings($recallNumberOfRings = null)
     {
-        if (!$recallNumberOfRings) return $this;
         $this->recallNumberOfRings = ($recallNumberOfRings InstanceOf CallTransferRecallNumberOfRings)
              ? $recallNumberOfRings
              : new CallTransferRecallNumberOfRings($recallNumberOfRings);
@@ -119,7 +116,7 @@ class UserCallTransferModifyRequest extends ComplexType implements ComplexInterf
      */
     public function getRecallNumberOfRings()
     {
-        return $this->recallNumberOfRings->getValue();
+        return ($this->recallNumberOfRings) ? $this->recallNumberOfRings->getValue() : null;
     }
 
     /**
@@ -127,7 +124,6 @@ class UserCallTransferModifyRequest extends ComplexType implements ComplexInterf
      */
     public function setUseDiversionInhibitorForBlindTransfer($useDiversionInhibitorForBlindTransfer = null)
     {
-        if (!$useDiversionInhibitorForBlindTransfer) return $this;
         $this->useDiversionInhibitorForBlindTransfer = new PrimitiveType($useDiversionInhibitorForBlindTransfer);
         $this->useDiversionInhibitorForBlindTransfer->setName('useDiversionInhibitorForBlindTransfer');
         return $this;
@@ -139,7 +135,7 @@ class UserCallTransferModifyRequest extends ComplexType implements ComplexInterf
      */
     public function getUseDiversionInhibitorForBlindTransfer()
     {
-        return $this->useDiversionInhibitorForBlindTransfer->getValue();
+        return ($this->useDiversionInhibitorForBlindTransfer) ? $this->useDiversionInhibitorForBlindTransfer->getValue() : null;
     }
 
     /**
@@ -147,7 +143,6 @@ class UserCallTransferModifyRequest extends ComplexType implements ComplexInterf
      */
     public function setUseDiversionInhibitorForConsultativeCalls($useDiversionInhibitorForConsultativeCalls = null)
     {
-        if (!$useDiversionInhibitorForConsultativeCalls) return $this;
         $this->useDiversionInhibitorForConsultativeCalls = new PrimitiveType($useDiversionInhibitorForConsultativeCalls);
         $this->useDiversionInhibitorForConsultativeCalls->setName('useDiversionInhibitorForConsultativeCalls');
         return $this;
@@ -159,7 +154,7 @@ class UserCallTransferModifyRequest extends ComplexType implements ComplexInterf
      */
     public function getUseDiversionInhibitorForConsultativeCalls()
     {
-        return $this->useDiversionInhibitorForConsultativeCalls->getValue();
+        return ($this->useDiversionInhibitorForConsultativeCalls) ? $this->useDiversionInhibitorForConsultativeCalls->getValue() : null;
     }
 
     /**
@@ -167,7 +162,6 @@ class UserCallTransferModifyRequest extends ComplexType implements ComplexInterf
      */
     public function setEnableBusyCampOn($enableBusyCampOn = null)
     {
-        if (!$enableBusyCampOn) return $this;
         $this->enableBusyCampOn = new PrimitiveType($enableBusyCampOn);
         $this->enableBusyCampOn->setName('enableBusyCampOn');
         return $this;
@@ -179,7 +173,7 @@ class UserCallTransferModifyRequest extends ComplexType implements ComplexInterf
      */
     public function getEnableBusyCampOn()
     {
-        return $this->enableBusyCampOn->getValue();
+        return ($this->enableBusyCampOn) ? $this->enableBusyCampOn->getValue() : null;
     }
 
     /**
@@ -187,7 +181,6 @@ class UserCallTransferModifyRequest extends ComplexType implements ComplexInterf
      */
     public function setBusyCampOnSeconds($busyCampOnSeconds = null)
     {
-        if (!$busyCampOnSeconds) return $this;
         $this->busyCampOnSeconds = ($busyCampOnSeconds InstanceOf CallTransferBusyCampOnSeconds)
              ? $busyCampOnSeconds
              : new CallTransferBusyCampOnSeconds($busyCampOnSeconds);
@@ -201,6 +194,6 @@ class UserCallTransferModifyRequest extends ComplexType implements ComplexInterf
      */
     public function getBusyCampOnSeconds()
     {
-        return $this->busyCampOnSeconds->getValue();
+        return ($this->busyCampOnSeconds) ? $this->busyCampOnSeconds->getValue() : null;
     }
 }

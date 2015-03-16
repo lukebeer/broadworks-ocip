@@ -28,14 +28,14 @@ use Broadworks_OCIP\core\Client\Client;
 class SystemGetRegistrationContactListRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType                  = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemGetRegistrationContactListResponse';
-    public    $name                          = 'SystemGetRegistrationContactListRequest';
-    protected $deviceLevel                   = null;
-    protected $deviceName                    = null;
-    protected $deviceType                    = null;
-    protected $searchCriteriaRegistrationURI = null;
-    protected $searchCriteriaSIPContact      = null;
-    protected $endpointType                  = null;
-    protected $expired                       = null;
+    public    $name = 'SystemGetRegistrationContactListRequest';
+    protected $deviceLevel;
+    protected $deviceName;
+    protected $deviceType;
+    protected $searchCriteriaRegistrationURI;
+    protected $searchCriteriaSIPContact;
+    protected $endpointType;
+    protected $expired;
 
     public function __construct(
          $deviceLevel = null,
@@ -68,7 +68,6 @@ class SystemGetRegistrationContactListRequest extends ComplexType implements Com
      */
     public function setDeviceLevel($deviceLevel = null)
     {
-        if (!$deviceLevel) return $this;
         $this->deviceLevel = ($deviceLevel InstanceOf AccessDeviceLevel)
              ? $deviceLevel
              : new AccessDeviceLevel($deviceLevel);
@@ -82,7 +81,7 @@ class SystemGetRegistrationContactListRequest extends ComplexType implements Com
      */
     public function getDeviceLevel()
     {
-        return $this->deviceLevel->getValue();
+        return ($this->deviceLevel) ? $this->deviceLevel->getValue() : null;
     }
 
     /**
@@ -90,7 +89,6 @@ class SystemGetRegistrationContactListRequest extends ComplexType implements Com
      */
     public function setDeviceName($deviceName = null)
     {
-        if (!$deviceName) return $this;
         $this->deviceName = ($deviceName InstanceOf AccessDeviceName)
              ? $deviceName
              : new AccessDeviceName($deviceName);
@@ -104,7 +102,7 @@ class SystemGetRegistrationContactListRequest extends ComplexType implements Com
      */
     public function getDeviceName()
     {
-        return $this->deviceName->getValue();
+        return ($this->deviceName) ? $this->deviceName->getValue() : null;
     }
 
     /**
@@ -112,7 +110,6 @@ class SystemGetRegistrationContactListRequest extends ComplexType implements Com
      */
     public function setDeviceType($deviceType = null)
     {
-        if (!$deviceType) return $this;
         $this->deviceType = ($deviceType InstanceOf AccessDeviceType)
              ? $deviceType
              : new AccessDeviceType($deviceType);
@@ -126,7 +123,7 @@ class SystemGetRegistrationContactListRequest extends ComplexType implements Com
      */
     public function getDeviceType()
     {
-        return $this->deviceType->getValue();
+        return ($this->deviceType) ? $this->deviceType->getValue() : null;
     }
 
     /**
@@ -134,7 +131,6 @@ class SystemGetRegistrationContactListRequest extends ComplexType implements Com
      */
     public function setSearchCriteriaRegistrationURI(SearchCriteriaRegistrationURI $searchCriteriaRegistrationURI = null)
     {
-        if (!$searchCriteriaRegistrationURI) return $this;
         $this->searchCriteriaRegistrationURI = ($searchCriteriaRegistrationURI InstanceOf SearchCriteriaRegistrationURI)
              ? $searchCriteriaRegistrationURI
              : new SearchCriteriaRegistrationURI($searchCriteriaRegistrationURI);
@@ -156,7 +152,6 @@ class SystemGetRegistrationContactListRequest extends ComplexType implements Com
      */
     public function setSearchCriteriaSIPContact(SearchCriteriaSIPContact $searchCriteriaSIPContact = null)
     {
-        if (!$searchCriteriaSIPContact) return $this;
         $this->searchCriteriaSIPContact = ($searchCriteriaSIPContact InstanceOf SearchCriteriaSIPContact)
              ? $searchCriteriaSIPContact
              : new SearchCriteriaSIPContact($searchCriteriaSIPContact);
@@ -178,7 +173,6 @@ class SystemGetRegistrationContactListRequest extends ComplexType implements Com
      */
     public function setEndpointType($endpointType = null)
     {
-        if (!$endpointType) return $this;
         $this->endpointType = ($endpointType InstanceOf RegistrationEndpointType)
              ? $endpointType
              : new RegistrationEndpointType($endpointType);
@@ -192,7 +186,7 @@ class SystemGetRegistrationContactListRequest extends ComplexType implements Com
      */
     public function getEndpointType()
     {
-        return $this->endpointType->getValue();
+        return ($this->endpointType) ? $this->endpointType->getValue() : null;
     }
 
     /**
@@ -200,7 +194,6 @@ class SystemGetRegistrationContactListRequest extends ComplexType implements Com
      */
     public function setExpired($expired = null)
     {
-        if (!$expired) return $this;
         $this->expired = new PrimitiveType($expired);
         $this->expired->setName('expired');
         return $this;
@@ -212,6 +205,6 @@ class SystemGetRegistrationContactListRequest extends ComplexType implements Com
      */
     public function getExpired()
     {
-        return $this->expired->getValue();
+        return ($this->expired) ? $this->expired->getValue() : null;
     }
 }

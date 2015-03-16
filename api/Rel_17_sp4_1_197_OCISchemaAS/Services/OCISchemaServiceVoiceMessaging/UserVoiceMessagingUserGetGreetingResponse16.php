@@ -25,21 +25,21 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserVoiceMessagingUserGetGreetingResponse16 extends ComplexType implements ComplexInterface
 {
-    public    $name                           = 'UserVoiceMessagingUserGetGreetingResponse16';
-    protected $busyAnnouncementSelection      = null;
-    protected $busyPersonalAudioFile          = null;
-    protected $busyPersonalAudioMediaType     = null;
-    protected $busyPersonalVideoFile          = null;
-    protected $busyPersonalVideoMediaType     = null;
-    protected $noAnswerAnnouncementSelection  = null;
-    protected $noAnswerPersonalAudioFile      = null;
-    protected $noAnswerPersonalAudioMediaType = null;
-    protected $noAnswerPersonalVideoFile      = null;
-    protected $noAnswerPersonalVideoMediaType = null;
-    protected $noAnswerAlternateGreeting01    = null;
-    protected $noAnswerAlternateGreeting02    = null;
-    protected $noAnswerAlternateGreeting03    = null;
-    protected $noAnswerNumberOfRings          = null;
+    public    $name = 'UserVoiceMessagingUserGetGreetingResponse16';
+    protected $busyAnnouncementSelection;
+    protected $busyPersonalAudioFile;
+    protected $busyPersonalAudioMediaType;
+    protected $busyPersonalVideoFile;
+    protected $busyPersonalVideoMediaType;
+    protected $noAnswerAnnouncementSelection;
+    protected $noAnswerPersonalAudioFile;
+    protected $noAnswerPersonalAudioMediaType;
+    protected $noAnswerPersonalVideoFile;
+    protected $noAnswerPersonalVideoMediaType;
+    protected $noAnswerAlternateGreeting01;
+    protected $noAnswerAlternateGreeting02;
+    protected $noAnswerAlternateGreeting03;
+    protected $noAnswerNumberOfRings;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceVoiceMessaging\UserVoiceMessagingUserGetGreetingResponse16 $response
@@ -54,7 +54,6 @@ class UserVoiceMessagingUserGetGreetingResponse16 extends ComplexType implements
      */
     public function setBusyAnnouncementSelection($busyAnnouncementSelection = null)
     {
-        if (!$busyAnnouncementSelection) return $this;
         $this->busyAnnouncementSelection = ($busyAnnouncementSelection InstanceOf AnnouncementSelection)
              ? $busyAnnouncementSelection
              : new AnnouncementSelection($busyAnnouncementSelection);
@@ -68,7 +67,7 @@ class UserVoiceMessagingUserGetGreetingResponse16 extends ComplexType implements
      */
     public function getBusyAnnouncementSelection()
     {
-        return $this->busyAnnouncementSelection->getValue();
+        return ($this->busyAnnouncementSelection) ? $this->busyAnnouncementSelection->getValue() : null;
     }
 
     /**
@@ -76,7 +75,6 @@ class UserVoiceMessagingUserGetGreetingResponse16 extends ComplexType implements
      */
     public function setBusyPersonalAudioFile($busyPersonalAudioFile = null)
     {
-        if (!$busyPersonalAudioFile) return $this;
         $this->busyPersonalAudioFile = ($busyPersonalAudioFile InstanceOf FileDescription)
              ? $busyPersonalAudioFile
              : new FileDescription($busyPersonalAudioFile);
@@ -90,7 +88,7 @@ class UserVoiceMessagingUserGetGreetingResponse16 extends ComplexType implements
      */
     public function getBusyPersonalAudioFile()
     {
-        return $this->busyPersonalAudioFile->getValue();
+        return ($this->busyPersonalAudioFile) ? $this->busyPersonalAudioFile->getValue() : null;
     }
 
     /**
@@ -98,7 +96,6 @@ class UserVoiceMessagingUserGetGreetingResponse16 extends ComplexType implements
      */
     public function setBusyPersonalAudioMediaType($busyPersonalAudioMediaType = null)
     {
-        if (!$busyPersonalAudioMediaType) return $this;
         $this->busyPersonalAudioMediaType = ($busyPersonalAudioMediaType InstanceOf MediaFileType)
              ? $busyPersonalAudioMediaType
              : new MediaFileType($busyPersonalAudioMediaType);
@@ -112,7 +109,7 @@ class UserVoiceMessagingUserGetGreetingResponse16 extends ComplexType implements
      */
     public function getBusyPersonalAudioMediaType()
     {
-        return $this->busyPersonalAudioMediaType->getValue();
+        return ($this->busyPersonalAudioMediaType) ? $this->busyPersonalAudioMediaType->getValue() : null;
     }
 
     /**
@@ -120,7 +117,6 @@ class UserVoiceMessagingUserGetGreetingResponse16 extends ComplexType implements
      */
     public function setBusyPersonalVideoFile($busyPersonalVideoFile = null)
     {
-        if (!$busyPersonalVideoFile) return $this;
         $this->busyPersonalVideoFile = ($busyPersonalVideoFile InstanceOf FileDescription)
              ? $busyPersonalVideoFile
              : new FileDescription($busyPersonalVideoFile);
@@ -134,7 +130,7 @@ class UserVoiceMessagingUserGetGreetingResponse16 extends ComplexType implements
      */
     public function getBusyPersonalVideoFile()
     {
-        return $this->busyPersonalVideoFile->getValue();
+        return ($this->busyPersonalVideoFile) ? $this->busyPersonalVideoFile->getValue() : null;
     }
 
     /**
@@ -142,7 +138,6 @@ class UserVoiceMessagingUserGetGreetingResponse16 extends ComplexType implements
      */
     public function setBusyPersonalVideoMediaType($busyPersonalVideoMediaType = null)
     {
-        if (!$busyPersonalVideoMediaType) return $this;
         $this->busyPersonalVideoMediaType = ($busyPersonalVideoMediaType InstanceOf MediaFileType)
              ? $busyPersonalVideoMediaType
              : new MediaFileType($busyPersonalVideoMediaType);
@@ -156,7 +151,7 @@ class UserVoiceMessagingUserGetGreetingResponse16 extends ComplexType implements
      */
     public function getBusyPersonalVideoMediaType()
     {
-        return $this->busyPersonalVideoMediaType->getValue();
+        return ($this->busyPersonalVideoMediaType) ? $this->busyPersonalVideoMediaType->getValue() : null;
     }
 
     /**
@@ -164,7 +159,6 @@ class UserVoiceMessagingUserGetGreetingResponse16 extends ComplexType implements
      */
     public function setNoAnswerAnnouncementSelection($noAnswerAnnouncementSelection = null)
     {
-        if (!$noAnswerAnnouncementSelection) return $this;
         $this->noAnswerAnnouncementSelection = ($noAnswerAnnouncementSelection InstanceOf VoiceMessagingNoAnswerGreetingSelection)
              ? $noAnswerAnnouncementSelection
              : new VoiceMessagingNoAnswerGreetingSelection($noAnswerAnnouncementSelection);
@@ -178,7 +172,7 @@ class UserVoiceMessagingUserGetGreetingResponse16 extends ComplexType implements
      */
     public function getNoAnswerAnnouncementSelection()
     {
-        return $this->noAnswerAnnouncementSelection->getValue();
+        return ($this->noAnswerAnnouncementSelection) ? $this->noAnswerAnnouncementSelection->getValue() : null;
     }
 
     /**
@@ -186,7 +180,6 @@ class UserVoiceMessagingUserGetGreetingResponse16 extends ComplexType implements
      */
     public function setNoAnswerPersonalAudioFile($noAnswerPersonalAudioFile = null)
     {
-        if (!$noAnswerPersonalAudioFile) return $this;
         $this->noAnswerPersonalAudioFile = ($noAnswerPersonalAudioFile InstanceOf FileDescription)
              ? $noAnswerPersonalAudioFile
              : new FileDescription($noAnswerPersonalAudioFile);
@@ -200,7 +193,7 @@ class UserVoiceMessagingUserGetGreetingResponse16 extends ComplexType implements
      */
     public function getNoAnswerPersonalAudioFile()
     {
-        return $this->noAnswerPersonalAudioFile->getValue();
+        return ($this->noAnswerPersonalAudioFile) ? $this->noAnswerPersonalAudioFile->getValue() : null;
     }
 
     /**
@@ -208,7 +201,6 @@ class UserVoiceMessagingUserGetGreetingResponse16 extends ComplexType implements
      */
     public function setNoAnswerPersonalAudioMediaType($noAnswerPersonalAudioMediaType = null)
     {
-        if (!$noAnswerPersonalAudioMediaType) return $this;
         $this->noAnswerPersonalAudioMediaType = ($noAnswerPersonalAudioMediaType InstanceOf MediaFileType)
              ? $noAnswerPersonalAudioMediaType
              : new MediaFileType($noAnswerPersonalAudioMediaType);
@@ -222,7 +214,7 @@ class UserVoiceMessagingUserGetGreetingResponse16 extends ComplexType implements
      */
     public function getNoAnswerPersonalAudioMediaType()
     {
-        return $this->noAnswerPersonalAudioMediaType->getValue();
+        return ($this->noAnswerPersonalAudioMediaType) ? $this->noAnswerPersonalAudioMediaType->getValue() : null;
     }
 
     /**
@@ -230,7 +222,6 @@ class UserVoiceMessagingUserGetGreetingResponse16 extends ComplexType implements
      */
     public function setNoAnswerPersonalVideoFile($noAnswerPersonalVideoFile = null)
     {
-        if (!$noAnswerPersonalVideoFile) return $this;
         $this->noAnswerPersonalVideoFile = ($noAnswerPersonalVideoFile InstanceOf FileDescription)
              ? $noAnswerPersonalVideoFile
              : new FileDescription($noAnswerPersonalVideoFile);
@@ -244,7 +235,7 @@ class UserVoiceMessagingUserGetGreetingResponse16 extends ComplexType implements
      */
     public function getNoAnswerPersonalVideoFile()
     {
-        return $this->noAnswerPersonalVideoFile->getValue();
+        return ($this->noAnswerPersonalVideoFile) ? $this->noAnswerPersonalVideoFile->getValue() : null;
     }
 
     /**
@@ -252,7 +243,6 @@ class UserVoiceMessagingUserGetGreetingResponse16 extends ComplexType implements
      */
     public function setNoAnswerPersonalVideoMediaType($noAnswerPersonalVideoMediaType = null)
     {
-        if (!$noAnswerPersonalVideoMediaType) return $this;
         $this->noAnswerPersonalVideoMediaType = ($noAnswerPersonalVideoMediaType InstanceOf MediaFileType)
              ? $noAnswerPersonalVideoMediaType
              : new MediaFileType($noAnswerPersonalVideoMediaType);
@@ -266,7 +256,7 @@ class UserVoiceMessagingUserGetGreetingResponse16 extends ComplexType implements
      */
     public function getNoAnswerPersonalVideoMediaType()
     {
-        return $this->noAnswerPersonalVideoMediaType->getValue();
+        return ($this->noAnswerPersonalVideoMediaType) ? $this->noAnswerPersonalVideoMediaType->getValue() : null;
     }
 
     /**
@@ -274,8 +264,9 @@ class UserVoiceMessagingUserGetGreetingResponse16 extends ComplexType implements
      */
     public function setNoAnswerAlternateGreeting01(VoiceMessagingAlternateNoAnswerGreetingRead16 $noAnswerAlternateGreeting01 = null)
     {
-        if (!$noAnswerAlternateGreeting01) return $this;
-        $this->noAnswerAlternateGreeting01 = $noAnswerAlternateGreeting01;
+        $this->noAnswerAlternateGreeting01 = ($noAnswerAlternateGreeting01 InstanceOf VoiceMessagingAlternateNoAnswerGreetingRead16)
+             ? $noAnswerAlternateGreeting01
+             : new VoiceMessagingAlternateNoAnswerGreetingRead16($noAnswerAlternateGreeting01);
         $this->noAnswerAlternateGreeting01->setName('noAnswerAlternateGreeting01');
         return $this;
     }
@@ -294,8 +285,9 @@ class UserVoiceMessagingUserGetGreetingResponse16 extends ComplexType implements
      */
     public function setNoAnswerAlternateGreeting02(VoiceMessagingAlternateNoAnswerGreetingRead16 $noAnswerAlternateGreeting02 = null)
     {
-        if (!$noAnswerAlternateGreeting02) return $this;
-        $this->noAnswerAlternateGreeting02 = $noAnswerAlternateGreeting02;
+        $this->noAnswerAlternateGreeting02 = ($noAnswerAlternateGreeting02 InstanceOf VoiceMessagingAlternateNoAnswerGreetingRead16)
+             ? $noAnswerAlternateGreeting02
+             : new VoiceMessagingAlternateNoAnswerGreetingRead16($noAnswerAlternateGreeting02);
         $this->noAnswerAlternateGreeting02->setName('noAnswerAlternateGreeting02');
         return $this;
     }
@@ -314,8 +306,9 @@ class UserVoiceMessagingUserGetGreetingResponse16 extends ComplexType implements
      */
     public function setNoAnswerAlternateGreeting03(VoiceMessagingAlternateNoAnswerGreetingRead16 $noAnswerAlternateGreeting03 = null)
     {
-        if (!$noAnswerAlternateGreeting03) return $this;
-        $this->noAnswerAlternateGreeting03 = $noAnswerAlternateGreeting03;
+        $this->noAnswerAlternateGreeting03 = ($noAnswerAlternateGreeting03 InstanceOf VoiceMessagingAlternateNoAnswerGreetingRead16)
+             ? $noAnswerAlternateGreeting03
+             : new VoiceMessagingAlternateNoAnswerGreetingRead16($noAnswerAlternateGreeting03);
         $this->noAnswerAlternateGreeting03->setName('noAnswerAlternateGreeting03');
         return $this;
     }
@@ -334,7 +327,6 @@ class UserVoiceMessagingUserGetGreetingResponse16 extends ComplexType implements
      */
     public function setNoAnswerNumberOfRings($noAnswerNumberOfRings = null)
     {
-        if (!$noAnswerNumberOfRings) return $this;
         $this->noAnswerNumberOfRings = ($noAnswerNumberOfRings InstanceOf VoiceMessagingNumberOfRings)
              ? $noAnswerNumberOfRings
              : new VoiceMessagingNumberOfRings($noAnswerNumberOfRings);
@@ -348,6 +340,6 @@ class UserVoiceMessagingUserGetGreetingResponse16 extends ComplexType implements
      */
     public function getNoAnswerNumberOfRings()
     {
-        return $this->noAnswerNumberOfRings->getValue();
+        return ($this->noAnswerNumberOfRings) ? $this->noAnswerNumberOfRings->getValue() : null;
     }
 }

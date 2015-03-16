@@ -19,16 +19,16 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class InstantConferencingIntegratedDevice extends ComplexType implements ComplexInterface
 {
-    public    $name                        = 'InstantConferencingIntegratedDevice';
-    protected $userName                    = null;
-    protected $password                    = null;
-    protected $secureProvisioning          = null;
-    protected $unencryptedProvisioningPort = null;
-    protected $encryptedProvisioningPort   = null;
+    public    $name = 'InstantConferencingIntegratedDevice';
+    protected $userName;
+    protected $password;
+    protected $secureProvisioning;
+    protected $unencryptedProvisioningPort;
+    protected $encryptedProvisioningPort;
 
     public function __construct(
-         $userName,
-         $password,
+         $userName = '',
+         $password = '',
          $secureProvisioning = null,
          $unencryptedProvisioningPort = null,
          $encryptedProvisioningPort = null
@@ -53,7 +53,6 @@ class InstantConferencingIntegratedDevice extends ComplexType implements Complex
      */
     public function setUserName($userName = null)
     {
-        if (!$userName) return $this;
         $this->userName = new SimpleContent($userName);
         $this->userName->setName('userName');
         return $this;
@@ -65,7 +64,7 @@ class InstantConferencingIntegratedDevice extends ComplexType implements Complex
      */
     public function getUserName()
     {
-        return $this->userName->getValue();
+        return ($this->userName) ? $this->userName->getValue() : null;
     }
 
     /**
@@ -73,7 +72,6 @@ class InstantConferencingIntegratedDevice extends ComplexType implements Complex
      */
     public function setPassword($password = null)
     {
-        if (!$password) return $this;
         $this->password = new SimpleContent($password);
         $this->password->setName('password');
         return $this;
@@ -85,7 +83,7 @@ class InstantConferencingIntegratedDevice extends ComplexType implements Complex
      */
     public function getPassword()
     {
-        return $this->password->getValue();
+        return ($this->password) ? $this->password->getValue() : null;
     }
 
     /**
@@ -93,7 +91,6 @@ class InstantConferencingIntegratedDevice extends ComplexType implements Complex
      */
     public function setSecureProvisioning($secureProvisioning = null)
     {
-        if (!$secureProvisioning) return $this;
         $this->secureProvisioning = new SimpleContent($secureProvisioning);
         $this->secureProvisioning->setName('secureProvisioning');
         return $this;
@@ -105,7 +102,7 @@ class InstantConferencingIntegratedDevice extends ComplexType implements Complex
      */
     public function getSecureProvisioning()
     {
-        return $this->secureProvisioning->getValue();
+        return ($this->secureProvisioning) ? $this->secureProvisioning->getValue() : null;
     }
 
     /**
@@ -113,7 +110,6 @@ class InstantConferencingIntegratedDevice extends ComplexType implements Complex
      */
     public function setUnencryptedProvisioningPort($unencryptedProvisioningPort = null)
     {
-        if (!$unencryptedProvisioningPort) return $this;
         $this->unencryptedProvisioningPort = new SimpleContent($unencryptedProvisioningPort);
         $this->unencryptedProvisioningPort->setName('unencryptedProvisioningPort');
         return $this;
@@ -125,7 +121,7 @@ class InstantConferencingIntegratedDevice extends ComplexType implements Complex
      */
     public function getUnencryptedProvisioningPort()
     {
-        return $this->unencryptedProvisioningPort->getValue();
+        return ($this->unencryptedProvisioningPort) ? $this->unencryptedProvisioningPort->getValue() : null;
     }
 
     /**
@@ -133,7 +129,6 @@ class InstantConferencingIntegratedDevice extends ComplexType implements Complex
      */
     public function setEncryptedProvisioningPort($encryptedProvisioningPort = null)
     {
-        if (!$encryptedProvisioningPort) return $this;
         $this->encryptedProvisioningPort = new SimpleContent($encryptedProvisioningPort);
         $this->encryptedProvisioningPort->setName('encryptedProvisioningPort');
         return $this;
@@ -145,6 +140,6 @@ class InstantConferencingIntegratedDevice extends ComplexType implements Complex
      */
     public function getEncryptedProvisioningPort()
     {
-        return $this->encryptedProvisioningPort->getValue();
+        return ($this->encryptedProvisioningPort) ? $this->encryptedProvisioningPort->getValue() : null;
     }
 }

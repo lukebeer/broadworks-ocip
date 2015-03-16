@@ -35,30 +35,30 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderAccessDeviceModifyRequest14 extends ComplexType implements ComplexInterface
 {
-    public    $name                                        = 'ServiceProviderAccessDeviceModifyRequest14';
-    protected $serviceProviderId                           = null;
-    protected $deviceName                                  = null;
-    protected $protocol                                    = null;
-    protected $netAddress                                  = null;
-    protected $port                                        = null;
-    protected $outboundProxyServerNetAddress               = null;
-    protected $stunServerNetAddress                        = null;
-    protected $macAddress                                  = null;
-    protected $serialNumber                                = null;
-    protected $description                                 = null;
-    protected $physicalLocation                            = null;
-    protected $transportProtocol                           = null;
-    protected $mobilityManagerProvisioningURL              = null;
-    protected $mobilityManagerProvisioningUserName         = null;
-    protected $mobilityManagerProvisioningPassword         = null;
-    protected $mobilityManagerDefaultOriginatingServiceKey = null;
-    protected $mobilityManagerDefaultTerminatingServiceKey = null;
-    protected $useCustomUserNamePassword                   = null;
-    protected $accessDeviceCredentials                     = null;
+    public    $name = 'ServiceProviderAccessDeviceModifyRequest14';
+    protected $serviceProviderId;
+    protected $deviceName;
+    protected $protocol;
+    protected $netAddress;
+    protected $port;
+    protected $outboundProxyServerNetAddress;
+    protected $stunServerNetAddress;
+    protected $macAddress;
+    protected $serialNumber;
+    protected $description;
+    protected $physicalLocation;
+    protected $transportProtocol;
+    protected $mobilityManagerProvisioningURL;
+    protected $mobilityManagerProvisioningUserName;
+    protected $mobilityManagerProvisioningPassword;
+    protected $mobilityManagerDefaultOriginatingServiceKey;
+    protected $mobilityManagerDefaultTerminatingServiceKey;
+    protected $useCustomUserNamePassword;
+    protected $accessDeviceCredentials;
 
     public function __construct(
-         $serviceProviderId,
-         $deviceName,
+         $serviceProviderId = '',
+         $deviceName = '',
          $protocol = null,
          $netAddress = null,
          $port = null,
@@ -111,7 +111,6 @@ class ServiceProviderAccessDeviceModifyRequest14 extends ComplexType implements 
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
-        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
@@ -125,7 +124,7 @@ class ServiceProviderAccessDeviceModifyRequest14 extends ComplexType implements 
      */
     public function getServiceProviderId()
     {
-        return $this->serviceProviderId->getValue();
+        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
     }
 
     /**
@@ -133,7 +132,6 @@ class ServiceProviderAccessDeviceModifyRequest14 extends ComplexType implements 
      */
     public function setDeviceName($deviceName = null)
     {
-        if (!$deviceName) return $this;
         $this->deviceName = ($deviceName InstanceOf AccessDeviceName)
              ? $deviceName
              : new AccessDeviceName($deviceName);
@@ -147,7 +145,7 @@ class ServiceProviderAccessDeviceModifyRequest14 extends ComplexType implements 
      */
     public function getDeviceName()
     {
-        return $this->deviceName->getValue();
+        return ($this->deviceName) ? $this->deviceName->getValue() : null;
     }
 
     /**
@@ -155,7 +153,6 @@ class ServiceProviderAccessDeviceModifyRequest14 extends ComplexType implements 
      */
     public function setProtocol($protocol = null)
     {
-        if (!$protocol) return $this;
         $this->protocol = ($protocol InstanceOf AccessDeviceProtocol)
              ? $protocol
              : new AccessDeviceProtocol($protocol);
@@ -169,7 +166,7 @@ class ServiceProviderAccessDeviceModifyRequest14 extends ComplexType implements 
      */
     public function getProtocol()
     {
-        return $this->protocol->getValue();
+        return ($this->protocol) ? $this->protocol->getValue() : null;
     }
 
     /**
@@ -177,7 +174,6 @@ class ServiceProviderAccessDeviceModifyRequest14 extends ComplexType implements 
      */
     public function setNetAddress($netAddress = null)
     {
-        if (!$netAddress) return $this;
         $this->netAddress = ($netAddress InstanceOf NetAddress)
              ? $netAddress
              : new NetAddress($netAddress);
@@ -191,7 +187,7 @@ class ServiceProviderAccessDeviceModifyRequest14 extends ComplexType implements 
      */
     public function getNetAddress()
     {
-        return $this->netAddress->getValue();
+        return ($this->netAddress) ? $this->netAddress->getValue() : null;
     }
 
     /**
@@ -199,7 +195,6 @@ class ServiceProviderAccessDeviceModifyRequest14 extends ComplexType implements 
      */
     public function setPort($port = null)
     {
-        if (!$port) return $this;
         $this->port = ($port InstanceOf Port1025)
              ? $port
              : new Port1025($port);
@@ -213,7 +208,7 @@ class ServiceProviderAccessDeviceModifyRequest14 extends ComplexType implements 
      */
     public function getPort()
     {
-        return $this->port->getValue();
+        return ($this->port) ? $this->port->getValue() : null;
     }
 
     /**
@@ -221,7 +216,6 @@ class ServiceProviderAccessDeviceModifyRequest14 extends ComplexType implements 
      */
     public function setOutboundProxyServerNetAddress($outboundProxyServerNetAddress = null)
     {
-        if (!$outboundProxyServerNetAddress) return $this;
         $this->outboundProxyServerNetAddress = ($outboundProxyServerNetAddress InstanceOf NetAddress)
              ? $outboundProxyServerNetAddress
              : new NetAddress($outboundProxyServerNetAddress);
@@ -235,7 +229,7 @@ class ServiceProviderAccessDeviceModifyRequest14 extends ComplexType implements 
      */
     public function getOutboundProxyServerNetAddress()
     {
-        return $this->outboundProxyServerNetAddress->getValue();
+        return ($this->outboundProxyServerNetAddress) ? $this->outboundProxyServerNetAddress->getValue() : null;
     }
 
     /**
@@ -243,7 +237,6 @@ class ServiceProviderAccessDeviceModifyRequest14 extends ComplexType implements 
      */
     public function setStunServerNetAddress($stunServerNetAddress = null)
     {
-        if (!$stunServerNetAddress) return $this;
         $this->stunServerNetAddress = ($stunServerNetAddress InstanceOf NetAddress)
              ? $stunServerNetAddress
              : new NetAddress($stunServerNetAddress);
@@ -257,7 +250,7 @@ class ServiceProviderAccessDeviceModifyRequest14 extends ComplexType implements 
      */
     public function getStunServerNetAddress()
     {
-        return $this->stunServerNetAddress->getValue();
+        return ($this->stunServerNetAddress) ? $this->stunServerNetAddress->getValue() : null;
     }
 
     /**
@@ -265,7 +258,6 @@ class ServiceProviderAccessDeviceModifyRequest14 extends ComplexType implements 
      */
     public function setMacAddress($macAddress = null)
     {
-        if (!$macAddress) return $this;
         $this->macAddress = ($macAddress InstanceOf AccessDeviceMACAddress)
              ? $macAddress
              : new AccessDeviceMACAddress($macAddress);
@@ -279,7 +271,7 @@ class ServiceProviderAccessDeviceModifyRequest14 extends ComplexType implements 
      */
     public function getMacAddress()
     {
-        return $this->macAddress->getValue();
+        return ($this->macAddress) ? $this->macAddress->getValue() : null;
     }
 
     /**
@@ -287,7 +279,6 @@ class ServiceProviderAccessDeviceModifyRequest14 extends ComplexType implements 
      */
     public function setSerialNumber($serialNumber = null)
     {
-        if (!$serialNumber) return $this;
         $this->serialNumber = ($serialNumber InstanceOf AccessDeviceSerialNumber)
              ? $serialNumber
              : new AccessDeviceSerialNumber($serialNumber);
@@ -301,7 +292,7 @@ class ServiceProviderAccessDeviceModifyRequest14 extends ComplexType implements 
      */
     public function getSerialNumber()
     {
-        return $this->serialNumber->getValue();
+        return ($this->serialNumber) ? $this->serialNumber->getValue() : null;
     }
 
     /**
@@ -309,7 +300,6 @@ class ServiceProviderAccessDeviceModifyRequest14 extends ComplexType implements 
      */
     public function setDescription($description = null)
     {
-        if (!$description) return $this;
         $this->description = ($description InstanceOf AccessDeviceDescription)
              ? $description
              : new AccessDeviceDescription($description);
@@ -323,7 +313,7 @@ class ServiceProviderAccessDeviceModifyRequest14 extends ComplexType implements 
      */
     public function getDescription()
     {
-        return $this->description->getValue();
+        return ($this->description) ? $this->description->getValue() : null;
     }
 
     /**
@@ -331,7 +321,6 @@ class ServiceProviderAccessDeviceModifyRequest14 extends ComplexType implements 
      */
     public function setPhysicalLocation($physicalLocation = null)
     {
-        if (!$physicalLocation) return $this;
         $this->physicalLocation = ($physicalLocation InstanceOf AccessDevicePhysicalLocation)
              ? $physicalLocation
              : new AccessDevicePhysicalLocation($physicalLocation);
@@ -345,7 +334,7 @@ class ServiceProviderAccessDeviceModifyRequest14 extends ComplexType implements 
      */
     public function getPhysicalLocation()
     {
-        return $this->physicalLocation->getValue();
+        return ($this->physicalLocation) ? $this->physicalLocation->getValue() : null;
     }
 
     /**
@@ -353,7 +342,6 @@ class ServiceProviderAccessDeviceModifyRequest14 extends ComplexType implements 
      */
     public function setTransportProtocol($transportProtocol = null)
     {
-        if (!$transportProtocol) return $this;
         $this->transportProtocol = ($transportProtocol InstanceOf TransportProtocol)
              ? $transportProtocol
              : new TransportProtocol($transportProtocol);
@@ -367,7 +355,7 @@ class ServiceProviderAccessDeviceModifyRequest14 extends ComplexType implements 
      */
     public function getTransportProtocol()
     {
-        return $this->transportProtocol->getValue();
+        return ($this->transportProtocol) ? $this->transportProtocol->getValue() : null;
     }
 
     /**
@@ -375,7 +363,6 @@ class ServiceProviderAccessDeviceModifyRequest14 extends ComplexType implements 
      */
     public function setMobilityManagerProvisioningURL($mobilityManagerProvisioningURL = null)
     {
-        if (!$mobilityManagerProvisioningURL) return $this;
         $this->mobilityManagerProvisioningURL = ($mobilityManagerProvisioningURL InstanceOf URL)
              ? $mobilityManagerProvisioningURL
              : new URL($mobilityManagerProvisioningURL);
@@ -389,7 +376,7 @@ class ServiceProviderAccessDeviceModifyRequest14 extends ComplexType implements 
      */
     public function getMobilityManagerProvisioningURL()
     {
-        return $this->mobilityManagerProvisioningURL->getValue();
+        return ($this->mobilityManagerProvisioningURL) ? $this->mobilityManagerProvisioningURL->getValue() : null;
     }
 
     /**
@@ -397,7 +384,6 @@ class ServiceProviderAccessDeviceModifyRequest14 extends ComplexType implements 
      */
     public function setMobilityManagerProvisioningUserName($mobilityManagerProvisioningUserName = null)
     {
-        if (!$mobilityManagerProvisioningUserName) return $this;
         $this->mobilityManagerProvisioningUserName = ($mobilityManagerProvisioningUserName InstanceOf MobilityManagerProvisioningUserName)
              ? $mobilityManagerProvisioningUserName
              : new MobilityManagerProvisioningUserName($mobilityManagerProvisioningUserName);
@@ -411,7 +397,7 @@ class ServiceProviderAccessDeviceModifyRequest14 extends ComplexType implements 
      */
     public function getMobilityManagerProvisioningUserName()
     {
-        return $this->mobilityManagerProvisioningUserName->getValue();
+        return ($this->mobilityManagerProvisioningUserName) ? $this->mobilityManagerProvisioningUserName->getValue() : null;
     }
 
     /**
@@ -419,7 +405,6 @@ class ServiceProviderAccessDeviceModifyRequest14 extends ComplexType implements 
      */
     public function setMobilityManagerProvisioningPassword($mobilityManagerProvisioningPassword = null)
     {
-        if (!$mobilityManagerProvisioningPassword) return $this;
         $this->mobilityManagerProvisioningPassword = ($mobilityManagerProvisioningPassword InstanceOf MobilityManagerProvisioningPassword)
              ? $mobilityManagerProvisioningPassword
              : new MobilityManagerProvisioningPassword($mobilityManagerProvisioningPassword);
@@ -433,7 +418,7 @@ class ServiceProviderAccessDeviceModifyRequest14 extends ComplexType implements 
      */
     public function getMobilityManagerProvisioningPassword()
     {
-        return $this->mobilityManagerProvisioningPassword->getValue();
+        return ($this->mobilityManagerProvisioningPassword) ? $this->mobilityManagerProvisioningPassword->getValue() : null;
     }
 
     /**
@@ -441,7 +426,6 @@ class ServiceProviderAccessDeviceModifyRequest14 extends ComplexType implements 
      */
     public function setMobilityManagerDefaultOriginatingServiceKey($mobilityManagerDefaultOriginatingServiceKey = null)
     {
-        if (!$mobilityManagerDefaultOriginatingServiceKey) return $this;
         $this->mobilityManagerDefaultOriginatingServiceKey = ($mobilityManagerDefaultOriginatingServiceKey InstanceOf MobilityManagerServiceKey)
              ? $mobilityManagerDefaultOriginatingServiceKey
              : new MobilityManagerServiceKey($mobilityManagerDefaultOriginatingServiceKey);
@@ -455,7 +439,7 @@ class ServiceProviderAccessDeviceModifyRequest14 extends ComplexType implements 
      */
     public function getMobilityManagerDefaultOriginatingServiceKey()
     {
-        return $this->mobilityManagerDefaultOriginatingServiceKey->getValue();
+        return ($this->mobilityManagerDefaultOriginatingServiceKey) ? $this->mobilityManagerDefaultOriginatingServiceKey->getValue() : null;
     }
 
     /**
@@ -463,7 +447,6 @@ class ServiceProviderAccessDeviceModifyRequest14 extends ComplexType implements 
      */
     public function setMobilityManagerDefaultTerminatingServiceKey($mobilityManagerDefaultTerminatingServiceKey = null)
     {
-        if (!$mobilityManagerDefaultTerminatingServiceKey) return $this;
         $this->mobilityManagerDefaultTerminatingServiceKey = ($mobilityManagerDefaultTerminatingServiceKey InstanceOf MobilityManagerServiceKey)
              ? $mobilityManagerDefaultTerminatingServiceKey
              : new MobilityManagerServiceKey($mobilityManagerDefaultTerminatingServiceKey);
@@ -477,7 +460,7 @@ class ServiceProviderAccessDeviceModifyRequest14 extends ComplexType implements 
      */
     public function getMobilityManagerDefaultTerminatingServiceKey()
     {
-        return $this->mobilityManagerDefaultTerminatingServiceKey->getValue();
+        return ($this->mobilityManagerDefaultTerminatingServiceKey) ? $this->mobilityManagerDefaultTerminatingServiceKey->getValue() : null;
     }
 
     /**
@@ -485,7 +468,6 @@ class ServiceProviderAccessDeviceModifyRequest14 extends ComplexType implements 
      */
     public function setUseCustomUserNamePassword($useCustomUserNamePassword = null)
     {
-        if (!$useCustomUserNamePassword) return $this;
         $this->useCustomUserNamePassword = new PrimitiveType($useCustomUserNamePassword);
         $this->useCustomUserNamePassword->setName('useCustomUserNamePassword');
         return $this;
@@ -497,7 +479,7 @@ class ServiceProviderAccessDeviceModifyRequest14 extends ComplexType implements 
      */
     public function getUseCustomUserNamePassword()
     {
-        return $this->useCustomUserNamePassword->getValue();
+        return ($this->useCustomUserNamePassword) ? $this->useCustomUserNamePassword->getValue() : null;
     }
 
     /**
@@ -505,8 +487,9 @@ class ServiceProviderAccessDeviceModifyRequest14 extends ComplexType implements 
      */
     public function setAccessDeviceCredentials(DeviceManagementUserNamePassword16 $accessDeviceCredentials = null)
     {
-        if (!$accessDeviceCredentials) return $this;
-        $this->accessDeviceCredentials = $accessDeviceCredentials;
+        $this->accessDeviceCredentials = ($accessDeviceCredentials InstanceOf DeviceManagementUserNamePassword16)
+             ? $accessDeviceCredentials
+             : new DeviceManagementUserNamePassword16($accessDeviceCredentials);
         $this->accessDeviceCredentials->setName('accessDeviceCredentials');
         return $this;
     }

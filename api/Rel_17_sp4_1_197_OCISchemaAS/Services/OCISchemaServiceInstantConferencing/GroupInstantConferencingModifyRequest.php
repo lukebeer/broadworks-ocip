@@ -22,14 +22,14 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupInstantConferencingModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                  = 'GroupInstantConferencingModifyRequest';
-    protected $serviceProviderId     = null;
-    protected $groupId               = null;
-    protected $portsAllocatedToGroup = null;
+    public    $name = 'GroupInstantConferencingModifyRequest';
+    protected $serviceProviderId;
+    protected $groupId;
+    protected $portsAllocatedToGroup;
 
     public function __construct(
-         $serviceProviderId,
-         $groupId,
+         $serviceProviderId = '',
+         $groupId = '',
          UnboundedNonNegativeInt $portsAllocatedToGroup = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
@@ -50,7 +50,6 @@ class GroupInstantConferencingModifyRequest extends ComplexType implements Compl
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
-        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
@@ -64,7 +63,7 @@ class GroupInstantConferencingModifyRequest extends ComplexType implements Compl
      */
     public function getServiceProviderId()
     {
-        return $this->serviceProviderId->getValue();
+        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
     }
 
     /**
@@ -72,7 +71,6 @@ class GroupInstantConferencingModifyRequest extends ComplexType implements Compl
      */
     public function setGroupId($groupId = null)
     {
-        if (!$groupId) return $this;
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
@@ -86,7 +84,7 @@ class GroupInstantConferencingModifyRequest extends ComplexType implements Compl
      */
     public function getGroupId()
     {
-        return $this->groupId->getValue();
+        return ($this->groupId) ? $this->groupId->getValue() : null;
     }
 
     /**
@@ -94,8 +92,9 @@ class GroupInstantConferencingModifyRequest extends ComplexType implements Compl
      */
     public function setPortsAllocatedToGroup(UnboundedNonNegativeInt $portsAllocatedToGroup = null)
     {
-        if (!$portsAllocatedToGroup) return $this;
-        $this->portsAllocatedToGroup = $portsAllocatedToGroup;
+        $this->portsAllocatedToGroup = ($portsAllocatedToGroup InstanceOf UnboundedNonNegativeInt)
+             ? $portsAllocatedToGroup
+             : new UnboundedNonNegativeInt($portsAllocatedToGroup);
         $this->portsAllocatedToGroup->setName('portsAllocatedToGroup');
         return $this;
     }

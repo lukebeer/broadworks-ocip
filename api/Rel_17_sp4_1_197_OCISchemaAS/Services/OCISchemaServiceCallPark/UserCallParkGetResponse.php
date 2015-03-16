@@ -23,9 +23,9 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserCallParkGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name      = 'UserCallParkGetResponse';
-    protected $name      = null;
-    protected $userTable = null;
+    public    $name = 'UserCallParkGetResponse';
+    protected $name;
+    protected $userTable;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallPark\UserCallParkGetResponse $response
@@ -40,7 +40,6 @@ class UserCallParkGetResponse extends ComplexType implements ComplexInterface
      */
     public function setName($name = null)
     {
-        if (!$name) return $this;
         $this->name = ($name InstanceOf ServiceInstanceName)
              ? $name
              : new ServiceInstanceName($name);
@@ -54,7 +53,7 @@ class UserCallParkGetResponse extends ComplexType implements ComplexInterface
      */
     public function getName()
     {
-        return $this->name->getValue();
+        return ($this->name) ? $this->name->getValue() : null;
     }
 
     /**
@@ -62,7 +61,6 @@ class UserCallParkGetResponse extends ComplexType implements ComplexInterface
      */
     public function setUserTable(TableType $userTable = null)
     {
-        if (!$userTable) return $this;
         $this->userTable = $userTable;
         $this->userTable->setName('userTable');
         return $this;

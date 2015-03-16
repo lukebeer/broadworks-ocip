@@ -22,16 +22,16 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserSharedCallAppearanceModifyEndpointRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                 = 'UserSharedCallAppearanceModifyEndpointRequest';
-    protected $userId               = null;
-    protected $accessDeviceEndpoint = null;
-    protected $isActive             = null;
-    protected $allowOrigination     = null;
-    protected $allowTermination     = null;
+    public    $name = 'UserSharedCallAppearanceModifyEndpointRequest';
+    protected $userId;
+    protected $accessDeviceEndpoint;
+    protected $isActive;
+    protected $allowOrigination;
+    protected $allowTermination;
 
     public function __construct(
-         $userId,
-         AccessDeviceEndpointKey $accessDeviceEndpoint,
+         $userId = '',
+         AccessDeviceEndpointKey $accessDeviceEndpoint = '',
          $isActive = null,
          $allowOrigination = null,
          $allowTermination = null
@@ -56,7 +56,6 @@ class UserSharedCallAppearanceModifyEndpointRequest extends ComplexType implemen
      */
     public function setUserId($userId = null)
     {
-        if (!$userId) return $this;
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
@@ -70,7 +69,7 @@ class UserSharedCallAppearanceModifyEndpointRequest extends ComplexType implemen
      */
     public function getUserId()
     {
-        return $this->userId->getValue();
+        return ($this->userId) ? $this->userId->getValue() : null;
     }
 
     /**
@@ -78,8 +77,9 @@ class UserSharedCallAppearanceModifyEndpointRequest extends ComplexType implemen
      */
     public function setAccessDeviceEndpoint(AccessDeviceEndpointKey $accessDeviceEndpoint = null)
     {
-        if (!$accessDeviceEndpoint) return $this;
-        $this->accessDeviceEndpoint = $accessDeviceEndpoint;
+        $this->accessDeviceEndpoint = ($accessDeviceEndpoint InstanceOf AccessDeviceEndpointKey)
+             ? $accessDeviceEndpoint
+             : new AccessDeviceEndpointKey($accessDeviceEndpoint);
         $this->accessDeviceEndpoint->setName('accessDeviceEndpoint');
         return $this;
     }
@@ -98,7 +98,6 @@ class UserSharedCallAppearanceModifyEndpointRequest extends ComplexType implemen
      */
     public function setIsActive($isActive = null)
     {
-        if (!$isActive) return $this;
         $this->isActive = new PrimitiveType($isActive);
         $this->isActive->setName('isActive');
         return $this;
@@ -110,7 +109,7 @@ class UserSharedCallAppearanceModifyEndpointRequest extends ComplexType implemen
      */
     public function getIsActive()
     {
-        return $this->isActive->getValue();
+        return ($this->isActive) ? $this->isActive->getValue() : null;
     }
 
     /**
@@ -118,7 +117,6 @@ class UserSharedCallAppearanceModifyEndpointRequest extends ComplexType implemen
      */
     public function setAllowOrigination($allowOrigination = null)
     {
-        if (!$allowOrigination) return $this;
         $this->allowOrigination = new PrimitiveType($allowOrigination);
         $this->allowOrigination->setName('allowOrigination');
         return $this;
@@ -130,7 +128,7 @@ class UserSharedCallAppearanceModifyEndpointRequest extends ComplexType implemen
      */
     public function getAllowOrigination()
     {
-        return $this->allowOrigination->getValue();
+        return ($this->allowOrigination) ? $this->allowOrigination->getValue() : null;
     }
 
     /**
@@ -138,7 +136,6 @@ class UserSharedCallAppearanceModifyEndpointRequest extends ComplexType implemen
      */
     public function setAllowTermination($allowTermination = null)
     {
-        if (!$allowTermination) return $this;
         $this->allowTermination = new PrimitiveType($allowTermination);
         $this->allowTermination->setName('allowTermination');
         return $this;
@@ -150,6 +147,6 @@ class UserSharedCallAppearanceModifyEndpointRequest extends ComplexType implemen
      */
     public function getAllowTermination()
     {
-        return $this->allowTermination->getValue();
+        return ($this->allowTermination) ? $this->allowTermination->getValue() : null;
     }
 }

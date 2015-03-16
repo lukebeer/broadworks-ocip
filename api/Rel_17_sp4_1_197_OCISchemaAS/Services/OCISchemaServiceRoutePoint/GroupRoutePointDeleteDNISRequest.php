@@ -20,11 +20,11 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupRoutePointDeleteDNISRequest extends ComplexType implements ComplexInterface
 {
-    public    $name    = 'GroupRoutePointDeleteDNISRequest';
-    protected $dnisKey = null;
+    public    $name = 'GroupRoutePointDeleteDNISRequest';
+    protected $dnisKey;
 
     public function __construct(
-         DNISKey $dnisKey
+         DNISKey $dnisKey = ''
     ) {
         $this->setDnisKey($dnisKey);
     }
@@ -42,8 +42,9 @@ class GroupRoutePointDeleteDNISRequest extends ComplexType implements ComplexInt
      */
     public function setDnisKey(DNISKey $dnisKey = null)
     {
-        if (!$dnisKey) return $this;
-        $this->dnisKey = $dnisKey;
+        $this->dnisKey = ($dnisKey InstanceOf DNISKey)
+             ? $dnisKey
+             : new DNISKey($dnisKey);
         $this->dnisKey->setName('dnisKey');
         return $this;
     }

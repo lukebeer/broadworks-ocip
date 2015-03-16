@@ -21,8 +21,8 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupDirectoryNumberHuntingGetAvailableUserListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name      = 'GroupDirectoryNumberHuntingGetAvailableUserListResponse';
-    protected $userTable = null;
+    public    $name = 'GroupDirectoryNumberHuntingGetAvailableUserListResponse';
+    protected $userTable;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceDirectoryNumberHunting\GroupDirectoryNumberHuntingGetAvailableUserListResponse $response
@@ -37,7 +37,6 @@ class GroupDirectoryNumberHuntingGetAvailableUserListResponse extends ComplexTyp
      */
     public function setUserTable(TableType $userTable = null)
     {
-        if (!$userTable) return $this;
         $this->userTable = $userTable;
         $this->userTable->setName('userTable');
         return $this;

@@ -24,12 +24,12 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderAdminGetResponse14 extends ComplexType implements ComplexInterface
 {
-    public    $name              = 'ServiceProviderAdminGetResponse14';
-    protected $serviceProviderId = null;
-    protected $firstName         = null;
-    protected $lastName          = null;
-    protected $language          = null;
-    protected $administratorType = null;
+    public    $name = 'ServiceProviderAdminGetResponse14';
+    protected $serviceProviderId;
+    protected $firstName;
+    protected $lastName;
+    protected $language;
+    protected $administratorType;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderAdminGetResponse14 $response
@@ -44,7 +44,6 @@ class ServiceProviderAdminGetResponse14 extends ComplexType implements ComplexIn
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
-        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
@@ -58,7 +57,7 @@ class ServiceProviderAdminGetResponse14 extends ComplexType implements ComplexIn
      */
     public function getServiceProviderId()
     {
-        return $this->serviceProviderId->getValue();
+        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
     }
 
     /**
@@ -66,7 +65,6 @@ class ServiceProviderAdminGetResponse14 extends ComplexType implements ComplexIn
      */
     public function setFirstName($firstName = null)
     {
-        if (!$firstName) return $this;
         $this->firstName = ($firstName InstanceOf FirstName)
              ? $firstName
              : new FirstName($firstName);
@@ -80,7 +78,7 @@ class ServiceProviderAdminGetResponse14 extends ComplexType implements ComplexIn
      */
     public function getFirstName()
     {
-        return $this->firstName->getValue();
+        return ($this->firstName) ? $this->firstName->getValue() : null;
     }
 
     /**
@@ -88,7 +86,6 @@ class ServiceProviderAdminGetResponse14 extends ComplexType implements ComplexIn
      */
     public function setLastName($lastName = null)
     {
-        if (!$lastName) return $this;
         $this->lastName = ($lastName InstanceOf LastName)
              ? $lastName
              : new LastName($lastName);
@@ -102,7 +99,7 @@ class ServiceProviderAdminGetResponse14 extends ComplexType implements ComplexIn
      */
     public function getLastName()
     {
-        return $this->lastName->getValue();
+        return ($this->lastName) ? $this->lastName->getValue() : null;
     }
 
     /**
@@ -110,7 +107,6 @@ class ServiceProviderAdminGetResponse14 extends ComplexType implements ComplexIn
      */
     public function setLanguage($language = null)
     {
-        if (!$language) return $this;
         $this->language = ($language InstanceOf Language)
              ? $language
              : new Language($language);
@@ -124,7 +120,7 @@ class ServiceProviderAdminGetResponse14 extends ComplexType implements ComplexIn
      */
     public function getLanguage()
     {
-        return $this->language->getValue();
+        return ($this->language) ? $this->language->getValue() : null;
     }
 
     /**
@@ -132,7 +128,6 @@ class ServiceProviderAdminGetResponse14 extends ComplexType implements ComplexIn
      */
     public function setAdministratorType($administratorType = null)
     {
-        if (!$administratorType) return $this;
         $this->administratorType = ($administratorType InstanceOf ServiceProviderAdminType)
              ? $administratorType
              : new ServiceProviderAdminType($administratorType);
@@ -146,6 +141,6 @@ class ServiceProviderAdminGetResponse14 extends ComplexType implements ComplexIn
      */
     public function getAdministratorType()
     {
-        return $this->administratorType->getValue();
+        return ($this->administratorType) ? $this->administratorType->getValue() : null;
     }
 }

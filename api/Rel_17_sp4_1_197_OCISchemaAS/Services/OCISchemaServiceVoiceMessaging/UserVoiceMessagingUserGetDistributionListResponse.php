@@ -20,9 +20,9 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserVoiceMessagingUserGetDistributionListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name        = 'UserVoiceMessagingUserGetDistributionListResponse';
-    protected $description = null;
-    protected $phoneNumber = null;
+    public    $name = 'UserVoiceMessagingUserGetDistributionListResponse';
+    protected $description;
+    protected $phoneNumber;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceVoiceMessaging\UserVoiceMessagingUserGetDistributionListResponse $response
@@ -37,7 +37,6 @@ class UserVoiceMessagingUserGetDistributionListResponse extends ComplexType impl
      */
     public function setDescription($description = null)
     {
-        if (!$description) return $this;
         $this->description = ($description InstanceOf VoiceMessagingDistributionListDescription)
              ? $description
              : new VoiceMessagingDistributionListDescription($description);
@@ -51,7 +50,7 @@ class UserVoiceMessagingUserGetDistributionListResponse extends ComplexType impl
      */
     public function getDescription()
     {
-        return $this->description->getValue();
+        return ($this->description) ? $this->description->getValue() : null;
     }
 
     /**
@@ -59,7 +58,6 @@ class UserVoiceMessagingUserGetDistributionListResponse extends ComplexType impl
      */
     public function setPhoneNumber($phoneNumber = null)
     {
-        if (!$phoneNumber) return $this;
         $this->phoneNumber = ($phoneNumber InstanceOf OutgoingDNorSIPURI)
              ? $phoneNumber
              : new OutgoingDNorSIPURI($phoneNumber);
@@ -73,6 +71,6 @@ class UserVoiceMessagingUserGetDistributionListResponse extends ComplexType impl
      */
     public function getPhoneNumber()
     {
-        return $this->phoneNumber->getValue();
+        return ($this->phoneNumber) ? $this->phoneNumber->getValue() : null;
     }
 }

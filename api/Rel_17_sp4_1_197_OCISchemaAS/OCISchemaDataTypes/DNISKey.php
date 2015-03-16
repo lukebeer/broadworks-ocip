@@ -19,13 +19,13 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class DNISKey extends ComplexType implements ComplexInterface
 {
-    public    $name          = 'DNISKey';
-    protected $serviceUserId = null;
-    protected $name          = null;
+    public    $name = 'DNISKey';
+    protected $serviceUserId;
+    protected $name;
 
     public function __construct(
-         $serviceUserId,
-         $name
+         $serviceUserId = '',
+         $name = ''
     ) {
         $this->setServiceUserId($serviceUserId);
         $this->setName($name);
@@ -44,7 +44,6 @@ class DNISKey extends ComplexType implements ComplexInterface
      */
     public function setServiceUserId($serviceUserId = null)
     {
-        if (!$serviceUserId) return $this;
         $this->serviceUserId = new SimpleContent($serviceUserId);
         $this->serviceUserId->setName('serviceUserId');
         return $this;
@@ -56,7 +55,7 @@ class DNISKey extends ComplexType implements ComplexInterface
      */
     public function getServiceUserId()
     {
-        return $this->serviceUserId->getValue();
+        return ($this->serviceUserId) ? $this->serviceUserId->getValue() : null;
     }
 
     /**
@@ -64,7 +63,6 @@ class DNISKey extends ComplexType implements ComplexInterface
      */
     public function setName($name = null)
     {
-        if (!$name) return $this;
         $this->name = new SimpleContent($name);
         $this->name->setName('name');
         return $this;
@@ -76,6 +74,6 @@ class DNISKey extends ComplexType implements ComplexInterface
      */
     public function getName()
     {
-        return $this->name->getValue();
+        return ($this->name) ? $this->name->getValue() : null;
     }
 }

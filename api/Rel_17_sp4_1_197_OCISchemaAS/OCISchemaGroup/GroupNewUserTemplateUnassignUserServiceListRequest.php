@@ -24,15 +24,15 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupNewUserTemplateUnassignUserServiceListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name              = 'GroupNewUserTemplateUnassignUserServiceListRequest';
-    protected $serviceProviderId = null;
-    protected $groupId           = null;
-    protected $serviceName       = null;
-    protected $servicePackName   = null;
+    public    $name = 'GroupNewUserTemplateUnassignUserServiceListRequest';
+    protected $serviceProviderId;
+    protected $groupId;
+    protected $serviceName;
+    protected $servicePackName;
 
     public function __construct(
-         $serviceProviderId,
-         $groupId,
+         $serviceProviderId = '',
+         $groupId = '',
          $serviceName = null,
          $servicePackName = null
     ) {
@@ -55,7 +55,6 @@ class GroupNewUserTemplateUnassignUserServiceListRequest extends ComplexType imp
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
-        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
@@ -69,7 +68,7 @@ class GroupNewUserTemplateUnassignUserServiceListRequest extends ComplexType imp
      */
     public function getServiceProviderId()
     {
-        return $this->serviceProviderId->getValue();
+        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
     }
 
     /**
@@ -77,7 +76,6 @@ class GroupNewUserTemplateUnassignUserServiceListRequest extends ComplexType imp
      */
     public function setGroupId($groupId = null)
     {
-        if (!$groupId) return $this;
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
@@ -91,7 +89,7 @@ class GroupNewUserTemplateUnassignUserServiceListRequest extends ComplexType imp
      */
     public function getGroupId()
     {
-        return $this->groupId->getValue();
+        return ($this->groupId) ? $this->groupId->getValue() : null;
     }
 
     /**
@@ -99,7 +97,6 @@ class GroupNewUserTemplateUnassignUserServiceListRequest extends ComplexType imp
      */
     public function setServiceName($serviceName = null)
     {
-        if (!$serviceName) return $this;
         $this->serviceName = ($serviceName InstanceOf UserService)
              ? $serviceName
              : new UserService($serviceName);
@@ -113,7 +110,7 @@ class GroupNewUserTemplateUnassignUserServiceListRequest extends ComplexType imp
      */
     public function getServiceName()
     {
-        return $this->serviceName->getValue();
+        return ($this->serviceName) ? $this->serviceName->getValue() : null;
     }
 
     /**
@@ -121,7 +118,6 @@ class GroupNewUserTemplateUnassignUserServiceListRequest extends ComplexType imp
      */
     public function setServicePackName($servicePackName = null)
     {
-        if (!$servicePackName) return $this;
         $this->servicePackName = ($servicePackName InstanceOf ServicePackName)
              ? $servicePackName
              : new ServicePackName($servicePackName);
@@ -135,6 +131,6 @@ class GroupNewUserTemplateUnassignUserServiceListRequest extends ComplexType imp
      */
     public function getServicePackName()
     {
-        return $this->servicePackName->getValue();
+        return ($this->servicePackName) ? $this->servicePackName->getValue() : null;
     }
 }

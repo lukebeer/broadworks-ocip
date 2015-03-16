@@ -21,9 +21,9 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemCallMeNowModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                   = 'SystemCallMeNowModifyRequest';
-    protected $passcodeLength         = null;
-    protected $passcodeTimeoutSeconds = null;
+    public    $name = 'SystemCallMeNowModifyRequest';
+    protected $passcodeLength;
+    protected $passcodeTimeoutSeconds;
 
     public function __construct(
          $passcodeLength = null,
@@ -46,7 +46,6 @@ class SystemCallMeNowModifyRequest extends ComplexType implements ComplexInterfa
      */
     public function setPasscodeLength($passcodeLength = null)
     {
-        if (!$passcodeLength) return $this;
         $this->passcodeLength = ($passcodeLength InstanceOf CallMeNowPasscodeLength)
              ? $passcodeLength
              : new CallMeNowPasscodeLength($passcodeLength);
@@ -60,7 +59,7 @@ class SystemCallMeNowModifyRequest extends ComplexType implements ComplexInterfa
      */
     public function getPasscodeLength()
     {
-        return $this->passcodeLength->getValue();
+        return ($this->passcodeLength) ? $this->passcodeLength->getValue() : null;
     }
 
     /**
@@ -68,7 +67,6 @@ class SystemCallMeNowModifyRequest extends ComplexType implements ComplexInterfa
      */
     public function setPasscodeTimeoutSeconds($passcodeTimeoutSeconds = null)
     {
-        if (!$passcodeTimeoutSeconds) return $this;
         $this->passcodeTimeoutSeconds = ($passcodeTimeoutSeconds InstanceOf CallMeNowPasscodeTimeoutSeconds)
              ? $passcodeTimeoutSeconds
              : new CallMeNowPasscodeTimeoutSeconds($passcodeTimeoutSeconds);
@@ -82,6 +80,6 @@ class SystemCallMeNowModifyRequest extends ComplexType implements ComplexInterfa
      */
     public function getPasscodeTimeoutSeconds()
     {
-        return $this->passcodeTimeoutSeconds->getValue();
+        return ($this->passcodeTimeoutSeconds) ? $this->passcodeTimeoutSeconds->getValue() : null;
     }
 }

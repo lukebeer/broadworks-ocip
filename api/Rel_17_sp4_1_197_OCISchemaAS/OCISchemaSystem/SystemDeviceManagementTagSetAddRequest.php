@@ -20,11 +20,11 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemDeviceManagementTagSetAddRequest extends ComplexType implements ComplexInterface
 {
-    public    $name       = 'SystemDeviceManagementTagSetAddRequest';
-    protected $tagSetName = null;
+    public    $name = 'SystemDeviceManagementTagSetAddRequest';
+    protected $tagSetName;
 
     public function __construct(
-         $tagSetName
+         $tagSetName = ''
     ) {
         $this->setTagSetName($tagSetName);
     }
@@ -42,7 +42,6 @@ class SystemDeviceManagementTagSetAddRequest extends ComplexType implements Comp
      */
     public function setTagSetName($tagSetName = null)
     {
-        if (!$tagSetName) return $this;
         $this->tagSetName = ($tagSetName InstanceOf DeviceManagementTagSetName)
              ? $tagSetName
              : new DeviceManagementTagSetName($tagSetName);
@@ -56,6 +55,6 @@ class SystemDeviceManagementTagSetAddRequest extends ComplexType implements Comp
      */
     public function getTagSetName()
     {
-        return $this->tagSetName->getValue();
+        return ($this->tagSetName) ? $this->tagSetName->getValue() : null;
     }
 }

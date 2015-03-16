@@ -22,14 +22,14 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupCallCenterCallDispositionCodeModifyActiveListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                          = 'GroupCallCenterCallDispositionCodeModifyActiveListRequest';
-    protected $serviceProviderId             = null;
-    protected $groupId                       = null;
-    protected $callDispositionCodeActivation = null;
+    public    $name = 'GroupCallCenterCallDispositionCodeModifyActiveListRequest';
+    protected $serviceProviderId;
+    protected $groupId;
+    protected $callDispositionCodeActivation;
 
     public function __construct(
-         $serviceProviderId,
-         $groupId,
+         $serviceProviderId = '',
+         $groupId = '',
          CallDispositionCodeActivation $callDispositionCodeActivation = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
@@ -50,7 +50,6 @@ class GroupCallCenterCallDispositionCodeModifyActiveListRequest extends ComplexT
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
-        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
@@ -64,7 +63,7 @@ class GroupCallCenterCallDispositionCodeModifyActiveListRequest extends ComplexT
      */
     public function getServiceProviderId()
     {
-        return $this->serviceProviderId->getValue();
+        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
     }
 
     /**
@@ -72,7 +71,6 @@ class GroupCallCenterCallDispositionCodeModifyActiveListRequest extends ComplexT
      */
     public function setGroupId($groupId = null)
     {
-        if (!$groupId) return $this;
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
@@ -86,7 +84,7 @@ class GroupCallCenterCallDispositionCodeModifyActiveListRequest extends ComplexT
      */
     public function getGroupId()
     {
-        return $this->groupId->getValue();
+        return ($this->groupId) ? $this->groupId->getValue() : null;
     }
 
     /**
@@ -94,8 +92,9 @@ class GroupCallCenterCallDispositionCodeModifyActiveListRequest extends ComplexT
      */
     public function setCallDispositionCodeActivation(CallDispositionCodeActivation $callDispositionCodeActivation = null)
     {
-        if (!$callDispositionCodeActivation) return $this;
-        $this->callDispositionCodeActivation = $callDispositionCodeActivation;
+        $this->callDispositionCodeActivation = ($callDispositionCodeActivation InstanceOf CallDispositionCodeActivation)
+             ? $callDispositionCodeActivation
+             : new CallDispositionCodeActivation($callDispositionCodeActivation);
         $this->callDispositionCodeActivation->setName('callDispositionCodeActivation');
         return $this;
     }

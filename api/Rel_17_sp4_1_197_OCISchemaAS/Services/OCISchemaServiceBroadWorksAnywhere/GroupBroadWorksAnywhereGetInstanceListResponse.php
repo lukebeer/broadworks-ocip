@@ -22,8 +22,8 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupBroadWorksAnywhereGetInstanceListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                    = 'GroupBroadWorksAnywhereGetInstanceListResponse';
-    protected $broadWorksAnywhereTable = null;
+    public    $name = 'GroupBroadWorksAnywhereGetInstanceListResponse';
+    protected $broadWorksAnywhereTable;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceBroadWorksAnywhere\GroupBroadWorksAnywhereGetInstanceListResponse $response
@@ -38,7 +38,6 @@ class GroupBroadWorksAnywhereGetInstanceListResponse extends ComplexType impleme
      */
     public function setBroadWorksAnywhereTable(TableType $broadWorksAnywhereTable = null)
     {
-        if (!$broadWorksAnywhereTable) return $this;
         $this->broadWorksAnywhereTable = $broadWorksAnywhereTable;
         $this->broadWorksAnywhereTable->setName('broadWorksAnywhereTable');
         return $this;

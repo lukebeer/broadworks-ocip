@@ -23,15 +23,15 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupThirdPartyVoiceMailSupportModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name              = 'GroupThirdPartyVoiceMailSupportModifyRequest';
-    protected $serviceProviderId = null;
-    protected $groupId           = null;
-    protected $isActive          = null;
-    protected $groupServer       = null;
+    public    $name = 'GroupThirdPartyVoiceMailSupportModifyRequest';
+    protected $serviceProviderId;
+    protected $groupId;
+    protected $isActive;
+    protected $groupServer;
 
     public function __construct(
-         $serviceProviderId,
-         $groupId,
+         $serviceProviderId = '',
+         $groupId = '',
          $isActive = null,
          $groupServer = null
     ) {
@@ -54,7 +54,6 @@ class GroupThirdPartyVoiceMailSupportModifyRequest extends ComplexType implement
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
-        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
@@ -68,7 +67,7 @@ class GroupThirdPartyVoiceMailSupportModifyRequest extends ComplexType implement
      */
     public function getServiceProviderId()
     {
-        return $this->serviceProviderId->getValue();
+        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
     }
 
     /**
@@ -76,7 +75,6 @@ class GroupThirdPartyVoiceMailSupportModifyRequest extends ComplexType implement
      */
     public function setGroupId($groupId = null)
     {
-        if (!$groupId) return $this;
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
@@ -90,7 +88,7 @@ class GroupThirdPartyVoiceMailSupportModifyRequest extends ComplexType implement
      */
     public function getGroupId()
     {
-        return $this->groupId->getValue();
+        return ($this->groupId) ? $this->groupId->getValue() : null;
     }
 
     /**
@@ -98,7 +96,6 @@ class GroupThirdPartyVoiceMailSupportModifyRequest extends ComplexType implement
      */
     public function setIsActive($isActive = null)
     {
-        if (!$isActive) return $this;
         $this->isActive = new PrimitiveType($isActive);
         $this->isActive->setName('isActive');
         return $this;
@@ -110,7 +107,7 @@ class GroupThirdPartyVoiceMailSupportModifyRequest extends ComplexType implement
      */
     public function getIsActive()
     {
-        return $this->isActive->getValue();
+        return ($this->isActive) ? $this->isActive->getValue() : null;
     }
 
     /**
@@ -118,7 +115,6 @@ class GroupThirdPartyVoiceMailSupportModifyRequest extends ComplexType implement
      */
     public function setGroupServer($groupServer = null)
     {
-        if (!$groupServer) return $this;
         $this->groupServer = ($groupServer InstanceOf ThirdPartyVoiceMailSupportMailServer)
              ? $groupServer
              : new ThirdPartyVoiceMailSupportMailServer($groupServer);
@@ -132,6 +128,6 @@ class GroupThirdPartyVoiceMailSupportModifyRequest extends ComplexType implement
      */
     public function getGroupServer()
     {
-        return $this->groupServer->getValue();
+        return ($this->groupServer) ? $this->groupServer->getValue() : null;
     }
 }

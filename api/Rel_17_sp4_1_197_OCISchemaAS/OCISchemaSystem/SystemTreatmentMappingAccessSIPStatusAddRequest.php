@@ -21,13 +21,13 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemTreatmentMappingAccessSIPStatusAddRequest extends ComplexType implements ComplexInterface
 {
-    public    $name          = 'SystemTreatmentMappingAccessSIPStatusAddRequest';
-    protected $sipStatusCode = null;
-    protected $treatmentId   = null;
+    public    $name = 'SystemTreatmentMappingAccessSIPStatusAddRequest';
+    protected $sipStatusCode;
+    protected $treatmentId;
 
     public function __construct(
-         $sipStatusCode,
-         $treatmentId
+         $sipStatusCode = '',
+         $treatmentId = ''
     ) {
         $this->setSipStatusCode($sipStatusCode);
         $this->setTreatmentId($treatmentId);
@@ -46,7 +46,6 @@ class SystemTreatmentMappingAccessSIPStatusAddRequest extends ComplexType implem
      */
     public function setSipStatusCode($sipStatusCode = null)
     {
-        if (!$sipStatusCode) return $this;
         $this->sipStatusCode = ($sipStatusCode InstanceOf SIPFailureStatusCode)
              ? $sipStatusCode
              : new SIPFailureStatusCode($sipStatusCode);
@@ -60,7 +59,7 @@ class SystemTreatmentMappingAccessSIPStatusAddRequest extends ComplexType implem
      */
     public function getSipStatusCode()
     {
-        return $this->sipStatusCode->getValue();
+        return ($this->sipStatusCode) ? $this->sipStatusCode->getValue() : null;
     }
 
     /**
@@ -68,7 +67,6 @@ class SystemTreatmentMappingAccessSIPStatusAddRequest extends ComplexType implem
      */
     public function setTreatmentId($treatmentId = null)
     {
-        if (!$treatmentId) return $this;
         $this->treatmentId = ($treatmentId InstanceOf TreatmentId)
              ? $treatmentId
              : new TreatmentId($treatmentId);
@@ -82,6 +80,6 @@ class SystemTreatmentMappingAccessSIPStatusAddRequest extends ComplexType implem
      */
     public function getTreatmentId()
     {
-        return $this->treatmentId->getValue();
+        return ($this->treatmentId) ? $this->treatmentId->getValue() : null;
     }
 }

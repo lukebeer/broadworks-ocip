@@ -20,12 +20,12 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemTreatmentMappingCallBlockingServiceModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                = 'SystemTreatmentMappingCallBlockingServiceModifyRequest';
-    protected $callBlockingService = null;
-    protected $treatmentId         = null;
+    public    $name = 'SystemTreatmentMappingCallBlockingServiceModifyRequest';
+    protected $callBlockingService;
+    protected $treatmentId;
 
     public function __construct(
-         $callBlockingService,
+         $callBlockingService = '',
          $treatmentId = null
     ) {
         $this->setCallBlockingService($callBlockingService);
@@ -45,7 +45,6 @@ class SystemTreatmentMappingCallBlockingServiceModifyRequest extends ComplexType
      */
     public function setCallBlockingService($callBlockingService = null)
     {
-        if (!$callBlockingService) return $this;
         $this->callBlockingService = ($callBlockingService InstanceOf CallBlockingService)
              ? $callBlockingService
              : new CallBlockingService($callBlockingService);
@@ -59,7 +58,7 @@ class SystemTreatmentMappingCallBlockingServiceModifyRequest extends ComplexType
      */
     public function getCallBlockingService()
     {
-        return $this->callBlockingService->getValue();
+        return ($this->callBlockingService) ? $this->callBlockingService->getValue() : null;
     }
 
     /**
@@ -67,7 +66,6 @@ class SystemTreatmentMappingCallBlockingServiceModifyRequest extends ComplexType
      */
     public function setTreatmentId($treatmentId = null)
     {
-        if (!$treatmentId) return $this;
         $this->treatmentId = ($treatmentId InstanceOf TreatmentId)
              ? $treatmentId
              : new TreatmentId($treatmentId);
@@ -81,6 +79,6 @@ class SystemTreatmentMappingCallBlockingServiceModifyRequest extends ComplexType
      */
     public function getTreatmentId()
     {
-        return $this->treatmentId->getValue();
+        return ($this->treatmentId) ? $this->treatmentId->getValue() : null;
     }
 }

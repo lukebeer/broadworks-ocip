@@ -23,11 +23,11 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupGroupPagingGetInstanceResponse17sp3 extends ComplexType implements ComplexInterface
 {
-    public    $name                           = 'GroupGroupPagingGetInstanceResponse17sp3';
-    protected $serviceInstanceProfile         = null;
-    protected $confirmationToneTimeoutSeconds = null;
-    protected $deliverOriginatorCLIDInstead   = null;
-    protected $originatorCLIDPrefix           = null;
+    public    $name = 'GroupGroupPagingGetInstanceResponse17sp3';
+    protected $serviceInstanceProfile;
+    protected $confirmationToneTimeoutSeconds;
+    protected $deliverOriginatorCLIDInstead;
+    protected $originatorCLIDPrefix;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceGroupPaging\GroupGroupPagingGetInstanceResponse17sp3 $response
@@ -42,8 +42,9 @@ class GroupGroupPagingGetInstanceResponse17sp3 extends ComplexType implements Co
      */
     public function setServiceInstanceProfile(ServiceInstanceReadProfile17 $serviceInstanceProfile = null)
     {
-        if (!$serviceInstanceProfile) return $this;
-        $this->serviceInstanceProfile = $serviceInstanceProfile;
+        $this->serviceInstanceProfile = ($serviceInstanceProfile InstanceOf ServiceInstanceReadProfile17)
+             ? $serviceInstanceProfile
+             : new ServiceInstanceReadProfile17($serviceInstanceProfile);
         $this->serviceInstanceProfile->setName('serviceInstanceProfile');
         return $this;
     }
@@ -62,7 +63,6 @@ class GroupGroupPagingGetInstanceResponse17sp3 extends ComplexType implements Co
      */
     public function setConfirmationToneTimeoutSeconds($confirmationToneTimeoutSeconds = null)
     {
-        if (!$confirmationToneTimeoutSeconds) return $this;
         $this->confirmationToneTimeoutSeconds = ($confirmationToneTimeoutSeconds InstanceOf GroupPagingConfirmationToneTimeoutSeconds)
              ? $confirmationToneTimeoutSeconds
              : new GroupPagingConfirmationToneTimeoutSeconds($confirmationToneTimeoutSeconds);
@@ -76,7 +76,7 @@ class GroupGroupPagingGetInstanceResponse17sp3 extends ComplexType implements Co
      */
     public function getConfirmationToneTimeoutSeconds()
     {
-        return $this->confirmationToneTimeoutSeconds->getValue();
+        return ($this->confirmationToneTimeoutSeconds) ? $this->confirmationToneTimeoutSeconds->getValue() : null;
     }
 
     /**
@@ -84,7 +84,6 @@ class GroupGroupPagingGetInstanceResponse17sp3 extends ComplexType implements Co
      */
     public function setDeliverOriginatorCLIDInstead($deliverOriginatorCLIDInstead = null)
     {
-        if (!$deliverOriginatorCLIDInstead) return $this;
         $this->deliverOriginatorCLIDInstead = new PrimitiveType($deliverOriginatorCLIDInstead);
         $this->deliverOriginatorCLIDInstead->setName('deliverOriginatorCLIDInstead');
         return $this;
@@ -96,7 +95,7 @@ class GroupGroupPagingGetInstanceResponse17sp3 extends ComplexType implements Co
      */
     public function getDeliverOriginatorCLIDInstead()
     {
-        return $this->deliverOriginatorCLIDInstead->getValue();
+        return ($this->deliverOriginatorCLIDInstead) ? $this->deliverOriginatorCLIDInstead->getValue() : null;
     }
 
     /**
@@ -104,7 +103,6 @@ class GroupGroupPagingGetInstanceResponse17sp3 extends ComplexType implements Co
      */
     public function setOriginatorCLIDPrefix($originatorCLIDPrefix = null)
     {
-        if (!$originatorCLIDPrefix) return $this;
         $this->originatorCLIDPrefix = ($originatorCLIDPrefix InstanceOf GroupPagingOriginatorCLIDPrefix)
              ? $originatorCLIDPrefix
              : new GroupPagingOriginatorCLIDPrefix($originatorCLIDPrefix);
@@ -118,6 +116,6 @@ class GroupGroupPagingGetInstanceResponse17sp3 extends ComplexType implements Co
      */
     public function getOriginatorCLIDPrefix()
     {
-        return $this->originatorCLIDPrefix->getValue();
+        return ($this->originatorCLIDPrefix) ? $this->originatorCLIDPrefix->getValue() : null;
     }
 }

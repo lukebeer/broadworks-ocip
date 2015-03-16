@@ -20,12 +20,12 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemRoutePointExternalSystemApplicationControllerDeleteListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                  = 'SystemRoutePointExternalSystemApplicationControllerDeleteListRequest';
-    protected $name                  = null;
-    protected $applicationController = null;
+    public    $name = 'SystemRoutePointExternalSystemApplicationControllerDeleteListRequest';
+    protected $name;
+    protected $applicationController;
 
     public function __construct(
-         $name,
+         $name = '',
          $applicationController = null
     ) {
         $this->setName($name);
@@ -45,7 +45,6 @@ class SystemRoutePointExternalSystemApplicationControllerDeleteListRequest exten
      */
     public function setName($name = null)
     {
-        if (!$name) return $this;
         $this->name = ($name InstanceOf RoutePointExternalSystem)
              ? $name
              : new RoutePointExternalSystem($name);
@@ -59,7 +58,7 @@ class SystemRoutePointExternalSystemApplicationControllerDeleteListRequest exten
      */
     public function getName()
     {
-        return $this->name->getValue();
+        return ($this->name) ? $this->name->getValue() : null;
     }
 
     /**
@@ -67,7 +66,6 @@ class SystemRoutePointExternalSystemApplicationControllerDeleteListRequest exten
      */
     public function setApplicationController($applicationController = null)
     {
-        if (!$applicationController) return $this;
         $this->applicationController = ($applicationController InstanceOf ApplicationControllerName)
              ? $applicationController
              : new ApplicationControllerName($applicationController);
@@ -81,6 +79,6 @@ class SystemRoutePointExternalSystemApplicationControllerDeleteListRequest exten
      */
     public function getApplicationController()
     {
-        return $this->applicationController->getValue();
+        return ($this->applicationController) ? $this->applicationController->getValue() : null;
     }
 }

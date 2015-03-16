@@ -28,12 +28,12 @@ use Broadworks_OCIP\core\Client\Client;
 class UserPhoneDirectoryGetSearchedListRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType     = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser\UserPhoneDirectoryGetSearchedListResponse';
-    public    $name             = 'UserPhoneDirectoryGetSearchedListRequest';
-    protected $userId           = null;
-    protected $nameSearchString = null;
+    public    $name = 'UserPhoneDirectoryGetSearchedListRequest';
+    protected $userId;
+    protected $nameSearchString;
 
     public function __construct(
-         $userId,
+         $userId = '',
          $nameSearchString = null
     ) {
         $this->setUserId($userId);
@@ -53,7 +53,6 @@ class UserPhoneDirectoryGetSearchedListRequest extends ComplexType implements Co
      */
     public function setUserId($userId = null)
     {
-        if (!$userId) return $this;
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
@@ -67,7 +66,7 @@ class UserPhoneDirectoryGetSearchedListRequest extends ComplexType implements Co
      */
     public function getUserId()
     {
-        return $this->userId->getValue();
+        return ($this->userId) ? $this->userId->getValue() : null;
     }
 
     /**
@@ -75,7 +74,6 @@ class UserPhoneDirectoryGetSearchedListRequest extends ComplexType implements Co
      */
     public function setNameSearchString($nameSearchString = null)
     {
-        if (!$nameSearchString) return $this;
         $this->nameSearchString = ($nameSearchString InstanceOf PhoneDirectoryNameSearchString)
              ? $nameSearchString
              : new PhoneDirectoryNameSearchString($nameSearchString);
@@ -89,6 +87,6 @@ class UserPhoneDirectoryGetSearchedListRequest extends ComplexType implements Co
      */
     public function getNameSearchString()
     {
-        return $this->nameSearchString->getValue();
+        return ($this->nameSearchString) ? $this->nameSearchString->getValue() : null;
     }
 }

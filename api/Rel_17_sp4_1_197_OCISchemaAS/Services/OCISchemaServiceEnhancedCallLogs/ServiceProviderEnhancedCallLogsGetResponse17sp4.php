@@ -20,9 +20,9 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderEnhancedCallLogsGetResponse17sp4 extends ComplexType implements ComplexInterface
 {
-    public    $name               = 'ServiceProviderEnhancedCallLogsGetResponse17sp4';
-    protected $maxLoggedCalls     = null;
-    protected $callExpirationDays = null;
+    public    $name = 'ServiceProviderEnhancedCallLogsGetResponse17sp4';
+    protected $maxLoggedCalls;
+    protected $callExpirationDays;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceEnhancedCallLogs\ServiceProviderEnhancedCallLogsGetResponse17sp4 $response
@@ -37,7 +37,6 @@ class ServiceProviderEnhancedCallLogsGetResponse17sp4 extends ComplexType implem
      */
     public function setMaxLoggedCalls($maxLoggedCalls = null)
     {
-        if (!$maxLoggedCalls) return $this;
         $this->maxLoggedCalls = ($maxLoggedCalls InstanceOf EnhancedCallLogsMaxLoggedCalls17sp4)
              ? $maxLoggedCalls
              : new EnhancedCallLogsMaxLoggedCalls17sp4($maxLoggedCalls);
@@ -51,7 +50,7 @@ class ServiceProviderEnhancedCallLogsGetResponse17sp4 extends ComplexType implem
      */
     public function getMaxLoggedCalls()
     {
-        return $this->maxLoggedCalls->getValue();
+        return ($this->maxLoggedCalls) ? $this->maxLoggedCalls->getValue() : null;
     }
 
     /**
@@ -59,7 +58,6 @@ class ServiceProviderEnhancedCallLogsGetResponse17sp4 extends ComplexType implem
      */
     public function setCallExpirationDays($callExpirationDays = null)
     {
-        if (!$callExpirationDays) return $this;
         $this->callExpirationDays = ($callExpirationDays InstanceOf EnhancedCallLogsCallExpirationDays)
              ? $callExpirationDays
              : new EnhancedCallLogsCallExpirationDays($callExpirationDays);
@@ -73,6 +71,6 @@ class ServiceProviderEnhancedCallLogsGetResponse17sp4 extends ComplexType implem
      */
     public function getCallExpirationDays()
     {
-        return $this->callExpirationDays->getValue();
+        return ($this->callExpirationDays) ? $this->callExpirationDays->getValue() : null;
     }
 }

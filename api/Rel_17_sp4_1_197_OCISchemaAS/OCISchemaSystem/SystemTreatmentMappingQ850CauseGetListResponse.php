@@ -20,8 +20,8 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemTreatmentMappingQ850CauseGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                  = 'SystemTreatmentMappingQ850CauseGetListResponse';
-    protected $treatmentMappingTable = null;
+    public    $name = 'SystemTreatmentMappingQ850CauseGetListResponse';
+    protected $treatmentMappingTable;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemTreatmentMappingQ850CauseGetListResponse $response
@@ -36,7 +36,6 @@ class SystemTreatmentMappingQ850CauseGetListResponse extends ComplexType impleme
      */
     public function setTreatmentMappingTable(TableType $treatmentMappingTable = null)
     {
-        if (!$treatmentMappingTable) return $this;
         $this->treatmentMappingTable = $treatmentMappingTable;
         $this->treatmentMappingTable->setName('treatmentMappingTable');
         return $this;

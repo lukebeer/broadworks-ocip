@@ -19,8 +19,8 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemBroadWorksMobilityGetIMRNListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name       = 'SystemBroadWorksMobilityGetIMRNListResponse';
-    protected $imrnNumber = null;
+    public    $name = 'SystemBroadWorksMobilityGetIMRNListResponse';
+    protected $imrnNumber;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceBroadWorksMobility\SystemBroadWorksMobilityGetIMRNListResponse $response
@@ -35,7 +35,6 @@ class SystemBroadWorksMobilityGetIMRNListResponse extends ComplexType implements
      */
     public function setImrnNumber($imrnNumber = null)
     {
-        if (!$imrnNumber) return $this;
         $this->imrnNumber = ($imrnNumber InstanceOf DN)
              ? $imrnNumber
              : new DN($imrnNumber);
@@ -49,6 +48,6 @@ class SystemBroadWorksMobilityGetIMRNListResponse extends ComplexType implements
      */
     public function getImrnNumber()
     {
-        return $this->imrnNumber->getValue();
+        return ($this->imrnNumber) ? $this->imrnNumber->getValue() : null;
     }
 }

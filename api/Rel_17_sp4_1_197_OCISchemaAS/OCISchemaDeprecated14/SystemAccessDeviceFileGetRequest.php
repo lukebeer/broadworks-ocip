@@ -23,13 +23,13 @@ use Broadworks_OCIP\core\Client\Client;
 class SystemAccessDeviceFileGetRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\SystemAccessDeviceFileGetResponse';
-    public    $name       = 'SystemAccessDeviceFileGetRequest';
-    protected $deviceName = null;
-    protected $fileType   = null;
+    public    $name = 'SystemAccessDeviceFileGetRequest';
+    protected $deviceName;
+    protected $fileType;
 
     public function __construct(
-         $deviceName,
-         $fileType
+         $deviceName = '',
+         $fileType = ''
     ) {
         $this->setDeviceName($deviceName);
         $this->setFileType($fileType);
@@ -48,7 +48,6 @@ class SystemAccessDeviceFileGetRequest extends ComplexType implements ComplexInt
      */
     public function setDeviceName($deviceName = null)
     {
-        if (!$deviceName) return $this;
         $this->deviceName = ($deviceName InstanceOf AccessDeviceName)
              ? $deviceName
              : new AccessDeviceName($deviceName);
@@ -62,7 +61,7 @@ class SystemAccessDeviceFileGetRequest extends ComplexType implements ComplexInt
      */
     public function getDeviceName()
     {
-        return $this->deviceName->getValue();
+        return ($this->deviceName) ? $this->deviceName->getValue() : null;
     }
 
     /**
@@ -70,7 +69,6 @@ class SystemAccessDeviceFileGetRequest extends ComplexType implements ComplexInt
      */
     public function setFileType($fileType = null)
     {
-        if (!$fileType) return $this;
         $this->fileType = ($fileType InstanceOf DeviceManagementFileType)
              ? $fileType
              : new DeviceManagementFileType($fileType);
@@ -84,6 +82,6 @@ class SystemAccessDeviceFileGetRequest extends ComplexType implements ComplexInt
      */
     public function getFileType()
     {
-        return $this->fileType->getValue();
+        return ($this->fileType) ? $this->fileType->getValue() : null;
     }
 }

@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
 class ReplacementCommunicationBarringCallMeNowRuleList extends ComplexType implements ComplexInterface
 {
     public    $name = 'ReplacementCommunicationBarringCallMeNowRuleList';
-    protected $rule = null;
+    protected $rule;
 
     public function __construct(
          $rule = null
@@ -43,7 +43,6 @@ class ReplacementCommunicationBarringCallMeNowRuleList extends ComplexType imple
      */
     public function setRule($rule = null)
     {
-        if (!$rule) return $this;
         $this->rule = new SimpleContent($rule);
         $this->rule->setName('rule');
         return $this;
@@ -55,6 +54,6 @@ class ReplacementCommunicationBarringCallMeNowRuleList extends ComplexType imple
      */
     public function getRule()
     {
-        return $this->rule->getValue();
+        return ($this->rule) ? $this->rule->getValue() : null;
     }
 }

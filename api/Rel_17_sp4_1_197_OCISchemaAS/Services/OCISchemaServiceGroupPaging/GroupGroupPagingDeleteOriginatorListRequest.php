@@ -20,12 +20,12 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupGroupPagingDeleteOriginatorListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name             = 'GroupGroupPagingDeleteOriginatorListRequest';
-    protected $serviceUserId    = null;
-    protected $originatorUserId = null;
+    public    $name = 'GroupGroupPagingDeleteOriginatorListRequest';
+    protected $serviceUserId;
+    protected $originatorUserId;
 
     public function __construct(
-         $serviceUserId,
+         $serviceUserId = '',
          $originatorUserId = null
     ) {
         $this->setServiceUserId($serviceUserId);
@@ -45,7 +45,6 @@ class GroupGroupPagingDeleteOriginatorListRequest extends ComplexType implements
      */
     public function setServiceUserId($serviceUserId = null)
     {
-        if (!$serviceUserId) return $this;
         $this->serviceUserId = ($serviceUserId InstanceOf UserId)
              ? $serviceUserId
              : new UserId($serviceUserId);
@@ -59,7 +58,7 @@ class GroupGroupPagingDeleteOriginatorListRequest extends ComplexType implements
      */
     public function getServiceUserId()
     {
-        return $this->serviceUserId->getValue();
+        return ($this->serviceUserId) ? $this->serviceUserId->getValue() : null;
     }
 
     /**
@@ -67,7 +66,6 @@ class GroupGroupPagingDeleteOriginatorListRequest extends ComplexType implements
      */
     public function setOriginatorUserId($originatorUserId = null)
     {
-        if (!$originatorUserId) return $this;
         $this->originatorUserId = ($originatorUserId InstanceOf UserId)
              ? $originatorUserId
              : new UserId($originatorUserId);
@@ -81,6 +79,6 @@ class GroupGroupPagingDeleteOriginatorListRequest extends ComplexType implements
      */
     public function getOriginatorUserId()
     {
-        return $this->originatorUserId->getValue();
+        return ($this->originatorUserId) ? $this->originatorUserId->getValue() : null;
     }
 }

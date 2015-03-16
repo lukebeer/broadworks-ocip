@@ -29,17 +29,17 @@ use Broadworks_OCIP\core\Client\Client;
 class UserGetListInServiceProviderRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType                        = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser\UserGetListInServiceProviderResponse';
-    public    $name                                = 'UserGetListInServiceProviderRequest';
-    protected $serviceProviderId                   = null;
-    protected $responseSizeLimit                   = null;
-    protected $searchCriteriaUserLastName          = null;
-    protected $searchCriteriaUserFirstName         = null;
-    protected $searchCriteriaDn                    = null;
-    protected $searchCriteriaEmailAddress          = null;
-    protected $searchCriteriaExactUserInTrunkGroup = null;
+    public    $name = 'UserGetListInServiceProviderRequest';
+    protected $serviceProviderId;
+    protected $responseSizeLimit;
+    protected $searchCriteriaUserLastName;
+    protected $searchCriteriaUserFirstName;
+    protected $searchCriteriaDn;
+    protected $searchCriteriaEmailAddress;
+    protected $searchCriteriaExactUserInTrunkGroup;
 
     public function __construct(
-         $serviceProviderId,
+         $serviceProviderId = '',
          $responseSizeLimit = null,
          SearchCriteriaUserLastName $searchCriteriaUserLastName = null,
          SearchCriteriaUserFirstName $searchCriteriaUserFirstName = null,
@@ -69,7 +69,6 @@ class UserGetListInServiceProviderRequest extends ComplexType implements Complex
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
-        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
@@ -83,7 +82,7 @@ class UserGetListInServiceProviderRequest extends ComplexType implements Complex
      */
     public function getServiceProviderId()
     {
-        return $this->serviceProviderId->getValue();
+        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
     }
 
     /**
@@ -91,7 +90,6 @@ class UserGetListInServiceProviderRequest extends ComplexType implements Complex
      */
     public function setResponseSizeLimit($responseSizeLimit = null)
     {
-        if (!$responseSizeLimit) return $this;
         $this->responseSizeLimit = ($responseSizeLimit InstanceOf ResponseSizeLimit)
              ? $responseSizeLimit
              : new ResponseSizeLimit($responseSizeLimit);
@@ -105,7 +103,7 @@ class UserGetListInServiceProviderRequest extends ComplexType implements Complex
      */
     public function getResponseSizeLimit()
     {
-        return $this->responseSizeLimit->getValue();
+        return ($this->responseSizeLimit) ? $this->responseSizeLimit->getValue() : null;
     }
 
     /**
@@ -113,7 +111,6 @@ class UserGetListInServiceProviderRequest extends ComplexType implements Complex
      */
     public function setSearchCriteriaUserLastName(SearchCriteriaUserLastName $searchCriteriaUserLastName = null)
     {
-        if (!$searchCriteriaUserLastName) return $this;
         $this->searchCriteriaUserLastName = ($searchCriteriaUserLastName InstanceOf SearchCriteriaUserLastName)
              ? $searchCriteriaUserLastName
              : new SearchCriteriaUserLastName($searchCriteriaUserLastName);
@@ -135,7 +132,6 @@ class UserGetListInServiceProviderRequest extends ComplexType implements Complex
      */
     public function setSearchCriteriaUserFirstName(SearchCriteriaUserFirstName $searchCriteriaUserFirstName = null)
     {
-        if (!$searchCriteriaUserFirstName) return $this;
         $this->searchCriteriaUserFirstName = ($searchCriteriaUserFirstName InstanceOf SearchCriteriaUserFirstName)
              ? $searchCriteriaUserFirstName
              : new SearchCriteriaUserFirstName($searchCriteriaUserFirstName);
@@ -157,7 +153,6 @@ class UserGetListInServiceProviderRequest extends ComplexType implements Complex
      */
     public function setSearchCriteriaDn(SearchCriteriaDn $searchCriteriaDn = null)
     {
-        if (!$searchCriteriaDn) return $this;
         $this->searchCriteriaDn = ($searchCriteriaDn InstanceOf SearchCriteriaDn)
              ? $searchCriteriaDn
              : new SearchCriteriaDn($searchCriteriaDn);
@@ -179,7 +174,6 @@ class UserGetListInServiceProviderRequest extends ComplexType implements Complex
      */
     public function setSearchCriteriaEmailAddress(SearchCriteriaEmailAddress $searchCriteriaEmailAddress = null)
     {
-        if (!$searchCriteriaEmailAddress) return $this;
         $this->searchCriteriaEmailAddress = ($searchCriteriaEmailAddress InstanceOf SearchCriteriaEmailAddress)
              ? $searchCriteriaEmailAddress
              : new SearchCriteriaEmailAddress($searchCriteriaEmailAddress);
@@ -201,7 +195,6 @@ class UserGetListInServiceProviderRequest extends ComplexType implements Complex
      */
     public function setSearchCriteriaExactUserInTrunkGroup(SearchCriteriaExactUserInTrunkGroup $searchCriteriaExactUserInTrunkGroup = null)
     {
-        if (!$searchCriteriaExactUserInTrunkGroup) return $this;
         $this->searchCriteriaExactUserInTrunkGroup = ($searchCriteriaExactUserInTrunkGroup InstanceOf SearchCriteriaExactUserInTrunkGroup)
              ? $searchCriteriaExactUserInTrunkGroup
              : new SearchCriteriaExactUserInTrunkGroup($searchCriteriaExactUserInTrunkGroup);

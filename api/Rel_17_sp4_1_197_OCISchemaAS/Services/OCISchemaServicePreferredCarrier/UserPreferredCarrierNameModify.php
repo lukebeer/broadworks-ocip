@@ -21,12 +21,12 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserPreferredCarrierNameModify extends ComplexType implements ComplexInterface
 {
-    public    $name                     = 'UserPreferredCarrierNameModify';
-    protected $useGroupPreferredCarrier = null;
-    protected $carrier                  = null;
+    public    $name = 'UserPreferredCarrierNameModify';
+    protected $useGroupPreferredCarrier;
+    protected $carrier;
 
     public function __construct(
-         $useGroupPreferredCarrier,
+         $useGroupPreferredCarrier = '',
          $carrier = null
     ) {
         $this->setUseGroupPreferredCarrier($useGroupPreferredCarrier);
@@ -46,7 +46,6 @@ class UserPreferredCarrierNameModify extends ComplexType implements ComplexInter
      */
     public function setUseGroupPreferredCarrier($useGroupPreferredCarrier = null)
     {
-        if (!$useGroupPreferredCarrier) return $this;
         $this->useGroupPreferredCarrier = new SimpleContent($useGroupPreferredCarrier);
         $this->useGroupPreferredCarrier->setName('useGroupPreferredCarrier');
         return $this;
@@ -58,7 +57,7 @@ class UserPreferredCarrierNameModify extends ComplexType implements ComplexInter
      */
     public function getUseGroupPreferredCarrier()
     {
-        return $this->useGroupPreferredCarrier->getValue();
+        return ($this->useGroupPreferredCarrier) ? $this->useGroupPreferredCarrier->getValue() : null;
     }
 
     /**
@@ -66,7 +65,6 @@ class UserPreferredCarrierNameModify extends ComplexType implements ComplexInter
      */
     public function setCarrier($carrier = null)
     {
-        if (!$carrier) return $this;
         $this->carrier = new SimpleContent($carrier);
         $this->carrier->setName('carrier');
         return $this;
@@ -78,6 +76,6 @@ class UserPreferredCarrierNameModify extends ComplexType implements ComplexInter
      */
     public function getCarrier()
     {
-        return $this->carrier->getValue();
+        return ($this->carrier) ? $this->carrier->getValue() : null;
     }
 }

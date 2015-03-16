@@ -23,21 +23,21 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemPreferredCarrierAddRequest extends ComplexType implements ComplexInterface
 {
-    public    $name            = 'SystemPreferredCarrierAddRequest';
-    protected $carrier         = null;
-    protected $cic             = null;
-    protected $countryCode     = null;
-    protected $isIntraLata     = null;
-    protected $isInterLata     = null;
-    protected $isInternational = null;
+    public    $name = 'SystemPreferredCarrierAddRequest';
+    protected $carrier;
+    protected $cic;
+    protected $countryCode;
+    protected $isIntraLata;
+    protected $isInterLata;
+    protected $isInternational;
 
     public function __construct(
-         $carrier,
-         $cic,
-         $countryCode,
-         $isIntraLata,
-         $isInterLata,
-         $isInternational
+         $carrier = '',
+         $cic = '',
+         $countryCode = '',
+         $isIntraLata = '',
+         $isInterLata = '',
+         $isInternational = ''
     ) {
         $this->setCarrier($carrier);
         $this->setCic($cic);
@@ -60,7 +60,6 @@ class SystemPreferredCarrierAddRequest extends ComplexType implements ComplexInt
      */
     public function setCarrier($carrier = null)
     {
-        if (!$carrier) return $this;
         $this->carrier = ($carrier InstanceOf PreferredCarrierName)
              ? $carrier
              : new PreferredCarrierName($carrier);
@@ -74,7 +73,7 @@ class SystemPreferredCarrierAddRequest extends ComplexType implements ComplexInt
      */
     public function getCarrier()
     {
-        return $this->carrier->getValue();
+        return ($this->carrier) ? $this->carrier->getValue() : null;
     }
 
     /**
@@ -82,7 +81,6 @@ class SystemPreferredCarrierAddRequest extends ComplexType implements ComplexInt
      */
     public function setCic($cic = null)
     {
-        if (!$cic) return $this;
         $this->cic = ($cic InstanceOf PreferredCarrierIdCode)
              ? $cic
              : new PreferredCarrierIdCode($cic);
@@ -96,7 +94,7 @@ class SystemPreferredCarrierAddRequest extends ComplexType implements ComplexInt
      */
     public function getCic()
     {
-        return $this->cic->getValue();
+        return ($this->cic) ? $this->cic->getValue() : null;
     }
 
     /**
@@ -104,7 +102,6 @@ class SystemPreferredCarrierAddRequest extends ComplexType implements ComplexInt
      */
     public function setCountryCode($countryCode = null)
     {
-        if (!$countryCode) return $this;
         $this->countryCode = ($countryCode InstanceOf CountryCode)
              ? $countryCode
              : new CountryCode($countryCode);
@@ -118,7 +115,7 @@ class SystemPreferredCarrierAddRequest extends ComplexType implements ComplexInt
      */
     public function getCountryCode()
     {
-        return $this->countryCode->getValue();
+        return ($this->countryCode) ? $this->countryCode->getValue() : null;
     }
 
     /**
@@ -126,7 +123,6 @@ class SystemPreferredCarrierAddRequest extends ComplexType implements ComplexInt
      */
     public function setIsIntraLata($isIntraLata = null)
     {
-        if (!$isIntraLata) return $this;
         $this->isIntraLata = new PrimitiveType($isIntraLata);
         $this->isIntraLata->setName('isIntraLata');
         return $this;
@@ -138,7 +134,7 @@ class SystemPreferredCarrierAddRequest extends ComplexType implements ComplexInt
      */
     public function getIsIntraLata()
     {
-        return $this->isIntraLata->getValue();
+        return ($this->isIntraLata) ? $this->isIntraLata->getValue() : null;
     }
 
     /**
@@ -146,7 +142,6 @@ class SystemPreferredCarrierAddRequest extends ComplexType implements ComplexInt
      */
     public function setIsInterLata($isInterLata = null)
     {
-        if (!$isInterLata) return $this;
         $this->isInterLata = new PrimitiveType($isInterLata);
         $this->isInterLata->setName('isInterLata');
         return $this;
@@ -158,7 +153,7 @@ class SystemPreferredCarrierAddRequest extends ComplexType implements ComplexInt
      */
     public function getIsInterLata()
     {
-        return $this->isInterLata->getValue();
+        return ($this->isInterLata) ? $this->isInterLata->getValue() : null;
     }
 
     /**
@@ -166,7 +161,6 @@ class SystemPreferredCarrierAddRequest extends ComplexType implements ComplexInt
      */
     public function setIsInternational($isInternational = null)
     {
-        if (!$isInternational) return $this;
         $this->isInternational = new PrimitiveType($isInternational);
         $this->isInternational->setName('isInternational');
         return $this;
@@ -178,6 +172,6 @@ class SystemPreferredCarrierAddRequest extends ComplexType implements ComplexInt
      */
     public function getIsInternational()
     {
-        return $this->isInternational->getValue();
+        return ($this->isInternational) ? $this->isInternational->getValue() : null;
     }
 }

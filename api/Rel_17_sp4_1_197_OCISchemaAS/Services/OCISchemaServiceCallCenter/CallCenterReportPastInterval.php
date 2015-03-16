@@ -19,13 +19,13 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class CallCenterReportPastInterval extends ComplexType implements ComplexInterface
 {
-    public    $name     = 'CallCenterReportPastInterval';
-    protected $number   = null;
-    protected $timeUnit = null;
+    public    $name = 'CallCenterReportPastInterval';
+    protected $number;
+    protected $timeUnit;
 
     public function __construct(
-         $number,
-         $timeUnit
+         $number = '',
+         $timeUnit = ''
     ) {
         $this->setNumber($number);
         $this->setTimeUnit($timeUnit);
@@ -44,7 +44,6 @@ class CallCenterReportPastInterval extends ComplexType implements ComplexInterfa
      */
     public function setNumber($number = null)
     {
-        if (!$number) return $this;
         $this->number = new SimpleContent($number);
         $this->number->setName('number');
         return $this;
@@ -56,7 +55,7 @@ class CallCenterReportPastInterval extends ComplexType implements ComplexInterfa
      */
     public function getNumber()
     {
-        return $this->number->getValue();
+        return ($this->number) ? $this->number->getValue() : null;
     }
 
     /**
@@ -64,7 +63,6 @@ class CallCenterReportPastInterval extends ComplexType implements ComplexInterfa
      */
     public function setTimeUnit($timeUnit = null)
     {
-        if (!$timeUnit) return $this;
         $this->timeUnit = new SimpleContent($timeUnit);
         $this->timeUnit->setName('timeUnit');
         return $this;
@@ -76,6 +74,6 @@ class CallCenterReportPastInterval extends ComplexType implements ComplexInterfa
      */
     public function getTimeUnit()
     {
-        return $this->timeUnit->getValue();
+        return ($this->timeUnit) ? $this->timeUnit->getValue() : null;
     }
 }

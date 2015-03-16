@@ -24,15 +24,15 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupGroupPagingModifyInstanceRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                           = 'GroupGroupPagingModifyInstanceRequest';
-    protected $serviceUserId                  = null;
-    protected $serviceInstanceProfile         = null;
-    protected $confirmationToneTimeoutSeconds = null;
-    protected $deliverOriginatorCLIDInstead   = null;
-    protected $originatorCLIDPrefix           = null;
+    public    $name = 'GroupGroupPagingModifyInstanceRequest';
+    protected $serviceUserId;
+    protected $serviceInstanceProfile;
+    protected $confirmationToneTimeoutSeconds;
+    protected $deliverOriginatorCLIDInstead;
+    protected $originatorCLIDPrefix;
 
     public function __construct(
-         $serviceUserId,
+         $serviceUserId = '',
          ServiceInstanceModifyProfile $serviceInstanceProfile = null,
          $confirmationToneTimeoutSeconds = null,
          $deliverOriginatorCLIDInstead = null,
@@ -58,7 +58,6 @@ class GroupGroupPagingModifyInstanceRequest extends ComplexType implements Compl
      */
     public function setServiceUserId($serviceUserId = null)
     {
-        if (!$serviceUserId) return $this;
         $this->serviceUserId = ($serviceUserId InstanceOf UserId)
              ? $serviceUserId
              : new UserId($serviceUserId);
@@ -72,7 +71,7 @@ class GroupGroupPagingModifyInstanceRequest extends ComplexType implements Compl
      */
     public function getServiceUserId()
     {
-        return $this->serviceUserId->getValue();
+        return ($this->serviceUserId) ? $this->serviceUserId->getValue() : null;
     }
 
     /**
@@ -80,8 +79,9 @@ class GroupGroupPagingModifyInstanceRequest extends ComplexType implements Compl
      */
     public function setServiceInstanceProfile(ServiceInstanceModifyProfile $serviceInstanceProfile = null)
     {
-        if (!$serviceInstanceProfile) return $this;
-        $this->serviceInstanceProfile = $serviceInstanceProfile;
+        $this->serviceInstanceProfile = ($serviceInstanceProfile InstanceOf ServiceInstanceModifyProfile)
+             ? $serviceInstanceProfile
+             : new ServiceInstanceModifyProfile($serviceInstanceProfile);
         $this->serviceInstanceProfile->setName('serviceInstanceProfile');
         return $this;
     }
@@ -100,7 +100,6 @@ class GroupGroupPagingModifyInstanceRequest extends ComplexType implements Compl
      */
     public function setConfirmationToneTimeoutSeconds($confirmationToneTimeoutSeconds = null)
     {
-        if (!$confirmationToneTimeoutSeconds) return $this;
         $this->confirmationToneTimeoutSeconds = ($confirmationToneTimeoutSeconds InstanceOf GroupPagingConfirmationToneTimeoutSeconds)
              ? $confirmationToneTimeoutSeconds
              : new GroupPagingConfirmationToneTimeoutSeconds($confirmationToneTimeoutSeconds);
@@ -114,7 +113,7 @@ class GroupGroupPagingModifyInstanceRequest extends ComplexType implements Compl
      */
     public function getConfirmationToneTimeoutSeconds()
     {
-        return $this->confirmationToneTimeoutSeconds->getValue();
+        return ($this->confirmationToneTimeoutSeconds) ? $this->confirmationToneTimeoutSeconds->getValue() : null;
     }
 
     /**
@@ -122,7 +121,6 @@ class GroupGroupPagingModifyInstanceRequest extends ComplexType implements Compl
      */
     public function setDeliverOriginatorCLIDInstead($deliverOriginatorCLIDInstead = null)
     {
-        if (!$deliverOriginatorCLIDInstead) return $this;
         $this->deliverOriginatorCLIDInstead = new PrimitiveType($deliverOriginatorCLIDInstead);
         $this->deliverOriginatorCLIDInstead->setName('deliverOriginatorCLIDInstead');
         return $this;
@@ -134,7 +132,7 @@ class GroupGroupPagingModifyInstanceRequest extends ComplexType implements Compl
      */
     public function getDeliverOriginatorCLIDInstead()
     {
-        return $this->deliverOriginatorCLIDInstead->getValue();
+        return ($this->deliverOriginatorCLIDInstead) ? $this->deliverOriginatorCLIDInstead->getValue() : null;
     }
 
     /**
@@ -142,7 +140,6 @@ class GroupGroupPagingModifyInstanceRequest extends ComplexType implements Compl
      */
     public function setOriginatorCLIDPrefix($originatorCLIDPrefix = null)
     {
-        if (!$originatorCLIDPrefix) return $this;
         $this->originatorCLIDPrefix = ($originatorCLIDPrefix InstanceOf GroupPagingOriginatorCLIDPrefix)
              ? $originatorCLIDPrefix
              : new GroupPagingOriginatorCLIDPrefix($originatorCLIDPrefix);
@@ -156,6 +153,6 @@ class GroupGroupPagingModifyInstanceRequest extends ComplexType implements Compl
      */
     public function getOriginatorCLIDPrefix()
     {
-        return $this->originatorCLIDPrefix->getValue();
+        return ($this->originatorCLIDPrefix) ? $this->originatorCLIDPrefix->getValue() : null;
     }
 }

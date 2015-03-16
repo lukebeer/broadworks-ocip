@@ -21,12 +21,12 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemOCIAddACLEntryRequest extends ComplexType implements ComplexInterface
 {
-    public    $name        = 'SystemOCIAddACLEntryRequest';
-    protected $netAddress  = null;
-    protected $description = null;
+    public    $name = 'SystemOCIAddACLEntryRequest';
+    protected $netAddress;
+    protected $description;
 
     public function __construct(
-         $netAddress,
+         $netAddress = '',
          $description = null
     ) {
         $this->setNetAddress($netAddress);
@@ -46,7 +46,6 @@ class SystemOCIAddACLEntryRequest extends ComplexType implements ComplexInterfac
      */
     public function setNetAddress($netAddress = null)
     {
-        if (!$netAddress) return $this;
         $this->netAddress = ($netAddress InstanceOf NetAddress)
              ? $netAddress
              : new NetAddress($netAddress);
@@ -60,7 +59,7 @@ class SystemOCIAddACLEntryRequest extends ComplexType implements ComplexInterfac
      */
     public function getNetAddress()
     {
-        return $this->netAddress->getValue();
+        return ($this->netAddress) ? $this->netAddress->getValue() : null;
     }
 
     /**
@@ -68,7 +67,6 @@ class SystemOCIAddACLEntryRequest extends ComplexType implements ComplexInterfac
      */
     public function setDescription($description = null)
     {
-        if (!$description) return $this;
         $this->description = ($description InstanceOf NetworkACLEntryDescription)
              ? $description
              : new NetworkACLEntryDescription($description);
@@ -82,6 +80,6 @@ class SystemOCIAddACLEntryRequest extends ComplexType implements ComplexInterfac
      */
     public function getDescription()
     {
-        return $this->description->getValue();
+        return ($this->description) ? $this->description->getValue() : null;
     }
 }

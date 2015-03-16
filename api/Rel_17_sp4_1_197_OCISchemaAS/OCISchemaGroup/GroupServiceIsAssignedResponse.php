@@ -19,8 +19,8 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupServiceIsAssignedResponse extends ComplexType implements ComplexInterface
 {
-    public    $name       = 'GroupServiceIsAssignedResponse';
-    protected $isAssigned = null;
+    public    $name = 'GroupServiceIsAssignedResponse';
+    protected $isAssigned;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupServiceIsAssignedResponse $response
@@ -35,7 +35,6 @@ class GroupServiceIsAssignedResponse extends ComplexType implements ComplexInter
      */
     public function setIsAssigned($isAssigned = null)
     {
-        if (!$isAssigned) return $this;
         $this->isAssigned = new PrimitiveType($isAssigned);
         $this->isAssigned->setName('isAssigned');
         return $this;
@@ -47,6 +46,6 @@ class GroupServiceIsAssignedResponse extends ComplexType implements ComplexInter
      */
     public function getIsAssigned()
     {
-        return $this->isAssigned->getValue();
+        return ($this->isAssigned) ? $this->isAssigned->getValue() : null;
     }
 }

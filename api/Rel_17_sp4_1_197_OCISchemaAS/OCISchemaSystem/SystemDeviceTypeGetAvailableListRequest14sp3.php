@@ -24,19 +24,19 @@ use Broadworks_OCIP\core\Client\Client;
 class SystemDeviceTypeGetAvailableListRequest14sp3 extends ComplexType implements ComplexInterface
 {
     public    $responseType          = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemDeviceTypeGetAvailableListResponse14sp3';
-    public    $name                  = 'SystemDeviceTypeGetAvailableListRequest14sp3';
-    protected $allowConference       = null;
-    protected $allowMusicOnHold      = null;
-    protected $onlyConference        = null;
-    protected $onlyVideoCapable      = null;
-    protected $onlyOptionalIpAddress = null;
+    public    $name = 'SystemDeviceTypeGetAvailableListRequest14sp3';
+    protected $allowConference;
+    protected $allowMusicOnHold;
+    protected $onlyConference;
+    protected $onlyVideoCapable;
+    protected $onlyOptionalIpAddress;
 
     public function __construct(
-         $allowConference,
-         $allowMusicOnHold,
-         $onlyConference,
-         $onlyVideoCapable,
-         $onlyOptionalIpAddress
+         $allowConference = '',
+         $allowMusicOnHold = '',
+         $onlyConference = '',
+         $onlyVideoCapable = '',
+         $onlyOptionalIpAddress = ''
     ) {
         $this->setAllowConference($allowConference);
         $this->setAllowMusicOnHold($allowMusicOnHold);
@@ -58,7 +58,6 @@ class SystemDeviceTypeGetAvailableListRequest14sp3 extends ComplexType implement
      */
     public function setAllowConference($allowConference = null)
     {
-        if (!$allowConference) return $this;
         $this->allowConference = new PrimitiveType($allowConference);
         $this->allowConference->setName('allowConference');
         return $this;
@@ -70,7 +69,7 @@ class SystemDeviceTypeGetAvailableListRequest14sp3 extends ComplexType implement
      */
     public function getAllowConference()
     {
-        return $this->allowConference->getValue();
+        return ($this->allowConference) ? $this->allowConference->getValue() : null;
     }
 
     /**
@@ -78,7 +77,6 @@ class SystemDeviceTypeGetAvailableListRequest14sp3 extends ComplexType implement
      */
     public function setAllowMusicOnHold($allowMusicOnHold = null)
     {
-        if (!$allowMusicOnHold) return $this;
         $this->allowMusicOnHold = new PrimitiveType($allowMusicOnHold);
         $this->allowMusicOnHold->setName('allowMusicOnHold');
         return $this;
@@ -90,7 +88,7 @@ class SystemDeviceTypeGetAvailableListRequest14sp3 extends ComplexType implement
      */
     public function getAllowMusicOnHold()
     {
-        return $this->allowMusicOnHold->getValue();
+        return ($this->allowMusicOnHold) ? $this->allowMusicOnHold->getValue() : null;
     }
 
     /**
@@ -98,7 +96,6 @@ class SystemDeviceTypeGetAvailableListRequest14sp3 extends ComplexType implement
      */
     public function setOnlyConference($onlyConference = null)
     {
-        if (!$onlyConference) return $this;
         $this->onlyConference = new PrimitiveType($onlyConference);
         $this->onlyConference->setName('onlyConference');
         return $this;
@@ -110,7 +107,7 @@ class SystemDeviceTypeGetAvailableListRequest14sp3 extends ComplexType implement
      */
     public function getOnlyConference()
     {
-        return $this->onlyConference->getValue();
+        return ($this->onlyConference) ? $this->onlyConference->getValue() : null;
     }
 
     /**
@@ -118,7 +115,6 @@ class SystemDeviceTypeGetAvailableListRequest14sp3 extends ComplexType implement
      */
     public function setOnlyVideoCapable($onlyVideoCapable = null)
     {
-        if (!$onlyVideoCapable) return $this;
         $this->onlyVideoCapable = new PrimitiveType($onlyVideoCapable);
         $this->onlyVideoCapable->setName('onlyVideoCapable');
         return $this;
@@ -130,7 +126,7 @@ class SystemDeviceTypeGetAvailableListRequest14sp3 extends ComplexType implement
      */
     public function getOnlyVideoCapable()
     {
-        return $this->onlyVideoCapable->getValue();
+        return ($this->onlyVideoCapable) ? $this->onlyVideoCapable->getValue() : null;
     }
 
     /**
@@ -138,7 +134,6 @@ class SystemDeviceTypeGetAvailableListRequest14sp3 extends ComplexType implement
      */
     public function setOnlyOptionalIpAddress($onlyOptionalIpAddress = null)
     {
-        if (!$onlyOptionalIpAddress) return $this;
         $this->onlyOptionalIpAddress = new PrimitiveType($onlyOptionalIpAddress);
         $this->onlyOptionalIpAddress->setName('onlyOptionalIpAddress');
         return $this;
@@ -150,6 +145,6 @@ class SystemDeviceTypeGetAvailableListRequest14sp3 extends ComplexType implement
      */
     public function getOnlyOptionalIpAddress()
     {
-        return $this->onlyOptionalIpAddress->getValue();
+        return ($this->onlyOptionalIpAddress) ? $this->onlyOptionalIpAddress->getValue() : null;
     }
 }

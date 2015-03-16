@@ -26,17 +26,17 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserVoiceMessagingUserGetAdvancedVoiceManagementResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                                = 'UserVoiceMessagingUserGetAdvancedVoiceManagementResponse';
-    protected $mailServerSelection                 = null;
-    protected $groupMailServerEmailAddress         = null;
-    protected $groupMailServerUserId               = null;
-    protected $groupMailServerPassword             = null;
-    protected $personalMailServerNetAddress        = null;
-    protected $personalMailServerProtocol          = null;
-    protected $personalMailServerRealDeleteForImap = null;
-    protected $personalMailServerEmailAddress      = null;
-    protected $personalMailServerUserId            = null;
-    protected $personalMailServerPassword          = null;
+    public    $name = 'UserVoiceMessagingUserGetAdvancedVoiceManagementResponse';
+    protected $mailServerSelection;
+    protected $groupMailServerEmailAddress;
+    protected $groupMailServerUserId;
+    protected $groupMailServerPassword;
+    protected $personalMailServerNetAddress;
+    protected $personalMailServerProtocol;
+    protected $personalMailServerRealDeleteForImap;
+    protected $personalMailServerEmailAddress;
+    protected $personalMailServerUserId;
+    protected $personalMailServerPassword;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\UserVoiceMessagingUserGetAdvancedVoiceManagementResponse $response
@@ -51,7 +51,6 @@ class UserVoiceMessagingUserGetAdvancedVoiceManagementResponse extends ComplexTy
      */
     public function setMailServerSelection($mailServerSelection = null)
     {
-        if (!$mailServerSelection) return $this;
         $this->mailServerSelection = ($mailServerSelection InstanceOf VoiceMessagingUserMailServerSelection)
              ? $mailServerSelection
              : new VoiceMessagingUserMailServerSelection($mailServerSelection);
@@ -65,7 +64,7 @@ class UserVoiceMessagingUserGetAdvancedVoiceManagementResponse extends ComplexTy
      */
     public function getMailServerSelection()
     {
-        return $this->mailServerSelection->getValue();
+        return ($this->mailServerSelection) ? $this->mailServerSelection->getValue() : null;
     }
 
     /**
@@ -73,7 +72,6 @@ class UserVoiceMessagingUserGetAdvancedVoiceManagementResponse extends ComplexTy
      */
     public function setGroupMailServerEmailAddress($groupMailServerEmailAddress = null)
     {
-        if (!$groupMailServerEmailAddress) return $this;
         $this->groupMailServerEmailAddress = ($groupMailServerEmailAddress InstanceOf EmailAddress)
              ? $groupMailServerEmailAddress
              : new EmailAddress($groupMailServerEmailAddress);
@@ -87,7 +85,7 @@ class UserVoiceMessagingUserGetAdvancedVoiceManagementResponse extends ComplexTy
      */
     public function getGroupMailServerEmailAddress()
     {
-        return $this->groupMailServerEmailAddress->getValue();
+        return ($this->groupMailServerEmailAddress) ? $this->groupMailServerEmailAddress->getValue() : null;
     }
 
     /**
@@ -95,7 +93,6 @@ class UserVoiceMessagingUserGetAdvancedVoiceManagementResponse extends ComplexTy
      */
     public function setGroupMailServerUserId($groupMailServerUserId = null)
     {
-        if (!$groupMailServerUserId) return $this;
         $this->groupMailServerUserId = ($groupMailServerUserId InstanceOf VoiceMessagingMailServerUserId)
              ? $groupMailServerUserId
              : new VoiceMessagingMailServerUserId($groupMailServerUserId);
@@ -109,7 +106,7 @@ class UserVoiceMessagingUserGetAdvancedVoiceManagementResponse extends ComplexTy
      */
     public function getGroupMailServerUserId()
     {
-        return $this->groupMailServerUserId->getValue();
+        return ($this->groupMailServerUserId) ? $this->groupMailServerUserId->getValue() : null;
     }
 
     /**
@@ -117,7 +114,6 @@ class UserVoiceMessagingUserGetAdvancedVoiceManagementResponse extends ComplexTy
      */
     public function setGroupMailServerPassword($groupMailServerPassword = null)
     {
-        if (!$groupMailServerPassword) return $this;
         $this->groupMailServerPassword = ($groupMailServerPassword InstanceOf Password)
              ? $groupMailServerPassword
              : new Password($groupMailServerPassword);
@@ -131,7 +127,7 @@ class UserVoiceMessagingUserGetAdvancedVoiceManagementResponse extends ComplexTy
      */
     public function getGroupMailServerPassword()
     {
-        return $this->groupMailServerPassword->getValue();
+        return ($this->groupMailServerPassword) ? $this->groupMailServerPassword->getValue() : null;
     }
 
     /**
@@ -139,7 +135,6 @@ class UserVoiceMessagingUserGetAdvancedVoiceManagementResponse extends ComplexTy
      */
     public function setPersonalMailServerNetAddress($personalMailServerNetAddress = null)
     {
-        if (!$personalMailServerNetAddress) return $this;
         $this->personalMailServerNetAddress = ($personalMailServerNetAddress InstanceOf NetAddress)
              ? $personalMailServerNetAddress
              : new NetAddress($personalMailServerNetAddress);
@@ -153,7 +148,7 @@ class UserVoiceMessagingUserGetAdvancedVoiceManagementResponse extends ComplexTy
      */
     public function getPersonalMailServerNetAddress()
     {
-        return $this->personalMailServerNetAddress->getValue();
+        return ($this->personalMailServerNetAddress) ? $this->personalMailServerNetAddress->getValue() : null;
     }
 
     /**
@@ -161,7 +156,6 @@ class UserVoiceMessagingUserGetAdvancedVoiceManagementResponse extends ComplexTy
      */
     public function setPersonalMailServerProtocol($personalMailServerProtocol = null)
     {
-        if (!$personalMailServerProtocol) return $this;
         $this->personalMailServerProtocol = ($personalMailServerProtocol InstanceOf VoiceMessagingMailServerProtocol)
              ? $personalMailServerProtocol
              : new VoiceMessagingMailServerProtocol($personalMailServerProtocol);
@@ -175,7 +169,7 @@ class UserVoiceMessagingUserGetAdvancedVoiceManagementResponse extends ComplexTy
      */
     public function getPersonalMailServerProtocol()
     {
-        return $this->personalMailServerProtocol->getValue();
+        return ($this->personalMailServerProtocol) ? $this->personalMailServerProtocol->getValue() : null;
     }
 
     /**
@@ -183,7 +177,6 @@ class UserVoiceMessagingUserGetAdvancedVoiceManagementResponse extends ComplexTy
      */
     public function setPersonalMailServerRealDeleteForImap($personalMailServerRealDeleteForImap = null)
     {
-        if (!$personalMailServerRealDeleteForImap) return $this;
         $this->personalMailServerRealDeleteForImap = new PrimitiveType($personalMailServerRealDeleteForImap);
         $this->personalMailServerRealDeleteForImap->setName('personalMailServerRealDeleteForImap');
         return $this;
@@ -195,7 +188,7 @@ class UserVoiceMessagingUserGetAdvancedVoiceManagementResponse extends ComplexTy
      */
     public function getPersonalMailServerRealDeleteForImap()
     {
-        return $this->personalMailServerRealDeleteForImap->getValue();
+        return ($this->personalMailServerRealDeleteForImap) ? $this->personalMailServerRealDeleteForImap->getValue() : null;
     }
 
     /**
@@ -203,7 +196,6 @@ class UserVoiceMessagingUserGetAdvancedVoiceManagementResponse extends ComplexTy
      */
     public function setPersonalMailServerEmailAddress($personalMailServerEmailAddress = null)
     {
-        if (!$personalMailServerEmailAddress) return $this;
         $this->personalMailServerEmailAddress = ($personalMailServerEmailAddress InstanceOf EmailAddress)
              ? $personalMailServerEmailAddress
              : new EmailAddress($personalMailServerEmailAddress);
@@ -217,7 +209,7 @@ class UserVoiceMessagingUserGetAdvancedVoiceManagementResponse extends ComplexTy
      */
     public function getPersonalMailServerEmailAddress()
     {
-        return $this->personalMailServerEmailAddress->getValue();
+        return ($this->personalMailServerEmailAddress) ? $this->personalMailServerEmailAddress->getValue() : null;
     }
 
     /**
@@ -225,7 +217,6 @@ class UserVoiceMessagingUserGetAdvancedVoiceManagementResponse extends ComplexTy
      */
     public function setPersonalMailServerUserId($personalMailServerUserId = null)
     {
-        if (!$personalMailServerUserId) return $this;
         $this->personalMailServerUserId = ($personalMailServerUserId InstanceOf VoiceMessagingMailServerUserId)
              ? $personalMailServerUserId
              : new VoiceMessagingMailServerUserId($personalMailServerUserId);
@@ -239,7 +230,7 @@ class UserVoiceMessagingUserGetAdvancedVoiceManagementResponse extends ComplexTy
      */
     public function getPersonalMailServerUserId()
     {
-        return $this->personalMailServerUserId->getValue();
+        return ($this->personalMailServerUserId) ? $this->personalMailServerUserId->getValue() : null;
     }
 
     /**
@@ -247,7 +238,6 @@ class UserVoiceMessagingUserGetAdvancedVoiceManagementResponse extends ComplexTy
      */
     public function setPersonalMailServerPassword($personalMailServerPassword = null)
     {
-        if (!$personalMailServerPassword) return $this;
         $this->personalMailServerPassword = ($personalMailServerPassword InstanceOf Password)
              ? $personalMailServerPassword
              : new Password($personalMailServerPassword);
@@ -261,6 +251,6 @@ class UserVoiceMessagingUserGetAdvancedVoiceManagementResponse extends ComplexTy
      */
     public function getPersonalMailServerPassword()
     {
-        return $this->personalMailServerPassword->getValue();
+        return ($this->personalMailServerPassword) ? $this->personalMailServerPassword->getValue() : null;
     }
 }

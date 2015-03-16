@@ -21,10 +21,10 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserCallForwardingNoAnswerGetResponse13mp16 extends ComplexType implements ComplexInterface
 {
-    public    $name                 = 'UserCallForwardingNoAnswerGetResponse13mp16';
-    protected $isActive             = null;
-    protected $forwardToPhoneNumber = null;
-    protected $numberOfRings        = null;
+    public    $name = 'UserCallForwardingNoAnswerGetResponse13mp16';
+    protected $isActive;
+    protected $forwardToPhoneNumber;
+    protected $numberOfRings;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallForwardingNoAnswer\UserCallForwardingNoAnswerGetResponse13mp16 $response
@@ -39,7 +39,6 @@ class UserCallForwardingNoAnswerGetResponse13mp16 extends ComplexType implements
      */
     public function setIsActive($isActive = null)
     {
-        if (!$isActive) return $this;
         $this->isActive = new PrimitiveType($isActive);
         $this->isActive->setName('isActive');
         return $this;
@@ -51,7 +50,7 @@ class UserCallForwardingNoAnswerGetResponse13mp16 extends ComplexType implements
      */
     public function getIsActive()
     {
-        return $this->isActive->getValue();
+        return ($this->isActive) ? $this->isActive->getValue() : null;
     }
 
     /**
@@ -59,7 +58,6 @@ class UserCallForwardingNoAnswerGetResponse13mp16 extends ComplexType implements
      */
     public function setForwardToPhoneNumber($forwardToPhoneNumber = null)
     {
-        if (!$forwardToPhoneNumber) return $this;
         $this->forwardToPhoneNumber = ($forwardToPhoneNumber InstanceOf OutgoingDNorSIPURI)
              ? $forwardToPhoneNumber
              : new OutgoingDNorSIPURI($forwardToPhoneNumber);
@@ -73,7 +71,7 @@ class UserCallForwardingNoAnswerGetResponse13mp16 extends ComplexType implements
      */
     public function getForwardToPhoneNumber()
     {
-        return $this->forwardToPhoneNumber->getValue();
+        return ($this->forwardToPhoneNumber) ? $this->forwardToPhoneNumber->getValue() : null;
     }
 
     /**
@@ -81,7 +79,6 @@ class UserCallForwardingNoAnswerGetResponse13mp16 extends ComplexType implements
      */
     public function setNumberOfRings($numberOfRings = null)
     {
-        if (!$numberOfRings) return $this;
         $this->numberOfRings = ($numberOfRings InstanceOf CallForwardingNoAnswerNumberOfRings)
              ? $numberOfRings
              : new CallForwardingNoAnswerNumberOfRings($numberOfRings);
@@ -95,6 +92,6 @@ class UserCallForwardingNoAnswerGetResponse13mp16 extends ComplexType implements
      */
     public function getNumberOfRings()
     {
-        return $this->numberOfRings->getValue();
+        return ($this->numberOfRings) ? $this->numberOfRings->getValue() : null;
     }
 }

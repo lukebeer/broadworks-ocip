@@ -20,8 +20,8 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemCPEConfigGetFileServerListResponse14sp6 extends ComplexType implements ComplexInterface
 {
-    public    $name            = 'SystemCPEConfigGetFileServerListResponse14sp6';
-    protected $fileServerTable = null;
+    public    $name = 'SystemCPEConfigGetFileServerListResponse14sp6';
+    protected $fileServerTable;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemCPEConfigGetFileServerListResponse14sp6 $response
@@ -36,7 +36,6 @@ class SystemCPEConfigGetFileServerListResponse14sp6 extends ComplexType implemen
      */
     public function setFileServerTable(TableType $fileServerTable = null)
     {
-        if (!$fileServerTable) return $this;
         $this->fileServerTable = $fileServerTable;
         $this->fileServerTable->setName('fileServerTable');
         return $this;

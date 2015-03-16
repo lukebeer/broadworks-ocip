@@ -31,22 +31,22 @@ use Broadworks_OCIP\core\Client\Client;
 class DeviceManagementFileAuthLocationGetRequest17 extends ComplexType implements ComplexInterface
 {
     public    $responseType             = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaLogin\DeviceManagementFileAuthLocationGetResponse17';
-    public    $name                     = 'DeviceManagementFileAuthLocationGetRequest17';
-    protected $deviceAccessProtocol     = null;
-    protected $deviceAccessMethod       = null;
-    protected $deviceAccessURI          = null;
-    protected $accessDeviceUserName     = null;
-    protected $accessDeviceUserPassword = null;
-    protected $signedPassword           = null;
-    protected $macAddress               = null;
-    protected $realmName                = null;
-    protected $digestHa1Complement      = null;
-    protected $digestResponse           = null;
+    public    $name = 'DeviceManagementFileAuthLocationGetRequest17';
+    protected $deviceAccessProtocol;
+    protected $deviceAccessMethod;
+    protected $deviceAccessURI;
+    protected $accessDeviceUserName;
+    protected $accessDeviceUserPassword;
+    protected $signedPassword;
+    protected $macAddress;
+    protected $realmName;
+    protected $digestHa1Complement;
+    protected $digestResponse;
 
     public function __construct(
-         $deviceAccessProtocol,
-         $deviceAccessMethod,
-         $deviceAccessURI,
+         $deviceAccessProtocol = '',
+         $deviceAccessMethod = '',
+         $deviceAccessURI = '',
          $accessDeviceUserName = null,
          $accessDeviceUserPassword = null,
          $signedPassword = null,
@@ -80,7 +80,6 @@ class DeviceManagementFileAuthLocationGetRequest17 extends ComplexType implement
      */
     public function setDeviceAccessProtocol($deviceAccessProtocol = null)
     {
-        if (!$deviceAccessProtocol) return $this;
         $this->deviceAccessProtocol = ($deviceAccessProtocol InstanceOf DeviceAccessProtocol16)
              ? $deviceAccessProtocol
              : new DeviceAccessProtocol16($deviceAccessProtocol);
@@ -94,7 +93,7 @@ class DeviceManagementFileAuthLocationGetRequest17 extends ComplexType implement
      */
     public function getDeviceAccessProtocol()
     {
-        return $this->deviceAccessProtocol->getValue();
+        return ($this->deviceAccessProtocol) ? $this->deviceAccessProtocol->getValue() : null;
     }
 
     /**
@@ -102,7 +101,6 @@ class DeviceManagementFileAuthLocationGetRequest17 extends ComplexType implement
      */
     public function setDeviceAccessMethod($deviceAccessMethod = null)
     {
-        if (!$deviceAccessMethod) return $this;
         $this->deviceAccessMethod = ($deviceAccessMethod InstanceOf FileRepositoryAccessType)
              ? $deviceAccessMethod
              : new FileRepositoryAccessType($deviceAccessMethod);
@@ -116,7 +114,7 @@ class DeviceManagementFileAuthLocationGetRequest17 extends ComplexType implement
      */
     public function getDeviceAccessMethod()
     {
-        return $this->deviceAccessMethod->getValue();
+        return ($this->deviceAccessMethod) ? $this->deviceAccessMethod->getValue() : null;
     }
 
     /**
@@ -124,7 +122,6 @@ class DeviceManagementFileAuthLocationGetRequest17 extends ComplexType implement
      */
     public function setDeviceAccessURI($deviceAccessURI = null)
     {
-        if (!$deviceAccessURI) return $this;
         $this->deviceAccessURI = ($deviceAccessURI InstanceOf DeviceManagementAccessURI)
              ? $deviceAccessURI
              : new DeviceManagementAccessURI($deviceAccessURI);
@@ -138,7 +135,7 @@ class DeviceManagementFileAuthLocationGetRequest17 extends ComplexType implement
      */
     public function getDeviceAccessURI()
     {
-        return $this->deviceAccessURI->getValue();
+        return ($this->deviceAccessURI) ? $this->deviceAccessURI->getValue() : null;
     }
 
     /**
@@ -146,7 +143,6 @@ class DeviceManagementFileAuthLocationGetRequest17 extends ComplexType implement
      */
     public function setAccessDeviceUserName($accessDeviceUserName = null)
     {
-        if (!$accessDeviceUserName) return $this;
         $this->accessDeviceUserName = ($accessDeviceUserName InstanceOf UserId)
              ? $accessDeviceUserName
              : new UserId($accessDeviceUserName);
@@ -160,7 +156,7 @@ class DeviceManagementFileAuthLocationGetRequest17 extends ComplexType implement
      */
     public function getAccessDeviceUserName()
     {
-        return $this->accessDeviceUserName->getValue();
+        return ($this->accessDeviceUserName) ? $this->accessDeviceUserName->getValue() : null;
     }
 
     /**
@@ -168,7 +164,6 @@ class DeviceManagementFileAuthLocationGetRequest17 extends ComplexType implement
      */
     public function setAccessDeviceUserPassword($accessDeviceUserPassword = null)
     {
-        if (!$accessDeviceUserPassword) return $this;
         $this->accessDeviceUserPassword = ($accessDeviceUserPassword InstanceOf Password)
              ? $accessDeviceUserPassword
              : new Password($accessDeviceUserPassword);
@@ -182,7 +177,7 @@ class DeviceManagementFileAuthLocationGetRequest17 extends ComplexType implement
      */
     public function getAccessDeviceUserPassword()
     {
-        return $this->accessDeviceUserPassword->getValue();
+        return ($this->accessDeviceUserPassword) ? $this->accessDeviceUserPassword->getValue() : null;
     }
 
     /**
@@ -190,7 +185,6 @@ class DeviceManagementFileAuthLocationGetRequest17 extends ComplexType implement
      */
     public function setSignedPassword($signedPassword = null)
     {
-        if (!$signedPassword) return $this;
         $this->signedPassword = ($signedPassword InstanceOf SignedPassword)
              ? $signedPassword
              : new SignedPassword($signedPassword);
@@ -204,7 +198,7 @@ class DeviceManagementFileAuthLocationGetRequest17 extends ComplexType implement
      */
     public function getSignedPassword()
     {
-        return $this->signedPassword->getValue();
+        return ($this->signedPassword) ? $this->signedPassword->getValue() : null;
     }
 
     /**
@@ -212,7 +206,6 @@ class DeviceManagementFileAuthLocationGetRequest17 extends ComplexType implement
      */
     public function setMacAddress($macAddress = null)
     {
-        if (!$macAddress) return $this;
         $this->macAddress = ($macAddress InstanceOf AccessDeviceMACAddress)
              ? $macAddress
              : new AccessDeviceMACAddress($macAddress);
@@ -226,7 +219,7 @@ class DeviceManagementFileAuthLocationGetRequest17 extends ComplexType implement
      */
     public function getMacAddress()
     {
-        return $this->macAddress->getValue();
+        return ($this->macAddress) ? $this->macAddress->getValue() : null;
     }
 
     /**
@@ -234,7 +227,6 @@ class DeviceManagementFileAuthLocationGetRequest17 extends ComplexType implement
      */
     public function setRealmName($realmName = null)
     {
-        if (!$realmName) return $this;
         $this->realmName = ($realmName InstanceOf RealmName)
              ? $realmName
              : new RealmName($realmName);
@@ -248,7 +240,7 @@ class DeviceManagementFileAuthLocationGetRequest17 extends ComplexType implement
      */
     public function getRealmName()
     {
-        return $this->realmName->getValue();
+        return ($this->realmName) ? $this->realmName->getValue() : null;
     }
 
     /**
@@ -256,7 +248,6 @@ class DeviceManagementFileAuthLocationGetRequest17 extends ComplexType implement
      */
     public function setDigestHa1Complement($digestHa1Complement = null)
     {
-        if (!$digestHa1Complement) return $this;
         $this->digestHa1Complement = ($digestHa1Complement InstanceOf DigestHa1Complement)
              ? $digestHa1Complement
              : new DigestHa1Complement($digestHa1Complement);
@@ -270,7 +261,7 @@ class DeviceManagementFileAuthLocationGetRequest17 extends ComplexType implement
      */
     public function getDigestHa1Complement()
     {
-        return $this->digestHa1Complement->getValue();
+        return ($this->digestHa1Complement) ? $this->digestHa1Complement->getValue() : null;
     }
 
     /**
@@ -278,7 +269,6 @@ class DeviceManagementFileAuthLocationGetRequest17 extends ComplexType implement
      */
     public function setDigestResponse($digestResponse = null)
     {
-        if (!$digestResponse) return $this;
         $this->digestResponse = ($digestResponse InstanceOf Md5Hash)
              ? $digestResponse
              : new Md5Hash($digestResponse);
@@ -292,6 +282,6 @@ class DeviceManagementFileAuthLocationGetRequest17 extends ComplexType implement
      */
     public function getDigestResponse()
     {
-        return $this->digestResponse->getValue();
+        return ($this->digestResponse) ? $this->digestResponse->getValue() : null;
     }
 }

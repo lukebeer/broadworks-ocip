@@ -21,13 +21,13 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class EnterpriseBroadWorksMobileManagerDeleteHomeZoneRequest extends ComplexType implements ComplexInterface
 {
-    public    $name              = 'EnterpriseBroadWorksMobileManagerDeleteHomeZoneRequest';
-    protected $serviceProviderId = null;
-    protected $homeZoneId        = null;
+    public    $name = 'EnterpriseBroadWorksMobileManagerDeleteHomeZoneRequest';
+    protected $serviceProviderId;
+    protected $homeZoneId;
 
     public function __construct(
-         $serviceProviderId,
-         $homeZoneId
+         $serviceProviderId = '',
+         $homeZoneId = ''
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setHomeZoneId($homeZoneId);
@@ -46,7 +46,6 @@ class EnterpriseBroadWorksMobileManagerDeleteHomeZoneRequest extends ComplexType
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
-        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
@@ -60,7 +59,7 @@ class EnterpriseBroadWorksMobileManagerDeleteHomeZoneRequest extends ComplexType
      */
     public function getServiceProviderId()
     {
-        return $this->serviceProviderId->getValue();
+        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
     }
 
     /**
@@ -68,7 +67,6 @@ class EnterpriseBroadWorksMobileManagerDeleteHomeZoneRequest extends ComplexType
      */
     public function setHomeZoneId($homeZoneId = null)
     {
-        if (!$homeZoneId) return $this;
         $this->homeZoneId = new PrimitiveType($homeZoneId);
         $this->homeZoneId->setName('homeZoneId');
         return $this;
@@ -80,6 +78,6 @@ class EnterpriseBroadWorksMobileManagerDeleteHomeZoneRequest extends ComplexType
      */
     public function getHomeZoneId()
     {
-        return $this->homeZoneId->getValue();
+        return ($this->homeZoneId) ? $this->homeZoneId->getValue() : null;
     }
 }

@@ -24,30 +24,30 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class EnterpriseSessionAdmissionControlGroupAddRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                            = 'EnterpriseSessionAdmissionControlGroupAddRequest';
-    protected $serviceProviderId               = null;
-    protected $name                            = null;
-    protected $maxSession                      = null;
-    protected $maxUserOriginatingSessions      = null;
-    protected $maxUserTerminatingSessions      = null;
-    protected $reservedSession                 = null;
-    protected $reservedUserOriginatingSessions = null;
-    protected $reservedUserTerminatingSessions = null;
-    protected $becomeDefaultGroup              = null;
-    protected $countIntraSACGroupSessions      = null;
-    protected $devices                         = null;
+    public    $name = 'EnterpriseSessionAdmissionControlGroupAddRequest';
+    protected $serviceProviderId;
+    protected $name;
+    protected $maxSession;
+    protected $maxUserOriginatingSessions;
+    protected $maxUserTerminatingSessions;
+    protected $reservedSession;
+    protected $reservedUserOriginatingSessions;
+    protected $reservedUserTerminatingSessions;
+    protected $becomeDefaultGroup;
+    protected $countIntraSACGroupSessions;
+    protected $devices;
 
     public function __construct(
-         $serviceProviderId,
-         $name,
-         $maxSession,
+         $serviceProviderId = '',
+         $name = '',
+         $maxSession = '',
          $maxUserOriginatingSessions = null,
          $maxUserTerminatingSessions = null,
-         $reservedSession,
+         $reservedSession = '',
          $reservedUserOriginatingSessions = null,
          $reservedUserTerminatingSessions = null,
-         $becomeDefaultGroup,
-         $countIntraSACGroupSessions,
+         $becomeDefaultGroup = '',
+         $countIntraSACGroupSessions = '',
          EnterpriseAccessDevice $devices = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
@@ -76,7 +76,6 @@ class EnterpriseSessionAdmissionControlGroupAddRequest extends ComplexType imple
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
-        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
@@ -90,7 +89,7 @@ class EnterpriseSessionAdmissionControlGroupAddRequest extends ComplexType imple
      */
     public function getServiceProviderId()
     {
-        return $this->serviceProviderId->getValue();
+        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
     }
 
     /**
@@ -98,7 +97,6 @@ class EnterpriseSessionAdmissionControlGroupAddRequest extends ComplexType imple
      */
     public function setName($name = null)
     {
-        if (!$name) return $this;
         $this->name = ($name InstanceOf SessionAdmissionControlGroupName)
              ? $name
              : new SessionAdmissionControlGroupName($name);
@@ -112,7 +110,7 @@ class EnterpriseSessionAdmissionControlGroupAddRequest extends ComplexType imple
      */
     public function getName()
     {
-        return $this->name->getValue();
+        return ($this->name) ? $this->name->getValue() : null;
     }
 
     /**
@@ -120,7 +118,6 @@ class EnterpriseSessionAdmissionControlGroupAddRequest extends ComplexType imple
      */
     public function setMaxSession($maxSession = null)
     {
-        if (!$maxSession) return $this;
         $this->maxSession = ($maxSession InstanceOf NonNegativeInt)
              ? $maxSession
              : new NonNegativeInt($maxSession);
@@ -134,7 +131,7 @@ class EnterpriseSessionAdmissionControlGroupAddRequest extends ComplexType imple
      */
     public function getMaxSession()
     {
-        return $this->maxSession->getValue();
+        return ($this->maxSession) ? $this->maxSession->getValue() : null;
     }
 
     /**
@@ -142,7 +139,6 @@ class EnterpriseSessionAdmissionControlGroupAddRequest extends ComplexType imple
      */
     public function setMaxUserOriginatingSessions($maxUserOriginatingSessions = null)
     {
-        if (!$maxUserOriginatingSessions) return $this;
         $this->maxUserOriginatingSessions = ($maxUserOriginatingSessions InstanceOf NonNegativeInt)
              ? $maxUserOriginatingSessions
              : new NonNegativeInt($maxUserOriginatingSessions);
@@ -156,7 +152,7 @@ class EnterpriseSessionAdmissionControlGroupAddRequest extends ComplexType imple
      */
     public function getMaxUserOriginatingSessions()
     {
-        return $this->maxUserOriginatingSessions->getValue();
+        return ($this->maxUserOriginatingSessions) ? $this->maxUserOriginatingSessions->getValue() : null;
     }
 
     /**
@@ -164,7 +160,6 @@ class EnterpriseSessionAdmissionControlGroupAddRequest extends ComplexType imple
      */
     public function setMaxUserTerminatingSessions($maxUserTerminatingSessions = null)
     {
-        if (!$maxUserTerminatingSessions) return $this;
         $this->maxUserTerminatingSessions = ($maxUserTerminatingSessions InstanceOf NonNegativeInt)
              ? $maxUserTerminatingSessions
              : new NonNegativeInt($maxUserTerminatingSessions);
@@ -178,7 +173,7 @@ class EnterpriseSessionAdmissionControlGroupAddRequest extends ComplexType imple
      */
     public function getMaxUserTerminatingSessions()
     {
-        return $this->maxUserTerminatingSessions->getValue();
+        return ($this->maxUserTerminatingSessions) ? $this->maxUserTerminatingSessions->getValue() : null;
     }
 
     /**
@@ -186,7 +181,6 @@ class EnterpriseSessionAdmissionControlGroupAddRequest extends ComplexType imple
      */
     public function setReservedSession($reservedSession = null)
     {
-        if (!$reservedSession) return $this;
         $this->reservedSession = ($reservedSession InstanceOf NonNegativeInt)
              ? $reservedSession
              : new NonNegativeInt($reservedSession);
@@ -200,7 +194,7 @@ class EnterpriseSessionAdmissionControlGroupAddRequest extends ComplexType imple
      */
     public function getReservedSession()
     {
-        return $this->reservedSession->getValue();
+        return ($this->reservedSession) ? $this->reservedSession->getValue() : null;
     }
 
     /**
@@ -208,7 +202,6 @@ class EnterpriseSessionAdmissionControlGroupAddRequest extends ComplexType imple
      */
     public function setReservedUserOriginatingSessions($reservedUserOriginatingSessions = null)
     {
-        if (!$reservedUserOriginatingSessions) return $this;
         $this->reservedUserOriginatingSessions = ($reservedUserOriginatingSessions InstanceOf NonNegativeInt)
              ? $reservedUserOriginatingSessions
              : new NonNegativeInt($reservedUserOriginatingSessions);
@@ -222,7 +215,7 @@ class EnterpriseSessionAdmissionControlGroupAddRequest extends ComplexType imple
      */
     public function getReservedUserOriginatingSessions()
     {
-        return $this->reservedUserOriginatingSessions->getValue();
+        return ($this->reservedUserOriginatingSessions) ? $this->reservedUserOriginatingSessions->getValue() : null;
     }
 
     /**
@@ -230,7 +223,6 @@ class EnterpriseSessionAdmissionControlGroupAddRequest extends ComplexType imple
      */
     public function setReservedUserTerminatingSessions($reservedUserTerminatingSessions = null)
     {
-        if (!$reservedUserTerminatingSessions) return $this;
         $this->reservedUserTerminatingSessions = ($reservedUserTerminatingSessions InstanceOf NonNegativeInt)
              ? $reservedUserTerminatingSessions
              : new NonNegativeInt($reservedUserTerminatingSessions);
@@ -244,7 +236,7 @@ class EnterpriseSessionAdmissionControlGroupAddRequest extends ComplexType imple
      */
     public function getReservedUserTerminatingSessions()
     {
-        return $this->reservedUserTerminatingSessions->getValue();
+        return ($this->reservedUserTerminatingSessions) ? $this->reservedUserTerminatingSessions->getValue() : null;
     }
 
     /**
@@ -252,7 +244,6 @@ class EnterpriseSessionAdmissionControlGroupAddRequest extends ComplexType imple
      */
     public function setBecomeDefaultGroup($becomeDefaultGroup = null)
     {
-        if (!$becomeDefaultGroup) return $this;
         $this->becomeDefaultGroup = new PrimitiveType($becomeDefaultGroup);
         $this->becomeDefaultGroup->setName('becomeDefaultGroup');
         return $this;
@@ -264,7 +255,7 @@ class EnterpriseSessionAdmissionControlGroupAddRequest extends ComplexType imple
      */
     public function getBecomeDefaultGroup()
     {
-        return $this->becomeDefaultGroup->getValue();
+        return ($this->becomeDefaultGroup) ? $this->becomeDefaultGroup->getValue() : null;
     }
 
     /**
@@ -272,7 +263,6 @@ class EnterpriseSessionAdmissionControlGroupAddRequest extends ComplexType imple
      */
     public function setCountIntraSACGroupSessions($countIntraSACGroupSessions = null)
     {
-        if (!$countIntraSACGroupSessions) return $this;
         $this->countIntraSACGroupSessions = new PrimitiveType($countIntraSACGroupSessions);
         $this->countIntraSACGroupSessions->setName('countIntraSACGroupSessions');
         return $this;
@@ -284,7 +274,7 @@ class EnterpriseSessionAdmissionControlGroupAddRequest extends ComplexType imple
      */
     public function getCountIntraSACGroupSessions()
     {
-        return $this->countIntraSACGroupSessions->getValue();
+        return ($this->countIntraSACGroupSessions) ? $this->countIntraSACGroupSessions->getValue() : null;
     }
 
     /**
@@ -292,8 +282,9 @@ class EnterpriseSessionAdmissionControlGroupAddRequest extends ComplexType imple
      */
     public function setDevices(EnterpriseAccessDevice $devices = null)
     {
-        if (!$devices) return $this;
-        $this->devices = $devices;
+        $this->devices = ($devices InstanceOf EnterpriseAccessDevice)
+             ? $devices
+             : new EnterpriseAccessDevice($devices);
         $this->devices->setName('devices');
         return $this;
     }

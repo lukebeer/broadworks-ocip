@@ -22,13 +22,13 @@ use Broadworks_OCIP\core\Client\Client;
 class ServiceProviderScheduleGetEventListRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderScheduleGetEventListResponse';
-    public    $name              = 'ServiceProviderScheduleGetEventListRequest';
-    protected $serviceProviderId = null;
-    protected $scheduleKey       = null;
+    public    $name = 'ServiceProviderScheduleGetEventListRequest';
+    protected $serviceProviderId;
+    protected $scheduleKey;
 
     public function __construct(
-         $serviceProviderId,
-         ScheduleKey $scheduleKey
+         $serviceProviderId = '',
+         ScheduleKey $scheduleKey = ''
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setScheduleKey($scheduleKey);
@@ -47,7 +47,6 @@ class ServiceProviderScheduleGetEventListRequest extends ComplexType implements 
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
-        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
@@ -61,7 +60,7 @@ class ServiceProviderScheduleGetEventListRequest extends ComplexType implements 
      */
     public function getServiceProviderId()
     {
-        return $this->serviceProviderId->getValue();
+        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
     }
 
     /**
@@ -69,8 +68,9 @@ class ServiceProviderScheduleGetEventListRequest extends ComplexType implements 
      */
     public function setScheduleKey(ScheduleKey $scheduleKey = null)
     {
-        if (!$scheduleKey) return $this;
-        $this->scheduleKey = $scheduleKey;
+        $this->scheduleKey = ($scheduleKey InstanceOf ScheduleKey)
+             ? $scheduleKey
+             : new ScheduleKey($scheduleKey);
         $this->scheduleKey->setName('scheduleKey');
         return $this;
     }

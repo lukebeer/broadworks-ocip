@@ -23,16 +23,16 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupCallingLineIdModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                     = 'GroupCallingLineIdModifyRequest';
-    protected $serviceProviderId        = null;
-    protected $groupId                  = null;
-    protected $useGroupNumber           = null;
-    protected $useGroupName             = null;
-    protected $callingLineIdPhoneNumber = null;
+    public    $name = 'GroupCallingLineIdModifyRequest';
+    protected $serviceProviderId;
+    protected $groupId;
+    protected $useGroupNumber;
+    protected $useGroupName;
+    protected $callingLineIdPhoneNumber;
 
     public function __construct(
-         $serviceProviderId,
-         $groupId,
+         $serviceProviderId = '',
+         $groupId = '',
          $useGroupNumber = null,
          $useGroupName = null,
          $callingLineIdPhoneNumber = null
@@ -57,7 +57,6 @@ class GroupCallingLineIdModifyRequest extends ComplexType implements ComplexInte
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
-        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
@@ -71,7 +70,7 @@ class GroupCallingLineIdModifyRequest extends ComplexType implements ComplexInte
      */
     public function getServiceProviderId()
     {
-        return $this->serviceProviderId->getValue();
+        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
     }
 
     /**
@@ -79,7 +78,6 @@ class GroupCallingLineIdModifyRequest extends ComplexType implements ComplexInte
      */
     public function setGroupId($groupId = null)
     {
-        if (!$groupId) return $this;
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
@@ -93,7 +91,7 @@ class GroupCallingLineIdModifyRequest extends ComplexType implements ComplexInte
      */
     public function getGroupId()
     {
-        return $this->groupId->getValue();
+        return ($this->groupId) ? $this->groupId->getValue() : null;
     }
 
     /**
@@ -101,7 +99,6 @@ class GroupCallingLineIdModifyRequest extends ComplexType implements ComplexInte
      */
     public function setUseGroupNumber($useGroupNumber = null)
     {
-        if (!$useGroupNumber) return $this;
         $this->useGroupNumber = new PrimitiveType($useGroupNumber);
         $this->useGroupNumber->setName('useGroupNumber');
         return $this;
@@ -113,7 +110,7 @@ class GroupCallingLineIdModifyRequest extends ComplexType implements ComplexInte
      */
     public function getUseGroupNumber()
     {
-        return $this->useGroupNumber->getValue();
+        return ($this->useGroupNumber) ? $this->useGroupNumber->getValue() : null;
     }
 
     /**
@@ -121,7 +118,6 @@ class GroupCallingLineIdModifyRequest extends ComplexType implements ComplexInte
      */
     public function setUseGroupName($useGroupName = null)
     {
-        if (!$useGroupName) return $this;
         $this->useGroupName = new PrimitiveType($useGroupName);
         $this->useGroupName->setName('useGroupName');
         return $this;
@@ -133,7 +129,7 @@ class GroupCallingLineIdModifyRequest extends ComplexType implements ComplexInte
      */
     public function getUseGroupName()
     {
-        return $this->useGroupName->getValue();
+        return ($this->useGroupName) ? $this->useGroupName->getValue() : null;
     }
 
     /**
@@ -141,7 +137,6 @@ class GroupCallingLineIdModifyRequest extends ComplexType implements ComplexInte
      */
     public function setCallingLineIdPhoneNumber($callingLineIdPhoneNumber = null)
     {
-        if (!$callingLineIdPhoneNumber) return $this;
         $this->callingLineIdPhoneNumber = ($callingLineIdPhoneNumber InstanceOf DN)
              ? $callingLineIdPhoneNumber
              : new DN($callingLineIdPhoneNumber);
@@ -155,6 +150,6 @@ class GroupCallingLineIdModifyRequest extends ComplexType implements ComplexInte
      */
     public function getCallingLineIdPhoneNumber()
     {
-        return $this->callingLineIdPhoneNumber->getValue();
+        return ($this->callingLineIdPhoneNumber) ? $this->callingLineIdPhoneNumber->getValue() : null;
     }
 }

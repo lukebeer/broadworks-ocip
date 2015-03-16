@@ -21,12 +21,12 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderInstantConferencingModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                            = 'ServiceProviderInstantConferencingModifyRequest';
-    protected $serviceProviderId               = null;
-    protected $portsAllocatedToServiceProvider = null;
+    public    $name = 'ServiceProviderInstantConferencingModifyRequest';
+    protected $serviceProviderId;
+    protected $portsAllocatedToServiceProvider;
 
     public function __construct(
-         $serviceProviderId,
+         $serviceProviderId = '',
          UnboundedNonNegativeInt $portsAllocatedToServiceProvider = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
@@ -46,7 +46,6 @@ class ServiceProviderInstantConferencingModifyRequest extends ComplexType implem
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
-        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
@@ -60,7 +59,7 @@ class ServiceProviderInstantConferencingModifyRequest extends ComplexType implem
      */
     public function getServiceProviderId()
     {
-        return $this->serviceProviderId->getValue();
+        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
     }
 
     /**
@@ -68,8 +67,9 @@ class ServiceProviderInstantConferencingModifyRequest extends ComplexType implem
      */
     public function setPortsAllocatedToServiceProvider(UnboundedNonNegativeInt $portsAllocatedToServiceProvider = null)
     {
-        if (!$portsAllocatedToServiceProvider) return $this;
-        $this->portsAllocatedToServiceProvider = $portsAllocatedToServiceProvider;
+        $this->portsAllocatedToServiceProvider = ($portsAllocatedToServiceProvider InstanceOf UnboundedNonNegativeInt)
+             ? $portsAllocatedToServiceProvider
+             : new UnboundedNonNegativeInt($portsAllocatedToServiceProvider);
         $this->portsAllocatedToServiceProvider->setName('portsAllocatedToServiceProvider');
         return $this;
     }

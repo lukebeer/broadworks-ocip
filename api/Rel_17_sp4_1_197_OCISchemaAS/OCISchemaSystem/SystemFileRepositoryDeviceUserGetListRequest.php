@@ -21,11 +21,11 @@ use Broadworks_OCIP\core\Client\Client;
 class SystemFileRepositoryDeviceUserGetListRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType       = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemFileRepositoryDeviceUserGetListResponse';
-    public    $name               = 'SystemFileRepositoryDeviceUserGetListRequest';
-    protected $fileRepositoryName = null;
+    public    $name = 'SystemFileRepositoryDeviceUserGetListRequest';
+    protected $fileRepositoryName;
 
     public function __construct(
-         $fileRepositoryName
+         $fileRepositoryName = ''
     ) {
         $this->setFileRepositoryName($fileRepositoryName);
     }
@@ -43,7 +43,6 @@ class SystemFileRepositoryDeviceUserGetListRequest extends ComplexType implement
      */
     public function setFileRepositoryName($fileRepositoryName = null)
     {
-        if (!$fileRepositoryName) return $this;
         $this->fileRepositoryName = ($fileRepositoryName InstanceOf FileRepositoryName)
              ? $fileRepositoryName
              : new FileRepositoryName($fileRepositoryName);
@@ -57,6 +56,6 @@ class SystemFileRepositoryDeviceUserGetListRequest extends ComplexType implement
      */
     public function getFileRepositoryName()
     {
-        return $this->fileRepositoryName->getValue();
+        return ($this->fileRepositoryName) ? $this->fileRepositoryName->getValue() : null;
     }
 }

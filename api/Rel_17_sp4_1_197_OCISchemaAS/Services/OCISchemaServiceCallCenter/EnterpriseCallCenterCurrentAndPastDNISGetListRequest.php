@@ -22,13 +22,13 @@ use Broadworks_OCIP\core\Client\Client;
 class EnterpriseCallCenterCurrentAndPastDNISGetListRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\EnterpriseCallCenterCurrentAndPastDNISGetListResponse';
-    public    $name              = 'EnterpriseCallCenterCurrentAndPastDNISGetListRequest';
-    protected $serviceProviderId = null;
-    protected $serviceUserId     = null;
+    public    $name = 'EnterpriseCallCenterCurrentAndPastDNISGetListRequest';
+    protected $serviceProviderId;
+    protected $serviceUserId;
 
     public function __construct(
-         $serviceProviderId,
-         $serviceUserId
+         $serviceProviderId = '',
+         $serviceUserId = ''
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setServiceUserId($serviceUserId);
@@ -47,7 +47,6 @@ class EnterpriseCallCenterCurrentAndPastDNISGetListRequest extends ComplexType i
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
-        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
@@ -61,7 +60,7 @@ class EnterpriseCallCenterCurrentAndPastDNISGetListRequest extends ComplexType i
      */
     public function getServiceProviderId()
     {
-        return $this->serviceProviderId->getValue();
+        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
     }
 
     /**
@@ -69,7 +68,6 @@ class EnterpriseCallCenterCurrentAndPastDNISGetListRequest extends ComplexType i
      */
     public function setServiceUserId($serviceUserId = null)
     {
-        if (!$serviceUserId) return $this;
         $this->serviceUserId = ($serviceUserId InstanceOf UserId)
              ? $serviceUserId
              : new UserId($serviceUserId);
@@ -83,6 +81,6 @@ class EnterpriseCallCenterCurrentAndPastDNISGetListRequest extends ComplexType i
      */
     public function getServiceUserId()
     {
-        return $this->serviceUserId->getValue();
+        return ($this->serviceUserId) ? $this->serviceUserId->getValue() : null;
     }
 }

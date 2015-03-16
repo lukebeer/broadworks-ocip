@@ -22,13 +22,13 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserRemoteOfficeModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                    = 'UserRemoteOfficeModifyRequest';
-    protected $userId                  = null;
-    protected $isActive                = null;
-    protected $remoteOfficePhoneNumber = null;
+    public    $name = 'UserRemoteOfficeModifyRequest';
+    protected $userId;
+    protected $isActive;
+    protected $remoteOfficePhoneNumber;
 
     public function __construct(
-         $userId,
+         $userId = '',
          $isActive = null,
          $remoteOfficePhoneNumber = null
     ) {
@@ -50,7 +50,6 @@ class UserRemoteOfficeModifyRequest extends ComplexType implements ComplexInterf
      */
     public function setUserId($userId = null)
     {
-        if (!$userId) return $this;
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
@@ -64,7 +63,7 @@ class UserRemoteOfficeModifyRequest extends ComplexType implements ComplexInterf
      */
     public function getUserId()
     {
-        return $this->userId->getValue();
+        return ($this->userId) ? $this->userId->getValue() : null;
     }
 
     /**
@@ -72,7 +71,6 @@ class UserRemoteOfficeModifyRequest extends ComplexType implements ComplexInterf
      */
     public function setIsActive($isActive = null)
     {
-        if (!$isActive) return $this;
         $this->isActive = new PrimitiveType($isActive);
         $this->isActive->setName('isActive');
         return $this;
@@ -84,7 +82,7 @@ class UserRemoteOfficeModifyRequest extends ComplexType implements ComplexInterf
      */
     public function getIsActive()
     {
-        return $this->isActive->getValue();
+        return ($this->isActive) ? $this->isActive->getValue() : null;
     }
 
     /**
@@ -92,7 +90,6 @@ class UserRemoteOfficeModifyRequest extends ComplexType implements ComplexInterf
      */
     public function setRemoteOfficePhoneNumber($remoteOfficePhoneNumber = null)
     {
-        if (!$remoteOfficePhoneNumber) return $this;
         $this->remoteOfficePhoneNumber = ($remoteOfficePhoneNumber InstanceOf OutgoingDNorSIPURI)
              ? $remoteOfficePhoneNumber
              : new OutgoingDNorSIPURI($remoteOfficePhoneNumber);
@@ -106,6 +103,6 @@ class UserRemoteOfficeModifyRequest extends ComplexType implements ComplexInterf
      */
     public function getRemoteOfficePhoneNumber()
     {
-        return $this->remoteOfficePhoneNumber->getValue();
+        return ($this->remoteOfficePhoneNumber) ? $this->remoteOfficePhoneNumber->getValue() : null;
     }
 }

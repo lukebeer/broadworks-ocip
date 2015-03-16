@@ -22,13 +22,13 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemSIPModifyACLEntryRequest extends ComplexType implements ComplexInterface
 {
-    public    $name              = 'SystemSIPModifyACLEntryRequest';
-    protected $netAddress        = null;
-    protected $transportProtocol = null;
-    protected $description       = null;
+    public    $name = 'SystemSIPModifyACLEntryRequest';
+    protected $netAddress;
+    protected $transportProtocol;
+    protected $description;
 
     public function __construct(
-         $netAddress,
+         $netAddress = '',
          $transportProtocol = null,
          $description = null
     ) {
@@ -50,7 +50,6 @@ class SystemSIPModifyACLEntryRequest extends ComplexType implements ComplexInter
      */
     public function setNetAddress($netAddress = null)
     {
-        if (!$netAddress) return $this;
         $this->netAddress = ($netAddress InstanceOf NetAddress)
              ? $netAddress
              : new NetAddress($netAddress);
@@ -64,7 +63,7 @@ class SystemSIPModifyACLEntryRequest extends ComplexType implements ComplexInter
      */
     public function getNetAddress()
     {
-        return $this->netAddress->getValue();
+        return ($this->netAddress) ? $this->netAddress->getValue() : null;
     }
 
     /**
@@ -72,7 +71,6 @@ class SystemSIPModifyACLEntryRequest extends ComplexType implements ComplexInter
      */
     public function setTransportProtocol($transportProtocol = null)
     {
-        if (!$transportProtocol) return $this;
         $this->transportProtocol = ($transportProtocol InstanceOf SIPACLTransportProtocol)
              ? $transportProtocol
              : new SIPACLTransportProtocol($transportProtocol);
@@ -86,7 +84,7 @@ class SystemSIPModifyACLEntryRequest extends ComplexType implements ComplexInter
      */
     public function getTransportProtocol()
     {
-        return $this->transportProtocol->getValue();
+        return ($this->transportProtocol) ? $this->transportProtocol->getValue() : null;
     }
 
     /**
@@ -94,7 +92,6 @@ class SystemSIPModifyACLEntryRequest extends ComplexType implements ComplexInter
      */
     public function setDescription($description = null)
     {
-        if (!$description) return $this;
         $this->description = ($description InstanceOf NetworkACLEntryDescription)
              ? $description
              : new NetworkACLEntryDescription($description);
@@ -108,6 +105,6 @@ class SystemSIPModifyACLEntryRequest extends ComplexType implements ComplexInter
      */
     public function getDescription()
     {
-        return $this->description->getValue();
+        return ($this->description) ? $this->description->getValue() : null;
     }
 }

@@ -21,14 +21,14 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class StreetAddress extends ComplexType implements ComplexInterface
 {
-    public    $name                       = 'StreetAddress';
-    protected $addressLine1               = null;
-    protected $addressLine2               = null;
-    protected $city                       = null;
-    protected $stateOrProvince            = null;
-    protected $stateOrProvinceDisplayName = null;
-    protected $zipOrPostalCode            = null;
-    protected $country                    = null;
+    public    $name = 'StreetAddress';
+    protected $addressLine1;
+    protected $addressLine2;
+    protected $city;
+    protected $stateOrProvince;
+    protected $stateOrProvinceDisplayName;
+    protected $zipOrPostalCode;
+    protected $country;
 
     public function __construct(
          $addressLine1 = null,
@@ -61,7 +61,6 @@ class StreetAddress extends ComplexType implements ComplexInterface
      */
     public function setAddressLine1($addressLine1 = null)
     {
-        if (!$addressLine1) return $this;
         $this->addressLine1 = new SimpleContent($addressLine1);
         $this->addressLine1->addRestriction(new MinLength("1"));
         $this->addressLine1->addRestriction(new MaxLength("80"));
@@ -75,7 +74,7 @@ class StreetAddress extends ComplexType implements ComplexInterface
      */
     public function getAddressLine1()
     {
-        return $this->addressLine1->getValue();
+        return ($this->addressLine1) ? $this->addressLine1->getValue() : null;
     }
 
     /**
@@ -83,7 +82,6 @@ class StreetAddress extends ComplexType implements ComplexInterface
      */
     public function setAddressLine2($addressLine2 = null)
     {
-        if (!$addressLine2) return $this;
         $this->addressLine2 = new SimpleContent($addressLine2);
         $this->addressLine2->addRestriction(new MinLength("1"));
         $this->addressLine2->addRestriction(new MaxLength("80"));
@@ -97,7 +95,7 @@ class StreetAddress extends ComplexType implements ComplexInterface
      */
     public function getAddressLine2()
     {
-        return $this->addressLine2->getValue();
+        return ($this->addressLine2) ? $this->addressLine2->getValue() : null;
     }
 
     /**
@@ -105,7 +103,6 @@ class StreetAddress extends ComplexType implements ComplexInterface
      */
     public function setCity($city = null)
     {
-        if (!$city) return $this;
         $this->city = new SimpleContent($city);
         $this->city->addRestriction(new MinLength("1"));
         $this->city->addRestriction(new MaxLength("50"));
@@ -119,7 +116,7 @@ class StreetAddress extends ComplexType implements ComplexInterface
      */
     public function getCity()
     {
-        return $this->city->getValue();
+        return ($this->city) ? $this->city->getValue() : null;
     }
 
     /**
@@ -127,7 +124,6 @@ class StreetAddress extends ComplexType implements ComplexInterface
      */
     public function setStateOrProvince($stateOrProvince = null)
     {
-        if (!$stateOrProvince) return $this;
         $this->stateOrProvince = new SimpleContent($stateOrProvince);
         $this->stateOrProvince->addRestriction(new MinLength("1"));
         $this->stateOrProvince->addRestriction(new MaxLength("50"));
@@ -141,7 +137,7 @@ class StreetAddress extends ComplexType implements ComplexInterface
      */
     public function getStateOrProvince()
     {
-        return $this->stateOrProvince->getValue();
+        return ($this->stateOrProvince) ? $this->stateOrProvince->getValue() : null;
     }
 
     /**
@@ -149,7 +145,6 @@ class StreetAddress extends ComplexType implements ComplexInterface
      */
     public function setStateOrProvinceDisplayName($stateOrProvinceDisplayName = null)
     {
-        if (!$stateOrProvinceDisplayName) return $this;
         $this->stateOrProvinceDisplayName = new SimpleContent($stateOrProvinceDisplayName);
         $this->stateOrProvinceDisplayName->addRestriction(new MinLength("1"));
         $this->stateOrProvinceDisplayName->addRestriction(new MaxLength("50"));
@@ -163,7 +158,7 @@ class StreetAddress extends ComplexType implements ComplexInterface
      */
     public function getStateOrProvinceDisplayName()
     {
-        return $this->stateOrProvinceDisplayName->getValue();
+        return ($this->stateOrProvinceDisplayName) ? $this->stateOrProvinceDisplayName->getValue() : null;
     }
 
     /**
@@ -171,7 +166,6 @@ class StreetAddress extends ComplexType implements ComplexInterface
      */
     public function setZipOrPostalCode($zipOrPostalCode = null)
     {
-        if (!$zipOrPostalCode) return $this;
         $this->zipOrPostalCode = new SimpleContent($zipOrPostalCode);
         $this->zipOrPostalCode->addRestriction(new MinLength("1"));
         $this->zipOrPostalCode->addRestriction(new MaxLength("50"));
@@ -185,7 +179,7 @@ class StreetAddress extends ComplexType implements ComplexInterface
      */
     public function getZipOrPostalCode()
     {
-        return $this->zipOrPostalCode->getValue();
+        return ($this->zipOrPostalCode) ? $this->zipOrPostalCode->getValue() : null;
     }
 
     /**
@@ -193,7 +187,6 @@ class StreetAddress extends ComplexType implements ComplexInterface
      */
     public function setCountry($country = null)
     {
-        if (!$country) return $this;
         $this->country = new SimpleContent($country);
         $this->country->addRestriction(new MinLength("1"));
         $this->country->addRestriction(new MaxLength("50"));
@@ -207,6 +200,6 @@ class StreetAddress extends ComplexType implements ComplexInterface
      */
     public function getCountry()
     {
-        return $this->country->getValue();
+        return ($this->country) ? $this->country->getValue() : null;
     }
 }

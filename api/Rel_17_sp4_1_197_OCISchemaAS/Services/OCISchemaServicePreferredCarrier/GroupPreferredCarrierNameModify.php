@@ -21,12 +21,12 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupPreferredCarrierNameModify extends ComplexType implements ComplexInterface
 {
-    public    $name                               = 'GroupPreferredCarrierNameModify';
-    protected $useServiceProviderPreferredCarrier = null;
-    protected $carrier                            = null;
+    public    $name = 'GroupPreferredCarrierNameModify';
+    protected $useServiceProviderPreferredCarrier;
+    protected $carrier;
 
     public function __construct(
-         $useServiceProviderPreferredCarrier,
+         $useServiceProviderPreferredCarrier = '',
          $carrier = null
     ) {
         $this->setUseServiceProviderPreferredCarrier($useServiceProviderPreferredCarrier);
@@ -46,7 +46,6 @@ class GroupPreferredCarrierNameModify extends ComplexType implements ComplexInte
      */
     public function setUseServiceProviderPreferredCarrier($useServiceProviderPreferredCarrier = null)
     {
-        if (!$useServiceProviderPreferredCarrier) return $this;
         $this->useServiceProviderPreferredCarrier = new SimpleContent($useServiceProviderPreferredCarrier);
         $this->useServiceProviderPreferredCarrier->setName('useServiceProviderPreferredCarrier');
         return $this;
@@ -58,7 +57,7 @@ class GroupPreferredCarrierNameModify extends ComplexType implements ComplexInte
      */
     public function getUseServiceProviderPreferredCarrier()
     {
-        return $this->useServiceProviderPreferredCarrier->getValue();
+        return ($this->useServiceProviderPreferredCarrier) ? $this->useServiceProviderPreferredCarrier->getValue() : null;
     }
 
     /**
@@ -66,7 +65,6 @@ class GroupPreferredCarrierNameModify extends ComplexType implements ComplexInte
      */
     public function setCarrier($carrier = null)
     {
-        if (!$carrier) return $this;
         $this->carrier = new SimpleContent($carrier);
         $this->carrier->setName('carrier');
         return $this;
@@ -78,6 +76,6 @@ class GroupPreferredCarrierNameModify extends ComplexType implements ComplexInte
      */
     public function getCarrier()
     {
-        return $this->carrier->getValue();
+        return ($this->carrier) ? $this->carrier->getValue() : null;
     }
 }

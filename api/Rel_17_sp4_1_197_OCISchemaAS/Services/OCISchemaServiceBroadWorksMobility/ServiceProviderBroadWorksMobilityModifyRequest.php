@@ -22,17 +22,17 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderBroadWorksMobilityModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                      = 'ServiceProviderBroadWorksMobilityModifyRequest';
-    protected $serviceProviderId         = null;
-    protected $useSettingLevel           = null;
-    protected $enableLocationServices    = null;
-    protected $enableMSRNLookup          = null;
-    protected $enableMobileStateChecking = null;
-    protected $denyCallOriginations      = null;
-    protected $denyCallTerminations      = null;
+    public    $name = 'ServiceProviderBroadWorksMobilityModifyRequest';
+    protected $serviceProviderId;
+    protected $useSettingLevel;
+    protected $enableLocationServices;
+    protected $enableMSRNLookup;
+    protected $enableMobileStateChecking;
+    protected $denyCallOriginations;
+    protected $denyCallTerminations;
 
     public function __construct(
-         $serviceProviderId,
+         $serviceProviderId = '',
          $useSettingLevel = null,
          $enableLocationServices = null,
          $enableMSRNLookup = null,
@@ -62,7 +62,6 @@ class ServiceProviderBroadWorksMobilityModifyRequest extends ComplexType impleme
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
-        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
@@ -76,7 +75,7 @@ class ServiceProviderBroadWorksMobilityModifyRequest extends ComplexType impleme
      */
     public function getServiceProviderId()
     {
-        return $this->serviceProviderId->getValue();
+        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
     }
 
     /**
@@ -84,7 +83,6 @@ class ServiceProviderBroadWorksMobilityModifyRequest extends ComplexType impleme
      */
     public function setUseSettingLevel($useSettingLevel = null)
     {
-        if (!$useSettingLevel) return $this;
         $this->useSettingLevel = ($useSettingLevel InstanceOf BroadWorksMobilityServiceProviderSettingLevel)
              ? $useSettingLevel
              : new BroadWorksMobilityServiceProviderSettingLevel($useSettingLevel);
@@ -98,7 +96,7 @@ class ServiceProviderBroadWorksMobilityModifyRequest extends ComplexType impleme
      */
     public function getUseSettingLevel()
     {
-        return $this->useSettingLevel->getValue();
+        return ($this->useSettingLevel) ? $this->useSettingLevel->getValue() : null;
     }
 
     /**
@@ -106,7 +104,6 @@ class ServiceProviderBroadWorksMobilityModifyRequest extends ComplexType impleme
      */
     public function setEnableLocationServices($enableLocationServices = null)
     {
-        if (!$enableLocationServices) return $this;
         $this->enableLocationServices = new PrimitiveType($enableLocationServices);
         $this->enableLocationServices->setName('enableLocationServices');
         return $this;
@@ -118,7 +115,7 @@ class ServiceProviderBroadWorksMobilityModifyRequest extends ComplexType impleme
      */
     public function getEnableLocationServices()
     {
-        return $this->enableLocationServices->getValue();
+        return ($this->enableLocationServices) ? $this->enableLocationServices->getValue() : null;
     }
 
     /**
@@ -126,7 +123,6 @@ class ServiceProviderBroadWorksMobilityModifyRequest extends ComplexType impleme
      */
     public function setEnableMSRNLookup($enableMSRNLookup = null)
     {
-        if (!$enableMSRNLookup) return $this;
         $this->enableMSRNLookup = new PrimitiveType($enableMSRNLookup);
         $this->enableMSRNLookup->setName('enableMSRNLookup');
         return $this;
@@ -138,7 +134,7 @@ class ServiceProviderBroadWorksMobilityModifyRequest extends ComplexType impleme
      */
     public function getEnableMSRNLookup()
     {
-        return $this->enableMSRNLookup->getValue();
+        return ($this->enableMSRNLookup) ? $this->enableMSRNLookup->getValue() : null;
     }
 
     /**
@@ -146,7 +142,6 @@ class ServiceProviderBroadWorksMobilityModifyRequest extends ComplexType impleme
      */
     public function setEnableMobileStateChecking($enableMobileStateChecking = null)
     {
-        if (!$enableMobileStateChecking) return $this;
         $this->enableMobileStateChecking = new PrimitiveType($enableMobileStateChecking);
         $this->enableMobileStateChecking->setName('enableMobileStateChecking');
         return $this;
@@ -158,7 +153,7 @@ class ServiceProviderBroadWorksMobilityModifyRequest extends ComplexType impleme
      */
     public function getEnableMobileStateChecking()
     {
-        return $this->enableMobileStateChecking->getValue();
+        return ($this->enableMobileStateChecking) ? $this->enableMobileStateChecking->getValue() : null;
     }
 
     /**
@@ -166,7 +161,6 @@ class ServiceProviderBroadWorksMobilityModifyRequest extends ComplexType impleme
      */
     public function setDenyCallOriginations($denyCallOriginations = null)
     {
-        if (!$denyCallOriginations) return $this;
         $this->denyCallOriginations = new PrimitiveType($denyCallOriginations);
         $this->denyCallOriginations->setName('denyCallOriginations');
         return $this;
@@ -178,7 +172,7 @@ class ServiceProviderBroadWorksMobilityModifyRequest extends ComplexType impleme
      */
     public function getDenyCallOriginations()
     {
-        return $this->denyCallOriginations->getValue();
+        return ($this->denyCallOriginations) ? $this->denyCallOriginations->getValue() : null;
     }
 
     /**
@@ -186,7 +180,6 @@ class ServiceProviderBroadWorksMobilityModifyRequest extends ComplexType impleme
      */
     public function setDenyCallTerminations($denyCallTerminations = null)
     {
-        if (!$denyCallTerminations) return $this;
         $this->denyCallTerminations = new PrimitiveType($denyCallTerminations);
         $this->denyCallTerminations->setName('denyCallTerminations');
         return $this;
@@ -198,6 +191,6 @@ class ServiceProviderBroadWorksMobilityModifyRequest extends ComplexType impleme
      */
     public function getDenyCallTerminations()
     {
-        return $this->denyCallTerminations->getValue();
+        return ($this->denyCallTerminations) ? $this->denyCallTerminations->getValue() : null;
     }
 }

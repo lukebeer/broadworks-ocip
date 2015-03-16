@@ -26,21 +26,21 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemPortalPasscodeRulesModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                                    = 'SystemPortalPasscodeRulesModifyRequest';
-    protected $disallowRepeatedDigits                  = null;
-    protected $disallowUserNumber                      = null;
-    protected $disallowReversedUserNumber              = null;
-    protected $disallowOldPasscode                     = null;
-    protected $disallowReversedOldPasscode             = null;
-    protected $minCodeLength                           = null;
-    protected $maxCodeLength                           = null;
-    protected $disableLoginAfterMaxFailedLoginAttempts = null;
-    protected $maxFailedLoginAttempts                  = null;
-    protected $expirePassword                          = null;
-    protected $passcodeExpiresDays                     = null;
-    protected $sendLoginDisabledNotifyEmail            = null;
-    protected $loginDisabledNotifyEmailAddress         = null;
-    protected $defaultPassword                         = null;
+    public    $name = 'SystemPortalPasscodeRulesModifyRequest';
+    protected $disallowRepeatedDigits;
+    protected $disallowUserNumber;
+    protected $disallowReversedUserNumber;
+    protected $disallowOldPasscode;
+    protected $disallowReversedOldPasscode;
+    protected $minCodeLength;
+    protected $maxCodeLength;
+    protected $disableLoginAfterMaxFailedLoginAttempts;
+    protected $maxFailedLoginAttempts;
+    protected $expirePassword;
+    protected $passcodeExpiresDays;
+    protected $sendLoginDisabledNotifyEmail;
+    protected $loginDisabledNotifyEmailAddress;
+    protected $defaultPassword;
 
     public function __construct(
          $disallowRepeatedDigits = null,
@@ -87,7 +87,6 @@ class SystemPortalPasscodeRulesModifyRequest extends ComplexType implements Comp
      */
     public function setDisallowRepeatedDigits($disallowRepeatedDigits = null)
     {
-        if (!$disallowRepeatedDigits) return $this;
         $this->disallowRepeatedDigits = new PrimitiveType($disallowRepeatedDigits);
         $this->disallowRepeatedDigits->setName('disallowRepeatedDigits');
         return $this;
@@ -99,7 +98,7 @@ class SystemPortalPasscodeRulesModifyRequest extends ComplexType implements Comp
      */
     public function getDisallowRepeatedDigits()
     {
-        return $this->disallowRepeatedDigits->getValue();
+        return ($this->disallowRepeatedDigits) ? $this->disallowRepeatedDigits->getValue() : null;
     }
 
     /**
@@ -107,7 +106,6 @@ class SystemPortalPasscodeRulesModifyRequest extends ComplexType implements Comp
      */
     public function setDisallowUserNumber($disallowUserNumber = null)
     {
-        if (!$disallowUserNumber) return $this;
         $this->disallowUserNumber = new PrimitiveType($disallowUserNumber);
         $this->disallowUserNumber->setName('disallowUserNumber');
         return $this;
@@ -119,7 +117,7 @@ class SystemPortalPasscodeRulesModifyRequest extends ComplexType implements Comp
      */
     public function getDisallowUserNumber()
     {
-        return $this->disallowUserNumber->getValue();
+        return ($this->disallowUserNumber) ? $this->disallowUserNumber->getValue() : null;
     }
 
     /**
@@ -127,7 +125,6 @@ class SystemPortalPasscodeRulesModifyRequest extends ComplexType implements Comp
      */
     public function setDisallowReversedUserNumber($disallowReversedUserNumber = null)
     {
-        if (!$disallowReversedUserNumber) return $this;
         $this->disallowReversedUserNumber = new PrimitiveType($disallowReversedUserNumber);
         $this->disallowReversedUserNumber->setName('disallowReversedUserNumber');
         return $this;
@@ -139,7 +136,7 @@ class SystemPortalPasscodeRulesModifyRequest extends ComplexType implements Comp
      */
     public function getDisallowReversedUserNumber()
     {
-        return $this->disallowReversedUserNumber->getValue();
+        return ($this->disallowReversedUserNumber) ? $this->disallowReversedUserNumber->getValue() : null;
     }
 
     /**
@@ -147,7 +144,6 @@ class SystemPortalPasscodeRulesModifyRequest extends ComplexType implements Comp
      */
     public function setDisallowOldPasscode($disallowOldPasscode = null)
     {
-        if (!$disallowOldPasscode) return $this;
         $this->disallowOldPasscode = new PrimitiveType($disallowOldPasscode);
         $this->disallowOldPasscode->setName('disallowOldPasscode');
         return $this;
@@ -159,7 +155,7 @@ class SystemPortalPasscodeRulesModifyRequest extends ComplexType implements Comp
      */
     public function getDisallowOldPasscode()
     {
-        return $this->disallowOldPasscode->getValue();
+        return ($this->disallowOldPasscode) ? $this->disallowOldPasscode->getValue() : null;
     }
 
     /**
@@ -167,7 +163,6 @@ class SystemPortalPasscodeRulesModifyRequest extends ComplexType implements Comp
      */
     public function setDisallowReversedOldPasscode($disallowReversedOldPasscode = null)
     {
-        if (!$disallowReversedOldPasscode) return $this;
         $this->disallowReversedOldPasscode = new PrimitiveType($disallowReversedOldPasscode);
         $this->disallowReversedOldPasscode->setName('disallowReversedOldPasscode');
         return $this;
@@ -179,7 +174,7 @@ class SystemPortalPasscodeRulesModifyRequest extends ComplexType implements Comp
      */
     public function getDisallowReversedOldPasscode()
     {
-        return $this->disallowReversedOldPasscode->getValue();
+        return ($this->disallowReversedOldPasscode) ? $this->disallowReversedOldPasscode->getValue() : null;
     }
 
     /**
@@ -187,7 +182,6 @@ class SystemPortalPasscodeRulesModifyRequest extends ComplexType implements Comp
      */
     public function setMinCodeLength($minCodeLength = null)
     {
-        if (!$minCodeLength) return $this;
         $this->minCodeLength = ($minCodeLength InstanceOf PasscodeMinLength)
              ? $minCodeLength
              : new PasscodeMinLength($minCodeLength);
@@ -201,7 +195,7 @@ class SystemPortalPasscodeRulesModifyRequest extends ComplexType implements Comp
      */
     public function getMinCodeLength()
     {
-        return $this->minCodeLength->getValue();
+        return ($this->minCodeLength) ? $this->minCodeLength->getValue() : null;
     }
 
     /**
@@ -209,7 +203,6 @@ class SystemPortalPasscodeRulesModifyRequest extends ComplexType implements Comp
      */
     public function setMaxCodeLength($maxCodeLength = null)
     {
-        if (!$maxCodeLength) return $this;
         $this->maxCodeLength = ($maxCodeLength InstanceOf PasscodeMaxLength)
              ? $maxCodeLength
              : new PasscodeMaxLength($maxCodeLength);
@@ -223,7 +216,7 @@ class SystemPortalPasscodeRulesModifyRequest extends ComplexType implements Comp
      */
     public function getMaxCodeLength()
     {
-        return $this->maxCodeLength->getValue();
+        return ($this->maxCodeLength) ? $this->maxCodeLength->getValue() : null;
     }
 
     /**
@@ -231,7 +224,6 @@ class SystemPortalPasscodeRulesModifyRequest extends ComplexType implements Comp
      */
     public function setDisableLoginAfterMaxFailedLoginAttempts($disableLoginAfterMaxFailedLoginAttempts = null)
     {
-        if (!$disableLoginAfterMaxFailedLoginAttempts) return $this;
         $this->disableLoginAfterMaxFailedLoginAttempts = new PrimitiveType($disableLoginAfterMaxFailedLoginAttempts);
         $this->disableLoginAfterMaxFailedLoginAttempts->setName('disableLoginAfterMaxFailedLoginAttempts');
         return $this;
@@ -243,7 +235,7 @@ class SystemPortalPasscodeRulesModifyRequest extends ComplexType implements Comp
      */
     public function getDisableLoginAfterMaxFailedLoginAttempts()
     {
-        return $this->disableLoginAfterMaxFailedLoginAttempts->getValue();
+        return ($this->disableLoginAfterMaxFailedLoginAttempts) ? $this->disableLoginAfterMaxFailedLoginAttempts->getValue() : null;
     }
 
     /**
@@ -251,7 +243,6 @@ class SystemPortalPasscodeRulesModifyRequest extends ComplexType implements Comp
      */
     public function setMaxFailedLoginAttempts($maxFailedLoginAttempts = null)
     {
-        if (!$maxFailedLoginAttempts) return $this;
         $this->maxFailedLoginAttempts = ($maxFailedLoginAttempts InstanceOf PortalMaxFailedLoginAttempts)
              ? $maxFailedLoginAttempts
              : new PortalMaxFailedLoginAttempts($maxFailedLoginAttempts);
@@ -265,7 +256,7 @@ class SystemPortalPasscodeRulesModifyRequest extends ComplexType implements Comp
      */
     public function getMaxFailedLoginAttempts()
     {
-        return $this->maxFailedLoginAttempts->getValue();
+        return ($this->maxFailedLoginAttempts) ? $this->maxFailedLoginAttempts->getValue() : null;
     }
 
     /**
@@ -273,7 +264,6 @@ class SystemPortalPasscodeRulesModifyRequest extends ComplexType implements Comp
      */
     public function setExpirePassword($expirePassword = null)
     {
-        if (!$expirePassword) return $this;
         $this->expirePassword = new PrimitiveType($expirePassword);
         $this->expirePassword->setName('expirePassword');
         return $this;
@@ -285,7 +275,7 @@ class SystemPortalPasscodeRulesModifyRequest extends ComplexType implements Comp
      */
     public function getExpirePassword()
     {
-        return $this->expirePassword->getValue();
+        return ($this->expirePassword) ? $this->expirePassword->getValue() : null;
     }
 
     /**
@@ -293,7 +283,6 @@ class SystemPortalPasscodeRulesModifyRequest extends ComplexType implements Comp
      */
     public function setPasscodeExpiresDays($passcodeExpiresDays = null)
     {
-        if (!$passcodeExpiresDays) return $this;
         $this->passcodeExpiresDays = ($passcodeExpiresDays InstanceOf PasscodeExpiresDays)
              ? $passcodeExpiresDays
              : new PasscodeExpiresDays($passcodeExpiresDays);
@@ -307,7 +296,7 @@ class SystemPortalPasscodeRulesModifyRequest extends ComplexType implements Comp
      */
     public function getPasscodeExpiresDays()
     {
-        return $this->passcodeExpiresDays->getValue();
+        return ($this->passcodeExpiresDays) ? $this->passcodeExpiresDays->getValue() : null;
     }
 
     /**
@@ -315,7 +304,6 @@ class SystemPortalPasscodeRulesModifyRequest extends ComplexType implements Comp
      */
     public function setSendLoginDisabledNotifyEmail($sendLoginDisabledNotifyEmail = null)
     {
-        if (!$sendLoginDisabledNotifyEmail) return $this;
         $this->sendLoginDisabledNotifyEmail = new PrimitiveType($sendLoginDisabledNotifyEmail);
         $this->sendLoginDisabledNotifyEmail->setName('sendLoginDisabledNotifyEmail');
         return $this;
@@ -327,7 +315,7 @@ class SystemPortalPasscodeRulesModifyRequest extends ComplexType implements Comp
      */
     public function getSendLoginDisabledNotifyEmail()
     {
-        return $this->sendLoginDisabledNotifyEmail->getValue();
+        return ($this->sendLoginDisabledNotifyEmail) ? $this->sendLoginDisabledNotifyEmail->getValue() : null;
     }
 
     /**
@@ -335,7 +323,6 @@ class SystemPortalPasscodeRulesModifyRequest extends ComplexType implements Comp
      */
     public function setLoginDisabledNotifyEmailAddress($loginDisabledNotifyEmailAddress = null)
     {
-        if (!$loginDisabledNotifyEmailAddress) return $this;
         $this->loginDisabledNotifyEmailAddress = ($loginDisabledNotifyEmailAddress InstanceOf EmailAddress)
              ? $loginDisabledNotifyEmailAddress
              : new EmailAddress($loginDisabledNotifyEmailAddress);
@@ -349,7 +336,7 @@ class SystemPortalPasscodeRulesModifyRequest extends ComplexType implements Comp
      */
     public function getLoginDisabledNotifyEmailAddress()
     {
-        return $this->loginDisabledNotifyEmailAddress->getValue();
+        return ($this->loginDisabledNotifyEmailAddress) ? $this->loginDisabledNotifyEmailAddress->getValue() : null;
     }
 
     /**
@@ -357,7 +344,6 @@ class SystemPortalPasscodeRulesModifyRequest extends ComplexType implements Comp
      */
     public function setDefaultPassword($defaultPassword = null)
     {
-        if (!$defaultPassword) return $this;
         $this->defaultPassword = ($defaultPassword InstanceOf Password)
              ? $defaultPassword
              : new Password($defaultPassword);
@@ -371,6 +357,6 @@ class SystemPortalPasscodeRulesModifyRequest extends ComplexType implements Comp
      */
     public function getDefaultPassword()
     {
-        return $this->defaultPassword->getValue();
+        return ($this->defaultPassword) ? $this->defaultPassword->getValue() : null;
     }
 }

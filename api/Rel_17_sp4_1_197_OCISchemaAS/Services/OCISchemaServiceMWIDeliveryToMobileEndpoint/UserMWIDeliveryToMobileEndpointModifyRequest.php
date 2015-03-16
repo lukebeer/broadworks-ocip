@@ -22,13 +22,13 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserMWIDeliveryToMobileEndpointModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name              = 'UserMWIDeliveryToMobileEndpointModifyRequest';
-    protected $userId            = null;
-    protected $isActive          = null;
-    protected $mobilePhoneNumber = null;
+    public    $name = 'UserMWIDeliveryToMobileEndpointModifyRequest';
+    protected $userId;
+    protected $isActive;
+    protected $mobilePhoneNumber;
 
     public function __construct(
-         $userId,
+         $userId = '',
          $isActive = null,
          $mobilePhoneNumber = null
     ) {
@@ -50,7 +50,6 @@ class UserMWIDeliveryToMobileEndpointModifyRequest extends ComplexType implement
      */
     public function setUserId($userId = null)
     {
-        if (!$userId) return $this;
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
@@ -64,7 +63,7 @@ class UserMWIDeliveryToMobileEndpointModifyRequest extends ComplexType implement
      */
     public function getUserId()
     {
-        return $this->userId->getValue();
+        return ($this->userId) ? $this->userId->getValue() : null;
     }
 
     /**
@@ -72,7 +71,6 @@ class UserMWIDeliveryToMobileEndpointModifyRequest extends ComplexType implement
      */
     public function setIsActive($isActive = null)
     {
-        if (!$isActive) return $this;
         $this->isActive = new PrimitiveType($isActive);
         $this->isActive->setName('isActive');
         return $this;
@@ -84,7 +82,7 @@ class UserMWIDeliveryToMobileEndpointModifyRequest extends ComplexType implement
      */
     public function getIsActive()
     {
-        return $this->isActive->getValue();
+        return ($this->isActive) ? $this->isActive->getValue() : null;
     }
 
     /**
@@ -92,7 +90,6 @@ class UserMWIDeliveryToMobileEndpointModifyRequest extends ComplexType implement
      */
     public function setMobilePhoneNumber($mobilePhoneNumber = null)
     {
-        if (!$mobilePhoneNumber) return $this;
         $this->mobilePhoneNumber = ($mobilePhoneNumber InstanceOf DN)
              ? $mobilePhoneNumber
              : new DN($mobilePhoneNumber);
@@ -106,6 +103,6 @@ class UserMWIDeliveryToMobileEndpointModifyRequest extends ComplexType implement
      */
     public function getMobilePhoneNumber()
     {
-        return $this->mobilePhoneNumber->getValue();
+        return ($this->mobilePhoneNumber) ? $this->mobilePhoneNumber->getValue() : null;
     }
 }

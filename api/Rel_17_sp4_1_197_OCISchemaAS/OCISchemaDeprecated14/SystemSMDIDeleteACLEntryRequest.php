@@ -20,11 +20,11 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemSMDIDeleteACLEntryRequest extends ComplexType implements ComplexInterface
 {
-    public    $name       = 'SystemSMDIDeleteACLEntryRequest';
-    protected $netAddress = null;
+    public    $name = 'SystemSMDIDeleteACLEntryRequest';
+    protected $netAddress;
 
     public function __construct(
-         $netAddress
+         $netAddress = ''
     ) {
         $this->setNetAddress($netAddress);
     }
@@ -42,7 +42,6 @@ class SystemSMDIDeleteACLEntryRequest extends ComplexType implements ComplexInte
      */
     public function setNetAddress($netAddress = null)
     {
-        if (!$netAddress) return $this;
         $this->netAddress = ($netAddress InstanceOf NetAddress)
              ? $netAddress
              : new NetAddress($netAddress);
@@ -56,6 +55,6 @@ class SystemSMDIDeleteACLEntryRequest extends ComplexType implements ComplexInte
      */
     public function getNetAddress()
     {
-        return $this->netAddress->getValue();
+        return ($this->netAddress) ? $this->netAddress->getValue() : null;
     }
 }

@@ -19,14 +19,14 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class CallCenterMusicOnHoldSourceRead extends ComplexType implements ComplexInterface
 {
-    public    $name                    = 'CallCenterMusicOnHoldSourceRead';
-    protected $audioFilePreferredCodec = null;
-    protected $messageSourceSelection  = null;
-    protected $customSource            = null;
+    public    $name = 'CallCenterMusicOnHoldSourceRead';
+    protected $audioFilePreferredCodec;
+    protected $messageSourceSelection;
+    protected $customSource;
 
     public function __construct(
-         $audioFilePreferredCodec,
-         $messageSourceSelection,
+         $audioFilePreferredCodec = '',
+         $messageSourceSelection = '',
          $customSource = null
     ) {
         $this->setAudioFilePreferredCodec($audioFilePreferredCodec);
@@ -47,7 +47,6 @@ class CallCenterMusicOnHoldSourceRead extends ComplexType implements ComplexInte
      */
     public function setAudioFilePreferredCodec($audioFilePreferredCodec = null)
     {
-        if (!$audioFilePreferredCodec) return $this;
         $this->audioFilePreferredCodec = new SimpleContent($audioFilePreferredCodec);
         $this->audioFilePreferredCodec->setName('audioFilePreferredCodec');
         return $this;
@@ -59,7 +58,7 @@ class CallCenterMusicOnHoldSourceRead extends ComplexType implements ComplexInte
      */
     public function getAudioFilePreferredCodec()
     {
-        return $this->audioFilePreferredCodec->getValue();
+        return ($this->audioFilePreferredCodec) ? $this->audioFilePreferredCodec->getValue() : null;
     }
 
     /**
@@ -67,7 +66,6 @@ class CallCenterMusicOnHoldSourceRead extends ComplexType implements ComplexInte
      */
     public function setMessageSourceSelection($messageSourceSelection = null)
     {
-        if (!$messageSourceSelection) return $this;
         $this->messageSourceSelection = new SimpleContent($messageSourceSelection);
         $this->messageSourceSelection->setName('messageSourceSelection');
         return $this;
@@ -79,7 +77,7 @@ class CallCenterMusicOnHoldSourceRead extends ComplexType implements ComplexInte
      */
     public function getMessageSourceSelection()
     {
-        return $this->messageSourceSelection->getValue();
+        return ($this->messageSourceSelection) ? $this->messageSourceSelection->getValue() : null;
     }
 
     /**
@@ -87,7 +85,6 @@ class CallCenterMusicOnHoldSourceRead extends ComplexType implements ComplexInte
      */
     public function setCustomSource($customSource = null)
     {
-        if (!$customSource) return $this;
         $this->customSource = new SimpleContent($customSource);
         $this->customSource->setName('customSource');
         return $this;
@@ -99,6 +96,6 @@ class CallCenterMusicOnHoldSourceRead extends ComplexType implements ComplexInte
      */
     public function getCustomSource()
     {
-        return $this->customSource->getValue();
+        return ($this->customSource) ? $this->customSource->getValue() : null;
     }
 }

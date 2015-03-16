@@ -21,8 +21,8 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderInCallServiceActivationGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name             = 'ServiceProviderInCallServiceActivationGetResponse';
-    protected $activationDigits = null;
+    public    $name = 'ServiceProviderInCallServiceActivationGetResponse';
+    protected $activationDigits;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\ServiceProviderInCallServiceActivationGetResponse $response
@@ -37,7 +37,6 @@ class ServiceProviderInCallServiceActivationGetResponse extends ComplexType impl
      */
     public function setActivationDigits($activationDigits = null)
     {
-        if (!$activationDigits) return $this;
         $this->activationDigits = ($activationDigits InstanceOf InCallServiceActivationDigits)
              ? $activationDigits
              : new InCallServiceActivationDigits($activationDigits);
@@ -51,6 +50,6 @@ class ServiceProviderInCallServiceActivationGetResponse extends ComplexType impl
      */
     public function getActivationDigits()
     {
-        return $this->activationDigits->getValue();
+        return ($this->activationDigits) ? $this->activationDigits->getValue() : null;
     }
 }

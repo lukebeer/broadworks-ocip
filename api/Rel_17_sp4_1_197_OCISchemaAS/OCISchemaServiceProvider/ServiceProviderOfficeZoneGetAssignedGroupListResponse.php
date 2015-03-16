@@ -19,8 +19,8 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderOfficeZoneGetAssignedGroupListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name       = 'ServiceProviderOfficeZoneGetAssignedGroupListResponse';
-    protected $groupTable = null;
+    public    $name = 'ServiceProviderOfficeZoneGetAssignedGroupListResponse';
+    protected $groupTable;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderOfficeZoneGetAssignedGroupListResponse $response
@@ -35,7 +35,6 @@ class ServiceProviderOfficeZoneGetAssignedGroupListResponse extends ComplexType 
      */
     public function setGroupTable(TableType $groupTable = null)
     {
-        if (!$groupTable) return $this;
         $this->groupTable = $groupTable;
         $this->groupTable->setName('groupTable');
         return $this;

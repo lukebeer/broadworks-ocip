@@ -19,8 +19,8 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemMigratedUsersGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name   = 'SystemMigratedUsersGetListResponse';
-    protected $userId = null;
+    public    $name = 'SystemMigratedUsersGetListResponse';
+    protected $userId;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemMigratedUsersGetListResponse $response
@@ -35,7 +35,6 @@ class SystemMigratedUsersGetListResponse extends ComplexType implements ComplexI
      */
     public function setUserId($userId = null)
     {
-        if (!$userId) return $this;
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
@@ -49,6 +48,6 @@ class SystemMigratedUsersGetListResponse extends ComplexType implements ComplexI
      */
     public function getUserId()
     {
-        return $this->userId->getValue();
+        return ($this->userId) ? $this->userId->getValue() : null;
     }
 }

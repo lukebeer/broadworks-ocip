@@ -26,16 +26,16 @@ use Broadworks_OCIP\core\Client\Client;
 class ServiceProviderRoutePointExternalSystemGetAssignedGroupListRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType            = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderRoutePointExternalSystemGetAssignedGroupListResponse';
-    public    $name                    = 'ServiceProviderRoutePointExternalSystemGetAssignedGroupListRequest';
-    protected $serviceProviderId       = null;
-    protected $externalSystem          = null;
-    protected $responseSizeLimit       = null;
-    protected $searchCriteriaGroupId   = null;
-    protected $searchCriteriaGroupName = null;
+    public    $name = 'ServiceProviderRoutePointExternalSystemGetAssignedGroupListRequest';
+    protected $serviceProviderId;
+    protected $externalSystem;
+    protected $responseSizeLimit;
+    protected $searchCriteriaGroupId;
+    protected $searchCriteriaGroupName;
 
     public function __construct(
-         $serviceProviderId,
-         $externalSystem,
+         $serviceProviderId = '',
+         $externalSystem = '',
          $responseSizeLimit = null,
          SearchCriteriaGroupId $searchCriteriaGroupId = null,
          SearchCriteriaGroupName $searchCriteriaGroupName = null
@@ -60,7 +60,6 @@ class ServiceProviderRoutePointExternalSystemGetAssignedGroupListRequest extends
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
-        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
@@ -74,7 +73,7 @@ class ServiceProviderRoutePointExternalSystemGetAssignedGroupListRequest extends
      */
     public function getServiceProviderId()
     {
-        return $this->serviceProviderId->getValue();
+        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
     }
 
     /**
@@ -82,7 +81,6 @@ class ServiceProviderRoutePointExternalSystemGetAssignedGroupListRequest extends
      */
     public function setExternalSystem($externalSystem = null)
     {
-        if (!$externalSystem) return $this;
         $this->externalSystem = ($externalSystem InstanceOf RoutePointExternalSystem)
              ? $externalSystem
              : new RoutePointExternalSystem($externalSystem);
@@ -96,7 +94,7 @@ class ServiceProviderRoutePointExternalSystemGetAssignedGroupListRequest extends
      */
     public function getExternalSystem()
     {
-        return $this->externalSystem->getValue();
+        return ($this->externalSystem) ? $this->externalSystem->getValue() : null;
     }
 
     /**
@@ -104,7 +102,6 @@ class ServiceProviderRoutePointExternalSystemGetAssignedGroupListRequest extends
      */
     public function setResponseSizeLimit($responseSizeLimit = null)
     {
-        if (!$responseSizeLimit) return $this;
         $this->responseSizeLimit = ($responseSizeLimit InstanceOf ResponseSizeLimit)
              ? $responseSizeLimit
              : new ResponseSizeLimit($responseSizeLimit);
@@ -118,7 +115,7 @@ class ServiceProviderRoutePointExternalSystemGetAssignedGroupListRequest extends
      */
     public function getResponseSizeLimit()
     {
-        return $this->responseSizeLimit->getValue();
+        return ($this->responseSizeLimit) ? $this->responseSizeLimit->getValue() : null;
     }
 
     /**
@@ -126,7 +123,6 @@ class ServiceProviderRoutePointExternalSystemGetAssignedGroupListRequest extends
      */
     public function setSearchCriteriaGroupId(SearchCriteriaGroupId $searchCriteriaGroupId = null)
     {
-        if (!$searchCriteriaGroupId) return $this;
         $this->searchCriteriaGroupId = ($searchCriteriaGroupId InstanceOf SearchCriteriaGroupId)
              ? $searchCriteriaGroupId
              : new SearchCriteriaGroupId($searchCriteriaGroupId);
@@ -148,7 +144,6 @@ class ServiceProviderRoutePointExternalSystemGetAssignedGroupListRequest extends
      */
     public function setSearchCriteriaGroupName(SearchCriteriaGroupName $searchCriteriaGroupName = null)
     {
-        if (!$searchCriteriaGroupName) return $this;
         $this->searchCriteriaGroupName = ($searchCriteriaGroupName InstanceOf SearchCriteriaGroupName)
              ? $searchCriteriaGroupName
              : new SearchCriteriaGroupName($searchCriteriaGroupName);

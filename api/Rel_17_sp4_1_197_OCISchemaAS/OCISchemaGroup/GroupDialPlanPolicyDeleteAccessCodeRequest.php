@@ -21,15 +21,15 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupDialPlanPolicyDeleteAccessCodeRequest extends ComplexType implements ComplexInterface
 {
-    public    $name              = 'GroupDialPlanPolicyDeleteAccessCodeRequest';
-    protected $serviceProviderId = null;
-    protected $groupId           = null;
-    protected $accessCode        = null;
+    public    $name = 'GroupDialPlanPolicyDeleteAccessCodeRequest';
+    protected $serviceProviderId;
+    protected $groupId;
+    protected $accessCode;
 
     public function __construct(
-         $serviceProviderId,
-         $groupId,
-         $accessCode
+         $serviceProviderId = '',
+         $groupId = '',
+         $accessCode = ''
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setGroupId($groupId);
@@ -49,7 +49,6 @@ class GroupDialPlanPolicyDeleteAccessCodeRequest extends ComplexType implements 
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
-        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
@@ -63,7 +62,7 @@ class GroupDialPlanPolicyDeleteAccessCodeRequest extends ComplexType implements 
      */
     public function getServiceProviderId()
     {
-        return $this->serviceProviderId->getValue();
+        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
     }
 
     /**
@@ -71,7 +70,6 @@ class GroupDialPlanPolicyDeleteAccessCodeRequest extends ComplexType implements 
      */
     public function setGroupId($groupId = null)
     {
-        if (!$groupId) return $this;
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
@@ -85,7 +83,7 @@ class GroupDialPlanPolicyDeleteAccessCodeRequest extends ComplexType implements 
      */
     public function getGroupId()
     {
-        return $this->groupId->getValue();
+        return ($this->groupId) ? $this->groupId->getValue() : null;
     }
 
     /**
@@ -93,7 +91,6 @@ class GroupDialPlanPolicyDeleteAccessCodeRequest extends ComplexType implements 
      */
     public function setAccessCode($accessCode = null)
     {
-        if (!$accessCode) return $this;
         $this->accessCode = ($accessCode InstanceOf DialPlanAccessCode)
              ? $accessCode
              : new DialPlanAccessCode($accessCode);
@@ -107,6 +104,6 @@ class GroupDialPlanPolicyDeleteAccessCodeRequest extends ComplexType implements 
      */
     public function getAccessCode()
     {
-        return $this->accessCode->getValue();
+        return ($this->accessCode) ? $this->accessCode->getValue() : null;
     }
 }

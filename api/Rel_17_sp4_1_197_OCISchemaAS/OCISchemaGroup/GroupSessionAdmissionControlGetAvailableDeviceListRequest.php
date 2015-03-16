@@ -28,19 +28,19 @@ use Broadworks_OCIP\core\Client\Client;
 class GroupSessionAdmissionControlGetAvailableDeviceListRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType                   = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupSessionAdmissionControlGetAvailableDeviceListResponse';
-    public    $name                           = 'GroupSessionAdmissionControlGetAvailableDeviceListRequest';
-    protected $serviceProviderId              = null;
-    protected $groupId                        = null;
-    protected $responseSizeLimit              = null;
-    protected $searchCriteriaDeviceName       = null;
-    protected $searchCriteriaDeviceMACAddress = null;
-    protected $searchCriteriaDeviceNetAddress = null;
-    protected $searchCriteriaExactDeviceType  = null;
-    protected $searchCriteriaExactDeviceLevel = null;
+    public    $name = 'GroupSessionAdmissionControlGetAvailableDeviceListRequest';
+    protected $serviceProviderId;
+    protected $groupId;
+    protected $responseSizeLimit;
+    protected $searchCriteriaDeviceName;
+    protected $searchCriteriaDeviceMACAddress;
+    protected $searchCriteriaDeviceNetAddress;
+    protected $searchCriteriaExactDeviceType;
+    protected $searchCriteriaExactDeviceLevel;
 
     public function __construct(
-         $serviceProviderId,
-         $groupId,
+         $serviceProviderId = '',
+         $groupId = '',
          $responseSizeLimit = null,
          SearchCriteriaDeviceName $searchCriteriaDeviceName = null,
          SearchCriteriaDeviceMACAddress $searchCriteriaDeviceMACAddress = null,
@@ -71,7 +71,6 @@ class GroupSessionAdmissionControlGetAvailableDeviceListRequest extends ComplexT
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
-        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
@@ -85,7 +84,7 @@ class GroupSessionAdmissionControlGetAvailableDeviceListRequest extends ComplexT
      */
     public function getServiceProviderId()
     {
-        return $this->serviceProviderId->getValue();
+        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
     }
 
     /**
@@ -93,7 +92,6 @@ class GroupSessionAdmissionControlGetAvailableDeviceListRequest extends ComplexT
      */
     public function setGroupId($groupId = null)
     {
-        if (!$groupId) return $this;
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
@@ -107,7 +105,7 @@ class GroupSessionAdmissionControlGetAvailableDeviceListRequest extends ComplexT
      */
     public function getGroupId()
     {
-        return $this->groupId->getValue();
+        return ($this->groupId) ? $this->groupId->getValue() : null;
     }
 
     /**
@@ -115,7 +113,6 @@ class GroupSessionAdmissionControlGetAvailableDeviceListRequest extends ComplexT
      */
     public function setResponseSizeLimit($responseSizeLimit = null)
     {
-        if (!$responseSizeLimit) return $this;
         $this->responseSizeLimit = ($responseSizeLimit InstanceOf ResponseSizeLimit)
              ? $responseSizeLimit
              : new ResponseSizeLimit($responseSizeLimit);
@@ -129,7 +126,7 @@ class GroupSessionAdmissionControlGetAvailableDeviceListRequest extends ComplexT
      */
     public function getResponseSizeLimit()
     {
-        return $this->responseSizeLimit->getValue();
+        return ($this->responseSizeLimit) ? $this->responseSizeLimit->getValue() : null;
     }
 
     /**
@@ -137,7 +134,6 @@ class GroupSessionAdmissionControlGetAvailableDeviceListRequest extends ComplexT
      */
     public function setSearchCriteriaDeviceName(SearchCriteriaDeviceName $searchCriteriaDeviceName = null)
     {
-        if (!$searchCriteriaDeviceName) return $this;
         $this->searchCriteriaDeviceName = ($searchCriteriaDeviceName InstanceOf SearchCriteriaDeviceName)
              ? $searchCriteriaDeviceName
              : new SearchCriteriaDeviceName($searchCriteriaDeviceName);
@@ -159,7 +155,6 @@ class GroupSessionAdmissionControlGetAvailableDeviceListRequest extends ComplexT
      */
     public function setSearchCriteriaDeviceMACAddress(SearchCriteriaDeviceMACAddress $searchCriteriaDeviceMACAddress = null)
     {
-        if (!$searchCriteriaDeviceMACAddress) return $this;
         $this->searchCriteriaDeviceMACAddress = ($searchCriteriaDeviceMACAddress InstanceOf SearchCriteriaDeviceMACAddress)
              ? $searchCriteriaDeviceMACAddress
              : new SearchCriteriaDeviceMACAddress($searchCriteriaDeviceMACAddress);
@@ -181,7 +176,6 @@ class GroupSessionAdmissionControlGetAvailableDeviceListRequest extends ComplexT
      */
     public function setSearchCriteriaDeviceNetAddress(SearchCriteriaDeviceNetAddress $searchCriteriaDeviceNetAddress = null)
     {
-        if (!$searchCriteriaDeviceNetAddress) return $this;
         $this->searchCriteriaDeviceNetAddress = ($searchCriteriaDeviceNetAddress InstanceOf SearchCriteriaDeviceNetAddress)
              ? $searchCriteriaDeviceNetAddress
              : new SearchCriteriaDeviceNetAddress($searchCriteriaDeviceNetAddress);
@@ -203,7 +197,6 @@ class GroupSessionAdmissionControlGetAvailableDeviceListRequest extends ComplexT
      */
     public function setSearchCriteriaExactDeviceType(SearchCriteriaExactDeviceType $searchCriteriaExactDeviceType = null)
     {
-        if (!$searchCriteriaExactDeviceType) return $this;
         $this->searchCriteriaExactDeviceType = ($searchCriteriaExactDeviceType InstanceOf SearchCriteriaExactDeviceType)
              ? $searchCriteriaExactDeviceType
              : new SearchCriteriaExactDeviceType($searchCriteriaExactDeviceType);
@@ -225,7 +218,6 @@ class GroupSessionAdmissionControlGetAvailableDeviceListRequest extends ComplexT
      */
     public function setSearchCriteriaExactDeviceLevel(SearchCriteriaExactDeviceLevel $searchCriteriaExactDeviceLevel = null)
     {
-        if (!$searchCriteriaExactDeviceLevel) return $this;
         $this->searchCriteriaExactDeviceLevel = ($searchCriteriaExactDeviceLevel InstanceOf SearchCriteriaExactDeviceLevel)
              ? $searchCriteriaExactDeviceLevel
              : new SearchCriteriaExactDeviceLevel($searchCriteriaExactDeviceLevel);

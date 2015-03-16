@@ -27,21 +27,21 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserVoiceMessagingUserModifyAdvancedVoiceManagementRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                                = 'UserVoiceMessagingUserModifyAdvancedVoiceManagementRequest';
-    protected $userId                              = null;
-    protected $mailServerSelection                 = null;
-    protected $groupMailServerEmailAddress         = null;
-    protected $groupMailServerUserId               = null;
-    protected $groupMailServerPassword             = null;
-    protected $personalMailServerNetAddress        = null;
-    protected $personalMailServerProtocol          = null;
-    protected $personalMailServerRealDeleteForImap = null;
-    protected $personalMailServerEmailAddress      = null;
-    protected $personalMailServerUserId            = null;
-    protected $personalMailServerPassword          = null;
+    public    $name = 'UserVoiceMessagingUserModifyAdvancedVoiceManagementRequest';
+    protected $userId;
+    protected $mailServerSelection;
+    protected $groupMailServerEmailAddress;
+    protected $groupMailServerUserId;
+    protected $groupMailServerPassword;
+    protected $personalMailServerNetAddress;
+    protected $personalMailServerProtocol;
+    protected $personalMailServerRealDeleteForImap;
+    protected $personalMailServerEmailAddress;
+    protected $personalMailServerUserId;
+    protected $personalMailServerPassword;
 
     public function __construct(
-         $userId,
+         $userId = '',
          $mailServerSelection = null,
          $groupMailServerEmailAddress = null,
          $groupMailServerUserId = null,
@@ -79,7 +79,6 @@ class UserVoiceMessagingUserModifyAdvancedVoiceManagementRequest extends Complex
      */
     public function setUserId($userId = null)
     {
-        if (!$userId) return $this;
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
@@ -93,7 +92,7 @@ class UserVoiceMessagingUserModifyAdvancedVoiceManagementRequest extends Complex
      */
     public function getUserId()
     {
-        return $this->userId->getValue();
+        return ($this->userId) ? $this->userId->getValue() : null;
     }
 
     /**
@@ -101,7 +100,6 @@ class UserVoiceMessagingUserModifyAdvancedVoiceManagementRequest extends Complex
      */
     public function setMailServerSelection($mailServerSelection = null)
     {
-        if (!$mailServerSelection) return $this;
         $this->mailServerSelection = ($mailServerSelection InstanceOf VoiceMessagingUserMailServerSelection)
              ? $mailServerSelection
              : new VoiceMessagingUserMailServerSelection($mailServerSelection);
@@ -115,7 +113,7 @@ class UserVoiceMessagingUserModifyAdvancedVoiceManagementRequest extends Complex
      */
     public function getMailServerSelection()
     {
-        return $this->mailServerSelection->getValue();
+        return ($this->mailServerSelection) ? $this->mailServerSelection->getValue() : null;
     }
 
     /**
@@ -123,7 +121,6 @@ class UserVoiceMessagingUserModifyAdvancedVoiceManagementRequest extends Complex
      */
     public function setGroupMailServerEmailAddress($groupMailServerEmailAddress = null)
     {
-        if (!$groupMailServerEmailAddress) return $this;
         $this->groupMailServerEmailAddress = ($groupMailServerEmailAddress InstanceOf EmailAddress)
              ? $groupMailServerEmailAddress
              : new EmailAddress($groupMailServerEmailAddress);
@@ -137,7 +134,7 @@ class UserVoiceMessagingUserModifyAdvancedVoiceManagementRequest extends Complex
      */
     public function getGroupMailServerEmailAddress()
     {
-        return $this->groupMailServerEmailAddress->getValue();
+        return ($this->groupMailServerEmailAddress) ? $this->groupMailServerEmailAddress->getValue() : null;
     }
 
     /**
@@ -145,7 +142,6 @@ class UserVoiceMessagingUserModifyAdvancedVoiceManagementRequest extends Complex
      */
     public function setGroupMailServerUserId($groupMailServerUserId = null)
     {
-        if (!$groupMailServerUserId) return $this;
         $this->groupMailServerUserId = ($groupMailServerUserId InstanceOf VoiceMessagingMailServerUserId)
              ? $groupMailServerUserId
              : new VoiceMessagingMailServerUserId($groupMailServerUserId);
@@ -159,7 +155,7 @@ class UserVoiceMessagingUserModifyAdvancedVoiceManagementRequest extends Complex
      */
     public function getGroupMailServerUserId()
     {
-        return $this->groupMailServerUserId->getValue();
+        return ($this->groupMailServerUserId) ? $this->groupMailServerUserId->getValue() : null;
     }
 
     /**
@@ -167,7 +163,6 @@ class UserVoiceMessagingUserModifyAdvancedVoiceManagementRequest extends Complex
      */
     public function setGroupMailServerPassword($groupMailServerPassword = null)
     {
-        if (!$groupMailServerPassword) return $this;
         $this->groupMailServerPassword = ($groupMailServerPassword InstanceOf Password)
              ? $groupMailServerPassword
              : new Password($groupMailServerPassword);
@@ -181,7 +176,7 @@ class UserVoiceMessagingUserModifyAdvancedVoiceManagementRequest extends Complex
      */
     public function getGroupMailServerPassword()
     {
-        return $this->groupMailServerPassword->getValue();
+        return ($this->groupMailServerPassword) ? $this->groupMailServerPassword->getValue() : null;
     }
 
     /**
@@ -189,7 +184,6 @@ class UserVoiceMessagingUserModifyAdvancedVoiceManagementRequest extends Complex
      */
     public function setPersonalMailServerNetAddress($personalMailServerNetAddress = null)
     {
-        if (!$personalMailServerNetAddress) return $this;
         $this->personalMailServerNetAddress = ($personalMailServerNetAddress InstanceOf NetAddress)
              ? $personalMailServerNetAddress
              : new NetAddress($personalMailServerNetAddress);
@@ -203,7 +197,7 @@ class UserVoiceMessagingUserModifyAdvancedVoiceManagementRequest extends Complex
      */
     public function getPersonalMailServerNetAddress()
     {
-        return $this->personalMailServerNetAddress->getValue();
+        return ($this->personalMailServerNetAddress) ? $this->personalMailServerNetAddress->getValue() : null;
     }
 
     /**
@@ -211,7 +205,6 @@ class UserVoiceMessagingUserModifyAdvancedVoiceManagementRequest extends Complex
      */
     public function setPersonalMailServerProtocol($personalMailServerProtocol = null)
     {
-        if (!$personalMailServerProtocol) return $this;
         $this->personalMailServerProtocol = ($personalMailServerProtocol InstanceOf VoiceMessagingMailServerProtocol)
              ? $personalMailServerProtocol
              : new VoiceMessagingMailServerProtocol($personalMailServerProtocol);
@@ -225,7 +218,7 @@ class UserVoiceMessagingUserModifyAdvancedVoiceManagementRequest extends Complex
      */
     public function getPersonalMailServerProtocol()
     {
-        return $this->personalMailServerProtocol->getValue();
+        return ($this->personalMailServerProtocol) ? $this->personalMailServerProtocol->getValue() : null;
     }
 
     /**
@@ -233,7 +226,6 @@ class UserVoiceMessagingUserModifyAdvancedVoiceManagementRequest extends Complex
      */
     public function setPersonalMailServerRealDeleteForImap($personalMailServerRealDeleteForImap = null)
     {
-        if (!$personalMailServerRealDeleteForImap) return $this;
         $this->personalMailServerRealDeleteForImap = new PrimitiveType($personalMailServerRealDeleteForImap);
         $this->personalMailServerRealDeleteForImap->setName('personalMailServerRealDeleteForImap');
         return $this;
@@ -245,7 +237,7 @@ class UserVoiceMessagingUserModifyAdvancedVoiceManagementRequest extends Complex
      */
     public function getPersonalMailServerRealDeleteForImap()
     {
-        return $this->personalMailServerRealDeleteForImap->getValue();
+        return ($this->personalMailServerRealDeleteForImap) ? $this->personalMailServerRealDeleteForImap->getValue() : null;
     }
 
     /**
@@ -253,7 +245,6 @@ class UserVoiceMessagingUserModifyAdvancedVoiceManagementRequest extends Complex
      */
     public function setPersonalMailServerEmailAddress($personalMailServerEmailAddress = null)
     {
-        if (!$personalMailServerEmailAddress) return $this;
         $this->personalMailServerEmailAddress = ($personalMailServerEmailAddress InstanceOf EmailAddress)
              ? $personalMailServerEmailAddress
              : new EmailAddress($personalMailServerEmailAddress);
@@ -267,7 +258,7 @@ class UserVoiceMessagingUserModifyAdvancedVoiceManagementRequest extends Complex
      */
     public function getPersonalMailServerEmailAddress()
     {
-        return $this->personalMailServerEmailAddress->getValue();
+        return ($this->personalMailServerEmailAddress) ? $this->personalMailServerEmailAddress->getValue() : null;
     }
 
     /**
@@ -275,7 +266,6 @@ class UserVoiceMessagingUserModifyAdvancedVoiceManagementRequest extends Complex
      */
     public function setPersonalMailServerUserId($personalMailServerUserId = null)
     {
-        if (!$personalMailServerUserId) return $this;
         $this->personalMailServerUserId = ($personalMailServerUserId InstanceOf VoiceMessagingMailServerUserId)
              ? $personalMailServerUserId
              : new VoiceMessagingMailServerUserId($personalMailServerUserId);
@@ -289,7 +279,7 @@ class UserVoiceMessagingUserModifyAdvancedVoiceManagementRequest extends Complex
      */
     public function getPersonalMailServerUserId()
     {
-        return $this->personalMailServerUserId->getValue();
+        return ($this->personalMailServerUserId) ? $this->personalMailServerUserId->getValue() : null;
     }
 
     /**
@@ -297,7 +287,6 @@ class UserVoiceMessagingUserModifyAdvancedVoiceManagementRequest extends Complex
      */
     public function setPersonalMailServerPassword($personalMailServerPassword = null)
     {
-        if (!$personalMailServerPassword) return $this;
         $this->personalMailServerPassword = ($personalMailServerPassword InstanceOf Password)
              ? $personalMailServerPassword
              : new Password($personalMailServerPassword);
@@ -311,6 +300,6 @@ class UserVoiceMessagingUserModifyAdvancedVoiceManagementRequest extends Complex
      */
     public function getPersonalMailServerPassword()
     {
-        return $this->personalMailServerPassword->getValue();
+        return ($this->personalMailServerPassword) ? $this->personalMailServerPassword->getValue() : null;
     }
 }

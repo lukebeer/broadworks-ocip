@@ -22,13 +22,13 @@ use Broadworks_OCIP\core\Client\Client;
 class EnterpriseEnterpriseTrunkGetRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType        = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceTrunkGroup\EnterpriseEnterpriseTrunkGetResponse';
-    public    $name                = 'EnterpriseEnterpriseTrunkGetRequest';
-    protected $serviceProviderId   = null;
-    protected $enterpriseTrunkName = null;
+    public    $name = 'EnterpriseEnterpriseTrunkGetRequest';
+    protected $serviceProviderId;
+    protected $enterpriseTrunkName;
 
     public function __construct(
-         $serviceProviderId,
-         $enterpriseTrunkName
+         $serviceProviderId = '',
+         $enterpriseTrunkName = ''
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setEnterpriseTrunkName($enterpriseTrunkName);
@@ -47,7 +47,6 @@ class EnterpriseEnterpriseTrunkGetRequest extends ComplexType implements Complex
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
-        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
@@ -61,7 +60,7 @@ class EnterpriseEnterpriseTrunkGetRequest extends ComplexType implements Complex
      */
     public function getServiceProviderId()
     {
-        return $this->serviceProviderId->getValue();
+        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
     }
 
     /**
@@ -69,7 +68,6 @@ class EnterpriseEnterpriseTrunkGetRequest extends ComplexType implements Complex
      */
     public function setEnterpriseTrunkName($enterpriseTrunkName = null)
     {
-        if (!$enterpriseTrunkName) return $this;
         $this->enterpriseTrunkName = ($enterpriseTrunkName InstanceOf EnterpriseTrunkName)
              ? $enterpriseTrunkName
              : new EnterpriseTrunkName($enterpriseTrunkName);
@@ -83,6 +81,6 @@ class EnterpriseEnterpriseTrunkGetRequest extends ComplexType implements Complex
      */
     public function getEnterpriseTrunkName()
     {
-        return $this->enterpriseTrunkName->getValue();
+        return ($this->enterpriseTrunkName) ? $this->enterpriseTrunkName->getValue() : null;
     }
 }

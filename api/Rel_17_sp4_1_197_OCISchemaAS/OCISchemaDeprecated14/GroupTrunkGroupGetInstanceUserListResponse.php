@@ -21,8 +21,8 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupTrunkGroupGetInstanceUserListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                = 'GroupTrunkGroupGetInstanceUserListResponse';
-    protected $trunkGroupUserTable = null;
+    public    $name = 'GroupTrunkGroupGetInstanceUserListResponse';
+    protected $trunkGroupUserTable;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\GroupTrunkGroupGetInstanceUserListResponse $response
@@ -37,7 +37,6 @@ class GroupTrunkGroupGetInstanceUserListResponse extends ComplexType implements 
      */
     public function setTrunkGroupUserTable(TableType $trunkGroupUserTable = null)
     {
-        if (!$trunkGroupUserTable) return $this;
         $this->trunkGroupUserTable = $trunkGroupUserTable;
         $this->trunkGroupUserTable->setName('trunkGroupUserTable');
         return $this;

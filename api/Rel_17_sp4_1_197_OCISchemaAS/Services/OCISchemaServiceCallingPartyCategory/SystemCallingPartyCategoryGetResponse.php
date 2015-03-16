@@ -24,16 +24,16 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemCallingPartyCategoryGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name          = 'SystemCallingPartyCategoryGetResponse';
-    protected $cpcValue      = null;
-    protected $isupOliValue  = null;
-    protected $gtdOliValue   = null;
-    protected $userCategory  = null;
-    protected $payPhone      = null;
-    protected $operator      = null;
-    protected $default       = null;
-    protected $collectCall   = null;
-    protected $webDisplayKey = null;
+    public    $name = 'SystemCallingPartyCategoryGetResponse';
+    protected $cpcValue;
+    protected $isupOliValue;
+    protected $gtdOliValue;
+    protected $userCategory;
+    protected $payPhone;
+    protected $operator;
+    protected $default;
+    protected $collectCall;
+    protected $webDisplayKey;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallingPartyCategory\SystemCallingPartyCategoryGetResponse $response
@@ -48,7 +48,6 @@ class SystemCallingPartyCategoryGetResponse extends ComplexType implements Compl
      */
     public function setCpcValue($cpcValue = null)
     {
-        if (!$cpcValue) return $this;
         $this->cpcValue = ($cpcValue InstanceOf CallingPartyCategoryValue)
              ? $cpcValue
              : new CallingPartyCategoryValue($cpcValue);
@@ -62,7 +61,7 @@ class SystemCallingPartyCategoryGetResponse extends ComplexType implements Compl
      */
     public function getCpcValue()
     {
-        return $this->cpcValue->getValue();
+        return ($this->cpcValue) ? $this->cpcValue->getValue() : null;
     }
 
     /**
@@ -70,7 +69,6 @@ class SystemCallingPartyCategoryGetResponse extends ComplexType implements Compl
      */
     public function setIsupOliValue($isupOliValue = null)
     {
-        if (!$isupOliValue) return $this;
         $this->isupOliValue = ($isupOliValue InstanceOf ISDNUserPartOriginatingLineInformationValue)
              ? $isupOliValue
              : new ISDNUserPartOriginatingLineInformationValue($isupOliValue);
@@ -84,7 +82,7 @@ class SystemCallingPartyCategoryGetResponse extends ComplexType implements Compl
      */
     public function getIsupOliValue()
     {
-        return $this->isupOliValue->getValue();
+        return ($this->isupOliValue) ? $this->isupOliValue->getValue() : null;
     }
 
     /**
@@ -92,7 +90,6 @@ class SystemCallingPartyCategoryGetResponse extends ComplexType implements Compl
      */
     public function setGtdOliValue($gtdOliValue = null)
     {
-        if (!$gtdOliValue) return $this;
         $this->gtdOliValue = ($gtdOliValue InstanceOf ISDNGenericTransparencyDescriptorOliValue)
              ? $gtdOliValue
              : new ISDNGenericTransparencyDescriptorOliValue($gtdOliValue);
@@ -106,7 +103,7 @@ class SystemCallingPartyCategoryGetResponse extends ComplexType implements Compl
      */
     public function getGtdOliValue()
     {
-        return $this->gtdOliValue->getValue();
+        return ($this->gtdOliValue) ? $this->gtdOliValue->getValue() : null;
     }
 
     /**
@@ -114,7 +111,6 @@ class SystemCallingPartyCategoryGetResponse extends ComplexType implements Compl
      */
     public function setUserCategory($userCategory = null)
     {
-        if (!$userCategory) return $this;
         $this->userCategory = new PrimitiveType($userCategory);
         $this->userCategory->setName('userCategory');
         return $this;
@@ -126,7 +122,7 @@ class SystemCallingPartyCategoryGetResponse extends ComplexType implements Compl
      */
     public function getUserCategory()
     {
-        return $this->userCategory->getValue();
+        return ($this->userCategory) ? $this->userCategory->getValue() : null;
     }
 
     /**
@@ -134,7 +130,6 @@ class SystemCallingPartyCategoryGetResponse extends ComplexType implements Compl
      */
     public function setPayPhone($payPhone = null)
     {
-        if (!$payPhone) return $this;
         $this->payPhone = new PrimitiveType($payPhone);
         $this->payPhone->setName('payPhone');
         return $this;
@@ -146,7 +141,7 @@ class SystemCallingPartyCategoryGetResponse extends ComplexType implements Compl
      */
     public function getPayPhone()
     {
-        return $this->payPhone->getValue();
+        return ($this->payPhone) ? $this->payPhone->getValue() : null;
     }
 
     /**
@@ -154,7 +149,6 @@ class SystemCallingPartyCategoryGetResponse extends ComplexType implements Compl
      */
     public function setOperator($operator = null)
     {
-        if (!$operator) return $this;
         $this->operator = new PrimitiveType($operator);
         $this->operator->setName('operator');
         return $this;
@@ -166,7 +160,7 @@ class SystemCallingPartyCategoryGetResponse extends ComplexType implements Compl
      */
     public function getOperator()
     {
-        return $this->operator->getValue();
+        return ($this->operator) ? $this->operator->getValue() : null;
     }
 
     /**
@@ -174,7 +168,6 @@ class SystemCallingPartyCategoryGetResponse extends ComplexType implements Compl
      */
     public function setDefault($default = null)
     {
-        if (!$default) return $this;
         $this->default = new PrimitiveType($default);
         $this->default->setName('default');
         return $this;
@@ -186,7 +179,7 @@ class SystemCallingPartyCategoryGetResponse extends ComplexType implements Compl
      */
     public function getDefault()
     {
-        return $this->default->getValue();
+        return ($this->default) ? $this->default->getValue() : null;
     }
 
     /**
@@ -194,7 +187,6 @@ class SystemCallingPartyCategoryGetResponse extends ComplexType implements Compl
      */
     public function setCollectCall($collectCall = null)
     {
-        if (!$collectCall) return $this;
         $this->collectCall = new PrimitiveType($collectCall);
         $this->collectCall->setName('collectCall');
         return $this;
@@ -206,7 +198,7 @@ class SystemCallingPartyCategoryGetResponse extends ComplexType implements Compl
      */
     public function getCollectCall()
     {
-        return $this->collectCall->getValue();
+        return ($this->collectCall) ? $this->collectCall->getValue() : null;
     }
 
     /**
@@ -214,7 +206,6 @@ class SystemCallingPartyCategoryGetResponse extends ComplexType implements Compl
      */
     public function setWebDisplayKey($webDisplayKey = null)
     {
-        if (!$webDisplayKey) return $this;
         $this->webDisplayKey = ($webDisplayKey InstanceOf WebDisplayKey)
              ? $webDisplayKey
              : new WebDisplayKey($webDisplayKey);
@@ -228,6 +219,6 @@ class SystemCallingPartyCategoryGetResponse extends ComplexType implements Compl
      */
     public function getWebDisplayKey()
     {
-        return $this->webDisplayKey->getValue();
+        return ($this->webDisplayKey) ? $this->webDisplayKey->getValue() : null;
     }
 }

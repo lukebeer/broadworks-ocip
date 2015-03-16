@@ -23,8 +23,8 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupHuntGroupGetInstanceListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name           = 'GroupHuntGroupGetInstanceListResponse';
-    protected $huntGroupTable = null;
+    public    $name = 'GroupHuntGroupGetInstanceListResponse';
+    protected $huntGroupTable;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceHuntGroup\GroupHuntGroupGetInstanceListResponse $response
@@ -39,7 +39,6 @@ class GroupHuntGroupGetInstanceListResponse extends ComplexType implements Compl
      */
     public function setHuntGroupTable(TableType $huntGroupTable = null)
     {
-        if (!$huntGroupTable) return $this;
         $this->huntGroupTable = $huntGroupTable;
         $this->huntGroupTable->setName('huntGroupTable');
         return $this;

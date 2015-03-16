@@ -21,13 +21,13 @@ use Broadworks_OCIP\core\Client\Client;
 class UserInstantConferencingLoginStandAloneRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType          = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing\UserInstantConferencingLoginStandAloneResponse';
-    public    $name                  = 'UserInstantConferencingLoginStandAloneRequest';
-    protected $bridgeServiceUserId   = null;
-    protected $conferenceOwnerUserId = null;
+    public    $name = 'UserInstantConferencingLoginStandAloneRequest';
+    protected $bridgeServiceUserId;
+    protected $conferenceOwnerUserId;
 
     public function __construct(
-         $bridgeServiceUserId,
-         $conferenceOwnerUserId
+         $bridgeServiceUserId = '',
+         $conferenceOwnerUserId = ''
     ) {
         $this->setBridgeServiceUserId($bridgeServiceUserId);
         $this->setConferenceOwnerUserId($conferenceOwnerUserId);
@@ -46,7 +46,6 @@ class UserInstantConferencingLoginStandAloneRequest extends ComplexType implemen
      */
     public function setBridgeServiceUserId($bridgeServiceUserId = null)
     {
-        if (!$bridgeServiceUserId) return $this;
         $this->bridgeServiceUserId = ($bridgeServiceUserId InstanceOf UserId)
              ? $bridgeServiceUserId
              : new UserId($bridgeServiceUserId);
@@ -60,7 +59,7 @@ class UserInstantConferencingLoginStandAloneRequest extends ComplexType implemen
      */
     public function getBridgeServiceUserId()
     {
-        return $this->bridgeServiceUserId->getValue();
+        return ($this->bridgeServiceUserId) ? $this->bridgeServiceUserId->getValue() : null;
     }
 
     /**
@@ -68,7 +67,6 @@ class UserInstantConferencingLoginStandAloneRequest extends ComplexType implemen
      */
     public function setConferenceOwnerUserId($conferenceOwnerUserId = null)
     {
-        if (!$conferenceOwnerUserId) return $this;
         $this->conferenceOwnerUserId = ($conferenceOwnerUserId InstanceOf UserId)
              ? $conferenceOwnerUserId
              : new UserId($conferenceOwnerUserId);
@@ -82,6 +80,6 @@ class UserInstantConferencingLoginStandAloneRequest extends ComplexType implemen
      */
     public function getConferenceOwnerUserId()
     {
-        return $this->conferenceOwnerUserId->getValue();
+        return ($this->conferenceOwnerUserId) ? $this->conferenceOwnerUserId->getValue() : null;
     }
 }

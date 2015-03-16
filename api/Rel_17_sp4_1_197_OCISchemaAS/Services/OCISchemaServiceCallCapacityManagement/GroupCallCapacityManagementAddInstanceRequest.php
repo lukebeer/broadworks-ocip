@@ -25,24 +25,24 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupCallCapacityManagementAddInstanceRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                          = 'GroupCallCapacityManagementAddInstanceRequest';
-    protected $serviceProviderId             = null;
-    protected $groupId                       = null;
-    protected $name                          = null;
-    protected $maxActiveCallsAllowed         = null;
-    protected $maxIncomingActiveCallsAllowed = null;
-    protected $maxOutgoingActiveCallsAllowed = null;
-    protected $becomeDefaultGroupForNewUsers = null;
-    protected $userId                        = null;
+    public    $name = 'GroupCallCapacityManagementAddInstanceRequest';
+    protected $serviceProviderId;
+    protected $groupId;
+    protected $name;
+    protected $maxActiveCallsAllowed;
+    protected $maxIncomingActiveCallsAllowed;
+    protected $maxOutgoingActiveCallsAllowed;
+    protected $becomeDefaultGroupForNewUsers;
+    protected $userId;
 
     public function __construct(
-         $serviceProviderId,
-         $groupId,
-         $name,
-         $maxActiveCallsAllowed,
+         $serviceProviderId = '',
+         $groupId = '',
+         $name = '',
+         $maxActiveCallsAllowed = '',
          $maxIncomingActiveCallsAllowed = null,
          $maxOutgoingActiveCallsAllowed = null,
-         $becomeDefaultGroupForNewUsers,
+         $becomeDefaultGroupForNewUsers = '',
          $userId = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
@@ -68,7 +68,6 @@ class GroupCallCapacityManagementAddInstanceRequest extends ComplexType implemen
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
-        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
@@ -82,7 +81,7 @@ class GroupCallCapacityManagementAddInstanceRequest extends ComplexType implemen
      */
     public function getServiceProviderId()
     {
-        return $this->serviceProviderId->getValue();
+        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
     }
 
     /**
@@ -90,7 +89,6 @@ class GroupCallCapacityManagementAddInstanceRequest extends ComplexType implemen
      */
     public function setGroupId($groupId = null)
     {
-        if (!$groupId) return $this;
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
@@ -104,7 +102,7 @@ class GroupCallCapacityManagementAddInstanceRequest extends ComplexType implemen
      */
     public function getGroupId()
     {
-        return $this->groupId->getValue();
+        return ($this->groupId) ? $this->groupId->getValue() : null;
     }
 
     /**
@@ -112,7 +110,6 @@ class GroupCallCapacityManagementAddInstanceRequest extends ComplexType implemen
      */
     public function setName($name = null)
     {
-        if (!$name) return $this;
         $this->name = ($name InstanceOf ServiceInstanceName)
              ? $name
              : new ServiceInstanceName($name);
@@ -126,7 +123,7 @@ class GroupCallCapacityManagementAddInstanceRequest extends ComplexType implemen
      */
     public function getName()
     {
-        return $this->name->getValue();
+        return ($this->name) ? $this->name->getValue() : null;
     }
 
     /**
@@ -134,7 +131,6 @@ class GroupCallCapacityManagementAddInstanceRequest extends ComplexType implemen
      */
     public function setMaxActiveCallsAllowed($maxActiveCallsAllowed = null)
     {
-        if (!$maxActiveCallsAllowed) return $this;
         $this->maxActiveCallsAllowed = ($maxActiveCallsAllowed InstanceOf CallCapacityCallLimit)
              ? $maxActiveCallsAllowed
              : new CallCapacityCallLimit($maxActiveCallsAllowed);
@@ -148,7 +144,7 @@ class GroupCallCapacityManagementAddInstanceRequest extends ComplexType implemen
      */
     public function getMaxActiveCallsAllowed()
     {
-        return $this->maxActiveCallsAllowed->getValue();
+        return ($this->maxActiveCallsAllowed) ? $this->maxActiveCallsAllowed->getValue() : null;
     }
 
     /**
@@ -156,7 +152,6 @@ class GroupCallCapacityManagementAddInstanceRequest extends ComplexType implemen
      */
     public function setMaxIncomingActiveCallsAllowed($maxIncomingActiveCallsAllowed = null)
     {
-        if (!$maxIncomingActiveCallsAllowed) return $this;
         $this->maxIncomingActiveCallsAllowed = ($maxIncomingActiveCallsAllowed InstanceOf CallCapacityCallLimit)
              ? $maxIncomingActiveCallsAllowed
              : new CallCapacityCallLimit($maxIncomingActiveCallsAllowed);
@@ -170,7 +165,7 @@ class GroupCallCapacityManagementAddInstanceRequest extends ComplexType implemen
      */
     public function getMaxIncomingActiveCallsAllowed()
     {
-        return $this->maxIncomingActiveCallsAllowed->getValue();
+        return ($this->maxIncomingActiveCallsAllowed) ? $this->maxIncomingActiveCallsAllowed->getValue() : null;
     }
 
     /**
@@ -178,7 +173,6 @@ class GroupCallCapacityManagementAddInstanceRequest extends ComplexType implemen
      */
     public function setMaxOutgoingActiveCallsAllowed($maxOutgoingActiveCallsAllowed = null)
     {
-        if (!$maxOutgoingActiveCallsAllowed) return $this;
         $this->maxOutgoingActiveCallsAllowed = ($maxOutgoingActiveCallsAllowed InstanceOf CallCapacityCallLimit)
              ? $maxOutgoingActiveCallsAllowed
              : new CallCapacityCallLimit($maxOutgoingActiveCallsAllowed);
@@ -192,7 +186,7 @@ class GroupCallCapacityManagementAddInstanceRequest extends ComplexType implemen
      */
     public function getMaxOutgoingActiveCallsAllowed()
     {
-        return $this->maxOutgoingActiveCallsAllowed->getValue();
+        return ($this->maxOutgoingActiveCallsAllowed) ? $this->maxOutgoingActiveCallsAllowed->getValue() : null;
     }
 
     /**
@@ -200,7 +194,6 @@ class GroupCallCapacityManagementAddInstanceRequest extends ComplexType implemen
      */
     public function setBecomeDefaultGroupForNewUsers($becomeDefaultGroupForNewUsers = null)
     {
-        if (!$becomeDefaultGroupForNewUsers) return $this;
         $this->becomeDefaultGroupForNewUsers = new PrimitiveType($becomeDefaultGroupForNewUsers);
         $this->becomeDefaultGroupForNewUsers->setName('becomeDefaultGroupForNewUsers');
         return $this;
@@ -212,7 +205,7 @@ class GroupCallCapacityManagementAddInstanceRequest extends ComplexType implemen
      */
     public function getBecomeDefaultGroupForNewUsers()
     {
-        return $this->becomeDefaultGroupForNewUsers->getValue();
+        return ($this->becomeDefaultGroupForNewUsers) ? $this->becomeDefaultGroupForNewUsers->getValue() : null;
     }
 
     /**
@@ -220,7 +213,6 @@ class GroupCallCapacityManagementAddInstanceRequest extends ComplexType implemen
      */
     public function setUserId($userId = null)
     {
-        if (!$userId) return $this;
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
@@ -234,6 +226,6 @@ class GroupCallCapacityManagementAddInstanceRequest extends ComplexType implemen
      */
     public function getUserId()
     {
-        return $this->userId->getValue();
+        return ($this->userId) ? $this->userId->getValue() : null;
     }
 }

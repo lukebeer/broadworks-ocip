@@ -20,11 +20,11 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemClassmarkDeleteRequest extends ComplexType implements ComplexInterface
 {
-    public    $name      = 'SystemClassmarkDeleteRequest';
-    protected $classmark = null;
+    public    $name = 'SystemClassmarkDeleteRequest';
+    protected $classmark;
 
     public function __construct(
-         $classmark
+         $classmark = ''
     ) {
         $this->setClassmark($classmark);
     }
@@ -42,7 +42,6 @@ class SystemClassmarkDeleteRequest extends ComplexType implements ComplexInterfa
      */
     public function setClassmark($classmark = null)
     {
-        if (!$classmark) return $this;
         $this->classmark = ($classmark InstanceOf Classmark)
              ? $classmark
              : new Classmark($classmark);
@@ -56,6 +55,6 @@ class SystemClassmarkDeleteRequest extends ComplexType implements ComplexInterfa
      */
     public function getClassmark()
     {
-        return $this->classmark->getValue();
+        return ($this->classmark) ? $this->classmark->getValue() : null;
     }
 }

@@ -21,12 +21,12 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserInstantConferencingDeleteConferenceRecordingListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name         = 'UserInstantConferencingDeleteConferenceRecordingListRequest';
-    protected $userId       = null;
-    protected $recordingKey = null;
+    public    $name = 'UserInstantConferencingDeleteConferenceRecordingListRequest';
+    protected $userId;
+    protected $recordingKey;
 
     public function __construct(
-         $userId,
+         $userId = '',
          InstantConferencingRecordingKey $recordingKey = null
     ) {
         $this->setUserId($userId);
@@ -46,7 +46,6 @@ class UserInstantConferencingDeleteConferenceRecordingListRequest extends Comple
      */
     public function setUserId($userId = null)
     {
-        if (!$userId) return $this;
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
@@ -60,7 +59,7 @@ class UserInstantConferencingDeleteConferenceRecordingListRequest extends Comple
      */
     public function getUserId()
     {
-        return $this->userId->getValue();
+        return ($this->userId) ? $this->userId->getValue() : null;
     }
 
     /**
@@ -68,8 +67,9 @@ class UserInstantConferencingDeleteConferenceRecordingListRequest extends Comple
      */
     public function setRecordingKey(InstantConferencingRecordingKey $recordingKey = null)
     {
-        if (!$recordingKey) return $this;
-        $this->recordingKey = $recordingKey;
+        $this->recordingKey = ($recordingKey InstanceOf InstantConferencingRecordingKey)
+             ? $recordingKey
+             : new InstantConferencingRecordingKey($recordingKey);
         $this->recordingKey->setName('recordingKey');
         return $this;
     }

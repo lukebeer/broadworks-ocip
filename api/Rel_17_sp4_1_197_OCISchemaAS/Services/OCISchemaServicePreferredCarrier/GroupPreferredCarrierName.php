@@ -20,12 +20,12 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupPreferredCarrierName extends ComplexType implements ComplexInterface
 {
-    public    $name                               = 'GroupPreferredCarrierName';
-    protected $useServiceProviderPreferredCarrier = null;
-    protected $carrier                            = null;
+    public    $name = 'GroupPreferredCarrierName';
+    protected $useServiceProviderPreferredCarrier;
+    protected $carrier;
 
     public function __construct(
-         $useServiceProviderPreferredCarrier,
+         $useServiceProviderPreferredCarrier = '',
          $carrier = null
     ) {
         $this->setUseServiceProviderPreferredCarrier($useServiceProviderPreferredCarrier);
@@ -45,7 +45,6 @@ class GroupPreferredCarrierName extends ComplexType implements ComplexInterface
      */
     public function setUseServiceProviderPreferredCarrier($useServiceProviderPreferredCarrier = null)
     {
-        if (!$useServiceProviderPreferredCarrier) return $this;
         $this->useServiceProviderPreferredCarrier = new SimpleContent($useServiceProviderPreferredCarrier);
         $this->useServiceProviderPreferredCarrier->setName('useServiceProviderPreferredCarrier');
         return $this;
@@ -57,7 +56,7 @@ class GroupPreferredCarrierName extends ComplexType implements ComplexInterface
      */
     public function getUseServiceProviderPreferredCarrier()
     {
-        return $this->useServiceProviderPreferredCarrier->getValue();
+        return ($this->useServiceProviderPreferredCarrier) ? $this->useServiceProviderPreferredCarrier->getValue() : null;
     }
 
     /**
@@ -65,7 +64,6 @@ class GroupPreferredCarrierName extends ComplexType implements ComplexInterface
      */
     public function setCarrier($carrier = null)
     {
-        if (!$carrier) return $this;
         $this->carrier = new SimpleContent($carrier);
         $this->carrier->setName('carrier');
         return $this;
@@ -77,6 +75,6 @@ class GroupPreferredCarrierName extends ComplexType implements ComplexInterface
      */
     public function getCarrier()
     {
-        return $this->carrier->getValue();
+        return ($this->carrier) ? $this->carrier->getValue() : null;
     }
 }

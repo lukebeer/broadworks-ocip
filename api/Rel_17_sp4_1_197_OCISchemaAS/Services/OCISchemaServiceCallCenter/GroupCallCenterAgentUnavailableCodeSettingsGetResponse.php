@@ -20,13 +20,13 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupCallCenterAgentUnavailableCodeSettingsGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                                            = 'GroupCallCenterAgentUnavailableCodeSettingsGetResponse';
-    protected $enableAgentUnavailableCodes                     = null;
-    protected $defaultAgentUnavailableCodeOnDND                = null;
-    protected $defaultAgentUnavailableCodeOnPersonalCalls      = null;
-    protected $defaultAgentUnavailableCodeOnConsecutiveBounces = null;
-    protected $forceUseOfAgentUnavailableCodes                 = null;
-    protected $defaultAgentUnavailableCode                     = null;
+    public    $name = 'GroupCallCenterAgentUnavailableCodeSettingsGetResponse';
+    protected $enableAgentUnavailableCodes;
+    protected $defaultAgentUnavailableCodeOnDND;
+    protected $defaultAgentUnavailableCodeOnPersonalCalls;
+    protected $defaultAgentUnavailableCodeOnConsecutiveBounces;
+    protected $forceUseOfAgentUnavailableCodes;
+    protected $defaultAgentUnavailableCode;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\GroupCallCenterAgentUnavailableCodeSettingsGetResponse $response
@@ -41,7 +41,6 @@ class GroupCallCenterAgentUnavailableCodeSettingsGetResponse extends ComplexType
      */
     public function setEnableAgentUnavailableCodes($enableAgentUnavailableCodes = null)
     {
-        if (!$enableAgentUnavailableCodes) return $this;
         $this->enableAgentUnavailableCodes = new PrimitiveType($enableAgentUnavailableCodes);
         $this->enableAgentUnavailableCodes->setName('enableAgentUnavailableCodes');
         return $this;
@@ -53,7 +52,7 @@ class GroupCallCenterAgentUnavailableCodeSettingsGetResponse extends ComplexType
      */
     public function getEnableAgentUnavailableCodes()
     {
-        return $this->enableAgentUnavailableCodes->getValue();
+        return ($this->enableAgentUnavailableCodes) ? $this->enableAgentUnavailableCodes->getValue() : null;
     }
 
     /**
@@ -61,7 +60,6 @@ class GroupCallCenterAgentUnavailableCodeSettingsGetResponse extends ComplexType
      */
     public function setDefaultAgentUnavailableCodeOnDND($defaultAgentUnavailableCodeOnDND = null)
     {
-        if (!$defaultAgentUnavailableCodeOnDND) return $this;
         $this->defaultAgentUnavailableCodeOnDND = ($defaultAgentUnavailableCodeOnDND InstanceOf CallCenterAgentUnavailableCode)
              ? $defaultAgentUnavailableCodeOnDND
              : new CallCenterAgentUnavailableCode($defaultAgentUnavailableCodeOnDND);
@@ -75,7 +73,7 @@ class GroupCallCenterAgentUnavailableCodeSettingsGetResponse extends ComplexType
      */
     public function getDefaultAgentUnavailableCodeOnDND()
     {
-        return $this->defaultAgentUnavailableCodeOnDND->getValue();
+        return ($this->defaultAgentUnavailableCodeOnDND) ? $this->defaultAgentUnavailableCodeOnDND->getValue() : null;
     }
 
     /**
@@ -83,7 +81,6 @@ class GroupCallCenterAgentUnavailableCodeSettingsGetResponse extends ComplexType
      */
     public function setDefaultAgentUnavailableCodeOnPersonalCalls($defaultAgentUnavailableCodeOnPersonalCalls = null)
     {
-        if (!$defaultAgentUnavailableCodeOnPersonalCalls) return $this;
         $this->defaultAgentUnavailableCodeOnPersonalCalls = ($defaultAgentUnavailableCodeOnPersonalCalls InstanceOf CallCenterAgentUnavailableCode)
              ? $defaultAgentUnavailableCodeOnPersonalCalls
              : new CallCenterAgentUnavailableCode($defaultAgentUnavailableCodeOnPersonalCalls);
@@ -97,7 +94,7 @@ class GroupCallCenterAgentUnavailableCodeSettingsGetResponse extends ComplexType
      */
     public function getDefaultAgentUnavailableCodeOnPersonalCalls()
     {
-        return $this->defaultAgentUnavailableCodeOnPersonalCalls->getValue();
+        return ($this->defaultAgentUnavailableCodeOnPersonalCalls) ? $this->defaultAgentUnavailableCodeOnPersonalCalls->getValue() : null;
     }
 
     /**
@@ -105,7 +102,6 @@ class GroupCallCenterAgentUnavailableCodeSettingsGetResponse extends ComplexType
      */
     public function setDefaultAgentUnavailableCodeOnConsecutiveBounces($defaultAgentUnavailableCodeOnConsecutiveBounces = null)
     {
-        if (!$defaultAgentUnavailableCodeOnConsecutiveBounces) return $this;
         $this->defaultAgentUnavailableCodeOnConsecutiveBounces = ($defaultAgentUnavailableCodeOnConsecutiveBounces InstanceOf CallCenterAgentUnavailableCode)
              ? $defaultAgentUnavailableCodeOnConsecutiveBounces
              : new CallCenterAgentUnavailableCode($defaultAgentUnavailableCodeOnConsecutiveBounces);
@@ -119,7 +115,7 @@ class GroupCallCenterAgentUnavailableCodeSettingsGetResponse extends ComplexType
      */
     public function getDefaultAgentUnavailableCodeOnConsecutiveBounces()
     {
-        return $this->defaultAgentUnavailableCodeOnConsecutiveBounces->getValue();
+        return ($this->defaultAgentUnavailableCodeOnConsecutiveBounces) ? $this->defaultAgentUnavailableCodeOnConsecutiveBounces->getValue() : null;
     }
 
     /**
@@ -127,7 +123,6 @@ class GroupCallCenterAgentUnavailableCodeSettingsGetResponse extends ComplexType
      */
     public function setForceUseOfAgentUnavailableCodes($forceUseOfAgentUnavailableCodes = null)
     {
-        if (!$forceUseOfAgentUnavailableCodes) return $this;
         $this->forceUseOfAgentUnavailableCodes = new PrimitiveType($forceUseOfAgentUnavailableCodes);
         $this->forceUseOfAgentUnavailableCodes->setName('forceUseOfAgentUnavailableCodes');
         return $this;
@@ -139,7 +134,7 @@ class GroupCallCenterAgentUnavailableCodeSettingsGetResponse extends ComplexType
      */
     public function getForceUseOfAgentUnavailableCodes()
     {
-        return $this->forceUseOfAgentUnavailableCodes->getValue();
+        return ($this->forceUseOfAgentUnavailableCodes) ? $this->forceUseOfAgentUnavailableCodes->getValue() : null;
     }
 
     /**
@@ -147,7 +142,6 @@ class GroupCallCenterAgentUnavailableCodeSettingsGetResponse extends ComplexType
      */
     public function setDefaultAgentUnavailableCode($defaultAgentUnavailableCode = null)
     {
-        if (!$defaultAgentUnavailableCode) return $this;
         $this->defaultAgentUnavailableCode = ($defaultAgentUnavailableCode InstanceOf CallCenterAgentUnavailableCode)
              ? $defaultAgentUnavailableCode
              : new CallCenterAgentUnavailableCode($defaultAgentUnavailableCode);
@@ -161,6 +155,6 @@ class GroupCallCenterAgentUnavailableCodeSettingsGetResponse extends ComplexType
      */
     public function getDefaultAgentUnavailableCode()
     {
-        return $this->defaultAgentUnavailableCode->getValue();
+        return ($this->defaultAgentUnavailableCode) ? $this->defaultAgentUnavailableCode->getValue() : null;
     }
 }

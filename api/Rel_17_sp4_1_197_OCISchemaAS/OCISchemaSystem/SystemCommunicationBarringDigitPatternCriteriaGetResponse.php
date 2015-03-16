@@ -19,9 +19,9 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemCommunicationBarringDigitPatternCriteriaGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name         = 'SystemCommunicationBarringDigitPatternCriteriaGetResponse';
-    protected $description  = null;
-    protected $digitPattern = null;
+    public    $name = 'SystemCommunicationBarringDigitPatternCriteriaGetResponse';
+    protected $description;
+    protected $digitPattern;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemCommunicationBarringDigitPatternCriteriaGetResponse $response
@@ -36,7 +36,6 @@ class SystemCommunicationBarringDigitPatternCriteriaGetResponse extends ComplexT
      */
     public function setDescription($description = null)
     {
-        if (!$description) return $this;
         $this->description = ($description InstanceOf DigitPatternCriteriaDescription)
              ? $description
              : new DigitPatternCriteriaDescription($description);
@@ -50,7 +49,7 @@ class SystemCommunicationBarringDigitPatternCriteriaGetResponse extends ComplexT
      */
     public function getDescription()
     {
-        return $this->description->getValue();
+        return ($this->description) ? $this->description->getValue() : null;
     }
 
     /**
@@ -58,7 +57,6 @@ class SystemCommunicationBarringDigitPatternCriteriaGetResponse extends ComplexT
      */
     public function setDigitPattern($digitPattern = null)
     {
-        if (!$digitPattern) return $this;
         $this->digitPattern = ($digitPattern InstanceOf DigitPattern)
              ? $digitPattern
              : new DigitPattern($digitPattern);
@@ -72,6 +70,6 @@ class SystemCommunicationBarringDigitPatternCriteriaGetResponse extends ComplexT
      */
     public function getDigitPattern()
     {
-        return $this->digitPattern->getValue();
+        return ($this->digitPattern) ? $this->digitPattern->getValue() : null;
     }
 }

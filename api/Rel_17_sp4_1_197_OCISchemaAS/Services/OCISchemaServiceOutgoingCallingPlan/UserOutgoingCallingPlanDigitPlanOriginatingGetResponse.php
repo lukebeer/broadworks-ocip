@@ -20,9 +20,9 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserOutgoingCallingPlanDigitPlanOriginatingGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name              = 'UserOutgoingCallingPlanDigitPlanOriginatingGetResponse';
-    protected $useCustomSettings = null;
-    protected $userPermissions   = null;
+    public    $name = 'UserOutgoingCallingPlanDigitPlanOriginatingGetResponse';
+    protected $useCustomSettings;
+    protected $userPermissions;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceOutgoingCallingPlan\UserOutgoingCallingPlanDigitPlanOriginatingGetResponse $response
@@ -37,7 +37,6 @@ class UserOutgoingCallingPlanDigitPlanOriginatingGetResponse extends ComplexType
      */
     public function setUseCustomSettings($useCustomSettings = null)
     {
-        if (!$useCustomSettings) return $this;
         $this->useCustomSettings = new PrimitiveType($useCustomSettings);
         $this->useCustomSettings->setName('useCustomSettings');
         return $this;
@@ -49,7 +48,7 @@ class UserOutgoingCallingPlanDigitPlanOriginatingGetResponse extends ComplexType
      */
     public function getUseCustomSettings()
     {
-        return $this->useCustomSettings->getValue();
+        return ($this->useCustomSettings) ? $this->useCustomSettings->getValue() : null;
     }
 
     /**
@@ -57,8 +56,9 @@ class UserOutgoingCallingPlanDigitPlanOriginatingGetResponse extends ComplexType
      */
     public function setUserPermissions(OutgoingCallingPlanDigitPatternOriginatingPermissions $userPermissions = null)
     {
-        if (!$userPermissions) return $this;
-        $this->userPermissions = $userPermissions;
+        $this->userPermissions = ($userPermissions InstanceOf OutgoingCallingPlanDigitPatternOriginatingPermissions)
+             ? $userPermissions
+             : new OutgoingCallingPlanDigitPatternOriginatingPermissions($userPermissions);
         $this->userPermissions->setName('userPermissions');
         return $this;
     }

@@ -25,17 +25,17 @@ use Broadworks_OCIP\core\Client\Client;
 class GroupCallCenterCurrentAndPastCallCenterGetListRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType                 = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\GroupCallCenterCurrentAndPastCallCenterGetListResponse';
-    public    $name                         = 'GroupCallCenterCurrentAndPastCallCenterGetListRequest';
-    protected $serviceProviderId            = null;
-    protected $isPremiumOnly                = null;
-    protected $groupId                      = null;
-    protected $responseSizeLimit            = null;
-    protected $searchCriteriaCallCenterName = null;
+    public    $name = 'GroupCallCenterCurrentAndPastCallCenterGetListRequest';
+    protected $serviceProviderId;
+    protected $isPremiumOnly;
+    protected $groupId;
+    protected $responseSizeLimit;
+    protected $searchCriteriaCallCenterName;
 
     public function __construct(
-         $serviceProviderId,
+         $serviceProviderId = '',
          $isPremiumOnly = null,
-         $groupId,
+         $groupId = '',
          $responseSizeLimit = null,
          SearchCriteriaCallCenterName $searchCriteriaCallCenterName = null
     ) {
@@ -59,7 +59,6 @@ class GroupCallCenterCurrentAndPastCallCenterGetListRequest extends ComplexType 
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
-        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
@@ -73,7 +72,7 @@ class GroupCallCenterCurrentAndPastCallCenterGetListRequest extends ComplexType 
      */
     public function getServiceProviderId()
     {
-        return $this->serviceProviderId->getValue();
+        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
     }
 
     /**
@@ -81,7 +80,6 @@ class GroupCallCenterCurrentAndPastCallCenterGetListRequest extends ComplexType 
      */
     public function setIsPremiumOnly($isPremiumOnly = null)
     {
-        if (!$isPremiumOnly) return $this;
         $this->isPremiumOnly = new PrimitiveType($isPremiumOnly);
         $this->isPremiumOnly->setName('isPremiumOnly');
         return $this;
@@ -93,7 +91,7 @@ class GroupCallCenterCurrentAndPastCallCenterGetListRequest extends ComplexType 
      */
     public function getIsPremiumOnly()
     {
-        return $this->isPremiumOnly->getValue();
+        return ($this->isPremiumOnly) ? $this->isPremiumOnly->getValue() : null;
     }
 
     /**
@@ -101,7 +99,6 @@ class GroupCallCenterCurrentAndPastCallCenterGetListRequest extends ComplexType 
      */
     public function setGroupId($groupId = null)
     {
-        if (!$groupId) return $this;
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
@@ -115,7 +112,7 @@ class GroupCallCenterCurrentAndPastCallCenterGetListRequest extends ComplexType 
      */
     public function getGroupId()
     {
-        return $this->groupId->getValue();
+        return ($this->groupId) ? $this->groupId->getValue() : null;
     }
 
     /**
@@ -123,7 +120,6 @@ class GroupCallCenterCurrentAndPastCallCenterGetListRequest extends ComplexType 
      */
     public function setResponseSizeLimit($responseSizeLimit = null)
     {
-        if (!$responseSizeLimit) return $this;
         $this->responseSizeLimit = ($responseSizeLimit InstanceOf ResponseSizeLimit)
              ? $responseSizeLimit
              : new ResponseSizeLimit($responseSizeLimit);
@@ -137,7 +133,7 @@ class GroupCallCenterCurrentAndPastCallCenterGetListRequest extends ComplexType 
      */
     public function getResponseSizeLimit()
     {
-        return $this->responseSizeLimit->getValue();
+        return ($this->responseSizeLimit) ? $this->responseSizeLimit->getValue() : null;
     }
 
     /**
@@ -145,7 +141,6 @@ class GroupCallCenterCurrentAndPastCallCenterGetListRequest extends ComplexType 
      */
     public function setSearchCriteriaCallCenterName(SearchCriteriaCallCenterName $searchCriteriaCallCenterName = null)
     {
-        if (!$searchCriteriaCallCenterName) return $this;
         $this->searchCriteriaCallCenterName = ($searchCriteriaCallCenterName InstanceOf SearchCriteriaCallCenterName)
              ? $searchCriteriaCallCenterName
              : new SearchCriteriaCallCenterName($searchCriteriaCallCenterName);

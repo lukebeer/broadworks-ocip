@@ -19,15 +19,15 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class CommunicationBarringOriginatingRule15sp2 extends ComplexType implements ComplexInterface
 {
-    public    $name           = 'CommunicationBarringOriginatingRule15sp2';
-    protected $criteria       = null;
-    protected $action         = null;
-    protected $treatmentId    = null;
-    protected $transferNumber = null;
+    public    $name = 'CommunicationBarringOriginatingRule15sp2';
+    protected $criteria;
+    protected $action;
+    protected $treatmentId;
+    protected $transferNumber;
 
     public function __construct(
-         $criteria,
-         $action,
+         $criteria = '',
+         $action = '',
          $treatmentId = null,
          $transferNumber = null
     ) {
@@ -50,7 +50,6 @@ class CommunicationBarringOriginatingRule15sp2 extends ComplexType implements Co
      */
     public function setCriteria($criteria = null)
     {
-        if (!$criteria) return $this;
         $this->criteria = new SimpleContent($criteria);
         $this->criteria->setName('criteria');
         return $this;
@@ -62,7 +61,7 @@ class CommunicationBarringOriginatingRule15sp2 extends ComplexType implements Co
      */
     public function getCriteria()
     {
-        return $this->criteria->getValue();
+        return ($this->criteria) ? $this->criteria->getValue() : null;
     }
 
     /**
@@ -70,7 +69,6 @@ class CommunicationBarringOriginatingRule15sp2 extends ComplexType implements Co
      */
     public function setAction($action = null)
     {
-        if (!$action) return $this;
         $this->action = new SimpleContent($action);
         $this->action->setName('action');
         return $this;
@@ -82,7 +80,7 @@ class CommunicationBarringOriginatingRule15sp2 extends ComplexType implements Co
      */
     public function getAction()
     {
-        return $this->action->getValue();
+        return ($this->action) ? $this->action->getValue() : null;
     }
 
     /**
@@ -90,7 +88,6 @@ class CommunicationBarringOriginatingRule15sp2 extends ComplexType implements Co
      */
     public function setTreatmentId($treatmentId = null)
     {
-        if (!$treatmentId) return $this;
         $this->treatmentId = new SimpleContent($treatmentId);
         $this->treatmentId->setName('treatmentId');
         return $this;
@@ -102,7 +99,7 @@ class CommunicationBarringOriginatingRule15sp2 extends ComplexType implements Co
      */
     public function getTreatmentId()
     {
-        return $this->treatmentId->getValue();
+        return ($this->treatmentId) ? $this->treatmentId->getValue() : null;
     }
 
     /**
@@ -110,7 +107,6 @@ class CommunicationBarringOriginatingRule15sp2 extends ComplexType implements Co
      */
     public function setTransferNumber($transferNumber = null)
     {
-        if (!$transferNumber) return $this;
         $this->transferNumber = new SimpleContent($transferNumber);
         $this->transferNumber->setName('transferNumber');
         return $this;
@@ -122,6 +118,6 @@ class CommunicationBarringOriginatingRule15sp2 extends ComplexType implements Co
      */
     public function getTransferNumber()
     {
-        return $this->transferNumber->getValue();
+        return ($this->transferNumber) ? $this->transferNumber->getValue() : null;
     }
 }

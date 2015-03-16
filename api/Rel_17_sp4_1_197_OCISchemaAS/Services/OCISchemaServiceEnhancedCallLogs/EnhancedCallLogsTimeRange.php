@@ -19,13 +19,13 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class EnhancedCallLogsTimeRange extends ComplexType implements ComplexInterface
 {
-    public    $name          = 'EnhancedCallLogsTimeRange';
-    protected $startDateTime = null;
-    protected $endDateTime   = null;
+    public    $name = 'EnhancedCallLogsTimeRange';
+    protected $startDateTime;
+    protected $endDateTime;
 
     public function __construct(
-         $startDateTime,
-         $endDateTime
+         $startDateTime = '',
+         $endDateTime = ''
     ) {
         $this->setStartDateTime($startDateTime);
         $this->setEndDateTime($endDateTime);
@@ -44,7 +44,6 @@ class EnhancedCallLogsTimeRange extends ComplexType implements ComplexInterface
      */
     public function setStartDateTime($startDateTime = null)
     {
-        if (!$startDateTime) return $this;
         $this->startDateTime = new SimpleContent($startDateTime);
         $this->startDateTime->setName('startDateTime');
         return $this;
@@ -56,7 +55,7 @@ class EnhancedCallLogsTimeRange extends ComplexType implements ComplexInterface
      */
     public function getStartDateTime()
     {
-        return $this->startDateTime->getValue();
+        return ($this->startDateTime) ? $this->startDateTime->getValue() : null;
     }
 
     /**
@@ -64,7 +63,6 @@ class EnhancedCallLogsTimeRange extends ComplexType implements ComplexInterface
      */
     public function setEndDateTime($endDateTime = null)
     {
-        if (!$endDateTime) return $this;
         $this->endDateTime = new SimpleContent($endDateTime);
         $this->endDateTime->setName('endDateTime');
         return $this;
@@ -76,6 +74,6 @@ class EnhancedCallLogsTimeRange extends ComplexType implements ComplexInterface
      */
     public function getEndDateTime()
     {
-        return $this->endDateTime->getValue();
+        return ($this->endDateTime) ? $this->endDateTime->getValue() : null;
     }
 }

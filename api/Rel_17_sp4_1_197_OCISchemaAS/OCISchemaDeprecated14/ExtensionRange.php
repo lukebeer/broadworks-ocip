@@ -19,13 +19,13 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ExtensionRange extends ComplexType implements ComplexInterface
 {
-    public    $name         = 'ExtensionRange';
-    protected $minExtension = null;
-    protected $maxExtension = null;
+    public    $name = 'ExtensionRange';
+    protected $minExtension;
+    protected $maxExtension;
 
     public function __construct(
-         $minExtension,
-         $maxExtension
+         $minExtension = '',
+         $maxExtension = ''
     ) {
         $this->setMinExtension($minExtension);
         $this->setMaxExtension($maxExtension);
@@ -44,7 +44,6 @@ class ExtensionRange extends ComplexType implements ComplexInterface
      */
     public function setMinExtension($minExtension = null)
     {
-        if (!$minExtension) return $this;
         $this->minExtension = new SimpleContent($minExtension);
         $this->minExtension->setName('minExtension');
         return $this;
@@ -56,7 +55,7 @@ class ExtensionRange extends ComplexType implements ComplexInterface
      */
     public function getMinExtension()
     {
-        return $this->minExtension->getValue();
+        return ($this->minExtension) ? $this->minExtension->getValue() : null;
     }
 
     /**
@@ -64,7 +63,6 @@ class ExtensionRange extends ComplexType implements ComplexInterface
      */
     public function setMaxExtension($maxExtension = null)
     {
-        if (!$maxExtension) return $this;
         $this->maxExtension = new SimpleContent($maxExtension);
         $this->maxExtension->setName('maxExtension');
         return $this;
@@ -76,6 +74,6 @@ class ExtensionRange extends ComplexType implements ComplexInterface
      */
     public function getMaxExtension()
     {
-        return $this->maxExtension->getValue();
+        return ($this->maxExtension) ? $this->maxExtension->getValue() : null;
     }
 }

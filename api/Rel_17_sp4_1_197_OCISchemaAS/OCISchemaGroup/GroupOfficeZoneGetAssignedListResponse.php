@@ -21,8 +21,8 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupOfficeZoneGetAssignedListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name            = 'GroupOfficeZoneGetAssignedListResponse';
-    protected $officeZoneTable = null;
+    public    $name = 'GroupOfficeZoneGetAssignedListResponse';
+    protected $officeZoneTable;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupOfficeZoneGetAssignedListResponse $response
@@ -37,7 +37,6 @@ class GroupOfficeZoneGetAssignedListResponse extends ComplexType implements Comp
      */
     public function setOfficeZoneTable(TableType $officeZoneTable = null)
     {
-        if (!$officeZoneTable) return $this;
         $this->officeZoneTable = $officeZoneTable;
         $this->officeZoneTable->setName('officeZoneTable');
         return $this;

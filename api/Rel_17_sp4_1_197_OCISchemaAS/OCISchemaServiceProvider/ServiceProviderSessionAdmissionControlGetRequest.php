@@ -21,11 +21,11 @@ use Broadworks_OCIP\core\Client\Client;
 class ServiceProviderSessionAdmissionControlGetRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderSessionAdmissionControlGetResponse';
-    public    $name              = 'ServiceProviderSessionAdmissionControlGetRequest';
-    protected $serviceProviderId = null;
+    public    $name = 'ServiceProviderSessionAdmissionControlGetRequest';
+    protected $serviceProviderId;
 
     public function __construct(
-         $serviceProviderId
+         $serviceProviderId = ''
     ) {
         $this->setServiceProviderId($serviceProviderId);
     }
@@ -43,7 +43,6 @@ class ServiceProviderSessionAdmissionControlGetRequest extends ComplexType imple
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
-        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
@@ -57,6 +56,6 @@ class ServiceProviderSessionAdmissionControlGetRequest extends ComplexType imple
      */
     public function getServiceProviderId()
     {
-        return $this->serviceProviderId->getValue();
+        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
     }
 }

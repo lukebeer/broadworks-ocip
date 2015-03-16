@@ -29,23 +29,23 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupAddRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                = 'GroupAddRequest';
-    protected $serviceProviderId   = null;
-    protected $groupId             = null;
-    protected $defaultDomain       = null;
-    protected $userLimit           = null;
-    protected $groupName           = null;
-    protected $callingLineIdName   = null;
-    protected $timeZone            = null;
-    protected $locationDialingCode = null;
-    protected $contact             = null;
-    protected $address             = null;
+    public    $name = 'GroupAddRequest';
+    protected $serviceProviderId;
+    protected $groupId;
+    protected $defaultDomain;
+    protected $userLimit;
+    protected $groupName;
+    protected $callingLineIdName;
+    protected $timeZone;
+    protected $locationDialingCode;
+    protected $contact;
+    protected $address;
 
     public function __construct(
-         $serviceProviderId,
-         $groupId,
-         $defaultDomain,
-         $userLimit,
+         $serviceProviderId = '',
+         $groupId = '',
+         $defaultDomain = '',
+         $userLimit = '',
          $groupName = null,
          $callingLineIdName = null,
          $timeZone = null,
@@ -78,7 +78,6 @@ class GroupAddRequest extends ComplexType implements ComplexInterface
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
-        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
@@ -92,7 +91,7 @@ class GroupAddRequest extends ComplexType implements ComplexInterface
      */
     public function getServiceProviderId()
     {
-        return $this->serviceProviderId->getValue();
+        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
     }
 
     /**
@@ -100,7 +99,6 @@ class GroupAddRequest extends ComplexType implements ComplexInterface
      */
     public function setGroupId($groupId = null)
     {
-        if (!$groupId) return $this;
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
@@ -114,7 +112,7 @@ class GroupAddRequest extends ComplexType implements ComplexInterface
      */
     public function getGroupId()
     {
-        return $this->groupId->getValue();
+        return ($this->groupId) ? $this->groupId->getValue() : null;
     }
 
     /**
@@ -122,7 +120,6 @@ class GroupAddRequest extends ComplexType implements ComplexInterface
      */
     public function setDefaultDomain($defaultDomain = null)
     {
-        if (!$defaultDomain) return $this;
         $this->defaultDomain = ($defaultDomain InstanceOf NetAddress)
              ? $defaultDomain
              : new NetAddress($defaultDomain);
@@ -136,7 +133,7 @@ class GroupAddRequest extends ComplexType implements ComplexInterface
      */
     public function getDefaultDomain()
     {
-        return $this->defaultDomain->getValue();
+        return ($this->defaultDomain) ? $this->defaultDomain->getValue() : null;
     }
 
     /**
@@ -144,7 +141,6 @@ class GroupAddRequest extends ComplexType implements ComplexInterface
      */
     public function setUserLimit($userLimit = null)
     {
-        if (!$userLimit) return $this;
         $this->userLimit = ($userLimit InstanceOf GroupUserLimit)
              ? $userLimit
              : new GroupUserLimit($userLimit);
@@ -158,7 +154,7 @@ class GroupAddRequest extends ComplexType implements ComplexInterface
      */
     public function getUserLimit()
     {
-        return $this->userLimit->getValue();
+        return ($this->userLimit) ? $this->userLimit->getValue() : null;
     }
 
     /**
@@ -166,7 +162,6 @@ class GroupAddRequest extends ComplexType implements ComplexInterface
      */
     public function setGroupName($groupName = null)
     {
-        if (!$groupName) return $this;
         $this->groupName = ($groupName InstanceOf GroupName)
              ? $groupName
              : new GroupName($groupName);
@@ -180,7 +175,7 @@ class GroupAddRequest extends ComplexType implements ComplexInterface
      */
     public function getGroupName()
     {
-        return $this->groupName->getValue();
+        return ($this->groupName) ? $this->groupName->getValue() : null;
     }
 
     /**
@@ -188,7 +183,6 @@ class GroupAddRequest extends ComplexType implements ComplexInterface
      */
     public function setCallingLineIdName($callingLineIdName = null)
     {
-        if (!$callingLineIdName) return $this;
         $this->callingLineIdName = ($callingLineIdName InstanceOf GroupCallingLineIdName)
              ? $callingLineIdName
              : new GroupCallingLineIdName($callingLineIdName);
@@ -202,7 +196,7 @@ class GroupAddRequest extends ComplexType implements ComplexInterface
      */
     public function getCallingLineIdName()
     {
-        return $this->callingLineIdName->getValue();
+        return ($this->callingLineIdName) ? $this->callingLineIdName->getValue() : null;
     }
 
     /**
@@ -210,7 +204,6 @@ class GroupAddRequest extends ComplexType implements ComplexInterface
      */
     public function setTimeZone($timeZone = null)
     {
-        if (!$timeZone) return $this;
         $this->timeZone = ($timeZone InstanceOf TimeZone)
              ? $timeZone
              : new TimeZone($timeZone);
@@ -224,7 +217,7 @@ class GroupAddRequest extends ComplexType implements ComplexInterface
      */
     public function getTimeZone()
     {
-        return $this->timeZone->getValue();
+        return ($this->timeZone) ? $this->timeZone->getValue() : null;
     }
 
     /**
@@ -232,7 +225,6 @@ class GroupAddRequest extends ComplexType implements ComplexInterface
      */
     public function setLocationDialingCode($locationDialingCode = null)
     {
-        if (!$locationDialingCode) return $this;
         $this->locationDialingCode = ($locationDialingCode InstanceOf LocationDialingCode)
              ? $locationDialingCode
              : new LocationDialingCode($locationDialingCode);
@@ -246,7 +238,7 @@ class GroupAddRequest extends ComplexType implements ComplexInterface
      */
     public function getLocationDialingCode()
     {
-        return $this->locationDialingCode->getValue();
+        return ($this->locationDialingCode) ? $this->locationDialingCode->getValue() : null;
     }
 
     /**
@@ -254,8 +246,9 @@ class GroupAddRequest extends ComplexType implements ComplexInterface
      */
     public function setContact(Contact $contact = null)
     {
-        if (!$contact) return $this;
-        $this->contact = $contact;
+        $this->contact = ($contact InstanceOf Contact)
+             ? $contact
+             : new Contact($contact);
         $this->contact->setName('contact');
         return $this;
     }
@@ -274,8 +267,9 @@ class GroupAddRequest extends ComplexType implements ComplexInterface
      */
     public function setAddress(StreetAddress $address = null)
     {
-        if (!$address) return $this;
-        $this->address = $address;
+        $this->address = ($address InstanceOf StreetAddress)
+             ? $address
+             : new StreetAddress($address);
         $this->address->setName('address');
         return $this;
     }

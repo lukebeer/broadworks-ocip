@@ -22,14 +22,14 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupCommPilotCallManagerModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name              = 'GroupCommPilotCallManagerModifyRequest';
-    protected $serviceProviderId = null;
-    protected $groupId           = null;
-    protected $groupDirectory    = null;
+    public    $name = 'GroupCommPilotCallManagerModifyRequest';
+    protected $serviceProviderId;
+    protected $groupId;
+    protected $groupDirectory;
 
     public function __construct(
-         $serviceProviderId,
-         $groupId,
+         $serviceProviderId = '',
+         $groupId = '',
          $groupDirectory = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
@@ -50,7 +50,6 @@ class GroupCommPilotCallManagerModifyRequest extends ComplexType implements Comp
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
-        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
@@ -64,7 +63,7 @@ class GroupCommPilotCallManagerModifyRequest extends ComplexType implements Comp
      */
     public function getServiceProviderId()
     {
-        return $this->serviceProviderId->getValue();
+        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
     }
 
     /**
@@ -72,7 +71,6 @@ class GroupCommPilotCallManagerModifyRequest extends ComplexType implements Comp
      */
     public function setGroupId($groupId = null)
     {
-        if (!$groupId) return $this;
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
@@ -86,7 +84,7 @@ class GroupCommPilotCallManagerModifyRequest extends ComplexType implements Comp
      */
     public function getGroupId()
     {
-        return $this->groupId->getValue();
+        return ($this->groupId) ? $this->groupId->getValue() : null;
     }
 
     /**
@@ -94,7 +92,6 @@ class GroupCommPilotCallManagerModifyRequest extends ComplexType implements Comp
      */
     public function setGroupDirectory($groupDirectory = null)
     {
-        if (!$groupDirectory) return $this;
         $this->groupDirectory = ($groupDirectory InstanceOf CommPilotCallManagerGroupDirectoryDisplaySelection)
              ? $groupDirectory
              : new CommPilotCallManagerGroupDirectoryDisplaySelection($groupDirectory);
@@ -108,6 +105,6 @@ class GroupCommPilotCallManagerModifyRequest extends ComplexType implements Comp
      */
     public function getGroupDirectory()
     {
-        return $this->groupDirectory->getValue();
+        return ($this->groupDirectory) ? $this->groupDirectory->getValue() : null;
     }
 }

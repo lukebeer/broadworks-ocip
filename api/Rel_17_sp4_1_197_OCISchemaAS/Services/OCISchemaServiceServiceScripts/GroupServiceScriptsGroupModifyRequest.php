@@ -22,14 +22,14 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupServiceScriptsGroupModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name              = 'GroupServiceScriptsGroupModifyRequest';
-    protected $serviceProviderId = null;
-    protected $groupId           = null;
-    protected $isActive          = null;
+    public    $name = 'GroupServiceScriptsGroupModifyRequest';
+    protected $serviceProviderId;
+    protected $groupId;
+    protected $isActive;
 
     public function __construct(
-         $serviceProviderId,
-         $groupId,
+         $serviceProviderId = '',
+         $groupId = '',
          $isActive = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
@@ -50,7 +50,6 @@ class GroupServiceScriptsGroupModifyRequest extends ComplexType implements Compl
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
-        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
@@ -64,7 +63,7 @@ class GroupServiceScriptsGroupModifyRequest extends ComplexType implements Compl
      */
     public function getServiceProviderId()
     {
-        return $this->serviceProviderId->getValue();
+        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
     }
 
     /**
@@ -72,7 +71,6 @@ class GroupServiceScriptsGroupModifyRequest extends ComplexType implements Compl
      */
     public function setGroupId($groupId = null)
     {
-        if (!$groupId) return $this;
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
@@ -86,7 +84,7 @@ class GroupServiceScriptsGroupModifyRequest extends ComplexType implements Compl
      */
     public function getGroupId()
     {
-        return $this->groupId->getValue();
+        return ($this->groupId) ? $this->groupId->getValue() : null;
     }
 
     /**
@@ -94,7 +92,6 @@ class GroupServiceScriptsGroupModifyRequest extends ComplexType implements Compl
      */
     public function setIsActive($isActive = null)
     {
-        if (!$isActive) return $this;
         $this->isActive = new PrimitiveType($isActive);
         $this->isActive->setName('isActive');
         return $this;
@@ -106,6 +103,6 @@ class GroupServiceScriptsGroupModifyRequest extends ComplexType implements Compl
      */
     public function getIsActive()
     {
-        return $this->isActive->getValue();
+        return ($this->isActive) ? $this->isActive->getValue() : null;
     }
 }

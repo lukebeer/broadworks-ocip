@@ -22,13 +22,13 @@ use Broadworks_OCIP\core\Client\Client;
 class ServiceProviderServicePackGetServiceUsageListRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderServicePackGetServiceUsageListResponse';
-    public    $name              = 'ServiceProviderServicePackGetServiceUsageListRequest';
-    protected $serviceProviderId = null;
-    protected $serviceName       = null;
+    public    $name = 'ServiceProviderServicePackGetServiceUsageListRequest';
+    protected $serviceProviderId;
+    protected $serviceName;
 
     public function __construct(
-         $serviceProviderId,
-         $serviceName
+         $serviceProviderId = '',
+         $serviceName = ''
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setServiceName($serviceName);
@@ -47,7 +47,6 @@ class ServiceProviderServicePackGetServiceUsageListRequest extends ComplexType i
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
-        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
@@ -61,7 +60,7 @@ class ServiceProviderServicePackGetServiceUsageListRequest extends ComplexType i
      */
     public function getServiceProviderId()
     {
-        return $this->serviceProviderId->getValue();
+        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
     }
 
     /**
@@ -69,7 +68,6 @@ class ServiceProviderServicePackGetServiceUsageListRequest extends ComplexType i
      */
     public function setServiceName($serviceName = null)
     {
-        if (!$serviceName) return $this;
         $this->serviceName = ($serviceName InstanceOf UserService)
              ? $serviceName
              : new UserService($serviceName);
@@ -83,6 +81,6 @@ class ServiceProviderServicePackGetServiceUsageListRequest extends ComplexType i
      */
     public function getServiceName()
     {
-        return $this->serviceName->getValue();
+        return ($this->serviceName) ? $this->serviceName->getValue() : null;
     }
 }

@@ -20,8 +20,8 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemMediaServerGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name             = 'SystemMediaServerGetListResponse';
-    protected $mediaServerTable = null;
+    public    $name = 'SystemMediaServerGetListResponse';
+    protected $mediaServerTable;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemMediaServerGetListResponse $response
@@ -36,7 +36,6 @@ class SystemMediaServerGetListResponse extends ComplexType implements ComplexInt
      */
     public function setMediaServerTable(TableType $mediaServerTable = null)
     {
-        if (!$mediaServerTable) return $this;
         $this->mediaServerTable = $mediaServerTable;
         $this->mediaServerTable->setName('mediaServerTable');
         return $this;

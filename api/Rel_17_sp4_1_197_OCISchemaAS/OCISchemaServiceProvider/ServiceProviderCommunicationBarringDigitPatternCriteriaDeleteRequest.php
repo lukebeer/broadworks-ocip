@@ -21,13 +21,13 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderCommunicationBarringDigitPatternCriteriaDeleteRequest extends ComplexType implements ComplexInterface
 {
-    public    $name              = 'ServiceProviderCommunicationBarringDigitPatternCriteriaDeleteRequest';
-    protected $serviceProviderId = null;
-    protected $name              = null;
+    public    $name = 'ServiceProviderCommunicationBarringDigitPatternCriteriaDeleteRequest';
+    protected $serviceProviderId;
+    protected $name;
 
     public function __construct(
-         $serviceProviderId,
-         $name
+         $serviceProviderId = '',
+         $name = ''
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setName($name);
@@ -46,7 +46,6 @@ class ServiceProviderCommunicationBarringDigitPatternCriteriaDeleteRequest exten
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
-        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
@@ -60,7 +59,7 @@ class ServiceProviderCommunicationBarringDigitPatternCriteriaDeleteRequest exten
      */
     public function getServiceProviderId()
     {
-        return $this->serviceProviderId->getValue();
+        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
     }
 
     /**
@@ -68,7 +67,6 @@ class ServiceProviderCommunicationBarringDigitPatternCriteriaDeleteRequest exten
      */
     public function setName($name = null)
     {
-        if (!$name) return $this;
         $this->name = ($name InstanceOf DigitPatternCriteriaName)
              ? $name
              : new DigitPatternCriteriaName($name);
@@ -82,6 +80,6 @@ class ServiceProviderCommunicationBarringDigitPatternCriteriaDeleteRequest exten
      */
     public function getName()
     {
-        return $this->name->getValue();
+        return ($this->name) ? $this->name->getValue() : null;
     }
 }

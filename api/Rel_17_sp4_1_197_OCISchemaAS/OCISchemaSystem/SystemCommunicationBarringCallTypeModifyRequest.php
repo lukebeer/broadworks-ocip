@@ -20,12 +20,12 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemCommunicationBarringCallTypeModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                  = 'SystemCommunicationBarringCallTypeModifyRequest';
-    protected $callType              = null;
-    protected $networkServerCallType = null;
+    public    $name = 'SystemCommunicationBarringCallTypeModifyRequest';
+    protected $callType;
+    protected $networkServerCallType;
 
     public function __construct(
-         $callType,
+         $callType = '',
          $networkServerCallType = null
     ) {
         $this->setCallType($callType);
@@ -45,7 +45,6 @@ class SystemCommunicationBarringCallTypeModifyRequest extends ComplexType implem
      */
     public function setCallType($callType = null)
     {
-        if (!$callType) return $this;
         $this->callType = ($callType InstanceOf CommunicationBarringCallType)
              ? $callType
              : new CommunicationBarringCallType($callType);
@@ -59,7 +58,7 @@ class SystemCommunicationBarringCallTypeModifyRequest extends ComplexType implem
      */
     public function getCallType()
     {
-        return $this->callType->getValue();
+        return ($this->callType) ? $this->callType->getValue() : null;
     }
 
     /**
@@ -67,7 +66,6 @@ class SystemCommunicationBarringCallTypeModifyRequest extends ComplexType implem
      */
     public function setNetworkServerCallType($networkServerCallType = null)
     {
-        if (!$networkServerCallType) return $this;
         $this->networkServerCallType = ($networkServerCallType InstanceOf NetworkServerCallType)
              ? $networkServerCallType
              : new NetworkServerCallType($networkServerCallType);
@@ -81,6 +79,6 @@ class SystemCommunicationBarringCallTypeModifyRequest extends ComplexType implem
      */
     public function getNetworkServerCallType()
     {
-        return $this->networkServerCallType->getValue();
+        return ($this->networkServerCallType) ? $this->networkServerCallType->getValue() : null;
     }
 }

@@ -23,21 +23,21 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemFileRepositoryDeviceUserAddRequest extends ComplexType implements ComplexInterface
 {
-    public    $name               = 'SystemFileRepositoryDeviceUserAddRequest';
-    protected $fileRepositoryName = null;
-    protected $userName           = null;
-    protected $password           = null;
-    protected $allowPut           = null;
-    protected $allowDelete        = null;
-    protected $allowGet           = null;
+    public    $name = 'SystemFileRepositoryDeviceUserAddRequest';
+    protected $fileRepositoryName;
+    protected $userName;
+    protected $password;
+    protected $allowPut;
+    protected $allowDelete;
+    protected $allowGet;
 
     public function __construct(
-         $fileRepositoryName,
-         $userName,
-         $password,
-         $allowPut,
-         $allowDelete,
-         $allowGet
+         $fileRepositoryName = '',
+         $userName = '',
+         $password = '',
+         $allowPut = '',
+         $allowDelete = '',
+         $allowGet = ''
     ) {
         $this->setFileRepositoryName($fileRepositoryName);
         $this->setUserName($userName);
@@ -60,7 +60,6 @@ class SystemFileRepositoryDeviceUserAddRequest extends ComplexType implements Co
      */
     public function setFileRepositoryName($fileRepositoryName = null)
     {
-        if (!$fileRepositoryName) return $this;
         $this->fileRepositoryName = ($fileRepositoryName InstanceOf FileRepositoryName)
              ? $fileRepositoryName
              : new FileRepositoryName($fileRepositoryName);
@@ -74,7 +73,7 @@ class SystemFileRepositoryDeviceUserAddRequest extends ComplexType implements Co
      */
     public function getFileRepositoryName()
     {
-        return $this->fileRepositoryName->getValue();
+        return ($this->fileRepositoryName) ? $this->fileRepositoryName->getValue() : null;
     }
 
     /**
@@ -82,7 +81,6 @@ class SystemFileRepositoryDeviceUserAddRequest extends ComplexType implements Co
      */
     public function setUserName($userName = null)
     {
-        if (!$userName) return $this;
         $this->userName = ($userName InstanceOf FileRepositoryUserName)
              ? $userName
              : new FileRepositoryUserName($userName);
@@ -96,7 +94,7 @@ class SystemFileRepositoryDeviceUserAddRequest extends ComplexType implements Co
      */
     public function getUserName()
     {
-        return $this->userName->getValue();
+        return ($this->userName) ? $this->userName->getValue() : null;
     }
 
     /**
@@ -104,7 +102,6 @@ class SystemFileRepositoryDeviceUserAddRequest extends ComplexType implements Co
      */
     public function setPassword($password = null)
     {
-        if (!$password) return $this;
         $this->password = ($password InstanceOf FileRepositoryUserPassword)
              ? $password
              : new FileRepositoryUserPassword($password);
@@ -118,7 +115,7 @@ class SystemFileRepositoryDeviceUserAddRequest extends ComplexType implements Co
      */
     public function getPassword()
     {
-        return $this->password->getValue();
+        return ($this->password) ? $this->password->getValue() : null;
     }
 
     /**
@@ -126,7 +123,6 @@ class SystemFileRepositoryDeviceUserAddRequest extends ComplexType implements Co
      */
     public function setAllowPut($allowPut = null)
     {
-        if (!$allowPut) return $this;
         $this->allowPut = new PrimitiveType($allowPut);
         $this->allowPut->setName('allowPut');
         return $this;
@@ -138,7 +134,7 @@ class SystemFileRepositoryDeviceUserAddRequest extends ComplexType implements Co
      */
     public function getAllowPut()
     {
-        return $this->allowPut->getValue();
+        return ($this->allowPut) ? $this->allowPut->getValue() : null;
     }
 
     /**
@@ -146,7 +142,6 @@ class SystemFileRepositoryDeviceUserAddRequest extends ComplexType implements Co
      */
     public function setAllowDelete($allowDelete = null)
     {
-        if (!$allowDelete) return $this;
         $this->allowDelete = new PrimitiveType($allowDelete);
         $this->allowDelete->setName('allowDelete');
         return $this;
@@ -158,7 +153,7 @@ class SystemFileRepositoryDeviceUserAddRequest extends ComplexType implements Co
      */
     public function getAllowDelete()
     {
-        return $this->allowDelete->getValue();
+        return ($this->allowDelete) ? $this->allowDelete->getValue() : null;
     }
 
     /**
@@ -166,7 +161,6 @@ class SystemFileRepositoryDeviceUserAddRequest extends ComplexType implements Co
      */
     public function setAllowGet($allowGet = null)
     {
-        if (!$allowGet) return $this;
         $this->allowGet = new PrimitiveType($allowGet);
         $this->allowGet->setName('allowGet');
         return $this;
@@ -178,6 +172,6 @@ class SystemFileRepositoryDeviceUserAddRequest extends ComplexType implements Co
      */
     public function getAllowGet()
     {
-        return $this->allowGet->getValue();
+        return ($this->allowGet) ? $this->allowGet->getValue() : null;
     }
 }

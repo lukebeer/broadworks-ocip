@@ -23,13 +23,13 @@ use Broadworks_OCIP\core\Client\Client;
 class UserInstantConferencingGetConferenceRecordingRequest14Sp9 extends ComplexType implements ComplexInterface
 {
     public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing\UserInstantConferencingGetConferenceRecordingResponse14Sp9';
-    public    $name         = 'UserInstantConferencingGetConferenceRecordingRequest14Sp9';
-    protected $userId       = null;
-    protected $recordingKey = null;
+    public    $name = 'UserInstantConferencingGetConferenceRecordingRequest14Sp9';
+    protected $userId;
+    protected $recordingKey;
 
     public function __construct(
-         $userId,
-         InstantConferencingRecordingKey $recordingKey
+         $userId = '',
+         InstantConferencingRecordingKey $recordingKey = ''
     ) {
         $this->setUserId($userId);
         $this->setRecordingKey($recordingKey);
@@ -48,7 +48,6 @@ class UserInstantConferencingGetConferenceRecordingRequest14Sp9 extends ComplexT
      */
     public function setUserId($userId = null)
     {
-        if (!$userId) return $this;
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
@@ -62,7 +61,7 @@ class UserInstantConferencingGetConferenceRecordingRequest14Sp9 extends ComplexT
      */
     public function getUserId()
     {
-        return $this->userId->getValue();
+        return ($this->userId) ? $this->userId->getValue() : null;
     }
 
     /**
@@ -70,8 +69,9 @@ class UserInstantConferencingGetConferenceRecordingRequest14Sp9 extends ComplexT
      */
     public function setRecordingKey(InstantConferencingRecordingKey $recordingKey = null)
     {
-        if (!$recordingKey) return $this;
-        $this->recordingKey = $recordingKey;
+        $this->recordingKey = ($recordingKey InstanceOf InstantConferencingRecordingKey)
+             ? $recordingKey
+             : new InstantConferencingRecordingKey($recordingKey);
         $this->recordingKey->setName('recordingKey');
         return $this;
     }

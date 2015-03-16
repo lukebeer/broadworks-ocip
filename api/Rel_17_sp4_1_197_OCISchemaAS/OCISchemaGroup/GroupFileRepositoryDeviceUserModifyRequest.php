@@ -25,21 +25,21 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupFileRepositoryDeviceUserModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name               = 'GroupFileRepositoryDeviceUserModifyRequest';
-    protected $serviceProviderId  = null;
-    protected $groupId            = null;
-    protected $fileRepositoryName = null;
-    protected $userName           = null;
-    protected $password           = null;
-    protected $allowPut           = null;
-    protected $allowDelete        = null;
-    protected $allowGet           = null;
+    public    $name = 'GroupFileRepositoryDeviceUserModifyRequest';
+    protected $serviceProviderId;
+    protected $groupId;
+    protected $fileRepositoryName;
+    protected $userName;
+    protected $password;
+    protected $allowPut;
+    protected $allowDelete;
+    protected $allowGet;
 
     public function __construct(
-         $serviceProviderId,
-         $groupId,
-         $fileRepositoryName,
-         $userName,
+         $serviceProviderId = '',
+         $groupId = '',
+         $fileRepositoryName = '',
+         $userName = '',
          $password = null,
          $allowPut = null,
          $allowDelete = null,
@@ -68,7 +68,6 @@ class GroupFileRepositoryDeviceUserModifyRequest extends ComplexType implements 
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
-        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
@@ -82,7 +81,7 @@ class GroupFileRepositoryDeviceUserModifyRequest extends ComplexType implements 
      */
     public function getServiceProviderId()
     {
-        return $this->serviceProviderId->getValue();
+        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
     }
 
     /**
@@ -90,7 +89,6 @@ class GroupFileRepositoryDeviceUserModifyRequest extends ComplexType implements 
      */
     public function setGroupId($groupId = null)
     {
-        if (!$groupId) return $this;
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
@@ -104,7 +102,7 @@ class GroupFileRepositoryDeviceUserModifyRequest extends ComplexType implements 
      */
     public function getGroupId()
     {
-        return $this->groupId->getValue();
+        return ($this->groupId) ? $this->groupId->getValue() : null;
     }
 
     /**
@@ -112,7 +110,6 @@ class GroupFileRepositoryDeviceUserModifyRequest extends ComplexType implements 
      */
     public function setFileRepositoryName($fileRepositoryName = null)
     {
-        if (!$fileRepositoryName) return $this;
         $this->fileRepositoryName = ($fileRepositoryName InstanceOf FileRepositoryName)
              ? $fileRepositoryName
              : new FileRepositoryName($fileRepositoryName);
@@ -126,7 +123,7 @@ class GroupFileRepositoryDeviceUserModifyRequest extends ComplexType implements 
      */
     public function getFileRepositoryName()
     {
-        return $this->fileRepositoryName->getValue();
+        return ($this->fileRepositoryName) ? $this->fileRepositoryName->getValue() : null;
     }
 
     /**
@@ -134,7 +131,6 @@ class GroupFileRepositoryDeviceUserModifyRequest extends ComplexType implements 
      */
     public function setUserName($userName = null)
     {
-        if (!$userName) return $this;
         $this->userName = ($userName InstanceOf FileRepositoryUserName)
              ? $userName
              : new FileRepositoryUserName($userName);
@@ -148,7 +144,7 @@ class GroupFileRepositoryDeviceUserModifyRequest extends ComplexType implements 
      */
     public function getUserName()
     {
-        return $this->userName->getValue();
+        return ($this->userName) ? $this->userName->getValue() : null;
     }
 
     /**
@@ -156,7 +152,6 @@ class GroupFileRepositoryDeviceUserModifyRequest extends ComplexType implements 
      */
     public function setPassword($password = null)
     {
-        if (!$password) return $this;
         $this->password = ($password InstanceOf FileRepositoryUserPassword)
              ? $password
              : new FileRepositoryUserPassword($password);
@@ -170,7 +165,7 @@ class GroupFileRepositoryDeviceUserModifyRequest extends ComplexType implements 
      */
     public function getPassword()
     {
-        return $this->password->getValue();
+        return ($this->password) ? $this->password->getValue() : null;
     }
 
     /**
@@ -178,7 +173,6 @@ class GroupFileRepositoryDeviceUserModifyRequest extends ComplexType implements 
      */
     public function setAllowPut($allowPut = null)
     {
-        if (!$allowPut) return $this;
         $this->allowPut = new PrimitiveType($allowPut);
         $this->allowPut->setName('allowPut');
         return $this;
@@ -190,7 +184,7 @@ class GroupFileRepositoryDeviceUserModifyRequest extends ComplexType implements 
      */
     public function getAllowPut()
     {
-        return $this->allowPut->getValue();
+        return ($this->allowPut) ? $this->allowPut->getValue() : null;
     }
 
     /**
@@ -198,7 +192,6 @@ class GroupFileRepositoryDeviceUserModifyRequest extends ComplexType implements 
      */
     public function setAllowDelete($allowDelete = null)
     {
-        if (!$allowDelete) return $this;
         $this->allowDelete = new PrimitiveType($allowDelete);
         $this->allowDelete->setName('allowDelete');
         return $this;
@@ -210,7 +203,7 @@ class GroupFileRepositoryDeviceUserModifyRequest extends ComplexType implements 
      */
     public function getAllowDelete()
     {
-        return $this->allowDelete->getValue();
+        return ($this->allowDelete) ? $this->allowDelete->getValue() : null;
     }
 
     /**
@@ -218,7 +211,6 @@ class GroupFileRepositoryDeviceUserModifyRequest extends ComplexType implements 
      */
     public function setAllowGet($allowGet = null)
     {
-        if (!$allowGet) return $this;
         $this->allowGet = new PrimitiveType($allowGet);
         $this->allowGet->setName('allowGet');
         return $this;
@@ -230,6 +222,6 @@ class GroupFileRepositoryDeviceUserModifyRequest extends ComplexType implements 
      */
     public function getAllowGet()
     {
-        return $this->allowGet->getValue();
+        return ($this->allowGet) ? $this->allowGet->getValue() : null;
     }
 }

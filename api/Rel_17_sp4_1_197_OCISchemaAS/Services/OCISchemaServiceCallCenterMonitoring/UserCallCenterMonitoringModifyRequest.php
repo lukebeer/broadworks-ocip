@@ -21,12 +21,12 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserCallCenterMonitoringModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                               = 'UserCallCenterMonitoringModifyRequest';
-    protected $userId                             = null;
-    protected $playToneToAgentForSilentMonitoring = null;
+    public    $name = 'UserCallCenterMonitoringModifyRequest';
+    protected $userId;
+    protected $playToneToAgentForSilentMonitoring;
 
     public function __construct(
-         $userId,
+         $userId = '',
          $playToneToAgentForSilentMonitoring = null
     ) {
         $this->setUserId($userId);
@@ -46,7 +46,6 @@ class UserCallCenterMonitoringModifyRequest extends ComplexType implements Compl
      */
     public function setUserId($userId = null)
     {
-        if (!$userId) return $this;
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
@@ -60,7 +59,7 @@ class UserCallCenterMonitoringModifyRequest extends ComplexType implements Compl
      */
     public function getUserId()
     {
-        return $this->userId->getValue();
+        return ($this->userId) ? $this->userId->getValue() : null;
     }
 
     /**
@@ -68,7 +67,6 @@ class UserCallCenterMonitoringModifyRequest extends ComplexType implements Compl
      */
     public function setPlayToneToAgentForSilentMonitoring($playToneToAgentForSilentMonitoring = null)
     {
-        if (!$playToneToAgentForSilentMonitoring) return $this;
         $this->playToneToAgentForSilentMonitoring = new PrimitiveType($playToneToAgentForSilentMonitoring);
         $this->playToneToAgentForSilentMonitoring->setName('playToneToAgentForSilentMonitoring');
         return $this;
@@ -80,6 +78,6 @@ class UserCallCenterMonitoringModifyRequest extends ComplexType implements Compl
      */
     public function getPlayToneToAgentForSilentMonitoring()
     {
-        return $this->playToneToAgentForSilentMonitoring->getValue();
+        return ($this->playToneToAgentForSilentMonitoring) ? $this->playToneToAgentForSilentMonitoring->getValue() : null;
     }
 }

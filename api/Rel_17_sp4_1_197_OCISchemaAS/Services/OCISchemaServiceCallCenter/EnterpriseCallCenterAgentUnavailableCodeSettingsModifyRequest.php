@@ -23,18 +23,18 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class EnterpriseCallCenterAgentUnavailableCodeSettingsModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                                            = 'EnterpriseCallCenterAgentUnavailableCodeSettingsModifyRequest';
-    protected $serviceProviderId                               = null;
-    protected $enableAgentUnavailableCodes                     = null;
-    protected $defaultAgentUnavailableCodeOnDND                = null;
-    protected $defaultAgentUnavailableCodeOnPersonalCalls      = null;
-    protected $defaultAgentUnavailableCodeOnConsecutiveBounces = null;
-    protected $forceUseOfAgentUnavailableCodes                 = null;
-    protected $defaultAgentUnavailableCode                     = null;
-    protected $codeStateList                                   = null;
+    public    $name = 'EnterpriseCallCenterAgentUnavailableCodeSettingsModifyRequest';
+    protected $serviceProviderId;
+    protected $enableAgentUnavailableCodes;
+    protected $defaultAgentUnavailableCodeOnDND;
+    protected $defaultAgentUnavailableCodeOnPersonalCalls;
+    protected $defaultAgentUnavailableCodeOnConsecutiveBounces;
+    protected $forceUseOfAgentUnavailableCodes;
+    protected $defaultAgentUnavailableCode;
+    protected $codeStateList;
 
     public function __construct(
-         $serviceProviderId,
+         $serviceProviderId = '',
          $enableAgentUnavailableCodes = null,
          $defaultAgentUnavailableCodeOnDND = null,
          $defaultAgentUnavailableCodeOnPersonalCalls = null,
@@ -66,7 +66,6 @@ class EnterpriseCallCenterAgentUnavailableCodeSettingsModifyRequest extends Comp
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
-        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
@@ -80,7 +79,7 @@ class EnterpriseCallCenterAgentUnavailableCodeSettingsModifyRequest extends Comp
      */
     public function getServiceProviderId()
     {
-        return $this->serviceProviderId->getValue();
+        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
     }
 
     /**
@@ -88,7 +87,6 @@ class EnterpriseCallCenterAgentUnavailableCodeSettingsModifyRequest extends Comp
      */
     public function setEnableAgentUnavailableCodes($enableAgentUnavailableCodes = null)
     {
-        if (!$enableAgentUnavailableCodes) return $this;
         $this->enableAgentUnavailableCodes = new PrimitiveType($enableAgentUnavailableCodes);
         $this->enableAgentUnavailableCodes->setName('enableAgentUnavailableCodes');
         return $this;
@@ -100,7 +98,7 @@ class EnterpriseCallCenterAgentUnavailableCodeSettingsModifyRequest extends Comp
      */
     public function getEnableAgentUnavailableCodes()
     {
-        return $this->enableAgentUnavailableCodes->getValue();
+        return ($this->enableAgentUnavailableCodes) ? $this->enableAgentUnavailableCodes->getValue() : null;
     }
 
     /**
@@ -108,7 +106,6 @@ class EnterpriseCallCenterAgentUnavailableCodeSettingsModifyRequest extends Comp
      */
     public function setDefaultAgentUnavailableCodeOnDND($defaultAgentUnavailableCodeOnDND = null)
     {
-        if (!$defaultAgentUnavailableCodeOnDND) return $this;
         $this->defaultAgentUnavailableCodeOnDND = ($defaultAgentUnavailableCodeOnDND InstanceOf CallCenterAgentUnavailableCode)
              ? $defaultAgentUnavailableCodeOnDND
              : new CallCenterAgentUnavailableCode($defaultAgentUnavailableCodeOnDND);
@@ -122,7 +119,7 @@ class EnterpriseCallCenterAgentUnavailableCodeSettingsModifyRequest extends Comp
      */
     public function getDefaultAgentUnavailableCodeOnDND()
     {
-        return $this->defaultAgentUnavailableCodeOnDND->getValue();
+        return ($this->defaultAgentUnavailableCodeOnDND) ? $this->defaultAgentUnavailableCodeOnDND->getValue() : null;
     }
 
     /**
@@ -130,7 +127,6 @@ class EnterpriseCallCenterAgentUnavailableCodeSettingsModifyRequest extends Comp
      */
     public function setDefaultAgentUnavailableCodeOnPersonalCalls($defaultAgentUnavailableCodeOnPersonalCalls = null)
     {
-        if (!$defaultAgentUnavailableCodeOnPersonalCalls) return $this;
         $this->defaultAgentUnavailableCodeOnPersonalCalls = ($defaultAgentUnavailableCodeOnPersonalCalls InstanceOf CallCenterAgentUnavailableCode)
              ? $defaultAgentUnavailableCodeOnPersonalCalls
              : new CallCenterAgentUnavailableCode($defaultAgentUnavailableCodeOnPersonalCalls);
@@ -144,7 +140,7 @@ class EnterpriseCallCenterAgentUnavailableCodeSettingsModifyRequest extends Comp
      */
     public function getDefaultAgentUnavailableCodeOnPersonalCalls()
     {
-        return $this->defaultAgentUnavailableCodeOnPersonalCalls->getValue();
+        return ($this->defaultAgentUnavailableCodeOnPersonalCalls) ? $this->defaultAgentUnavailableCodeOnPersonalCalls->getValue() : null;
     }
 
     /**
@@ -152,7 +148,6 @@ class EnterpriseCallCenterAgentUnavailableCodeSettingsModifyRequest extends Comp
      */
     public function setDefaultAgentUnavailableCodeOnConsecutiveBounces($defaultAgentUnavailableCodeOnConsecutiveBounces = null)
     {
-        if (!$defaultAgentUnavailableCodeOnConsecutiveBounces) return $this;
         $this->defaultAgentUnavailableCodeOnConsecutiveBounces = ($defaultAgentUnavailableCodeOnConsecutiveBounces InstanceOf CallCenterAgentUnavailableCode)
              ? $defaultAgentUnavailableCodeOnConsecutiveBounces
              : new CallCenterAgentUnavailableCode($defaultAgentUnavailableCodeOnConsecutiveBounces);
@@ -166,7 +161,7 @@ class EnterpriseCallCenterAgentUnavailableCodeSettingsModifyRequest extends Comp
      */
     public function getDefaultAgentUnavailableCodeOnConsecutiveBounces()
     {
-        return $this->defaultAgentUnavailableCodeOnConsecutiveBounces->getValue();
+        return ($this->defaultAgentUnavailableCodeOnConsecutiveBounces) ? $this->defaultAgentUnavailableCodeOnConsecutiveBounces->getValue() : null;
     }
 
     /**
@@ -174,7 +169,6 @@ class EnterpriseCallCenterAgentUnavailableCodeSettingsModifyRequest extends Comp
      */
     public function setForceUseOfAgentUnavailableCodes($forceUseOfAgentUnavailableCodes = null)
     {
-        if (!$forceUseOfAgentUnavailableCodes) return $this;
         $this->forceUseOfAgentUnavailableCodes = new PrimitiveType($forceUseOfAgentUnavailableCodes);
         $this->forceUseOfAgentUnavailableCodes->setName('forceUseOfAgentUnavailableCodes');
         return $this;
@@ -186,7 +180,7 @@ class EnterpriseCallCenterAgentUnavailableCodeSettingsModifyRequest extends Comp
      */
     public function getForceUseOfAgentUnavailableCodes()
     {
-        return $this->forceUseOfAgentUnavailableCodes->getValue();
+        return ($this->forceUseOfAgentUnavailableCodes) ? $this->forceUseOfAgentUnavailableCodes->getValue() : null;
     }
 
     /**
@@ -194,7 +188,6 @@ class EnterpriseCallCenterAgentUnavailableCodeSettingsModifyRequest extends Comp
      */
     public function setDefaultAgentUnavailableCode($defaultAgentUnavailableCode = null)
     {
-        if (!$defaultAgentUnavailableCode) return $this;
         $this->defaultAgentUnavailableCode = ($defaultAgentUnavailableCode InstanceOf CallCenterAgentUnavailableCode)
              ? $defaultAgentUnavailableCode
              : new CallCenterAgentUnavailableCode($defaultAgentUnavailableCode);
@@ -208,7 +201,7 @@ class EnterpriseCallCenterAgentUnavailableCodeSettingsModifyRequest extends Comp
      */
     public function getDefaultAgentUnavailableCode()
     {
-        return $this->defaultAgentUnavailableCode->getValue();
+        return ($this->defaultAgentUnavailableCode) ? $this->defaultAgentUnavailableCode->getValue() : null;
     }
 
     /**
@@ -216,8 +209,9 @@ class EnterpriseCallCenterAgentUnavailableCodeSettingsModifyRequest extends Comp
      */
     public function setCodeStateList(CallCenterAgentUnavailableCodeStateModify $codeStateList = null)
     {
-        if (!$codeStateList) return $this;
-        $this->codeStateList = $codeStateList;
+        $this->codeStateList = ($codeStateList InstanceOf CallCenterAgentUnavailableCodeStateModify)
+             ? $codeStateList
+             : new CallCenterAgentUnavailableCodeStateModify($codeStateList);
         $this->codeStateList->setName('codeStateList');
         return $this;
     }

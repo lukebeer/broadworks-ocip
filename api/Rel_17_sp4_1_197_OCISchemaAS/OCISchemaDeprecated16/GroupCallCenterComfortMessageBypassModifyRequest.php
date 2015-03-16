@@ -25,19 +25,19 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupCallCenterComfortMessageBypassModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                                     = 'GroupCallCenterComfortMessageBypassModifyRequest';
-    protected $serviceUserId                            = null;
-    protected $isActive                                 = null;
-    protected $callWaitingAgeThresholdSeconds           = null;
-    protected $playAnnouncementAfterRinging             = null;
-    protected $ringTimeBeforePlayingAnnouncementSeconds = null;
-    protected $audioMessageSelection                    = null;
-    protected $audioFile                                = null;
-    protected $videoMessageSelection                    = null;
-    protected $videoFile                                = null;
+    public    $name = 'GroupCallCenterComfortMessageBypassModifyRequest';
+    protected $serviceUserId;
+    protected $isActive;
+    protected $callWaitingAgeThresholdSeconds;
+    protected $playAnnouncementAfterRinging;
+    protected $ringTimeBeforePlayingAnnouncementSeconds;
+    protected $audioMessageSelection;
+    protected $audioFile;
+    protected $videoMessageSelection;
+    protected $videoFile;
 
     public function __construct(
-         $serviceUserId,
+         $serviceUserId = '',
          $isActive = null,
          $callWaitingAgeThresholdSeconds = null,
          $playAnnouncementAfterRinging = null,
@@ -71,7 +71,6 @@ class GroupCallCenterComfortMessageBypassModifyRequest extends ComplexType imple
      */
     public function setServiceUserId($serviceUserId = null)
     {
-        if (!$serviceUserId) return $this;
         $this->serviceUserId = ($serviceUserId InstanceOf UserId)
              ? $serviceUserId
              : new UserId($serviceUserId);
@@ -85,7 +84,7 @@ class GroupCallCenterComfortMessageBypassModifyRequest extends ComplexType imple
      */
     public function getServiceUserId()
     {
-        return $this->serviceUserId->getValue();
+        return ($this->serviceUserId) ? $this->serviceUserId->getValue() : null;
     }
 
     /**
@@ -93,7 +92,6 @@ class GroupCallCenterComfortMessageBypassModifyRequest extends ComplexType imple
      */
     public function setIsActive($isActive = null)
     {
-        if (!$isActive) return $this;
         $this->isActive = new PrimitiveType($isActive);
         $this->isActive->setName('isActive');
         return $this;
@@ -105,7 +103,7 @@ class GroupCallCenterComfortMessageBypassModifyRequest extends ComplexType imple
      */
     public function getIsActive()
     {
-        return $this->isActive->getValue();
+        return ($this->isActive) ? $this->isActive->getValue() : null;
     }
 
     /**
@@ -113,7 +111,6 @@ class GroupCallCenterComfortMessageBypassModifyRequest extends ComplexType imple
      */
     public function setCallWaitingAgeThresholdSeconds($callWaitingAgeThresholdSeconds = null)
     {
-        if (!$callWaitingAgeThresholdSeconds) return $this;
         $this->callWaitingAgeThresholdSeconds = ($callWaitingAgeThresholdSeconds InstanceOf CallCenterComfortMessageBypassThresholdSeconds)
              ? $callWaitingAgeThresholdSeconds
              : new CallCenterComfortMessageBypassThresholdSeconds($callWaitingAgeThresholdSeconds);
@@ -127,7 +124,7 @@ class GroupCallCenterComfortMessageBypassModifyRequest extends ComplexType imple
      */
     public function getCallWaitingAgeThresholdSeconds()
     {
-        return $this->callWaitingAgeThresholdSeconds->getValue();
+        return ($this->callWaitingAgeThresholdSeconds) ? $this->callWaitingAgeThresholdSeconds->getValue() : null;
     }
 
     /**
@@ -135,7 +132,6 @@ class GroupCallCenterComfortMessageBypassModifyRequest extends ComplexType imple
      */
     public function setPlayAnnouncementAfterRinging($playAnnouncementAfterRinging = null)
     {
-        if (!$playAnnouncementAfterRinging) return $this;
         $this->playAnnouncementAfterRinging = new PrimitiveType($playAnnouncementAfterRinging);
         $this->playAnnouncementAfterRinging->setName('playAnnouncementAfterRinging');
         return $this;
@@ -147,7 +143,7 @@ class GroupCallCenterComfortMessageBypassModifyRequest extends ComplexType imple
      */
     public function getPlayAnnouncementAfterRinging()
     {
-        return $this->playAnnouncementAfterRinging->getValue();
+        return ($this->playAnnouncementAfterRinging) ? $this->playAnnouncementAfterRinging->getValue() : null;
     }
 
     /**
@@ -155,7 +151,6 @@ class GroupCallCenterComfortMessageBypassModifyRequest extends ComplexType imple
      */
     public function setRingTimeBeforePlayingAnnouncementSeconds($ringTimeBeforePlayingAnnouncementSeconds = null)
     {
-        if (!$ringTimeBeforePlayingAnnouncementSeconds) return $this;
         $this->ringTimeBeforePlayingAnnouncementSeconds = ($ringTimeBeforePlayingAnnouncementSeconds InstanceOf CallCenterRingTimeBeforePlayingComfortMessageBypassAnnouncementSeconds)
              ? $ringTimeBeforePlayingAnnouncementSeconds
              : new CallCenterRingTimeBeforePlayingComfortMessageBypassAnnouncementSeconds($ringTimeBeforePlayingAnnouncementSeconds);
@@ -169,7 +164,7 @@ class GroupCallCenterComfortMessageBypassModifyRequest extends ComplexType imple
      */
     public function getRingTimeBeforePlayingAnnouncementSeconds()
     {
-        return $this->ringTimeBeforePlayingAnnouncementSeconds->getValue();
+        return ($this->ringTimeBeforePlayingAnnouncementSeconds) ? $this->ringTimeBeforePlayingAnnouncementSeconds->getValue() : null;
     }
 
     /**
@@ -177,7 +172,6 @@ class GroupCallCenterComfortMessageBypassModifyRequest extends ComplexType imple
      */
     public function setAudioMessageSelection($audioMessageSelection = null)
     {
-        if (!$audioMessageSelection) return $this;
         $this->audioMessageSelection = ($audioMessageSelection InstanceOf ExtendedFileResourceSelection)
              ? $audioMessageSelection
              : new ExtendedFileResourceSelection($audioMessageSelection);
@@ -191,7 +185,7 @@ class GroupCallCenterComfortMessageBypassModifyRequest extends ComplexType imple
      */
     public function getAudioMessageSelection()
     {
-        return $this->audioMessageSelection->getValue();
+        return ($this->audioMessageSelection) ? $this->audioMessageSelection->getValue() : null;
     }
 
     /**
@@ -199,8 +193,9 @@ class GroupCallCenterComfortMessageBypassModifyRequest extends ComplexType imple
      */
     public function setAudioFile(ExtendedMediaFileResource $audioFile = null)
     {
-        if (!$audioFile) return $this;
-        $this->audioFile = $audioFile;
+        $this->audioFile = ($audioFile InstanceOf ExtendedMediaFileResource)
+             ? $audioFile
+             : new ExtendedMediaFileResource($audioFile);
         $this->audioFile->setName('audioFile');
         return $this;
     }
@@ -219,7 +214,6 @@ class GroupCallCenterComfortMessageBypassModifyRequest extends ComplexType imple
      */
     public function setVideoMessageSelection($videoMessageSelection = null)
     {
-        if (!$videoMessageSelection) return $this;
         $this->videoMessageSelection = ($videoMessageSelection InstanceOf ExtendedFileResourceSelection)
              ? $videoMessageSelection
              : new ExtendedFileResourceSelection($videoMessageSelection);
@@ -233,7 +227,7 @@ class GroupCallCenterComfortMessageBypassModifyRequest extends ComplexType imple
      */
     public function getVideoMessageSelection()
     {
-        return $this->videoMessageSelection->getValue();
+        return ($this->videoMessageSelection) ? $this->videoMessageSelection->getValue() : null;
     }
 
     /**
@@ -241,8 +235,9 @@ class GroupCallCenterComfortMessageBypassModifyRequest extends ComplexType imple
      */
     public function setVideoFile(ExtendedMediaFileResource $videoFile = null)
     {
-        if (!$videoFile) return $this;
-        $this->videoFile = $videoFile;
+        $this->videoFile = ($videoFile InstanceOf ExtendedMediaFileResource)
+             ? $videoFile
+             : new ExtendedMediaFileResource($videoFile);
         $this->videoFile->setName('videoFile');
         return $this;
     }

@@ -20,8 +20,8 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemConfigurableFileSystemGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name           = 'SystemConfigurableFileSystemGetResponse';
-    protected $mediaDirectory = null;
+    public    $name = 'SystemConfigurableFileSystemGetResponse';
+    protected $mediaDirectory;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemConfigurableFileSystemGetResponse $response
@@ -36,7 +36,6 @@ class SystemConfigurableFileSystemGetResponse extends ComplexType implements Com
      */
     public function setMediaDirectory($mediaDirectory = null)
     {
-        if (!$mediaDirectory) return $this;
         $this->mediaDirectory = ($mediaDirectory InstanceOf ConfigurableFileSystemDirectory)
              ? $mediaDirectory
              : new ConfigurableFileSystemDirectory($mediaDirectory);
@@ -50,6 +49,6 @@ class SystemConfigurableFileSystemGetResponse extends ComplexType implements Com
      */
     public function getMediaDirectory()
     {
-        return $this->mediaDirectory->getValue();
+        return ($this->mediaDirectory) ? $this->mediaDirectory->getValue() : null;
     }
 }

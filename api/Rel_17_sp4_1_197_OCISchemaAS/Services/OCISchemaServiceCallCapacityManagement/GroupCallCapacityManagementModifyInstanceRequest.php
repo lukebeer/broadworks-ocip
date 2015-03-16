@@ -25,21 +25,21 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupCallCapacityManagementModifyInstanceRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                          = 'GroupCallCapacityManagementModifyInstanceRequest';
-    protected $serviceProviderId             = null;
-    protected $groupId                       = null;
-    protected $name                          = null;
-    protected $newName                       = null;
-    protected $maxActiveCallsAllowed         = null;
-    protected $maxIncomingActiveCallsAllowed = null;
-    protected $maxOutgoingActiveCallsAllowed = null;
-    protected $becomeDefaultGroupForNewUsers = null;
-    protected $userIdList                    = null;
+    public    $name = 'GroupCallCapacityManagementModifyInstanceRequest';
+    protected $serviceProviderId;
+    protected $groupId;
+    protected $name;
+    protected $newName;
+    protected $maxActiveCallsAllowed;
+    protected $maxIncomingActiveCallsAllowed;
+    protected $maxOutgoingActiveCallsAllowed;
+    protected $becomeDefaultGroupForNewUsers;
+    protected $userIdList;
 
     public function __construct(
-         $serviceProviderId,
-         $groupId,
-         $name,
+         $serviceProviderId = '',
+         $groupId = '',
+         $name = '',
          $newName = null,
          $maxActiveCallsAllowed = null,
          $maxIncomingActiveCallsAllowed = null,
@@ -71,7 +71,6 @@ class GroupCallCapacityManagementModifyInstanceRequest extends ComplexType imple
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
-        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
@@ -85,7 +84,7 @@ class GroupCallCapacityManagementModifyInstanceRequest extends ComplexType imple
      */
     public function getServiceProviderId()
     {
-        return $this->serviceProviderId->getValue();
+        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
     }
 
     /**
@@ -93,7 +92,6 @@ class GroupCallCapacityManagementModifyInstanceRequest extends ComplexType imple
      */
     public function setGroupId($groupId = null)
     {
-        if (!$groupId) return $this;
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
@@ -107,7 +105,7 @@ class GroupCallCapacityManagementModifyInstanceRequest extends ComplexType imple
      */
     public function getGroupId()
     {
-        return $this->groupId->getValue();
+        return ($this->groupId) ? $this->groupId->getValue() : null;
     }
 
     /**
@@ -115,7 +113,6 @@ class GroupCallCapacityManagementModifyInstanceRequest extends ComplexType imple
      */
     public function setName($name = null)
     {
-        if (!$name) return $this;
         $this->name = ($name InstanceOf ServiceInstanceName)
              ? $name
              : new ServiceInstanceName($name);
@@ -129,7 +126,7 @@ class GroupCallCapacityManagementModifyInstanceRequest extends ComplexType imple
      */
     public function getName()
     {
-        return $this->name->getValue();
+        return ($this->name) ? $this->name->getValue() : null;
     }
 
     /**
@@ -137,7 +134,6 @@ class GroupCallCapacityManagementModifyInstanceRequest extends ComplexType imple
      */
     public function setNewName($newName = null)
     {
-        if (!$newName) return $this;
         $this->newName = ($newName InstanceOf ServiceInstanceName)
              ? $newName
              : new ServiceInstanceName($newName);
@@ -151,7 +147,7 @@ class GroupCallCapacityManagementModifyInstanceRequest extends ComplexType imple
      */
     public function getNewName()
     {
-        return $this->newName->getValue();
+        return ($this->newName) ? $this->newName->getValue() : null;
     }
 
     /**
@@ -159,7 +155,6 @@ class GroupCallCapacityManagementModifyInstanceRequest extends ComplexType imple
      */
     public function setMaxActiveCallsAllowed($maxActiveCallsAllowed = null)
     {
-        if (!$maxActiveCallsAllowed) return $this;
         $this->maxActiveCallsAllowed = ($maxActiveCallsAllowed InstanceOf CallCapacityCallLimit)
              ? $maxActiveCallsAllowed
              : new CallCapacityCallLimit($maxActiveCallsAllowed);
@@ -173,7 +168,7 @@ class GroupCallCapacityManagementModifyInstanceRequest extends ComplexType imple
      */
     public function getMaxActiveCallsAllowed()
     {
-        return $this->maxActiveCallsAllowed->getValue();
+        return ($this->maxActiveCallsAllowed) ? $this->maxActiveCallsAllowed->getValue() : null;
     }
 
     /**
@@ -181,7 +176,6 @@ class GroupCallCapacityManagementModifyInstanceRequest extends ComplexType imple
      */
     public function setMaxIncomingActiveCallsAllowed($maxIncomingActiveCallsAllowed = null)
     {
-        if (!$maxIncomingActiveCallsAllowed) return $this;
         $this->maxIncomingActiveCallsAllowed = ($maxIncomingActiveCallsAllowed InstanceOf CallCapacityCallLimit)
              ? $maxIncomingActiveCallsAllowed
              : new CallCapacityCallLimit($maxIncomingActiveCallsAllowed);
@@ -195,7 +189,7 @@ class GroupCallCapacityManagementModifyInstanceRequest extends ComplexType imple
      */
     public function getMaxIncomingActiveCallsAllowed()
     {
-        return $this->maxIncomingActiveCallsAllowed->getValue();
+        return ($this->maxIncomingActiveCallsAllowed) ? $this->maxIncomingActiveCallsAllowed->getValue() : null;
     }
 
     /**
@@ -203,7 +197,6 @@ class GroupCallCapacityManagementModifyInstanceRequest extends ComplexType imple
      */
     public function setMaxOutgoingActiveCallsAllowed($maxOutgoingActiveCallsAllowed = null)
     {
-        if (!$maxOutgoingActiveCallsAllowed) return $this;
         $this->maxOutgoingActiveCallsAllowed = ($maxOutgoingActiveCallsAllowed InstanceOf CallCapacityCallLimit)
              ? $maxOutgoingActiveCallsAllowed
              : new CallCapacityCallLimit($maxOutgoingActiveCallsAllowed);
@@ -217,7 +210,7 @@ class GroupCallCapacityManagementModifyInstanceRequest extends ComplexType imple
      */
     public function getMaxOutgoingActiveCallsAllowed()
     {
-        return $this->maxOutgoingActiveCallsAllowed->getValue();
+        return ($this->maxOutgoingActiveCallsAllowed) ? $this->maxOutgoingActiveCallsAllowed->getValue() : null;
     }
 
     /**
@@ -225,7 +218,6 @@ class GroupCallCapacityManagementModifyInstanceRequest extends ComplexType imple
      */
     public function setBecomeDefaultGroupForNewUsers($becomeDefaultGroupForNewUsers = null)
     {
-        if (!$becomeDefaultGroupForNewUsers) return $this;
         $this->becomeDefaultGroupForNewUsers = new PrimitiveType($becomeDefaultGroupForNewUsers);
         $this->becomeDefaultGroupForNewUsers->setName('becomeDefaultGroupForNewUsers');
         return $this;
@@ -237,7 +229,7 @@ class GroupCallCapacityManagementModifyInstanceRequest extends ComplexType imple
      */
     public function getBecomeDefaultGroupForNewUsers()
     {
-        return $this->becomeDefaultGroupForNewUsers->getValue();
+        return ($this->becomeDefaultGroupForNewUsers) ? $this->becomeDefaultGroupForNewUsers->getValue() : null;
     }
 
     /**
@@ -245,8 +237,9 @@ class GroupCallCapacityManagementModifyInstanceRequest extends ComplexType imple
      */
     public function setUserIdList(ReplacementUserIdList $userIdList = null)
     {
-        if (!$userIdList) return $this;
-        $this->userIdList = $userIdList;
+        $this->userIdList = ($userIdList InstanceOf ReplacementUserIdList)
+             ? $userIdList
+             : new ReplacementUserIdList($userIdList);
         $this->userIdList->setName('userIdList');
         return $this;
     }

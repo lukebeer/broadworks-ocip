@@ -22,12 +22,12 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserSpeedDial100ModifyListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name           = 'UserSpeedDial100ModifyListRequest';
-    protected $userId         = null;
-    protected $speedDialEntry = null;
+    public    $name = 'UserSpeedDial100ModifyListRequest';
+    protected $userId;
+    protected $speedDialEntry;
 
     public function __construct(
-         $userId,
+         $userId = '',
          SpeedDial100EntryModify $speedDialEntry = null
     ) {
         $this->setUserId($userId);
@@ -47,7 +47,6 @@ class UserSpeedDial100ModifyListRequest extends ComplexType implements ComplexIn
      */
     public function setUserId($userId = null)
     {
-        if (!$userId) return $this;
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
@@ -61,7 +60,7 @@ class UserSpeedDial100ModifyListRequest extends ComplexType implements ComplexIn
      */
     public function getUserId()
     {
-        return $this->userId->getValue();
+        return ($this->userId) ? $this->userId->getValue() : null;
     }
 
     /**
@@ -69,8 +68,9 @@ class UserSpeedDial100ModifyListRequest extends ComplexType implements ComplexIn
      */
     public function setSpeedDialEntry(SpeedDial100EntryModify $speedDialEntry = null)
     {
-        if (!$speedDialEntry) return $this;
-        $this->speedDialEntry = $speedDialEntry;
+        $this->speedDialEntry = ($speedDialEntry InstanceOf SpeedDial100EntryModify)
+             ? $speedDialEntry
+             : new SpeedDial100EntryModify($speedDialEntry);
         $this->speedDialEntry->setName('speedDialEntry');
         return $this;
     }

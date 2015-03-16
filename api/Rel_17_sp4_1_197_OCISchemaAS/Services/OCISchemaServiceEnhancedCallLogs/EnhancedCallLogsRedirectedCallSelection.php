@@ -24,12 +24,12 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class EnhancedCallLogsRedirectedCallSelection extends ComplexType implements ComplexInterface
 {
-    public    $name           = 'EnhancedCallLogsRedirectedCallSelection';
-    protected $redirectedCall = null;
-    protected $redirectType   = null;
+    public    $name = 'EnhancedCallLogsRedirectedCallSelection';
+    protected $redirectedCall;
+    protected $redirectType;
 
     public function __construct(
-         $redirectedCall,
+         $redirectedCall = '',
          $redirectType = null
     ) {
         $this->setRedirectedCall($redirectedCall);
@@ -49,7 +49,6 @@ class EnhancedCallLogsRedirectedCallSelection extends ComplexType implements Com
      */
     public function setRedirectedCall($redirectedCall = null)
     {
-        if (!$redirectedCall) return $this;
         $this->redirectedCall = new SimpleContent($redirectedCall);
         $this->redirectedCall->setName('redirectedCall');
         return $this;
@@ -61,7 +60,7 @@ class EnhancedCallLogsRedirectedCallSelection extends ComplexType implements Com
      */
     public function getRedirectedCall()
     {
-        return $this->redirectedCall->getValue();
+        return ($this->redirectedCall) ? $this->redirectedCall->getValue() : null;
     }
 
     /**
@@ -69,7 +68,6 @@ class EnhancedCallLogsRedirectedCallSelection extends ComplexType implements Com
      */
     public function setRedirectType($redirectType = null)
     {
-        if (!$redirectType) return $this;
         $this->redirectType = new SimpleContent($redirectType);
         $this->redirectType->setName('redirectType');
         return $this;
@@ -81,6 +79,6 @@ class EnhancedCallLogsRedirectedCallSelection extends ComplexType implements Com
      */
     public function getRedirectType()
     {
-        return $this->redirectType->getValue();
+        return ($this->redirectType) ? $this->redirectType->getValue() : null;
     }
 }

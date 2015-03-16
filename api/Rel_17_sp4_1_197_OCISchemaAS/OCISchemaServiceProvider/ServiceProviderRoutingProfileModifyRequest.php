@@ -20,12 +20,12 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderRoutingProfileModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name              = 'ServiceProviderRoutingProfileModifyRequest';
-    protected $serviceProviderId = null;
-    protected $routingProfile    = null;
+    public    $name = 'ServiceProviderRoutingProfileModifyRequest';
+    protected $serviceProviderId;
+    protected $routingProfile;
 
     public function __construct(
-         $serviceProviderId,
+         $serviceProviderId = '',
          $routingProfile = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
@@ -45,7 +45,6 @@ class ServiceProviderRoutingProfileModifyRequest extends ComplexType implements 
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
-        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
@@ -59,7 +58,7 @@ class ServiceProviderRoutingProfileModifyRequest extends ComplexType implements 
      */
     public function getServiceProviderId()
     {
-        return $this->serviceProviderId->getValue();
+        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
     }
 
     /**
@@ -67,7 +66,6 @@ class ServiceProviderRoutingProfileModifyRequest extends ComplexType implements 
      */
     public function setRoutingProfile($routingProfile = null)
     {
-        if (!$routingProfile) return $this;
         $this->routingProfile = ($routingProfile InstanceOf RoutingProfile)
              ? $routingProfile
              : new RoutingProfile($routingProfile);
@@ -81,6 +79,6 @@ class ServiceProviderRoutingProfileModifyRequest extends ComplexType implements 
      */
     public function getRoutingProfile()
     {
-        return $this->routingProfile->getValue();
+        return ($this->routingProfile) ? $this->routingProfile->getValue() : null;
     }
 }

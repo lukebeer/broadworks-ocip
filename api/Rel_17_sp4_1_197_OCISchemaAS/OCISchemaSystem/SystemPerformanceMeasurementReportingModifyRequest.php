@@ -21,13 +21,13 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemPerformanceMeasurementReportingModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                             = 'SystemPerformanceMeasurementReportingModifyRequest';
-    protected $isActive                         = null;
-    protected $reportingInterval                = null;
-    protected $resetMeasurementsAfterEachReport = null;
-    protected $reportEnterprise                 = null;
-    protected $reportServiceProvider            = null;
-    protected $reportDevice                     = null;
+    public    $name = 'SystemPerformanceMeasurementReportingModifyRequest';
+    protected $isActive;
+    protected $reportingInterval;
+    protected $resetMeasurementsAfterEachReport;
+    protected $reportEnterprise;
+    protected $reportServiceProvider;
+    protected $reportDevice;
 
     public function __construct(
          $isActive = null,
@@ -58,7 +58,6 @@ class SystemPerformanceMeasurementReportingModifyRequest extends ComplexType imp
      */
     public function setIsActive($isActive = null)
     {
-        if (!$isActive) return $this;
         $this->isActive = new PrimitiveType($isActive);
         $this->isActive->setName('isActive');
         return $this;
@@ -70,7 +69,7 @@ class SystemPerformanceMeasurementReportingModifyRequest extends ComplexType imp
      */
     public function getIsActive()
     {
-        return $this->isActive->getValue();
+        return ($this->isActive) ? $this->isActive->getValue() : null;
     }
 
     /**
@@ -78,7 +77,6 @@ class SystemPerformanceMeasurementReportingModifyRequest extends ComplexType imp
      */
     public function setReportingInterval($reportingInterval = null)
     {
-        if (!$reportingInterval) return $this;
         $this->reportingInterval = ($reportingInterval InstanceOf PerformanceMeasurementReportingIntervalMinutes)
              ? $reportingInterval
              : new PerformanceMeasurementReportingIntervalMinutes($reportingInterval);
@@ -92,7 +90,7 @@ class SystemPerformanceMeasurementReportingModifyRequest extends ComplexType imp
      */
     public function getReportingInterval()
     {
-        return $this->reportingInterval->getValue();
+        return ($this->reportingInterval) ? $this->reportingInterval->getValue() : null;
     }
 
     /**
@@ -100,7 +98,6 @@ class SystemPerformanceMeasurementReportingModifyRequest extends ComplexType imp
      */
     public function setResetMeasurementsAfterEachReport($resetMeasurementsAfterEachReport = null)
     {
-        if (!$resetMeasurementsAfterEachReport) return $this;
         $this->resetMeasurementsAfterEachReport = new PrimitiveType($resetMeasurementsAfterEachReport);
         $this->resetMeasurementsAfterEachReport->setName('resetMeasurementsAfterEachReport');
         return $this;
@@ -112,7 +109,7 @@ class SystemPerformanceMeasurementReportingModifyRequest extends ComplexType imp
      */
     public function getResetMeasurementsAfterEachReport()
     {
-        return $this->resetMeasurementsAfterEachReport->getValue();
+        return ($this->resetMeasurementsAfterEachReport) ? $this->resetMeasurementsAfterEachReport->getValue() : null;
     }
 
     /**
@@ -120,7 +117,6 @@ class SystemPerformanceMeasurementReportingModifyRequest extends ComplexType imp
      */
     public function setReportEnterprise($reportEnterprise = null)
     {
-        if (!$reportEnterprise) return $this;
         $this->reportEnterprise = new PrimitiveType($reportEnterprise);
         $this->reportEnterprise->setName('reportEnterprise');
         return $this;
@@ -132,7 +128,7 @@ class SystemPerformanceMeasurementReportingModifyRequest extends ComplexType imp
      */
     public function getReportEnterprise()
     {
-        return $this->reportEnterprise->getValue();
+        return ($this->reportEnterprise) ? $this->reportEnterprise->getValue() : null;
     }
 
     /**
@@ -140,7 +136,6 @@ class SystemPerformanceMeasurementReportingModifyRequest extends ComplexType imp
      */
     public function setReportServiceProvider($reportServiceProvider = null)
     {
-        if (!$reportServiceProvider) return $this;
         $this->reportServiceProvider = new PrimitiveType($reportServiceProvider);
         $this->reportServiceProvider->setName('reportServiceProvider');
         return $this;
@@ -152,7 +147,7 @@ class SystemPerformanceMeasurementReportingModifyRequest extends ComplexType imp
      */
     public function getReportServiceProvider()
     {
-        return $this->reportServiceProvider->getValue();
+        return ($this->reportServiceProvider) ? $this->reportServiceProvider->getValue() : null;
     }
 
     /**
@@ -160,7 +155,6 @@ class SystemPerformanceMeasurementReportingModifyRequest extends ComplexType imp
      */
     public function setReportDevice($reportDevice = null)
     {
-        if (!$reportDevice) return $this;
         $this->reportDevice = new PrimitiveType($reportDevice);
         $this->reportDevice->setName('reportDevice');
         return $this;
@@ -172,6 +166,6 @@ class SystemPerformanceMeasurementReportingModifyRequest extends ComplexType imp
      */
     public function getReportDevice()
     {
-        return $this->reportDevice->getValue();
+        return ($this->reportDevice) ? $this->reportDevice->getValue() : null;
     }
 }

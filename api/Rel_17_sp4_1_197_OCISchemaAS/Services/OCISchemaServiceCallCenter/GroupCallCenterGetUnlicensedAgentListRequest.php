@@ -22,13 +22,13 @@ use Broadworks_OCIP\core\Client\Client;
 class GroupCallCenterGetUnlicensedAgentListRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType   = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\GroupCallCenterGetUnlicensedAgentListResponse';
-    public    $name           = 'GroupCallCenterGetUnlicensedAgentListRequest';
-    protected $serviceUserId  = null;
-    protected $callCenterType = null;
+    public    $name = 'GroupCallCenterGetUnlicensedAgentListRequest';
+    protected $serviceUserId;
+    protected $callCenterType;
 
     public function __construct(
-         $serviceUserId,
-         $callCenterType
+         $serviceUserId = '',
+         $callCenterType = ''
     ) {
         $this->setServiceUserId($serviceUserId);
         $this->setCallCenterType($callCenterType);
@@ -47,7 +47,6 @@ class GroupCallCenterGetUnlicensedAgentListRequest extends ComplexType implement
      */
     public function setServiceUserId($serviceUserId = null)
     {
-        if (!$serviceUserId) return $this;
         $this->serviceUserId = ($serviceUserId InstanceOf UserId)
              ? $serviceUserId
              : new UserId($serviceUserId);
@@ -61,7 +60,7 @@ class GroupCallCenterGetUnlicensedAgentListRequest extends ComplexType implement
      */
     public function getServiceUserId()
     {
-        return $this->serviceUserId->getValue();
+        return ($this->serviceUserId) ? $this->serviceUserId->getValue() : null;
     }
 
     /**
@@ -69,7 +68,6 @@ class GroupCallCenterGetUnlicensedAgentListRequest extends ComplexType implement
      */
     public function setCallCenterType($callCenterType = null)
     {
-        if (!$callCenterType) return $this;
         $this->callCenterType = ($callCenterType InstanceOf CallCenterType)
              ? $callCenterType
              : new CallCenterType($callCenterType);
@@ -83,6 +81,6 @@ class GroupCallCenterGetUnlicensedAgentListRequest extends ComplexType implement
      */
     public function getCallCenterType()
     {
-        return $this->callCenterType->getValue();
+        return ($this->callCenterType) ? $this->callCenterType->getValue() : null;
     }
 }

@@ -23,21 +23,21 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserInstantConferencingSetPresentationSlideNumberRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                = 'UserInstantConferencingSetPresentationSlideNumberRequest';
-    protected $userId              = null;
-    protected $bridgeServiceUserId = null;
-    protected $documentId          = null;
-    protected $accessCode          = null;
-    protected $slideName           = null;
-    protected $slideNumber         = null;
+    public    $name = 'UserInstantConferencingSetPresentationSlideNumberRequest';
+    protected $userId;
+    protected $bridgeServiceUserId;
+    protected $documentId;
+    protected $accessCode;
+    protected $slideName;
+    protected $slideNumber;
 
     public function __construct(
-         $userId,
-         $bridgeServiceUserId,
-         $documentId,
-         $accessCode,
-         $slideName,
-         $slideNumber
+         $userId = '',
+         $bridgeServiceUserId = '',
+         $documentId = '',
+         $accessCode = '',
+         $slideName = '',
+         $slideNumber = ''
     ) {
         $this->setUserId($userId);
         $this->setBridgeServiceUserId($bridgeServiceUserId);
@@ -60,7 +60,6 @@ class UserInstantConferencingSetPresentationSlideNumberRequest extends ComplexTy
      */
     public function setUserId($userId = null)
     {
-        if (!$userId) return $this;
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
@@ -74,7 +73,7 @@ class UserInstantConferencingSetPresentationSlideNumberRequest extends ComplexTy
      */
     public function getUserId()
     {
-        return $this->userId->getValue();
+        return ($this->userId) ? $this->userId->getValue() : null;
     }
 
     /**
@@ -82,7 +81,6 @@ class UserInstantConferencingSetPresentationSlideNumberRequest extends ComplexTy
      */
     public function setBridgeServiceUserId($bridgeServiceUserId = null)
     {
-        if (!$bridgeServiceUserId) return $this;
         $this->bridgeServiceUserId = ($bridgeServiceUserId InstanceOf UserId)
              ? $bridgeServiceUserId
              : new UserId($bridgeServiceUserId);
@@ -96,7 +94,7 @@ class UserInstantConferencingSetPresentationSlideNumberRequest extends ComplexTy
      */
     public function getBridgeServiceUserId()
     {
-        return $this->bridgeServiceUserId->getValue();
+        return ($this->bridgeServiceUserId) ? $this->bridgeServiceUserId->getValue() : null;
     }
 
     /**
@@ -104,7 +102,6 @@ class UserInstantConferencingSetPresentationSlideNumberRequest extends ComplexTy
      */
     public function setDocumentId($documentId = null)
     {
-        if (!$documentId) return $this;
         $this->documentId = ($documentId InstanceOf InstantConferencingDocumentId)
              ? $documentId
              : new InstantConferencingDocumentId($documentId);
@@ -118,7 +115,7 @@ class UserInstantConferencingSetPresentationSlideNumberRequest extends ComplexTy
      */
     public function getDocumentId()
     {
-        return $this->documentId->getValue();
+        return ($this->documentId) ? $this->documentId->getValue() : null;
     }
 
     /**
@@ -126,7 +123,6 @@ class UserInstantConferencingSetPresentationSlideNumberRequest extends ComplexTy
      */
     public function setAccessCode($accessCode = null)
     {
-        if (!$accessCode) return $this;
         $this->accessCode = ($accessCode InstanceOf InstantConferencingAccessCode)
              ? $accessCode
              : new InstantConferencingAccessCode($accessCode);
@@ -140,7 +136,7 @@ class UserInstantConferencingSetPresentationSlideNumberRequest extends ComplexTy
      */
     public function getAccessCode()
     {
-        return $this->accessCode->getValue();
+        return ($this->accessCode) ? $this->accessCode->getValue() : null;
     }
 
     /**
@@ -148,7 +144,6 @@ class UserInstantConferencingSetPresentationSlideNumberRequest extends ComplexTy
      */
     public function setSlideName($slideName = null)
     {
-        if (!$slideName) return $this;
         $this->slideName = ($slideName InstanceOf InstantConferencingSlideName)
              ? $slideName
              : new InstantConferencingSlideName($slideName);
@@ -162,7 +157,7 @@ class UserInstantConferencingSetPresentationSlideNumberRequest extends ComplexTy
      */
     public function getSlideName()
     {
-        return $this->slideName->getValue();
+        return ($this->slideName) ? $this->slideName->getValue() : null;
     }
 
     /**
@@ -170,7 +165,6 @@ class UserInstantConferencingSetPresentationSlideNumberRequest extends ComplexTy
      */
     public function setSlideNumber($slideNumber = null)
     {
-        if (!$slideNumber) return $this;
         $this->slideNumber = ($slideNumber InstanceOf InstantConferencingSlideNumber)
              ? $slideNumber
              : new InstantConferencingSlideNumber($slideNumber);
@@ -184,6 +178,6 @@ class UserInstantConferencingSetPresentationSlideNumberRequest extends ComplexTy
      */
     public function getSlideNumber()
     {
-        return $this->slideNumber->getValue();
+        return ($this->slideNumber) ? $this->slideNumber->getValue() : null;
     }
 }

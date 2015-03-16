@@ -20,9 +20,9 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupEmergencyZonesGetHomeZoneListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                   = 'GroupEmergencyZonesGetHomeZoneListResponse';
-    protected $homeZoneIpAddress      = null;
-    protected $homeZoneIpAddressRange = null;
+    public    $name = 'GroupEmergencyZonesGetHomeZoneListResponse';
+    protected $homeZoneIpAddress;
+    protected $homeZoneIpAddressRange;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceEmergencyZones\GroupEmergencyZonesGetHomeZoneListResponse $response
@@ -37,7 +37,6 @@ class GroupEmergencyZonesGetHomeZoneListResponse extends ComplexType implements 
      */
     public function setHomeZoneIpAddress($homeZoneIpAddress = null)
     {
-        if (!$homeZoneIpAddress) return $this;
         $this->homeZoneIpAddress = ($homeZoneIpAddress InstanceOf IPAddress)
              ? $homeZoneIpAddress
              : new IPAddress($homeZoneIpAddress);
@@ -51,7 +50,7 @@ class GroupEmergencyZonesGetHomeZoneListResponse extends ComplexType implements 
      */
     public function getHomeZoneIpAddress()
     {
-        return $this->homeZoneIpAddress->getValue();
+        return ($this->homeZoneIpAddress) ? $this->homeZoneIpAddress->getValue() : null;
     }
 
     /**
@@ -59,8 +58,9 @@ class GroupEmergencyZonesGetHomeZoneListResponse extends ComplexType implements 
      */
     public function setHomeZoneIpAddressRange(IPAddressRange $homeZoneIpAddressRange = null)
     {
-        if (!$homeZoneIpAddressRange) return $this;
-        $this->homeZoneIpAddressRange = $homeZoneIpAddressRange;
+        $this->homeZoneIpAddressRange = ($homeZoneIpAddressRange InstanceOf IPAddressRange)
+             ? $homeZoneIpAddressRange
+             : new IPAddressRange($homeZoneIpAddressRange);
         $this->homeZoneIpAddressRange->setName('homeZoneIpAddressRange');
         return $this;
     }

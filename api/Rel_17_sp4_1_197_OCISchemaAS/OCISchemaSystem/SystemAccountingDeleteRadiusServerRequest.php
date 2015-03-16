@@ -21,13 +21,13 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemAccountingDeleteRadiusServerRequest extends ComplexType implements ComplexInterface
 {
-    public    $name       = 'SystemAccountingDeleteRadiusServerRequest';
-    protected $netAddress = null;
-    protected $port       = null;
+    public    $name = 'SystemAccountingDeleteRadiusServerRequest';
+    protected $netAddress;
+    protected $port;
 
     public function __construct(
-         $netAddress,
-         $port
+         $netAddress = '',
+         $port = ''
     ) {
         $this->setNetAddress($netAddress);
         $this->setPort($port);
@@ -46,7 +46,6 @@ class SystemAccountingDeleteRadiusServerRequest extends ComplexType implements C
      */
     public function setNetAddress($netAddress = null)
     {
-        if (!$netAddress) return $this;
         $this->netAddress = ($netAddress InstanceOf NetAddress)
              ? $netAddress
              : new NetAddress($netAddress);
@@ -60,7 +59,7 @@ class SystemAccountingDeleteRadiusServerRequest extends ComplexType implements C
      */
     public function getNetAddress()
     {
-        return $this->netAddress->getValue();
+        return ($this->netAddress) ? $this->netAddress->getValue() : null;
     }
 
     /**
@@ -68,7 +67,6 @@ class SystemAccountingDeleteRadiusServerRequest extends ComplexType implements C
      */
     public function setPort($port = null)
     {
-        if (!$port) return $this;
         $this->port = ($port InstanceOf Port1025)
              ? $port
              : new Port1025($port);
@@ -82,6 +80,6 @@ class SystemAccountingDeleteRadiusServerRequest extends ComplexType implements C
      */
     public function getPort()
     {
-        return $this->port->getValue();
+        return ($this->port) ? $this->port->getValue() : null;
     }
 }

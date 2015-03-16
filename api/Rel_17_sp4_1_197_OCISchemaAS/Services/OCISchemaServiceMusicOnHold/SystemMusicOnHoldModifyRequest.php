@@ -20,8 +20,8 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemMusicOnHoldModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name              = 'SystemMusicOnHoldModifyRequest';
-    protected $delayMilliseconds = null;
+    public    $name = 'SystemMusicOnHoldModifyRequest';
+    protected $delayMilliseconds;
 
     public function __construct(
          $delayMilliseconds = null
@@ -42,7 +42,6 @@ class SystemMusicOnHoldModifyRequest extends ComplexType implements ComplexInter
      */
     public function setDelayMilliseconds($delayMilliseconds = null)
     {
-        if (!$delayMilliseconds) return $this;
         $this->delayMilliseconds = ($delayMilliseconds InstanceOf MusicOnHoldDelayMilliseconds)
              ? $delayMilliseconds
              : new MusicOnHoldDelayMilliseconds($delayMilliseconds);
@@ -56,6 +55,6 @@ class SystemMusicOnHoldModifyRequest extends ComplexType implements ComplexInter
      */
     public function getDelayMilliseconds()
     {
-        return $this->delayMilliseconds->getValue();
+        return ($this->delayMilliseconds) ? $this->delayMilliseconds->getValue() : null;
     }
 }

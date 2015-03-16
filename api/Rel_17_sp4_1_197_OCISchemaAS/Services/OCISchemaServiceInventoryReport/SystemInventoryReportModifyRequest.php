@@ -20,8 +20,8 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemInventoryReportModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name               = 'SystemInventoryReportModifyRequest';
-    protected $defaultFromAddress = null;
+    public    $name = 'SystemInventoryReportModifyRequest';
+    protected $defaultFromAddress;
 
     public function __construct(
          $defaultFromAddress = null
@@ -42,7 +42,6 @@ class SystemInventoryReportModifyRequest extends ComplexType implements ComplexI
      */
     public function setDefaultFromAddress($defaultFromAddress = null)
     {
-        if (!$defaultFromAddress) return $this;
         $this->defaultFromAddress = ($defaultFromAddress InstanceOf EmailAddress)
              ? $defaultFromAddress
              : new EmailAddress($defaultFromAddress);
@@ -56,6 +55,6 @@ class SystemInventoryReportModifyRequest extends ComplexType implements ComplexI
      */
     public function getDefaultFromAddress()
     {
-        return $this->defaultFromAddress->getValue();
+        return ($this->defaultFromAddress) ? $this->defaultFromAddress->getValue() : null;
     }
 }

@@ -19,9 +19,9 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class EnterpriseCallCenterCurrentAndPastCallCenterGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                 = 'EnterpriseCallCenterCurrentAndPastCallCenterGetListResponse';
-    protected $serviceUserId        = null;
-    protected $deletedServiceUserId = null;
+    public    $name = 'EnterpriseCallCenterCurrentAndPastCallCenterGetListResponse';
+    protected $serviceUserId;
+    protected $deletedServiceUserId;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\EnterpriseCallCenterCurrentAndPastCallCenterGetListResponse $response
@@ -36,7 +36,6 @@ class EnterpriseCallCenterCurrentAndPastCallCenterGetListResponse extends Comple
      */
     public function setServiceUserId($serviceUserId = null)
     {
-        if (!$serviceUserId) return $this;
         $this->serviceUserId = ($serviceUserId InstanceOf UserId)
              ? $serviceUserId
              : new UserId($serviceUserId);
@@ -50,7 +49,7 @@ class EnterpriseCallCenterCurrentAndPastCallCenterGetListResponse extends Comple
      */
     public function getServiceUserId()
     {
-        return $this->serviceUserId->getValue();
+        return ($this->serviceUserId) ? $this->serviceUserId->getValue() : null;
     }
 
     /**
@@ -58,7 +57,6 @@ class EnterpriseCallCenterCurrentAndPastCallCenterGetListResponse extends Comple
      */
     public function setDeletedServiceUserId($deletedServiceUserId = null)
     {
-        if (!$deletedServiceUserId) return $this;
         $this->deletedServiceUserId = ($deletedServiceUserId InstanceOf UserId)
              ? $deletedServiceUserId
              : new UserId($deletedServiceUserId);
@@ -72,6 +70,6 @@ class EnterpriseCallCenterCurrentAndPastCallCenterGetListResponse extends Comple
      */
     public function getDeletedServiceUserId()
     {
-        return $this->deletedServiceUserId->getValue();
+        return ($this->deletedServiceUserId) ? $this->deletedServiceUserId->getValue() : null;
     }
 }

@@ -22,8 +22,8 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupDnGetDetailedAvailableListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name    = 'GroupDnGetDetailedAvailableListResponse';
-    protected $dnTable = null;
+    public    $name = 'GroupDnGetDetailedAvailableListResponse';
+    protected $dnTable;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupDnGetDetailedAvailableListResponse $response
@@ -38,7 +38,6 @@ class GroupDnGetDetailedAvailableListResponse extends ComplexType implements Com
      */
     public function setDnTable(TableType $dnTable = null)
     {
-        if (!$dnTable) return $this;
         $this->dnTable = $dnTable;
         $this->dnTable->setName('dnTable');
         return $this;

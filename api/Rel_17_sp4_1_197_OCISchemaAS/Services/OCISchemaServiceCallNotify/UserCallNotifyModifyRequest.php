@@ -22,13 +22,13 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserCallNotifyModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                   = 'UserCallNotifyModifyRequest';
-    protected $userId                 = null;
-    protected $callNotifyEmailAddress = null;
-    protected $criteriaActivation     = null;
+    public    $name = 'UserCallNotifyModifyRequest';
+    protected $userId;
+    protected $callNotifyEmailAddress;
+    protected $criteriaActivation;
 
     public function __construct(
-         $userId,
+         $userId = '',
          $callNotifyEmailAddress = null,
          CriteriaActivation $criteriaActivation = null
     ) {
@@ -50,7 +50,6 @@ class UserCallNotifyModifyRequest extends ComplexType implements ComplexInterfac
      */
     public function setUserId($userId = null)
     {
-        if (!$userId) return $this;
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
@@ -64,7 +63,7 @@ class UserCallNotifyModifyRequest extends ComplexType implements ComplexInterfac
      */
     public function getUserId()
     {
-        return $this->userId->getValue();
+        return ($this->userId) ? $this->userId->getValue() : null;
     }
 
     /**
@@ -72,7 +71,6 @@ class UserCallNotifyModifyRequest extends ComplexType implements ComplexInterfac
      */
     public function setCallNotifyEmailAddress($callNotifyEmailAddress = null)
     {
-        if (!$callNotifyEmailAddress) return $this;
         $this->callNotifyEmailAddress = ($callNotifyEmailAddress InstanceOf EmailAddress)
              ? $callNotifyEmailAddress
              : new EmailAddress($callNotifyEmailAddress);
@@ -86,7 +84,7 @@ class UserCallNotifyModifyRequest extends ComplexType implements ComplexInterfac
      */
     public function getCallNotifyEmailAddress()
     {
-        return $this->callNotifyEmailAddress->getValue();
+        return ($this->callNotifyEmailAddress) ? $this->callNotifyEmailAddress->getValue() : null;
     }
 
     /**
@@ -94,8 +92,9 @@ class UserCallNotifyModifyRequest extends ComplexType implements ComplexInterfac
      */
     public function setCriteriaActivation(CriteriaActivation $criteriaActivation = null)
     {
-        if (!$criteriaActivation) return $this;
-        $this->criteriaActivation = $criteriaActivation;
+        $this->criteriaActivation = ($criteriaActivation InstanceOf CriteriaActivation)
+             ? $criteriaActivation
+             : new CriteriaActivation($criteriaActivation);
         $this->criteriaActivation->setName('criteriaActivation');
         return $this;
     }

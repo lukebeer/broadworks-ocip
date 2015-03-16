@@ -20,9 +20,9 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupOutgoingCallingPlanOriginatingGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                  = 'GroupOutgoingCallingPlanOriginatingGetListResponse';
-    protected $groupPermissions      = null;
-    protected $departmentPermissions = null;
+    public    $name = 'GroupOutgoingCallingPlanOriginatingGetListResponse';
+    protected $groupPermissions;
+    protected $departmentPermissions;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceOutgoingCallingPlan\GroupOutgoingCallingPlanOriginatingGetListResponse $response
@@ -37,8 +37,9 @@ class GroupOutgoingCallingPlanOriginatingGetListResponse extends ComplexType imp
      */
     public function setGroupPermissions(OutgoingCallingPlanOriginatingPermissions $groupPermissions = null)
     {
-        if (!$groupPermissions) return $this;
-        $this->groupPermissions = $groupPermissions;
+        $this->groupPermissions = ($groupPermissions InstanceOf OutgoingCallingPlanOriginatingPermissions)
+             ? $groupPermissions
+             : new OutgoingCallingPlanOriginatingPermissions($groupPermissions);
         $this->groupPermissions->setName('groupPermissions');
         return $this;
     }
@@ -57,8 +58,9 @@ class GroupOutgoingCallingPlanOriginatingGetListResponse extends ComplexType imp
      */
     public function setDepartmentPermissions(OutgoingCallingPlanOriginatingDepartmentPermissions $departmentPermissions = null)
     {
-        if (!$departmentPermissions) return $this;
-        $this->departmentPermissions = $departmentPermissions;
+        $this->departmentPermissions = ($departmentPermissions InstanceOf OutgoingCallingPlanOriginatingDepartmentPermissions)
+             ? $departmentPermissions
+             : new OutgoingCallingPlanOriginatingDepartmentPermissions($departmentPermissions);
         $this->departmentPermissions->setName('departmentPermissions');
         return $this;
     }

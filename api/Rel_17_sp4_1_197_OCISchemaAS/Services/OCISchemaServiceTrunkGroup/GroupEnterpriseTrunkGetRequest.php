@@ -23,15 +23,15 @@ use Broadworks_OCIP\core\Client\Client;
 class GroupEnterpriseTrunkGetRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType        = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceTrunkGroup\GroupEnterpriseTrunkGetResponse';
-    public    $name                = 'GroupEnterpriseTrunkGetRequest';
-    protected $serviceProviderId   = null;
-    protected $groupId             = null;
-    protected $enterpriseTrunkName = null;
+    public    $name = 'GroupEnterpriseTrunkGetRequest';
+    protected $serviceProviderId;
+    protected $groupId;
+    protected $enterpriseTrunkName;
 
     public function __construct(
-         $serviceProviderId,
-         $groupId,
-         $enterpriseTrunkName
+         $serviceProviderId = '',
+         $groupId = '',
+         $enterpriseTrunkName = ''
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setGroupId($groupId);
@@ -51,7 +51,6 @@ class GroupEnterpriseTrunkGetRequest extends ComplexType implements ComplexInter
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
-        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
@@ -65,7 +64,7 @@ class GroupEnterpriseTrunkGetRequest extends ComplexType implements ComplexInter
      */
     public function getServiceProviderId()
     {
-        return $this->serviceProviderId->getValue();
+        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
     }
 
     /**
@@ -73,7 +72,6 @@ class GroupEnterpriseTrunkGetRequest extends ComplexType implements ComplexInter
      */
     public function setGroupId($groupId = null)
     {
-        if (!$groupId) return $this;
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
@@ -87,7 +85,7 @@ class GroupEnterpriseTrunkGetRequest extends ComplexType implements ComplexInter
      */
     public function getGroupId()
     {
-        return $this->groupId->getValue();
+        return ($this->groupId) ? $this->groupId->getValue() : null;
     }
 
     /**
@@ -95,7 +93,6 @@ class GroupEnterpriseTrunkGetRequest extends ComplexType implements ComplexInter
      */
     public function setEnterpriseTrunkName($enterpriseTrunkName = null)
     {
-        if (!$enterpriseTrunkName) return $this;
         $this->enterpriseTrunkName = ($enterpriseTrunkName InstanceOf EnterpriseTrunkName)
              ? $enterpriseTrunkName
              : new EnterpriseTrunkName($enterpriseTrunkName);
@@ -109,6 +106,6 @@ class GroupEnterpriseTrunkGetRequest extends ComplexType implements ComplexInter
      */
     public function getEnterpriseTrunkName()
     {
-        return $this->enterpriseTrunkName->getValue();
+        return ($this->enterpriseTrunkName) ? $this->enterpriseTrunkName->getValue() : null;
     }
 }

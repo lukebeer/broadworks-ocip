@@ -21,9 +21,9 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemNetworkDeviceMonitorParametersModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                         = 'SystemNetworkDeviceMonitorParametersModifyRequest';
-    protected $pollingIntervalMinutes       = null;
-    protected $failedPollingIntervalMinutes = null;
+    public    $name = 'SystemNetworkDeviceMonitorParametersModifyRequest';
+    protected $pollingIntervalMinutes;
+    protected $failedPollingIntervalMinutes;
 
     public function __construct(
          $pollingIntervalMinutes = null,
@@ -46,7 +46,6 @@ class SystemNetworkDeviceMonitorParametersModifyRequest extends ComplexType impl
      */
     public function setPollingIntervalMinutes($pollingIntervalMinutes = null)
     {
-        if (!$pollingIntervalMinutes) return $this;
         $this->pollingIntervalMinutes = ($pollingIntervalMinutes InstanceOf NetworkDeviceMonitorPollingIntervalMinutes)
              ? $pollingIntervalMinutes
              : new NetworkDeviceMonitorPollingIntervalMinutes($pollingIntervalMinutes);
@@ -60,7 +59,7 @@ class SystemNetworkDeviceMonitorParametersModifyRequest extends ComplexType impl
      */
     public function getPollingIntervalMinutes()
     {
-        return $this->pollingIntervalMinutes->getValue();
+        return ($this->pollingIntervalMinutes) ? $this->pollingIntervalMinutes->getValue() : null;
     }
 
     /**
@@ -68,7 +67,6 @@ class SystemNetworkDeviceMonitorParametersModifyRequest extends ComplexType impl
      */
     public function setFailedPollingIntervalMinutes($failedPollingIntervalMinutes = null)
     {
-        if (!$failedPollingIntervalMinutes) return $this;
         $this->failedPollingIntervalMinutes = ($failedPollingIntervalMinutes InstanceOf NetworkDeviceMonitorFailedPollingIntervalMinutes)
              ? $failedPollingIntervalMinutes
              : new NetworkDeviceMonitorFailedPollingIntervalMinutes($failedPollingIntervalMinutes);
@@ -82,6 +80,6 @@ class SystemNetworkDeviceMonitorParametersModifyRequest extends ComplexType impl
      */
     public function getFailedPollingIntervalMinutes()
     {
-        return $this->failedPollingIntervalMinutes->getValue();
+        return ($this->failedPollingIntervalMinutes) ? $this->failedPollingIntervalMinutes->getValue() : null;
     }
 }

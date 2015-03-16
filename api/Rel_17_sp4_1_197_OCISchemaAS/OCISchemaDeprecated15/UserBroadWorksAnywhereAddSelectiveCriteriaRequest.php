@@ -24,19 +24,19 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserBroadWorksAnywhereAddSelectiveCriteriaRequest extends ComplexType implements ComplexInterface
 {
-    public    $name           = 'UserBroadWorksAnywhereAddSelectiveCriteriaRequest';
-    protected $userId         = null;
-    protected $phoneNumber    = null;
-    protected $criteriaName   = null;
-    protected $timeSchedule   = null;
-    protected $fromDnCriteria = null;
+    public    $name = 'UserBroadWorksAnywhereAddSelectiveCriteriaRequest';
+    protected $userId;
+    protected $phoneNumber;
+    protected $criteriaName;
+    protected $timeSchedule;
+    protected $fromDnCriteria;
 
     public function __construct(
-         $userId,
-         $phoneNumber,
-         $criteriaName,
+         $userId = '',
+         $phoneNumber = '',
+         $criteriaName = '',
          TimeSchedule $timeSchedule = null,
-         CriteriaFromDn $fromDnCriteria
+         CriteriaFromDn $fromDnCriteria = ''
     ) {
         $this->setUserId($userId);
         $this->setPhoneNumber($phoneNumber);
@@ -58,7 +58,6 @@ class UserBroadWorksAnywhereAddSelectiveCriteriaRequest extends ComplexType impl
      */
     public function setUserId($userId = null)
     {
-        if (!$userId) return $this;
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
@@ -72,7 +71,7 @@ class UserBroadWorksAnywhereAddSelectiveCriteriaRequest extends ComplexType impl
      */
     public function getUserId()
     {
-        return $this->userId->getValue();
+        return ($this->userId) ? $this->userId->getValue() : null;
     }
 
     /**
@@ -80,7 +79,6 @@ class UserBroadWorksAnywhereAddSelectiveCriteriaRequest extends ComplexType impl
      */
     public function setPhoneNumber($phoneNumber = null)
     {
-        if (!$phoneNumber) return $this;
         $this->phoneNumber = ($phoneNumber InstanceOf DN)
              ? $phoneNumber
              : new DN($phoneNumber);
@@ -94,7 +92,7 @@ class UserBroadWorksAnywhereAddSelectiveCriteriaRequest extends ComplexType impl
      */
     public function getPhoneNumber()
     {
-        return $this->phoneNumber->getValue();
+        return ($this->phoneNumber) ? $this->phoneNumber->getValue() : null;
     }
 
     /**
@@ -102,7 +100,6 @@ class UserBroadWorksAnywhereAddSelectiveCriteriaRequest extends ComplexType impl
      */
     public function setCriteriaName($criteriaName = null)
     {
-        if (!$criteriaName) return $this;
         $this->criteriaName = ($criteriaName InstanceOf CriteriaName)
              ? $criteriaName
              : new CriteriaName($criteriaName);
@@ -116,7 +113,7 @@ class UserBroadWorksAnywhereAddSelectiveCriteriaRequest extends ComplexType impl
      */
     public function getCriteriaName()
     {
-        return $this->criteriaName->getValue();
+        return ($this->criteriaName) ? $this->criteriaName->getValue() : null;
     }
 
     /**
@@ -124,8 +121,9 @@ class UserBroadWorksAnywhereAddSelectiveCriteriaRequest extends ComplexType impl
      */
     public function setTimeSchedule(TimeSchedule $timeSchedule = null)
     {
-        if (!$timeSchedule) return $this;
-        $this->timeSchedule = $timeSchedule;
+        $this->timeSchedule = ($timeSchedule InstanceOf TimeSchedule)
+             ? $timeSchedule
+             : new TimeSchedule($timeSchedule);
         $this->timeSchedule->setName('timeSchedule');
         return $this;
     }
@@ -144,8 +142,9 @@ class UserBroadWorksAnywhereAddSelectiveCriteriaRequest extends ComplexType impl
      */
     public function setFromDnCriteria(CriteriaFromDn $fromDnCriteria = null)
     {
-        if (!$fromDnCriteria) return $this;
-        $this->fromDnCriteria = $fromDnCriteria;
+        $this->fromDnCriteria = ($fromDnCriteria InstanceOf CriteriaFromDn)
+             ? $fromDnCriteria
+             : new CriteriaFromDn($fromDnCriteria);
         $this->fromDnCriteria->setName('fromDnCriteria');
         return $this;
     }

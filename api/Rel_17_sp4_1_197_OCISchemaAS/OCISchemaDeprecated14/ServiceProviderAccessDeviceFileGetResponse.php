@@ -21,9 +21,9 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderAccessDeviceFileGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                  = 'ServiceProviderAccessDeviceFileGetResponse';
-    protected $fileSource            = null;
-    protected $configurationFileName = null;
+    public    $name = 'ServiceProviderAccessDeviceFileGetResponse';
+    protected $fileSource;
+    protected $configurationFileName;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\ServiceProviderAccessDeviceFileGetResponse $response
@@ -38,7 +38,6 @@ class ServiceProviderAccessDeviceFileGetResponse extends ComplexType implements 
      */
     public function setFileSource($fileSource = null)
     {
-        if (!$fileSource) return $this;
         $this->fileSource = ($fileSource InstanceOf AccessDeviceEnhancedConfigurationMode)
              ? $fileSource
              : new AccessDeviceEnhancedConfigurationMode($fileSource);
@@ -52,7 +51,7 @@ class ServiceProviderAccessDeviceFileGetResponse extends ComplexType implements 
      */
     public function getFileSource()
     {
-        return $this->fileSource->getValue();
+        return ($this->fileSource) ? $this->fileSource->getValue() : null;
     }
 
     /**
@@ -60,7 +59,6 @@ class ServiceProviderAccessDeviceFileGetResponse extends ComplexType implements 
      */
     public function setConfigurationFileName($configurationFileName = null)
     {
-        if (!$configurationFileName) return $this;
         $this->configurationFileName = ($configurationFileName InstanceOf AccessDeviceEnhancedConfigurationFileName)
              ? $configurationFileName
              : new AccessDeviceEnhancedConfigurationFileName($configurationFileName);
@@ -74,6 +72,6 @@ class ServiceProviderAccessDeviceFileGetResponse extends ComplexType implements 
      */
     public function getConfigurationFileName()
     {
-        return $this->configurationFileName->getValue();
+        return ($this->configurationFileName) ? $this->configurationFileName->getValue() : null;
     }
 }

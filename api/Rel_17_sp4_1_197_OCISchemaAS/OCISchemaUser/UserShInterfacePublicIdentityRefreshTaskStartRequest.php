@@ -20,11 +20,11 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserShInterfacePublicIdentityRefreshTaskStartRequest extends ComplexType implements ComplexInterface
 {
-    public    $name               = 'UserShInterfacePublicIdentityRefreshTaskStartRequest';
-    protected $publicUserIdentity = null;
+    public    $name = 'UserShInterfacePublicIdentityRefreshTaskStartRequest';
+    protected $publicUserIdentity;
 
     public function __construct(
-         PublicUserIdentity $publicUserIdentity
+         PublicUserIdentity $publicUserIdentity = ''
     ) {
         $this->setPublicUserIdentity($publicUserIdentity);
     }
@@ -42,8 +42,9 @@ class UserShInterfacePublicIdentityRefreshTaskStartRequest extends ComplexType i
      */
     public function setPublicUserIdentity(PublicUserIdentity $publicUserIdentity = null)
     {
-        if (!$publicUserIdentity) return $this;
-        $this->publicUserIdentity = $publicUserIdentity;
+        $this->publicUserIdentity = ($publicUserIdentity InstanceOf PublicUserIdentity)
+             ? $publicUserIdentity
+             : new PublicUserIdentity($publicUserIdentity);
         $this->publicUserIdentity->setName('publicUserIdentity');
         return $this;
     }

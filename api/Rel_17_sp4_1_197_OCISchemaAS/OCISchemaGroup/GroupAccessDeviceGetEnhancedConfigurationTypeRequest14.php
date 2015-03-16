@@ -24,15 +24,15 @@ use Broadworks_OCIP\core\Client\Client;
 class GroupAccessDeviceGetEnhancedConfigurationTypeRequest14 extends ComplexType implements ComplexInterface
 {
     public    $responseType      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupAccessDeviceGetEnhancedConfigurationTypeResponse14';
-    public    $name              = 'GroupAccessDeviceGetEnhancedConfigurationTypeRequest14';
-    protected $serviceProviderId = null;
-    protected $groupId           = null;
-    protected $deviceType        = null;
+    public    $name = 'GroupAccessDeviceGetEnhancedConfigurationTypeRequest14';
+    protected $serviceProviderId;
+    protected $groupId;
+    protected $deviceType;
 
     public function __construct(
-         $serviceProviderId,
-         $groupId,
-         $deviceType
+         $serviceProviderId = '',
+         $groupId = '',
+         $deviceType = ''
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setGroupId($groupId);
@@ -52,7 +52,6 @@ class GroupAccessDeviceGetEnhancedConfigurationTypeRequest14 extends ComplexType
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
-        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
@@ -66,7 +65,7 @@ class GroupAccessDeviceGetEnhancedConfigurationTypeRequest14 extends ComplexType
      */
     public function getServiceProviderId()
     {
-        return $this->serviceProviderId->getValue();
+        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
     }
 
     /**
@@ -74,7 +73,6 @@ class GroupAccessDeviceGetEnhancedConfigurationTypeRequest14 extends ComplexType
      */
     public function setGroupId($groupId = null)
     {
-        if (!$groupId) return $this;
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
@@ -88,7 +86,7 @@ class GroupAccessDeviceGetEnhancedConfigurationTypeRequest14 extends ComplexType
      */
     public function getGroupId()
     {
-        return $this->groupId->getValue();
+        return ($this->groupId) ? $this->groupId->getValue() : null;
     }
 
     /**
@@ -96,7 +94,6 @@ class GroupAccessDeviceGetEnhancedConfigurationTypeRequest14 extends ComplexType
      */
     public function setDeviceType($deviceType = null)
     {
-        if (!$deviceType) return $this;
         $this->deviceType = ($deviceType InstanceOf AccessDeviceType)
              ? $deviceType
              : new AccessDeviceType($deviceType);
@@ -110,6 +107,6 @@ class GroupAccessDeviceGetEnhancedConfigurationTypeRequest14 extends ComplexType
      */
     public function getDeviceType()
     {
-        return $this->deviceType->getValue();
+        return ($this->deviceType) ? $this->deviceType->getValue() : null;
     }
 }

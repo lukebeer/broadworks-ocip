@@ -22,10 +22,10 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemSessionAuditGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                 = 'SystemSessionAuditGetResponse';
-    protected $isActive             = null;
-    protected $intervalSeconds      = null;
-    protected $timeoutPeriodSeconds = null;
+    public    $name = 'SystemSessionAuditGetResponse';
+    protected $isActive;
+    protected $intervalSeconds;
+    protected $timeoutPeriodSeconds;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\SystemSessionAuditGetResponse $response
@@ -40,7 +40,6 @@ class SystemSessionAuditGetResponse extends ComplexType implements ComplexInterf
      */
     public function setIsActive($isActive = null)
     {
-        if (!$isActive) return $this;
         $this->isActive = new PrimitiveType($isActive);
         $this->isActive->setName('isActive');
         return $this;
@@ -52,7 +51,7 @@ class SystemSessionAuditGetResponse extends ComplexType implements ComplexInterf
      */
     public function getIsActive()
     {
-        return $this->isActive->getValue();
+        return ($this->isActive) ? $this->isActive->getValue() : null;
     }
 
     /**
@@ -60,7 +59,6 @@ class SystemSessionAuditGetResponse extends ComplexType implements ComplexInterf
      */
     public function setIntervalSeconds($intervalSeconds = null)
     {
-        if (!$intervalSeconds) return $this;
         $this->intervalSeconds = ($intervalSeconds InstanceOf SessionAuditIntervalSeconds)
              ? $intervalSeconds
              : new SessionAuditIntervalSeconds($intervalSeconds);
@@ -74,7 +72,7 @@ class SystemSessionAuditGetResponse extends ComplexType implements ComplexInterf
      */
     public function getIntervalSeconds()
     {
-        return $this->intervalSeconds->getValue();
+        return ($this->intervalSeconds) ? $this->intervalSeconds->getValue() : null;
     }
 
     /**
@@ -82,7 +80,6 @@ class SystemSessionAuditGetResponse extends ComplexType implements ComplexInterf
      */
     public function setTimeoutPeriodSeconds($timeoutPeriodSeconds = null)
     {
-        if (!$timeoutPeriodSeconds) return $this;
         $this->timeoutPeriodSeconds = ($timeoutPeriodSeconds InstanceOf SessionAuditTimeoutPeriodSeconds)
              ? $timeoutPeriodSeconds
              : new SessionAuditTimeoutPeriodSeconds($timeoutPeriodSeconds);
@@ -96,6 +93,6 @@ class SystemSessionAuditGetResponse extends ComplexType implements ComplexInterf
      */
     public function getTimeoutPeriodSeconds()
     {
-        return $this->timeoutPeriodSeconds->getValue();
+        return ($this->timeoutPeriodSeconds) ? $this->timeoutPeriodSeconds->getValue() : null;
     }
 }

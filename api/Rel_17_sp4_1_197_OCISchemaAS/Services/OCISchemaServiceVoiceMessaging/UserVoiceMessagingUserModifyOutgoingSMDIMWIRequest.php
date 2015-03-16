@@ -22,13 +22,13 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserVoiceMessagingUserModifyOutgoingSMDIMWIRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                           = 'UserVoiceMessagingUserModifyOutgoingSMDIMWIRequest';
-    protected $userId                         = null;
-    protected $isActive                       = null;
-    protected $outgoingSMDIMWIPhoneNumberList = null;
+    public    $name = 'UserVoiceMessagingUserModifyOutgoingSMDIMWIRequest';
+    protected $userId;
+    protected $isActive;
+    protected $outgoingSMDIMWIPhoneNumberList;
 
     public function __construct(
-         $userId,
+         $userId = '',
          $isActive = null,
          ReplacementOutgoingDNList $outgoingSMDIMWIPhoneNumberList = null
     ) {
@@ -50,7 +50,6 @@ class UserVoiceMessagingUserModifyOutgoingSMDIMWIRequest extends ComplexType imp
      */
     public function setUserId($userId = null)
     {
-        if (!$userId) return $this;
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
@@ -64,7 +63,7 @@ class UserVoiceMessagingUserModifyOutgoingSMDIMWIRequest extends ComplexType imp
      */
     public function getUserId()
     {
-        return $this->userId->getValue();
+        return ($this->userId) ? $this->userId->getValue() : null;
     }
 
     /**
@@ -72,7 +71,6 @@ class UserVoiceMessagingUserModifyOutgoingSMDIMWIRequest extends ComplexType imp
      */
     public function setIsActive($isActive = null)
     {
-        if (!$isActive) return $this;
         $this->isActive = new PrimitiveType($isActive);
         $this->isActive->setName('isActive');
         return $this;
@@ -84,7 +82,7 @@ class UserVoiceMessagingUserModifyOutgoingSMDIMWIRequest extends ComplexType imp
      */
     public function getIsActive()
     {
-        return $this->isActive->getValue();
+        return ($this->isActive) ? $this->isActive->getValue() : null;
     }
 
     /**
@@ -92,8 +90,9 @@ class UserVoiceMessagingUserModifyOutgoingSMDIMWIRequest extends ComplexType imp
      */
     public function setOutgoingSMDIMWIPhoneNumberList(ReplacementOutgoingDNList $outgoingSMDIMWIPhoneNumberList = null)
     {
-        if (!$outgoingSMDIMWIPhoneNumberList) return $this;
-        $this->outgoingSMDIMWIPhoneNumberList = $outgoingSMDIMWIPhoneNumberList;
+        $this->outgoingSMDIMWIPhoneNumberList = ($outgoingSMDIMWIPhoneNumberList InstanceOf ReplacementOutgoingDNList)
+             ? $outgoingSMDIMWIPhoneNumberList
+             : new ReplacementOutgoingDNList($outgoingSMDIMWIPhoneNumberList);
         $this->outgoingSMDIMWIPhoneNumberList->setName('outgoingSMDIMWIPhoneNumberList');
         return $this;
     }

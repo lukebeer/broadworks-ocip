@@ -23,11 +23,11 @@ use Broadworks_OCIP\core\Client\Client;
 class SystemOfficeZoneGetZoneUsageListRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemOfficeZoneGetZoneUsageListResponse';
-    public    $name     = 'SystemOfficeZoneGetZoneUsageListRequest';
-    protected $zoneName = null;
+    public    $name = 'SystemOfficeZoneGetZoneUsageListRequest';
+    protected $zoneName;
 
     public function __construct(
-         $zoneName
+         $zoneName = ''
     ) {
         $this->setZoneName($zoneName);
     }
@@ -45,7 +45,6 @@ class SystemOfficeZoneGetZoneUsageListRequest extends ComplexType implements Com
      */
     public function setZoneName($zoneName = null)
     {
-        if (!$zoneName) return $this;
         $this->zoneName = ($zoneName InstanceOf ZoneName)
              ? $zoneName
              : new ZoneName($zoneName);
@@ -59,6 +58,6 @@ class SystemOfficeZoneGetZoneUsageListRequest extends ComplexType implements Com
      */
     public function getZoneName()
     {
-        return $this->zoneName->getValue();
+        return ($this->zoneName) ? $this->zoneName->getValue() : null;
     }
 }

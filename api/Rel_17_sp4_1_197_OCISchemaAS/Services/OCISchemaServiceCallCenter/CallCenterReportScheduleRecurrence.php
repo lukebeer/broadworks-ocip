@@ -19,17 +19,17 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class CallCenterReportScheduleRecurrence extends ComplexType implements ComplexInterface
 {
-    public    $name         = 'CallCenterReportScheduleRecurrence';
-    protected $timeZone     = null;
-    protected $startDate    = null;
-    protected $scheduleTime = null;
-    protected $recurrence   = null;
+    public    $name = 'CallCenterReportScheduleRecurrence';
+    protected $timeZone;
+    protected $startDate;
+    protected $scheduleTime;
+    protected $recurrence;
 
     public function __construct(
-         $timeZone,
-         $startDate,
-         $scheduleTime,
-         $recurrence
+         $timeZone = '',
+         $startDate = '',
+         $scheduleTime = '',
+         $recurrence = ''
     ) {
         $this->setTimeZone($timeZone);
         $this->setStartDate($startDate);
@@ -50,7 +50,6 @@ class CallCenterReportScheduleRecurrence extends ComplexType implements ComplexI
      */
     public function setTimeZone($timeZone = null)
     {
-        if (!$timeZone) return $this;
         $this->timeZone = new SimpleContent($timeZone);
         $this->timeZone->setName('timeZone');
         return $this;
@@ -62,7 +61,7 @@ class CallCenterReportScheduleRecurrence extends ComplexType implements ComplexI
      */
     public function getTimeZone()
     {
-        return $this->timeZone->getValue();
+        return ($this->timeZone) ? $this->timeZone->getValue() : null;
     }
 
     /**
@@ -70,7 +69,6 @@ class CallCenterReportScheduleRecurrence extends ComplexType implements ComplexI
      */
     public function setStartDate($startDate = null)
     {
-        if (!$startDate) return $this;
         $this->startDate = new SimpleContent($startDate);
         $this->startDate->setName('startDate');
         return $this;
@@ -82,7 +80,7 @@ class CallCenterReportScheduleRecurrence extends ComplexType implements ComplexI
      */
     public function getStartDate()
     {
-        return $this->startDate->getValue();
+        return ($this->startDate) ? $this->startDate->getValue() : null;
     }
 
     /**
@@ -90,7 +88,6 @@ class CallCenterReportScheduleRecurrence extends ComplexType implements ComplexI
      */
     public function setScheduleTime($scheduleTime = null)
     {
-        if (!$scheduleTime) return $this;
         $this->scheduleTime = new SimpleContent($scheduleTime);
         $this->scheduleTime->setName('scheduleTime');
         return $this;
@@ -102,7 +99,7 @@ class CallCenterReportScheduleRecurrence extends ComplexType implements ComplexI
      */
     public function getScheduleTime()
     {
-        return $this->scheduleTime->getValue();
+        return ($this->scheduleTime) ? $this->scheduleTime->getValue() : null;
     }
 
     /**
@@ -110,7 +107,6 @@ class CallCenterReportScheduleRecurrence extends ComplexType implements ComplexI
      */
     public function setRecurrence($recurrence = null)
     {
-        if (!$recurrence) return $this;
         $this->recurrence = new SimpleContent($recurrence);
         $this->recurrence->setName('recurrence');
         return $this;
@@ -122,6 +118,6 @@ class CallCenterReportScheduleRecurrence extends ComplexType implements ComplexI
      */
     public function getRecurrence()
     {
-        return $this->recurrence->getValue();
+        return ($this->recurrence) ? $this->recurrence->getValue() : null;
     }
 }

@@ -20,11 +20,11 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemOfficeZoneDeleteRequest extends ComplexType implements ComplexInterface
 {
-    public    $name           = 'SystemOfficeZoneDeleteRequest';
-    protected $officeZoneName = null;
+    public    $name = 'SystemOfficeZoneDeleteRequest';
+    protected $officeZoneName;
 
     public function __construct(
-         $officeZoneName
+         $officeZoneName = ''
     ) {
         $this->setOfficeZoneName($officeZoneName);
     }
@@ -42,7 +42,6 @@ class SystemOfficeZoneDeleteRequest extends ComplexType implements ComplexInterf
      */
     public function setOfficeZoneName($officeZoneName = null)
     {
-        if (!$officeZoneName) return $this;
         $this->officeZoneName = ($officeZoneName InstanceOf OfficeZoneName)
              ? $officeZoneName
              : new OfficeZoneName($officeZoneName);
@@ -56,6 +55,6 @@ class SystemOfficeZoneDeleteRequest extends ComplexType implements ComplexInterf
      */
     public function getOfficeZoneName()
     {
-        return $this->officeZoneName->getValue();
+        return ($this->officeZoneName) ? $this->officeZoneName->getValue() : null;
     }
 }

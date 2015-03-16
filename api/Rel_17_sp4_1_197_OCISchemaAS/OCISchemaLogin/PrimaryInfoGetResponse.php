@@ -22,11 +22,11 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class PrimaryInfoGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                     = 'PrimaryInfoGetResponse';
-    protected $isPrimary                = null;
-    protected $hostnameForPrimary       = null;
-    protected $addressForPrimary        = null;
-    protected $privateAddressForPrimary = null;
+    public    $name = 'PrimaryInfoGetResponse';
+    protected $isPrimary;
+    protected $hostnameForPrimary;
+    protected $addressForPrimary;
+    protected $privateAddressForPrimary;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaLogin\PrimaryInfoGetResponse $response
@@ -41,7 +41,6 @@ class PrimaryInfoGetResponse extends ComplexType implements ComplexInterface
      */
     public function setIsPrimary($isPrimary = null)
     {
-        if (!$isPrimary) return $this;
         $this->isPrimary = new PrimitiveType($isPrimary);
         $this->isPrimary->setName('isPrimary');
         return $this;
@@ -53,7 +52,7 @@ class PrimaryInfoGetResponse extends ComplexType implements ComplexInterface
      */
     public function getIsPrimary()
     {
-        return $this->isPrimary->getValue();
+        return ($this->isPrimary) ? $this->isPrimary->getValue() : null;
     }
 
     /**
@@ -61,7 +60,6 @@ class PrimaryInfoGetResponse extends ComplexType implements ComplexInterface
      */
     public function setHostnameForPrimary($hostnameForPrimary = null)
     {
-        if (!$hostnameForPrimary) return $this;
         $this->hostnameForPrimary = ($hostnameForPrimary InstanceOf NetAddress)
              ? $hostnameForPrimary
              : new NetAddress($hostnameForPrimary);
@@ -75,7 +73,7 @@ class PrimaryInfoGetResponse extends ComplexType implements ComplexInterface
      */
     public function getHostnameForPrimary()
     {
-        return $this->hostnameForPrimary->getValue();
+        return ($this->hostnameForPrimary) ? $this->hostnameForPrimary->getValue() : null;
     }
 
     /**
@@ -83,7 +81,6 @@ class PrimaryInfoGetResponse extends ComplexType implements ComplexInterface
      */
     public function setAddressForPrimary($addressForPrimary = null)
     {
-        if (!$addressForPrimary) return $this;
         $this->addressForPrimary = ($addressForPrimary InstanceOf NetAddress)
              ? $addressForPrimary
              : new NetAddress($addressForPrimary);
@@ -97,7 +94,7 @@ class PrimaryInfoGetResponse extends ComplexType implements ComplexInterface
      */
     public function getAddressForPrimary()
     {
-        return $this->addressForPrimary->getValue();
+        return ($this->addressForPrimary) ? $this->addressForPrimary->getValue() : null;
     }
 
     /**
@@ -105,7 +102,6 @@ class PrimaryInfoGetResponse extends ComplexType implements ComplexInterface
      */
     public function setPrivateAddressForPrimary($privateAddressForPrimary = null)
     {
-        if (!$privateAddressForPrimary) return $this;
         $this->privateAddressForPrimary = ($privateAddressForPrimary InstanceOf NetAddress)
              ? $privateAddressForPrimary
              : new NetAddress($privateAddressForPrimary);
@@ -119,6 +115,6 @@ class PrimaryInfoGetResponse extends ComplexType implements ComplexInterface
      */
     public function getPrivateAddressForPrimary()
     {
-        return $this->privateAddressForPrimary->getValue();
+        return ($this->privateAddressForPrimary) ? $this->privateAddressForPrimary->getValue() : null;
     }
 }

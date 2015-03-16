@@ -22,13 +22,13 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemOCIReportingAddMessageNameListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                  = 'SystemOCIReportingAddMessageNameListRequest';
-    protected $netAddress            = null;
-    protected $messageNameStartsWith = null;
+    public    $name = 'SystemOCIReportingAddMessageNameListRequest';
+    protected $netAddress;
+    protected $messageNameStartsWith;
 
     public function __construct(
-         $netAddress,
-         $messageNameStartsWith
+         $netAddress = '',
+         $messageNameStartsWith = ''
     ) {
         $this->setNetAddress($netAddress);
         $this->setMessageNameStartsWith($messageNameStartsWith);
@@ -47,7 +47,6 @@ class SystemOCIReportingAddMessageNameListRequest extends ComplexType implements
      */
     public function setNetAddress($netAddress = null)
     {
-        if (!$netAddress) return $this;
         $this->netAddress = ($netAddress InstanceOf NetAddress)
              ? $netAddress
              : new NetAddress($netAddress);
@@ -61,7 +60,7 @@ class SystemOCIReportingAddMessageNameListRequest extends ComplexType implements
      */
     public function getNetAddress()
     {
-        return $this->netAddress->getValue();
+        return ($this->netAddress) ? $this->netAddress->getValue() : null;
     }
 
     /**
@@ -69,7 +68,6 @@ class SystemOCIReportingAddMessageNameListRequest extends ComplexType implements
      */
     public function setMessageNameStartsWith($messageNameStartsWith = null)
     {
-        if (!$messageNameStartsWith) return $this;
         $this->messageNameStartsWith = ($messageNameStartsWith InstanceOf OCIReportingMessageName)
              ? $messageNameStartsWith
              : new OCIReportingMessageName($messageNameStartsWith);
@@ -83,6 +81,6 @@ class SystemOCIReportingAddMessageNameListRequest extends ComplexType implements
      */
     public function getMessageNameStartsWith()
     {
-        return $this->messageNameStartsWith->getValue();
+        return ($this->messageNameStartsWith) ? $this->messageNameStartsWith->getValue() : null;
     }
 }

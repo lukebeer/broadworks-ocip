@@ -20,13 +20,13 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemSIPDeviceTypeFileDeleteRequest14sp8 extends ComplexType implements ComplexInterface
 {
-    public    $name       = 'SystemSIPDeviceTypeFileDeleteRequest14sp8';
-    protected $deviceType = null;
-    protected $fileFormat = null;
+    public    $name = 'SystemSIPDeviceTypeFileDeleteRequest14sp8';
+    protected $deviceType;
+    protected $fileFormat;
 
     public function __construct(
-         $deviceType,
-         $fileFormat
+         $deviceType = '',
+         $fileFormat = ''
     ) {
         $this->setDeviceType($deviceType);
         $this->setFileFormat($fileFormat);
@@ -45,7 +45,6 @@ class SystemSIPDeviceTypeFileDeleteRequest14sp8 extends ComplexType implements C
      */
     public function setDeviceType($deviceType = null)
     {
-        if (!$deviceType) return $this;
         $this->deviceType = ($deviceType InstanceOf AccessDeviceType)
              ? $deviceType
              : new AccessDeviceType($deviceType);
@@ -59,7 +58,7 @@ class SystemSIPDeviceTypeFileDeleteRequest14sp8 extends ComplexType implements C
      */
     public function getDeviceType()
     {
-        return $this->deviceType->getValue();
+        return ($this->deviceType) ? $this->deviceType->getValue() : null;
     }
 
     /**
@@ -67,7 +66,6 @@ class SystemSIPDeviceTypeFileDeleteRequest14sp8 extends ComplexType implements C
      */
     public function setFileFormat($fileFormat = null)
     {
-        if (!$fileFormat) return $this;
         $this->fileFormat = ($fileFormat InstanceOf DeviceManagementFileFormat)
              ? $fileFormat
              : new DeviceManagementFileFormat($fileFormat);
@@ -81,6 +79,6 @@ class SystemSIPDeviceTypeFileDeleteRequest14sp8 extends ComplexType implements C
      */
     public function getFileFormat()
     {
-        return $this->fileFormat->getValue();
+        return ($this->fileFormat) ? $this->fileFormat->getValue() : null;
     }
 }

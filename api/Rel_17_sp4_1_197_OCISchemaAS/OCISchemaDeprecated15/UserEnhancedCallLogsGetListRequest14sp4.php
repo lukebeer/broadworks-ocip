@@ -28,17 +28,17 @@ use Broadworks_OCIP\core\Client\Client;
 class UserEnhancedCallLogsGetListRequest14sp4 extends ComplexType implements ComplexInterface
 {
     public    $responseType   = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15\UserEnhancedCallLogsGetListResponse14sp4';
-    public    $name           = 'UserEnhancedCallLogsGetListRequest14sp4';
-    protected $userId         = null;
-    protected $callLogType    = null;
-    protected $startingOffset = null;
-    protected $numCalls       = null;
+    public    $name = 'UserEnhancedCallLogsGetListRequest14sp4';
+    protected $userId;
+    protected $callLogType;
+    protected $startingOffset;
+    protected $numCalls;
 
     public function __construct(
-         $userId,
+         $userId = '',
          $callLogType = null,
-         $startingOffset,
-         $numCalls
+         $startingOffset = '',
+         $numCalls = ''
     ) {
         $this->setUserId($userId);
         $this->setCallLogType($callLogType);
@@ -59,7 +59,6 @@ class UserEnhancedCallLogsGetListRequest14sp4 extends ComplexType implements Com
      */
     public function setUserId($userId = null)
     {
-        if (!$userId) return $this;
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
@@ -73,7 +72,7 @@ class UserEnhancedCallLogsGetListRequest14sp4 extends ComplexType implements Com
      */
     public function getUserId()
     {
-        return $this->userId->getValue();
+        return ($this->userId) ? $this->userId->getValue() : null;
     }
 
     /**
@@ -81,7 +80,6 @@ class UserEnhancedCallLogsGetListRequest14sp4 extends ComplexType implements Com
      */
     public function setCallLogType($callLogType = null)
     {
-        if (!$callLogType) return $this;
         $this->callLogType = ($callLogType InstanceOf CallLogsType)
              ? $callLogType
              : new CallLogsType($callLogType);
@@ -95,7 +93,7 @@ class UserEnhancedCallLogsGetListRequest14sp4 extends ComplexType implements Com
      */
     public function getCallLogType()
     {
-        return $this->callLogType->getValue();
+        return ($this->callLogType) ? $this->callLogType->getValue() : null;
     }
 
     /**
@@ -103,7 +101,6 @@ class UserEnhancedCallLogsGetListRequest14sp4 extends ComplexType implements Com
      */
     public function setStartingOffset($startingOffset = null)
     {
-        if (!$startingOffset) return $this;
         $this->startingOffset = ($startingOffset InstanceOf EnhancedCallLogsOffset)
              ? $startingOffset
              : new EnhancedCallLogsOffset($startingOffset);
@@ -117,7 +114,7 @@ class UserEnhancedCallLogsGetListRequest14sp4 extends ComplexType implements Com
      */
     public function getStartingOffset()
     {
-        return $this->startingOffset->getValue();
+        return ($this->startingOffset) ? $this->startingOffset->getValue() : null;
     }
 
     /**
@@ -125,7 +122,6 @@ class UserEnhancedCallLogsGetListRequest14sp4 extends ComplexType implements Com
      */
     public function setNumCalls($numCalls = null)
     {
-        if (!$numCalls) return $this;
         $this->numCalls = ($numCalls InstanceOf EnhancedCallLogsMaxLoggedCalls)
              ? $numCalls
              : new EnhancedCallLogsMaxLoggedCalls($numCalls);
@@ -139,6 +135,6 @@ class UserEnhancedCallLogsGetListRequest14sp4 extends ComplexType implements Com
      */
     public function getNumCalls()
     {
-        return $this->numCalls->getValue();
+        return ($this->numCalls) ? $this->numCalls->getValue() : null;
     }
 }

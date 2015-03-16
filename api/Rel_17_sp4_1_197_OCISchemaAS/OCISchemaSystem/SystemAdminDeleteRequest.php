@@ -20,11 +20,11 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemAdminDeleteRequest extends ComplexType implements ComplexInterface
 {
-    public    $name   = 'SystemAdminDeleteRequest';
-    protected $userId = null;
+    public    $name = 'SystemAdminDeleteRequest';
+    protected $userId;
 
     public function __construct(
-         $userId
+         $userId = ''
     ) {
         $this->setUserId($userId);
     }
@@ -42,7 +42,6 @@ class SystemAdminDeleteRequest extends ComplexType implements ComplexInterface
      */
     public function setUserId($userId = null)
     {
-        if (!$userId) return $this;
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
@@ -56,6 +55,6 @@ class SystemAdminDeleteRequest extends ComplexType implements ComplexInterface
      */
     public function getUserId()
     {
-        return $this->userId->getValue();
+        return ($this->userId) ? $this->userId->getValue() : null;
     }
 }

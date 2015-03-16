@@ -21,10 +21,10 @@ use Broadworks_OCIP\core\Client\Client;
 class SystemCallCenterReportingServerDeleteRequest extends ComplexType implements ComplexInterface
 {
     public    $name = 'SystemCallCenterReportingServerDeleteRequest';
-    protected $name = null;
+    protected $name;
 
     public function __construct(
-         $name
+         $name = ''
     ) {
         $this->setName($name);
     }
@@ -42,7 +42,6 @@ class SystemCallCenterReportingServerDeleteRequest extends ComplexType implement
      */
     public function setName($name = null)
     {
-        if (!$name) return $this;
         $this->name = ($name InstanceOf CallCenterReportingServerName)
              ? $name
              : new CallCenterReportingServerName($name);
@@ -56,6 +55,6 @@ class SystemCallCenterReportingServerDeleteRequest extends ComplexType implement
      */
     public function getName()
     {
-        return $this->name->getValue();
+        return ($this->name) ? $this->name->getValue() : null;
     }
 }

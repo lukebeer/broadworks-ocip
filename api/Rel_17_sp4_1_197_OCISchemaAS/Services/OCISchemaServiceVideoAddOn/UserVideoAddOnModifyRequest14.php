@@ -23,14 +23,14 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserVideoAddOnModifyRequest14 extends ComplexType implements ComplexInterface
 {
-    public    $name                           = 'UserVideoAddOnModifyRequest14';
-    protected $userId                         = null;
-    protected $isActive                       = null;
-    protected $maxOriginatingCallDelaySeconds = null;
-    protected $accessDeviceEndpoint           = null;
+    public    $name = 'UserVideoAddOnModifyRequest14';
+    protected $userId;
+    protected $isActive;
+    protected $maxOriginatingCallDelaySeconds;
+    protected $accessDeviceEndpoint;
 
     public function __construct(
-         $userId,
+         $userId = '',
          $isActive = null,
          $maxOriginatingCallDelaySeconds = null,
          AccessDeviceEndpointModify $accessDeviceEndpoint = null
@@ -54,7 +54,6 @@ class UserVideoAddOnModifyRequest14 extends ComplexType implements ComplexInterf
      */
     public function setUserId($userId = null)
     {
-        if (!$userId) return $this;
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
@@ -68,7 +67,7 @@ class UserVideoAddOnModifyRequest14 extends ComplexType implements ComplexInterf
      */
     public function getUserId()
     {
-        return $this->userId->getValue();
+        return ($this->userId) ? $this->userId->getValue() : null;
     }
 
     /**
@@ -76,7 +75,6 @@ class UserVideoAddOnModifyRequest14 extends ComplexType implements ComplexInterf
      */
     public function setIsActive($isActive = null)
     {
-        if (!$isActive) return $this;
         $this->isActive = new PrimitiveType($isActive);
         $this->isActive->setName('isActive');
         return $this;
@@ -88,7 +86,7 @@ class UserVideoAddOnModifyRequest14 extends ComplexType implements ComplexInterf
      */
     public function getIsActive()
     {
-        return $this->isActive->getValue();
+        return ($this->isActive) ? $this->isActive->getValue() : null;
     }
 
     /**
@@ -96,7 +94,6 @@ class UserVideoAddOnModifyRequest14 extends ComplexType implements ComplexInterf
      */
     public function setMaxOriginatingCallDelaySeconds($maxOriginatingCallDelaySeconds = null)
     {
-        if (!$maxOriginatingCallDelaySeconds) return $this;
         $this->maxOriginatingCallDelaySeconds = ($maxOriginatingCallDelaySeconds InstanceOf VideoAddOnMaxOriginatingCallDelaySeconds)
              ? $maxOriginatingCallDelaySeconds
              : new VideoAddOnMaxOriginatingCallDelaySeconds($maxOriginatingCallDelaySeconds);
@@ -110,7 +107,7 @@ class UserVideoAddOnModifyRequest14 extends ComplexType implements ComplexInterf
      */
     public function getMaxOriginatingCallDelaySeconds()
     {
-        return $this->maxOriginatingCallDelaySeconds->getValue();
+        return ($this->maxOriginatingCallDelaySeconds) ? $this->maxOriginatingCallDelaySeconds->getValue() : null;
     }
 
     /**
@@ -118,8 +115,9 @@ class UserVideoAddOnModifyRequest14 extends ComplexType implements ComplexInterf
      */
     public function setAccessDeviceEndpoint(AccessDeviceEndpointModify $accessDeviceEndpoint = null)
     {
-        if (!$accessDeviceEndpoint) return $this;
-        $this->accessDeviceEndpoint = $accessDeviceEndpoint;
+        $this->accessDeviceEndpoint = ($accessDeviceEndpoint InstanceOf AccessDeviceEndpointModify)
+             ? $accessDeviceEndpoint
+             : new AccessDeviceEndpointModify($accessDeviceEndpoint);
         $this->accessDeviceEndpoint->setName('accessDeviceEndpoint');
         return $this;
     }

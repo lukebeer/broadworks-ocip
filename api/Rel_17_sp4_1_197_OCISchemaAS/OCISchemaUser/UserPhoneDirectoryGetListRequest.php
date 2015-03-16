@@ -44,24 +44,24 @@ use Broadworks_OCIP\core\Client\Client;
 class UserPhoneDirectoryGetListRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType                              = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser\UserPhoneDirectoryGetListResponse';
-    public    $name                                      = 'UserPhoneDirectoryGetListRequest';
-    protected $userId                                    = null;
-    protected $includeCommonPhoneList                    = null;
-    protected $responseSizeLimit                         = null;
-    protected $searchCriteriaModeOr                      = null;
-    protected $searchCriteriaUserLastName                = null;
-    protected $searchCriteriaUserFirstName               = null;
-    protected $searchCriteriaDn                          = null;
-    protected $searchCriteriaExtension                   = null;
-    protected $searchCriteriaMobilePhoneNumber           = null;
-    protected $searchCriteriaEmailAddress                = null;
-    protected $searchCriteriaExactUserDepartment         = null;
-    protected $searchCriteriaExactUserGroup              = null;
-    protected $searchCriteriaExactCustomContactDirectory = null;
+    public    $name = 'UserPhoneDirectoryGetListRequest';
+    protected $userId;
+    protected $includeCommonPhoneList;
+    protected $responseSizeLimit;
+    protected $searchCriteriaModeOr;
+    protected $searchCriteriaUserLastName;
+    protected $searchCriteriaUserFirstName;
+    protected $searchCriteriaDn;
+    protected $searchCriteriaExtension;
+    protected $searchCriteriaMobilePhoneNumber;
+    protected $searchCriteriaEmailAddress;
+    protected $searchCriteriaExactUserDepartment;
+    protected $searchCriteriaExactUserGroup;
+    protected $searchCriteriaExactCustomContactDirectory;
 
     public function __construct(
-         $userId,
-         $includeCommonPhoneList,
+         $userId = '',
+         $includeCommonPhoneList = '',
          $responseSizeLimit = null,
          $searchCriteriaModeOr = null,
          SearchCriteriaUserLastName $searchCriteriaUserLastName = null,
@@ -102,7 +102,6 @@ class UserPhoneDirectoryGetListRequest extends ComplexType implements ComplexInt
      */
     public function setUserId($userId = null)
     {
-        if (!$userId) return $this;
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
@@ -116,7 +115,7 @@ class UserPhoneDirectoryGetListRequest extends ComplexType implements ComplexInt
      */
     public function getUserId()
     {
-        return $this->userId->getValue();
+        return ($this->userId) ? $this->userId->getValue() : null;
     }
 
     /**
@@ -124,7 +123,6 @@ class UserPhoneDirectoryGetListRequest extends ComplexType implements ComplexInt
      */
     public function setIncludeCommonPhoneList($includeCommonPhoneList = null)
     {
-        if (!$includeCommonPhoneList) return $this;
         $this->includeCommonPhoneList = new PrimitiveType($includeCommonPhoneList);
         $this->includeCommonPhoneList->setName('includeCommonPhoneList');
         return $this;
@@ -136,7 +134,7 @@ class UserPhoneDirectoryGetListRequest extends ComplexType implements ComplexInt
      */
     public function getIncludeCommonPhoneList()
     {
-        return $this->includeCommonPhoneList->getValue();
+        return ($this->includeCommonPhoneList) ? $this->includeCommonPhoneList->getValue() : null;
     }
 
     /**
@@ -144,7 +142,6 @@ class UserPhoneDirectoryGetListRequest extends ComplexType implements ComplexInt
      */
     public function setResponseSizeLimit($responseSizeLimit = null)
     {
-        if (!$responseSizeLimit) return $this;
         $this->responseSizeLimit = ($responseSizeLimit InstanceOf ResponseSizeLimit)
              ? $responseSizeLimit
              : new ResponseSizeLimit($responseSizeLimit);
@@ -158,7 +155,7 @@ class UserPhoneDirectoryGetListRequest extends ComplexType implements ComplexInt
      */
     public function getResponseSizeLimit()
     {
-        return $this->responseSizeLimit->getValue();
+        return ($this->responseSizeLimit) ? $this->responseSizeLimit->getValue() : null;
     }
 
     /**
@@ -166,7 +163,6 @@ class UserPhoneDirectoryGetListRequest extends ComplexType implements ComplexInt
      */
     public function setSearchCriteriaModeOr($searchCriteriaModeOr = null)
     {
-        if (!$searchCriteriaModeOr) return $this;
         $this->searchCriteriaModeOr = new PrimitiveType($searchCriteriaModeOr);
         $this->searchCriteriaModeOr->setName('searchCriteriaModeOr');
         return $this;
@@ -178,7 +174,7 @@ class UserPhoneDirectoryGetListRequest extends ComplexType implements ComplexInt
      */
     public function getSearchCriteriaModeOr()
     {
-        return $this->searchCriteriaModeOr->getValue();
+        return ($this->searchCriteriaModeOr) ? $this->searchCriteriaModeOr->getValue() : null;
     }
 
     /**
@@ -186,7 +182,6 @@ class UserPhoneDirectoryGetListRequest extends ComplexType implements ComplexInt
      */
     public function setSearchCriteriaUserLastName(SearchCriteriaUserLastName $searchCriteriaUserLastName = null)
     {
-        if (!$searchCriteriaUserLastName) return $this;
         $this->searchCriteriaUserLastName = ($searchCriteriaUserLastName InstanceOf SearchCriteriaUserLastName)
              ? $searchCriteriaUserLastName
              : new SearchCriteriaUserLastName($searchCriteriaUserLastName);
@@ -208,7 +203,6 @@ class UserPhoneDirectoryGetListRequest extends ComplexType implements ComplexInt
      */
     public function setSearchCriteriaUserFirstName(SearchCriteriaUserFirstName $searchCriteriaUserFirstName = null)
     {
-        if (!$searchCriteriaUserFirstName) return $this;
         $this->searchCriteriaUserFirstName = ($searchCriteriaUserFirstName InstanceOf SearchCriteriaUserFirstName)
              ? $searchCriteriaUserFirstName
              : new SearchCriteriaUserFirstName($searchCriteriaUserFirstName);
@@ -230,7 +224,6 @@ class UserPhoneDirectoryGetListRequest extends ComplexType implements ComplexInt
      */
     public function setSearchCriteriaDn(SearchCriteriaDn $searchCriteriaDn = null)
     {
-        if (!$searchCriteriaDn) return $this;
         $this->searchCriteriaDn = ($searchCriteriaDn InstanceOf SearchCriteriaDn)
              ? $searchCriteriaDn
              : new SearchCriteriaDn($searchCriteriaDn);
@@ -252,7 +245,6 @@ class UserPhoneDirectoryGetListRequest extends ComplexType implements ComplexInt
      */
     public function setSearchCriteriaExtension(SearchCriteriaExtension $searchCriteriaExtension = null)
     {
-        if (!$searchCriteriaExtension) return $this;
         $this->searchCriteriaExtension = ($searchCriteriaExtension InstanceOf SearchCriteriaExtension)
              ? $searchCriteriaExtension
              : new SearchCriteriaExtension($searchCriteriaExtension);
@@ -274,7 +266,6 @@ class UserPhoneDirectoryGetListRequest extends ComplexType implements ComplexInt
      */
     public function setSearchCriteriaMobilePhoneNumber(SearchCriteriaMobilePhoneNumber $searchCriteriaMobilePhoneNumber = null)
     {
-        if (!$searchCriteriaMobilePhoneNumber) return $this;
         $this->searchCriteriaMobilePhoneNumber = ($searchCriteriaMobilePhoneNumber InstanceOf SearchCriteriaMobilePhoneNumber)
              ? $searchCriteriaMobilePhoneNumber
              : new SearchCriteriaMobilePhoneNumber($searchCriteriaMobilePhoneNumber);
@@ -296,7 +287,6 @@ class UserPhoneDirectoryGetListRequest extends ComplexType implements ComplexInt
      */
     public function setSearchCriteriaEmailAddress(SearchCriteriaEmailAddress $searchCriteriaEmailAddress = null)
     {
-        if (!$searchCriteriaEmailAddress) return $this;
         $this->searchCriteriaEmailAddress = ($searchCriteriaEmailAddress InstanceOf SearchCriteriaEmailAddress)
              ? $searchCriteriaEmailAddress
              : new SearchCriteriaEmailAddress($searchCriteriaEmailAddress);
@@ -318,7 +308,6 @@ class UserPhoneDirectoryGetListRequest extends ComplexType implements ComplexInt
      */
     public function setSearchCriteriaExactUserDepartment(SearchCriteriaExactUserDepartment $searchCriteriaExactUserDepartment = null)
     {
-        if (!$searchCriteriaExactUserDepartment) return $this;
         $this->searchCriteriaExactUserDepartment = ($searchCriteriaExactUserDepartment InstanceOf SearchCriteriaExactUserDepartment)
              ? $searchCriteriaExactUserDepartment
              : new SearchCriteriaExactUserDepartment($searchCriteriaExactUserDepartment);
@@ -340,7 +329,6 @@ class UserPhoneDirectoryGetListRequest extends ComplexType implements ComplexInt
      */
     public function setSearchCriteriaExactUserGroup(SearchCriteriaExactUserGroup $searchCriteriaExactUserGroup = null)
     {
-        if (!$searchCriteriaExactUserGroup) return $this;
         $this->searchCriteriaExactUserGroup = ($searchCriteriaExactUserGroup InstanceOf SearchCriteriaExactUserGroup)
              ? $searchCriteriaExactUserGroup
              : new SearchCriteriaExactUserGroup($searchCriteriaExactUserGroup);
@@ -362,7 +350,6 @@ class UserPhoneDirectoryGetListRequest extends ComplexType implements ComplexInt
      */
     public function setSearchCriteriaExactCustomContactDirectory(SearchCriteriaExactCustomContactDirectory $searchCriteriaExactCustomContactDirectory = null)
     {
-        if (!$searchCriteriaExactCustomContactDirectory) return $this;
         $this->searchCriteriaExactCustomContactDirectory = ($searchCriteriaExactCustomContactDirectory InstanceOf SearchCriteriaExactCustomContactDirectory)
              ? $searchCriteriaExactCustomContactDirectory
              : new SearchCriteriaExactCustomContactDirectory($searchCriteriaExactCustomContactDirectory);

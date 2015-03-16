@@ -22,8 +22,8 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserBroadWorksReceptionistOfficeGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name               = 'UserBroadWorksReceptionistOfficeGetResponse';
-    protected $monitoredUserTable = null;
+    public    $name = 'UserBroadWorksReceptionistOfficeGetResponse';
+    protected $monitoredUserTable;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceReceptionistOffice\UserBroadWorksReceptionistOfficeGetResponse $response
@@ -38,7 +38,6 @@ class UserBroadWorksReceptionistOfficeGetResponse extends ComplexType implements
      */
     public function setMonitoredUserTable(TableType $monitoredUserTable = null)
     {
-        if (!$monitoredUserTable) return $this;
         $this->monitoredUserTable = $monitoredUserTable;
         $this->monitoredUserTable->setName('monitoredUserTable');
         return $this;

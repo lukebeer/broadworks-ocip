@@ -23,18 +23,18 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupCallCenterAgentUnavailableCodeAddRequest extends ComplexType implements ComplexInterface
 {
-    public    $name              = 'GroupCallCenterAgentUnavailableCodeAddRequest';
-    protected $serviceProviderId = null;
-    protected $groupId           = null;
-    protected $isActive          = null;
-    protected $code              = null;
-    protected $description       = null;
+    public    $name = 'GroupCallCenterAgentUnavailableCodeAddRequest';
+    protected $serviceProviderId;
+    protected $groupId;
+    protected $isActive;
+    protected $code;
+    protected $description;
 
     public function __construct(
-         $serviceProviderId,
-         $groupId,
-         $isActive,
-         $code,
+         $serviceProviderId = '',
+         $groupId = '',
+         $isActive = '',
+         $code = '',
          $description = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
@@ -57,7 +57,6 @@ class GroupCallCenterAgentUnavailableCodeAddRequest extends ComplexType implemen
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
-        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
@@ -71,7 +70,7 @@ class GroupCallCenterAgentUnavailableCodeAddRequest extends ComplexType implemen
      */
     public function getServiceProviderId()
     {
-        return $this->serviceProviderId->getValue();
+        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
     }
 
     /**
@@ -79,7 +78,6 @@ class GroupCallCenterAgentUnavailableCodeAddRequest extends ComplexType implemen
      */
     public function setGroupId($groupId = null)
     {
-        if (!$groupId) return $this;
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
@@ -93,7 +91,7 @@ class GroupCallCenterAgentUnavailableCodeAddRequest extends ComplexType implemen
      */
     public function getGroupId()
     {
-        return $this->groupId->getValue();
+        return ($this->groupId) ? $this->groupId->getValue() : null;
     }
 
     /**
@@ -101,7 +99,6 @@ class GroupCallCenterAgentUnavailableCodeAddRequest extends ComplexType implemen
      */
     public function setIsActive($isActive = null)
     {
-        if (!$isActive) return $this;
         $this->isActive = new PrimitiveType($isActive);
         $this->isActive->setName('isActive');
         return $this;
@@ -113,7 +110,7 @@ class GroupCallCenterAgentUnavailableCodeAddRequest extends ComplexType implemen
      */
     public function getIsActive()
     {
-        return $this->isActive->getValue();
+        return ($this->isActive) ? $this->isActive->getValue() : null;
     }
 
     /**
@@ -121,7 +118,6 @@ class GroupCallCenterAgentUnavailableCodeAddRequest extends ComplexType implemen
      */
     public function setCode($code = null)
     {
-        if (!$code) return $this;
         $this->code = ($code InstanceOf CallCenterAgentUnavailableCode)
              ? $code
              : new CallCenterAgentUnavailableCode($code);
@@ -135,7 +131,7 @@ class GroupCallCenterAgentUnavailableCodeAddRequest extends ComplexType implemen
      */
     public function getCode()
     {
-        return $this->code->getValue();
+        return ($this->code) ? $this->code->getValue() : null;
     }
 
     /**
@@ -143,7 +139,6 @@ class GroupCallCenterAgentUnavailableCodeAddRequest extends ComplexType implemen
      */
     public function setDescription($description = null)
     {
-        if (!$description) return $this;
         $this->description = ($description InstanceOf CallCenterAgentUnavailableCodeDescription)
              ? $description
              : new CallCenterAgentUnavailableCodeDescription($description);
@@ -157,6 +152,6 @@ class GroupCallCenterAgentUnavailableCodeAddRequest extends ComplexType implemen
      */
     public function getDescription()
     {
-        return $this->description->getValue();
+        return ($this->description) ? $this->description->getValue() : null;
     }
 }

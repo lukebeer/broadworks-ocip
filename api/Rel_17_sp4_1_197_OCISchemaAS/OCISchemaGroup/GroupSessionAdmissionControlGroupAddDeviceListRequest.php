@@ -23,16 +23,16 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupSessionAdmissionControlGroupAddDeviceListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name              = 'GroupSessionAdmissionControlGroupAddDeviceListRequest';
-    protected $serviceProviderId = null;
-    protected $groupId           = null;
-    protected $name              = null;
-    protected $devices           = null;
+    public    $name = 'GroupSessionAdmissionControlGroupAddDeviceListRequest';
+    protected $serviceProviderId;
+    protected $groupId;
+    protected $name;
+    protected $devices;
 
     public function __construct(
-         $serviceProviderId,
-         $groupId,
-         $name,
+         $serviceProviderId = '',
+         $groupId = '',
+         $name = '',
          AccessDevice $devices = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
@@ -54,7 +54,6 @@ class GroupSessionAdmissionControlGroupAddDeviceListRequest extends ComplexType 
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
-        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
@@ -68,7 +67,7 @@ class GroupSessionAdmissionControlGroupAddDeviceListRequest extends ComplexType 
      */
     public function getServiceProviderId()
     {
-        return $this->serviceProviderId->getValue();
+        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
     }
 
     /**
@@ -76,7 +75,6 @@ class GroupSessionAdmissionControlGroupAddDeviceListRequest extends ComplexType 
      */
     public function setGroupId($groupId = null)
     {
-        if (!$groupId) return $this;
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
@@ -90,7 +88,7 @@ class GroupSessionAdmissionControlGroupAddDeviceListRequest extends ComplexType 
      */
     public function getGroupId()
     {
-        return $this->groupId->getValue();
+        return ($this->groupId) ? $this->groupId->getValue() : null;
     }
 
     /**
@@ -98,7 +96,6 @@ class GroupSessionAdmissionControlGroupAddDeviceListRequest extends ComplexType 
      */
     public function setName($name = null)
     {
-        if (!$name) return $this;
         $this->name = ($name InstanceOf SessionAdmissionControlGroupName)
              ? $name
              : new SessionAdmissionControlGroupName($name);
@@ -112,7 +109,7 @@ class GroupSessionAdmissionControlGroupAddDeviceListRequest extends ComplexType 
      */
     public function getName()
     {
-        return $this->name->getValue();
+        return ($this->name) ? $this->name->getValue() : null;
     }
 
     /**
@@ -120,8 +117,9 @@ class GroupSessionAdmissionControlGroupAddDeviceListRequest extends ComplexType 
      */
     public function setDevices(AccessDevice $devices = null)
     {
-        if (!$devices) return $this;
-        $this->devices = $devices;
+        $this->devices = ($devices InstanceOf AccessDevice)
+             ? $devices
+             : new AccessDevice($devices);
         $this->devices->setName('devices');
         return $this;
     }

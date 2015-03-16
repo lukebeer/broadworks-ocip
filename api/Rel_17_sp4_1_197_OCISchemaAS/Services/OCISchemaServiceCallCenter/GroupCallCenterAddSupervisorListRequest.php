@@ -20,12 +20,12 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupCallCenterAddSupervisorListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name             = 'GroupCallCenterAddSupervisorListRequest';
-    protected $serviceUserId    = null;
-    protected $supervisorUserId = null;
+    public    $name = 'GroupCallCenterAddSupervisorListRequest';
+    protected $serviceUserId;
+    protected $supervisorUserId;
 
     public function __construct(
-         $serviceUserId,
+         $serviceUserId = '',
          $supervisorUserId = null
     ) {
         $this->setServiceUserId($serviceUserId);
@@ -45,7 +45,6 @@ class GroupCallCenterAddSupervisorListRequest extends ComplexType implements Com
      */
     public function setServiceUserId($serviceUserId = null)
     {
-        if (!$serviceUserId) return $this;
         $this->serviceUserId = ($serviceUserId InstanceOf UserId)
              ? $serviceUserId
              : new UserId($serviceUserId);
@@ -59,7 +58,7 @@ class GroupCallCenterAddSupervisorListRequest extends ComplexType implements Com
      */
     public function getServiceUserId()
     {
-        return $this->serviceUserId->getValue();
+        return ($this->serviceUserId) ? $this->serviceUserId->getValue() : null;
     }
 
     /**
@@ -67,7 +66,6 @@ class GroupCallCenterAddSupervisorListRequest extends ComplexType implements Com
      */
     public function setSupervisorUserId($supervisorUserId = null)
     {
-        if (!$supervisorUserId) return $this;
         $this->supervisorUserId = ($supervisorUserId InstanceOf UserId)
              ? $supervisorUserId
              : new UserId($supervisorUserId);
@@ -81,6 +79,6 @@ class GroupCallCenterAddSupervisorListRequest extends ComplexType implements Com
      */
     public function getSupervisorUserId()
     {
-        return $this->supervisorUserId->getValue();
+        return ($this->supervisorUserId) ? $this->supervisorUserId->getValue() : null;
     }
 }

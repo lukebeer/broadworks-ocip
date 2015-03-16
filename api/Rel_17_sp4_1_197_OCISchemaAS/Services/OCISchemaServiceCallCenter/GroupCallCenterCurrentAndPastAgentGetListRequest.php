@@ -25,16 +25,16 @@ use Broadworks_OCIP\core\Client\Client;
 class GroupCallCenterCurrentAndPastAgentGetListRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType                = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\GroupCallCenterCurrentAndPastAgentGetListResponse';
-    public    $name                        = 'GroupCallCenterCurrentAndPastAgentGetListRequest';
-    protected $serviceProviderId           = null;
-    protected $groupId                     = null;
-    protected $responseSizeLimit           = null;
-    protected $searchCriteriaUserLastName  = null;
-    protected $searchCriteriaUserFirstName = null;
+    public    $name = 'GroupCallCenterCurrentAndPastAgentGetListRequest';
+    protected $serviceProviderId;
+    protected $groupId;
+    protected $responseSizeLimit;
+    protected $searchCriteriaUserLastName;
+    protected $searchCriteriaUserFirstName;
 
     public function __construct(
-         $serviceProviderId,
-         $groupId,
+         $serviceProviderId = '',
+         $groupId = '',
          $responseSizeLimit = null,
          SearchCriteriaUserLastName $searchCriteriaUserLastName = null,
          SearchCriteriaUserFirstName $searchCriteriaUserFirstName = null
@@ -59,7 +59,6 @@ class GroupCallCenterCurrentAndPastAgentGetListRequest extends ComplexType imple
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
-        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
@@ -73,7 +72,7 @@ class GroupCallCenterCurrentAndPastAgentGetListRequest extends ComplexType imple
      */
     public function getServiceProviderId()
     {
-        return $this->serviceProviderId->getValue();
+        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
     }
 
     /**
@@ -81,7 +80,6 @@ class GroupCallCenterCurrentAndPastAgentGetListRequest extends ComplexType imple
      */
     public function setGroupId($groupId = null)
     {
-        if (!$groupId) return $this;
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
@@ -95,7 +93,7 @@ class GroupCallCenterCurrentAndPastAgentGetListRequest extends ComplexType imple
      */
     public function getGroupId()
     {
-        return $this->groupId->getValue();
+        return ($this->groupId) ? $this->groupId->getValue() : null;
     }
 
     /**
@@ -103,7 +101,6 @@ class GroupCallCenterCurrentAndPastAgentGetListRequest extends ComplexType imple
      */
     public function setResponseSizeLimit($responseSizeLimit = null)
     {
-        if (!$responseSizeLimit) return $this;
         $this->responseSizeLimit = ($responseSizeLimit InstanceOf ResponseSizeLimit)
              ? $responseSizeLimit
              : new ResponseSizeLimit($responseSizeLimit);
@@ -117,7 +114,7 @@ class GroupCallCenterCurrentAndPastAgentGetListRequest extends ComplexType imple
      */
     public function getResponseSizeLimit()
     {
-        return $this->responseSizeLimit->getValue();
+        return ($this->responseSizeLimit) ? $this->responseSizeLimit->getValue() : null;
     }
 
     /**
@@ -125,7 +122,6 @@ class GroupCallCenterCurrentAndPastAgentGetListRequest extends ComplexType imple
      */
     public function setSearchCriteriaUserLastName(SearchCriteriaUserLastName $searchCriteriaUserLastName = null)
     {
-        if (!$searchCriteriaUserLastName) return $this;
         $this->searchCriteriaUserLastName = ($searchCriteriaUserLastName InstanceOf SearchCriteriaUserLastName)
              ? $searchCriteriaUserLastName
              : new SearchCriteriaUserLastName($searchCriteriaUserLastName);
@@ -147,7 +143,6 @@ class GroupCallCenterCurrentAndPastAgentGetListRequest extends ComplexType imple
      */
     public function setSearchCriteriaUserFirstName(SearchCriteriaUserFirstName $searchCriteriaUserFirstName = null)
     {
-        if (!$searchCriteriaUserFirstName) return $this;
         $this->searchCriteriaUserFirstName = ($searchCriteriaUserFirstName InstanceOf SearchCriteriaUserFirstName)
              ? $searchCriteriaUserFirstName
              : new SearchCriteriaUserFirstName($searchCriteriaUserFirstName);

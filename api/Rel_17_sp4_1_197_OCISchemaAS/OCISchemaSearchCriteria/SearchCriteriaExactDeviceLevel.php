@@ -19,11 +19,11 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SearchCriteriaExactDeviceLevel extends ComplexType implements ComplexInterface
 {
-    public    $name        = 'SearchCriteriaExactDeviceLevel';
-    protected $deviceLevel = null;
+    public    $name = 'SearchCriteriaExactDeviceLevel';
+    protected $deviceLevel;
 
     public function __construct(
-         $deviceLevel
+         $deviceLevel = ''
     ) {
         $this->setDeviceLevel($deviceLevel);
     }
@@ -41,7 +41,6 @@ class SearchCriteriaExactDeviceLevel extends ComplexType implements ComplexInter
      */
     public function setDeviceLevel($deviceLevel = null)
     {
-        if (!$deviceLevel) return $this;
         $this->deviceLevel = ($deviceLevel InstanceOf AccessDeviceLevel)
              ? $deviceLevel
              : new AccessDeviceLevel($deviceLevel);
@@ -55,6 +54,6 @@ class SearchCriteriaExactDeviceLevel extends ComplexType implements ComplexInter
      */
     public function getDeviceLevel()
     {
-        return $this->deviceLevel->getValue();
+        return ($this->deviceLevel) ? $this->deviceLevel->getValue() : null;
     }
 }

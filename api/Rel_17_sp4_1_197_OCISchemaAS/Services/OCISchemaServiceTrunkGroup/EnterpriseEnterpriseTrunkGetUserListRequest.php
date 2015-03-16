@@ -31,20 +31,20 @@ use Broadworks_OCIP\core\Client\Client;
 class EnterpriseEnterpriseTrunkGetUserListRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType                         = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceTrunkGroup\EnterpriseEnterpriseTrunkGetUserListResponse';
-    public    $name                                 = 'EnterpriseEnterpriseTrunkGetUserListRequest';
-    protected $serviceProviderId                    = null;
-    protected $enterpriseTrunkName                  = null;
-    protected $responseSizeLimit                    = null;
-    protected $searchCriteriaUserLastName           = null;
-    protected $searchCriteriaUserFirstName          = null;
-    protected $searchCriteriaDn                     = null;
-    protected $searchCriteriaUserId                 = null;
-    protected $searchCriteriaGroupId                = null;
-    protected $searchCriteriaAlternateTrunkIdentity = null;
+    public    $name = 'EnterpriseEnterpriseTrunkGetUserListRequest';
+    protected $serviceProviderId;
+    protected $enterpriseTrunkName;
+    protected $responseSizeLimit;
+    protected $searchCriteriaUserLastName;
+    protected $searchCriteriaUserFirstName;
+    protected $searchCriteriaDn;
+    protected $searchCriteriaUserId;
+    protected $searchCriteriaGroupId;
+    protected $searchCriteriaAlternateTrunkIdentity;
 
     public function __construct(
-         $serviceProviderId,
-         $enterpriseTrunkName,
+         $serviceProviderId = '',
+         $enterpriseTrunkName = '',
          $responseSizeLimit = null,
          SearchCriteriaUserLastName $searchCriteriaUserLastName = null,
          SearchCriteriaUserFirstName $searchCriteriaUserFirstName = null,
@@ -77,7 +77,6 @@ class EnterpriseEnterpriseTrunkGetUserListRequest extends ComplexType implements
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
-        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
@@ -91,7 +90,7 @@ class EnterpriseEnterpriseTrunkGetUserListRequest extends ComplexType implements
      */
     public function getServiceProviderId()
     {
-        return $this->serviceProviderId->getValue();
+        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
     }
 
     /**
@@ -99,7 +98,6 @@ class EnterpriseEnterpriseTrunkGetUserListRequest extends ComplexType implements
      */
     public function setEnterpriseTrunkName($enterpriseTrunkName = null)
     {
-        if (!$enterpriseTrunkName) return $this;
         $this->enterpriseTrunkName = ($enterpriseTrunkName InstanceOf EnterpriseTrunkName)
              ? $enterpriseTrunkName
              : new EnterpriseTrunkName($enterpriseTrunkName);
@@ -113,7 +111,7 @@ class EnterpriseEnterpriseTrunkGetUserListRequest extends ComplexType implements
      */
     public function getEnterpriseTrunkName()
     {
-        return $this->enterpriseTrunkName->getValue();
+        return ($this->enterpriseTrunkName) ? $this->enterpriseTrunkName->getValue() : null;
     }
 
     /**
@@ -121,7 +119,6 @@ class EnterpriseEnterpriseTrunkGetUserListRequest extends ComplexType implements
      */
     public function setResponseSizeLimit($responseSizeLimit = null)
     {
-        if (!$responseSizeLimit) return $this;
         $this->responseSizeLimit = ($responseSizeLimit InstanceOf ResponseSizeLimit)
              ? $responseSizeLimit
              : new ResponseSizeLimit($responseSizeLimit);
@@ -135,7 +132,7 @@ class EnterpriseEnterpriseTrunkGetUserListRequest extends ComplexType implements
      */
     public function getResponseSizeLimit()
     {
-        return $this->responseSizeLimit->getValue();
+        return ($this->responseSizeLimit) ? $this->responseSizeLimit->getValue() : null;
     }
 
     /**
@@ -143,7 +140,6 @@ class EnterpriseEnterpriseTrunkGetUserListRequest extends ComplexType implements
      */
     public function setSearchCriteriaUserLastName(SearchCriteriaUserLastName $searchCriteriaUserLastName = null)
     {
-        if (!$searchCriteriaUserLastName) return $this;
         $this->searchCriteriaUserLastName = ($searchCriteriaUserLastName InstanceOf SearchCriteriaUserLastName)
              ? $searchCriteriaUserLastName
              : new SearchCriteriaUserLastName($searchCriteriaUserLastName);
@@ -165,7 +161,6 @@ class EnterpriseEnterpriseTrunkGetUserListRequest extends ComplexType implements
      */
     public function setSearchCriteriaUserFirstName(SearchCriteriaUserFirstName $searchCriteriaUserFirstName = null)
     {
-        if (!$searchCriteriaUserFirstName) return $this;
         $this->searchCriteriaUserFirstName = ($searchCriteriaUserFirstName InstanceOf SearchCriteriaUserFirstName)
              ? $searchCriteriaUserFirstName
              : new SearchCriteriaUserFirstName($searchCriteriaUserFirstName);
@@ -187,7 +182,6 @@ class EnterpriseEnterpriseTrunkGetUserListRequest extends ComplexType implements
      */
     public function setSearchCriteriaDn(SearchCriteriaDn $searchCriteriaDn = null)
     {
-        if (!$searchCriteriaDn) return $this;
         $this->searchCriteriaDn = ($searchCriteriaDn InstanceOf SearchCriteriaDn)
              ? $searchCriteriaDn
              : new SearchCriteriaDn($searchCriteriaDn);
@@ -209,7 +203,6 @@ class EnterpriseEnterpriseTrunkGetUserListRequest extends ComplexType implements
      */
     public function setSearchCriteriaUserId(SearchCriteriaUserId $searchCriteriaUserId = null)
     {
-        if (!$searchCriteriaUserId) return $this;
         $this->searchCriteriaUserId = ($searchCriteriaUserId InstanceOf SearchCriteriaUserId)
              ? $searchCriteriaUserId
              : new SearchCriteriaUserId($searchCriteriaUserId);
@@ -231,7 +224,6 @@ class EnterpriseEnterpriseTrunkGetUserListRequest extends ComplexType implements
      */
     public function setSearchCriteriaGroupId(SearchCriteriaGroupId $searchCriteriaGroupId = null)
     {
-        if (!$searchCriteriaGroupId) return $this;
         $this->searchCriteriaGroupId = ($searchCriteriaGroupId InstanceOf SearchCriteriaGroupId)
              ? $searchCriteriaGroupId
              : new SearchCriteriaGroupId($searchCriteriaGroupId);
@@ -253,7 +245,6 @@ class EnterpriseEnterpriseTrunkGetUserListRequest extends ComplexType implements
      */
     public function setSearchCriteriaAlternateTrunkIdentity(SearchCriteriaAlternateTrunkIdentity $searchCriteriaAlternateTrunkIdentity = null)
     {
-        if (!$searchCriteriaAlternateTrunkIdentity) return $this;
         $this->searchCriteriaAlternateTrunkIdentity = ($searchCriteriaAlternateTrunkIdentity InstanceOf SearchCriteriaAlternateTrunkIdentity)
              ? $searchCriteriaAlternateTrunkIdentity
              : new SearchCriteriaAlternateTrunkIdentity($searchCriteriaAlternateTrunkIdentity);

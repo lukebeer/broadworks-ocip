@@ -23,15 +23,15 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupTrunkGroupModifyRequest14sp9 extends ComplexType implements ComplexInterface
 {
-    public    $name                   = 'GroupTrunkGroupModifyRequest14sp9';
-    protected $serviceProviderId      = null;
-    protected $groupId                = null;
-    protected $maxActiveCalls         = null;
-    protected $burstingMaxActiveCalls = null;
+    public    $name = 'GroupTrunkGroupModifyRequest14sp9';
+    protected $serviceProviderId;
+    protected $groupId;
+    protected $maxActiveCalls;
+    protected $burstingMaxActiveCalls;
 
     public function __construct(
-         $serviceProviderId,
-         $groupId,
+         $serviceProviderId = '',
+         $groupId = '',
          $maxActiveCalls = null,
          UnboundedNonNegativeInt $burstingMaxActiveCalls = null
     ) {
@@ -54,7 +54,6 @@ class GroupTrunkGroupModifyRequest14sp9 extends ComplexType implements ComplexIn
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
-        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
@@ -68,7 +67,7 @@ class GroupTrunkGroupModifyRequest14sp9 extends ComplexType implements ComplexIn
      */
     public function getServiceProviderId()
     {
-        return $this->serviceProviderId->getValue();
+        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
     }
 
     /**
@@ -76,7 +75,6 @@ class GroupTrunkGroupModifyRequest14sp9 extends ComplexType implements ComplexIn
      */
     public function setGroupId($groupId = null)
     {
-        if (!$groupId) return $this;
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
@@ -90,7 +88,7 @@ class GroupTrunkGroupModifyRequest14sp9 extends ComplexType implements ComplexIn
      */
     public function getGroupId()
     {
-        return $this->groupId->getValue();
+        return ($this->groupId) ? $this->groupId->getValue() : null;
     }
 
     /**
@@ -98,7 +96,6 @@ class GroupTrunkGroupModifyRequest14sp9 extends ComplexType implements ComplexIn
      */
     public function setMaxActiveCalls($maxActiveCalls = null)
     {
-        if (!$maxActiveCalls) return $this;
         $this->maxActiveCalls = new PrimitiveType($maxActiveCalls);
         $this->maxActiveCalls->setName('maxActiveCalls');
         return $this;
@@ -110,7 +107,7 @@ class GroupTrunkGroupModifyRequest14sp9 extends ComplexType implements ComplexIn
      */
     public function getMaxActiveCalls()
     {
-        return $this->maxActiveCalls->getValue();
+        return ($this->maxActiveCalls) ? $this->maxActiveCalls->getValue() : null;
     }
 
     /**
@@ -118,8 +115,9 @@ class GroupTrunkGroupModifyRequest14sp9 extends ComplexType implements ComplexIn
      */
     public function setBurstingMaxActiveCalls(UnboundedNonNegativeInt $burstingMaxActiveCalls = null)
     {
-        if (!$burstingMaxActiveCalls) return $this;
-        $this->burstingMaxActiveCalls = $burstingMaxActiveCalls;
+        $this->burstingMaxActiveCalls = ($burstingMaxActiveCalls InstanceOf UnboundedNonNegativeInt)
+             ? $burstingMaxActiveCalls
+             : new UnboundedNonNegativeInt($burstingMaxActiveCalls);
         $this->burstingMaxActiveCalls->setName('burstingMaxActiveCalls');
         return $this;
     }

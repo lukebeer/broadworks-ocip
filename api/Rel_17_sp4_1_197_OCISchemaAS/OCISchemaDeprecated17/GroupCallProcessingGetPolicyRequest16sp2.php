@@ -39,13 +39,13 @@ use Broadworks_OCIP\core\Client\Client;
 class GroupCallProcessingGetPolicyRequest16sp2 extends ComplexType implements ComplexInterface
 {
     public    $responseType      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated17\GroupCallProcessingGetPolicyResponse16sp2';
-    public    $name              = 'GroupCallProcessingGetPolicyRequest16sp2';
-    protected $serviceProviderId = null;
-    protected $groupId           = null;
+    public    $name = 'GroupCallProcessingGetPolicyRequest16sp2';
+    protected $serviceProviderId;
+    protected $groupId;
 
     public function __construct(
-         $serviceProviderId,
-         $groupId
+         $serviceProviderId = '',
+         $groupId = ''
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setGroupId($groupId);
@@ -64,7 +64,6 @@ class GroupCallProcessingGetPolicyRequest16sp2 extends ComplexType implements Co
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
-        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
@@ -78,7 +77,7 @@ class GroupCallProcessingGetPolicyRequest16sp2 extends ComplexType implements Co
      */
     public function getServiceProviderId()
     {
-        return $this->serviceProviderId->getValue();
+        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
     }
 
     /**
@@ -86,7 +85,6 @@ class GroupCallProcessingGetPolicyRequest16sp2 extends ComplexType implements Co
      */
     public function setGroupId($groupId = null)
     {
-        if (!$groupId) return $this;
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
@@ -100,6 +98,6 @@ class GroupCallProcessingGetPolicyRequest16sp2 extends ComplexType implements Co
      */
     public function getGroupId()
     {
-        return $this->groupId->getValue();
+        return ($this->groupId) ? $this->groupId->getValue() : null;
     }
 }

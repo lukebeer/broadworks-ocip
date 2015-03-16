@@ -20,8 +20,8 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemDialableCallerIDGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name          = 'SystemDialableCallerIDGetResponse';
-    protected $criteriaTable = null;
+    public    $name = 'SystemDialableCallerIDGetResponse';
+    protected $criteriaTable;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemDialableCallerIDGetResponse $response
@@ -36,7 +36,6 @@ class SystemDialableCallerIDGetResponse extends ComplexType implements ComplexIn
      */
     public function setCriteriaTable(TableType $criteriaTable = null)
     {
-        if (!$criteriaTable) return $this;
         $this->criteriaTable = $criteriaTable;
         $this->criteriaTable->setName('criteriaTable');
         return $this;

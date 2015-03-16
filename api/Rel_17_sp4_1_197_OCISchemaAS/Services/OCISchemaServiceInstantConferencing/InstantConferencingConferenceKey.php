@@ -19,13 +19,13 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class InstantConferencingConferenceKey extends ComplexType implements ComplexInterface
 {
-    public    $name                = 'InstantConferencingConferenceKey';
-    protected $bridgeServiceUserId = null;
-    protected $conferenceId        = null;
+    public    $name = 'InstantConferencingConferenceKey';
+    protected $bridgeServiceUserId;
+    protected $conferenceId;
 
     public function __construct(
-         $bridgeServiceUserId,
-         $conferenceId
+         $bridgeServiceUserId = '',
+         $conferenceId = ''
     ) {
         $this->setBridgeServiceUserId($bridgeServiceUserId);
         $this->setConferenceId($conferenceId);
@@ -44,7 +44,6 @@ class InstantConferencingConferenceKey extends ComplexType implements ComplexInt
      */
     public function setBridgeServiceUserId($bridgeServiceUserId = null)
     {
-        if (!$bridgeServiceUserId) return $this;
         $this->bridgeServiceUserId = new SimpleContent($bridgeServiceUserId);
         $this->bridgeServiceUserId->setName('bridgeServiceUserId');
         return $this;
@@ -56,7 +55,7 @@ class InstantConferencingConferenceKey extends ComplexType implements ComplexInt
      */
     public function getBridgeServiceUserId()
     {
-        return $this->bridgeServiceUserId->getValue();
+        return ($this->bridgeServiceUserId) ? $this->bridgeServiceUserId->getValue() : null;
     }
 
     /**
@@ -64,7 +63,6 @@ class InstantConferencingConferenceKey extends ComplexType implements ComplexInt
      */
     public function setConferenceId($conferenceId = null)
     {
-        if (!$conferenceId) return $this;
         $this->conferenceId = new SimpleContent($conferenceId);
         $this->conferenceId->setName('conferenceId');
         return $this;
@@ -76,6 +74,6 @@ class InstantConferencingConferenceKey extends ComplexType implements ComplexInt
      */
     public function getConferenceId()
     {
-        return $this->conferenceId->getValue();
+        return ($this->conferenceId) ? $this->conferenceId->getValue() : null;
     }
 }

@@ -23,15 +23,15 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupOutgoingCallingPlanTransferNumbersModifyListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name              = 'GroupOutgoingCallingPlanTransferNumbersModifyListRequest';
-    protected $serviceProviderId = null;
-    protected $groupId           = null;
-    protected $groupNumbers      = null;
-    protected $departmentNumbers = null;
+    public    $name = 'GroupOutgoingCallingPlanTransferNumbersModifyListRequest';
+    protected $serviceProviderId;
+    protected $groupId;
+    protected $groupNumbers;
+    protected $departmentNumbers;
 
     public function __construct(
-         $serviceProviderId,
-         $groupId,
+         $serviceProviderId = '',
+         $groupId = '',
          OutgoingCallingPlanTransferNumbersModify $groupNumbers = null,
          OutgoingCallingPlanDepartmentTransferNumbersModify $departmentNumbers = null
     ) {
@@ -54,7 +54,6 @@ class GroupOutgoingCallingPlanTransferNumbersModifyListRequest extends ComplexTy
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
-        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
@@ -68,7 +67,7 @@ class GroupOutgoingCallingPlanTransferNumbersModifyListRequest extends ComplexTy
      */
     public function getServiceProviderId()
     {
-        return $this->serviceProviderId->getValue();
+        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
     }
 
     /**
@@ -76,7 +75,6 @@ class GroupOutgoingCallingPlanTransferNumbersModifyListRequest extends ComplexTy
      */
     public function setGroupId($groupId = null)
     {
-        if (!$groupId) return $this;
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
@@ -90,7 +88,7 @@ class GroupOutgoingCallingPlanTransferNumbersModifyListRequest extends ComplexTy
      */
     public function getGroupId()
     {
-        return $this->groupId->getValue();
+        return ($this->groupId) ? $this->groupId->getValue() : null;
     }
 
     /**
@@ -98,8 +96,9 @@ class GroupOutgoingCallingPlanTransferNumbersModifyListRequest extends ComplexTy
      */
     public function setGroupNumbers(OutgoingCallingPlanTransferNumbersModify $groupNumbers = null)
     {
-        if (!$groupNumbers) return $this;
-        $this->groupNumbers = $groupNumbers;
+        $this->groupNumbers = ($groupNumbers InstanceOf OutgoingCallingPlanTransferNumbersModify)
+             ? $groupNumbers
+             : new OutgoingCallingPlanTransferNumbersModify($groupNumbers);
         $this->groupNumbers->setName('groupNumbers');
         return $this;
     }
@@ -118,8 +117,9 @@ class GroupOutgoingCallingPlanTransferNumbersModifyListRequest extends ComplexTy
      */
     public function setDepartmentNumbers(OutgoingCallingPlanDepartmentTransferNumbersModify $departmentNumbers = null)
     {
-        if (!$departmentNumbers) return $this;
-        $this->departmentNumbers = $departmentNumbers;
+        $this->departmentNumbers = ($departmentNumbers InstanceOf OutgoingCallingPlanDepartmentTransferNumbersModify)
+             ? $departmentNumbers
+             : new OutgoingCallingPlanDepartmentTransferNumbersModify($departmentNumbers);
         $this->departmentNumbers->setName('departmentNumbers');
         return $this;
     }

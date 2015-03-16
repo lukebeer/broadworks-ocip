@@ -21,12 +21,12 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class EnterpriseSessionAdmissionControlGroupDeleteListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name              = 'EnterpriseSessionAdmissionControlGroupDeleteListRequest';
-    protected $serviceProviderId = null;
-    protected $name              = null;
+    public    $name = 'EnterpriseSessionAdmissionControlGroupDeleteListRequest';
+    protected $serviceProviderId;
+    protected $name;
 
     public function __construct(
-         $serviceProviderId,
+         $serviceProviderId = '',
          $name = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
@@ -46,7 +46,6 @@ class EnterpriseSessionAdmissionControlGroupDeleteListRequest extends ComplexTyp
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
-        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
@@ -60,7 +59,7 @@ class EnterpriseSessionAdmissionControlGroupDeleteListRequest extends ComplexTyp
      */
     public function getServiceProviderId()
     {
-        return $this->serviceProviderId->getValue();
+        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
     }
 
     /**
@@ -68,7 +67,6 @@ class EnterpriseSessionAdmissionControlGroupDeleteListRequest extends ComplexTyp
      */
     public function setName($name = null)
     {
-        if (!$name) return $this;
         $this->name = ($name InstanceOf SessionAdmissionControlGroupName)
              ? $name
              : new SessionAdmissionControlGroupName($name);
@@ -82,6 +80,6 @@ class EnterpriseSessionAdmissionControlGroupDeleteListRequest extends ComplexTyp
      */
     public function getName()
     {
-        return $this->name->getValue();
+        return ($this->name) ? $this->name->getValue() : null;
     }
 }

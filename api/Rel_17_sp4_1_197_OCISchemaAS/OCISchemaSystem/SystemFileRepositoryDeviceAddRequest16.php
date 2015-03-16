@@ -22,13 +22,13 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemFileRepositoryDeviceAddRequest16 extends ComplexType implements ComplexInterface
 {
-    public    $name          = 'SystemFileRepositoryDeviceAddRequest16';
-    protected $name          = null;
-    protected $rootDirectory = null;
-    protected $port          = null;
+    public    $name = 'SystemFileRepositoryDeviceAddRequest16';
+    protected $name;
+    protected $rootDirectory;
+    protected $port;
 
     public function __construct(
-         $name,
+         $name = '',
          $rootDirectory = null,
          $port = null
     ) {
@@ -50,7 +50,6 @@ class SystemFileRepositoryDeviceAddRequest16 extends ComplexType implements Comp
      */
     public function setName($name = null)
     {
-        if (!$name) return $this;
         $this->name = ($name InstanceOf FileRepositoryName)
              ? $name
              : new FileRepositoryName($name);
@@ -64,7 +63,7 @@ class SystemFileRepositoryDeviceAddRequest16 extends ComplexType implements Comp
      */
     public function getName()
     {
-        return $this->name->getValue();
+        return ($this->name) ? $this->name->getValue() : null;
     }
 
     /**
@@ -72,7 +71,6 @@ class SystemFileRepositoryDeviceAddRequest16 extends ComplexType implements Comp
      */
     public function setRootDirectory($rootDirectory = null)
     {
-        if (!$rootDirectory) return $this;
         $this->rootDirectory = ($rootDirectory InstanceOf CPEFileDirectory)
              ? $rootDirectory
              : new CPEFileDirectory($rootDirectory);
@@ -86,7 +84,7 @@ class SystemFileRepositoryDeviceAddRequest16 extends ComplexType implements Comp
      */
     public function getRootDirectory()
     {
-        return $this->rootDirectory->getValue();
+        return ($this->rootDirectory) ? $this->rootDirectory->getValue() : null;
     }
 
     /**
@@ -94,7 +92,6 @@ class SystemFileRepositoryDeviceAddRequest16 extends ComplexType implements Comp
      */
     public function setPort($port = null)
     {
-        if (!$port) return $this;
         $this->port = ($port InstanceOf Port)
              ? $port
              : new Port($port);
@@ -108,6 +105,6 @@ class SystemFileRepositoryDeviceAddRequest16 extends ComplexType implements Comp
      */
     public function getPort()
     {
-        return $this->port->getValue();
+        return ($this->port) ? $this->port->getValue() : null;
     }
 }

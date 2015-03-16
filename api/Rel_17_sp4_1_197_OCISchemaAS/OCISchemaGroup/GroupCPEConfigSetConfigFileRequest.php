@@ -22,17 +22,17 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupCPEConfigSetConfigFileRequest extends ComplexType implements ComplexInterface
 {
-    public    $name              = 'GroupCPEConfigSetConfigFileRequest';
-    protected $serviceProviderId = null;
-    protected $groupId           = null;
-    protected $deviceType        = null;
-    protected $configFile        = null;
+    public    $name = 'GroupCPEConfigSetConfigFileRequest';
+    protected $serviceProviderId;
+    protected $groupId;
+    protected $deviceType;
+    protected $configFile;
 
     public function __construct(
-         $serviceProviderId,
-         $groupId,
-         $deviceType,
-         FileResource $configFile
+         $serviceProviderId = '',
+         $groupId = '',
+         $deviceType = '',
+         FileResource $configFile = ''
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setGroupId($groupId);
@@ -53,7 +53,6 @@ class GroupCPEConfigSetConfigFileRequest extends ComplexType implements ComplexI
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
-        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
@@ -67,7 +66,7 @@ class GroupCPEConfigSetConfigFileRequest extends ComplexType implements ComplexI
      */
     public function getServiceProviderId()
     {
-        return $this->serviceProviderId->getValue();
+        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
     }
 
     /**
@@ -75,7 +74,6 @@ class GroupCPEConfigSetConfigFileRequest extends ComplexType implements ComplexI
      */
     public function setGroupId($groupId = null)
     {
-        if (!$groupId) return $this;
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
@@ -89,7 +87,7 @@ class GroupCPEConfigSetConfigFileRequest extends ComplexType implements ComplexI
      */
     public function getGroupId()
     {
-        return $this->groupId->getValue();
+        return ($this->groupId) ? $this->groupId->getValue() : null;
     }
 
     /**
@@ -97,7 +95,6 @@ class GroupCPEConfigSetConfigFileRequest extends ComplexType implements ComplexI
      */
     public function setDeviceType($deviceType = null)
     {
-        if (!$deviceType) return $this;
         $this->deviceType = ($deviceType InstanceOf AccessDeviceType)
              ? $deviceType
              : new AccessDeviceType($deviceType);
@@ -111,7 +108,7 @@ class GroupCPEConfigSetConfigFileRequest extends ComplexType implements ComplexI
      */
     public function getDeviceType()
     {
-        return $this->deviceType->getValue();
+        return ($this->deviceType) ? $this->deviceType->getValue() : null;
     }
 
     /**
@@ -119,8 +116,9 @@ class GroupCPEConfigSetConfigFileRequest extends ComplexType implements ComplexI
      */
     public function setConfigFile(FileResource $configFile = null)
     {
-        if (!$configFile) return $this;
-        $this->configFile = $configFile;
+        $this->configFile = ($configFile InstanceOf FileResource)
+             ? $configFile
+             : new FileResource($configFile);
         $this->configFile->setName('configFile');
         return $this;
     }

@@ -19,12 +19,12 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class MusicOnHoldUserSourceRead16 extends ComplexType implements ComplexInterface
 {
-    public    $name                   = 'MusicOnHoldUserSourceRead16';
-    protected $messageSourceSelection = null;
-    protected $customSource           = null;
+    public    $name = 'MusicOnHoldUserSourceRead16';
+    protected $messageSourceSelection;
+    protected $customSource;
 
     public function __construct(
-         $messageSourceSelection,
+         $messageSourceSelection = '',
          $customSource = null
     ) {
         $this->setMessageSourceSelection($messageSourceSelection);
@@ -44,7 +44,6 @@ class MusicOnHoldUserSourceRead16 extends ComplexType implements ComplexInterfac
      */
     public function setMessageSourceSelection($messageSourceSelection = null)
     {
-        if (!$messageSourceSelection) return $this;
         $this->messageSourceSelection = new SimpleContent($messageSourceSelection);
         $this->messageSourceSelection->setName('messageSourceSelection');
         return $this;
@@ -56,7 +55,7 @@ class MusicOnHoldUserSourceRead16 extends ComplexType implements ComplexInterfac
      */
     public function getMessageSourceSelection()
     {
-        return $this->messageSourceSelection->getValue();
+        return ($this->messageSourceSelection) ? $this->messageSourceSelection->getValue() : null;
     }
 
     /**
@@ -64,7 +63,6 @@ class MusicOnHoldUserSourceRead16 extends ComplexType implements ComplexInterfac
      */
     public function setCustomSource($customSource = null)
     {
-        if (!$customSource) return $this;
         $this->customSource = new SimpleContent($customSource);
         $this->customSource->setName('customSource');
         return $this;
@@ -76,6 +74,6 @@ class MusicOnHoldUserSourceRead16 extends ComplexType implements ComplexInterfac
      */
     public function getCustomSource()
     {
-        return $this->customSource->getValue();
+        return ($this->customSource) ? $this->customSource->getValue() : null;
     }
 }

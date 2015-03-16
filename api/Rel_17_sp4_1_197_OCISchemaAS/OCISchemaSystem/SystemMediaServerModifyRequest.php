@@ -23,14 +23,14 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemMediaServerModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name              = 'SystemMediaServerModifyRequest';
-    protected $netAddress        = null;
-    protected $port              = null;
-    protected $transportProtocol = null;
-    protected $description       = null;
+    public    $name = 'SystemMediaServerModifyRequest';
+    protected $netAddress;
+    protected $port;
+    protected $transportProtocol;
+    protected $description;
 
     public function __construct(
-         $netAddress,
+         $netAddress = '',
          $port = null,
          $transportProtocol = null,
          $description = null
@@ -54,7 +54,6 @@ class SystemMediaServerModifyRequest extends ComplexType implements ComplexInter
      */
     public function setNetAddress($netAddress = null)
     {
-        if (!$netAddress) return $this;
         $this->netAddress = ($netAddress InstanceOf NetAddress)
              ? $netAddress
              : new NetAddress($netAddress);
@@ -68,7 +67,7 @@ class SystemMediaServerModifyRequest extends ComplexType implements ComplexInter
      */
     public function getNetAddress()
     {
-        return $this->netAddress->getValue();
+        return ($this->netAddress) ? $this->netAddress->getValue() : null;
     }
 
     /**
@@ -76,7 +75,6 @@ class SystemMediaServerModifyRequest extends ComplexType implements ComplexInter
      */
     public function setPort($port = null)
     {
-        if (!$port) return $this;
         $this->port = ($port InstanceOf Port1025)
              ? $port
              : new Port1025($port);
@@ -90,7 +88,7 @@ class SystemMediaServerModifyRequest extends ComplexType implements ComplexInter
      */
     public function getPort()
     {
-        return $this->port->getValue();
+        return ($this->port) ? $this->port->getValue() : null;
     }
 
     /**
@@ -98,7 +96,6 @@ class SystemMediaServerModifyRequest extends ComplexType implements ComplexInter
      */
     public function setTransportProtocol($transportProtocol = null)
     {
-        if (!$transportProtocol) return $this;
         $this->transportProtocol = ($transportProtocol InstanceOf TransportProtocol)
              ? $transportProtocol
              : new TransportProtocol($transportProtocol);
@@ -112,7 +109,7 @@ class SystemMediaServerModifyRequest extends ComplexType implements ComplexInter
      */
     public function getTransportProtocol()
     {
-        return $this->transportProtocol->getValue();
+        return ($this->transportProtocol) ? $this->transportProtocol->getValue() : null;
     }
 
     /**
@@ -120,7 +117,6 @@ class SystemMediaServerModifyRequest extends ComplexType implements ComplexInter
      */
     public function setDescription($description = null)
     {
-        if (!$description) return $this;
         $this->description = ($description InstanceOf MediaServerDescription)
              ? $description
              : new MediaServerDescription($description);
@@ -134,6 +130,6 @@ class SystemMediaServerModifyRequest extends ComplexType implements ComplexInter
      */
     public function getDescription()
     {
-        return $this->description->getValue();
+        return ($this->description) ? $this->description->getValue() : null;
     }
 }

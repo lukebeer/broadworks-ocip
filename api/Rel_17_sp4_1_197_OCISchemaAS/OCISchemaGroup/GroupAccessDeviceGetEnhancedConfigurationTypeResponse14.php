@@ -20,11 +20,11 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupAccessDeviceGetEnhancedConfigurationTypeResponse14 extends ComplexType implements ComplexInterface
 {
-    public    $name                          = 'GroupAccessDeviceGetEnhancedConfigurationTypeResponse14';
-    protected $supportsEnhancedConfiguration = null;
-    protected $supportsReset                 = null;
-    protected $configurationType             = null;
-    protected $configurationFileName         = null;
+    public    $name = 'GroupAccessDeviceGetEnhancedConfigurationTypeResponse14';
+    protected $supportsEnhancedConfiguration;
+    protected $supportsReset;
+    protected $configurationType;
+    protected $configurationFileName;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupAccessDeviceGetEnhancedConfigurationTypeResponse14 $response
@@ -39,7 +39,6 @@ class GroupAccessDeviceGetEnhancedConfigurationTypeResponse14 extends ComplexTyp
      */
     public function setSupportsEnhancedConfiguration($supportsEnhancedConfiguration = null)
     {
-        if (!$supportsEnhancedConfiguration) return $this;
         $this->supportsEnhancedConfiguration = new PrimitiveType($supportsEnhancedConfiguration);
         $this->supportsEnhancedConfiguration->setName('supportsEnhancedConfiguration');
         return $this;
@@ -51,7 +50,7 @@ class GroupAccessDeviceGetEnhancedConfigurationTypeResponse14 extends ComplexTyp
      */
     public function getSupportsEnhancedConfiguration()
     {
-        return $this->supportsEnhancedConfiguration->getValue();
+        return ($this->supportsEnhancedConfiguration) ? $this->supportsEnhancedConfiguration->getValue() : null;
     }
 
     /**
@@ -59,7 +58,6 @@ class GroupAccessDeviceGetEnhancedConfigurationTypeResponse14 extends ComplexTyp
      */
     public function setSupportsReset($supportsReset = null)
     {
-        if (!$supportsReset) return $this;
         $this->supportsReset = new PrimitiveType($supportsReset);
         $this->supportsReset->setName('supportsReset');
         return $this;
@@ -71,7 +69,7 @@ class GroupAccessDeviceGetEnhancedConfigurationTypeResponse14 extends ComplexTyp
      */
     public function getSupportsReset()
     {
-        return $this->supportsReset->getValue();
+        return ($this->supportsReset) ? $this->supportsReset->getValue() : null;
     }
 
     /**
@@ -79,7 +77,6 @@ class GroupAccessDeviceGetEnhancedConfigurationTypeResponse14 extends ComplexTyp
      */
     public function setConfigurationType($configurationType = null)
     {
-        if (!$configurationType) return $this;
         $this->configurationType = ($configurationType InstanceOf AccessDeviceEnhancedConfigurationType14)
              ? $configurationType
              : new AccessDeviceEnhancedConfigurationType14($configurationType);
@@ -93,7 +90,7 @@ class GroupAccessDeviceGetEnhancedConfigurationTypeResponse14 extends ComplexTyp
      */
     public function getConfigurationType()
     {
-        return $this->configurationType->getValue();
+        return ($this->configurationType) ? $this->configurationType->getValue() : null;
     }
 
     /**
@@ -101,7 +98,6 @@ class GroupAccessDeviceGetEnhancedConfigurationTypeResponse14 extends ComplexTyp
      */
     public function setConfigurationFileName($configurationFileName = null)
     {
-        if (!$configurationFileName) return $this;
         $this->configurationFileName = ($configurationFileName InstanceOf AccessDeviceEnhancedConfigurationFileName)
              ? $configurationFileName
              : new AccessDeviceEnhancedConfigurationFileName($configurationFileName);
@@ -115,6 +111,6 @@ class GroupAccessDeviceGetEnhancedConfigurationTypeResponse14 extends ComplexTyp
      */
     public function getConfigurationFileName()
     {
-        return $this->configurationFileName->getValue();
+        return ($this->configurationFileName) ? $this->configurationFileName->getValue() : null;
     }
 }

@@ -19,9 +19,9 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserTwoStageDialingGetResponse13Mp20 extends ComplexType implements ComplexInterface
 {
-    public    $name                             = 'UserTwoStageDialingGetResponse13Mp20';
-    protected $isActive                         = null;
-    protected $allowActivationWithUserAddresses = null;
+    public    $name = 'UserTwoStageDialingGetResponse13Mp20';
+    protected $isActive;
+    protected $allowActivationWithUserAddresses;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceTwoStageDialing\UserTwoStageDialingGetResponse13Mp20 $response
@@ -36,7 +36,6 @@ class UserTwoStageDialingGetResponse13Mp20 extends ComplexType implements Comple
      */
     public function setIsActive($isActive = null)
     {
-        if (!$isActive) return $this;
         $this->isActive = new PrimitiveType($isActive);
         $this->isActive->setName('isActive');
         return $this;
@@ -48,7 +47,7 @@ class UserTwoStageDialingGetResponse13Mp20 extends ComplexType implements Comple
      */
     public function getIsActive()
     {
-        return $this->isActive->getValue();
+        return ($this->isActive) ? $this->isActive->getValue() : null;
     }
 
     /**
@@ -56,7 +55,6 @@ class UserTwoStageDialingGetResponse13Mp20 extends ComplexType implements Comple
      */
     public function setAllowActivationWithUserAddresses($allowActivationWithUserAddresses = null)
     {
-        if (!$allowActivationWithUserAddresses) return $this;
         $this->allowActivationWithUserAddresses = new PrimitiveType($allowActivationWithUserAddresses);
         $this->allowActivationWithUserAddresses->setName('allowActivationWithUserAddresses');
         return $this;
@@ -68,6 +66,6 @@ class UserTwoStageDialingGetResponse13Mp20 extends ComplexType implements Comple
      */
     public function getAllowActivationWithUserAddresses()
     {
-        return $this->allowActivationWithUserAddresses->getValue();
+        return ($this->allowActivationWithUserAddresses) ? $this->allowActivationWithUserAddresses->getValue() : null;
     }
 }

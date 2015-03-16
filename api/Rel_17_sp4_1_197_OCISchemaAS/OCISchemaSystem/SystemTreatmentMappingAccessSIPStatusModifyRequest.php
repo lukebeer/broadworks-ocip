@@ -21,12 +21,12 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemTreatmentMappingAccessSIPStatusModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name          = 'SystemTreatmentMappingAccessSIPStatusModifyRequest';
-    protected $sipStatusCode = null;
-    protected $treatmentId   = null;
+    public    $name = 'SystemTreatmentMappingAccessSIPStatusModifyRequest';
+    protected $sipStatusCode;
+    protected $treatmentId;
 
     public function __construct(
-         $sipStatusCode,
+         $sipStatusCode = '',
          $treatmentId = null
     ) {
         $this->setSipStatusCode($sipStatusCode);
@@ -46,7 +46,6 @@ class SystemTreatmentMappingAccessSIPStatusModifyRequest extends ComplexType imp
      */
     public function setSipStatusCode($sipStatusCode = null)
     {
-        if (!$sipStatusCode) return $this;
         $this->sipStatusCode = ($sipStatusCode InstanceOf SIPFailureStatusCode)
              ? $sipStatusCode
              : new SIPFailureStatusCode($sipStatusCode);
@@ -60,7 +59,7 @@ class SystemTreatmentMappingAccessSIPStatusModifyRequest extends ComplexType imp
      */
     public function getSipStatusCode()
     {
-        return $this->sipStatusCode->getValue();
+        return ($this->sipStatusCode) ? $this->sipStatusCode->getValue() : null;
     }
 
     /**
@@ -68,7 +67,6 @@ class SystemTreatmentMappingAccessSIPStatusModifyRequest extends ComplexType imp
      */
     public function setTreatmentId($treatmentId = null)
     {
-        if (!$treatmentId) return $this;
         $this->treatmentId = ($treatmentId InstanceOf TreatmentId)
              ? $treatmentId
              : new TreatmentId($treatmentId);
@@ -82,6 +80,6 @@ class SystemTreatmentMappingAccessSIPStatusModifyRequest extends ComplexType imp
      */
     public function getTreatmentId()
     {
-        return $this->treatmentId->getValue();
+        return ($this->treatmentId) ? $this->treatmentId->getValue() : null;
     }
 }

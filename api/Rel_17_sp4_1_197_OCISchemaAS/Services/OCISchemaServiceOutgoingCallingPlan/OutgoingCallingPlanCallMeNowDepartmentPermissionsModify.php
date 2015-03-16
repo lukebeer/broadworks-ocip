@@ -19,13 +19,13 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class OutgoingCallingPlanCallMeNowDepartmentPermissionsModify extends ComplexType implements ComplexInterface
 {
-    public    $name          = 'OutgoingCallingPlanCallMeNowDepartmentPermissionsModify';
-    protected $departmentKey = null;
-    protected $permissions   = null;
+    public    $name = 'OutgoingCallingPlanCallMeNowDepartmentPermissionsModify';
+    protected $departmentKey;
+    protected $permissions;
 
     public function __construct(
-         $departmentKey,
-         $permissions
+         $departmentKey = '',
+         $permissions = ''
     ) {
         $this->setDepartmentKey($departmentKey);
         $this->setPermissions($permissions);
@@ -44,7 +44,6 @@ class OutgoingCallingPlanCallMeNowDepartmentPermissionsModify extends ComplexTyp
      */
     public function setDepartmentKey($departmentKey = null)
     {
-        if (!$departmentKey) return $this;
         $this->departmentKey = new SimpleContent($departmentKey);
         $this->departmentKey->setName('departmentKey');
         return $this;
@@ -56,7 +55,7 @@ class OutgoingCallingPlanCallMeNowDepartmentPermissionsModify extends ComplexTyp
      */
     public function getDepartmentKey()
     {
-        return $this->departmentKey->getValue();
+        return ($this->departmentKey) ? $this->departmentKey->getValue() : null;
     }
 
     /**
@@ -64,7 +63,6 @@ class OutgoingCallingPlanCallMeNowDepartmentPermissionsModify extends ComplexTyp
      */
     public function setPermissions($permissions = null)
     {
-        if (!$permissions) return $this;
         $this->permissions = new SimpleContent($permissions);
         $this->permissions->setName('permissions');
         return $this;
@@ -76,6 +74,6 @@ class OutgoingCallingPlanCallMeNowDepartmentPermissionsModify extends ComplexTyp
      */
     public function getPermissions()
     {
-        return $this->permissions->getValue();
+        return ($this->permissions) ? $this->permissions->getValue() : null;
     }
 }

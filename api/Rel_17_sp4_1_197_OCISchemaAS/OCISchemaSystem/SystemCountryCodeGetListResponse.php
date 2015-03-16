@@ -24,9 +24,9 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemCountryCodeGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name               = 'SystemCountryCodeGetListResponse';
-    protected $defaultCountryCode = null;
-    protected $countryCodeTable   = null;
+    public    $name = 'SystemCountryCodeGetListResponse';
+    protected $defaultCountryCode;
+    protected $countryCodeTable;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemCountryCodeGetListResponse $response
@@ -41,7 +41,6 @@ class SystemCountryCodeGetListResponse extends ComplexType implements ComplexInt
      */
     public function setDefaultCountryCode($defaultCountryCode = null)
     {
-        if (!$defaultCountryCode) return $this;
         $this->defaultCountryCode = ($defaultCountryCode InstanceOf CountryCode)
              ? $defaultCountryCode
              : new CountryCode($defaultCountryCode);
@@ -55,7 +54,7 @@ class SystemCountryCodeGetListResponse extends ComplexType implements ComplexInt
      */
     public function getDefaultCountryCode()
     {
-        return $this->defaultCountryCode->getValue();
+        return ($this->defaultCountryCode) ? $this->defaultCountryCode->getValue() : null;
     }
 
     /**
@@ -63,7 +62,6 @@ class SystemCountryCodeGetListResponse extends ComplexType implements ComplexInt
      */
     public function setCountryCodeTable(TableType $countryCodeTable = null)
     {
-        if (!$countryCodeTable) return $this;
         $this->countryCodeTable = $countryCodeTable;
         $this->countryCodeTable->setName('countryCodeTable');
         return $this;

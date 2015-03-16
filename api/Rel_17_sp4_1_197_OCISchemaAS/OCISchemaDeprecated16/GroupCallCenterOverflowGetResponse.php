@@ -26,20 +26,20 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupCallCenterOverflowGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                                     = 'GroupCallCenterOverflowGetResponse';
-    protected $action                                   = null;
-    protected $transferPhoneNumber                      = null;
-    protected $overflowAfterTimeout                     = null;
-    protected $timeoutSeconds                           = null;
-    protected $playAnnouncementBeforeOverflowProcessing = null;
-    protected $audioMessageSelection                    = null;
-    protected $audioFileUrl                             = null;
-    protected $audioFileDescription                     = null;
-    protected $audioMediaType                           = null;
-    protected $videoMessageSelection                    = null;
-    protected $videoFileUrl                             = null;
-    protected $videoFileDescription                     = null;
-    protected $videoMediaType                           = null;
+    public    $name = 'GroupCallCenterOverflowGetResponse';
+    protected $action;
+    protected $transferPhoneNumber;
+    protected $overflowAfterTimeout;
+    protected $timeoutSeconds;
+    protected $playAnnouncementBeforeOverflowProcessing;
+    protected $audioMessageSelection;
+    protected $audioFileUrl;
+    protected $audioFileDescription;
+    protected $audioMediaType;
+    protected $videoMessageSelection;
+    protected $videoFileUrl;
+    protected $videoFileDescription;
+    protected $videoMediaType;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\GroupCallCenterOverflowGetResponse $response
@@ -54,7 +54,6 @@ class GroupCallCenterOverflowGetResponse extends ComplexType implements ComplexI
      */
     public function setAction($action = null)
     {
-        if (!$action) return $this;
         $this->action = ($action InstanceOf CallCenterOverflowProcessingAction)
              ? $action
              : new CallCenterOverflowProcessingAction($action);
@@ -68,7 +67,7 @@ class GroupCallCenterOverflowGetResponse extends ComplexType implements ComplexI
      */
     public function getAction()
     {
-        return $this->action->getValue();
+        return ($this->action) ? $this->action->getValue() : null;
     }
 
     /**
@@ -76,7 +75,6 @@ class GroupCallCenterOverflowGetResponse extends ComplexType implements ComplexI
      */
     public function setTransferPhoneNumber($transferPhoneNumber = null)
     {
-        if (!$transferPhoneNumber) return $this;
         $this->transferPhoneNumber = ($transferPhoneNumber InstanceOf OutgoingDNorSIPURI)
              ? $transferPhoneNumber
              : new OutgoingDNorSIPURI($transferPhoneNumber);
@@ -90,7 +88,7 @@ class GroupCallCenterOverflowGetResponse extends ComplexType implements ComplexI
      */
     public function getTransferPhoneNumber()
     {
-        return $this->transferPhoneNumber->getValue();
+        return ($this->transferPhoneNumber) ? $this->transferPhoneNumber->getValue() : null;
     }
 
     /**
@@ -98,7 +96,6 @@ class GroupCallCenterOverflowGetResponse extends ComplexType implements ComplexI
      */
     public function setOverflowAfterTimeout($overflowAfterTimeout = null)
     {
-        if (!$overflowAfterTimeout) return $this;
         $this->overflowAfterTimeout = new PrimitiveType($overflowAfterTimeout);
         $this->overflowAfterTimeout->setName('overflowAfterTimeout');
         return $this;
@@ -110,7 +107,7 @@ class GroupCallCenterOverflowGetResponse extends ComplexType implements ComplexI
      */
     public function getOverflowAfterTimeout()
     {
-        return $this->overflowAfterTimeout->getValue();
+        return ($this->overflowAfterTimeout) ? $this->overflowAfterTimeout->getValue() : null;
     }
 
     /**
@@ -118,7 +115,6 @@ class GroupCallCenterOverflowGetResponse extends ComplexType implements ComplexI
      */
     public function setTimeoutSeconds($timeoutSeconds = null)
     {
-        if (!$timeoutSeconds) return $this;
         $this->timeoutSeconds = ($timeoutSeconds InstanceOf HuntForwardTimeoutSeconds)
              ? $timeoutSeconds
              : new HuntForwardTimeoutSeconds($timeoutSeconds);
@@ -132,7 +128,7 @@ class GroupCallCenterOverflowGetResponse extends ComplexType implements ComplexI
      */
     public function getTimeoutSeconds()
     {
-        return $this->timeoutSeconds->getValue();
+        return ($this->timeoutSeconds) ? $this->timeoutSeconds->getValue() : null;
     }
 
     /**
@@ -140,7 +136,6 @@ class GroupCallCenterOverflowGetResponse extends ComplexType implements ComplexI
      */
     public function setPlayAnnouncementBeforeOverflowProcessing($playAnnouncementBeforeOverflowProcessing = null)
     {
-        if (!$playAnnouncementBeforeOverflowProcessing) return $this;
         $this->playAnnouncementBeforeOverflowProcessing = new PrimitiveType($playAnnouncementBeforeOverflowProcessing);
         $this->playAnnouncementBeforeOverflowProcessing->setName('playAnnouncementBeforeOverflowProcessing');
         return $this;
@@ -152,7 +147,7 @@ class GroupCallCenterOverflowGetResponse extends ComplexType implements ComplexI
      */
     public function getPlayAnnouncementBeforeOverflowProcessing()
     {
-        return $this->playAnnouncementBeforeOverflowProcessing->getValue();
+        return ($this->playAnnouncementBeforeOverflowProcessing) ? $this->playAnnouncementBeforeOverflowProcessing->getValue() : null;
     }
 
     /**
@@ -160,7 +155,6 @@ class GroupCallCenterOverflowGetResponse extends ComplexType implements ComplexI
      */
     public function setAudioMessageSelection($audioMessageSelection = null)
     {
-        if (!$audioMessageSelection) return $this;
         $this->audioMessageSelection = ($audioMessageSelection InstanceOf ExtendedFileResourceSelection)
              ? $audioMessageSelection
              : new ExtendedFileResourceSelection($audioMessageSelection);
@@ -174,7 +168,7 @@ class GroupCallCenterOverflowGetResponse extends ComplexType implements ComplexI
      */
     public function getAudioMessageSelection()
     {
-        return $this->audioMessageSelection->getValue();
+        return ($this->audioMessageSelection) ? $this->audioMessageSelection->getValue() : null;
     }
 
     /**
@@ -182,7 +176,6 @@ class GroupCallCenterOverflowGetResponse extends ComplexType implements ComplexI
      */
     public function setAudioFileUrl($audioFileUrl = null)
     {
-        if (!$audioFileUrl) return $this;
         $this->audioFileUrl = ($audioFileUrl InstanceOf URL)
              ? $audioFileUrl
              : new URL($audioFileUrl);
@@ -196,7 +189,7 @@ class GroupCallCenterOverflowGetResponse extends ComplexType implements ComplexI
      */
     public function getAudioFileUrl()
     {
-        return $this->audioFileUrl->getValue();
+        return ($this->audioFileUrl) ? $this->audioFileUrl->getValue() : null;
     }
 
     /**
@@ -204,7 +197,6 @@ class GroupCallCenterOverflowGetResponse extends ComplexType implements ComplexI
      */
     public function setAudioFileDescription($audioFileDescription = null)
     {
-        if (!$audioFileDescription) return $this;
         $this->audioFileDescription = ($audioFileDescription InstanceOf FileDescription)
              ? $audioFileDescription
              : new FileDescription($audioFileDescription);
@@ -218,7 +210,7 @@ class GroupCallCenterOverflowGetResponse extends ComplexType implements ComplexI
      */
     public function getAudioFileDescription()
     {
-        return $this->audioFileDescription->getValue();
+        return ($this->audioFileDescription) ? $this->audioFileDescription->getValue() : null;
     }
 
     /**
@@ -226,7 +218,6 @@ class GroupCallCenterOverflowGetResponse extends ComplexType implements ComplexI
      */
     public function setAudioMediaType($audioMediaType = null)
     {
-        if (!$audioMediaType) return $this;
         $this->audioMediaType = ($audioMediaType InstanceOf MediaFileType)
              ? $audioMediaType
              : new MediaFileType($audioMediaType);
@@ -240,7 +231,7 @@ class GroupCallCenterOverflowGetResponse extends ComplexType implements ComplexI
      */
     public function getAudioMediaType()
     {
-        return $this->audioMediaType->getValue();
+        return ($this->audioMediaType) ? $this->audioMediaType->getValue() : null;
     }
 
     /**
@@ -248,7 +239,6 @@ class GroupCallCenterOverflowGetResponse extends ComplexType implements ComplexI
      */
     public function setVideoMessageSelection($videoMessageSelection = null)
     {
-        if (!$videoMessageSelection) return $this;
         $this->videoMessageSelection = ($videoMessageSelection InstanceOf ExtendedFileResourceSelection)
              ? $videoMessageSelection
              : new ExtendedFileResourceSelection($videoMessageSelection);
@@ -262,7 +252,7 @@ class GroupCallCenterOverflowGetResponse extends ComplexType implements ComplexI
      */
     public function getVideoMessageSelection()
     {
-        return $this->videoMessageSelection->getValue();
+        return ($this->videoMessageSelection) ? $this->videoMessageSelection->getValue() : null;
     }
 
     /**
@@ -270,7 +260,6 @@ class GroupCallCenterOverflowGetResponse extends ComplexType implements ComplexI
      */
     public function setVideoFileUrl($videoFileUrl = null)
     {
-        if (!$videoFileUrl) return $this;
         $this->videoFileUrl = ($videoFileUrl InstanceOf URL)
              ? $videoFileUrl
              : new URL($videoFileUrl);
@@ -284,7 +273,7 @@ class GroupCallCenterOverflowGetResponse extends ComplexType implements ComplexI
      */
     public function getVideoFileUrl()
     {
-        return $this->videoFileUrl->getValue();
+        return ($this->videoFileUrl) ? $this->videoFileUrl->getValue() : null;
     }
 
     /**
@@ -292,7 +281,6 @@ class GroupCallCenterOverflowGetResponse extends ComplexType implements ComplexI
      */
     public function setVideoFileDescription($videoFileDescription = null)
     {
-        if (!$videoFileDescription) return $this;
         $this->videoFileDescription = ($videoFileDescription InstanceOf FileDescription)
              ? $videoFileDescription
              : new FileDescription($videoFileDescription);
@@ -306,7 +294,7 @@ class GroupCallCenterOverflowGetResponse extends ComplexType implements ComplexI
      */
     public function getVideoFileDescription()
     {
-        return $this->videoFileDescription->getValue();
+        return ($this->videoFileDescription) ? $this->videoFileDescription->getValue() : null;
     }
 
     /**
@@ -314,7 +302,6 @@ class GroupCallCenterOverflowGetResponse extends ComplexType implements ComplexI
      */
     public function setVideoMediaType($videoMediaType = null)
     {
-        if (!$videoMediaType) return $this;
         $this->videoMediaType = ($videoMediaType InstanceOf MediaFileType)
              ? $videoMediaType
              : new MediaFileType($videoMediaType);
@@ -328,6 +315,6 @@ class GroupCallCenterOverflowGetResponse extends ComplexType implements ComplexI
      */
     public function getVideoMediaType()
     {
-        return $this->videoMediaType->getValue();
+        return ($this->videoMediaType) ? $this->videoMediaType->getValue() : null;
     }
 }

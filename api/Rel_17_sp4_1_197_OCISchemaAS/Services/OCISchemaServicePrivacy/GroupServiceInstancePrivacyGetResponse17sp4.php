@@ -19,10 +19,10 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupServiceInstancePrivacyGetResponse17sp4 extends ComplexType implements ComplexInterface
 {
-    public    $name                                       = 'GroupServiceInstancePrivacyGetResponse17sp4';
-    protected $enableDirectoryPrivacy                     = null;
-    protected $enableAutoAttendantExtensionDialingPrivacy = null;
-    protected $enableAutoAttendantNameDialingPrivacy      = null;
+    public    $name = 'GroupServiceInstancePrivacyGetResponse17sp4';
+    protected $enableDirectoryPrivacy;
+    protected $enableAutoAttendantExtensionDialingPrivacy;
+    protected $enableAutoAttendantNameDialingPrivacy;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServicePrivacy\GroupServiceInstancePrivacyGetResponse17sp4 $response
@@ -37,7 +37,6 @@ class GroupServiceInstancePrivacyGetResponse17sp4 extends ComplexType implements
      */
     public function setEnableDirectoryPrivacy($enableDirectoryPrivacy = null)
     {
-        if (!$enableDirectoryPrivacy) return $this;
         $this->enableDirectoryPrivacy = new PrimitiveType($enableDirectoryPrivacy);
         $this->enableDirectoryPrivacy->setName('enableDirectoryPrivacy');
         return $this;
@@ -49,7 +48,7 @@ class GroupServiceInstancePrivacyGetResponse17sp4 extends ComplexType implements
      */
     public function getEnableDirectoryPrivacy()
     {
-        return $this->enableDirectoryPrivacy->getValue();
+        return ($this->enableDirectoryPrivacy) ? $this->enableDirectoryPrivacy->getValue() : null;
     }
 
     /**
@@ -57,7 +56,6 @@ class GroupServiceInstancePrivacyGetResponse17sp4 extends ComplexType implements
      */
     public function setEnableAutoAttendantExtensionDialingPrivacy($enableAutoAttendantExtensionDialingPrivacy = null)
     {
-        if (!$enableAutoAttendantExtensionDialingPrivacy) return $this;
         $this->enableAutoAttendantExtensionDialingPrivacy = new PrimitiveType($enableAutoAttendantExtensionDialingPrivacy);
         $this->enableAutoAttendantExtensionDialingPrivacy->setName('enableAutoAttendantExtensionDialingPrivacy');
         return $this;
@@ -69,7 +67,7 @@ class GroupServiceInstancePrivacyGetResponse17sp4 extends ComplexType implements
      */
     public function getEnableAutoAttendantExtensionDialingPrivacy()
     {
-        return $this->enableAutoAttendantExtensionDialingPrivacy->getValue();
+        return ($this->enableAutoAttendantExtensionDialingPrivacy) ? $this->enableAutoAttendantExtensionDialingPrivacy->getValue() : null;
     }
 
     /**
@@ -77,7 +75,6 @@ class GroupServiceInstancePrivacyGetResponse17sp4 extends ComplexType implements
      */
     public function setEnableAutoAttendantNameDialingPrivacy($enableAutoAttendantNameDialingPrivacy = null)
     {
-        if (!$enableAutoAttendantNameDialingPrivacy) return $this;
         $this->enableAutoAttendantNameDialingPrivacy = new PrimitiveType($enableAutoAttendantNameDialingPrivacy);
         $this->enableAutoAttendantNameDialingPrivacy->setName('enableAutoAttendantNameDialingPrivacy');
         return $this;
@@ -89,6 +86,6 @@ class GroupServiceInstancePrivacyGetResponse17sp4 extends ComplexType implements
      */
     public function getEnableAutoAttendantNameDialingPrivacy()
     {
-        return $this->enableAutoAttendantNameDialingPrivacy->getValue();
+        return ($this->enableAutoAttendantNameDialingPrivacy) ? $this->enableAutoAttendantNameDialingPrivacy->getValue() : null;
     }
 }

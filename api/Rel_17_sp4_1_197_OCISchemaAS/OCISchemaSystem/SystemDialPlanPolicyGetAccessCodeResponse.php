@@ -20,11 +20,11 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemDialPlanPolicyGetAccessCodeResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                                        = 'SystemDialPlanPolicyGetAccessCodeResponse';
-    protected $includeCodeForNetworkTranslationsAndRouting = null;
-    protected $includeCodeForScreeningServices             = null;
-    protected $enableSecondaryDialTone                     = null;
-    protected $description                                 = null;
+    public    $name = 'SystemDialPlanPolicyGetAccessCodeResponse';
+    protected $includeCodeForNetworkTranslationsAndRouting;
+    protected $includeCodeForScreeningServices;
+    protected $enableSecondaryDialTone;
+    protected $description;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemDialPlanPolicyGetAccessCodeResponse $response
@@ -39,7 +39,6 @@ class SystemDialPlanPolicyGetAccessCodeResponse extends ComplexType implements C
      */
     public function setIncludeCodeForNetworkTranslationsAndRouting($includeCodeForNetworkTranslationsAndRouting = null)
     {
-        if (!$includeCodeForNetworkTranslationsAndRouting) return $this;
         $this->includeCodeForNetworkTranslationsAndRouting = new PrimitiveType($includeCodeForNetworkTranslationsAndRouting);
         $this->includeCodeForNetworkTranslationsAndRouting->setName('includeCodeForNetworkTranslationsAndRouting');
         return $this;
@@ -51,7 +50,7 @@ class SystemDialPlanPolicyGetAccessCodeResponse extends ComplexType implements C
      */
     public function getIncludeCodeForNetworkTranslationsAndRouting()
     {
-        return $this->includeCodeForNetworkTranslationsAndRouting->getValue();
+        return ($this->includeCodeForNetworkTranslationsAndRouting) ? $this->includeCodeForNetworkTranslationsAndRouting->getValue() : null;
     }
 
     /**
@@ -59,7 +58,6 @@ class SystemDialPlanPolicyGetAccessCodeResponse extends ComplexType implements C
      */
     public function setIncludeCodeForScreeningServices($includeCodeForScreeningServices = null)
     {
-        if (!$includeCodeForScreeningServices) return $this;
         $this->includeCodeForScreeningServices = new PrimitiveType($includeCodeForScreeningServices);
         $this->includeCodeForScreeningServices->setName('includeCodeForScreeningServices');
         return $this;
@@ -71,7 +69,7 @@ class SystemDialPlanPolicyGetAccessCodeResponse extends ComplexType implements C
      */
     public function getIncludeCodeForScreeningServices()
     {
-        return $this->includeCodeForScreeningServices->getValue();
+        return ($this->includeCodeForScreeningServices) ? $this->includeCodeForScreeningServices->getValue() : null;
     }
 
     /**
@@ -79,7 +77,6 @@ class SystemDialPlanPolicyGetAccessCodeResponse extends ComplexType implements C
      */
     public function setEnableSecondaryDialTone($enableSecondaryDialTone = null)
     {
-        if (!$enableSecondaryDialTone) return $this;
         $this->enableSecondaryDialTone = new PrimitiveType($enableSecondaryDialTone);
         $this->enableSecondaryDialTone->setName('enableSecondaryDialTone');
         return $this;
@@ -91,7 +88,7 @@ class SystemDialPlanPolicyGetAccessCodeResponse extends ComplexType implements C
      */
     public function getEnableSecondaryDialTone()
     {
-        return $this->enableSecondaryDialTone->getValue();
+        return ($this->enableSecondaryDialTone) ? $this->enableSecondaryDialTone->getValue() : null;
     }
 
     /**
@@ -99,7 +96,6 @@ class SystemDialPlanPolicyGetAccessCodeResponse extends ComplexType implements C
      */
     public function setDescription($description = null)
     {
-        if (!$description) return $this;
         $this->description = ($description InstanceOf DialPlanAccessCodeDescription)
              ? $description
              : new DialPlanAccessCodeDescription($description);
@@ -113,6 +109,6 @@ class SystemDialPlanPolicyGetAccessCodeResponse extends ComplexType implements C
      */
     public function getDescription()
     {
-        return $this->description->getValue();
+        return ($this->description) ? $this->description->getValue() : null;
     }
 }

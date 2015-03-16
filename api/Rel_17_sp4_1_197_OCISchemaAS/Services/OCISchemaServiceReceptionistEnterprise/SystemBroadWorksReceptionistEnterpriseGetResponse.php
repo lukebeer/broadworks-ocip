@@ -20,8 +20,8 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemBroadWorksReceptionistEnterpriseGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name              = 'SystemBroadWorksReceptionistEnterpriseGetResponse';
-    protected $maxMonitoredUsers = null;
+    public    $name = 'SystemBroadWorksReceptionistEnterpriseGetResponse';
+    protected $maxMonitoredUsers;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceReceptionistEnterprise\SystemBroadWorksReceptionistEnterpriseGetResponse $response
@@ -36,7 +36,6 @@ class SystemBroadWorksReceptionistEnterpriseGetResponse extends ComplexType impl
      */
     public function setMaxMonitoredUsers($maxMonitoredUsers = null)
     {
-        if (!$maxMonitoredUsers) return $this;
         $this->maxMonitoredUsers = ($maxMonitoredUsers InstanceOf MaximumMonitoredUsers)
              ? $maxMonitoredUsers
              : new MaximumMonitoredUsers($maxMonitoredUsers);
@@ -50,6 +49,6 @@ class SystemBroadWorksReceptionistEnterpriseGetResponse extends ComplexType impl
      */
     public function getMaxMonitoredUsers()
     {
-        return $this->maxMonitoredUsers->getValue();
+        return ($this->maxMonitoredUsers) ? $this->maxMonitoredUsers->getValue() : null;
     }
 }

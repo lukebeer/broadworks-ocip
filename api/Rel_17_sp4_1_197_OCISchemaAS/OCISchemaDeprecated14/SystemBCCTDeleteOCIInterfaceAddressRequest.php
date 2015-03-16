@@ -20,11 +20,11 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemBCCTDeleteOCIInterfaceAddressRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                = 'SystemBCCTDeleteOCIInterfaceAddressRequest';
-    protected $interfaceNetAddress = null;
+    public    $name = 'SystemBCCTDeleteOCIInterfaceAddressRequest';
+    protected $interfaceNetAddress;
 
     public function __construct(
-         $interfaceNetAddress
+         $interfaceNetAddress = ''
     ) {
         $this->setInterfaceNetAddress($interfaceNetAddress);
     }
@@ -42,7 +42,6 @@ class SystemBCCTDeleteOCIInterfaceAddressRequest extends ComplexType implements 
      */
     public function setInterfaceNetAddress($interfaceNetAddress = null)
     {
-        if (!$interfaceNetAddress) return $this;
         $this->interfaceNetAddress = ($interfaceNetAddress InstanceOf NetAddress)
              ? $interfaceNetAddress
              : new NetAddress($interfaceNetAddress);
@@ -56,6 +55,6 @@ class SystemBCCTDeleteOCIInterfaceAddressRequest extends ComplexType implements 
      */
     public function getInterfaceNetAddress()
     {
-        return $this->interfaceNetAddress->getValue();
+        return ($this->interfaceNetAddress) ? $this->interfaceNetAddress->getValue() : null;
     }
 }

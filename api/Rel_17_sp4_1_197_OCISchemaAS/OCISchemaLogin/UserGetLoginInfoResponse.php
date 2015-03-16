@@ -29,18 +29,18 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserGetLoginInfoResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                = 'UserGetLoginInfoResponse';
-    protected $loginType           = null;
-    protected $locale              = null;
-    protected $encoding            = null;
-    protected $groupId             = null;
-    protected $serviceProviderId   = null;
-    protected $isEnterprise        = null;
-    protected $passwordExpiresDays = null;
-    protected $lastName            = null;
-    protected $firstName           = null;
-    protected $userId              = null;
-    protected $phoneNumber         = null;
+    public    $name = 'UserGetLoginInfoResponse';
+    protected $loginType;
+    protected $locale;
+    protected $encoding;
+    protected $groupId;
+    protected $serviceProviderId;
+    protected $isEnterprise;
+    protected $passwordExpiresDays;
+    protected $lastName;
+    protected $firstName;
+    protected $userId;
+    protected $phoneNumber;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaLogin\UserGetLoginInfoResponse $response
@@ -55,7 +55,6 @@ class UserGetLoginInfoResponse extends ComplexType implements ComplexInterface
      */
     public function setLoginType($loginType = null)
     {
-        if (!$loginType) return $this;
         $this->loginType = ($loginType InstanceOf LoginType)
              ? $loginType
              : new LoginType($loginType);
@@ -69,7 +68,7 @@ class UserGetLoginInfoResponse extends ComplexType implements ComplexInterface
      */
     public function getLoginType()
     {
-        return $this->loginType->getValue();
+        return ($this->loginType) ? $this->loginType->getValue() : null;
     }
 
     /**
@@ -77,7 +76,6 @@ class UserGetLoginInfoResponse extends ComplexType implements ComplexInterface
      */
     public function setLocale($locale = null)
     {
-        if (!$locale) return $this;
         $this->locale = ($locale InstanceOf OCILocale)
              ? $locale
              : new OCILocale($locale);
@@ -91,7 +89,7 @@ class UserGetLoginInfoResponse extends ComplexType implements ComplexInterface
      */
     public function getLocale()
     {
-        return $this->locale->getValue();
+        return ($this->locale) ? $this->locale->getValue() : null;
     }
 
     /**
@@ -99,7 +97,6 @@ class UserGetLoginInfoResponse extends ComplexType implements ComplexInterface
      */
     public function setEncoding($encoding = null)
     {
-        if (!$encoding) return $this;
         $this->encoding = ($encoding InstanceOf Encoding)
              ? $encoding
              : new Encoding($encoding);
@@ -113,7 +110,7 @@ class UserGetLoginInfoResponse extends ComplexType implements ComplexInterface
      */
     public function getEncoding()
     {
-        return $this->encoding->getValue();
+        return ($this->encoding) ? $this->encoding->getValue() : null;
     }
 
     /**
@@ -121,7 +118,6 @@ class UserGetLoginInfoResponse extends ComplexType implements ComplexInterface
      */
     public function setGroupId($groupId = null)
     {
-        if (!$groupId) return $this;
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
@@ -135,7 +131,7 @@ class UserGetLoginInfoResponse extends ComplexType implements ComplexInterface
      */
     public function getGroupId()
     {
-        return $this->groupId->getValue();
+        return ($this->groupId) ? $this->groupId->getValue() : null;
     }
 
     /**
@@ -143,7 +139,6 @@ class UserGetLoginInfoResponse extends ComplexType implements ComplexInterface
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
-        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
@@ -157,7 +152,7 @@ class UserGetLoginInfoResponse extends ComplexType implements ComplexInterface
      */
     public function getServiceProviderId()
     {
-        return $this->serviceProviderId->getValue();
+        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
     }
 
     /**
@@ -165,7 +160,6 @@ class UserGetLoginInfoResponse extends ComplexType implements ComplexInterface
      */
     public function setIsEnterprise($isEnterprise = null)
     {
-        if (!$isEnterprise) return $this;
         $this->isEnterprise = new PrimitiveType($isEnterprise);
         $this->isEnterprise->setName('isEnterprise');
         return $this;
@@ -177,7 +171,7 @@ class UserGetLoginInfoResponse extends ComplexType implements ComplexInterface
      */
     public function getIsEnterprise()
     {
-        return $this->isEnterprise->getValue();
+        return ($this->isEnterprise) ? $this->isEnterprise->getValue() : null;
     }
 
     /**
@@ -185,7 +179,6 @@ class UserGetLoginInfoResponse extends ComplexType implements ComplexInterface
      */
     public function setPasswordExpiresDays($passwordExpiresDays = null)
     {
-        if (!$passwordExpiresDays) return $this;
         $this->passwordExpiresDays = new PrimitiveType($passwordExpiresDays);
         $this->passwordExpiresDays->setName('passwordExpiresDays');
         return $this;
@@ -197,7 +190,7 @@ class UserGetLoginInfoResponse extends ComplexType implements ComplexInterface
      */
     public function getPasswordExpiresDays()
     {
-        return $this->passwordExpiresDays->getValue();
+        return ($this->passwordExpiresDays) ? $this->passwordExpiresDays->getValue() : null;
     }
 
     /**
@@ -205,7 +198,6 @@ class UserGetLoginInfoResponse extends ComplexType implements ComplexInterface
      */
     public function setLastName($lastName = null)
     {
-        if (!$lastName) return $this;
         $this->lastName = ($lastName InstanceOf LastName)
              ? $lastName
              : new LastName($lastName);
@@ -219,7 +211,7 @@ class UserGetLoginInfoResponse extends ComplexType implements ComplexInterface
      */
     public function getLastName()
     {
-        return $this->lastName->getValue();
+        return ($this->lastName) ? $this->lastName->getValue() : null;
     }
 
     /**
@@ -227,7 +219,6 @@ class UserGetLoginInfoResponse extends ComplexType implements ComplexInterface
      */
     public function setFirstName($firstName = null)
     {
-        if (!$firstName) return $this;
         $this->firstName = ($firstName InstanceOf FirstName)
              ? $firstName
              : new FirstName($firstName);
@@ -241,7 +232,7 @@ class UserGetLoginInfoResponse extends ComplexType implements ComplexInterface
      */
     public function getFirstName()
     {
-        return $this->firstName->getValue();
+        return ($this->firstName) ? $this->firstName->getValue() : null;
     }
 
     /**
@@ -249,7 +240,6 @@ class UserGetLoginInfoResponse extends ComplexType implements ComplexInterface
      */
     public function setUserId($userId = null)
     {
-        if (!$userId) return $this;
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
@@ -263,7 +253,7 @@ class UserGetLoginInfoResponse extends ComplexType implements ComplexInterface
      */
     public function getUserId()
     {
-        return $this->userId->getValue();
+        return ($this->userId) ? $this->userId->getValue() : null;
     }
 
     /**
@@ -271,7 +261,6 @@ class UserGetLoginInfoResponse extends ComplexType implements ComplexInterface
      */
     public function setPhoneNumber($phoneNumber = null)
     {
-        if (!$phoneNumber) return $this;
         $this->phoneNumber = ($phoneNumber InstanceOf DN)
              ? $phoneNumber
              : new DN($phoneNumber);
@@ -285,6 +274,6 @@ class UserGetLoginInfoResponse extends ComplexType implements ComplexInterface
      */
     public function getPhoneNumber()
     {
-        return $this->phoneNumber->getValue();
+        return ($this->phoneNumber) ? $this->phoneNumber->getValue() : null;
     }
 }

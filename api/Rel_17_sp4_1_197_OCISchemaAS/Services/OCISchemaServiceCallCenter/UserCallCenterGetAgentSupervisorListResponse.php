@@ -22,8 +22,8 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserCallCenterGetAgentSupervisorListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name            = 'UserCallCenterGetAgentSupervisorListResponse';
-    protected $supervisorTable = null;
+    public    $name = 'UserCallCenterGetAgentSupervisorListResponse';
+    protected $supervisorTable;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\UserCallCenterGetAgentSupervisorListResponse $response
@@ -38,7 +38,6 @@ class UserCallCenterGetAgentSupervisorListResponse extends ComplexType implement
      */
     public function setSupervisorTable(TableType $supervisorTable = null)
     {
-        if (!$supervisorTable) return $this;
         $this->supervisorTable = $supervisorTable;
         $this->supervisorTable->setName('supervisorTable');
         return $this;

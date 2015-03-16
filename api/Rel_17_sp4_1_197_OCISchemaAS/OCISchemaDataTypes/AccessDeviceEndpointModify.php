@@ -19,14 +19,14 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class AccessDeviceEndpointModify extends ComplexType implements ComplexInterface
 {
-    public    $name         = 'AccessDeviceEndpointModify';
-    protected $accessDevice = null;
-    protected $linePort     = null;
-    protected $contact      = null;
+    public    $name = 'AccessDeviceEndpointModify';
+    protected $accessDevice;
+    protected $linePort;
+    protected $contact;
 
     public function __construct(
-         $accessDevice,
-         $linePort,
+         $accessDevice = '',
+         $linePort = '',
          $contact = null
     ) {
         $this->setAccessDevice($accessDevice);
@@ -47,7 +47,6 @@ class AccessDeviceEndpointModify extends ComplexType implements ComplexInterface
      */
     public function setAccessDevice($accessDevice = null)
     {
-        if (!$accessDevice) return $this;
         $this->accessDevice = new SimpleContent($accessDevice);
         $this->accessDevice->setName('accessDevice');
         return $this;
@@ -59,7 +58,7 @@ class AccessDeviceEndpointModify extends ComplexType implements ComplexInterface
      */
     public function getAccessDevice()
     {
-        return $this->accessDevice->getValue();
+        return ($this->accessDevice) ? $this->accessDevice->getValue() : null;
     }
 
     /**
@@ -67,7 +66,6 @@ class AccessDeviceEndpointModify extends ComplexType implements ComplexInterface
      */
     public function setLinePort($linePort = null)
     {
-        if (!$linePort) return $this;
         $this->linePort = new SimpleContent($linePort);
         $this->linePort->setName('linePort');
         return $this;
@@ -79,7 +77,7 @@ class AccessDeviceEndpointModify extends ComplexType implements ComplexInterface
      */
     public function getLinePort()
     {
-        return $this->linePort->getValue();
+        return ($this->linePort) ? $this->linePort->getValue() : null;
     }
 
     /**
@@ -87,7 +85,6 @@ class AccessDeviceEndpointModify extends ComplexType implements ComplexInterface
      */
     public function setContact($contact = null)
     {
-        if (!$contact) return $this;
         $this->contact = new SimpleContent($contact);
         $this->contact->setName('contact');
         return $this;
@@ -99,6 +96,6 @@ class AccessDeviceEndpointModify extends ComplexType implements ComplexInterface
      */
     public function getContact()
     {
-        return $this->contact->getValue();
+        return ($this->contact) ? $this->contact->getValue() : null;
     }
 }

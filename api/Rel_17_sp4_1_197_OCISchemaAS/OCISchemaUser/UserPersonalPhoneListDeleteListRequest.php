@@ -21,13 +21,13 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserPersonalPhoneListDeleteListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name      = 'UserPersonalPhoneListDeleteListRequest';
-    protected $userId    = null;
-    protected $entryName = null;
+    public    $name = 'UserPersonalPhoneListDeleteListRequest';
+    protected $userId;
+    protected $entryName;
 
     public function __construct(
-         $userId,
-         $entryName
+         $userId = '',
+         $entryName = ''
     ) {
         $this->setUserId($userId);
         $this->setEntryName($entryName);
@@ -46,7 +46,6 @@ class UserPersonalPhoneListDeleteListRequest extends ComplexType implements Comp
      */
     public function setUserId($userId = null)
     {
-        if (!$userId) return $this;
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
@@ -60,7 +59,7 @@ class UserPersonalPhoneListDeleteListRequest extends ComplexType implements Comp
      */
     public function getUserId()
     {
-        return $this->userId->getValue();
+        return ($this->userId) ? $this->userId->getValue() : null;
     }
 
     /**
@@ -68,7 +67,6 @@ class UserPersonalPhoneListDeleteListRequest extends ComplexType implements Comp
      */
     public function setEntryName($entryName = null)
     {
-        if (!$entryName) return $this;
         $this->entryName = ($entryName InstanceOf PhoneListEntryName)
              ? $entryName
              : new PhoneListEntryName($entryName);
@@ -82,6 +80,6 @@ class UserPersonalPhoneListDeleteListRequest extends ComplexType implements Comp
      */
     public function getEntryName()
     {
-        return $this->entryName->getValue();
+        return ($this->entryName) ? $this->entryName->getValue() : null;
     }
 }

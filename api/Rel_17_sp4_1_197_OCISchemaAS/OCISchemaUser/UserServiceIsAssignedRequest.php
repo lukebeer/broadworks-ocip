@@ -20,11 +20,11 @@ use Broadworks_OCIP\core\Client\Client;
 class UserServiceIsAssignedRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser\UserServiceIsAssignedResponse';
-    public    $name   = 'UserServiceIsAssignedRequest';
-    protected $userId = null;
+    public    $name = 'UserServiceIsAssignedRequest';
+    protected $userId;
 
     public function __construct(
-         $userId
+         $userId = ''
     ) {
         $this->setUserId($userId);
     }
@@ -42,7 +42,6 @@ class UserServiceIsAssignedRequest extends ComplexType implements ComplexInterfa
      */
     public function setUserId($userId = null)
     {
-        if (!$userId) return $this;
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
@@ -56,6 +55,6 @@ class UserServiceIsAssignedRequest extends ComplexType implements ComplexInterfa
      */
     public function getUserId()
     {
-        return $this->userId->getValue();
+        return ($this->userId) ? $this->userId->getValue() : null;
     }
 }

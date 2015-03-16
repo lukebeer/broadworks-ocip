@@ -33,31 +33,31 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupCallCenterModifyInstanceRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                                 = 'GroupCallCenterModifyInstanceRequest';
-    protected $serviceUserId                        = null;
-    protected $serviceInstanceProfile               = null;
-    protected $policy                               = null;
-    protected $huntAfterNoAnswer                    = null;
-    protected $noAnswerNumberOfRings                = null;
-    protected $forwardAfterTimeout                  = null;
-    protected $forwardTimeoutSeconds                = null;
-    protected $forwardToPhoneNumber                 = null;
-    protected $enableVideo                          = null;
-    protected $queueLength                          = null;
-    protected $allowAgentLogoff                     = null;
-    protected $playMusicOnHold                      = null;
-    protected $playComfortMessage                   = null;
-    protected $timeBetweenComfortMessagesSeconds    = null;
-    protected $enableGuardTimer                     = null;
-    protected $guardTimerSeconds                    = null;
-    protected $agentUserIdList                      = null;
-    protected $allowCallWaitingForAgents            = null;
-    protected $allowCallsToAgentsInWrapUp           = null;
-    protected $enableCallQueueWhenNoAgentsAvailable = null;
-    protected $statisticsSource                     = null;
+    public    $name = 'GroupCallCenterModifyInstanceRequest';
+    protected $serviceUserId;
+    protected $serviceInstanceProfile;
+    protected $policy;
+    protected $huntAfterNoAnswer;
+    protected $noAnswerNumberOfRings;
+    protected $forwardAfterTimeout;
+    protected $forwardTimeoutSeconds;
+    protected $forwardToPhoneNumber;
+    protected $enableVideo;
+    protected $queueLength;
+    protected $allowAgentLogoff;
+    protected $playMusicOnHold;
+    protected $playComfortMessage;
+    protected $timeBetweenComfortMessagesSeconds;
+    protected $enableGuardTimer;
+    protected $guardTimerSeconds;
+    protected $agentUserIdList;
+    protected $allowCallWaitingForAgents;
+    protected $allowCallsToAgentsInWrapUp;
+    protected $enableCallQueueWhenNoAgentsAvailable;
+    protected $statisticsSource;
 
     public function __construct(
-         $serviceUserId,
+         $serviceUserId = '',
          ServiceInstanceModifyProfile $serviceInstanceProfile = null,
          $policy = null,
          $huntAfterNoAnswer = null,
@@ -115,7 +115,6 @@ class GroupCallCenterModifyInstanceRequest extends ComplexType implements Comple
      */
     public function setServiceUserId($serviceUserId = null)
     {
-        if (!$serviceUserId) return $this;
         $this->serviceUserId = ($serviceUserId InstanceOf UserId)
              ? $serviceUserId
              : new UserId($serviceUserId);
@@ -129,7 +128,7 @@ class GroupCallCenterModifyInstanceRequest extends ComplexType implements Comple
      */
     public function getServiceUserId()
     {
-        return $this->serviceUserId->getValue();
+        return ($this->serviceUserId) ? $this->serviceUserId->getValue() : null;
     }
 
     /**
@@ -137,8 +136,9 @@ class GroupCallCenterModifyInstanceRequest extends ComplexType implements Comple
      */
     public function setServiceInstanceProfile(ServiceInstanceModifyProfile $serviceInstanceProfile = null)
     {
-        if (!$serviceInstanceProfile) return $this;
-        $this->serviceInstanceProfile = $serviceInstanceProfile;
+        $this->serviceInstanceProfile = ($serviceInstanceProfile InstanceOf ServiceInstanceModifyProfile)
+             ? $serviceInstanceProfile
+             : new ServiceInstanceModifyProfile($serviceInstanceProfile);
         $this->serviceInstanceProfile->setName('serviceInstanceProfile');
         return $this;
     }
@@ -157,7 +157,6 @@ class GroupCallCenterModifyInstanceRequest extends ComplexType implements Comple
      */
     public function setPolicy($policy = null)
     {
-        if (!$policy) return $this;
         $this->policy = ($policy InstanceOf HuntPolicy)
              ? $policy
              : new HuntPolicy($policy);
@@ -171,7 +170,7 @@ class GroupCallCenterModifyInstanceRequest extends ComplexType implements Comple
      */
     public function getPolicy()
     {
-        return $this->policy->getValue();
+        return ($this->policy) ? $this->policy->getValue() : null;
     }
 
     /**
@@ -179,7 +178,6 @@ class GroupCallCenterModifyInstanceRequest extends ComplexType implements Comple
      */
     public function setHuntAfterNoAnswer($huntAfterNoAnswer = null)
     {
-        if (!$huntAfterNoAnswer) return $this;
         $this->huntAfterNoAnswer = new PrimitiveType($huntAfterNoAnswer);
         $this->huntAfterNoAnswer->setName('huntAfterNoAnswer');
         return $this;
@@ -191,7 +189,7 @@ class GroupCallCenterModifyInstanceRequest extends ComplexType implements Comple
      */
     public function getHuntAfterNoAnswer()
     {
-        return $this->huntAfterNoAnswer->getValue();
+        return ($this->huntAfterNoAnswer) ? $this->huntAfterNoAnswer->getValue() : null;
     }
 
     /**
@@ -199,7 +197,6 @@ class GroupCallCenterModifyInstanceRequest extends ComplexType implements Comple
      */
     public function setNoAnswerNumberOfRings($noAnswerNumberOfRings = null)
     {
-        if (!$noAnswerNumberOfRings) return $this;
         $this->noAnswerNumberOfRings = ($noAnswerNumberOfRings InstanceOf HuntNoAnswerRings)
              ? $noAnswerNumberOfRings
              : new HuntNoAnswerRings($noAnswerNumberOfRings);
@@ -213,7 +210,7 @@ class GroupCallCenterModifyInstanceRequest extends ComplexType implements Comple
      */
     public function getNoAnswerNumberOfRings()
     {
-        return $this->noAnswerNumberOfRings->getValue();
+        return ($this->noAnswerNumberOfRings) ? $this->noAnswerNumberOfRings->getValue() : null;
     }
 
     /**
@@ -221,7 +218,6 @@ class GroupCallCenterModifyInstanceRequest extends ComplexType implements Comple
      */
     public function setForwardAfterTimeout($forwardAfterTimeout = null)
     {
-        if (!$forwardAfterTimeout) return $this;
         $this->forwardAfterTimeout = new PrimitiveType($forwardAfterTimeout);
         $this->forwardAfterTimeout->setName('forwardAfterTimeout');
         return $this;
@@ -233,7 +229,7 @@ class GroupCallCenterModifyInstanceRequest extends ComplexType implements Comple
      */
     public function getForwardAfterTimeout()
     {
-        return $this->forwardAfterTimeout->getValue();
+        return ($this->forwardAfterTimeout) ? $this->forwardAfterTimeout->getValue() : null;
     }
 
     /**
@@ -241,7 +237,6 @@ class GroupCallCenterModifyInstanceRequest extends ComplexType implements Comple
      */
     public function setForwardTimeoutSeconds($forwardTimeoutSeconds = null)
     {
-        if (!$forwardTimeoutSeconds) return $this;
         $this->forwardTimeoutSeconds = ($forwardTimeoutSeconds InstanceOf HuntForwardTimeoutSeconds)
              ? $forwardTimeoutSeconds
              : new HuntForwardTimeoutSeconds($forwardTimeoutSeconds);
@@ -255,7 +250,7 @@ class GroupCallCenterModifyInstanceRequest extends ComplexType implements Comple
      */
     public function getForwardTimeoutSeconds()
     {
-        return $this->forwardTimeoutSeconds->getValue();
+        return ($this->forwardTimeoutSeconds) ? $this->forwardTimeoutSeconds->getValue() : null;
     }
 
     /**
@@ -263,7 +258,6 @@ class GroupCallCenterModifyInstanceRequest extends ComplexType implements Comple
      */
     public function setForwardToPhoneNumber($forwardToPhoneNumber = null)
     {
-        if (!$forwardToPhoneNumber) return $this;
         $this->forwardToPhoneNumber = ($forwardToPhoneNumber InstanceOf OutgoingDN)
              ? $forwardToPhoneNumber
              : new OutgoingDN($forwardToPhoneNumber);
@@ -277,7 +271,7 @@ class GroupCallCenterModifyInstanceRequest extends ComplexType implements Comple
      */
     public function getForwardToPhoneNumber()
     {
-        return $this->forwardToPhoneNumber->getValue();
+        return ($this->forwardToPhoneNumber) ? $this->forwardToPhoneNumber->getValue() : null;
     }
 
     /**
@@ -285,7 +279,6 @@ class GroupCallCenterModifyInstanceRequest extends ComplexType implements Comple
      */
     public function setEnableVideo($enableVideo = null)
     {
-        if (!$enableVideo) return $this;
         $this->enableVideo = new PrimitiveType($enableVideo);
         $this->enableVideo->setName('enableVideo');
         return $this;
@@ -297,7 +290,7 @@ class GroupCallCenterModifyInstanceRequest extends ComplexType implements Comple
      */
     public function getEnableVideo()
     {
-        return $this->enableVideo->getValue();
+        return ($this->enableVideo) ? $this->enableVideo->getValue() : null;
     }
 
     /**
@@ -305,7 +298,6 @@ class GroupCallCenterModifyInstanceRequest extends ComplexType implements Comple
      */
     public function setQueueLength($queueLength = null)
     {
-        if (!$queueLength) return $this;
         $this->queueLength = ($queueLength InstanceOf CallCenterQueueLength)
              ? $queueLength
              : new CallCenterQueueLength($queueLength);
@@ -319,7 +311,7 @@ class GroupCallCenterModifyInstanceRequest extends ComplexType implements Comple
      */
     public function getQueueLength()
     {
-        return $this->queueLength->getValue();
+        return ($this->queueLength) ? $this->queueLength->getValue() : null;
     }
 
     /**
@@ -327,7 +319,6 @@ class GroupCallCenterModifyInstanceRequest extends ComplexType implements Comple
      */
     public function setAllowAgentLogoff($allowAgentLogoff = null)
     {
-        if (!$allowAgentLogoff) return $this;
         $this->allowAgentLogoff = new PrimitiveType($allowAgentLogoff);
         $this->allowAgentLogoff->setName('allowAgentLogoff');
         return $this;
@@ -339,7 +330,7 @@ class GroupCallCenterModifyInstanceRequest extends ComplexType implements Comple
      */
     public function getAllowAgentLogoff()
     {
-        return $this->allowAgentLogoff->getValue();
+        return ($this->allowAgentLogoff) ? $this->allowAgentLogoff->getValue() : null;
     }
 
     /**
@@ -347,7 +338,6 @@ class GroupCallCenterModifyInstanceRequest extends ComplexType implements Comple
      */
     public function setPlayMusicOnHold($playMusicOnHold = null)
     {
-        if (!$playMusicOnHold) return $this;
         $this->playMusicOnHold = new PrimitiveType($playMusicOnHold);
         $this->playMusicOnHold->setName('playMusicOnHold');
         return $this;
@@ -359,7 +349,7 @@ class GroupCallCenterModifyInstanceRequest extends ComplexType implements Comple
      */
     public function getPlayMusicOnHold()
     {
-        return $this->playMusicOnHold->getValue();
+        return ($this->playMusicOnHold) ? $this->playMusicOnHold->getValue() : null;
     }
 
     /**
@@ -367,7 +357,6 @@ class GroupCallCenterModifyInstanceRequest extends ComplexType implements Comple
      */
     public function setPlayComfortMessage($playComfortMessage = null)
     {
-        if (!$playComfortMessage) return $this;
         $this->playComfortMessage = new PrimitiveType($playComfortMessage);
         $this->playComfortMessage->setName('playComfortMessage');
         return $this;
@@ -379,7 +368,7 @@ class GroupCallCenterModifyInstanceRequest extends ComplexType implements Comple
      */
     public function getPlayComfortMessage()
     {
-        return $this->playComfortMessage->getValue();
+        return ($this->playComfortMessage) ? $this->playComfortMessage->getValue() : null;
     }
 
     /**
@@ -387,7 +376,6 @@ class GroupCallCenterModifyInstanceRequest extends ComplexType implements Comple
      */
     public function setTimeBetweenComfortMessagesSeconds($timeBetweenComfortMessagesSeconds = null)
     {
-        if (!$timeBetweenComfortMessagesSeconds) return $this;
         $this->timeBetweenComfortMessagesSeconds = ($timeBetweenComfortMessagesSeconds InstanceOf CallCenterTimeBetweenComfortMessagesSeconds)
              ? $timeBetweenComfortMessagesSeconds
              : new CallCenterTimeBetweenComfortMessagesSeconds($timeBetweenComfortMessagesSeconds);
@@ -401,7 +389,7 @@ class GroupCallCenterModifyInstanceRequest extends ComplexType implements Comple
      */
     public function getTimeBetweenComfortMessagesSeconds()
     {
-        return $this->timeBetweenComfortMessagesSeconds->getValue();
+        return ($this->timeBetweenComfortMessagesSeconds) ? $this->timeBetweenComfortMessagesSeconds->getValue() : null;
     }
 
     /**
@@ -409,7 +397,6 @@ class GroupCallCenterModifyInstanceRequest extends ComplexType implements Comple
      */
     public function setEnableGuardTimer($enableGuardTimer = null)
     {
-        if (!$enableGuardTimer) return $this;
         $this->enableGuardTimer = new PrimitiveType($enableGuardTimer);
         $this->enableGuardTimer->setName('enableGuardTimer');
         return $this;
@@ -421,7 +408,7 @@ class GroupCallCenterModifyInstanceRequest extends ComplexType implements Comple
      */
     public function getEnableGuardTimer()
     {
-        return $this->enableGuardTimer->getValue();
+        return ($this->enableGuardTimer) ? $this->enableGuardTimer->getValue() : null;
     }
 
     /**
@@ -429,7 +416,6 @@ class GroupCallCenterModifyInstanceRequest extends ComplexType implements Comple
      */
     public function setGuardTimerSeconds($guardTimerSeconds = null)
     {
-        if (!$guardTimerSeconds) return $this;
         $this->guardTimerSeconds = ($guardTimerSeconds InstanceOf CallCenterGuardTimerSeconds)
              ? $guardTimerSeconds
              : new CallCenterGuardTimerSeconds($guardTimerSeconds);
@@ -443,7 +429,7 @@ class GroupCallCenterModifyInstanceRequest extends ComplexType implements Comple
      */
     public function getGuardTimerSeconds()
     {
-        return $this->guardTimerSeconds->getValue();
+        return ($this->guardTimerSeconds) ? $this->guardTimerSeconds->getValue() : null;
     }
 
     /**
@@ -451,8 +437,9 @@ class GroupCallCenterModifyInstanceRequest extends ComplexType implements Comple
      */
     public function setAgentUserIdList(ReplacementUserIdList $agentUserIdList = null)
     {
-        if (!$agentUserIdList) return $this;
-        $this->agentUserIdList = $agentUserIdList;
+        $this->agentUserIdList = ($agentUserIdList InstanceOf ReplacementUserIdList)
+             ? $agentUserIdList
+             : new ReplacementUserIdList($agentUserIdList);
         $this->agentUserIdList->setName('agentUserIdList');
         return $this;
     }
@@ -471,7 +458,6 @@ class GroupCallCenterModifyInstanceRequest extends ComplexType implements Comple
      */
     public function setAllowCallWaitingForAgents($allowCallWaitingForAgents = null)
     {
-        if (!$allowCallWaitingForAgents) return $this;
         $this->allowCallWaitingForAgents = new PrimitiveType($allowCallWaitingForAgents);
         $this->allowCallWaitingForAgents->setName('allowCallWaitingForAgents');
         return $this;
@@ -483,7 +469,7 @@ class GroupCallCenterModifyInstanceRequest extends ComplexType implements Comple
      */
     public function getAllowCallWaitingForAgents()
     {
-        return $this->allowCallWaitingForAgents->getValue();
+        return ($this->allowCallWaitingForAgents) ? $this->allowCallWaitingForAgents->getValue() : null;
     }
 
     /**
@@ -491,7 +477,6 @@ class GroupCallCenterModifyInstanceRequest extends ComplexType implements Comple
      */
     public function setAllowCallsToAgentsInWrapUp($allowCallsToAgentsInWrapUp = null)
     {
-        if (!$allowCallsToAgentsInWrapUp) return $this;
         $this->allowCallsToAgentsInWrapUp = new PrimitiveType($allowCallsToAgentsInWrapUp);
         $this->allowCallsToAgentsInWrapUp->setName('allowCallsToAgentsInWrapUp');
         return $this;
@@ -503,7 +488,7 @@ class GroupCallCenterModifyInstanceRequest extends ComplexType implements Comple
      */
     public function getAllowCallsToAgentsInWrapUp()
     {
-        return $this->allowCallsToAgentsInWrapUp->getValue();
+        return ($this->allowCallsToAgentsInWrapUp) ? $this->allowCallsToAgentsInWrapUp->getValue() : null;
     }
 
     /**
@@ -511,7 +496,6 @@ class GroupCallCenterModifyInstanceRequest extends ComplexType implements Comple
      */
     public function setEnableCallQueueWhenNoAgentsAvailable($enableCallQueueWhenNoAgentsAvailable = null)
     {
-        if (!$enableCallQueueWhenNoAgentsAvailable) return $this;
         $this->enableCallQueueWhenNoAgentsAvailable = new PrimitiveType($enableCallQueueWhenNoAgentsAvailable);
         $this->enableCallQueueWhenNoAgentsAvailable->setName('enableCallQueueWhenNoAgentsAvailable');
         return $this;
@@ -523,7 +507,7 @@ class GroupCallCenterModifyInstanceRequest extends ComplexType implements Comple
      */
     public function getEnableCallQueueWhenNoAgentsAvailable()
     {
-        return $this->enableCallQueueWhenNoAgentsAvailable->getValue();
+        return ($this->enableCallQueueWhenNoAgentsAvailable) ? $this->enableCallQueueWhenNoAgentsAvailable->getValue() : null;
     }
 
     /**
@@ -531,7 +515,6 @@ class GroupCallCenterModifyInstanceRequest extends ComplexType implements Comple
      */
     public function setStatisticsSource($statisticsSource = null)
     {
-        if (!$statisticsSource) return $this;
         $this->statisticsSource = ($statisticsSource InstanceOf CallCenterStatisticsSource)
              ? $statisticsSource
              : new CallCenterStatisticsSource($statisticsSource);
@@ -545,6 +528,6 @@ class GroupCallCenterModifyInstanceRequest extends ComplexType implements Comple
      */
     public function getStatisticsSource()
     {
-        return $this->statisticsSource->getValue();
+        return ($this->statisticsSource) ? $this->statisticsSource->getValue() : null;
     }
 }

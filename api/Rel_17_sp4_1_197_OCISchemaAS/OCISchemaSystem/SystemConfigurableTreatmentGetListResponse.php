@@ -20,8 +20,8 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemConfigurableTreatmentGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name           = 'SystemConfigurableTreatmentGetListResponse';
-    protected $treatmentTable = null;
+    public    $name = 'SystemConfigurableTreatmentGetListResponse';
+    protected $treatmentTable;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemConfigurableTreatmentGetListResponse $response
@@ -36,7 +36,6 @@ class SystemConfigurableTreatmentGetListResponse extends ComplexType implements 
      */
     public function setTreatmentTable(TableType $treatmentTable = null)
     {
-        if (!$treatmentTable) return $this;
         $this->treatmentTable = $treatmentTable;
         $this->treatmentTable->setName('treatmentTable');
         return $this;

@@ -22,16 +22,16 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderSessionAdmissionControlModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                              = 'ServiceProviderSessionAdmissionControlModifyRequest';
-    protected $serviceProviderId                 = null;
-    protected $restrictAggregateSessions         = null;
-    protected $maxSessions                       = null;
-    protected $maxUserOriginatingSessions        = null;
-    protected $maxUserTerminatingSessions        = null;
-    protected $countIntraServiceProviderSessions = null;
+    public    $name = 'ServiceProviderSessionAdmissionControlModifyRequest';
+    protected $serviceProviderId;
+    protected $restrictAggregateSessions;
+    protected $maxSessions;
+    protected $maxUserOriginatingSessions;
+    protected $maxUserTerminatingSessions;
+    protected $countIntraServiceProviderSessions;
 
     public function __construct(
-         $serviceProviderId,
+         $serviceProviderId = '',
          $restrictAggregateSessions = null,
          $maxSessions = null,
          $maxUserOriginatingSessions = null,
@@ -59,7 +59,6 @@ class ServiceProviderSessionAdmissionControlModifyRequest extends ComplexType im
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
-        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
@@ -73,7 +72,7 @@ class ServiceProviderSessionAdmissionControlModifyRequest extends ComplexType im
      */
     public function getServiceProviderId()
     {
-        return $this->serviceProviderId->getValue();
+        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
     }
 
     /**
@@ -81,7 +80,6 @@ class ServiceProviderSessionAdmissionControlModifyRequest extends ComplexType im
      */
     public function setRestrictAggregateSessions($restrictAggregateSessions = null)
     {
-        if (!$restrictAggregateSessions) return $this;
         $this->restrictAggregateSessions = new PrimitiveType($restrictAggregateSessions);
         $this->restrictAggregateSessions->setName('restrictAggregateSessions');
         return $this;
@@ -93,7 +91,7 @@ class ServiceProviderSessionAdmissionControlModifyRequest extends ComplexType im
      */
     public function getRestrictAggregateSessions()
     {
-        return $this->restrictAggregateSessions->getValue();
+        return ($this->restrictAggregateSessions) ? $this->restrictAggregateSessions->getValue() : null;
     }
 
     /**
@@ -101,7 +99,6 @@ class ServiceProviderSessionAdmissionControlModifyRequest extends ComplexType im
      */
     public function setMaxSessions($maxSessions = null)
     {
-        if (!$maxSessions) return $this;
         $this->maxSessions = ($maxSessions InstanceOf NonNegativeInt)
              ? $maxSessions
              : new NonNegativeInt($maxSessions);
@@ -115,7 +112,7 @@ class ServiceProviderSessionAdmissionControlModifyRequest extends ComplexType im
      */
     public function getMaxSessions()
     {
-        return $this->maxSessions->getValue();
+        return ($this->maxSessions) ? $this->maxSessions->getValue() : null;
     }
 
     /**
@@ -123,7 +120,6 @@ class ServiceProviderSessionAdmissionControlModifyRequest extends ComplexType im
      */
     public function setMaxUserOriginatingSessions($maxUserOriginatingSessions = null)
     {
-        if (!$maxUserOriginatingSessions) return $this;
         $this->maxUserOriginatingSessions = ($maxUserOriginatingSessions InstanceOf NonNegativeInt)
              ? $maxUserOriginatingSessions
              : new NonNegativeInt($maxUserOriginatingSessions);
@@ -137,7 +133,7 @@ class ServiceProviderSessionAdmissionControlModifyRequest extends ComplexType im
      */
     public function getMaxUserOriginatingSessions()
     {
-        return $this->maxUserOriginatingSessions->getValue();
+        return ($this->maxUserOriginatingSessions) ? $this->maxUserOriginatingSessions->getValue() : null;
     }
 
     /**
@@ -145,7 +141,6 @@ class ServiceProviderSessionAdmissionControlModifyRequest extends ComplexType im
      */
     public function setMaxUserTerminatingSessions($maxUserTerminatingSessions = null)
     {
-        if (!$maxUserTerminatingSessions) return $this;
         $this->maxUserTerminatingSessions = ($maxUserTerminatingSessions InstanceOf NonNegativeInt)
              ? $maxUserTerminatingSessions
              : new NonNegativeInt($maxUserTerminatingSessions);
@@ -159,7 +154,7 @@ class ServiceProviderSessionAdmissionControlModifyRequest extends ComplexType im
      */
     public function getMaxUserTerminatingSessions()
     {
-        return $this->maxUserTerminatingSessions->getValue();
+        return ($this->maxUserTerminatingSessions) ? $this->maxUserTerminatingSessions->getValue() : null;
     }
 
     /**
@@ -167,7 +162,6 @@ class ServiceProviderSessionAdmissionControlModifyRequest extends ComplexType im
      */
     public function setCountIntraServiceProviderSessions($countIntraServiceProviderSessions = null)
     {
-        if (!$countIntraServiceProviderSessions) return $this;
         $this->countIntraServiceProviderSessions = new PrimitiveType($countIntraServiceProviderSessions);
         $this->countIntraServiceProviderSessions->setName('countIntraServiceProviderSessions');
         return $this;
@@ -179,6 +173,6 @@ class ServiceProviderSessionAdmissionControlModifyRequest extends ComplexType im
      */
     public function getCountIntraServiceProviderSessions()
     {
-        return $this->countIntraServiceProviderSessions->getValue();
+        return ($this->countIntraServiceProviderSessions) ? $this->countIntraServiceProviderSessions->getValue() : null;
     }
 }

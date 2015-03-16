@@ -20,8 +20,8 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemFeatureAccessCodeModifyListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name              = 'SystemFeatureAccessCodeModifyListRequest';
-    protected $featureAccessCode = null;
+    public    $name = 'SystemFeatureAccessCodeModifyListRequest';
+    protected $featureAccessCode;
 
     public function __construct(
          FeatureAccessCodeEntry $featureAccessCode = null
@@ -42,8 +42,9 @@ class SystemFeatureAccessCodeModifyListRequest extends ComplexType implements Co
      */
     public function setFeatureAccessCode(FeatureAccessCodeEntry $featureAccessCode = null)
     {
-        if (!$featureAccessCode) return $this;
-        $this->featureAccessCode = $featureAccessCode;
+        $this->featureAccessCode = ($featureAccessCode InstanceOf FeatureAccessCodeEntry)
+             ? $featureAccessCode
+             : new FeatureAccessCodeEntry($featureAccessCode);
         $this->featureAccessCode->setName('featureAccessCode');
         return $this;
     }

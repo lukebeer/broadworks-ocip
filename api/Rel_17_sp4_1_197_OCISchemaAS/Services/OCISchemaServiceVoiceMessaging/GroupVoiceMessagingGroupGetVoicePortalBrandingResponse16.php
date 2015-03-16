@@ -21,13 +21,13 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupVoiceMessagingGroupGetVoicePortalBrandingResponse16 extends ComplexType implements ComplexInterface
 {
-    public    $name                                  = 'GroupVoiceMessagingGroupGetVoicePortalBrandingResponse16';
-    protected $voicePortalGreetingSelection          = null;
-    protected $voicePortalGreetingFileDescription    = null;
-    protected $voicePortalGreetingMediaType          = null;
-    protected $voiceMessagingGreetingSelection       = null;
-    protected $voiceMessagingGreetingFileDescription = null;
-    protected $voiceMessagingGreetingMediaType       = null;
+    public    $name = 'GroupVoiceMessagingGroupGetVoicePortalBrandingResponse16';
+    protected $voicePortalGreetingSelection;
+    protected $voicePortalGreetingFileDescription;
+    protected $voicePortalGreetingMediaType;
+    protected $voiceMessagingGreetingSelection;
+    protected $voiceMessagingGreetingFileDescription;
+    protected $voiceMessagingGreetingMediaType;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceVoiceMessaging\GroupVoiceMessagingGroupGetVoicePortalBrandingResponse16 $response
@@ -42,7 +42,6 @@ class GroupVoiceMessagingGroupGetVoicePortalBrandingResponse16 extends ComplexTy
      */
     public function setVoicePortalGreetingSelection($voicePortalGreetingSelection = null)
     {
-        if (!$voicePortalGreetingSelection) return $this;
         $this->voicePortalGreetingSelection = ($voicePortalGreetingSelection InstanceOf VoiceMessagingBrandingSelection)
              ? $voicePortalGreetingSelection
              : new VoiceMessagingBrandingSelection($voicePortalGreetingSelection);
@@ -56,7 +55,7 @@ class GroupVoiceMessagingGroupGetVoicePortalBrandingResponse16 extends ComplexTy
      */
     public function getVoicePortalGreetingSelection()
     {
-        return $this->voicePortalGreetingSelection->getValue();
+        return ($this->voicePortalGreetingSelection) ? $this->voicePortalGreetingSelection->getValue() : null;
     }
 
     /**
@@ -64,7 +63,6 @@ class GroupVoiceMessagingGroupGetVoicePortalBrandingResponse16 extends ComplexTy
      */
     public function setVoicePortalGreetingFileDescription($voicePortalGreetingFileDescription = null)
     {
-        if (!$voicePortalGreetingFileDescription) return $this;
         $this->voicePortalGreetingFileDescription = ($voicePortalGreetingFileDescription InstanceOf FileDescription)
              ? $voicePortalGreetingFileDescription
              : new FileDescription($voicePortalGreetingFileDescription);
@@ -78,7 +76,7 @@ class GroupVoiceMessagingGroupGetVoicePortalBrandingResponse16 extends ComplexTy
      */
     public function getVoicePortalGreetingFileDescription()
     {
-        return $this->voicePortalGreetingFileDescription->getValue();
+        return ($this->voicePortalGreetingFileDescription) ? $this->voicePortalGreetingFileDescription->getValue() : null;
     }
 
     /**
@@ -86,7 +84,6 @@ class GroupVoiceMessagingGroupGetVoicePortalBrandingResponse16 extends ComplexTy
      */
     public function setVoicePortalGreetingMediaType($voicePortalGreetingMediaType = null)
     {
-        if (!$voicePortalGreetingMediaType) return $this;
         $this->voicePortalGreetingMediaType = ($voicePortalGreetingMediaType InstanceOf MediaFileType)
              ? $voicePortalGreetingMediaType
              : new MediaFileType($voicePortalGreetingMediaType);
@@ -100,7 +97,7 @@ class GroupVoiceMessagingGroupGetVoicePortalBrandingResponse16 extends ComplexTy
      */
     public function getVoicePortalGreetingMediaType()
     {
-        return $this->voicePortalGreetingMediaType->getValue();
+        return ($this->voicePortalGreetingMediaType) ? $this->voicePortalGreetingMediaType->getValue() : null;
     }
 
     /**
@@ -108,7 +105,6 @@ class GroupVoiceMessagingGroupGetVoicePortalBrandingResponse16 extends ComplexTy
      */
     public function setVoiceMessagingGreetingSelection($voiceMessagingGreetingSelection = null)
     {
-        if (!$voiceMessagingGreetingSelection) return $this;
         $this->voiceMessagingGreetingSelection = ($voiceMessagingGreetingSelection InstanceOf VoiceMessagingBrandingSelection)
              ? $voiceMessagingGreetingSelection
              : new VoiceMessagingBrandingSelection($voiceMessagingGreetingSelection);
@@ -122,7 +118,7 @@ class GroupVoiceMessagingGroupGetVoicePortalBrandingResponse16 extends ComplexTy
      */
     public function getVoiceMessagingGreetingSelection()
     {
-        return $this->voiceMessagingGreetingSelection->getValue();
+        return ($this->voiceMessagingGreetingSelection) ? $this->voiceMessagingGreetingSelection->getValue() : null;
     }
 
     /**
@@ -130,7 +126,6 @@ class GroupVoiceMessagingGroupGetVoicePortalBrandingResponse16 extends ComplexTy
      */
     public function setVoiceMessagingGreetingFileDescription($voiceMessagingGreetingFileDescription = null)
     {
-        if (!$voiceMessagingGreetingFileDescription) return $this;
         $this->voiceMessagingGreetingFileDescription = ($voiceMessagingGreetingFileDescription InstanceOf FileDescription)
              ? $voiceMessagingGreetingFileDescription
              : new FileDescription($voiceMessagingGreetingFileDescription);
@@ -144,7 +139,7 @@ class GroupVoiceMessagingGroupGetVoicePortalBrandingResponse16 extends ComplexTy
      */
     public function getVoiceMessagingGreetingFileDescription()
     {
-        return $this->voiceMessagingGreetingFileDescription->getValue();
+        return ($this->voiceMessagingGreetingFileDescription) ? $this->voiceMessagingGreetingFileDescription->getValue() : null;
     }
 
     /**
@@ -152,7 +147,6 @@ class GroupVoiceMessagingGroupGetVoicePortalBrandingResponse16 extends ComplexTy
      */
     public function setVoiceMessagingGreetingMediaType($voiceMessagingGreetingMediaType = null)
     {
-        if (!$voiceMessagingGreetingMediaType) return $this;
         $this->voiceMessagingGreetingMediaType = ($voiceMessagingGreetingMediaType InstanceOf MediaFileType)
              ? $voiceMessagingGreetingMediaType
              : new MediaFileType($voiceMessagingGreetingMediaType);
@@ -166,6 +160,6 @@ class GroupVoiceMessagingGroupGetVoicePortalBrandingResponse16 extends ComplexTy
      */
     public function getVoiceMessagingGreetingMediaType()
     {
-        return $this->voiceMessagingGreetingMediaType->getValue();
+        return ($this->voiceMessagingGreetingMediaType) ? $this->voiceMessagingGreetingMediaType->getValue() : null;
     }
 }

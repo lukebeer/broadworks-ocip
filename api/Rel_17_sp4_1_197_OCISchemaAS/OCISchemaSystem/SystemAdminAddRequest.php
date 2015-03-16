@@ -26,23 +26,23 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemAdminAddRequest extends ComplexType implements ComplexInterface
 {
-    public    $name      = 'SystemAdminAddRequest';
-    protected $userId    = null;
-    protected $firstName = null;
-    protected $lastName  = null;
-    protected $password  = null;
-    protected $language  = null;
-    protected $adminType = null;
-    protected $readOnly  = null;
+    public    $name = 'SystemAdminAddRequest';
+    protected $userId;
+    protected $firstName;
+    protected $lastName;
+    protected $password;
+    protected $language;
+    protected $adminType;
+    protected $readOnly;
 
     public function __construct(
-         $userId,
+         $userId = '',
          $firstName = null,
          $lastName = null,
-         $password,
+         $password = '',
          $language = null,
-         $adminType,
-         $readOnly
+         $adminType = '',
+         $readOnly = ''
     ) {
         $this->setUserId($userId);
         $this->setFirstName($firstName);
@@ -66,7 +66,6 @@ class SystemAdminAddRequest extends ComplexType implements ComplexInterface
      */
     public function setUserId($userId = null)
     {
-        if (!$userId) return $this;
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
@@ -80,7 +79,7 @@ class SystemAdminAddRequest extends ComplexType implements ComplexInterface
      */
     public function getUserId()
     {
-        return $this->userId->getValue();
+        return ($this->userId) ? $this->userId->getValue() : null;
     }
 
     /**
@@ -88,7 +87,6 @@ class SystemAdminAddRequest extends ComplexType implements ComplexInterface
      */
     public function setFirstName($firstName = null)
     {
-        if (!$firstName) return $this;
         $this->firstName = ($firstName InstanceOf FirstName)
              ? $firstName
              : new FirstName($firstName);
@@ -102,7 +100,7 @@ class SystemAdminAddRequest extends ComplexType implements ComplexInterface
      */
     public function getFirstName()
     {
-        return $this->firstName->getValue();
+        return ($this->firstName) ? $this->firstName->getValue() : null;
     }
 
     /**
@@ -110,7 +108,6 @@ class SystemAdminAddRequest extends ComplexType implements ComplexInterface
      */
     public function setLastName($lastName = null)
     {
-        if (!$lastName) return $this;
         $this->lastName = ($lastName InstanceOf LastName)
              ? $lastName
              : new LastName($lastName);
@@ -124,7 +121,7 @@ class SystemAdminAddRequest extends ComplexType implements ComplexInterface
      */
     public function getLastName()
     {
-        return $this->lastName->getValue();
+        return ($this->lastName) ? $this->lastName->getValue() : null;
     }
 
     /**
@@ -132,7 +129,6 @@ class SystemAdminAddRequest extends ComplexType implements ComplexInterface
      */
     public function setPassword($password = null)
     {
-        if (!$password) return $this;
         $this->password = ($password InstanceOf Password)
              ? $password
              : new Password($password);
@@ -146,7 +142,7 @@ class SystemAdminAddRequest extends ComplexType implements ComplexInterface
      */
     public function getPassword()
     {
-        return $this->password->getValue();
+        return ($this->password) ? $this->password->getValue() : null;
     }
 
     /**
@@ -154,7 +150,6 @@ class SystemAdminAddRequest extends ComplexType implements ComplexInterface
      */
     public function setLanguage($language = null)
     {
-        if (!$language) return $this;
         $this->language = ($language InstanceOf Language)
              ? $language
              : new Language($language);
@@ -168,7 +163,7 @@ class SystemAdminAddRequest extends ComplexType implements ComplexInterface
      */
     public function getLanguage()
     {
-        return $this->language->getValue();
+        return ($this->language) ? $this->language->getValue() : null;
     }
 
     /**
@@ -176,7 +171,6 @@ class SystemAdminAddRequest extends ComplexType implements ComplexInterface
      */
     public function setAdminType($adminType = null)
     {
-        if (!$adminType) return $this;
         $this->adminType = ($adminType InstanceOf SystemAdminType)
              ? $adminType
              : new SystemAdminType($adminType);
@@ -190,7 +184,7 @@ class SystemAdminAddRequest extends ComplexType implements ComplexInterface
      */
     public function getAdminType()
     {
-        return $this->adminType->getValue();
+        return ($this->adminType) ? $this->adminType->getValue() : null;
     }
 
     /**
@@ -198,7 +192,6 @@ class SystemAdminAddRequest extends ComplexType implements ComplexInterface
      */
     public function setReadOnly($readOnly = null)
     {
-        if (!$readOnly) return $this;
         $this->readOnly = new PrimitiveType($readOnly);
         $this->readOnly->setName('readOnly');
         return $this;
@@ -210,6 +203,6 @@ class SystemAdminAddRequest extends ComplexType implements ComplexInterface
      */
     public function getReadOnly()
     {
-        return $this->readOnly->getValue();
+        return ($this->readOnly) ? $this->readOnly->getValue() : null;
     }
 }

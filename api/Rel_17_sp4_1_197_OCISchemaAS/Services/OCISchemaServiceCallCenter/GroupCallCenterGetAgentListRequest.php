@@ -27,16 +27,16 @@ use Broadworks_OCIP\core\Client\Client;
 class GroupCallCenterGetAgentListRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType                      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\GroupCallCenterGetAgentListResponse';
-    public    $name                              = 'GroupCallCenterGetAgentListRequest';
-    protected $serviceUserId                     = null;
-    protected $responseSizeLimit                 = null;
-    protected $searchCriteriaUserLastName        = null;
-    protected $searchCriteriaUserFirstName       = null;
-    protected $searchCriteriaExactUserDepartment = null;
-    protected $searchCriteriaExactUserGroup      = null;
+    public    $name = 'GroupCallCenterGetAgentListRequest';
+    protected $serviceUserId;
+    protected $responseSizeLimit;
+    protected $searchCriteriaUserLastName;
+    protected $searchCriteriaUserFirstName;
+    protected $searchCriteriaExactUserDepartment;
+    protected $searchCriteriaExactUserGroup;
 
     public function __construct(
-         $serviceUserId,
+         $serviceUserId = '',
          $responseSizeLimit = null,
          SearchCriteriaUserLastName $searchCriteriaUserLastName = null,
          SearchCriteriaUserFirstName $searchCriteriaUserFirstName = null,
@@ -64,7 +64,6 @@ class GroupCallCenterGetAgentListRequest extends ComplexType implements ComplexI
      */
     public function setServiceUserId($serviceUserId = null)
     {
-        if (!$serviceUserId) return $this;
         $this->serviceUserId = ($serviceUserId InstanceOf UserId)
              ? $serviceUserId
              : new UserId($serviceUserId);
@@ -78,7 +77,7 @@ class GroupCallCenterGetAgentListRequest extends ComplexType implements ComplexI
      */
     public function getServiceUserId()
     {
-        return $this->serviceUserId->getValue();
+        return ($this->serviceUserId) ? $this->serviceUserId->getValue() : null;
     }
 
     /**
@@ -86,7 +85,6 @@ class GroupCallCenterGetAgentListRequest extends ComplexType implements ComplexI
      */
     public function setResponseSizeLimit($responseSizeLimit = null)
     {
-        if (!$responseSizeLimit) return $this;
         $this->responseSizeLimit = ($responseSizeLimit InstanceOf ResponseSizeLimit)
              ? $responseSizeLimit
              : new ResponseSizeLimit($responseSizeLimit);
@@ -100,7 +98,7 @@ class GroupCallCenterGetAgentListRequest extends ComplexType implements ComplexI
      */
     public function getResponseSizeLimit()
     {
-        return $this->responseSizeLimit->getValue();
+        return ($this->responseSizeLimit) ? $this->responseSizeLimit->getValue() : null;
     }
 
     /**
@@ -108,7 +106,6 @@ class GroupCallCenterGetAgentListRequest extends ComplexType implements ComplexI
      */
     public function setSearchCriteriaUserLastName(SearchCriteriaUserLastName $searchCriteriaUserLastName = null)
     {
-        if (!$searchCriteriaUserLastName) return $this;
         $this->searchCriteriaUserLastName = ($searchCriteriaUserLastName InstanceOf SearchCriteriaUserLastName)
              ? $searchCriteriaUserLastName
              : new SearchCriteriaUserLastName($searchCriteriaUserLastName);
@@ -130,7 +127,6 @@ class GroupCallCenterGetAgentListRequest extends ComplexType implements ComplexI
      */
     public function setSearchCriteriaUserFirstName(SearchCriteriaUserFirstName $searchCriteriaUserFirstName = null)
     {
-        if (!$searchCriteriaUserFirstName) return $this;
         $this->searchCriteriaUserFirstName = ($searchCriteriaUserFirstName InstanceOf SearchCriteriaUserFirstName)
              ? $searchCriteriaUserFirstName
              : new SearchCriteriaUserFirstName($searchCriteriaUserFirstName);
@@ -152,7 +148,6 @@ class GroupCallCenterGetAgentListRequest extends ComplexType implements ComplexI
      */
     public function setSearchCriteriaExactUserDepartment(SearchCriteriaExactUserDepartment $searchCriteriaExactUserDepartment = null)
     {
-        if (!$searchCriteriaExactUserDepartment) return $this;
         $this->searchCriteriaExactUserDepartment = ($searchCriteriaExactUserDepartment InstanceOf SearchCriteriaExactUserDepartment)
              ? $searchCriteriaExactUserDepartment
              : new SearchCriteriaExactUserDepartment($searchCriteriaExactUserDepartment);
@@ -174,7 +169,6 @@ class GroupCallCenterGetAgentListRequest extends ComplexType implements ComplexI
      */
     public function setSearchCriteriaExactUserGroup(SearchCriteriaExactUserGroup $searchCriteriaExactUserGroup = null)
     {
-        if (!$searchCriteriaExactUserGroup) return $this;
         $this->searchCriteriaExactUserGroup = ($searchCriteriaExactUserGroup InstanceOf SearchCriteriaExactUserGroup)
              ? $searchCriteriaExactUserGroup
              : new SearchCriteriaExactUserGroup($searchCriteriaExactUserGroup);

@@ -20,13 +20,13 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SpeedDial8Entry extends ComplexType implements ComplexInterface
 {
-    public    $name        = 'SpeedDial8Entry';
-    protected $speedCode   = null;
-    protected $phoneNumber = null;
-    protected $description = null;
+    public    $name = 'SpeedDial8Entry';
+    protected $speedCode;
+    protected $phoneNumber;
+    protected $description;
 
     public function __construct(
-         $speedCode,
+         $speedCode = '',
          $phoneNumber = null,
          $description = null
     ) {
@@ -48,7 +48,6 @@ class SpeedDial8Entry extends ComplexType implements ComplexInterface
      */
     public function setSpeedCode($speedCode = null)
     {
-        if (!$speedCode) return $this;
         $this->speedCode = new SimpleContent($speedCode);
         $this->speedCode->setName('speedCode');
         return $this;
@@ -60,7 +59,7 @@ class SpeedDial8Entry extends ComplexType implements ComplexInterface
      */
     public function getSpeedCode()
     {
-        return $this->speedCode->getValue();
+        return ($this->speedCode) ? $this->speedCode->getValue() : null;
     }
 
     /**
@@ -68,7 +67,6 @@ class SpeedDial8Entry extends ComplexType implements ComplexInterface
      */
     public function setPhoneNumber($phoneNumber = null)
     {
-        if (!$phoneNumber) return $this;
         $this->phoneNumber = new SimpleContent($phoneNumber);
         $this->phoneNumber->setName('phoneNumber');
         return $this;
@@ -80,7 +78,7 @@ class SpeedDial8Entry extends ComplexType implements ComplexInterface
      */
     public function getPhoneNumber()
     {
-        return $this->phoneNumber->getValue();
+        return ($this->phoneNumber) ? $this->phoneNumber->getValue() : null;
     }
 
     /**
@@ -88,7 +86,6 @@ class SpeedDial8Entry extends ComplexType implements ComplexInterface
      */
     public function setDescription($description = null)
     {
-        if (!$description) return $this;
         $this->description = new SimpleContent($description);
         $this->description->setName('description');
         return $this;
@@ -100,6 +97,6 @@ class SpeedDial8Entry extends ComplexType implements ComplexInterface
      */
     public function getDescription()
     {
-        return $this->description->getValue();
+        return ($this->description) ? $this->description->getValue() : null;
     }
 }

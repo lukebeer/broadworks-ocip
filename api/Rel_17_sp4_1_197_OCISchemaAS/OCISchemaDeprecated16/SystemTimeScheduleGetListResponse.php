@@ -20,8 +20,8 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemTimeScheduleGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name         = 'SystemTimeScheduleGetListResponse';
-    protected $timeSchedule = null;
+    public    $name = 'SystemTimeScheduleGetListResponse';
+    protected $timeSchedule;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\SystemTimeScheduleGetListResponse $response
@@ -36,7 +36,6 @@ class SystemTimeScheduleGetListResponse extends ComplexType implements ComplexIn
      */
     public function setTimeSchedule($timeSchedule = null)
     {
-        if (!$timeSchedule) return $this;
         $this->timeSchedule = ($timeSchedule InstanceOf ScheduleName)
              ? $timeSchedule
              : new ScheduleName($timeSchedule);
@@ -50,6 +49,6 @@ class SystemTimeScheduleGetListResponse extends ComplexType implements ComplexIn
      */
     public function getTimeSchedule()
     {
-        return $this->timeSchedule->getValue();
+        return ($this->timeSchedule) ? $this->timeSchedule->getValue() : null;
     }
 }

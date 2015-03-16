@@ -22,12 +22,12 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemRoutePointExternalSystemAddRequest extends ComplexType implements ComplexInterface
 {
-    public    $name        = 'SystemRoutePointExternalSystemAddRequest';
-    protected $name        = null;
-    protected $description = null;
+    public    $name = 'SystemRoutePointExternalSystemAddRequest';
+    protected $name;
+    protected $description;
 
     public function __construct(
-         $name,
+         $name = '',
          $description = null
     ) {
         $this->setName($name);
@@ -47,7 +47,6 @@ class SystemRoutePointExternalSystemAddRequest extends ComplexType implements Co
      */
     public function setName($name = null)
     {
-        if (!$name) return $this;
         $this->name = ($name InstanceOf RoutePointExternalSystem)
              ? $name
              : new RoutePointExternalSystem($name);
@@ -61,7 +60,7 @@ class SystemRoutePointExternalSystemAddRequest extends ComplexType implements Co
      */
     public function getName()
     {
-        return $this->name->getValue();
+        return ($this->name) ? $this->name->getValue() : null;
     }
 
     /**
@@ -69,7 +68,6 @@ class SystemRoutePointExternalSystemAddRequest extends ComplexType implements Co
      */
     public function setDescription($description = null)
     {
-        if (!$description) return $this;
         $this->description = ($description InstanceOf ExternalSystemDescription)
              ? $description
              : new ExternalSystemDescription($description);
@@ -83,6 +81,6 @@ class SystemRoutePointExternalSystemAddRequest extends ComplexType implements Co
      */
     public function getDescription()
     {
-        return $this->description->getValue();
+        return ($this->description) ? $this->description->getValue() : null;
     }
 }

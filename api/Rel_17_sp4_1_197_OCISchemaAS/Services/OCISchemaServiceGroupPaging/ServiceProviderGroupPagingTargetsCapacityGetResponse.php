@@ -19,8 +19,8 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderGroupPagingTargetsCapacityGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name               = 'ServiceProviderGroupPagingTargetsCapacityGetResponse';
-    protected $maximumTargetUsers = null;
+    public    $name = 'ServiceProviderGroupPagingTargetsCapacityGetResponse';
+    protected $maximumTargetUsers;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceGroupPaging\ServiceProviderGroupPagingTargetsCapacityGetResponse $response
@@ -35,7 +35,6 @@ class ServiceProviderGroupPagingTargetsCapacityGetResponse extends ComplexType i
      */
     public function setMaximumTargetUsers($maximumTargetUsers = null)
     {
-        if (!$maximumTargetUsers) return $this;
         $this->maximumTargetUsers = ($maximumTargetUsers InstanceOf GroupPagingMaxTargetCapacity)
              ? $maximumTargetUsers
              : new GroupPagingMaxTargetCapacity($maximumTargetUsers);
@@ -49,6 +48,6 @@ class ServiceProviderGroupPagingTargetsCapacityGetResponse extends ComplexType i
      */
     public function getMaximumTargetUsers()
     {
-        return $this->maximumTargetUsers->getValue();
+        return ($this->maximumTargetUsers) ? $this->maximumTargetUsers->getValue() : null;
     }
 }

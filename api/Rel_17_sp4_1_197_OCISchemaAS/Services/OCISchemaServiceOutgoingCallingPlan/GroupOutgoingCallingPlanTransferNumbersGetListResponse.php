@@ -20,9 +20,9 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupOutgoingCallingPlanTransferNumbersGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name              = 'GroupOutgoingCallingPlanTransferNumbersGetListResponse';
-    protected $groupNumbers      = null;
-    protected $departmentNumbers = null;
+    public    $name = 'GroupOutgoingCallingPlanTransferNumbersGetListResponse';
+    protected $groupNumbers;
+    protected $departmentNumbers;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceOutgoingCallingPlan\GroupOutgoingCallingPlanTransferNumbersGetListResponse $response
@@ -37,8 +37,9 @@ class GroupOutgoingCallingPlanTransferNumbersGetListResponse extends ComplexType
      */
     public function setGroupNumbers(OutgoingCallingPlanTransferNumbers $groupNumbers = null)
     {
-        if (!$groupNumbers) return $this;
-        $this->groupNumbers = $groupNumbers;
+        $this->groupNumbers = ($groupNumbers InstanceOf OutgoingCallingPlanTransferNumbers)
+             ? $groupNumbers
+             : new OutgoingCallingPlanTransferNumbers($groupNumbers);
         $this->groupNumbers->setName('groupNumbers');
         return $this;
     }
@@ -57,8 +58,9 @@ class GroupOutgoingCallingPlanTransferNumbersGetListResponse extends ComplexType
      */
     public function setDepartmentNumbers(OutgoingCallingPlanDepartmentTransferNumbers $departmentNumbers = null)
     {
-        if (!$departmentNumbers) return $this;
-        $this->departmentNumbers = $departmentNumbers;
+        $this->departmentNumbers = ($departmentNumbers InstanceOf OutgoingCallingPlanDepartmentTransferNumbers)
+             ? $departmentNumbers
+             : new OutgoingCallingPlanDepartmentTransferNumbers($departmentNumbers);
         $this->departmentNumbers->setName('departmentNumbers');
         return $this;
     }

@@ -20,8 +20,8 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemConfigurableFileSystemModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name           = 'SystemConfigurableFileSystemModifyRequest';
-    protected $mediaDirectory = null;
+    public    $name = 'SystemConfigurableFileSystemModifyRequest';
+    protected $mediaDirectory;
 
     public function __construct(
          $mediaDirectory = null
@@ -42,7 +42,6 @@ class SystemConfigurableFileSystemModifyRequest extends ComplexType implements C
      */
     public function setMediaDirectory($mediaDirectory = null)
     {
-        if (!$mediaDirectory) return $this;
         $this->mediaDirectory = ($mediaDirectory InstanceOf ConfigurableFileSystemDirectory)
              ? $mediaDirectory
              : new ConfigurableFileSystemDirectory($mediaDirectory);
@@ -56,6 +55,6 @@ class SystemConfigurableFileSystemModifyRequest extends ComplexType implements C
      */
     public function getMediaDirectory()
     {
-        return $this->mediaDirectory->getValue();
+        return ($this->mediaDirectory) ? $this->mediaDirectory->getValue() : null;
     }
 }

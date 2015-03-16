@@ -20,8 +20,8 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupSeriesCompletionGetAvailableUserListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name      = 'GroupSeriesCompletionGetAvailableUserListResponse';
-    protected $userTable = null;
+    public    $name = 'GroupSeriesCompletionGetAvailableUserListResponse';
+    protected $userTable;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceSeriesCompletion\GroupSeriesCompletionGetAvailableUserListResponse $response
@@ -36,7 +36,6 @@ class GroupSeriesCompletionGetAvailableUserListResponse extends ComplexType impl
      */
     public function setUserTable(TableType $userTable = null)
     {
-        if (!$userTable) return $this;
         $this->userTable = $userTable;
         $this->userTable->setName('userTable');
         return $this;

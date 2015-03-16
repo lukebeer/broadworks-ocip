@@ -19,12 +19,12 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class OutgoingCallingPlanDepartmentTransferNumbersModify extends ComplexType implements ComplexInterface
 {
-    public    $name            = 'OutgoingCallingPlanDepartmentTransferNumbersModify';
-    protected $departmentKey   = null;
-    protected $transferNumbers = null;
+    public    $name = 'OutgoingCallingPlanDepartmentTransferNumbersModify';
+    protected $departmentKey;
+    protected $transferNumbers;
 
     public function __construct(
-         $departmentKey,
+         $departmentKey = '',
          $transferNumbers = null
     ) {
         $this->setDepartmentKey($departmentKey);
@@ -44,7 +44,6 @@ class OutgoingCallingPlanDepartmentTransferNumbersModify extends ComplexType imp
      */
     public function setDepartmentKey($departmentKey = null)
     {
-        if (!$departmentKey) return $this;
         $this->departmentKey = new SimpleContent($departmentKey);
         $this->departmentKey->setName('departmentKey');
         return $this;
@@ -56,7 +55,7 @@ class OutgoingCallingPlanDepartmentTransferNumbersModify extends ComplexType imp
      */
     public function getDepartmentKey()
     {
-        return $this->departmentKey->getValue();
+        return ($this->departmentKey) ? $this->departmentKey->getValue() : null;
     }
 
     /**
@@ -64,7 +63,6 @@ class OutgoingCallingPlanDepartmentTransferNumbersModify extends ComplexType imp
      */
     public function setTransferNumbers($transferNumbers = null)
     {
-        if (!$transferNumbers) return $this;
         $this->transferNumbers = new SimpleContent($transferNumbers);
         $this->transferNumbers->setName('transferNumbers');
         return $this;
@@ -76,6 +74,6 @@ class OutgoingCallingPlanDepartmentTransferNumbersModify extends ComplexType imp
      */
     public function getTransferNumbers()
     {
-        return $this->transferNumbers->getValue();
+        return ($this->transferNumbers) ? $this->transferNumbers->getValue() : null;
     }
 }

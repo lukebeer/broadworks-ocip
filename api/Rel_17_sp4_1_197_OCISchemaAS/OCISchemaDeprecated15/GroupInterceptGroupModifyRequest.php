@@ -27,21 +27,21 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupInterceptGroupModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                        = 'GroupInterceptGroupModifyRequest';
-    protected $serviceProviderId           = null;
-    protected $groupId                     = null;
-    protected $isActive                    = null;
-    protected $announcementSelection       = null;
-    protected $audioFile                   = null;
-    protected $videoFile                   = null;
-    protected $playNewPhoneNumber          = null;
-    protected $newPhoneNumber              = null;
-    protected $transferOnZeroToPhoneNumber = null;
-    protected $transferPhoneNumber         = null;
+    public    $name = 'GroupInterceptGroupModifyRequest';
+    protected $serviceProviderId;
+    protected $groupId;
+    protected $isActive;
+    protected $announcementSelection;
+    protected $audioFile;
+    protected $videoFile;
+    protected $playNewPhoneNumber;
+    protected $newPhoneNumber;
+    protected $transferOnZeroToPhoneNumber;
+    protected $transferPhoneNumber;
 
     public function __construct(
-         $serviceProviderId,
-         $groupId,
+         $serviceProviderId = '',
+         $groupId = '',
          $isActive = null,
          $announcementSelection = null,
          LabeledFileResource $audioFile = null,
@@ -76,7 +76,6 @@ class GroupInterceptGroupModifyRequest extends ComplexType implements ComplexInt
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
-        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
@@ -90,7 +89,7 @@ class GroupInterceptGroupModifyRequest extends ComplexType implements ComplexInt
      */
     public function getServiceProviderId()
     {
-        return $this->serviceProviderId->getValue();
+        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
     }
 
     /**
@@ -98,7 +97,6 @@ class GroupInterceptGroupModifyRequest extends ComplexType implements ComplexInt
      */
     public function setGroupId($groupId = null)
     {
-        if (!$groupId) return $this;
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
@@ -112,7 +110,7 @@ class GroupInterceptGroupModifyRequest extends ComplexType implements ComplexInt
      */
     public function getGroupId()
     {
-        return $this->groupId->getValue();
+        return ($this->groupId) ? $this->groupId->getValue() : null;
     }
 
     /**
@@ -120,7 +118,6 @@ class GroupInterceptGroupModifyRequest extends ComplexType implements ComplexInt
      */
     public function setIsActive($isActive = null)
     {
-        if (!$isActive) return $this;
         $this->isActive = new PrimitiveType($isActive);
         $this->isActive->setName('isActive');
         return $this;
@@ -132,7 +129,7 @@ class GroupInterceptGroupModifyRequest extends ComplexType implements ComplexInt
      */
     public function getIsActive()
     {
-        return $this->isActive->getValue();
+        return ($this->isActive) ? $this->isActive->getValue() : null;
     }
 
     /**
@@ -140,7 +137,6 @@ class GroupInterceptGroupModifyRequest extends ComplexType implements ComplexInt
      */
     public function setAnnouncementSelection($announcementSelection = null)
     {
-        if (!$announcementSelection) return $this;
         $this->announcementSelection = ($announcementSelection InstanceOf AnnouncementSelection)
              ? $announcementSelection
              : new AnnouncementSelection($announcementSelection);
@@ -154,7 +150,7 @@ class GroupInterceptGroupModifyRequest extends ComplexType implements ComplexInt
      */
     public function getAnnouncementSelection()
     {
-        return $this->announcementSelection->getValue();
+        return ($this->announcementSelection) ? $this->announcementSelection->getValue() : null;
     }
 
     /**
@@ -162,8 +158,9 @@ class GroupInterceptGroupModifyRequest extends ComplexType implements ComplexInt
      */
     public function setAudioFile(LabeledFileResource $audioFile = null)
     {
-        if (!$audioFile) return $this;
-        $this->audioFile = $audioFile;
+        $this->audioFile = ($audioFile InstanceOf LabeledFileResource)
+             ? $audioFile
+             : new LabeledFileResource($audioFile);
         $this->audioFile->setName('audioFile');
         return $this;
     }
@@ -182,8 +179,9 @@ class GroupInterceptGroupModifyRequest extends ComplexType implements ComplexInt
      */
     public function setVideoFile(LabeledFileResource $videoFile = null)
     {
-        if (!$videoFile) return $this;
-        $this->videoFile = $videoFile;
+        $this->videoFile = ($videoFile InstanceOf LabeledFileResource)
+             ? $videoFile
+             : new LabeledFileResource($videoFile);
         $this->videoFile->setName('videoFile');
         return $this;
     }
@@ -202,7 +200,6 @@ class GroupInterceptGroupModifyRequest extends ComplexType implements ComplexInt
      */
     public function setPlayNewPhoneNumber($playNewPhoneNumber = null)
     {
-        if (!$playNewPhoneNumber) return $this;
         $this->playNewPhoneNumber = new PrimitiveType($playNewPhoneNumber);
         $this->playNewPhoneNumber->setName('playNewPhoneNumber');
         return $this;
@@ -214,7 +211,7 @@ class GroupInterceptGroupModifyRequest extends ComplexType implements ComplexInt
      */
     public function getPlayNewPhoneNumber()
     {
-        return $this->playNewPhoneNumber->getValue();
+        return ($this->playNewPhoneNumber) ? $this->playNewPhoneNumber->getValue() : null;
     }
 
     /**
@@ -222,7 +219,6 @@ class GroupInterceptGroupModifyRequest extends ComplexType implements ComplexInt
      */
     public function setNewPhoneNumber($newPhoneNumber = null)
     {
-        if (!$newPhoneNumber) return $this;
         $this->newPhoneNumber = ($newPhoneNumber InstanceOf DN)
              ? $newPhoneNumber
              : new DN($newPhoneNumber);
@@ -236,7 +232,7 @@ class GroupInterceptGroupModifyRequest extends ComplexType implements ComplexInt
      */
     public function getNewPhoneNumber()
     {
-        return $this->newPhoneNumber->getValue();
+        return ($this->newPhoneNumber) ? $this->newPhoneNumber->getValue() : null;
     }
 
     /**
@@ -244,7 +240,6 @@ class GroupInterceptGroupModifyRequest extends ComplexType implements ComplexInt
      */
     public function setTransferOnZeroToPhoneNumber($transferOnZeroToPhoneNumber = null)
     {
-        if (!$transferOnZeroToPhoneNumber) return $this;
         $this->transferOnZeroToPhoneNumber = new PrimitiveType($transferOnZeroToPhoneNumber);
         $this->transferOnZeroToPhoneNumber->setName('transferOnZeroToPhoneNumber');
         return $this;
@@ -256,7 +251,7 @@ class GroupInterceptGroupModifyRequest extends ComplexType implements ComplexInt
      */
     public function getTransferOnZeroToPhoneNumber()
     {
-        return $this->transferOnZeroToPhoneNumber->getValue();
+        return ($this->transferOnZeroToPhoneNumber) ? $this->transferOnZeroToPhoneNumber->getValue() : null;
     }
 
     /**
@@ -264,7 +259,6 @@ class GroupInterceptGroupModifyRequest extends ComplexType implements ComplexInt
      */
     public function setTransferPhoneNumber($transferPhoneNumber = null)
     {
-        if (!$transferPhoneNumber) return $this;
         $this->transferPhoneNumber = ($transferPhoneNumber InstanceOf OutgoingDN)
              ? $transferPhoneNumber
              : new OutgoingDN($transferPhoneNumber);
@@ -278,6 +272,6 @@ class GroupInterceptGroupModifyRequest extends ComplexType implements ComplexInt
      */
     public function getTransferPhoneNumber()
     {
-        return $this->transferPhoneNumber->getValue();
+        return ($this->transferPhoneNumber) ? $this->transferPhoneNumber->getValue() : null;
     }
 }

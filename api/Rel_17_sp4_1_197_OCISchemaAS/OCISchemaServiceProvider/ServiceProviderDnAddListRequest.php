@@ -23,13 +23,13 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderDnAddListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name              = 'ServiceProviderDnAddListRequest';
-    protected $serviceProviderId = null;
-    protected $phoneNumber       = null;
-    protected $dnRange           = null;
+    public    $name = 'ServiceProviderDnAddListRequest';
+    protected $serviceProviderId;
+    protected $phoneNumber;
+    protected $dnRange;
 
     public function __construct(
-         $serviceProviderId,
+         $serviceProviderId = '',
          $phoneNumber = null,
          DNRange $dnRange = null
     ) {
@@ -51,7 +51,6 @@ class ServiceProviderDnAddListRequest extends ComplexType implements ComplexInte
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
-        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
@@ -65,7 +64,7 @@ class ServiceProviderDnAddListRequest extends ComplexType implements ComplexInte
      */
     public function getServiceProviderId()
     {
-        return $this->serviceProviderId->getValue();
+        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
     }
 
     /**
@@ -73,7 +72,6 @@ class ServiceProviderDnAddListRequest extends ComplexType implements ComplexInte
      */
     public function setPhoneNumber($phoneNumber = null)
     {
-        if (!$phoneNumber) return $this;
         $this->phoneNumber = ($phoneNumber InstanceOf DN)
              ? $phoneNumber
              : new DN($phoneNumber);
@@ -87,7 +85,7 @@ class ServiceProviderDnAddListRequest extends ComplexType implements ComplexInte
      */
     public function getPhoneNumber()
     {
-        return $this->phoneNumber->getValue();
+        return ($this->phoneNumber) ? $this->phoneNumber->getValue() : null;
     }
 
     /**
@@ -95,8 +93,9 @@ class ServiceProviderDnAddListRequest extends ComplexType implements ComplexInte
      */
     public function setDnRange(DNRange $dnRange = null)
     {
-        if (!$dnRange) return $this;
-        $this->dnRange = $dnRange;
+        $this->dnRange = ($dnRange InstanceOf DNRange)
+             ? $dnRange
+             : new DNRange($dnRange);
         $this->dnRange->setName('dnRange');
         return $this;
     }

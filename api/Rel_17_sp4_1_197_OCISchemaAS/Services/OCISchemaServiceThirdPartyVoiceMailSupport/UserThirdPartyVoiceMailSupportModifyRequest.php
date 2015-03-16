@@ -26,21 +26,21 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserThirdPartyVoiceMailSupportModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                                = 'UserThirdPartyVoiceMailSupportModifyRequest';
-    protected $userId                              = null;
-    protected $isActive                            = null;
-    protected $busyRedirectToVoiceMail             = null;
-    protected $noAnswerRedirectToVoiceMail         = null;
-    protected $serverSelection                     = null;
-    protected $userServer                          = null;
-    protected $mailboxIdType                       = null;
-    protected $mailboxURL                          = null;
-    protected $noAnswerNumberOfRings               = null;
-    protected $alwaysRedirectToVoiceMail           = null;
-    protected $outOfPrimaryZoneRedirectToVoiceMail = null;
+    public    $name = 'UserThirdPartyVoiceMailSupportModifyRequest';
+    protected $userId;
+    protected $isActive;
+    protected $busyRedirectToVoiceMail;
+    protected $noAnswerRedirectToVoiceMail;
+    protected $serverSelection;
+    protected $userServer;
+    protected $mailboxIdType;
+    protected $mailboxURL;
+    protected $noAnswerNumberOfRings;
+    protected $alwaysRedirectToVoiceMail;
+    protected $outOfPrimaryZoneRedirectToVoiceMail;
 
     public function __construct(
-         $userId,
+         $userId = '',
          $isActive = null,
          $busyRedirectToVoiceMail = null,
          $noAnswerRedirectToVoiceMail = null,
@@ -78,7 +78,6 @@ class UserThirdPartyVoiceMailSupportModifyRequest extends ComplexType implements
      */
     public function setUserId($userId = null)
     {
-        if (!$userId) return $this;
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
@@ -92,7 +91,7 @@ class UserThirdPartyVoiceMailSupportModifyRequest extends ComplexType implements
      */
     public function getUserId()
     {
-        return $this->userId->getValue();
+        return ($this->userId) ? $this->userId->getValue() : null;
     }
 
     /**
@@ -100,7 +99,6 @@ class UserThirdPartyVoiceMailSupportModifyRequest extends ComplexType implements
      */
     public function setIsActive($isActive = null)
     {
-        if (!$isActive) return $this;
         $this->isActive = new PrimitiveType($isActive);
         $this->isActive->setName('isActive');
         return $this;
@@ -112,7 +110,7 @@ class UserThirdPartyVoiceMailSupportModifyRequest extends ComplexType implements
      */
     public function getIsActive()
     {
-        return $this->isActive->getValue();
+        return ($this->isActive) ? $this->isActive->getValue() : null;
     }
 
     /**
@@ -120,7 +118,6 @@ class UserThirdPartyVoiceMailSupportModifyRequest extends ComplexType implements
      */
     public function setBusyRedirectToVoiceMail($busyRedirectToVoiceMail = null)
     {
-        if (!$busyRedirectToVoiceMail) return $this;
         $this->busyRedirectToVoiceMail = new PrimitiveType($busyRedirectToVoiceMail);
         $this->busyRedirectToVoiceMail->setName('busyRedirectToVoiceMail');
         return $this;
@@ -132,7 +129,7 @@ class UserThirdPartyVoiceMailSupportModifyRequest extends ComplexType implements
      */
     public function getBusyRedirectToVoiceMail()
     {
-        return $this->busyRedirectToVoiceMail->getValue();
+        return ($this->busyRedirectToVoiceMail) ? $this->busyRedirectToVoiceMail->getValue() : null;
     }
 
     /**
@@ -140,7 +137,6 @@ class UserThirdPartyVoiceMailSupportModifyRequest extends ComplexType implements
      */
     public function setNoAnswerRedirectToVoiceMail($noAnswerRedirectToVoiceMail = null)
     {
-        if (!$noAnswerRedirectToVoiceMail) return $this;
         $this->noAnswerRedirectToVoiceMail = new PrimitiveType($noAnswerRedirectToVoiceMail);
         $this->noAnswerRedirectToVoiceMail->setName('noAnswerRedirectToVoiceMail');
         return $this;
@@ -152,7 +148,7 @@ class UserThirdPartyVoiceMailSupportModifyRequest extends ComplexType implements
      */
     public function getNoAnswerRedirectToVoiceMail()
     {
-        return $this->noAnswerRedirectToVoiceMail->getValue();
+        return ($this->noAnswerRedirectToVoiceMail) ? $this->noAnswerRedirectToVoiceMail->getValue() : null;
     }
 
     /**
@@ -160,7 +156,6 @@ class UserThirdPartyVoiceMailSupportModifyRequest extends ComplexType implements
      */
     public function setServerSelection($serverSelection = null)
     {
-        if (!$serverSelection) return $this;
         $this->serverSelection = ($serverSelection InstanceOf ThirdPartyVoiceMailSupportServerSelection)
              ? $serverSelection
              : new ThirdPartyVoiceMailSupportServerSelection($serverSelection);
@@ -174,7 +169,7 @@ class UserThirdPartyVoiceMailSupportModifyRequest extends ComplexType implements
      */
     public function getServerSelection()
     {
-        return $this->serverSelection->getValue();
+        return ($this->serverSelection) ? $this->serverSelection->getValue() : null;
     }
 
     /**
@@ -182,7 +177,6 @@ class UserThirdPartyVoiceMailSupportModifyRequest extends ComplexType implements
      */
     public function setUserServer($userServer = null)
     {
-        if (!$userServer) return $this;
         $this->userServer = ($userServer InstanceOf ThirdPartyVoiceMailSupportMailServer)
              ? $userServer
              : new ThirdPartyVoiceMailSupportMailServer($userServer);
@@ -196,7 +190,7 @@ class UserThirdPartyVoiceMailSupportModifyRequest extends ComplexType implements
      */
     public function getUserServer()
     {
-        return $this->userServer->getValue();
+        return ($this->userServer) ? $this->userServer->getValue() : null;
     }
 
     /**
@@ -204,7 +198,6 @@ class UserThirdPartyVoiceMailSupportModifyRequest extends ComplexType implements
      */
     public function setMailboxIdType($mailboxIdType = null)
     {
-        if (!$mailboxIdType) return $this;
         $this->mailboxIdType = ($mailboxIdType InstanceOf ThirdPartyVoiceMailSupportMailboxIdType)
              ? $mailboxIdType
              : new ThirdPartyVoiceMailSupportMailboxIdType($mailboxIdType);
@@ -218,7 +211,7 @@ class UserThirdPartyVoiceMailSupportModifyRequest extends ComplexType implements
      */
     public function getMailboxIdType()
     {
-        return $this->mailboxIdType->getValue();
+        return ($this->mailboxIdType) ? $this->mailboxIdType->getValue() : null;
     }
 
     /**
@@ -226,7 +219,6 @@ class UserThirdPartyVoiceMailSupportModifyRequest extends ComplexType implements
      */
     public function setMailboxURL($mailboxURL = null)
     {
-        if (!$mailboxURL) return $this;
         $this->mailboxURL = ($mailboxURL InstanceOf SIPURI)
              ? $mailboxURL
              : new SIPURI($mailboxURL);
@@ -240,7 +232,7 @@ class UserThirdPartyVoiceMailSupportModifyRequest extends ComplexType implements
      */
     public function getMailboxURL()
     {
-        return $this->mailboxURL->getValue();
+        return ($this->mailboxURL) ? $this->mailboxURL->getValue() : null;
     }
 
     /**
@@ -248,7 +240,6 @@ class UserThirdPartyVoiceMailSupportModifyRequest extends ComplexType implements
      */
     public function setNoAnswerNumberOfRings($noAnswerNumberOfRings = null)
     {
-        if (!$noAnswerNumberOfRings) return $this;
         $this->noAnswerNumberOfRings = ($noAnswerNumberOfRings InstanceOf ThirdPartyVoiceMailSupportNumberOfRings)
              ? $noAnswerNumberOfRings
              : new ThirdPartyVoiceMailSupportNumberOfRings($noAnswerNumberOfRings);
@@ -262,7 +253,7 @@ class UserThirdPartyVoiceMailSupportModifyRequest extends ComplexType implements
      */
     public function getNoAnswerNumberOfRings()
     {
-        return $this->noAnswerNumberOfRings->getValue();
+        return ($this->noAnswerNumberOfRings) ? $this->noAnswerNumberOfRings->getValue() : null;
     }
 
     /**
@@ -270,7 +261,6 @@ class UserThirdPartyVoiceMailSupportModifyRequest extends ComplexType implements
      */
     public function setAlwaysRedirectToVoiceMail($alwaysRedirectToVoiceMail = null)
     {
-        if (!$alwaysRedirectToVoiceMail) return $this;
         $this->alwaysRedirectToVoiceMail = new PrimitiveType($alwaysRedirectToVoiceMail);
         $this->alwaysRedirectToVoiceMail->setName('alwaysRedirectToVoiceMail');
         return $this;
@@ -282,7 +272,7 @@ class UserThirdPartyVoiceMailSupportModifyRequest extends ComplexType implements
      */
     public function getAlwaysRedirectToVoiceMail()
     {
-        return $this->alwaysRedirectToVoiceMail->getValue();
+        return ($this->alwaysRedirectToVoiceMail) ? $this->alwaysRedirectToVoiceMail->getValue() : null;
     }
 
     /**
@@ -290,7 +280,6 @@ class UserThirdPartyVoiceMailSupportModifyRequest extends ComplexType implements
      */
     public function setOutOfPrimaryZoneRedirectToVoiceMail($outOfPrimaryZoneRedirectToVoiceMail = null)
     {
-        if (!$outOfPrimaryZoneRedirectToVoiceMail) return $this;
         $this->outOfPrimaryZoneRedirectToVoiceMail = new PrimitiveType($outOfPrimaryZoneRedirectToVoiceMail);
         $this->outOfPrimaryZoneRedirectToVoiceMail->setName('outOfPrimaryZoneRedirectToVoiceMail');
         return $this;
@@ -302,6 +291,6 @@ class UserThirdPartyVoiceMailSupportModifyRequest extends ComplexType implements
      */
     public function getOutOfPrimaryZoneRedirectToVoiceMail()
     {
-        return $this->outOfPrimaryZoneRedirectToVoiceMail->getValue();
+        return ($this->outOfPrimaryZoneRedirectToVoiceMail) ? $this->outOfPrimaryZoneRedirectToVoiceMail->getValue() : null;
     }
 }

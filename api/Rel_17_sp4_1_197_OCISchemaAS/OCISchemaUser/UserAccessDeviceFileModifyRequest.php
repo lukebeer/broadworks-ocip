@@ -22,17 +22,17 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserAccessDeviceFileModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name         = 'UserAccessDeviceFileModifyRequest';
-    protected $userId       = null;
-    protected $accessDevice = null;
-    protected $fileFormat   = null;
-    protected $uploadFile   = null;
+    public    $name = 'UserAccessDeviceFileModifyRequest';
+    protected $userId;
+    protected $accessDevice;
+    protected $fileFormat;
+    protected $uploadFile;
 
     public function __construct(
-         $userId,
-         AccessDevice $accessDevice,
-         $fileFormat,
-         FileResource $uploadFile
+         $userId = '',
+         AccessDevice $accessDevice = '',
+         $fileFormat = '',
+         FileResource $uploadFile = ''
     ) {
         $this->setUserId($userId);
         $this->setAccessDevice($accessDevice);
@@ -53,7 +53,6 @@ class UserAccessDeviceFileModifyRequest extends ComplexType implements ComplexIn
      */
     public function setUserId($userId = null)
     {
-        if (!$userId) return $this;
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
@@ -67,7 +66,7 @@ class UserAccessDeviceFileModifyRequest extends ComplexType implements ComplexIn
      */
     public function getUserId()
     {
-        return $this->userId->getValue();
+        return ($this->userId) ? $this->userId->getValue() : null;
     }
 
     /**
@@ -75,8 +74,9 @@ class UserAccessDeviceFileModifyRequest extends ComplexType implements ComplexIn
      */
     public function setAccessDevice(AccessDevice $accessDevice = null)
     {
-        if (!$accessDevice) return $this;
-        $this->accessDevice = $accessDevice;
+        $this->accessDevice = ($accessDevice InstanceOf AccessDevice)
+             ? $accessDevice
+             : new AccessDevice($accessDevice);
         $this->accessDevice->setName('accessDevice');
         return $this;
     }
@@ -95,7 +95,6 @@ class UserAccessDeviceFileModifyRequest extends ComplexType implements ComplexIn
      */
     public function setFileFormat($fileFormat = null)
     {
-        if (!$fileFormat) return $this;
         $this->fileFormat = ($fileFormat InstanceOf DeviceManagementFileFormat)
              ? $fileFormat
              : new DeviceManagementFileFormat($fileFormat);
@@ -109,7 +108,7 @@ class UserAccessDeviceFileModifyRequest extends ComplexType implements ComplexIn
      */
     public function getFileFormat()
     {
-        return $this->fileFormat->getValue();
+        return ($this->fileFormat) ? $this->fileFormat->getValue() : null;
     }
 
     /**
@@ -117,8 +116,9 @@ class UserAccessDeviceFileModifyRequest extends ComplexType implements ComplexIn
      */
     public function setUploadFile(FileResource $uploadFile = null)
     {
-        if (!$uploadFile) return $this;
-        $this->uploadFile = $uploadFile;
+        $this->uploadFile = ($uploadFile InstanceOf FileResource)
+             ? $uploadFile
+             : new FileResource($uploadFile);
         $this->uploadFile->setName('uploadFile');
         return $this;
     }

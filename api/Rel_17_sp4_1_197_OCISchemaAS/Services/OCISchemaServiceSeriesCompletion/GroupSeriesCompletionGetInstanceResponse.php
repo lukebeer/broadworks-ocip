@@ -20,8 +20,8 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupSeriesCompletionGetInstanceResponse extends ComplexType implements ComplexInterface
 {
-    public    $name      = 'GroupSeriesCompletionGetInstanceResponse';
-    protected $userTable = null;
+    public    $name = 'GroupSeriesCompletionGetInstanceResponse';
+    protected $userTable;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceSeriesCompletion\GroupSeriesCompletionGetInstanceResponse $response
@@ -36,7 +36,6 @@ class GroupSeriesCompletionGetInstanceResponse extends ComplexType implements Co
      */
     public function setUserTable(TableType $userTable = null)
     {
-        if (!$userTable) return $this;
         $this->userTable = $userTable;
         $this->userTable->setName('userTable');
         return $this;

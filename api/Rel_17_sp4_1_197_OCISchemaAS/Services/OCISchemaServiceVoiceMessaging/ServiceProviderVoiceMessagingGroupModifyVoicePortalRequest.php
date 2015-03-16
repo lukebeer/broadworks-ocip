@@ -21,12 +21,12 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderVoiceMessagingGroupModifyVoicePortalRequest extends ComplexType implements ComplexInterface
 {
-    public    $name              = 'ServiceProviderVoiceMessagingGroupModifyVoicePortalRequest';
-    protected $serviceProviderId = null;
-    protected $voicePortalScope  = null;
+    public    $name = 'ServiceProviderVoiceMessagingGroupModifyVoicePortalRequest';
+    protected $serviceProviderId;
+    protected $voicePortalScope;
 
     public function __construct(
-         $serviceProviderId,
+         $serviceProviderId = '',
          $voicePortalScope = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
@@ -46,7 +46,6 @@ class ServiceProviderVoiceMessagingGroupModifyVoicePortalRequest extends Complex
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
-        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
@@ -60,7 +59,7 @@ class ServiceProviderVoiceMessagingGroupModifyVoicePortalRequest extends Complex
      */
     public function getServiceProviderId()
     {
-        return $this->serviceProviderId->getValue();
+        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
     }
 
     /**
@@ -68,7 +67,6 @@ class ServiceProviderVoiceMessagingGroupModifyVoicePortalRequest extends Complex
      */
     public function setVoicePortalScope($voicePortalScope = null)
     {
-        if (!$voicePortalScope) return $this;
         $this->voicePortalScope = ($voicePortalScope InstanceOf ServiceProviderVoicePortalScope)
              ? $voicePortalScope
              : new ServiceProviderVoicePortalScope($voicePortalScope);
@@ -82,6 +80,6 @@ class ServiceProviderVoiceMessagingGroupModifyVoicePortalRequest extends Complex
      */
     public function getVoicePortalScope()
     {
-        return $this->voicePortalScope->getValue();
+        return ($this->voicePortalScope) ? $this->voicePortalScope->getValue() : null;
     }
 }

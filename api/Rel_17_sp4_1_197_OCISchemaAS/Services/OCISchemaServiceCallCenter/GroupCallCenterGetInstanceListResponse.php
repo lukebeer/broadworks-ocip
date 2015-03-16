@@ -24,8 +24,8 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupCallCenterGetInstanceListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name            = 'GroupCallCenterGetInstanceListResponse';
-    protected $callCenterTable = null;
+    public    $name = 'GroupCallCenterGetInstanceListResponse';
+    protected $callCenterTable;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\GroupCallCenterGetInstanceListResponse $response
@@ -40,7 +40,6 @@ class GroupCallCenterGetInstanceListResponse extends ComplexType implements Comp
      */
     public function setCallCenterTable(TableType $callCenterTable = null)
     {
-        if (!$callCenterTable) return $this;
         $this->callCenterTable = $callCenterTable;
         $this->callCenterTable->setName('callCenterTable');
         return $this;

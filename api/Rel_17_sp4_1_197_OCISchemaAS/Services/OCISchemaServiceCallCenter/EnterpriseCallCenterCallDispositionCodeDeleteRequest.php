@@ -20,13 +20,13 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class EnterpriseCallCenterCallDispositionCodeDeleteRequest extends ComplexType implements ComplexInterface
 {
-    public    $name              = 'EnterpriseCallCenterCallDispositionCodeDeleteRequest';
-    protected $serviceProviderId = null;
-    protected $code              = null;
+    public    $name = 'EnterpriseCallCenterCallDispositionCodeDeleteRequest';
+    protected $serviceProviderId;
+    protected $code;
 
     public function __construct(
-         $serviceProviderId,
-         $code
+         $serviceProviderId = '',
+         $code = ''
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setCode($code);
@@ -45,7 +45,6 @@ class EnterpriseCallCenterCallDispositionCodeDeleteRequest extends ComplexType i
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
-        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
@@ -59,7 +58,7 @@ class EnterpriseCallCenterCallDispositionCodeDeleteRequest extends ComplexType i
      */
     public function getServiceProviderId()
     {
-        return $this->serviceProviderId->getValue();
+        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
     }
 
     /**
@@ -67,7 +66,6 @@ class EnterpriseCallCenterCallDispositionCodeDeleteRequest extends ComplexType i
      */
     public function setCode($code = null)
     {
-        if (!$code) return $this;
         $this->code = ($code InstanceOf CallDispositionCode)
              ? $code
              : new CallDispositionCode($code);
@@ -81,6 +79,6 @@ class EnterpriseCallCenterCallDispositionCodeDeleteRequest extends ComplexType i
      */
     public function getCode()
     {
-        return $this->code->getValue();
+        return ($this->code) ? $this->code->getValue() : null;
     }
 }

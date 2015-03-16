@@ -24,12 +24,12 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderNetworkClassOfServiceAssignListToAllGroupsRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                  = 'ServiceProviderNetworkClassOfServiceAssignListToAllGroupsRequest';
-    protected $serviceProviderId     = null;
-    protected $networkClassOfService = null;
+    public    $name = 'ServiceProviderNetworkClassOfServiceAssignListToAllGroupsRequest';
+    protected $serviceProviderId;
+    protected $networkClassOfService;
 
     public function __construct(
-         $serviceProviderId,
+         $serviceProviderId = '',
          $networkClassOfService = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
@@ -49,7 +49,6 @@ class ServiceProviderNetworkClassOfServiceAssignListToAllGroupsRequest extends C
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
-        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
@@ -63,7 +62,7 @@ class ServiceProviderNetworkClassOfServiceAssignListToAllGroupsRequest extends C
      */
     public function getServiceProviderId()
     {
-        return $this->serviceProviderId->getValue();
+        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
     }
 
     /**
@@ -71,7 +70,6 @@ class ServiceProviderNetworkClassOfServiceAssignListToAllGroupsRequest extends C
      */
     public function setNetworkClassOfService($networkClassOfService = null)
     {
-        if (!$networkClassOfService) return $this;
         $this->networkClassOfService = ($networkClassOfService InstanceOf NetworkClassOfServiceName)
              ? $networkClassOfService
              : new NetworkClassOfServiceName($networkClassOfService);
@@ -85,6 +83,6 @@ class ServiceProviderNetworkClassOfServiceAssignListToAllGroupsRequest extends C
      */
     public function getNetworkClassOfService()
     {
-        return $this->networkClassOfService->getValue();
+        return ($this->networkClassOfService) ? $this->networkClassOfService->getValue() : null;
     }
 }

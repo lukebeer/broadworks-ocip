@@ -21,13 +21,13 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserBroadWorksAnywhereModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                                 = 'UserBroadWorksAnywhereModifyRequest';
-    protected $userId                               = null;
-    protected $alertAllLocationsForClickToDialCalls = null;
-    protected $alertAllLocationsForGroupPagingCalls = null;
+    public    $name = 'UserBroadWorksAnywhereModifyRequest';
+    protected $userId;
+    protected $alertAllLocationsForClickToDialCalls;
+    protected $alertAllLocationsForGroupPagingCalls;
 
     public function __construct(
-         $userId,
+         $userId = '',
          $alertAllLocationsForClickToDialCalls = null,
          $alertAllLocationsForGroupPagingCalls = null
     ) {
@@ -49,7 +49,6 @@ class UserBroadWorksAnywhereModifyRequest extends ComplexType implements Complex
      */
     public function setUserId($userId = null)
     {
-        if (!$userId) return $this;
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
@@ -63,7 +62,7 @@ class UserBroadWorksAnywhereModifyRequest extends ComplexType implements Complex
      */
     public function getUserId()
     {
-        return $this->userId->getValue();
+        return ($this->userId) ? $this->userId->getValue() : null;
     }
 
     /**
@@ -71,7 +70,6 @@ class UserBroadWorksAnywhereModifyRequest extends ComplexType implements Complex
      */
     public function setAlertAllLocationsForClickToDialCalls($alertAllLocationsForClickToDialCalls = null)
     {
-        if (!$alertAllLocationsForClickToDialCalls) return $this;
         $this->alertAllLocationsForClickToDialCalls = new PrimitiveType($alertAllLocationsForClickToDialCalls);
         $this->alertAllLocationsForClickToDialCalls->setName('alertAllLocationsForClickToDialCalls');
         return $this;
@@ -83,7 +81,7 @@ class UserBroadWorksAnywhereModifyRequest extends ComplexType implements Complex
      */
     public function getAlertAllLocationsForClickToDialCalls()
     {
-        return $this->alertAllLocationsForClickToDialCalls->getValue();
+        return ($this->alertAllLocationsForClickToDialCalls) ? $this->alertAllLocationsForClickToDialCalls->getValue() : null;
     }
 
     /**
@@ -91,7 +89,6 @@ class UserBroadWorksAnywhereModifyRequest extends ComplexType implements Complex
      */
     public function setAlertAllLocationsForGroupPagingCalls($alertAllLocationsForGroupPagingCalls = null)
     {
-        if (!$alertAllLocationsForGroupPagingCalls) return $this;
         $this->alertAllLocationsForGroupPagingCalls = new PrimitiveType($alertAllLocationsForGroupPagingCalls);
         $this->alertAllLocationsForGroupPagingCalls->setName('alertAllLocationsForGroupPagingCalls');
         return $this;
@@ -103,6 +100,6 @@ class UserBroadWorksAnywhereModifyRequest extends ComplexType implements Complex
      */
     public function getAlertAllLocationsForGroupPagingCalls()
     {
-        return $this->alertAllLocationsForGroupPagingCalls->getValue();
+        return ($this->alertAllLocationsForGroupPagingCalls) ? $this->alertAllLocationsForGroupPagingCalls->getValue() : null;
     }
 }

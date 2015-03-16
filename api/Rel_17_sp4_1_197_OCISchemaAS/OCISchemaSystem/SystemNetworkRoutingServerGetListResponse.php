@@ -20,8 +20,8 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemNetworkRoutingServerGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                      = 'SystemNetworkRoutingServerGetListResponse';
-    protected $networkRoutingServerTable = null;
+    public    $name = 'SystemNetworkRoutingServerGetListResponse';
+    protected $networkRoutingServerTable;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemNetworkRoutingServerGetListResponse $response
@@ -36,7 +36,6 @@ class SystemNetworkRoutingServerGetListResponse extends ComplexType implements C
      */
     public function setNetworkRoutingServerTable(TableType $networkRoutingServerTable = null)
     {
-        if (!$networkRoutingServerTable) return $this;
         $this->networkRoutingServerTable = $networkRoutingServerTable;
         $this->networkRoutingServerTable->setName('networkRoutingServerTable');
         return $this;

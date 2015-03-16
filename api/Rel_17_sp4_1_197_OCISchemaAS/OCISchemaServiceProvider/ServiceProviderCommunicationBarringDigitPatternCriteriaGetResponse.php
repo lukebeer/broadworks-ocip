@@ -20,8 +20,8 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderCommunicationBarringDigitPatternCriteriaGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name        = 'ServiceProviderCommunicationBarringDigitPatternCriteriaGetResponse';
-    protected $description = null;
+    public    $name = 'ServiceProviderCommunicationBarringDigitPatternCriteriaGetResponse';
+    protected $description;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderCommunicationBarringDigitPatternCriteriaGetResponse $response
@@ -36,7 +36,6 @@ class ServiceProviderCommunicationBarringDigitPatternCriteriaGetResponse extends
      */
     public function setDescription($description = null)
     {
-        if (!$description) return $this;
         $this->description = ($description InstanceOf DigitPatternCriteriaDescription)
              ? $description
              : new DigitPatternCriteriaDescription($description);
@@ -50,6 +49,6 @@ class ServiceProviderCommunicationBarringDigitPatternCriteriaGetResponse extends
      */
     public function getDescription()
     {
-        return $this->description->getValue();
+        return ($this->description) ? $this->description->getValue() : null;
     }
 }

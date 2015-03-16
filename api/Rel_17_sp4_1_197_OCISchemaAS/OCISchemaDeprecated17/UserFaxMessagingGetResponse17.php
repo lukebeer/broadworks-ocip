@@ -23,10 +23,10 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserFaxMessagingGetResponse17 extends ComplexType implements ComplexInterface
 {
-    public    $name        = 'UserFaxMessagingGetResponse17';
-    protected $isActive    = null;
-    protected $phoneNumber = null;
-    protected $extension   = null;
+    public    $name = 'UserFaxMessagingGetResponse17';
+    protected $isActive;
+    protected $phoneNumber;
+    protected $extension;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated17\UserFaxMessagingGetResponse17 $response
@@ -41,7 +41,6 @@ class UserFaxMessagingGetResponse17 extends ComplexType implements ComplexInterf
      */
     public function setIsActive($isActive = null)
     {
-        if (!$isActive) return $this;
         $this->isActive = new PrimitiveType($isActive);
         $this->isActive->setName('isActive');
         return $this;
@@ -53,7 +52,7 @@ class UserFaxMessagingGetResponse17 extends ComplexType implements ComplexInterf
      */
     public function getIsActive()
     {
-        return $this->isActive->getValue();
+        return ($this->isActive) ? $this->isActive->getValue() : null;
     }
 
     /**
@@ -61,7 +60,6 @@ class UserFaxMessagingGetResponse17 extends ComplexType implements ComplexInterf
      */
     public function setPhoneNumber($phoneNumber = null)
     {
-        if (!$phoneNumber) return $this;
         $this->phoneNumber = ($phoneNumber InstanceOf DN)
              ? $phoneNumber
              : new DN($phoneNumber);
@@ -75,7 +73,7 @@ class UserFaxMessagingGetResponse17 extends ComplexType implements ComplexInterf
      */
     public function getPhoneNumber()
     {
-        return $this->phoneNumber->getValue();
+        return ($this->phoneNumber) ? $this->phoneNumber->getValue() : null;
     }
 
     /**
@@ -83,7 +81,6 @@ class UserFaxMessagingGetResponse17 extends ComplexType implements ComplexInterf
      */
     public function setExtension($extension = null)
     {
-        if (!$extension) return $this;
         $this->extension = ($extension InstanceOf Extension17)
              ? $extension
              : new Extension17($extension);
@@ -97,6 +94,6 @@ class UserFaxMessagingGetResponse17 extends ComplexType implements ComplexInterf
      */
     public function getExtension()
     {
-        return $this->extension->getValue();
+        return ($this->extension) ? $this->extension->getValue() : null;
     }
 }

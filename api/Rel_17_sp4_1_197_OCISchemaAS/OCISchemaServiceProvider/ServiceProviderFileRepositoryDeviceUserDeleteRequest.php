@@ -22,15 +22,15 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderFileRepositoryDeviceUserDeleteRequest extends ComplexType implements ComplexInterface
 {
-    public    $name               = 'ServiceProviderFileRepositoryDeviceUserDeleteRequest';
-    protected $serviceProviderId  = null;
-    protected $fileRepositoryName = null;
-    protected $userName           = null;
+    public    $name = 'ServiceProviderFileRepositoryDeviceUserDeleteRequest';
+    protected $serviceProviderId;
+    protected $fileRepositoryName;
+    protected $userName;
 
     public function __construct(
-         $serviceProviderId,
-         $fileRepositoryName,
-         $userName
+         $serviceProviderId = '',
+         $fileRepositoryName = '',
+         $userName = ''
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setFileRepositoryName($fileRepositoryName);
@@ -50,7 +50,6 @@ class ServiceProviderFileRepositoryDeviceUserDeleteRequest extends ComplexType i
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
-        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
@@ -64,7 +63,7 @@ class ServiceProviderFileRepositoryDeviceUserDeleteRequest extends ComplexType i
      */
     public function getServiceProviderId()
     {
-        return $this->serviceProviderId->getValue();
+        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
     }
 
     /**
@@ -72,7 +71,6 @@ class ServiceProviderFileRepositoryDeviceUserDeleteRequest extends ComplexType i
      */
     public function setFileRepositoryName($fileRepositoryName = null)
     {
-        if (!$fileRepositoryName) return $this;
         $this->fileRepositoryName = ($fileRepositoryName InstanceOf FileRepositoryName)
              ? $fileRepositoryName
              : new FileRepositoryName($fileRepositoryName);
@@ -86,7 +84,7 @@ class ServiceProviderFileRepositoryDeviceUserDeleteRequest extends ComplexType i
      */
     public function getFileRepositoryName()
     {
-        return $this->fileRepositoryName->getValue();
+        return ($this->fileRepositoryName) ? $this->fileRepositoryName->getValue() : null;
     }
 
     /**
@@ -94,7 +92,6 @@ class ServiceProviderFileRepositoryDeviceUserDeleteRequest extends ComplexType i
      */
     public function setUserName($userName = null)
     {
-        if (!$userName) return $this;
         $this->userName = ($userName InstanceOf FileRepositoryUserName)
              ? $userName
              : new FileRepositoryUserName($userName);
@@ -108,6 +105,6 @@ class ServiceProviderFileRepositoryDeviceUserDeleteRequest extends ComplexType i
      */
     public function getUserName()
     {
-        return $this->userName->getValue();
+        return ($this->userName) ? $this->userName->getValue() : null;
     }
 }

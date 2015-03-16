@@ -19,20 +19,20 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class CallCenterMediaOnHoldSourceRead16 extends ComplexType implements ComplexInterface
 {
-    public    $name                        = 'CallCenterMediaOnHoldSourceRead16';
-    protected $audioMessageSourceSelection = null;
-    protected $audioFileUrl                = null;
-    protected $audioFileDescription        = null;
-    protected $audioFileMediaType          = null;
-    protected $externalAudioSource         = null;
-    protected $videoMessageSourceSelection = null;
-    protected $videoFileUrl                = null;
-    protected $videoFileDescription        = null;
-    protected $videoFileMediaType          = null;
-    protected $externalVideoSource         = null;
+    public    $name = 'CallCenterMediaOnHoldSourceRead16';
+    protected $audioMessageSourceSelection;
+    protected $audioFileUrl;
+    protected $audioFileDescription;
+    protected $audioFileMediaType;
+    protected $externalAudioSource;
+    protected $videoMessageSourceSelection;
+    protected $videoFileUrl;
+    protected $videoFileDescription;
+    protected $videoFileMediaType;
+    protected $externalVideoSource;
 
     public function __construct(
-         $audioMessageSourceSelection,
+         $audioMessageSourceSelection = '',
          $audioFileUrl = null,
          $audioFileDescription = null,
          $audioFileMediaType = null,
@@ -68,7 +68,6 @@ class CallCenterMediaOnHoldSourceRead16 extends ComplexType implements ComplexIn
      */
     public function setAudioMessageSourceSelection($audioMessageSourceSelection = null)
     {
-        if (!$audioMessageSourceSelection) return $this;
         $this->audioMessageSourceSelection = new SimpleContent($audioMessageSourceSelection);
         $this->audioMessageSourceSelection->setName('audioMessageSourceSelection');
         return $this;
@@ -80,7 +79,7 @@ class CallCenterMediaOnHoldSourceRead16 extends ComplexType implements ComplexIn
      */
     public function getAudioMessageSourceSelection()
     {
-        return $this->audioMessageSourceSelection->getValue();
+        return ($this->audioMessageSourceSelection) ? $this->audioMessageSourceSelection->getValue() : null;
     }
 
     /**
@@ -88,7 +87,6 @@ class CallCenterMediaOnHoldSourceRead16 extends ComplexType implements ComplexIn
      */
     public function setAudioFileUrl($audioFileUrl = null)
     {
-        if (!$audioFileUrl) return $this;
         $this->audioFileUrl = new SimpleContent($audioFileUrl);
         $this->audioFileUrl->setName('audioFileUrl');
         return $this;
@@ -100,7 +98,7 @@ class CallCenterMediaOnHoldSourceRead16 extends ComplexType implements ComplexIn
      */
     public function getAudioFileUrl()
     {
-        return $this->audioFileUrl->getValue();
+        return ($this->audioFileUrl) ? $this->audioFileUrl->getValue() : null;
     }
 
     /**
@@ -108,7 +106,6 @@ class CallCenterMediaOnHoldSourceRead16 extends ComplexType implements ComplexIn
      */
     public function setAudioFileDescription($audioFileDescription = null)
     {
-        if (!$audioFileDescription) return $this;
         $this->audioFileDescription = new SimpleContent($audioFileDescription);
         $this->audioFileDescription->setName('audioFileDescription');
         return $this;
@@ -120,7 +117,7 @@ class CallCenterMediaOnHoldSourceRead16 extends ComplexType implements ComplexIn
      */
     public function getAudioFileDescription()
     {
-        return $this->audioFileDescription->getValue();
+        return ($this->audioFileDescription) ? $this->audioFileDescription->getValue() : null;
     }
 
     /**
@@ -128,7 +125,6 @@ class CallCenterMediaOnHoldSourceRead16 extends ComplexType implements ComplexIn
      */
     public function setAudioFileMediaType($audioFileMediaType = null)
     {
-        if (!$audioFileMediaType) return $this;
         $this->audioFileMediaType = new SimpleContent($audioFileMediaType);
         $this->audioFileMediaType->setName('audioFileMediaType');
         return $this;
@@ -140,7 +136,7 @@ class CallCenterMediaOnHoldSourceRead16 extends ComplexType implements ComplexIn
      */
     public function getAudioFileMediaType()
     {
-        return $this->audioFileMediaType->getValue();
+        return ($this->audioFileMediaType) ? $this->audioFileMediaType->getValue() : null;
     }
 
     /**
@@ -148,7 +144,6 @@ class CallCenterMediaOnHoldSourceRead16 extends ComplexType implements ComplexIn
      */
     public function setExternalAudioSource($externalAudioSource = null)
     {
-        if (!$externalAudioSource) return $this;
         $this->externalAudioSource = new SimpleContent($externalAudioSource);
         $this->externalAudioSource->setName('externalAudioSource');
         return $this;
@@ -160,7 +155,7 @@ class CallCenterMediaOnHoldSourceRead16 extends ComplexType implements ComplexIn
      */
     public function getExternalAudioSource()
     {
-        return $this->externalAudioSource->getValue();
+        return ($this->externalAudioSource) ? $this->externalAudioSource->getValue() : null;
     }
 
     /**
@@ -168,7 +163,6 @@ class CallCenterMediaOnHoldSourceRead16 extends ComplexType implements ComplexIn
      */
     public function setVideoMessageSourceSelection($videoMessageSourceSelection = null)
     {
-        if (!$videoMessageSourceSelection) return $this;
         $this->videoMessageSourceSelection = new SimpleContent($videoMessageSourceSelection);
         $this->videoMessageSourceSelection->setName('videoMessageSourceSelection');
         return $this;
@@ -180,7 +174,7 @@ class CallCenterMediaOnHoldSourceRead16 extends ComplexType implements ComplexIn
      */
     public function getVideoMessageSourceSelection()
     {
-        return $this->videoMessageSourceSelection->getValue();
+        return ($this->videoMessageSourceSelection) ? $this->videoMessageSourceSelection->getValue() : null;
     }
 
     /**
@@ -188,7 +182,6 @@ class CallCenterMediaOnHoldSourceRead16 extends ComplexType implements ComplexIn
      */
     public function setVideoFileUrl($videoFileUrl = null)
     {
-        if (!$videoFileUrl) return $this;
         $this->videoFileUrl = new SimpleContent($videoFileUrl);
         $this->videoFileUrl->setName('videoFileUrl');
         return $this;
@@ -200,7 +193,7 @@ class CallCenterMediaOnHoldSourceRead16 extends ComplexType implements ComplexIn
      */
     public function getVideoFileUrl()
     {
-        return $this->videoFileUrl->getValue();
+        return ($this->videoFileUrl) ? $this->videoFileUrl->getValue() : null;
     }
 
     /**
@@ -208,7 +201,6 @@ class CallCenterMediaOnHoldSourceRead16 extends ComplexType implements ComplexIn
      */
     public function setVideoFileDescription($videoFileDescription = null)
     {
-        if (!$videoFileDescription) return $this;
         $this->videoFileDescription = new SimpleContent($videoFileDescription);
         $this->videoFileDescription->setName('videoFileDescription');
         return $this;
@@ -220,7 +212,7 @@ class CallCenterMediaOnHoldSourceRead16 extends ComplexType implements ComplexIn
      */
     public function getVideoFileDescription()
     {
-        return $this->videoFileDescription->getValue();
+        return ($this->videoFileDescription) ? $this->videoFileDescription->getValue() : null;
     }
 
     /**
@@ -228,7 +220,6 @@ class CallCenterMediaOnHoldSourceRead16 extends ComplexType implements ComplexIn
      */
     public function setVideoFileMediaType($videoFileMediaType = null)
     {
-        if (!$videoFileMediaType) return $this;
         $this->videoFileMediaType = new SimpleContent($videoFileMediaType);
         $this->videoFileMediaType->setName('videoFileMediaType');
         return $this;
@@ -240,7 +231,7 @@ class CallCenterMediaOnHoldSourceRead16 extends ComplexType implements ComplexIn
      */
     public function getVideoFileMediaType()
     {
-        return $this->videoFileMediaType->getValue();
+        return ($this->videoFileMediaType) ? $this->videoFileMediaType->getValue() : null;
     }
 
     /**
@@ -248,7 +239,6 @@ class CallCenterMediaOnHoldSourceRead16 extends ComplexType implements ComplexIn
      */
     public function setExternalVideoSource($externalVideoSource = null)
     {
-        if (!$externalVideoSource) return $this;
         $this->externalVideoSource = new SimpleContent($externalVideoSource);
         $this->externalVideoSource->setName('externalVideoSource');
         return $this;
@@ -260,6 +250,6 @@ class CallCenterMediaOnHoldSourceRead16 extends ComplexType implements ComplexIn
      */
     public function getExternalVideoSource()
     {
-        return $this->externalVideoSource->getValue();
+        return ($this->externalVideoSource) ? $this->externalVideoSource->getValue() : null;
     }
 }

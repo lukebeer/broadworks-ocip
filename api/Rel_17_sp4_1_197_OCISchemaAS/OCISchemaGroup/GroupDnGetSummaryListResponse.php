@@ -24,8 +24,8 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupDnGetSummaryListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name    = 'GroupDnGetSummaryListResponse';
-    protected $dnTable = null;
+    public    $name = 'GroupDnGetSummaryListResponse';
+    protected $dnTable;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupDnGetSummaryListResponse $response
@@ -40,7 +40,6 @@ class GroupDnGetSummaryListResponse extends ComplexType implements ComplexInterf
      */
     public function setDnTable(TableType $dnTable = null)
     {
-        if (!$dnTable) return $this;
         $this->dnTable = $dnTable;
         $this->dnTable->setName('dnTable');
         return $this;

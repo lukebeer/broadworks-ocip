@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
 class GroupCallPickupGetInstanceListResponse extends ComplexType implements ComplexInterface
 {
     public    $name = 'GroupCallPickupGetInstanceListResponse';
-    protected $name = null;
+    protected $name;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallPickup\GroupCallPickupGetInstanceListResponse $response
@@ -35,7 +35,6 @@ class GroupCallPickupGetInstanceListResponse extends ComplexType implements Comp
      */
     public function setName($name = null)
     {
-        if (!$name) return $this;
         $this->name = ($name InstanceOf ServiceInstanceName)
              ? $name
              : new ServiceInstanceName($name);
@@ -49,6 +48,6 @@ class GroupCallPickupGetInstanceListResponse extends ComplexType implements Comp
      */
     public function getName()
     {
-        return $this->name->getValue();
+        return ($this->name) ? $this->name->getValue() : null;
     }
 }

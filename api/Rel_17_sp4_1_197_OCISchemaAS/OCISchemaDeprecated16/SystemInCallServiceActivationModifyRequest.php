@@ -21,8 +21,8 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemInCallServiceActivationModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                    = 'SystemInCallServiceActivationModifyRequest';
-    protected $defaultActivationDigits = null;
+    public    $name = 'SystemInCallServiceActivationModifyRequest';
+    protected $defaultActivationDigits;
 
     public function __construct(
          $defaultActivationDigits = null
@@ -43,7 +43,6 @@ class SystemInCallServiceActivationModifyRequest extends ComplexType implements 
      */
     public function setDefaultActivationDigits($defaultActivationDigits = null)
     {
-        if (!$defaultActivationDigits) return $this;
         $this->defaultActivationDigits = ($defaultActivationDigits InstanceOf InCallServiceActivationDigits)
              ? $defaultActivationDigits
              : new InCallServiceActivationDigits($defaultActivationDigits);
@@ -57,6 +56,6 @@ class SystemInCallServiceActivationModifyRequest extends ComplexType implements 
      */
     public function getDefaultActivationDigits()
     {
-        return $this->defaultActivationDigits->getValue();
+        return ($this->defaultActivationDigits) ? $this->defaultActivationDigits->getValue() : null;
     }
 }

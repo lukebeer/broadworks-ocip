@@ -20,12 +20,12 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class CommPilotExpressSRRedirection extends ComplexType implements ComplexInterface
 {
-    public    $name                  = 'CommPilotExpressSRRedirection';
-    protected $action                = null;
-    protected $forwardingPhoneNumber = null;
+    public    $name = 'CommPilotExpressSRRedirection';
+    protected $action;
+    protected $forwardingPhoneNumber;
 
     public function __construct(
-         $action,
+         $action = '',
          $forwardingPhoneNumber = null
     ) {
         $this->setAction($action);
@@ -45,7 +45,6 @@ class CommPilotExpressSRRedirection extends ComplexType implements ComplexInterf
      */
     public function setAction($action = null)
     {
-        if (!$action) return $this;
         $this->action = new SimpleContent($action);
         $this->action->setName('action');
         return $this;
@@ -57,7 +56,7 @@ class CommPilotExpressSRRedirection extends ComplexType implements ComplexInterf
      */
     public function getAction()
     {
-        return $this->action->getValue();
+        return ($this->action) ? $this->action->getValue() : null;
     }
 
     /**
@@ -65,7 +64,6 @@ class CommPilotExpressSRRedirection extends ComplexType implements ComplexInterf
      */
     public function setForwardingPhoneNumber($forwardingPhoneNumber = null)
     {
-        if (!$forwardingPhoneNumber) return $this;
         $this->forwardingPhoneNumber = new SimpleContent($forwardingPhoneNumber);
         $this->forwardingPhoneNumber->setName('forwardingPhoneNumber');
         return $this;
@@ -77,6 +75,6 @@ class CommPilotExpressSRRedirection extends ComplexType implements ComplexInterf
      */
     public function getForwardingPhoneNumber()
     {
-        return $this->forwardingPhoneNumber->getValue();
+        return ($this->forwardingPhoneNumber) ? $this->forwardingPhoneNumber->getValue() : null;
     }
 }

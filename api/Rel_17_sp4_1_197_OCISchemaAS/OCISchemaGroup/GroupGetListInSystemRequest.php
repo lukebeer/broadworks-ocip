@@ -26,11 +26,11 @@ use Broadworks_OCIP\core\Client\Client;
 class GroupGetListInSystemRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType                       = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupGetListInSystemResponse';
-    public    $name                               = 'GroupGetListInSystemRequest';
-    protected $responseSizeLimit                  = null;
-    protected $searchCriteriaGroupId              = null;
-    protected $searchCriteriaGroupName            = null;
-    protected $searchCriteriaExactServiceProvider = null;
+    public    $name = 'GroupGetListInSystemRequest';
+    protected $responseSizeLimit;
+    protected $searchCriteriaGroupId;
+    protected $searchCriteriaGroupName;
+    protected $searchCriteriaExactServiceProvider;
 
     public function __construct(
          $responseSizeLimit = null,
@@ -57,7 +57,6 @@ class GroupGetListInSystemRequest extends ComplexType implements ComplexInterfac
      */
     public function setResponseSizeLimit($responseSizeLimit = null)
     {
-        if (!$responseSizeLimit) return $this;
         $this->responseSizeLimit = ($responseSizeLimit InstanceOf ResponseSizeLimit)
              ? $responseSizeLimit
              : new ResponseSizeLimit($responseSizeLimit);
@@ -71,7 +70,7 @@ class GroupGetListInSystemRequest extends ComplexType implements ComplexInterfac
      */
     public function getResponseSizeLimit()
     {
-        return $this->responseSizeLimit->getValue();
+        return ($this->responseSizeLimit) ? $this->responseSizeLimit->getValue() : null;
     }
 
     /**
@@ -79,7 +78,6 @@ class GroupGetListInSystemRequest extends ComplexType implements ComplexInterfac
      */
     public function setSearchCriteriaGroupId(SearchCriteriaGroupId $searchCriteriaGroupId = null)
     {
-        if (!$searchCriteriaGroupId) return $this;
         $this->searchCriteriaGroupId = ($searchCriteriaGroupId InstanceOf SearchCriteriaGroupId)
              ? $searchCriteriaGroupId
              : new SearchCriteriaGroupId($searchCriteriaGroupId);
@@ -101,7 +99,6 @@ class GroupGetListInSystemRequest extends ComplexType implements ComplexInterfac
      */
     public function setSearchCriteriaGroupName(SearchCriteriaGroupName $searchCriteriaGroupName = null)
     {
-        if (!$searchCriteriaGroupName) return $this;
         $this->searchCriteriaGroupName = ($searchCriteriaGroupName InstanceOf SearchCriteriaGroupName)
              ? $searchCriteriaGroupName
              : new SearchCriteriaGroupName($searchCriteriaGroupName);
@@ -123,7 +120,6 @@ class GroupGetListInSystemRequest extends ComplexType implements ComplexInterfac
      */
     public function setSearchCriteriaExactServiceProvider(SearchCriteriaExactServiceProvider $searchCriteriaExactServiceProvider = null)
     {
-        if (!$searchCriteriaExactServiceProvider) return $this;
         $this->searchCriteriaExactServiceProvider = ($searchCriteriaExactServiceProvider InstanceOf SearchCriteriaExactServiceProvider)
              ? $searchCriteriaExactServiceProvider
              : new SearchCriteriaExactServiceProvider($searchCriteriaExactServiceProvider);

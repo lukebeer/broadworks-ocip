@@ -22,10 +22,10 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserCallForwardingSelectiveGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                        = 'UserCallForwardingSelectiveGetResponse';
-    protected $defaultForwardToPhoneNumber = null;
-    protected $playRingReminder            = null;
-    protected $criteriaTable               = null;
+    public    $name = 'UserCallForwardingSelectiveGetResponse';
+    protected $defaultForwardToPhoneNumber;
+    protected $playRingReminder;
+    protected $criteriaTable;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15\UserCallForwardingSelectiveGetResponse $response
@@ -40,7 +40,6 @@ class UserCallForwardingSelectiveGetResponse extends ComplexType implements Comp
      */
     public function setDefaultForwardToPhoneNumber($defaultForwardToPhoneNumber = null)
     {
-        if (!$defaultForwardToPhoneNumber) return $this;
         $this->defaultForwardToPhoneNumber = ($defaultForwardToPhoneNumber InstanceOf OutgoingDNorSIPURI)
              ? $defaultForwardToPhoneNumber
              : new OutgoingDNorSIPURI($defaultForwardToPhoneNumber);
@@ -54,7 +53,7 @@ class UserCallForwardingSelectiveGetResponse extends ComplexType implements Comp
      */
     public function getDefaultForwardToPhoneNumber()
     {
-        return $this->defaultForwardToPhoneNumber->getValue();
+        return ($this->defaultForwardToPhoneNumber) ? $this->defaultForwardToPhoneNumber->getValue() : null;
     }
 
     /**
@@ -62,7 +61,6 @@ class UserCallForwardingSelectiveGetResponse extends ComplexType implements Comp
      */
     public function setPlayRingReminder($playRingReminder = null)
     {
-        if (!$playRingReminder) return $this;
         $this->playRingReminder = new PrimitiveType($playRingReminder);
         $this->playRingReminder->setName('playRingReminder');
         return $this;
@@ -74,7 +72,7 @@ class UserCallForwardingSelectiveGetResponse extends ComplexType implements Comp
      */
     public function getPlayRingReminder()
     {
-        return $this->playRingReminder->getValue();
+        return ($this->playRingReminder) ? $this->playRingReminder->getValue() : null;
     }
 
     /**
@@ -82,7 +80,6 @@ class UserCallForwardingSelectiveGetResponse extends ComplexType implements Comp
      */
     public function setCriteriaTable(TableType $criteriaTable = null)
     {
-        if (!$criteriaTable) return $this;
         $this->criteriaTable = $criteriaTable;
         $this->criteriaTable->setName('criteriaTable');
         return $this;

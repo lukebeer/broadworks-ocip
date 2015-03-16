@@ -23,12 +23,12 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserCommPilotExpressSRGetResponse13mp16 extends ComplexType implements ComplexInterface
 {
-    public    $name                 = 'UserCommPilotExpressSRGetResponse13mp16';
-    protected $profile              = null;
-    protected $availableInOffice    = null;
-    protected $availableOutOfOffice = null;
-    protected $busy                 = null;
-    protected $unavailable          = null;
+    public    $name = 'UserCommPilotExpressSRGetResponse13mp16';
+    protected $profile;
+    protected $availableInOffice;
+    protected $availableOutOfOffice;
+    protected $busy;
+    protected $unavailable;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCommPilotExpressSR\UserCommPilotExpressSRGetResponse13mp16 $response
@@ -43,7 +43,6 @@ class UserCommPilotExpressSRGetResponse13mp16 extends ComplexType implements Com
      */
     public function setProfile($profile = null)
     {
-        if (!$profile) return $this;
         $this->profile = ($profile InstanceOf CommPilotExpressSRProfile)
              ? $profile
              : new CommPilotExpressSRProfile($profile);
@@ -57,7 +56,7 @@ class UserCommPilotExpressSRGetResponse13mp16 extends ComplexType implements Com
      */
     public function getProfile()
     {
-        return $this->profile->getValue();
+        return ($this->profile) ? $this->profile->getValue() : null;
     }
 
     /**
@@ -65,8 +64,9 @@ class UserCommPilotExpressSRGetResponse13mp16 extends ComplexType implements Com
      */
     public function setAvailableInOffice(CommPilotExpressSRAvailableInOffice $availableInOffice = null)
     {
-        if (!$availableInOffice) return $this;
-        $this->availableInOffice = $availableInOffice;
+        $this->availableInOffice = ($availableInOffice InstanceOf CommPilotExpressSRAvailableInOffice)
+             ? $availableInOffice
+             : new CommPilotExpressSRAvailableInOffice($availableInOffice);
         $this->availableInOffice->setName('availableInOffice');
         return $this;
     }
@@ -85,8 +85,9 @@ class UserCommPilotExpressSRGetResponse13mp16 extends ComplexType implements Com
      */
     public function setAvailableOutOfOffice(CommPilotExpressSRAvailableOutOfOffice $availableOutOfOffice = null)
     {
-        if (!$availableOutOfOffice) return $this;
-        $this->availableOutOfOffice = $availableOutOfOffice;
+        $this->availableOutOfOffice = ($availableOutOfOffice InstanceOf CommPilotExpressSRAvailableOutOfOffice)
+             ? $availableOutOfOffice
+             : new CommPilotExpressSRAvailableOutOfOffice($availableOutOfOffice);
         $this->availableOutOfOffice->setName('availableOutOfOffice');
         return $this;
     }
@@ -105,8 +106,9 @@ class UserCommPilotExpressSRGetResponse13mp16 extends ComplexType implements Com
      */
     public function setBusy(CommPilotExpressSRBusy $busy = null)
     {
-        if (!$busy) return $this;
-        $this->busy = $busy;
+        $this->busy = ($busy InstanceOf CommPilotExpressSRBusy)
+             ? $busy
+             : new CommPilotExpressSRBusy($busy);
         $this->busy->setName('busy');
         return $this;
     }
@@ -125,8 +127,9 @@ class UserCommPilotExpressSRGetResponse13mp16 extends ComplexType implements Com
      */
     public function setUnavailable(CommPilotExpressSRUnavailable $unavailable = null)
     {
-        if (!$unavailable) return $this;
-        $this->unavailable = $unavailable;
+        $this->unavailable = ($unavailable InstanceOf CommPilotExpressSRUnavailable)
+             ? $unavailable
+             : new CommPilotExpressSRUnavailable($unavailable);
         $this->unavailable->setName('unavailable');
         return $this;
     }

@@ -19,8 +19,8 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemOutgoingCallingPlanCallTypeGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name     = 'SystemOutgoingCallingPlanCallTypeGetListResponse';
-    protected $callType = null;
+    public    $name = 'SystemOutgoingCallingPlanCallTypeGetListResponse';
+    protected $callType;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceOutgoingCallingPlan\SystemOutgoingCallingPlanCallTypeGetListResponse $response
@@ -35,7 +35,6 @@ class SystemOutgoingCallingPlanCallTypeGetListResponse extends ComplexType imple
      */
     public function setCallType($callType = null)
     {
-        if (!$callType) return $this;
         $this->callType = ($callType InstanceOf OutgoingCallingPlanCallType)
              ? $callType
              : new OutgoingCallingPlanCallType($callType);
@@ -49,6 +48,6 @@ class SystemOutgoingCallingPlanCallTypeGetListResponse extends ComplexType imple
      */
     public function getCallType()
     {
-        return $this->callType->getValue();
+        return ($this->callType) ? $this->callType->getValue() : null;
     }
 }

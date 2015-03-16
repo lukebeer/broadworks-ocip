@@ -19,9 +19,9 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserINIntegrationGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                  = 'UserINIntegrationGetResponse';
-    protected $originatingServiceKey = null;
-    protected $terminatingServiceKey = null;
+    public    $name = 'UserINIntegrationGetResponse';
+    protected $originatingServiceKey;
+    protected $terminatingServiceKey;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceINIntegration\UserINIntegrationGetResponse $response
@@ -36,7 +36,6 @@ class UserINIntegrationGetResponse extends ComplexType implements ComplexInterfa
      */
     public function setOriginatingServiceKey($originatingServiceKey = null)
     {
-        if (!$originatingServiceKey) return $this;
         $this->originatingServiceKey = ($originatingServiceKey InstanceOf MobilityManagerServiceKey)
              ? $originatingServiceKey
              : new MobilityManagerServiceKey($originatingServiceKey);
@@ -50,7 +49,7 @@ class UserINIntegrationGetResponse extends ComplexType implements ComplexInterfa
      */
     public function getOriginatingServiceKey()
     {
-        return $this->originatingServiceKey->getValue();
+        return ($this->originatingServiceKey) ? $this->originatingServiceKey->getValue() : null;
     }
 
     /**
@@ -58,7 +57,6 @@ class UserINIntegrationGetResponse extends ComplexType implements ComplexInterfa
      */
     public function setTerminatingServiceKey($terminatingServiceKey = null)
     {
-        if (!$terminatingServiceKey) return $this;
         $this->terminatingServiceKey = ($terminatingServiceKey InstanceOf MobilityManagerServiceKey)
              ? $terminatingServiceKey
              : new MobilityManagerServiceKey($terminatingServiceKey);
@@ -72,6 +70,6 @@ class UserINIntegrationGetResponse extends ComplexType implements ComplexInterfa
      */
     public function getTerminatingServiceKey()
     {
-        return $this->terminatingServiceKey->getValue();
+        return ($this->terminatingServiceKey) ? $this->terminatingServiceKey->getValue() : null;
     }
 }

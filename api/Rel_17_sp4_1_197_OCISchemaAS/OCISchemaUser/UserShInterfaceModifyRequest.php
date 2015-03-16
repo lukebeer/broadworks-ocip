@@ -22,13 +22,13 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserShInterfaceModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name               = 'UserShInterfaceModifyRequest';
-    protected $publicUserIdentity = null;
-    protected $SCSCFName          = null;
-    protected $IMSUserState       = null;
+    public    $name = 'UserShInterfaceModifyRequest';
+    protected $publicUserIdentity;
+    protected $SCSCFName;
+    protected $IMSUserState;
 
     public function __construct(
-         PublicUserIdentity $publicUserIdentity,
+         PublicUserIdentity $publicUserIdentity = '',
          $SCSCFName = null,
          $IMSUserState = null
     ) {
@@ -50,8 +50,9 @@ class UserShInterfaceModifyRequest extends ComplexType implements ComplexInterfa
      */
     public function setPublicUserIdentity(PublicUserIdentity $publicUserIdentity = null)
     {
-        if (!$publicUserIdentity) return $this;
-        $this->publicUserIdentity = $publicUserIdentity;
+        $this->publicUserIdentity = ($publicUserIdentity InstanceOf PublicUserIdentity)
+             ? $publicUserIdentity
+             : new PublicUserIdentity($publicUserIdentity);
         $this->publicUserIdentity->setName('publicUserIdentity');
         return $this;
     }
@@ -70,7 +71,6 @@ class UserShInterfaceModifyRequest extends ComplexType implements ComplexInterfa
      */
     public function setSCSCFName($SCSCFName = null)
     {
-        if (!$SCSCFName) return $this;
         $this->SCSCFName = ($SCSCFName InstanceOf SIPURI)
              ? $SCSCFName
              : new SIPURI($SCSCFName);
@@ -84,7 +84,7 @@ class UserShInterfaceModifyRequest extends ComplexType implements ComplexInterfa
      */
     public function getSCSCFName()
     {
-        return $this->SCSCFName->getValue();
+        return ($this->SCSCFName) ? $this->SCSCFName->getValue() : null;
     }
 
     /**
@@ -92,7 +92,6 @@ class UserShInterfaceModifyRequest extends ComplexType implements ComplexInterfa
      */
     public function setIMSUserState($IMSUserState = null)
     {
-        if (!$IMSUserState) return $this;
         $this->IMSUserState = ($IMSUserState InstanceOf IMSUserState)
              ? $IMSUserState
              : new IMSUserState($IMSUserState);
@@ -106,6 +105,6 @@ class UserShInterfaceModifyRequest extends ComplexType implements ComplexInterfa
      */
     public function getIMSUserState()
     {
-        return $this->IMSUserState->getValue();
+        return ($this->IMSUserState) ? $this->IMSUserState->getValue() : null;
     }
 }

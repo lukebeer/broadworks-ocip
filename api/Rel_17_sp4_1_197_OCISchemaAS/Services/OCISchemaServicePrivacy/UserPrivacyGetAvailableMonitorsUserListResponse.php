@@ -22,8 +22,8 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserPrivacyGetAvailableMonitorsUserListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                   = 'UserPrivacyGetAvailableMonitorsUserListResponse';
-    protected $availableMonitorsTable = null;
+    public    $name = 'UserPrivacyGetAvailableMonitorsUserListResponse';
+    protected $availableMonitorsTable;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServicePrivacy\UserPrivacyGetAvailableMonitorsUserListResponse $response
@@ -38,7 +38,6 @@ class UserPrivacyGetAvailableMonitorsUserListResponse extends ComplexType implem
      */
     public function setAvailableMonitorsTable(TableType $availableMonitorsTable = null)
     {
-        if (!$availableMonitorsTable) return $this;
         $this->availableMonitorsTable = $availableMonitorsTable;
         $this->availableMonitorsTable->setName('availableMonitorsTable');
         return $this;

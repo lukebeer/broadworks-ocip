@@ -21,11 +21,11 @@ use Broadworks_OCIP\core\Client\Client;
 class UserHotelingGuestGetRequest14sp4 extends ComplexType implements ComplexInterface
 {
     public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceHotelingGuest\UserHotelingGuestGetResponse14sp4';
-    public    $name   = 'UserHotelingGuestGetRequest14sp4';
-    protected $userId = null;
+    public    $name = 'UserHotelingGuestGetRequest14sp4';
+    protected $userId;
 
     public function __construct(
-         $userId
+         $userId = ''
     ) {
         $this->setUserId($userId);
     }
@@ -43,7 +43,6 @@ class UserHotelingGuestGetRequest14sp4 extends ComplexType implements ComplexInt
      */
     public function setUserId($userId = null)
     {
-        if (!$userId) return $this;
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
@@ -57,6 +56,6 @@ class UserHotelingGuestGetRequest14sp4 extends ComplexType implements ComplexInt
      */
     public function getUserId()
     {
-        return $this->userId->getValue();
+        return ($this->userId) ? $this->userId->getValue() : null;
     }
 }

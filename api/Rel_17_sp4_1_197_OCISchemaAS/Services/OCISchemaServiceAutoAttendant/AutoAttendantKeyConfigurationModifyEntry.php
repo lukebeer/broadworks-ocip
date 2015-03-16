@@ -19,14 +19,14 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class AutoAttendantKeyConfigurationModifyEntry extends ComplexType implements ComplexInterface
 {
-    public    $name        = 'AutoAttendantKeyConfigurationModifyEntry';
-    protected $description = null;
-    protected $action      = null;
-    protected $phoneNumber = null;
+    public    $name = 'AutoAttendantKeyConfigurationModifyEntry';
+    protected $description;
+    protected $action;
+    protected $phoneNumber;
 
     public function __construct(
          $description = null,
-         $action,
+         $action = '',
          $phoneNumber = null
     ) {
         $this->setDescription($description);
@@ -47,7 +47,6 @@ class AutoAttendantKeyConfigurationModifyEntry extends ComplexType implements Co
      */
     public function setDescription($description = null)
     {
-        if (!$description) return $this;
         $this->description = new SimpleContent($description);
         $this->description->setName('description');
         return $this;
@@ -59,7 +58,7 @@ class AutoAttendantKeyConfigurationModifyEntry extends ComplexType implements Co
      */
     public function getDescription()
     {
-        return $this->description->getValue();
+        return ($this->description) ? $this->description->getValue() : null;
     }
 
     /**
@@ -67,7 +66,6 @@ class AutoAttendantKeyConfigurationModifyEntry extends ComplexType implements Co
      */
     public function setAction($action = null)
     {
-        if (!$action) return $this;
         $this->action = new SimpleContent($action);
         $this->action->setName('action');
         return $this;
@@ -79,7 +77,7 @@ class AutoAttendantKeyConfigurationModifyEntry extends ComplexType implements Co
      */
     public function getAction()
     {
-        return $this->action->getValue();
+        return ($this->action) ? $this->action->getValue() : null;
     }
 
     /**
@@ -87,7 +85,6 @@ class AutoAttendantKeyConfigurationModifyEntry extends ComplexType implements Co
      */
     public function setPhoneNumber($phoneNumber = null)
     {
-        if (!$phoneNumber) return $this;
         $this->phoneNumber = new SimpleContent($phoneNumber);
         $this->phoneNumber->setName('phoneNumber');
         return $this;
@@ -99,6 +96,6 @@ class AutoAttendantKeyConfigurationModifyEntry extends ComplexType implements Co
      */
     public function getPhoneNumber()
     {
-        return $this->phoneNumber->getValue();
+        return ($this->phoneNumber) ? $this->phoneNumber->getValue() : null;
     }
 }

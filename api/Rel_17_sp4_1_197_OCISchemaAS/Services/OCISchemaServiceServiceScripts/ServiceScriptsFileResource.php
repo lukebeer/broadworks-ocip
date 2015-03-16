@@ -19,13 +19,13 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceScriptsFileResource extends ComplexType implements ComplexInterface
 {
-    public    $name          = 'ServiceScriptsFileResource';
-    protected $fileName      = null;
-    protected $scriptContent = null;
+    public    $name = 'ServiceScriptsFileResource';
+    protected $fileName;
+    protected $scriptContent;
 
     public function __construct(
-         $fileName,
-         $scriptContent
+         $fileName = '',
+         $scriptContent = ''
     ) {
         $this->setFileName($fileName);
         $this->setScriptContent($scriptContent);
@@ -44,7 +44,6 @@ class ServiceScriptsFileResource extends ComplexType implements ComplexInterface
      */
     public function setFileName($fileName = null)
     {
-        if (!$fileName) return $this;
         $this->fileName = new SimpleContent($fileName);
         $this->fileName->setName('fileName');
         return $this;
@@ -56,7 +55,7 @@ class ServiceScriptsFileResource extends ComplexType implements ComplexInterface
      */
     public function getFileName()
     {
-        return $this->fileName->getValue();
+        return ($this->fileName) ? $this->fileName->getValue() : null;
     }
 
     /**
@@ -64,7 +63,6 @@ class ServiceScriptsFileResource extends ComplexType implements ComplexInterface
      */
     public function setScriptContent($scriptContent = null)
     {
-        if (!$scriptContent) return $this;
         $this->scriptContent = new SimpleContent($scriptContent);
         $this->scriptContent->setName('scriptContent');
         return $this;
@@ -76,6 +74,6 @@ class ServiceScriptsFileResource extends ComplexType implements ComplexInterface
      */
     public function getScriptContent()
     {
-        return $this->scriptContent->getValue();
+        return ($this->scriptContent) ? $this->scriptContent->getValue() : null;
     }
 }

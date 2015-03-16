@@ -19,10 +19,10 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class CommPilotExpressSRNoAnswerModify extends ComplexType implements ComplexInterface
 {
-    public    $name                 = 'CommPilotExpressSRNoAnswerModify';
-    protected $ringFowardNumbers    = null;
-    protected $forwardingNumberList = null;
-    protected $stillNoAnswer        = null;
+    public    $name = 'CommPilotExpressSRNoAnswerModify';
+    protected $ringFowardNumbers;
+    protected $forwardingNumberList;
+    protected $stillNoAnswer;
 
     public function __construct(
          $ringFowardNumbers = null,
@@ -47,7 +47,6 @@ class CommPilotExpressSRNoAnswerModify extends ComplexType implements ComplexInt
      */
     public function setRingFowardNumbers($ringFowardNumbers = null)
     {
-        if (!$ringFowardNumbers) return $this;
         $this->ringFowardNumbers = new SimpleContent($ringFowardNumbers);
         $this->ringFowardNumbers->setName('ringFowardNumbers');
         return $this;
@@ -59,7 +58,7 @@ class CommPilotExpressSRNoAnswerModify extends ComplexType implements ComplexInt
      */
     public function getRingFowardNumbers()
     {
-        return $this->ringFowardNumbers->getValue();
+        return ($this->ringFowardNumbers) ? $this->ringFowardNumbers->getValue() : null;
     }
 
     /**
@@ -67,7 +66,6 @@ class CommPilotExpressSRNoAnswerModify extends ComplexType implements ComplexInt
      */
     public function setForwardingNumberList($forwardingNumberList = null)
     {
-        if (!$forwardingNumberList) return $this;
         $this->forwardingNumberList = new SimpleContent($forwardingNumberList);
         $this->forwardingNumberList->setName('forwardingNumberList');
         return $this;
@@ -79,7 +77,7 @@ class CommPilotExpressSRNoAnswerModify extends ComplexType implements ComplexInt
      */
     public function getForwardingNumberList()
     {
-        return $this->forwardingNumberList->getValue();
+        return ($this->forwardingNumberList) ? $this->forwardingNumberList->getValue() : null;
     }
 
     /**
@@ -87,7 +85,6 @@ class CommPilotExpressSRNoAnswerModify extends ComplexType implements ComplexInt
      */
     public function setStillNoAnswer($stillNoAnswer = null)
     {
-        if (!$stillNoAnswer) return $this;
         $this->stillNoAnswer = new SimpleContent($stillNoAnswer);
         $this->stillNoAnswer->setName('stillNoAnswer');
         return $this;
@@ -99,6 +96,6 @@ class CommPilotExpressSRNoAnswerModify extends ComplexType implements ComplexInt
      */
     public function getStillNoAnswer()
     {
-        return $this->stillNoAnswer->getValue();
+        return ($this->stillNoAnswer) ? $this->stillNoAnswer->getValue() : null;
     }
 }

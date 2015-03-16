@@ -23,10 +23,10 @@ class SystemCommunicationBarringProfileGetRequest17sp3 extends ComplexType imple
 {
     public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemCommunicationBarringProfileGetResponse17sp3';
     public    $name = 'SystemCommunicationBarringProfileGetRequest17sp3';
-    protected $name = null;
+    protected $name;
 
     public function __construct(
-         $name
+         $name = ''
     ) {
         $this->setName($name);
     }
@@ -44,7 +44,6 @@ class SystemCommunicationBarringProfileGetRequest17sp3 extends ComplexType imple
      */
     public function setName($name = null)
     {
-        if (!$name) return $this;
         $this->name = ($name InstanceOf CommunicationBarringProfileName)
              ? $name
              : new CommunicationBarringProfileName($name);
@@ -58,6 +57,6 @@ class SystemCommunicationBarringProfileGetRequest17sp3 extends ComplexType imple
      */
     public function getName()
     {
-        return $this->name->getValue();
+        return ($this->name) ? $this->name->getValue() : null;
     }
 }

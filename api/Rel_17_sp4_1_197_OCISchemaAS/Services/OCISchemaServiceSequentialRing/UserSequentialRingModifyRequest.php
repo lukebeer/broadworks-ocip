@@ -24,21 +24,21 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserSequentialRingModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                         = 'UserSequentialRingModifyRequest';
-    protected $userId                       = null;
-    protected $ringBaseLocationFirst        = null;
-    protected $baseLocationNumberOfRings    = null;
-    protected $continueIfBaseLocationIsBusy = null;
-    protected $callerMayStopSearch          = null;
-    protected $Location01                   = null;
-    protected $Location02                   = null;
-    protected $Location03                   = null;
-    protected $Location04                   = null;
-    protected $Location05                   = null;
-    protected $criteriaActivation           = null;
+    public    $name = 'UserSequentialRingModifyRequest';
+    protected $userId;
+    protected $ringBaseLocationFirst;
+    protected $baseLocationNumberOfRings;
+    protected $continueIfBaseLocationIsBusy;
+    protected $callerMayStopSearch;
+    protected $Location01;
+    protected $Location02;
+    protected $Location03;
+    protected $Location04;
+    protected $Location05;
+    protected $criteriaActivation;
 
     public function __construct(
-         $userId,
+         $userId = '',
          $ringBaseLocationFirst = null,
          $baseLocationNumberOfRings = null,
          $continueIfBaseLocationIsBusy = null,
@@ -76,7 +76,6 @@ class UserSequentialRingModifyRequest extends ComplexType implements ComplexInte
      */
     public function setUserId($userId = null)
     {
-        if (!$userId) return $this;
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
@@ -90,7 +89,7 @@ class UserSequentialRingModifyRequest extends ComplexType implements ComplexInte
      */
     public function getUserId()
     {
-        return $this->userId->getValue();
+        return ($this->userId) ? $this->userId->getValue() : null;
     }
 
     /**
@@ -98,7 +97,6 @@ class UserSequentialRingModifyRequest extends ComplexType implements ComplexInte
      */
     public function setRingBaseLocationFirst($ringBaseLocationFirst = null)
     {
-        if (!$ringBaseLocationFirst) return $this;
         $this->ringBaseLocationFirst = new PrimitiveType($ringBaseLocationFirst);
         $this->ringBaseLocationFirst->setName('ringBaseLocationFirst');
         return $this;
@@ -110,7 +108,7 @@ class UserSequentialRingModifyRequest extends ComplexType implements ComplexInte
      */
     public function getRingBaseLocationFirst()
     {
-        return $this->ringBaseLocationFirst->getValue();
+        return ($this->ringBaseLocationFirst) ? $this->ringBaseLocationFirst->getValue() : null;
     }
 
     /**
@@ -118,7 +116,6 @@ class UserSequentialRingModifyRequest extends ComplexType implements ComplexInte
      */
     public function setBaseLocationNumberOfRings($baseLocationNumberOfRings = null)
     {
-        if (!$baseLocationNumberOfRings) return $this;
         $this->baseLocationNumberOfRings = ($baseLocationNumberOfRings InstanceOf SequentialRingNumberOfRings)
              ? $baseLocationNumberOfRings
              : new SequentialRingNumberOfRings($baseLocationNumberOfRings);
@@ -132,7 +129,7 @@ class UserSequentialRingModifyRequest extends ComplexType implements ComplexInte
      */
     public function getBaseLocationNumberOfRings()
     {
-        return $this->baseLocationNumberOfRings->getValue();
+        return ($this->baseLocationNumberOfRings) ? $this->baseLocationNumberOfRings->getValue() : null;
     }
 
     /**
@@ -140,7 +137,6 @@ class UserSequentialRingModifyRequest extends ComplexType implements ComplexInte
      */
     public function setContinueIfBaseLocationIsBusy($continueIfBaseLocationIsBusy = null)
     {
-        if (!$continueIfBaseLocationIsBusy) return $this;
         $this->continueIfBaseLocationIsBusy = new PrimitiveType($continueIfBaseLocationIsBusy);
         $this->continueIfBaseLocationIsBusy->setName('continueIfBaseLocationIsBusy');
         return $this;
@@ -152,7 +148,7 @@ class UserSequentialRingModifyRequest extends ComplexType implements ComplexInte
      */
     public function getContinueIfBaseLocationIsBusy()
     {
-        return $this->continueIfBaseLocationIsBusy->getValue();
+        return ($this->continueIfBaseLocationIsBusy) ? $this->continueIfBaseLocationIsBusy->getValue() : null;
     }
 
     /**
@@ -160,7 +156,6 @@ class UserSequentialRingModifyRequest extends ComplexType implements ComplexInte
      */
     public function setCallerMayStopSearch($callerMayStopSearch = null)
     {
-        if (!$callerMayStopSearch) return $this;
         $this->callerMayStopSearch = new PrimitiveType($callerMayStopSearch);
         $this->callerMayStopSearch->setName('callerMayStopSearch');
         return $this;
@@ -172,7 +167,7 @@ class UserSequentialRingModifyRequest extends ComplexType implements ComplexInte
      */
     public function getCallerMayStopSearch()
     {
-        return $this->callerMayStopSearch->getValue();
+        return ($this->callerMayStopSearch) ? $this->callerMayStopSearch->getValue() : null;
     }
 
     /**
@@ -180,8 +175,9 @@ class UserSequentialRingModifyRequest extends ComplexType implements ComplexInte
      */
     public function setLocation01(SequentialRingLocationModify $Location01 = null)
     {
-        if (!$Location01) return $this;
-        $this->Location01 = $Location01;
+        $this->Location01 = ($Location01 InstanceOf SequentialRingLocationModify)
+             ? $Location01
+             : new SequentialRingLocationModify($Location01);
         $this->Location01->setName('Location01');
         return $this;
     }
@@ -200,8 +196,9 @@ class UserSequentialRingModifyRequest extends ComplexType implements ComplexInte
      */
     public function setLocation02(SequentialRingLocationModify $Location02 = null)
     {
-        if (!$Location02) return $this;
-        $this->Location02 = $Location02;
+        $this->Location02 = ($Location02 InstanceOf SequentialRingLocationModify)
+             ? $Location02
+             : new SequentialRingLocationModify($Location02);
         $this->Location02->setName('Location02');
         return $this;
     }
@@ -220,8 +217,9 @@ class UserSequentialRingModifyRequest extends ComplexType implements ComplexInte
      */
     public function setLocation03(SequentialRingLocationModify $Location03 = null)
     {
-        if (!$Location03) return $this;
-        $this->Location03 = $Location03;
+        $this->Location03 = ($Location03 InstanceOf SequentialRingLocationModify)
+             ? $Location03
+             : new SequentialRingLocationModify($Location03);
         $this->Location03->setName('Location03');
         return $this;
     }
@@ -240,8 +238,9 @@ class UserSequentialRingModifyRequest extends ComplexType implements ComplexInte
      */
     public function setLocation04(SequentialRingLocationModify $Location04 = null)
     {
-        if (!$Location04) return $this;
-        $this->Location04 = $Location04;
+        $this->Location04 = ($Location04 InstanceOf SequentialRingLocationModify)
+             ? $Location04
+             : new SequentialRingLocationModify($Location04);
         $this->Location04->setName('Location04');
         return $this;
     }
@@ -260,8 +259,9 @@ class UserSequentialRingModifyRequest extends ComplexType implements ComplexInte
      */
     public function setLocation05(SequentialRingLocationModify $Location05 = null)
     {
-        if (!$Location05) return $this;
-        $this->Location05 = $Location05;
+        $this->Location05 = ($Location05 InstanceOf SequentialRingLocationModify)
+             ? $Location05
+             : new SequentialRingLocationModify($Location05);
         $this->Location05->setName('Location05');
         return $this;
     }
@@ -280,8 +280,9 @@ class UserSequentialRingModifyRequest extends ComplexType implements ComplexInte
      */
     public function setCriteriaActivation(CriteriaActivation $criteriaActivation = null)
     {
-        if (!$criteriaActivation) return $this;
-        $this->criteriaActivation = $criteriaActivation;
+        $this->criteriaActivation = ($criteriaActivation InstanceOf CriteriaActivation)
+             ? $criteriaActivation
+             : new CriteriaActivation($criteriaActivation);
         $this->criteriaActivation->setName('criteriaActivation');
         return $this;
     }

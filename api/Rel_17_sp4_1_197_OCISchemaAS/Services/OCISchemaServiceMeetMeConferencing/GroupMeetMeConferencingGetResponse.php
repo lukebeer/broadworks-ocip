@@ -19,9 +19,9 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupMeetMeConferencingGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name           = 'GroupMeetMeConferencingGetResponse';
-    protected $availablePorts = null;
-    protected $allocatedPorts = null;
+    public    $name = 'GroupMeetMeConferencingGetResponse';
+    protected $availablePorts;
+    protected $allocatedPorts;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceMeetMeConferencing\GroupMeetMeConferencingGetResponse $response
@@ -36,8 +36,9 @@ class GroupMeetMeConferencingGetResponse extends ComplexType implements ComplexI
      */
     public function setAvailablePorts(MeetMeConferencingConferencePorts $availablePorts = null)
     {
-        if (!$availablePorts) return $this;
-        $this->availablePorts = $availablePorts;
+        $this->availablePorts = ($availablePorts InstanceOf MeetMeConferencingConferencePorts)
+             ? $availablePorts
+             : new MeetMeConferencingConferencePorts($availablePorts);
         $this->availablePorts->setName('availablePorts');
         return $this;
     }
@@ -56,8 +57,9 @@ class GroupMeetMeConferencingGetResponse extends ComplexType implements ComplexI
      */
     public function setAllocatedPorts(MeetMeConferencingConferencePorts $allocatedPorts = null)
     {
-        if (!$allocatedPorts) return $this;
-        $this->allocatedPorts = $allocatedPorts;
+        $this->allocatedPorts = ($allocatedPorts InstanceOf MeetMeConferencingConferencePorts)
+             ? $allocatedPorts
+             : new MeetMeConferencingConferencePorts($allocatedPorts);
         $this->allocatedPorts->setName('allocatedPorts');
         return $this;
     }

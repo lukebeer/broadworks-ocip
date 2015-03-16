@@ -19,11 +19,11 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SearchCriteriaExactPolicySelection extends ComplexType implements ComplexInterface
 {
-    public    $name            = 'SearchCriteriaExactPolicySelection';
-    protected $policySelection = null;
+    public    $name = 'SearchCriteriaExactPolicySelection';
+    protected $policySelection;
 
     public function __construct(
-         $policySelection
+         $policySelection = ''
     ) {
         $this->setPolicySelection($policySelection);
     }
@@ -41,7 +41,6 @@ class SearchCriteriaExactPolicySelection extends ComplexType implements ComplexI
      */
     public function setPolicySelection($policySelection = null)
     {
-        if (!$policySelection) return $this;
         $this->policySelection = ($policySelection InstanceOf EnterpriseVoiceVPNPolicySelection)
              ? $policySelection
              : new EnterpriseVoiceVPNPolicySelection($policySelection);
@@ -55,6 +54,6 @@ class SearchCriteriaExactPolicySelection extends ComplexType implements ComplexI
      */
     public function getPolicySelection()
     {
-        return $this->policySelection->getValue();
+        return ($this->policySelection) ? $this->policySelection->getValue() : null;
     }
 }

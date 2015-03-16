@@ -20,13 +20,13 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemCommunicationBarringCallTypeAddRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                  = 'SystemCommunicationBarringCallTypeAddRequest';
-    protected $callType              = null;
-    protected $networkServerCallType = null;
+    public    $name = 'SystemCommunicationBarringCallTypeAddRequest';
+    protected $callType;
+    protected $networkServerCallType;
 
     public function __construct(
-         $callType,
-         $networkServerCallType
+         $callType = '',
+         $networkServerCallType = ''
     ) {
         $this->setCallType($callType);
         $this->setNetworkServerCallType($networkServerCallType);
@@ -45,7 +45,6 @@ class SystemCommunicationBarringCallTypeAddRequest extends ComplexType implement
      */
     public function setCallType($callType = null)
     {
-        if (!$callType) return $this;
         $this->callType = ($callType InstanceOf CommunicationBarringCallType)
              ? $callType
              : new CommunicationBarringCallType($callType);
@@ -59,7 +58,7 @@ class SystemCommunicationBarringCallTypeAddRequest extends ComplexType implement
      */
     public function getCallType()
     {
-        return $this->callType->getValue();
+        return ($this->callType) ? $this->callType->getValue() : null;
     }
 
     /**
@@ -67,7 +66,6 @@ class SystemCommunicationBarringCallTypeAddRequest extends ComplexType implement
      */
     public function setNetworkServerCallType($networkServerCallType = null)
     {
-        if (!$networkServerCallType) return $this;
         $this->networkServerCallType = ($networkServerCallType InstanceOf NetworkServerCallType)
              ? $networkServerCallType
              : new NetworkServerCallType($networkServerCallType);
@@ -81,6 +79,6 @@ class SystemCommunicationBarringCallTypeAddRequest extends ComplexType implement
      */
     public function getNetworkServerCallType()
     {
-        return $this->networkServerCallType->getValue();
+        return ($this->networkServerCallType) ? $this->networkServerCallType->getValue() : null;
     }
 }

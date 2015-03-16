@@ -22,14 +22,14 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupCallCenterModifyDistinctiveRingingRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                                       = 'GroupCallCenterModifyDistinctiveRingingRequest';
-    protected $serviceUserId                              = null;
-    protected $distinctiveRingingCallCenterCalls          = null;
-    protected $distinctiveRingingRingPatternForCallCenter = null;
-    protected $distinctiveRingingForceDeliveryRingPattern = null;
+    public    $name = 'GroupCallCenterModifyDistinctiveRingingRequest';
+    protected $serviceUserId;
+    protected $distinctiveRingingCallCenterCalls;
+    protected $distinctiveRingingRingPatternForCallCenter;
+    protected $distinctiveRingingForceDeliveryRingPattern;
 
     public function __construct(
-         $serviceUserId,
+         $serviceUserId = '',
          $distinctiveRingingCallCenterCalls = null,
          $distinctiveRingingRingPatternForCallCenter = null,
          $distinctiveRingingForceDeliveryRingPattern = null
@@ -53,7 +53,6 @@ class GroupCallCenterModifyDistinctiveRingingRequest extends ComplexType impleme
      */
     public function setServiceUserId($serviceUserId = null)
     {
-        if (!$serviceUserId) return $this;
         $this->serviceUserId = ($serviceUserId InstanceOf UserId)
              ? $serviceUserId
              : new UserId($serviceUserId);
@@ -67,7 +66,7 @@ class GroupCallCenterModifyDistinctiveRingingRequest extends ComplexType impleme
      */
     public function getServiceUserId()
     {
-        return $this->serviceUserId->getValue();
+        return ($this->serviceUserId) ? $this->serviceUserId->getValue() : null;
     }
 
     /**
@@ -75,7 +74,6 @@ class GroupCallCenterModifyDistinctiveRingingRequest extends ComplexType impleme
      */
     public function setDistinctiveRingingCallCenterCalls($distinctiveRingingCallCenterCalls = null)
     {
-        if (!$distinctiveRingingCallCenterCalls) return $this;
         $this->distinctiveRingingCallCenterCalls = new PrimitiveType($distinctiveRingingCallCenterCalls);
         $this->distinctiveRingingCallCenterCalls->setName('distinctiveRingingCallCenterCalls');
         return $this;
@@ -87,7 +85,7 @@ class GroupCallCenterModifyDistinctiveRingingRequest extends ComplexType impleme
      */
     public function getDistinctiveRingingCallCenterCalls()
     {
-        return $this->distinctiveRingingCallCenterCalls->getValue();
+        return ($this->distinctiveRingingCallCenterCalls) ? $this->distinctiveRingingCallCenterCalls->getValue() : null;
     }
 
     /**
@@ -95,7 +93,6 @@ class GroupCallCenterModifyDistinctiveRingingRequest extends ComplexType impleme
      */
     public function setDistinctiveRingingRingPatternForCallCenter($distinctiveRingingRingPatternForCallCenter = null)
     {
-        if (!$distinctiveRingingRingPatternForCallCenter) return $this;
         $this->distinctiveRingingRingPatternForCallCenter = ($distinctiveRingingRingPatternForCallCenter InstanceOf RingPattern)
              ? $distinctiveRingingRingPatternForCallCenter
              : new RingPattern($distinctiveRingingRingPatternForCallCenter);
@@ -109,7 +106,7 @@ class GroupCallCenterModifyDistinctiveRingingRequest extends ComplexType impleme
      */
     public function getDistinctiveRingingRingPatternForCallCenter()
     {
-        return $this->distinctiveRingingRingPatternForCallCenter->getValue();
+        return ($this->distinctiveRingingRingPatternForCallCenter) ? $this->distinctiveRingingRingPatternForCallCenter->getValue() : null;
     }
 
     /**
@@ -117,7 +114,6 @@ class GroupCallCenterModifyDistinctiveRingingRequest extends ComplexType impleme
      */
     public function setDistinctiveRingingForceDeliveryRingPattern($distinctiveRingingForceDeliveryRingPattern = null)
     {
-        if (!$distinctiveRingingForceDeliveryRingPattern) return $this;
         $this->distinctiveRingingForceDeliveryRingPattern = ($distinctiveRingingForceDeliveryRingPattern InstanceOf RingPattern)
              ? $distinctiveRingingForceDeliveryRingPattern
              : new RingPattern($distinctiveRingingForceDeliveryRingPattern);
@@ -131,6 +127,6 @@ class GroupCallCenterModifyDistinctiveRingingRequest extends ComplexType impleme
      */
     public function getDistinctiveRingingForceDeliveryRingPattern()
     {
-        return $this->distinctiveRingingForceDeliveryRingPattern->getValue();
+        return ($this->distinctiveRingingForceDeliveryRingPattern) ? $this->distinctiveRingingForceDeliveryRingPattern->getValue() : null;
     }
 }

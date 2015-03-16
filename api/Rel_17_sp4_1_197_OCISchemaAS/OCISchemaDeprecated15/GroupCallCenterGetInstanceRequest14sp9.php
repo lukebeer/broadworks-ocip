@@ -23,11 +23,11 @@ use Broadworks_OCIP\core\Client\Client;
 class GroupCallCenterGetInstanceRequest14sp9 extends ComplexType implements ComplexInterface
 {
     public    $responseType  = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15\GroupCallCenterGetInstanceResponse14sp9';
-    public    $name          = 'GroupCallCenterGetInstanceRequest14sp9';
-    protected $serviceUserId = null;
+    public    $name = 'GroupCallCenterGetInstanceRequest14sp9';
+    protected $serviceUserId;
 
     public function __construct(
-         $serviceUserId
+         $serviceUserId = ''
     ) {
         $this->setServiceUserId($serviceUserId);
     }
@@ -45,7 +45,6 @@ class GroupCallCenterGetInstanceRequest14sp9 extends ComplexType implements Comp
      */
     public function setServiceUserId($serviceUserId = null)
     {
-        if (!$serviceUserId) return $this;
         $this->serviceUserId = ($serviceUserId InstanceOf UserId)
              ? $serviceUserId
              : new UserId($serviceUserId);
@@ -59,6 +58,6 @@ class GroupCallCenterGetInstanceRequest14sp9 extends ComplexType implements Comp
      */
     public function getServiceUserId()
     {
-        return $this->serviceUserId->getValue();
+        return ($this->serviceUserId) ? $this->serviceUserId->getValue() : null;
     }
 }

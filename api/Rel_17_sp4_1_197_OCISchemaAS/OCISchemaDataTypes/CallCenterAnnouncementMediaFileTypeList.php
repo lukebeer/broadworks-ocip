@@ -19,11 +19,11 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class CallCenterAnnouncementMediaFileTypeList extends ComplexType implements ComplexInterface
 {
-    public    $name       = 'CallCenterAnnouncementMediaFileTypeList';
-    protected $mediaType1 = null;
-    protected $mediaType2 = null;
-    protected $mediaType3 = null;
-    protected $mediaType4 = null;
+    public    $name = 'CallCenterAnnouncementMediaFileTypeList';
+    protected $mediaType1;
+    protected $mediaType2;
+    protected $mediaType3;
+    protected $mediaType4;
 
     public function __construct(
          $mediaType1 = null,
@@ -50,7 +50,6 @@ class CallCenterAnnouncementMediaFileTypeList extends ComplexType implements Com
      */
     public function setMediaType1($mediaType1 = null)
     {
-        if (!$mediaType1) return $this;
         $this->mediaType1 = new SimpleContent($mediaType1);
         $this->mediaType1->setName('mediaType1');
         return $this;
@@ -62,7 +61,7 @@ class CallCenterAnnouncementMediaFileTypeList extends ComplexType implements Com
      */
     public function getMediaType1()
     {
-        return $this->mediaType1->getValue();
+        return ($this->mediaType1) ? $this->mediaType1->getValue() : null;
     }
 
     /**
@@ -70,7 +69,6 @@ class CallCenterAnnouncementMediaFileTypeList extends ComplexType implements Com
      */
     public function setMediaType2($mediaType2 = null)
     {
-        if (!$mediaType2) return $this;
         $this->mediaType2 = new SimpleContent($mediaType2);
         $this->mediaType2->setName('mediaType2');
         return $this;
@@ -82,7 +80,7 @@ class CallCenterAnnouncementMediaFileTypeList extends ComplexType implements Com
      */
     public function getMediaType2()
     {
-        return $this->mediaType2->getValue();
+        return ($this->mediaType2) ? $this->mediaType2->getValue() : null;
     }
 
     /**
@@ -90,7 +88,6 @@ class CallCenterAnnouncementMediaFileTypeList extends ComplexType implements Com
      */
     public function setMediaType3($mediaType3 = null)
     {
-        if (!$mediaType3) return $this;
         $this->mediaType3 = new SimpleContent($mediaType3);
         $this->mediaType3->setName('mediaType3');
         return $this;
@@ -102,7 +99,7 @@ class CallCenterAnnouncementMediaFileTypeList extends ComplexType implements Com
      */
     public function getMediaType3()
     {
-        return $this->mediaType3->getValue();
+        return ($this->mediaType3) ? $this->mediaType3->getValue() : null;
     }
 
     /**
@@ -110,7 +107,6 @@ class CallCenterAnnouncementMediaFileTypeList extends ComplexType implements Com
      */
     public function setMediaType4($mediaType4 = null)
     {
-        if (!$mediaType4) return $this;
         $this->mediaType4 = new SimpleContent($mediaType4);
         $this->mediaType4->setName('mediaType4');
         return $this;
@@ -122,6 +118,6 @@ class CallCenterAnnouncementMediaFileTypeList extends ComplexType implements Com
      */
     public function getMediaType4()
     {
-        return $this->mediaType4->getValue();
+        return ($this->mediaType4) ? $this->mediaType4->getValue() : null;
     }
 }

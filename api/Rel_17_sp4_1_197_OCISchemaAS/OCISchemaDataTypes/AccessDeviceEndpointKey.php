@@ -19,13 +19,13 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class AccessDeviceEndpointKey extends ComplexType implements ComplexInterface
 {
-    public    $name         = 'AccessDeviceEndpointKey';
-    protected $accessDevice = null;
-    protected $linePort     = null;
+    public    $name = 'AccessDeviceEndpointKey';
+    protected $accessDevice;
+    protected $linePort;
 
     public function __construct(
-         $accessDevice,
-         $linePort
+         $accessDevice = '',
+         $linePort = ''
     ) {
         $this->setAccessDevice($accessDevice);
         $this->setLinePort($linePort);
@@ -44,7 +44,6 @@ class AccessDeviceEndpointKey extends ComplexType implements ComplexInterface
      */
     public function setAccessDevice($accessDevice = null)
     {
-        if (!$accessDevice) return $this;
         $this->accessDevice = new SimpleContent($accessDevice);
         $this->accessDevice->setName('accessDevice');
         return $this;
@@ -56,7 +55,7 @@ class AccessDeviceEndpointKey extends ComplexType implements ComplexInterface
      */
     public function getAccessDevice()
     {
-        return $this->accessDevice->getValue();
+        return ($this->accessDevice) ? $this->accessDevice->getValue() : null;
     }
 
     /**
@@ -64,7 +63,6 @@ class AccessDeviceEndpointKey extends ComplexType implements ComplexInterface
      */
     public function setLinePort($linePort = null)
     {
-        if (!$linePort) return $this;
         $this->linePort = new SimpleContent($linePort);
         $this->linePort->setName('linePort');
         return $this;
@@ -76,6 +74,6 @@ class AccessDeviceEndpointKey extends ComplexType implements ComplexInterface
      */
     public function getLinePort()
     {
-        return $this->linePort->getValue();
+        return ($this->linePort) ? $this->linePort->getValue() : null;
     }
 }

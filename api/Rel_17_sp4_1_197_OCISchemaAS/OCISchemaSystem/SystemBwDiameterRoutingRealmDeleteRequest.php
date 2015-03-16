@@ -21,15 +21,15 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemBwDiameterRoutingRealmDeleteRequest extends ComplexType implements ComplexInterface
 {
-    public    $name          = 'SystemBwDiameterRoutingRealmDeleteRequest';
-    protected $instance      = null;
-    protected $realm         = null;
-    protected $applicationId = null;
+    public    $name = 'SystemBwDiameterRoutingRealmDeleteRequest';
+    protected $instance;
+    protected $realm;
+    protected $applicationId;
 
     public function __construct(
-         $instance,
-         $realm,
-         $applicationId
+         $instance = '',
+         $realm = '',
+         $applicationId = ''
     ) {
         $this->setInstance($instance);
         $this->setRealm($realm);
@@ -49,7 +49,6 @@ class SystemBwDiameterRoutingRealmDeleteRequest extends ComplexType implements C
      */
     public function setInstance($instance = null)
     {
-        if (!$instance) return $this;
         $this->instance = ($instance InstanceOf BwDiameterPeerInstance)
              ? $instance
              : new BwDiameterPeerInstance($instance);
@@ -63,7 +62,7 @@ class SystemBwDiameterRoutingRealmDeleteRequest extends ComplexType implements C
      */
     public function getInstance()
     {
-        return $this->instance->getValue();
+        return ($this->instance) ? $this->instance->getValue() : null;
     }
 
     /**
@@ -71,7 +70,6 @@ class SystemBwDiameterRoutingRealmDeleteRequest extends ComplexType implements C
      */
     public function setRealm($realm = null)
     {
-        if (!$realm) return $this;
         $this->realm = ($realm InstanceOf DomainName)
              ? $realm
              : new DomainName($realm);
@@ -85,7 +83,7 @@ class SystemBwDiameterRoutingRealmDeleteRequest extends ComplexType implements C
      */
     public function getRealm()
     {
-        return $this->realm->getValue();
+        return ($this->realm) ? $this->realm->getValue() : null;
     }
 
     /**
@@ -93,7 +91,6 @@ class SystemBwDiameterRoutingRealmDeleteRequest extends ComplexType implements C
      */
     public function setApplicationId($applicationId = null)
     {
-        if (!$applicationId) return $this;
         $this->applicationId = ($applicationId InstanceOf BwDiameterApplicationId)
              ? $applicationId
              : new BwDiameterApplicationId($applicationId);
@@ -107,6 +104,6 @@ class SystemBwDiameterRoutingRealmDeleteRequest extends ComplexType implements C
      */
     public function getApplicationId()
     {
-        return $this->applicationId->getValue();
+        return ($this->applicationId) ? $this->applicationId->getValue() : null;
     }
 }

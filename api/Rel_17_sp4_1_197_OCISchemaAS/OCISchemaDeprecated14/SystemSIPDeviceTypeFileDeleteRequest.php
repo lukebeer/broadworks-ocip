@@ -21,13 +21,13 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemSIPDeviceTypeFileDeleteRequest extends ComplexType implements ComplexInterface
 {
-    public    $name       = 'SystemSIPDeviceTypeFileDeleteRequest';
-    protected $deviceType = null;
-    protected $fileType   = null;
+    public    $name = 'SystemSIPDeviceTypeFileDeleteRequest';
+    protected $deviceType;
+    protected $fileType;
 
     public function __construct(
-         $deviceType,
-         $fileType
+         $deviceType = '',
+         $fileType = ''
     ) {
         $this->setDeviceType($deviceType);
         $this->setFileType($fileType);
@@ -46,7 +46,6 @@ class SystemSIPDeviceTypeFileDeleteRequest extends ComplexType implements Comple
      */
     public function setDeviceType($deviceType = null)
     {
-        if (!$deviceType) return $this;
         $this->deviceType = ($deviceType InstanceOf AccessDeviceType)
              ? $deviceType
              : new AccessDeviceType($deviceType);
@@ -60,7 +59,7 @@ class SystemSIPDeviceTypeFileDeleteRequest extends ComplexType implements Comple
      */
     public function getDeviceType()
     {
-        return $this->deviceType->getValue();
+        return ($this->deviceType) ? $this->deviceType->getValue() : null;
     }
 
     /**
@@ -68,7 +67,6 @@ class SystemSIPDeviceTypeFileDeleteRequest extends ComplexType implements Comple
      */
     public function setFileType($fileType = null)
     {
-        if (!$fileType) return $this;
         $this->fileType = ($fileType InstanceOf DeviceManagementFileType)
              ? $fileType
              : new DeviceManagementFileType($fileType);
@@ -82,6 +80,6 @@ class SystemSIPDeviceTypeFileDeleteRequest extends ComplexType implements Comple
      */
     public function getFileType()
     {
-        return $this->fileType->getValue();
+        return ($this->fileType) ? $this->fileType->getValue() : null;
     }
 }

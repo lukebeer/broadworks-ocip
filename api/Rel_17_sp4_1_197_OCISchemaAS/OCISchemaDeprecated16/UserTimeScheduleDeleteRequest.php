@@ -21,13 +21,13 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserTimeScheduleDeleteRequest extends ComplexType implements ComplexInterface
 {
-    public    $name             = 'UserTimeScheduleDeleteRequest';
-    protected $userId           = null;
-    protected $timeScheduleName = null;
+    public    $name = 'UserTimeScheduleDeleteRequest';
+    protected $userId;
+    protected $timeScheduleName;
 
     public function __construct(
-         $userId,
-         $timeScheduleName
+         $userId = '',
+         $timeScheduleName = ''
     ) {
         $this->setUserId($userId);
         $this->setTimeScheduleName($timeScheduleName);
@@ -46,7 +46,6 @@ class UserTimeScheduleDeleteRequest extends ComplexType implements ComplexInterf
      */
     public function setUserId($userId = null)
     {
-        if (!$userId) return $this;
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
@@ -60,7 +59,7 @@ class UserTimeScheduleDeleteRequest extends ComplexType implements ComplexInterf
      */
     public function getUserId()
     {
-        return $this->userId->getValue();
+        return ($this->userId) ? $this->userId->getValue() : null;
     }
 
     /**
@@ -68,7 +67,6 @@ class UserTimeScheduleDeleteRequest extends ComplexType implements ComplexInterf
      */
     public function setTimeScheduleName($timeScheduleName = null)
     {
-        if (!$timeScheduleName) return $this;
         $this->timeScheduleName = ($timeScheduleName InstanceOf ScheduleName)
              ? $timeScheduleName
              : new ScheduleName($timeScheduleName);
@@ -82,6 +80,6 @@ class UserTimeScheduleDeleteRequest extends ComplexType implements ComplexInterf
      */
     public function getTimeScheduleName()
     {
-        return $this->timeScheduleName->getValue();
+        return ($this->timeScheduleName) ? $this->timeScheduleName->getValue() : null;
     }
 }

@@ -32,16 +32,16 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemCallCenterReportingServerAddRequest extends ComplexType implements ComplexInterface
 {
-    public    $name        = 'SystemCallCenterReportingServerAddRequest';
-    protected $name        = null;
-    protected $url         = null;
-    protected $netAddress  = null;
-    protected $description = null;
+    public    $name = 'SystemCallCenterReportingServerAddRequest';
+    protected $name;
+    protected $url;
+    protected $netAddress;
+    protected $description;
 
     public function __construct(
-         $name,
-         $url,
-         $netAddress,
+         $name = '',
+         $url = '',
+         $netAddress = '',
          $description = null
     ) {
         $this->setName($name);
@@ -63,7 +63,6 @@ class SystemCallCenterReportingServerAddRequest extends ComplexType implements C
      */
     public function setName($name = null)
     {
-        if (!$name) return $this;
         $this->name = ($name InstanceOf CallCenterReportingServerName)
              ? $name
              : new CallCenterReportingServerName($name);
@@ -77,7 +76,7 @@ class SystemCallCenterReportingServerAddRequest extends ComplexType implements C
      */
     public function getName()
     {
-        return $this->name->getValue();
+        return ($this->name) ? $this->name->getValue() : null;
     }
 
     /**
@@ -85,7 +84,6 @@ class SystemCallCenterReportingServerAddRequest extends ComplexType implements C
      */
     public function setUrl($url = null)
     {
-        if (!$url) return $this;
         $this->url = ($url InstanceOf URL)
              ? $url
              : new URL($url);
@@ -99,7 +97,7 @@ class SystemCallCenterReportingServerAddRequest extends ComplexType implements C
      */
     public function getUrl()
     {
-        return $this->url->getValue();
+        return ($this->url) ? $this->url->getValue() : null;
     }
 
     /**
@@ -107,7 +105,6 @@ class SystemCallCenterReportingServerAddRequest extends ComplexType implements C
      */
     public function setNetAddress($netAddress = null)
     {
-        if (!$netAddress) return $this;
         $this->netAddress = ($netAddress InstanceOf NetAddress)
              ? $netAddress
              : new NetAddress($netAddress);
@@ -121,7 +118,7 @@ class SystemCallCenterReportingServerAddRequest extends ComplexType implements C
      */
     public function getNetAddress()
     {
-        return $this->netAddress->getValue();
+        return ($this->netAddress) ? $this->netAddress->getValue() : null;
     }
 
     /**
@@ -129,7 +126,6 @@ class SystemCallCenterReportingServerAddRequest extends ComplexType implements C
      */
     public function setDescription($description = null)
     {
-        if (!$description) return $this;
         $this->description = ($description InstanceOf CallCenterReportingServerDescription)
              ? $description
              : new CallCenterReportingServerDescription($description);
@@ -143,6 +139,6 @@ class SystemCallCenterReportingServerAddRequest extends ComplexType implements C
      */
     public function getDescription()
     {
-        return $this->description->getValue();
+        return ($this->description) ? $this->description->getValue() : null;
     }
 }

@@ -24,20 +24,20 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemCallingPartyCategoryModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name          = 'SystemCallingPartyCategoryModifyRequest';
-    protected $category      = null;
-    protected $cpcValue      = null;
-    protected $isupOliValue  = null;
-    protected $gtdOliValue   = null;
-    protected $userCategory  = null;
-    protected $payPhone      = null;
-    protected $operator      = null;
-    protected $becomeDefault = null;
-    protected $collectCall   = null;
-    protected $webDisplayKey = null;
+    public    $name = 'SystemCallingPartyCategoryModifyRequest';
+    protected $category;
+    protected $cpcValue;
+    protected $isupOliValue;
+    protected $gtdOliValue;
+    protected $userCategory;
+    protected $payPhone;
+    protected $operator;
+    protected $becomeDefault;
+    protected $collectCall;
+    protected $webDisplayKey;
 
     public function __construct(
-         $category,
+         $category = '',
          $cpcValue = null,
          $isupOliValue = null,
          $gtdOliValue = null,
@@ -73,7 +73,6 @@ class SystemCallingPartyCategoryModifyRequest extends ComplexType implements Com
      */
     public function setCategory($category = null)
     {
-        if (!$category) return $this;
         $this->category = ($category InstanceOf CallingPartyCategoryName)
              ? $category
              : new CallingPartyCategoryName($category);
@@ -87,7 +86,7 @@ class SystemCallingPartyCategoryModifyRequest extends ComplexType implements Com
      */
     public function getCategory()
     {
-        return $this->category->getValue();
+        return ($this->category) ? $this->category->getValue() : null;
     }
 
     /**
@@ -95,7 +94,6 @@ class SystemCallingPartyCategoryModifyRequest extends ComplexType implements Com
      */
     public function setCpcValue($cpcValue = null)
     {
-        if (!$cpcValue) return $this;
         $this->cpcValue = ($cpcValue InstanceOf CallingPartyCategoryValue)
              ? $cpcValue
              : new CallingPartyCategoryValue($cpcValue);
@@ -109,7 +107,7 @@ class SystemCallingPartyCategoryModifyRequest extends ComplexType implements Com
      */
     public function getCpcValue()
     {
-        return $this->cpcValue->getValue();
+        return ($this->cpcValue) ? $this->cpcValue->getValue() : null;
     }
 
     /**
@@ -117,7 +115,6 @@ class SystemCallingPartyCategoryModifyRequest extends ComplexType implements Com
      */
     public function setIsupOliValue($isupOliValue = null)
     {
-        if (!$isupOliValue) return $this;
         $this->isupOliValue = ($isupOliValue InstanceOf ISDNUserPartOriginatingLineInformationValue)
              ? $isupOliValue
              : new ISDNUserPartOriginatingLineInformationValue($isupOliValue);
@@ -131,7 +128,7 @@ class SystemCallingPartyCategoryModifyRequest extends ComplexType implements Com
      */
     public function getIsupOliValue()
     {
-        return $this->isupOliValue->getValue();
+        return ($this->isupOliValue) ? $this->isupOliValue->getValue() : null;
     }
 
     /**
@@ -139,7 +136,6 @@ class SystemCallingPartyCategoryModifyRequest extends ComplexType implements Com
      */
     public function setGtdOliValue($gtdOliValue = null)
     {
-        if (!$gtdOliValue) return $this;
         $this->gtdOliValue = ($gtdOliValue InstanceOf ISDNGenericTransparencyDescriptorOliValue)
              ? $gtdOliValue
              : new ISDNGenericTransparencyDescriptorOliValue($gtdOliValue);
@@ -153,7 +149,7 @@ class SystemCallingPartyCategoryModifyRequest extends ComplexType implements Com
      */
     public function getGtdOliValue()
     {
-        return $this->gtdOliValue->getValue();
+        return ($this->gtdOliValue) ? $this->gtdOliValue->getValue() : null;
     }
 
     /**
@@ -161,7 +157,6 @@ class SystemCallingPartyCategoryModifyRequest extends ComplexType implements Com
      */
     public function setUserCategory($userCategory = null)
     {
-        if (!$userCategory) return $this;
         $this->userCategory = new PrimitiveType($userCategory);
         $this->userCategory->setName('userCategory');
         return $this;
@@ -173,7 +168,7 @@ class SystemCallingPartyCategoryModifyRequest extends ComplexType implements Com
      */
     public function getUserCategory()
     {
-        return $this->userCategory->getValue();
+        return ($this->userCategory) ? $this->userCategory->getValue() : null;
     }
 
     /**
@@ -181,7 +176,6 @@ class SystemCallingPartyCategoryModifyRequest extends ComplexType implements Com
      */
     public function setPayPhone($payPhone = null)
     {
-        if (!$payPhone) return $this;
         $this->payPhone = new PrimitiveType($payPhone);
         $this->payPhone->setName('payPhone');
         return $this;
@@ -193,7 +187,7 @@ class SystemCallingPartyCategoryModifyRequest extends ComplexType implements Com
      */
     public function getPayPhone()
     {
-        return $this->payPhone->getValue();
+        return ($this->payPhone) ? $this->payPhone->getValue() : null;
     }
 
     /**
@@ -201,7 +195,6 @@ class SystemCallingPartyCategoryModifyRequest extends ComplexType implements Com
      */
     public function setOperator($operator = null)
     {
-        if (!$operator) return $this;
         $this->operator = new PrimitiveType($operator);
         $this->operator->setName('operator');
         return $this;
@@ -213,7 +206,7 @@ class SystemCallingPartyCategoryModifyRequest extends ComplexType implements Com
      */
     public function getOperator()
     {
-        return $this->operator->getValue();
+        return ($this->operator) ? $this->operator->getValue() : null;
     }
 
     /**
@@ -221,7 +214,6 @@ class SystemCallingPartyCategoryModifyRequest extends ComplexType implements Com
      */
     public function setBecomeDefault($becomeDefault = null)
     {
-        if (!$becomeDefault) return $this;
         $this->becomeDefault = new PrimitiveType($becomeDefault);
         $this->becomeDefault->setName('becomeDefault');
         return $this;
@@ -233,7 +225,7 @@ class SystemCallingPartyCategoryModifyRequest extends ComplexType implements Com
      */
     public function getBecomeDefault()
     {
-        return $this->becomeDefault->getValue();
+        return ($this->becomeDefault) ? $this->becomeDefault->getValue() : null;
     }
 
     /**
@@ -241,7 +233,6 @@ class SystemCallingPartyCategoryModifyRequest extends ComplexType implements Com
      */
     public function setCollectCall($collectCall = null)
     {
-        if (!$collectCall) return $this;
         $this->collectCall = new PrimitiveType($collectCall);
         $this->collectCall->setName('collectCall');
         return $this;
@@ -253,7 +244,7 @@ class SystemCallingPartyCategoryModifyRequest extends ComplexType implements Com
      */
     public function getCollectCall()
     {
-        return $this->collectCall->getValue();
+        return ($this->collectCall) ? $this->collectCall->getValue() : null;
     }
 
     /**
@@ -261,7 +252,6 @@ class SystemCallingPartyCategoryModifyRequest extends ComplexType implements Com
      */
     public function setWebDisplayKey($webDisplayKey = null)
     {
-        if (!$webDisplayKey) return $this;
         $this->webDisplayKey = ($webDisplayKey InstanceOf WebDisplayKey)
              ? $webDisplayKey
              : new WebDisplayKey($webDisplayKey);
@@ -275,6 +265,6 @@ class SystemCallingPartyCategoryModifyRequest extends ComplexType implements Com
      */
     public function getWebDisplayKey()
     {
-        return $this->webDisplayKey->getValue();
+        return ($this->webDisplayKey) ? $this->webDisplayKey->getValue() : null;
     }
 }

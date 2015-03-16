@@ -22,19 +22,19 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemNetworkClassOfServiceGetResponse17 extends ComplexType implements ComplexInterface
 {
-    public    $name                         = 'SystemNetworkClassOfServiceGetResponse17';
-    protected $description                  = null;
-    protected $communicationBarringProfile0 = null;
-    protected $communicationBarringProfile1 = null;
-    protected $communicationBarringProfile2 = null;
-    protected $communicationBarringProfile3 = null;
-    protected $communicationBarringProfile4 = null;
-    protected $communicationBarringProfile5 = null;
-    protected $communicationBarringProfile6 = null;
-    protected $communicationBarringProfile7 = null;
-    protected $communicationBarringProfile8 = null;
-    protected $communicationBarringProfile9 = null;
-    protected $networkTranslationIndex      = null;
+    public    $name = 'SystemNetworkClassOfServiceGetResponse17';
+    protected $description;
+    protected $communicationBarringProfile0;
+    protected $communicationBarringProfile1;
+    protected $communicationBarringProfile2;
+    protected $communicationBarringProfile3;
+    protected $communicationBarringProfile4;
+    protected $communicationBarringProfile5;
+    protected $communicationBarringProfile6;
+    protected $communicationBarringProfile7;
+    protected $communicationBarringProfile8;
+    protected $communicationBarringProfile9;
+    protected $networkTranslationIndex;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemNetworkClassOfServiceGetResponse17 $response
@@ -49,7 +49,6 @@ class SystemNetworkClassOfServiceGetResponse17 extends ComplexType implements Co
      */
     public function setDescription($description = null)
     {
-        if (!$description) return $this;
         $this->description = ($description InstanceOf NetworkClassOfServiceDescription)
              ? $description
              : new NetworkClassOfServiceDescription($description);
@@ -63,7 +62,7 @@ class SystemNetworkClassOfServiceGetResponse17 extends ComplexType implements Co
      */
     public function getDescription()
     {
-        return $this->description->getValue();
+        return ($this->description) ? $this->description->getValue() : null;
     }
 
     /**
@@ -71,8 +70,9 @@ class SystemNetworkClassOfServiceGetResponse17 extends ComplexType implements Co
      */
     public function setCommunicationBarringProfile0(NetworkClassOfServiceCommunicationBarringProfile $communicationBarringProfile0 = null)
     {
-        if (!$communicationBarringProfile0) return $this;
-        $this->communicationBarringProfile0 = $communicationBarringProfile0;
+        $this->communicationBarringProfile0 = ($communicationBarringProfile0 InstanceOf NetworkClassOfServiceCommunicationBarringProfile)
+             ? $communicationBarringProfile0
+             : new NetworkClassOfServiceCommunicationBarringProfile($communicationBarringProfile0);
         $this->communicationBarringProfile0->setName('communicationBarringProfile0');
         return $this;
     }
@@ -91,8 +91,9 @@ class SystemNetworkClassOfServiceGetResponse17 extends ComplexType implements Co
      */
     public function setCommunicationBarringProfile1(NetworkClassOfServiceCommunicationBarringProfile $communicationBarringProfile1 = null)
     {
-        if (!$communicationBarringProfile1) return $this;
-        $this->communicationBarringProfile1 = $communicationBarringProfile1;
+        $this->communicationBarringProfile1 = ($communicationBarringProfile1 InstanceOf NetworkClassOfServiceCommunicationBarringProfile)
+             ? $communicationBarringProfile1
+             : new NetworkClassOfServiceCommunicationBarringProfile($communicationBarringProfile1);
         $this->communicationBarringProfile1->setName('communicationBarringProfile1');
         return $this;
     }
@@ -111,8 +112,9 @@ class SystemNetworkClassOfServiceGetResponse17 extends ComplexType implements Co
      */
     public function setCommunicationBarringProfile2(NetworkClassOfServiceCommunicationBarringProfile $communicationBarringProfile2 = null)
     {
-        if (!$communicationBarringProfile2) return $this;
-        $this->communicationBarringProfile2 = $communicationBarringProfile2;
+        $this->communicationBarringProfile2 = ($communicationBarringProfile2 InstanceOf NetworkClassOfServiceCommunicationBarringProfile)
+             ? $communicationBarringProfile2
+             : new NetworkClassOfServiceCommunicationBarringProfile($communicationBarringProfile2);
         $this->communicationBarringProfile2->setName('communicationBarringProfile2');
         return $this;
     }
@@ -131,8 +133,9 @@ class SystemNetworkClassOfServiceGetResponse17 extends ComplexType implements Co
      */
     public function setCommunicationBarringProfile3(NetworkClassOfServiceCommunicationBarringProfile $communicationBarringProfile3 = null)
     {
-        if (!$communicationBarringProfile3) return $this;
-        $this->communicationBarringProfile3 = $communicationBarringProfile3;
+        $this->communicationBarringProfile3 = ($communicationBarringProfile3 InstanceOf NetworkClassOfServiceCommunicationBarringProfile)
+             ? $communicationBarringProfile3
+             : new NetworkClassOfServiceCommunicationBarringProfile($communicationBarringProfile3);
         $this->communicationBarringProfile3->setName('communicationBarringProfile3');
         return $this;
     }
@@ -151,8 +154,9 @@ class SystemNetworkClassOfServiceGetResponse17 extends ComplexType implements Co
      */
     public function setCommunicationBarringProfile4(NetworkClassOfServiceCommunicationBarringProfile $communicationBarringProfile4 = null)
     {
-        if (!$communicationBarringProfile4) return $this;
-        $this->communicationBarringProfile4 = $communicationBarringProfile4;
+        $this->communicationBarringProfile4 = ($communicationBarringProfile4 InstanceOf NetworkClassOfServiceCommunicationBarringProfile)
+             ? $communicationBarringProfile4
+             : new NetworkClassOfServiceCommunicationBarringProfile($communicationBarringProfile4);
         $this->communicationBarringProfile4->setName('communicationBarringProfile4');
         return $this;
     }
@@ -171,8 +175,9 @@ class SystemNetworkClassOfServiceGetResponse17 extends ComplexType implements Co
      */
     public function setCommunicationBarringProfile5(NetworkClassOfServiceCommunicationBarringProfile $communicationBarringProfile5 = null)
     {
-        if (!$communicationBarringProfile5) return $this;
-        $this->communicationBarringProfile5 = $communicationBarringProfile5;
+        $this->communicationBarringProfile5 = ($communicationBarringProfile5 InstanceOf NetworkClassOfServiceCommunicationBarringProfile)
+             ? $communicationBarringProfile5
+             : new NetworkClassOfServiceCommunicationBarringProfile($communicationBarringProfile5);
         $this->communicationBarringProfile5->setName('communicationBarringProfile5');
         return $this;
     }
@@ -191,8 +196,9 @@ class SystemNetworkClassOfServiceGetResponse17 extends ComplexType implements Co
      */
     public function setCommunicationBarringProfile6(NetworkClassOfServiceCommunicationBarringProfile $communicationBarringProfile6 = null)
     {
-        if (!$communicationBarringProfile6) return $this;
-        $this->communicationBarringProfile6 = $communicationBarringProfile6;
+        $this->communicationBarringProfile6 = ($communicationBarringProfile6 InstanceOf NetworkClassOfServiceCommunicationBarringProfile)
+             ? $communicationBarringProfile6
+             : new NetworkClassOfServiceCommunicationBarringProfile($communicationBarringProfile6);
         $this->communicationBarringProfile6->setName('communicationBarringProfile6');
         return $this;
     }
@@ -211,8 +217,9 @@ class SystemNetworkClassOfServiceGetResponse17 extends ComplexType implements Co
      */
     public function setCommunicationBarringProfile7(NetworkClassOfServiceCommunicationBarringProfile $communicationBarringProfile7 = null)
     {
-        if (!$communicationBarringProfile7) return $this;
-        $this->communicationBarringProfile7 = $communicationBarringProfile7;
+        $this->communicationBarringProfile7 = ($communicationBarringProfile7 InstanceOf NetworkClassOfServiceCommunicationBarringProfile)
+             ? $communicationBarringProfile7
+             : new NetworkClassOfServiceCommunicationBarringProfile($communicationBarringProfile7);
         $this->communicationBarringProfile7->setName('communicationBarringProfile7');
         return $this;
     }
@@ -231,8 +238,9 @@ class SystemNetworkClassOfServiceGetResponse17 extends ComplexType implements Co
      */
     public function setCommunicationBarringProfile8(NetworkClassOfServiceCommunicationBarringProfile $communicationBarringProfile8 = null)
     {
-        if (!$communicationBarringProfile8) return $this;
-        $this->communicationBarringProfile8 = $communicationBarringProfile8;
+        $this->communicationBarringProfile8 = ($communicationBarringProfile8 InstanceOf NetworkClassOfServiceCommunicationBarringProfile)
+             ? $communicationBarringProfile8
+             : new NetworkClassOfServiceCommunicationBarringProfile($communicationBarringProfile8);
         $this->communicationBarringProfile8->setName('communicationBarringProfile8');
         return $this;
     }
@@ -251,8 +259,9 @@ class SystemNetworkClassOfServiceGetResponse17 extends ComplexType implements Co
      */
     public function setCommunicationBarringProfile9(NetworkClassOfServiceCommunicationBarringProfile $communicationBarringProfile9 = null)
     {
-        if (!$communicationBarringProfile9) return $this;
-        $this->communicationBarringProfile9 = $communicationBarringProfile9;
+        $this->communicationBarringProfile9 = ($communicationBarringProfile9 InstanceOf NetworkClassOfServiceCommunicationBarringProfile)
+             ? $communicationBarringProfile9
+             : new NetworkClassOfServiceCommunicationBarringProfile($communicationBarringProfile9);
         $this->communicationBarringProfile9->setName('communicationBarringProfile9');
         return $this;
     }
@@ -271,7 +280,6 @@ class SystemNetworkClassOfServiceGetResponse17 extends ComplexType implements Co
      */
     public function setNetworkTranslationIndex($networkTranslationIndex = null)
     {
-        if (!$networkTranslationIndex) return $this;
         $this->networkTranslationIndex = ($networkTranslationIndex InstanceOf NetworkTranslationIndex)
              ? $networkTranslationIndex
              : new NetworkTranslationIndex($networkTranslationIndex);
@@ -285,6 +293,6 @@ class SystemNetworkClassOfServiceGetResponse17 extends ComplexType implements Co
      */
     public function getNetworkTranslationIndex()
     {
-        return $this->networkTranslationIndex->getValue();
+        return ($this->networkTranslationIndex) ? $this->networkTranslationIndex->getValue() : null;
     }
 }

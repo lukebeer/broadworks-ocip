@@ -19,11 +19,11 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SearchCriteriaExactDnDepartment extends ComplexType implements ComplexInterface
 {
-    public    $name          = 'SearchCriteriaExactDnDepartment';
-    protected $departmentKey = null;
+    public    $name = 'SearchCriteriaExactDnDepartment';
+    protected $departmentKey;
 
     public function __construct(
-         DepartmentKey $departmentKey
+         DepartmentKey $departmentKey = ''
     ) {
         $this->setDepartmentKey($departmentKey);
     }
@@ -41,8 +41,9 @@ class SearchCriteriaExactDnDepartment extends ComplexType implements ComplexInte
      */
     public function setDepartmentKey(DepartmentKey $departmentKey = null)
     {
-        if (!$departmentKey) return $this;
-        $this->departmentKey = $departmentKey;
+        $this->departmentKey = ($departmentKey InstanceOf DepartmentKey)
+             ? $departmentKey
+             : new DepartmentKey($departmentKey);
         $this->departmentKey->setName('departmentKey');
         return $this;
     }

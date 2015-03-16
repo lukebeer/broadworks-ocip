@@ -19,13 +19,13 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class DeviceManagementLanguageMapping extends ComplexType implements ComplexInterface
 {
-    public    $name               = 'DeviceManagementLanguageMapping';
-    protected $broadWorksLanguage = null;
-    protected $deviceLanguage     = null;
+    public    $name = 'DeviceManagementLanguageMapping';
+    protected $broadWorksLanguage;
+    protected $deviceLanguage;
 
     public function __construct(
-         $broadWorksLanguage,
-         $deviceLanguage
+         $broadWorksLanguage = '',
+         $deviceLanguage = ''
     ) {
         $this->setBroadWorksLanguage($broadWorksLanguage);
         $this->setDeviceLanguage($deviceLanguage);
@@ -44,7 +44,6 @@ class DeviceManagementLanguageMapping extends ComplexType implements ComplexInte
      */
     public function setBroadWorksLanguage($broadWorksLanguage = null)
     {
-        if (!$broadWorksLanguage) return $this;
         $this->broadWorksLanguage = new SimpleContent($broadWorksLanguage);
         $this->broadWorksLanguage->setName('broadWorksLanguage');
         return $this;
@@ -56,7 +55,7 @@ class DeviceManagementLanguageMapping extends ComplexType implements ComplexInte
      */
     public function getBroadWorksLanguage()
     {
-        return $this->broadWorksLanguage->getValue();
+        return ($this->broadWorksLanguage) ? $this->broadWorksLanguage->getValue() : null;
     }
 
     /**
@@ -64,7 +63,6 @@ class DeviceManagementLanguageMapping extends ComplexType implements ComplexInte
      */
     public function setDeviceLanguage($deviceLanguage = null)
     {
-        if (!$deviceLanguage) return $this;
         $this->deviceLanguage = new SimpleContent($deviceLanguage);
         $this->deviceLanguage->setName('deviceLanguage');
         return $this;
@@ -76,6 +74,6 @@ class DeviceManagementLanguageMapping extends ComplexType implements ComplexInte
      */
     public function getDeviceLanguage()
     {
-        return $this->deviceLanguage->getValue();
+        return ($this->deviceLanguage) ? $this->deviceLanguage->getValue() : null;
     }
 }

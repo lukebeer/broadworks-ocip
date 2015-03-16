@@ -19,8 +19,8 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemConnectedLineIdentificationPresentationGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                         = 'SystemConnectedLineIdentificationPresentationGetResponse';
-    protected $enforceUserServiceAssignment = null;
+    public    $name = 'SystemConnectedLineIdentificationPresentationGetResponse';
+    protected $enforceUserServiceAssignment;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceConnectedLineIdentificationPresentation\SystemConnectedLineIdentificationPresentationGetResponse $response
@@ -35,7 +35,6 @@ class SystemConnectedLineIdentificationPresentationGetResponse extends ComplexTy
      */
     public function setEnforceUserServiceAssignment($enforceUserServiceAssignment = null)
     {
-        if (!$enforceUserServiceAssignment) return $this;
         $this->enforceUserServiceAssignment = new PrimitiveType($enforceUserServiceAssignment);
         $this->enforceUserServiceAssignment->setName('enforceUserServiceAssignment');
         return $this;
@@ -47,6 +46,6 @@ class SystemConnectedLineIdentificationPresentationGetResponse extends ComplexTy
      */
     public function getEnforceUserServiceAssignment()
     {
-        return $this->enforceUserServiceAssignment->getValue();
+        return ($this->enforceUserServiceAssignment) ? $this->enforceUserServiceAssignment->getValue() : null;
     }
 }

@@ -23,9 +23,9 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserServiceGetAssignmentListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                        = 'UserServiceGetAssignmentListResponse';
-    protected $servicePacksAssignmentTable = null;
-    protected $userServicesAssignmentTable = null;
+    public    $name = 'UserServiceGetAssignmentListResponse';
+    protected $servicePacksAssignmentTable;
+    protected $userServicesAssignmentTable;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser\UserServiceGetAssignmentListResponse $response
@@ -40,7 +40,6 @@ class UserServiceGetAssignmentListResponse extends ComplexType implements Comple
      */
     public function setServicePacksAssignmentTable(TableType $servicePacksAssignmentTable = null)
     {
-        if (!$servicePacksAssignmentTable) return $this;
         $this->servicePacksAssignmentTable = $servicePacksAssignmentTable;
         $this->servicePacksAssignmentTable->setName('servicePacksAssignmentTable');
         return $this;
@@ -60,7 +59,6 @@ class UserServiceGetAssignmentListResponse extends ComplexType implements Comple
      */
     public function setUserServicesAssignmentTable(TableType $userServicesAssignmentTable = null)
     {
-        if (!$userServicesAssignmentTable) return $this;
         $this->userServicesAssignmentTable = $userServicesAssignmentTable;
         $this->userServicesAssignmentTable->setName('userServicesAssignmentTable');
         return $this;

@@ -27,22 +27,22 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupGroupPagingAddInstanceRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                           = 'GroupGroupPagingAddInstanceRequest';
-    protected $serviceProviderId              = null;
-    protected $groupId                        = null;
-    protected $serviceUserId                  = null;
-    protected $serviceInstanceProfile         = null;
-    protected $confirmationToneTimeoutSeconds = null;
-    protected $deliverOriginatorCLIDInstead   = null;
-    protected $originatorCLIDPrefix           = null;
+    public    $name = 'GroupGroupPagingAddInstanceRequest';
+    protected $serviceProviderId;
+    protected $groupId;
+    protected $serviceUserId;
+    protected $serviceInstanceProfile;
+    protected $confirmationToneTimeoutSeconds;
+    protected $deliverOriginatorCLIDInstead;
+    protected $originatorCLIDPrefix;
 
     public function __construct(
-         $serviceProviderId,
-         $groupId,
-         $serviceUserId,
-         ServiceInstanceAddProfile $serviceInstanceProfile,
-         $confirmationToneTimeoutSeconds,
-         $deliverOriginatorCLIDInstead,
+         $serviceProviderId = '',
+         $groupId = '',
+         $serviceUserId = '',
+         ServiceInstanceAddProfile $serviceInstanceProfile = '',
+         $confirmationToneTimeoutSeconds = '',
+         $deliverOriginatorCLIDInstead = '',
          $originatorCLIDPrefix = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
@@ -67,7 +67,6 @@ class GroupGroupPagingAddInstanceRequest extends ComplexType implements ComplexI
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
-        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
@@ -81,7 +80,7 @@ class GroupGroupPagingAddInstanceRequest extends ComplexType implements ComplexI
      */
     public function getServiceProviderId()
     {
-        return $this->serviceProviderId->getValue();
+        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
     }
 
     /**
@@ -89,7 +88,6 @@ class GroupGroupPagingAddInstanceRequest extends ComplexType implements ComplexI
      */
     public function setGroupId($groupId = null)
     {
-        if (!$groupId) return $this;
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
@@ -103,7 +101,7 @@ class GroupGroupPagingAddInstanceRequest extends ComplexType implements ComplexI
      */
     public function getGroupId()
     {
-        return $this->groupId->getValue();
+        return ($this->groupId) ? $this->groupId->getValue() : null;
     }
 
     /**
@@ -111,7 +109,6 @@ class GroupGroupPagingAddInstanceRequest extends ComplexType implements ComplexI
      */
     public function setServiceUserId($serviceUserId = null)
     {
-        if (!$serviceUserId) return $this;
         $this->serviceUserId = ($serviceUserId InstanceOf UserId)
              ? $serviceUserId
              : new UserId($serviceUserId);
@@ -125,7 +122,7 @@ class GroupGroupPagingAddInstanceRequest extends ComplexType implements ComplexI
      */
     public function getServiceUserId()
     {
-        return $this->serviceUserId->getValue();
+        return ($this->serviceUserId) ? $this->serviceUserId->getValue() : null;
     }
 
     /**
@@ -133,8 +130,9 @@ class GroupGroupPagingAddInstanceRequest extends ComplexType implements ComplexI
      */
     public function setServiceInstanceProfile(ServiceInstanceAddProfile $serviceInstanceProfile = null)
     {
-        if (!$serviceInstanceProfile) return $this;
-        $this->serviceInstanceProfile = $serviceInstanceProfile;
+        $this->serviceInstanceProfile = ($serviceInstanceProfile InstanceOf ServiceInstanceAddProfile)
+             ? $serviceInstanceProfile
+             : new ServiceInstanceAddProfile($serviceInstanceProfile);
         $this->serviceInstanceProfile->setName('serviceInstanceProfile');
         return $this;
     }
@@ -153,7 +151,6 @@ class GroupGroupPagingAddInstanceRequest extends ComplexType implements ComplexI
      */
     public function setConfirmationToneTimeoutSeconds($confirmationToneTimeoutSeconds = null)
     {
-        if (!$confirmationToneTimeoutSeconds) return $this;
         $this->confirmationToneTimeoutSeconds = ($confirmationToneTimeoutSeconds InstanceOf GroupPagingConfirmationToneTimeoutSeconds)
              ? $confirmationToneTimeoutSeconds
              : new GroupPagingConfirmationToneTimeoutSeconds($confirmationToneTimeoutSeconds);
@@ -167,7 +164,7 @@ class GroupGroupPagingAddInstanceRequest extends ComplexType implements ComplexI
      */
     public function getConfirmationToneTimeoutSeconds()
     {
-        return $this->confirmationToneTimeoutSeconds->getValue();
+        return ($this->confirmationToneTimeoutSeconds) ? $this->confirmationToneTimeoutSeconds->getValue() : null;
     }
 
     /**
@@ -175,7 +172,6 @@ class GroupGroupPagingAddInstanceRequest extends ComplexType implements ComplexI
      */
     public function setDeliverOriginatorCLIDInstead($deliverOriginatorCLIDInstead = null)
     {
-        if (!$deliverOriginatorCLIDInstead) return $this;
         $this->deliverOriginatorCLIDInstead = new PrimitiveType($deliverOriginatorCLIDInstead);
         $this->deliverOriginatorCLIDInstead->setName('deliverOriginatorCLIDInstead');
         return $this;
@@ -187,7 +183,7 @@ class GroupGroupPagingAddInstanceRequest extends ComplexType implements ComplexI
      */
     public function getDeliverOriginatorCLIDInstead()
     {
-        return $this->deliverOriginatorCLIDInstead->getValue();
+        return ($this->deliverOriginatorCLIDInstead) ? $this->deliverOriginatorCLIDInstead->getValue() : null;
     }
 
     /**
@@ -195,7 +191,6 @@ class GroupGroupPagingAddInstanceRequest extends ComplexType implements ComplexI
      */
     public function setOriginatorCLIDPrefix($originatorCLIDPrefix = null)
     {
-        if (!$originatorCLIDPrefix) return $this;
         $this->originatorCLIDPrefix = ($originatorCLIDPrefix InstanceOf GroupPagingOriginatorCLIDPrefix)
              ? $originatorCLIDPrefix
              : new GroupPagingOriginatorCLIDPrefix($originatorCLIDPrefix);
@@ -209,6 +204,6 @@ class GroupGroupPagingAddInstanceRequest extends ComplexType implements ComplexI
      */
     public function getOriginatorCLIDPrefix()
     {
-        return $this->originatorCLIDPrefix->getValue();
+        return ($this->originatorCLIDPrefix) ? $this->originatorCLIDPrefix->getValue() : null;
     }
 }

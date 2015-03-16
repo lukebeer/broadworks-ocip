@@ -19,13 +19,13 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class FileRepositoryProtocolFTP extends ComplexType implements ComplexInterface
 {
-    public    $name       = 'FileRepositoryProtocolFTP';
-    protected $ftpPassive = null;
-    protected $netAddress = null;
+    public    $name = 'FileRepositoryProtocolFTP';
+    protected $ftpPassive;
+    protected $netAddress;
 
     public function __construct(
-         $ftpPassive,
-         $netAddress
+         $ftpPassive = '',
+         $netAddress = ''
     ) {
         $this->setFtpPassive($ftpPassive);
         $this->setNetAddress($netAddress);
@@ -44,7 +44,6 @@ class FileRepositoryProtocolFTP extends ComplexType implements ComplexInterface
      */
     public function setFtpPassive($ftpPassive = null)
     {
-        if (!$ftpPassive) return $this;
         $this->ftpPassive = new SimpleContent($ftpPassive);
         $this->ftpPassive->setName('ftpPassive');
         return $this;
@@ -56,7 +55,7 @@ class FileRepositoryProtocolFTP extends ComplexType implements ComplexInterface
      */
     public function getFtpPassive()
     {
-        return $this->ftpPassive->getValue();
+        return ($this->ftpPassive) ? $this->ftpPassive->getValue() : null;
     }
 
     /**
@@ -64,7 +63,6 @@ class FileRepositoryProtocolFTP extends ComplexType implements ComplexInterface
      */
     public function setNetAddress($netAddress = null)
     {
-        if (!$netAddress) return $this;
         $this->netAddress = new SimpleContent($netAddress);
         $this->netAddress->setName('netAddress');
         return $this;
@@ -76,6 +74,6 @@ class FileRepositoryProtocolFTP extends ComplexType implements ComplexInterface
      */
     public function getNetAddress()
     {
-        return $this->netAddress->getValue();
+        return ($this->netAddress) ? $this->netAddress->getValue() : null;
     }
 }

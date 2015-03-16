@@ -24,19 +24,19 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupDeviceTypeFileModifyRequest14sp8 extends ComplexType implements ComplexInterface
 {
-    public    $name              = 'GroupDeviceTypeFileModifyRequest14sp8';
-    protected $serviceProviderId = null;
-    protected $groupId           = null;
-    protected $deviceType        = null;
-    protected $fileFormat        = null;
-    protected $fileSource        = null;
-    protected $uploadFile        = null;
+    public    $name = 'GroupDeviceTypeFileModifyRequest14sp8';
+    protected $serviceProviderId;
+    protected $groupId;
+    protected $deviceType;
+    protected $fileFormat;
+    protected $fileSource;
+    protected $uploadFile;
 
     public function __construct(
-         $serviceProviderId,
-         $groupId,
-         $deviceType,
-         $fileFormat,
+         $serviceProviderId = '',
+         $groupId = '',
+         $deviceType = '',
+         $fileFormat = '',
          $fileSource = null,
          FileResource $uploadFile = null
     ) {
@@ -61,7 +61,6 @@ class GroupDeviceTypeFileModifyRequest14sp8 extends ComplexType implements Compl
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
-        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
@@ -75,7 +74,7 @@ class GroupDeviceTypeFileModifyRequest14sp8 extends ComplexType implements Compl
      */
     public function getServiceProviderId()
     {
-        return $this->serviceProviderId->getValue();
+        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
     }
 
     /**
@@ -83,7 +82,6 @@ class GroupDeviceTypeFileModifyRequest14sp8 extends ComplexType implements Compl
      */
     public function setGroupId($groupId = null)
     {
-        if (!$groupId) return $this;
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
@@ -97,7 +95,7 @@ class GroupDeviceTypeFileModifyRequest14sp8 extends ComplexType implements Compl
      */
     public function getGroupId()
     {
-        return $this->groupId->getValue();
+        return ($this->groupId) ? $this->groupId->getValue() : null;
     }
 
     /**
@@ -105,7 +103,6 @@ class GroupDeviceTypeFileModifyRequest14sp8 extends ComplexType implements Compl
      */
     public function setDeviceType($deviceType = null)
     {
-        if (!$deviceType) return $this;
         $this->deviceType = ($deviceType InstanceOf AccessDeviceType)
              ? $deviceType
              : new AccessDeviceType($deviceType);
@@ -119,7 +116,7 @@ class GroupDeviceTypeFileModifyRequest14sp8 extends ComplexType implements Compl
      */
     public function getDeviceType()
     {
-        return $this->deviceType->getValue();
+        return ($this->deviceType) ? $this->deviceType->getValue() : null;
     }
 
     /**
@@ -127,7 +124,6 @@ class GroupDeviceTypeFileModifyRequest14sp8 extends ComplexType implements Compl
      */
     public function setFileFormat($fileFormat = null)
     {
-        if (!$fileFormat) return $this;
         $this->fileFormat = ($fileFormat InstanceOf DeviceManagementFileFormat)
              ? $fileFormat
              : new DeviceManagementFileFormat($fileFormat);
@@ -141,7 +137,7 @@ class GroupDeviceTypeFileModifyRequest14sp8 extends ComplexType implements Compl
      */
     public function getFileFormat()
     {
-        return $this->fileFormat->getValue();
+        return ($this->fileFormat) ? $this->fileFormat->getValue() : null;
     }
 
     /**
@@ -149,7 +145,6 @@ class GroupDeviceTypeFileModifyRequest14sp8 extends ComplexType implements Compl
      */
     public function setFileSource($fileSource = null)
     {
-        if (!$fileSource) return $this;
         $this->fileSource = ($fileSource InstanceOf AccessDeviceEnhancedConfigurationMode)
              ? $fileSource
              : new AccessDeviceEnhancedConfigurationMode($fileSource);
@@ -163,7 +158,7 @@ class GroupDeviceTypeFileModifyRequest14sp8 extends ComplexType implements Compl
      */
     public function getFileSource()
     {
-        return $this->fileSource->getValue();
+        return ($this->fileSource) ? $this->fileSource->getValue() : null;
     }
 
     /**
@@ -171,8 +166,9 @@ class GroupDeviceTypeFileModifyRequest14sp8 extends ComplexType implements Compl
      */
     public function setUploadFile(FileResource $uploadFile = null)
     {
-        if (!$uploadFile) return $this;
-        $this->uploadFile = $uploadFile;
+        $this->uploadFile = ($uploadFile InstanceOf FileResource)
+             ? $uploadFile
+             : new FileResource($uploadFile);
         $this->uploadFile->setName('uploadFile');
         return $this;
     }

@@ -22,10 +22,10 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderDialableCallerIDGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                       = 'ServiceProviderDialableCallerIDGetResponse';
-    protected $useServiceProviderCriteria = null;
-    protected $nsScreeningFailurePolicy   = null;
-    protected $criteriaTable              = null;
+    public    $name = 'ServiceProviderDialableCallerIDGetResponse';
+    protected $useServiceProviderCriteria;
+    protected $nsScreeningFailurePolicy;
+    protected $criteriaTable;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderDialableCallerIDGetResponse $response
@@ -40,7 +40,6 @@ class ServiceProviderDialableCallerIDGetResponse extends ComplexType implements 
      */
     public function setUseServiceProviderCriteria($useServiceProviderCriteria = null)
     {
-        if (!$useServiceProviderCriteria) return $this;
         $this->useServiceProviderCriteria = new PrimitiveType($useServiceProviderCriteria);
         $this->useServiceProviderCriteria->setName('useServiceProviderCriteria');
         return $this;
@@ -52,7 +51,7 @@ class ServiceProviderDialableCallerIDGetResponse extends ComplexType implements 
      */
     public function getUseServiceProviderCriteria()
     {
-        return $this->useServiceProviderCriteria->getValue();
+        return ($this->useServiceProviderCriteria) ? $this->useServiceProviderCriteria->getValue() : null;
     }
 
     /**
@@ -60,7 +59,6 @@ class ServiceProviderDialableCallerIDGetResponse extends ComplexType implements 
      */
     public function setNsScreeningFailurePolicy($nsScreeningFailurePolicy = null)
     {
-        if (!$nsScreeningFailurePolicy) return $this;
         $this->nsScreeningFailurePolicy = ($nsScreeningFailurePolicy InstanceOf NsScreeningFailurePolicy)
              ? $nsScreeningFailurePolicy
              : new NsScreeningFailurePolicy($nsScreeningFailurePolicy);
@@ -74,7 +72,7 @@ class ServiceProviderDialableCallerIDGetResponse extends ComplexType implements 
      */
     public function getNsScreeningFailurePolicy()
     {
-        return $this->nsScreeningFailurePolicy->getValue();
+        return ($this->nsScreeningFailurePolicy) ? $this->nsScreeningFailurePolicy->getValue() : null;
     }
 
     /**
@@ -82,7 +80,6 @@ class ServiceProviderDialableCallerIDGetResponse extends ComplexType implements 
      */
     public function setCriteriaTable(TableType $criteriaTable = null)
     {
-        if (!$criteriaTable) return $this;
         $this->criteriaTable = $criteriaTable;
         $this->criteriaTable->setName('criteriaTable');
         return $this;

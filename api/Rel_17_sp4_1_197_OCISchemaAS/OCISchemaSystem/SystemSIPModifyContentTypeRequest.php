@@ -20,12 +20,12 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemSIPModifyContentTypeRequest extends ComplexType implements ComplexInterface
 {
-    public    $name        = 'SystemSIPModifyContentTypeRequest';
-    protected $contentType = null;
-    protected $interface   = null;
+    public    $name = 'SystemSIPModifyContentTypeRequest';
+    protected $contentType;
+    protected $interface;
 
     public function __construct(
-         $contentType,
+         $contentType = '',
          $interface = null
     ) {
         $this->setContentType($contentType);
@@ -45,7 +45,6 @@ class SystemSIPModifyContentTypeRequest extends ComplexType implements ComplexIn
      */
     public function setContentType($contentType = null)
     {
-        if (!$contentType) return $this;
         $this->contentType = ($contentType InstanceOf SystemSIPContentType)
              ? $contentType
              : new SystemSIPContentType($contentType);
@@ -59,7 +58,7 @@ class SystemSIPModifyContentTypeRequest extends ComplexType implements ComplexIn
      */
     public function getContentType()
     {
-        return $this->contentType->getValue();
+        return ($this->contentType) ? $this->contentType->getValue() : null;
     }
 
     /**
@@ -67,7 +66,6 @@ class SystemSIPModifyContentTypeRequest extends ComplexType implements ComplexIn
      */
     public function setInterface($interface = null)
     {
-        if (!$interface) return $this;
         $this->interface = ($interface InstanceOf SystemSIPSupportedInterface)
              ? $interface
              : new SystemSIPSupportedInterface($interface);
@@ -81,6 +79,6 @@ class SystemSIPModifyContentTypeRequest extends ComplexType implements ComplexIn
      */
     public function getInterface()
     {
-        return $this->interface->getValue();
+        return ($this->interface) ? $this->interface->getValue() : null;
     }
 }

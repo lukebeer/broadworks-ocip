@@ -20,8 +20,8 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupFileRepositoryDeviceUserGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                    = 'GroupFileRepositoryDeviceUserGetListResponse';
-    protected $fileRepositoryUserTable = null;
+    public    $name = 'GroupFileRepositoryDeviceUserGetListResponse';
+    protected $fileRepositoryUserTable;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupFileRepositoryDeviceUserGetListResponse $response
@@ -36,7 +36,6 @@ class GroupFileRepositoryDeviceUserGetListResponse extends ComplexType implement
      */
     public function setFileRepositoryUserTable(TableType $fileRepositoryUserTable = null)
     {
-        if (!$fileRepositoryUserTable) return $this;
         $this->fileRepositoryUserTable = $fileRepositoryUserTable;
         $this->fileRepositoryUserTable->setName('fileRepositoryUserTable');
         return $this;

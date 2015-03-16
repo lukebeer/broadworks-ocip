@@ -21,8 +21,8 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderCommunicationBarringProfileGetAssignedGroupListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name       = 'ServiceProviderCommunicationBarringProfileGetAssignedGroupListResponse';
-    protected $groupTable = null;
+    public    $name = 'ServiceProviderCommunicationBarringProfileGetAssignedGroupListResponse';
+    protected $groupTable;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderCommunicationBarringProfileGetAssignedGroupListResponse $response
@@ -37,7 +37,6 @@ class ServiceProviderCommunicationBarringProfileGetAssignedGroupListResponse ext
      */
     public function setGroupTable(TableType $groupTable = null)
     {
-        if (!$groupTable) return $this;
         $this->groupTable = $groupTable;
         $this->groupTable->setName('groupTable');
         return $this;

@@ -19,11 +19,11 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class CallCenterAnnouncementDescriptionList extends ComplexType implements ComplexInterface
 {
-    public    $name             = 'CallCenterAnnouncementDescriptionList';
-    protected $fileDescription1 = null;
-    protected $fileDescription2 = null;
-    protected $fileDescription3 = null;
-    protected $fileDescription4 = null;
+    public    $name = 'CallCenterAnnouncementDescriptionList';
+    protected $fileDescription1;
+    protected $fileDescription2;
+    protected $fileDescription3;
+    protected $fileDescription4;
 
     public function __construct(
          $fileDescription1 = null,
@@ -50,7 +50,6 @@ class CallCenterAnnouncementDescriptionList extends ComplexType implements Compl
      */
     public function setFileDescription1($fileDescription1 = null)
     {
-        if (!$fileDescription1) return $this;
         $this->fileDescription1 = new SimpleContent($fileDescription1);
         $this->fileDescription1->setName('fileDescription1');
         return $this;
@@ -62,7 +61,7 @@ class CallCenterAnnouncementDescriptionList extends ComplexType implements Compl
      */
     public function getFileDescription1()
     {
-        return $this->fileDescription1->getValue();
+        return ($this->fileDescription1) ? $this->fileDescription1->getValue() : null;
     }
 
     /**
@@ -70,7 +69,6 @@ class CallCenterAnnouncementDescriptionList extends ComplexType implements Compl
      */
     public function setFileDescription2($fileDescription2 = null)
     {
-        if (!$fileDescription2) return $this;
         $this->fileDescription2 = new SimpleContent($fileDescription2);
         $this->fileDescription2->setName('fileDescription2');
         return $this;
@@ -82,7 +80,7 @@ class CallCenterAnnouncementDescriptionList extends ComplexType implements Compl
      */
     public function getFileDescription2()
     {
-        return $this->fileDescription2->getValue();
+        return ($this->fileDescription2) ? $this->fileDescription2->getValue() : null;
     }
 
     /**
@@ -90,7 +88,6 @@ class CallCenterAnnouncementDescriptionList extends ComplexType implements Compl
      */
     public function setFileDescription3($fileDescription3 = null)
     {
-        if (!$fileDescription3) return $this;
         $this->fileDescription3 = new SimpleContent($fileDescription3);
         $this->fileDescription3->setName('fileDescription3');
         return $this;
@@ -102,7 +99,7 @@ class CallCenterAnnouncementDescriptionList extends ComplexType implements Compl
      */
     public function getFileDescription3()
     {
-        return $this->fileDescription3->getValue();
+        return ($this->fileDescription3) ? $this->fileDescription3->getValue() : null;
     }
 
     /**
@@ -110,7 +107,6 @@ class CallCenterAnnouncementDescriptionList extends ComplexType implements Compl
      */
     public function setFileDescription4($fileDescription4 = null)
     {
-        if (!$fileDescription4) return $this;
         $this->fileDescription4 = new SimpleContent($fileDescription4);
         $this->fileDescription4->setName('fileDescription4');
         return $this;
@@ -122,6 +118,6 @@ class CallCenterAnnouncementDescriptionList extends ComplexType implements Compl
      */
     public function getFileDescription4()
     {
-        return $this->fileDescription4->getValue();
+        return ($this->fileDescription4) ? $this->fileDescription4->getValue() : null;
     }
 }

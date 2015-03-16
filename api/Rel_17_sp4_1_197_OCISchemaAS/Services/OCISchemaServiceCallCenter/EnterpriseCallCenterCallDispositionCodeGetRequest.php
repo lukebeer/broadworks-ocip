@@ -21,13 +21,13 @@ use Broadworks_OCIP\core\Client\Client;
 class EnterpriseCallCenterCallDispositionCodeGetRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\EnterpriseCallCenterCallDispositionCodeGetResponse';
-    public    $name              = 'EnterpriseCallCenterCallDispositionCodeGetRequest';
-    protected $serviceProviderId = null;
-    protected $code              = null;
+    public    $name = 'EnterpriseCallCenterCallDispositionCodeGetRequest';
+    protected $serviceProviderId;
+    protected $code;
 
     public function __construct(
-         $serviceProviderId,
-         $code
+         $serviceProviderId = '',
+         $code = ''
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setCode($code);
@@ -46,7 +46,6 @@ class EnterpriseCallCenterCallDispositionCodeGetRequest extends ComplexType impl
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
-        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
@@ -60,7 +59,7 @@ class EnterpriseCallCenterCallDispositionCodeGetRequest extends ComplexType impl
      */
     public function getServiceProviderId()
     {
-        return $this->serviceProviderId->getValue();
+        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
     }
 
     /**
@@ -68,7 +67,6 @@ class EnterpriseCallCenterCallDispositionCodeGetRequest extends ComplexType impl
      */
     public function setCode($code = null)
     {
-        if (!$code) return $this;
         $this->code = ($code InstanceOf CallDispositionCode)
              ? $code
              : new CallDispositionCode($code);
@@ -82,6 +80,6 @@ class EnterpriseCallCenterCallDispositionCodeGetRequest extends ComplexType impl
      */
     public function getCode()
     {
-        return $this->code->getValue();
+        return ($this->code) ? $this->code->getValue() : null;
     }
 }

@@ -20,13 +20,13 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class MaliciousCallTraceTimePeriod extends ComplexType implements ComplexInterface
 {
-    public    $name          = 'MaliciousCallTraceTimePeriod';
-    protected $startDateTime = null;
-    protected $stopDateTime  = null;
+    public    $name = 'MaliciousCallTraceTimePeriod';
+    protected $startDateTime;
+    protected $stopDateTime;
 
     public function __construct(
-         $startDateTime,
-         $stopDateTime
+         $startDateTime = '',
+         $stopDateTime = ''
     ) {
         $this->setStartDateTime($startDateTime);
         $this->setStopDateTime($stopDateTime);
@@ -45,7 +45,6 @@ class MaliciousCallTraceTimePeriod extends ComplexType implements ComplexInterfa
      */
     public function setStartDateTime($startDateTime = null)
     {
-        if (!$startDateTime) return $this;
         $this->startDateTime = new SimpleContent($startDateTime);
         $this->startDateTime->setName('startDateTime');
         return $this;
@@ -57,7 +56,7 @@ class MaliciousCallTraceTimePeriod extends ComplexType implements ComplexInterfa
      */
     public function getStartDateTime()
     {
-        return $this->startDateTime->getValue();
+        return ($this->startDateTime) ? $this->startDateTime->getValue() : null;
     }
 
     /**
@@ -65,7 +64,6 @@ class MaliciousCallTraceTimePeriod extends ComplexType implements ComplexInterfa
      */
     public function setStopDateTime($stopDateTime = null)
     {
-        if (!$stopDateTime) return $this;
         $this->stopDateTime = new SimpleContent($stopDateTime);
         $this->stopDateTime->setName('stopDateTime');
         return $this;
@@ -77,6 +75,6 @@ class MaliciousCallTraceTimePeriod extends ComplexType implements ComplexInterfa
      */
     public function getStopDateTime()
     {
-        return $this->stopDateTime->getValue();
+        return ($this->stopDateTime) ? $this->stopDateTime->getValue() : null;
     }
 }

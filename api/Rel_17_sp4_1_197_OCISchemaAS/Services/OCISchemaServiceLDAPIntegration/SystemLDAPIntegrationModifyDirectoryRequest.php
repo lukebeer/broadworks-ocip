@@ -29,27 +29,27 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemLDAPIntegrationModifyDirectoryRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                                 = 'SystemLDAPIntegrationModifyDirectoryRequest';
-    protected $serverNetAddress                     = null;
-    protected $serverPort                           = null;
-    protected $searchBase                           = null;
-    protected $useSSL                               = null;
-    protected $requireAuthentication                = null;
-    protected $authenticatedDN                      = null;
-    protected $authenticatedPassword                = null;
-    protected $isSortEnabled                        = null;
-    protected $isPagedResultEnabled                 = null;
-    protected $searchFilter                         = null;
-    protected $includeSearchAttributeInSearchFilter = null;
-    protected $column1AttributeName                 = null;
-    protected $column2AttributeName                 = null;
-    protected $column3AttributeName                 = null;
-    protected $column4AttributeName                 = null;
-    protected $column1Label                         = null;
-    protected $column2Label                         = null;
-    protected $column3Label                         = null;
-    protected $column4Label                         = null;
-    protected $searchColumn                         = null;
+    public    $name = 'SystemLDAPIntegrationModifyDirectoryRequest';
+    protected $serverNetAddress;
+    protected $serverPort;
+    protected $searchBase;
+    protected $useSSL;
+    protected $requireAuthentication;
+    protected $authenticatedDN;
+    protected $authenticatedPassword;
+    protected $isSortEnabled;
+    protected $isPagedResultEnabled;
+    protected $searchFilter;
+    protected $includeSearchAttributeInSearchFilter;
+    protected $column1AttributeName;
+    protected $column2AttributeName;
+    protected $column3AttributeName;
+    protected $column4AttributeName;
+    protected $column1Label;
+    protected $column2Label;
+    protected $column3Label;
+    protected $column4Label;
+    protected $searchColumn;
 
     public function __construct(
          $serverNetAddress = null,
@@ -108,7 +108,6 @@ class SystemLDAPIntegrationModifyDirectoryRequest extends ComplexType implements
      */
     public function setServerNetAddress($serverNetAddress = null)
     {
-        if (!$serverNetAddress) return $this;
         $this->serverNetAddress = ($serverNetAddress InstanceOf NetAddress)
              ? $serverNetAddress
              : new NetAddress($serverNetAddress);
@@ -122,7 +121,7 @@ class SystemLDAPIntegrationModifyDirectoryRequest extends ComplexType implements
      */
     public function getServerNetAddress()
     {
-        return $this->serverNetAddress->getValue();
+        return ($this->serverNetAddress) ? $this->serverNetAddress->getValue() : null;
     }
 
     /**
@@ -130,7 +129,6 @@ class SystemLDAPIntegrationModifyDirectoryRequest extends ComplexType implements
      */
     public function setServerPort($serverPort = null)
     {
-        if (!$serverPort) return $this;
         $this->serverPort = ($serverPort InstanceOf Port)
              ? $serverPort
              : new Port($serverPort);
@@ -144,7 +142,7 @@ class SystemLDAPIntegrationModifyDirectoryRequest extends ComplexType implements
      */
     public function getServerPort()
     {
-        return $this->serverPort->getValue();
+        return ($this->serverPort) ? $this->serverPort->getValue() : null;
     }
 
     /**
@@ -152,7 +150,6 @@ class SystemLDAPIntegrationModifyDirectoryRequest extends ComplexType implements
      */
     public function setSearchBase($searchBase = null)
     {
-        if (!$searchBase) return $this;
         $this->searchBase = ($searchBase InstanceOf LDAPSearchBase)
              ? $searchBase
              : new LDAPSearchBase($searchBase);
@@ -166,7 +163,7 @@ class SystemLDAPIntegrationModifyDirectoryRequest extends ComplexType implements
      */
     public function getSearchBase()
     {
-        return $this->searchBase->getValue();
+        return ($this->searchBase) ? $this->searchBase->getValue() : null;
     }
 
     /**
@@ -174,7 +171,6 @@ class SystemLDAPIntegrationModifyDirectoryRequest extends ComplexType implements
      */
     public function setUseSSL($useSSL = null)
     {
-        if (!$useSSL) return $this;
         $this->useSSL = new PrimitiveType($useSSL);
         $this->useSSL->setName('useSSL');
         return $this;
@@ -186,7 +182,7 @@ class SystemLDAPIntegrationModifyDirectoryRequest extends ComplexType implements
      */
     public function getUseSSL()
     {
-        return $this->useSSL->getValue();
+        return ($this->useSSL) ? $this->useSSL->getValue() : null;
     }
 
     /**
@@ -194,7 +190,6 @@ class SystemLDAPIntegrationModifyDirectoryRequest extends ComplexType implements
      */
     public function setRequireAuthentication($requireAuthentication = null)
     {
-        if (!$requireAuthentication) return $this;
         $this->requireAuthentication = new PrimitiveType($requireAuthentication);
         $this->requireAuthentication->setName('requireAuthentication');
         return $this;
@@ -206,7 +201,7 @@ class SystemLDAPIntegrationModifyDirectoryRequest extends ComplexType implements
      */
     public function getRequireAuthentication()
     {
-        return $this->requireAuthentication->getValue();
+        return ($this->requireAuthentication) ? $this->requireAuthentication->getValue() : null;
     }
 
     /**
@@ -214,7 +209,6 @@ class SystemLDAPIntegrationModifyDirectoryRequest extends ComplexType implements
      */
     public function setAuthenticatedDN($authenticatedDN = null)
     {
-        if (!$authenticatedDN) return $this;
         $this->authenticatedDN = ($authenticatedDN InstanceOf LDAPAuthenticatedDN)
              ? $authenticatedDN
              : new LDAPAuthenticatedDN($authenticatedDN);
@@ -228,7 +222,7 @@ class SystemLDAPIntegrationModifyDirectoryRequest extends ComplexType implements
      */
     public function getAuthenticatedDN()
     {
-        return $this->authenticatedDN->getValue();
+        return ($this->authenticatedDN) ? $this->authenticatedDN->getValue() : null;
     }
 
     /**
@@ -236,7 +230,6 @@ class SystemLDAPIntegrationModifyDirectoryRequest extends ComplexType implements
      */
     public function setAuthenticatedPassword($authenticatedPassword = null)
     {
-        if (!$authenticatedPassword) return $this;
         $this->authenticatedPassword = ($authenticatedPassword InstanceOf LDAPAuthenticatedPassword)
              ? $authenticatedPassword
              : new LDAPAuthenticatedPassword($authenticatedPassword);
@@ -250,7 +243,7 @@ class SystemLDAPIntegrationModifyDirectoryRequest extends ComplexType implements
      */
     public function getAuthenticatedPassword()
     {
-        return $this->authenticatedPassword->getValue();
+        return ($this->authenticatedPassword) ? $this->authenticatedPassword->getValue() : null;
     }
 
     /**
@@ -258,7 +251,6 @@ class SystemLDAPIntegrationModifyDirectoryRequest extends ComplexType implements
      */
     public function setIsSortEnabled($isSortEnabled = null)
     {
-        if (!$isSortEnabled) return $this;
         $this->isSortEnabled = new PrimitiveType($isSortEnabled);
         $this->isSortEnabled->setName('isSortEnabled');
         return $this;
@@ -270,7 +262,7 @@ class SystemLDAPIntegrationModifyDirectoryRequest extends ComplexType implements
      */
     public function getIsSortEnabled()
     {
-        return $this->isSortEnabled->getValue();
+        return ($this->isSortEnabled) ? $this->isSortEnabled->getValue() : null;
     }
 
     /**
@@ -278,7 +270,6 @@ class SystemLDAPIntegrationModifyDirectoryRequest extends ComplexType implements
      */
     public function setIsPagedResultEnabled($isPagedResultEnabled = null)
     {
-        if (!$isPagedResultEnabled) return $this;
         $this->isPagedResultEnabled = new PrimitiveType($isPagedResultEnabled);
         $this->isPagedResultEnabled->setName('isPagedResultEnabled');
         return $this;
@@ -290,7 +281,7 @@ class SystemLDAPIntegrationModifyDirectoryRequest extends ComplexType implements
      */
     public function getIsPagedResultEnabled()
     {
-        return $this->isPagedResultEnabled->getValue();
+        return ($this->isPagedResultEnabled) ? $this->isPagedResultEnabled->getValue() : null;
     }
 
     /**
@@ -298,7 +289,6 @@ class SystemLDAPIntegrationModifyDirectoryRequest extends ComplexType implements
      */
     public function setSearchFilter($searchFilter = null)
     {
-        if (!$searchFilter) return $this;
         $this->searchFilter = ($searchFilter InstanceOf LDAPSearchFilter)
              ? $searchFilter
              : new LDAPSearchFilter($searchFilter);
@@ -312,7 +302,7 @@ class SystemLDAPIntegrationModifyDirectoryRequest extends ComplexType implements
      */
     public function getSearchFilter()
     {
-        return $this->searchFilter->getValue();
+        return ($this->searchFilter) ? $this->searchFilter->getValue() : null;
     }
 
     /**
@@ -320,7 +310,6 @@ class SystemLDAPIntegrationModifyDirectoryRequest extends ComplexType implements
      */
     public function setIncludeSearchAttributeInSearchFilter($includeSearchAttributeInSearchFilter = null)
     {
-        if (!$includeSearchAttributeInSearchFilter) return $this;
         $this->includeSearchAttributeInSearchFilter = new PrimitiveType($includeSearchAttributeInSearchFilter);
         $this->includeSearchAttributeInSearchFilter->setName('includeSearchAttributeInSearchFilter');
         return $this;
@@ -332,7 +321,7 @@ class SystemLDAPIntegrationModifyDirectoryRequest extends ComplexType implements
      */
     public function getIncludeSearchAttributeInSearchFilter()
     {
-        return $this->includeSearchAttributeInSearchFilter->getValue();
+        return ($this->includeSearchAttributeInSearchFilter) ? $this->includeSearchAttributeInSearchFilter->getValue() : null;
     }
 
     /**
@@ -340,7 +329,6 @@ class SystemLDAPIntegrationModifyDirectoryRequest extends ComplexType implements
      */
     public function setColumn1AttributeName($column1AttributeName = null)
     {
-        if (!$column1AttributeName) return $this;
         $this->column1AttributeName = ($column1AttributeName InstanceOf LDAPColumnAttributeName)
              ? $column1AttributeName
              : new LDAPColumnAttributeName($column1AttributeName);
@@ -354,7 +342,7 @@ class SystemLDAPIntegrationModifyDirectoryRequest extends ComplexType implements
      */
     public function getColumn1AttributeName()
     {
-        return $this->column1AttributeName->getValue();
+        return ($this->column1AttributeName) ? $this->column1AttributeName->getValue() : null;
     }
 
     /**
@@ -362,7 +350,6 @@ class SystemLDAPIntegrationModifyDirectoryRequest extends ComplexType implements
      */
     public function setColumn2AttributeName($column2AttributeName = null)
     {
-        if (!$column2AttributeName) return $this;
         $this->column2AttributeName = ($column2AttributeName InstanceOf LDAPColumnAttributeName)
              ? $column2AttributeName
              : new LDAPColumnAttributeName($column2AttributeName);
@@ -376,7 +363,7 @@ class SystemLDAPIntegrationModifyDirectoryRequest extends ComplexType implements
      */
     public function getColumn2AttributeName()
     {
-        return $this->column2AttributeName->getValue();
+        return ($this->column2AttributeName) ? $this->column2AttributeName->getValue() : null;
     }
 
     /**
@@ -384,7 +371,6 @@ class SystemLDAPIntegrationModifyDirectoryRequest extends ComplexType implements
      */
     public function setColumn3AttributeName($column3AttributeName = null)
     {
-        if (!$column3AttributeName) return $this;
         $this->column3AttributeName = ($column3AttributeName InstanceOf LDAPColumnAttributeName)
              ? $column3AttributeName
              : new LDAPColumnAttributeName($column3AttributeName);
@@ -398,7 +384,7 @@ class SystemLDAPIntegrationModifyDirectoryRequest extends ComplexType implements
      */
     public function getColumn3AttributeName()
     {
-        return $this->column3AttributeName->getValue();
+        return ($this->column3AttributeName) ? $this->column3AttributeName->getValue() : null;
     }
 
     /**
@@ -406,7 +392,6 @@ class SystemLDAPIntegrationModifyDirectoryRequest extends ComplexType implements
      */
     public function setColumn4AttributeName($column4AttributeName = null)
     {
-        if (!$column4AttributeName) return $this;
         $this->column4AttributeName = ($column4AttributeName InstanceOf LDAPColumnAttributeName)
              ? $column4AttributeName
              : new LDAPColumnAttributeName($column4AttributeName);
@@ -420,7 +405,7 @@ class SystemLDAPIntegrationModifyDirectoryRequest extends ComplexType implements
      */
     public function getColumn4AttributeName()
     {
-        return $this->column4AttributeName->getValue();
+        return ($this->column4AttributeName) ? $this->column4AttributeName->getValue() : null;
     }
 
     /**
@@ -428,7 +413,6 @@ class SystemLDAPIntegrationModifyDirectoryRequest extends ComplexType implements
      */
     public function setColumn1Label($column1Label = null)
     {
-        if (!$column1Label) return $this;
         $this->column1Label = ($column1Label InstanceOf LDAPColumnLabel)
              ? $column1Label
              : new LDAPColumnLabel($column1Label);
@@ -442,7 +426,7 @@ class SystemLDAPIntegrationModifyDirectoryRequest extends ComplexType implements
      */
     public function getColumn1Label()
     {
-        return $this->column1Label->getValue();
+        return ($this->column1Label) ? $this->column1Label->getValue() : null;
     }
 
     /**
@@ -450,7 +434,6 @@ class SystemLDAPIntegrationModifyDirectoryRequest extends ComplexType implements
      */
     public function setColumn2Label($column2Label = null)
     {
-        if (!$column2Label) return $this;
         $this->column2Label = ($column2Label InstanceOf LDAPColumnLabel)
              ? $column2Label
              : new LDAPColumnLabel($column2Label);
@@ -464,7 +447,7 @@ class SystemLDAPIntegrationModifyDirectoryRequest extends ComplexType implements
      */
     public function getColumn2Label()
     {
-        return $this->column2Label->getValue();
+        return ($this->column2Label) ? $this->column2Label->getValue() : null;
     }
 
     /**
@@ -472,7 +455,6 @@ class SystemLDAPIntegrationModifyDirectoryRequest extends ComplexType implements
      */
     public function setColumn3Label($column3Label = null)
     {
-        if (!$column3Label) return $this;
         $this->column3Label = ($column3Label InstanceOf LDAPColumnLabel)
              ? $column3Label
              : new LDAPColumnLabel($column3Label);
@@ -486,7 +468,7 @@ class SystemLDAPIntegrationModifyDirectoryRequest extends ComplexType implements
      */
     public function getColumn3Label()
     {
-        return $this->column3Label->getValue();
+        return ($this->column3Label) ? $this->column3Label->getValue() : null;
     }
 
     /**
@@ -494,7 +476,6 @@ class SystemLDAPIntegrationModifyDirectoryRequest extends ComplexType implements
      */
     public function setColumn4Label($column4Label = null)
     {
-        if (!$column4Label) return $this;
         $this->column4Label = ($column4Label InstanceOf LDAPColumnLabel)
              ? $column4Label
              : new LDAPColumnLabel($column4Label);
@@ -508,7 +489,7 @@ class SystemLDAPIntegrationModifyDirectoryRequest extends ComplexType implements
      */
     public function getColumn4Label()
     {
-        return $this->column4Label->getValue();
+        return ($this->column4Label) ? $this->column4Label->getValue() : null;
     }
 
     /**
@@ -516,7 +497,6 @@ class SystemLDAPIntegrationModifyDirectoryRequest extends ComplexType implements
      */
     public function setSearchColumn($searchColumn = null)
     {
-        if (!$searchColumn) return $this;
         $this->searchColumn = ($searchColumn InstanceOf LDAPSearchColumn)
              ? $searchColumn
              : new LDAPSearchColumn($searchColumn);
@@ -530,6 +510,6 @@ class SystemLDAPIntegrationModifyDirectoryRequest extends ComplexType implements
      */
     public function getSearchColumn()
     {
-        return $this->searchColumn->getValue();
+        return ($this->searchColumn) ? $this->searchColumn->getValue() : null;
     }
 }

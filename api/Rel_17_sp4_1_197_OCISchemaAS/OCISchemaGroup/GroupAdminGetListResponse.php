@@ -21,8 +21,8 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupAdminGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name            = 'GroupAdminGetListResponse';
-    protected $groupAdminTable = null;
+    public    $name = 'GroupAdminGetListResponse';
+    protected $groupAdminTable;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupAdminGetListResponse $response
@@ -37,7 +37,6 @@ class GroupAdminGetListResponse extends ComplexType implements ComplexInterface
      */
     public function setGroupAdminTable(TableType $groupAdminTable = null)
     {
-        if (!$groupAdminTable) return $this;
         $this->groupAdminTable = $groupAdminTable;
         $this->groupAdminTable->setName('groupAdminTable');
         return $this;

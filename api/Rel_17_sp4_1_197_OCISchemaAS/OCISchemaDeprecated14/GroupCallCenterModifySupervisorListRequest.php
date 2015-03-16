@@ -24,13 +24,13 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupCallCenterModifySupervisorListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                 = 'GroupCallCenterModifySupervisorListRequest';
-    protected $serviceUserId        = null;
-    protected $reportingServerURL   = null;
-    protected $supervisorUserIdList = null;
+    public    $name = 'GroupCallCenterModifySupervisorListRequest';
+    protected $serviceUserId;
+    protected $reportingServerURL;
+    protected $supervisorUserIdList;
 
     public function __construct(
-         $serviceUserId,
+         $serviceUserId = '',
          $reportingServerURL = null,
          ReplacementUserIdList $supervisorUserIdList = null
     ) {
@@ -52,7 +52,6 @@ class GroupCallCenterModifySupervisorListRequest extends ComplexType implements 
      */
     public function setServiceUserId($serviceUserId = null)
     {
-        if (!$serviceUserId) return $this;
         $this->serviceUserId = ($serviceUserId InstanceOf UserId)
              ? $serviceUserId
              : new UserId($serviceUserId);
@@ -66,7 +65,7 @@ class GroupCallCenterModifySupervisorListRequest extends ComplexType implements 
      */
     public function getServiceUserId()
     {
-        return $this->serviceUserId->getValue();
+        return ($this->serviceUserId) ? $this->serviceUserId->getValue() : null;
     }
 
     /**
@@ -74,7 +73,6 @@ class GroupCallCenterModifySupervisorListRequest extends ComplexType implements 
      */
     public function setReportingServerURL($reportingServerURL = null)
     {
-        if (!$reportingServerURL) return $this;
         $this->reportingServerURL = ($reportingServerURL InstanceOf URL)
              ? $reportingServerURL
              : new URL($reportingServerURL);
@@ -88,7 +86,7 @@ class GroupCallCenterModifySupervisorListRequest extends ComplexType implements 
      */
     public function getReportingServerURL()
     {
-        return $this->reportingServerURL->getValue();
+        return ($this->reportingServerURL) ? $this->reportingServerURL->getValue() : null;
     }
 
     /**
@@ -96,8 +94,9 @@ class GroupCallCenterModifySupervisorListRequest extends ComplexType implements 
      */
     public function setSupervisorUserIdList(ReplacementUserIdList $supervisorUserIdList = null)
     {
-        if (!$supervisorUserIdList) return $this;
-        $this->supervisorUserIdList = $supervisorUserIdList;
+        $this->supervisorUserIdList = ($supervisorUserIdList InstanceOf ReplacementUserIdList)
+             ? $supervisorUserIdList
+             : new ReplacementUserIdList($supervisorUserIdList);
         $this->supervisorUserIdList->setName('supervisorUserIdList');
         return $this;
     }

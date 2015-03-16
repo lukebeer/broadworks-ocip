@@ -21,10 +21,10 @@ use Broadworks_OCIP\core\Client\Client;
 class SystemDeviceTypeImportRequest extends ComplexType implements ComplexInterface
 {
     public    $name = 'SystemDeviceTypeImportRequest';
-    protected $file = null;
+    protected $file;
 
     public function __construct(
-         $file
+         $file = ''
     ) {
         $this->setFile($file);
     }
@@ -42,7 +42,6 @@ class SystemDeviceTypeImportRequest extends ComplexType implements ComplexInterf
      */
     public function setFile($file = null)
     {
-        if (!$file) return $this;
         $this->file = ($file InstanceOf URL)
              ? $file
              : new URL($file);
@@ -56,6 +55,6 @@ class SystemDeviceTypeImportRequest extends ComplexType implements ComplexInterf
      */
     public function getFile()
     {
-        return $this->file->getValue();
+        return ($this->file) ? $this->file->getValue() : null;
     }
 }

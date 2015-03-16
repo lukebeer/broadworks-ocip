@@ -23,15 +23,15 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupOutgoingCallingPlanRedirectingModifyListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                  = 'GroupOutgoingCallingPlanRedirectingModifyListRequest';
-    protected $serviceProviderId     = null;
-    protected $groupId               = null;
-    protected $groupPermissions      = null;
-    protected $departmentPermissions = null;
+    public    $name = 'GroupOutgoingCallingPlanRedirectingModifyListRequest';
+    protected $serviceProviderId;
+    protected $groupId;
+    protected $groupPermissions;
+    protected $departmentPermissions;
 
     public function __construct(
-         $serviceProviderId,
-         $groupId,
+         $serviceProviderId = '',
+         $groupId = '',
          OutgoingCallingPlanRedirectingPermissionsModify $groupPermissions = null,
          OutgoingCallingPlanRedirectingDepartmentPermissionsModify $departmentPermissions = null
     ) {
@@ -54,7 +54,6 @@ class GroupOutgoingCallingPlanRedirectingModifyListRequest extends ComplexType i
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
-        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
@@ -68,7 +67,7 @@ class GroupOutgoingCallingPlanRedirectingModifyListRequest extends ComplexType i
      */
     public function getServiceProviderId()
     {
-        return $this->serviceProviderId->getValue();
+        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
     }
 
     /**
@@ -76,7 +75,6 @@ class GroupOutgoingCallingPlanRedirectingModifyListRequest extends ComplexType i
      */
     public function setGroupId($groupId = null)
     {
-        if (!$groupId) return $this;
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
@@ -90,7 +88,7 @@ class GroupOutgoingCallingPlanRedirectingModifyListRequest extends ComplexType i
      */
     public function getGroupId()
     {
-        return $this->groupId->getValue();
+        return ($this->groupId) ? $this->groupId->getValue() : null;
     }
 
     /**
@@ -98,8 +96,9 @@ class GroupOutgoingCallingPlanRedirectingModifyListRequest extends ComplexType i
      */
     public function setGroupPermissions(OutgoingCallingPlanRedirectingPermissionsModify $groupPermissions = null)
     {
-        if (!$groupPermissions) return $this;
-        $this->groupPermissions = $groupPermissions;
+        $this->groupPermissions = ($groupPermissions InstanceOf OutgoingCallingPlanRedirectingPermissionsModify)
+             ? $groupPermissions
+             : new OutgoingCallingPlanRedirectingPermissionsModify($groupPermissions);
         $this->groupPermissions->setName('groupPermissions');
         return $this;
     }
@@ -118,8 +117,9 @@ class GroupOutgoingCallingPlanRedirectingModifyListRequest extends ComplexType i
      */
     public function setDepartmentPermissions(OutgoingCallingPlanRedirectingDepartmentPermissionsModify $departmentPermissions = null)
     {
-        if (!$departmentPermissions) return $this;
-        $this->departmentPermissions = $departmentPermissions;
+        $this->departmentPermissions = ($departmentPermissions InstanceOf OutgoingCallingPlanRedirectingDepartmentPermissionsModify)
+             ? $departmentPermissions
+             : new OutgoingCallingPlanRedirectingDepartmentPermissionsModify($departmentPermissions);
         $this->departmentPermissions->setName('departmentPermissions');
         return $this;
     }

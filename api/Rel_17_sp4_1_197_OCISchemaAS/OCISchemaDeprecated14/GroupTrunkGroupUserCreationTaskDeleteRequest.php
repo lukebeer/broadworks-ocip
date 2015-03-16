@@ -21,13 +21,13 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupTrunkGroupUserCreationTaskDeleteRequest extends ComplexType implements ComplexInterface
 {
-    public    $name          = 'GroupTrunkGroupUserCreationTaskDeleteRequest';
-    protected $serviceUserId = null;
-    protected $taskName      = null;
+    public    $name = 'GroupTrunkGroupUserCreationTaskDeleteRequest';
+    protected $serviceUserId;
+    protected $taskName;
 
     public function __construct(
-         $serviceUserId,
-         $taskName
+         $serviceUserId = '',
+         $taskName = ''
     ) {
         $this->setServiceUserId($serviceUserId);
         $this->setTaskName($taskName);
@@ -46,7 +46,6 @@ class GroupTrunkGroupUserCreationTaskDeleteRequest extends ComplexType implement
      */
     public function setServiceUserId($serviceUserId = null)
     {
-        if (!$serviceUserId) return $this;
         $this->serviceUserId = ($serviceUserId InstanceOf UserId)
              ? $serviceUserId
              : new UserId($serviceUserId);
@@ -60,7 +59,7 @@ class GroupTrunkGroupUserCreationTaskDeleteRequest extends ComplexType implement
      */
     public function getServiceUserId()
     {
-        return $this->serviceUserId->getValue();
+        return ($this->serviceUserId) ? $this->serviceUserId->getValue() : null;
     }
 
     /**
@@ -68,7 +67,6 @@ class GroupTrunkGroupUserCreationTaskDeleteRequest extends ComplexType implement
      */
     public function setTaskName($taskName = null)
     {
-        if (!$taskName) return $this;
         $this->taskName = ($taskName InstanceOf TrunkGroupUserCreationTaskName)
              ? $taskName
              : new TrunkGroupUserCreationTaskName($taskName);
@@ -82,6 +80,6 @@ class GroupTrunkGroupUserCreationTaskDeleteRequest extends ComplexType implement
      */
     public function getTaskName()
     {
-        return $this->taskName->getValue();
+        return ($this->taskName) ? $this->taskName->getValue() : null;
     }
 }

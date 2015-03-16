@@ -21,15 +21,15 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupDomainUnassignListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name              = 'GroupDomainUnassignListRequest';
-    protected $serviceProviderId = null;
-    protected $groupId           = null;
-    protected $domain            = null;
+    public    $name = 'GroupDomainUnassignListRequest';
+    protected $serviceProviderId;
+    protected $groupId;
+    protected $domain;
 
     public function __construct(
-         $serviceProviderId,
-         $groupId,
-         $domain
+         $serviceProviderId = '',
+         $groupId = '',
+         $domain = ''
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setGroupId($groupId);
@@ -49,7 +49,6 @@ class GroupDomainUnassignListRequest extends ComplexType implements ComplexInter
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
-        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
@@ -63,7 +62,7 @@ class GroupDomainUnassignListRequest extends ComplexType implements ComplexInter
      */
     public function getServiceProviderId()
     {
-        return $this->serviceProviderId->getValue();
+        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
     }
 
     /**
@@ -71,7 +70,6 @@ class GroupDomainUnassignListRequest extends ComplexType implements ComplexInter
      */
     public function setGroupId($groupId = null)
     {
-        if (!$groupId) return $this;
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
@@ -85,7 +83,7 @@ class GroupDomainUnassignListRequest extends ComplexType implements ComplexInter
      */
     public function getGroupId()
     {
-        return $this->groupId->getValue();
+        return ($this->groupId) ? $this->groupId->getValue() : null;
     }
 
     /**
@@ -93,7 +91,6 @@ class GroupDomainUnassignListRequest extends ComplexType implements ComplexInter
      */
     public function setDomain($domain = null)
     {
-        if (!$domain) return $this;
         $this->domain = ($domain InstanceOf NetAddress)
              ? $domain
              : new NetAddress($domain);
@@ -107,6 +104,6 @@ class GroupDomainUnassignListRequest extends ComplexType implements ComplexInter
      */
     public function getDomain()
     {
-        return $this->domain->getValue();
+        return ($this->domain) ? $this->domain->getValue() : null;
     }
 }

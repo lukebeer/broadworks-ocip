@@ -22,15 +22,15 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserInstantConferencingPlayRecordingToPhoneRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                = 'UserInstantConferencingPlayRecordingToPhoneRequest';
-    protected $userId              = null;
-    protected $recordingKey        = null;
-    protected $playBackPhoneNumber = null;
+    public    $name = 'UserInstantConferencingPlayRecordingToPhoneRequest';
+    protected $userId;
+    protected $recordingKey;
+    protected $playBackPhoneNumber;
 
     public function __construct(
-         $userId,
-         InstantConferencingRecordingKey $recordingKey,
-         $playBackPhoneNumber
+         $userId = '',
+         InstantConferencingRecordingKey $recordingKey = '',
+         $playBackPhoneNumber = ''
     ) {
         $this->setUserId($userId);
         $this->setRecordingKey($recordingKey);
@@ -50,7 +50,6 @@ class UserInstantConferencingPlayRecordingToPhoneRequest extends ComplexType imp
      */
     public function setUserId($userId = null)
     {
-        if (!$userId) return $this;
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
@@ -64,7 +63,7 @@ class UserInstantConferencingPlayRecordingToPhoneRequest extends ComplexType imp
      */
     public function getUserId()
     {
-        return $this->userId->getValue();
+        return ($this->userId) ? $this->userId->getValue() : null;
     }
 
     /**
@@ -72,8 +71,9 @@ class UserInstantConferencingPlayRecordingToPhoneRequest extends ComplexType imp
      */
     public function setRecordingKey(InstantConferencingRecordingKey $recordingKey = null)
     {
-        if (!$recordingKey) return $this;
-        $this->recordingKey = $recordingKey;
+        $this->recordingKey = ($recordingKey InstanceOf InstantConferencingRecordingKey)
+             ? $recordingKey
+             : new InstantConferencingRecordingKey($recordingKey);
         $this->recordingKey->setName('recordingKey');
         return $this;
     }
@@ -92,7 +92,6 @@ class UserInstantConferencingPlayRecordingToPhoneRequest extends ComplexType imp
      */
     public function setPlayBackPhoneNumber($playBackPhoneNumber = null)
     {
-        if (!$playBackPhoneNumber) return $this;
         $this->playBackPhoneNumber = ($playBackPhoneNumber InstanceOf OutgoingDNorSIPURI)
              ? $playBackPhoneNumber
              : new OutgoingDNorSIPURI($playBackPhoneNumber);
@@ -106,6 +105,6 @@ class UserInstantConferencingPlayRecordingToPhoneRequest extends ComplexType imp
      */
     public function getPlayBackPhoneNumber()
     {
-        return $this->playBackPhoneNumber->getValue();
+        return ($this->playBackPhoneNumber) ? $this->playBackPhoneNumber->getValue() : null;
     }
 }

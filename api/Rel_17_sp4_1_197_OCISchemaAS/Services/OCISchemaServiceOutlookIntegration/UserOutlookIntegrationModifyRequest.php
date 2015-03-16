@@ -22,13 +22,13 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserOutlookIntegrationModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                      = 'UserOutlookIntegrationModifyRequest';
-    protected $userId                    = null;
-    protected $isActive                  = null;
-    protected $contactRetrievalSelection = null;
+    public    $name = 'UserOutlookIntegrationModifyRequest';
+    protected $userId;
+    protected $isActive;
+    protected $contactRetrievalSelection;
 
     public function __construct(
-         $userId,
+         $userId = '',
          $isActive = null,
          $contactRetrievalSelection = null
     ) {
@@ -50,7 +50,6 @@ class UserOutlookIntegrationModifyRequest extends ComplexType implements Complex
      */
     public function setUserId($userId = null)
     {
-        if (!$userId) return $this;
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
@@ -64,7 +63,7 @@ class UserOutlookIntegrationModifyRequest extends ComplexType implements Complex
      */
     public function getUserId()
     {
-        return $this->userId->getValue();
+        return ($this->userId) ? $this->userId->getValue() : null;
     }
 
     /**
@@ -72,7 +71,6 @@ class UserOutlookIntegrationModifyRequest extends ComplexType implements Complex
      */
     public function setIsActive($isActive = null)
     {
-        if (!$isActive) return $this;
         $this->isActive = new PrimitiveType($isActive);
         $this->isActive->setName('isActive');
         return $this;
@@ -84,7 +82,7 @@ class UserOutlookIntegrationModifyRequest extends ComplexType implements Complex
      */
     public function getIsActive()
     {
-        return $this->isActive->getValue();
+        return ($this->isActive) ? $this->isActive->getValue() : null;
     }
 
     /**
@@ -92,7 +90,6 @@ class UserOutlookIntegrationModifyRequest extends ComplexType implements Complex
      */
     public function setContactRetrievalSelection($contactRetrievalSelection = null)
     {
-        if (!$contactRetrievalSelection) return $this;
         $this->contactRetrievalSelection = ($contactRetrievalSelection InstanceOf OutlookIntegrationContactRetrievalSelection)
              ? $contactRetrievalSelection
              : new OutlookIntegrationContactRetrievalSelection($contactRetrievalSelection);
@@ -106,6 +103,6 @@ class UserOutlookIntegrationModifyRequest extends ComplexType implements Complex
      */
     public function getContactRetrievalSelection()
     {
-        return $this->contactRetrievalSelection->getValue();
+        return ($this->contactRetrievalSelection) ? $this->contactRetrievalSelection->getValue() : null;
     }
 }

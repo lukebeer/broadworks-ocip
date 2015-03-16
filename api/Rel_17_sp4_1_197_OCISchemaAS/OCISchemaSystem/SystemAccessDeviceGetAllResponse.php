@@ -22,8 +22,8 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemAccessDeviceGetAllResponse extends ComplexType implements ComplexInterface
 {
-    public    $name              = 'SystemAccessDeviceGetAllResponse';
-    protected $accessDeviceTable = null;
+    public    $name = 'SystemAccessDeviceGetAllResponse';
+    protected $accessDeviceTable;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemAccessDeviceGetAllResponse $response
@@ -38,7 +38,6 @@ class SystemAccessDeviceGetAllResponse extends ComplexType implements ComplexInt
      */
     public function setAccessDeviceTable(TableType $accessDeviceTable = null)
     {
-        if (!$accessDeviceTable) return $this;
         $this->accessDeviceTable = $accessDeviceTable;
         $this->accessDeviceTable->setName('accessDeviceTable');
         return $this;

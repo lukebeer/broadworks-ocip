@@ -22,11 +22,11 @@ use Broadworks_OCIP\core\Client\Client;
 class SystemFileGetContentRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemFileGetContentResponse';
-    public    $name     = 'SystemFileGetContentRequest';
-    protected $fileName = null;
+    public    $name = 'SystemFileGetContentRequest';
+    protected $fileName;
 
     public function __construct(
-         $fileName
+         $fileName = ''
     ) {
         $this->setFileName($fileName);
     }
@@ -44,7 +44,6 @@ class SystemFileGetContentRequest extends ComplexType implements ComplexInterfac
      */
     public function setFileName($fileName = null)
     {
-        if (!$fileName) return $this;
         $this->fileName = ($fileName InstanceOf FileName)
              ? $fileName
              : new FileName($fileName);
@@ -58,6 +57,6 @@ class SystemFileGetContentRequest extends ComplexType implements ComplexInterfac
      */
     public function getFileName()
     {
-        return $this->fileName->getValue();
+        return ($this->fileName) ? $this->fileName->getValue() : null;
     }
 }

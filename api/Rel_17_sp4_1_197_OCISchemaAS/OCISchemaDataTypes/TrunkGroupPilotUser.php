@@ -19,34 +19,34 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class TrunkGroupPilotUser extends ComplexType implements ComplexInterface
 {
-    public    $name                   = 'TrunkGroupPilotUser';
-    protected $userId                 = null;
-    protected $lastName               = null;
-    protected $firstName              = null;
-    protected $callingLineIdLastName  = null;
-    protected $callingLineIdFirstName = null;
-    protected $hiraganaLastName       = null;
-    protected $hiraganaFirstName      = null;
-    protected $password               = null;
-    protected $department             = null;
-    protected $language               = null;
-    protected $timeZone               = null;
-    protected $linePort               = null;
-    protected $contact                = null;
+    public    $name = 'TrunkGroupPilotUser';
+    protected $userId;
+    protected $lastName;
+    protected $firstName;
+    protected $callingLineIdLastName;
+    protected $callingLineIdFirstName;
+    protected $hiraganaLastName;
+    protected $hiraganaFirstName;
+    protected $password;
+    protected $department;
+    protected $language;
+    protected $timeZone;
+    protected $linePort;
+    protected $contact;
 
     public function __construct(
-         $userId,
-         $lastName,
-         $firstName,
-         $callingLineIdLastName,
-         $callingLineIdFirstName,
+         $userId = '',
+         $lastName = '',
+         $firstName = '',
+         $callingLineIdLastName = '',
+         $callingLineIdFirstName = '',
          $hiraganaLastName = null,
          $hiraganaFirstName = null,
          $password = null,
          $department = null,
          $language = null,
          $timeZone = null,
-         $linePort,
+         $linePort = '',
          $contact = null
     ) {
         $this->setUserId($userId);
@@ -77,7 +77,6 @@ class TrunkGroupPilotUser extends ComplexType implements ComplexInterface
      */
     public function setUserId($userId = null)
     {
-        if (!$userId) return $this;
         $this->userId = new SimpleContent($userId);
         $this->userId->setName('userId');
         return $this;
@@ -89,7 +88,7 @@ class TrunkGroupPilotUser extends ComplexType implements ComplexInterface
      */
     public function getUserId()
     {
-        return $this->userId->getValue();
+        return ($this->userId) ? $this->userId->getValue() : null;
     }
 
     /**
@@ -97,7 +96,6 @@ class TrunkGroupPilotUser extends ComplexType implements ComplexInterface
      */
     public function setLastName($lastName = null)
     {
-        if (!$lastName) return $this;
         $this->lastName = new SimpleContent($lastName);
         $this->lastName->setName('lastName');
         return $this;
@@ -109,7 +107,7 @@ class TrunkGroupPilotUser extends ComplexType implements ComplexInterface
      */
     public function getLastName()
     {
-        return $this->lastName->getValue();
+        return ($this->lastName) ? $this->lastName->getValue() : null;
     }
 
     /**
@@ -117,7 +115,6 @@ class TrunkGroupPilotUser extends ComplexType implements ComplexInterface
      */
     public function setFirstName($firstName = null)
     {
-        if (!$firstName) return $this;
         $this->firstName = new SimpleContent($firstName);
         $this->firstName->setName('firstName');
         return $this;
@@ -129,7 +126,7 @@ class TrunkGroupPilotUser extends ComplexType implements ComplexInterface
      */
     public function getFirstName()
     {
-        return $this->firstName->getValue();
+        return ($this->firstName) ? $this->firstName->getValue() : null;
     }
 
     /**
@@ -137,7 +134,6 @@ class TrunkGroupPilotUser extends ComplexType implements ComplexInterface
      */
     public function setCallingLineIdLastName($callingLineIdLastName = null)
     {
-        if (!$callingLineIdLastName) return $this;
         $this->callingLineIdLastName = new SimpleContent($callingLineIdLastName);
         $this->callingLineIdLastName->setName('callingLineIdLastName');
         return $this;
@@ -149,7 +145,7 @@ class TrunkGroupPilotUser extends ComplexType implements ComplexInterface
      */
     public function getCallingLineIdLastName()
     {
-        return $this->callingLineIdLastName->getValue();
+        return ($this->callingLineIdLastName) ? $this->callingLineIdLastName->getValue() : null;
     }
 
     /**
@@ -157,7 +153,6 @@ class TrunkGroupPilotUser extends ComplexType implements ComplexInterface
      */
     public function setCallingLineIdFirstName($callingLineIdFirstName = null)
     {
-        if (!$callingLineIdFirstName) return $this;
         $this->callingLineIdFirstName = new SimpleContent($callingLineIdFirstName);
         $this->callingLineIdFirstName->setName('callingLineIdFirstName');
         return $this;
@@ -169,7 +164,7 @@ class TrunkGroupPilotUser extends ComplexType implements ComplexInterface
      */
     public function getCallingLineIdFirstName()
     {
-        return $this->callingLineIdFirstName->getValue();
+        return ($this->callingLineIdFirstName) ? $this->callingLineIdFirstName->getValue() : null;
     }
 
     /**
@@ -177,7 +172,6 @@ class TrunkGroupPilotUser extends ComplexType implements ComplexInterface
      */
     public function setHiraganaLastName($hiraganaLastName = null)
     {
-        if (!$hiraganaLastName) return $this;
         $this->hiraganaLastName = new SimpleContent($hiraganaLastName);
         $this->hiraganaLastName->setName('hiraganaLastName');
         return $this;
@@ -189,7 +183,7 @@ class TrunkGroupPilotUser extends ComplexType implements ComplexInterface
      */
     public function getHiraganaLastName()
     {
-        return $this->hiraganaLastName->getValue();
+        return ($this->hiraganaLastName) ? $this->hiraganaLastName->getValue() : null;
     }
 
     /**
@@ -197,7 +191,6 @@ class TrunkGroupPilotUser extends ComplexType implements ComplexInterface
      */
     public function setHiraganaFirstName($hiraganaFirstName = null)
     {
-        if (!$hiraganaFirstName) return $this;
         $this->hiraganaFirstName = new SimpleContent($hiraganaFirstName);
         $this->hiraganaFirstName->setName('hiraganaFirstName');
         return $this;
@@ -209,7 +202,7 @@ class TrunkGroupPilotUser extends ComplexType implements ComplexInterface
      */
     public function getHiraganaFirstName()
     {
-        return $this->hiraganaFirstName->getValue();
+        return ($this->hiraganaFirstName) ? $this->hiraganaFirstName->getValue() : null;
     }
 
     /**
@@ -217,7 +210,6 @@ class TrunkGroupPilotUser extends ComplexType implements ComplexInterface
      */
     public function setPassword($password = null)
     {
-        if (!$password) return $this;
         $this->password = new SimpleContent($password);
         $this->password->setName('password');
         return $this;
@@ -229,7 +221,7 @@ class TrunkGroupPilotUser extends ComplexType implements ComplexInterface
      */
     public function getPassword()
     {
-        return $this->password->getValue();
+        return ($this->password) ? $this->password->getValue() : null;
     }
 
     /**
@@ -237,7 +229,6 @@ class TrunkGroupPilotUser extends ComplexType implements ComplexInterface
      */
     public function setDepartment($department = null)
     {
-        if (!$department) return $this;
         $this->department = new SimpleContent($department);
         $this->department->setName('department');
         return $this;
@@ -249,7 +240,7 @@ class TrunkGroupPilotUser extends ComplexType implements ComplexInterface
      */
     public function getDepartment()
     {
-        return $this->department->getValue();
+        return ($this->department) ? $this->department->getValue() : null;
     }
 
     /**
@@ -257,7 +248,6 @@ class TrunkGroupPilotUser extends ComplexType implements ComplexInterface
      */
     public function setLanguage($language = null)
     {
-        if (!$language) return $this;
         $this->language = new SimpleContent($language);
         $this->language->setName('language');
         return $this;
@@ -269,7 +259,7 @@ class TrunkGroupPilotUser extends ComplexType implements ComplexInterface
      */
     public function getLanguage()
     {
-        return $this->language->getValue();
+        return ($this->language) ? $this->language->getValue() : null;
     }
 
     /**
@@ -277,7 +267,6 @@ class TrunkGroupPilotUser extends ComplexType implements ComplexInterface
      */
     public function setTimeZone($timeZone = null)
     {
-        if (!$timeZone) return $this;
         $this->timeZone = new SimpleContent($timeZone);
         $this->timeZone->setName('timeZone');
         return $this;
@@ -289,7 +278,7 @@ class TrunkGroupPilotUser extends ComplexType implements ComplexInterface
      */
     public function getTimeZone()
     {
-        return $this->timeZone->getValue();
+        return ($this->timeZone) ? $this->timeZone->getValue() : null;
     }
 
     /**
@@ -297,7 +286,6 @@ class TrunkGroupPilotUser extends ComplexType implements ComplexInterface
      */
     public function setLinePort($linePort = null)
     {
-        if (!$linePort) return $this;
         $this->linePort = new SimpleContent($linePort);
         $this->linePort->setName('linePort');
         return $this;
@@ -309,7 +297,7 @@ class TrunkGroupPilotUser extends ComplexType implements ComplexInterface
      */
     public function getLinePort()
     {
-        return $this->linePort->getValue();
+        return ($this->linePort) ? $this->linePort->getValue() : null;
     }
 
     /**
@@ -317,7 +305,6 @@ class TrunkGroupPilotUser extends ComplexType implements ComplexInterface
      */
     public function setContact($contact = null)
     {
-        if (!$contact) return $this;
         $this->contact = new SimpleContent($contact);
         $this->contact->setName('contact');
         return $this;
@@ -329,6 +316,6 @@ class TrunkGroupPilotUser extends ComplexType implements ComplexInterface
      */
     public function getContact()
     {
-        return $this->contact->getValue();
+        return ($this->contact) ? $this->contact->getValue() : null;
     }
 }

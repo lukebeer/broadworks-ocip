@@ -19,8 +19,8 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemCodecGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name  = 'SystemCodecGetListResponse';
-    protected $codec = null;
+    public    $name = 'SystemCodecGetListResponse';
+    protected $codec;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemCodecGetListResponse $response
@@ -35,7 +35,6 @@ class SystemCodecGetListResponse extends ComplexType implements ComplexInterface
      */
     public function setCodec($codec = null)
     {
-        if (!$codec) return $this;
         $this->codec = ($codec InstanceOf Codec)
              ? $codec
              : new Codec($codec);
@@ -49,6 +48,6 @@ class SystemCodecGetListResponse extends ComplexType implements ComplexInterface
      */
     public function getCodec()
     {
-        return $this->codec->getValue();
+        return ($this->codec) ? $this->codec->getValue() : null;
     }
 }

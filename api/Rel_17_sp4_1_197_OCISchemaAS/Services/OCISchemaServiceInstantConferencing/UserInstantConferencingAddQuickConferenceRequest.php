@@ -23,21 +23,21 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserInstantConferencingAddQuickConferenceRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                   = 'UserInstantConferencingAddQuickConferenceRequest';
-    protected $userId                 = null;
-    protected $bridgeServiceUserId    = null;
-    protected $leaderPhoneNumber      = null;
-    protected $leaderName             = null;
-    protected $participantPhoneNumber = null;
-    protected $participantName        = null;
-    protected $billingCode            = null;
+    public    $name = 'UserInstantConferencingAddQuickConferenceRequest';
+    protected $userId;
+    protected $bridgeServiceUserId;
+    protected $leaderPhoneNumber;
+    protected $leaderName;
+    protected $participantPhoneNumber;
+    protected $participantName;
+    protected $billingCode;
 
     public function __construct(
-         $userId,
-         $bridgeServiceUserId,
-         $leaderPhoneNumber,
+         $userId = '',
+         $bridgeServiceUserId = '',
+         $leaderPhoneNumber = '',
          $leaderName = null,
-         $participantPhoneNumber,
+         $participantPhoneNumber = '',
          $participantName = null,
          $billingCode = null
     ) {
@@ -63,7 +63,6 @@ class UserInstantConferencingAddQuickConferenceRequest extends ComplexType imple
      */
     public function setUserId($userId = null)
     {
-        if (!$userId) return $this;
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
@@ -77,7 +76,7 @@ class UserInstantConferencingAddQuickConferenceRequest extends ComplexType imple
      */
     public function getUserId()
     {
-        return $this->userId->getValue();
+        return ($this->userId) ? $this->userId->getValue() : null;
     }
 
     /**
@@ -85,7 +84,6 @@ class UserInstantConferencingAddQuickConferenceRequest extends ComplexType imple
      */
     public function setBridgeServiceUserId($bridgeServiceUserId = null)
     {
-        if (!$bridgeServiceUserId) return $this;
         $this->bridgeServiceUserId = ($bridgeServiceUserId InstanceOf UserId)
              ? $bridgeServiceUserId
              : new UserId($bridgeServiceUserId);
@@ -99,7 +97,7 @@ class UserInstantConferencingAddQuickConferenceRequest extends ComplexType imple
      */
     public function getBridgeServiceUserId()
     {
-        return $this->bridgeServiceUserId->getValue();
+        return ($this->bridgeServiceUserId) ? $this->bridgeServiceUserId->getValue() : null;
     }
 
     /**
@@ -107,7 +105,6 @@ class UserInstantConferencingAddQuickConferenceRequest extends ComplexType imple
      */
     public function setLeaderPhoneNumber($leaderPhoneNumber = null)
     {
-        if (!$leaderPhoneNumber) return $this;
         $this->leaderPhoneNumber = ($leaderPhoneNumber InstanceOf OutgoingDNorSIPURI)
              ? $leaderPhoneNumber
              : new OutgoingDNorSIPURI($leaderPhoneNumber);
@@ -121,7 +118,7 @@ class UserInstantConferencingAddQuickConferenceRequest extends ComplexType imple
      */
     public function getLeaderPhoneNumber()
     {
-        return $this->leaderPhoneNumber->getValue();
+        return ($this->leaderPhoneNumber) ? $this->leaderPhoneNumber->getValue() : null;
     }
 
     /**
@@ -129,7 +126,6 @@ class UserInstantConferencingAddQuickConferenceRequest extends ComplexType imple
      */
     public function setLeaderName($leaderName = null)
     {
-        if (!$leaderName) return $this;
         $this->leaderName = ($leaderName InstanceOf InstantConferencingParticipantName)
              ? $leaderName
              : new InstantConferencingParticipantName($leaderName);
@@ -143,7 +139,7 @@ class UserInstantConferencingAddQuickConferenceRequest extends ComplexType imple
      */
     public function getLeaderName()
     {
-        return $this->leaderName->getValue();
+        return ($this->leaderName) ? $this->leaderName->getValue() : null;
     }
 
     /**
@@ -151,7 +147,6 @@ class UserInstantConferencingAddQuickConferenceRequest extends ComplexType imple
      */
     public function setParticipantPhoneNumber($participantPhoneNumber = null)
     {
-        if (!$participantPhoneNumber) return $this;
         $this->participantPhoneNumber = ($participantPhoneNumber InstanceOf OutgoingDNorSIPURI)
              ? $participantPhoneNumber
              : new OutgoingDNorSIPURI($participantPhoneNumber);
@@ -165,7 +160,7 @@ class UserInstantConferencingAddQuickConferenceRequest extends ComplexType imple
      */
     public function getParticipantPhoneNumber()
     {
-        return $this->participantPhoneNumber->getValue();
+        return ($this->participantPhoneNumber) ? $this->participantPhoneNumber->getValue() : null;
     }
 
     /**
@@ -173,7 +168,6 @@ class UserInstantConferencingAddQuickConferenceRequest extends ComplexType imple
      */
     public function setParticipantName($participantName = null)
     {
-        if (!$participantName) return $this;
         $this->participantName = ($participantName InstanceOf InstantConferencingParticipantName)
              ? $participantName
              : new InstantConferencingParticipantName($participantName);
@@ -187,7 +181,7 @@ class UserInstantConferencingAddQuickConferenceRequest extends ComplexType imple
      */
     public function getParticipantName()
     {
-        return $this->participantName->getValue();
+        return ($this->participantName) ? $this->participantName->getValue() : null;
     }
 
     /**
@@ -195,7 +189,6 @@ class UserInstantConferencingAddQuickConferenceRequest extends ComplexType imple
      */
     public function setBillingCode($billingCode = null)
     {
-        if (!$billingCode) return $this;
         $this->billingCode = ($billingCode InstanceOf InstantConferencingBillingCode)
              ? $billingCode
              : new InstantConferencingBillingCode($billingCode);
@@ -209,6 +202,6 @@ class UserInstantConferencingAddQuickConferenceRequest extends ComplexType imple
      */
     public function getBillingCode()
     {
-        return $this->billingCode->getValue();
+        return ($this->billingCode) ? $this->billingCode->getValue() : null;
     }
 }

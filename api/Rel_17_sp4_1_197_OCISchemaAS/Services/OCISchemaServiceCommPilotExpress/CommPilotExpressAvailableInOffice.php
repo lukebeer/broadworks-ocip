@@ -19,15 +19,15 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class CommPilotExpressAvailableInOffice extends ComplexType implements ComplexInterface
 {
-    public    $name                        = 'CommPilotExpressAvailableInOffice';
-    protected $additionalPhoneNumberToRing = null;
-    protected $busySetting                 = null;
-    protected $noAnswerSetting             = null;
+    public    $name = 'CommPilotExpressAvailableInOffice';
+    protected $additionalPhoneNumberToRing;
+    protected $busySetting;
+    protected $noAnswerSetting;
 
     public function __construct(
          $additionalPhoneNumberToRing = null,
-         $busySetting,
-         $noAnswerSetting
+         $busySetting = '',
+         $noAnswerSetting = ''
     ) {
         $this->setAdditionalPhoneNumberToRing($additionalPhoneNumberToRing);
         $this->setBusySetting($busySetting);
@@ -47,7 +47,6 @@ class CommPilotExpressAvailableInOffice extends ComplexType implements ComplexIn
      */
     public function setAdditionalPhoneNumberToRing($additionalPhoneNumberToRing = null)
     {
-        if (!$additionalPhoneNumberToRing) return $this;
         $this->additionalPhoneNumberToRing = new SimpleContent($additionalPhoneNumberToRing);
         $this->additionalPhoneNumberToRing->setName('additionalPhoneNumberToRing');
         return $this;
@@ -59,7 +58,7 @@ class CommPilotExpressAvailableInOffice extends ComplexType implements ComplexIn
      */
     public function getAdditionalPhoneNumberToRing()
     {
-        return $this->additionalPhoneNumberToRing->getValue();
+        return ($this->additionalPhoneNumberToRing) ? $this->additionalPhoneNumberToRing->getValue() : null;
     }
 
     /**
@@ -67,7 +66,6 @@ class CommPilotExpressAvailableInOffice extends ComplexType implements ComplexIn
      */
     public function setBusySetting($busySetting = null)
     {
-        if (!$busySetting) return $this;
         $this->busySetting = new SimpleContent($busySetting);
         $this->busySetting->setName('busySetting');
         return $this;
@@ -79,7 +77,7 @@ class CommPilotExpressAvailableInOffice extends ComplexType implements ComplexIn
      */
     public function getBusySetting()
     {
-        return $this->busySetting->getValue();
+        return ($this->busySetting) ? $this->busySetting->getValue() : null;
     }
 
     /**
@@ -87,7 +85,6 @@ class CommPilotExpressAvailableInOffice extends ComplexType implements ComplexIn
      */
     public function setNoAnswerSetting($noAnswerSetting = null)
     {
-        if (!$noAnswerSetting) return $this;
         $this->noAnswerSetting = new SimpleContent($noAnswerSetting);
         $this->noAnswerSetting->setName('noAnswerSetting');
         return $this;
@@ -99,6 +96,6 @@ class CommPilotExpressAvailableInOffice extends ComplexType implements ComplexIn
      */
     public function getNoAnswerSetting()
     {
-        return $this->noAnswerSetting->getValue();
+        return ($this->noAnswerSetting) ? $this->noAnswerSetting->getValue() : null;
     }
 }

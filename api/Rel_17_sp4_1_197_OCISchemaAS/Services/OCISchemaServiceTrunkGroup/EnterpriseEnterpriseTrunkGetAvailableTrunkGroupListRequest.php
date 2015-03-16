@@ -25,14 +25,14 @@ use Broadworks_OCIP\core\Client\Client;
 class EnterpriseEnterpriseTrunkGetAvailableTrunkGroupListRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType                 = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceTrunkGroup\EnterpriseEnterpriseTrunkGetAvailableTrunkGroupListResponse';
-    public    $name                         = 'EnterpriseEnterpriseTrunkGetAvailableTrunkGroupListRequest';
-    protected $serviceProviderId            = null;
-    protected $responseSizeLimit            = null;
-    protected $searchCriteriaTrunkGroupName = null;
-    protected $searchCriteriaGroupId        = null;
+    public    $name = 'EnterpriseEnterpriseTrunkGetAvailableTrunkGroupListRequest';
+    protected $serviceProviderId;
+    protected $responseSizeLimit;
+    protected $searchCriteriaTrunkGroupName;
+    protected $searchCriteriaGroupId;
 
     public function __construct(
-         $serviceProviderId,
+         $serviceProviderId = '',
          $responseSizeLimit = null,
          SearchCriteriaTrunkGroupName $searchCriteriaTrunkGroupName = null,
          SearchCriteriaGroupId $searchCriteriaGroupId = null
@@ -56,7 +56,6 @@ class EnterpriseEnterpriseTrunkGetAvailableTrunkGroupListRequest extends Complex
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
-        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
@@ -70,7 +69,7 @@ class EnterpriseEnterpriseTrunkGetAvailableTrunkGroupListRequest extends Complex
      */
     public function getServiceProviderId()
     {
-        return $this->serviceProviderId->getValue();
+        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
     }
 
     /**
@@ -78,7 +77,6 @@ class EnterpriseEnterpriseTrunkGetAvailableTrunkGroupListRequest extends Complex
      */
     public function setResponseSizeLimit($responseSizeLimit = null)
     {
-        if (!$responseSizeLimit) return $this;
         $this->responseSizeLimit = ($responseSizeLimit InstanceOf ResponseSizeLimit)
              ? $responseSizeLimit
              : new ResponseSizeLimit($responseSizeLimit);
@@ -92,7 +90,7 @@ class EnterpriseEnterpriseTrunkGetAvailableTrunkGroupListRequest extends Complex
      */
     public function getResponseSizeLimit()
     {
-        return $this->responseSizeLimit->getValue();
+        return ($this->responseSizeLimit) ? $this->responseSizeLimit->getValue() : null;
     }
 
     /**
@@ -100,7 +98,6 @@ class EnterpriseEnterpriseTrunkGetAvailableTrunkGroupListRequest extends Complex
      */
     public function setSearchCriteriaTrunkGroupName(SearchCriteriaTrunkGroupName $searchCriteriaTrunkGroupName = null)
     {
-        if (!$searchCriteriaTrunkGroupName) return $this;
         $this->searchCriteriaTrunkGroupName = ($searchCriteriaTrunkGroupName InstanceOf SearchCriteriaTrunkGroupName)
              ? $searchCriteriaTrunkGroupName
              : new SearchCriteriaTrunkGroupName($searchCriteriaTrunkGroupName);
@@ -122,7 +119,6 @@ class EnterpriseEnterpriseTrunkGetAvailableTrunkGroupListRequest extends Complex
      */
     public function setSearchCriteriaGroupId(SearchCriteriaGroupId $searchCriteriaGroupId = null)
     {
-        if (!$searchCriteriaGroupId) return $this;
         $this->searchCriteriaGroupId = ($searchCriteriaGroupId InstanceOf SearchCriteriaGroupId)
              ? $searchCriteriaGroupId
              : new SearchCriteriaGroupId($searchCriteriaGroupId);

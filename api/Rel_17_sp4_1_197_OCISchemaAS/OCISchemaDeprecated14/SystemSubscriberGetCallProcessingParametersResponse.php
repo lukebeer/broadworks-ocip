@@ -22,11 +22,11 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemSubscriberGetCallProcessingParametersResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                          = 'SystemSubscriberGetCallProcessingParametersResponse';
-    protected $userCallingLineIdSelection    = null;
-    protected $isExtendedCallingLineIdActive = null;
-    protected $isRingTimeOutActive           = null;
-    protected $ringTimeoutSeconds            = null;
+    public    $name = 'SystemSubscriberGetCallProcessingParametersResponse';
+    protected $userCallingLineIdSelection;
+    protected $isExtendedCallingLineIdActive;
+    protected $isRingTimeOutActive;
+    protected $ringTimeoutSeconds;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\SystemSubscriberGetCallProcessingParametersResponse $response
@@ -41,7 +41,6 @@ class SystemSubscriberGetCallProcessingParametersResponse extends ComplexType im
      */
     public function setUserCallingLineIdSelection($userCallingLineIdSelection = null)
     {
-        if (!$userCallingLineIdSelection) return $this;
         $this->userCallingLineIdSelection = ($userCallingLineIdSelection InstanceOf SystemUserCallingLineIdSelection)
              ? $userCallingLineIdSelection
              : new SystemUserCallingLineIdSelection($userCallingLineIdSelection);
@@ -55,7 +54,7 @@ class SystemSubscriberGetCallProcessingParametersResponse extends ComplexType im
      */
     public function getUserCallingLineIdSelection()
     {
-        return $this->userCallingLineIdSelection->getValue();
+        return ($this->userCallingLineIdSelection) ? $this->userCallingLineIdSelection->getValue() : null;
     }
 
     /**
@@ -63,7 +62,6 @@ class SystemSubscriberGetCallProcessingParametersResponse extends ComplexType im
      */
     public function setIsExtendedCallingLineIdActive($isExtendedCallingLineIdActive = null)
     {
-        if (!$isExtendedCallingLineIdActive) return $this;
         $this->isExtendedCallingLineIdActive = new PrimitiveType($isExtendedCallingLineIdActive);
         $this->isExtendedCallingLineIdActive->setName('isExtendedCallingLineIdActive');
         return $this;
@@ -75,7 +73,7 @@ class SystemSubscriberGetCallProcessingParametersResponse extends ComplexType im
      */
     public function getIsExtendedCallingLineIdActive()
     {
-        return $this->isExtendedCallingLineIdActive->getValue();
+        return ($this->isExtendedCallingLineIdActive) ? $this->isExtendedCallingLineIdActive->getValue() : null;
     }
 
     /**
@@ -83,7 +81,6 @@ class SystemSubscriberGetCallProcessingParametersResponse extends ComplexType im
      */
     public function setIsRingTimeOutActive($isRingTimeOutActive = null)
     {
-        if (!$isRingTimeOutActive) return $this;
         $this->isRingTimeOutActive = new PrimitiveType($isRingTimeOutActive);
         $this->isRingTimeOutActive->setName('isRingTimeOutActive');
         return $this;
@@ -95,7 +92,7 @@ class SystemSubscriberGetCallProcessingParametersResponse extends ComplexType im
      */
     public function getIsRingTimeOutActive()
     {
-        return $this->isRingTimeOutActive->getValue();
+        return ($this->isRingTimeOutActive) ? $this->isRingTimeOutActive->getValue() : null;
     }
 
     /**
@@ -103,7 +100,6 @@ class SystemSubscriberGetCallProcessingParametersResponse extends ComplexType im
      */
     public function setRingTimeoutSeconds($ringTimeoutSeconds = null)
     {
-        if (!$ringTimeoutSeconds) return $this;
         $this->ringTimeoutSeconds = ($ringTimeoutSeconds InstanceOf SystemUserRingTimeoutSeconds)
              ? $ringTimeoutSeconds
              : new SystemUserRingTimeoutSeconds($ringTimeoutSeconds);
@@ -117,6 +113,6 @@ class SystemSubscriberGetCallProcessingParametersResponse extends ComplexType im
      */
     public function getRingTimeoutSeconds()
     {
-        return $this->ringTimeoutSeconds->getValue();
+        return ($this->ringTimeoutSeconds) ? $this->ringTimeoutSeconds->getValue() : null;
     }
 }

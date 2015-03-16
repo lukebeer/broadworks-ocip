@@ -20,9 +20,9 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemExpensiveCallNotificationGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                             = 'SystemExpensiveCallNotificationGetResponse';
-    protected $enablePostAnnouncementDelayTimer = null;
-    protected $postAnnouncementDelaySeconds     = null;
+    public    $name = 'SystemExpensiveCallNotificationGetResponse';
+    protected $enablePostAnnouncementDelayTimer;
+    protected $postAnnouncementDelaySeconds;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemExpensiveCallNotificationGetResponse $response
@@ -37,7 +37,6 @@ class SystemExpensiveCallNotificationGetResponse extends ComplexType implements 
      */
     public function setEnablePostAnnouncementDelayTimer($enablePostAnnouncementDelayTimer = null)
     {
-        if (!$enablePostAnnouncementDelayTimer) return $this;
         $this->enablePostAnnouncementDelayTimer = new PrimitiveType($enablePostAnnouncementDelayTimer);
         $this->enablePostAnnouncementDelayTimer->setName('enablePostAnnouncementDelayTimer');
         return $this;
@@ -49,7 +48,7 @@ class SystemExpensiveCallNotificationGetResponse extends ComplexType implements 
      */
     public function getEnablePostAnnouncementDelayTimer()
     {
-        return $this->enablePostAnnouncementDelayTimer->getValue();
+        return ($this->enablePostAnnouncementDelayTimer) ? $this->enablePostAnnouncementDelayTimer->getValue() : null;
     }
 
     /**
@@ -57,7 +56,6 @@ class SystemExpensiveCallNotificationGetResponse extends ComplexType implements 
      */
     public function setPostAnnouncementDelaySeconds($postAnnouncementDelaySeconds = null)
     {
-        if (!$postAnnouncementDelaySeconds) return $this;
         $this->postAnnouncementDelaySeconds = ($postAnnouncementDelaySeconds InstanceOf ExpensiveCallNotificationPostAnnouncementDelaySeconds)
              ? $postAnnouncementDelaySeconds
              : new ExpensiveCallNotificationPostAnnouncementDelaySeconds($postAnnouncementDelaySeconds);
@@ -71,6 +69,6 @@ class SystemExpensiveCallNotificationGetResponse extends ComplexType implements 
      */
     public function getPostAnnouncementDelaySeconds()
     {
-        return $this->postAnnouncementDelaySeconds->getValue();
+        return ($this->postAnnouncementDelaySeconds) ? $this->postAnnouncementDelaySeconds->getValue() : null;
     }
 }

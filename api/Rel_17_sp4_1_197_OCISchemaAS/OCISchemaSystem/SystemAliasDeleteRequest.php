@@ -20,11 +20,11 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemAliasDeleteRequest extends ComplexType implements ComplexInterface
 {
-    public    $name            = 'SystemAliasDeleteRequest';
-    protected $aliasNetAddress = null;
+    public    $name = 'SystemAliasDeleteRequest';
+    protected $aliasNetAddress;
 
     public function __construct(
-         $aliasNetAddress
+         $aliasNetAddress = ''
     ) {
         $this->setAliasNetAddress($aliasNetAddress);
     }
@@ -42,7 +42,6 @@ class SystemAliasDeleteRequest extends ComplexType implements ComplexInterface
      */
     public function setAliasNetAddress($aliasNetAddress = null)
     {
-        if (!$aliasNetAddress) return $this;
         $this->aliasNetAddress = ($aliasNetAddress InstanceOf NetAddress)
              ? $aliasNetAddress
              : new NetAddress($aliasNetAddress);
@@ -56,6 +55,6 @@ class SystemAliasDeleteRequest extends ComplexType implements ComplexInterface
      */
     public function getAliasNetAddress()
     {
-        return $this->aliasNetAddress->getValue();
+        return ($this->aliasNetAddress) ? $this->aliasNetAddress->getValue() : null;
     }
 }

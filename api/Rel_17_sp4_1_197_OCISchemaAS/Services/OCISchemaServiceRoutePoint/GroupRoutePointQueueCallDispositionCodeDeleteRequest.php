@@ -20,13 +20,13 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupRoutePointQueueCallDispositionCodeDeleteRequest extends ComplexType implements ComplexInterface
 {
-    public    $name          = 'GroupRoutePointQueueCallDispositionCodeDeleteRequest';
-    protected $serviceUserId = null;
-    protected $code          = null;
+    public    $name = 'GroupRoutePointQueueCallDispositionCodeDeleteRequest';
+    protected $serviceUserId;
+    protected $code;
 
     public function __construct(
-         $serviceUserId,
-         $code
+         $serviceUserId = '',
+         $code = ''
     ) {
         $this->setServiceUserId($serviceUserId);
         $this->setCode($code);
@@ -45,7 +45,6 @@ class GroupRoutePointQueueCallDispositionCodeDeleteRequest extends ComplexType i
      */
     public function setServiceUserId($serviceUserId = null)
     {
-        if (!$serviceUserId) return $this;
         $this->serviceUserId = ($serviceUserId InstanceOf UserId)
              ? $serviceUserId
              : new UserId($serviceUserId);
@@ -59,7 +58,7 @@ class GroupRoutePointQueueCallDispositionCodeDeleteRequest extends ComplexType i
      */
     public function getServiceUserId()
     {
-        return $this->serviceUserId->getValue();
+        return ($this->serviceUserId) ? $this->serviceUserId->getValue() : null;
     }
 
     /**
@@ -67,7 +66,6 @@ class GroupRoutePointQueueCallDispositionCodeDeleteRequest extends ComplexType i
      */
     public function setCode($code = null)
     {
-        if (!$code) return $this;
         $this->code = ($code InstanceOf CallDispositionCode)
              ? $code
              : new CallDispositionCode($code);
@@ -81,6 +79,6 @@ class GroupRoutePointQueueCallDispositionCodeDeleteRequest extends ComplexType i
      */
     public function getCode()
     {
-        return $this->code->getValue();
+        return ($this->code) ? $this->code->getValue() : null;
     }
 }

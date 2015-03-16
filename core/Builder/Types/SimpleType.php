@@ -19,7 +19,6 @@ use Broadworks_OCIP\core\Builder\Restrictions\Restriction;
  */
 abstract class SimpleType
 {
-    public $name = __CLASS__;
     protected $annontation;
     protected $attributes;
     protected $restrictions = [];
@@ -62,25 +61,5 @@ abstract class SimpleType
     public function getErrors()
     {
         return ['SchemaType' => __CLASS__, 'DataType' => '', 'Errors' => $this->errors];
-    }
-
-    /**
-     * Return name of SimpleType.
-     *
-     * @return string
-     */
-    public function getName()
-    {
-        return $this->name;
-    }
-
-    /**
-     * Set name of SimpleType.
-     *
-     * @param $name
-     */
-    public function setName($name)
-    {
-        $this->name = $name;
     }
 }

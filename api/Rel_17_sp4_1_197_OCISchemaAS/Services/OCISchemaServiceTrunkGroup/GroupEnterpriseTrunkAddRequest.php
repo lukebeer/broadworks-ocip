@@ -25,20 +25,20 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupEnterpriseTrunkAddRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                          = 'GroupEnterpriseTrunkAddRequest';
-    protected $serviceProviderId             = null;
-    protected $groupId                       = null;
-    protected $enterpriseTrunkName           = null;
-    protected $maximumRerouteAttempts        = null;
-    protected $routeExhaustionAction         = null;
-    protected $routeExhaustionForwardAddress = null;
+    public    $name = 'GroupEnterpriseTrunkAddRequest';
+    protected $serviceProviderId;
+    protected $groupId;
+    protected $enterpriseTrunkName;
+    protected $maximumRerouteAttempts;
+    protected $routeExhaustionAction;
+    protected $routeExhaustionForwardAddress;
 
     public function __construct(
-         $serviceProviderId,
-         $groupId,
-         $enterpriseTrunkName,
-         $maximumRerouteAttempts,
-         $routeExhaustionAction,
+         $serviceProviderId = '',
+         $groupId = '',
+         $enterpriseTrunkName = '',
+         $maximumRerouteAttempts = '',
+         $routeExhaustionAction = '',
          $routeExhaustionForwardAddress = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
@@ -62,7 +62,6 @@ class GroupEnterpriseTrunkAddRequest extends ComplexType implements ComplexInter
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
-        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
@@ -76,7 +75,7 @@ class GroupEnterpriseTrunkAddRequest extends ComplexType implements ComplexInter
      */
     public function getServiceProviderId()
     {
-        return $this->serviceProviderId->getValue();
+        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
     }
 
     /**
@@ -84,7 +83,6 @@ class GroupEnterpriseTrunkAddRequest extends ComplexType implements ComplexInter
      */
     public function setGroupId($groupId = null)
     {
-        if (!$groupId) return $this;
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
@@ -98,7 +96,7 @@ class GroupEnterpriseTrunkAddRequest extends ComplexType implements ComplexInter
      */
     public function getGroupId()
     {
-        return $this->groupId->getValue();
+        return ($this->groupId) ? $this->groupId->getValue() : null;
     }
 
     /**
@@ -106,7 +104,6 @@ class GroupEnterpriseTrunkAddRequest extends ComplexType implements ComplexInter
      */
     public function setEnterpriseTrunkName($enterpriseTrunkName = null)
     {
-        if (!$enterpriseTrunkName) return $this;
         $this->enterpriseTrunkName = ($enterpriseTrunkName InstanceOf EnterpriseTrunkName)
              ? $enterpriseTrunkName
              : new EnterpriseTrunkName($enterpriseTrunkName);
@@ -120,7 +117,7 @@ class GroupEnterpriseTrunkAddRequest extends ComplexType implements ComplexInter
      */
     public function getEnterpriseTrunkName()
     {
-        return $this->enterpriseTrunkName->getValue();
+        return ($this->enterpriseTrunkName) ? $this->enterpriseTrunkName->getValue() : null;
     }
 
     /**
@@ -128,7 +125,6 @@ class GroupEnterpriseTrunkAddRequest extends ComplexType implements ComplexInter
      */
     public function setMaximumRerouteAttempts($maximumRerouteAttempts = null)
     {
-        if (!$maximumRerouteAttempts) return $this;
         $this->maximumRerouteAttempts = ($maximumRerouteAttempts InstanceOf EnterpriseTrunkMaximumRerouteAttempts)
              ? $maximumRerouteAttempts
              : new EnterpriseTrunkMaximumRerouteAttempts($maximumRerouteAttempts);
@@ -142,7 +138,7 @@ class GroupEnterpriseTrunkAddRequest extends ComplexType implements ComplexInter
      */
     public function getMaximumRerouteAttempts()
     {
-        return $this->maximumRerouteAttempts->getValue();
+        return ($this->maximumRerouteAttempts) ? $this->maximumRerouteAttempts->getValue() : null;
     }
 
     /**
@@ -150,7 +146,6 @@ class GroupEnterpriseTrunkAddRequest extends ComplexType implements ComplexInter
      */
     public function setRouteExhaustionAction($routeExhaustionAction = null)
     {
-        if (!$routeExhaustionAction) return $this;
         $this->routeExhaustionAction = ($routeExhaustionAction InstanceOf EnterpriseTrunkRouteExhaustionAction)
              ? $routeExhaustionAction
              : new EnterpriseTrunkRouteExhaustionAction($routeExhaustionAction);
@@ -164,7 +159,7 @@ class GroupEnterpriseTrunkAddRequest extends ComplexType implements ComplexInter
      */
     public function getRouteExhaustionAction()
     {
-        return $this->routeExhaustionAction->getValue();
+        return ($this->routeExhaustionAction) ? $this->routeExhaustionAction->getValue() : null;
     }
 
     /**
@@ -172,7 +167,6 @@ class GroupEnterpriseTrunkAddRequest extends ComplexType implements ComplexInter
      */
     public function setRouteExhaustionForwardAddress($routeExhaustionForwardAddress = null)
     {
-        if (!$routeExhaustionForwardAddress) return $this;
         $this->routeExhaustionForwardAddress = ($routeExhaustionForwardAddress InstanceOf OutgoingDNorSIPURI)
              ? $routeExhaustionForwardAddress
              : new OutgoingDNorSIPURI($routeExhaustionForwardAddress);
@@ -186,6 +180,6 @@ class GroupEnterpriseTrunkAddRequest extends ComplexType implements ComplexInter
      */
     public function getRouteExhaustionForwardAddress()
     {
-        return $this->routeExhaustionForwardAddress->getValue();
+        return ($this->routeExhaustionForwardAddress) ? $this->routeExhaustionForwardAddress->getValue() : null;
     }
 }

@@ -23,15 +23,15 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserMaliciousCallTraceModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name               = 'UserMaliciousCallTraceModifyRequest';
-    protected $userId             = null;
-    protected $isActive           = null;
-    protected $traceTypeSelection = null;
-    protected $traceForTimePeriod = null;
-    protected $traceTimePeriod    = null;
+    public    $name = 'UserMaliciousCallTraceModifyRequest';
+    protected $userId;
+    protected $isActive;
+    protected $traceTypeSelection;
+    protected $traceForTimePeriod;
+    protected $traceTimePeriod;
 
     public function __construct(
-         $userId,
+         $userId = '',
          $isActive = null,
          $traceTypeSelection = null,
          $traceForTimePeriod = null,
@@ -57,7 +57,6 @@ class UserMaliciousCallTraceModifyRequest extends ComplexType implements Complex
      */
     public function setUserId($userId = null)
     {
-        if (!$userId) return $this;
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
@@ -71,7 +70,7 @@ class UserMaliciousCallTraceModifyRequest extends ComplexType implements Complex
      */
     public function getUserId()
     {
-        return $this->userId->getValue();
+        return ($this->userId) ? $this->userId->getValue() : null;
     }
 
     /**
@@ -79,7 +78,6 @@ class UserMaliciousCallTraceModifyRequest extends ComplexType implements Complex
      */
     public function setIsActive($isActive = null)
     {
-        if (!$isActive) return $this;
         $this->isActive = new PrimitiveType($isActive);
         $this->isActive->setName('isActive');
         return $this;
@@ -91,7 +89,7 @@ class UserMaliciousCallTraceModifyRequest extends ComplexType implements Complex
      */
     public function getIsActive()
     {
-        return $this->isActive->getValue();
+        return ($this->isActive) ? $this->isActive->getValue() : null;
     }
 
     /**
@@ -99,7 +97,6 @@ class UserMaliciousCallTraceModifyRequest extends ComplexType implements Complex
      */
     public function setTraceTypeSelection($traceTypeSelection = null)
     {
-        if (!$traceTypeSelection) return $this;
         $this->traceTypeSelection = ($traceTypeSelection InstanceOf MaliciousCallTraceCallTypeSelection)
              ? $traceTypeSelection
              : new MaliciousCallTraceCallTypeSelection($traceTypeSelection);
@@ -113,7 +110,7 @@ class UserMaliciousCallTraceModifyRequest extends ComplexType implements Complex
      */
     public function getTraceTypeSelection()
     {
-        return $this->traceTypeSelection->getValue();
+        return ($this->traceTypeSelection) ? $this->traceTypeSelection->getValue() : null;
     }
 
     /**
@@ -121,7 +118,6 @@ class UserMaliciousCallTraceModifyRequest extends ComplexType implements Complex
      */
     public function setTraceForTimePeriod($traceForTimePeriod = null)
     {
-        if (!$traceForTimePeriod) return $this;
         $this->traceForTimePeriod = new PrimitiveType($traceForTimePeriod);
         $this->traceForTimePeriod->setName('traceForTimePeriod');
         return $this;
@@ -133,7 +129,7 @@ class UserMaliciousCallTraceModifyRequest extends ComplexType implements Complex
      */
     public function getTraceForTimePeriod()
     {
-        return $this->traceForTimePeriod->getValue();
+        return ($this->traceForTimePeriod) ? $this->traceForTimePeriod->getValue() : null;
     }
 
     /**
@@ -141,8 +137,9 @@ class UserMaliciousCallTraceModifyRequest extends ComplexType implements Complex
      */
     public function setTraceTimePeriod(MaliciousCallTraceTimePeriod $traceTimePeriod = null)
     {
-        if (!$traceTimePeriod) return $this;
-        $this->traceTimePeriod = $traceTimePeriod;
+        $this->traceTimePeriod = ($traceTimePeriod InstanceOf MaliciousCallTraceTimePeriod)
+             ? $traceTimePeriod
+             : new MaliciousCallTraceTimePeriod($traceTimePeriod);
         $this->traceTimePeriod->setName('traceTimePeriod');
         return $this;
     }

@@ -19,13 +19,13 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class IPAddressRange extends ComplexType implements ComplexInterface
 {
-    public    $name         = 'IPAddressRange';
-    protected $minIpAddress = null;
-    protected $maxIpAddress = null;
+    public    $name = 'IPAddressRange';
+    protected $minIpAddress;
+    protected $maxIpAddress;
 
     public function __construct(
-         $minIpAddress,
-         $maxIpAddress
+         $minIpAddress = '',
+         $maxIpAddress = ''
     ) {
         $this->setMinIpAddress($minIpAddress);
         $this->setMaxIpAddress($maxIpAddress);
@@ -44,7 +44,6 @@ class IPAddressRange extends ComplexType implements ComplexInterface
      */
     public function setMinIpAddress($minIpAddress = null)
     {
-        if (!$minIpAddress) return $this;
         $this->minIpAddress = new SimpleContent($minIpAddress);
         $this->minIpAddress->setName('minIpAddress');
         return $this;
@@ -56,7 +55,7 @@ class IPAddressRange extends ComplexType implements ComplexInterface
      */
     public function getMinIpAddress()
     {
-        return $this->minIpAddress->getValue();
+        return ($this->minIpAddress) ? $this->minIpAddress->getValue() : null;
     }
 
     /**
@@ -64,7 +63,6 @@ class IPAddressRange extends ComplexType implements ComplexInterface
      */
     public function setMaxIpAddress($maxIpAddress = null)
     {
-        if (!$maxIpAddress) return $this;
         $this->maxIpAddress = new SimpleContent($maxIpAddress);
         $this->maxIpAddress->setName('maxIpAddress');
         return $this;
@@ -76,6 +74,6 @@ class IPAddressRange extends ComplexType implements ComplexInterface
      */
     public function getMaxIpAddress()
     {
-        return $this->maxIpAddress->getValue();
+        return ($this->maxIpAddress) ? $this->maxIpAddress->getValue() : null;
     }
 }

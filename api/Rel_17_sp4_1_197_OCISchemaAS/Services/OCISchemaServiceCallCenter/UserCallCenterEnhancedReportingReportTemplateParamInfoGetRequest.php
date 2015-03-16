@@ -21,11 +21,11 @@ use Broadworks_OCIP\core\Client\Client;
 class UserCallCenterEnhancedReportingReportTemplateParamInfoGetRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType   = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\UserCallCenterEnhancedReportingReportTemplateParamInfoGetResponse';
-    public    $name           = 'UserCallCenterEnhancedReportingReportTemplateParamInfoGetRequest';
-    protected $reportTemplate = null;
+    public    $name = 'UserCallCenterEnhancedReportingReportTemplateParamInfoGetRequest';
+    protected $reportTemplate;
 
     public function __construct(
-         CallCenterReportTemplateKey $reportTemplate
+         CallCenterReportTemplateKey $reportTemplate = ''
     ) {
         $this->setReportTemplate($reportTemplate);
     }
@@ -43,8 +43,9 @@ class UserCallCenterEnhancedReportingReportTemplateParamInfoGetRequest extends C
      */
     public function setReportTemplate(CallCenterReportTemplateKey $reportTemplate = null)
     {
-        if (!$reportTemplate) return $this;
-        $this->reportTemplate = $reportTemplate;
+        $this->reportTemplate = ($reportTemplate InstanceOf CallCenterReportTemplateKey)
+             ? $reportTemplate
+             : new CallCenterReportTemplateKey($reportTemplate);
         $this->reportTemplate->setName('reportTemplate');
         return $this;
     }

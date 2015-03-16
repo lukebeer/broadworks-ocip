@@ -21,12 +21,12 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemAccessDeviceCustomTagDeleteListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name       = 'SystemAccessDeviceCustomTagDeleteListRequest';
-    protected $deviceName = null;
-    protected $tagName    = null;
+    public    $name = 'SystemAccessDeviceCustomTagDeleteListRequest';
+    protected $deviceName;
+    protected $tagName;
 
     public function __construct(
-         $deviceName,
+         $deviceName = '',
          $tagName = null
     ) {
         $this->setDeviceName($deviceName);
@@ -46,7 +46,6 @@ class SystemAccessDeviceCustomTagDeleteListRequest extends ComplexType implement
      */
     public function setDeviceName($deviceName = null)
     {
-        if (!$deviceName) return $this;
         $this->deviceName = ($deviceName InstanceOf AccessDeviceName)
              ? $deviceName
              : new AccessDeviceName($deviceName);
@@ -60,7 +59,7 @@ class SystemAccessDeviceCustomTagDeleteListRequest extends ComplexType implement
      */
     public function getDeviceName()
     {
-        return $this->deviceName->getValue();
+        return ($this->deviceName) ? $this->deviceName->getValue() : null;
     }
 
     /**
@@ -68,7 +67,6 @@ class SystemAccessDeviceCustomTagDeleteListRequest extends ComplexType implement
      */
     public function setTagName($tagName = null)
     {
-        if (!$tagName) return $this;
         $this->tagName = ($tagName InstanceOf DeviceManagementTagName)
              ? $tagName
              : new DeviceManagementTagName($tagName);
@@ -82,6 +80,6 @@ class SystemAccessDeviceCustomTagDeleteListRequest extends ComplexType implement
      */
     public function getTagName()
     {
-        return $this->tagName->getValue();
+        return ($this->tagName) ? $this->tagName->getValue() : null;
     }
 }

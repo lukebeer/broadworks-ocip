@@ -24,16 +24,16 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupCallCenterModifyInstanceStatisticsReportingRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                    = 'GroupCallCenterModifyInstanceStatisticsReportingRequest';
-    protected $serviceUserId           = null;
-    protected $clearTodayStatistics    = null;
-    protected $generateDailyReport     = null;
-    protected $collectionPeriodMinutes = null;
-    protected $reportingEmailAddress1  = null;
-    protected $reportingEmailAddress2  = null;
+    public    $name = 'GroupCallCenterModifyInstanceStatisticsReportingRequest';
+    protected $serviceUserId;
+    protected $clearTodayStatistics;
+    protected $generateDailyReport;
+    protected $collectionPeriodMinutes;
+    protected $reportingEmailAddress1;
+    protected $reportingEmailAddress2;
 
     public function __construct(
-         $serviceUserId,
+         $serviceUserId = '',
          $clearTodayStatistics = null,
          $generateDailyReport = null,
          $collectionPeriodMinutes = null,
@@ -61,7 +61,6 @@ class GroupCallCenterModifyInstanceStatisticsReportingRequest extends ComplexTyp
      */
     public function setServiceUserId($serviceUserId = null)
     {
-        if (!$serviceUserId) return $this;
         $this->serviceUserId = ($serviceUserId InstanceOf UserId)
              ? $serviceUserId
              : new UserId($serviceUserId);
@@ -75,7 +74,7 @@ class GroupCallCenterModifyInstanceStatisticsReportingRequest extends ComplexTyp
      */
     public function getServiceUserId()
     {
-        return $this->serviceUserId->getValue();
+        return ($this->serviceUserId) ? $this->serviceUserId->getValue() : null;
     }
 
     /**
@@ -83,7 +82,6 @@ class GroupCallCenterModifyInstanceStatisticsReportingRequest extends ComplexTyp
      */
     public function setClearTodayStatistics($clearTodayStatistics = null)
     {
-        if (!$clearTodayStatistics) return $this;
         $this->clearTodayStatistics = new PrimitiveType($clearTodayStatistics);
         $this->clearTodayStatistics->setName('clearTodayStatistics');
         return $this;
@@ -95,7 +93,7 @@ class GroupCallCenterModifyInstanceStatisticsReportingRequest extends ComplexTyp
      */
     public function getClearTodayStatistics()
     {
-        return $this->clearTodayStatistics->getValue();
+        return ($this->clearTodayStatistics) ? $this->clearTodayStatistics->getValue() : null;
     }
 
     /**
@@ -103,7 +101,6 @@ class GroupCallCenterModifyInstanceStatisticsReportingRequest extends ComplexTyp
      */
     public function setGenerateDailyReport($generateDailyReport = null)
     {
-        if (!$generateDailyReport) return $this;
         $this->generateDailyReport = new PrimitiveType($generateDailyReport);
         $this->generateDailyReport->setName('generateDailyReport');
         return $this;
@@ -115,7 +112,7 @@ class GroupCallCenterModifyInstanceStatisticsReportingRequest extends ComplexTyp
      */
     public function getGenerateDailyReport()
     {
-        return $this->generateDailyReport->getValue();
+        return ($this->generateDailyReport) ? $this->generateDailyReport->getValue() : null;
     }
 
     /**
@@ -123,7 +120,6 @@ class GroupCallCenterModifyInstanceStatisticsReportingRequest extends ComplexTyp
      */
     public function setCollectionPeriodMinutes($collectionPeriodMinutes = null)
     {
-        if (!$collectionPeriodMinutes) return $this;
         $this->collectionPeriodMinutes = ($collectionPeriodMinutes InstanceOf CallCenterStatisticsCollectionPeriodMinutes)
              ? $collectionPeriodMinutes
              : new CallCenterStatisticsCollectionPeriodMinutes($collectionPeriodMinutes);
@@ -137,7 +133,7 @@ class GroupCallCenterModifyInstanceStatisticsReportingRequest extends ComplexTyp
      */
     public function getCollectionPeriodMinutes()
     {
-        return $this->collectionPeriodMinutes->getValue();
+        return ($this->collectionPeriodMinutes) ? $this->collectionPeriodMinutes->getValue() : null;
     }
 
     /**
@@ -145,7 +141,6 @@ class GroupCallCenterModifyInstanceStatisticsReportingRequest extends ComplexTyp
      */
     public function setReportingEmailAddress1($reportingEmailAddress1 = null)
     {
-        if (!$reportingEmailAddress1) return $this;
         $this->reportingEmailAddress1 = ($reportingEmailAddress1 InstanceOf EmailAddress)
              ? $reportingEmailAddress1
              : new EmailAddress($reportingEmailAddress1);
@@ -159,7 +154,7 @@ class GroupCallCenterModifyInstanceStatisticsReportingRequest extends ComplexTyp
      */
     public function getReportingEmailAddress1()
     {
-        return $this->reportingEmailAddress1->getValue();
+        return ($this->reportingEmailAddress1) ? $this->reportingEmailAddress1->getValue() : null;
     }
 
     /**
@@ -167,7 +162,6 @@ class GroupCallCenterModifyInstanceStatisticsReportingRequest extends ComplexTyp
      */
     public function setReportingEmailAddress2($reportingEmailAddress2 = null)
     {
-        if (!$reportingEmailAddress2) return $this;
         $this->reportingEmailAddress2 = ($reportingEmailAddress2 InstanceOf EmailAddress)
              ? $reportingEmailAddress2
              : new EmailAddress($reportingEmailAddress2);
@@ -181,6 +175,6 @@ class GroupCallCenterModifyInstanceStatisticsReportingRequest extends ComplexTyp
      */
     public function getReportingEmailAddress2()
     {
-        return $this->reportingEmailAddress2->getValue();
+        return ($this->reportingEmailAddress2) ? $this->reportingEmailAddress2->getValue() : null;
     }
 }

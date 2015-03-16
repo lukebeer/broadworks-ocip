@@ -22,13 +22,13 @@ use Broadworks_OCIP\core\Client\Client;
 class ServiceProviderCommunicationBarringDigitPatternCriteriaGetRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderCommunicationBarringDigitPatternCriteriaGetResponse';
-    public    $name              = 'ServiceProviderCommunicationBarringDigitPatternCriteriaGetRequest';
-    protected $serviceProviderId = null;
-    protected $name              = null;
+    public    $name = 'ServiceProviderCommunicationBarringDigitPatternCriteriaGetRequest';
+    protected $serviceProviderId;
+    protected $name;
 
     public function __construct(
-         $serviceProviderId,
-         $name
+         $serviceProviderId = '',
+         $name = ''
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setName($name);
@@ -47,7 +47,6 @@ class ServiceProviderCommunicationBarringDigitPatternCriteriaGetRequest extends 
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
-        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
@@ -61,7 +60,7 @@ class ServiceProviderCommunicationBarringDigitPatternCriteriaGetRequest extends 
      */
     public function getServiceProviderId()
     {
-        return $this->serviceProviderId->getValue();
+        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
     }
 
     /**
@@ -69,7 +68,6 @@ class ServiceProviderCommunicationBarringDigitPatternCriteriaGetRequest extends 
      */
     public function setName($name = null)
     {
-        if (!$name) return $this;
         $this->name = ($name InstanceOf DigitPatternCriteriaName)
              ? $name
              : new DigitPatternCriteriaName($name);
@@ -83,6 +81,6 @@ class ServiceProviderCommunicationBarringDigitPatternCriteriaGetRequest extends 
      */
     public function getName()
     {
-        return $this->name->getValue();
+        return ($this->name) ? $this->name->getValue() : null;
     }
 }

@@ -20,9 +20,9 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserPriorityAlertGetCriteriaResponse extends ComplexType implements ComplexInterface
 {
-    public    $name           = 'UserPriorityAlertGetCriteriaResponse';
-    protected $timeSchedule   = null;
-    protected $fromDnCriteria = null;
+    public    $name = 'UserPriorityAlertGetCriteriaResponse';
+    protected $timeSchedule;
+    protected $fromDnCriteria;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15\UserPriorityAlertGetCriteriaResponse $response
@@ -37,8 +37,9 @@ class UserPriorityAlertGetCriteriaResponse extends ComplexType implements Comple
      */
     public function setTimeSchedule(TimeSchedule $timeSchedule = null)
     {
-        if (!$timeSchedule) return $this;
-        $this->timeSchedule = $timeSchedule;
+        $this->timeSchedule = ($timeSchedule InstanceOf TimeSchedule)
+             ? $timeSchedule
+             : new TimeSchedule($timeSchedule);
         $this->timeSchedule->setName('timeSchedule');
         return $this;
     }
@@ -57,8 +58,9 @@ class UserPriorityAlertGetCriteriaResponse extends ComplexType implements Comple
      */
     public function setFromDnCriteria(PriorityAlertCriteriaFromDn $fromDnCriteria = null)
     {
-        if (!$fromDnCriteria) return $this;
-        $this->fromDnCriteria = $fromDnCriteria;
+        $this->fromDnCriteria = ($fromDnCriteria InstanceOf PriorityAlertCriteriaFromDn)
+             ? $fromDnCriteria
+             : new PriorityAlertCriteriaFromDn($fromDnCriteria);
         $this->fromDnCriteria->setName('fromDnCriteria');
         return $this;
     }

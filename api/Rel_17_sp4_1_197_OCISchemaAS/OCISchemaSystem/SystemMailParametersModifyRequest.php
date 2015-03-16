@@ -23,12 +23,12 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemMailParametersModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                             = 'SystemMailParametersModifyRequest';
-    protected $primaryServerNetAddress          = null;
-    protected $secondaryServerNetAddress        = null;
-    protected $defaultFromAddress               = null;
-    protected $defaultSubject                   = null;
-    protected $supportDNSSRVForMailServerAccess = null;
+    public    $name = 'SystemMailParametersModifyRequest';
+    protected $primaryServerNetAddress;
+    protected $secondaryServerNetAddress;
+    protected $defaultFromAddress;
+    protected $defaultSubject;
+    protected $supportDNSSRVForMailServerAccess;
 
     public function __construct(
          $primaryServerNetAddress = null,
@@ -57,7 +57,6 @@ class SystemMailParametersModifyRequest extends ComplexType implements ComplexIn
      */
     public function setPrimaryServerNetAddress($primaryServerNetAddress = null)
     {
-        if (!$primaryServerNetAddress) return $this;
         $this->primaryServerNetAddress = ($primaryServerNetAddress InstanceOf NetAddress)
              ? $primaryServerNetAddress
              : new NetAddress($primaryServerNetAddress);
@@ -71,7 +70,7 @@ class SystemMailParametersModifyRequest extends ComplexType implements ComplexIn
      */
     public function getPrimaryServerNetAddress()
     {
-        return $this->primaryServerNetAddress->getValue();
+        return ($this->primaryServerNetAddress) ? $this->primaryServerNetAddress->getValue() : null;
     }
 
     /**
@@ -79,7 +78,6 @@ class SystemMailParametersModifyRequest extends ComplexType implements ComplexIn
      */
     public function setSecondaryServerNetAddress($secondaryServerNetAddress = null)
     {
-        if (!$secondaryServerNetAddress) return $this;
         $this->secondaryServerNetAddress = ($secondaryServerNetAddress InstanceOf NetAddress)
              ? $secondaryServerNetAddress
              : new NetAddress($secondaryServerNetAddress);
@@ -93,7 +91,7 @@ class SystemMailParametersModifyRequest extends ComplexType implements ComplexIn
      */
     public function getSecondaryServerNetAddress()
     {
-        return $this->secondaryServerNetAddress->getValue();
+        return ($this->secondaryServerNetAddress) ? $this->secondaryServerNetAddress->getValue() : null;
     }
 
     /**
@@ -101,7 +99,6 @@ class SystemMailParametersModifyRequest extends ComplexType implements ComplexIn
      */
     public function setDefaultFromAddress($defaultFromAddress = null)
     {
-        if (!$defaultFromAddress) return $this;
         $this->defaultFromAddress = ($defaultFromAddress InstanceOf SMTPFromAddress)
              ? $defaultFromAddress
              : new SMTPFromAddress($defaultFromAddress);
@@ -115,7 +112,7 @@ class SystemMailParametersModifyRequest extends ComplexType implements ComplexIn
      */
     public function getDefaultFromAddress()
     {
-        return $this->defaultFromAddress->getValue();
+        return ($this->defaultFromAddress) ? $this->defaultFromAddress->getValue() : null;
     }
 
     /**
@@ -123,7 +120,6 @@ class SystemMailParametersModifyRequest extends ComplexType implements ComplexIn
      */
     public function setDefaultSubject($defaultSubject = null)
     {
-        if (!$defaultSubject) return $this;
         $this->defaultSubject = ($defaultSubject InstanceOf SMTPSubject)
              ? $defaultSubject
              : new SMTPSubject($defaultSubject);
@@ -137,7 +133,7 @@ class SystemMailParametersModifyRequest extends ComplexType implements ComplexIn
      */
     public function getDefaultSubject()
     {
-        return $this->defaultSubject->getValue();
+        return ($this->defaultSubject) ? $this->defaultSubject->getValue() : null;
     }
 
     /**
@@ -145,7 +141,6 @@ class SystemMailParametersModifyRequest extends ComplexType implements ComplexIn
      */
     public function setSupportDNSSRVForMailServerAccess($supportDNSSRVForMailServerAccess = null)
     {
-        if (!$supportDNSSRVForMailServerAccess) return $this;
         $this->supportDNSSRVForMailServerAccess = new PrimitiveType($supportDNSSRVForMailServerAccess);
         $this->supportDNSSRVForMailServerAccess->setName('supportDNSSRVForMailServerAccess');
         return $this;
@@ -157,6 +152,6 @@ class SystemMailParametersModifyRequest extends ComplexType implements ComplexIn
      */
     public function getSupportDNSSRVForMailServerAccess()
     {
-        return $this->supportDNSSRVForMailServerAccess->getValue();
+        return ($this->supportDNSSRVForMailServerAccess) ? $this->supportDNSSRVForMailServerAccess->getValue() : null;
     }
 }

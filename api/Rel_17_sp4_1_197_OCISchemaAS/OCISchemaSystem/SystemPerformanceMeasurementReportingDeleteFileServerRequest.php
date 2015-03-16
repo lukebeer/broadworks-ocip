@@ -20,11 +20,11 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemPerformanceMeasurementReportingDeleteFileServerRequest extends ComplexType implements ComplexInterface
 {
-    public    $name              = 'SystemPerformanceMeasurementReportingDeleteFileServerRequest';
-    protected $ftpHostNetAddress = null;
+    public    $name = 'SystemPerformanceMeasurementReportingDeleteFileServerRequest';
+    protected $ftpHostNetAddress;
 
     public function __construct(
-         $ftpHostNetAddress
+         $ftpHostNetAddress = ''
     ) {
         $this->setFtpHostNetAddress($ftpHostNetAddress);
     }
@@ -42,7 +42,6 @@ class SystemPerformanceMeasurementReportingDeleteFileServerRequest extends Compl
      */
     public function setFtpHostNetAddress($ftpHostNetAddress = null)
     {
-        if (!$ftpHostNetAddress) return $this;
         $this->ftpHostNetAddress = ($ftpHostNetAddress InstanceOf NetAddress)
              ? $ftpHostNetAddress
              : new NetAddress($ftpHostNetAddress);
@@ -56,6 +55,6 @@ class SystemPerformanceMeasurementReportingDeleteFileServerRequest extends Compl
      */
     public function getFtpHostNetAddress()
     {
-        return $this->ftpHostNetAddress->getValue();
+        return ($this->ftpHostNetAddress) ? $this->ftpHostNetAddress->getValue() : null;
     }
 }

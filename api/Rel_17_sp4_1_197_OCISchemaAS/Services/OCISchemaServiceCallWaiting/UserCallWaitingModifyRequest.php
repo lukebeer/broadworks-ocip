@@ -24,13 +24,13 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserCallWaitingModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                         = 'UserCallWaitingModifyRequest';
-    protected $userId                       = null;
-    protected $isActive                     = null;
-    protected $disableCallingLineIdDelivery = null;
+    public    $name = 'UserCallWaitingModifyRequest';
+    protected $userId;
+    protected $isActive;
+    protected $disableCallingLineIdDelivery;
 
     public function __construct(
-         $userId,
+         $userId = '',
          $isActive = null,
          $disableCallingLineIdDelivery = null
     ) {
@@ -52,7 +52,6 @@ class UserCallWaitingModifyRequest extends ComplexType implements ComplexInterfa
      */
     public function setUserId($userId = null)
     {
-        if (!$userId) return $this;
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
@@ -66,7 +65,7 @@ class UserCallWaitingModifyRequest extends ComplexType implements ComplexInterfa
      */
     public function getUserId()
     {
-        return $this->userId->getValue();
+        return ($this->userId) ? $this->userId->getValue() : null;
     }
 
     /**
@@ -74,7 +73,6 @@ class UserCallWaitingModifyRequest extends ComplexType implements ComplexInterfa
      */
     public function setIsActive($isActive = null)
     {
-        if (!$isActive) return $this;
         $this->isActive = new PrimitiveType($isActive);
         $this->isActive->setName('isActive');
         return $this;
@@ -86,7 +84,7 @@ class UserCallWaitingModifyRequest extends ComplexType implements ComplexInterfa
      */
     public function getIsActive()
     {
-        return $this->isActive->getValue();
+        return ($this->isActive) ? $this->isActive->getValue() : null;
     }
 
     /**
@@ -94,7 +92,6 @@ class UserCallWaitingModifyRequest extends ComplexType implements ComplexInterfa
      */
     public function setDisableCallingLineIdDelivery($disableCallingLineIdDelivery = null)
     {
-        if (!$disableCallingLineIdDelivery) return $this;
         $this->disableCallingLineIdDelivery = new PrimitiveType($disableCallingLineIdDelivery);
         $this->disableCallingLineIdDelivery->setName('disableCallingLineIdDelivery');
         return $this;
@@ -106,6 +103,6 @@ class UserCallWaitingModifyRequest extends ComplexType implements ComplexInterfa
      */
     public function getDisableCallingLineIdDelivery()
     {
-        return $this->disableCallingLineIdDelivery->getValue();
+        return ($this->disableCallingLineIdDelivery) ? $this->disableCallingLineIdDelivery->getValue() : null;
     }
 }

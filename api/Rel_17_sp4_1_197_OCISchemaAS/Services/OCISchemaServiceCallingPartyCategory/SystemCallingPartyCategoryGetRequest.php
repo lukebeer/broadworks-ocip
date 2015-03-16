@@ -21,11 +21,11 @@ use Broadworks_OCIP\core\Client\Client;
 class SystemCallingPartyCategoryGetRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallingPartyCategory\SystemCallingPartyCategoryGetResponse';
-    public    $name     = 'SystemCallingPartyCategoryGetRequest';
-    protected $category = null;
+    public    $name = 'SystemCallingPartyCategoryGetRequest';
+    protected $category;
 
     public function __construct(
-         $category
+         $category = ''
     ) {
         $this->setCategory($category);
     }
@@ -43,7 +43,6 @@ class SystemCallingPartyCategoryGetRequest extends ComplexType implements Comple
      */
     public function setCategory($category = null)
     {
-        if (!$category) return $this;
         $this->category = ($category InstanceOf CallingPartyCategoryName)
              ? $category
              : new CallingPartyCategoryName($category);
@@ -57,6 +56,6 @@ class SystemCallingPartyCategoryGetRequest extends ComplexType implements Comple
      */
     public function getCategory()
     {
-        return $this->category->getValue();
+        return ($this->category) ? $this->category->getValue() : null;
     }
 }

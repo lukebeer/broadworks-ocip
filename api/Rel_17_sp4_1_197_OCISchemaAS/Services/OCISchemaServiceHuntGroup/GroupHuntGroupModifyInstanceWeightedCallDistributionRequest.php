@@ -24,12 +24,12 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupHuntGroupModifyInstanceWeightedCallDistributionRequest extends ComplexType implements ComplexInterface
 {
-    public    $name          = 'GroupHuntGroupModifyInstanceWeightedCallDistributionRequest';
-    protected $serviceUserId = null;
-    protected $agentWeight   = null;
+    public    $name = 'GroupHuntGroupModifyInstanceWeightedCallDistributionRequest';
+    protected $serviceUserId;
+    protected $agentWeight;
 
     public function __construct(
-         $serviceUserId,
+         $serviceUserId = '',
          HuntAgentWeight $agentWeight = null
     ) {
         $this->setServiceUserId($serviceUserId);
@@ -49,7 +49,6 @@ class GroupHuntGroupModifyInstanceWeightedCallDistributionRequest extends Comple
      */
     public function setServiceUserId($serviceUserId = null)
     {
-        if (!$serviceUserId) return $this;
         $this->serviceUserId = ($serviceUserId InstanceOf UserId)
              ? $serviceUserId
              : new UserId($serviceUserId);
@@ -63,7 +62,7 @@ class GroupHuntGroupModifyInstanceWeightedCallDistributionRequest extends Comple
      */
     public function getServiceUserId()
     {
-        return $this->serviceUserId->getValue();
+        return ($this->serviceUserId) ? $this->serviceUserId->getValue() : null;
     }
 
     /**
@@ -71,8 +70,9 @@ class GroupHuntGroupModifyInstanceWeightedCallDistributionRequest extends Comple
      */
     public function setAgentWeight(HuntAgentWeight $agentWeight = null)
     {
-        if (!$agentWeight) return $this;
-        $this->agentWeight = $agentWeight;
+        $this->agentWeight = ($agentWeight InstanceOf HuntAgentWeight)
+             ? $agentWeight
+             : new HuntAgentWeight($agentWeight);
         $this->agentWeight->setName('agentWeight');
         return $this;
     }

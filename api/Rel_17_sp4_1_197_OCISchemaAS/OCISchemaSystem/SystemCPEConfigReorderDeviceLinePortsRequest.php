@@ -23,12 +23,12 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemCPEConfigReorderDeviceLinePortsRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                = 'SystemCPEConfigReorderDeviceLinePortsRequest';
-    protected $deviceName          = null;
-    protected $orderedLinePortList = null;
+    public    $name = 'SystemCPEConfigReorderDeviceLinePortsRequest';
+    protected $deviceName;
+    protected $orderedLinePortList;
 
     public function __construct(
-         $deviceName,
+         $deviceName = '',
          $orderedLinePortList = null
     ) {
         $this->setDeviceName($deviceName);
@@ -48,7 +48,6 @@ class SystemCPEConfigReorderDeviceLinePortsRequest extends ComplexType implement
      */
     public function setDeviceName($deviceName = null)
     {
-        if (!$deviceName) return $this;
         $this->deviceName = ($deviceName InstanceOf AccessDeviceName)
              ? $deviceName
              : new AccessDeviceName($deviceName);
@@ -62,7 +61,7 @@ class SystemCPEConfigReorderDeviceLinePortsRequest extends ComplexType implement
      */
     public function getDeviceName()
     {
-        return $this->deviceName->getValue();
+        return ($this->deviceName) ? $this->deviceName->getValue() : null;
     }
 
     /**
@@ -70,7 +69,6 @@ class SystemCPEConfigReorderDeviceLinePortsRequest extends ComplexType implement
      */
     public function setOrderedLinePortList($orderedLinePortList = null)
     {
-        if (!$orderedLinePortList) return $this;
         $this->orderedLinePortList = ($orderedLinePortList InstanceOf AccessDeviceEndpointLinePort)
              ? $orderedLinePortList
              : new AccessDeviceEndpointLinePort($orderedLinePortList);
@@ -84,6 +82,6 @@ class SystemCPEConfigReorderDeviceLinePortsRequest extends ComplexType implement
      */
     public function getOrderedLinePortList()
     {
-        return $this->orderedLinePortList->getValue();
+        return ($this->orderedLinePortList) ? $this->orderedLinePortList->getValue() : null;
     }
 }

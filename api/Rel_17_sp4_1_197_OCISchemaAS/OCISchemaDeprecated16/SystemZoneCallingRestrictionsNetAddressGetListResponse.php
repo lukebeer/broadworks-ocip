@@ -20,9 +20,9 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemZoneCallingRestrictionsNetAddressGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name            = 'SystemZoneCallingRestrictionsNetAddressGetListResponse';
-    protected $netAddress      = null;
-    protected $netAddressRange = null;
+    public    $name = 'SystemZoneCallingRestrictionsNetAddressGetListResponse';
+    protected $netAddress;
+    protected $netAddressRange;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\SystemZoneCallingRestrictionsNetAddressGetListResponse $response
@@ -37,7 +37,6 @@ class SystemZoneCallingRestrictionsNetAddressGetListResponse extends ComplexType
      */
     public function setNetAddress($netAddress = null)
     {
-        if (!$netAddress) return $this;
         $this->netAddress = ($netAddress InstanceOf IPAddress)
              ? $netAddress
              : new IPAddress($netAddress);
@@ -51,7 +50,7 @@ class SystemZoneCallingRestrictionsNetAddressGetListResponse extends ComplexType
      */
     public function getNetAddress()
     {
-        return $this->netAddress->getValue();
+        return ($this->netAddress) ? $this->netAddress->getValue() : null;
     }
 
     /**
@@ -59,8 +58,9 @@ class SystemZoneCallingRestrictionsNetAddressGetListResponse extends ComplexType
      */
     public function setNetAddressRange(IPAddressRange $netAddressRange = null)
     {
-        if (!$netAddressRange) return $this;
-        $this->netAddressRange = $netAddressRange;
+        $this->netAddressRange = ($netAddressRange InstanceOf IPAddressRange)
+             ? $netAddressRange
+             : new IPAddressRange($netAddressRange);
         $this->netAddressRange->setName('netAddressRange');
         return $this;
     }

@@ -22,13 +22,13 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemOCIReportingModifyACLEntryRequest extends ComplexType implements ComplexInterface
 {
-    public    $name             = 'SystemOCIReportingModifyACLEntryRequest';
-    protected $netAddress       = null;
-    protected $description      = null;
-    protected $restrictMessages = null;
+    public    $name = 'SystemOCIReportingModifyACLEntryRequest';
+    protected $netAddress;
+    protected $description;
+    protected $restrictMessages;
 
     public function __construct(
-         $netAddress,
+         $netAddress = '',
          $description = null,
          $restrictMessages = null
     ) {
@@ -50,7 +50,6 @@ class SystemOCIReportingModifyACLEntryRequest extends ComplexType implements Com
      */
     public function setNetAddress($netAddress = null)
     {
-        if (!$netAddress) return $this;
         $this->netAddress = ($netAddress InstanceOf NetAddress)
              ? $netAddress
              : new NetAddress($netAddress);
@@ -64,7 +63,7 @@ class SystemOCIReportingModifyACLEntryRequest extends ComplexType implements Com
      */
     public function getNetAddress()
     {
-        return $this->netAddress->getValue();
+        return ($this->netAddress) ? $this->netAddress->getValue() : null;
     }
 
     /**
@@ -72,7 +71,6 @@ class SystemOCIReportingModifyACLEntryRequest extends ComplexType implements Com
      */
     public function setDescription($description = null)
     {
-        if (!$description) return $this;
         $this->description = ($description InstanceOf NetworkACLEntryDescription)
              ? $description
              : new NetworkACLEntryDescription($description);
@@ -86,7 +84,7 @@ class SystemOCIReportingModifyACLEntryRequest extends ComplexType implements Com
      */
     public function getDescription()
     {
-        return $this->description->getValue();
+        return ($this->description) ? $this->description->getValue() : null;
     }
 
     /**
@@ -94,7 +92,6 @@ class SystemOCIReportingModifyACLEntryRequest extends ComplexType implements Com
      */
     public function setRestrictMessages($restrictMessages = null)
     {
-        if (!$restrictMessages) return $this;
         $this->restrictMessages = new PrimitiveType($restrictMessages);
         $this->restrictMessages->setName('restrictMessages');
         return $this;
@@ -106,6 +103,6 @@ class SystemOCIReportingModifyACLEntryRequest extends ComplexType implements Com
      */
     public function getRestrictMessages()
     {
-        return $this->restrictMessages->getValue();
+        return ($this->restrictMessages) ? $this->restrictMessages->getValue() : null;
     }
 }

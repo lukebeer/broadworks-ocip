@@ -26,8 +26,8 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserEnhancedCallLogsGetListResponse17sp4 extends ComplexType implements ComplexInterface
 {
-    public    $name              = 'UserEnhancedCallLogsGetListResponse17sp4';
-    protected $totalNumberOfRows = null;
+    public    $name = 'UserEnhancedCallLogsGetListResponse17sp4';
+    protected $totalNumberOfRows;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceEnhancedCallLogs\UserEnhancedCallLogsGetListResponse17sp4 $response
@@ -42,7 +42,6 @@ class UserEnhancedCallLogsGetListResponse17sp4 extends ComplexType implements Co
      */
     public function setTotalNumberOfRows($totalNumberOfRows = null)
     {
-        if (!$totalNumberOfRows) return $this;
         $this->totalNumberOfRows = new PrimitiveType($totalNumberOfRows);
         $this->totalNumberOfRows->setName('totalNumberOfRows');
         return $this;
@@ -54,6 +53,6 @@ class UserEnhancedCallLogsGetListResponse17sp4 extends ComplexType implements Co
      */
     public function getTotalNumberOfRows()
     {
-        return $this->totalNumberOfRows->getValue();
+        return ($this->totalNumberOfRows) ? $this->totalNumberOfRows->getValue() : null;
     }
 }

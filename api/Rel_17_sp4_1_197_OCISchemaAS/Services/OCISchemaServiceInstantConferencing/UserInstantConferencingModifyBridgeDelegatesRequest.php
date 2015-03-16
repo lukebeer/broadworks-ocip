@@ -21,14 +21,14 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserInstantConferencingModifyBridgeDelegatesRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                      = 'UserInstantConferencingModifyBridgeDelegatesRequest';
-    protected $userId                    = null;
-    protected $bridgeServiceUserId       = null;
-    protected $bridgeDelegatesUserIdList = null;
+    public    $name = 'UserInstantConferencingModifyBridgeDelegatesRequest';
+    protected $userId;
+    protected $bridgeServiceUserId;
+    protected $bridgeDelegatesUserIdList;
 
     public function __construct(
-         $userId,
-         $bridgeServiceUserId,
+         $userId = '',
+         $bridgeServiceUserId = '',
          ReplacementUserIdList $bridgeDelegatesUserIdList = null
     ) {
         $this->setUserId($userId);
@@ -49,7 +49,6 @@ class UserInstantConferencingModifyBridgeDelegatesRequest extends ComplexType im
      */
     public function setUserId($userId = null)
     {
-        if (!$userId) return $this;
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
@@ -63,7 +62,7 @@ class UserInstantConferencingModifyBridgeDelegatesRequest extends ComplexType im
      */
     public function getUserId()
     {
-        return $this->userId->getValue();
+        return ($this->userId) ? $this->userId->getValue() : null;
     }
 
     /**
@@ -71,7 +70,6 @@ class UserInstantConferencingModifyBridgeDelegatesRequest extends ComplexType im
      */
     public function setBridgeServiceUserId($bridgeServiceUserId = null)
     {
-        if (!$bridgeServiceUserId) return $this;
         $this->bridgeServiceUserId = ($bridgeServiceUserId InstanceOf UserId)
              ? $bridgeServiceUserId
              : new UserId($bridgeServiceUserId);
@@ -85,7 +83,7 @@ class UserInstantConferencingModifyBridgeDelegatesRequest extends ComplexType im
      */
     public function getBridgeServiceUserId()
     {
-        return $this->bridgeServiceUserId->getValue();
+        return ($this->bridgeServiceUserId) ? $this->bridgeServiceUserId->getValue() : null;
     }
 
     /**
@@ -93,8 +91,9 @@ class UserInstantConferencingModifyBridgeDelegatesRequest extends ComplexType im
      */
     public function setBridgeDelegatesUserIdList(ReplacementUserIdList $bridgeDelegatesUserIdList = null)
     {
-        if (!$bridgeDelegatesUserIdList) return $this;
-        $this->bridgeDelegatesUserIdList = $bridgeDelegatesUserIdList;
+        $this->bridgeDelegatesUserIdList = ($bridgeDelegatesUserIdList InstanceOf ReplacementUserIdList)
+             ? $bridgeDelegatesUserIdList
+             : new ReplacementUserIdList($bridgeDelegatesUserIdList);
         $this->bridgeDelegatesUserIdList->setName('bridgeDelegatesUserIdList');
         return $this;
     }

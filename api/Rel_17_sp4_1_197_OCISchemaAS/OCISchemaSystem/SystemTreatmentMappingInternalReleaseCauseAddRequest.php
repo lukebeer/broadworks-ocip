@@ -20,13 +20,13 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemTreatmentMappingInternalReleaseCauseAddRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                 = 'SystemTreatmentMappingInternalReleaseCauseAddRequest';
-    protected $internalReleaseCause = null;
-    protected $treatmentId          = null;
+    public    $name = 'SystemTreatmentMappingInternalReleaseCauseAddRequest';
+    protected $internalReleaseCause;
+    protected $treatmentId;
 
     public function __construct(
-         $internalReleaseCause,
-         $treatmentId
+         $internalReleaseCause = '',
+         $treatmentId = ''
     ) {
         $this->setInternalReleaseCause($internalReleaseCause);
         $this->setTreatmentId($treatmentId);
@@ -45,7 +45,6 @@ class SystemTreatmentMappingInternalReleaseCauseAddRequest extends ComplexType i
      */
     public function setInternalReleaseCause($internalReleaseCause = null)
     {
-        if (!$internalReleaseCause) return $this;
         $this->internalReleaseCause = ($internalReleaseCause InstanceOf InternalReleaseCause16)
              ? $internalReleaseCause
              : new InternalReleaseCause16($internalReleaseCause);
@@ -59,7 +58,7 @@ class SystemTreatmentMappingInternalReleaseCauseAddRequest extends ComplexType i
      */
     public function getInternalReleaseCause()
     {
-        return $this->internalReleaseCause->getValue();
+        return ($this->internalReleaseCause) ? $this->internalReleaseCause->getValue() : null;
     }
 
     /**
@@ -67,7 +66,6 @@ class SystemTreatmentMappingInternalReleaseCauseAddRequest extends ComplexType i
      */
     public function setTreatmentId($treatmentId = null)
     {
-        if (!$treatmentId) return $this;
         $this->treatmentId = ($treatmentId InstanceOf TreatmentId)
              ? $treatmentId
              : new TreatmentId($treatmentId);
@@ -81,6 +79,6 @@ class SystemTreatmentMappingInternalReleaseCauseAddRequest extends ComplexType i
      */
     public function getTreatmentId()
     {
-        return $this->treatmentId->getValue();
+        return ($this->treatmentId) ? $this->treatmentId->getValue() : null;
     }
 }

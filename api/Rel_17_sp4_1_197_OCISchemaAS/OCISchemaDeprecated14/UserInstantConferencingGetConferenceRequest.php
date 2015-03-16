@@ -24,13 +24,13 @@ use Broadworks_OCIP\core\Client\Client;
 class UserInstantConferencingGetConferenceRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType  = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\UserInstantConferencingGetConferenceResponse';
-    public    $name          = 'UserInstantConferencingGetConferenceRequest';
-    protected $userId        = null;
-    protected $conferenceKey = null;
+    public    $name = 'UserInstantConferencingGetConferenceRequest';
+    protected $userId;
+    protected $conferenceKey;
 
     public function __construct(
-         $userId,
-         InstantConferencingConferenceKey $conferenceKey
+         $userId = '',
+         InstantConferencingConferenceKey $conferenceKey = ''
     ) {
         $this->setUserId($userId);
         $this->setConferenceKey($conferenceKey);
@@ -49,7 +49,6 @@ class UserInstantConferencingGetConferenceRequest extends ComplexType implements
      */
     public function setUserId($userId = null)
     {
-        if (!$userId) return $this;
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
@@ -63,7 +62,7 @@ class UserInstantConferencingGetConferenceRequest extends ComplexType implements
      */
     public function getUserId()
     {
-        return $this->userId->getValue();
+        return ($this->userId) ? $this->userId->getValue() : null;
     }
 
     /**
@@ -71,8 +70,9 @@ class UserInstantConferencingGetConferenceRequest extends ComplexType implements
      */
     public function setConferenceKey(InstantConferencingConferenceKey $conferenceKey = null)
     {
-        if (!$conferenceKey) return $this;
-        $this->conferenceKey = $conferenceKey;
+        $this->conferenceKey = ($conferenceKey InstanceOf InstantConferencingConferenceKey)
+             ? $conferenceKey
+             : new InstantConferencingConferenceKey($conferenceKey);
         $this->conferenceKey->setName('conferenceKey');
         return $this;
     }

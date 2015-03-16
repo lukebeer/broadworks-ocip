@@ -20,12 +20,12 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserCallingPartyCategoryModifyRequest16 extends ComplexType implements ComplexInterface
 {
-    public    $name     = 'UserCallingPartyCategoryModifyRequest16';
-    protected $userId   = null;
-    protected $category = null;
+    public    $name = 'UserCallingPartyCategoryModifyRequest16';
+    protected $userId;
+    protected $category;
 
     public function __construct(
-         $userId,
+         $userId = '',
          $category = null
     ) {
         $this->setUserId($userId);
@@ -45,7 +45,6 @@ class UserCallingPartyCategoryModifyRequest16 extends ComplexType implements Com
      */
     public function setUserId($userId = null)
     {
-        if (!$userId) return $this;
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
@@ -59,7 +58,7 @@ class UserCallingPartyCategoryModifyRequest16 extends ComplexType implements Com
      */
     public function getUserId()
     {
-        return $this->userId->getValue();
+        return ($this->userId) ? $this->userId->getValue() : null;
     }
 
     /**
@@ -67,7 +66,6 @@ class UserCallingPartyCategoryModifyRequest16 extends ComplexType implements Com
      */
     public function setCategory($category = null)
     {
-        if (!$category) return $this;
         $this->category = ($category InstanceOf CallingPartyCategoryName)
              ? $category
              : new CallingPartyCategoryName($category);
@@ -81,6 +79,6 @@ class UserCallingPartyCategoryModifyRequest16 extends ComplexType implements Com
      */
     public function getCategory()
     {
-        return $this->category->getValue();
+        return ($this->category) ? $this->category->getValue() : null;
     }
 }

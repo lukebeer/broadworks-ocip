@@ -23,19 +23,19 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class EnterpriseCallCenterModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                                                 = 'EnterpriseCallCenterModifyRequest';
-    protected $serviceProviderId                                    = null;
-    protected $useSystemDefaultGuardTimer                           = null;
-    protected $enableGuardTimer                                     = null;
-    protected $guardTimerSeconds                                    = null;
-    protected $useSystemDefaultUnavailableSettings                  = null;
-    protected $forceAgentUnavailableOnDNDActivation                 = null;
-    protected $forceAgentUnavailableOnPersonalCalls                 = null;
-    protected $forceAgentUnavailableOnBouncedCallLimit              = null;
-    protected $numberConsecutiveBouncedCallsToForceAgentUnavailable = null;
+    public    $name = 'EnterpriseCallCenterModifyRequest';
+    protected $serviceProviderId;
+    protected $useSystemDefaultGuardTimer;
+    protected $enableGuardTimer;
+    protected $guardTimerSeconds;
+    protected $useSystemDefaultUnavailableSettings;
+    protected $forceAgentUnavailableOnDNDActivation;
+    protected $forceAgentUnavailableOnPersonalCalls;
+    protected $forceAgentUnavailableOnBouncedCallLimit;
+    protected $numberConsecutiveBouncedCallsToForceAgentUnavailable;
 
     public function __construct(
-         $serviceProviderId,
+         $serviceProviderId = '',
          $useSystemDefaultGuardTimer = null,
          $enableGuardTimer = null,
          $guardTimerSeconds = null,
@@ -69,7 +69,6 @@ class EnterpriseCallCenterModifyRequest extends ComplexType implements ComplexIn
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
-        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
@@ -83,7 +82,7 @@ class EnterpriseCallCenterModifyRequest extends ComplexType implements ComplexIn
      */
     public function getServiceProviderId()
     {
-        return $this->serviceProviderId->getValue();
+        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
     }
 
     /**
@@ -91,7 +90,6 @@ class EnterpriseCallCenterModifyRequest extends ComplexType implements ComplexIn
      */
     public function setUseSystemDefaultGuardTimer($useSystemDefaultGuardTimer = null)
     {
-        if (!$useSystemDefaultGuardTimer) return $this;
         $this->useSystemDefaultGuardTimer = new PrimitiveType($useSystemDefaultGuardTimer);
         $this->useSystemDefaultGuardTimer->setName('useSystemDefaultGuardTimer');
         return $this;
@@ -103,7 +101,7 @@ class EnterpriseCallCenterModifyRequest extends ComplexType implements ComplexIn
      */
     public function getUseSystemDefaultGuardTimer()
     {
-        return $this->useSystemDefaultGuardTimer->getValue();
+        return ($this->useSystemDefaultGuardTimer) ? $this->useSystemDefaultGuardTimer->getValue() : null;
     }
 
     /**
@@ -111,7 +109,6 @@ class EnterpriseCallCenterModifyRequest extends ComplexType implements ComplexIn
      */
     public function setEnableGuardTimer($enableGuardTimer = null)
     {
-        if (!$enableGuardTimer) return $this;
         $this->enableGuardTimer = new PrimitiveType($enableGuardTimer);
         $this->enableGuardTimer->setName('enableGuardTimer');
         return $this;
@@ -123,7 +120,7 @@ class EnterpriseCallCenterModifyRequest extends ComplexType implements ComplexIn
      */
     public function getEnableGuardTimer()
     {
-        return $this->enableGuardTimer->getValue();
+        return ($this->enableGuardTimer) ? $this->enableGuardTimer->getValue() : null;
     }
 
     /**
@@ -131,7 +128,6 @@ class EnterpriseCallCenterModifyRequest extends ComplexType implements ComplexIn
      */
     public function setGuardTimerSeconds($guardTimerSeconds = null)
     {
-        if (!$guardTimerSeconds) return $this;
         $this->guardTimerSeconds = ($guardTimerSeconds InstanceOf CallCenterGuardTimerSeconds)
              ? $guardTimerSeconds
              : new CallCenterGuardTimerSeconds($guardTimerSeconds);
@@ -145,7 +141,7 @@ class EnterpriseCallCenterModifyRequest extends ComplexType implements ComplexIn
      */
     public function getGuardTimerSeconds()
     {
-        return $this->guardTimerSeconds->getValue();
+        return ($this->guardTimerSeconds) ? $this->guardTimerSeconds->getValue() : null;
     }
 
     /**
@@ -153,7 +149,6 @@ class EnterpriseCallCenterModifyRequest extends ComplexType implements ComplexIn
      */
     public function setUseSystemDefaultUnavailableSettings($useSystemDefaultUnavailableSettings = null)
     {
-        if (!$useSystemDefaultUnavailableSettings) return $this;
         $this->useSystemDefaultUnavailableSettings = new PrimitiveType($useSystemDefaultUnavailableSettings);
         $this->useSystemDefaultUnavailableSettings->setName('useSystemDefaultUnavailableSettings');
         return $this;
@@ -165,7 +160,7 @@ class EnterpriseCallCenterModifyRequest extends ComplexType implements ComplexIn
      */
     public function getUseSystemDefaultUnavailableSettings()
     {
-        return $this->useSystemDefaultUnavailableSettings->getValue();
+        return ($this->useSystemDefaultUnavailableSettings) ? $this->useSystemDefaultUnavailableSettings->getValue() : null;
     }
 
     /**
@@ -173,7 +168,6 @@ class EnterpriseCallCenterModifyRequest extends ComplexType implements ComplexIn
      */
     public function setForceAgentUnavailableOnDNDActivation($forceAgentUnavailableOnDNDActivation = null)
     {
-        if (!$forceAgentUnavailableOnDNDActivation) return $this;
         $this->forceAgentUnavailableOnDNDActivation = new PrimitiveType($forceAgentUnavailableOnDNDActivation);
         $this->forceAgentUnavailableOnDNDActivation->setName('forceAgentUnavailableOnDNDActivation');
         return $this;
@@ -185,7 +179,7 @@ class EnterpriseCallCenterModifyRequest extends ComplexType implements ComplexIn
      */
     public function getForceAgentUnavailableOnDNDActivation()
     {
-        return $this->forceAgentUnavailableOnDNDActivation->getValue();
+        return ($this->forceAgentUnavailableOnDNDActivation) ? $this->forceAgentUnavailableOnDNDActivation->getValue() : null;
     }
 
     /**
@@ -193,7 +187,6 @@ class EnterpriseCallCenterModifyRequest extends ComplexType implements ComplexIn
      */
     public function setForceAgentUnavailableOnPersonalCalls($forceAgentUnavailableOnPersonalCalls = null)
     {
-        if (!$forceAgentUnavailableOnPersonalCalls) return $this;
         $this->forceAgentUnavailableOnPersonalCalls = new PrimitiveType($forceAgentUnavailableOnPersonalCalls);
         $this->forceAgentUnavailableOnPersonalCalls->setName('forceAgentUnavailableOnPersonalCalls');
         return $this;
@@ -205,7 +198,7 @@ class EnterpriseCallCenterModifyRequest extends ComplexType implements ComplexIn
      */
     public function getForceAgentUnavailableOnPersonalCalls()
     {
-        return $this->forceAgentUnavailableOnPersonalCalls->getValue();
+        return ($this->forceAgentUnavailableOnPersonalCalls) ? $this->forceAgentUnavailableOnPersonalCalls->getValue() : null;
     }
 
     /**
@@ -213,7 +206,6 @@ class EnterpriseCallCenterModifyRequest extends ComplexType implements ComplexIn
      */
     public function setForceAgentUnavailableOnBouncedCallLimit($forceAgentUnavailableOnBouncedCallLimit = null)
     {
-        if (!$forceAgentUnavailableOnBouncedCallLimit) return $this;
         $this->forceAgentUnavailableOnBouncedCallLimit = new PrimitiveType($forceAgentUnavailableOnBouncedCallLimit);
         $this->forceAgentUnavailableOnBouncedCallLimit->setName('forceAgentUnavailableOnBouncedCallLimit');
         return $this;
@@ -225,7 +217,7 @@ class EnterpriseCallCenterModifyRequest extends ComplexType implements ComplexIn
      */
     public function getForceAgentUnavailableOnBouncedCallLimit()
     {
-        return $this->forceAgentUnavailableOnBouncedCallLimit->getValue();
+        return ($this->forceAgentUnavailableOnBouncedCallLimit) ? $this->forceAgentUnavailableOnBouncedCallLimit->getValue() : null;
     }
 
     /**
@@ -233,7 +225,6 @@ class EnterpriseCallCenterModifyRequest extends ComplexType implements ComplexIn
      */
     public function setNumberConsecutiveBouncedCallsToForceAgentUnavailable($numberConsecutiveBouncedCallsToForceAgentUnavailable = null)
     {
-        if (!$numberConsecutiveBouncedCallsToForceAgentUnavailable) return $this;
         $this->numberConsecutiveBouncedCallsToForceAgentUnavailable = ($numberConsecutiveBouncedCallsToForceAgentUnavailable InstanceOf CallCenterConsecutiveBouncedCallsToForceAgentUnavailable)
              ? $numberConsecutiveBouncedCallsToForceAgentUnavailable
              : new CallCenterConsecutiveBouncedCallsToForceAgentUnavailable($numberConsecutiveBouncedCallsToForceAgentUnavailable);
@@ -247,6 +238,6 @@ class EnterpriseCallCenterModifyRequest extends ComplexType implements ComplexIn
      */
     public function getNumberConsecutiveBouncedCallsToForceAgentUnavailable()
     {
-        return $this->numberConsecutiveBouncedCallsToForceAgentUnavailable->getValue();
+        return ($this->numberConsecutiveBouncedCallsToForceAgentUnavailable) ? $this->numberConsecutiveBouncedCallsToForceAgentUnavailable->getValue() : null;
     }
 }

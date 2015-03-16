@@ -20,8 +20,8 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemCustomerOriginatedTraceModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                   = 'SystemCustomerOriginatedTraceModifyRequest';
-    protected $screenMaliciousCallers = null;
+    public    $name = 'SystemCustomerOriginatedTraceModifyRequest';
+    protected $screenMaliciousCallers;
 
     public function __construct(
          $screenMaliciousCallers = null
@@ -42,7 +42,6 @@ class SystemCustomerOriginatedTraceModifyRequest extends ComplexType implements 
      */
     public function setScreenMaliciousCallers($screenMaliciousCallers = null)
     {
-        if (!$screenMaliciousCallers) return $this;
         $this->screenMaliciousCallers = new PrimitiveType($screenMaliciousCallers);
         $this->screenMaliciousCallers->setName('screenMaliciousCallers');
         return $this;
@@ -54,6 +53,6 @@ class SystemCustomerOriginatedTraceModifyRequest extends ComplexType implements 
      */
     public function getScreenMaliciousCallers()
     {
-        return $this->screenMaliciousCallers->getValue();
+        return ($this->screenMaliciousCallers) ? $this->screenMaliciousCallers->getValue() : null;
     }
 }

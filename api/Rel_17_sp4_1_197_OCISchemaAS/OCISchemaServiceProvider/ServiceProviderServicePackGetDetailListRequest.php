@@ -22,13 +22,13 @@ use Broadworks_OCIP\core\Client\Client;
 class ServiceProviderServicePackGetDetailListRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderServicePackGetDetailListResponse';
-    public    $name              = 'ServiceProviderServicePackGetDetailListRequest';
-    protected $serviceProviderId = null;
-    protected $servicePackName   = null;
+    public    $name = 'ServiceProviderServicePackGetDetailListRequest';
+    protected $serviceProviderId;
+    protected $servicePackName;
 
     public function __construct(
-         $serviceProviderId,
-         $servicePackName
+         $serviceProviderId = '',
+         $servicePackName = ''
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setServicePackName($servicePackName);
@@ -47,7 +47,6 @@ class ServiceProviderServicePackGetDetailListRequest extends ComplexType impleme
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
-        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
@@ -61,7 +60,7 @@ class ServiceProviderServicePackGetDetailListRequest extends ComplexType impleme
      */
     public function getServiceProviderId()
     {
-        return $this->serviceProviderId->getValue();
+        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
     }
 
     /**
@@ -69,7 +68,6 @@ class ServiceProviderServicePackGetDetailListRequest extends ComplexType impleme
      */
     public function setServicePackName($servicePackName = null)
     {
-        if (!$servicePackName) return $this;
         $this->servicePackName = ($servicePackName InstanceOf ServicePackName)
              ? $servicePackName
              : new ServicePackName($servicePackName);
@@ -83,6 +81,6 @@ class ServiceProviderServicePackGetDetailListRequest extends ComplexType impleme
      */
     public function getServicePackName()
     {
-        return $this->servicePackName->getValue();
+        return ($this->servicePackName) ? $this->servicePackName->getValue() : null;
     }
 }

@@ -26,9 +26,9 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupEnhancedCallLogsGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name              = 'GroupEnhancedCallLogsGetListResponse';
-    protected $totalNumberOfRows = null;
-    protected $extendedCallLog   = null;
+    public    $name = 'GroupEnhancedCallLogsGetListResponse';
+    protected $totalNumberOfRows;
+    protected $extendedCallLog;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceEnhancedCallLogs\GroupEnhancedCallLogsGetListResponse $response
@@ -43,7 +43,6 @@ class GroupEnhancedCallLogsGetListResponse extends ComplexType implements Comple
      */
     public function setTotalNumberOfRows($totalNumberOfRows = null)
     {
-        if (!$totalNumberOfRows) return $this;
         $this->totalNumberOfRows = new PrimitiveType($totalNumberOfRows);
         $this->totalNumberOfRows->setName('totalNumberOfRows');
         return $this;
@@ -55,7 +54,7 @@ class GroupEnhancedCallLogsGetListResponse extends ComplexType implements Comple
      */
     public function getTotalNumberOfRows()
     {
-        return $this->totalNumberOfRows->getValue();
+        return ($this->totalNumberOfRows) ? $this->totalNumberOfRows->getValue() : null;
     }
 
     /**
@@ -63,8 +62,9 @@ class GroupEnhancedCallLogsGetListResponse extends ComplexType implements Comple
      */
     public function setExtendedCallLog(ExtendedMixedCallLogsEntry $extendedCallLog = null)
     {
-        if (!$extendedCallLog) return $this;
-        $this->extendedCallLog = $extendedCallLog;
+        $this->extendedCallLog = ($extendedCallLog InstanceOf ExtendedMixedCallLogsEntry)
+             ? $extendedCallLog
+             : new ExtendedMixedCallLogsEntry($extendedCallLog);
         $this->extendedCallLog->setName('extendedCallLog');
         return $this;
     }

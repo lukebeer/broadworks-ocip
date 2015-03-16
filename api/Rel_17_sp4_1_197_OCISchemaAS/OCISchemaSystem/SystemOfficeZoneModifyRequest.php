@@ -23,15 +23,15 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemOfficeZoneModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                = 'SystemOfficeZoneModifyRequest';
-    protected $officeZoneName      = null;
-    protected $newOfficeZoneName   = null;
-    protected $description         = null;
-    protected $replacementZoneList = null;
-    protected $primaryZoneName     = null;
+    public    $name = 'SystemOfficeZoneModifyRequest';
+    protected $officeZoneName;
+    protected $newOfficeZoneName;
+    protected $description;
+    protected $replacementZoneList;
+    protected $primaryZoneName;
 
     public function __construct(
-         $officeZoneName,
+         $officeZoneName = '',
          $newOfficeZoneName = null,
          $description = null,
          ReplacementZoneList $replacementZoneList = null,
@@ -57,7 +57,6 @@ class SystemOfficeZoneModifyRequest extends ComplexType implements ComplexInterf
      */
     public function setOfficeZoneName($officeZoneName = null)
     {
-        if (!$officeZoneName) return $this;
         $this->officeZoneName = ($officeZoneName InstanceOf OfficeZoneName)
              ? $officeZoneName
              : new OfficeZoneName($officeZoneName);
@@ -71,7 +70,7 @@ class SystemOfficeZoneModifyRequest extends ComplexType implements ComplexInterf
      */
     public function getOfficeZoneName()
     {
-        return $this->officeZoneName->getValue();
+        return ($this->officeZoneName) ? $this->officeZoneName->getValue() : null;
     }
 
     /**
@@ -79,7 +78,6 @@ class SystemOfficeZoneModifyRequest extends ComplexType implements ComplexInterf
      */
     public function setNewOfficeZoneName($newOfficeZoneName = null)
     {
-        if (!$newOfficeZoneName) return $this;
         $this->newOfficeZoneName = ($newOfficeZoneName InstanceOf OfficeZoneName)
              ? $newOfficeZoneName
              : new OfficeZoneName($newOfficeZoneName);
@@ -93,7 +91,7 @@ class SystemOfficeZoneModifyRequest extends ComplexType implements ComplexInterf
      */
     public function getNewOfficeZoneName()
     {
-        return $this->newOfficeZoneName->getValue();
+        return ($this->newOfficeZoneName) ? $this->newOfficeZoneName->getValue() : null;
     }
 
     /**
@@ -101,7 +99,6 @@ class SystemOfficeZoneModifyRequest extends ComplexType implements ComplexInterf
      */
     public function setDescription($description = null)
     {
-        if (!$description) return $this;
         $this->description = ($description InstanceOf OfficeZoneDescription)
              ? $description
              : new OfficeZoneDescription($description);
@@ -115,7 +112,7 @@ class SystemOfficeZoneModifyRequest extends ComplexType implements ComplexInterf
      */
     public function getDescription()
     {
-        return $this->description->getValue();
+        return ($this->description) ? $this->description->getValue() : null;
     }
 
     /**
@@ -123,8 +120,9 @@ class SystemOfficeZoneModifyRequest extends ComplexType implements ComplexInterf
      */
     public function setReplacementZoneList(ReplacementZoneList $replacementZoneList = null)
     {
-        if (!$replacementZoneList) return $this;
-        $this->replacementZoneList = $replacementZoneList;
+        $this->replacementZoneList = ($replacementZoneList InstanceOf ReplacementZoneList)
+             ? $replacementZoneList
+             : new ReplacementZoneList($replacementZoneList);
         $this->replacementZoneList->setName('replacementZoneList');
         return $this;
     }
@@ -143,7 +141,6 @@ class SystemOfficeZoneModifyRequest extends ComplexType implements ComplexInterf
      */
     public function setPrimaryZoneName($primaryZoneName = null)
     {
-        if (!$primaryZoneName) return $this;
         $this->primaryZoneName = ($primaryZoneName InstanceOf ZoneName)
              ? $primaryZoneName
              : new ZoneName($primaryZoneName);
@@ -157,6 +154,6 @@ class SystemOfficeZoneModifyRequest extends ComplexType implements ComplexInterf
      */
     public function getPrimaryZoneName()
     {
-        return $this->primaryZoneName->getValue();
+        return ($this->primaryZoneName) ? $this->primaryZoneName->getValue() : null;
     }
 }

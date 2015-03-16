@@ -21,13 +21,13 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserHolidayScheduleDeleteRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                = 'UserHolidayScheduleDeleteRequest';
-    protected $userId              = null;
-    protected $holidayScheduleName = null;
+    public    $name = 'UserHolidayScheduleDeleteRequest';
+    protected $userId;
+    protected $holidayScheduleName;
 
     public function __construct(
-         $userId,
-         $holidayScheduleName
+         $userId = '',
+         $holidayScheduleName = ''
     ) {
         $this->setUserId($userId);
         $this->setHolidayScheduleName($holidayScheduleName);
@@ -46,7 +46,6 @@ class UserHolidayScheduleDeleteRequest extends ComplexType implements ComplexInt
      */
     public function setUserId($userId = null)
     {
-        if (!$userId) return $this;
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
@@ -60,7 +59,7 @@ class UserHolidayScheduleDeleteRequest extends ComplexType implements ComplexInt
      */
     public function getUserId()
     {
-        return $this->userId->getValue();
+        return ($this->userId) ? $this->userId->getValue() : null;
     }
 
     /**
@@ -68,7 +67,6 @@ class UserHolidayScheduleDeleteRequest extends ComplexType implements ComplexInt
      */
     public function setHolidayScheduleName($holidayScheduleName = null)
     {
-        if (!$holidayScheduleName) return $this;
         $this->holidayScheduleName = ($holidayScheduleName InstanceOf ScheduleName)
              ? $holidayScheduleName
              : new ScheduleName($holidayScheduleName);
@@ -82,6 +80,6 @@ class UserHolidayScheduleDeleteRequest extends ComplexType implements ComplexInt
      */
     public function getHolidayScheduleName()
     {
-        return $this->holidayScheduleName->getValue();
+        return ($this->holidayScheduleName) ? $this->holidayScheduleName->getValue() : null;
     }
 }

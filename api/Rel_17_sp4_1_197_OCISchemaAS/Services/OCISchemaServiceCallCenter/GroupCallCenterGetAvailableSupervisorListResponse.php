@@ -20,8 +20,8 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupCallCenterGetAvailableSupervisorListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name      = 'GroupCallCenterGetAvailableSupervisorListResponse';
-    protected $userTable = null;
+    public    $name = 'GroupCallCenterGetAvailableSupervisorListResponse';
+    protected $userTable;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\GroupCallCenterGetAvailableSupervisorListResponse $response
@@ -36,7 +36,6 @@ class GroupCallCenterGetAvailableSupervisorListResponse extends ComplexType impl
      */
     public function setUserTable(TableType $userTable = null)
     {
-        if (!$userTable) return $this;
         $this->userTable = $userTable;
         $this->userTable->setName('userTable');
         return $this;

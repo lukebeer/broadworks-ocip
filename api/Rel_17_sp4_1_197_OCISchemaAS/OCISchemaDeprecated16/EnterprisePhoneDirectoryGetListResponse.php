@@ -26,8 +26,8 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class EnterprisePhoneDirectoryGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name           = 'EnterprisePhoneDirectoryGetListResponse';
-    protected $directoryTable = null;
+    public    $name = 'EnterprisePhoneDirectoryGetListResponse';
+    protected $directoryTable;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\EnterprisePhoneDirectoryGetListResponse $response
@@ -42,7 +42,6 @@ class EnterprisePhoneDirectoryGetListResponse extends ComplexType implements Com
      */
     public function setDirectoryTable(TableType $directoryTable = null)
     {
-        if (!$directoryTable) return $this;
         $this->directoryTable = $directoryTable;
         $this->directoryTable->setName('directoryTable');
         return $this;

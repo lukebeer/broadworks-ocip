@@ -32,20 +32,20 @@ use Broadworks_OCIP\core\Client\Client;
 class EnterpriseEnhancedCallLogsGetListRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType                   = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceEnhancedCallLogs\EnterpriseEnhancedCallLogsGetListResponse';
-    public    $name                           = 'EnterpriseEnhancedCallLogsGetListRequest';
-    protected $serviceProviderId              = null;
-    protected $callLogType                    = null;
-    protected $dateTimeRange                  = null;
-    protected $numberFilter                   = null;
-    protected $redirectedNumberFilter         = null;
-    protected $accountAuthorizationCodeFilter = null;
-    protected $subscriberType                 = null;
-    protected $responsePagingControl          = null;
+    public    $name = 'EnterpriseEnhancedCallLogsGetListRequest';
+    protected $serviceProviderId;
+    protected $callLogType;
+    protected $dateTimeRange;
+    protected $numberFilter;
+    protected $redirectedNumberFilter;
+    protected $accountAuthorizationCodeFilter;
+    protected $subscriberType;
+    protected $responsePagingControl;
 
     public function __construct(
-         $serviceProviderId,
+         $serviceProviderId = '',
          $callLogType = null,
-         EnhancedCallLogsTimeRange $dateTimeRange,
+         EnhancedCallLogsTimeRange $dateTimeRange = '',
          EnhancedCallLogsNumberFilter $numberFilter = null,
          EnhancedCallLogsRedirectedNumberFilter $redirectedNumberFilter = null,
          EnhancedCallLogsAccountAuthorizationCodeFilter $accountAuthorizationCodeFilter = null,
@@ -75,7 +75,6 @@ class EnterpriseEnhancedCallLogsGetListRequest extends ComplexType implements Co
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
-        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
@@ -89,7 +88,7 @@ class EnterpriseEnhancedCallLogsGetListRequest extends ComplexType implements Co
      */
     public function getServiceProviderId()
     {
-        return $this->serviceProviderId->getValue();
+        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
     }
 
     /**
@@ -97,7 +96,6 @@ class EnterpriseEnhancedCallLogsGetListRequest extends ComplexType implements Co
      */
     public function setCallLogType($callLogType = null)
     {
-        if (!$callLogType) return $this;
         $this->callLogType = ($callLogType InstanceOf EnhancedCallLogsCallLogsRequestType)
              ? $callLogType
              : new EnhancedCallLogsCallLogsRequestType($callLogType);
@@ -111,7 +109,7 @@ class EnterpriseEnhancedCallLogsGetListRequest extends ComplexType implements Co
      */
     public function getCallLogType()
     {
-        return $this->callLogType->getValue();
+        return ($this->callLogType) ? $this->callLogType->getValue() : null;
     }
 
     /**
@@ -119,8 +117,9 @@ class EnterpriseEnhancedCallLogsGetListRequest extends ComplexType implements Co
      */
     public function setDateTimeRange(EnhancedCallLogsTimeRange $dateTimeRange = null)
     {
-        if (!$dateTimeRange) return $this;
-        $this->dateTimeRange = $dateTimeRange;
+        $this->dateTimeRange = ($dateTimeRange InstanceOf EnhancedCallLogsTimeRange)
+             ? $dateTimeRange
+             : new EnhancedCallLogsTimeRange($dateTimeRange);
         $this->dateTimeRange->setName('dateTimeRange');
         return $this;
     }
@@ -139,8 +138,9 @@ class EnterpriseEnhancedCallLogsGetListRequest extends ComplexType implements Co
      */
     public function setNumberFilter(EnhancedCallLogsNumberFilter $numberFilter = null)
     {
-        if (!$numberFilter) return $this;
-        $this->numberFilter = $numberFilter;
+        $this->numberFilter = ($numberFilter InstanceOf EnhancedCallLogsNumberFilter)
+             ? $numberFilter
+             : new EnhancedCallLogsNumberFilter($numberFilter);
         $this->numberFilter->setName('numberFilter');
         return $this;
     }
@@ -159,8 +159,9 @@ class EnterpriseEnhancedCallLogsGetListRequest extends ComplexType implements Co
      */
     public function setRedirectedNumberFilter(EnhancedCallLogsRedirectedNumberFilter $redirectedNumberFilter = null)
     {
-        if (!$redirectedNumberFilter) return $this;
-        $this->redirectedNumberFilter = $redirectedNumberFilter;
+        $this->redirectedNumberFilter = ($redirectedNumberFilter InstanceOf EnhancedCallLogsRedirectedNumberFilter)
+             ? $redirectedNumberFilter
+             : new EnhancedCallLogsRedirectedNumberFilter($redirectedNumberFilter);
         $this->redirectedNumberFilter->setName('redirectedNumberFilter');
         return $this;
     }
@@ -179,8 +180,9 @@ class EnterpriseEnhancedCallLogsGetListRequest extends ComplexType implements Co
      */
     public function setAccountAuthorizationCodeFilter(EnhancedCallLogsAccountAuthorizationCodeFilter $accountAuthorizationCodeFilter = null)
     {
-        if (!$accountAuthorizationCodeFilter) return $this;
-        $this->accountAuthorizationCodeFilter = $accountAuthorizationCodeFilter;
+        $this->accountAuthorizationCodeFilter = ($accountAuthorizationCodeFilter InstanceOf EnhancedCallLogsAccountAuthorizationCodeFilter)
+             ? $accountAuthorizationCodeFilter
+             : new EnhancedCallLogsAccountAuthorizationCodeFilter($accountAuthorizationCodeFilter);
         $this->accountAuthorizationCodeFilter->setName('accountAuthorizationCodeFilter');
         return $this;
     }
@@ -199,7 +201,6 @@ class EnterpriseEnhancedCallLogsGetListRequest extends ComplexType implements Co
      */
     public function setSubscriberType($subscriberType = null)
     {
-        if (!$subscriberType) return $this;
         $this->subscriberType = ($subscriberType InstanceOf EnhancedCallLogsSubscriberType)
              ? $subscriberType
              : new EnhancedCallLogsSubscriberType($subscriberType);
@@ -213,7 +214,7 @@ class EnterpriseEnhancedCallLogsGetListRequest extends ComplexType implements Co
      */
     public function getSubscriberType()
     {
-        return $this->subscriberType->getValue();
+        return ($this->subscriberType) ? $this->subscriberType->getValue() : null;
     }
 
     /**
@@ -221,8 +222,9 @@ class EnterpriseEnhancedCallLogsGetListRequest extends ComplexType implements Co
      */
     public function setResponsePagingControl(EnhancedCallLogsResponsePagingControl $responsePagingControl = null)
     {
-        if (!$responsePagingControl) return $this;
-        $this->responsePagingControl = $responsePagingControl;
+        $this->responsePagingControl = ($responsePagingControl InstanceOf EnhancedCallLogsResponsePagingControl)
+             ? $responsePagingControl
+             : new EnhancedCallLogsResponsePagingControl($responsePagingControl);
         $this->responsePagingControl->setName('responsePagingControl');
         return $this;
     }

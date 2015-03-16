@@ -22,13 +22,13 @@ use Broadworks_OCIP\core\Client\Client;
 class UserSharedCallAppearanceGetEndpointRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType         = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceSharedCallAppearance\UserSharedCallAppearanceGetEndpointResponse';
-    public    $name                 = 'UserSharedCallAppearanceGetEndpointRequest';
-    protected $userId               = null;
-    protected $accessDeviceEndpoint = null;
+    public    $name = 'UserSharedCallAppearanceGetEndpointRequest';
+    protected $userId;
+    protected $accessDeviceEndpoint;
 
     public function __construct(
-         $userId,
-         AccessDeviceEndpointKey $accessDeviceEndpoint
+         $userId = '',
+         AccessDeviceEndpointKey $accessDeviceEndpoint = ''
     ) {
         $this->setUserId($userId);
         $this->setAccessDeviceEndpoint($accessDeviceEndpoint);
@@ -47,7 +47,6 @@ class UserSharedCallAppearanceGetEndpointRequest extends ComplexType implements 
      */
     public function setUserId($userId = null)
     {
-        if (!$userId) return $this;
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
@@ -61,7 +60,7 @@ class UserSharedCallAppearanceGetEndpointRequest extends ComplexType implements 
      */
     public function getUserId()
     {
-        return $this->userId->getValue();
+        return ($this->userId) ? $this->userId->getValue() : null;
     }
 
     /**
@@ -69,8 +68,9 @@ class UserSharedCallAppearanceGetEndpointRequest extends ComplexType implements 
      */
     public function setAccessDeviceEndpoint(AccessDeviceEndpointKey $accessDeviceEndpoint = null)
     {
-        if (!$accessDeviceEndpoint) return $this;
-        $this->accessDeviceEndpoint = $accessDeviceEndpoint;
+        $this->accessDeviceEndpoint = ($accessDeviceEndpoint InstanceOf AccessDeviceEndpointKey)
+             ? $accessDeviceEndpoint
+             : new AccessDeviceEndpointKey($accessDeviceEndpoint);
         $this->accessDeviceEndpoint->setName('accessDeviceEndpoint');
         return $this;
     }

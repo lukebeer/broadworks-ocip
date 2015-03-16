@@ -19,24 +19,24 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class DeviceManagementDeviceTypeModifyOptions16 extends ComplexType implements ComplexInterface
 {
-    public    $name                               = 'DeviceManagementDeviceTypeModifyOptions16';
-    protected $deviceAccessProtocol               = null;
-    protected $tagMode                            = null;
-    protected $tagSet                             = null;
-    protected $allowDeviceProfileCustomTagSet     = null;
-    protected $allowGroupCustomTagSet             = null;
-    protected $sendEmailUponResetFailure          = null;
-    protected $deviceAccessNetAddress             = null;
-    protected $deviceAccessPort                   = null;
-    protected $deviceAccessContext                = null;
-    protected $defaultDeviceLanguage              = null;
-    protected $defaultDeviceEncoding              = null;
-    protected $accessDeviceCredentials            = null;
-    protected $useHttpDigestAuthentication        = null;
-    protected $macBasedFileAuthentication         = null;
-    protected $userNamePasswordFileAuthentication = null;
-    protected $macInNonRequestURI                 = null;
-    protected $macFormatInNonRequestURI           = null;
+    public    $name = 'DeviceManagementDeviceTypeModifyOptions16';
+    protected $deviceAccessProtocol;
+    protected $tagMode;
+    protected $tagSet;
+    protected $allowDeviceProfileCustomTagSet;
+    protected $allowGroupCustomTagSet;
+    protected $sendEmailUponResetFailure;
+    protected $deviceAccessNetAddress;
+    protected $deviceAccessPort;
+    protected $deviceAccessContext;
+    protected $defaultDeviceLanguage;
+    protected $defaultDeviceEncoding;
+    protected $accessDeviceCredentials;
+    protected $useHttpDigestAuthentication;
+    protected $macBasedFileAuthentication;
+    protected $userNamePasswordFileAuthentication;
+    protected $macInNonRequestURI;
+    protected $macFormatInNonRequestURI;
 
     public function __construct(
          $deviceAccessProtocol = null,
@@ -89,7 +89,6 @@ class DeviceManagementDeviceTypeModifyOptions16 extends ComplexType implements C
      */
     public function setDeviceAccessProtocol($deviceAccessProtocol = null)
     {
-        if (!$deviceAccessProtocol) return $this;
         $this->deviceAccessProtocol = new SimpleContent($deviceAccessProtocol);
         $this->deviceAccessProtocol->setName('deviceAccessProtocol');
         return $this;
@@ -101,7 +100,7 @@ class DeviceManagementDeviceTypeModifyOptions16 extends ComplexType implements C
      */
     public function getDeviceAccessProtocol()
     {
-        return $this->deviceAccessProtocol->getValue();
+        return ($this->deviceAccessProtocol) ? $this->deviceAccessProtocol->getValue() : null;
     }
 
     /**
@@ -109,7 +108,6 @@ class DeviceManagementDeviceTypeModifyOptions16 extends ComplexType implements C
      */
     public function setTagMode($tagMode = null)
     {
-        if (!$tagMode) return $this;
         $this->tagMode = new SimpleContent($tagMode);
         $this->tagMode->setName('tagMode');
         return $this;
@@ -121,7 +119,7 @@ class DeviceManagementDeviceTypeModifyOptions16 extends ComplexType implements C
      */
     public function getTagMode()
     {
-        return $this->tagMode->getValue();
+        return ($this->tagMode) ? $this->tagMode->getValue() : null;
     }
 
     /**
@@ -129,7 +127,6 @@ class DeviceManagementDeviceTypeModifyOptions16 extends ComplexType implements C
      */
     public function setTagSet($tagSet = null)
     {
-        if (!$tagSet) return $this;
         $this->tagSet = new SimpleContent($tagSet);
         $this->tagSet->setName('tagSet');
         return $this;
@@ -141,7 +138,7 @@ class DeviceManagementDeviceTypeModifyOptions16 extends ComplexType implements C
      */
     public function getTagSet()
     {
-        return $this->tagSet->getValue();
+        return ($this->tagSet) ? $this->tagSet->getValue() : null;
     }
 
     /**
@@ -149,7 +146,6 @@ class DeviceManagementDeviceTypeModifyOptions16 extends ComplexType implements C
      */
     public function setAllowDeviceProfileCustomTagSet($allowDeviceProfileCustomTagSet = null)
     {
-        if (!$allowDeviceProfileCustomTagSet) return $this;
         $this->allowDeviceProfileCustomTagSet = new SimpleContent($allowDeviceProfileCustomTagSet);
         $this->allowDeviceProfileCustomTagSet->setName('allowDeviceProfileCustomTagSet');
         return $this;
@@ -161,7 +157,7 @@ class DeviceManagementDeviceTypeModifyOptions16 extends ComplexType implements C
      */
     public function getAllowDeviceProfileCustomTagSet()
     {
-        return $this->allowDeviceProfileCustomTagSet->getValue();
+        return ($this->allowDeviceProfileCustomTagSet) ? $this->allowDeviceProfileCustomTagSet->getValue() : null;
     }
 
     /**
@@ -169,7 +165,6 @@ class DeviceManagementDeviceTypeModifyOptions16 extends ComplexType implements C
      */
     public function setAllowGroupCustomTagSet($allowGroupCustomTagSet = null)
     {
-        if (!$allowGroupCustomTagSet) return $this;
         $this->allowGroupCustomTagSet = new SimpleContent($allowGroupCustomTagSet);
         $this->allowGroupCustomTagSet->setName('allowGroupCustomTagSet');
         return $this;
@@ -181,7 +176,7 @@ class DeviceManagementDeviceTypeModifyOptions16 extends ComplexType implements C
      */
     public function getAllowGroupCustomTagSet()
     {
-        return $this->allowGroupCustomTagSet->getValue();
+        return ($this->allowGroupCustomTagSet) ? $this->allowGroupCustomTagSet->getValue() : null;
     }
 
     /**
@@ -189,7 +184,6 @@ class DeviceManagementDeviceTypeModifyOptions16 extends ComplexType implements C
      */
     public function setSendEmailUponResetFailure($sendEmailUponResetFailure = null)
     {
-        if (!$sendEmailUponResetFailure) return $this;
         $this->sendEmailUponResetFailure = new SimpleContent($sendEmailUponResetFailure);
         $this->sendEmailUponResetFailure->setName('sendEmailUponResetFailure');
         return $this;
@@ -201,7 +195,7 @@ class DeviceManagementDeviceTypeModifyOptions16 extends ComplexType implements C
      */
     public function getSendEmailUponResetFailure()
     {
-        return $this->sendEmailUponResetFailure->getValue();
+        return ($this->sendEmailUponResetFailure) ? $this->sendEmailUponResetFailure->getValue() : null;
     }
 
     /**
@@ -209,7 +203,6 @@ class DeviceManagementDeviceTypeModifyOptions16 extends ComplexType implements C
      */
     public function setDeviceAccessNetAddress($deviceAccessNetAddress = null)
     {
-        if (!$deviceAccessNetAddress) return $this;
         $this->deviceAccessNetAddress = new SimpleContent($deviceAccessNetAddress);
         $this->deviceAccessNetAddress->setName('deviceAccessNetAddress');
         return $this;
@@ -221,7 +214,7 @@ class DeviceManagementDeviceTypeModifyOptions16 extends ComplexType implements C
      */
     public function getDeviceAccessNetAddress()
     {
-        return $this->deviceAccessNetAddress->getValue();
+        return ($this->deviceAccessNetAddress) ? $this->deviceAccessNetAddress->getValue() : null;
     }
 
     /**
@@ -229,7 +222,6 @@ class DeviceManagementDeviceTypeModifyOptions16 extends ComplexType implements C
      */
     public function setDeviceAccessPort($deviceAccessPort = null)
     {
-        if (!$deviceAccessPort) return $this;
         $this->deviceAccessPort = new SimpleContent($deviceAccessPort);
         $this->deviceAccessPort->setName('deviceAccessPort');
         return $this;
@@ -241,7 +233,7 @@ class DeviceManagementDeviceTypeModifyOptions16 extends ComplexType implements C
      */
     public function getDeviceAccessPort()
     {
-        return $this->deviceAccessPort->getValue();
+        return ($this->deviceAccessPort) ? $this->deviceAccessPort->getValue() : null;
     }
 
     /**
@@ -249,7 +241,6 @@ class DeviceManagementDeviceTypeModifyOptions16 extends ComplexType implements C
      */
     public function setDeviceAccessContext($deviceAccessContext = null)
     {
-        if (!$deviceAccessContext) return $this;
         $this->deviceAccessContext = new SimpleContent($deviceAccessContext);
         $this->deviceAccessContext->setName('deviceAccessContext');
         return $this;
@@ -261,7 +252,7 @@ class DeviceManagementDeviceTypeModifyOptions16 extends ComplexType implements C
      */
     public function getDeviceAccessContext()
     {
-        return $this->deviceAccessContext->getValue();
+        return ($this->deviceAccessContext) ? $this->deviceAccessContext->getValue() : null;
     }
 
     /**
@@ -269,7 +260,6 @@ class DeviceManagementDeviceTypeModifyOptions16 extends ComplexType implements C
      */
     public function setDefaultDeviceLanguage($defaultDeviceLanguage = null)
     {
-        if (!$defaultDeviceLanguage) return $this;
         $this->defaultDeviceLanguage = new SimpleContent($defaultDeviceLanguage);
         $this->defaultDeviceLanguage->setName('defaultDeviceLanguage');
         return $this;
@@ -281,7 +271,7 @@ class DeviceManagementDeviceTypeModifyOptions16 extends ComplexType implements C
      */
     public function getDefaultDeviceLanguage()
     {
-        return $this->defaultDeviceLanguage->getValue();
+        return ($this->defaultDeviceLanguage) ? $this->defaultDeviceLanguage->getValue() : null;
     }
 
     /**
@@ -289,7 +279,6 @@ class DeviceManagementDeviceTypeModifyOptions16 extends ComplexType implements C
      */
     public function setDefaultDeviceEncoding($defaultDeviceEncoding = null)
     {
-        if (!$defaultDeviceEncoding) return $this;
         $this->defaultDeviceEncoding = new SimpleContent($defaultDeviceEncoding);
         $this->defaultDeviceEncoding->setName('defaultDeviceEncoding');
         return $this;
@@ -301,7 +290,7 @@ class DeviceManagementDeviceTypeModifyOptions16 extends ComplexType implements C
      */
     public function getDefaultDeviceEncoding()
     {
-        return $this->defaultDeviceEncoding->getValue();
+        return ($this->defaultDeviceEncoding) ? $this->defaultDeviceEncoding->getValue() : null;
     }
 
     /**
@@ -309,7 +298,6 @@ class DeviceManagementDeviceTypeModifyOptions16 extends ComplexType implements C
      */
     public function setAccessDeviceCredentials($accessDeviceCredentials = null)
     {
-        if (!$accessDeviceCredentials) return $this;
         $this->accessDeviceCredentials = new SimpleContent($accessDeviceCredentials);
         $this->accessDeviceCredentials->setName('accessDeviceCredentials');
         return $this;
@@ -321,7 +309,7 @@ class DeviceManagementDeviceTypeModifyOptions16 extends ComplexType implements C
      */
     public function getAccessDeviceCredentials()
     {
-        return $this->accessDeviceCredentials->getValue();
+        return ($this->accessDeviceCredentials) ? $this->accessDeviceCredentials->getValue() : null;
     }
 
     /**
@@ -329,7 +317,6 @@ class DeviceManagementDeviceTypeModifyOptions16 extends ComplexType implements C
      */
     public function setUseHttpDigestAuthentication($useHttpDigestAuthentication = null)
     {
-        if (!$useHttpDigestAuthentication) return $this;
         $this->useHttpDigestAuthentication = new SimpleContent($useHttpDigestAuthentication);
         $this->useHttpDigestAuthentication->setName('useHttpDigestAuthentication');
         return $this;
@@ -341,7 +328,7 @@ class DeviceManagementDeviceTypeModifyOptions16 extends ComplexType implements C
      */
     public function getUseHttpDigestAuthentication()
     {
-        return $this->useHttpDigestAuthentication->getValue();
+        return ($this->useHttpDigestAuthentication) ? $this->useHttpDigestAuthentication->getValue() : null;
     }
 
     /**
@@ -349,7 +336,6 @@ class DeviceManagementDeviceTypeModifyOptions16 extends ComplexType implements C
      */
     public function setMacBasedFileAuthentication($macBasedFileAuthentication = null)
     {
-        if (!$macBasedFileAuthentication) return $this;
         $this->macBasedFileAuthentication = new SimpleContent($macBasedFileAuthentication);
         $this->macBasedFileAuthentication->setName('macBasedFileAuthentication');
         return $this;
@@ -361,7 +347,7 @@ class DeviceManagementDeviceTypeModifyOptions16 extends ComplexType implements C
      */
     public function getMacBasedFileAuthentication()
     {
-        return $this->macBasedFileAuthentication->getValue();
+        return ($this->macBasedFileAuthentication) ? $this->macBasedFileAuthentication->getValue() : null;
     }
 
     /**
@@ -369,7 +355,6 @@ class DeviceManagementDeviceTypeModifyOptions16 extends ComplexType implements C
      */
     public function setUserNamePasswordFileAuthentication($userNamePasswordFileAuthentication = null)
     {
-        if (!$userNamePasswordFileAuthentication) return $this;
         $this->userNamePasswordFileAuthentication = new SimpleContent($userNamePasswordFileAuthentication);
         $this->userNamePasswordFileAuthentication->setName('userNamePasswordFileAuthentication');
         return $this;
@@ -381,7 +366,7 @@ class DeviceManagementDeviceTypeModifyOptions16 extends ComplexType implements C
      */
     public function getUserNamePasswordFileAuthentication()
     {
-        return $this->userNamePasswordFileAuthentication->getValue();
+        return ($this->userNamePasswordFileAuthentication) ? $this->userNamePasswordFileAuthentication->getValue() : null;
     }
 
     /**
@@ -389,7 +374,6 @@ class DeviceManagementDeviceTypeModifyOptions16 extends ComplexType implements C
      */
     public function setMacInNonRequestURI($macInNonRequestURI = null)
     {
-        if (!$macInNonRequestURI) return $this;
         $this->macInNonRequestURI = new SimpleContent($macInNonRequestURI);
         $this->macInNonRequestURI->setName('macInNonRequestURI');
         return $this;
@@ -401,7 +385,7 @@ class DeviceManagementDeviceTypeModifyOptions16 extends ComplexType implements C
      */
     public function getMacInNonRequestURI()
     {
-        return $this->macInNonRequestURI->getValue();
+        return ($this->macInNonRequestURI) ? $this->macInNonRequestURI->getValue() : null;
     }
 
     /**
@@ -409,7 +393,6 @@ class DeviceManagementDeviceTypeModifyOptions16 extends ComplexType implements C
      */
     public function setMacFormatInNonRequestURI($macFormatInNonRequestURI = null)
     {
-        if (!$macFormatInNonRequestURI) return $this;
         $this->macFormatInNonRequestURI = new SimpleContent($macFormatInNonRequestURI);
         $this->macFormatInNonRequestURI->setName('macFormatInNonRequestURI');
         return $this;
@@ -421,6 +404,6 @@ class DeviceManagementDeviceTypeModifyOptions16 extends ComplexType implements C
      */
     public function getMacFormatInNonRequestURI()
     {
-        return $this->macFormatInNonRequestURI->getValue();
+        return ($this->macFormatInNonRequestURI) ? $this->macFormatInNonRequestURI->getValue() : null;
     }
 }

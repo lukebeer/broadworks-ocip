@@ -22,13 +22,13 @@ use Broadworks_OCIP\core\Client\Client;
 class ServiceProviderAccessDeviceCustomTagGetListRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderAccessDeviceCustomTagGetListResponse';
-    public    $name              = 'ServiceProviderAccessDeviceCustomTagGetListRequest';
-    protected $serviceProviderId = null;
-    protected $deviceName        = null;
+    public    $name = 'ServiceProviderAccessDeviceCustomTagGetListRequest';
+    protected $serviceProviderId;
+    protected $deviceName;
 
     public function __construct(
-         $serviceProviderId,
-         $deviceName
+         $serviceProviderId = '',
+         $deviceName = ''
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setDeviceName($deviceName);
@@ -47,7 +47,6 @@ class ServiceProviderAccessDeviceCustomTagGetListRequest extends ComplexType imp
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
-        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
@@ -61,7 +60,7 @@ class ServiceProviderAccessDeviceCustomTagGetListRequest extends ComplexType imp
      */
     public function getServiceProviderId()
     {
-        return $this->serviceProviderId->getValue();
+        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
     }
 
     /**
@@ -69,7 +68,6 @@ class ServiceProviderAccessDeviceCustomTagGetListRequest extends ComplexType imp
      */
     public function setDeviceName($deviceName = null)
     {
-        if (!$deviceName) return $this;
         $this->deviceName = ($deviceName InstanceOf AccessDeviceName)
              ? $deviceName
              : new AccessDeviceName($deviceName);
@@ -83,6 +81,6 @@ class ServiceProviderAccessDeviceCustomTagGetListRequest extends ComplexType imp
      */
     public function getDeviceName()
     {
-        return $this->deviceName->getValue();
+        return ($this->deviceName) ? $this->deviceName->getValue() : null;
     }
 }

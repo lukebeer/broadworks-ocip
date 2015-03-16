@@ -20,11 +20,11 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemOCICallControlApplicationDeleteRequest extends ComplexType implements ComplexInterface
 {
-    public    $name          = 'SystemOCICallControlApplicationDeleteRequest';
-    protected $applicationId = null;
+    public    $name = 'SystemOCICallControlApplicationDeleteRequest';
+    protected $applicationId;
 
     public function __construct(
-         $applicationId
+         $applicationId = ''
     ) {
         $this->setApplicationId($applicationId);
     }
@@ -42,7 +42,6 @@ class SystemOCICallControlApplicationDeleteRequest extends ComplexType implement
      */
     public function setApplicationId($applicationId = null)
     {
-        if (!$applicationId) return $this;
         $this->applicationId = ($applicationId InstanceOf OCICallControlApplicationId)
              ? $applicationId
              : new OCICallControlApplicationId($applicationId);
@@ -56,6 +55,6 @@ class SystemOCICallControlApplicationDeleteRequest extends ComplexType implement
      */
     public function getApplicationId()
     {
-        return $this->applicationId->getValue();
+        return ($this->applicationId) ? $this->applicationId->getValue() : null;
     }
 }

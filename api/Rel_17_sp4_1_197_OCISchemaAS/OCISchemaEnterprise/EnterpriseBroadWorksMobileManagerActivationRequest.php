@@ -23,14 +23,14 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class EnterpriseBroadWorksMobileManagerActivationRequest extends ComplexType implements ComplexInterface
 {
-    public    $name               = 'EnterpriseBroadWorksMobileManagerActivationRequest';
-    protected $serviceProviderId  = null;
-    protected $isActive           = null;
-    protected $deactivationReason = null;
+    public    $name = 'EnterpriseBroadWorksMobileManagerActivationRequest';
+    protected $serviceProviderId;
+    protected $isActive;
+    protected $deactivationReason;
 
     public function __construct(
-         $serviceProviderId,
-         $isActive,
+         $serviceProviderId = '',
+         $isActive = '',
          $deactivationReason = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
@@ -51,7 +51,6 @@ class EnterpriseBroadWorksMobileManagerActivationRequest extends ComplexType imp
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
-        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
@@ -65,7 +64,7 @@ class EnterpriseBroadWorksMobileManagerActivationRequest extends ComplexType imp
      */
     public function getServiceProviderId()
     {
-        return $this->serviceProviderId->getValue();
+        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
     }
 
     /**
@@ -73,7 +72,6 @@ class EnterpriseBroadWorksMobileManagerActivationRequest extends ComplexType imp
      */
     public function setIsActive($isActive = null)
     {
-        if (!$isActive) return $this;
         $this->isActive = new PrimitiveType($isActive);
         $this->isActive->setName('isActive');
         return $this;
@@ -85,7 +83,7 @@ class EnterpriseBroadWorksMobileManagerActivationRequest extends ComplexType imp
      */
     public function getIsActive()
     {
-        return $this->isActive->getValue();
+        return ($this->isActive) ? $this->isActive->getValue() : null;
     }
 
     /**
@@ -93,7 +91,6 @@ class EnterpriseBroadWorksMobileManagerActivationRequest extends ComplexType imp
      */
     public function setDeactivationReason($deactivationReason = null)
     {
-        if (!$deactivationReason) return $this;
         $this->deactivationReason = ($deactivationReason InstanceOf BroadWorksMobileManagerDeactivationReason)
              ? $deactivationReason
              : new BroadWorksMobileManagerDeactivationReason($deactivationReason);
@@ -107,6 +104,6 @@ class EnterpriseBroadWorksMobileManagerActivationRequest extends ComplexType imp
      */
     public function getDeactivationReason()
     {
-        return $this->deactivationReason->getValue();
+        return ($this->deactivationReason) ? $this->deactivationReason->getValue() : null;
     }
 }

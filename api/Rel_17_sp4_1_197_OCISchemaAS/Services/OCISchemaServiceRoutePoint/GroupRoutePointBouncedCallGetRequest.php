@@ -21,11 +21,11 @@ use Broadworks_OCIP\core\Client\Client;
 class GroupRoutePointBouncedCallGetRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType  = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceRoutePoint\GroupRoutePointBouncedCallGetResponse';
-    public    $name          = 'GroupRoutePointBouncedCallGetRequest';
-    protected $serviceUserId = null;
+    public    $name = 'GroupRoutePointBouncedCallGetRequest';
+    protected $serviceUserId;
 
     public function __construct(
-         $serviceUserId
+         $serviceUserId = ''
     ) {
         $this->setServiceUserId($serviceUserId);
     }
@@ -43,7 +43,6 @@ class GroupRoutePointBouncedCallGetRequest extends ComplexType implements Comple
      */
     public function setServiceUserId($serviceUserId = null)
     {
-        if (!$serviceUserId) return $this;
         $this->serviceUserId = ($serviceUserId InstanceOf UserId)
              ? $serviceUserId
              : new UserId($serviceUserId);
@@ -57,6 +56,6 @@ class GroupRoutePointBouncedCallGetRequest extends ComplexType implements Comple
      */
     public function getServiceUserId()
     {
-        return $this->serviceUserId->getValue();
+        return ($this->serviceUserId) ? $this->serviceUserId->getValue() : null;
     }
 }

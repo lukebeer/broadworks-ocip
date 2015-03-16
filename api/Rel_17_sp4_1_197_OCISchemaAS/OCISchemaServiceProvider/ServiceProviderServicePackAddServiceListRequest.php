@@ -22,15 +22,15 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderServicePackAddServiceListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name              = 'ServiceProviderServicePackAddServiceListRequest';
-    protected $serviceProviderId = null;
-    protected $servicePackName   = null;
-    protected $serviceName       = null;
+    public    $name = 'ServiceProviderServicePackAddServiceListRequest';
+    protected $serviceProviderId;
+    protected $servicePackName;
+    protected $serviceName;
 
     public function __construct(
-         $serviceProviderId,
-         $servicePackName,
-         $serviceName
+         $serviceProviderId = '',
+         $servicePackName = '',
+         $serviceName = ''
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setServicePackName($servicePackName);
@@ -50,7 +50,6 @@ class ServiceProviderServicePackAddServiceListRequest extends ComplexType implem
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
-        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
@@ -64,7 +63,7 @@ class ServiceProviderServicePackAddServiceListRequest extends ComplexType implem
      */
     public function getServiceProviderId()
     {
-        return $this->serviceProviderId->getValue();
+        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
     }
 
     /**
@@ -72,7 +71,6 @@ class ServiceProviderServicePackAddServiceListRequest extends ComplexType implem
      */
     public function setServicePackName($servicePackName = null)
     {
-        if (!$servicePackName) return $this;
         $this->servicePackName = ($servicePackName InstanceOf ServicePackName)
              ? $servicePackName
              : new ServicePackName($servicePackName);
@@ -86,7 +84,7 @@ class ServiceProviderServicePackAddServiceListRequest extends ComplexType implem
      */
     public function getServicePackName()
     {
-        return $this->servicePackName->getValue();
+        return ($this->servicePackName) ? $this->servicePackName->getValue() : null;
     }
 
     /**
@@ -94,7 +92,6 @@ class ServiceProviderServicePackAddServiceListRequest extends ComplexType implem
      */
     public function setServiceName($serviceName = null)
     {
-        if (!$serviceName) return $this;
         $this->serviceName = ($serviceName InstanceOf UserService)
              ? $serviceName
              : new UserService($serviceName);
@@ -108,6 +105,6 @@ class ServiceProviderServicePackAddServiceListRequest extends ComplexType implem
      */
     public function getServiceName()
     {
-        return $this->serviceName->getValue();
+        return ($this->serviceName) ? $this->serviceName->getValue() : null;
     }
 }

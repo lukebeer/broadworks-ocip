@@ -24,14 +24,14 @@ use Broadworks_OCIP\core\Client\Client;
 class GroupOutgoingCallingPlanDepartmentAuthorizationCodeGetListRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceOutgoingCallingPlan\GroupOutgoingCallingPlanDepartmentAuthorizationCodeGetListResponse';
-    public    $name              = 'GroupOutgoingCallingPlanDepartmentAuthorizationCodeGetListRequest';
-    protected $serviceProviderId = null;
-    protected $groupId           = null;
-    protected $departmentKey     = null;
+    public    $name = 'GroupOutgoingCallingPlanDepartmentAuthorizationCodeGetListRequest';
+    protected $serviceProviderId;
+    protected $groupId;
+    protected $departmentKey;
 
     public function __construct(
-         $serviceProviderId,
-         $groupId,
+         $serviceProviderId = '',
+         $groupId = '',
          DepartmentKey $departmentKey = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
@@ -52,7 +52,6 @@ class GroupOutgoingCallingPlanDepartmentAuthorizationCodeGetListRequest extends 
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
-        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
@@ -66,7 +65,7 @@ class GroupOutgoingCallingPlanDepartmentAuthorizationCodeGetListRequest extends 
      */
     public function getServiceProviderId()
     {
-        return $this->serviceProviderId->getValue();
+        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
     }
 
     /**
@@ -74,7 +73,6 @@ class GroupOutgoingCallingPlanDepartmentAuthorizationCodeGetListRequest extends 
      */
     public function setGroupId($groupId = null)
     {
-        if (!$groupId) return $this;
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
@@ -88,7 +86,7 @@ class GroupOutgoingCallingPlanDepartmentAuthorizationCodeGetListRequest extends 
      */
     public function getGroupId()
     {
-        return $this->groupId->getValue();
+        return ($this->groupId) ? $this->groupId->getValue() : null;
     }
 
     /**
@@ -96,8 +94,9 @@ class GroupOutgoingCallingPlanDepartmentAuthorizationCodeGetListRequest extends 
      */
     public function setDepartmentKey(DepartmentKey $departmentKey = null)
     {
-        if (!$departmentKey) return $this;
-        $this->departmentKey = $departmentKey;
+        $this->departmentKey = ($departmentKey InstanceOf DepartmentKey)
+             ? $departmentKey
+             : new DepartmentKey($departmentKey);
         $this->departmentKey->setName('departmentKey');
         return $this;
     }

@@ -21,12 +21,12 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderGroupPagingTargetsCapacityModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name               = 'ServiceProviderGroupPagingTargetsCapacityModifyRequest';
-    protected $serviceProviderId  = null;
-    protected $maximumTargetUsers = null;
+    public    $name = 'ServiceProviderGroupPagingTargetsCapacityModifyRequest';
+    protected $serviceProviderId;
+    protected $maximumTargetUsers;
 
     public function __construct(
-         $serviceProviderId,
+         $serviceProviderId = '',
          $maximumTargetUsers = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
@@ -46,7 +46,6 @@ class ServiceProviderGroupPagingTargetsCapacityModifyRequest extends ComplexType
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
-        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
@@ -60,7 +59,7 @@ class ServiceProviderGroupPagingTargetsCapacityModifyRequest extends ComplexType
      */
     public function getServiceProviderId()
     {
-        return $this->serviceProviderId->getValue();
+        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
     }
 
     /**
@@ -68,7 +67,6 @@ class ServiceProviderGroupPagingTargetsCapacityModifyRequest extends ComplexType
      */
     public function setMaximumTargetUsers($maximumTargetUsers = null)
     {
-        if (!$maximumTargetUsers) return $this;
         $this->maximumTargetUsers = ($maximumTargetUsers InstanceOf GroupPagingMaxTargetCapacity)
              ? $maximumTargetUsers
              : new GroupPagingMaxTargetCapacity($maximumTargetUsers);
@@ -82,6 +80,6 @@ class ServiceProviderGroupPagingTargetsCapacityModifyRequest extends ComplexType
      */
     public function getMaximumTargetUsers()
     {
-        return $this->maximumTargetUsers->getValue();
+        return ($this->maximumTargetUsers) ? $this->maximumTargetUsers->getValue() : null;
     }
 }

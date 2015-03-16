@@ -22,10 +22,10 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderAnswerConfirmationGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                                    = 'ServiceProviderAnswerConfirmationGetResponse';
-    protected $announcementMessageSelection            = null;
-    protected $confirmationMessageAudioFileDescription = null;
-    protected $confirmationTimoutSeconds               = null;
+    public    $name = 'ServiceProviderAnswerConfirmationGetResponse';
+    protected $announcementMessageSelection;
+    protected $confirmationMessageAudioFileDescription;
+    protected $confirmationTimoutSeconds;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15\ServiceProviderAnswerConfirmationGetResponse $response
@@ -40,7 +40,6 @@ class ServiceProviderAnswerConfirmationGetResponse extends ComplexType implement
      */
     public function setAnnouncementMessageSelection($announcementMessageSelection = null)
     {
-        if (!$announcementMessageSelection) return $this;
         $this->announcementMessageSelection = ($announcementMessageSelection InstanceOf AnswerConfirmationAnnouncementSelection)
              ? $announcementMessageSelection
              : new AnswerConfirmationAnnouncementSelection($announcementMessageSelection);
@@ -54,7 +53,7 @@ class ServiceProviderAnswerConfirmationGetResponse extends ComplexType implement
      */
     public function getAnnouncementMessageSelection()
     {
-        return $this->announcementMessageSelection->getValue();
+        return ($this->announcementMessageSelection) ? $this->announcementMessageSelection->getValue() : null;
     }
 
     /**
@@ -62,7 +61,6 @@ class ServiceProviderAnswerConfirmationGetResponse extends ComplexType implement
      */
     public function setConfirmationMessageAudioFileDescription($confirmationMessageAudioFileDescription = null)
     {
-        if (!$confirmationMessageAudioFileDescription) return $this;
         $this->confirmationMessageAudioFileDescription = ($confirmationMessageAudioFileDescription InstanceOf FileDescription)
              ? $confirmationMessageAudioFileDescription
              : new FileDescription($confirmationMessageAudioFileDescription);
@@ -76,7 +74,7 @@ class ServiceProviderAnswerConfirmationGetResponse extends ComplexType implement
      */
     public function getConfirmationMessageAudioFileDescription()
     {
-        return $this->confirmationMessageAudioFileDescription->getValue();
+        return ($this->confirmationMessageAudioFileDescription) ? $this->confirmationMessageAudioFileDescription->getValue() : null;
     }
 
     /**
@@ -84,7 +82,6 @@ class ServiceProviderAnswerConfirmationGetResponse extends ComplexType implement
      */
     public function setConfirmationTimoutSeconds($confirmationTimoutSeconds = null)
     {
-        if (!$confirmationTimoutSeconds) return $this;
         $this->confirmationTimoutSeconds = ($confirmationTimoutSeconds InstanceOf AnswerConfirmationTimeoutSeconds)
              ? $confirmationTimoutSeconds
              : new AnswerConfirmationTimeoutSeconds($confirmationTimoutSeconds);
@@ -98,6 +95,6 @@ class ServiceProviderAnswerConfirmationGetResponse extends ComplexType implement
      */
     public function getConfirmationTimoutSeconds()
     {
-        return $this->confirmationTimoutSeconds->getValue();
+        return ($this->confirmationTimoutSeconds) ? $this->confirmationTimoutSeconds->getValue() : null;
     }
 }

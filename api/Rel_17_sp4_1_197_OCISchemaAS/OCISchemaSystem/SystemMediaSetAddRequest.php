@@ -21,12 +21,12 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemMediaSetAddRequest extends ComplexType implements ComplexInterface
 {
-    public    $name      = 'SystemMediaSetAddRequest';
-    protected $setName   = null;
-    protected $mediaName = null;
+    public    $name = 'SystemMediaSetAddRequest';
+    protected $setName;
+    protected $mediaName;
 
     public function __construct(
-         $setName,
+         $setName = '',
          $mediaName = null
     ) {
         $this->setSetName($setName);
@@ -46,7 +46,6 @@ class SystemMediaSetAddRequest extends ComplexType implements ComplexInterface
      */
     public function setSetName($setName = null)
     {
-        if (!$setName) return $this;
         $this->setName = ($setName InstanceOf MediaSetName)
              ? $setName
              : new MediaSetName($setName);
@@ -60,7 +59,7 @@ class SystemMediaSetAddRequest extends ComplexType implements ComplexInterface
      */
     public function getSetName()
     {
-        return $this->setName->getValue();
+        return ($this->setName) ? $this->setName->getValue() : null;
     }
 
     /**
@@ -68,7 +67,6 @@ class SystemMediaSetAddRequest extends ComplexType implements ComplexInterface
      */
     public function setMediaName($mediaName = null)
     {
-        if (!$mediaName) return $this;
         $this->mediaName = ($mediaName InstanceOf MediaName)
              ? $mediaName
              : new MediaName($mediaName);
@@ -82,6 +80,6 @@ class SystemMediaSetAddRequest extends ComplexType implements ComplexInterface
      */
     public function getMediaName()
     {
-        return $this->mediaName->getValue();
+        return ($this->mediaName) ? $this->mediaName->getValue() : null;
     }
 }

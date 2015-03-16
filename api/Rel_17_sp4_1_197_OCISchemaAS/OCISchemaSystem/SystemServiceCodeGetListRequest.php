@@ -25,10 +25,10 @@ use Broadworks_OCIP\core\Client\Client;
 class SystemServiceCodeGetListRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType                         = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemServiceCodeGetListResponse';
-    public    $name                                 = 'SystemServiceCodeGetListRequest';
-    protected $responseSizeLimit                    = null;
-    protected $searchCriteriaServiceCode            = null;
-    protected $searchCriteriaServiceCodeDescription = null;
+    public    $name = 'SystemServiceCodeGetListRequest';
+    protected $responseSizeLimit;
+    protected $searchCriteriaServiceCode;
+    protected $searchCriteriaServiceCodeDescription;
 
     public function __construct(
          $responseSizeLimit = null,
@@ -53,7 +53,6 @@ class SystemServiceCodeGetListRequest extends ComplexType implements ComplexInte
      */
     public function setResponseSizeLimit($responseSizeLimit = null)
     {
-        if (!$responseSizeLimit) return $this;
         $this->responseSizeLimit = ($responseSizeLimit InstanceOf ResponseSizeLimit)
              ? $responseSizeLimit
              : new ResponseSizeLimit($responseSizeLimit);
@@ -67,7 +66,7 @@ class SystemServiceCodeGetListRequest extends ComplexType implements ComplexInte
      */
     public function getResponseSizeLimit()
     {
-        return $this->responseSizeLimit->getValue();
+        return ($this->responseSizeLimit) ? $this->responseSizeLimit->getValue() : null;
     }
 
     /**
@@ -75,7 +74,6 @@ class SystemServiceCodeGetListRequest extends ComplexType implements ComplexInte
      */
     public function setSearchCriteriaServiceCode(SearchCriteriaServiceCode $searchCriteriaServiceCode = null)
     {
-        if (!$searchCriteriaServiceCode) return $this;
         $this->searchCriteriaServiceCode = ($searchCriteriaServiceCode InstanceOf SearchCriteriaServiceCode)
              ? $searchCriteriaServiceCode
              : new SearchCriteriaServiceCode($searchCriteriaServiceCode);
@@ -97,7 +95,6 @@ class SystemServiceCodeGetListRequest extends ComplexType implements ComplexInte
      */
     public function setSearchCriteriaServiceCodeDescription(SearchCriteriaServiceCodeDescription $searchCriteriaServiceCodeDescription = null)
     {
-        if (!$searchCriteriaServiceCodeDescription) return $this;
         $this->searchCriteriaServiceCodeDescription = ($searchCriteriaServiceCodeDescription InstanceOf SearchCriteriaServiceCodeDescription)
              ? $searchCriteriaServiceCodeDescription
              : new SearchCriteriaServiceCodeDescription($searchCriteriaServiceCodeDescription);

@@ -22,17 +22,17 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupCallingPlanAddDigitPatternRequest extends ComplexType implements ComplexInterface
 {
-    public    $name              = 'GroupCallingPlanAddDigitPatternRequest';
-    protected $serviceProviderId = null;
-    protected $groupId           = null;
-    protected $name              = null;
-    protected $digitPattern      = null;
+    public    $name = 'GroupCallingPlanAddDigitPatternRequest';
+    protected $serviceProviderId;
+    protected $groupId;
+    protected $name;
+    protected $digitPattern;
 
     public function __construct(
-         $serviceProviderId,
-         $groupId,
-         $name,
-         $digitPattern
+         $serviceProviderId = '',
+         $groupId = '',
+         $name = '',
+         $digitPattern = ''
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setGroupId($groupId);
@@ -53,7 +53,6 @@ class GroupCallingPlanAddDigitPatternRequest extends ComplexType implements Comp
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
-        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
@@ -67,7 +66,7 @@ class GroupCallingPlanAddDigitPatternRequest extends ComplexType implements Comp
      */
     public function getServiceProviderId()
     {
-        return $this->serviceProviderId->getValue();
+        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
     }
 
     /**
@@ -75,7 +74,6 @@ class GroupCallingPlanAddDigitPatternRequest extends ComplexType implements Comp
      */
     public function setGroupId($groupId = null)
     {
-        if (!$groupId) return $this;
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
@@ -89,7 +87,7 @@ class GroupCallingPlanAddDigitPatternRequest extends ComplexType implements Comp
      */
     public function getGroupId()
     {
-        return $this->groupId->getValue();
+        return ($this->groupId) ? $this->groupId->getValue() : null;
     }
 
     /**
@@ -97,7 +95,6 @@ class GroupCallingPlanAddDigitPatternRequest extends ComplexType implements Comp
      */
     public function setName($name = null)
     {
-        if (!$name) return $this;
         $this->name = ($name InstanceOf CallingPlanDigitPatternName)
              ? $name
              : new CallingPlanDigitPatternName($name);
@@ -111,7 +108,7 @@ class GroupCallingPlanAddDigitPatternRequest extends ComplexType implements Comp
      */
     public function getName()
     {
-        return $this->name->getValue();
+        return ($this->name) ? $this->name->getValue() : null;
     }
 
     /**
@@ -119,7 +116,6 @@ class GroupCallingPlanAddDigitPatternRequest extends ComplexType implements Comp
      */
     public function setDigitPattern($digitPattern = null)
     {
-        if (!$digitPattern) return $this;
         $this->digitPattern = ($digitPattern InstanceOf CallingPlanDigitPattern)
              ? $digitPattern
              : new CallingPlanDigitPattern($digitPattern);
@@ -133,6 +129,6 @@ class GroupCallingPlanAddDigitPatternRequest extends ComplexType implements Comp
      */
     public function getDigitPattern()
     {
-        return $this->digitPattern->getValue();
+        return ($this->digitPattern) ? $this->digitPattern->getValue() : null;
     }
 }

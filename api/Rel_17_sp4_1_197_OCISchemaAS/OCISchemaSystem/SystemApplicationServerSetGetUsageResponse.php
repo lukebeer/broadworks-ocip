@@ -21,8 +21,8 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemApplicationServerSetGetUsageResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                                = 'SystemApplicationServerSetGetUsageResponse';
-    protected $applicationServerSetSubscriberTable = null;
+    public    $name = 'SystemApplicationServerSetGetUsageResponse';
+    protected $applicationServerSetSubscriberTable;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemApplicationServerSetGetUsageResponse $response
@@ -37,7 +37,6 @@ class SystemApplicationServerSetGetUsageResponse extends ComplexType implements 
      */
     public function setApplicationServerSetSubscriberTable(TableType $applicationServerSetSubscriberTable = null)
     {
-        if (!$applicationServerSetSubscriberTable) return $this;
         $this->applicationServerSetSubscriberTable = $applicationServerSetSubscriberTable;
         $this->applicationServerSetSubscriberTable->setName('applicationServerSetSubscriberTable');
         return $this;

@@ -21,9 +21,9 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemNetworkSynchingServerGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                             = 'SystemNetworkSynchingServerGetListResponse';
-    protected $preferredNetworkServerNetAddress = null;
-    protected $networkSynchingServerTable       = null;
+    public    $name = 'SystemNetworkSynchingServerGetListResponse';
+    protected $preferredNetworkServerNetAddress;
+    protected $networkSynchingServerTable;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemNetworkSynchingServerGetListResponse $response
@@ -38,7 +38,6 @@ class SystemNetworkSynchingServerGetListResponse extends ComplexType implements 
      */
     public function setPreferredNetworkServerNetAddress($preferredNetworkServerNetAddress = null)
     {
-        if (!$preferredNetworkServerNetAddress) return $this;
         $this->preferredNetworkServerNetAddress = ($preferredNetworkServerNetAddress InstanceOf NetAddress)
              ? $preferredNetworkServerNetAddress
              : new NetAddress($preferredNetworkServerNetAddress);
@@ -52,7 +51,7 @@ class SystemNetworkSynchingServerGetListResponse extends ComplexType implements 
      */
     public function getPreferredNetworkServerNetAddress()
     {
-        return $this->preferredNetworkServerNetAddress->getValue();
+        return ($this->preferredNetworkServerNetAddress) ? $this->preferredNetworkServerNetAddress->getValue() : null;
     }
 
     /**
@@ -60,7 +59,6 @@ class SystemNetworkSynchingServerGetListResponse extends ComplexType implements 
      */
     public function setNetworkSynchingServerTable(TableType $networkSynchingServerTable = null)
     {
-        if (!$networkSynchingServerTable) return $this;
         $this->networkSynchingServerTable = $networkSynchingServerTable;
         $this->networkSynchingServerTable->setName('networkSynchingServerTable');
         return $this;

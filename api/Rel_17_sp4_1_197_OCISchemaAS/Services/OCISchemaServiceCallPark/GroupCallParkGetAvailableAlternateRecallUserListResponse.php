@@ -20,8 +20,8 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupCallParkGetAvailableAlternateRecallUserListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                    = 'GroupCallParkGetAvailableAlternateRecallUserListResponse';
-    protected $availableHuntGroupTable = null;
+    public    $name = 'GroupCallParkGetAvailableAlternateRecallUserListResponse';
+    protected $availableHuntGroupTable;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallPark\GroupCallParkGetAvailableAlternateRecallUserListResponse $response
@@ -36,7 +36,6 @@ class GroupCallParkGetAvailableAlternateRecallUserListResponse extends ComplexTy
      */
     public function setAvailableHuntGroupTable(TableType $availableHuntGroupTable = null)
     {
-        if (!$availableHuntGroupTable) return $this;
         $this->availableHuntGroupTable = $availableHuntGroupTable;
         $this->availableHuntGroupTable->setName('availableHuntGroupTable');
         return $this;

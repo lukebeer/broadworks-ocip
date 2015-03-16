@@ -20,9 +20,9 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderBroadWorksCommunicatorModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                   = 'ServiceProviderBroadWorksCommunicatorModifyRequest';
-    protected $serviceProviderId      = null;
-    protected $configurationServerURL = null;
+    public    $name = 'ServiceProviderBroadWorksCommunicatorModifyRequest';
+    protected $serviceProviderId;
+    protected $configurationServerURL;
 
     public function __construct(
          $serviceProviderId = null,
@@ -45,7 +45,6 @@ class ServiceProviderBroadWorksCommunicatorModifyRequest extends ComplexType imp
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
-        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
@@ -59,7 +58,7 @@ class ServiceProviderBroadWorksCommunicatorModifyRequest extends ComplexType imp
      */
     public function getServiceProviderId()
     {
-        return $this->serviceProviderId->getValue();
+        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
     }
 
     /**
@@ -67,7 +66,6 @@ class ServiceProviderBroadWorksCommunicatorModifyRequest extends ComplexType imp
      */
     public function setConfigurationServerURL($configurationServerURL = null)
     {
-        if (!$configurationServerURL) return $this;
         $this->configurationServerURL = ($configurationServerURL InstanceOf URL)
              ? $configurationServerURL
              : new URL($configurationServerURL);
@@ -81,6 +79,6 @@ class ServiceProviderBroadWorksCommunicatorModifyRequest extends ComplexType imp
      */
     public function getConfigurationServerURL()
     {
-        return $this->configurationServerURL->getValue();
+        return ($this->configurationServerURL) ? $this->configurationServerURL->getValue() : null;
     }
 }

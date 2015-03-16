@@ -26,17 +26,17 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserPreAlertingAnnouncementGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                 = 'UserPreAlertingAnnouncementGetResponse';
-    protected $isActive             = null;
-    protected $audioSelection       = null;
-    protected $audioFileDescription = null;
-    protected $audioMediaType       = null;
-    protected $audioFileUrl         = null;
-    protected $videoSelection       = null;
-    protected $videoFileDescription = null;
-    protected $videoMediaType       = null;
-    protected $videoFileUrl         = null;
-    protected $criteriaTable        = null;
+    public    $name = 'UserPreAlertingAnnouncementGetResponse';
+    protected $isActive;
+    protected $audioSelection;
+    protected $audioFileDescription;
+    protected $audioMediaType;
+    protected $audioFileUrl;
+    protected $videoSelection;
+    protected $videoFileDescription;
+    protected $videoMediaType;
+    protected $videoFileUrl;
+    protected $criteriaTable;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServicePreAlertingAnnouncement\UserPreAlertingAnnouncementGetResponse $response
@@ -51,7 +51,6 @@ class UserPreAlertingAnnouncementGetResponse extends ComplexType implements Comp
      */
     public function setIsActive($isActive = null)
     {
-        if (!$isActive) return $this;
         $this->isActive = new PrimitiveType($isActive);
         $this->isActive->setName('isActive');
         return $this;
@@ -63,7 +62,7 @@ class UserPreAlertingAnnouncementGetResponse extends ComplexType implements Comp
      */
     public function getIsActive()
     {
-        return $this->isActive->getValue();
+        return ($this->isActive) ? $this->isActive->getValue() : null;
     }
 
     /**
@@ -71,7 +70,6 @@ class UserPreAlertingAnnouncementGetResponse extends ComplexType implements Comp
      */
     public function setAudioSelection($audioSelection = null)
     {
-        if (!$audioSelection) return $this;
         $this->audioSelection = ($audioSelection InstanceOf ExtendedFileResourceSelection)
              ? $audioSelection
              : new ExtendedFileResourceSelection($audioSelection);
@@ -85,7 +83,7 @@ class UserPreAlertingAnnouncementGetResponse extends ComplexType implements Comp
      */
     public function getAudioSelection()
     {
-        return $this->audioSelection->getValue();
+        return ($this->audioSelection) ? $this->audioSelection->getValue() : null;
     }
 
     /**
@@ -93,7 +91,6 @@ class UserPreAlertingAnnouncementGetResponse extends ComplexType implements Comp
      */
     public function setAudioFileDescription($audioFileDescription = null)
     {
-        if (!$audioFileDescription) return $this;
         $this->audioFileDescription = ($audioFileDescription InstanceOf FileDescription)
              ? $audioFileDescription
              : new FileDescription($audioFileDescription);
@@ -107,7 +104,7 @@ class UserPreAlertingAnnouncementGetResponse extends ComplexType implements Comp
      */
     public function getAudioFileDescription()
     {
-        return $this->audioFileDescription->getValue();
+        return ($this->audioFileDescription) ? $this->audioFileDescription->getValue() : null;
     }
 
     /**
@@ -115,7 +112,6 @@ class UserPreAlertingAnnouncementGetResponse extends ComplexType implements Comp
      */
     public function setAudioMediaType($audioMediaType = null)
     {
-        if (!$audioMediaType) return $this;
         $this->audioMediaType = ($audioMediaType InstanceOf MediaFileType)
              ? $audioMediaType
              : new MediaFileType($audioMediaType);
@@ -129,7 +125,7 @@ class UserPreAlertingAnnouncementGetResponse extends ComplexType implements Comp
      */
     public function getAudioMediaType()
     {
-        return $this->audioMediaType->getValue();
+        return ($this->audioMediaType) ? $this->audioMediaType->getValue() : null;
     }
 
     /**
@@ -137,7 +133,6 @@ class UserPreAlertingAnnouncementGetResponse extends ComplexType implements Comp
      */
     public function setAudioFileUrl($audioFileUrl = null)
     {
-        if (!$audioFileUrl) return $this;
         $this->audioFileUrl = ($audioFileUrl InstanceOf URL)
              ? $audioFileUrl
              : new URL($audioFileUrl);
@@ -151,7 +146,7 @@ class UserPreAlertingAnnouncementGetResponse extends ComplexType implements Comp
      */
     public function getAudioFileUrl()
     {
-        return $this->audioFileUrl->getValue();
+        return ($this->audioFileUrl) ? $this->audioFileUrl->getValue() : null;
     }
 
     /**
@@ -159,7 +154,6 @@ class UserPreAlertingAnnouncementGetResponse extends ComplexType implements Comp
      */
     public function setVideoSelection($videoSelection = null)
     {
-        if (!$videoSelection) return $this;
         $this->videoSelection = ($videoSelection InstanceOf ExtendedFileResourceSelection)
              ? $videoSelection
              : new ExtendedFileResourceSelection($videoSelection);
@@ -173,7 +167,7 @@ class UserPreAlertingAnnouncementGetResponse extends ComplexType implements Comp
      */
     public function getVideoSelection()
     {
-        return $this->videoSelection->getValue();
+        return ($this->videoSelection) ? $this->videoSelection->getValue() : null;
     }
 
     /**
@@ -181,7 +175,6 @@ class UserPreAlertingAnnouncementGetResponse extends ComplexType implements Comp
      */
     public function setVideoFileDescription($videoFileDescription = null)
     {
-        if (!$videoFileDescription) return $this;
         $this->videoFileDescription = ($videoFileDescription InstanceOf FileDescription)
              ? $videoFileDescription
              : new FileDescription($videoFileDescription);
@@ -195,7 +188,7 @@ class UserPreAlertingAnnouncementGetResponse extends ComplexType implements Comp
      */
     public function getVideoFileDescription()
     {
-        return $this->videoFileDescription->getValue();
+        return ($this->videoFileDescription) ? $this->videoFileDescription->getValue() : null;
     }
 
     /**
@@ -203,7 +196,6 @@ class UserPreAlertingAnnouncementGetResponse extends ComplexType implements Comp
      */
     public function setVideoMediaType($videoMediaType = null)
     {
-        if (!$videoMediaType) return $this;
         $this->videoMediaType = ($videoMediaType InstanceOf MediaFileType)
              ? $videoMediaType
              : new MediaFileType($videoMediaType);
@@ -217,7 +209,7 @@ class UserPreAlertingAnnouncementGetResponse extends ComplexType implements Comp
      */
     public function getVideoMediaType()
     {
-        return $this->videoMediaType->getValue();
+        return ($this->videoMediaType) ? $this->videoMediaType->getValue() : null;
     }
 
     /**
@@ -225,7 +217,6 @@ class UserPreAlertingAnnouncementGetResponse extends ComplexType implements Comp
      */
     public function setVideoFileUrl($videoFileUrl = null)
     {
-        if (!$videoFileUrl) return $this;
         $this->videoFileUrl = ($videoFileUrl InstanceOf URL)
              ? $videoFileUrl
              : new URL($videoFileUrl);
@@ -239,7 +230,7 @@ class UserPreAlertingAnnouncementGetResponse extends ComplexType implements Comp
      */
     public function getVideoFileUrl()
     {
-        return $this->videoFileUrl->getValue();
+        return ($this->videoFileUrl) ? $this->videoFileUrl->getValue() : null;
     }
 
     /**
@@ -247,7 +238,6 @@ class UserPreAlertingAnnouncementGetResponse extends ComplexType implements Comp
      */
     public function setCriteriaTable(TableType $criteriaTable = null)
     {
-        if (!$criteriaTable) return $this;
         $this->criteriaTable = $criteriaTable;
         $this->criteriaTable->setName('criteriaTable');
         return $this;

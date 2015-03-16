@@ -22,11 +22,11 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserSelectiveCallAcceptanceGetCriteriaResponse16 extends ComplexType implements ComplexInterface
 {
-    public    $name            = 'UserSelectiveCallAcceptanceGetCriteriaResponse16';
-    protected $timeSchedule    = null;
-    protected $holidaySchedule = null;
-    protected $blacklisted     = null;
-    protected $fromDnCriteria  = null;
+    public    $name = 'UserSelectiveCallAcceptanceGetCriteriaResponse16';
+    protected $timeSchedule;
+    protected $holidaySchedule;
+    protected $blacklisted;
+    protected $fromDnCriteria;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceSelectiveCallAcceptance\UserSelectiveCallAcceptanceGetCriteriaResponse16 $response
@@ -41,8 +41,9 @@ class UserSelectiveCallAcceptanceGetCriteriaResponse16 extends ComplexType imple
      */
     public function setTimeSchedule(TimeSchedule $timeSchedule = null)
     {
-        if (!$timeSchedule) return $this;
-        $this->timeSchedule = $timeSchedule;
+        $this->timeSchedule = ($timeSchedule InstanceOf TimeSchedule)
+             ? $timeSchedule
+             : new TimeSchedule($timeSchedule);
         $this->timeSchedule->setName('timeSchedule');
         return $this;
     }
@@ -61,8 +62,9 @@ class UserSelectiveCallAcceptanceGetCriteriaResponse16 extends ComplexType imple
      */
     public function setHolidaySchedule(HolidaySchedule $holidaySchedule = null)
     {
-        if (!$holidaySchedule) return $this;
-        $this->holidaySchedule = $holidaySchedule;
+        $this->holidaySchedule = ($holidaySchedule InstanceOf HolidaySchedule)
+             ? $holidaySchedule
+             : new HolidaySchedule($holidaySchedule);
         $this->holidaySchedule->setName('holidaySchedule');
         return $this;
     }
@@ -81,7 +83,6 @@ class UserSelectiveCallAcceptanceGetCriteriaResponse16 extends ComplexType imple
      */
     public function setBlacklisted($blacklisted = null)
     {
-        if (!$blacklisted) return $this;
         $this->blacklisted = new PrimitiveType($blacklisted);
         $this->blacklisted->setName('blacklisted');
         return $this;
@@ -93,7 +94,7 @@ class UserSelectiveCallAcceptanceGetCriteriaResponse16 extends ComplexType imple
      */
     public function getBlacklisted()
     {
-        return $this->blacklisted->getValue();
+        return ($this->blacklisted) ? $this->blacklisted->getValue() : null;
     }
 
     /**
@@ -101,8 +102,9 @@ class UserSelectiveCallAcceptanceGetCriteriaResponse16 extends ComplexType imple
      */
     public function setFromDnCriteria(CriteriaFromDn $fromDnCriteria = null)
     {
-        if (!$fromDnCriteria) return $this;
-        $this->fromDnCriteria = $fromDnCriteria;
+        $this->fromDnCriteria = ($fromDnCriteria InstanceOf CriteriaFromDn)
+             ? $fromDnCriteria
+             : new CriteriaFromDn($fromDnCriteria);
         $this->fromDnCriteria->setName('fromDnCriteria');
         return $this;
     }

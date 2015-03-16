@@ -21,11 +21,11 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemInstantConferencingGetHoldPolicyResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                             = 'SystemInstantConferencingGetHoldPolicyResponse';
-    protected $deleteExpiredConferences         = null;
-    protected $expiredConferenceHoldPeriodDays  = null;
-    protected $deleteRecordedConferences        = null;
-    protected $recordedConferenceHoldPeriodDays = null;
+    public    $name = 'SystemInstantConferencingGetHoldPolicyResponse';
+    protected $deleteExpiredConferences;
+    protected $expiredConferenceHoldPeriodDays;
+    protected $deleteRecordedConferences;
+    protected $recordedConferenceHoldPeriodDays;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing\SystemInstantConferencingGetHoldPolicyResponse $response
@@ -40,7 +40,6 @@ class SystemInstantConferencingGetHoldPolicyResponse extends ComplexType impleme
      */
     public function setDeleteExpiredConferences($deleteExpiredConferences = null)
     {
-        if (!$deleteExpiredConferences) return $this;
         $this->deleteExpiredConferences = new PrimitiveType($deleteExpiredConferences);
         $this->deleteExpiredConferences->setName('deleteExpiredConferences');
         return $this;
@@ -52,7 +51,7 @@ class SystemInstantConferencingGetHoldPolicyResponse extends ComplexType impleme
      */
     public function getDeleteExpiredConferences()
     {
-        return $this->deleteExpiredConferences->getValue();
+        return ($this->deleteExpiredConferences) ? $this->deleteExpiredConferences->getValue() : null;
     }
 
     /**
@@ -60,7 +59,6 @@ class SystemInstantConferencingGetHoldPolicyResponse extends ComplexType impleme
      */
     public function setExpiredConferenceHoldPeriodDays($expiredConferenceHoldPeriodDays = null)
     {
-        if (!$expiredConferenceHoldPeriodDays) return $this;
         $this->expiredConferenceHoldPeriodDays = ($expiredConferenceHoldPeriodDays InstanceOf InstantConferencingExpiredConferenceHoldPeriodDays)
              ? $expiredConferenceHoldPeriodDays
              : new InstantConferencingExpiredConferenceHoldPeriodDays($expiredConferenceHoldPeriodDays);
@@ -74,7 +72,7 @@ class SystemInstantConferencingGetHoldPolicyResponse extends ComplexType impleme
      */
     public function getExpiredConferenceHoldPeriodDays()
     {
-        return $this->expiredConferenceHoldPeriodDays->getValue();
+        return ($this->expiredConferenceHoldPeriodDays) ? $this->expiredConferenceHoldPeriodDays->getValue() : null;
     }
 
     /**
@@ -82,7 +80,6 @@ class SystemInstantConferencingGetHoldPolicyResponse extends ComplexType impleme
      */
     public function setDeleteRecordedConferences($deleteRecordedConferences = null)
     {
-        if (!$deleteRecordedConferences) return $this;
         $this->deleteRecordedConferences = new PrimitiveType($deleteRecordedConferences);
         $this->deleteRecordedConferences->setName('deleteRecordedConferences');
         return $this;
@@ -94,7 +91,7 @@ class SystemInstantConferencingGetHoldPolicyResponse extends ComplexType impleme
      */
     public function getDeleteRecordedConferences()
     {
-        return $this->deleteRecordedConferences->getValue();
+        return ($this->deleteRecordedConferences) ? $this->deleteRecordedConferences->getValue() : null;
     }
 
     /**
@@ -102,7 +99,6 @@ class SystemInstantConferencingGetHoldPolicyResponse extends ComplexType impleme
      */
     public function setRecordedConferenceHoldPeriodDays($recordedConferenceHoldPeriodDays = null)
     {
-        if (!$recordedConferenceHoldPeriodDays) return $this;
         $this->recordedConferenceHoldPeriodDays = ($recordedConferenceHoldPeriodDays InstanceOf InstantConferencingRecordedConferenceHoldPeriodDays)
              ? $recordedConferenceHoldPeriodDays
              : new InstantConferencingRecordedConferenceHoldPeriodDays($recordedConferenceHoldPeriodDays);
@@ -116,6 +112,6 @@ class SystemInstantConferencingGetHoldPolicyResponse extends ComplexType impleme
      */
     public function getRecordedConferenceHoldPeriodDays()
     {
-        return $this->recordedConferenceHoldPeriodDays->getValue();
+        return ($this->recordedConferenceHoldPeriodDays) ? $this->recordedConferenceHoldPeriodDays->getValue() : null;
     }
 }

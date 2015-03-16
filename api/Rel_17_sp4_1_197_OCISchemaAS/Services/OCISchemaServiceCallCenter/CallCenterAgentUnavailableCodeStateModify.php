@@ -19,13 +19,13 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class CallCenterAgentUnavailableCodeStateModify extends ComplexType implements ComplexInterface
 {
-    public    $name     = 'CallCenterAgentUnavailableCodeStateModify';
-    protected $code     = null;
-    protected $isActive = null;
+    public    $name = 'CallCenterAgentUnavailableCodeStateModify';
+    protected $code;
+    protected $isActive;
 
     public function __construct(
-         $code,
-         $isActive
+         $code = '',
+         $isActive = ''
     ) {
         $this->setCode($code);
         $this->setIsActive($isActive);
@@ -44,7 +44,6 @@ class CallCenterAgentUnavailableCodeStateModify extends ComplexType implements C
      */
     public function setCode($code = null)
     {
-        if (!$code) return $this;
         $this->code = new SimpleContent($code);
         $this->code->setName('code');
         return $this;
@@ -56,7 +55,7 @@ class CallCenterAgentUnavailableCodeStateModify extends ComplexType implements C
      */
     public function getCode()
     {
-        return $this->code->getValue();
+        return ($this->code) ? $this->code->getValue() : null;
     }
 
     /**
@@ -64,7 +63,6 @@ class CallCenterAgentUnavailableCodeStateModify extends ComplexType implements C
      */
     public function setIsActive($isActive = null)
     {
-        if (!$isActive) return $this;
         $this->isActive = new SimpleContent($isActive);
         $this->isActive->setName('isActive');
         return $this;
@@ -76,6 +74,6 @@ class CallCenterAgentUnavailableCodeStateModify extends ComplexType implements C
      */
     public function getIsActive()
     {
-        return $this->isActive->getValue();
+        return ($this->isActive) ? $this->isActive->getValue() : null;
     }
 }

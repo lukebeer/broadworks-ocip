@@ -21,10 +21,10 @@ use Broadworks_OCIP\core\Client\Client;
 class SystemCallRecordingDeletePlatformRequest extends ComplexType implements ComplexInterface
 {
     public    $name = 'SystemCallRecordingDeletePlatformRequest';
-    protected $name = null;
+    protected $name;
 
     public function __construct(
-         $name
+         $name = ''
     ) {
         $this->setName($name);
     }
@@ -42,7 +42,6 @@ class SystemCallRecordingDeletePlatformRequest extends ComplexType implements Co
      */
     public function setName($name = null)
     {
-        if (!$name) return $this;
         $this->name = ($name InstanceOf CallRecordingPlatformName)
              ? $name
              : new CallRecordingPlatformName($name);
@@ -56,6 +55,6 @@ class SystemCallRecordingDeletePlatformRequest extends ComplexType implements Co
      */
     public function getName()
     {
-        return $this->name->getValue();
+        return ($this->name) ? $this->name->getValue() : null;
     }
 }

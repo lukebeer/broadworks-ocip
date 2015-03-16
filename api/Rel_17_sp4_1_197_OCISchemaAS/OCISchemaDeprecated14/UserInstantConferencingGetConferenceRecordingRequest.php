@@ -24,13 +24,13 @@ use Broadworks_OCIP\core\Client\Client;
 class UserInstantConferencingGetConferenceRecordingRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\UserInstantConferencingGetConferenceRecordingResponse';
-    public    $name         = 'UserInstantConferencingGetConferenceRecordingRequest';
-    protected $userId       = null;
-    protected $recordingKey = null;
+    public    $name = 'UserInstantConferencingGetConferenceRecordingRequest';
+    protected $userId;
+    protected $recordingKey;
 
     public function __construct(
-         $userId,
-         InstantConferencingRecordingKey $recordingKey
+         $userId = '',
+         InstantConferencingRecordingKey $recordingKey = ''
     ) {
         $this->setUserId($userId);
         $this->setRecordingKey($recordingKey);
@@ -49,7 +49,6 @@ class UserInstantConferencingGetConferenceRecordingRequest extends ComplexType i
      */
     public function setUserId($userId = null)
     {
-        if (!$userId) return $this;
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
@@ -63,7 +62,7 @@ class UserInstantConferencingGetConferenceRecordingRequest extends ComplexType i
      */
     public function getUserId()
     {
-        return $this->userId->getValue();
+        return ($this->userId) ? $this->userId->getValue() : null;
     }
 
     /**
@@ -71,8 +70,9 @@ class UserInstantConferencingGetConferenceRecordingRequest extends ComplexType i
      */
     public function setRecordingKey(InstantConferencingRecordingKey $recordingKey = null)
     {
-        if (!$recordingKey) return $this;
-        $this->recordingKey = $recordingKey;
+        $this->recordingKey = ($recordingKey InstanceOf InstantConferencingRecordingKey)
+             ? $recordingKey
+             : new InstantConferencingRecordingKey($recordingKey);
         $this->recordingKey->setName('recordingKey');
         return $this;
     }

@@ -30,22 +30,22 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                     = 'GroupModifyRequest';
-    protected $serviceProviderId        = null;
-    protected $groupId                  = null;
-    protected $defaultDomain            = null;
-    protected $userLimit                = null;
-    protected $groupName                = null;
-    protected $callingLineIdName        = null;
-    protected $callingLineIdPhoneNumber = null;
-    protected $timeZone                 = null;
-    protected $locationDialingCode      = null;
-    protected $contact                  = null;
-    protected $address                  = null;
+    public    $name = 'GroupModifyRequest';
+    protected $serviceProviderId;
+    protected $groupId;
+    protected $defaultDomain;
+    protected $userLimit;
+    protected $groupName;
+    protected $callingLineIdName;
+    protected $callingLineIdPhoneNumber;
+    protected $timeZone;
+    protected $locationDialingCode;
+    protected $contact;
+    protected $address;
 
     public function __construct(
-         $serviceProviderId,
-         $groupId,
+         $serviceProviderId = '',
+         $groupId = '',
          $defaultDomain = null,
          $userLimit = null,
          $groupName = null,
@@ -82,7 +82,6 @@ class GroupModifyRequest extends ComplexType implements ComplexInterface
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
-        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
@@ -96,7 +95,7 @@ class GroupModifyRequest extends ComplexType implements ComplexInterface
      */
     public function getServiceProviderId()
     {
-        return $this->serviceProviderId->getValue();
+        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
     }
 
     /**
@@ -104,7 +103,6 @@ class GroupModifyRequest extends ComplexType implements ComplexInterface
      */
     public function setGroupId($groupId = null)
     {
-        if (!$groupId) return $this;
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
@@ -118,7 +116,7 @@ class GroupModifyRequest extends ComplexType implements ComplexInterface
      */
     public function getGroupId()
     {
-        return $this->groupId->getValue();
+        return ($this->groupId) ? $this->groupId->getValue() : null;
     }
 
     /**
@@ -126,7 +124,6 @@ class GroupModifyRequest extends ComplexType implements ComplexInterface
      */
     public function setDefaultDomain($defaultDomain = null)
     {
-        if (!$defaultDomain) return $this;
         $this->defaultDomain = ($defaultDomain InstanceOf NetAddress)
              ? $defaultDomain
              : new NetAddress($defaultDomain);
@@ -140,7 +137,7 @@ class GroupModifyRequest extends ComplexType implements ComplexInterface
      */
     public function getDefaultDomain()
     {
-        return $this->defaultDomain->getValue();
+        return ($this->defaultDomain) ? $this->defaultDomain->getValue() : null;
     }
 
     /**
@@ -148,7 +145,6 @@ class GroupModifyRequest extends ComplexType implements ComplexInterface
      */
     public function setUserLimit($userLimit = null)
     {
-        if (!$userLimit) return $this;
         $this->userLimit = ($userLimit InstanceOf GroupUserLimit)
              ? $userLimit
              : new GroupUserLimit($userLimit);
@@ -162,7 +158,7 @@ class GroupModifyRequest extends ComplexType implements ComplexInterface
      */
     public function getUserLimit()
     {
-        return $this->userLimit->getValue();
+        return ($this->userLimit) ? $this->userLimit->getValue() : null;
     }
 
     /**
@@ -170,7 +166,6 @@ class GroupModifyRequest extends ComplexType implements ComplexInterface
      */
     public function setGroupName($groupName = null)
     {
-        if (!$groupName) return $this;
         $this->groupName = ($groupName InstanceOf GroupName)
              ? $groupName
              : new GroupName($groupName);
@@ -184,7 +179,7 @@ class GroupModifyRequest extends ComplexType implements ComplexInterface
      */
     public function getGroupName()
     {
-        return $this->groupName->getValue();
+        return ($this->groupName) ? $this->groupName->getValue() : null;
     }
 
     /**
@@ -192,7 +187,6 @@ class GroupModifyRequest extends ComplexType implements ComplexInterface
      */
     public function setCallingLineIdName($callingLineIdName = null)
     {
-        if (!$callingLineIdName) return $this;
         $this->callingLineIdName = ($callingLineIdName InstanceOf GroupCallingLineIdName)
              ? $callingLineIdName
              : new GroupCallingLineIdName($callingLineIdName);
@@ -206,7 +200,7 @@ class GroupModifyRequest extends ComplexType implements ComplexInterface
      */
     public function getCallingLineIdName()
     {
-        return $this->callingLineIdName->getValue();
+        return ($this->callingLineIdName) ? $this->callingLineIdName->getValue() : null;
     }
 
     /**
@@ -214,7 +208,6 @@ class GroupModifyRequest extends ComplexType implements ComplexInterface
      */
     public function setCallingLineIdPhoneNumber($callingLineIdPhoneNumber = null)
     {
-        if (!$callingLineIdPhoneNumber) return $this;
         $this->callingLineIdPhoneNumber = ($callingLineIdPhoneNumber InstanceOf DN)
              ? $callingLineIdPhoneNumber
              : new DN($callingLineIdPhoneNumber);
@@ -228,7 +221,7 @@ class GroupModifyRequest extends ComplexType implements ComplexInterface
      */
     public function getCallingLineIdPhoneNumber()
     {
-        return $this->callingLineIdPhoneNumber->getValue();
+        return ($this->callingLineIdPhoneNumber) ? $this->callingLineIdPhoneNumber->getValue() : null;
     }
 
     /**
@@ -236,7 +229,6 @@ class GroupModifyRequest extends ComplexType implements ComplexInterface
      */
     public function setTimeZone($timeZone = null)
     {
-        if (!$timeZone) return $this;
         $this->timeZone = ($timeZone InstanceOf TimeZone)
              ? $timeZone
              : new TimeZone($timeZone);
@@ -250,7 +242,7 @@ class GroupModifyRequest extends ComplexType implements ComplexInterface
      */
     public function getTimeZone()
     {
-        return $this->timeZone->getValue();
+        return ($this->timeZone) ? $this->timeZone->getValue() : null;
     }
 
     /**
@@ -258,7 +250,6 @@ class GroupModifyRequest extends ComplexType implements ComplexInterface
      */
     public function setLocationDialingCode($locationDialingCode = null)
     {
-        if (!$locationDialingCode) return $this;
         $this->locationDialingCode = ($locationDialingCode InstanceOf LocationDialingCode)
              ? $locationDialingCode
              : new LocationDialingCode($locationDialingCode);
@@ -272,7 +263,7 @@ class GroupModifyRequest extends ComplexType implements ComplexInterface
      */
     public function getLocationDialingCode()
     {
-        return $this->locationDialingCode->getValue();
+        return ($this->locationDialingCode) ? $this->locationDialingCode->getValue() : null;
     }
 
     /**
@@ -280,8 +271,9 @@ class GroupModifyRequest extends ComplexType implements ComplexInterface
      */
     public function setContact(Contact $contact = null)
     {
-        if (!$contact) return $this;
-        $this->contact = $contact;
+        $this->contact = ($contact InstanceOf Contact)
+             ? $contact
+             : new Contact($contact);
         $this->contact->setName('contact');
         return $this;
     }
@@ -300,8 +292,9 @@ class GroupModifyRequest extends ComplexType implements ComplexInterface
      */
     public function setAddress(StreetAddress $address = null)
     {
-        if (!$address) return $this;
-        $this->address = $address;
+        $this->address = ($address InstanceOf StreetAddress)
+             ? $address
+             : new StreetAddress($address);
         $this->address->setName('address');
         return $this;
     }

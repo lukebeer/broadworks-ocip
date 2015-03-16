@@ -24,14 +24,14 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserVoiceMessagingUserModifyVoicePortalRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                      = 'UserVoiceMessagingUserModifyVoicePortalRequest';
-    protected $userId                    = null;
-    protected $usePersonalizedName       = null;
-    protected $voicePortalAutoLogin      = null;
-    protected $personalizedNameAudioFile = null;
+    public    $name = 'UserVoiceMessagingUserModifyVoicePortalRequest';
+    protected $userId;
+    protected $usePersonalizedName;
+    protected $voicePortalAutoLogin;
+    protected $personalizedNameAudioFile;
 
     public function __construct(
-         $userId,
+         $userId = '',
          $usePersonalizedName = null,
          $voicePortalAutoLogin = null,
          LabeledFileResource $personalizedNameAudioFile = null
@@ -55,7 +55,6 @@ class UserVoiceMessagingUserModifyVoicePortalRequest extends ComplexType impleme
      */
     public function setUserId($userId = null)
     {
-        if (!$userId) return $this;
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
@@ -69,7 +68,7 @@ class UserVoiceMessagingUserModifyVoicePortalRequest extends ComplexType impleme
      */
     public function getUserId()
     {
-        return $this->userId->getValue();
+        return ($this->userId) ? $this->userId->getValue() : null;
     }
 
     /**
@@ -77,7 +76,6 @@ class UserVoiceMessagingUserModifyVoicePortalRequest extends ComplexType impleme
      */
     public function setUsePersonalizedName($usePersonalizedName = null)
     {
-        if (!$usePersonalizedName) return $this;
         $this->usePersonalizedName = new PrimitiveType($usePersonalizedName);
         $this->usePersonalizedName->setName('usePersonalizedName');
         return $this;
@@ -89,7 +87,7 @@ class UserVoiceMessagingUserModifyVoicePortalRequest extends ComplexType impleme
      */
     public function getUsePersonalizedName()
     {
-        return $this->usePersonalizedName->getValue();
+        return ($this->usePersonalizedName) ? $this->usePersonalizedName->getValue() : null;
     }
 
     /**
@@ -97,7 +95,6 @@ class UserVoiceMessagingUserModifyVoicePortalRequest extends ComplexType impleme
      */
     public function setVoicePortalAutoLogin($voicePortalAutoLogin = null)
     {
-        if (!$voicePortalAutoLogin) return $this;
         $this->voicePortalAutoLogin = new PrimitiveType($voicePortalAutoLogin);
         $this->voicePortalAutoLogin->setName('voicePortalAutoLogin');
         return $this;
@@ -109,7 +106,7 @@ class UserVoiceMessagingUserModifyVoicePortalRequest extends ComplexType impleme
      */
     public function getVoicePortalAutoLogin()
     {
-        return $this->voicePortalAutoLogin->getValue();
+        return ($this->voicePortalAutoLogin) ? $this->voicePortalAutoLogin->getValue() : null;
     }
 
     /**
@@ -117,8 +114,9 @@ class UserVoiceMessagingUserModifyVoicePortalRequest extends ComplexType impleme
      */
     public function setPersonalizedNameAudioFile(LabeledFileResource $personalizedNameAudioFile = null)
     {
-        if (!$personalizedNameAudioFile) return $this;
-        $this->personalizedNameAudioFile = $personalizedNameAudioFile;
+        $this->personalizedNameAudioFile = ($personalizedNameAudioFile InstanceOf LabeledFileResource)
+             ? $personalizedNameAudioFile
+             : new LabeledFileResource($personalizedNameAudioFile);
         $this->personalizedNameAudioFile->setName('personalizedNameAudioFile');
         return $this;
     }

@@ -19,11 +19,11 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class CallCenterAnnouncementFileListModify extends ComplexType implements ComplexInterface
 {
-    public    $name  = 'CallCenterAnnouncementFileListModify';
-    protected $file1 = null;
-    protected $file2 = null;
-    protected $file3 = null;
-    protected $file4 = null;
+    public    $name = 'CallCenterAnnouncementFileListModify';
+    protected $file1;
+    protected $file2;
+    protected $file3;
+    protected $file4;
 
     public function __construct(
          $file1 = null,
@@ -50,7 +50,6 @@ class CallCenterAnnouncementFileListModify extends ComplexType implements Comple
      */
     public function setFile1($file1 = null)
     {
-        if (!$file1) return $this;
         $this->file1 = new SimpleContent($file1);
         $this->file1->setName('file1');
         return $this;
@@ -62,7 +61,7 @@ class CallCenterAnnouncementFileListModify extends ComplexType implements Comple
      */
     public function getFile1()
     {
-        return $this->file1->getValue();
+        return ($this->file1) ? $this->file1->getValue() : null;
     }
 
     /**
@@ -70,7 +69,6 @@ class CallCenterAnnouncementFileListModify extends ComplexType implements Comple
      */
     public function setFile2($file2 = null)
     {
-        if (!$file2) return $this;
         $this->file2 = new SimpleContent($file2);
         $this->file2->setName('file2');
         return $this;
@@ -82,7 +80,7 @@ class CallCenterAnnouncementFileListModify extends ComplexType implements Comple
      */
     public function getFile2()
     {
-        return $this->file2->getValue();
+        return ($this->file2) ? $this->file2->getValue() : null;
     }
 
     /**
@@ -90,7 +88,6 @@ class CallCenterAnnouncementFileListModify extends ComplexType implements Comple
      */
     public function setFile3($file3 = null)
     {
-        if (!$file3) return $this;
         $this->file3 = new SimpleContent($file3);
         $this->file3->setName('file3');
         return $this;
@@ -102,7 +99,7 @@ class CallCenterAnnouncementFileListModify extends ComplexType implements Comple
      */
     public function getFile3()
     {
-        return $this->file3->getValue();
+        return ($this->file3) ? $this->file3->getValue() : null;
     }
 
     /**
@@ -110,7 +107,6 @@ class CallCenterAnnouncementFileListModify extends ComplexType implements Comple
      */
     public function setFile4($file4 = null)
     {
-        if (!$file4) return $this;
         $this->file4 = new SimpleContent($file4);
         $this->file4->setName('file4');
         return $this;
@@ -122,6 +118,6 @@ class CallCenterAnnouncementFileListModify extends ComplexType implements Comple
      */
     public function getFile4()
     {
-        return $this->file4->getValue();
+        return ($this->file4) ? $this->file4->getValue() : null;
     }
 }

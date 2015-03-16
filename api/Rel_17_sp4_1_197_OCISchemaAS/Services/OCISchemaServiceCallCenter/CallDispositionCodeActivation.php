@@ -19,13 +19,13 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class CallDispositionCodeActivation extends ComplexType implements ComplexInterface
 {
-    public    $name     = 'CallDispositionCodeActivation';
-    protected $code     = null;
-    protected $isActive = null;
+    public    $name = 'CallDispositionCodeActivation';
+    protected $code;
+    protected $isActive;
 
     public function __construct(
-         $code,
-         $isActive
+         $code = '',
+         $isActive = ''
     ) {
         $this->setCode($code);
         $this->setIsActive($isActive);
@@ -44,7 +44,6 @@ class CallDispositionCodeActivation extends ComplexType implements ComplexInterf
      */
     public function setCode($code = null)
     {
-        if (!$code) return $this;
         $this->code = new SimpleContent($code);
         $this->code->setName('code');
         return $this;
@@ -56,7 +55,7 @@ class CallDispositionCodeActivation extends ComplexType implements ComplexInterf
      */
     public function getCode()
     {
-        return $this->code->getValue();
+        return ($this->code) ? $this->code->getValue() : null;
     }
 
     /**
@@ -64,7 +63,6 @@ class CallDispositionCodeActivation extends ComplexType implements ComplexInterf
      */
     public function setIsActive($isActive = null)
     {
-        if (!$isActive) return $this;
         $this->isActive = new SimpleContent($isActive);
         $this->isActive->setName('isActive');
         return $this;
@@ -76,6 +74,6 @@ class CallDispositionCodeActivation extends ComplexType implements ComplexInterf
      */
     public function getIsActive()
     {
-        return $this->isActive->getValue();
+        return ($this->isActive) ? $this->isActive->getValue() : null;
     }
 }

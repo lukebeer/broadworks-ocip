@@ -23,15 +23,15 @@ use Broadworks_OCIP\core\Client\Client;
 class GroupAccessDeviceGetRequest16 extends ComplexType implements ComplexInterface
 {
     public    $responseType      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupAccessDeviceGetResponse16';
-    public    $name              = 'GroupAccessDeviceGetRequest16';
-    protected $serviceProviderId = null;
-    protected $groupId           = null;
-    protected $deviceName        = null;
+    public    $name = 'GroupAccessDeviceGetRequest16';
+    protected $serviceProviderId;
+    protected $groupId;
+    protected $deviceName;
 
     public function __construct(
-         $serviceProviderId,
-         $groupId,
-         $deviceName
+         $serviceProviderId = '',
+         $groupId = '',
+         $deviceName = ''
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setGroupId($groupId);
@@ -51,7 +51,6 @@ class GroupAccessDeviceGetRequest16 extends ComplexType implements ComplexInterf
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
-        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
@@ -65,7 +64,7 @@ class GroupAccessDeviceGetRequest16 extends ComplexType implements ComplexInterf
      */
     public function getServiceProviderId()
     {
-        return $this->serviceProviderId->getValue();
+        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
     }
 
     /**
@@ -73,7 +72,6 @@ class GroupAccessDeviceGetRequest16 extends ComplexType implements ComplexInterf
      */
     public function setGroupId($groupId = null)
     {
-        if (!$groupId) return $this;
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
@@ -87,7 +85,7 @@ class GroupAccessDeviceGetRequest16 extends ComplexType implements ComplexInterf
      */
     public function getGroupId()
     {
-        return $this->groupId->getValue();
+        return ($this->groupId) ? $this->groupId->getValue() : null;
     }
 
     /**
@@ -95,7 +93,6 @@ class GroupAccessDeviceGetRequest16 extends ComplexType implements ComplexInterf
      */
     public function setDeviceName($deviceName = null)
     {
-        if (!$deviceName) return $this;
         $this->deviceName = ($deviceName InstanceOf AccessDeviceName)
              ? $deviceName
              : new AccessDeviceName($deviceName);
@@ -109,6 +106,6 @@ class GroupAccessDeviceGetRequest16 extends ComplexType implements ComplexInterf
      */
     public function getDeviceName()
     {
-        return $this->deviceName->getValue();
+        return ($this->deviceName) ? $this->deviceName->getValue() : null;
     }
 }

@@ -23,14 +23,14 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupRoutePointDistinctiveRingingModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                                       = 'GroupRoutePointDistinctiveRingingModifyRequest';
-    protected $serviceUserId                              = null;
-    protected $enableDistinctiveRinging                   = null;
-    protected $distinctiveRingingRingPattern              = null;
-    protected $distinctiveRingingForceDeliveryRingPattern = null;
+    public    $name = 'GroupRoutePointDistinctiveRingingModifyRequest';
+    protected $serviceUserId;
+    protected $enableDistinctiveRinging;
+    protected $distinctiveRingingRingPattern;
+    protected $distinctiveRingingForceDeliveryRingPattern;
 
     public function __construct(
-         $serviceUserId,
+         $serviceUserId = '',
          $enableDistinctiveRinging = null,
          $distinctiveRingingRingPattern = null,
          $distinctiveRingingForceDeliveryRingPattern = null
@@ -54,7 +54,6 @@ class GroupRoutePointDistinctiveRingingModifyRequest extends ComplexType impleme
      */
     public function setServiceUserId($serviceUserId = null)
     {
-        if (!$serviceUserId) return $this;
         $this->serviceUserId = ($serviceUserId InstanceOf UserId)
              ? $serviceUserId
              : new UserId($serviceUserId);
@@ -68,7 +67,7 @@ class GroupRoutePointDistinctiveRingingModifyRequest extends ComplexType impleme
      */
     public function getServiceUserId()
     {
-        return $this->serviceUserId->getValue();
+        return ($this->serviceUserId) ? $this->serviceUserId->getValue() : null;
     }
 
     /**
@@ -76,7 +75,6 @@ class GroupRoutePointDistinctiveRingingModifyRequest extends ComplexType impleme
      */
     public function setEnableDistinctiveRinging($enableDistinctiveRinging = null)
     {
-        if (!$enableDistinctiveRinging) return $this;
         $this->enableDistinctiveRinging = new PrimitiveType($enableDistinctiveRinging);
         $this->enableDistinctiveRinging->setName('enableDistinctiveRinging');
         return $this;
@@ -88,7 +86,7 @@ class GroupRoutePointDistinctiveRingingModifyRequest extends ComplexType impleme
      */
     public function getEnableDistinctiveRinging()
     {
-        return $this->enableDistinctiveRinging->getValue();
+        return ($this->enableDistinctiveRinging) ? $this->enableDistinctiveRinging->getValue() : null;
     }
 
     /**
@@ -96,7 +94,6 @@ class GroupRoutePointDistinctiveRingingModifyRequest extends ComplexType impleme
      */
     public function setDistinctiveRingingRingPattern($distinctiveRingingRingPattern = null)
     {
-        if (!$distinctiveRingingRingPattern) return $this;
         $this->distinctiveRingingRingPattern = ($distinctiveRingingRingPattern InstanceOf RingPattern)
              ? $distinctiveRingingRingPattern
              : new RingPattern($distinctiveRingingRingPattern);
@@ -110,7 +107,7 @@ class GroupRoutePointDistinctiveRingingModifyRequest extends ComplexType impleme
      */
     public function getDistinctiveRingingRingPattern()
     {
-        return $this->distinctiveRingingRingPattern->getValue();
+        return ($this->distinctiveRingingRingPattern) ? $this->distinctiveRingingRingPattern->getValue() : null;
     }
 
     /**
@@ -118,7 +115,6 @@ class GroupRoutePointDistinctiveRingingModifyRequest extends ComplexType impleme
      */
     public function setDistinctiveRingingForceDeliveryRingPattern($distinctiveRingingForceDeliveryRingPattern = null)
     {
-        if (!$distinctiveRingingForceDeliveryRingPattern) return $this;
         $this->distinctiveRingingForceDeliveryRingPattern = ($distinctiveRingingForceDeliveryRingPattern InstanceOf RingPattern)
              ? $distinctiveRingingForceDeliveryRingPattern
              : new RingPattern($distinctiveRingingForceDeliveryRingPattern);
@@ -132,6 +128,6 @@ class GroupRoutePointDistinctiveRingingModifyRequest extends ComplexType impleme
      */
     public function getDistinctiveRingingForceDeliveryRingPattern()
     {
-        return $this->distinctiveRingingForceDeliveryRingPattern->getValue();
+        return ($this->distinctiveRingingForceDeliveryRingPattern) ? $this->distinctiveRingingForceDeliveryRingPattern->getValue() : null;
     }
 }

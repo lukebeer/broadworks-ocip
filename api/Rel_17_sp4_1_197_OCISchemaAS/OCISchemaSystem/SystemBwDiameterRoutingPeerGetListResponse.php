@@ -19,8 +19,8 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemBwDiameterRoutingPeerGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name             = 'SystemBwDiameterRoutingPeerGetListResponse';
-    protected $routingPeerTable = null;
+    public    $name = 'SystemBwDiameterRoutingPeerGetListResponse';
+    protected $routingPeerTable;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemBwDiameterRoutingPeerGetListResponse $response
@@ -35,7 +35,6 @@ class SystemBwDiameterRoutingPeerGetListResponse extends ComplexType implements 
      */
     public function setRoutingPeerTable(TableType $routingPeerTable = null)
     {
-        if (!$routingPeerTable) return $this;
         $this->routingPeerTable = $routingPeerTable;
         $this->routingPeerTable->setName('routingPeerTable');
         return $this;

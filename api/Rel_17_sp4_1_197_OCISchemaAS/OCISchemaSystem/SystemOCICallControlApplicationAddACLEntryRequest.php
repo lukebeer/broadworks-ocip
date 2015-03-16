@@ -22,14 +22,14 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemOCICallControlApplicationAddACLEntryRequest extends ComplexType implements ComplexInterface
 {
-    public    $name          = 'SystemOCICallControlApplicationAddACLEntryRequest';
-    protected $applicationId = null;
-    protected $netAddress    = null;
-    protected $description   = null;
+    public    $name = 'SystemOCICallControlApplicationAddACLEntryRequest';
+    protected $applicationId;
+    protected $netAddress;
+    protected $description;
 
     public function __construct(
-         $applicationId,
-         $netAddress,
+         $applicationId = '',
+         $netAddress = '',
          $description = null
     ) {
         $this->setApplicationId($applicationId);
@@ -50,7 +50,6 @@ class SystemOCICallControlApplicationAddACLEntryRequest extends ComplexType impl
      */
     public function setApplicationId($applicationId = null)
     {
-        if (!$applicationId) return $this;
         $this->applicationId = ($applicationId InstanceOf OCICallControlApplicationId)
              ? $applicationId
              : new OCICallControlApplicationId($applicationId);
@@ -64,7 +63,7 @@ class SystemOCICallControlApplicationAddACLEntryRequest extends ComplexType impl
      */
     public function getApplicationId()
     {
-        return $this->applicationId->getValue();
+        return ($this->applicationId) ? $this->applicationId->getValue() : null;
     }
 
     /**
@@ -72,7 +71,6 @@ class SystemOCICallControlApplicationAddACLEntryRequest extends ComplexType impl
      */
     public function setNetAddress($netAddress = null)
     {
-        if (!$netAddress) return $this;
         $this->netAddress = ($netAddress InstanceOf IPAddress)
              ? $netAddress
              : new IPAddress($netAddress);
@@ -86,7 +84,7 @@ class SystemOCICallControlApplicationAddACLEntryRequest extends ComplexType impl
      */
     public function getNetAddress()
     {
-        return $this->netAddress->getValue();
+        return ($this->netAddress) ? $this->netAddress->getValue() : null;
     }
 
     /**
@@ -94,7 +92,6 @@ class SystemOCICallControlApplicationAddACLEntryRequest extends ComplexType impl
      */
     public function setDescription($description = null)
     {
-        if (!$description) return $this;
         $this->description = ($description InstanceOf NetworkACLEntryDescription)
              ? $description
              : new NetworkACLEntryDescription($description);
@@ -108,6 +105,6 @@ class SystemOCICallControlApplicationAddACLEntryRequest extends ComplexType impl
      */
     public function getDescription()
     {
-        return $this->description->getValue();
+        return ($this->description) ? $this->description->getValue() : null;
     }
 }

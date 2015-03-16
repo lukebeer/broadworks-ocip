@@ -20,8 +20,8 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemSpeedDial100ModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name   = 'SystemSpeedDial100ModifyRequest';
-    protected $prefix = null;
+    public    $name = 'SystemSpeedDial100ModifyRequest';
+    protected $prefix;
 
     public function __construct(
          $prefix = null
@@ -42,7 +42,6 @@ class SystemSpeedDial100ModifyRequest extends ComplexType implements ComplexInte
      */
     public function setPrefix($prefix = null)
     {
-        if (!$prefix) return $this;
         $this->prefix = ($prefix InstanceOf SpeedDialPrefix)
              ? $prefix
              : new SpeedDialPrefix($prefix);
@@ -56,6 +55,6 @@ class SystemSpeedDial100ModifyRequest extends ComplexType implements ComplexInte
      */
     public function getPrefix()
     {
-        return $this->prefix->getValue();
+        return ($this->prefix) ? $this->prefix->getValue() : null;
     }
 }

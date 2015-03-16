@@ -19,8 +19,8 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemSpeedDial100GetResponse17sp1 extends ComplexType implements ComplexInterface
 {
-    public    $name   = 'SystemSpeedDial100GetResponse17sp1';
-    protected $prefix = null;
+    public    $name = 'SystemSpeedDial100GetResponse17sp1';
+    protected $prefix;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceSpeedDial100\SystemSpeedDial100GetResponse17sp1 $response
@@ -35,7 +35,6 @@ class SystemSpeedDial100GetResponse17sp1 extends ComplexType implements ComplexI
      */
     public function setPrefix($prefix = null)
     {
-        if (!$prefix) return $this;
         $this->prefix = ($prefix InstanceOf SpeedDialPrefix)
              ? $prefix
              : new SpeedDialPrefix($prefix);
@@ -49,6 +48,6 @@ class SystemSpeedDial100GetResponse17sp1 extends ComplexType implements ComplexI
      */
     public function getPrefix()
     {
-        return $this->prefix->getValue();
+        return ($this->prefix) ? $this->prefix->getValue() : null;
     }
 }

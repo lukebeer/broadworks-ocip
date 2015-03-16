@@ -20,9 +20,9 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupCallCenterEnhancedGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                    = 'GroupCallCenterEnhancedGetResponse';
-    protected $overrideAgentWrapUpTime = null;
-    protected $wrapUpSeconds           = null;
+    public    $name = 'GroupCallCenterEnhancedGetResponse';
+    protected $overrideAgentWrapUpTime;
+    protected $wrapUpSeconds;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15\GroupCallCenterEnhancedGetResponse $response
@@ -37,7 +37,6 @@ class GroupCallCenterEnhancedGetResponse extends ComplexType implements ComplexI
      */
     public function setOverrideAgentWrapUpTime($overrideAgentWrapUpTime = null)
     {
-        if (!$overrideAgentWrapUpTime) return $this;
         $this->overrideAgentWrapUpTime = new PrimitiveType($overrideAgentWrapUpTime);
         $this->overrideAgentWrapUpTime->setName('overrideAgentWrapUpTime');
         return $this;
@@ -49,7 +48,7 @@ class GroupCallCenterEnhancedGetResponse extends ComplexType implements ComplexI
      */
     public function getOverrideAgentWrapUpTime()
     {
-        return $this->overrideAgentWrapUpTime->getValue();
+        return ($this->overrideAgentWrapUpTime) ? $this->overrideAgentWrapUpTime->getValue() : null;
     }
 
     /**
@@ -57,7 +56,6 @@ class GroupCallCenterEnhancedGetResponse extends ComplexType implements ComplexI
      */
     public function setWrapUpSeconds($wrapUpSeconds = null)
     {
-        if (!$wrapUpSeconds) return $this;
         $this->wrapUpSeconds = ($wrapUpSeconds InstanceOf CallCenterWrapUpSeconds)
              ? $wrapUpSeconds
              : new CallCenterWrapUpSeconds($wrapUpSeconds);
@@ -71,6 +69,6 @@ class GroupCallCenterEnhancedGetResponse extends ComplexType implements ComplexI
      */
     public function getWrapUpSeconds()
     {
-        return $this->wrapUpSeconds->getValue();
+        return ($this->wrapUpSeconds) ? $this->wrapUpSeconds->getValue() : null;
     }
 }

@@ -22,14 +22,14 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class EnterpriseEnterpriseTrunkDeleteUserListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                = 'EnterpriseEnterpriseTrunkDeleteUserListRequest';
-    protected $serviceProviderId   = null;
-    protected $enterpriseTrunkName = null;
-    protected $userId              = null;
+    public    $name = 'EnterpriseEnterpriseTrunkDeleteUserListRequest';
+    protected $serviceProviderId;
+    protected $enterpriseTrunkName;
+    protected $userId;
 
     public function __construct(
-         $serviceProviderId,
-         $enterpriseTrunkName,
+         $serviceProviderId = '',
+         $enterpriseTrunkName = '',
          $userId = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
@@ -50,7 +50,6 @@ class EnterpriseEnterpriseTrunkDeleteUserListRequest extends ComplexType impleme
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
-        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
@@ -64,7 +63,7 @@ class EnterpriseEnterpriseTrunkDeleteUserListRequest extends ComplexType impleme
      */
     public function getServiceProviderId()
     {
-        return $this->serviceProviderId->getValue();
+        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
     }
 
     /**
@@ -72,7 +71,6 @@ class EnterpriseEnterpriseTrunkDeleteUserListRequest extends ComplexType impleme
      */
     public function setEnterpriseTrunkName($enterpriseTrunkName = null)
     {
-        if (!$enterpriseTrunkName) return $this;
         $this->enterpriseTrunkName = ($enterpriseTrunkName InstanceOf EnterpriseTrunkName)
              ? $enterpriseTrunkName
              : new EnterpriseTrunkName($enterpriseTrunkName);
@@ -86,7 +84,7 @@ class EnterpriseEnterpriseTrunkDeleteUserListRequest extends ComplexType impleme
      */
     public function getEnterpriseTrunkName()
     {
-        return $this->enterpriseTrunkName->getValue();
+        return ($this->enterpriseTrunkName) ? $this->enterpriseTrunkName->getValue() : null;
     }
 
     /**
@@ -94,7 +92,6 @@ class EnterpriseEnterpriseTrunkDeleteUserListRequest extends ComplexType impleme
      */
     public function setUserId($userId = null)
     {
-        if (!$userId) return $this;
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
@@ -108,6 +105,6 @@ class EnterpriseEnterpriseTrunkDeleteUserListRequest extends ComplexType impleme
      */
     public function getUserId()
     {
-        return $this->userId->getValue();
+        return ($this->userId) ? $this->userId->getValue() : null;
     }
 }

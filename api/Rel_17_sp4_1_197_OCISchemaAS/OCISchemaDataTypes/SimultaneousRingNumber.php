@@ -19,13 +19,13 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SimultaneousRingNumber extends ComplexType implements ComplexInterface
 {
-    public    $name                       = 'SimultaneousRingNumber';
-    protected $phoneNumber                = null;
-    protected $answerConfirmationRequired = null;
+    public    $name = 'SimultaneousRingNumber';
+    protected $phoneNumber;
+    protected $answerConfirmationRequired;
 
     public function __construct(
-         $phoneNumber,
-         $answerConfirmationRequired
+         $phoneNumber = '',
+         $answerConfirmationRequired = ''
     ) {
         $this->setPhoneNumber($phoneNumber);
         $this->setAnswerConfirmationRequired($answerConfirmationRequired);
@@ -44,7 +44,6 @@ class SimultaneousRingNumber extends ComplexType implements ComplexInterface
      */
     public function setPhoneNumber($phoneNumber = null)
     {
-        if (!$phoneNumber) return $this;
         $this->phoneNumber = new SimpleContent($phoneNumber);
         $this->phoneNumber->setName('phoneNumber');
         return $this;
@@ -56,7 +55,7 @@ class SimultaneousRingNumber extends ComplexType implements ComplexInterface
      */
     public function getPhoneNumber()
     {
-        return $this->phoneNumber->getValue();
+        return ($this->phoneNumber) ? $this->phoneNumber->getValue() : null;
     }
 
     /**
@@ -64,7 +63,6 @@ class SimultaneousRingNumber extends ComplexType implements ComplexInterface
      */
     public function setAnswerConfirmationRequired($answerConfirmationRequired = null)
     {
-        if (!$answerConfirmationRequired) return $this;
         $this->answerConfirmationRequired = new SimpleContent($answerConfirmationRequired);
         $this->answerConfirmationRequired->setName('answerConfirmationRequired');
         return $this;
@@ -76,6 +74,6 @@ class SimultaneousRingNumber extends ComplexType implements ComplexInterface
      */
     public function getAnswerConfirmationRequired()
     {
-        return $this->answerConfirmationRequired->getValue();
+        return ($this->answerConfirmationRequired) ? $this->answerConfirmationRequired->getValue() : null;
     }
 }

@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
 class UserCommunicationBarringAuthorizationCodeGetListResponse extends ComplexType implements ComplexInterface
 {
     public    $name = 'UserCommunicationBarringAuthorizationCodeGetListResponse';
-    protected $code = null;
+    protected $code;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser\UserCommunicationBarringAuthorizationCodeGetListResponse $response
@@ -37,8 +37,9 @@ class UserCommunicationBarringAuthorizationCodeGetListResponse extends ComplexTy
      */
     public function setCode(CommunicationBarringAuthorizationCodeEntry $code = null)
     {
-        if (!$code) return $this;
-        $this->code = $code;
+        $this->code = ($code InstanceOf CommunicationBarringAuthorizationCodeEntry)
+             ? $code
+             : new CommunicationBarringAuthorizationCodeEntry($code);
         $this->code->setName('code');
         return $this;
     }

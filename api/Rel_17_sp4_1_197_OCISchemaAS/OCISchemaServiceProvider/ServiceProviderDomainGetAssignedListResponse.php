@@ -19,9 +19,9 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderDomainGetAssignedListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                         = 'ServiceProviderDomainGetAssignedListResponse';
-    protected $serviceProviderDefaultDomain = null;
-    protected $domain                       = null;
+    public    $name = 'ServiceProviderDomainGetAssignedListResponse';
+    protected $serviceProviderDefaultDomain;
+    protected $domain;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderDomainGetAssignedListResponse $response
@@ -36,7 +36,6 @@ class ServiceProviderDomainGetAssignedListResponse extends ComplexType implement
      */
     public function setServiceProviderDefaultDomain($serviceProviderDefaultDomain = null)
     {
-        if (!$serviceProviderDefaultDomain) return $this;
         $this->serviceProviderDefaultDomain = ($serviceProviderDefaultDomain InstanceOf NetAddress)
              ? $serviceProviderDefaultDomain
              : new NetAddress($serviceProviderDefaultDomain);
@@ -50,7 +49,7 @@ class ServiceProviderDomainGetAssignedListResponse extends ComplexType implement
      */
     public function getServiceProviderDefaultDomain()
     {
-        return $this->serviceProviderDefaultDomain->getValue();
+        return ($this->serviceProviderDefaultDomain) ? $this->serviceProviderDefaultDomain->getValue() : null;
     }
 
     /**
@@ -58,7 +57,6 @@ class ServiceProviderDomainGetAssignedListResponse extends ComplexType implement
      */
     public function setDomain($domain = null)
     {
-        if (!$domain) return $this;
         $this->domain = ($domain InstanceOf NetAddress)
              ? $domain
              : new NetAddress($domain);
@@ -72,6 +70,6 @@ class ServiceProviderDomainGetAssignedListResponse extends ComplexType implement
      */
     public function getDomain()
     {
-        return $this->domain->getValue();
+        return ($this->domain) ? $this->domain->getValue() : null;
     }
 }

@@ -22,8 +22,8 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupGroupPagingGetInstanceListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name             = 'GroupGroupPagingGetInstanceListResponse';
-    protected $pagingGroupTable = null;
+    public    $name = 'GroupGroupPagingGetInstanceListResponse';
+    protected $pagingGroupTable;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceGroupPaging\GroupGroupPagingGetInstanceListResponse $response
@@ -38,7 +38,6 @@ class GroupGroupPagingGetInstanceListResponse extends ComplexType implements Com
      */
     public function setPagingGroupTable(TableType $pagingGroupTable = null)
     {
-        if (!$pagingGroupTable) return $this;
         $this->pagingGroupTable = $pagingGroupTable;
         $this->pagingGroupTable->setName('pagingGroupTable');
         return $this;

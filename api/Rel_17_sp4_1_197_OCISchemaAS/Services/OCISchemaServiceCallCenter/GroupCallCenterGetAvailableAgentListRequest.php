@@ -29,20 +29,20 @@ use Broadworks_OCIP\core\Client\Client;
 class GroupCallCenterGetAvailableAgentListRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType                      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\GroupCallCenterGetAvailableAgentListResponse';
-    public    $name                              = 'GroupCallCenterGetAvailableAgentListRequest';
-    protected $serviceProviderId                 = null;
-    protected $groupId                           = null;
-    protected $callCenterType                    = null;
-    protected $responseSizeLimit                 = null;
-    protected $searchCriteriaUserLastName        = null;
-    protected $searchCriteriaUserFirstName       = null;
-    protected $searchCriteriaExactUserDepartment = null;
-    protected $searchCriteriaExactUserGroup      = null;
+    public    $name = 'GroupCallCenterGetAvailableAgentListRequest';
+    protected $serviceProviderId;
+    protected $groupId;
+    protected $callCenterType;
+    protected $responseSizeLimit;
+    protected $searchCriteriaUserLastName;
+    protected $searchCriteriaUserFirstName;
+    protected $searchCriteriaExactUserDepartment;
+    protected $searchCriteriaExactUserGroup;
 
     public function __construct(
-         $serviceProviderId,
-         $groupId,
-         $callCenterType,
+         $serviceProviderId = '',
+         $groupId = '',
+         $callCenterType = '',
          $responseSizeLimit = null,
          SearchCriteriaUserLastName $searchCriteriaUserLastName = null,
          SearchCriteriaUserFirstName $searchCriteriaUserFirstName = null,
@@ -72,7 +72,6 @@ class GroupCallCenterGetAvailableAgentListRequest extends ComplexType implements
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
-        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
@@ -86,7 +85,7 @@ class GroupCallCenterGetAvailableAgentListRequest extends ComplexType implements
      */
     public function getServiceProviderId()
     {
-        return $this->serviceProviderId->getValue();
+        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
     }
 
     /**
@@ -94,7 +93,6 @@ class GroupCallCenterGetAvailableAgentListRequest extends ComplexType implements
      */
     public function setGroupId($groupId = null)
     {
-        if (!$groupId) return $this;
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
@@ -108,7 +106,7 @@ class GroupCallCenterGetAvailableAgentListRequest extends ComplexType implements
      */
     public function getGroupId()
     {
-        return $this->groupId->getValue();
+        return ($this->groupId) ? $this->groupId->getValue() : null;
     }
 
     /**
@@ -116,7 +114,6 @@ class GroupCallCenterGetAvailableAgentListRequest extends ComplexType implements
      */
     public function setCallCenterType($callCenterType = null)
     {
-        if (!$callCenterType) return $this;
         $this->callCenterType = ($callCenterType InstanceOf CallCenterType)
              ? $callCenterType
              : new CallCenterType($callCenterType);
@@ -130,7 +127,7 @@ class GroupCallCenterGetAvailableAgentListRequest extends ComplexType implements
      */
     public function getCallCenterType()
     {
-        return $this->callCenterType->getValue();
+        return ($this->callCenterType) ? $this->callCenterType->getValue() : null;
     }
 
     /**
@@ -138,7 +135,6 @@ class GroupCallCenterGetAvailableAgentListRequest extends ComplexType implements
      */
     public function setResponseSizeLimit($responseSizeLimit = null)
     {
-        if (!$responseSizeLimit) return $this;
         $this->responseSizeLimit = ($responseSizeLimit InstanceOf ResponseSizeLimit)
              ? $responseSizeLimit
              : new ResponseSizeLimit($responseSizeLimit);
@@ -152,7 +148,7 @@ class GroupCallCenterGetAvailableAgentListRequest extends ComplexType implements
      */
     public function getResponseSizeLimit()
     {
-        return $this->responseSizeLimit->getValue();
+        return ($this->responseSizeLimit) ? $this->responseSizeLimit->getValue() : null;
     }
 
     /**
@@ -160,7 +156,6 @@ class GroupCallCenterGetAvailableAgentListRequest extends ComplexType implements
      */
     public function setSearchCriteriaUserLastName(SearchCriteriaUserLastName $searchCriteriaUserLastName = null)
     {
-        if (!$searchCriteriaUserLastName) return $this;
         $this->searchCriteriaUserLastName = ($searchCriteriaUserLastName InstanceOf SearchCriteriaUserLastName)
              ? $searchCriteriaUserLastName
              : new SearchCriteriaUserLastName($searchCriteriaUserLastName);
@@ -182,7 +177,6 @@ class GroupCallCenterGetAvailableAgentListRequest extends ComplexType implements
      */
     public function setSearchCriteriaUserFirstName(SearchCriteriaUserFirstName $searchCriteriaUserFirstName = null)
     {
-        if (!$searchCriteriaUserFirstName) return $this;
         $this->searchCriteriaUserFirstName = ($searchCriteriaUserFirstName InstanceOf SearchCriteriaUserFirstName)
              ? $searchCriteriaUserFirstName
              : new SearchCriteriaUserFirstName($searchCriteriaUserFirstName);
@@ -204,7 +198,6 @@ class GroupCallCenterGetAvailableAgentListRequest extends ComplexType implements
      */
     public function setSearchCriteriaExactUserDepartment(SearchCriteriaExactUserDepartment $searchCriteriaExactUserDepartment = null)
     {
-        if (!$searchCriteriaExactUserDepartment) return $this;
         $this->searchCriteriaExactUserDepartment = ($searchCriteriaExactUserDepartment InstanceOf SearchCriteriaExactUserDepartment)
              ? $searchCriteriaExactUserDepartment
              : new SearchCriteriaExactUserDepartment($searchCriteriaExactUserDepartment);
@@ -226,7 +219,6 @@ class GroupCallCenterGetAvailableAgentListRequest extends ComplexType implements
      */
     public function setSearchCriteriaExactUserGroup(SearchCriteriaExactUserGroup $searchCriteriaExactUserGroup = null)
     {
-        if (!$searchCriteriaExactUserGroup) return $this;
         $this->searchCriteriaExactUserGroup = ($searchCriteriaExactUserGroup InstanceOf SearchCriteriaExactUserGroup)
              ? $searchCriteriaExactUserGroup
              : new SearchCriteriaExactUserGroup($searchCriteriaExactUserGroup);

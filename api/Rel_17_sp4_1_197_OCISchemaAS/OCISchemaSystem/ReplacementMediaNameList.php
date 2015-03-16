@@ -19,8 +19,8 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ReplacementMediaNameList extends ComplexType implements ComplexInterface
 {
-    public    $name      = 'ReplacementMediaNameList';
-    protected $mediaName = null;
+    public    $name = 'ReplacementMediaNameList';
+    protected $mediaName;
 
     public function __construct(
          $mediaName = null
@@ -41,7 +41,6 @@ class ReplacementMediaNameList extends ComplexType implements ComplexInterface
      */
     public function setMediaName($mediaName = null)
     {
-        if (!$mediaName) return $this;
         $this->mediaName = new SimpleContent($mediaName);
         $this->mediaName->setName('mediaName');
         return $this;
@@ -53,6 +52,6 @@ class ReplacementMediaNameList extends ComplexType implements ComplexInterface
      */
     public function getMediaName()
     {
-        return $this->mediaName->getValue();
+        return ($this->mediaName) ? $this->mediaName->getValue() : null;
     }
 }

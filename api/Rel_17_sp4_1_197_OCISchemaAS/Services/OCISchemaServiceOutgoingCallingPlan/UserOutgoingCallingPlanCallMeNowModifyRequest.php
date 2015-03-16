@@ -22,13 +22,13 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserOutgoingCallingPlanCallMeNowModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name              = 'UserOutgoingCallingPlanCallMeNowModifyRequest';
-    protected $userId            = null;
-    protected $useCustomSettings = null;
-    protected $userPermissions   = null;
+    public    $name = 'UserOutgoingCallingPlanCallMeNowModifyRequest';
+    protected $userId;
+    protected $useCustomSettings;
+    protected $userPermissions;
 
     public function __construct(
-         $userId,
+         $userId = '',
          $useCustomSettings = null,
          OutgoingCallingPlanCallMeNowPermissionsModify $userPermissions = null
     ) {
@@ -50,7 +50,6 @@ class UserOutgoingCallingPlanCallMeNowModifyRequest extends ComplexType implemen
      */
     public function setUserId($userId = null)
     {
-        if (!$userId) return $this;
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
@@ -64,7 +63,7 @@ class UserOutgoingCallingPlanCallMeNowModifyRequest extends ComplexType implemen
      */
     public function getUserId()
     {
-        return $this->userId->getValue();
+        return ($this->userId) ? $this->userId->getValue() : null;
     }
 
     /**
@@ -72,7 +71,6 @@ class UserOutgoingCallingPlanCallMeNowModifyRequest extends ComplexType implemen
      */
     public function setUseCustomSettings($useCustomSettings = null)
     {
-        if (!$useCustomSettings) return $this;
         $this->useCustomSettings = new PrimitiveType($useCustomSettings);
         $this->useCustomSettings->setName('useCustomSettings');
         return $this;
@@ -84,7 +82,7 @@ class UserOutgoingCallingPlanCallMeNowModifyRequest extends ComplexType implemen
      */
     public function getUseCustomSettings()
     {
-        return $this->useCustomSettings->getValue();
+        return ($this->useCustomSettings) ? $this->useCustomSettings->getValue() : null;
     }
 
     /**
@@ -92,8 +90,9 @@ class UserOutgoingCallingPlanCallMeNowModifyRequest extends ComplexType implemen
      */
     public function setUserPermissions(OutgoingCallingPlanCallMeNowPermissionsModify $userPermissions = null)
     {
-        if (!$userPermissions) return $this;
-        $this->userPermissions = $userPermissions;
+        $this->userPermissions = ($userPermissions InstanceOf OutgoingCallingPlanCallMeNowPermissionsModify)
+             ? $userPermissions
+             : new OutgoingCallingPlanCallMeNowPermissionsModify($userPermissions);
         $this->userPermissions->setName('userPermissions');
         return $this;
     }

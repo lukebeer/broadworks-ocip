@@ -21,13 +21,13 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SearchCriteriaExactCallCenterScheduledReportGroup extends ComplexType implements ComplexInterface
 {
-    public    $name              = 'SearchCriteriaExactCallCenterScheduledReportGroup';
-    protected $serviceProviderId = null;
-    protected $groupId           = null;
+    public    $name = 'SearchCriteriaExactCallCenterScheduledReportGroup';
+    protected $serviceProviderId;
+    protected $groupId;
 
     public function __construct(
-         $serviceProviderId,
-         $groupId
+         $serviceProviderId = '',
+         $groupId = ''
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setGroupId($groupId);
@@ -46,7 +46,6 @@ class SearchCriteriaExactCallCenterScheduledReportGroup extends ComplexType impl
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
-        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
@@ -60,7 +59,7 @@ class SearchCriteriaExactCallCenterScheduledReportGroup extends ComplexType impl
      */
     public function getServiceProviderId()
     {
-        return $this->serviceProviderId->getValue();
+        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
     }
 
     /**
@@ -68,7 +67,6 @@ class SearchCriteriaExactCallCenterScheduledReportGroup extends ComplexType impl
      */
     public function setGroupId($groupId = null)
     {
-        if (!$groupId) return $this;
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
@@ -82,6 +80,6 @@ class SearchCriteriaExactCallCenterScheduledReportGroup extends ComplexType impl
      */
     public function getGroupId()
     {
-        return $this->groupId->getValue();
+        return ($this->groupId) ? $this->groupId->getValue() : null;
     }
 }

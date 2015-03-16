@@ -30,19 +30,19 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemCountryCodeAddRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                                    = 'SystemCountryCodeAddRequest';
-    protected $countryCode                             = null;
-    protected $countryName                             = null;
-    protected $ringPeriodMilliseconds                  = null;
-    protected $offHookWarningTimerSeconds              = null;
-    protected $enableNationalPrefix                    = null;
-    protected $nationalPrefix                          = null;
-    protected $maxCallWaitingTones                     = null;
-    protected $timeBetweenCallWaitingTonesMilliseconds = null;
+    public    $name = 'SystemCountryCodeAddRequest';
+    protected $countryCode;
+    protected $countryName;
+    protected $ringPeriodMilliseconds;
+    protected $offHookWarningTimerSeconds;
+    protected $enableNationalPrefix;
+    protected $nationalPrefix;
+    protected $maxCallWaitingTones;
+    protected $timeBetweenCallWaitingTonesMilliseconds;
 
     public function __construct(
-         $countryCode,
-         $countryName,
+         $countryCode = '',
+         $countryName = '',
          $ringPeriodMilliseconds = null,
          $offHookWarningTimerSeconds = null,
          $enableNationalPrefix = null,
@@ -73,7 +73,6 @@ class SystemCountryCodeAddRequest extends ComplexType implements ComplexInterfac
      */
     public function setCountryCode($countryCode = null)
     {
-        if (!$countryCode) return $this;
         $this->countryCode = ($countryCode InstanceOf CountryCode)
              ? $countryCode
              : new CountryCode($countryCode);
@@ -87,7 +86,7 @@ class SystemCountryCodeAddRequest extends ComplexType implements ComplexInterfac
      */
     public function getCountryCode()
     {
-        return $this->countryCode->getValue();
+        return ($this->countryCode) ? $this->countryCode->getValue() : null;
     }
 
     /**
@@ -95,7 +94,6 @@ class SystemCountryCodeAddRequest extends ComplexType implements ComplexInterfac
      */
     public function setCountryName($countryName = null)
     {
-        if (!$countryName) return $this;
         $this->countryName = ($countryName InstanceOf CountryName)
              ? $countryName
              : new CountryName($countryName);
@@ -109,7 +107,7 @@ class SystemCountryCodeAddRequest extends ComplexType implements ComplexInterfac
      */
     public function getCountryName()
     {
-        return $this->countryName->getValue();
+        return ($this->countryName) ? $this->countryName->getValue() : null;
     }
 
     /**
@@ -117,7 +115,6 @@ class SystemCountryCodeAddRequest extends ComplexType implements ComplexInterfac
      */
     public function setRingPeriodMilliseconds($ringPeriodMilliseconds = null)
     {
-        if (!$ringPeriodMilliseconds) return $this;
         $this->ringPeriodMilliseconds = ($ringPeriodMilliseconds InstanceOf CountryCodeRingPeriodMilliseconds)
              ? $ringPeriodMilliseconds
              : new CountryCodeRingPeriodMilliseconds($ringPeriodMilliseconds);
@@ -131,7 +128,7 @@ class SystemCountryCodeAddRequest extends ComplexType implements ComplexInterfac
      */
     public function getRingPeriodMilliseconds()
     {
-        return $this->ringPeriodMilliseconds->getValue();
+        return ($this->ringPeriodMilliseconds) ? $this->ringPeriodMilliseconds->getValue() : null;
     }
 
     /**
@@ -139,7 +136,6 @@ class SystemCountryCodeAddRequest extends ComplexType implements ComplexInterfac
      */
     public function setOffHookWarningTimerSeconds($offHookWarningTimerSeconds = null)
     {
-        if (!$offHookWarningTimerSeconds) return $this;
         $this->offHookWarningTimerSeconds = ($offHookWarningTimerSeconds InstanceOf CountryCodeOffHookWarningTimerSeconds)
              ? $offHookWarningTimerSeconds
              : new CountryCodeOffHookWarningTimerSeconds($offHookWarningTimerSeconds);
@@ -153,7 +149,7 @@ class SystemCountryCodeAddRequest extends ComplexType implements ComplexInterfac
      */
     public function getOffHookWarningTimerSeconds()
     {
-        return $this->offHookWarningTimerSeconds->getValue();
+        return ($this->offHookWarningTimerSeconds) ? $this->offHookWarningTimerSeconds->getValue() : null;
     }
 
     /**
@@ -161,7 +157,6 @@ class SystemCountryCodeAddRequest extends ComplexType implements ComplexInterfac
      */
     public function setEnableNationalPrefix($enableNationalPrefix = null)
     {
-        if (!$enableNationalPrefix) return $this;
         $this->enableNationalPrefix = new PrimitiveType($enableNationalPrefix);
         $this->enableNationalPrefix->setName('enableNationalPrefix');
         return $this;
@@ -173,7 +168,7 @@ class SystemCountryCodeAddRequest extends ComplexType implements ComplexInterfac
      */
     public function getEnableNationalPrefix()
     {
-        return $this->enableNationalPrefix->getValue();
+        return ($this->enableNationalPrefix) ? $this->enableNationalPrefix->getValue() : null;
     }
 
     /**
@@ -181,7 +176,6 @@ class SystemCountryCodeAddRequest extends ComplexType implements ComplexInterfac
      */
     public function setNationalPrefix($nationalPrefix = null)
     {
-        if (!$nationalPrefix) return $this;
         $this->nationalPrefix = ($nationalPrefix InstanceOf NationalPrefix)
              ? $nationalPrefix
              : new NationalPrefix($nationalPrefix);
@@ -195,7 +189,7 @@ class SystemCountryCodeAddRequest extends ComplexType implements ComplexInterfac
      */
     public function getNationalPrefix()
     {
-        return $this->nationalPrefix->getValue();
+        return ($this->nationalPrefix) ? $this->nationalPrefix->getValue() : null;
     }
 
     /**
@@ -203,7 +197,6 @@ class SystemCountryCodeAddRequest extends ComplexType implements ComplexInterfac
      */
     public function setMaxCallWaitingTones($maxCallWaitingTones = null)
     {
-        if (!$maxCallWaitingTones) return $this;
         $this->maxCallWaitingTones = ($maxCallWaitingTones InstanceOf CountryCodeMaxCallWaitingTones)
              ? $maxCallWaitingTones
              : new CountryCodeMaxCallWaitingTones($maxCallWaitingTones);
@@ -217,7 +210,7 @@ class SystemCountryCodeAddRequest extends ComplexType implements ComplexInterfac
      */
     public function getMaxCallWaitingTones()
     {
-        return $this->maxCallWaitingTones->getValue();
+        return ($this->maxCallWaitingTones) ? $this->maxCallWaitingTones->getValue() : null;
     }
 
     /**
@@ -225,7 +218,6 @@ class SystemCountryCodeAddRequest extends ComplexType implements ComplexInterfac
      */
     public function setTimeBetweenCallWaitingTonesMilliseconds($timeBetweenCallWaitingTonesMilliseconds = null)
     {
-        if (!$timeBetweenCallWaitingTonesMilliseconds) return $this;
         $this->timeBetweenCallWaitingTonesMilliseconds = ($timeBetweenCallWaitingTonesMilliseconds InstanceOf CountryCodeTimeBetweenCallWaitingTonesMilliseconds)
              ? $timeBetweenCallWaitingTonesMilliseconds
              : new CountryCodeTimeBetweenCallWaitingTonesMilliseconds($timeBetweenCallWaitingTonesMilliseconds);
@@ -239,6 +231,6 @@ class SystemCountryCodeAddRequest extends ComplexType implements ComplexInterfac
      */
     public function getTimeBetweenCallWaitingTonesMilliseconds()
     {
-        return $this->timeBetweenCallWaitingTonesMilliseconds->getValue();
+        return ($this->timeBetweenCallWaitingTonesMilliseconds) ? $this->timeBetweenCallWaitingTonesMilliseconds->getValue() : null;
     }
 }

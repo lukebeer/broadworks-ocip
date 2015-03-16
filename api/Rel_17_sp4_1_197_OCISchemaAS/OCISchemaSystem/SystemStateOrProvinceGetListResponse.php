@@ -20,8 +20,8 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemStateOrProvinceGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                 = 'SystemStateOrProvinceGetListResponse';
-    protected $stateOrProvinceTable = null;
+    public    $name = 'SystemStateOrProvinceGetListResponse';
+    protected $stateOrProvinceTable;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemStateOrProvinceGetListResponse $response
@@ -36,7 +36,6 @@ class SystemStateOrProvinceGetListResponse extends ComplexType implements Comple
      */
     public function setStateOrProvinceTable(TableType $stateOrProvinceTable = null)
     {
-        if (!$stateOrProvinceTable) return $this;
         $this->stateOrProvinceTable = $stateOrProvinceTable;
         $this->stateOrProvinceTable->setName('stateOrProvinceTable');
         return $this;

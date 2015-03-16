@@ -19,10 +19,10 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserSharedCallAppearanceGetEndpointResponse extends ComplexType implements ComplexInterface
 {
-    public    $name             = 'UserSharedCallAppearanceGetEndpointResponse';
-    protected $isActive         = null;
-    protected $allowOrigination = null;
-    protected $allowTermination = null;
+    public    $name = 'UserSharedCallAppearanceGetEndpointResponse';
+    protected $isActive;
+    protected $allowOrigination;
+    protected $allowTermination;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceSharedCallAppearance\UserSharedCallAppearanceGetEndpointResponse $response
@@ -37,7 +37,6 @@ class UserSharedCallAppearanceGetEndpointResponse extends ComplexType implements
      */
     public function setIsActive($isActive = null)
     {
-        if (!$isActive) return $this;
         $this->isActive = new PrimitiveType($isActive);
         $this->isActive->setName('isActive');
         return $this;
@@ -49,7 +48,7 @@ class UserSharedCallAppearanceGetEndpointResponse extends ComplexType implements
      */
     public function getIsActive()
     {
-        return $this->isActive->getValue();
+        return ($this->isActive) ? $this->isActive->getValue() : null;
     }
 
     /**
@@ -57,7 +56,6 @@ class UserSharedCallAppearanceGetEndpointResponse extends ComplexType implements
      */
     public function setAllowOrigination($allowOrigination = null)
     {
-        if (!$allowOrigination) return $this;
         $this->allowOrigination = new PrimitiveType($allowOrigination);
         $this->allowOrigination->setName('allowOrigination');
         return $this;
@@ -69,7 +67,7 @@ class UserSharedCallAppearanceGetEndpointResponse extends ComplexType implements
      */
     public function getAllowOrigination()
     {
-        return $this->allowOrigination->getValue();
+        return ($this->allowOrigination) ? $this->allowOrigination->getValue() : null;
     }
 
     /**
@@ -77,7 +75,6 @@ class UserSharedCallAppearanceGetEndpointResponse extends ComplexType implements
      */
     public function setAllowTermination($allowTermination = null)
     {
-        if (!$allowTermination) return $this;
         $this->allowTermination = new PrimitiveType($allowTermination);
         $this->allowTermination->setName('allowTermination');
         return $this;
@@ -89,6 +86,6 @@ class UserSharedCallAppearanceGetEndpointResponse extends ComplexType implements
      */
     public function getAllowTermination()
     {
-        return $this->allowTermination->getValue();
+        return ($this->allowTermination) ? $this->allowTermination->getValue() : null;
     }
 }

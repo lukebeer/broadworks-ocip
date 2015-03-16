@@ -25,8 +25,8 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserCallCenterGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name      = 'UserCallCenterGetListResponse';
-    protected $userTable = null;
+    public    $name = 'UserCallCenterGetListResponse';
+    protected $userTable;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\UserCallCenterGetListResponse $response
@@ -41,7 +41,6 @@ class UserCallCenterGetListResponse extends ComplexType implements ComplexInterf
      */
     public function setUserTable(TableType $userTable = null)
     {
-        if (!$userTable) return $this;
         $this->userTable = $userTable;
         $this->userTable->setName('userTable');
         return $this;

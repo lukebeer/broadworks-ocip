@@ -21,9 +21,9 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemRedundancyParametersGetResponse16sp2 extends ComplexType implements ComplexInterface
 {
-    public    $name                              = 'SystemRedundancyParametersGetResponse16sp2';
-    protected $rollBackTimerMinutes              = null;
-    protected $sendSipOptionMessageUponMigration = null;
+    public    $name = 'SystemRedundancyParametersGetResponse16sp2';
+    protected $rollBackTimerMinutes;
+    protected $sendSipOptionMessageUponMigration;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemRedundancyParametersGetResponse16sp2 $response
@@ -38,7 +38,6 @@ class SystemRedundancyParametersGetResponse16sp2 extends ComplexType implements 
      */
     public function setRollBackTimerMinutes($rollBackTimerMinutes = null)
     {
-        if (!$rollBackTimerMinutes) return $this;
         $this->rollBackTimerMinutes = ($rollBackTimerMinutes InstanceOf RedundancyRollBackTimerMinutes)
              ? $rollBackTimerMinutes
              : new RedundancyRollBackTimerMinutes($rollBackTimerMinutes);
@@ -52,7 +51,7 @@ class SystemRedundancyParametersGetResponse16sp2 extends ComplexType implements 
      */
     public function getRollBackTimerMinutes()
     {
-        return $this->rollBackTimerMinutes->getValue();
+        return ($this->rollBackTimerMinutes) ? $this->rollBackTimerMinutes->getValue() : null;
     }
 
     /**
@@ -60,7 +59,6 @@ class SystemRedundancyParametersGetResponse16sp2 extends ComplexType implements 
      */
     public function setSendSipOptionMessageUponMigration($sendSipOptionMessageUponMigration = null)
     {
-        if (!$sendSipOptionMessageUponMigration) return $this;
         $this->sendSipOptionMessageUponMigration = new PrimitiveType($sendSipOptionMessageUponMigration);
         $this->sendSipOptionMessageUponMigration->setName('sendSipOptionMessageUponMigration');
         return $this;
@@ -72,6 +70,6 @@ class SystemRedundancyParametersGetResponse16sp2 extends ComplexType implements 
      */
     public function getSendSipOptionMessageUponMigration()
     {
-        return $this->sendSipOptionMessageUponMigration->getValue();
+        return ($this->sendSipOptionMessageUponMigration) ? $this->sendSipOptionMessageUponMigration->getValue() : null;
     }
 }

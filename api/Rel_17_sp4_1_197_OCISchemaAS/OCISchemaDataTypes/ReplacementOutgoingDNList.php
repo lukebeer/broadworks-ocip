@@ -20,8 +20,8 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ReplacementOutgoingDNList extends ComplexType implements ComplexInterface
 {
-    public    $name        = 'ReplacementOutgoingDNList';
-    protected $phoneNumber = null;
+    public    $name = 'ReplacementOutgoingDNList';
+    protected $phoneNumber;
 
     public function __construct(
          $phoneNumber = null
@@ -42,7 +42,6 @@ class ReplacementOutgoingDNList extends ComplexType implements ComplexInterface
      */
     public function setPhoneNumber($phoneNumber = null)
     {
-        if (!$phoneNumber) return $this;
         $this->phoneNumber = new SimpleContent($phoneNumber);
         $this->phoneNumber->setName('phoneNumber');
         return $this;
@@ -54,6 +53,6 @@ class ReplacementOutgoingDNList extends ComplexType implements ComplexInterface
      */
     public function getPhoneNumber()
     {
-        return $this->phoneNumber->getValue();
+        return ($this->phoneNumber) ? $this->phoneNumber->getValue() : null;
     }
 }

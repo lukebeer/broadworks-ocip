@@ -19,11 +19,11 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class InstantConferencingScheduleReservationless extends ComplexType implements ComplexInterface
 {
-    public    $name    = 'InstantConferencingScheduleReservationless';
-    protected $endDate = null;
+    public    $name = 'InstantConferencingScheduleReservationless';
+    protected $endDate;
 
     public function __construct(
-         $endDate
+         $endDate = ''
     ) {
         $this->setEndDate($endDate);
     }
@@ -41,7 +41,6 @@ class InstantConferencingScheduleReservationless extends ComplexType implements 
      */
     public function setEndDate(xs:date $endDate = null)
     {
-        if (!$endDate) return $this;
         $this->endDate->setName('endDate');
         return $this;
     }
@@ -52,6 +51,6 @@ class InstantConferencingScheduleReservationless extends ComplexType implements 
      */
     public function getEndDate()
     {
-        return $this->endDate->getValue();
+        return ($this->endDate) ? $this->endDate->getValue() : null;
     }
 }

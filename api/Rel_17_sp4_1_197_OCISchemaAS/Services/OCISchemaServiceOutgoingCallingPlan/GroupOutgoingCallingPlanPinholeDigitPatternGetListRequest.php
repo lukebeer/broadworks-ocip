@@ -22,13 +22,13 @@ use Broadworks_OCIP\core\Client\Client;
 class GroupOutgoingCallingPlanPinholeDigitPatternGetListRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceOutgoingCallingPlan\GroupOutgoingCallingPlanPinholeDigitPatternGetListResponse';
-    public    $name              = 'GroupOutgoingCallingPlanPinholeDigitPatternGetListRequest';
-    protected $serviceProviderId = null;
-    protected $groupId           = null;
+    public    $name = 'GroupOutgoingCallingPlanPinholeDigitPatternGetListRequest';
+    protected $serviceProviderId;
+    protected $groupId;
 
     public function __construct(
-         $serviceProviderId,
-         $groupId
+         $serviceProviderId = '',
+         $groupId = ''
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setGroupId($groupId);
@@ -47,7 +47,6 @@ class GroupOutgoingCallingPlanPinholeDigitPatternGetListRequest extends ComplexT
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
-        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
@@ -61,7 +60,7 @@ class GroupOutgoingCallingPlanPinholeDigitPatternGetListRequest extends ComplexT
      */
     public function getServiceProviderId()
     {
-        return $this->serviceProviderId->getValue();
+        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
     }
 
     /**
@@ -69,7 +68,6 @@ class GroupOutgoingCallingPlanPinholeDigitPatternGetListRequest extends ComplexT
      */
     public function setGroupId($groupId = null)
     {
-        if (!$groupId) return $this;
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
@@ -83,6 +81,6 @@ class GroupOutgoingCallingPlanPinholeDigitPatternGetListRequest extends ComplexT
      */
     public function getGroupId()
     {
-        return $this->groupId->getValue();
+        return ($this->groupId) ? $this->groupId->getValue() : null;
     }
 }

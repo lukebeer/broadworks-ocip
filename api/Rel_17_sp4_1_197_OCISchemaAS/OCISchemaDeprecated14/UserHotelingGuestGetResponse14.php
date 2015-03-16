@@ -24,13 +24,13 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserHotelingGuestGetResponse14 extends ComplexType implements ComplexInterface
 {
-    public    $name                    = 'UserHotelingGuestGetResponse14';
-    protected $isActive                = null;
-    protected $associationLimitHours   = null;
-    protected $hostUserId              = null;
-    protected $hostLastName            = null;
-    protected $hostFirstName           = null;
-    protected $hostAssociationDateTime = null;
+    public    $name = 'UserHotelingGuestGetResponse14';
+    protected $isActive;
+    protected $associationLimitHours;
+    protected $hostUserId;
+    protected $hostLastName;
+    protected $hostFirstName;
+    protected $hostAssociationDateTime;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\UserHotelingGuestGetResponse14 $response
@@ -45,7 +45,6 @@ class UserHotelingGuestGetResponse14 extends ComplexType implements ComplexInter
      */
     public function setIsActive($isActive = null)
     {
-        if (!$isActive) return $this;
         $this->isActive = new PrimitiveType($isActive);
         $this->isActive->setName('isActive');
         return $this;
@@ -57,7 +56,7 @@ class UserHotelingGuestGetResponse14 extends ComplexType implements ComplexInter
      */
     public function getIsActive()
     {
-        return $this->isActive->getValue();
+        return ($this->isActive) ? $this->isActive->getValue() : null;
     }
 
     /**
@@ -65,7 +64,6 @@ class UserHotelingGuestGetResponse14 extends ComplexType implements ComplexInter
      */
     public function setAssociationLimitHours($associationLimitHours = null)
     {
-        if (!$associationLimitHours) return $this;
         $this->associationLimitHours = ($associationLimitHours InstanceOf HotelingAssociationLimitHours)
              ? $associationLimitHours
              : new HotelingAssociationLimitHours($associationLimitHours);
@@ -79,7 +77,7 @@ class UserHotelingGuestGetResponse14 extends ComplexType implements ComplexInter
      */
     public function getAssociationLimitHours()
     {
-        return $this->associationLimitHours->getValue();
+        return ($this->associationLimitHours) ? $this->associationLimitHours->getValue() : null;
     }
 
     /**
@@ -87,7 +85,6 @@ class UserHotelingGuestGetResponse14 extends ComplexType implements ComplexInter
      */
     public function setHostUserId($hostUserId = null)
     {
-        if (!$hostUserId) return $this;
         $this->hostUserId = ($hostUserId InstanceOf UserId)
              ? $hostUserId
              : new UserId($hostUserId);
@@ -101,7 +98,7 @@ class UserHotelingGuestGetResponse14 extends ComplexType implements ComplexInter
      */
     public function getHostUserId()
     {
-        return $this->hostUserId->getValue();
+        return ($this->hostUserId) ? $this->hostUserId->getValue() : null;
     }
 
     /**
@@ -109,7 +106,6 @@ class UserHotelingGuestGetResponse14 extends ComplexType implements ComplexInter
      */
     public function setHostLastName($hostLastName = null)
     {
-        if (!$hostLastName) return $this;
         $this->hostLastName = ($hostLastName InstanceOf LastName)
              ? $hostLastName
              : new LastName($hostLastName);
@@ -123,7 +119,7 @@ class UserHotelingGuestGetResponse14 extends ComplexType implements ComplexInter
      */
     public function getHostLastName()
     {
-        return $this->hostLastName->getValue();
+        return ($this->hostLastName) ? $this->hostLastName->getValue() : null;
     }
 
     /**
@@ -131,7 +127,6 @@ class UserHotelingGuestGetResponse14 extends ComplexType implements ComplexInter
      */
     public function setHostFirstName($hostFirstName = null)
     {
-        if (!$hostFirstName) return $this;
         $this->hostFirstName = ($hostFirstName InstanceOf FirstName)
              ? $hostFirstName
              : new FirstName($hostFirstName);
@@ -145,7 +140,7 @@ class UserHotelingGuestGetResponse14 extends ComplexType implements ComplexInter
      */
     public function getHostFirstName()
     {
-        return $this->hostFirstName->getValue();
+        return ($this->hostFirstName) ? $this->hostFirstName->getValue() : null;
     }
 
     /**
@@ -153,7 +148,6 @@ class UserHotelingGuestGetResponse14 extends ComplexType implements ComplexInter
      */
     public function setHostAssociationDateTime(xs:dateTime $hostAssociationDateTime = null)
     {
-        if (!$hostAssociationDateTime) return $this;
         $this->hostAssociationDateTime->setName('hostAssociationDateTime');
         return $this;
     }
@@ -164,6 +158,6 @@ class UserHotelingGuestGetResponse14 extends ComplexType implements ComplexInter
      */
     public function getHostAssociationDateTime()
     {
-        return $this->hostAssociationDateTime->getValue();
+        return ($this->hostAssociationDateTime) ? $this->hostAssociationDateTime->getValue() : null;
     }
 }

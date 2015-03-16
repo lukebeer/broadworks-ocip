@@ -20,8 +20,8 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemCommunicationBarringDigitPatternCriteriaGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name          = 'SystemCommunicationBarringDigitPatternCriteriaGetListResponse';
-    protected $criteriaTable = null;
+    public    $name = 'SystemCommunicationBarringDigitPatternCriteriaGetListResponse';
+    protected $criteriaTable;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemCommunicationBarringDigitPatternCriteriaGetListResponse $response
@@ -36,7 +36,6 @@ class SystemCommunicationBarringDigitPatternCriteriaGetListResponse extends Comp
      */
     public function setCriteriaTable(TableType $criteriaTable = null)
     {
-        if (!$criteriaTable) return $this;
         $this->criteriaTable = $criteriaTable;
         $this->criteriaTable->setName('criteriaTable');
         return $this;

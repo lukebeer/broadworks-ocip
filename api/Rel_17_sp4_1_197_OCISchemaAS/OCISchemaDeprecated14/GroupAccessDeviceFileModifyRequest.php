@@ -26,19 +26,19 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupAccessDeviceFileModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name              = 'GroupAccessDeviceFileModifyRequest';
-    protected $serviceProviderId = null;
-    protected $groupId           = null;
-    protected $deviceName        = null;
-    protected $fileType          = null;
-    protected $fileSource        = null;
-    protected $uploadFile        = null;
+    public    $name = 'GroupAccessDeviceFileModifyRequest';
+    protected $serviceProviderId;
+    protected $groupId;
+    protected $deviceName;
+    protected $fileType;
+    protected $fileSource;
+    protected $uploadFile;
 
     public function __construct(
-         $serviceProviderId,
-         $groupId,
-         $deviceName,
-         $fileType,
+         $serviceProviderId = '',
+         $groupId = '',
+         $deviceName = '',
+         $fileType = '',
          $fileSource = null,
          FileResource $uploadFile = null
     ) {
@@ -63,7 +63,6 @@ class GroupAccessDeviceFileModifyRequest extends ComplexType implements ComplexI
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
-        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
@@ -77,7 +76,7 @@ class GroupAccessDeviceFileModifyRequest extends ComplexType implements ComplexI
      */
     public function getServiceProviderId()
     {
-        return $this->serviceProviderId->getValue();
+        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
     }
 
     /**
@@ -85,7 +84,6 @@ class GroupAccessDeviceFileModifyRequest extends ComplexType implements ComplexI
      */
     public function setGroupId($groupId = null)
     {
-        if (!$groupId) return $this;
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
@@ -99,7 +97,7 @@ class GroupAccessDeviceFileModifyRequest extends ComplexType implements ComplexI
      */
     public function getGroupId()
     {
-        return $this->groupId->getValue();
+        return ($this->groupId) ? $this->groupId->getValue() : null;
     }
 
     /**
@@ -107,7 +105,6 @@ class GroupAccessDeviceFileModifyRequest extends ComplexType implements ComplexI
      */
     public function setDeviceName($deviceName = null)
     {
-        if (!$deviceName) return $this;
         $this->deviceName = ($deviceName InstanceOf AccessDeviceName)
              ? $deviceName
              : new AccessDeviceName($deviceName);
@@ -121,7 +118,7 @@ class GroupAccessDeviceFileModifyRequest extends ComplexType implements ComplexI
      */
     public function getDeviceName()
     {
-        return $this->deviceName->getValue();
+        return ($this->deviceName) ? $this->deviceName->getValue() : null;
     }
 
     /**
@@ -129,7 +126,6 @@ class GroupAccessDeviceFileModifyRequest extends ComplexType implements ComplexI
      */
     public function setFileType($fileType = null)
     {
-        if (!$fileType) return $this;
         $this->fileType = ($fileType InstanceOf DeviceManagementFileType)
              ? $fileType
              : new DeviceManagementFileType($fileType);
@@ -143,7 +139,7 @@ class GroupAccessDeviceFileModifyRequest extends ComplexType implements ComplexI
      */
     public function getFileType()
     {
-        return $this->fileType->getValue();
+        return ($this->fileType) ? $this->fileType->getValue() : null;
     }
 
     /**
@@ -151,7 +147,6 @@ class GroupAccessDeviceFileModifyRequest extends ComplexType implements ComplexI
      */
     public function setFileSource($fileSource = null)
     {
-        if (!$fileSource) return $this;
         $this->fileSource = ($fileSource InstanceOf AccessDeviceEnhancedConfigurationMode)
              ? $fileSource
              : new AccessDeviceEnhancedConfigurationMode($fileSource);
@@ -165,7 +160,7 @@ class GroupAccessDeviceFileModifyRequest extends ComplexType implements ComplexI
      */
     public function getFileSource()
     {
-        return $this->fileSource->getValue();
+        return ($this->fileSource) ? $this->fileSource->getValue() : null;
     }
 
     /**
@@ -173,8 +168,9 @@ class GroupAccessDeviceFileModifyRequest extends ComplexType implements ComplexI
      */
     public function setUploadFile(FileResource $uploadFile = null)
     {
-        if (!$uploadFile) return $this;
-        $this->uploadFile = $uploadFile;
+        $this->uploadFile = ($uploadFile InstanceOf FileResource)
+             ? $uploadFile
+             : new FileResource($uploadFile);
         $this->uploadFile->setName('uploadFile');
         return $this;
     }

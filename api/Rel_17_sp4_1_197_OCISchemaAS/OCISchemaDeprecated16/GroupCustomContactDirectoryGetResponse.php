@@ -23,8 +23,8 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupCustomContactDirectoryGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name      = 'GroupCustomContactDirectoryGetResponse';
-    protected $userTable = null;
+    public    $name = 'GroupCustomContactDirectoryGetResponse';
+    protected $userTable;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\GroupCustomContactDirectoryGetResponse $response
@@ -39,7 +39,6 @@ class GroupCustomContactDirectoryGetResponse extends ComplexType implements Comp
      */
     public function setUserTable(TableType $userTable = null)
     {
-        if (!$userTable) return $this;
         $this->userTable = $userTable;
         $this->userTable->setName('userTable');
         return $this;

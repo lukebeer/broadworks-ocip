@@ -19,8 +19,8 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserAuthenticationGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name     = 'UserAuthenticationGetResponse';
-    protected $userName = null;
+    public    $name = 'UserAuthenticationGetResponse';
+    protected $userName;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceAuthentication\UserAuthenticationGetResponse $response
@@ -35,7 +35,6 @@ class UserAuthenticationGetResponse extends ComplexType implements ComplexInterf
      */
     public function setUserName($userName = null)
     {
-        if (!$userName) return $this;
         $this->userName = ($userName InstanceOf SIPAuthenticationUserName)
              ? $userName
              : new SIPAuthenticationUserName($userName);
@@ -49,6 +48,6 @@ class UserAuthenticationGetResponse extends ComplexType implements ComplexInterf
      */
     public function getUserName()
     {
-        return $this->userName->getValue();
+        return ($this->userName) ? $this->userName->getValue() : null;
     }
 }

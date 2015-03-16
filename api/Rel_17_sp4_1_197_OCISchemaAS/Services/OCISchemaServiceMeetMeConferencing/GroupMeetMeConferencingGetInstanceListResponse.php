@@ -21,8 +21,8 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupMeetMeConferencingGetInstanceListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                  = 'GroupMeetMeConferencingGetInstanceListResponse';
-    protected $conferenceBridgeTable = null;
+    public    $name = 'GroupMeetMeConferencingGetInstanceListResponse';
+    protected $conferenceBridgeTable;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceMeetMeConferencing\GroupMeetMeConferencingGetInstanceListResponse $response
@@ -37,7 +37,6 @@ class GroupMeetMeConferencingGetInstanceListResponse extends ComplexType impleme
      */
     public function setConferenceBridgeTable(TableType $conferenceBridgeTable = null)
     {
-        if (!$conferenceBridgeTable) return $this;
         $this->conferenceBridgeTable = $conferenceBridgeTable;
         $this->conferenceBridgeTable->setName('conferenceBridgeTable');
         return $this;

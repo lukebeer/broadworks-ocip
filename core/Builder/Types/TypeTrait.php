@@ -17,6 +17,7 @@ namespace Broadworks_OCIP\core\Builder\Types;
 trait TypeTrait
 {
     protected $value;
+    protected $name;
 
     /**
      * @return string
@@ -32,5 +33,21 @@ trait TypeTrait
     public function getValue()
     {
         return $this->value;
+    }
+
+    /**
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * @param $name
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
     }
 }

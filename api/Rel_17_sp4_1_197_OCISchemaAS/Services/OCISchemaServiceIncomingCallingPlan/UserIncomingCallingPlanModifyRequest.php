@@ -22,13 +22,13 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserIncomingCallingPlanModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name              = 'UserIncomingCallingPlanModifyRequest';
-    protected $userId            = null;
-    protected $useCustomSettings = null;
-    protected $userPermissions   = null;
+    public    $name = 'UserIncomingCallingPlanModifyRequest';
+    protected $userId;
+    protected $useCustomSettings;
+    protected $userPermissions;
 
     public function __construct(
-         $userId,
+         $userId = '',
          $useCustomSettings = null,
          IncomingCallingPlanPermissionsModify $userPermissions = null
     ) {
@@ -50,7 +50,6 @@ class UserIncomingCallingPlanModifyRequest extends ComplexType implements Comple
      */
     public function setUserId($userId = null)
     {
-        if (!$userId) return $this;
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
@@ -64,7 +63,7 @@ class UserIncomingCallingPlanModifyRequest extends ComplexType implements Comple
      */
     public function getUserId()
     {
-        return $this->userId->getValue();
+        return ($this->userId) ? $this->userId->getValue() : null;
     }
 
     /**
@@ -72,7 +71,6 @@ class UserIncomingCallingPlanModifyRequest extends ComplexType implements Comple
      */
     public function setUseCustomSettings($useCustomSettings = null)
     {
-        if (!$useCustomSettings) return $this;
         $this->useCustomSettings = new PrimitiveType($useCustomSettings);
         $this->useCustomSettings->setName('useCustomSettings');
         return $this;
@@ -84,7 +82,7 @@ class UserIncomingCallingPlanModifyRequest extends ComplexType implements Comple
      */
     public function getUseCustomSettings()
     {
-        return $this->useCustomSettings->getValue();
+        return ($this->useCustomSettings) ? $this->useCustomSettings->getValue() : null;
     }
 
     /**
@@ -92,8 +90,9 @@ class UserIncomingCallingPlanModifyRequest extends ComplexType implements Comple
      */
     public function setUserPermissions(IncomingCallingPlanPermissionsModify $userPermissions = null)
     {
-        if (!$userPermissions) return $this;
-        $this->userPermissions = $userPermissions;
+        $this->userPermissions = ($userPermissions InstanceOf IncomingCallingPlanPermissionsModify)
+             ? $userPermissions
+             : new IncomingCallingPlanPermissionsModify($userPermissions);
         $this->userPermissions->setName('userPermissions');
         return $this;
     }

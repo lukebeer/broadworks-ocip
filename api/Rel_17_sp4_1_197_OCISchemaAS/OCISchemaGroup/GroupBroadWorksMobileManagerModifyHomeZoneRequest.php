@@ -27,20 +27,20 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupBroadWorksMobileManagerModifyHomeZoneRequest extends ComplexType implements ComplexInterface
 {
-    public    $name               = 'GroupBroadWorksMobileManagerModifyHomeZoneRequest';
-    protected $serviceProviderId  = null;
-    protected $groupId            = null;
-    protected $homeZoneId         = null;
-    protected $homeZoneDomainName = null;
-    protected $mobileCountryCode  = null;
-    protected $mobileNetworkCode  = null;
-    protected $locationAreaCode   = null;
-    protected $cellIdentity       = null;
+    public    $name = 'GroupBroadWorksMobileManagerModifyHomeZoneRequest';
+    protected $serviceProviderId;
+    protected $groupId;
+    protected $homeZoneId;
+    protected $homeZoneDomainName;
+    protected $mobileCountryCode;
+    protected $mobileNetworkCode;
+    protected $locationAreaCode;
+    protected $cellIdentity;
 
     public function __construct(
-         $serviceProviderId,
-         $groupId,
-         $homeZoneId,
+         $serviceProviderId = '',
+         $groupId = '',
+         $homeZoneId = '',
          $homeZoneDomainName = null,
          $mobileCountryCode = null,
          $mobileNetworkCode = null,
@@ -70,7 +70,6 @@ class GroupBroadWorksMobileManagerModifyHomeZoneRequest extends ComplexType impl
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
-        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
@@ -84,7 +83,7 @@ class GroupBroadWorksMobileManagerModifyHomeZoneRequest extends ComplexType impl
      */
     public function getServiceProviderId()
     {
-        return $this->serviceProviderId->getValue();
+        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
     }
 
     /**
@@ -92,7 +91,6 @@ class GroupBroadWorksMobileManagerModifyHomeZoneRequest extends ComplexType impl
      */
     public function setGroupId($groupId = null)
     {
-        if (!$groupId) return $this;
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
@@ -106,7 +104,7 @@ class GroupBroadWorksMobileManagerModifyHomeZoneRequest extends ComplexType impl
      */
     public function getGroupId()
     {
-        return $this->groupId->getValue();
+        return ($this->groupId) ? $this->groupId->getValue() : null;
     }
 
     /**
@@ -114,7 +112,6 @@ class GroupBroadWorksMobileManagerModifyHomeZoneRequest extends ComplexType impl
      */
     public function setHomeZoneId($homeZoneId = null)
     {
-        if (!$homeZoneId) return $this;
         $this->homeZoneId = new PrimitiveType($homeZoneId);
         $this->homeZoneId->setName('homeZoneId');
         return $this;
@@ -126,7 +123,7 @@ class GroupBroadWorksMobileManagerModifyHomeZoneRequest extends ComplexType impl
      */
     public function getHomeZoneId()
     {
-        return $this->homeZoneId->getValue();
+        return ($this->homeZoneId) ? $this->homeZoneId->getValue() : null;
     }
 
     /**
@@ -134,7 +131,6 @@ class GroupBroadWorksMobileManagerModifyHomeZoneRequest extends ComplexType impl
      */
     public function setHomeZoneDomainName($homeZoneDomainName = null)
     {
-        if (!$homeZoneDomainName) return $this;
         $this->homeZoneDomainName = ($homeZoneDomainName InstanceOf BroadWorksMobileManagerDomainName)
              ? $homeZoneDomainName
              : new BroadWorksMobileManagerDomainName($homeZoneDomainName);
@@ -148,7 +144,7 @@ class GroupBroadWorksMobileManagerModifyHomeZoneRequest extends ComplexType impl
      */
     public function getHomeZoneDomainName()
     {
-        return $this->homeZoneDomainName->getValue();
+        return ($this->homeZoneDomainName) ? $this->homeZoneDomainName->getValue() : null;
     }
 
     /**
@@ -156,7 +152,6 @@ class GroupBroadWorksMobileManagerModifyHomeZoneRequest extends ComplexType impl
      */
     public function setMobileCountryCode($mobileCountryCode = null)
     {
-        if (!$mobileCountryCode) return $this;
         $this->mobileCountryCode = ($mobileCountryCode InstanceOf BroadWorksMobileManagerHomeZoneMobileCountryCode)
              ? $mobileCountryCode
              : new BroadWorksMobileManagerHomeZoneMobileCountryCode($mobileCountryCode);
@@ -170,7 +165,7 @@ class GroupBroadWorksMobileManagerModifyHomeZoneRequest extends ComplexType impl
      */
     public function getMobileCountryCode()
     {
-        return $this->mobileCountryCode->getValue();
+        return ($this->mobileCountryCode) ? $this->mobileCountryCode->getValue() : null;
     }
 
     /**
@@ -178,7 +173,6 @@ class GroupBroadWorksMobileManagerModifyHomeZoneRequest extends ComplexType impl
      */
     public function setMobileNetworkCode($mobileNetworkCode = null)
     {
-        if (!$mobileNetworkCode) return $this;
         $this->mobileNetworkCode = ($mobileNetworkCode InstanceOf BroadWorksMobileManagerHomeZoneNetworkCountryCode)
              ? $mobileNetworkCode
              : new BroadWorksMobileManagerHomeZoneNetworkCountryCode($mobileNetworkCode);
@@ -192,7 +186,7 @@ class GroupBroadWorksMobileManagerModifyHomeZoneRequest extends ComplexType impl
      */
     public function getMobileNetworkCode()
     {
-        return $this->mobileNetworkCode->getValue();
+        return ($this->mobileNetworkCode) ? $this->mobileNetworkCode->getValue() : null;
     }
 
     /**
@@ -200,7 +194,6 @@ class GroupBroadWorksMobileManagerModifyHomeZoneRequest extends ComplexType impl
      */
     public function setLocationAreaCode($locationAreaCode = null)
     {
-        if (!$locationAreaCode) return $this;
         $this->locationAreaCode = ($locationAreaCode InstanceOf BroadWorksMobileManagerHomeZoneLocationAreaCode)
              ? $locationAreaCode
              : new BroadWorksMobileManagerHomeZoneLocationAreaCode($locationAreaCode);
@@ -214,7 +207,7 @@ class GroupBroadWorksMobileManagerModifyHomeZoneRequest extends ComplexType impl
      */
     public function getLocationAreaCode()
     {
-        return $this->locationAreaCode->getValue();
+        return ($this->locationAreaCode) ? $this->locationAreaCode->getValue() : null;
     }
 
     /**
@@ -222,7 +215,6 @@ class GroupBroadWorksMobileManagerModifyHomeZoneRequest extends ComplexType impl
      */
     public function setCellIdentity($cellIdentity = null)
     {
-        if (!$cellIdentity) return $this;
         $this->cellIdentity = ($cellIdentity InstanceOf BroadWorksMobileManagerHomeZoneCellId)
              ? $cellIdentity
              : new BroadWorksMobileManagerHomeZoneCellId($cellIdentity);
@@ -236,6 +228,6 @@ class GroupBroadWorksMobileManagerModifyHomeZoneRequest extends ComplexType impl
      */
     public function getCellIdentity()
     {
-        return $this->cellIdentity->getValue();
+        return ($this->cellIdentity) ? $this->cellIdentity->getValue() : null;
     }
 }

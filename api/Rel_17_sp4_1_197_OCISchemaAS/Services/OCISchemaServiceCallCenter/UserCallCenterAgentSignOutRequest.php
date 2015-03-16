@@ -27,11 +27,11 @@ use Broadworks_OCIP\core\Client\Client;
 class UserCallCenterAgentSignOutRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\UserCallCenterAgentSignOutResponse';
-    public    $name        = 'UserCallCenterAgentSignOutRequest';
-    protected $agentUserId = null;
+    public    $name = 'UserCallCenterAgentSignOutRequest';
+    protected $agentUserId;
 
     public function __construct(
-         $agentUserId
+         $agentUserId = ''
     ) {
         $this->setAgentUserId($agentUserId);
     }
@@ -49,7 +49,6 @@ class UserCallCenterAgentSignOutRequest extends ComplexType implements ComplexIn
      */
     public function setAgentUserId($agentUserId = null)
     {
-        if (!$agentUserId) return $this;
         $this->agentUserId = ($agentUserId InstanceOf UserId)
              ? $agentUserId
              : new UserId($agentUserId);
@@ -63,6 +62,6 @@ class UserCallCenterAgentSignOutRequest extends ComplexType implements ComplexIn
      */
     public function getAgentUserId()
     {
-        return $this->agentUserId->getValue();
+        return ($this->agentUserId) ? $this->agentUserId->getValue() : null;
     }
 }

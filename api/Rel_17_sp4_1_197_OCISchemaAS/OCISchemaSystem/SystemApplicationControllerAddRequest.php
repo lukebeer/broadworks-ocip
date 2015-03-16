@@ -23,15 +23,15 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemApplicationControllerAddRequest extends ComplexType implements ComplexInterface
 {
-    public    $name         = 'SystemApplicationControllerAddRequest';
-    protected $name         = null;
-    protected $subscriberId = null;
-    protected $channelSetId = null;
+    public    $name = 'SystemApplicationControllerAddRequest';
+    protected $name;
+    protected $subscriberId;
+    protected $channelSetId;
 
     public function __construct(
-         $name,
-         $subscriberId,
-         $channelSetId
+         $name = '',
+         $subscriberId = '',
+         $channelSetId = ''
     ) {
         $this->setName($name);
         $this->setSubscriberId($subscriberId);
@@ -51,7 +51,6 @@ class SystemApplicationControllerAddRequest extends ComplexType implements Compl
      */
     public function setName($name = null)
     {
-        if (!$name) return $this;
         $this->name = ($name InstanceOf ApplicationControllerName)
              ? $name
              : new ApplicationControllerName($name);
@@ -65,7 +64,7 @@ class SystemApplicationControllerAddRequest extends ComplexType implements Compl
      */
     public function getName()
     {
-        return $this->name->getValue();
+        return ($this->name) ? $this->name->getValue() : null;
     }
 
     /**
@@ -73,7 +72,6 @@ class SystemApplicationControllerAddRequest extends ComplexType implements Compl
      */
     public function setSubscriberId($subscriberId = null)
     {
-        if (!$subscriberId) return $this;
         $this->subscriberId = ($subscriberId InstanceOf UserId)
              ? $subscriberId
              : new UserId($subscriberId);
@@ -87,7 +85,7 @@ class SystemApplicationControllerAddRequest extends ComplexType implements Compl
      */
     public function getSubscriberId()
     {
-        return $this->subscriberId->getValue();
+        return ($this->subscriberId) ? $this->subscriberId->getValue() : null;
     }
 
     /**
@@ -95,7 +93,6 @@ class SystemApplicationControllerAddRequest extends ComplexType implements Compl
      */
     public function setChannelSetId($channelSetId = null)
     {
-        if (!$channelSetId) return $this;
         $this->channelSetId = ($channelSetId InstanceOf ChannelSetId)
              ? $channelSetId
              : new ChannelSetId($channelSetId);
@@ -109,6 +106,6 @@ class SystemApplicationControllerAddRequest extends ComplexType implements Compl
      */
     public function getChannelSetId()
     {
-        return $this->channelSetId->getValue();
+        return ($this->channelSetId) ? $this->channelSetId->getValue() : null;
     }
 }

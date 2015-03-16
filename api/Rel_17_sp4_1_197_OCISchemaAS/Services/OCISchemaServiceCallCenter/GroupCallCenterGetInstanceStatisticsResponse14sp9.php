@@ -21,10 +21,10 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupCallCenterGetInstanceStatisticsResponse14sp9 extends ComplexType implements ComplexInterface
 {
-    public    $name            = 'GroupCallCenterGetInstanceStatisticsResponse14sp9';
-    protected $statisticsRange = null;
-    protected $queueStatistics = null;
-    protected $agentStatistics = null;
+    public    $name = 'GroupCallCenterGetInstanceStatisticsResponse14sp9';
+    protected $statisticsRange;
+    protected $queueStatistics;
+    protected $agentStatistics;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\GroupCallCenterGetInstanceStatisticsResponse14sp9 $response
@@ -39,8 +39,9 @@ class GroupCallCenterGetInstanceStatisticsResponse14sp9 extends ComplexType impl
      */
     public function setStatisticsRange(CallCenterStatisticsRange $statisticsRange = null)
     {
-        if (!$statisticsRange) return $this;
-        $this->statisticsRange = $statisticsRange;
+        $this->statisticsRange = ($statisticsRange InstanceOf CallCenterStatisticsRange)
+             ? $statisticsRange
+             : new CallCenterStatisticsRange($statisticsRange);
         $this->statisticsRange->setName('statisticsRange');
         return $this;
     }
@@ -59,8 +60,9 @@ class GroupCallCenterGetInstanceStatisticsResponse14sp9 extends ComplexType impl
      */
     public function setQueueStatistics(CallCenterQueueStatistics14sp9 $queueStatistics = null)
     {
-        if (!$queueStatistics) return $this;
-        $this->queueStatistics = $queueStatistics;
+        $this->queueStatistics = ($queueStatistics InstanceOf CallCenterQueueStatistics14sp9)
+             ? $queueStatistics
+             : new CallCenterQueueStatistics14sp9($queueStatistics);
         $this->queueStatistics->setName('queueStatistics');
         return $this;
     }
@@ -79,8 +81,9 @@ class GroupCallCenterGetInstanceStatisticsResponse14sp9 extends ComplexType impl
      */
     public function setAgentStatistics(CallCenterAgentStatistics14sp9 $agentStatistics = null)
     {
-        if (!$agentStatistics) return $this;
-        $this->agentStatistics = $agentStatistics;
+        $this->agentStatistics = ($agentStatistics InstanceOf CallCenterAgentStatistics14sp9)
+             ? $agentStatistics
+             : new CallCenterAgentStatistics14sp9($agentStatistics);
         $this->agentStatistics->setName('agentStatistics');
         return $this;
     }

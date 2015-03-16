@@ -19,9 +19,9 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemInCallServiceActivationModifyRequest17 extends ComplexType implements ComplexInterface
 {
-    public    $name                                = 'SystemInCallServiceActivationModifyRequest17';
-    protected $defaultFlashActivationDigits        = null;
-    protected $defaultCallTransferActivationDigits = null;
+    public    $name = 'SystemInCallServiceActivationModifyRequest17';
+    protected $defaultFlashActivationDigits;
+    protected $defaultCallTransferActivationDigits;
 
     public function __construct(
          $defaultFlashActivationDigits = null,
@@ -44,7 +44,6 @@ class SystemInCallServiceActivationModifyRequest17 extends ComplexType implement
      */
     public function setDefaultFlashActivationDigits($defaultFlashActivationDigits = null)
     {
-        if (!$defaultFlashActivationDigits) return $this;
         $this->defaultFlashActivationDigits = ($defaultFlashActivationDigits InstanceOf InCallServiceActivationDigits)
              ? $defaultFlashActivationDigits
              : new InCallServiceActivationDigits($defaultFlashActivationDigits);
@@ -58,7 +57,7 @@ class SystemInCallServiceActivationModifyRequest17 extends ComplexType implement
      */
     public function getDefaultFlashActivationDigits()
     {
-        return $this->defaultFlashActivationDigits->getValue();
+        return ($this->defaultFlashActivationDigits) ? $this->defaultFlashActivationDigits->getValue() : null;
     }
 
     /**
@@ -66,7 +65,6 @@ class SystemInCallServiceActivationModifyRequest17 extends ComplexType implement
      */
     public function setDefaultCallTransferActivationDigits($defaultCallTransferActivationDigits = null)
     {
-        if (!$defaultCallTransferActivationDigits) return $this;
         $this->defaultCallTransferActivationDigits = ($defaultCallTransferActivationDigits InstanceOf InCallServiceActivationDigits)
              ? $defaultCallTransferActivationDigits
              : new InCallServiceActivationDigits($defaultCallTransferActivationDigits);
@@ -80,6 +78,6 @@ class SystemInCallServiceActivationModifyRequest17 extends ComplexType implement
      */
     public function getDefaultCallTransferActivationDigits()
     {
-        return $this->defaultCallTransferActivationDigits->getValue();
+        return ($this->defaultCallTransferActivationDigits) ? $this->defaultCallTransferActivationDigits->getValue() : null;
     }
 }

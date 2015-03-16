@@ -20,8 +20,8 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupCommonPhoneListGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name  = 'GroupCommonPhoneListGetListResponse';
-    protected $entry = null;
+    public    $name = 'GroupCommonPhoneListGetListResponse';
+    protected $entry;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupCommonPhoneListGetListResponse $response
@@ -36,8 +36,9 @@ class GroupCommonPhoneListGetListResponse extends ComplexType implements Complex
      */
     public function setEntry(PhoneListEntry $entry = null)
     {
-        if (!$entry) return $this;
-        $this->entry = $entry;
+        $this->entry = ($entry InstanceOf PhoneListEntry)
+             ? $entry
+             : new PhoneListEntry($entry);
         $this->entry->setName('entry');
         return $this;
     }

@@ -22,15 +22,15 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupApplicationServerSetModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                     = 'GroupApplicationServerSetModifyRequest';
-    protected $applicationServerSetName = null;
-    protected $groupId                  = null;
-    protected $serviceProviderId        = null;
+    public    $name = 'GroupApplicationServerSetModifyRequest';
+    protected $applicationServerSetName;
+    protected $groupId;
+    protected $serviceProviderId;
 
     public function __construct(
          $applicationServerSetName = null,
-         $groupId,
-         $serviceProviderId
+         $groupId = '',
+         $serviceProviderId = ''
     ) {
         $this->setApplicationServerSetName($applicationServerSetName);
         $this->setGroupId($groupId);
@@ -50,7 +50,6 @@ class GroupApplicationServerSetModifyRequest extends ComplexType implements Comp
      */
     public function setApplicationServerSetName($applicationServerSetName = null)
     {
-        if (!$applicationServerSetName) return $this;
         $this->applicationServerSetName = ($applicationServerSetName InstanceOf ApplicationServerSetName)
              ? $applicationServerSetName
              : new ApplicationServerSetName($applicationServerSetName);
@@ -64,7 +63,7 @@ class GroupApplicationServerSetModifyRequest extends ComplexType implements Comp
      */
     public function getApplicationServerSetName()
     {
-        return $this->applicationServerSetName->getValue();
+        return ($this->applicationServerSetName) ? $this->applicationServerSetName->getValue() : null;
     }
 
     /**
@@ -72,7 +71,6 @@ class GroupApplicationServerSetModifyRequest extends ComplexType implements Comp
      */
     public function setGroupId($groupId = null)
     {
-        if (!$groupId) return $this;
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
@@ -86,7 +84,7 @@ class GroupApplicationServerSetModifyRequest extends ComplexType implements Comp
      */
     public function getGroupId()
     {
-        return $this->groupId->getValue();
+        return ($this->groupId) ? $this->groupId->getValue() : null;
     }
 
     /**
@@ -94,7 +92,6 @@ class GroupApplicationServerSetModifyRequest extends ComplexType implements Comp
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
-        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
@@ -108,6 +105,6 @@ class GroupApplicationServerSetModifyRequest extends ComplexType implements Comp
      */
     public function getServiceProviderId()
     {
-        return $this->serviceProviderId->getValue();
+        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
     }
 }

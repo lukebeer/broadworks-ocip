@@ -23,13 +23,13 @@ use Broadworks_OCIP\core\Client\Client;
 class UserInstantConferencingGetStandAloneConferenceRecordingRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType          = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing\UserInstantConferencingGetStandAloneConferenceRecordingResponse';
-    public    $name                  = 'UserInstantConferencingGetStandAloneConferenceRecordingRequest';
-    protected $conferenceOwnerUserId = null;
-    protected $recordingKey          = null;
+    public    $name = 'UserInstantConferencingGetStandAloneConferenceRecordingRequest';
+    protected $conferenceOwnerUserId;
+    protected $recordingKey;
 
     public function __construct(
-         $conferenceOwnerUserId,
-         InstantConferencingRecordingKey $recordingKey
+         $conferenceOwnerUserId = '',
+         InstantConferencingRecordingKey $recordingKey = ''
     ) {
         $this->setConferenceOwnerUserId($conferenceOwnerUserId);
         $this->setRecordingKey($recordingKey);
@@ -48,7 +48,6 @@ class UserInstantConferencingGetStandAloneConferenceRecordingRequest extends Com
      */
     public function setConferenceOwnerUserId($conferenceOwnerUserId = null)
     {
-        if (!$conferenceOwnerUserId) return $this;
         $this->conferenceOwnerUserId = ($conferenceOwnerUserId InstanceOf UserId)
              ? $conferenceOwnerUserId
              : new UserId($conferenceOwnerUserId);
@@ -62,7 +61,7 @@ class UserInstantConferencingGetStandAloneConferenceRecordingRequest extends Com
      */
     public function getConferenceOwnerUserId()
     {
-        return $this->conferenceOwnerUserId->getValue();
+        return ($this->conferenceOwnerUserId) ? $this->conferenceOwnerUserId->getValue() : null;
     }
 
     /**
@@ -70,8 +69,9 @@ class UserInstantConferencingGetStandAloneConferenceRecordingRequest extends Com
      */
     public function setRecordingKey(InstantConferencingRecordingKey $recordingKey = null)
     {
-        if (!$recordingKey) return $this;
-        $this->recordingKey = $recordingKey;
+        $this->recordingKey = ($recordingKey InstanceOf InstantConferencingRecordingKey)
+             ? $recordingKey
+             : new InstantConferencingRecordingKey($recordingKey);
         $this->recordingKey->setName('recordingKey');
         return $this;
     }

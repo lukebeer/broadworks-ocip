@@ -27,10 +27,10 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupServiceGetAuthorizationListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                            = 'GroupServiceGetAuthorizationListResponse';
-    protected $servicePacksAuthorizationTable  = null;
-    protected $groupServicesAuthorizationTable = null;
-    protected $userServicesAuthorizationTable  = null;
+    public    $name = 'GroupServiceGetAuthorizationListResponse';
+    protected $servicePacksAuthorizationTable;
+    protected $groupServicesAuthorizationTable;
+    protected $userServicesAuthorizationTable;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupServiceGetAuthorizationListResponse $response
@@ -45,7 +45,6 @@ class GroupServiceGetAuthorizationListResponse extends ComplexType implements Co
      */
     public function setServicePacksAuthorizationTable(TableType $servicePacksAuthorizationTable = null)
     {
-        if (!$servicePacksAuthorizationTable) return $this;
         $this->servicePacksAuthorizationTable = $servicePacksAuthorizationTable;
         $this->servicePacksAuthorizationTable->setName('servicePacksAuthorizationTable');
         return $this;
@@ -65,7 +64,6 @@ class GroupServiceGetAuthorizationListResponse extends ComplexType implements Co
      */
     public function setGroupServicesAuthorizationTable(TableType $groupServicesAuthorizationTable = null)
     {
-        if (!$groupServicesAuthorizationTable) return $this;
         $this->groupServicesAuthorizationTable = $groupServicesAuthorizationTable;
         $this->groupServicesAuthorizationTable->setName('groupServicesAuthorizationTable');
         return $this;
@@ -85,7 +83,6 @@ class GroupServiceGetAuthorizationListResponse extends ComplexType implements Co
      */
     public function setUserServicesAuthorizationTable(TableType $userServicesAuthorizationTable = null)
     {
-        if (!$userServicesAuthorizationTable) return $this;
         $this->userServicesAuthorizationTable = $userServicesAuthorizationTable;
         $this->userServicesAuthorizationTable->setName('userServicesAuthorizationTable');
         return $this;

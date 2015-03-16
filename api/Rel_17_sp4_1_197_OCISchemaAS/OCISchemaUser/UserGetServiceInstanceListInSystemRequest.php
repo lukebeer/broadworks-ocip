@@ -30,15 +30,15 @@ use Broadworks_OCIP\core\Client\Client;
 class UserGetServiceInstanceListInSystemRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType                       = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser\UserGetServiceInstanceListInSystemResponse';
-    public    $name                               = 'UserGetServiceInstanceListInSystemRequest';
-    protected $responseSizeLimit                  = null;
-    protected $searchCriteriaExactServiceType     = null;
-    protected $searchCriteriaUserId               = null;
-    protected $searchCriteriaUserLastName         = null;
-    protected $searchCriteriaDn                   = null;
-    protected $searchCriteriaExtension            = null;
-    protected $searchCriteriaGroupId              = null;
-    protected $searchCriteriaExactServiceProvider = null;
+    public    $name = 'UserGetServiceInstanceListInSystemRequest';
+    protected $responseSizeLimit;
+    protected $searchCriteriaExactServiceType;
+    protected $searchCriteriaUserId;
+    protected $searchCriteriaUserLastName;
+    protected $searchCriteriaDn;
+    protected $searchCriteriaExtension;
+    protected $searchCriteriaGroupId;
+    protected $searchCriteriaExactServiceProvider;
 
     public function __construct(
          $responseSizeLimit = null,
@@ -73,7 +73,6 @@ class UserGetServiceInstanceListInSystemRequest extends ComplexType implements C
      */
     public function setResponseSizeLimit($responseSizeLimit = null)
     {
-        if (!$responseSizeLimit) return $this;
         $this->responseSizeLimit = ($responseSizeLimit InstanceOf ResponseSizeLimit)
              ? $responseSizeLimit
              : new ResponseSizeLimit($responseSizeLimit);
@@ -87,7 +86,7 @@ class UserGetServiceInstanceListInSystemRequest extends ComplexType implements C
      */
     public function getResponseSizeLimit()
     {
-        return $this->responseSizeLimit->getValue();
+        return ($this->responseSizeLimit) ? $this->responseSizeLimit->getValue() : null;
     }
 
     /**
@@ -95,7 +94,6 @@ class UserGetServiceInstanceListInSystemRequest extends ComplexType implements C
      */
     public function setSearchCriteriaExactServiceType(SearchCriteriaExactServiceType $searchCriteriaExactServiceType = null)
     {
-        if (!$searchCriteriaExactServiceType) return $this;
         $this->searchCriteriaExactServiceType = ($searchCriteriaExactServiceType InstanceOf SearchCriteriaExactServiceType)
              ? $searchCriteriaExactServiceType
              : new SearchCriteriaExactServiceType($searchCriteriaExactServiceType);
@@ -117,7 +115,6 @@ class UserGetServiceInstanceListInSystemRequest extends ComplexType implements C
      */
     public function setSearchCriteriaUserId(SearchCriteriaUserId $searchCriteriaUserId = null)
     {
-        if (!$searchCriteriaUserId) return $this;
         $this->searchCriteriaUserId = ($searchCriteriaUserId InstanceOf SearchCriteriaUserId)
              ? $searchCriteriaUserId
              : new SearchCriteriaUserId($searchCriteriaUserId);
@@ -139,7 +136,6 @@ class UserGetServiceInstanceListInSystemRequest extends ComplexType implements C
      */
     public function setSearchCriteriaUserLastName(SearchCriteriaUserLastName $searchCriteriaUserLastName = null)
     {
-        if (!$searchCriteriaUserLastName) return $this;
         $this->searchCriteriaUserLastName = ($searchCriteriaUserLastName InstanceOf SearchCriteriaUserLastName)
              ? $searchCriteriaUserLastName
              : new SearchCriteriaUserLastName($searchCriteriaUserLastName);
@@ -161,7 +157,6 @@ class UserGetServiceInstanceListInSystemRequest extends ComplexType implements C
      */
     public function setSearchCriteriaDn(SearchCriteriaDn $searchCriteriaDn = null)
     {
-        if (!$searchCriteriaDn) return $this;
         $this->searchCriteriaDn = ($searchCriteriaDn InstanceOf SearchCriteriaDn)
              ? $searchCriteriaDn
              : new SearchCriteriaDn($searchCriteriaDn);
@@ -183,7 +178,6 @@ class UserGetServiceInstanceListInSystemRequest extends ComplexType implements C
      */
     public function setSearchCriteriaExtension(SearchCriteriaExtension $searchCriteriaExtension = null)
     {
-        if (!$searchCriteriaExtension) return $this;
         $this->searchCriteriaExtension = ($searchCriteriaExtension InstanceOf SearchCriteriaExtension)
              ? $searchCriteriaExtension
              : new SearchCriteriaExtension($searchCriteriaExtension);
@@ -205,7 +199,6 @@ class UserGetServiceInstanceListInSystemRequest extends ComplexType implements C
      */
     public function setSearchCriteriaGroupId(SearchCriteriaGroupId $searchCriteriaGroupId = null)
     {
-        if (!$searchCriteriaGroupId) return $this;
         $this->searchCriteriaGroupId = ($searchCriteriaGroupId InstanceOf SearchCriteriaGroupId)
              ? $searchCriteriaGroupId
              : new SearchCriteriaGroupId($searchCriteriaGroupId);
@@ -227,7 +220,6 @@ class UserGetServiceInstanceListInSystemRequest extends ComplexType implements C
      */
     public function setSearchCriteriaExactServiceProvider(SearchCriteriaExactServiceProvider $searchCriteriaExactServiceProvider = null)
     {
-        if (!$searchCriteriaExactServiceProvider) return $this;
         $this->searchCriteriaExactServiceProvider = ($searchCriteriaExactServiceProvider InstanceOf SearchCriteriaExactServiceProvider)
              ? $searchCriteriaExactServiceProvider
              : new SearchCriteriaExactServiceProvider($searchCriteriaExactServiceProvider);

@@ -21,9 +21,9 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemCallRecordingGetPlatformListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                       = 'SystemCallRecordingGetPlatformListResponse';
-    protected $systemDefault              = null;
-    protected $callRecordingPlatformTable = null;
+    public    $name = 'SystemCallRecordingGetPlatformListResponse';
+    protected $systemDefault;
+    protected $callRecordingPlatformTable;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallRecording\SystemCallRecordingGetPlatformListResponse $response
@@ -38,7 +38,6 @@ class SystemCallRecordingGetPlatformListResponse extends ComplexType implements 
      */
     public function setSystemDefault($systemDefault = null)
     {
-        if (!$systemDefault) return $this;
         $this->systemDefault = ($systemDefault InstanceOf CallRecordingPlatformName)
              ? $systemDefault
              : new CallRecordingPlatformName($systemDefault);
@@ -52,7 +51,7 @@ class SystemCallRecordingGetPlatformListResponse extends ComplexType implements 
      */
     public function getSystemDefault()
     {
-        return $this->systemDefault->getValue();
+        return ($this->systemDefault) ? $this->systemDefault->getValue() : null;
     }
 
     /**
@@ -60,7 +59,6 @@ class SystemCallRecordingGetPlatformListResponse extends ComplexType implements 
      */
     public function setCallRecordingPlatformTable(TableType $callRecordingPlatformTable = null)
     {
-        if (!$callRecordingPlatformTable) return $this;
         $this->callRecordingPlatformTable = $callRecordingPlatformTable;
         $this->callRecordingPlatformTable->setName('callRecordingPlatformTable');
         return $this;

@@ -20,11 +20,11 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemDomainAddRequest extends ComplexType implements ComplexInterface
 {
-    public    $name   = 'SystemDomainAddRequest';
-    protected $domain = null;
+    public    $name = 'SystemDomainAddRequest';
+    protected $domain;
 
     public function __construct(
-         $domain
+         $domain = ''
     ) {
         $this->setDomain($domain);
     }
@@ -42,7 +42,6 @@ class SystemDomainAddRequest extends ComplexType implements ComplexInterface
      */
     public function setDomain($domain = null)
     {
-        if (!$domain) return $this;
         $this->domain = ($domain InstanceOf NetAddress)
              ? $domain
              : new NetAddress($domain);
@@ -56,6 +55,6 @@ class SystemDomainAddRequest extends ComplexType implements ComplexInterface
      */
     public function getDomain()
     {
-        return $this->domain->getValue();
+        return ($this->domain) ? $this->domain->getValue() : null;
     }
 }

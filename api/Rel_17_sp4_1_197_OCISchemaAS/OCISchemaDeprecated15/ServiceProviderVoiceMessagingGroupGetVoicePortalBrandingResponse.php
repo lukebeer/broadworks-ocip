@@ -21,11 +21,11 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderVoiceMessagingGroupGetVoicePortalBrandingResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                                  = 'ServiceProviderVoiceMessagingGroupGetVoicePortalBrandingResponse';
-    protected $voicePortalGreetingSelection          = null;
-    protected $voicePortalGreetingFileDescription    = null;
-    protected $voiceMessagingGreetingSelection       = null;
-    protected $voiceMessagingGreetingFileDescription = null;
+    public    $name = 'ServiceProviderVoiceMessagingGroupGetVoicePortalBrandingResponse';
+    protected $voicePortalGreetingSelection;
+    protected $voicePortalGreetingFileDescription;
+    protected $voiceMessagingGreetingSelection;
+    protected $voiceMessagingGreetingFileDescription;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15\ServiceProviderVoiceMessagingGroupGetVoicePortalBrandingResponse $response
@@ -40,7 +40,6 @@ class ServiceProviderVoiceMessagingGroupGetVoicePortalBrandingResponse extends C
      */
     public function setVoicePortalGreetingSelection($voicePortalGreetingSelection = null)
     {
-        if (!$voicePortalGreetingSelection) return $this;
         $this->voicePortalGreetingSelection = ($voicePortalGreetingSelection InstanceOf VoiceMessagingBrandingSelection)
              ? $voicePortalGreetingSelection
              : new VoiceMessagingBrandingSelection($voicePortalGreetingSelection);
@@ -54,7 +53,7 @@ class ServiceProviderVoiceMessagingGroupGetVoicePortalBrandingResponse extends C
      */
     public function getVoicePortalGreetingSelection()
     {
-        return $this->voicePortalGreetingSelection->getValue();
+        return ($this->voicePortalGreetingSelection) ? $this->voicePortalGreetingSelection->getValue() : null;
     }
 
     /**
@@ -62,7 +61,6 @@ class ServiceProviderVoiceMessagingGroupGetVoicePortalBrandingResponse extends C
      */
     public function setVoicePortalGreetingFileDescription($voicePortalGreetingFileDescription = null)
     {
-        if (!$voicePortalGreetingFileDescription) return $this;
         $this->voicePortalGreetingFileDescription = ($voicePortalGreetingFileDescription InstanceOf FileDescription)
              ? $voicePortalGreetingFileDescription
              : new FileDescription($voicePortalGreetingFileDescription);
@@ -76,7 +74,7 @@ class ServiceProviderVoiceMessagingGroupGetVoicePortalBrandingResponse extends C
      */
     public function getVoicePortalGreetingFileDescription()
     {
-        return $this->voicePortalGreetingFileDescription->getValue();
+        return ($this->voicePortalGreetingFileDescription) ? $this->voicePortalGreetingFileDescription->getValue() : null;
     }
 
     /**
@@ -84,7 +82,6 @@ class ServiceProviderVoiceMessagingGroupGetVoicePortalBrandingResponse extends C
      */
     public function setVoiceMessagingGreetingSelection($voiceMessagingGreetingSelection = null)
     {
-        if (!$voiceMessagingGreetingSelection) return $this;
         $this->voiceMessagingGreetingSelection = ($voiceMessagingGreetingSelection InstanceOf VoiceMessagingBrandingSelection)
              ? $voiceMessagingGreetingSelection
              : new VoiceMessagingBrandingSelection($voiceMessagingGreetingSelection);
@@ -98,7 +95,7 @@ class ServiceProviderVoiceMessagingGroupGetVoicePortalBrandingResponse extends C
      */
     public function getVoiceMessagingGreetingSelection()
     {
-        return $this->voiceMessagingGreetingSelection->getValue();
+        return ($this->voiceMessagingGreetingSelection) ? $this->voiceMessagingGreetingSelection->getValue() : null;
     }
 
     /**
@@ -106,7 +103,6 @@ class ServiceProviderVoiceMessagingGroupGetVoicePortalBrandingResponse extends C
      */
     public function setVoiceMessagingGreetingFileDescription($voiceMessagingGreetingFileDescription = null)
     {
-        if (!$voiceMessagingGreetingFileDescription) return $this;
         $this->voiceMessagingGreetingFileDescription = ($voiceMessagingGreetingFileDescription InstanceOf FileDescription)
              ? $voiceMessagingGreetingFileDescription
              : new FileDescription($voiceMessagingGreetingFileDescription);
@@ -120,6 +116,6 @@ class ServiceProviderVoiceMessagingGroupGetVoicePortalBrandingResponse extends C
      */
     public function getVoiceMessagingGreetingFileDescription()
     {
-        return $this->voiceMessagingGreetingFileDescription->getValue();
+        return ($this->voiceMessagingGreetingFileDescription) ? $this->voiceMessagingGreetingFileDescription->getValue() : null;
     }
 }

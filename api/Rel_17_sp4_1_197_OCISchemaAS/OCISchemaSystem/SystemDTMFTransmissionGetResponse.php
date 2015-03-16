@@ -20,9 +20,9 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemDTMFTransmissionGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                 = 'SystemDTMFTransmissionGetResponse';
-    protected $transmissionMethod   = null;
-    protected $signalingContentType = null;
+    public    $name = 'SystemDTMFTransmissionGetResponse';
+    protected $transmissionMethod;
+    protected $signalingContentType;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemDTMFTransmissionGetResponse $response
@@ -37,7 +37,6 @@ class SystemDTMFTransmissionGetResponse extends ComplexType implements ComplexIn
      */
     public function setTransmissionMethod($transmissionMethod = null)
     {
-        if (!$transmissionMethod) return $this;
         $this->transmissionMethod = ($transmissionMethod InstanceOf DTMFTransmissionMethod)
              ? $transmissionMethod
              : new DTMFTransmissionMethod($transmissionMethod);
@@ -51,7 +50,7 @@ class SystemDTMFTransmissionGetResponse extends ComplexType implements ComplexIn
      */
     public function getTransmissionMethod()
     {
-        return $this->transmissionMethod->getValue();
+        return ($this->transmissionMethod) ? $this->transmissionMethod->getValue() : null;
     }
 
     /**
@@ -59,7 +58,6 @@ class SystemDTMFTransmissionGetResponse extends ComplexType implements ComplexIn
      */
     public function setSignalingContentType($signalingContentType = null)
     {
-        if (!$signalingContentType) return $this;
         $this->signalingContentType = ($signalingContentType InstanceOf DtmfTransmissionSignalingContentType)
              ? $signalingContentType
              : new DtmfTransmissionSignalingContentType($signalingContentType);
@@ -73,6 +71,6 @@ class SystemDTMFTransmissionGetResponse extends ComplexType implements ComplexIn
      */
     public function getSignalingContentType()
     {
-        return $this->signalingContentType->getValue();
+        return ($this->signalingContentType) ? $this->signalingContentType->getValue() : null;
     }
 }

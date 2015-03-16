@@ -31,20 +31,20 @@ use Broadworks_OCIP\core\Client\Client;
 class UserGetListInGroupRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType                        = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser\UserGetListInGroupResponse';
-    public    $name                                = 'UserGetListInGroupRequest';
-    protected $serviceProviderId                   = null;
-    protected $GroupId                             = null;
-    protected $responseSizeLimit                   = null;
-    protected $searchCriteriaUserLastName          = null;
-    protected $searchCriteriaUserFirstName         = null;
-    protected $searchCriteriaDn                    = null;
-    protected $searchCriteriaEmailAddress          = null;
-    protected $searchCriteriaExactUserDepartment   = null;
-    protected $searchCriteriaExactUserInTrunkGroup = null;
+    public    $name = 'UserGetListInGroupRequest';
+    protected $serviceProviderId;
+    protected $GroupId;
+    protected $responseSizeLimit;
+    protected $searchCriteriaUserLastName;
+    protected $searchCriteriaUserFirstName;
+    protected $searchCriteriaDn;
+    protected $searchCriteriaEmailAddress;
+    protected $searchCriteriaExactUserDepartment;
+    protected $searchCriteriaExactUserInTrunkGroup;
 
     public function __construct(
-         $serviceProviderId,
-         $GroupId,
+         $serviceProviderId = '',
+         $GroupId = '',
          $responseSizeLimit = null,
          SearchCriteriaUserLastName $searchCriteriaUserLastName = null,
          SearchCriteriaUserFirstName $searchCriteriaUserFirstName = null,
@@ -77,7 +77,6 @@ class UserGetListInGroupRequest extends ComplexType implements ComplexInterface
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
-        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
@@ -91,7 +90,7 @@ class UserGetListInGroupRequest extends ComplexType implements ComplexInterface
      */
     public function getServiceProviderId()
     {
-        return $this->serviceProviderId->getValue();
+        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
     }
 
     /**
@@ -99,7 +98,6 @@ class UserGetListInGroupRequest extends ComplexType implements ComplexInterface
      */
     public function setGroupId($GroupId = null)
     {
-        if (!$GroupId) return $this;
         $this->GroupId = ($GroupId InstanceOf GroupId)
              ? $GroupId
              : new GroupId($GroupId);
@@ -113,7 +111,7 @@ class UserGetListInGroupRequest extends ComplexType implements ComplexInterface
      */
     public function getGroupId()
     {
-        return $this->GroupId->getValue();
+        return ($this->GroupId) ? $this->GroupId->getValue() : null;
     }
 
     /**
@@ -121,7 +119,6 @@ class UserGetListInGroupRequest extends ComplexType implements ComplexInterface
      */
     public function setResponseSizeLimit($responseSizeLimit = null)
     {
-        if (!$responseSizeLimit) return $this;
         $this->responseSizeLimit = ($responseSizeLimit InstanceOf ResponseSizeLimit)
              ? $responseSizeLimit
              : new ResponseSizeLimit($responseSizeLimit);
@@ -135,7 +132,7 @@ class UserGetListInGroupRequest extends ComplexType implements ComplexInterface
      */
     public function getResponseSizeLimit()
     {
-        return $this->responseSizeLimit->getValue();
+        return ($this->responseSizeLimit) ? $this->responseSizeLimit->getValue() : null;
     }
 
     /**
@@ -143,7 +140,6 @@ class UserGetListInGroupRequest extends ComplexType implements ComplexInterface
      */
     public function setSearchCriteriaUserLastName(SearchCriteriaUserLastName $searchCriteriaUserLastName = null)
     {
-        if (!$searchCriteriaUserLastName) return $this;
         $this->searchCriteriaUserLastName = ($searchCriteriaUserLastName InstanceOf SearchCriteriaUserLastName)
              ? $searchCriteriaUserLastName
              : new SearchCriteriaUserLastName($searchCriteriaUserLastName);
@@ -165,7 +161,6 @@ class UserGetListInGroupRequest extends ComplexType implements ComplexInterface
      */
     public function setSearchCriteriaUserFirstName(SearchCriteriaUserFirstName $searchCriteriaUserFirstName = null)
     {
-        if (!$searchCriteriaUserFirstName) return $this;
         $this->searchCriteriaUserFirstName = ($searchCriteriaUserFirstName InstanceOf SearchCriteriaUserFirstName)
              ? $searchCriteriaUserFirstName
              : new SearchCriteriaUserFirstName($searchCriteriaUserFirstName);
@@ -187,7 +182,6 @@ class UserGetListInGroupRequest extends ComplexType implements ComplexInterface
      */
     public function setSearchCriteriaDn(SearchCriteriaDn $searchCriteriaDn = null)
     {
-        if (!$searchCriteriaDn) return $this;
         $this->searchCriteriaDn = ($searchCriteriaDn InstanceOf SearchCriteriaDn)
              ? $searchCriteriaDn
              : new SearchCriteriaDn($searchCriteriaDn);
@@ -209,7 +203,6 @@ class UserGetListInGroupRequest extends ComplexType implements ComplexInterface
      */
     public function setSearchCriteriaEmailAddress(SearchCriteriaEmailAddress $searchCriteriaEmailAddress = null)
     {
-        if (!$searchCriteriaEmailAddress) return $this;
         $this->searchCriteriaEmailAddress = ($searchCriteriaEmailAddress InstanceOf SearchCriteriaEmailAddress)
              ? $searchCriteriaEmailAddress
              : new SearchCriteriaEmailAddress($searchCriteriaEmailAddress);
@@ -231,7 +224,6 @@ class UserGetListInGroupRequest extends ComplexType implements ComplexInterface
      */
     public function setSearchCriteriaExactUserDepartment(SearchCriteriaExactUserDepartment $searchCriteriaExactUserDepartment = null)
     {
-        if (!$searchCriteriaExactUserDepartment) return $this;
         $this->searchCriteriaExactUserDepartment = ($searchCriteriaExactUserDepartment InstanceOf SearchCriteriaExactUserDepartment)
              ? $searchCriteriaExactUserDepartment
              : new SearchCriteriaExactUserDepartment($searchCriteriaExactUserDepartment);
@@ -253,7 +245,6 @@ class UserGetListInGroupRequest extends ComplexType implements ComplexInterface
      */
     public function setSearchCriteriaExactUserInTrunkGroup(SearchCriteriaExactUserInTrunkGroup $searchCriteriaExactUserInTrunkGroup = null)
     {
-        if (!$searchCriteriaExactUserInTrunkGroup) return $this;
         $this->searchCriteriaExactUserInTrunkGroup = ($searchCriteriaExactUserInTrunkGroup InstanceOf SearchCriteriaExactUserInTrunkGroup)
              ? $searchCriteriaExactUserInTrunkGroup
              : new SearchCriteriaExactUserInTrunkGroup($searchCriteriaExactUserInTrunkGroup);

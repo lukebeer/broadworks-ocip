@@ -22,9 +22,9 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserSeriesCompletionGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name      = 'UserSeriesCompletionGetResponse';
-    protected $name      = null;
-    protected $userTable = null;
+    public    $name = 'UserSeriesCompletionGetResponse';
+    protected $name;
+    protected $userTable;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceSeriesCompletion\UserSeriesCompletionGetResponse $response
@@ -39,7 +39,6 @@ class UserSeriesCompletionGetResponse extends ComplexType implements ComplexInte
      */
     public function setName($name = null)
     {
-        if (!$name) return $this;
         $this->name = ($name InstanceOf ServiceInstanceName)
              ? $name
              : new ServiceInstanceName($name);
@@ -53,7 +52,7 @@ class UserSeriesCompletionGetResponse extends ComplexType implements ComplexInte
      */
     public function getName()
     {
-        return $this->name->getValue();
+        return ($this->name) ? $this->name->getValue() : null;
     }
 
     /**
@@ -61,7 +60,6 @@ class UserSeriesCompletionGetResponse extends ComplexType implements ComplexInte
      */
     public function setUserTable(TableType $userTable = null)
     {
-        if (!$userTable) return $this;
         $this->userTable = $userTable;
         $this->userTable->setName('userTable');
         return $this;

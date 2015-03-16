@@ -21,12 +21,12 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserBargeInExemptModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name     = 'UserBargeInExemptModifyRequest';
-    protected $userId   = null;
-    protected $isActive = null;
+    public    $name = 'UserBargeInExemptModifyRequest';
+    protected $userId;
+    protected $isActive;
 
     public function __construct(
-         $userId,
+         $userId = '',
          $isActive = null
     ) {
         $this->setUserId($userId);
@@ -46,7 +46,6 @@ class UserBargeInExemptModifyRequest extends ComplexType implements ComplexInter
      */
     public function setUserId($userId = null)
     {
-        if (!$userId) return $this;
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
@@ -60,7 +59,7 @@ class UserBargeInExemptModifyRequest extends ComplexType implements ComplexInter
      */
     public function getUserId()
     {
-        return $this->userId->getValue();
+        return ($this->userId) ? $this->userId->getValue() : null;
     }
 
     /**
@@ -68,7 +67,6 @@ class UserBargeInExemptModifyRequest extends ComplexType implements ComplexInter
      */
     public function setIsActive($isActive = null)
     {
-        if (!$isActive) return $this;
         $this->isActive = new PrimitiveType($isActive);
         $this->isActive->setName('isActive');
         return $this;
@@ -80,6 +78,6 @@ class UserBargeInExemptModifyRequest extends ComplexType implements ComplexInter
      */
     public function getIsActive()
     {
-        return $this->isActive->getValue();
+        return ($this->isActive) ? $this->isActive->getValue() : null;
     }
 }

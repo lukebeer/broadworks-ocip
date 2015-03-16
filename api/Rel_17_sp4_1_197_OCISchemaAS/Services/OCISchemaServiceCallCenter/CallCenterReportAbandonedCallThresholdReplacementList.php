@@ -19,8 +19,8 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class CallCenterReportAbandonedCallThresholdReplacementList extends ComplexType implements ComplexInterface
 {
-    public    $name                          = 'CallCenterReportAbandonedCallThresholdReplacementList';
-    protected $abandonedCallThresholdSeconds = null;
+    public    $name = 'CallCenterReportAbandonedCallThresholdReplacementList';
+    protected $abandonedCallThresholdSeconds;
 
     public function __construct(
          $abandonedCallThresholdSeconds = null
@@ -41,7 +41,6 @@ class CallCenterReportAbandonedCallThresholdReplacementList extends ComplexType 
      */
     public function setAbandonedCallThresholdSeconds($abandonedCallThresholdSeconds = null)
     {
-        if (!$abandonedCallThresholdSeconds) return $this;
         $this->abandonedCallThresholdSeconds = new SimpleContent($abandonedCallThresholdSeconds);
         $this->abandonedCallThresholdSeconds->setName('abandonedCallThresholdSeconds');
         return $this;
@@ -53,6 +52,6 @@ class CallCenterReportAbandonedCallThresholdReplacementList extends ComplexType 
      */
     public function getAbandonedCallThresholdSeconds()
     {
-        return $this->abandonedCallThresholdSeconds->getValue();
+        return ($this->abandonedCallThresholdSeconds) ? $this->abandonedCallThresholdSeconds->getValue() : null;
     }
 }

@@ -25,11 +25,11 @@ use Broadworks_OCIP\core\Client\Client;
 class GroupCallCenterEnhancedGetRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType  = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15\GroupCallCenterEnhancedGetResponse';
-    public    $name          = 'GroupCallCenterEnhancedGetRequest';
-    protected $serviceUserId = null;
+    public    $name = 'GroupCallCenterEnhancedGetRequest';
+    protected $serviceUserId;
 
     public function __construct(
-         $serviceUserId
+         $serviceUserId = ''
     ) {
         $this->setServiceUserId($serviceUserId);
     }
@@ -47,7 +47,6 @@ class GroupCallCenterEnhancedGetRequest extends ComplexType implements ComplexIn
      */
     public function setServiceUserId($serviceUserId = null)
     {
-        if (!$serviceUserId) return $this;
         $this->serviceUserId = ($serviceUserId InstanceOf UserId)
              ? $serviceUserId
              : new UserId($serviceUserId);
@@ -61,6 +60,6 @@ class GroupCallCenterEnhancedGetRequest extends ComplexType implements ComplexIn
      */
     public function getServiceUserId()
     {
-        return $this->serviceUserId->getValue();
+        return ($this->serviceUserId) ? $this->serviceUserId->getValue() : null;
     }
 }

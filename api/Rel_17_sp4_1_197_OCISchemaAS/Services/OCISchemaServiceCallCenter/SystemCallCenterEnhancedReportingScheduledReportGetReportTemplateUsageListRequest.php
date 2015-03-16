@@ -24,10 +24,10 @@ class SystemCallCenterEnhancedReportingScheduledReportGetReportTemplateUsageList
 {
     public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\SystemCallCenterEnhancedReportingScheduledReportGetReportTemplateUsageListResponse';
     public    $name = 'SystemCallCenterEnhancedReportingScheduledReportGetReportTemplateUsageListRequest';
-    protected $name = null;
+    protected $name;
 
     public function __construct(
-         $name
+         $name = ''
     ) {
         $this->setName($name);
     }
@@ -45,7 +45,6 @@ class SystemCallCenterEnhancedReportingScheduledReportGetReportTemplateUsageList
      */
     public function setName($name = null)
     {
-        if (!$name) return $this;
         $this->name = ($name InstanceOf CallCenterReportTemplateName)
              ? $name
              : new CallCenterReportTemplateName($name);
@@ -59,6 +58,6 @@ class SystemCallCenterEnhancedReportingScheduledReportGetReportTemplateUsageList
      */
     public function getName()
     {
-        return $this->name->getValue();
+        return ($this->name) ? $this->name->getValue() : null;
     }
 }

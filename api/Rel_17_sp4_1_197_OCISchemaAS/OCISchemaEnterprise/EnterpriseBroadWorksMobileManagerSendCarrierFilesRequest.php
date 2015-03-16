@@ -21,13 +21,13 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class EnterpriseBroadWorksMobileManagerSendCarrierFilesRequest extends ComplexType implements ComplexInterface
 {
-    public    $name              = 'EnterpriseBroadWorksMobileManagerSendCarrierFilesRequest';
-    protected $serviceProviderId = null;
-    protected $emailTo           = null;
+    public    $name = 'EnterpriseBroadWorksMobileManagerSendCarrierFilesRequest';
+    protected $serviceProviderId;
+    protected $emailTo;
 
     public function __construct(
-         $serviceProviderId,
-         $emailTo
+         $serviceProviderId = '',
+         $emailTo = ''
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setEmailTo($emailTo);
@@ -46,7 +46,6 @@ class EnterpriseBroadWorksMobileManagerSendCarrierFilesRequest extends ComplexTy
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
-        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
@@ -60,7 +59,7 @@ class EnterpriseBroadWorksMobileManagerSendCarrierFilesRequest extends ComplexTy
      */
     public function getServiceProviderId()
     {
-        return $this->serviceProviderId->getValue();
+        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
     }
 
     /**
@@ -68,7 +67,6 @@ class EnterpriseBroadWorksMobileManagerSendCarrierFilesRequest extends ComplexTy
      */
     public function setEmailTo($emailTo = null)
     {
-        if (!$emailTo) return $this;
         $this->emailTo = ($emailTo InstanceOf EmailAddress)
              ? $emailTo
              : new EmailAddress($emailTo);
@@ -82,6 +80,6 @@ class EnterpriseBroadWorksMobileManagerSendCarrierFilesRequest extends ComplexTy
      */
     public function getEmailTo()
     {
-        return $this->emailTo->getValue();
+        return ($this->emailTo) ? $this->emailTo->getValue() : null;
     }
 }

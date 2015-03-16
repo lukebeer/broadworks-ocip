@@ -23,18 +23,18 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupBroadWorksMobileManagerGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                         = 'GroupBroadWorksMobileManagerGetResponse';
-    protected $mobileManagerId              = null;
-    protected $name                         = null;
-    protected $isActive                     = null;
-    protected $localToCarrier               = null;
-    protected $deactivationReason           = null;
-    protected $maxTxPerSecondEnabled        = null;
-    protected $maxTxPerSecond               = null;
-    protected $tldnEnabled                  = null;
-    protected $genericNumberEnabled         = null;
-    protected $mobileStateCheckEnabled      = null;
-    protected $locationBasedServicesEnabled = null;
+    public    $name = 'GroupBroadWorksMobileManagerGetResponse';
+    protected $mobileManagerId;
+    protected $name;
+    protected $isActive;
+    protected $localToCarrier;
+    protected $deactivationReason;
+    protected $maxTxPerSecondEnabled;
+    protected $maxTxPerSecond;
+    protected $tldnEnabled;
+    protected $genericNumberEnabled;
+    protected $mobileStateCheckEnabled;
+    protected $locationBasedServicesEnabled;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupBroadWorksMobileManagerGetResponse $response
@@ -49,7 +49,6 @@ class GroupBroadWorksMobileManagerGetResponse extends ComplexType implements Com
      */
     public function setMobileManagerId($mobileManagerId = null)
     {
-        if (!$mobileManagerId) return $this;
         $this->mobileManagerId = ($mobileManagerId InstanceOf BroadWorksMobileManagerDomainName)
              ? $mobileManagerId
              : new BroadWorksMobileManagerDomainName($mobileManagerId);
@@ -63,7 +62,7 @@ class GroupBroadWorksMobileManagerGetResponse extends ComplexType implements Com
      */
     public function getMobileManagerId()
     {
-        return $this->mobileManagerId->getValue();
+        return ($this->mobileManagerId) ? $this->mobileManagerId->getValue() : null;
     }
 
     /**
@@ -71,7 +70,6 @@ class GroupBroadWorksMobileManagerGetResponse extends ComplexType implements Com
      */
     public function setName($name = null)
     {
-        if (!$name) return $this;
         $this->name = ($name InstanceOf BroadWorksMobileManagerName)
              ? $name
              : new BroadWorksMobileManagerName($name);
@@ -85,7 +83,7 @@ class GroupBroadWorksMobileManagerGetResponse extends ComplexType implements Com
      */
     public function getName()
     {
-        return $this->name->getValue();
+        return ($this->name) ? $this->name->getValue() : null;
     }
 
     /**
@@ -93,7 +91,6 @@ class GroupBroadWorksMobileManagerGetResponse extends ComplexType implements Com
      */
     public function setIsActive($isActive = null)
     {
-        if (!$isActive) return $this;
         $this->isActive = new PrimitiveType($isActive);
         $this->isActive->setName('isActive');
         return $this;
@@ -105,7 +102,7 @@ class GroupBroadWorksMobileManagerGetResponse extends ComplexType implements Com
      */
     public function getIsActive()
     {
-        return $this->isActive->getValue();
+        return ($this->isActive) ? $this->isActive->getValue() : null;
     }
 
     /**
@@ -113,7 +110,6 @@ class GroupBroadWorksMobileManagerGetResponse extends ComplexType implements Com
      */
     public function setLocalToCarrier($localToCarrier = null)
     {
-        if (!$localToCarrier) return $this;
         $this->localToCarrier = new PrimitiveType($localToCarrier);
         $this->localToCarrier->setName('localToCarrier');
         return $this;
@@ -125,7 +121,7 @@ class GroupBroadWorksMobileManagerGetResponse extends ComplexType implements Com
      */
     public function getLocalToCarrier()
     {
-        return $this->localToCarrier->getValue();
+        return ($this->localToCarrier) ? $this->localToCarrier->getValue() : null;
     }
 
     /**
@@ -133,7 +129,6 @@ class GroupBroadWorksMobileManagerGetResponse extends ComplexType implements Com
      */
     public function setDeactivationReason($deactivationReason = null)
     {
-        if (!$deactivationReason) return $this;
         $this->deactivationReason = ($deactivationReason InstanceOf BroadWorksMobileManagerDeactivationReason)
              ? $deactivationReason
              : new BroadWorksMobileManagerDeactivationReason($deactivationReason);
@@ -147,7 +142,7 @@ class GroupBroadWorksMobileManagerGetResponse extends ComplexType implements Com
      */
     public function getDeactivationReason()
     {
-        return $this->deactivationReason->getValue();
+        return ($this->deactivationReason) ? $this->deactivationReason->getValue() : null;
     }
 
     /**
@@ -155,7 +150,6 @@ class GroupBroadWorksMobileManagerGetResponse extends ComplexType implements Com
      */
     public function setMaxTxPerSecondEnabled($maxTxPerSecondEnabled = null)
     {
-        if (!$maxTxPerSecondEnabled) return $this;
         $this->maxTxPerSecondEnabled = new PrimitiveType($maxTxPerSecondEnabled);
         $this->maxTxPerSecondEnabled->setName('maxTxPerSecondEnabled');
         return $this;
@@ -167,7 +161,7 @@ class GroupBroadWorksMobileManagerGetResponse extends ComplexType implements Com
      */
     public function getMaxTxPerSecondEnabled()
     {
-        return $this->maxTxPerSecondEnabled->getValue();
+        return ($this->maxTxPerSecondEnabled) ? $this->maxTxPerSecondEnabled->getValue() : null;
     }
 
     /**
@@ -175,7 +169,6 @@ class GroupBroadWorksMobileManagerGetResponse extends ComplexType implements Com
      */
     public function setMaxTxPerSecond($maxTxPerSecond = null)
     {
-        if (!$maxTxPerSecond) return $this;
         $this->maxTxPerSecond = ($maxTxPerSecond InstanceOf BroadWorksMobileManagerMaxTxPerSecond)
              ? $maxTxPerSecond
              : new BroadWorksMobileManagerMaxTxPerSecond($maxTxPerSecond);
@@ -189,7 +182,7 @@ class GroupBroadWorksMobileManagerGetResponse extends ComplexType implements Com
      */
     public function getMaxTxPerSecond()
     {
-        return $this->maxTxPerSecond->getValue();
+        return ($this->maxTxPerSecond) ? $this->maxTxPerSecond->getValue() : null;
     }
 
     /**
@@ -197,7 +190,6 @@ class GroupBroadWorksMobileManagerGetResponse extends ComplexType implements Com
      */
     public function setTldnEnabled($tldnEnabled = null)
     {
-        if (!$tldnEnabled) return $this;
         $this->tldnEnabled = new PrimitiveType($tldnEnabled);
         $this->tldnEnabled->setName('tldnEnabled');
         return $this;
@@ -209,7 +201,7 @@ class GroupBroadWorksMobileManagerGetResponse extends ComplexType implements Com
      */
     public function getTldnEnabled()
     {
-        return $this->tldnEnabled->getValue();
+        return ($this->tldnEnabled) ? $this->tldnEnabled->getValue() : null;
     }
 
     /**
@@ -217,7 +209,6 @@ class GroupBroadWorksMobileManagerGetResponse extends ComplexType implements Com
      */
     public function setGenericNumberEnabled($genericNumberEnabled = null)
     {
-        if (!$genericNumberEnabled) return $this;
         $this->genericNumberEnabled = new PrimitiveType($genericNumberEnabled);
         $this->genericNumberEnabled->setName('genericNumberEnabled');
         return $this;
@@ -229,7 +220,7 @@ class GroupBroadWorksMobileManagerGetResponse extends ComplexType implements Com
      */
     public function getGenericNumberEnabled()
     {
-        return $this->genericNumberEnabled->getValue();
+        return ($this->genericNumberEnabled) ? $this->genericNumberEnabled->getValue() : null;
     }
 
     /**
@@ -237,7 +228,6 @@ class GroupBroadWorksMobileManagerGetResponse extends ComplexType implements Com
      */
     public function setMobileStateCheckEnabled($mobileStateCheckEnabled = null)
     {
-        if (!$mobileStateCheckEnabled) return $this;
         $this->mobileStateCheckEnabled = new PrimitiveType($mobileStateCheckEnabled);
         $this->mobileStateCheckEnabled->setName('mobileStateCheckEnabled');
         return $this;
@@ -249,7 +239,7 @@ class GroupBroadWorksMobileManagerGetResponse extends ComplexType implements Com
      */
     public function getMobileStateCheckEnabled()
     {
-        return $this->mobileStateCheckEnabled->getValue();
+        return ($this->mobileStateCheckEnabled) ? $this->mobileStateCheckEnabled->getValue() : null;
     }
 
     /**
@@ -257,7 +247,6 @@ class GroupBroadWorksMobileManagerGetResponse extends ComplexType implements Com
      */
     public function setLocationBasedServicesEnabled($locationBasedServicesEnabled = null)
     {
-        if (!$locationBasedServicesEnabled) return $this;
         $this->locationBasedServicesEnabled = new PrimitiveType($locationBasedServicesEnabled);
         $this->locationBasedServicesEnabled->setName('locationBasedServicesEnabled');
         return $this;
@@ -269,6 +258,6 @@ class GroupBroadWorksMobileManagerGetResponse extends ComplexType implements Com
      */
     public function getLocationBasedServicesEnabled()
     {
-        return $this->locationBasedServicesEnabled->getValue();
+        return ($this->locationBasedServicesEnabled) ? $this->locationBasedServicesEnabled->getValue() : null;
     }
 }

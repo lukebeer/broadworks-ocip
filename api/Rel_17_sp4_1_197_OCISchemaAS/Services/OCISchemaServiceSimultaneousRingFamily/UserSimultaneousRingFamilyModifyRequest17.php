@@ -23,15 +23,15 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserSimultaneousRingFamilyModifyRequest17 extends ComplexType implements ComplexInterface
 {
-    public    $name                       = 'UserSimultaneousRingFamilyModifyRequest17';
-    protected $userId                     = null;
-    protected $isActive                   = null;
-    protected $doNotRingIfOnCall          = null;
-    protected $simultaneousRingNumberList = null;
-    protected $criteriaActivation         = null;
+    public    $name = 'UserSimultaneousRingFamilyModifyRequest17';
+    protected $userId;
+    protected $isActive;
+    protected $doNotRingIfOnCall;
+    protected $simultaneousRingNumberList;
+    protected $criteriaActivation;
 
     public function __construct(
-         $userId,
+         $userId = '',
          $isActive = null,
          $doNotRingIfOnCall = null,
          SimultaneousRingReplacementNumberList $simultaneousRingNumberList = null,
@@ -57,7 +57,6 @@ class UserSimultaneousRingFamilyModifyRequest17 extends ComplexType implements C
      */
     public function setUserId($userId = null)
     {
-        if (!$userId) return $this;
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
@@ -71,7 +70,7 @@ class UserSimultaneousRingFamilyModifyRequest17 extends ComplexType implements C
      */
     public function getUserId()
     {
-        return $this->userId->getValue();
+        return ($this->userId) ? $this->userId->getValue() : null;
     }
 
     /**
@@ -79,7 +78,6 @@ class UserSimultaneousRingFamilyModifyRequest17 extends ComplexType implements C
      */
     public function setIsActive($isActive = null)
     {
-        if (!$isActive) return $this;
         $this->isActive = new PrimitiveType($isActive);
         $this->isActive->setName('isActive');
         return $this;
@@ -91,7 +89,7 @@ class UserSimultaneousRingFamilyModifyRequest17 extends ComplexType implements C
      */
     public function getIsActive()
     {
-        return $this->isActive->getValue();
+        return ($this->isActive) ? $this->isActive->getValue() : null;
     }
 
     /**
@@ -99,7 +97,6 @@ class UserSimultaneousRingFamilyModifyRequest17 extends ComplexType implements C
      */
     public function setDoNotRingIfOnCall($doNotRingIfOnCall = null)
     {
-        if (!$doNotRingIfOnCall) return $this;
         $this->doNotRingIfOnCall = new PrimitiveType($doNotRingIfOnCall);
         $this->doNotRingIfOnCall->setName('doNotRingIfOnCall');
         return $this;
@@ -111,7 +108,7 @@ class UserSimultaneousRingFamilyModifyRequest17 extends ComplexType implements C
      */
     public function getDoNotRingIfOnCall()
     {
-        return $this->doNotRingIfOnCall->getValue();
+        return ($this->doNotRingIfOnCall) ? $this->doNotRingIfOnCall->getValue() : null;
     }
 
     /**
@@ -119,8 +116,9 @@ class UserSimultaneousRingFamilyModifyRequest17 extends ComplexType implements C
      */
     public function setSimultaneousRingNumberList(SimultaneousRingReplacementNumberList $simultaneousRingNumberList = null)
     {
-        if (!$simultaneousRingNumberList) return $this;
-        $this->simultaneousRingNumberList = $simultaneousRingNumberList;
+        $this->simultaneousRingNumberList = ($simultaneousRingNumberList InstanceOf SimultaneousRingReplacementNumberList)
+             ? $simultaneousRingNumberList
+             : new SimultaneousRingReplacementNumberList($simultaneousRingNumberList);
         $this->simultaneousRingNumberList->setName('simultaneousRingNumberList');
         return $this;
     }
@@ -139,8 +137,9 @@ class UserSimultaneousRingFamilyModifyRequest17 extends ComplexType implements C
      */
     public function setCriteriaActivation(CriteriaActivation $criteriaActivation = null)
     {
-        if (!$criteriaActivation) return $this;
-        $this->criteriaActivation = $criteriaActivation;
+        $this->criteriaActivation = ($criteriaActivation InstanceOf CriteriaActivation)
+             ? $criteriaActivation
+             : new CriteriaActivation($criteriaActivation);
         $this->criteriaActivation->setName('criteriaActivation');
         return $this;
     }

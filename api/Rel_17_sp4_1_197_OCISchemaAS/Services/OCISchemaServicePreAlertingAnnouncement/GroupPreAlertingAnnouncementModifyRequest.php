@@ -25,19 +25,19 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupPreAlertingAnnouncementModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                      = 'GroupPreAlertingAnnouncementModifyRequest';
-    protected $serviceProviderId         = null;
-    protected $groupId                   = null;
-    protected $announcementInterruption  = null;
-    protected $interruptionDigitSequence = null;
-    protected $audioSelection            = null;
-    protected $audioFile                 = null;
-    protected $videoSelection            = null;
-    protected $videoFile                 = null;
+    public    $name = 'GroupPreAlertingAnnouncementModifyRequest';
+    protected $serviceProviderId;
+    protected $groupId;
+    protected $announcementInterruption;
+    protected $interruptionDigitSequence;
+    protected $audioSelection;
+    protected $audioFile;
+    protected $videoSelection;
+    protected $videoFile;
 
     public function __construct(
-         $serviceProviderId,
-         $groupId,
+         $serviceProviderId = '',
+         $groupId = '',
          $announcementInterruption = null,
          $interruptionDigitSequence = null,
          $audioSelection = null,
@@ -68,7 +68,6 @@ class GroupPreAlertingAnnouncementModifyRequest extends ComplexType implements C
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
-        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
@@ -82,7 +81,7 @@ class GroupPreAlertingAnnouncementModifyRequest extends ComplexType implements C
      */
     public function getServiceProviderId()
     {
-        return $this->serviceProviderId->getValue();
+        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
     }
 
     /**
@@ -90,7 +89,6 @@ class GroupPreAlertingAnnouncementModifyRequest extends ComplexType implements C
      */
     public function setGroupId($groupId = null)
     {
-        if (!$groupId) return $this;
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
@@ -104,7 +102,7 @@ class GroupPreAlertingAnnouncementModifyRequest extends ComplexType implements C
      */
     public function getGroupId()
     {
-        return $this->groupId->getValue();
+        return ($this->groupId) ? $this->groupId->getValue() : null;
     }
 
     /**
@@ -112,7 +110,6 @@ class GroupPreAlertingAnnouncementModifyRequest extends ComplexType implements C
      */
     public function setAnnouncementInterruption($announcementInterruption = null)
     {
-        if (!$announcementInterruption) return $this;
         $this->announcementInterruption = ($announcementInterruption InstanceOf PreAlertingAnnouncementInterrupt)
              ? $announcementInterruption
              : new PreAlertingAnnouncementInterrupt($announcementInterruption);
@@ -126,7 +123,7 @@ class GroupPreAlertingAnnouncementModifyRequest extends ComplexType implements C
      */
     public function getAnnouncementInterruption()
     {
-        return $this->announcementInterruption->getValue();
+        return ($this->announcementInterruption) ? $this->announcementInterruption->getValue() : null;
     }
 
     /**
@@ -134,7 +131,6 @@ class GroupPreAlertingAnnouncementModifyRequest extends ComplexType implements C
      */
     public function setInterruptionDigitSequence($interruptionDigitSequence = null)
     {
-        if (!$interruptionDigitSequence) return $this;
         $this->interruptionDigitSequence = ($interruptionDigitSequence InstanceOf PreAlertingAnnouncementInterruptDigits)
              ? $interruptionDigitSequence
              : new PreAlertingAnnouncementInterruptDigits($interruptionDigitSequence);
@@ -148,7 +144,7 @@ class GroupPreAlertingAnnouncementModifyRequest extends ComplexType implements C
      */
     public function getInterruptionDigitSequence()
     {
-        return $this->interruptionDigitSequence->getValue();
+        return ($this->interruptionDigitSequence) ? $this->interruptionDigitSequence->getValue() : null;
     }
 
     /**
@@ -156,7 +152,6 @@ class GroupPreAlertingAnnouncementModifyRequest extends ComplexType implements C
      */
     public function setAudioSelection($audioSelection = null)
     {
-        if (!$audioSelection) return $this;
         $this->audioSelection = ($audioSelection InstanceOf ExtendedFileResourceSelection)
              ? $audioSelection
              : new ExtendedFileResourceSelection($audioSelection);
@@ -170,7 +165,7 @@ class GroupPreAlertingAnnouncementModifyRequest extends ComplexType implements C
      */
     public function getAudioSelection()
     {
-        return $this->audioSelection->getValue();
+        return ($this->audioSelection) ? $this->audioSelection->getValue() : null;
     }
 
     /**
@@ -178,8 +173,9 @@ class GroupPreAlertingAnnouncementModifyRequest extends ComplexType implements C
      */
     public function setAudioFile(ExtendedMediaFileResource $audioFile = null)
     {
-        if (!$audioFile) return $this;
-        $this->audioFile = $audioFile;
+        $this->audioFile = ($audioFile InstanceOf ExtendedMediaFileResource)
+             ? $audioFile
+             : new ExtendedMediaFileResource($audioFile);
         $this->audioFile->setName('audioFile');
         return $this;
     }
@@ -198,7 +194,6 @@ class GroupPreAlertingAnnouncementModifyRequest extends ComplexType implements C
      */
     public function setVideoSelection($videoSelection = null)
     {
-        if (!$videoSelection) return $this;
         $this->videoSelection = ($videoSelection InstanceOf ExtendedFileResourceSelection)
              ? $videoSelection
              : new ExtendedFileResourceSelection($videoSelection);
@@ -212,7 +207,7 @@ class GroupPreAlertingAnnouncementModifyRequest extends ComplexType implements C
      */
     public function getVideoSelection()
     {
-        return $this->videoSelection->getValue();
+        return ($this->videoSelection) ? $this->videoSelection->getValue() : null;
     }
 
     /**
@@ -220,8 +215,9 @@ class GroupPreAlertingAnnouncementModifyRequest extends ComplexType implements C
      */
     public function setVideoFile(ExtendedMediaFileResource $videoFile = null)
     {
-        if (!$videoFile) return $this;
-        $this->videoFile = $videoFile;
+        $this->videoFile = ($videoFile InstanceOf ExtendedMediaFileResource)
+             ? $videoFile
+             : new ExtendedMediaFileResource($videoFile);
         $this->videoFile->setName('videoFile');
         return $this;
     }

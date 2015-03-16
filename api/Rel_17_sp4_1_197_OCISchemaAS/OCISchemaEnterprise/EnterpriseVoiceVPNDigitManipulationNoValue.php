@@ -19,11 +19,11 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class EnterpriseVoiceVPNDigitManipulationNoValue extends ComplexType implements ComplexInterface
 {
-    public    $name      = 'EnterpriseVoiceVPNDigitManipulationNoValue';
-    protected $operation = null;
+    public    $name = 'EnterpriseVoiceVPNDigitManipulationNoValue';
+    protected $operation;
 
     public function __construct(
-         $operation
+         $operation = ''
     ) {
         $this->setOperation($operation);
     }
@@ -41,7 +41,6 @@ class EnterpriseVoiceVPNDigitManipulationNoValue extends ComplexType implements 
      */
     public function setOperation($operation = null)
     {
-        if (!$operation) return $this;
         $this->operation = ($operation InstanceOf EnterpriseVoiceVPNDigitManipulationOperationNoValue)
              ? $operation
              : new EnterpriseVoiceVPNDigitManipulationOperationNoValue($operation);
@@ -55,6 +54,6 @@ class EnterpriseVoiceVPNDigitManipulationNoValue extends ComplexType implements 
      */
     public function getOperation()
     {
-        return $this->operation->getValue();
+        return ($this->operation) ? $this->operation->getValue() : null;
     }
 }

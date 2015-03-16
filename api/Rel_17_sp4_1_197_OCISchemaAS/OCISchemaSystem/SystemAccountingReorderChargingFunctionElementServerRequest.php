@@ -22,8 +22,8 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemAccountingReorderChargingFunctionElementServerRequest extends ComplexType implements ComplexInterface
 {
-    public    $name               = 'SystemAccountingReorderChargingFunctionElementServerRequest';
-    protected $orderedAddressList = null;
+    public    $name = 'SystemAccountingReorderChargingFunctionElementServerRequest';
+    protected $orderedAddressList;
 
     public function __construct(
          $orderedAddressList = null
@@ -44,7 +44,6 @@ class SystemAccountingReorderChargingFunctionElementServerRequest extends Comple
      */
     public function setOrderedAddressList($orderedAddressList = null)
     {
-        if (!$orderedAddressList) return $this;
         $this->orderedAddressList = ($orderedAddressList InstanceOf NetAddressExtended)
              ? $orderedAddressList
              : new NetAddressExtended($orderedAddressList);
@@ -58,6 +57,6 @@ class SystemAccountingReorderChargingFunctionElementServerRequest extends Comple
      */
     public function getOrderedAddressList()
     {
-        return $this->orderedAddressList->getValue();
+        return ($this->orderedAddressList) ? $this->orderedAddressList->getValue() : null;
     }
 }

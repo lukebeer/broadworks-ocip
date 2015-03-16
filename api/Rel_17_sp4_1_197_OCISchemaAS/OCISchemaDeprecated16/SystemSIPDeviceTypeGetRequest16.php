@@ -23,11 +23,11 @@ use Broadworks_OCIP\core\Client\Client;
 class SystemSIPDeviceTypeGetRequest16 extends ComplexType implements ComplexInterface
 {
     public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\SystemSIPDeviceTypeGetResponse16';
-    public    $name       = 'SystemSIPDeviceTypeGetRequest16';
-    protected $deviceType = null;
+    public    $name = 'SystemSIPDeviceTypeGetRequest16';
+    protected $deviceType;
 
     public function __construct(
-         $deviceType
+         $deviceType = ''
     ) {
         $this->setDeviceType($deviceType);
     }
@@ -45,7 +45,6 @@ class SystemSIPDeviceTypeGetRequest16 extends ComplexType implements ComplexInte
      */
     public function setDeviceType($deviceType = null)
     {
-        if (!$deviceType) return $this;
         $this->deviceType = ($deviceType InstanceOf AccessDeviceType)
              ? $deviceType
              : new AccessDeviceType($deviceType);
@@ -59,6 +58,6 @@ class SystemSIPDeviceTypeGetRequest16 extends ComplexType implements ComplexInte
      */
     public function getDeviceType()
     {
-        return $this->deviceType->getValue();
+        return ($this->deviceType) ? $this->deviceType->getValue() : null;
     }
 }

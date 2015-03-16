@@ -20,8 +20,8 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemBroadWorksMobilityDeleteIMRNListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name       = 'SystemBroadWorksMobilityDeleteIMRNListRequest';
-    protected $imrnNumber = null;
+    public    $name = 'SystemBroadWorksMobilityDeleteIMRNListRequest';
+    protected $imrnNumber;
 
     public function __construct(
          $imrnNumber = null
@@ -42,7 +42,6 @@ class SystemBroadWorksMobilityDeleteIMRNListRequest extends ComplexType implemen
      */
     public function setImrnNumber($imrnNumber = null)
     {
-        if (!$imrnNumber) return $this;
         $this->imrnNumber = ($imrnNumber InstanceOf DN)
              ? $imrnNumber
              : new DN($imrnNumber);
@@ -56,6 +55,6 @@ class SystemBroadWorksMobilityDeleteIMRNListRequest extends ComplexType implemen
      */
     public function getImrnNumber()
     {
-        return $this->imrnNumber->getValue();
+        return ($this->imrnNumber) ? $this->imrnNumber->getValue() : null;
     }
 }

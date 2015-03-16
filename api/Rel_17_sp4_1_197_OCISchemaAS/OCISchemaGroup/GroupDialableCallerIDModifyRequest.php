@@ -24,16 +24,16 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupDialableCallerIDModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                     = 'GroupDialableCallerIDModifyRequest';
-    protected $serviceProviderId        = null;
-    protected $groupId                  = null;
-    protected $useGroupCriteria         = null;
-    protected $nsScreeningFailurePolicy = null;
-    protected $criteriaPriorityOrder    = null;
+    public    $name = 'GroupDialableCallerIDModifyRequest';
+    protected $serviceProviderId;
+    protected $groupId;
+    protected $useGroupCriteria;
+    protected $nsScreeningFailurePolicy;
+    protected $criteriaPriorityOrder;
 
     public function __construct(
-         $serviceProviderId,
-         $groupId,
+         $serviceProviderId = '',
+         $groupId = '',
          $useGroupCriteria = null,
          $nsScreeningFailurePolicy = null,
          DialableCallerIDCriteriaPriorityOrder $criteriaPriorityOrder = null
@@ -58,7 +58,6 @@ class GroupDialableCallerIDModifyRequest extends ComplexType implements ComplexI
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
-        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
@@ -72,7 +71,7 @@ class GroupDialableCallerIDModifyRequest extends ComplexType implements ComplexI
      */
     public function getServiceProviderId()
     {
-        return $this->serviceProviderId->getValue();
+        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
     }
 
     /**
@@ -80,7 +79,6 @@ class GroupDialableCallerIDModifyRequest extends ComplexType implements ComplexI
      */
     public function setGroupId($groupId = null)
     {
-        if (!$groupId) return $this;
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
@@ -94,7 +92,7 @@ class GroupDialableCallerIDModifyRequest extends ComplexType implements ComplexI
      */
     public function getGroupId()
     {
-        return $this->groupId->getValue();
+        return ($this->groupId) ? $this->groupId->getValue() : null;
     }
 
     /**
@@ -102,7 +100,6 @@ class GroupDialableCallerIDModifyRequest extends ComplexType implements ComplexI
      */
     public function setUseGroupCriteria($useGroupCriteria = null)
     {
-        if (!$useGroupCriteria) return $this;
         $this->useGroupCriteria = new PrimitiveType($useGroupCriteria);
         $this->useGroupCriteria->setName('useGroupCriteria');
         return $this;
@@ -114,7 +111,7 @@ class GroupDialableCallerIDModifyRequest extends ComplexType implements ComplexI
      */
     public function getUseGroupCriteria()
     {
-        return $this->useGroupCriteria->getValue();
+        return ($this->useGroupCriteria) ? $this->useGroupCriteria->getValue() : null;
     }
 
     /**
@@ -122,7 +119,6 @@ class GroupDialableCallerIDModifyRequest extends ComplexType implements ComplexI
      */
     public function setNsScreeningFailurePolicy($nsScreeningFailurePolicy = null)
     {
-        if (!$nsScreeningFailurePolicy) return $this;
         $this->nsScreeningFailurePolicy = ($nsScreeningFailurePolicy InstanceOf NsScreeningFailurePolicy)
              ? $nsScreeningFailurePolicy
              : new NsScreeningFailurePolicy($nsScreeningFailurePolicy);
@@ -136,7 +132,7 @@ class GroupDialableCallerIDModifyRequest extends ComplexType implements ComplexI
      */
     public function getNsScreeningFailurePolicy()
     {
-        return $this->nsScreeningFailurePolicy->getValue();
+        return ($this->nsScreeningFailurePolicy) ? $this->nsScreeningFailurePolicy->getValue() : null;
     }
 
     /**
@@ -144,8 +140,9 @@ class GroupDialableCallerIDModifyRequest extends ComplexType implements ComplexI
      */
     public function setCriteriaPriorityOrder(DialableCallerIDCriteriaPriorityOrder $criteriaPriorityOrder = null)
     {
-        if (!$criteriaPriorityOrder) return $this;
-        $this->criteriaPriorityOrder = $criteriaPriorityOrder;
+        $this->criteriaPriorityOrder = ($criteriaPriorityOrder InstanceOf DialableCallerIDCriteriaPriorityOrder)
+             ? $criteriaPriorityOrder
+             : new DialableCallerIDCriteriaPriorityOrder($criteriaPriorityOrder);
         $this->criteriaPriorityOrder->setName('criteriaPriorityOrder');
         return $this;
     }

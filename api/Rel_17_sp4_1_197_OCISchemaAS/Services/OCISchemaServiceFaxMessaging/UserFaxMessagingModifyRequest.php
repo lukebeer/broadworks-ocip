@@ -24,15 +24,15 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserFaxMessagingModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name         = 'UserFaxMessagingModifyRequest';
-    protected $userId       = null;
-    protected $isActive     = null;
-    protected $phoneNumber  = null;
-    protected $extension    = null;
-    protected $sipAliasList = null;
+    public    $name = 'UserFaxMessagingModifyRequest';
+    protected $userId;
+    protected $isActive;
+    protected $phoneNumber;
+    protected $extension;
+    protected $sipAliasList;
 
     public function __construct(
-         $userId,
+         $userId = '',
          $isActive = null,
          $phoneNumber = null,
          $extension = null,
@@ -58,7 +58,6 @@ class UserFaxMessagingModifyRequest extends ComplexType implements ComplexInterf
      */
     public function setUserId($userId = null)
     {
-        if (!$userId) return $this;
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
@@ -72,7 +71,7 @@ class UserFaxMessagingModifyRequest extends ComplexType implements ComplexInterf
      */
     public function getUserId()
     {
-        return $this->userId->getValue();
+        return ($this->userId) ? $this->userId->getValue() : null;
     }
 
     /**
@@ -80,7 +79,6 @@ class UserFaxMessagingModifyRequest extends ComplexType implements ComplexInterf
      */
     public function setIsActive($isActive = null)
     {
-        if (!$isActive) return $this;
         $this->isActive = new PrimitiveType($isActive);
         $this->isActive->setName('isActive');
         return $this;
@@ -92,7 +90,7 @@ class UserFaxMessagingModifyRequest extends ComplexType implements ComplexInterf
      */
     public function getIsActive()
     {
-        return $this->isActive->getValue();
+        return ($this->isActive) ? $this->isActive->getValue() : null;
     }
 
     /**
@@ -100,7 +98,6 @@ class UserFaxMessagingModifyRequest extends ComplexType implements ComplexInterf
      */
     public function setPhoneNumber($phoneNumber = null)
     {
-        if (!$phoneNumber) return $this;
         $this->phoneNumber = ($phoneNumber InstanceOf DN)
              ? $phoneNumber
              : new DN($phoneNumber);
@@ -114,7 +111,7 @@ class UserFaxMessagingModifyRequest extends ComplexType implements ComplexInterf
      */
     public function getPhoneNumber()
     {
-        return $this->phoneNumber->getValue();
+        return ($this->phoneNumber) ? $this->phoneNumber->getValue() : null;
     }
 
     /**
@@ -122,7 +119,6 @@ class UserFaxMessagingModifyRequest extends ComplexType implements ComplexInterf
      */
     public function setExtension($extension = null)
     {
-        if (!$extension) return $this;
         $this->extension = ($extension InstanceOf Extension17)
              ? $extension
              : new Extension17($extension);
@@ -136,7 +132,7 @@ class UserFaxMessagingModifyRequest extends ComplexType implements ComplexInterf
      */
     public function getExtension()
     {
-        return $this->extension->getValue();
+        return ($this->extension) ? $this->extension->getValue() : null;
     }
 
     /**
@@ -144,8 +140,9 @@ class UserFaxMessagingModifyRequest extends ComplexType implements ComplexInterf
      */
     public function setSipAliasList(ReplacementSIPAliasList $sipAliasList = null)
     {
-        if (!$sipAliasList) return $this;
-        $this->sipAliasList = $sipAliasList;
+        $this->sipAliasList = ($sipAliasList InstanceOf ReplacementSIPAliasList)
+             ? $sipAliasList
+             : new ReplacementSIPAliasList($sipAliasList);
         $this->sipAliasList->setName('sipAliasList');
         return $this;
     }

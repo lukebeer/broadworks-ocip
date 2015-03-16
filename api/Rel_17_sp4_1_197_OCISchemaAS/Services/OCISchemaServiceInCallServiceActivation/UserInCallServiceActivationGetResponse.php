@@ -19,8 +19,8 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserInCallServiceActivationGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name     = 'UserInCallServiceActivationGetResponse';
-    protected $isActive = null;
+    public    $name = 'UserInCallServiceActivationGetResponse';
+    protected $isActive;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInCallServiceActivation\UserInCallServiceActivationGetResponse $response
@@ -35,7 +35,6 @@ class UserInCallServiceActivationGetResponse extends ComplexType implements Comp
      */
     public function setIsActive($isActive = null)
     {
-        if (!$isActive) return $this;
         $this->isActive = new PrimitiveType($isActive);
         $this->isActive->setName('isActive');
         return $this;
@@ -47,6 +46,6 @@ class UserInCallServiceActivationGetResponse extends ComplexType implements Comp
      */
     public function getIsActive()
     {
-        return $this->isActive->getValue();
+        return ($this->isActive) ? $this->isActive->getValue() : null;
     }
 }

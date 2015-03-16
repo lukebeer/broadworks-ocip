@@ -23,17 +23,17 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupCustomContactDirectoryModifyRequest17 extends ComplexType implements ComplexInterface
 {
-    public    $name              = 'GroupCustomContactDirectoryModifyRequest17';
-    protected $serviceProviderId = null;
-    protected $groupId           = null;
-    protected $name              = null;
-    protected $newName           = null;
-    protected $entryList         = null;
+    public    $name = 'GroupCustomContactDirectoryModifyRequest17';
+    protected $serviceProviderId;
+    protected $groupId;
+    protected $name;
+    protected $newName;
+    protected $entryList;
 
     public function __construct(
-         $serviceProviderId,
-         $groupId,
-         $name,
+         $serviceProviderId = '',
+         $groupId = '',
+         $name = '',
          $newName = null,
          ReplacementCustomContactDirectoryEntryList $entryList = null
     ) {
@@ -57,7 +57,6 @@ class GroupCustomContactDirectoryModifyRequest17 extends ComplexType implements 
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
-        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
@@ -71,7 +70,7 @@ class GroupCustomContactDirectoryModifyRequest17 extends ComplexType implements 
      */
     public function getServiceProviderId()
     {
-        return $this->serviceProviderId->getValue();
+        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
     }
 
     /**
@@ -79,7 +78,6 @@ class GroupCustomContactDirectoryModifyRequest17 extends ComplexType implements 
      */
     public function setGroupId($groupId = null)
     {
-        if (!$groupId) return $this;
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
@@ -93,7 +91,7 @@ class GroupCustomContactDirectoryModifyRequest17 extends ComplexType implements 
      */
     public function getGroupId()
     {
-        return $this->groupId->getValue();
+        return ($this->groupId) ? $this->groupId->getValue() : null;
     }
 
     /**
@@ -101,7 +99,6 @@ class GroupCustomContactDirectoryModifyRequest17 extends ComplexType implements 
      */
     public function setName($name = null)
     {
-        if (!$name) return $this;
         $this->name = ($name InstanceOf CustomContactDirectoryName)
              ? $name
              : new CustomContactDirectoryName($name);
@@ -115,7 +112,7 @@ class GroupCustomContactDirectoryModifyRequest17 extends ComplexType implements 
      */
     public function getName()
     {
-        return $this->name->getValue();
+        return ($this->name) ? $this->name->getValue() : null;
     }
 
     /**
@@ -123,7 +120,6 @@ class GroupCustomContactDirectoryModifyRequest17 extends ComplexType implements 
      */
     public function setNewName($newName = null)
     {
-        if (!$newName) return $this;
         $this->newName = ($newName InstanceOf CustomContactDirectoryName)
              ? $newName
              : new CustomContactDirectoryName($newName);
@@ -137,7 +133,7 @@ class GroupCustomContactDirectoryModifyRequest17 extends ComplexType implements 
      */
     public function getNewName()
     {
-        return $this->newName->getValue();
+        return ($this->newName) ? $this->newName->getValue() : null;
     }
 
     /**
@@ -145,8 +141,9 @@ class GroupCustomContactDirectoryModifyRequest17 extends ComplexType implements 
      */
     public function setEntryList(ReplacementCustomContactDirectoryEntryList $entryList = null)
     {
-        if (!$entryList) return $this;
-        $this->entryList = $entryList;
+        $this->entryList = ($entryList InstanceOf ReplacementCustomContactDirectoryEntryList)
+             ? $entryList
+             : new ReplacementCustomContactDirectoryEntryList($entryList);
         $this->entryList->setName('entryList');
         return $this;
     }

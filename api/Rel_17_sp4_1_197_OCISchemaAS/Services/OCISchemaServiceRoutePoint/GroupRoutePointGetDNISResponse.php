@@ -23,15 +23,15 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupRoutePointGetDNISResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                              = 'GroupRoutePointGetDNISResponse';
-    protected $dnisPhoneNumber                   = null;
-    protected $extension                         = null;
-    protected $useCustomCLIDSettings             = null;
-    protected $callingLineIdPhoneNumber          = null;
-    protected $callingLineIdLastName             = null;
-    protected $callingLineIdFirstName            = null;
-    protected $useCustomDnisAnnouncementSettings = null;
-    protected $allowOutgoingACDCall              = null;
+    public    $name = 'GroupRoutePointGetDNISResponse';
+    protected $dnisPhoneNumber;
+    protected $extension;
+    protected $useCustomCLIDSettings;
+    protected $callingLineIdPhoneNumber;
+    protected $callingLineIdLastName;
+    protected $callingLineIdFirstName;
+    protected $useCustomDnisAnnouncementSettings;
+    protected $allowOutgoingACDCall;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceRoutePoint\GroupRoutePointGetDNISResponse $response
@@ -46,7 +46,6 @@ class GroupRoutePointGetDNISResponse extends ComplexType implements ComplexInter
      */
     public function setDnisPhoneNumber($dnisPhoneNumber = null)
     {
-        if (!$dnisPhoneNumber) return $this;
         $this->dnisPhoneNumber = ($dnisPhoneNumber InstanceOf DN)
              ? $dnisPhoneNumber
              : new DN($dnisPhoneNumber);
@@ -60,7 +59,7 @@ class GroupRoutePointGetDNISResponse extends ComplexType implements ComplexInter
      */
     public function getDnisPhoneNumber()
     {
-        return $this->dnisPhoneNumber->getValue();
+        return ($this->dnisPhoneNumber) ? $this->dnisPhoneNumber->getValue() : null;
     }
 
     /**
@@ -68,7 +67,6 @@ class GroupRoutePointGetDNISResponse extends ComplexType implements ComplexInter
      */
     public function setExtension($extension = null)
     {
-        if (!$extension) return $this;
         $this->extension = ($extension InstanceOf Extension17)
              ? $extension
              : new Extension17($extension);
@@ -82,7 +80,7 @@ class GroupRoutePointGetDNISResponse extends ComplexType implements ComplexInter
      */
     public function getExtension()
     {
-        return $this->extension->getValue();
+        return ($this->extension) ? $this->extension->getValue() : null;
     }
 
     /**
@@ -90,7 +88,6 @@ class GroupRoutePointGetDNISResponse extends ComplexType implements ComplexInter
      */
     public function setUseCustomCLIDSettings($useCustomCLIDSettings = null)
     {
-        if (!$useCustomCLIDSettings) return $this;
         $this->useCustomCLIDSettings = new PrimitiveType($useCustomCLIDSettings);
         $this->useCustomCLIDSettings->setName('useCustomCLIDSettings');
         return $this;
@@ -102,7 +99,7 @@ class GroupRoutePointGetDNISResponse extends ComplexType implements ComplexInter
      */
     public function getUseCustomCLIDSettings()
     {
-        return $this->useCustomCLIDSettings->getValue();
+        return ($this->useCustomCLIDSettings) ? $this->useCustomCLIDSettings->getValue() : null;
     }
 
     /**
@@ -110,7 +107,6 @@ class GroupRoutePointGetDNISResponse extends ComplexType implements ComplexInter
      */
     public function setCallingLineIdPhoneNumber($callingLineIdPhoneNumber = null)
     {
-        if (!$callingLineIdPhoneNumber) return $this;
         $this->callingLineIdPhoneNumber = ($callingLineIdPhoneNumber InstanceOf DN)
              ? $callingLineIdPhoneNumber
              : new DN($callingLineIdPhoneNumber);
@@ -124,7 +120,7 @@ class GroupRoutePointGetDNISResponse extends ComplexType implements ComplexInter
      */
     public function getCallingLineIdPhoneNumber()
     {
-        return $this->callingLineIdPhoneNumber->getValue();
+        return ($this->callingLineIdPhoneNumber) ? $this->callingLineIdPhoneNumber->getValue() : null;
     }
 
     /**
@@ -132,7 +128,6 @@ class GroupRoutePointGetDNISResponse extends ComplexType implements ComplexInter
      */
     public function setCallingLineIdLastName($callingLineIdLastName = null)
     {
-        if (!$callingLineIdLastName) return $this;
         $this->callingLineIdLastName = ($callingLineIdLastName InstanceOf CallingLineIdLastName)
              ? $callingLineIdLastName
              : new CallingLineIdLastName($callingLineIdLastName);
@@ -146,7 +141,7 @@ class GroupRoutePointGetDNISResponse extends ComplexType implements ComplexInter
      */
     public function getCallingLineIdLastName()
     {
-        return $this->callingLineIdLastName->getValue();
+        return ($this->callingLineIdLastName) ? $this->callingLineIdLastName->getValue() : null;
     }
 
     /**
@@ -154,7 +149,6 @@ class GroupRoutePointGetDNISResponse extends ComplexType implements ComplexInter
      */
     public function setCallingLineIdFirstName($callingLineIdFirstName = null)
     {
-        if (!$callingLineIdFirstName) return $this;
         $this->callingLineIdFirstName = ($callingLineIdFirstName InstanceOf CallingLineIdFirstName)
              ? $callingLineIdFirstName
              : new CallingLineIdFirstName($callingLineIdFirstName);
@@ -168,7 +162,7 @@ class GroupRoutePointGetDNISResponse extends ComplexType implements ComplexInter
      */
     public function getCallingLineIdFirstName()
     {
-        return $this->callingLineIdFirstName->getValue();
+        return ($this->callingLineIdFirstName) ? $this->callingLineIdFirstName->getValue() : null;
     }
 
     /**
@@ -176,7 +170,6 @@ class GroupRoutePointGetDNISResponse extends ComplexType implements ComplexInter
      */
     public function setUseCustomDnisAnnouncementSettings($useCustomDnisAnnouncementSettings = null)
     {
-        if (!$useCustomDnisAnnouncementSettings) return $this;
         $this->useCustomDnisAnnouncementSettings = new PrimitiveType($useCustomDnisAnnouncementSettings);
         $this->useCustomDnisAnnouncementSettings->setName('useCustomDnisAnnouncementSettings');
         return $this;
@@ -188,7 +181,7 @@ class GroupRoutePointGetDNISResponse extends ComplexType implements ComplexInter
      */
     public function getUseCustomDnisAnnouncementSettings()
     {
-        return $this->useCustomDnisAnnouncementSettings->getValue();
+        return ($this->useCustomDnisAnnouncementSettings) ? $this->useCustomDnisAnnouncementSettings->getValue() : null;
     }
 
     /**
@@ -196,7 +189,6 @@ class GroupRoutePointGetDNISResponse extends ComplexType implements ComplexInter
      */
     public function setAllowOutgoingACDCall($allowOutgoingACDCall = null)
     {
-        if (!$allowOutgoingACDCall) return $this;
         $this->allowOutgoingACDCall = new PrimitiveType($allowOutgoingACDCall);
         $this->allowOutgoingACDCall->setName('allowOutgoingACDCall');
         return $this;
@@ -208,6 +200,6 @@ class GroupRoutePointGetDNISResponse extends ComplexType implements ComplexInter
      */
     public function getAllowOutgoingACDCall()
     {
-        return $this->allowOutgoingACDCall->getValue();
+        return ($this->allowOutgoingACDCall) ? $this->allowOutgoingACDCall->getValue() : null;
     }
 }

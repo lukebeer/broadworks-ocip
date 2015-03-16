@@ -21,14 +21,14 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemBroadWorksMobilityServiceAccessCodeModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name              = 'SystemBroadWorksMobilityServiceAccessCodeModifyRequest';
-    protected $countryCode       = null;
-    protected $serviceAccessCode = null;
-    protected $description       = null;
+    public    $name = 'SystemBroadWorksMobilityServiceAccessCodeModifyRequest';
+    protected $countryCode;
+    protected $serviceAccessCode;
+    protected $description;
 
     public function __construct(
-         $countryCode,
-         $serviceAccessCode,
+         $countryCode = '',
+         $serviceAccessCode = '',
          $description = null
     ) {
         $this->setCountryCode($countryCode);
@@ -49,7 +49,6 @@ class SystemBroadWorksMobilityServiceAccessCodeModifyRequest extends ComplexType
      */
     public function setCountryCode($countryCode = null)
     {
-        if (!$countryCode) return $this;
         $this->countryCode = ($countryCode InstanceOf CountryCode)
              ? $countryCode
              : new CountryCode($countryCode);
@@ -63,7 +62,7 @@ class SystemBroadWorksMobilityServiceAccessCodeModifyRequest extends ComplexType
      */
     public function getCountryCode()
     {
-        return $this->countryCode->getValue();
+        return ($this->countryCode) ? $this->countryCode->getValue() : null;
     }
 
     /**
@@ -71,7 +70,6 @@ class SystemBroadWorksMobilityServiceAccessCodeModifyRequest extends ComplexType
      */
     public function setServiceAccessCode($serviceAccessCode = null)
     {
-        if (!$serviceAccessCode) return $this;
         $this->serviceAccessCode = ($serviceAccessCode InstanceOf ServiceAccessCode)
              ? $serviceAccessCode
              : new ServiceAccessCode($serviceAccessCode);
@@ -85,7 +83,7 @@ class SystemBroadWorksMobilityServiceAccessCodeModifyRequest extends ComplexType
      */
     public function getServiceAccessCode()
     {
-        return $this->serviceAccessCode->getValue();
+        return ($this->serviceAccessCode) ? $this->serviceAccessCode->getValue() : null;
     }
 
     /**
@@ -93,7 +91,6 @@ class SystemBroadWorksMobilityServiceAccessCodeModifyRequest extends ComplexType
      */
     public function setDescription($description = null)
     {
-        if (!$description) return $this;
         $this->description = ($description InstanceOf ServiceAccessCodeDescription)
              ? $description
              : new ServiceAccessCodeDescription($description);
@@ -107,6 +104,6 @@ class SystemBroadWorksMobilityServiceAccessCodeModifyRequest extends ComplexType
      */
     public function getDescription()
     {
-        return $this->description->getValue();
+        return ($this->description) ? $this->description->getValue() : null;
     }
 }

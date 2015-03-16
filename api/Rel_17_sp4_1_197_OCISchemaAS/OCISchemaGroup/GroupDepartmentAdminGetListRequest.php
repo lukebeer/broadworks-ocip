@@ -21,11 +21,11 @@ use Broadworks_OCIP\core\Client\Client;
 class GroupDepartmentAdminGetListRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType  = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupDepartmentAdminGetListResponse';
-    public    $name          = 'GroupDepartmentAdminGetListRequest';
-    protected $departmentKey = null;
+    public    $name = 'GroupDepartmentAdminGetListRequest';
+    protected $departmentKey;
 
     public function __construct(
-         GroupDepartmentKey $departmentKey
+         GroupDepartmentKey $departmentKey = ''
     ) {
         $this->setDepartmentKey($departmentKey);
     }
@@ -43,8 +43,9 @@ class GroupDepartmentAdminGetListRequest extends ComplexType implements ComplexI
      */
     public function setDepartmentKey(GroupDepartmentKey $departmentKey = null)
     {
-        if (!$departmentKey) return $this;
-        $this->departmentKey = $departmentKey;
+        $this->departmentKey = ($departmentKey InstanceOf GroupDepartmentKey)
+             ? $departmentKey
+             : new GroupDepartmentKey($departmentKey);
         $this->departmentKey->setName('departmentKey');
         return $this;
     }

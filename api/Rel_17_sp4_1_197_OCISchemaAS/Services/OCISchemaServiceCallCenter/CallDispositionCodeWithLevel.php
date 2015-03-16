@@ -19,13 +19,13 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class CallDispositionCodeWithLevel extends ComplexType implements ComplexInterface
 {
-    public    $name  = 'CallDispositionCodeWithLevel';
-    protected $code  = null;
-    protected $level = null;
+    public    $name = 'CallDispositionCodeWithLevel';
+    protected $code;
+    protected $level;
 
     public function __construct(
-         $code,
-         $level
+         $code = '',
+         $level = ''
     ) {
         $this->setCode($code);
         $this->setLevel($level);
@@ -44,7 +44,6 @@ class CallDispositionCodeWithLevel extends ComplexType implements ComplexInterfa
      */
     public function setCode($code = null)
     {
-        if (!$code) return $this;
         $this->code = new SimpleContent($code);
         $this->code->setName('code');
         return $this;
@@ -56,7 +55,7 @@ class CallDispositionCodeWithLevel extends ComplexType implements ComplexInterfa
      */
     public function getCode()
     {
-        return $this->code->getValue();
+        return ($this->code) ? $this->code->getValue() : null;
     }
 
     /**
@@ -64,7 +63,6 @@ class CallDispositionCodeWithLevel extends ComplexType implements ComplexInterfa
      */
     public function setLevel($level = null)
     {
-        if (!$level) return $this;
         $this->level = new SimpleContent($level);
         $this->level->setName('level');
         return $this;
@@ -76,6 +74,6 @@ class CallDispositionCodeWithLevel extends ComplexType implements ComplexInterfa
      */
     public function getLevel()
     {
-        return $this->level->getValue();
+        return ($this->level) ? $this->level->getValue() : null;
     }
 }

@@ -23,15 +23,15 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserCustomRingbackUserGetCriteriaResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                 = 'UserCustomRingbackUserGetCriteriaResponse';
-    protected $timeSchedule         = null;
-    protected $fromDnCriteria       = null;
-    protected $audioSelection       = null;
-    protected $audioFileDescription = null;
-    protected $audioFileUrl         = null;
-    protected $videoSelection       = null;
-    protected $videoFileDescription = null;
-    protected $videoFileUrl         = null;
+    public    $name = 'UserCustomRingbackUserGetCriteriaResponse';
+    protected $timeSchedule;
+    protected $fromDnCriteria;
+    protected $audioSelection;
+    protected $audioFileDescription;
+    protected $audioFileUrl;
+    protected $videoSelection;
+    protected $videoFileDescription;
+    protected $videoFileUrl;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15\UserCustomRingbackUserGetCriteriaResponse $response
@@ -46,8 +46,9 @@ class UserCustomRingbackUserGetCriteriaResponse extends ComplexType implements C
      */
     public function setTimeSchedule(TimeSchedule $timeSchedule = null)
     {
-        if (!$timeSchedule) return $this;
-        $this->timeSchedule = $timeSchedule;
+        $this->timeSchedule = ($timeSchedule InstanceOf TimeSchedule)
+             ? $timeSchedule
+             : new TimeSchedule($timeSchedule);
         $this->timeSchedule->setName('timeSchedule');
         return $this;
     }
@@ -66,8 +67,9 @@ class UserCustomRingbackUserGetCriteriaResponse extends ComplexType implements C
      */
     public function setFromDnCriteria(CriteriaFromDn $fromDnCriteria = null)
     {
-        if (!$fromDnCriteria) return $this;
-        $this->fromDnCriteria = $fromDnCriteria;
+        $this->fromDnCriteria = ($fromDnCriteria InstanceOf CriteriaFromDn)
+             ? $fromDnCriteria
+             : new CriteriaFromDn($fromDnCriteria);
         $this->fromDnCriteria->setName('fromDnCriteria');
         return $this;
     }
@@ -86,7 +88,6 @@ class UserCustomRingbackUserGetCriteriaResponse extends ComplexType implements C
      */
     public function setAudioSelection($audioSelection = null)
     {
-        if (!$audioSelection) return $this;
         $this->audioSelection = ($audioSelection InstanceOf ExtendedFileResourceSelection)
              ? $audioSelection
              : new ExtendedFileResourceSelection($audioSelection);
@@ -100,7 +101,7 @@ class UserCustomRingbackUserGetCriteriaResponse extends ComplexType implements C
      */
     public function getAudioSelection()
     {
-        return $this->audioSelection->getValue();
+        return ($this->audioSelection) ? $this->audioSelection->getValue() : null;
     }
 
     /**
@@ -108,7 +109,6 @@ class UserCustomRingbackUserGetCriteriaResponse extends ComplexType implements C
      */
     public function setAudioFileDescription($audioFileDescription = null)
     {
-        if (!$audioFileDescription) return $this;
         $this->audioFileDescription = ($audioFileDescription InstanceOf FileDescription)
              ? $audioFileDescription
              : new FileDescription($audioFileDescription);
@@ -122,7 +122,7 @@ class UserCustomRingbackUserGetCriteriaResponse extends ComplexType implements C
      */
     public function getAudioFileDescription()
     {
-        return $this->audioFileDescription->getValue();
+        return ($this->audioFileDescription) ? $this->audioFileDescription->getValue() : null;
     }
 
     /**
@@ -130,7 +130,6 @@ class UserCustomRingbackUserGetCriteriaResponse extends ComplexType implements C
      */
     public function setAudioFileUrl($audioFileUrl = null)
     {
-        if (!$audioFileUrl) return $this;
         $this->audioFileUrl = ($audioFileUrl InstanceOf URL)
              ? $audioFileUrl
              : new URL($audioFileUrl);
@@ -144,7 +143,7 @@ class UserCustomRingbackUserGetCriteriaResponse extends ComplexType implements C
      */
     public function getAudioFileUrl()
     {
-        return $this->audioFileUrl->getValue();
+        return ($this->audioFileUrl) ? $this->audioFileUrl->getValue() : null;
     }
 
     /**
@@ -152,7 +151,6 @@ class UserCustomRingbackUserGetCriteriaResponse extends ComplexType implements C
      */
     public function setVideoSelection($videoSelection = null)
     {
-        if (!$videoSelection) return $this;
         $this->videoSelection = ($videoSelection InstanceOf ExtendedFileResourceSelection)
              ? $videoSelection
              : new ExtendedFileResourceSelection($videoSelection);
@@ -166,7 +164,7 @@ class UserCustomRingbackUserGetCriteriaResponse extends ComplexType implements C
      */
     public function getVideoSelection()
     {
-        return $this->videoSelection->getValue();
+        return ($this->videoSelection) ? $this->videoSelection->getValue() : null;
     }
 
     /**
@@ -174,7 +172,6 @@ class UserCustomRingbackUserGetCriteriaResponse extends ComplexType implements C
      */
     public function setVideoFileDescription($videoFileDescription = null)
     {
-        if (!$videoFileDescription) return $this;
         $this->videoFileDescription = ($videoFileDescription InstanceOf FileDescription)
              ? $videoFileDescription
              : new FileDescription($videoFileDescription);
@@ -188,7 +185,7 @@ class UserCustomRingbackUserGetCriteriaResponse extends ComplexType implements C
      */
     public function getVideoFileDescription()
     {
-        return $this->videoFileDescription->getValue();
+        return ($this->videoFileDescription) ? $this->videoFileDescription->getValue() : null;
     }
 
     /**
@@ -196,7 +193,6 @@ class UserCustomRingbackUserGetCriteriaResponse extends ComplexType implements C
      */
     public function setVideoFileUrl($videoFileUrl = null)
     {
-        if (!$videoFileUrl) return $this;
         $this->videoFileUrl = ($videoFileUrl InstanceOf URL)
              ? $videoFileUrl
              : new URL($videoFileUrl);
@@ -210,6 +206,6 @@ class UserCustomRingbackUserGetCriteriaResponse extends ComplexType implements C
      */
     public function getVideoFileUrl()
     {
-        return $this->videoFileUrl->getValue();
+        return ($this->videoFileUrl) ? $this->videoFileUrl->getValue() : null;
     }
 }

@@ -22,13 +22,13 @@ use Broadworks_OCIP\core\Client\Client;
 class UserTimeScheduleGetRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType     = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\UserTimeScheduleGetResponse';
-    public    $name             = 'UserTimeScheduleGetRequest';
-    protected $userId           = null;
-    protected $timeScheduleName = null;
+    public    $name = 'UserTimeScheduleGetRequest';
+    protected $userId;
+    protected $timeScheduleName;
 
     public function __construct(
-         $userId,
-         $timeScheduleName
+         $userId = '',
+         $timeScheduleName = ''
     ) {
         $this->setUserId($userId);
         $this->setTimeScheduleName($timeScheduleName);
@@ -47,7 +47,6 @@ class UserTimeScheduleGetRequest extends ComplexType implements ComplexInterface
      */
     public function setUserId($userId = null)
     {
-        if (!$userId) return $this;
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
@@ -61,7 +60,7 @@ class UserTimeScheduleGetRequest extends ComplexType implements ComplexInterface
      */
     public function getUserId()
     {
-        return $this->userId->getValue();
+        return ($this->userId) ? $this->userId->getValue() : null;
     }
 
     /**
@@ -69,7 +68,6 @@ class UserTimeScheduleGetRequest extends ComplexType implements ComplexInterface
      */
     public function setTimeScheduleName($timeScheduleName = null)
     {
-        if (!$timeScheduleName) return $this;
         $this->timeScheduleName = ($timeScheduleName InstanceOf ScheduleName)
              ? $timeScheduleName
              : new ScheduleName($timeScheduleName);
@@ -83,6 +81,6 @@ class UserTimeScheduleGetRequest extends ComplexType implements ComplexInterface
      */
     public function getTimeScheduleName()
     {
-        return $this->timeScheduleName->getValue();
+        return ($this->timeScheduleName) ? $this->timeScheduleName->getValue() : null;
     }
 }

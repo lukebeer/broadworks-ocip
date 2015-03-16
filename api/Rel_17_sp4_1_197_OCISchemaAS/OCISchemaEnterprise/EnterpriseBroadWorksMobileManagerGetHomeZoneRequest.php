@@ -22,13 +22,13 @@ use Broadworks_OCIP\core\Client\Client;
 class EnterpriseBroadWorksMobileManagerGetHomeZoneRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaEnterprise\EnterpriseBroadWorksMobileManagerGetHomeZoneResponse';
-    public    $name              = 'EnterpriseBroadWorksMobileManagerGetHomeZoneRequest';
-    protected $serviceProviderId = null;
-    protected $homeZoneId        = null;
+    public    $name = 'EnterpriseBroadWorksMobileManagerGetHomeZoneRequest';
+    protected $serviceProviderId;
+    protected $homeZoneId;
 
     public function __construct(
-         $serviceProviderId,
-         $homeZoneId
+         $serviceProviderId = '',
+         $homeZoneId = ''
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setHomeZoneId($homeZoneId);
@@ -47,7 +47,6 @@ class EnterpriseBroadWorksMobileManagerGetHomeZoneRequest extends ComplexType im
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
-        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
@@ -61,7 +60,7 @@ class EnterpriseBroadWorksMobileManagerGetHomeZoneRequest extends ComplexType im
      */
     public function getServiceProviderId()
     {
-        return $this->serviceProviderId->getValue();
+        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
     }
 
     /**
@@ -69,7 +68,6 @@ class EnterpriseBroadWorksMobileManagerGetHomeZoneRequest extends ComplexType im
      */
     public function setHomeZoneId($homeZoneId = null)
     {
-        if (!$homeZoneId) return $this;
         $this->homeZoneId = new PrimitiveType($homeZoneId);
         $this->homeZoneId->setName('homeZoneId');
         return $this;
@@ -81,6 +79,6 @@ class EnterpriseBroadWorksMobileManagerGetHomeZoneRequest extends ComplexType im
      */
     public function getHomeZoneId()
     {
-        return $this->homeZoneId->getValue();
+        return ($this->homeZoneId) ? $this->homeZoneId->getValue() : null;
     }
 }

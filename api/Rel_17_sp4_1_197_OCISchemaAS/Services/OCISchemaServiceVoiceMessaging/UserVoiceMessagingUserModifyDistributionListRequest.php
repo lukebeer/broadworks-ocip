@@ -23,15 +23,15 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserVoiceMessagingUserModifyDistributionListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name            = 'UserVoiceMessagingUserModifyDistributionListRequest';
-    protected $userId          = null;
-    protected $listId          = null;
-    protected $description     = null;
-    protected $phoneNumberList = null;
+    public    $name = 'UserVoiceMessagingUserModifyDistributionListRequest';
+    protected $userId;
+    protected $listId;
+    protected $description;
+    protected $phoneNumberList;
 
     public function __construct(
-         $userId,
-         $listId,
+         $userId = '',
+         $listId = '',
          $description = null,
          ReplacementOutgoingDNorSIPURIList $phoneNumberList = null
     ) {
@@ -54,7 +54,6 @@ class UserVoiceMessagingUserModifyDistributionListRequest extends ComplexType im
      */
     public function setUserId($userId = null)
     {
-        if (!$userId) return $this;
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
@@ -68,7 +67,7 @@ class UserVoiceMessagingUserModifyDistributionListRequest extends ComplexType im
      */
     public function getUserId()
     {
-        return $this->userId->getValue();
+        return ($this->userId) ? $this->userId->getValue() : null;
     }
 
     /**
@@ -76,7 +75,6 @@ class UserVoiceMessagingUserModifyDistributionListRequest extends ComplexType im
      */
     public function setListId($listId = null)
     {
-        if (!$listId) return $this;
         $this->listId = ($listId InstanceOf VoiceMessagingDistributionListId)
              ? $listId
              : new VoiceMessagingDistributionListId($listId);
@@ -90,7 +88,7 @@ class UserVoiceMessagingUserModifyDistributionListRequest extends ComplexType im
      */
     public function getListId()
     {
-        return $this->listId->getValue();
+        return ($this->listId) ? $this->listId->getValue() : null;
     }
 
     /**
@@ -98,7 +96,6 @@ class UserVoiceMessagingUserModifyDistributionListRequest extends ComplexType im
      */
     public function setDescription($description = null)
     {
-        if (!$description) return $this;
         $this->description = ($description InstanceOf VoiceMessagingDistributionListDescription)
              ? $description
              : new VoiceMessagingDistributionListDescription($description);
@@ -112,7 +109,7 @@ class UserVoiceMessagingUserModifyDistributionListRequest extends ComplexType im
      */
     public function getDescription()
     {
-        return $this->description->getValue();
+        return ($this->description) ? $this->description->getValue() : null;
     }
 
     /**
@@ -120,8 +117,9 @@ class UserVoiceMessagingUserModifyDistributionListRequest extends ComplexType im
      */
     public function setPhoneNumberList(ReplacementOutgoingDNorSIPURIList $phoneNumberList = null)
     {
-        if (!$phoneNumberList) return $this;
-        $this->phoneNumberList = $phoneNumberList;
+        $this->phoneNumberList = ($phoneNumberList InstanceOf ReplacementOutgoingDNorSIPURIList)
+             ? $phoneNumberList
+             : new ReplacementOutgoingDNorSIPURIList($phoneNumberList);
         $this->phoneNumberList->setName('phoneNumberList');
         return $this;
     }

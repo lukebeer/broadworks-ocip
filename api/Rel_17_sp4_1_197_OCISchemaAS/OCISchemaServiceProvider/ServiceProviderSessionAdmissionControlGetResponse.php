@@ -21,12 +21,12 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderSessionAdmissionControlGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                              = 'ServiceProviderSessionAdmissionControlGetResponse';
-    protected $restrictAggregateSessions         = null;
-    protected $maxSessions                       = null;
-    protected $maxUserOriginatingSessions        = null;
-    protected $maxUserTerminatingSessions        = null;
-    protected $countIntraServiceProviderSessions = null;
+    public    $name = 'ServiceProviderSessionAdmissionControlGetResponse';
+    protected $restrictAggregateSessions;
+    protected $maxSessions;
+    protected $maxUserOriginatingSessions;
+    protected $maxUserTerminatingSessions;
+    protected $countIntraServiceProviderSessions;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderSessionAdmissionControlGetResponse $response
@@ -41,7 +41,6 @@ class ServiceProviderSessionAdmissionControlGetResponse extends ComplexType impl
      */
     public function setRestrictAggregateSessions($restrictAggregateSessions = null)
     {
-        if (!$restrictAggregateSessions) return $this;
         $this->restrictAggregateSessions = new PrimitiveType($restrictAggregateSessions);
         $this->restrictAggregateSessions->setName('restrictAggregateSessions');
         return $this;
@@ -53,7 +52,7 @@ class ServiceProviderSessionAdmissionControlGetResponse extends ComplexType impl
      */
     public function getRestrictAggregateSessions()
     {
-        return $this->restrictAggregateSessions->getValue();
+        return ($this->restrictAggregateSessions) ? $this->restrictAggregateSessions->getValue() : null;
     }
 
     /**
@@ -61,7 +60,6 @@ class ServiceProviderSessionAdmissionControlGetResponse extends ComplexType impl
      */
     public function setMaxSessions($maxSessions = null)
     {
-        if (!$maxSessions) return $this;
         $this->maxSessions = ($maxSessions InstanceOf NonNegativeInt)
              ? $maxSessions
              : new NonNegativeInt($maxSessions);
@@ -75,7 +73,7 @@ class ServiceProviderSessionAdmissionControlGetResponse extends ComplexType impl
      */
     public function getMaxSessions()
     {
-        return $this->maxSessions->getValue();
+        return ($this->maxSessions) ? $this->maxSessions->getValue() : null;
     }
 
     /**
@@ -83,7 +81,6 @@ class ServiceProviderSessionAdmissionControlGetResponse extends ComplexType impl
      */
     public function setMaxUserOriginatingSessions($maxUserOriginatingSessions = null)
     {
-        if (!$maxUserOriginatingSessions) return $this;
         $this->maxUserOriginatingSessions = ($maxUserOriginatingSessions InstanceOf NonNegativeInt)
              ? $maxUserOriginatingSessions
              : new NonNegativeInt($maxUserOriginatingSessions);
@@ -97,7 +94,7 @@ class ServiceProviderSessionAdmissionControlGetResponse extends ComplexType impl
      */
     public function getMaxUserOriginatingSessions()
     {
-        return $this->maxUserOriginatingSessions->getValue();
+        return ($this->maxUserOriginatingSessions) ? $this->maxUserOriginatingSessions->getValue() : null;
     }
 
     /**
@@ -105,7 +102,6 @@ class ServiceProviderSessionAdmissionControlGetResponse extends ComplexType impl
      */
     public function setMaxUserTerminatingSessions($maxUserTerminatingSessions = null)
     {
-        if (!$maxUserTerminatingSessions) return $this;
         $this->maxUserTerminatingSessions = ($maxUserTerminatingSessions InstanceOf NonNegativeInt)
              ? $maxUserTerminatingSessions
              : new NonNegativeInt($maxUserTerminatingSessions);
@@ -119,7 +115,7 @@ class ServiceProviderSessionAdmissionControlGetResponse extends ComplexType impl
      */
     public function getMaxUserTerminatingSessions()
     {
-        return $this->maxUserTerminatingSessions->getValue();
+        return ($this->maxUserTerminatingSessions) ? $this->maxUserTerminatingSessions->getValue() : null;
     }
 
     /**
@@ -127,7 +123,6 @@ class ServiceProviderSessionAdmissionControlGetResponse extends ComplexType impl
      */
     public function setCountIntraServiceProviderSessions($countIntraServiceProviderSessions = null)
     {
-        if (!$countIntraServiceProviderSessions) return $this;
         $this->countIntraServiceProviderSessions = new PrimitiveType($countIntraServiceProviderSessions);
         $this->countIntraServiceProviderSessions->setName('countIntraServiceProviderSessions');
         return $this;
@@ -139,6 +134,6 @@ class ServiceProviderSessionAdmissionControlGetResponse extends ComplexType impl
      */
     public function getCountIntraServiceProviderSessions()
     {
-        return $this->countIntraServiceProviderSessions->getValue();
+        return ($this->countIntraServiceProviderSessions) ? $this->countIntraServiceProviderSessions->getValue() : null;
     }
 }

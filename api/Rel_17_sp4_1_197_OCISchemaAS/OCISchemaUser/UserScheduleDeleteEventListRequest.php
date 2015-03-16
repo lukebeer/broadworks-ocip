@@ -22,15 +22,15 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserScheduleDeleteEventListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name        = 'UserScheduleDeleteEventListRequest';
-    protected $userId      = null;
-    protected $scheduleKey = null;
-    protected $eventName   = null;
+    public    $name = 'UserScheduleDeleteEventListRequest';
+    protected $userId;
+    protected $scheduleKey;
+    protected $eventName;
 
     public function __construct(
-         $userId,
-         ScheduleKey $scheduleKey,
-         $eventName
+         $userId = '',
+         ScheduleKey $scheduleKey = '',
+         $eventName = ''
     ) {
         $this->setUserId($userId);
         $this->setScheduleKey($scheduleKey);
@@ -50,7 +50,6 @@ class UserScheduleDeleteEventListRequest extends ComplexType implements ComplexI
      */
     public function setUserId($userId = null)
     {
-        if (!$userId) return $this;
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
@@ -64,7 +63,7 @@ class UserScheduleDeleteEventListRequest extends ComplexType implements ComplexI
      */
     public function getUserId()
     {
-        return $this->userId->getValue();
+        return ($this->userId) ? $this->userId->getValue() : null;
     }
 
     /**
@@ -72,8 +71,9 @@ class UserScheduleDeleteEventListRequest extends ComplexType implements ComplexI
      */
     public function setScheduleKey(ScheduleKey $scheduleKey = null)
     {
-        if (!$scheduleKey) return $this;
-        $this->scheduleKey = $scheduleKey;
+        $this->scheduleKey = ($scheduleKey InstanceOf ScheduleKey)
+             ? $scheduleKey
+             : new ScheduleKey($scheduleKey);
         $this->scheduleKey->setName('scheduleKey');
         return $this;
     }
@@ -92,7 +92,6 @@ class UserScheduleDeleteEventListRequest extends ComplexType implements ComplexI
      */
     public function setEventName($eventName = null)
     {
-        if (!$eventName) return $this;
         $this->eventName = ($eventName InstanceOf EventName)
              ? $eventName
              : new EventName($eventName);
@@ -106,6 +105,6 @@ class UserScheduleDeleteEventListRequest extends ComplexType implements ComplexI
      */
     public function getEventName()
     {
-        return $this->eventName->getValue();
+        return ($this->eventName) ? $this->eventName->getValue() : null;
     }
 }

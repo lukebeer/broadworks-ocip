@@ -31,16 +31,16 @@ use Broadworks_OCIP\core\Client\Client;
 class UserGetListInSystemRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType                                 = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser\UserGetListInSystemResponse';
-    public    $name                                         = 'UserGetListInSystemRequest';
-    protected $responseSizeLimit                            = null;
-    protected $searchCriteriaUserLastName                   = null;
-    protected $searchCriteriaUserFirstName                  = null;
-    protected $searchCriteriaDn                             = null;
-    protected $searchCriteriaEmailAddress                   = null;
-    protected $searchCriteriaGroupId                        = null;
-    protected $searchCriteriaExactServiceProvider           = null;
-    protected $searchCriteriaExactUserInTrunkGroup          = null;
-    protected $searchCriteriaExactUserNetworkClassOfService = null;
+    public    $name = 'UserGetListInSystemRequest';
+    protected $responseSizeLimit;
+    protected $searchCriteriaUserLastName;
+    protected $searchCriteriaUserFirstName;
+    protected $searchCriteriaDn;
+    protected $searchCriteriaEmailAddress;
+    protected $searchCriteriaGroupId;
+    protected $searchCriteriaExactServiceProvider;
+    protected $searchCriteriaExactUserInTrunkGroup;
+    protected $searchCriteriaExactUserNetworkClassOfService;
 
     public function __construct(
          $responseSizeLimit = null,
@@ -77,7 +77,6 @@ class UserGetListInSystemRequest extends ComplexType implements ComplexInterface
      */
     public function setResponseSizeLimit($responseSizeLimit = null)
     {
-        if (!$responseSizeLimit) return $this;
         $this->responseSizeLimit = ($responseSizeLimit InstanceOf ResponseSizeLimit)
              ? $responseSizeLimit
              : new ResponseSizeLimit($responseSizeLimit);
@@ -91,7 +90,7 @@ class UserGetListInSystemRequest extends ComplexType implements ComplexInterface
      */
     public function getResponseSizeLimit()
     {
-        return $this->responseSizeLimit->getValue();
+        return ($this->responseSizeLimit) ? $this->responseSizeLimit->getValue() : null;
     }
 
     /**
@@ -99,7 +98,6 @@ class UserGetListInSystemRequest extends ComplexType implements ComplexInterface
      */
     public function setSearchCriteriaUserLastName(SearchCriteriaUserLastName $searchCriteriaUserLastName = null)
     {
-        if (!$searchCriteriaUserLastName) return $this;
         $this->searchCriteriaUserLastName = ($searchCriteriaUserLastName InstanceOf SearchCriteriaUserLastName)
              ? $searchCriteriaUserLastName
              : new SearchCriteriaUserLastName($searchCriteriaUserLastName);
@@ -121,7 +119,6 @@ class UserGetListInSystemRequest extends ComplexType implements ComplexInterface
      */
     public function setSearchCriteriaUserFirstName(SearchCriteriaUserFirstName $searchCriteriaUserFirstName = null)
     {
-        if (!$searchCriteriaUserFirstName) return $this;
         $this->searchCriteriaUserFirstName = ($searchCriteriaUserFirstName InstanceOf SearchCriteriaUserFirstName)
              ? $searchCriteriaUserFirstName
              : new SearchCriteriaUserFirstName($searchCriteriaUserFirstName);
@@ -143,7 +140,6 @@ class UserGetListInSystemRequest extends ComplexType implements ComplexInterface
      */
     public function setSearchCriteriaDn(SearchCriteriaDn $searchCriteriaDn = null)
     {
-        if (!$searchCriteriaDn) return $this;
         $this->searchCriteriaDn = ($searchCriteriaDn InstanceOf SearchCriteriaDn)
              ? $searchCriteriaDn
              : new SearchCriteriaDn($searchCriteriaDn);
@@ -165,7 +161,6 @@ class UserGetListInSystemRequest extends ComplexType implements ComplexInterface
      */
     public function setSearchCriteriaEmailAddress(SearchCriteriaEmailAddress $searchCriteriaEmailAddress = null)
     {
-        if (!$searchCriteriaEmailAddress) return $this;
         $this->searchCriteriaEmailAddress = ($searchCriteriaEmailAddress InstanceOf SearchCriteriaEmailAddress)
              ? $searchCriteriaEmailAddress
              : new SearchCriteriaEmailAddress($searchCriteriaEmailAddress);
@@ -187,7 +182,6 @@ class UserGetListInSystemRequest extends ComplexType implements ComplexInterface
      */
     public function setSearchCriteriaGroupId(SearchCriteriaGroupId $searchCriteriaGroupId = null)
     {
-        if (!$searchCriteriaGroupId) return $this;
         $this->searchCriteriaGroupId = ($searchCriteriaGroupId InstanceOf SearchCriteriaGroupId)
              ? $searchCriteriaGroupId
              : new SearchCriteriaGroupId($searchCriteriaGroupId);
@@ -209,7 +203,6 @@ class UserGetListInSystemRequest extends ComplexType implements ComplexInterface
      */
     public function setSearchCriteriaExactServiceProvider(SearchCriteriaExactServiceProvider $searchCriteriaExactServiceProvider = null)
     {
-        if (!$searchCriteriaExactServiceProvider) return $this;
         $this->searchCriteriaExactServiceProvider = ($searchCriteriaExactServiceProvider InstanceOf SearchCriteriaExactServiceProvider)
              ? $searchCriteriaExactServiceProvider
              : new SearchCriteriaExactServiceProvider($searchCriteriaExactServiceProvider);
@@ -231,7 +224,6 @@ class UserGetListInSystemRequest extends ComplexType implements ComplexInterface
      */
     public function setSearchCriteriaExactUserInTrunkGroup(SearchCriteriaExactUserInTrunkGroup $searchCriteriaExactUserInTrunkGroup = null)
     {
-        if (!$searchCriteriaExactUserInTrunkGroup) return $this;
         $this->searchCriteriaExactUserInTrunkGroup = ($searchCriteriaExactUserInTrunkGroup InstanceOf SearchCriteriaExactUserInTrunkGroup)
              ? $searchCriteriaExactUserInTrunkGroup
              : new SearchCriteriaExactUserInTrunkGroup($searchCriteriaExactUserInTrunkGroup);
@@ -253,7 +245,6 @@ class UserGetListInSystemRequest extends ComplexType implements ComplexInterface
      */
     public function setSearchCriteriaExactUserNetworkClassOfService(SearchCriteriaExactUserNetworkClassOfService $searchCriteriaExactUserNetworkClassOfService = null)
     {
-        if (!$searchCriteriaExactUserNetworkClassOfService) return $this;
         $this->searchCriteriaExactUserNetworkClassOfService = ($searchCriteriaExactUserNetworkClassOfService InstanceOf SearchCriteriaExactUserNetworkClassOfService)
              ? $searchCriteriaExactUserNetworkClassOfService
              : new SearchCriteriaExactUserNetworkClassOfService($searchCriteriaExactUserNetworkClassOfService);

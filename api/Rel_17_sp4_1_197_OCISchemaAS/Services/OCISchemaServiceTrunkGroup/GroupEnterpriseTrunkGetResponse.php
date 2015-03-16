@@ -21,10 +21,10 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupEnterpriseTrunkGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                          = 'GroupEnterpriseTrunkGetResponse';
-    protected $maximumRerouteAttempts        = null;
-    protected $routeExhaustionAction         = null;
-    protected $routeExhaustionForwardAddress = null;
+    public    $name = 'GroupEnterpriseTrunkGetResponse';
+    protected $maximumRerouteAttempts;
+    protected $routeExhaustionAction;
+    protected $routeExhaustionForwardAddress;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceTrunkGroup\GroupEnterpriseTrunkGetResponse $response
@@ -39,7 +39,6 @@ class GroupEnterpriseTrunkGetResponse extends ComplexType implements ComplexInte
      */
     public function setMaximumRerouteAttempts($maximumRerouteAttempts = null)
     {
-        if (!$maximumRerouteAttempts) return $this;
         $this->maximumRerouteAttempts = ($maximumRerouteAttempts InstanceOf EnterpriseTrunkMaximumRerouteAttempts)
              ? $maximumRerouteAttempts
              : new EnterpriseTrunkMaximumRerouteAttempts($maximumRerouteAttempts);
@@ -53,7 +52,7 @@ class GroupEnterpriseTrunkGetResponse extends ComplexType implements ComplexInte
      */
     public function getMaximumRerouteAttempts()
     {
-        return $this->maximumRerouteAttempts->getValue();
+        return ($this->maximumRerouteAttempts) ? $this->maximumRerouteAttempts->getValue() : null;
     }
 
     /**
@@ -61,7 +60,6 @@ class GroupEnterpriseTrunkGetResponse extends ComplexType implements ComplexInte
      */
     public function setRouteExhaustionAction($routeExhaustionAction = null)
     {
-        if (!$routeExhaustionAction) return $this;
         $this->routeExhaustionAction = ($routeExhaustionAction InstanceOf EnterpriseTrunkRouteExhaustionAction)
              ? $routeExhaustionAction
              : new EnterpriseTrunkRouteExhaustionAction($routeExhaustionAction);
@@ -75,7 +73,7 @@ class GroupEnterpriseTrunkGetResponse extends ComplexType implements ComplexInte
      */
     public function getRouteExhaustionAction()
     {
-        return $this->routeExhaustionAction->getValue();
+        return ($this->routeExhaustionAction) ? $this->routeExhaustionAction->getValue() : null;
     }
 
     /**
@@ -83,7 +81,6 @@ class GroupEnterpriseTrunkGetResponse extends ComplexType implements ComplexInte
      */
     public function setRouteExhaustionForwardAddress($routeExhaustionForwardAddress = null)
     {
-        if (!$routeExhaustionForwardAddress) return $this;
         $this->routeExhaustionForwardAddress = ($routeExhaustionForwardAddress InstanceOf OutgoingDNorSIPURI)
              ? $routeExhaustionForwardAddress
              : new OutgoingDNorSIPURI($routeExhaustionForwardAddress);
@@ -97,6 +94,6 @@ class GroupEnterpriseTrunkGetResponse extends ComplexType implements ComplexInte
      */
     public function getRouteExhaustionForwardAddress()
     {
-        return $this->routeExhaustionForwardAddress->getValue();
+        return ($this->routeExhaustionForwardAddress) ? $this->routeExhaustionForwardAddress->getValue() : null;
     }
 }

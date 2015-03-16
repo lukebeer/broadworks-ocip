@@ -31,26 +31,26 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupPasswordRulesGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                                 = 'GroupPasswordRulesGetResponse';
-    protected $serviceProviderId                    = null;
-    protected $groupId                              = null;
-    protected $disallowUserId                       = null;
-    protected $disallowOldPassword                  = null;
-    protected $disallowReversedOldPassword          = null;
-    protected $restrictMinDigits                    = null;
-    protected $minDigits                            = null;
-    protected $restrictMinUpperCaseLetters          = null;
-    protected $minUpperCaseLetters                  = null;
-    protected $restrictMinLowerCaseLetters          = null;
-    protected $minLowerCaseLetters                  = null;
-    protected $restrictMinNonAlphanumericCharacters = null;
-    protected $minNonAlphanumericCharacters         = null;
-    protected $minLength                            = null;
-    protected $maxFailedLoginAttempts               = null;
-    protected $passwordExpiresDays                  = null;
-    protected $sendLoginDisabledNotifyEmail         = null;
-    protected $loginDisabledNotifyEmailAddress      = null;
-    protected $disallowRulesModification            = null;
+    public    $name = 'GroupPasswordRulesGetResponse';
+    protected $serviceProviderId;
+    protected $groupId;
+    protected $disallowUserId;
+    protected $disallowOldPassword;
+    protected $disallowReversedOldPassword;
+    protected $restrictMinDigits;
+    protected $minDigits;
+    protected $restrictMinUpperCaseLetters;
+    protected $minUpperCaseLetters;
+    protected $restrictMinLowerCaseLetters;
+    protected $minLowerCaseLetters;
+    protected $restrictMinNonAlphanumericCharacters;
+    protected $minNonAlphanumericCharacters;
+    protected $minLength;
+    protected $maxFailedLoginAttempts;
+    protected $passwordExpiresDays;
+    protected $sendLoginDisabledNotifyEmail;
+    protected $loginDisabledNotifyEmailAddress;
+    protected $disallowRulesModification;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15\GroupPasswordRulesGetResponse $response
@@ -65,7 +65,6 @@ class GroupPasswordRulesGetResponse extends ComplexType implements ComplexInterf
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
-        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
@@ -79,7 +78,7 @@ class GroupPasswordRulesGetResponse extends ComplexType implements ComplexInterf
      */
     public function getServiceProviderId()
     {
-        return $this->serviceProviderId->getValue();
+        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
     }
 
     /**
@@ -87,7 +86,6 @@ class GroupPasswordRulesGetResponse extends ComplexType implements ComplexInterf
      */
     public function setGroupId($groupId = null)
     {
-        if (!$groupId) return $this;
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
@@ -101,7 +99,7 @@ class GroupPasswordRulesGetResponse extends ComplexType implements ComplexInterf
      */
     public function getGroupId()
     {
-        return $this->groupId->getValue();
+        return ($this->groupId) ? $this->groupId->getValue() : null;
     }
 
     /**
@@ -109,7 +107,6 @@ class GroupPasswordRulesGetResponse extends ComplexType implements ComplexInterf
      */
     public function setDisallowUserId($disallowUserId = null)
     {
-        if (!$disallowUserId) return $this;
         $this->disallowUserId = new PrimitiveType($disallowUserId);
         $this->disallowUserId->setName('disallowUserId');
         return $this;
@@ -121,7 +118,7 @@ class GroupPasswordRulesGetResponse extends ComplexType implements ComplexInterf
      */
     public function getDisallowUserId()
     {
-        return $this->disallowUserId->getValue();
+        return ($this->disallowUserId) ? $this->disallowUserId->getValue() : null;
     }
 
     /**
@@ -129,7 +126,6 @@ class GroupPasswordRulesGetResponse extends ComplexType implements ComplexInterf
      */
     public function setDisallowOldPassword($disallowOldPassword = null)
     {
-        if (!$disallowOldPassword) return $this;
         $this->disallowOldPassword = new PrimitiveType($disallowOldPassword);
         $this->disallowOldPassword->setName('disallowOldPassword');
         return $this;
@@ -141,7 +137,7 @@ class GroupPasswordRulesGetResponse extends ComplexType implements ComplexInterf
      */
     public function getDisallowOldPassword()
     {
-        return $this->disallowOldPassword->getValue();
+        return ($this->disallowOldPassword) ? $this->disallowOldPassword->getValue() : null;
     }
 
     /**
@@ -149,7 +145,6 @@ class GroupPasswordRulesGetResponse extends ComplexType implements ComplexInterf
      */
     public function setDisallowReversedOldPassword($disallowReversedOldPassword = null)
     {
-        if (!$disallowReversedOldPassword) return $this;
         $this->disallowReversedOldPassword = new PrimitiveType($disallowReversedOldPassword);
         $this->disallowReversedOldPassword->setName('disallowReversedOldPassword');
         return $this;
@@ -161,7 +156,7 @@ class GroupPasswordRulesGetResponse extends ComplexType implements ComplexInterf
      */
     public function getDisallowReversedOldPassword()
     {
-        return $this->disallowReversedOldPassword->getValue();
+        return ($this->disallowReversedOldPassword) ? $this->disallowReversedOldPassword->getValue() : null;
     }
 
     /**
@@ -169,7 +164,6 @@ class GroupPasswordRulesGetResponse extends ComplexType implements ComplexInterf
      */
     public function setRestrictMinDigits($restrictMinDigits = null)
     {
-        if (!$restrictMinDigits) return $this;
         $this->restrictMinDigits = new PrimitiveType($restrictMinDigits);
         $this->restrictMinDigits->setName('restrictMinDigits');
         return $this;
@@ -181,7 +175,7 @@ class GroupPasswordRulesGetResponse extends ComplexType implements ComplexInterf
      */
     public function getRestrictMinDigits()
     {
-        return $this->restrictMinDigits->getValue();
+        return ($this->restrictMinDigits) ? $this->restrictMinDigits->getValue() : null;
     }
 
     /**
@@ -189,7 +183,6 @@ class GroupPasswordRulesGetResponse extends ComplexType implements ComplexInterf
      */
     public function setMinDigits($minDigits = null)
     {
-        if (!$minDigits) return $this;
         $this->minDigits = ($minDigits InstanceOf PasswordMinDigits)
              ? $minDigits
              : new PasswordMinDigits($minDigits);
@@ -203,7 +196,7 @@ class GroupPasswordRulesGetResponse extends ComplexType implements ComplexInterf
      */
     public function getMinDigits()
     {
-        return $this->minDigits->getValue();
+        return ($this->minDigits) ? $this->minDigits->getValue() : null;
     }
 
     /**
@@ -211,7 +204,6 @@ class GroupPasswordRulesGetResponse extends ComplexType implements ComplexInterf
      */
     public function setRestrictMinUpperCaseLetters($restrictMinUpperCaseLetters = null)
     {
-        if (!$restrictMinUpperCaseLetters) return $this;
         $this->restrictMinUpperCaseLetters = new PrimitiveType($restrictMinUpperCaseLetters);
         $this->restrictMinUpperCaseLetters->setName('restrictMinUpperCaseLetters');
         return $this;
@@ -223,7 +215,7 @@ class GroupPasswordRulesGetResponse extends ComplexType implements ComplexInterf
      */
     public function getRestrictMinUpperCaseLetters()
     {
-        return $this->restrictMinUpperCaseLetters->getValue();
+        return ($this->restrictMinUpperCaseLetters) ? $this->restrictMinUpperCaseLetters->getValue() : null;
     }
 
     /**
@@ -231,7 +223,6 @@ class GroupPasswordRulesGetResponse extends ComplexType implements ComplexInterf
      */
     public function setMinUpperCaseLetters($minUpperCaseLetters = null)
     {
-        if (!$minUpperCaseLetters) return $this;
         $this->minUpperCaseLetters = ($minUpperCaseLetters InstanceOf PasswordMinUpperCaseLetters)
              ? $minUpperCaseLetters
              : new PasswordMinUpperCaseLetters($minUpperCaseLetters);
@@ -245,7 +236,7 @@ class GroupPasswordRulesGetResponse extends ComplexType implements ComplexInterf
      */
     public function getMinUpperCaseLetters()
     {
-        return $this->minUpperCaseLetters->getValue();
+        return ($this->minUpperCaseLetters) ? $this->minUpperCaseLetters->getValue() : null;
     }
 
     /**
@@ -253,7 +244,6 @@ class GroupPasswordRulesGetResponse extends ComplexType implements ComplexInterf
      */
     public function setRestrictMinLowerCaseLetters($restrictMinLowerCaseLetters = null)
     {
-        if (!$restrictMinLowerCaseLetters) return $this;
         $this->restrictMinLowerCaseLetters = new PrimitiveType($restrictMinLowerCaseLetters);
         $this->restrictMinLowerCaseLetters->setName('restrictMinLowerCaseLetters');
         return $this;
@@ -265,7 +255,7 @@ class GroupPasswordRulesGetResponse extends ComplexType implements ComplexInterf
      */
     public function getRestrictMinLowerCaseLetters()
     {
-        return $this->restrictMinLowerCaseLetters->getValue();
+        return ($this->restrictMinLowerCaseLetters) ? $this->restrictMinLowerCaseLetters->getValue() : null;
     }
 
     /**
@@ -273,7 +263,6 @@ class GroupPasswordRulesGetResponse extends ComplexType implements ComplexInterf
      */
     public function setMinLowerCaseLetters($minLowerCaseLetters = null)
     {
-        if (!$minLowerCaseLetters) return $this;
         $this->minLowerCaseLetters = ($minLowerCaseLetters InstanceOf PasswordMinLowerCaseLetters)
              ? $minLowerCaseLetters
              : new PasswordMinLowerCaseLetters($minLowerCaseLetters);
@@ -287,7 +276,7 @@ class GroupPasswordRulesGetResponse extends ComplexType implements ComplexInterf
      */
     public function getMinLowerCaseLetters()
     {
-        return $this->minLowerCaseLetters->getValue();
+        return ($this->minLowerCaseLetters) ? $this->minLowerCaseLetters->getValue() : null;
     }
 
     /**
@@ -295,7 +284,6 @@ class GroupPasswordRulesGetResponse extends ComplexType implements ComplexInterf
      */
     public function setRestrictMinNonAlphanumericCharacters($restrictMinNonAlphanumericCharacters = null)
     {
-        if (!$restrictMinNonAlphanumericCharacters) return $this;
         $this->restrictMinNonAlphanumericCharacters = new PrimitiveType($restrictMinNonAlphanumericCharacters);
         $this->restrictMinNonAlphanumericCharacters->setName('restrictMinNonAlphanumericCharacters');
         return $this;
@@ -307,7 +295,7 @@ class GroupPasswordRulesGetResponse extends ComplexType implements ComplexInterf
      */
     public function getRestrictMinNonAlphanumericCharacters()
     {
-        return $this->restrictMinNonAlphanumericCharacters->getValue();
+        return ($this->restrictMinNonAlphanumericCharacters) ? $this->restrictMinNonAlphanumericCharacters->getValue() : null;
     }
 
     /**
@@ -315,7 +303,6 @@ class GroupPasswordRulesGetResponse extends ComplexType implements ComplexInterf
      */
     public function setMinNonAlphanumericCharacters($minNonAlphanumericCharacters = null)
     {
-        if (!$minNonAlphanumericCharacters) return $this;
         $this->minNonAlphanumericCharacters = ($minNonAlphanumericCharacters InstanceOf PasswordMinNonAlphanumericCharacters)
              ? $minNonAlphanumericCharacters
              : new PasswordMinNonAlphanumericCharacters($minNonAlphanumericCharacters);
@@ -329,7 +316,7 @@ class GroupPasswordRulesGetResponse extends ComplexType implements ComplexInterf
      */
     public function getMinNonAlphanumericCharacters()
     {
-        return $this->minNonAlphanumericCharacters->getValue();
+        return ($this->minNonAlphanumericCharacters) ? $this->minNonAlphanumericCharacters->getValue() : null;
     }
 
     /**
@@ -337,7 +324,6 @@ class GroupPasswordRulesGetResponse extends ComplexType implements ComplexInterf
      */
     public function setMinLength($minLength = null)
     {
-        if (!$minLength) return $this;
         $this->minLength = ($minLength InstanceOf PasswordMinLength)
              ? $minLength
              : new PasswordMinLength($minLength);
@@ -351,7 +337,7 @@ class GroupPasswordRulesGetResponse extends ComplexType implements ComplexInterf
      */
     public function getMinLength()
     {
-        return $this->minLength->getValue();
+        return ($this->minLength) ? $this->minLength->getValue() : null;
     }
 
     /**
@@ -359,7 +345,6 @@ class GroupPasswordRulesGetResponse extends ComplexType implements ComplexInterf
      */
     public function setMaxFailedLoginAttempts($maxFailedLoginAttempts = null)
     {
-        if (!$maxFailedLoginAttempts) return $this;
         $this->maxFailedLoginAttempts = ($maxFailedLoginAttempts InstanceOf MaxFailedLoginAttempts)
              ? $maxFailedLoginAttempts
              : new MaxFailedLoginAttempts($maxFailedLoginAttempts);
@@ -373,7 +358,7 @@ class GroupPasswordRulesGetResponse extends ComplexType implements ComplexInterf
      */
     public function getMaxFailedLoginAttempts()
     {
-        return $this->maxFailedLoginAttempts->getValue();
+        return ($this->maxFailedLoginAttempts) ? $this->maxFailedLoginAttempts->getValue() : null;
     }
 
     /**
@@ -381,7 +366,6 @@ class GroupPasswordRulesGetResponse extends ComplexType implements ComplexInterf
      */
     public function setPasswordExpiresDays($passwordExpiresDays = null)
     {
-        if (!$passwordExpiresDays) return $this;
         $this->passwordExpiresDays = ($passwordExpiresDays InstanceOf PasswordExpiresDays)
              ? $passwordExpiresDays
              : new PasswordExpiresDays($passwordExpiresDays);
@@ -395,7 +379,7 @@ class GroupPasswordRulesGetResponse extends ComplexType implements ComplexInterf
      */
     public function getPasswordExpiresDays()
     {
-        return $this->passwordExpiresDays->getValue();
+        return ($this->passwordExpiresDays) ? $this->passwordExpiresDays->getValue() : null;
     }
 
     /**
@@ -403,7 +387,6 @@ class GroupPasswordRulesGetResponse extends ComplexType implements ComplexInterf
      */
     public function setSendLoginDisabledNotifyEmail($sendLoginDisabledNotifyEmail = null)
     {
-        if (!$sendLoginDisabledNotifyEmail) return $this;
         $this->sendLoginDisabledNotifyEmail = new PrimitiveType($sendLoginDisabledNotifyEmail);
         $this->sendLoginDisabledNotifyEmail->setName('sendLoginDisabledNotifyEmail');
         return $this;
@@ -415,7 +398,7 @@ class GroupPasswordRulesGetResponse extends ComplexType implements ComplexInterf
      */
     public function getSendLoginDisabledNotifyEmail()
     {
-        return $this->sendLoginDisabledNotifyEmail->getValue();
+        return ($this->sendLoginDisabledNotifyEmail) ? $this->sendLoginDisabledNotifyEmail->getValue() : null;
     }
 
     /**
@@ -423,7 +406,6 @@ class GroupPasswordRulesGetResponse extends ComplexType implements ComplexInterf
      */
     public function setLoginDisabledNotifyEmailAddress($loginDisabledNotifyEmailAddress = null)
     {
-        if (!$loginDisabledNotifyEmailAddress) return $this;
         $this->loginDisabledNotifyEmailAddress = ($loginDisabledNotifyEmailAddress InstanceOf EmailAddress)
              ? $loginDisabledNotifyEmailAddress
              : new EmailAddress($loginDisabledNotifyEmailAddress);
@@ -437,7 +419,7 @@ class GroupPasswordRulesGetResponse extends ComplexType implements ComplexInterf
      */
     public function getLoginDisabledNotifyEmailAddress()
     {
-        return $this->loginDisabledNotifyEmailAddress->getValue();
+        return ($this->loginDisabledNotifyEmailAddress) ? $this->loginDisabledNotifyEmailAddress->getValue() : null;
     }
 
     /**
@@ -445,7 +427,6 @@ class GroupPasswordRulesGetResponse extends ComplexType implements ComplexInterf
      */
     public function setDisallowRulesModification($disallowRulesModification = null)
     {
-        if (!$disallowRulesModification) return $this;
         $this->disallowRulesModification = new PrimitiveType($disallowRulesModification);
         $this->disallowRulesModification->setName('disallowRulesModification');
         return $this;
@@ -457,6 +438,6 @@ class GroupPasswordRulesGetResponse extends ComplexType implements ComplexInterf
      */
     public function getDisallowRulesModification()
     {
-        return $this->disallowRulesModification->getValue();
+        return ($this->disallowRulesModification) ? $this->disallowRulesModification->getValue() : null;
     }
 }

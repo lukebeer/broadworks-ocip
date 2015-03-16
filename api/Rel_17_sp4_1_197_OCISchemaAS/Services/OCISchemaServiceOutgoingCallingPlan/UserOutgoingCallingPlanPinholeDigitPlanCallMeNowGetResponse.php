@@ -20,9 +20,9 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserOutgoingCallingPlanPinholeDigitPlanCallMeNowGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name              = 'UserOutgoingCallingPlanPinholeDigitPlanCallMeNowGetResponse';
-    protected $useCustomSettings = null;
-    protected $userPermissions   = null;
+    public    $name = 'UserOutgoingCallingPlanPinholeDigitPlanCallMeNowGetResponse';
+    protected $useCustomSettings;
+    protected $userPermissions;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceOutgoingCallingPlan\UserOutgoingCallingPlanPinholeDigitPlanCallMeNowGetResponse $response
@@ -37,7 +37,6 @@ class UserOutgoingCallingPlanPinholeDigitPlanCallMeNowGetResponse extends Comple
      */
     public function setUseCustomSettings($useCustomSettings = null)
     {
-        if (!$useCustomSettings) return $this;
         $this->useCustomSettings = new PrimitiveType($useCustomSettings);
         $this->useCustomSettings->setName('useCustomSettings');
         return $this;
@@ -49,7 +48,7 @@ class UserOutgoingCallingPlanPinholeDigitPlanCallMeNowGetResponse extends Comple
      */
     public function getUseCustomSettings()
     {
-        return $this->useCustomSettings->getValue();
+        return ($this->useCustomSettings) ? $this->useCustomSettings->getValue() : null;
     }
 
     /**
@@ -57,8 +56,9 @@ class UserOutgoingCallingPlanPinholeDigitPlanCallMeNowGetResponse extends Comple
      */
     public function setUserPermissions(OutgoingPinholeDigitPlanDigitPatternCallMeNowPermissions $userPermissions = null)
     {
-        if (!$userPermissions) return $this;
-        $this->userPermissions = $userPermissions;
+        $this->userPermissions = ($userPermissions InstanceOf OutgoingPinholeDigitPlanDigitPatternCallMeNowPermissions)
+             ? $userPermissions
+             : new OutgoingPinholeDigitPlanDigitPatternCallMeNowPermissions($userPermissions);
         $this->userPermissions->setName('userPermissions');
         return $this;
     }

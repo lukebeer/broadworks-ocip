@@ -24,17 +24,17 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserSequentialRingGetResponse13mp16 extends ComplexType implements ComplexInterface
 {
-    public    $name                         = 'UserSequentialRingGetResponse13mp16';
-    protected $ringBaseLocationFirst        = null;
-    protected $baseLocationNumberOfRings    = null;
-    protected $continueIfBaseLocationIsBusy = null;
-    protected $callerMayStopSearch          = null;
-    protected $Location01                   = null;
-    protected $Location02                   = null;
-    protected $Location03                   = null;
-    protected $Location04                   = null;
-    protected $Location05                   = null;
-    protected $criteriaTable                = null;
+    public    $name = 'UserSequentialRingGetResponse13mp16';
+    protected $ringBaseLocationFirst;
+    protected $baseLocationNumberOfRings;
+    protected $continueIfBaseLocationIsBusy;
+    protected $callerMayStopSearch;
+    protected $Location01;
+    protected $Location02;
+    protected $Location03;
+    protected $Location04;
+    protected $Location05;
+    protected $criteriaTable;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\UserSequentialRingGetResponse13mp16 $response
@@ -49,7 +49,6 @@ class UserSequentialRingGetResponse13mp16 extends ComplexType implements Complex
      */
     public function setRingBaseLocationFirst($ringBaseLocationFirst = null)
     {
-        if (!$ringBaseLocationFirst) return $this;
         $this->ringBaseLocationFirst = new PrimitiveType($ringBaseLocationFirst);
         $this->ringBaseLocationFirst->setName('ringBaseLocationFirst');
         return $this;
@@ -61,7 +60,7 @@ class UserSequentialRingGetResponse13mp16 extends ComplexType implements Complex
      */
     public function getRingBaseLocationFirst()
     {
-        return $this->ringBaseLocationFirst->getValue();
+        return ($this->ringBaseLocationFirst) ? $this->ringBaseLocationFirst->getValue() : null;
     }
 
     /**
@@ -69,7 +68,6 @@ class UserSequentialRingGetResponse13mp16 extends ComplexType implements Complex
      */
     public function setBaseLocationNumberOfRings($baseLocationNumberOfRings = null)
     {
-        if (!$baseLocationNumberOfRings) return $this;
         $this->baseLocationNumberOfRings = ($baseLocationNumberOfRings InstanceOf SequentialRingNumberOfRings)
              ? $baseLocationNumberOfRings
              : new SequentialRingNumberOfRings($baseLocationNumberOfRings);
@@ -83,7 +81,7 @@ class UserSequentialRingGetResponse13mp16 extends ComplexType implements Complex
      */
     public function getBaseLocationNumberOfRings()
     {
-        return $this->baseLocationNumberOfRings->getValue();
+        return ($this->baseLocationNumberOfRings) ? $this->baseLocationNumberOfRings->getValue() : null;
     }
 
     /**
@@ -91,7 +89,6 @@ class UserSequentialRingGetResponse13mp16 extends ComplexType implements Complex
      */
     public function setContinueIfBaseLocationIsBusy($continueIfBaseLocationIsBusy = null)
     {
-        if (!$continueIfBaseLocationIsBusy) return $this;
         $this->continueIfBaseLocationIsBusy = new PrimitiveType($continueIfBaseLocationIsBusy);
         $this->continueIfBaseLocationIsBusy->setName('continueIfBaseLocationIsBusy');
         return $this;
@@ -103,7 +100,7 @@ class UserSequentialRingGetResponse13mp16 extends ComplexType implements Complex
      */
     public function getContinueIfBaseLocationIsBusy()
     {
-        return $this->continueIfBaseLocationIsBusy->getValue();
+        return ($this->continueIfBaseLocationIsBusy) ? $this->continueIfBaseLocationIsBusy->getValue() : null;
     }
 
     /**
@@ -111,7 +108,6 @@ class UserSequentialRingGetResponse13mp16 extends ComplexType implements Complex
      */
     public function setCallerMayStopSearch($callerMayStopSearch = null)
     {
-        if (!$callerMayStopSearch) return $this;
         $this->callerMayStopSearch = new PrimitiveType($callerMayStopSearch);
         $this->callerMayStopSearch->setName('callerMayStopSearch');
         return $this;
@@ -123,7 +119,7 @@ class UserSequentialRingGetResponse13mp16 extends ComplexType implements Complex
      */
     public function getCallerMayStopSearch()
     {
-        return $this->callerMayStopSearch->getValue();
+        return ($this->callerMayStopSearch) ? $this->callerMayStopSearch->getValue() : null;
     }
 
     /**
@@ -131,8 +127,9 @@ class UserSequentialRingGetResponse13mp16 extends ComplexType implements Complex
      */
     public function setLocation01(SequentialRingLocation $Location01 = null)
     {
-        if (!$Location01) return $this;
-        $this->Location01 = $Location01;
+        $this->Location01 = ($Location01 InstanceOf SequentialRingLocation)
+             ? $Location01
+             : new SequentialRingLocation($Location01);
         $this->Location01->setName('Location01');
         return $this;
     }
@@ -151,8 +148,9 @@ class UserSequentialRingGetResponse13mp16 extends ComplexType implements Complex
      */
     public function setLocation02(SequentialRingLocation $Location02 = null)
     {
-        if (!$Location02) return $this;
-        $this->Location02 = $Location02;
+        $this->Location02 = ($Location02 InstanceOf SequentialRingLocation)
+             ? $Location02
+             : new SequentialRingLocation($Location02);
         $this->Location02->setName('Location02');
         return $this;
     }
@@ -171,8 +169,9 @@ class UserSequentialRingGetResponse13mp16 extends ComplexType implements Complex
      */
     public function setLocation03(SequentialRingLocation $Location03 = null)
     {
-        if (!$Location03) return $this;
-        $this->Location03 = $Location03;
+        $this->Location03 = ($Location03 InstanceOf SequentialRingLocation)
+             ? $Location03
+             : new SequentialRingLocation($Location03);
         $this->Location03->setName('Location03');
         return $this;
     }
@@ -191,8 +190,9 @@ class UserSequentialRingGetResponse13mp16 extends ComplexType implements Complex
      */
     public function setLocation04(SequentialRingLocation $Location04 = null)
     {
-        if (!$Location04) return $this;
-        $this->Location04 = $Location04;
+        $this->Location04 = ($Location04 InstanceOf SequentialRingLocation)
+             ? $Location04
+             : new SequentialRingLocation($Location04);
         $this->Location04->setName('Location04');
         return $this;
     }
@@ -211,8 +211,9 @@ class UserSequentialRingGetResponse13mp16 extends ComplexType implements Complex
      */
     public function setLocation05(SequentialRingLocation $Location05 = null)
     {
-        if (!$Location05) return $this;
-        $this->Location05 = $Location05;
+        $this->Location05 = ($Location05 InstanceOf SequentialRingLocation)
+             ? $Location05
+             : new SequentialRingLocation($Location05);
         $this->Location05->setName('Location05');
         return $this;
     }
@@ -231,7 +232,6 @@ class UserSequentialRingGetResponse13mp16 extends ComplexType implements Complex
      */
     public function setCriteriaTable(TableType $criteriaTable = null)
     {
-        if (!$criteriaTable) return $this;
         $this->criteriaTable = $criteriaTable;
         $this->criteriaTable->setName('criteriaTable');
         return $this;

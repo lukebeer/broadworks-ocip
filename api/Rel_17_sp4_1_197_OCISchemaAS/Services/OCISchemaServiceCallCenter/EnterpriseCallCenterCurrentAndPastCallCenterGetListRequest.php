@@ -25,15 +25,15 @@ use Broadworks_OCIP\core\Client\Client;
 class EnterpriseCallCenterCurrentAndPastCallCenterGetListRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType                 = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\EnterpriseCallCenterCurrentAndPastCallCenterGetListResponse';
-    public    $name                         = 'EnterpriseCallCenterCurrentAndPastCallCenterGetListRequest';
-    protected $serviceProviderId            = null;
-    protected $isPremiumOnly                = null;
-    protected $responseSizeLimit            = null;
-    protected $searchCriteriaExactUserGroup = null;
-    protected $searchCriteriaCallCenterName = null;
+    public    $name = 'EnterpriseCallCenterCurrentAndPastCallCenterGetListRequest';
+    protected $serviceProviderId;
+    protected $isPremiumOnly;
+    protected $responseSizeLimit;
+    protected $searchCriteriaExactUserGroup;
+    protected $searchCriteriaCallCenterName;
 
     public function __construct(
-         $serviceProviderId,
+         $serviceProviderId = '',
          $isPremiumOnly = null,
          $responseSizeLimit = null,
          SearchCriteriaExactUserGroup $searchCriteriaExactUserGroup = null,
@@ -59,7 +59,6 @@ class EnterpriseCallCenterCurrentAndPastCallCenterGetListRequest extends Complex
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
-        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
@@ -73,7 +72,7 @@ class EnterpriseCallCenterCurrentAndPastCallCenterGetListRequest extends Complex
      */
     public function getServiceProviderId()
     {
-        return $this->serviceProviderId->getValue();
+        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
     }
 
     /**
@@ -81,7 +80,6 @@ class EnterpriseCallCenterCurrentAndPastCallCenterGetListRequest extends Complex
      */
     public function setIsPremiumOnly($isPremiumOnly = null)
     {
-        if (!$isPremiumOnly) return $this;
         $this->isPremiumOnly = new PrimitiveType($isPremiumOnly);
         $this->isPremiumOnly->setName('isPremiumOnly');
         return $this;
@@ -93,7 +91,7 @@ class EnterpriseCallCenterCurrentAndPastCallCenterGetListRequest extends Complex
      */
     public function getIsPremiumOnly()
     {
-        return $this->isPremiumOnly->getValue();
+        return ($this->isPremiumOnly) ? $this->isPremiumOnly->getValue() : null;
     }
 
     /**
@@ -101,7 +99,6 @@ class EnterpriseCallCenterCurrentAndPastCallCenterGetListRequest extends Complex
      */
     public function setResponseSizeLimit($responseSizeLimit = null)
     {
-        if (!$responseSizeLimit) return $this;
         $this->responseSizeLimit = ($responseSizeLimit InstanceOf ResponseSizeLimit)
              ? $responseSizeLimit
              : new ResponseSizeLimit($responseSizeLimit);
@@ -115,7 +112,7 @@ class EnterpriseCallCenterCurrentAndPastCallCenterGetListRequest extends Complex
      */
     public function getResponseSizeLimit()
     {
-        return $this->responseSizeLimit->getValue();
+        return ($this->responseSizeLimit) ? $this->responseSizeLimit->getValue() : null;
     }
 
     /**
@@ -123,7 +120,6 @@ class EnterpriseCallCenterCurrentAndPastCallCenterGetListRequest extends Complex
      */
     public function setSearchCriteriaExactUserGroup(SearchCriteriaExactUserGroup $searchCriteriaExactUserGroup = null)
     {
-        if (!$searchCriteriaExactUserGroup) return $this;
         $this->searchCriteriaExactUserGroup = ($searchCriteriaExactUserGroup InstanceOf SearchCriteriaExactUserGroup)
              ? $searchCriteriaExactUserGroup
              : new SearchCriteriaExactUserGroup($searchCriteriaExactUserGroup);
@@ -145,7 +141,6 @@ class EnterpriseCallCenterCurrentAndPastCallCenterGetListRequest extends Complex
      */
     public function setSearchCriteriaCallCenterName(SearchCriteriaCallCenterName $searchCriteriaCallCenterName = null)
     {
-        if (!$searchCriteriaCallCenterName) return $this;
         $this->searchCriteriaCallCenterName = ($searchCriteriaCallCenterName InstanceOf SearchCriteriaCallCenterName)
              ? $searchCriteriaCallCenterName
              : new SearchCriteriaCallCenterName($searchCriteriaCallCenterName);

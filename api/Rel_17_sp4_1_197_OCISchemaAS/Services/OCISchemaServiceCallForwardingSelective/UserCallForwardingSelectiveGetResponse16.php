@@ -22,11 +22,11 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserCallForwardingSelectiveGetResponse16 extends ComplexType implements ComplexInterface
 {
-    public    $name                        = 'UserCallForwardingSelectiveGetResponse16';
-    protected $isActive                    = null;
-    protected $defaultForwardToPhoneNumber = null;
-    protected $playRingReminder            = null;
-    protected $criteriaTable               = null;
+    public    $name = 'UserCallForwardingSelectiveGetResponse16';
+    protected $isActive;
+    protected $defaultForwardToPhoneNumber;
+    protected $playRingReminder;
+    protected $criteriaTable;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallForwardingSelective\UserCallForwardingSelectiveGetResponse16 $response
@@ -41,7 +41,6 @@ class UserCallForwardingSelectiveGetResponse16 extends ComplexType implements Co
      */
     public function setIsActive($isActive = null)
     {
-        if (!$isActive) return $this;
         $this->isActive = new PrimitiveType($isActive);
         $this->isActive->setName('isActive');
         return $this;
@@ -53,7 +52,7 @@ class UserCallForwardingSelectiveGetResponse16 extends ComplexType implements Co
      */
     public function getIsActive()
     {
-        return $this->isActive->getValue();
+        return ($this->isActive) ? $this->isActive->getValue() : null;
     }
 
     /**
@@ -61,7 +60,6 @@ class UserCallForwardingSelectiveGetResponse16 extends ComplexType implements Co
      */
     public function setDefaultForwardToPhoneNumber($defaultForwardToPhoneNumber = null)
     {
-        if (!$defaultForwardToPhoneNumber) return $this;
         $this->defaultForwardToPhoneNumber = ($defaultForwardToPhoneNumber InstanceOf OutgoingDNorSIPURI)
              ? $defaultForwardToPhoneNumber
              : new OutgoingDNorSIPURI($defaultForwardToPhoneNumber);
@@ -75,7 +73,7 @@ class UserCallForwardingSelectiveGetResponse16 extends ComplexType implements Co
      */
     public function getDefaultForwardToPhoneNumber()
     {
-        return $this->defaultForwardToPhoneNumber->getValue();
+        return ($this->defaultForwardToPhoneNumber) ? $this->defaultForwardToPhoneNumber->getValue() : null;
     }
 
     /**
@@ -83,7 +81,6 @@ class UserCallForwardingSelectiveGetResponse16 extends ComplexType implements Co
      */
     public function setPlayRingReminder($playRingReminder = null)
     {
-        if (!$playRingReminder) return $this;
         $this->playRingReminder = new PrimitiveType($playRingReminder);
         $this->playRingReminder->setName('playRingReminder');
         return $this;
@@ -95,7 +92,7 @@ class UserCallForwardingSelectiveGetResponse16 extends ComplexType implements Co
      */
     public function getPlayRingReminder()
     {
-        return $this->playRingReminder->getValue();
+        return ($this->playRingReminder) ? $this->playRingReminder->getValue() : null;
     }
 
     /**
@@ -103,7 +100,6 @@ class UserCallForwardingSelectiveGetResponse16 extends ComplexType implements Co
      */
     public function setCriteriaTable(TableType $criteriaTable = null)
     {
-        if (!$criteriaTable) return $this;
         $this->criteriaTable = $criteriaTable;
         $this->criteriaTable->setName('criteriaTable');
         return $this;

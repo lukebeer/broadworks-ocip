@@ -21,13 +21,13 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserDirectedCallPickupWithBargeInModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                           = 'UserDirectedCallPickupWithBargeInModifyRequest';
-    protected $userId                         = null;
-    protected $enableBargeInWarningTone       = null;
-    protected $enableAutomaticTargetSelection = null;
+    public    $name = 'UserDirectedCallPickupWithBargeInModifyRequest';
+    protected $userId;
+    protected $enableBargeInWarningTone;
+    protected $enableAutomaticTargetSelection;
 
     public function __construct(
-         $userId,
+         $userId = '',
          $enableBargeInWarningTone = null,
          $enableAutomaticTargetSelection = null
     ) {
@@ -49,7 +49,6 @@ class UserDirectedCallPickupWithBargeInModifyRequest extends ComplexType impleme
      */
     public function setUserId($userId = null)
     {
-        if (!$userId) return $this;
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
@@ -63,7 +62,7 @@ class UserDirectedCallPickupWithBargeInModifyRequest extends ComplexType impleme
      */
     public function getUserId()
     {
-        return $this->userId->getValue();
+        return ($this->userId) ? $this->userId->getValue() : null;
     }
 
     /**
@@ -71,7 +70,6 @@ class UserDirectedCallPickupWithBargeInModifyRequest extends ComplexType impleme
      */
     public function setEnableBargeInWarningTone($enableBargeInWarningTone = null)
     {
-        if (!$enableBargeInWarningTone) return $this;
         $this->enableBargeInWarningTone = new PrimitiveType($enableBargeInWarningTone);
         $this->enableBargeInWarningTone->setName('enableBargeInWarningTone');
         return $this;
@@ -83,7 +81,7 @@ class UserDirectedCallPickupWithBargeInModifyRequest extends ComplexType impleme
      */
     public function getEnableBargeInWarningTone()
     {
-        return $this->enableBargeInWarningTone->getValue();
+        return ($this->enableBargeInWarningTone) ? $this->enableBargeInWarningTone->getValue() : null;
     }
 
     /**
@@ -91,7 +89,6 @@ class UserDirectedCallPickupWithBargeInModifyRequest extends ComplexType impleme
      */
     public function setEnableAutomaticTargetSelection($enableAutomaticTargetSelection = null)
     {
-        if (!$enableAutomaticTargetSelection) return $this;
         $this->enableAutomaticTargetSelection = new PrimitiveType($enableAutomaticTargetSelection);
         $this->enableAutomaticTargetSelection->setName('enableAutomaticTargetSelection');
         return $this;
@@ -103,6 +100,6 @@ class UserDirectedCallPickupWithBargeInModifyRequest extends ComplexType impleme
      */
     public function getEnableAutomaticTargetSelection()
     {
-        return $this->enableAutomaticTargetSelection->getValue();
+        return ($this->enableAutomaticTargetSelection) ? $this->enableAutomaticTargetSelection->getValue() : null;
     }
 }

@@ -28,22 +28,22 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupRoutePointGetInstanceResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                                = 'GroupRoutePointGetInstanceResponse';
-    protected $serviceInstanceProfile              = null;
-    protected $networkClassOfService               = null;
-    protected $externalPreferredAudioCodec         = null;
-    protected $internalPreferredAudioCodec         = null;
-    protected $queueLength                         = null;
-    protected $noAnswerTimeoutRings                = null;
-    protected $enableVideo                         = null;
-    protected $playRingingWhenOfferingCall         = null;
-    protected $overrideAgentWrapUpTime             = null;
-    protected $wrapUpSeconds                       = null;
-    protected $enableAutomaticStateChangeForAgents = null;
-    protected $agentStateAfterCall                 = null;
-    protected $agentUnavailableCode                = null;
-    protected $forceDeliveryOfCalls                = null;
-    protected $forceDeliveryWaitTimeSeconds        = null;
+    public    $name = 'GroupRoutePointGetInstanceResponse';
+    protected $serviceInstanceProfile;
+    protected $networkClassOfService;
+    protected $externalPreferredAudioCodec;
+    protected $internalPreferredAudioCodec;
+    protected $queueLength;
+    protected $noAnswerTimeoutRings;
+    protected $enableVideo;
+    protected $playRingingWhenOfferingCall;
+    protected $overrideAgentWrapUpTime;
+    protected $wrapUpSeconds;
+    protected $enableAutomaticStateChangeForAgents;
+    protected $agentStateAfterCall;
+    protected $agentUnavailableCode;
+    protected $forceDeliveryOfCalls;
+    protected $forceDeliveryWaitTimeSeconds;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceRoutePoint\GroupRoutePointGetInstanceResponse $response
@@ -58,8 +58,9 @@ class GroupRoutePointGetInstanceResponse extends ComplexType implements ComplexI
      */
     public function setServiceInstanceProfile(ServiceInstanceReadProfile17 $serviceInstanceProfile = null)
     {
-        if (!$serviceInstanceProfile) return $this;
-        $this->serviceInstanceProfile = $serviceInstanceProfile;
+        $this->serviceInstanceProfile = ($serviceInstanceProfile InstanceOf ServiceInstanceReadProfile17)
+             ? $serviceInstanceProfile
+             : new ServiceInstanceReadProfile17($serviceInstanceProfile);
         $this->serviceInstanceProfile->setName('serviceInstanceProfile');
         return $this;
     }
@@ -78,7 +79,6 @@ class GroupRoutePointGetInstanceResponse extends ComplexType implements ComplexI
      */
     public function setNetworkClassOfService($networkClassOfService = null)
     {
-        if (!$networkClassOfService) return $this;
         $this->networkClassOfService = ($networkClassOfService InstanceOf NetworkClassOfServiceName)
              ? $networkClassOfService
              : new NetworkClassOfServiceName($networkClassOfService);
@@ -92,7 +92,7 @@ class GroupRoutePointGetInstanceResponse extends ComplexType implements ComplexI
      */
     public function getNetworkClassOfService()
     {
-        return $this->networkClassOfService->getValue();
+        return ($this->networkClassOfService) ? $this->networkClassOfService->getValue() : null;
     }
 
     /**
@@ -100,7 +100,6 @@ class GroupRoutePointGetInstanceResponse extends ComplexType implements ComplexI
      */
     public function setExternalPreferredAudioCodec($externalPreferredAudioCodec = null)
     {
-        if (!$externalPreferredAudioCodec) return $this;
         $this->externalPreferredAudioCodec = ($externalPreferredAudioCodec InstanceOf AudioFileCodec)
              ? $externalPreferredAudioCodec
              : new AudioFileCodec($externalPreferredAudioCodec);
@@ -114,7 +113,7 @@ class GroupRoutePointGetInstanceResponse extends ComplexType implements ComplexI
      */
     public function getExternalPreferredAudioCodec()
     {
-        return $this->externalPreferredAudioCodec->getValue();
+        return ($this->externalPreferredAudioCodec) ? $this->externalPreferredAudioCodec->getValue() : null;
     }
 
     /**
@@ -122,7 +121,6 @@ class GroupRoutePointGetInstanceResponse extends ComplexType implements ComplexI
      */
     public function setInternalPreferredAudioCodec($internalPreferredAudioCodec = null)
     {
-        if (!$internalPreferredAudioCodec) return $this;
         $this->internalPreferredAudioCodec = ($internalPreferredAudioCodec InstanceOf AudioFileCodec)
              ? $internalPreferredAudioCodec
              : new AudioFileCodec($internalPreferredAudioCodec);
@@ -136,7 +134,7 @@ class GroupRoutePointGetInstanceResponse extends ComplexType implements ComplexI
      */
     public function getInternalPreferredAudioCodec()
     {
-        return $this->internalPreferredAudioCodec->getValue();
+        return ($this->internalPreferredAudioCodec) ? $this->internalPreferredAudioCodec->getValue() : null;
     }
 
     /**
@@ -144,7 +142,6 @@ class GroupRoutePointGetInstanceResponse extends ComplexType implements ComplexI
      */
     public function setQueueLength($queueLength = null)
     {
-        if (!$queueLength) return $this;
         $this->queueLength = ($queueLength InstanceOf CallCenterQueueLength16)
              ? $queueLength
              : new CallCenterQueueLength16($queueLength);
@@ -158,7 +155,7 @@ class GroupRoutePointGetInstanceResponse extends ComplexType implements ComplexI
      */
     public function getQueueLength()
     {
-        return $this->queueLength->getValue();
+        return ($this->queueLength) ? $this->queueLength->getValue() : null;
     }
 
     /**
@@ -166,7 +163,6 @@ class GroupRoutePointGetInstanceResponse extends ComplexType implements ComplexI
      */
     public function setNoAnswerTimeoutRings($noAnswerTimeoutRings = null)
     {
-        if (!$noAnswerTimeoutRings) return $this;
         $this->noAnswerTimeoutRings = ($noAnswerTimeoutRings InstanceOf NoAnswerTimeoutRings)
              ? $noAnswerTimeoutRings
              : new NoAnswerTimeoutRings($noAnswerTimeoutRings);
@@ -180,7 +176,7 @@ class GroupRoutePointGetInstanceResponse extends ComplexType implements ComplexI
      */
     public function getNoAnswerTimeoutRings()
     {
-        return $this->noAnswerTimeoutRings->getValue();
+        return ($this->noAnswerTimeoutRings) ? $this->noAnswerTimeoutRings->getValue() : null;
     }
 
     /**
@@ -188,7 +184,6 @@ class GroupRoutePointGetInstanceResponse extends ComplexType implements ComplexI
      */
     public function setEnableVideo($enableVideo = null)
     {
-        if (!$enableVideo) return $this;
         $this->enableVideo = new PrimitiveType($enableVideo);
         $this->enableVideo->setName('enableVideo');
         return $this;
@@ -200,7 +195,7 @@ class GroupRoutePointGetInstanceResponse extends ComplexType implements ComplexI
      */
     public function getEnableVideo()
     {
-        return $this->enableVideo->getValue();
+        return ($this->enableVideo) ? $this->enableVideo->getValue() : null;
     }
 
     /**
@@ -208,7 +203,6 @@ class GroupRoutePointGetInstanceResponse extends ComplexType implements ComplexI
      */
     public function setPlayRingingWhenOfferingCall($playRingingWhenOfferingCall = null)
     {
-        if (!$playRingingWhenOfferingCall) return $this;
         $this->playRingingWhenOfferingCall = new PrimitiveType($playRingingWhenOfferingCall);
         $this->playRingingWhenOfferingCall->setName('playRingingWhenOfferingCall');
         return $this;
@@ -220,7 +214,7 @@ class GroupRoutePointGetInstanceResponse extends ComplexType implements ComplexI
      */
     public function getPlayRingingWhenOfferingCall()
     {
-        return $this->playRingingWhenOfferingCall->getValue();
+        return ($this->playRingingWhenOfferingCall) ? $this->playRingingWhenOfferingCall->getValue() : null;
     }
 
     /**
@@ -228,7 +222,6 @@ class GroupRoutePointGetInstanceResponse extends ComplexType implements ComplexI
      */
     public function setOverrideAgentWrapUpTime($overrideAgentWrapUpTime = null)
     {
-        if (!$overrideAgentWrapUpTime) return $this;
         $this->overrideAgentWrapUpTime = new PrimitiveType($overrideAgentWrapUpTime);
         $this->overrideAgentWrapUpTime->setName('overrideAgentWrapUpTime');
         return $this;
@@ -240,7 +233,7 @@ class GroupRoutePointGetInstanceResponse extends ComplexType implements ComplexI
      */
     public function getOverrideAgentWrapUpTime()
     {
-        return $this->overrideAgentWrapUpTime->getValue();
+        return ($this->overrideAgentWrapUpTime) ? $this->overrideAgentWrapUpTime->getValue() : null;
     }
 
     /**
@@ -248,7 +241,6 @@ class GroupRoutePointGetInstanceResponse extends ComplexType implements ComplexI
      */
     public function setWrapUpSeconds($wrapUpSeconds = null)
     {
-        if (!$wrapUpSeconds) return $this;
         $this->wrapUpSeconds = ($wrapUpSeconds InstanceOf CallCenterWrapUpSeconds)
              ? $wrapUpSeconds
              : new CallCenterWrapUpSeconds($wrapUpSeconds);
@@ -262,7 +254,7 @@ class GroupRoutePointGetInstanceResponse extends ComplexType implements ComplexI
      */
     public function getWrapUpSeconds()
     {
-        return $this->wrapUpSeconds->getValue();
+        return ($this->wrapUpSeconds) ? $this->wrapUpSeconds->getValue() : null;
     }
 
     /**
@@ -270,7 +262,6 @@ class GroupRoutePointGetInstanceResponse extends ComplexType implements ComplexI
      */
     public function setEnableAutomaticStateChangeForAgents($enableAutomaticStateChangeForAgents = null)
     {
-        if (!$enableAutomaticStateChangeForAgents) return $this;
         $this->enableAutomaticStateChangeForAgents = new PrimitiveType($enableAutomaticStateChangeForAgents);
         $this->enableAutomaticStateChangeForAgents->setName('enableAutomaticStateChangeForAgents');
         return $this;
@@ -282,7 +273,7 @@ class GroupRoutePointGetInstanceResponse extends ComplexType implements ComplexI
      */
     public function getEnableAutomaticStateChangeForAgents()
     {
-        return $this->enableAutomaticStateChangeForAgents->getValue();
+        return ($this->enableAutomaticStateChangeForAgents) ? $this->enableAutomaticStateChangeForAgents->getValue() : null;
     }
 
     /**
@@ -290,7 +281,6 @@ class GroupRoutePointGetInstanceResponse extends ComplexType implements ComplexI
      */
     public function setAgentStateAfterCall($agentStateAfterCall = null)
     {
-        if (!$agentStateAfterCall) return $this;
         $this->agentStateAfterCall = ($agentStateAfterCall InstanceOf AgentACDAutomaticState)
              ? $agentStateAfterCall
              : new AgentACDAutomaticState($agentStateAfterCall);
@@ -304,7 +294,7 @@ class GroupRoutePointGetInstanceResponse extends ComplexType implements ComplexI
      */
     public function getAgentStateAfterCall()
     {
-        return $this->agentStateAfterCall->getValue();
+        return ($this->agentStateAfterCall) ? $this->agentStateAfterCall->getValue() : null;
     }
 
     /**
@@ -312,7 +302,6 @@ class GroupRoutePointGetInstanceResponse extends ComplexType implements ComplexI
      */
     public function setAgentUnavailableCode($agentUnavailableCode = null)
     {
-        if (!$agentUnavailableCode) return $this;
         $this->agentUnavailableCode = ($agentUnavailableCode InstanceOf CallCenterAgentUnavailableCode)
              ? $agentUnavailableCode
              : new CallCenterAgentUnavailableCode($agentUnavailableCode);
@@ -326,7 +315,7 @@ class GroupRoutePointGetInstanceResponse extends ComplexType implements ComplexI
      */
     public function getAgentUnavailableCode()
     {
-        return $this->agentUnavailableCode->getValue();
+        return ($this->agentUnavailableCode) ? $this->agentUnavailableCode->getValue() : null;
     }
 
     /**
@@ -334,7 +323,6 @@ class GroupRoutePointGetInstanceResponse extends ComplexType implements ComplexI
      */
     public function setForceDeliveryOfCalls($forceDeliveryOfCalls = null)
     {
-        if (!$forceDeliveryOfCalls) return $this;
         $this->forceDeliveryOfCalls = new PrimitiveType($forceDeliveryOfCalls);
         $this->forceDeliveryOfCalls->setName('forceDeliveryOfCalls');
         return $this;
@@ -346,7 +334,7 @@ class GroupRoutePointGetInstanceResponse extends ComplexType implements ComplexI
      */
     public function getForceDeliveryOfCalls()
     {
-        return $this->forceDeliveryOfCalls->getValue();
+        return ($this->forceDeliveryOfCalls) ? $this->forceDeliveryOfCalls->getValue() : null;
     }
 
     /**
@@ -354,7 +342,6 @@ class GroupRoutePointGetInstanceResponse extends ComplexType implements ComplexI
      */
     public function setForceDeliveryWaitTimeSeconds($forceDeliveryWaitTimeSeconds = null)
     {
-        if (!$forceDeliveryWaitTimeSeconds) return $this;
         $this->forceDeliveryWaitTimeSeconds = ($forceDeliveryWaitTimeSeconds InstanceOf CallCenterForceDeliveryWaitTimeSeconds)
              ? $forceDeliveryWaitTimeSeconds
              : new CallCenterForceDeliveryWaitTimeSeconds($forceDeliveryWaitTimeSeconds);
@@ -368,6 +355,6 @@ class GroupRoutePointGetInstanceResponse extends ComplexType implements ComplexI
      */
     public function getForceDeliveryWaitTimeSeconds()
     {
-        return $this->forceDeliveryWaitTimeSeconds->getValue();
+        return ($this->forceDeliveryWaitTimeSeconds) ? $this->forceDeliveryWaitTimeSeconds->getValue() : null;
     }
 }

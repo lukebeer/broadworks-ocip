@@ -21,11 +21,11 @@ use Broadworks_OCIP\core\Client\Client;
 class UserHolidayScheduleGetListRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\UserHolidayScheduleGetListResponse';
-    public    $name   = 'UserHolidayScheduleGetListRequest';
-    protected $userId = null;
+    public    $name = 'UserHolidayScheduleGetListRequest';
+    protected $userId;
 
     public function __construct(
-         $userId
+         $userId = ''
     ) {
         $this->setUserId($userId);
     }
@@ -43,7 +43,6 @@ class UserHolidayScheduleGetListRequest extends ComplexType implements ComplexIn
      */
     public function setUserId($userId = null)
     {
-        if (!$userId) return $this;
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
@@ -57,6 +56,6 @@ class UserHolidayScheduleGetListRequest extends ComplexType implements ComplexIn
      */
     public function getUserId()
     {
-        return $this->userId->getValue();
+        return ($this->userId) ? $this->userId->getValue() : null;
     }
 }

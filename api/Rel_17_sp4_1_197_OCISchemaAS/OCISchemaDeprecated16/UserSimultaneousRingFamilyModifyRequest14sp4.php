@@ -22,13 +22,13 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserSimultaneousRingFamilyModifyRequest14sp4 extends ComplexType implements ComplexInterface
 {
-    public    $name          = 'UserSimultaneousRingFamilyModifyRequest14sp4';
-    protected $userId        = null;
-    protected $isActive      = null;
-    protected $incomingCalls = null;
+    public    $name = 'UserSimultaneousRingFamilyModifyRequest14sp4';
+    protected $userId;
+    protected $isActive;
+    protected $incomingCalls;
 
     public function __construct(
-         $userId,
+         $userId = '',
          $isActive = null,
          $incomingCalls = null
     ) {
@@ -50,7 +50,6 @@ class UserSimultaneousRingFamilyModifyRequest14sp4 extends ComplexType implement
      */
     public function setUserId($userId = null)
     {
-        if (!$userId) return $this;
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
@@ -64,7 +63,7 @@ class UserSimultaneousRingFamilyModifyRequest14sp4 extends ComplexType implement
      */
     public function getUserId()
     {
-        return $this->userId->getValue();
+        return ($this->userId) ? $this->userId->getValue() : null;
     }
 
     /**
@@ -72,7 +71,6 @@ class UserSimultaneousRingFamilyModifyRequest14sp4 extends ComplexType implement
      */
     public function setIsActive($isActive = null)
     {
-        if (!$isActive) return $this;
         $this->isActive = new PrimitiveType($isActive);
         $this->isActive->setName('isActive');
         return $this;
@@ -84,7 +82,7 @@ class UserSimultaneousRingFamilyModifyRequest14sp4 extends ComplexType implement
      */
     public function getIsActive()
     {
-        return $this->isActive->getValue();
+        return ($this->isActive) ? $this->isActive->getValue() : null;
     }
 
     /**
@@ -92,7 +90,6 @@ class UserSimultaneousRingFamilyModifyRequest14sp4 extends ComplexType implement
      */
     public function setIncomingCalls($incomingCalls = null)
     {
-        if (!$incomingCalls) return $this;
         $this->incomingCalls = ($incomingCalls InstanceOf SimultaneousRingSelection)
              ? $incomingCalls
              : new SimultaneousRingSelection($incomingCalls);
@@ -106,6 +103,6 @@ class UserSimultaneousRingFamilyModifyRequest14sp4 extends ComplexType implement
      */
     public function getIncomingCalls()
     {
-        return $this->incomingCalls->getValue();
+        return ($this->incomingCalls) ? $this->incomingCalls->getValue() : null;
     }
 }

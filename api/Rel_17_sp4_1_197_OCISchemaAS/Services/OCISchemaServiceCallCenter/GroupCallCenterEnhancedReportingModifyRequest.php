@@ -23,15 +23,15 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupCallCenterEnhancedReportingModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name               = 'GroupCallCenterEnhancedReportingModifyRequest';
-    protected $serviceProviderId  = null;
-    protected $groupId            = null;
-    protected $reportingServer    = null;
-    protected $webStatisticSource = null;
+    public    $name = 'GroupCallCenterEnhancedReportingModifyRequest';
+    protected $serviceProviderId;
+    protected $groupId;
+    protected $reportingServer;
+    protected $webStatisticSource;
 
     public function __construct(
-         $serviceProviderId,
-         $groupId,
+         $serviceProviderId = '',
+         $groupId = '',
          $reportingServer = null,
          $webStatisticSource = null
     ) {
@@ -54,7 +54,6 @@ class GroupCallCenterEnhancedReportingModifyRequest extends ComplexType implemen
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
-        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
@@ -68,7 +67,7 @@ class GroupCallCenterEnhancedReportingModifyRequest extends ComplexType implemen
      */
     public function getServiceProviderId()
     {
-        return $this->serviceProviderId->getValue();
+        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
     }
 
     /**
@@ -76,7 +75,6 @@ class GroupCallCenterEnhancedReportingModifyRequest extends ComplexType implemen
      */
     public function setGroupId($groupId = null)
     {
-        if (!$groupId) return $this;
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
@@ -90,7 +88,7 @@ class GroupCallCenterEnhancedReportingModifyRequest extends ComplexType implemen
      */
     public function getGroupId()
     {
-        return $this->groupId->getValue();
+        return ($this->groupId) ? $this->groupId->getValue() : null;
     }
 
     /**
@@ -98,7 +96,6 @@ class GroupCallCenterEnhancedReportingModifyRequest extends ComplexType implemen
      */
     public function setReportingServer($reportingServer = null)
     {
-        if (!$reportingServer) return $this;
         $this->reportingServer = ($reportingServer InstanceOf CallCenterReportServerChoice)
              ? $reportingServer
              : new CallCenterReportServerChoice($reportingServer);
@@ -112,7 +109,7 @@ class GroupCallCenterEnhancedReportingModifyRequest extends ComplexType implemen
      */
     public function getReportingServer()
     {
-        return $this->reportingServer->getValue();
+        return ($this->reportingServer) ? $this->reportingServer->getValue() : null;
     }
 
     /**
@@ -120,7 +117,6 @@ class GroupCallCenterEnhancedReportingModifyRequest extends ComplexType implemen
      */
     public function setWebStatisticSource($webStatisticSource = null)
     {
-        if (!$webStatisticSource) return $this;
         $this->webStatisticSource = ($webStatisticSource InstanceOf CallCenterReportWebStatisticsSource)
              ? $webStatisticSource
              : new CallCenterReportWebStatisticsSource($webStatisticSource);
@@ -134,6 +130,6 @@ class GroupCallCenterEnhancedReportingModifyRequest extends ComplexType implemen
      */
     public function getWebStatisticSource()
     {
-        return $this->webStatisticSource->getValue();
+        return ($this->webStatisticSource) ? $this->webStatisticSource->getValue() : null;
     }
 }

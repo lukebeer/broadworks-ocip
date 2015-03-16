@@ -21,10 +21,10 @@ use Broadworks_OCIP\core\Client\Client;
 class SystemCommunicationBarringDigitPatternCriteriaDeleteRequest extends ComplexType implements ComplexInterface
 {
     public    $name = 'SystemCommunicationBarringDigitPatternCriteriaDeleteRequest';
-    protected $name = null;
+    protected $name;
 
     public function __construct(
-         $name
+         $name = ''
     ) {
         $this->setName($name);
     }
@@ -42,7 +42,6 @@ class SystemCommunicationBarringDigitPatternCriteriaDeleteRequest extends Comple
      */
     public function setName($name = null)
     {
-        if (!$name) return $this;
         $this->name = ($name InstanceOf DigitPatternCriteriaName)
              ? $name
              : new DigitPatternCriteriaName($name);
@@ -56,6 +55,6 @@ class SystemCommunicationBarringDigitPatternCriteriaDeleteRequest extends Comple
      */
     public function getName()
     {
-        return $this->name->getValue();
+        return ($this->name) ? $this->name->getValue() : null;
     }
 }

@@ -33,17 +33,17 @@ use Broadworks_OCIP\core\Client\Client;
 class GroupCommonPhoneListGetListRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType                             = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupCommonPhoneListGetListResponse';
-    public    $name                                     = 'GroupCommonPhoneListGetListRequest';
-    protected $serviceProviderId                        = null;
-    protected $groupId                                  = null;
-    protected $responseSizeLimit                        = null;
-    protected $searchCriteriaModeOr                     = null;
-    protected $searchCriteriaGroupCommonPhoneListName   = null;
-    protected $searchCriteriaGroupCommonPhoneListNumber = null;
+    public    $name = 'GroupCommonPhoneListGetListRequest';
+    protected $serviceProviderId;
+    protected $groupId;
+    protected $responseSizeLimit;
+    protected $searchCriteriaModeOr;
+    protected $searchCriteriaGroupCommonPhoneListName;
+    protected $searchCriteriaGroupCommonPhoneListNumber;
 
     public function __construct(
-         $serviceProviderId,
-         $groupId,
+         $serviceProviderId = '',
+         $groupId = '',
          $responseSizeLimit = null,
          $searchCriteriaModeOr = null,
          SearchCriteriaGroupCommonPhoneListName $searchCriteriaGroupCommonPhoneListName = null,
@@ -70,7 +70,6 @@ class GroupCommonPhoneListGetListRequest extends ComplexType implements ComplexI
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
-        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
@@ -84,7 +83,7 @@ class GroupCommonPhoneListGetListRequest extends ComplexType implements ComplexI
      */
     public function getServiceProviderId()
     {
-        return $this->serviceProviderId->getValue();
+        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
     }
 
     /**
@@ -92,7 +91,6 @@ class GroupCommonPhoneListGetListRequest extends ComplexType implements ComplexI
      */
     public function setGroupId($groupId = null)
     {
-        if (!$groupId) return $this;
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
@@ -106,7 +104,7 @@ class GroupCommonPhoneListGetListRequest extends ComplexType implements ComplexI
      */
     public function getGroupId()
     {
-        return $this->groupId->getValue();
+        return ($this->groupId) ? $this->groupId->getValue() : null;
     }
 
     /**
@@ -114,7 +112,6 @@ class GroupCommonPhoneListGetListRequest extends ComplexType implements ComplexI
      */
     public function setResponseSizeLimit($responseSizeLimit = null)
     {
-        if (!$responseSizeLimit) return $this;
         $this->responseSizeLimit = ($responseSizeLimit InstanceOf ResponseSizeLimit)
              ? $responseSizeLimit
              : new ResponseSizeLimit($responseSizeLimit);
@@ -128,7 +125,7 @@ class GroupCommonPhoneListGetListRequest extends ComplexType implements ComplexI
      */
     public function getResponseSizeLimit()
     {
-        return $this->responseSizeLimit->getValue();
+        return ($this->responseSizeLimit) ? $this->responseSizeLimit->getValue() : null;
     }
 
     /**
@@ -136,7 +133,6 @@ class GroupCommonPhoneListGetListRequest extends ComplexType implements ComplexI
      */
     public function setSearchCriteriaModeOr($searchCriteriaModeOr = null)
     {
-        if (!$searchCriteriaModeOr) return $this;
         $this->searchCriteriaModeOr = new PrimitiveType($searchCriteriaModeOr);
         $this->searchCriteriaModeOr->setName('searchCriteriaModeOr');
         return $this;
@@ -148,7 +144,7 @@ class GroupCommonPhoneListGetListRequest extends ComplexType implements ComplexI
      */
     public function getSearchCriteriaModeOr()
     {
-        return $this->searchCriteriaModeOr->getValue();
+        return ($this->searchCriteriaModeOr) ? $this->searchCriteriaModeOr->getValue() : null;
     }
 
     /**
@@ -156,7 +152,6 @@ class GroupCommonPhoneListGetListRequest extends ComplexType implements ComplexI
      */
     public function setSearchCriteriaGroupCommonPhoneListName(SearchCriteriaGroupCommonPhoneListName $searchCriteriaGroupCommonPhoneListName = null)
     {
-        if (!$searchCriteriaGroupCommonPhoneListName) return $this;
         $this->searchCriteriaGroupCommonPhoneListName = ($searchCriteriaGroupCommonPhoneListName InstanceOf SearchCriteriaGroupCommonPhoneListName)
              ? $searchCriteriaGroupCommonPhoneListName
              : new SearchCriteriaGroupCommonPhoneListName($searchCriteriaGroupCommonPhoneListName);
@@ -178,7 +173,6 @@ class GroupCommonPhoneListGetListRequest extends ComplexType implements ComplexI
      */
     public function setSearchCriteriaGroupCommonPhoneListNumber(SearchCriteriaGroupCommonPhoneListNumber $searchCriteriaGroupCommonPhoneListNumber = null)
     {
-        if (!$searchCriteriaGroupCommonPhoneListNumber) return $this;
         $this->searchCriteriaGroupCommonPhoneListNumber = ($searchCriteriaGroupCommonPhoneListNumber InstanceOf SearchCriteriaGroupCommonPhoneListNumber)
              ? $searchCriteriaGroupCommonPhoneListNumber
              : new SearchCriteriaGroupCommonPhoneListNumber($searchCriteriaGroupCommonPhoneListNumber);

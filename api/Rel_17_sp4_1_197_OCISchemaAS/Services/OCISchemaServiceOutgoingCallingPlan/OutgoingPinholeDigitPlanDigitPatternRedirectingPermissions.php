@@ -19,8 +19,8 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class OutgoingPinholeDigitPlanDigitPatternRedirectingPermissions extends ComplexType implements ComplexInterface
 {
-    public    $name                    = 'OutgoingPinholeDigitPlanDigitPatternRedirectingPermissions';
-    protected $digitPatternPermissions = null;
+    public    $name = 'OutgoingPinholeDigitPlanDigitPatternRedirectingPermissions';
+    protected $digitPatternPermissions;
 
     public function __construct(
          $digitPatternPermissions = null
@@ -41,7 +41,6 @@ class OutgoingPinholeDigitPlanDigitPatternRedirectingPermissions extends Complex
      */
     public function setDigitPatternPermissions($digitPatternPermissions = null)
     {
-        if (!$digitPatternPermissions) return $this;
         $this->digitPatternPermissions = new SimpleContent($digitPatternPermissions);
         $this->digitPatternPermissions->setName('digitPatternPermissions');
         return $this;
@@ -53,6 +52,6 @@ class OutgoingPinholeDigitPlanDigitPatternRedirectingPermissions extends Complex
      */
     public function getDigitPatternPermissions()
     {
-        return $this->digitPatternPermissions->getValue();
+        return ($this->digitPatternPermissions) ? $this->digitPatternPermissions->getValue() : null;
     }
 }

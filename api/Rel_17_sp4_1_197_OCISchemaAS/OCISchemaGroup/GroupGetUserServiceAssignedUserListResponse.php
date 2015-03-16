@@ -23,8 +23,8 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupGetUserServiceAssignedUserListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name          = 'GroupGetUserServiceAssignedUserListResponse';
-    protected $userListTable = null;
+    public    $name = 'GroupGetUserServiceAssignedUserListResponse';
+    protected $userListTable;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupGetUserServiceAssignedUserListResponse $response
@@ -39,7 +39,6 @@ class GroupGetUserServiceAssignedUserListResponse extends ComplexType implements
      */
     public function setUserListTable(TableType $userListTable = null)
     {
-        if (!$userListTable) return $this;
         $this->userListTable = $userListTable;
         $this->userListTable->setName('userListTable');
         return $this;

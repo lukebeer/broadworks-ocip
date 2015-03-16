@@ -23,20 +23,20 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserScheduleAddEventRequest extends ComplexType implements ComplexInterface
 {
-    public    $name        = 'UserScheduleAddEventRequest';
-    protected $userId      = null;
-    protected $scheduleKey = null;
-    protected $eventName   = null;
-    protected $startDate   = null;
-    protected $endDate     = null;
-    protected $recurrence  = null;
+    public    $name = 'UserScheduleAddEventRequest';
+    protected $userId;
+    protected $scheduleKey;
+    protected $eventName;
+    protected $startDate;
+    protected $endDate;
+    protected $recurrence;
 
     public function __construct(
-         $userId,
-         ScheduleKey $scheduleKey,
-         $eventName,
-         $startDate,
-         $endDate,
+         $userId = '',
+         ScheduleKey $scheduleKey = '',
+         $eventName = '',
+         $startDate = '',
+         $endDate = '',
          Recurrence $recurrence = null
     ) {
         $this->setUserId($userId);
@@ -60,7 +60,6 @@ class UserScheduleAddEventRequest extends ComplexType implements ComplexInterfac
      */
     public function setUserId($userId = null)
     {
-        if (!$userId) return $this;
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
@@ -74,7 +73,7 @@ class UserScheduleAddEventRequest extends ComplexType implements ComplexInterfac
      */
     public function getUserId()
     {
-        return $this->userId->getValue();
+        return ($this->userId) ? $this->userId->getValue() : null;
     }
 
     /**
@@ -82,8 +81,9 @@ class UserScheduleAddEventRequest extends ComplexType implements ComplexInterfac
      */
     public function setScheduleKey(ScheduleKey $scheduleKey = null)
     {
-        if (!$scheduleKey) return $this;
-        $this->scheduleKey = $scheduleKey;
+        $this->scheduleKey = ($scheduleKey InstanceOf ScheduleKey)
+             ? $scheduleKey
+             : new ScheduleKey($scheduleKey);
         $this->scheduleKey->setName('scheduleKey');
         return $this;
     }
@@ -102,7 +102,6 @@ class UserScheduleAddEventRequest extends ComplexType implements ComplexInterfac
      */
     public function setEventName($eventName = null)
     {
-        if (!$eventName) return $this;
         $this->eventName = ($eventName InstanceOf EventName)
              ? $eventName
              : new EventName($eventName);
@@ -116,7 +115,7 @@ class UserScheduleAddEventRequest extends ComplexType implements ComplexInterfac
      */
     public function getEventName()
     {
-        return $this->eventName->getValue();
+        return ($this->eventName) ? $this->eventName->getValue() : null;
     }
 
     /**
@@ -124,7 +123,6 @@ class UserScheduleAddEventRequest extends ComplexType implements ComplexInterfac
      */
     public function setStartDate(xs:date $startDate = null)
     {
-        if (!$startDate) return $this;
         $this->startDate->setName('startDate');
         return $this;
     }
@@ -135,7 +133,7 @@ class UserScheduleAddEventRequest extends ComplexType implements ComplexInterfac
      */
     public function getStartDate()
     {
-        return $this->startDate->getValue();
+        return ($this->startDate) ? $this->startDate->getValue() : null;
     }
 
     /**
@@ -143,7 +141,6 @@ class UserScheduleAddEventRequest extends ComplexType implements ComplexInterfac
      */
     public function setEndDate(xs:date $endDate = null)
     {
-        if (!$endDate) return $this;
         $this->endDate->setName('endDate');
         return $this;
     }
@@ -154,7 +151,7 @@ class UserScheduleAddEventRequest extends ComplexType implements ComplexInterfac
      */
     public function getEndDate()
     {
-        return $this->endDate->getValue();
+        return ($this->endDate) ? $this->endDate->getValue() : null;
     }
 
     /**
@@ -162,8 +159,9 @@ class UserScheduleAddEventRequest extends ComplexType implements ComplexInterfac
      */
     public function setRecurrence(Recurrence $recurrence = null)
     {
-        if (!$recurrence) return $this;
-        $this->recurrence = $recurrence;
+        $this->recurrence = ($recurrence InstanceOf Recurrence)
+             ? $recurrence
+             : new Recurrence($recurrence);
         $this->recurrence->setName('recurrence');
         return $this;
     }

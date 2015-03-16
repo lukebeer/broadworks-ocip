@@ -20,12 +20,12 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemSIPDeviceTypeServiceModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                         = 'SystemSIPDeviceTypeServiceModifyRequest';
-    protected $deviceType                   = null;
-    protected $supportsPolycomPhoneServices = null;
+    public    $name = 'SystemSIPDeviceTypeServiceModifyRequest';
+    protected $deviceType;
+    protected $supportsPolycomPhoneServices;
 
     public function __construct(
-         $deviceType,
+         $deviceType = '',
          $supportsPolycomPhoneServices = null
     ) {
         $this->setDeviceType($deviceType);
@@ -45,7 +45,6 @@ class SystemSIPDeviceTypeServiceModifyRequest extends ComplexType implements Com
      */
     public function setDeviceType($deviceType = null)
     {
-        if (!$deviceType) return $this;
         $this->deviceType = ($deviceType InstanceOf AccessDeviceType)
              ? $deviceType
              : new AccessDeviceType($deviceType);
@@ -59,7 +58,7 @@ class SystemSIPDeviceTypeServiceModifyRequest extends ComplexType implements Com
      */
     public function getDeviceType()
     {
-        return $this->deviceType->getValue();
+        return ($this->deviceType) ? $this->deviceType->getValue() : null;
     }
 
     /**
@@ -67,7 +66,6 @@ class SystemSIPDeviceTypeServiceModifyRequest extends ComplexType implements Com
      */
     public function setSupportsPolycomPhoneServices($supportsPolycomPhoneServices = null)
     {
-        if (!$supportsPolycomPhoneServices) return $this;
         $this->supportsPolycomPhoneServices = new PrimitiveType($supportsPolycomPhoneServices);
         $this->supportsPolycomPhoneServices->setName('supportsPolycomPhoneServices');
         return $this;
@@ -79,6 +77,6 @@ class SystemSIPDeviceTypeServiceModifyRequest extends ComplexType implements Com
      */
     public function getSupportsPolycomPhoneServices()
     {
-        return $this->supportsPolycomPhoneServices->getValue();
+        return ($this->supportsPolycomPhoneServices) ? $this->supportsPolycomPhoneServices->getValue() : null;
     }
 }

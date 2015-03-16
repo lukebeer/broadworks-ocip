@@ -19,10 +19,10 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class CommPilotExpressSRAvailableOutOfOfficeModify extends ComplexType implements ComplexInterface
 {
-    public    $name               = 'CommPilotExpressSRAvailableOutOfOfficeModify';
-    protected $remotePhoneNumber  = null;
-    protected $noAnswerSetting    = null;
-    protected $incomingCallNotify = null;
+    public    $name = 'CommPilotExpressSRAvailableOutOfOfficeModify';
+    protected $remotePhoneNumber;
+    protected $noAnswerSetting;
+    protected $incomingCallNotify;
 
     public function __construct(
          $remotePhoneNumber = null,
@@ -47,7 +47,6 @@ class CommPilotExpressSRAvailableOutOfOfficeModify extends ComplexType implement
      */
     public function setRemotePhoneNumber($remotePhoneNumber = null)
     {
-        if (!$remotePhoneNumber) return $this;
         $this->remotePhoneNumber = new SimpleContent($remotePhoneNumber);
         $this->remotePhoneNumber->setName('remotePhoneNumber');
         return $this;
@@ -59,7 +58,7 @@ class CommPilotExpressSRAvailableOutOfOfficeModify extends ComplexType implement
      */
     public function getRemotePhoneNumber()
     {
-        return $this->remotePhoneNumber->getValue();
+        return ($this->remotePhoneNumber) ? $this->remotePhoneNumber->getValue() : null;
     }
 
     /**
@@ -67,7 +66,6 @@ class CommPilotExpressSRAvailableOutOfOfficeModify extends ComplexType implement
      */
     public function setNoAnswerSetting($noAnswerSetting = null)
     {
-        if (!$noAnswerSetting) return $this;
         $this->noAnswerSetting = new SimpleContent($noAnswerSetting);
         $this->noAnswerSetting->setName('noAnswerSetting');
         return $this;
@@ -79,7 +77,7 @@ class CommPilotExpressSRAvailableOutOfOfficeModify extends ComplexType implement
      */
     public function getNoAnswerSetting()
     {
-        return $this->noAnswerSetting->getValue();
+        return ($this->noAnswerSetting) ? $this->noAnswerSetting->getValue() : null;
     }
 
     /**
@@ -87,7 +85,6 @@ class CommPilotExpressSRAvailableOutOfOfficeModify extends ComplexType implement
      */
     public function setIncomingCallNotify($incomingCallNotify = null)
     {
-        if (!$incomingCallNotify) return $this;
         $this->incomingCallNotify = new SimpleContent($incomingCallNotify);
         $this->incomingCallNotify->setName('incomingCallNotify');
         return $this;
@@ -99,6 +96,6 @@ class CommPilotExpressSRAvailableOutOfOfficeModify extends ComplexType implement
      */
     public function getIncomingCallNotify()
     {
-        return $this->incomingCallNotify->getValue();
+        return ($this->incomingCallNotify) ? $this->incomingCallNotify->getValue() : null;
     }
 }

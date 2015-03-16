@@ -22,9 +22,9 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemCPEConfigRebuildConfigFileRequest extends ComplexType implements ComplexInterface
 {
-    public    $name        = 'SystemCPEConfigRebuildConfigFileRequest';
-    protected $deviceType  = null;
-    protected $rebuildType = null;
+    public    $name = 'SystemCPEConfigRebuildConfigFileRequest';
+    protected $deviceType;
+    protected $rebuildType;
 
     public function __construct(
          $deviceType = null,
@@ -47,7 +47,6 @@ class SystemCPEConfigRebuildConfigFileRequest extends ComplexType implements Com
      */
     public function setDeviceType($deviceType = null)
     {
-        if (!$deviceType) return $this;
         $this->deviceType = ($deviceType InstanceOf AccessDeviceType)
              ? $deviceType
              : new AccessDeviceType($deviceType);
@@ -61,7 +60,7 @@ class SystemCPEConfigRebuildConfigFileRequest extends ComplexType implements Com
      */
     public function getDeviceType()
     {
-        return $this->deviceType->getValue();
+        return ($this->deviceType) ? $this->deviceType->getValue() : null;
     }
 
     /**
@@ -69,7 +68,6 @@ class SystemCPEConfigRebuildConfigFileRequest extends ComplexType implements Com
      */
     public function setRebuildType($rebuildType = null)
     {
-        if (!$rebuildType) return $this;
         $this->rebuildType = ($rebuildType InstanceOf CPEDeviceConfigRebuildType)
              ? $rebuildType
              : new CPEDeviceConfigRebuildType($rebuildType);
@@ -83,6 +81,6 @@ class SystemCPEConfigRebuildConfigFileRequest extends ComplexType implements Com
      */
     public function getRebuildType()
     {
-        return $this->rebuildType->getValue();
+        return ($this->rebuildType) ? $this->rebuildType->getValue() : null;
     }
 }

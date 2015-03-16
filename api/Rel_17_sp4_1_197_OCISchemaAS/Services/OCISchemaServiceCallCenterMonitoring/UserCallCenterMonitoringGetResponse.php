@@ -19,8 +19,8 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserCallCenterMonitoringGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                               = 'UserCallCenterMonitoringGetResponse';
-    protected $playToneToAgentForSilentMonitoring = null;
+    public    $name = 'UserCallCenterMonitoringGetResponse';
+    protected $playToneToAgentForSilentMonitoring;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenterMonitoring\UserCallCenterMonitoringGetResponse $response
@@ -35,7 +35,6 @@ class UserCallCenterMonitoringGetResponse extends ComplexType implements Complex
      */
     public function setPlayToneToAgentForSilentMonitoring($playToneToAgentForSilentMonitoring = null)
     {
-        if (!$playToneToAgentForSilentMonitoring) return $this;
         $this->playToneToAgentForSilentMonitoring = new PrimitiveType($playToneToAgentForSilentMonitoring);
         $this->playToneToAgentForSilentMonitoring->setName('playToneToAgentForSilentMonitoring');
         return $this;
@@ -47,6 +46,6 @@ class UserCallCenterMonitoringGetResponse extends ComplexType implements Complex
      */
     public function getPlayToneToAgentForSilentMonitoring()
     {
-        return $this->playToneToAgentForSilentMonitoring->getValue();
+        return ($this->playToneToAgentForSilentMonitoring) ? $this->playToneToAgentForSilentMonitoring->getValue() : null;
     }
 }

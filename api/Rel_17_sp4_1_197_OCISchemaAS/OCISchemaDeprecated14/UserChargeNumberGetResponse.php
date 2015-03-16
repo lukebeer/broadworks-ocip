@@ -19,8 +19,8 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserChargeNumberGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name        = 'UserChargeNumberGetResponse';
-    protected $phoneNumber = null;
+    public    $name = 'UserChargeNumberGetResponse';
+    protected $phoneNumber;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\UserChargeNumberGetResponse $response
@@ -35,7 +35,6 @@ class UserChargeNumberGetResponse extends ComplexType implements ComplexInterfac
      */
     public function setPhoneNumber($phoneNumber = null)
     {
-        if (!$phoneNumber) return $this;
         $this->phoneNumber = ($phoneNumber InstanceOf DN)
              ? $phoneNumber
              : new DN($phoneNumber);
@@ -49,6 +48,6 @@ class UserChargeNumberGetResponse extends ComplexType implements ComplexInterfac
      */
     public function getPhoneNumber()
     {
-        return $this->phoneNumber->getValue();
+        return ($this->phoneNumber) ? $this->phoneNumber->getValue() : null;
     }
 }

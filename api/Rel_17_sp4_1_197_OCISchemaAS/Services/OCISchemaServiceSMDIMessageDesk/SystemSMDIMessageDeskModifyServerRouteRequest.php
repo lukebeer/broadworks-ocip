@@ -21,12 +21,12 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemSMDIMessageDeskModifyServerRouteRequest extends ComplexType implements ComplexInterface
 {
-    public    $name             = 'SystemSMDIMessageDeskModifyServerRouteRequest';
-    protected $routeDestination = null;
-    protected $deviceNameList   = null;
+    public    $name = 'SystemSMDIMessageDeskModifyServerRouteRequest';
+    protected $routeDestination;
+    protected $deviceNameList;
 
     public function __construct(
-         $routeDestination,
+         $routeDestination = '',
          $deviceNameList = null
     ) {
         $this->setRouteDestination($routeDestination);
@@ -46,7 +46,6 @@ class SystemSMDIMessageDeskModifyServerRouteRequest extends ComplexType implemen
      */
     public function setRouteDestination($routeDestination = null)
     {
-        if (!$routeDestination) return $this;
         $this->routeDestination = ($routeDestination InstanceOf SMDIServerRouteDestination)
              ? $routeDestination
              : new SMDIServerRouteDestination($routeDestination);
@@ -60,7 +59,7 @@ class SystemSMDIMessageDeskModifyServerRouteRequest extends ComplexType implemen
      */
     public function getRouteDestination()
     {
-        return $this->routeDestination->getValue();
+        return ($this->routeDestination) ? $this->routeDestination->getValue() : null;
     }
 
     /**
@@ -68,7 +67,6 @@ class SystemSMDIMessageDeskModifyServerRouteRequest extends ComplexType implemen
      */
     public function setDeviceNameList($deviceNameList = null)
     {
-        if (!$deviceNameList) return $this;
         $this->deviceNameList->setName('deviceNameList');
         return $this;
     }
@@ -79,6 +77,6 @@ class SystemSMDIMessageDeskModifyServerRouteRequest extends ComplexType implemen
      */
     public function getDeviceNameList()
     {
-        return $this->deviceNameList->getValue();
+        return ($this->deviceNameList) ? $this->deviceNameList->getValue() : null;
     }
 }

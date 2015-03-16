@@ -23,15 +23,15 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemSubscriberModifyCallProcessingParametersRequest14sp7 extends ComplexType implements ComplexInterface
 {
-    public    $name                                   = 'SystemSubscriberModifyCallProcessingParametersRequest14sp7';
-    protected $isExtendedCallingLineIdActive          = null;
-    protected $isRingTimeOutActive                    = null;
-    protected $ringTimeoutSeconds                     = null;
-    protected $allowEmergencyRemoteOfficeOriginations = null;
-    protected $maxNoAnswerNumberOfRings               = null;
-    protected $incomingCallToUserAliasMode            = null;
-    protected $bypassTerminationLoopDetection         = null;
-    protected $honorCLIDBlockingForEmergencyCalls     = null;
+    public    $name = 'SystemSubscriberModifyCallProcessingParametersRequest14sp7';
+    protected $isExtendedCallingLineIdActive;
+    protected $isRingTimeOutActive;
+    protected $ringTimeoutSeconds;
+    protected $allowEmergencyRemoteOfficeOriginations;
+    protected $maxNoAnswerNumberOfRings;
+    protected $incomingCallToUserAliasMode;
+    protected $bypassTerminationLoopDetection;
+    protected $honorCLIDBlockingForEmergencyCalls;
 
     public function __construct(
          $isExtendedCallingLineIdActive = null,
@@ -66,7 +66,6 @@ class SystemSubscriberModifyCallProcessingParametersRequest14sp7 extends Complex
      */
     public function setIsExtendedCallingLineIdActive($isExtendedCallingLineIdActive = null)
     {
-        if (!$isExtendedCallingLineIdActive) return $this;
         $this->isExtendedCallingLineIdActive = new PrimitiveType($isExtendedCallingLineIdActive);
         $this->isExtendedCallingLineIdActive->setName('isExtendedCallingLineIdActive');
         return $this;
@@ -78,7 +77,7 @@ class SystemSubscriberModifyCallProcessingParametersRequest14sp7 extends Complex
      */
     public function getIsExtendedCallingLineIdActive()
     {
-        return $this->isExtendedCallingLineIdActive->getValue();
+        return ($this->isExtendedCallingLineIdActive) ? $this->isExtendedCallingLineIdActive->getValue() : null;
     }
 
     /**
@@ -86,7 +85,6 @@ class SystemSubscriberModifyCallProcessingParametersRequest14sp7 extends Complex
      */
     public function setIsRingTimeOutActive($isRingTimeOutActive = null)
     {
-        if (!$isRingTimeOutActive) return $this;
         $this->isRingTimeOutActive = new PrimitiveType($isRingTimeOutActive);
         $this->isRingTimeOutActive->setName('isRingTimeOutActive');
         return $this;
@@ -98,7 +96,7 @@ class SystemSubscriberModifyCallProcessingParametersRequest14sp7 extends Complex
      */
     public function getIsRingTimeOutActive()
     {
-        return $this->isRingTimeOutActive->getValue();
+        return ($this->isRingTimeOutActive) ? $this->isRingTimeOutActive->getValue() : null;
     }
 
     /**
@@ -106,7 +104,6 @@ class SystemSubscriberModifyCallProcessingParametersRequest14sp7 extends Complex
      */
     public function setRingTimeoutSeconds($ringTimeoutSeconds = null)
     {
-        if (!$ringTimeoutSeconds) return $this;
         $this->ringTimeoutSeconds = ($ringTimeoutSeconds InstanceOf SystemUserRingTimeoutSeconds)
              ? $ringTimeoutSeconds
              : new SystemUserRingTimeoutSeconds($ringTimeoutSeconds);
@@ -120,7 +117,7 @@ class SystemSubscriberModifyCallProcessingParametersRequest14sp7 extends Complex
      */
     public function getRingTimeoutSeconds()
     {
-        return $this->ringTimeoutSeconds->getValue();
+        return ($this->ringTimeoutSeconds) ? $this->ringTimeoutSeconds->getValue() : null;
     }
 
     /**
@@ -128,7 +125,6 @@ class SystemSubscriberModifyCallProcessingParametersRequest14sp7 extends Complex
      */
     public function setAllowEmergencyRemoteOfficeOriginations($allowEmergencyRemoteOfficeOriginations = null)
     {
-        if (!$allowEmergencyRemoteOfficeOriginations) return $this;
         $this->allowEmergencyRemoteOfficeOriginations = new PrimitiveType($allowEmergencyRemoteOfficeOriginations);
         $this->allowEmergencyRemoteOfficeOriginations->setName('allowEmergencyRemoteOfficeOriginations');
         return $this;
@@ -140,7 +136,7 @@ class SystemSubscriberModifyCallProcessingParametersRequest14sp7 extends Complex
      */
     public function getAllowEmergencyRemoteOfficeOriginations()
     {
-        return $this->allowEmergencyRemoteOfficeOriginations->getValue();
+        return ($this->allowEmergencyRemoteOfficeOriginations) ? $this->allowEmergencyRemoteOfficeOriginations->getValue() : null;
     }
 
     /**
@@ -148,7 +144,6 @@ class SystemSubscriberModifyCallProcessingParametersRequest14sp7 extends Complex
      */
     public function setMaxNoAnswerNumberOfRings($maxNoAnswerNumberOfRings = null)
     {
-        if (!$maxNoAnswerNumberOfRings) return $this;
         $this->maxNoAnswerNumberOfRings = ($maxNoAnswerNumberOfRings InstanceOf MaxNoAnswerNumberOfRings)
              ? $maxNoAnswerNumberOfRings
              : new MaxNoAnswerNumberOfRings($maxNoAnswerNumberOfRings);
@@ -162,7 +157,7 @@ class SystemSubscriberModifyCallProcessingParametersRequest14sp7 extends Complex
      */
     public function getMaxNoAnswerNumberOfRings()
     {
-        return $this->maxNoAnswerNumberOfRings->getValue();
+        return ($this->maxNoAnswerNumberOfRings) ? $this->maxNoAnswerNumberOfRings->getValue() : null;
     }
 
     /**
@@ -170,7 +165,6 @@ class SystemSubscriberModifyCallProcessingParametersRequest14sp7 extends Complex
      */
     public function setIncomingCallToUserAliasMode($incomingCallToUserAliasMode = null)
     {
-        if (!$incomingCallToUserAliasMode) return $this;
         $this->incomingCallToUserAliasMode = ($incomingCallToUserAliasMode InstanceOf IncomingCallToUserAliasMode)
              ? $incomingCallToUserAliasMode
              : new IncomingCallToUserAliasMode($incomingCallToUserAliasMode);
@@ -184,7 +178,7 @@ class SystemSubscriberModifyCallProcessingParametersRequest14sp7 extends Complex
      */
     public function getIncomingCallToUserAliasMode()
     {
-        return $this->incomingCallToUserAliasMode->getValue();
+        return ($this->incomingCallToUserAliasMode) ? $this->incomingCallToUserAliasMode->getValue() : null;
     }
 
     /**
@@ -192,7 +186,6 @@ class SystemSubscriberModifyCallProcessingParametersRequest14sp7 extends Complex
      */
     public function setBypassTerminationLoopDetection($bypassTerminationLoopDetection = null)
     {
-        if (!$bypassTerminationLoopDetection) return $this;
         $this->bypassTerminationLoopDetection = new PrimitiveType($bypassTerminationLoopDetection);
         $this->bypassTerminationLoopDetection->setName('bypassTerminationLoopDetection');
         return $this;
@@ -204,7 +197,7 @@ class SystemSubscriberModifyCallProcessingParametersRequest14sp7 extends Complex
      */
     public function getBypassTerminationLoopDetection()
     {
-        return $this->bypassTerminationLoopDetection->getValue();
+        return ($this->bypassTerminationLoopDetection) ? $this->bypassTerminationLoopDetection->getValue() : null;
     }
 
     /**
@@ -212,7 +205,6 @@ class SystemSubscriberModifyCallProcessingParametersRequest14sp7 extends Complex
      */
     public function setHonorCLIDBlockingForEmergencyCalls($honorCLIDBlockingForEmergencyCalls = null)
     {
-        if (!$honorCLIDBlockingForEmergencyCalls) return $this;
         $this->honorCLIDBlockingForEmergencyCalls = new PrimitiveType($honorCLIDBlockingForEmergencyCalls);
         $this->honorCLIDBlockingForEmergencyCalls->setName('honorCLIDBlockingForEmergencyCalls');
         return $this;
@@ -224,6 +216,6 @@ class SystemSubscriberModifyCallProcessingParametersRequest14sp7 extends Complex
      */
     public function getHonorCLIDBlockingForEmergencyCalls()
     {
-        return $this->honorCLIDBlockingForEmergencyCalls->getValue();
+        return ($this->honorCLIDBlockingForEmergencyCalls) ? $this->honorCLIDBlockingForEmergencyCalls->getValue() : null;
     }
 }

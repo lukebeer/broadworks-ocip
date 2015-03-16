@@ -22,10 +22,10 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemMediaServerParametersGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                                       = 'SystemMediaServerParametersGetResponse';
-    protected $mediaServerResponseTimerMilliseconds       = null;
-    protected $mediaServerSelectionRouteTimerMilliseconds = null;
-    protected $useStaticMediaServerDevice                 = null;
+    public    $name = 'SystemMediaServerParametersGetResponse';
+    protected $mediaServerResponseTimerMilliseconds;
+    protected $mediaServerSelectionRouteTimerMilliseconds;
+    protected $useStaticMediaServerDevice;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemMediaServerParametersGetResponse $response
@@ -40,7 +40,6 @@ class SystemMediaServerParametersGetResponse extends ComplexType implements Comp
      */
     public function setMediaServerResponseTimerMilliseconds($mediaServerResponseTimerMilliseconds = null)
     {
-        if (!$mediaServerResponseTimerMilliseconds) return $this;
         $this->mediaServerResponseTimerMilliseconds = ($mediaServerResponseTimerMilliseconds InstanceOf MediaServerResponseTimerMilliseconds)
              ? $mediaServerResponseTimerMilliseconds
              : new MediaServerResponseTimerMilliseconds($mediaServerResponseTimerMilliseconds);
@@ -54,7 +53,7 @@ class SystemMediaServerParametersGetResponse extends ComplexType implements Comp
      */
     public function getMediaServerResponseTimerMilliseconds()
     {
-        return $this->mediaServerResponseTimerMilliseconds->getValue();
+        return ($this->mediaServerResponseTimerMilliseconds) ? $this->mediaServerResponseTimerMilliseconds->getValue() : null;
     }
 
     /**
@@ -62,7 +61,6 @@ class SystemMediaServerParametersGetResponse extends ComplexType implements Comp
      */
     public function setMediaServerSelectionRouteTimerMilliseconds($mediaServerSelectionRouteTimerMilliseconds = null)
     {
-        if (!$mediaServerSelectionRouteTimerMilliseconds) return $this;
         $this->mediaServerSelectionRouteTimerMilliseconds = ($mediaServerSelectionRouteTimerMilliseconds InstanceOf MediaServerSelectionRouteTimerMilliseconds)
              ? $mediaServerSelectionRouteTimerMilliseconds
              : new MediaServerSelectionRouteTimerMilliseconds($mediaServerSelectionRouteTimerMilliseconds);
@@ -76,7 +74,7 @@ class SystemMediaServerParametersGetResponse extends ComplexType implements Comp
      */
     public function getMediaServerSelectionRouteTimerMilliseconds()
     {
-        return $this->mediaServerSelectionRouteTimerMilliseconds->getValue();
+        return ($this->mediaServerSelectionRouteTimerMilliseconds) ? $this->mediaServerSelectionRouteTimerMilliseconds->getValue() : null;
     }
 
     /**
@@ -84,7 +82,6 @@ class SystemMediaServerParametersGetResponse extends ComplexType implements Comp
      */
     public function setUseStaticMediaServerDevice($useStaticMediaServerDevice = null)
     {
-        if (!$useStaticMediaServerDevice) return $this;
         $this->useStaticMediaServerDevice = new PrimitiveType($useStaticMediaServerDevice);
         $this->useStaticMediaServerDevice->setName('useStaticMediaServerDevice');
         return $this;
@@ -96,6 +93,6 @@ class SystemMediaServerParametersGetResponse extends ComplexType implements Comp
      */
     public function getUseStaticMediaServerDevice()
     {
-        return $this->useStaticMediaServerDevice->getValue();
+        return ($this->useStaticMediaServerDevice) ? $this->useStaticMediaServerDevice->getValue() : null;
     }
 }

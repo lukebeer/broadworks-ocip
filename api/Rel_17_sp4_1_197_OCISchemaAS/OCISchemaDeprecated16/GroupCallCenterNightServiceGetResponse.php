@@ -27,30 +27,30 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupCallCenterNightServiceGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                         = 'GroupCallCenterNightServiceGetResponse';
-    protected $action                       = null;
-    protected $businessHours                = null;
-    protected $forceNightService            = null;
-    protected $allowManualOverrideViaFAC    = null;
-    protected $transferPhoneNumber          = null;
-    protected $playAnnouncementBeforeAction = null;
-    protected $audioMessageSelection        = null;
-    protected $audioFileUrl                 = null;
-    protected $audioFileDescription         = null;
-    protected $audioMediaType               = null;
-    protected $videoMessageSelection        = null;
-    protected $videoFileUrl                 = null;
-    protected $videoFileDescription         = null;
-    protected $videoMediaType               = null;
-    protected $manualAnnouncementMode       = null;
-    protected $manualAudioMessageSelection  = null;
-    protected $manualAudioFileUrl           = null;
-    protected $manualAudioFileDescription   = null;
-    protected $manualAudioMediaType         = null;
-    protected $manualVideoMessageSelection  = null;
-    protected $manualVideoFileUrl           = null;
-    protected $manualVideoFileDescription   = null;
-    protected $manualVideoMediaType         = null;
+    public    $name = 'GroupCallCenterNightServiceGetResponse';
+    protected $action;
+    protected $businessHours;
+    protected $forceNightService;
+    protected $allowManualOverrideViaFAC;
+    protected $transferPhoneNumber;
+    protected $playAnnouncementBeforeAction;
+    protected $audioMessageSelection;
+    protected $audioFileUrl;
+    protected $audioFileDescription;
+    protected $audioMediaType;
+    protected $videoMessageSelection;
+    protected $videoFileUrl;
+    protected $videoFileDescription;
+    protected $videoMediaType;
+    protected $manualAnnouncementMode;
+    protected $manualAudioMessageSelection;
+    protected $manualAudioFileUrl;
+    protected $manualAudioFileDescription;
+    protected $manualAudioMediaType;
+    protected $manualVideoMessageSelection;
+    protected $manualVideoFileUrl;
+    protected $manualVideoFileDescription;
+    protected $manualVideoMediaType;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\GroupCallCenterNightServiceGetResponse $response
@@ -65,7 +65,6 @@ class GroupCallCenterNightServiceGetResponse extends ComplexType implements Comp
      */
     public function setAction($action = null)
     {
-        if (!$action) return $this;
         $this->action = ($action InstanceOf CallCenterScheduledServiceAction)
              ? $action
              : new CallCenterScheduledServiceAction($action);
@@ -79,7 +78,7 @@ class GroupCallCenterNightServiceGetResponse extends ComplexType implements Comp
      */
     public function getAction()
     {
-        return $this->action->getValue();
+        return ($this->action) ? $this->action->getValue() : null;
     }
 
     /**
@@ -87,7 +86,6 @@ class GroupCallCenterNightServiceGetResponse extends ComplexType implements Comp
      */
     public function setBusinessHours($businessHours = null)
     {
-        if (!$businessHours) return $this;
         $this->businessHours = ($businessHours InstanceOf ScheduleName)
              ? $businessHours
              : new ScheduleName($businessHours);
@@ -101,7 +99,7 @@ class GroupCallCenterNightServiceGetResponse extends ComplexType implements Comp
      */
     public function getBusinessHours()
     {
-        return $this->businessHours->getValue();
+        return ($this->businessHours) ? $this->businessHours->getValue() : null;
     }
 
     /**
@@ -109,7 +107,6 @@ class GroupCallCenterNightServiceGetResponse extends ComplexType implements Comp
      */
     public function setForceNightService($forceNightService = null)
     {
-        if (!$forceNightService) return $this;
         $this->forceNightService = new PrimitiveType($forceNightService);
         $this->forceNightService->setName('forceNightService');
         return $this;
@@ -121,7 +118,7 @@ class GroupCallCenterNightServiceGetResponse extends ComplexType implements Comp
      */
     public function getForceNightService()
     {
-        return $this->forceNightService->getValue();
+        return ($this->forceNightService) ? $this->forceNightService->getValue() : null;
     }
 
     /**
@@ -129,7 +126,6 @@ class GroupCallCenterNightServiceGetResponse extends ComplexType implements Comp
      */
     public function setAllowManualOverrideViaFAC($allowManualOverrideViaFAC = null)
     {
-        if (!$allowManualOverrideViaFAC) return $this;
         $this->allowManualOverrideViaFAC = new PrimitiveType($allowManualOverrideViaFAC);
         $this->allowManualOverrideViaFAC->setName('allowManualOverrideViaFAC');
         return $this;
@@ -141,7 +137,7 @@ class GroupCallCenterNightServiceGetResponse extends ComplexType implements Comp
      */
     public function getAllowManualOverrideViaFAC()
     {
-        return $this->allowManualOverrideViaFAC->getValue();
+        return ($this->allowManualOverrideViaFAC) ? $this->allowManualOverrideViaFAC->getValue() : null;
     }
 
     /**
@@ -149,7 +145,6 @@ class GroupCallCenterNightServiceGetResponse extends ComplexType implements Comp
      */
     public function setTransferPhoneNumber($transferPhoneNumber = null)
     {
-        if (!$transferPhoneNumber) return $this;
         $this->transferPhoneNumber = ($transferPhoneNumber InstanceOf OutgoingDNorSIPURI)
              ? $transferPhoneNumber
              : new OutgoingDNorSIPURI($transferPhoneNumber);
@@ -163,7 +158,7 @@ class GroupCallCenterNightServiceGetResponse extends ComplexType implements Comp
      */
     public function getTransferPhoneNumber()
     {
-        return $this->transferPhoneNumber->getValue();
+        return ($this->transferPhoneNumber) ? $this->transferPhoneNumber->getValue() : null;
     }
 
     /**
@@ -171,7 +166,6 @@ class GroupCallCenterNightServiceGetResponse extends ComplexType implements Comp
      */
     public function setPlayAnnouncementBeforeAction($playAnnouncementBeforeAction = null)
     {
-        if (!$playAnnouncementBeforeAction) return $this;
         $this->playAnnouncementBeforeAction = new PrimitiveType($playAnnouncementBeforeAction);
         $this->playAnnouncementBeforeAction->setName('playAnnouncementBeforeAction');
         return $this;
@@ -183,7 +177,7 @@ class GroupCallCenterNightServiceGetResponse extends ComplexType implements Comp
      */
     public function getPlayAnnouncementBeforeAction()
     {
-        return $this->playAnnouncementBeforeAction->getValue();
+        return ($this->playAnnouncementBeforeAction) ? $this->playAnnouncementBeforeAction->getValue() : null;
     }
 
     /**
@@ -191,7 +185,6 @@ class GroupCallCenterNightServiceGetResponse extends ComplexType implements Comp
      */
     public function setAudioMessageSelection($audioMessageSelection = null)
     {
-        if (!$audioMessageSelection) return $this;
         $this->audioMessageSelection = ($audioMessageSelection InstanceOf ExtendedFileResourceSelection)
              ? $audioMessageSelection
              : new ExtendedFileResourceSelection($audioMessageSelection);
@@ -205,7 +198,7 @@ class GroupCallCenterNightServiceGetResponse extends ComplexType implements Comp
      */
     public function getAudioMessageSelection()
     {
-        return $this->audioMessageSelection->getValue();
+        return ($this->audioMessageSelection) ? $this->audioMessageSelection->getValue() : null;
     }
 
     /**
@@ -213,7 +206,6 @@ class GroupCallCenterNightServiceGetResponse extends ComplexType implements Comp
      */
     public function setAudioFileUrl($audioFileUrl = null)
     {
-        if (!$audioFileUrl) return $this;
         $this->audioFileUrl = ($audioFileUrl InstanceOf URL)
              ? $audioFileUrl
              : new URL($audioFileUrl);
@@ -227,7 +219,7 @@ class GroupCallCenterNightServiceGetResponse extends ComplexType implements Comp
      */
     public function getAudioFileUrl()
     {
-        return $this->audioFileUrl->getValue();
+        return ($this->audioFileUrl) ? $this->audioFileUrl->getValue() : null;
     }
 
     /**
@@ -235,7 +227,6 @@ class GroupCallCenterNightServiceGetResponse extends ComplexType implements Comp
      */
     public function setAudioFileDescription($audioFileDescription = null)
     {
-        if (!$audioFileDescription) return $this;
         $this->audioFileDescription = ($audioFileDescription InstanceOf FileDescription)
              ? $audioFileDescription
              : new FileDescription($audioFileDescription);
@@ -249,7 +240,7 @@ class GroupCallCenterNightServiceGetResponse extends ComplexType implements Comp
      */
     public function getAudioFileDescription()
     {
-        return $this->audioFileDescription->getValue();
+        return ($this->audioFileDescription) ? $this->audioFileDescription->getValue() : null;
     }
 
     /**
@@ -257,7 +248,6 @@ class GroupCallCenterNightServiceGetResponse extends ComplexType implements Comp
      */
     public function setAudioMediaType($audioMediaType = null)
     {
-        if (!$audioMediaType) return $this;
         $this->audioMediaType = ($audioMediaType InstanceOf MediaFileType)
              ? $audioMediaType
              : new MediaFileType($audioMediaType);
@@ -271,7 +261,7 @@ class GroupCallCenterNightServiceGetResponse extends ComplexType implements Comp
      */
     public function getAudioMediaType()
     {
-        return $this->audioMediaType->getValue();
+        return ($this->audioMediaType) ? $this->audioMediaType->getValue() : null;
     }
 
     /**
@@ -279,7 +269,6 @@ class GroupCallCenterNightServiceGetResponse extends ComplexType implements Comp
      */
     public function setVideoMessageSelection($videoMessageSelection = null)
     {
-        if (!$videoMessageSelection) return $this;
         $this->videoMessageSelection = ($videoMessageSelection InstanceOf ExtendedFileResourceSelection)
              ? $videoMessageSelection
              : new ExtendedFileResourceSelection($videoMessageSelection);
@@ -293,7 +282,7 @@ class GroupCallCenterNightServiceGetResponse extends ComplexType implements Comp
      */
     public function getVideoMessageSelection()
     {
-        return $this->videoMessageSelection->getValue();
+        return ($this->videoMessageSelection) ? $this->videoMessageSelection->getValue() : null;
     }
 
     /**
@@ -301,7 +290,6 @@ class GroupCallCenterNightServiceGetResponse extends ComplexType implements Comp
      */
     public function setVideoFileUrl($videoFileUrl = null)
     {
-        if (!$videoFileUrl) return $this;
         $this->videoFileUrl = ($videoFileUrl InstanceOf URL)
              ? $videoFileUrl
              : new URL($videoFileUrl);
@@ -315,7 +303,7 @@ class GroupCallCenterNightServiceGetResponse extends ComplexType implements Comp
      */
     public function getVideoFileUrl()
     {
-        return $this->videoFileUrl->getValue();
+        return ($this->videoFileUrl) ? $this->videoFileUrl->getValue() : null;
     }
 
     /**
@@ -323,7 +311,6 @@ class GroupCallCenterNightServiceGetResponse extends ComplexType implements Comp
      */
     public function setVideoFileDescription($videoFileDescription = null)
     {
-        if (!$videoFileDescription) return $this;
         $this->videoFileDescription = ($videoFileDescription InstanceOf FileDescription)
              ? $videoFileDescription
              : new FileDescription($videoFileDescription);
@@ -337,7 +324,7 @@ class GroupCallCenterNightServiceGetResponse extends ComplexType implements Comp
      */
     public function getVideoFileDescription()
     {
-        return $this->videoFileDescription->getValue();
+        return ($this->videoFileDescription) ? $this->videoFileDescription->getValue() : null;
     }
 
     /**
@@ -345,7 +332,6 @@ class GroupCallCenterNightServiceGetResponse extends ComplexType implements Comp
      */
     public function setVideoMediaType($videoMediaType = null)
     {
-        if (!$videoMediaType) return $this;
         $this->videoMediaType = ($videoMediaType InstanceOf MediaFileType)
              ? $videoMediaType
              : new MediaFileType($videoMediaType);
@@ -359,7 +345,7 @@ class GroupCallCenterNightServiceGetResponse extends ComplexType implements Comp
      */
     public function getVideoMediaType()
     {
-        return $this->videoMediaType->getValue();
+        return ($this->videoMediaType) ? $this->videoMediaType->getValue() : null;
     }
 
     /**
@@ -367,7 +353,6 @@ class GroupCallCenterNightServiceGetResponse extends ComplexType implements Comp
      */
     public function setManualAnnouncementMode($manualAnnouncementMode = null)
     {
-        if (!$manualAnnouncementMode) return $this;
         $this->manualAnnouncementMode = ($manualAnnouncementMode InstanceOf CallCenterManualNightServiceAnnouncementMode)
              ? $manualAnnouncementMode
              : new CallCenterManualNightServiceAnnouncementMode($manualAnnouncementMode);
@@ -381,7 +366,7 @@ class GroupCallCenterNightServiceGetResponse extends ComplexType implements Comp
      */
     public function getManualAnnouncementMode()
     {
-        return $this->manualAnnouncementMode->getValue();
+        return ($this->manualAnnouncementMode) ? $this->manualAnnouncementMode->getValue() : null;
     }
 
     /**
@@ -389,7 +374,6 @@ class GroupCallCenterNightServiceGetResponse extends ComplexType implements Comp
      */
     public function setManualAudioMessageSelection($manualAudioMessageSelection = null)
     {
-        if (!$manualAudioMessageSelection) return $this;
         $this->manualAudioMessageSelection = ($manualAudioMessageSelection InstanceOf ExtendedFileResourceSelection)
              ? $manualAudioMessageSelection
              : new ExtendedFileResourceSelection($manualAudioMessageSelection);
@@ -403,7 +387,7 @@ class GroupCallCenterNightServiceGetResponse extends ComplexType implements Comp
      */
     public function getManualAudioMessageSelection()
     {
-        return $this->manualAudioMessageSelection->getValue();
+        return ($this->manualAudioMessageSelection) ? $this->manualAudioMessageSelection->getValue() : null;
     }
 
     /**
@@ -411,7 +395,6 @@ class GroupCallCenterNightServiceGetResponse extends ComplexType implements Comp
      */
     public function setManualAudioFileUrl($manualAudioFileUrl = null)
     {
-        if (!$manualAudioFileUrl) return $this;
         $this->manualAudioFileUrl = ($manualAudioFileUrl InstanceOf URL)
              ? $manualAudioFileUrl
              : new URL($manualAudioFileUrl);
@@ -425,7 +408,7 @@ class GroupCallCenterNightServiceGetResponse extends ComplexType implements Comp
      */
     public function getManualAudioFileUrl()
     {
-        return $this->manualAudioFileUrl->getValue();
+        return ($this->manualAudioFileUrl) ? $this->manualAudioFileUrl->getValue() : null;
     }
 
     /**
@@ -433,7 +416,6 @@ class GroupCallCenterNightServiceGetResponse extends ComplexType implements Comp
      */
     public function setManualAudioFileDescription($manualAudioFileDescription = null)
     {
-        if (!$manualAudioFileDescription) return $this;
         $this->manualAudioFileDescription = ($manualAudioFileDescription InstanceOf FileDescription)
              ? $manualAudioFileDescription
              : new FileDescription($manualAudioFileDescription);
@@ -447,7 +429,7 @@ class GroupCallCenterNightServiceGetResponse extends ComplexType implements Comp
      */
     public function getManualAudioFileDescription()
     {
-        return $this->manualAudioFileDescription->getValue();
+        return ($this->manualAudioFileDescription) ? $this->manualAudioFileDescription->getValue() : null;
     }
 
     /**
@@ -455,7 +437,6 @@ class GroupCallCenterNightServiceGetResponse extends ComplexType implements Comp
      */
     public function setManualAudioMediaType($manualAudioMediaType = null)
     {
-        if (!$manualAudioMediaType) return $this;
         $this->manualAudioMediaType = ($manualAudioMediaType InstanceOf MediaFileType)
              ? $manualAudioMediaType
              : new MediaFileType($manualAudioMediaType);
@@ -469,7 +450,7 @@ class GroupCallCenterNightServiceGetResponse extends ComplexType implements Comp
      */
     public function getManualAudioMediaType()
     {
-        return $this->manualAudioMediaType->getValue();
+        return ($this->manualAudioMediaType) ? $this->manualAudioMediaType->getValue() : null;
     }
 
     /**
@@ -477,7 +458,6 @@ class GroupCallCenterNightServiceGetResponse extends ComplexType implements Comp
      */
     public function setManualVideoMessageSelection($manualVideoMessageSelection = null)
     {
-        if (!$manualVideoMessageSelection) return $this;
         $this->manualVideoMessageSelection = ($manualVideoMessageSelection InstanceOf ExtendedFileResourceSelection)
              ? $manualVideoMessageSelection
              : new ExtendedFileResourceSelection($manualVideoMessageSelection);
@@ -491,7 +471,7 @@ class GroupCallCenterNightServiceGetResponse extends ComplexType implements Comp
      */
     public function getManualVideoMessageSelection()
     {
-        return $this->manualVideoMessageSelection->getValue();
+        return ($this->manualVideoMessageSelection) ? $this->manualVideoMessageSelection->getValue() : null;
     }
 
     /**
@@ -499,7 +479,6 @@ class GroupCallCenterNightServiceGetResponse extends ComplexType implements Comp
      */
     public function setManualVideoFileUrl($manualVideoFileUrl = null)
     {
-        if (!$manualVideoFileUrl) return $this;
         $this->manualVideoFileUrl = ($manualVideoFileUrl InstanceOf URL)
              ? $manualVideoFileUrl
              : new URL($manualVideoFileUrl);
@@ -513,7 +492,7 @@ class GroupCallCenterNightServiceGetResponse extends ComplexType implements Comp
      */
     public function getManualVideoFileUrl()
     {
-        return $this->manualVideoFileUrl->getValue();
+        return ($this->manualVideoFileUrl) ? $this->manualVideoFileUrl->getValue() : null;
     }
 
     /**
@@ -521,7 +500,6 @@ class GroupCallCenterNightServiceGetResponse extends ComplexType implements Comp
      */
     public function setManualVideoFileDescription($manualVideoFileDescription = null)
     {
-        if (!$manualVideoFileDescription) return $this;
         $this->manualVideoFileDescription = ($manualVideoFileDescription InstanceOf FileDescription)
              ? $manualVideoFileDescription
              : new FileDescription($manualVideoFileDescription);
@@ -535,7 +513,7 @@ class GroupCallCenterNightServiceGetResponse extends ComplexType implements Comp
      */
     public function getManualVideoFileDescription()
     {
-        return $this->manualVideoFileDescription->getValue();
+        return ($this->manualVideoFileDescription) ? $this->manualVideoFileDescription->getValue() : null;
     }
 
     /**
@@ -543,7 +521,6 @@ class GroupCallCenterNightServiceGetResponse extends ComplexType implements Comp
      */
     public function setManualVideoMediaType($manualVideoMediaType = null)
     {
-        if (!$manualVideoMediaType) return $this;
         $this->manualVideoMediaType = ($manualVideoMediaType InstanceOf MediaFileType)
              ? $manualVideoMediaType
              : new MediaFileType($manualVideoMediaType);
@@ -557,6 +534,6 @@ class GroupCallCenterNightServiceGetResponse extends ComplexType implements Comp
      */
     public function getManualVideoMediaType()
     {
-        return $this->manualVideoMediaType->getValue();
+        return ($this->manualVideoMediaType) ? $this->manualVideoMediaType->getValue() : null;
     }
 }

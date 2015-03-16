@@ -23,16 +23,16 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupDepartmentAddRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                = 'GroupDepartmentAddRequest';
-    protected $serviceProviderId   = null;
-    protected $groupId             = null;
-    protected $departmentName      = null;
-    protected $parentDepartmentKey = null;
+    public    $name = 'GroupDepartmentAddRequest';
+    protected $serviceProviderId;
+    protected $groupId;
+    protected $departmentName;
+    protected $parentDepartmentKey;
 
     public function __construct(
-         $serviceProviderId,
-         $groupId,
-         $departmentName,
+         $serviceProviderId = '',
+         $groupId = '',
+         $departmentName = '',
          DepartmentKey $parentDepartmentKey = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
@@ -54,7 +54,6 @@ class GroupDepartmentAddRequest extends ComplexType implements ComplexInterface
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
-        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
@@ -68,7 +67,7 @@ class GroupDepartmentAddRequest extends ComplexType implements ComplexInterface
      */
     public function getServiceProviderId()
     {
-        return $this->serviceProviderId->getValue();
+        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
     }
 
     /**
@@ -76,7 +75,6 @@ class GroupDepartmentAddRequest extends ComplexType implements ComplexInterface
      */
     public function setGroupId($groupId = null)
     {
-        if (!$groupId) return $this;
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
@@ -90,7 +88,7 @@ class GroupDepartmentAddRequest extends ComplexType implements ComplexInterface
      */
     public function getGroupId()
     {
-        return $this->groupId->getValue();
+        return ($this->groupId) ? $this->groupId->getValue() : null;
     }
 
     /**
@@ -98,7 +96,6 @@ class GroupDepartmentAddRequest extends ComplexType implements ComplexInterface
      */
     public function setDepartmentName($departmentName = null)
     {
-        if (!$departmentName) return $this;
         $this->departmentName = ($departmentName InstanceOf DepartmentName)
              ? $departmentName
              : new DepartmentName($departmentName);
@@ -112,7 +109,7 @@ class GroupDepartmentAddRequest extends ComplexType implements ComplexInterface
      */
     public function getDepartmentName()
     {
-        return $this->departmentName->getValue();
+        return ($this->departmentName) ? $this->departmentName->getValue() : null;
     }
 
     /**
@@ -120,8 +117,9 @@ class GroupDepartmentAddRequest extends ComplexType implements ComplexInterface
      */
     public function setParentDepartmentKey(DepartmentKey $parentDepartmentKey = null)
     {
-        if (!$parentDepartmentKey) return $this;
-        $this->parentDepartmentKey = $parentDepartmentKey;
+        $this->parentDepartmentKey = ($parentDepartmentKey InstanceOf DepartmentKey)
+             ? $parentDepartmentKey
+             : new DepartmentKey($parentDepartmentKey);
         $this->parentDepartmentKey->setName('parentDepartmentKey');
         return $this;
     }

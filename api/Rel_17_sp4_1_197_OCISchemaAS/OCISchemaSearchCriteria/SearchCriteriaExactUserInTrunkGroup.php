@@ -19,11 +19,11 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SearchCriteriaExactUserInTrunkGroup extends ComplexType implements ComplexInterface
 {
-    public    $name             = 'SearchCriteriaExactUserInTrunkGroup';
-    protected $userInTrunkGroup = null;
+    public    $name = 'SearchCriteriaExactUserInTrunkGroup';
+    protected $userInTrunkGroup;
 
     public function __construct(
-         $userInTrunkGroup
+         $userInTrunkGroup = ''
     ) {
         $this->setUserInTrunkGroup($userInTrunkGroup);
     }
@@ -41,7 +41,6 @@ class SearchCriteriaExactUserInTrunkGroup extends ComplexType implements Complex
      */
     public function setUserInTrunkGroup($userInTrunkGroup = null)
     {
-        if (!$userInTrunkGroup) return $this;
         $this->userInTrunkGroup = new PrimitiveType($userInTrunkGroup);
         $this->userInTrunkGroup->setName('userInTrunkGroup');
         return $this;
@@ -53,6 +52,6 @@ class SearchCriteriaExactUserInTrunkGroup extends ComplexType implements Complex
      */
     public function getUserInTrunkGroup()
     {
-        return $this->userInTrunkGroup->getValue();
+        return ($this->userInTrunkGroup) ? $this->userInTrunkGroup->getValue() : null;
     }
 }

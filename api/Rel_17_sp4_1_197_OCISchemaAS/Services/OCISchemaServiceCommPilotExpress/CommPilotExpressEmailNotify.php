@@ -19,12 +19,12 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class CommPilotExpressEmailNotify extends ComplexType implements ComplexInterface
 {
-    public    $name         = 'CommPilotExpressEmailNotify';
-    protected $sendEmail    = null;
-    protected $emailAddress = null;
+    public    $name = 'CommPilotExpressEmailNotify';
+    protected $sendEmail;
+    protected $emailAddress;
 
     public function __construct(
-         $sendEmail,
+         $sendEmail = '',
          $emailAddress = null
     ) {
         $this->setSendEmail($sendEmail);
@@ -44,7 +44,6 @@ class CommPilotExpressEmailNotify extends ComplexType implements ComplexInterfac
      */
     public function setSendEmail($sendEmail = null)
     {
-        if (!$sendEmail) return $this;
         $this->sendEmail = new SimpleContent($sendEmail);
         $this->sendEmail->setName('sendEmail');
         return $this;
@@ -56,7 +55,7 @@ class CommPilotExpressEmailNotify extends ComplexType implements ComplexInterfac
      */
     public function getSendEmail()
     {
-        return $this->sendEmail->getValue();
+        return ($this->sendEmail) ? $this->sendEmail->getValue() : null;
     }
 
     /**
@@ -64,7 +63,6 @@ class CommPilotExpressEmailNotify extends ComplexType implements ComplexInterfac
      */
     public function setEmailAddress($emailAddress = null)
     {
-        if (!$emailAddress) return $this;
         $this->emailAddress = new SimpleContent($emailAddress);
         $this->emailAddress->setName('emailAddress');
         return $this;
@@ -76,6 +74,6 @@ class CommPilotExpressEmailNotify extends ComplexType implements ComplexInterfac
      */
     public function getEmailAddress()
     {
-        return $this->emailAddress->getValue();
+        return ($this->emailAddress) ? $this->emailAddress->getValue() : null;
     }
 }

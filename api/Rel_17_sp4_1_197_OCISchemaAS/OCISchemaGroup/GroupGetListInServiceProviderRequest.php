@@ -26,14 +26,14 @@ use Broadworks_OCIP\core\Client\Client;
 class GroupGetListInServiceProviderRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType            = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupGetListInServiceProviderResponse';
-    public    $name                    = 'GroupGetListInServiceProviderRequest';
-    protected $serviceProviderId       = null;
-    protected $responseSizeLimit       = null;
-    protected $searchCriteriaGroupId   = null;
-    protected $searchCriteriaGroupName = null;
+    public    $name = 'GroupGetListInServiceProviderRequest';
+    protected $serviceProviderId;
+    protected $responseSizeLimit;
+    protected $searchCriteriaGroupId;
+    protected $searchCriteriaGroupName;
 
     public function __construct(
-         $serviceProviderId,
+         $serviceProviderId = '',
          $responseSizeLimit = null,
          SearchCriteriaGroupId $searchCriteriaGroupId = null,
          SearchCriteriaGroupName $searchCriteriaGroupName = null
@@ -57,7 +57,6 @@ class GroupGetListInServiceProviderRequest extends ComplexType implements Comple
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
-        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
@@ -71,7 +70,7 @@ class GroupGetListInServiceProviderRequest extends ComplexType implements Comple
      */
     public function getServiceProviderId()
     {
-        return $this->serviceProviderId->getValue();
+        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
     }
 
     /**
@@ -79,7 +78,6 @@ class GroupGetListInServiceProviderRequest extends ComplexType implements Comple
      */
     public function setResponseSizeLimit($responseSizeLimit = null)
     {
-        if (!$responseSizeLimit) return $this;
         $this->responseSizeLimit = ($responseSizeLimit InstanceOf ResponseSizeLimit)
              ? $responseSizeLimit
              : new ResponseSizeLimit($responseSizeLimit);
@@ -93,7 +91,7 @@ class GroupGetListInServiceProviderRequest extends ComplexType implements Comple
      */
     public function getResponseSizeLimit()
     {
-        return $this->responseSizeLimit->getValue();
+        return ($this->responseSizeLimit) ? $this->responseSizeLimit->getValue() : null;
     }
 
     /**
@@ -101,7 +99,6 @@ class GroupGetListInServiceProviderRequest extends ComplexType implements Comple
      */
     public function setSearchCriteriaGroupId(SearchCriteriaGroupId $searchCriteriaGroupId = null)
     {
-        if (!$searchCriteriaGroupId) return $this;
         $this->searchCriteriaGroupId = ($searchCriteriaGroupId InstanceOf SearchCriteriaGroupId)
              ? $searchCriteriaGroupId
              : new SearchCriteriaGroupId($searchCriteriaGroupId);
@@ -123,7 +120,6 @@ class GroupGetListInServiceProviderRequest extends ComplexType implements Comple
      */
     public function setSearchCriteriaGroupName(SearchCriteriaGroupName $searchCriteriaGroupName = null)
     {
-        if (!$searchCriteriaGroupName) return $this;
         $this->searchCriteriaGroupName = ($searchCriteriaGroupName InstanceOf SearchCriteriaGroupName)
              ? $searchCriteriaGroupName
              : new SearchCriteriaGroupName($searchCriteriaGroupName);

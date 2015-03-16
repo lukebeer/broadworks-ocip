@@ -23,14 +23,14 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemMediaModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                     = 'SystemMediaModifyRequest';
-    protected $mediaName                = null;
-    protected $codecName                = null;
-    protected $bandwidthEnforcementType = null;
-    protected $mediaBandwidth           = null;
+    public    $name = 'SystemMediaModifyRequest';
+    protected $mediaName;
+    protected $codecName;
+    protected $bandwidthEnforcementType;
+    protected $mediaBandwidth;
 
     public function __construct(
-         $mediaName,
+         $mediaName = '',
          $codecName = null,
          $bandwidthEnforcementType = null,
          $mediaBandwidth = null
@@ -54,7 +54,6 @@ class SystemMediaModifyRequest extends ComplexType implements ComplexInterface
      */
     public function setMediaName($mediaName = null)
     {
-        if (!$mediaName) return $this;
         $this->mediaName = ($mediaName InstanceOf MediaName)
              ? $mediaName
              : new MediaName($mediaName);
@@ -68,7 +67,7 @@ class SystemMediaModifyRequest extends ComplexType implements ComplexInterface
      */
     public function getMediaName()
     {
-        return $this->mediaName->getValue();
+        return ($this->mediaName) ? $this->mediaName->getValue() : null;
     }
 
     /**
@@ -76,7 +75,6 @@ class SystemMediaModifyRequest extends ComplexType implements ComplexInterface
      */
     public function setCodecName($codecName = null)
     {
-        if (!$codecName) return $this;
         $this->codecName = ($codecName InstanceOf CodecName)
              ? $codecName
              : new CodecName($codecName);
@@ -90,7 +88,7 @@ class SystemMediaModifyRequest extends ComplexType implements ComplexInterface
      */
     public function getCodecName()
     {
-        return $this->codecName->getValue();
+        return ($this->codecName) ? $this->codecName->getValue() : null;
     }
 
     /**
@@ -98,7 +96,6 @@ class SystemMediaModifyRequest extends ComplexType implements ComplexInterface
      */
     public function setBandwidthEnforcementType($bandwidthEnforcementType = null)
     {
-        if (!$bandwidthEnforcementType) return $this;
         $this->bandwidthEnforcementType = ($bandwidthEnforcementType InstanceOf MediaBandwidthEnforcementType)
              ? $bandwidthEnforcementType
              : new MediaBandwidthEnforcementType($bandwidthEnforcementType);
@@ -112,7 +109,7 @@ class SystemMediaModifyRequest extends ComplexType implements ComplexInterface
      */
     public function getBandwidthEnforcementType()
     {
-        return $this->bandwidthEnforcementType->getValue();
+        return ($this->bandwidthEnforcementType) ? $this->bandwidthEnforcementType->getValue() : null;
     }
 
     /**
@@ -120,7 +117,6 @@ class SystemMediaModifyRequest extends ComplexType implements ComplexInterface
      */
     public function setMediaBandwidth($mediaBandwidth = null)
     {
-        if (!$mediaBandwidth) return $this;
         $this->mediaBandwidth = ($mediaBandwidth InstanceOf MediaBandwidthBitsPerSecond)
              ? $mediaBandwidth
              : new MediaBandwidthBitsPerSecond($mediaBandwidth);
@@ -134,6 +130,6 @@ class SystemMediaModifyRequest extends ComplexType implements ComplexInterface
      */
     public function getMediaBandwidth()
     {
-        return $this->mediaBandwidth->getValue();
+        return ($this->mediaBandwidth) ? $this->mediaBandwidth->getValue() : null;
     }
 }

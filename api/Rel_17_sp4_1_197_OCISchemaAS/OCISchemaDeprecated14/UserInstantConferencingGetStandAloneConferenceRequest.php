@@ -24,13 +24,13 @@ use Broadworks_OCIP\core\Client\Client;
 class UserInstantConferencingGetStandAloneConferenceRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType          = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\UserInstantConferencingGetStandAloneConferenceResponse';
-    public    $name                  = 'UserInstantConferencingGetStandAloneConferenceRequest';
-    protected $conferenceOwnerUserId = null;
-    protected $conferenceKey         = null;
+    public    $name = 'UserInstantConferencingGetStandAloneConferenceRequest';
+    protected $conferenceOwnerUserId;
+    protected $conferenceKey;
 
     public function __construct(
-         $conferenceOwnerUserId,
-         InstantConferencingConferenceKey $conferenceKey
+         $conferenceOwnerUserId = '',
+         InstantConferencingConferenceKey $conferenceKey = ''
     ) {
         $this->setConferenceOwnerUserId($conferenceOwnerUserId);
         $this->setConferenceKey($conferenceKey);
@@ -49,7 +49,6 @@ class UserInstantConferencingGetStandAloneConferenceRequest extends ComplexType 
      */
     public function setConferenceOwnerUserId($conferenceOwnerUserId = null)
     {
-        if (!$conferenceOwnerUserId) return $this;
         $this->conferenceOwnerUserId = ($conferenceOwnerUserId InstanceOf UserId)
              ? $conferenceOwnerUserId
              : new UserId($conferenceOwnerUserId);
@@ -63,7 +62,7 @@ class UserInstantConferencingGetStandAloneConferenceRequest extends ComplexType 
      */
     public function getConferenceOwnerUserId()
     {
-        return $this->conferenceOwnerUserId->getValue();
+        return ($this->conferenceOwnerUserId) ? $this->conferenceOwnerUserId->getValue() : null;
     }
 
     /**
@@ -71,8 +70,9 @@ class UserInstantConferencingGetStandAloneConferenceRequest extends ComplexType 
      */
     public function setConferenceKey(InstantConferencingConferenceKey $conferenceKey = null)
     {
-        if (!$conferenceKey) return $this;
-        $this->conferenceKey = $conferenceKey;
+        $this->conferenceKey = ($conferenceKey InstanceOf InstantConferencingConferenceKey)
+             ? $conferenceKey
+             : new InstantConferencingConferenceKey($conferenceKey);
         $this->conferenceKey->setName('conferenceKey');
         return $this;
     }

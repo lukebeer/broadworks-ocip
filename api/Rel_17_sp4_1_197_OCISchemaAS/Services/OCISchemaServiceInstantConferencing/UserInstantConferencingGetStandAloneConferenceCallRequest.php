@@ -24,15 +24,15 @@ use Broadworks_OCIP\core\Client\Client;
 class UserInstantConferencingGetStandAloneConferenceCallRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType          = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing\UserInstantConferencingGetStandAloneConferenceCallResponse';
-    public    $name                  = 'UserInstantConferencingGetStandAloneConferenceCallRequest';
-    protected $conferenceOwnerUserId = null;
-    protected $conferenceKey         = null;
-    protected $conferenceCallId      = null;
+    public    $name = 'UserInstantConferencingGetStandAloneConferenceCallRequest';
+    protected $conferenceOwnerUserId;
+    protected $conferenceKey;
+    protected $conferenceCallId;
 
     public function __construct(
-         $conferenceOwnerUserId,
-         InstantConferencingConferenceKey $conferenceKey,
-         $conferenceCallId
+         $conferenceOwnerUserId = '',
+         InstantConferencingConferenceKey $conferenceKey = '',
+         $conferenceCallId = ''
     ) {
         $this->setConferenceOwnerUserId($conferenceOwnerUserId);
         $this->setConferenceKey($conferenceKey);
@@ -52,7 +52,6 @@ class UserInstantConferencingGetStandAloneConferenceCallRequest extends ComplexT
      */
     public function setConferenceOwnerUserId($conferenceOwnerUserId = null)
     {
-        if (!$conferenceOwnerUserId) return $this;
         $this->conferenceOwnerUserId = ($conferenceOwnerUserId InstanceOf UserId)
              ? $conferenceOwnerUserId
              : new UserId($conferenceOwnerUserId);
@@ -66,7 +65,7 @@ class UserInstantConferencingGetStandAloneConferenceCallRequest extends ComplexT
      */
     public function getConferenceOwnerUserId()
     {
-        return $this->conferenceOwnerUserId->getValue();
+        return ($this->conferenceOwnerUserId) ? $this->conferenceOwnerUserId->getValue() : null;
     }
 
     /**
@@ -74,8 +73,9 @@ class UserInstantConferencingGetStandAloneConferenceCallRequest extends ComplexT
      */
     public function setConferenceKey(InstantConferencingConferenceKey $conferenceKey = null)
     {
-        if (!$conferenceKey) return $this;
-        $this->conferenceKey = $conferenceKey;
+        $this->conferenceKey = ($conferenceKey InstanceOf InstantConferencingConferenceKey)
+             ? $conferenceKey
+             : new InstantConferencingConferenceKey($conferenceKey);
         $this->conferenceKey->setName('conferenceKey');
         return $this;
     }
@@ -94,7 +94,6 @@ class UserInstantConferencingGetStandAloneConferenceCallRequest extends ComplexT
      */
     public function setConferenceCallId($conferenceCallId = null)
     {
-        if (!$conferenceCallId) return $this;
         $this->conferenceCallId = ($conferenceCallId InstanceOf InstantConferencingCallId)
              ? $conferenceCallId
              : new InstantConferencingCallId($conferenceCallId);
@@ -108,6 +107,6 @@ class UserInstantConferencingGetStandAloneConferenceCallRequest extends ComplexT
      */
     public function getConferenceCallId()
     {
-        return $this->conferenceCallId->getValue();
+        return ($this->conferenceCallId) ? $this->conferenceCallId->getValue() : null;
     }
 }

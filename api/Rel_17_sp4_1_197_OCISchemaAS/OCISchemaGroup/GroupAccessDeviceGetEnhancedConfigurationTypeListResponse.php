@@ -19,8 +19,8 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupAccessDeviceGetEnhancedConfigurationTypeListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name       = 'GroupAccessDeviceGetEnhancedConfigurationTypeListResponse';
-    protected $deviceType = null;
+    public    $name = 'GroupAccessDeviceGetEnhancedConfigurationTypeListResponse';
+    protected $deviceType;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupAccessDeviceGetEnhancedConfigurationTypeListResponse $response
@@ -35,7 +35,6 @@ class GroupAccessDeviceGetEnhancedConfigurationTypeListResponse extends ComplexT
      */
     public function setDeviceType($deviceType = null)
     {
-        if (!$deviceType) return $this;
         $this->deviceType = ($deviceType InstanceOf AccessDeviceType)
              ? $deviceType
              : new AccessDeviceType($deviceType);
@@ -49,6 +48,6 @@ class GroupAccessDeviceGetEnhancedConfigurationTypeListResponse extends ComplexT
      */
     public function getDeviceType()
     {
-        return $this->deviceType->getValue();
+        return ($this->deviceType) ? $this->deviceType->getValue() : null;
     }
 }

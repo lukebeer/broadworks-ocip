@@ -30,21 +30,21 @@ use Broadworks_OCIP\core\Client\Client;
 class GroupNetworkClassOfServiceGetAssignedUserListRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType                      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupNetworkClassOfServiceGetAssignedUserListResponse';
-    public    $name                              = 'GroupNetworkClassOfServiceGetAssignedUserListRequest';
-    protected $serviceProviderId                 = null;
-    protected $groupId                           = null;
-    protected $networkClassOfService             = null;
-    protected $responseSizeLimit                 = null;
-    protected $searchCriteriaUserLastName        = null;
-    protected $searchCriteriaUserFirstName       = null;
-    protected $searchCriteriaDn                  = null;
-    protected $searchCriteriaEmailAddress        = null;
-    protected $searchCriteriaExactUserDepartment = null;
+    public    $name = 'GroupNetworkClassOfServiceGetAssignedUserListRequest';
+    protected $serviceProviderId;
+    protected $groupId;
+    protected $networkClassOfService;
+    protected $responseSizeLimit;
+    protected $searchCriteriaUserLastName;
+    protected $searchCriteriaUserFirstName;
+    protected $searchCriteriaDn;
+    protected $searchCriteriaEmailAddress;
+    protected $searchCriteriaExactUserDepartment;
 
     public function __construct(
-         $serviceProviderId,
-         $groupId,
-         $networkClassOfService,
+         $serviceProviderId = '',
+         $groupId = '',
+         $networkClassOfService = '',
          $responseSizeLimit = null,
          SearchCriteriaUserLastName $searchCriteriaUserLastName = null,
          SearchCriteriaUserFirstName $searchCriteriaUserFirstName = null,
@@ -76,7 +76,6 @@ class GroupNetworkClassOfServiceGetAssignedUserListRequest extends ComplexType i
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
-        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
@@ -90,7 +89,7 @@ class GroupNetworkClassOfServiceGetAssignedUserListRequest extends ComplexType i
      */
     public function getServiceProviderId()
     {
-        return $this->serviceProviderId->getValue();
+        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
     }
 
     /**
@@ -98,7 +97,6 @@ class GroupNetworkClassOfServiceGetAssignedUserListRequest extends ComplexType i
      */
     public function setGroupId($groupId = null)
     {
-        if (!$groupId) return $this;
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
@@ -112,7 +110,7 @@ class GroupNetworkClassOfServiceGetAssignedUserListRequest extends ComplexType i
      */
     public function getGroupId()
     {
-        return $this->groupId->getValue();
+        return ($this->groupId) ? $this->groupId->getValue() : null;
     }
 
     /**
@@ -120,7 +118,6 @@ class GroupNetworkClassOfServiceGetAssignedUserListRequest extends ComplexType i
      */
     public function setNetworkClassOfService($networkClassOfService = null)
     {
-        if (!$networkClassOfService) return $this;
         $this->networkClassOfService = ($networkClassOfService InstanceOf NetworkClassOfServiceName)
              ? $networkClassOfService
              : new NetworkClassOfServiceName($networkClassOfService);
@@ -134,7 +131,7 @@ class GroupNetworkClassOfServiceGetAssignedUserListRequest extends ComplexType i
      */
     public function getNetworkClassOfService()
     {
-        return $this->networkClassOfService->getValue();
+        return ($this->networkClassOfService) ? $this->networkClassOfService->getValue() : null;
     }
 
     /**
@@ -142,7 +139,6 @@ class GroupNetworkClassOfServiceGetAssignedUserListRequest extends ComplexType i
      */
     public function setResponseSizeLimit($responseSizeLimit = null)
     {
-        if (!$responseSizeLimit) return $this;
         $this->responseSizeLimit = ($responseSizeLimit InstanceOf ResponseSizeLimit)
              ? $responseSizeLimit
              : new ResponseSizeLimit($responseSizeLimit);
@@ -156,7 +152,7 @@ class GroupNetworkClassOfServiceGetAssignedUserListRequest extends ComplexType i
      */
     public function getResponseSizeLimit()
     {
-        return $this->responseSizeLimit->getValue();
+        return ($this->responseSizeLimit) ? $this->responseSizeLimit->getValue() : null;
     }
 
     /**
@@ -164,7 +160,6 @@ class GroupNetworkClassOfServiceGetAssignedUserListRequest extends ComplexType i
      */
     public function setSearchCriteriaUserLastName(SearchCriteriaUserLastName $searchCriteriaUserLastName = null)
     {
-        if (!$searchCriteriaUserLastName) return $this;
         $this->searchCriteriaUserLastName = ($searchCriteriaUserLastName InstanceOf SearchCriteriaUserLastName)
              ? $searchCriteriaUserLastName
              : new SearchCriteriaUserLastName($searchCriteriaUserLastName);
@@ -186,7 +181,6 @@ class GroupNetworkClassOfServiceGetAssignedUserListRequest extends ComplexType i
      */
     public function setSearchCriteriaUserFirstName(SearchCriteriaUserFirstName $searchCriteriaUserFirstName = null)
     {
-        if (!$searchCriteriaUserFirstName) return $this;
         $this->searchCriteriaUserFirstName = ($searchCriteriaUserFirstName InstanceOf SearchCriteriaUserFirstName)
              ? $searchCriteriaUserFirstName
              : new SearchCriteriaUserFirstName($searchCriteriaUserFirstName);
@@ -208,7 +202,6 @@ class GroupNetworkClassOfServiceGetAssignedUserListRequest extends ComplexType i
      */
     public function setSearchCriteriaDn(SearchCriteriaDn $searchCriteriaDn = null)
     {
-        if (!$searchCriteriaDn) return $this;
         $this->searchCriteriaDn = ($searchCriteriaDn InstanceOf SearchCriteriaDn)
              ? $searchCriteriaDn
              : new SearchCriteriaDn($searchCriteriaDn);
@@ -230,7 +223,6 @@ class GroupNetworkClassOfServiceGetAssignedUserListRequest extends ComplexType i
      */
     public function setSearchCriteriaEmailAddress(SearchCriteriaEmailAddress $searchCriteriaEmailAddress = null)
     {
-        if (!$searchCriteriaEmailAddress) return $this;
         $this->searchCriteriaEmailAddress = ($searchCriteriaEmailAddress InstanceOf SearchCriteriaEmailAddress)
              ? $searchCriteriaEmailAddress
              : new SearchCriteriaEmailAddress($searchCriteriaEmailAddress);
@@ -252,7 +244,6 @@ class GroupNetworkClassOfServiceGetAssignedUserListRequest extends ComplexType i
      */
     public function setSearchCriteriaExactUserDepartment(SearchCriteriaExactUserDepartment $searchCriteriaExactUserDepartment = null)
     {
-        if (!$searchCriteriaExactUserDepartment) return $this;
         $this->searchCriteriaExactUserDepartment = ($searchCriteriaExactUserDepartment InstanceOf SearchCriteriaExactUserDepartment)
              ? $searchCriteriaExactUserDepartment
              : new SearchCriteriaExactUserDepartment($searchCriteriaExactUserDepartment);

@@ -21,8 +21,8 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserRoutePointSupervisorGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name            = 'UserRoutePointSupervisorGetListResponse';
-    protected $supervisorTable = null;
+    public    $name = 'UserRoutePointSupervisorGetListResponse';
+    protected $supervisorTable;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceRoutePoint\UserRoutePointSupervisorGetListResponse $response
@@ -37,7 +37,6 @@ class UserRoutePointSupervisorGetListResponse extends ComplexType implements Com
      */
     public function setSupervisorTable(TableType $supervisorTable = null)
     {
-        if (!$supervisorTable) return $this;
         $this->supervisorTable = $supervisorTable;
         $this->supervisorTable->setName('supervisorTable');
         return $this;

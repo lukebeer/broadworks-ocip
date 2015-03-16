@@ -26,24 +26,24 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserCustomRingbackUserModifyCriteriaRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                      = 'UserCustomRingbackUserModifyCriteriaRequest';
-    protected $userId                    = null;
-    protected $criteriaName              = null;
-    protected $newCriteriaName           = null;
-    protected $timeSchedule              = null;
-    protected $fromDnCriteria            = null;
-    protected $audioSelection            = null;
-    protected $audioFile                 = null;
-    protected $videoSelection            = null;
-    protected $videoFile                 = null;
-    protected $callWaitingAudioSelection = null;
-    protected $callWaitingAudioFile      = null;
-    protected $callWaitingVideoSelection = null;
-    protected $callWaitingVideoFile      = null;
+    public    $name = 'UserCustomRingbackUserModifyCriteriaRequest';
+    protected $userId;
+    protected $criteriaName;
+    protected $newCriteriaName;
+    protected $timeSchedule;
+    protected $fromDnCriteria;
+    protected $audioSelection;
+    protected $audioFile;
+    protected $videoSelection;
+    protected $videoFile;
+    protected $callWaitingAudioSelection;
+    protected $callWaitingAudioFile;
+    protected $callWaitingVideoSelection;
+    protected $callWaitingVideoFile;
 
     public function __construct(
-         $userId,
-         $criteriaName,
+         $userId = '',
+         $criteriaName = '',
          $newCriteriaName = null,
          TimeSchedule $timeSchedule = null,
          CriteriaFromDnModify $fromDnCriteria = null,
@@ -84,7 +84,6 @@ class UserCustomRingbackUserModifyCriteriaRequest extends ComplexType implements
      */
     public function setUserId($userId = null)
     {
-        if (!$userId) return $this;
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
@@ -98,7 +97,7 @@ class UserCustomRingbackUserModifyCriteriaRequest extends ComplexType implements
      */
     public function getUserId()
     {
-        return $this->userId->getValue();
+        return ($this->userId) ? $this->userId->getValue() : null;
     }
 
     /**
@@ -106,7 +105,6 @@ class UserCustomRingbackUserModifyCriteriaRequest extends ComplexType implements
      */
     public function setCriteriaName($criteriaName = null)
     {
-        if (!$criteriaName) return $this;
         $this->criteriaName = ($criteriaName InstanceOf CriteriaName)
              ? $criteriaName
              : new CriteriaName($criteriaName);
@@ -120,7 +118,7 @@ class UserCustomRingbackUserModifyCriteriaRequest extends ComplexType implements
      */
     public function getCriteriaName()
     {
-        return $this->criteriaName->getValue();
+        return ($this->criteriaName) ? $this->criteriaName->getValue() : null;
     }
 
     /**
@@ -128,7 +126,6 @@ class UserCustomRingbackUserModifyCriteriaRequest extends ComplexType implements
      */
     public function setNewCriteriaName($newCriteriaName = null)
     {
-        if (!$newCriteriaName) return $this;
         $this->newCriteriaName = ($newCriteriaName InstanceOf CriteriaName)
              ? $newCriteriaName
              : new CriteriaName($newCriteriaName);
@@ -142,7 +139,7 @@ class UserCustomRingbackUserModifyCriteriaRequest extends ComplexType implements
      */
     public function getNewCriteriaName()
     {
-        return $this->newCriteriaName->getValue();
+        return ($this->newCriteriaName) ? $this->newCriteriaName->getValue() : null;
     }
 
     /**
@@ -150,8 +147,9 @@ class UserCustomRingbackUserModifyCriteriaRequest extends ComplexType implements
      */
     public function setTimeSchedule(TimeSchedule $timeSchedule = null)
     {
-        if (!$timeSchedule) return $this;
-        $this->timeSchedule = $timeSchedule;
+        $this->timeSchedule = ($timeSchedule InstanceOf TimeSchedule)
+             ? $timeSchedule
+             : new TimeSchedule($timeSchedule);
         $this->timeSchedule->setName('timeSchedule');
         return $this;
     }
@@ -170,8 +168,9 @@ class UserCustomRingbackUserModifyCriteriaRequest extends ComplexType implements
      */
     public function setFromDnCriteria(CriteriaFromDnModify $fromDnCriteria = null)
     {
-        if (!$fromDnCriteria) return $this;
-        $this->fromDnCriteria = $fromDnCriteria;
+        $this->fromDnCriteria = ($fromDnCriteria InstanceOf CriteriaFromDnModify)
+             ? $fromDnCriteria
+             : new CriteriaFromDnModify($fromDnCriteria);
         $this->fromDnCriteria->setName('fromDnCriteria');
         return $this;
     }
@@ -190,7 +189,6 @@ class UserCustomRingbackUserModifyCriteriaRequest extends ComplexType implements
      */
     public function setAudioSelection($audioSelection = null)
     {
-        if (!$audioSelection) return $this;
         $this->audioSelection = ($audioSelection InstanceOf ExtendedFileResourceSelection)
              ? $audioSelection
              : new ExtendedFileResourceSelection($audioSelection);
@@ -204,7 +202,7 @@ class UserCustomRingbackUserModifyCriteriaRequest extends ComplexType implements
      */
     public function getAudioSelection()
     {
-        return $this->audioSelection->getValue();
+        return ($this->audioSelection) ? $this->audioSelection->getValue() : null;
     }
 
     /**
@@ -212,8 +210,9 @@ class UserCustomRingbackUserModifyCriteriaRequest extends ComplexType implements
      */
     public function setAudioFile(ExtendedFileResource $audioFile = null)
     {
-        if (!$audioFile) return $this;
-        $this->audioFile = $audioFile;
+        $this->audioFile = ($audioFile InstanceOf ExtendedFileResource)
+             ? $audioFile
+             : new ExtendedFileResource($audioFile);
         $this->audioFile->setName('audioFile');
         return $this;
     }
@@ -232,7 +231,6 @@ class UserCustomRingbackUserModifyCriteriaRequest extends ComplexType implements
      */
     public function setVideoSelection($videoSelection = null)
     {
-        if (!$videoSelection) return $this;
         $this->videoSelection = ($videoSelection InstanceOf ExtendedFileResourceSelection)
              ? $videoSelection
              : new ExtendedFileResourceSelection($videoSelection);
@@ -246,7 +244,7 @@ class UserCustomRingbackUserModifyCriteriaRequest extends ComplexType implements
      */
     public function getVideoSelection()
     {
-        return $this->videoSelection->getValue();
+        return ($this->videoSelection) ? $this->videoSelection->getValue() : null;
     }
 
     /**
@@ -254,8 +252,9 @@ class UserCustomRingbackUserModifyCriteriaRequest extends ComplexType implements
      */
     public function setVideoFile(ExtendedFileResource $videoFile = null)
     {
-        if (!$videoFile) return $this;
-        $this->videoFile = $videoFile;
+        $this->videoFile = ($videoFile InstanceOf ExtendedFileResource)
+             ? $videoFile
+             : new ExtendedFileResource($videoFile);
         $this->videoFile->setName('videoFile');
         return $this;
     }
@@ -274,7 +273,6 @@ class UserCustomRingbackUserModifyCriteriaRequest extends ComplexType implements
      */
     public function setCallWaitingAudioSelection($callWaitingAudioSelection = null)
     {
-        if (!$callWaitingAudioSelection) return $this;
         $this->callWaitingAudioSelection = ($callWaitingAudioSelection InstanceOf ExtendedFileResourceSelection)
              ? $callWaitingAudioSelection
              : new ExtendedFileResourceSelection($callWaitingAudioSelection);
@@ -288,7 +286,7 @@ class UserCustomRingbackUserModifyCriteriaRequest extends ComplexType implements
      */
     public function getCallWaitingAudioSelection()
     {
-        return $this->callWaitingAudioSelection->getValue();
+        return ($this->callWaitingAudioSelection) ? $this->callWaitingAudioSelection->getValue() : null;
     }
 
     /**
@@ -296,8 +294,9 @@ class UserCustomRingbackUserModifyCriteriaRequest extends ComplexType implements
      */
     public function setCallWaitingAudioFile(ExtendedFileResource $callWaitingAudioFile = null)
     {
-        if (!$callWaitingAudioFile) return $this;
-        $this->callWaitingAudioFile = $callWaitingAudioFile;
+        $this->callWaitingAudioFile = ($callWaitingAudioFile InstanceOf ExtendedFileResource)
+             ? $callWaitingAudioFile
+             : new ExtendedFileResource($callWaitingAudioFile);
         $this->callWaitingAudioFile->setName('callWaitingAudioFile');
         return $this;
     }
@@ -316,7 +315,6 @@ class UserCustomRingbackUserModifyCriteriaRequest extends ComplexType implements
      */
     public function setCallWaitingVideoSelection($callWaitingVideoSelection = null)
     {
-        if (!$callWaitingVideoSelection) return $this;
         $this->callWaitingVideoSelection = ($callWaitingVideoSelection InstanceOf ExtendedFileResourceSelection)
              ? $callWaitingVideoSelection
              : new ExtendedFileResourceSelection($callWaitingVideoSelection);
@@ -330,7 +328,7 @@ class UserCustomRingbackUserModifyCriteriaRequest extends ComplexType implements
      */
     public function getCallWaitingVideoSelection()
     {
-        return $this->callWaitingVideoSelection->getValue();
+        return ($this->callWaitingVideoSelection) ? $this->callWaitingVideoSelection->getValue() : null;
     }
 
     /**
@@ -338,8 +336,9 @@ class UserCustomRingbackUserModifyCriteriaRequest extends ComplexType implements
      */
     public function setCallWaitingVideoFile(ExtendedFileResource $callWaitingVideoFile = null)
     {
-        if (!$callWaitingVideoFile) return $this;
-        $this->callWaitingVideoFile = $callWaitingVideoFile;
+        $this->callWaitingVideoFile = ($callWaitingVideoFile InstanceOf ExtendedFileResource)
+             ? $callWaitingVideoFile
+             : new ExtendedFileResource($callWaitingVideoFile);
         $this->callWaitingVideoFile->setName('callWaitingVideoFile');
         return $this;
     }

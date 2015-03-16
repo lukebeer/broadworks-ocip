@@ -22,13 +22,13 @@ use Broadworks_OCIP\core\Client\Client;
 class UserVoiceMessagingUserGetDistributionListRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceVoiceMessaging\UserVoiceMessagingUserGetDistributionListResponse';
-    public    $name   = 'UserVoiceMessagingUserGetDistributionListRequest';
-    protected $userId = null;
-    protected $listId = null;
+    public    $name = 'UserVoiceMessagingUserGetDistributionListRequest';
+    protected $userId;
+    protected $listId;
 
     public function __construct(
-         $userId,
-         $listId
+         $userId = '',
+         $listId = ''
     ) {
         $this->setUserId($userId);
         $this->setListId($listId);
@@ -47,7 +47,6 @@ class UserVoiceMessagingUserGetDistributionListRequest extends ComplexType imple
      */
     public function setUserId($userId = null)
     {
-        if (!$userId) return $this;
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
@@ -61,7 +60,7 @@ class UserVoiceMessagingUserGetDistributionListRequest extends ComplexType imple
      */
     public function getUserId()
     {
-        return $this->userId->getValue();
+        return ($this->userId) ? $this->userId->getValue() : null;
     }
 
     /**
@@ -69,7 +68,6 @@ class UserVoiceMessagingUserGetDistributionListRequest extends ComplexType imple
      */
     public function setListId($listId = null)
     {
-        if (!$listId) return $this;
         $this->listId = ($listId InstanceOf VoiceMessagingDistributionListId)
              ? $listId
              : new VoiceMessagingDistributionListId($listId);
@@ -83,6 +81,6 @@ class UserVoiceMessagingUserGetDistributionListRequest extends ComplexType imple
      */
     public function getListId()
     {
-        return $this->listId->getValue();
+        return ($this->listId) ? $this->listId->getValue() : null;
     }
 }

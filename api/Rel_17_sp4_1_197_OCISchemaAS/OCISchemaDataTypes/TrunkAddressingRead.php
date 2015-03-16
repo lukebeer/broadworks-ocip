@@ -19,10 +19,10 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class TrunkAddressingRead extends ComplexType implements ComplexInterface
 {
-    public    $name                     = 'TrunkAddressingRead';
-    protected $trunkGroupDeviceEndpoint = null;
-    protected $enterpriseTrunkName      = null;
-    protected $alternateTrunkIdentity   = null;
+    public    $name = 'TrunkAddressingRead';
+    protected $trunkGroupDeviceEndpoint;
+    protected $enterpriseTrunkName;
+    protected $alternateTrunkIdentity;
 
     public function __construct(
          $trunkGroupDeviceEndpoint = null,
@@ -47,7 +47,6 @@ class TrunkAddressingRead extends ComplexType implements ComplexInterface
      */
     public function setTrunkGroupDeviceEndpoint($trunkGroupDeviceEndpoint = null)
     {
-        if (!$trunkGroupDeviceEndpoint) return $this;
         $this->trunkGroupDeviceEndpoint = new SimpleContent($trunkGroupDeviceEndpoint);
         $this->trunkGroupDeviceEndpoint->setName('trunkGroupDeviceEndpoint');
         return $this;
@@ -59,7 +58,7 @@ class TrunkAddressingRead extends ComplexType implements ComplexInterface
      */
     public function getTrunkGroupDeviceEndpoint()
     {
-        return $this->trunkGroupDeviceEndpoint->getValue();
+        return ($this->trunkGroupDeviceEndpoint) ? $this->trunkGroupDeviceEndpoint->getValue() : null;
     }
 
     /**
@@ -67,7 +66,6 @@ class TrunkAddressingRead extends ComplexType implements ComplexInterface
      */
     public function setEnterpriseTrunkName($enterpriseTrunkName = null)
     {
-        if (!$enterpriseTrunkName) return $this;
         $this->enterpriseTrunkName = new SimpleContent($enterpriseTrunkName);
         $this->enterpriseTrunkName->setName('enterpriseTrunkName');
         return $this;
@@ -79,7 +77,7 @@ class TrunkAddressingRead extends ComplexType implements ComplexInterface
      */
     public function getEnterpriseTrunkName()
     {
-        return $this->enterpriseTrunkName->getValue();
+        return ($this->enterpriseTrunkName) ? $this->enterpriseTrunkName->getValue() : null;
     }
 
     /**
@@ -87,7 +85,6 @@ class TrunkAddressingRead extends ComplexType implements ComplexInterface
      */
     public function setAlternateTrunkIdentity($alternateTrunkIdentity = null)
     {
-        if (!$alternateTrunkIdentity) return $this;
         $this->alternateTrunkIdentity = new SimpleContent($alternateTrunkIdentity);
         $this->alternateTrunkIdentity->setName('alternateTrunkIdentity');
         return $this;
@@ -99,6 +96,6 @@ class TrunkAddressingRead extends ComplexType implements ComplexInterface
      */
     public function getAlternateTrunkIdentity()
     {
-        return $this->alternateTrunkIdentity->getValue();
+        return ($this->alternateTrunkIdentity) ? $this->alternateTrunkIdentity->getValue() : null;
     }
 }

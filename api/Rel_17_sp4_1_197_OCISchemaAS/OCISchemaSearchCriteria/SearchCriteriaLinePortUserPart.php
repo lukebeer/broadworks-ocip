@@ -20,15 +20,15 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SearchCriteriaLinePortUserPart extends ComplexType implements ComplexInterface
 {
-    public    $name              = 'SearchCriteriaLinePortUserPart';
-    protected $mode              = null;
-    protected $value             = null;
-    protected $isCaseInsensitive = null;
+    public    $name = 'SearchCriteriaLinePortUserPart';
+    protected $mode;
+    protected $value;
+    protected $isCaseInsensitive;
 
     public function __construct(
-         $mode,
-         $value,
-         $isCaseInsensitive
+         $mode = '',
+         $value = '',
+         $isCaseInsensitive = ''
     ) {
         $this->setMode($mode);
         $this->setValue($value);
@@ -48,7 +48,6 @@ class SearchCriteriaLinePortUserPart extends ComplexType implements ComplexInter
      */
     public function setMode($mode = null)
     {
-        if (!$mode) return $this;
         $this->mode = ($mode InstanceOf SearchMode)
              ? $mode
              : new SearchMode($mode);
@@ -62,7 +61,7 @@ class SearchCriteriaLinePortUserPart extends ComplexType implements ComplexInter
      */
     public function getMode()
     {
-        return $this->mode->getValue();
+        return ($this->mode) ? $this->mode->getValue() : null;
     }
 
     /**
@@ -70,7 +69,6 @@ class SearchCriteriaLinePortUserPart extends ComplexType implements ComplexInter
      */
     public function setValue($value = null)
     {
-        if (!$value) return $this;
         $this->value->setName('value');
         return $this;
     }
@@ -81,7 +79,7 @@ class SearchCriteriaLinePortUserPart extends ComplexType implements ComplexInter
      */
     public function getValue()
     {
-        return $this->value->getValue();
+        return ($this->value) ? $this->value->getValue() : null;
     }
 
     /**
@@ -89,7 +87,6 @@ class SearchCriteriaLinePortUserPart extends ComplexType implements ComplexInter
      */
     public function setIsCaseInsensitive($isCaseInsensitive = null)
     {
-        if (!$isCaseInsensitive) return $this;
         $this->isCaseInsensitive = new PrimitiveType($isCaseInsensitive);
         $this->isCaseInsensitive->setName('isCaseInsensitive');
         return $this;
@@ -101,6 +98,6 @@ class SearchCriteriaLinePortUserPart extends ComplexType implements ComplexInter
      */
     public function getIsCaseInsensitive()
     {
-        return $this->isCaseInsensitive->getValue();
+        return ($this->isCaseInsensitive) ? $this->isCaseInsensitive->getValue() : null;
     }
 }

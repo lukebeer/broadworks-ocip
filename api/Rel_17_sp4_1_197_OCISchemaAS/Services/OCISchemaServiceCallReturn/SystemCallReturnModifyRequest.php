@@ -21,13 +21,13 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemCallReturnModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                                = 'SystemCallReturnModifyRequest';
-    protected $twoLevelActivation                  = null;
-    protected $provideDate                         = null;
-    protected $lastUnansweredCallOnly              = null;
-    protected $confirmationKey                     = null;
-    protected $allowRestrictedNumber               = null;
-    protected $deleteNumberAfterAnsweredCallReturn = null;
+    public    $name = 'SystemCallReturnModifyRequest';
+    protected $twoLevelActivation;
+    protected $provideDate;
+    protected $lastUnansweredCallOnly;
+    protected $confirmationKey;
+    protected $allowRestrictedNumber;
+    protected $deleteNumberAfterAnsweredCallReturn;
 
     public function __construct(
          $twoLevelActivation = null,
@@ -58,7 +58,6 @@ class SystemCallReturnModifyRequest extends ComplexType implements ComplexInterf
      */
     public function setTwoLevelActivation($twoLevelActivation = null)
     {
-        if (!$twoLevelActivation) return $this;
         $this->twoLevelActivation = new PrimitiveType($twoLevelActivation);
         $this->twoLevelActivation->setName('twoLevelActivation');
         return $this;
@@ -70,7 +69,7 @@ class SystemCallReturnModifyRequest extends ComplexType implements ComplexInterf
      */
     public function getTwoLevelActivation()
     {
-        return $this->twoLevelActivation->getValue();
+        return ($this->twoLevelActivation) ? $this->twoLevelActivation->getValue() : null;
     }
 
     /**
@@ -78,7 +77,6 @@ class SystemCallReturnModifyRequest extends ComplexType implements ComplexInterf
      */
     public function setProvideDate($provideDate = null)
     {
-        if (!$provideDate) return $this;
         $this->provideDate = new PrimitiveType($provideDate);
         $this->provideDate->setName('provideDate');
         return $this;
@@ -90,7 +88,7 @@ class SystemCallReturnModifyRequest extends ComplexType implements ComplexInterf
      */
     public function getProvideDate()
     {
-        return $this->provideDate->getValue();
+        return ($this->provideDate) ? $this->provideDate->getValue() : null;
     }
 
     /**
@@ -98,7 +96,6 @@ class SystemCallReturnModifyRequest extends ComplexType implements ComplexInterf
      */
     public function setLastUnansweredCallOnly($lastUnansweredCallOnly = null)
     {
-        if (!$lastUnansweredCallOnly) return $this;
         $this->lastUnansweredCallOnly = new PrimitiveType($lastUnansweredCallOnly);
         $this->lastUnansweredCallOnly->setName('lastUnansweredCallOnly');
         return $this;
@@ -110,7 +107,7 @@ class SystemCallReturnModifyRequest extends ComplexType implements ComplexInterf
      */
     public function getLastUnansweredCallOnly()
     {
-        return $this->lastUnansweredCallOnly->getValue();
+        return ($this->lastUnansweredCallOnly) ? $this->lastUnansweredCallOnly->getValue() : null;
     }
 
     /**
@@ -118,7 +115,6 @@ class SystemCallReturnModifyRequest extends ComplexType implements ComplexInterf
      */
     public function setConfirmationKey($confirmationKey = null)
     {
-        if (!$confirmationKey) return $this;
         $this->confirmationKey = ($confirmationKey InstanceOf DigitAny)
              ? $confirmationKey
              : new DigitAny($confirmationKey);
@@ -132,7 +128,7 @@ class SystemCallReturnModifyRequest extends ComplexType implements ComplexInterf
      */
     public function getConfirmationKey()
     {
-        return $this->confirmationKey->getValue();
+        return ($this->confirmationKey) ? $this->confirmationKey->getValue() : null;
     }
 
     /**
@@ -140,7 +136,6 @@ class SystemCallReturnModifyRequest extends ComplexType implements ComplexInterf
      */
     public function setAllowRestrictedNumber($allowRestrictedNumber = null)
     {
-        if (!$allowRestrictedNumber) return $this;
         $this->allowRestrictedNumber = new PrimitiveType($allowRestrictedNumber);
         $this->allowRestrictedNumber->setName('allowRestrictedNumber');
         return $this;
@@ -152,7 +147,7 @@ class SystemCallReturnModifyRequest extends ComplexType implements ComplexInterf
      */
     public function getAllowRestrictedNumber()
     {
-        return $this->allowRestrictedNumber->getValue();
+        return ($this->allowRestrictedNumber) ? $this->allowRestrictedNumber->getValue() : null;
     }
 
     /**
@@ -160,7 +155,6 @@ class SystemCallReturnModifyRequest extends ComplexType implements ComplexInterf
      */
     public function setDeleteNumberAfterAnsweredCallReturn($deleteNumberAfterAnsweredCallReturn = null)
     {
-        if (!$deleteNumberAfterAnsweredCallReturn) return $this;
         $this->deleteNumberAfterAnsweredCallReturn = new PrimitiveType($deleteNumberAfterAnsweredCallReturn);
         $this->deleteNumberAfterAnsweredCallReturn->setName('deleteNumberAfterAnsweredCallReturn');
         return $this;
@@ -172,6 +166,6 @@ class SystemCallReturnModifyRequest extends ComplexType implements ComplexInterf
      */
     public function getDeleteNumberAfterAnsweredCallReturn()
     {
-        return $this->deleteNumberAfterAnsweredCallReturn->getValue();
+        return ($this->deleteNumberAfterAnsweredCallReturn) ? $this->deleteNumberAfterAnsweredCallReturn->getValue() : null;
     }
 }

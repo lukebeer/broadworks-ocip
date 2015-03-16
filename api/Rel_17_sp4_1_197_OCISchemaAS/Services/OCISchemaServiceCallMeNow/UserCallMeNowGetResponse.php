@@ -22,10 +22,10 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserCallMeNowGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name               = 'UserCallMeNowGetResponse';
-    protected $isActive           = null;
-    protected $answerConfirmation = null;
-    protected $criteriaTable      = null;
+    public    $name = 'UserCallMeNowGetResponse';
+    protected $isActive;
+    protected $answerConfirmation;
+    protected $criteriaTable;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallMeNow\UserCallMeNowGetResponse $response
@@ -40,7 +40,6 @@ class UserCallMeNowGetResponse extends ComplexType implements ComplexInterface
      */
     public function setIsActive($isActive = null)
     {
-        if (!$isActive) return $this;
         $this->isActive = new PrimitiveType($isActive);
         $this->isActive->setName('isActive');
         return $this;
@@ -52,7 +51,7 @@ class UserCallMeNowGetResponse extends ComplexType implements ComplexInterface
      */
     public function getIsActive()
     {
-        return $this->isActive->getValue();
+        return ($this->isActive) ? $this->isActive->getValue() : null;
     }
 
     /**
@@ -60,7 +59,6 @@ class UserCallMeNowGetResponse extends ComplexType implements ComplexInterface
      */
     public function setAnswerConfirmation($answerConfirmation = null)
     {
-        if (!$answerConfirmation) return $this;
         $this->answerConfirmation = ($answerConfirmation InstanceOf CallMeNowAnswerConfirmation)
              ? $answerConfirmation
              : new CallMeNowAnswerConfirmation($answerConfirmation);
@@ -74,7 +72,7 @@ class UserCallMeNowGetResponse extends ComplexType implements ComplexInterface
      */
     public function getAnswerConfirmation()
     {
-        return $this->answerConfirmation->getValue();
+        return ($this->answerConfirmation) ? $this->answerConfirmation->getValue() : null;
     }
 
     /**
@@ -82,7 +80,6 @@ class UserCallMeNowGetResponse extends ComplexType implements ComplexInterface
      */
     public function setCriteriaTable(TableType $criteriaTable = null)
     {
-        if (!$criteriaTable) return $this;
         $this->criteriaTable = $criteriaTable;
         $this->criteriaTable->setName('criteriaTable');
         return $this;

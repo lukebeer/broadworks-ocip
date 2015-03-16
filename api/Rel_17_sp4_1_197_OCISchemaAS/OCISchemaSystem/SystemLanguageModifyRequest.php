@@ -24,14 +24,14 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemLanguageModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                  = 'SystemLanguageModifyRequest';
-    protected $language              = null;
-    protected $becomeDefaultLanguage = null;
-    protected $locale                = null;
-    protected $encoding              = null;
+    public    $name = 'SystemLanguageModifyRequest';
+    protected $language;
+    protected $becomeDefaultLanguage;
+    protected $locale;
+    protected $encoding;
 
     public function __construct(
-         $language,
+         $language = '',
          $becomeDefaultLanguage = null,
          $locale = null,
          $encoding = null
@@ -55,7 +55,6 @@ class SystemLanguageModifyRequest extends ComplexType implements ComplexInterfac
      */
     public function setLanguage($language = null)
     {
-        if (!$language) return $this;
         $this->language = ($language InstanceOf Language)
              ? $language
              : new Language($language);
@@ -69,7 +68,7 @@ class SystemLanguageModifyRequest extends ComplexType implements ComplexInterfac
      */
     public function getLanguage()
     {
-        return $this->language->getValue();
+        return ($this->language) ? $this->language->getValue() : null;
     }
 
     /**
@@ -77,7 +76,6 @@ class SystemLanguageModifyRequest extends ComplexType implements ComplexInterfac
      */
     public function setBecomeDefaultLanguage($becomeDefaultLanguage = null)
     {
-        if (!$becomeDefaultLanguage) return $this;
         $this->becomeDefaultLanguage = new PrimitiveType($becomeDefaultLanguage);
         $this->becomeDefaultLanguage->setName('becomeDefaultLanguage');
         return $this;
@@ -89,7 +87,7 @@ class SystemLanguageModifyRequest extends ComplexType implements ComplexInterfac
      */
     public function getBecomeDefaultLanguage()
     {
-        return $this->becomeDefaultLanguage->getValue();
+        return ($this->becomeDefaultLanguage) ? $this->becomeDefaultLanguage->getValue() : null;
     }
 
     /**
@@ -97,7 +95,6 @@ class SystemLanguageModifyRequest extends ComplexType implements ComplexInterfac
      */
     public function setLocale($locale = null)
     {
-        if (!$locale) return $this;
         $this->locale = ($locale InstanceOf OCILocale)
              ? $locale
              : new OCILocale($locale);
@@ -111,7 +108,7 @@ class SystemLanguageModifyRequest extends ComplexType implements ComplexInterfac
      */
     public function getLocale()
     {
-        return $this->locale->getValue();
+        return ($this->locale) ? $this->locale->getValue() : null;
     }
 
     /**
@@ -119,7 +116,6 @@ class SystemLanguageModifyRequest extends ComplexType implements ComplexInterfac
      */
     public function setEncoding($encoding = null)
     {
-        if (!$encoding) return $this;
         $this->encoding = ($encoding InstanceOf Encoding)
              ? $encoding
              : new Encoding($encoding);
@@ -133,6 +129,6 @@ class SystemLanguageModifyRequest extends ComplexType implements ComplexInterfac
      */
     public function getEncoding()
     {
-        return $this->encoding->getValue();
+        return ($this->encoding) ? $this->encoding->getValue() : null;
     }
 }

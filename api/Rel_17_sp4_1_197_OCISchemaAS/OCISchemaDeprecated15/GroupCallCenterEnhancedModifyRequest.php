@@ -25,13 +25,13 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupCallCenterEnhancedModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                    = 'GroupCallCenterEnhancedModifyRequest';
-    protected $serviceUserId           = null;
-    protected $overrideAgentWrapUpTime = null;
-    protected $wrapUpSeconds           = null;
+    public    $name = 'GroupCallCenterEnhancedModifyRequest';
+    protected $serviceUserId;
+    protected $overrideAgentWrapUpTime;
+    protected $wrapUpSeconds;
 
     public function __construct(
-         $serviceUserId,
+         $serviceUserId = '',
          $overrideAgentWrapUpTime = null,
          $wrapUpSeconds = null
     ) {
@@ -53,7 +53,6 @@ class GroupCallCenterEnhancedModifyRequest extends ComplexType implements Comple
      */
     public function setServiceUserId($serviceUserId = null)
     {
-        if (!$serviceUserId) return $this;
         $this->serviceUserId = ($serviceUserId InstanceOf UserId)
              ? $serviceUserId
              : new UserId($serviceUserId);
@@ -67,7 +66,7 @@ class GroupCallCenterEnhancedModifyRequest extends ComplexType implements Comple
      */
     public function getServiceUserId()
     {
-        return $this->serviceUserId->getValue();
+        return ($this->serviceUserId) ? $this->serviceUserId->getValue() : null;
     }
 
     /**
@@ -75,7 +74,6 @@ class GroupCallCenterEnhancedModifyRequest extends ComplexType implements Comple
      */
     public function setOverrideAgentWrapUpTime($overrideAgentWrapUpTime = null)
     {
-        if (!$overrideAgentWrapUpTime) return $this;
         $this->overrideAgentWrapUpTime = new PrimitiveType($overrideAgentWrapUpTime);
         $this->overrideAgentWrapUpTime->setName('overrideAgentWrapUpTime');
         return $this;
@@ -87,7 +85,7 @@ class GroupCallCenterEnhancedModifyRequest extends ComplexType implements Comple
      */
     public function getOverrideAgentWrapUpTime()
     {
-        return $this->overrideAgentWrapUpTime->getValue();
+        return ($this->overrideAgentWrapUpTime) ? $this->overrideAgentWrapUpTime->getValue() : null;
     }
 
     /**
@@ -95,7 +93,6 @@ class GroupCallCenterEnhancedModifyRequest extends ComplexType implements Comple
      */
     public function setWrapUpSeconds($wrapUpSeconds = null)
     {
-        if (!$wrapUpSeconds) return $this;
         $this->wrapUpSeconds = ($wrapUpSeconds InstanceOf CallCenterWrapUpSeconds)
              ? $wrapUpSeconds
              : new CallCenterWrapUpSeconds($wrapUpSeconds);
@@ -109,6 +106,6 @@ class GroupCallCenterEnhancedModifyRequest extends ComplexType implements Comple
      */
     public function getWrapUpSeconds()
     {
-        return $this->wrapUpSeconds->getValue();
+        return ($this->wrapUpSeconds) ? $this->wrapUpSeconds->getValue() : null;
     }
 }

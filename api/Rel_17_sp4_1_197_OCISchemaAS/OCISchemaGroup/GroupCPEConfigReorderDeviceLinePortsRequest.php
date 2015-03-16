@@ -25,16 +25,16 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupCPEConfigReorderDeviceLinePortsRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                = 'GroupCPEConfigReorderDeviceLinePortsRequest';
-    protected $serviceProviderId   = null;
-    protected $groupId             = null;
-    protected $deviceName          = null;
-    protected $orderedLinePortList = null;
+    public    $name = 'GroupCPEConfigReorderDeviceLinePortsRequest';
+    protected $serviceProviderId;
+    protected $groupId;
+    protected $deviceName;
+    protected $orderedLinePortList;
 
     public function __construct(
-         $serviceProviderId,
-         $groupId,
-         $deviceName,
+         $serviceProviderId = '',
+         $groupId = '',
+         $deviceName = '',
          $orderedLinePortList = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
@@ -56,7 +56,6 @@ class GroupCPEConfigReorderDeviceLinePortsRequest extends ComplexType implements
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
-        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
@@ -70,7 +69,7 @@ class GroupCPEConfigReorderDeviceLinePortsRequest extends ComplexType implements
      */
     public function getServiceProviderId()
     {
-        return $this->serviceProviderId->getValue();
+        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
     }
 
     /**
@@ -78,7 +77,6 @@ class GroupCPEConfigReorderDeviceLinePortsRequest extends ComplexType implements
      */
     public function setGroupId($groupId = null)
     {
-        if (!$groupId) return $this;
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
@@ -92,7 +90,7 @@ class GroupCPEConfigReorderDeviceLinePortsRequest extends ComplexType implements
      */
     public function getGroupId()
     {
-        return $this->groupId->getValue();
+        return ($this->groupId) ? $this->groupId->getValue() : null;
     }
 
     /**
@@ -100,7 +98,6 @@ class GroupCPEConfigReorderDeviceLinePortsRequest extends ComplexType implements
      */
     public function setDeviceName($deviceName = null)
     {
-        if (!$deviceName) return $this;
         $this->deviceName = ($deviceName InstanceOf AccessDeviceName)
              ? $deviceName
              : new AccessDeviceName($deviceName);
@@ -114,7 +111,7 @@ class GroupCPEConfigReorderDeviceLinePortsRequest extends ComplexType implements
      */
     public function getDeviceName()
     {
-        return $this->deviceName->getValue();
+        return ($this->deviceName) ? $this->deviceName->getValue() : null;
     }
 
     /**
@@ -122,7 +119,6 @@ class GroupCPEConfigReorderDeviceLinePortsRequest extends ComplexType implements
      */
     public function setOrderedLinePortList($orderedLinePortList = null)
     {
-        if (!$orderedLinePortList) return $this;
         $this->orderedLinePortList = ($orderedLinePortList InstanceOf AccessDeviceEndpointLinePort)
              ? $orderedLinePortList
              : new AccessDeviceEndpointLinePort($orderedLinePortList);
@@ -136,6 +132,6 @@ class GroupCPEConfigReorderDeviceLinePortsRequest extends ComplexType implements
      */
     public function getOrderedLinePortList()
     {
-        return $this->orderedLinePortList->getValue();
+        return ($this->orderedLinePortList) ? $this->orderedLinePortList->getValue() : null;
     }
 }

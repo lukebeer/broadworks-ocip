@@ -20,8 +20,8 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupInstantConferencingGetAvailableUserListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name      = 'GroupInstantConferencingGetAvailableUserListResponse';
-    protected $userTable = null;
+    public    $name = 'GroupInstantConferencingGetAvailableUserListResponse';
+    protected $userTable;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing\GroupInstantConferencingGetAvailableUserListResponse $response
@@ -36,7 +36,6 @@ class GroupInstantConferencingGetAvailableUserListResponse extends ComplexType i
      */
     public function setUserTable(TableType $userTable = null)
     {
-        if (!$userTable) return $this;
         $this->userTable = $userTable;
         $this->userTable->setName('userTable');
         return $this;

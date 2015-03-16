@@ -21,10 +21,10 @@ use Broadworks_OCIP\core\Client\Client;
 class SystemNetworkClassOfServiceDeleteRequest extends ComplexType implements ComplexInterface
 {
     public    $name = 'SystemNetworkClassOfServiceDeleteRequest';
-    protected $name = null;
+    protected $name;
 
     public function __construct(
-         $name
+         $name = ''
     ) {
         $this->setName($name);
     }
@@ -42,7 +42,6 @@ class SystemNetworkClassOfServiceDeleteRequest extends ComplexType implements Co
      */
     public function setName($name = null)
     {
-        if (!$name) return $this;
         $this->name = ($name InstanceOf NetworkClassOfServiceName)
              ? $name
              : new NetworkClassOfServiceName($name);
@@ -56,6 +55,6 @@ class SystemNetworkClassOfServiceDeleteRequest extends ComplexType implements Co
      */
     public function getName()
     {
-        return $this->name->getValue();
+        return ($this->name) ? $this->name->getValue() : null;
     }
 }

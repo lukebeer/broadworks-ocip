@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
 class ReplacementCommunicationBarringOriginatingRuleList extends ComplexType implements ComplexInterface
 {
     public    $name = 'ReplacementCommunicationBarringOriginatingRuleList';
-    protected $rule = null;
+    protected $rule;
 
     public function __construct(
          $rule = null
@@ -43,7 +43,6 @@ class ReplacementCommunicationBarringOriginatingRuleList extends ComplexType imp
      */
     public function setRule($rule = null)
     {
-        if (!$rule) return $this;
         $this->rule = new SimpleContent($rule);
         $this->rule->setName('rule');
         return $this;
@@ -55,6 +54,6 @@ class ReplacementCommunicationBarringOriginatingRuleList extends ComplexType imp
      */
     public function getRule()
     {
-        return $this->rule->getValue();
+        return ($this->rule) ? $this->rule->getValue() : null;
     }
 }

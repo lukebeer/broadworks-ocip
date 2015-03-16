@@ -25,14 +25,14 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserInstantConferencingGetConferenceCallResponse extends ComplexType implements ComplexInterface
 {
-    public    $name               = 'UserInstantConferencingGetConferenceCallResponse';
-    protected $isBridgeActive     = null;
-    protected $title              = null;
-    protected $isLocked           = null;
-    protected $isRecording        = null;
-    protected $isExpired          = null;
-    protected $isPaused           = null;
-    protected $conferenceLegTable = null;
+    public    $name = 'UserInstantConferencingGetConferenceCallResponse';
+    protected $isBridgeActive;
+    protected $title;
+    protected $isLocked;
+    protected $isRecording;
+    protected $isExpired;
+    protected $isPaused;
+    protected $conferenceLegTable;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing\UserInstantConferencingGetConferenceCallResponse $response
@@ -47,7 +47,6 @@ class UserInstantConferencingGetConferenceCallResponse extends ComplexType imple
      */
     public function setIsBridgeActive($isBridgeActive = null)
     {
-        if (!$isBridgeActive) return $this;
         $this->isBridgeActive = new PrimitiveType($isBridgeActive);
         $this->isBridgeActive->setName('isBridgeActive');
         return $this;
@@ -59,7 +58,7 @@ class UserInstantConferencingGetConferenceCallResponse extends ComplexType imple
      */
     public function getIsBridgeActive()
     {
-        return $this->isBridgeActive->getValue();
+        return ($this->isBridgeActive) ? $this->isBridgeActive->getValue() : null;
     }
 
     /**
@@ -67,7 +66,6 @@ class UserInstantConferencingGetConferenceCallResponse extends ComplexType imple
      */
     public function setTitle($title = null)
     {
-        if (!$title) return $this;
         $this->title = ($title InstanceOf InstantConferencingTitle)
              ? $title
              : new InstantConferencingTitle($title);
@@ -81,7 +79,7 @@ class UserInstantConferencingGetConferenceCallResponse extends ComplexType imple
      */
     public function getTitle()
     {
-        return $this->title->getValue();
+        return ($this->title) ? $this->title->getValue() : null;
     }
 
     /**
@@ -89,7 +87,6 @@ class UserInstantConferencingGetConferenceCallResponse extends ComplexType imple
      */
     public function setIsLocked($isLocked = null)
     {
-        if (!$isLocked) return $this;
         $this->isLocked = new PrimitiveType($isLocked);
         $this->isLocked->setName('isLocked');
         return $this;
@@ -101,7 +98,7 @@ class UserInstantConferencingGetConferenceCallResponse extends ComplexType imple
      */
     public function getIsLocked()
     {
-        return $this->isLocked->getValue();
+        return ($this->isLocked) ? $this->isLocked->getValue() : null;
     }
 
     /**
@@ -109,7 +106,6 @@ class UserInstantConferencingGetConferenceCallResponse extends ComplexType imple
      */
     public function setIsRecording($isRecording = null)
     {
-        if (!$isRecording) return $this;
         $this->isRecording = new PrimitiveType($isRecording);
         $this->isRecording->setName('isRecording');
         return $this;
@@ -121,7 +117,7 @@ class UserInstantConferencingGetConferenceCallResponse extends ComplexType imple
      */
     public function getIsRecording()
     {
-        return $this->isRecording->getValue();
+        return ($this->isRecording) ? $this->isRecording->getValue() : null;
     }
 
     /**
@@ -129,7 +125,6 @@ class UserInstantConferencingGetConferenceCallResponse extends ComplexType imple
      */
     public function setIsExpired($isExpired = null)
     {
-        if (!$isExpired) return $this;
         $this->isExpired = new PrimitiveType($isExpired);
         $this->isExpired->setName('isExpired');
         return $this;
@@ -141,7 +136,7 @@ class UserInstantConferencingGetConferenceCallResponse extends ComplexType imple
      */
     public function getIsExpired()
     {
-        return $this->isExpired->getValue();
+        return ($this->isExpired) ? $this->isExpired->getValue() : null;
     }
 
     /**
@@ -149,7 +144,6 @@ class UserInstantConferencingGetConferenceCallResponse extends ComplexType imple
      */
     public function setIsPaused($isPaused = null)
     {
-        if (!$isPaused) return $this;
         $this->isPaused = new PrimitiveType($isPaused);
         $this->isPaused->setName('isPaused');
         return $this;
@@ -161,7 +155,7 @@ class UserInstantConferencingGetConferenceCallResponse extends ComplexType imple
      */
     public function getIsPaused()
     {
-        return $this->isPaused->getValue();
+        return ($this->isPaused) ? $this->isPaused->getValue() : null;
     }
 
     /**
@@ -169,7 +163,6 @@ class UserInstantConferencingGetConferenceCallResponse extends ComplexType imple
      */
     public function setConferenceLegTable(TableType $conferenceLegTable = null)
     {
-        if (!$conferenceLegTable) return $this;
         $this->conferenceLegTable = $conferenceLegTable;
         $this->conferenceLegTable->setName('conferenceLegTable');
         return $this;

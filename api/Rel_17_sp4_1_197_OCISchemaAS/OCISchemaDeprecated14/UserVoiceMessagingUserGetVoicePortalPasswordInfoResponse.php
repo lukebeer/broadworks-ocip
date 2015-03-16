@@ -20,9 +20,9 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserVoiceMessagingUserGetVoicePortalPasswordInfoResponse extends ComplexType implements ComplexInterface
 {
-    public    $name            = 'UserVoiceMessagingUserGetVoicePortalPasswordInfoResponse';
-    protected $isLoginDisabled = null;
-    protected $password        = null;
+    public    $name = 'UserVoiceMessagingUserGetVoicePortalPasswordInfoResponse';
+    protected $isLoginDisabled;
+    protected $password;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\UserVoiceMessagingUserGetVoicePortalPasswordInfoResponse $response
@@ -37,7 +37,6 @@ class UserVoiceMessagingUserGetVoicePortalPasswordInfoResponse extends ComplexTy
      */
     public function setIsLoginDisabled($isLoginDisabled = null)
     {
-        if (!$isLoginDisabled) return $this;
         $this->isLoginDisabled = new PrimitiveType($isLoginDisabled);
         $this->isLoginDisabled->setName('isLoginDisabled');
         return $this;
@@ -49,7 +48,7 @@ class UserVoiceMessagingUserGetVoicePortalPasswordInfoResponse extends ComplexTy
      */
     public function getIsLoginDisabled()
     {
-        return $this->isLoginDisabled->getValue();
+        return ($this->isLoginDisabled) ? $this->isLoginDisabled->getValue() : null;
     }
 
     /**
@@ -57,7 +56,6 @@ class UserVoiceMessagingUserGetVoicePortalPasswordInfoResponse extends ComplexTy
      */
     public function setPassword($password = null)
     {
-        if (!$password) return $this;
         $this->password = ($password InstanceOf Password)
              ? $password
              : new Password($password);
@@ -71,6 +69,6 @@ class UserVoiceMessagingUserGetVoicePortalPasswordInfoResponse extends ComplexTy
      */
     public function getPassword()
     {
-        return $this->password->getValue();
+        return ($this->password) ? $this->password->getValue() : null;
     }
 }

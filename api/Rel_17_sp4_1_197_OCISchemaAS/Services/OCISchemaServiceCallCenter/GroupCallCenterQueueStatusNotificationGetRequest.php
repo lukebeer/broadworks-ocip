@@ -21,11 +21,11 @@ use Broadworks_OCIP\core\Client\Client;
 class GroupCallCenterQueueStatusNotificationGetRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType  = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\GroupCallCenterQueueStatusNotificationGetResponse';
-    public    $name          = 'GroupCallCenterQueueStatusNotificationGetRequest';
-    protected $serviceUserId = null;
+    public    $name = 'GroupCallCenterQueueStatusNotificationGetRequest';
+    protected $serviceUserId;
 
     public function __construct(
-         $serviceUserId
+         $serviceUserId = ''
     ) {
         $this->setServiceUserId($serviceUserId);
     }
@@ -43,7 +43,6 @@ class GroupCallCenterQueueStatusNotificationGetRequest extends ComplexType imple
      */
     public function setServiceUserId($serviceUserId = null)
     {
-        if (!$serviceUserId) return $this;
         $this->serviceUserId = ($serviceUserId InstanceOf UserId)
              ? $serviceUserId
              : new UserId($serviceUserId);
@@ -57,6 +56,6 @@ class GroupCallCenterQueueStatusNotificationGetRequest extends ComplexType imple
      */
     public function getServiceUserId()
     {
-        return $this->serviceUserId->getValue();
+        return ($this->serviceUserId) ? $this->serviceUserId->getValue() : null;
     }
 }

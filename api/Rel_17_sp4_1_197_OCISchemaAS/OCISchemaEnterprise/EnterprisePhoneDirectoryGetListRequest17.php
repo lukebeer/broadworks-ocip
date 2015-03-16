@@ -36,24 +36,24 @@ use Broadworks_OCIP\core\Client\Client;
 class EnterprisePhoneDirectoryGetListRequest17 extends ComplexType implements ComplexInterface
 {
     public    $responseType                      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaEnterprise\EnterprisePhoneDirectoryGetListResponse17';
-    public    $name                              = 'EnterprisePhoneDirectoryGetListRequest17';
-    protected $enterpriseId                      = null;
-    protected $isExtendedInfoRequested           = null;
-    protected $responseSizeLimit                 = null;
-    protected $searchCriteriaUserLastName        = null;
-    protected $searchCriteriaUserFirstName       = null;
-    protected $searchCriteriaDn                  = null;
-    protected $searchCriteriaGroupLocationCode   = null;
-    protected $searchCriteriaExtension           = null;
-    protected $searchCriteriaMobilePhoneNumber   = null;
-    protected $searchCriteriaEmailAddress        = null;
-    protected $searchCriteriaYahooId             = null;
-    protected $searchCriteriaExactUserGroup      = null;
-    protected $searchCriteriaExactUserDepartment = null;
+    public    $name = 'EnterprisePhoneDirectoryGetListRequest17';
+    protected $enterpriseId;
+    protected $isExtendedInfoRequested;
+    protected $responseSizeLimit;
+    protected $searchCriteriaUserLastName;
+    protected $searchCriteriaUserFirstName;
+    protected $searchCriteriaDn;
+    protected $searchCriteriaGroupLocationCode;
+    protected $searchCriteriaExtension;
+    protected $searchCriteriaMobilePhoneNumber;
+    protected $searchCriteriaEmailAddress;
+    protected $searchCriteriaYahooId;
+    protected $searchCriteriaExactUserGroup;
+    protected $searchCriteriaExactUserDepartment;
 
     public function __construct(
-         $enterpriseId,
-         $isExtendedInfoRequested,
+         $enterpriseId = '',
+         $isExtendedInfoRequested = '',
          $responseSizeLimit = null,
          SearchCriteriaUserLastName $searchCriteriaUserLastName = null,
          SearchCriteriaUserFirstName $searchCriteriaUserFirstName = null,
@@ -94,7 +94,6 @@ class EnterprisePhoneDirectoryGetListRequest17 extends ComplexType implements Co
      */
     public function setEnterpriseId($enterpriseId = null)
     {
-        if (!$enterpriseId) return $this;
         $this->enterpriseId = ($enterpriseId InstanceOf ServiceProviderId)
              ? $enterpriseId
              : new ServiceProviderId($enterpriseId);
@@ -108,7 +107,7 @@ class EnterprisePhoneDirectoryGetListRequest17 extends ComplexType implements Co
      */
     public function getEnterpriseId()
     {
-        return $this->enterpriseId->getValue();
+        return ($this->enterpriseId) ? $this->enterpriseId->getValue() : null;
     }
 
     /**
@@ -116,7 +115,6 @@ class EnterprisePhoneDirectoryGetListRequest17 extends ComplexType implements Co
      */
     public function setIsExtendedInfoRequested($isExtendedInfoRequested = null)
     {
-        if (!$isExtendedInfoRequested) return $this;
         $this->isExtendedInfoRequested = new PrimitiveType($isExtendedInfoRequested);
         $this->isExtendedInfoRequested->setName('isExtendedInfoRequested');
         return $this;
@@ -128,7 +126,7 @@ class EnterprisePhoneDirectoryGetListRequest17 extends ComplexType implements Co
      */
     public function getIsExtendedInfoRequested()
     {
-        return $this->isExtendedInfoRequested->getValue();
+        return ($this->isExtendedInfoRequested) ? $this->isExtendedInfoRequested->getValue() : null;
     }
 
     /**
@@ -136,7 +134,6 @@ class EnterprisePhoneDirectoryGetListRequest17 extends ComplexType implements Co
      */
     public function setResponseSizeLimit($responseSizeLimit = null)
     {
-        if (!$responseSizeLimit) return $this;
         $this->responseSizeLimit = ($responseSizeLimit InstanceOf ResponseSizeLimit)
              ? $responseSizeLimit
              : new ResponseSizeLimit($responseSizeLimit);
@@ -150,7 +147,7 @@ class EnterprisePhoneDirectoryGetListRequest17 extends ComplexType implements Co
      */
     public function getResponseSizeLimit()
     {
-        return $this->responseSizeLimit->getValue();
+        return ($this->responseSizeLimit) ? $this->responseSizeLimit->getValue() : null;
     }
 
     /**
@@ -158,7 +155,6 @@ class EnterprisePhoneDirectoryGetListRequest17 extends ComplexType implements Co
      */
     public function setSearchCriteriaUserLastName(SearchCriteriaUserLastName $searchCriteriaUserLastName = null)
     {
-        if (!$searchCriteriaUserLastName) return $this;
         $this->searchCriteriaUserLastName = ($searchCriteriaUserLastName InstanceOf SearchCriteriaUserLastName)
              ? $searchCriteriaUserLastName
              : new SearchCriteriaUserLastName($searchCriteriaUserLastName);
@@ -180,7 +176,6 @@ class EnterprisePhoneDirectoryGetListRequest17 extends ComplexType implements Co
      */
     public function setSearchCriteriaUserFirstName(SearchCriteriaUserFirstName $searchCriteriaUserFirstName = null)
     {
-        if (!$searchCriteriaUserFirstName) return $this;
         $this->searchCriteriaUserFirstName = ($searchCriteriaUserFirstName InstanceOf SearchCriteriaUserFirstName)
              ? $searchCriteriaUserFirstName
              : new SearchCriteriaUserFirstName($searchCriteriaUserFirstName);
@@ -202,7 +197,6 @@ class EnterprisePhoneDirectoryGetListRequest17 extends ComplexType implements Co
      */
     public function setSearchCriteriaDn(SearchCriteriaDn $searchCriteriaDn = null)
     {
-        if (!$searchCriteriaDn) return $this;
         $this->searchCriteriaDn = ($searchCriteriaDn InstanceOf SearchCriteriaDn)
              ? $searchCriteriaDn
              : new SearchCriteriaDn($searchCriteriaDn);
@@ -224,7 +218,6 @@ class EnterprisePhoneDirectoryGetListRequest17 extends ComplexType implements Co
      */
     public function setSearchCriteriaGroupLocationCode(SearchCriteriaGroupLocationCode $searchCriteriaGroupLocationCode = null)
     {
-        if (!$searchCriteriaGroupLocationCode) return $this;
         $this->searchCriteriaGroupLocationCode = ($searchCriteriaGroupLocationCode InstanceOf SearchCriteriaGroupLocationCode)
              ? $searchCriteriaGroupLocationCode
              : new SearchCriteriaGroupLocationCode($searchCriteriaGroupLocationCode);
@@ -246,7 +239,6 @@ class EnterprisePhoneDirectoryGetListRequest17 extends ComplexType implements Co
      */
     public function setSearchCriteriaExtension(SearchCriteriaExtension $searchCriteriaExtension = null)
     {
-        if (!$searchCriteriaExtension) return $this;
         $this->searchCriteriaExtension = ($searchCriteriaExtension InstanceOf SearchCriteriaExtension)
              ? $searchCriteriaExtension
              : new SearchCriteriaExtension($searchCriteriaExtension);
@@ -268,7 +260,6 @@ class EnterprisePhoneDirectoryGetListRequest17 extends ComplexType implements Co
      */
     public function setSearchCriteriaMobilePhoneNumber(SearchCriteriaMobilePhoneNumber $searchCriteriaMobilePhoneNumber = null)
     {
-        if (!$searchCriteriaMobilePhoneNumber) return $this;
         $this->searchCriteriaMobilePhoneNumber = ($searchCriteriaMobilePhoneNumber InstanceOf SearchCriteriaMobilePhoneNumber)
              ? $searchCriteriaMobilePhoneNumber
              : new SearchCriteriaMobilePhoneNumber($searchCriteriaMobilePhoneNumber);
@@ -290,7 +281,6 @@ class EnterprisePhoneDirectoryGetListRequest17 extends ComplexType implements Co
      */
     public function setSearchCriteriaEmailAddress(SearchCriteriaEmailAddress $searchCriteriaEmailAddress = null)
     {
-        if (!$searchCriteriaEmailAddress) return $this;
         $this->searchCriteriaEmailAddress = ($searchCriteriaEmailAddress InstanceOf SearchCriteriaEmailAddress)
              ? $searchCriteriaEmailAddress
              : new SearchCriteriaEmailAddress($searchCriteriaEmailAddress);
@@ -312,7 +302,6 @@ class EnterprisePhoneDirectoryGetListRequest17 extends ComplexType implements Co
      */
     public function setSearchCriteriaYahooId(SearchCriteriaYahooId $searchCriteriaYahooId = null)
     {
-        if (!$searchCriteriaYahooId) return $this;
         $this->searchCriteriaYahooId = ($searchCriteriaYahooId InstanceOf SearchCriteriaYahooId)
              ? $searchCriteriaYahooId
              : new SearchCriteriaYahooId($searchCriteriaYahooId);
@@ -334,7 +323,6 @@ class EnterprisePhoneDirectoryGetListRequest17 extends ComplexType implements Co
      */
     public function setSearchCriteriaExactUserGroup(SearchCriteriaExactUserGroup $searchCriteriaExactUserGroup = null)
     {
-        if (!$searchCriteriaExactUserGroup) return $this;
         $this->searchCriteriaExactUserGroup = ($searchCriteriaExactUserGroup InstanceOf SearchCriteriaExactUserGroup)
              ? $searchCriteriaExactUserGroup
              : new SearchCriteriaExactUserGroup($searchCriteriaExactUserGroup);
@@ -356,7 +344,6 @@ class EnterprisePhoneDirectoryGetListRequest17 extends ComplexType implements Co
      */
     public function setSearchCriteriaExactUserDepartment(SearchCriteriaExactUserDepartment $searchCriteriaExactUserDepartment = null)
     {
-        if (!$searchCriteriaExactUserDepartment) return $this;
         $this->searchCriteriaExactUserDepartment = ($searchCriteriaExactUserDepartment InstanceOf SearchCriteriaExactUserDepartment)
              ? $searchCriteriaExactUserDepartment
              : new SearchCriteriaExactUserDepartment($searchCriteriaExactUserDepartment);

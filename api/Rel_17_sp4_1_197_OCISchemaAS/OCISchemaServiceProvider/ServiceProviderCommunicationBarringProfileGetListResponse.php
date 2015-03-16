@@ -21,8 +21,8 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderCommunicationBarringProfileGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name         = 'ServiceProviderCommunicationBarringProfileGetListResponse';
-    protected $profileTable = null;
+    public    $name = 'ServiceProviderCommunicationBarringProfileGetListResponse';
+    protected $profileTable;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderCommunicationBarringProfileGetListResponse $response
@@ -37,7 +37,6 @@ class ServiceProviderCommunicationBarringProfileGetListResponse extends ComplexT
      */
     public function setProfileTable(TableType $profileTable = null)
     {
-        if (!$profileTable) return $this;
         $this->profileTable = $profileTable;
         $this->profileTable->setName('profileTable');
         return $this;

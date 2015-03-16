@@ -22,13 +22,13 @@ use Broadworks_OCIP\core\Client\Client;
 class ServiceProviderFileRepositoryDeviceUserGetListRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType       = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderFileRepositoryDeviceUserGetListResponse';
-    public    $name               = 'ServiceProviderFileRepositoryDeviceUserGetListRequest';
-    protected $serviceProviderId  = null;
-    protected $fileRepositoryName = null;
+    public    $name = 'ServiceProviderFileRepositoryDeviceUserGetListRequest';
+    protected $serviceProviderId;
+    protected $fileRepositoryName;
 
     public function __construct(
-         $serviceProviderId,
-         $fileRepositoryName
+         $serviceProviderId = '',
+         $fileRepositoryName = ''
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setFileRepositoryName($fileRepositoryName);
@@ -47,7 +47,6 @@ class ServiceProviderFileRepositoryDeviceUserGetListRequest extends ComplexType 
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
-        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
@@ -61,7 +60,7 @@ class ServiceProviderFileRepositoryDeviceUserGetListRequest extends ComplexType 
      */
     public function getServiceProviderId()
     {
-        return $this->serviceProviderId->getValue();
+        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
     }
 
     /**
@@ -69,7 +68,6 @@ class ServiceProviderFileRepositoryDeviceUserGetListRequest extends ComplexType 
      */
     public function setFileRepositoryName($fileRepositoryName = null)
     {
-        if (!$fileRepositoryName) return $this;
         $this->fileRepositoryName = ($fileRepositoryName InstanceOf FileRepositoryName)
              ? $fileRepositoryName
              : new FileRepositoryName($fileRepositoryName);
@@ -83,6 +81,6 @@ class ServiceProviderFileRepositoryDeviceUserGetListRequest extends ComplexType 
      */
     public function getFileRepositoryName()
     {
-        return $this->fileRepositoryName->getValue();
+        return ($this->fileRepositoryName) ? $this->fileRepositoryName->getValue() : null;
     }
 }

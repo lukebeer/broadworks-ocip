@@ -19,13 +19,13 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ScheduleKey extends ComplexType implements ComplexInterface
 {
-    public    $name         = 'ScheduleKey';
-    protected $scheduleName = null;
-    protected $scheduleType = null;
+    public    $name = 'ScheduleKey';
+    protected $scheduleName;
+    protected $scheduleType;
 
     public function __construct(
-         $scheduleName,
-         $scheduleType
+         $scheduleName = '',
+         $scheduleType = ''
     ) {
         $this->setScheduleName($scheduleName);
         $this->setScheduleType($scheduleType);
@@ -44,7 +44,6 @@ class ScheduleKey extends ComplexType implements ComplexInterface
      */
     public function setScheduleName($scheduleName = null)
     {
-        if (!$scheduleName) return $this;
         $this->scheduleName = new SimpleContent($scheduleName);
         $this->scheduleName->setName('scheduleName');
         return $this;
@@ -56,7 +55,7 @@ class ScheduleKey extends ComplexType implements ComplexInterface
      */
     public function getScheduleName()
     {
-        return $this->scheduleName->getValue();
+        return ($this->scheduleName) ? $this->scheduleName->getValue() : null;
     }
 
     /**
@@ -64,7 +63,6 @@ class ScheduleKey extends ComplexType implements ComplexInterface
      */
     public function setScheduleType($scheduleType = null)
     {
-        if (!$scheduleType) return $this;
         $this->scheduleType = new SimpleContent($scheduleType);
         $this->scheduleType->setName('scheduleType');
         return $this;
@@ -76,6 +74,6 @@ class ScheduleKey extends ComplexType implements ComplexInterface
      */
     public function getScheduleType()
     {
-        return $this->scheduleType->getValue();
+        return ($this->scheduleType) ? $this->scheduleType->getValue() : null;
     }
 }

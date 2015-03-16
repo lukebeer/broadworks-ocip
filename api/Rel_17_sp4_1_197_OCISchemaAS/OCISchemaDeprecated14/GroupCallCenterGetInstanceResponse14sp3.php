@@ -32,26 +32,26 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupCallCenterGetInstanceResponse14sp3 extends ComplexType implements ComplexInterface
 {
-    public    $name                                 = 'GroupCallCenterGetInstanceResponse14sp3';
-    protected $serviceInstanceProfile               = null;
-    protected $policy                               = null;
-    protected $huntAfterNoAnswer                    = null;
-    protected $noAnswerNumberOfRings                = null;
-    protected $forwardAfterTimeout                  = null;
-    protected $forwardTimeoutSeconds                = null;
-    protected $forwardToPhoneNumber                 = null;
-    protected $enableVideo                          = null;
-    protected $queueLength                          = null;
-    protected $allowAgentLogoff                     = null;
-    protected $playMusicOnHold                      = null;
-    protected $playComfortMessage                   = null;
-    protected $timeBetweenComfortMessagesSeconds    = null;
-    protected $enableGuardTimer                     = null;
-    protected $guardTimerSeconds                    = null;
-    protected $agentUserTable                       = null;
-    protected $allowCallWaitingForAgents            = null;
-    protected $allowCallsToAgentsInWrapUp           = null;
-    protected $enableCallQueueWhenNoAgentsAvailable = null;
+    public    $name = 'GroupCallCenterGetInstanceResponse14sp3';
+    protected $serviceInstanceProfile;
+    protected $policy;
+    protected $huntAfterNoAnswer;
+    protected $noAnswerNumberOfRings;
+    protected $forwardAfterTimeout;
+    protected $forwardTimeoutSeconds;
+    protected $forwardToPhoneNumber;
+    protected $enableVideo;
+    protected $queueLength;
+    protected $allowAgentLogoff;
+    protected $playMusicOnHold;
+    protected $playComfortMessage;
+    protected $timeBetweenComfortMessagesSeconds;
+    protected $enableGuardTimer;
+    protected $guardTimerSeconds;
+    protected $agentUserTable;
+    protected $allowCallWaitingForAgents;
+    protected $allowCallsToAgentsInWrapUp;
+    protected $enableCallQueueWhenNoAgentsAvailable;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\GroupCallCenterGetInstanceResponse14sp3 $response
@@ -66,8 +66,9 @@ class GroupCallCenterGetInstanceResponse14sp3 extends ComplexType implements Com
      */
     public function setServiceInstanceProfile(ServiceInstanceReadProfile $serviceInstanceProfile = null)
     {
-        if (!$serviceInstanceProfile) return $this;
-        $this->serviceInstanceProfile = $serviceInstanceProfile;
+        $this->serviceInstanceProfile = ($serviceInstanceProfile InstanceOf ServiceInstanceReadProfile)
+             ? $serviceInstanceProfile
+             : new ServiceInstanceReadProfile($serviceInstanceProfile);
         $this->serviceInstanceProfile->setName('serviceInstanceProfile');
         return $this;
     }
@@ -86,7 +87,6 @@ class GroupCallCenterGetInstanceResponse14sp3 extends ComplexType implements Com
      */
     public function setPolicy($policy = null)
     {
-        if (!$policy) return $this;
         $this->policy = ($policy InstanceOf HuntPolicy)
              ? $policy
              : new HuntPolicy($policy);
@@ -100,7 +100,7 @@ class GroupCallCenterGetInstanceResponse14sp3 extends ComplexType implements Com
      */
     public function getPolicy()
     {
-        return $this->policy->getValue();
+        return ($this->policy) ? $this->policy->getValue() : null;
     }
 
     /**
@@ -108,7 +108,6 @@ class GroupCallCenterGetInstanceResponse14sp3 extends ComplexType implements Com
      */
     public function setHuntAfterNoAnswer($huntAfterNoAnswer = null)
     {
-        if (!$huntAfterNoAnswer) return $this;
         $this->huntAfterNoAnswer = new PrimitiveType($huntAfterNoAnswer);
         $this->huntAfterNoAnswer->setName('huntAfterNoAnswer');
         return $this;
@@ -120,7 +119,7 @@ class GroupCallCenterGetInstanceResponse14sp3 extends ComplexType implements Com
      */
     public function getHuntAfterNoAnswer()
     {
-        return $this->huntAfterNoAnswer->getValue();
+        return ($this->huntAfterNoAnswer) ? $this->huntAfterNoAnswer->getValue() : null;
     }
 
     /**
@@ -128,7 +127,6 @@ class GroupCallCenterGetInstanceResponse14sp3 extends ComplexType implements Com
      */
     public function setNoAnswerNumberOfRings($noAnswerNumberOfRings = null)
     {
-        if (!$noAnswerNumberOfRings) return $this;
         $this->noAnswerNumberOfRings = ($noAnswerNumberOfRings InstanceOf HuntNoAnswerRings)
              ? $noAnswerNumberOfRings
              : new HuntNoAnswerRings($noAnswerNumberOfRings);
@@ -142,7 +140,7 @@ class GroupCallCenterGetInstanceResponse14sp3 extends ComplexType implements Com
      */
     public function getNoAnswerNumberOfRings()
     {
-        return $this->noAnswerNumberOfRings->getValue();
+        return ($this->noAnswerNumberOfRings) ? $this->noAnswerNumberOfRings->getValue() : null;
     }
 
     /**
@@ -150,7 +148,6 @@ class GroupCallCenterGetInstanceResponse14sp3 extends ComplexType implements Com
      */
     public function setForwardAfterTimeout($forwardAfterTimeout = null)
     {
-        if (!$forwardAfterTimeout) return $this;
         $this->forwardAfterTimeout = new PrimitiveType($forwardAfterTimeout);
         $this->forwardAfterTimeout->setName('forwardAfterTimeout');
         return $this;
@@ -162,7 +159,7 @@ class GroupCallCenterGetInstanceResponse14sp3 extends ComplexType implements Com
      */
     public function getForwardAfterTimeout()
     {
-        return $this->forwardAfterTimeout->getValue();
+        return ($this->forwardAfterTimeout) ? $this->forwardAfterTimeout->getValue() : null;
     }
 
     /**
@@ -170,7 +167,6 @@ class GroupCallCenterGetInstanceResponse14sp3 extends ComplexType implements Com
      */
     public function setForwardTimeoutSeconds($forwardTimeoutSeconds = null)
     {
-        if (!$forwardTimeoutSeconds) return $this;
         $this->forwardTimeoutSeconds = ($forwardTimeoutSeconds InstanceOf HuntForwardTimeoutSeconds)
              ? $forwardTimeoutSeconds
              : new HuntForwardTimeoutSeconds($forwardTimeoutSeconds);
@@ -184,7 +180,7 @@ class GroupCallCenterGetInstanceResponse14sp3 extends ComplexType implements Com
      */
     public function getForwardTimeoutSeconds()
     {
-        return $this->forwardTimeoutSeconds->getValue();
+        return ($this->forwardTimeoutSeconds) ? $this->forwardTimeoutSeconds->getValue() : null;
     }
 
     /**
@@ -192,7 +188,6 @@ class GroupCallCenterGetInstanceResponse14sp3 extends ComplexType implements Com
      */
     public function setForwardToPhoneNumber($forwardToPhoneNumber = null)
     {
-        if (!$forwardToPhoneNumber) return $this;
         $this->forwardToPhoneNumber = ($forwardToPhoneNumber InstanceOf OutgoingDN)
              ? $forwardToPhoneNumber
              : new OutgoingDN($forwardToPhoneNumber);
@@ -206,7 +201,7 @@ class GroupCallCenterGetInstanceResponse14sp3 extends ComplexType implements Com
      */
     public function getForwardToPhoneNumber()
     {
-        return $this->forwardToPhoneNumber->getValue();
+        return ($this->forwardToPhoneNumber) ? $this->forwardToPhoneNumber->getValue() : null;
     }
 
     /**
@@ -214,7 +209,6 @@ class GroupCallCenterGetInstanceResponse14sp3 extends ComplexType implements Com
      */
     public function setEnableVideo($enableVideo = null)
     {
-        if (!$enableVideo) return $this;
         $this->enableVideo = new PrimitiveType($enableVideo);
         $this->enableVideo->setName('enableVideo');
         return $this;
@@ -226,7 +220,7 @@ class GroupCallCenterGetInstanceResponse14sp3 extends ComplexType implements Com
      */
     public function getEnableVideo()
     {
-        return $this->enableVideo->getValue();
+        return ($this->enableVideo) ? $this->enableVideo->getValue() : null;
     }
 
     /**
@@ -234,7 +228,6 @@ class GroupCallCenterGetInstanceResponse14sp3 extends ComplexType implements Com
      */
     public function setQueueLength($queueLength = null)
     {
-        if (!$queueLength) return $this;
         $this->queueLength = ($queueLength InstanceOf CallCenterQueueLength)
              ? $queueLength
              : new CallCenterQueueLength($queueLength);
@@ -248,7 +241,7 @@ class GroupCallCenterGetInstanceResponse14sp3 extends ComplexType implements Com
      */
     public function getQueueLength()
     {
-        return $this->queueLength->getValue();
+        return ($this->queueLength) ? $this->queueLength->getValue() : null;
     }
 
     /**
@@ -256,7 +249,6 @@ class GroupCallCenterGetInstanceResponse14sp3 extends ComplexType implements Com
      */
     public function setAllowAgentLogoff($allowAgentLogoff = null)
     {
-        if (!$allowAgentLogoff) return $this;
         $this->allowAgentLogoff = new PrimitiveType($allowAgentLogoff);
         $this->allowAgentLogoff->setName('allowAgentLogoff');
         return $this;
@@ -268,7 +260,7 @@ class GroupCallCenterGetInstanceResponse14sp3 extends ComplexType implements Com
      */
     public function getAllowAgentLogoff()
     {
-        return $this->allowAgentLogoff->getValue();
+        return ($this->allowAgentLogoff) ? $this->allowAgentLogoff->getValue() : null;
     }
 
     /**
@@ -276,7 +268,6 @@ class GroupCallCenterGetInstanceResponse14sp3 extends ComplexType implements Com
      */
     public function setPlayMusicOnHold($playMusicOnHold = null)
     {
-        if (!$playMusicOnHold) return $this;
         $this->playMusicOnHold = new PrimitiveType($playMusicOnHold);
         $this->playMusicOnHold->setName('playMusicOnHold');
         return $this;
@@ -288,7 +279,7 @@ class GroupCallCenterGetInstanceResponse14sp3 extends ComplexType implements Com
      */
     public function getPlayMusicOnHold()
     {
-        return $this->playMusicOnHold->getValue();
+        return ($this->playMusicOnHold) ? $this->playMusicOnHold->getValue() : null;
     }
 
     /**
@@ -296,7 +287,6 @@ class GroupCallCenterGetInstanceResponse14sp3 extends ComplexType implements Com
      */
     public function setPlayComfortMessage($playComfortMessage = null)
     {
-        if (!$playComfortMessage) return $this;
         $this->playComfortMessage = new PrimitiveType($playComfortMessage);
         $this->playComfortMessage->setName('playComfortMessage');
         return $this;
@@ -308,7 +298,7 @@ class GroupCallCenterGetInstanceResponse14sp3 extends ComplexType implements Com
      */
     public function getPlayComfortMessage()
     {
-        return $this->playComfortMessage->getValue();
+        return ($this->playComfortMessage) ? $this->playComfortMessage->getValue() : null;
     }
 
     /**
@@ -316,7 +306,6 @@ class GroupCallCenterGetInstanceResponse14sp3 extends ComplexType implements Com
      */
     public function setTimeBetweenComfortMessagesSeconds($timeBetweenComfortMessagesSeconds = null)
     {
-        if (!$timeBetweenComfortMessagesSeconds) return $this;
         $this->timeBetweenComfortMessagesSeconds = ($timeBetweenComfortMessagesSeconds InstanceOf CallCenterTimeBetweenComfortMessagesSeconds)
              ? $timeBetweenComfortMessagesSeconds
              : new CallCenterTimeBetweenComfortMessagesSeconds($timeBetweenComfortMessagesSeconds);
@@ -330,7 +319,7 @@ class GroupCallCenterGetInstanceResponse14sp3 extends ComplexType implements Com
      */
     public function getTimeBetweenComfortMessagesSeconds()
     {
-        return $this->timeBetweenComfortMessagesSeconds->getValue();
+        return ($this->timeBetweenComfortMessagesSeconds) ? $this->timeBetweenComfortMessagesSeconds->getValue() : null;
     }
 
     /**
@@ -338,7 +327,6 @@ class GroupCallCenterGetInstanceResponse14sp3 extends ComplexType implements Com
      */
     public function setEnableGuardTimer($enableGuardTimer = null)
     {
-        if (!$enableGuardTimer) return $this;
         $this->enableGuardTimer = new PrimitiveType($enableGuardTimer);
         $this->enableGuardTimer->setName('enableGuardTimer');
         return $this;
@@ -350,7 +338,7 @@ class GroupCallCenterGetInstanceResponse14sp3 extends ComplexType implements Com
      */
     public function getEnableGuardTimer()
     {
-        return $this->enableGuardTimer->getValue();
+        return ($this->enableGuardTimer) ? $this->enableGuardTimer->getValue() : null;
     }
 
     /**
@@ -358,7 +346,6 @@ class GroupCallCenterGetInstanceResponse14sp3 extends ComplexType implements Com
      */
     public function setGuardTimerSeconds($guardTimerSeconds = null)
     {
-        if (!$guardTimerSeconds) return $this;
         $this->guardTimerSeconds = ($guardTimerSeconds InstanceOf CallCenterGuardTimerSeconds)
              ? $guardTimerSeconds
              : new CallCenterGuardTimerSeconds($guardTimerSeconds);
@@ -372,7 +359,7 @@ class GroupCallCenterGetInstanceResponse14sp3 extends ComplexType implements Com
      */
     public function getGuardTimerSeconds()
     {
-        return $this->guardTimerSeconds->getValue();
+        return ($this->guardTimerSeconds) ? $this->guardTimerSeconds->getValue() : null;
     }
 
     /**
@@ -380,7 +367,6 @@ class GroupCallCenterGetInstanceResponse14sp3 extends ComplexType implements Com
      */
     public function setAgentUserTable(TableType $agentUserTable = null)
     {
-        if (!$agentUserTable) return $this;
         $this->agentUserTable = $agentUserTable;
         $this->agentUserTable->setName('agentUserTable');
         return $this;
@@ -400,7 +386,6 @@ class GroupCallCenterGetInstanceResponse14sp3 extends ComplexType implements Com
      */
     public function setAllowCallWaitingForAgents($allowCallWaitingForAgents = null)
     {
-        if (!$allowCallWaitingForAgents) return $this;
         $this->allowCallWaitingForAgents = new PrimitiveType($allowCallWaitingForAgents);
         $this->allowCallWaitingForAgents->setName('allowCallWaitingForAgents');
         return $this;
@@ -412,7 +397,7 @@ class GroupCallCenterGetInstanceResponse14sp3 extends ComplexType implements Com
      */
     public function getAllowCallWaitingForAgents()
     {
-        return $this->allowCallWaitingForAgents->getValue();
+        return ($this->allowCallWaitingForAgents) ? $this->allowCallWaitingForAgents->getValue() : null;
     }
 
     /**
@@ -420,7 +405,6 @@ class GroupCallCenterGetInstanceResponse14sp3 extends ComplexType implements Com
      */
     public function setAllowCallsToAgentsInWrapUp($allowCallsToAgentsInWrapUp = null)
     {
-        if (!$allowCallsToAgentsInWrapUp) return $this;
         $this->allowCallsToAgentsInWrapUp = new PrimitiveType($allowCallsToAgentsInWrapUp);
         $this->allowCallsToAgentsInWrapUp->setName('allowCallsToAgentsInWrapUp');
         return $this;
@@ -432,7 +416,7 @@ class GroupCallCenterGetInstanceResponse14sp3 extends ComplexType implements Com
      */
     public function getAllowCallsToAgentsInWrapUp()
     {
-        return $this->allowCallsToAgentsInWrapUp->getValue();
+        return ($this->allowCallsToAgentsInWrapUp) ? $this->allowCallsToAgentsInWrapUp->getValue() : null;
     }
 
     /**
@@ -440,7 +424,6 @@ class GroupCallCenterGetInstanceResponse14sp3 extends ComplexType implements Com
      */
     public function setEnableCallQueueWhenNoAgentsAvailable($enableCallQueueWhenNoAgentsAvailable = null)
     {
-        if (!$enableCallQueueWhenNoAgentsAvailable) return $this;
         $this->enableCallQueueWhenNoAgentsAvailable = new PrimitiveType($enableCallQueueWhenNoAgentsAvailable);
         $this->enableCallQueueWhenNoAgentsAvailable->setName('enableCallQueueWhenNoAgentsAvailable');
         return $this;
@@ -452,6 +435,6 @@ class GroupCallCenterGetInstanceResponse14sp3 extends ComplexType implements Com
      */
     public function getEnableCallQueueWhenNoAgentsAvailable()
     {
-        return $this->enableCallQueueWhenNoAgentsAvailable->getValue();
+        return ($this->enableCallQueueWhenNoAgentsAvailable) ? $this->enableCallQueueWhenNoAgentsAvailable->getValue() : null;
     }
 }

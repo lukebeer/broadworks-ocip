@@ -22,9 +22,9 @@ use Broadworks_OCIP\core\Client\Client;
 class SystemHomeNetworkGetListRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType                 = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemHomeNetworkGetListResponse';
-    public    $name                         = 'SystemHomeNetworkGetListRequest';
-    protected $responseSizeLimit            = null;
-    protected $searchCriteriaHomeMscAddress = null;
+    public    $name = 'SystemHomeNetworkGetListRequest';
+    protected $responseSizeLimit;
+    protected $searchCriteriaHomeMscAddress;
 
     public function __construct(
          $responseSizeLimit = null,
@@ -47,7 +47,6 @@ class SystemHomeNetworkGetListRequest extends ComplexType implements ComplexInte
      */
     public function setResponseSizeLimit($responseSizeLimit = null)
     {
-        if (!$responseSizeLimit) return $this;
         $this->responseSizeLimit = ($responseSizeLimit InstanceOf ResponseSizeLimit)
              ? $responseSizeLimit
              : new ResponseSizeLimit($responseSizeLimit);
@@ -61,7 +60,7 @@ class SystemHomeNetworkGetListRequest extends ComplexType implements ComplexInte
      */
     public function getResponseSizeLimit()
     {
-        return $this->responseSizeLimit->getValue();
+        return ($this->responseSizeLimit) ? $this->responseSizeLimit->getValue() : null;
     }
 
     /**
@@ -69,7 +68,6 @@ class SystemHomeNetworkGetListRequest extends ComplexType implements ComplexInte
      */
     public function setSearchCriteriaHomeMscAddress(SearchCriteriaHomeMscAddress $searchCriteriaHomeMscAddress = null)
     {
-        if (!$searchCriteriaHomeMscAddress) return $this;
         $this->searchCriteriaHomeMscAddress = ($searchCriteriaHomeMscAddress InstanceOf SearchCriteriaHomeMscAddress)
              ? $searchCriteriaHomeMscAddress
              : new SearchCriteriaHomeMscAddress($searchCriteriaHomeMscAddress);

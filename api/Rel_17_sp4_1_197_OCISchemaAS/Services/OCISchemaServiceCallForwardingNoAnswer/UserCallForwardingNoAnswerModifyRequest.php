@@ -24,14 +24,14 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserCallForwardingNoAnswerModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                 = 'UserCallForwardingNoAnswerModifyRequest';
-    protected $userId               = null;
-    protected $isActive             = null;
-    protected $forwardToPhoneNumber = null;
-    protected $numberOfRings        = null;
+    public    $name = 'UserCallForwardingNoAnswerModifyRequest';
+    protected $userId;
+    protected $isActive;
+    protected $forwardToPhoneNumber;
+    protected $numberOfRings;
 
     public function __construct(
-         $userId,
+         $userId = '',
          $isActive = null,
          $forwardToPhoneNumber = null,
          $numberOfRings = null
@@ -55,7 +55,6 @@ class UserCallForwardingNoAnswerModifyRequest extends ComplexType implements Com
      */
     public function setUserId($userId = null)
     {
-        if (!$userId) return $this;
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
@@ -69,7 +68,7 @@ class UserCallForwardingNoAnswerModifyRequest extends ComplexType implements Com
      */
     public function getUserId()
     {
-        return $this->userId->getValue();
+        return ($this->userId) ? $this->userId->getValue() : null;
     }
 
     /**
@@ -77,7 +76,6 @@ class UserCallForwardingNoAnswerModifyRequest extends ComplexType implements Com
      */
     public function setIsActive($isActive = null)
     {
-        if (!$isActive) return $this;
         $this->isActive = new PrimitiveType($isActive);
         $this->isActive->setName('isActive');
         return $this;
@@ -89,7 +87,7 @@ class UserCallForwardingNoAnswerModifyRequest extends ComplexType implements Com
      */
     public function getIsActive()
     {
-        return $this->isActive->getValue();
+        return ($this->isActive) ? $this->isActive->getValue() : null;
     }
 
     /**
@@ -97,7 +95,6 @@ class UserCallForwardingNoAnswerModifyRequest extends ComplexType implements Com
      */
     public function setForwardToPhoneNumber($forwardToPhoneNumber = null)
     {
-        if (!$forwardToPhoneNumber) return $this;
         $this->forwardToPhoneNumber = ($forwardToPhoneNumber InstanceOf OutgoingDNorSIPURI)
              ? $forwardToPhoneNumber
              : new OutgoingDNorSIPURI($forwardToPhoneNumber);
@@ -111,7 +108,7 @@ class UserCallForwardingNoAnswerModifyRequest extends ComplexType implements Com
      */
     public function getForwardToPhoneNumber()
     {
-        return $this->forwardToPhoneNumber->getValue();
+        return ($this->forwardToPhoneNumber) ? $this->forwardToPhoneNumber->getValue() : null;
     }
 
     /**
@@ -119,7 +116,6 @@ class UserCallForwardingNoAnswerModifyRequest extends ComplexType implements Com
      */
     public function setNumberOfRings($numberOfRings = null)
     {
-        if (!$numberOfRings) return $this;
         $this->numberOfRings = ($numberOfRings InstanceOf CallForwardingNoAnswerNumberOfRings)
              ? $numberOfRings
              : new CallForwardingNoAnswerNumberOfRings($numberOfRings);
@@ -133,6 +129,6 @@ class UserCallForwardingNoAnswerModifyRequest extends ComplexType implements Com
      */
     public function getNumberOfRings()
     {
-        return $this->numberOfRings->getValue();
+        return ($this->numberOfRings) ? $this->numberOfRings->getValue() : null;
     }
 }

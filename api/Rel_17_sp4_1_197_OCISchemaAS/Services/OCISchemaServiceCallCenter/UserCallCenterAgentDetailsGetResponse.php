@@ -20,10 +20,10 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserCallCenterAgentDetailsGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                         = 'UserCallCenterAgentDetailsGetResponse';
-    protected $isCallCenterBasicAssigned    = null;
-    protected $isCallCenterStandardAssigned = null;
-    protected $isCallCenterPremiumAssigned  = null;
+    public    $name = 'UserCallCenterAgentDetailsGetResponse';
+    protected $isCallCenterBasicAssigned;
+    protected $isCallCenterStandardAssigned;
+    protected $isCallCenterPremiumAssigned;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\UserCallCenterAgentDetailsGetResponse $response
@@ -38,7 +38,6 @@ class UserCallCenterAgentDetailsGetResponse extends ComplexType implements Compl
      */
     public function setIsCallCenterBasicAssigned($isCallCenterBasicAssigned = null)
     {
-        if (!$isCallCenterBasicAssigned) return $this;
         $this->isCallCenterBasicAssigned = new PrimitiveType($isCallCenterBasicAssigned);
         $this->isCallCenterBasicAssigned->setName('isCallCenterBasicAssigned');
         return $this;
@@ -50,7 +49,7 @@ class UserCallCenterAgentDetailsGetResponse extends ComplexType implements Compl
      */
     public function getIsCallCenterBasicAssigned()
     {
-        return $this->isCallCenterBasicAssigned->getValue();
+        return ($this->isCallCenterBasicAssigned) ? $this->isCallCenterBasicAssigned->getValue() : null;
     }
 
     /**
@@ -58,7 +57,6 @@ class UserCallCenterAgentDetailsGetResponse extends ComplexType implements Compl
      */
     public function setIsCallCenterStandardAssigned($isCallCenterStandardAssigned = null)
     {
-        if (!$isCallCenterStandardAssigned) return $this;
         $this->isCallCenterStandardAssigned = new PrimitiveType($isCallCenterStandardAssigned);
         $this->isCallCenterStandardAssigned->setName('isCallCenterStandardAssigned');
         return $this;
@@ -70,7 +68,7 @@ class UserCallCenterAgentDetailsGetResponse extends ComplexType implements Compl
      */
     public function getIsCallCenterStandardAssigned()
     {
-        return $this->isCallCenterStandardAssigned->getValue();
+        return ($this->isCallCenterStandardAssigned) ? $this->isCallCenterStandardAssigned->getValue() : null;
     }
 
     /**
@@ -78,7 +76,6 @@ class UserCallCenterAgentDetailsGetResponse extends ComplexType implements Compl
      */
     public function setIsCallCenterPremiumAssigned($isCallCenterPremiumAssigned = null)
     {
-        if (!$isCallCenterPremiumAssigned) return $this;
         $this->isCallCenterPremiumAssigned = new PrimitiveType($isCallCenterPremiumAssigned);
         $this->isCallCenterPremiumAssigned->setName('isCallCenterPremiumAssigned');
         return $this;
@@ -90,6 +87,6 @@ class UserCallCenterAgentDetailsGetResponse extends ComplexType implements Compl
      */
     public function getIsCallCenterPremiumAssigned()
     {
-        return $this->isCallCenterPremiumAssigned->getValue();
+        return ($this->isCallCenterPremiumAssigned) ? $this->isCallCenterPremiumAssigned->getValue() : null;
     }
 }

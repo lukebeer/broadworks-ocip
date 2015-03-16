@@ -22,9 +22,9 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserCallWaitingGetResponse17sp4 extends ComplexType implements ComplexInterface
 {
-    public    $name                         = 'UserCallWaitingGetResponse17sp4';
-    protected $isActive                     = null;
-    protected $disableCallingLineIdDelivery = null;
+    public    $name = 'UserCallWaitingGetResponse17sp4';
+    protected $isActive;
+    protected $disableCallingLineIdDelivery;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallWaiting\UserCallWaitingGetResponse17sp4 $response
@@ -39,7 +39,6 @@ class UserCallWaitingGetResponse17sp4 extends ComplexType implements ComplexInte
      */
     public function setIsActive($isActive = null)
     {
-        if (!$isActive) return $this;
         $this->isActive = new PrimitiveType($isActive);
         $this->isActive->setName('isActive');
         return $this;
@@ -51,7 +50,7 @@ class UserCallWaitingGetResponse17sp4 extends ComplexType implements ComplexInte
      */
     public function getIsActive()
     {
-        return $this->isActive->getValue();
+        return ($this->isActive) ? $this->isActive->getValue() : null;
     }
 
     /**
@@ -59,7 +58,6 @@ class UserCallWaitingGetResponse17sp4 extends ComplexType implements ComplexInte
      */
     public function setDisableCallingLineIdDelivery($disableCallingLineIdDelivery = null)
     {
-        if (!$disableCallingLineIdDelivery) return $this;
         $this->disableCallingLineIdDelivery = new PrimitiveType($disableCallingLineIdDelivery);
         $this->disableCallingLineIdDelivery->setName('disableCallingLineIdDelivery');
         return $this;
@@ -71,6 +69,6 @@ class UserCallWaitingGetResponse17sp4 extends ComplexType implements ComplexInte
      */
     public function getDisableCallingLineIdDelivery()
     {
-        return $this->disableCallingLineIdDelivery->getValue();
+        return ($this->disableCallingLineIdDelivery) ? $this->disableCallingLineIdDelivery->getValue() : null;
     }
 }

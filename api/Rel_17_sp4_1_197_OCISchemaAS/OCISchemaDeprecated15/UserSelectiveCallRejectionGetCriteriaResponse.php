@@ -20,9 +20,9 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserSelectiveCallRejectionGetCriteriaResponse extends ComplexType implements ComplexInterface
 {
-    public    $name           = 'UserSelectiveCallRejectionGetCriteriaResponse';
-    protected $timeSchedule   = null;
-    protected $fromDnCriteria = null;
+    public    $name = 'UserSelectiveCallRejectionGetCriteriaResponse';
+    protected $timeSchedule;
+    protected $fromDnCriteria;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15\UserSelectiveCallRejectionGetCriteriaResponse $response
@@ -37,8 +37,9 @@ class UserSelectiveCallRejectionGetCriteriaResponse extends ComplexType implemen
      */
     public function setTimeSchedule(TimeSchedule $timeSchedule = null)
     {
-        if (!$timeSchedule) return $this;
-        $this->timeSchedule = $timeSchedule;
+        $this->timeSchedule = ($timeSchedule InstanceOf TimeSchedule)
+             ? $timeSchedule
+             : new TimeSchedule($timeSchedule);
         $this->timeSchedule->setName('timeSchedule');
         return $this;
     }
@@ -57,8 +58,9 @@ class UserSelectiveCallRejectionGetCriteriaResponse extends ComplexType implemen
      */
     public function setFromDnCriteria(CriteriaFromDn $fromDnCriteria = null)
     {
-        if (!$fromDnCriteria) return $this;
-        $this->fromDnCriteria = $fromDnCriteria;
+        $this->fromDnCriteria = ($fromDnCriteria InstanceOf CriteriaFromDn)
+             ? $fromDnCriteria
+             : new CriteriaFromDn($fromDnCriteria);
         $this->fromDnCriteria->setName('fromDnCriteria');
         return $this;
     }

@@ -21,13 +21,13 @@ use Broadworks_OCIP\core\Client\Client;
 class ServiceProviderDialPlanPolicyGetAccessCodeRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderDialPlanPolicyGetAccessCodeResponse';
-    public    $name              = 'ServiceProviderDialPlanPolicyGetAccessCodeRequest';
-    protected $serviceProviderId = null;
-    protected $accessCode        = null;
+    public    $name = 'ServiceProviderDialPlanPolicyGetAccessCodeRequest';
+    protected $serviceProviderId;
+    protected $accessCode;
 
     public function __construct(
-         $serviceProviderId,
-         $accessCode
+         $serviceProviderId = '',
+         $accessCode = ''
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setAccessCode($accessCode);
@@ -46,7 +46,6 @@ class ServiceProviderDialPlanPolicyGetAccessCodeRequest extends ComplexType impl
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
-        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
@@ -60,7 +59,7 @@ class ServiceProviderDialPlanPolicyGetAccessCodeRequest extends ComplexType impl
      */
     public function getServiceProviderId()
     {
-        return $this->serviceProviderId->getValue();
+        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
     }
 
     /**
@@ -68,7 +67,6 @@ class ServiceProviderDialPlanPolicyGetAccessCodeRequest extends ComplexType impl
      */
     public function setAccessCode($accessCode = null)
     {
-        if (!$accessCode) return $this;
         $this->accessCode = ($accessCode InstanceOf DialPlanAccessCode)
              ? $accessCode
              : new DialPlanAccessCode($accessCode);
@@ -82,6 +80,6 @@ class ServiceProviderDialPlanPolicyGetAccessCodeRequest extends ComplexType impl
      */
     public function getAccessCode()
     {
-        return $this->accessCode->getValue();
+        return ($this->accessCode) ? $this->accessCode->getValue() : null;
     }
 }

@@ -24,15 +24,15 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemMeetMeConferencingGetResponse17sp3 extends ComplexType implements ComplexInterface
 {
-    public    $name                                    = 'SystemMeetMeConferencingGetResponse17sp3';
-    protected $conferenceIdLength                      = null;
-    protected $moderatorPinLength                      = null;
-    protected $enableConferenceEndDateRestriction      = null;
-    protected $conferenceEndDateRestrictionMonths      = null;
-    protected $deleteExpiredConferencesAfterHoldPeriod = null;
-    protected $expiredConferenceHoldPeriodDays         = null;
-    protected $recordingWebAppURL                      = null;
-    protected $recordingFileFormat                     = null;
+    public    $name = 'SystemMeetMeConferencingGetResponse17sp3';
+    protected $conferenceIdLength;
+    protected $moderatorPinLength;
+    protected $enableConferenceEndDateRestriction;
+    protected $conferenceEndDateRestrictionMonths;
+    protected $deleteExpiredConferencesAfterHoldPeriod;
+    protected $expiredConferenceHoldPeriodDays;
+    protected $recordingWebAppURL;
+    protected $recordingFileFormat;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceMeetMeConferencing\SystemMeetMeConferencingGetResponse17sp3 $response
@@ -47,7 +47,6 @@ class SystemMeetMeConferencingGetResponse17sp3 extends ComplexType implements Co
      */
     public function setConferenceIdLength($conferenceIdLength = null)
     {
-        if (!$conferenceIdLength) return $this;
         $this->conferenceIdLength = ($conferenceIdLength InstanceOf MeetMeConferencingConferencePassCodeLength)
              ? $conferenceIdLength
              : new MeetMeConferencingConferencePassCodeLength($conferenceIdLength);
@@ -61,7 +60,7 @@ class SystemMeetMeConferencingGetResponse17sp3 extends ComplexType implements Co
      */
     public function getConferenceIdLength()
     {
-        return $this->conferenceIdLength->getValue();
+        return ($this->conferenceIdLength) ? $this->conferenceIdLength->getValue() : null;
     }
 
     /**
@@ -69,7 +68,6 @@ class SystemMeetMeConferencingGetResponse17sp3 extends ComplexType implements Co
      */
     public function setModeratorPinLength($moderatorPinLength = null)
     {
-        if (!$moderatorPinLength) return $this;
         $this->moderatorPinLength = ($moderatorPinLength InstanceOf MeetMeConferencingConferencePassCodeLength)
              ? $moderatorPinLength
              : new MeetMeConferencingConferencePassCodeLength($moderatorPinLength);
@@ -83,7 +81,7 @@ class SystemMeetMeConferencingGetResponse17sp3 extends ComplexType implements Co
      */
     public function getModeratorPinLength()
     {
-        return $this->moderatorPinLength->getValue();
+        return ($this->moderatorPinLength) ? $this->moderatorPinLength->getValue() : null;
     }
 
     /**
@@ -91,7 +89,6 @@ class SystemMeetMeConferencingGetResponse17sp3 extends ComplexType implements Co
      */
     public function setEnableConferenceEndDateRestriction($enableConferenceEndDateRestriction = null)
     {
-        if (!$enableConferenceEndDateRestriction) return $this;
         $this->enableConferenceEndDateRestriction = new PrimitiveType($enableConferenceEndDateRestriction);
         $this->enableConferenceEndDateRestriction->setName('enableConferenceEndDateRestriction');
         return $this;
@@ -103,7 +100,7 @@ class SystemMeetMeConferencingGetResponse17sp3 extends ComplexType implements Co
      */
     public function getEnableConferenceEndDateRestriction()
     {
-        return $this->enableConferenceEndDateRestriction->getValue();
+        return ($this->enableConferenceEndDateRestriction) ? $this->enableConferenceEndDateRestriction->getValue() : null;
     }
 
     /**
@@ -111,7 +108,6 @@ class SystemMeetMeConferencingGetResponse17sp3 extends ComplexType implements Co
      */
     public function setConferenceEndDateRestrictionMonths($conferenceEndDateRestrictionMonths = null)
     {
-        if (!$conferenceEndDateRestrictionMonths) return $this;
         $this->conferenceEndDateRestrictionMonths = ($conferenceEndDateRestrictionMonths InstanceOf MeetMeConferencingConferenceEndDateRestrictionMonths)
              ? $conferenceEndDateRestrictionMonths
              : new MeetMeConferencingConferenceEndDateRestrictionMonths($conferenceEndDateRestrictionMonths);
@@ -125,7 +121,7 @@ class SystemMeetMeConferencingGetResponse17sp3 extends ComplexType implements Co
      */
     public function getConferenceEndDateRestrictionMonths()
     {
-        return $this->conferenceEndDateRestrictionMonths->getValue();
+        return ($this->conferenceEndDateRestrictionMonths) ? $this->conferenceEndDateRestrictionMonths->getValue() : null;
     }
 
     /**
@@ -133,7 +129,6 @@ class SystemMeetMeConferencingGetResponse17sp3 extends ComplexType implements Co
      */
     public function setDeleteExpiredConferencesAfterHoldPeriod($deleteExpiredConferencesAfterHoldPeriod = null)
     {
-        if (!$deleteExpiredConferencesAfterHoldPeriod) return $this;
         $this->deleteExpiredConferencesAfterHoldPeriod = new PrimitiveType($deleteExpiredConferencesAfterHoldPeriod);
         $this->deleteExpiredConferencesAfterHoldPeriod->setName('deleteExpiredConferencesAfterHoldPeriod');
         return $this;
@@ -145,7 +140,7 @@ class SystemMeetMeConferencingGetResponse17sp3 extends ComplexType implements Co
      */
     public function getDeleteExpiredConferencesAfterHoldPeriod()
     {
-        return $this->deleteExpiredConferencesAfterHoldPeriod->getValue();
+        return ($this->deleteExpiredConferencesAfterHoldPeriod) ? $this->deleteExpiredConferencesAfterHoldPeriod->getValue() : null;
     }
 
     /**
@@ -153,7 +148,6 @@ class SystemMeetMeConferencingGetResponse17sp3 extends ComplexType implements Co
      */
     public function setExpiredConferenceHoldPeriodDays($expiredConferenceHoldPeriodDays = null)
     {
-        if (!$expiredConferenceHoldPeriodDays) return $this;
         $this->expiredConferenceHoldPeriodDays = ($expiredConferenceHoldPeriodDays InstanceOf MeetMeConferencingExpiredConferenceHoldPeriodDays)
              ? $expiredConferenceHoldPeriodDays
              : new MeetMeConferencingExpiredConferenceHoldPeriodDays($expiredConferenceHoldPeriodDays);
@@ -167,7 +161,7 @@ class SystemMeetMeConferencingGetResponse17sp3 extends ComplexType implements Co
      */
     public function getExpiredConferenceHoldPeriodDays()
     {
-        return $this->expiredConferenceHoldPeriodDays->getValue();
+        return ($this->expiredConferenceHoldPeriodDays) ? $this->expiredConferenceHoldPeriodDays->getValue() : null;
     }
 
     /**
@@ -175,7 +169,6 @@ class SystemMeetMeConferencingGetResponse17sp3 extends ComplexType implements Co
      */
     public function setRecordingWebAppURL($recordingWebAppURL = null)
     {
-        if (!$recordingWebAppURL) return $this;
         $this->recordingWebAppURL = ($recordingWebAppURL InstanceOf URL)
              ? $recordingWebAppURL
              : new URL($recordingWebAppURL);
@@ -189,7 +182,7 @@ class SystemMeetMeConferencingGetResponse17sp3 extends ComplexType implements Co
      */
     public function getRecordingWebAppURL()
     {
-        return $this->recordingWebAppURL->getValue();
+        return ($this->recordingWebAppURL) ? $this->recordingWebAppURL->getValue() : null;
     }
 
     /**
@@ -197,7 +190,6 @@ class SystemMeetMeConferencingGetResponse17sp3 extends ComplexType implements Co
      */
     public function setRecordingFileFormat($recordingFileFormat = null)
     {
-        if (!$recordingFileFormat) return $this;
         $this->recordingFileFormat = ($recordingFileFormat InstanceOf MeetMeConferencingRecordingFileFormat)
              ? $recordingFileFormat
              : new MeetMeConferencingRecordingFileFormat($recordingFileFormat);
@@ -211,6 +203,6 @@ class SystemMeetMeConferencingGetResponse17sp3 extends ComplexType implements Co
      */
     public function getRecordingFileFormat()
     {
-        return $this->recordingFileFormat->getValue();
+        return ($this->recordingFileFormat) ? $this->recordingFileFormat->getValue() : null;
     }
 }

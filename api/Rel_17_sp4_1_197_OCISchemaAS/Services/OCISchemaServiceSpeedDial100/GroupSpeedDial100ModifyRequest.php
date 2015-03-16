@@ -22,14 +22,14 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupSpeedDial100ModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name              = 'GroupSpeedDial100ModifyRequest';
-    protected $serviceProviderId = null;
-    protected $groupId           = null;
-    protected $prefix            = null;
+    public    $name = 'GroupSpeedDial100ModifyRequest';
+    protected $serviceProviderId;
+    protected $groupId;
+    protected $prefix;
 
     public function __construct(
-         $serviceProviderId,
-         $groupId,
+         $serviceProviderId = '',
+         $groupId = '',
          $prefix = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
@@ -50,7 +50,6 @@ class GroupSpeedDial100ModifyRequest extends ComplexType implements ComplexInter
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
-        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
@@ -64,7 +63,7 @@ class GroupSpeedDial100ModifyRequest extends ComplexType implements ComplexInter
      */
     public function getServiceProviderId()
     {
-        return $this->serviceProviderId->getValue();
+        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
     }
 
     /**
@@ -72,7 +71,6 @@ class GroupSpeedDial100ModifyRequest extends ComplexType implements ComplexInter
      */
     public function setGroupId($groupId = null)
     {
-        if (!$groupId) return $this;
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
@@ -86,7 +84,7 @@ class GroupSpeedDial100ModifyRequest extends ComplexType implements ComplexInter
      */
     public function getGroupId()
     {
-        return $this->groupId->getValue();
+        return ($this->groupId) ? $this->groupId->getValue() : null;
     }
 
     /**
@@ -94,7 +92,6 @@ class GroupSpeedDial100ModifyRequest extends ComplexType implements ComplexInter
      */
     public function setPrefix($prefix = null)
     {
-        if (!$prefix) return $this;
         $this->prefix = ($prefix InstanceOf SpeedDialPrefix)
              ? $prefix
              : new SpeedDialPrefix($prefix);
@@ -108,6 +105,6 @@ class GroupSpeedDial100ModifyRequest extends ComplexType implements ComplexInter
      */
     public function getPrefix()
     {
-        return $this->prefix->getValue();
+        return ($this->prefix) ? $this->prefix->getValue() : null;
     }
 }

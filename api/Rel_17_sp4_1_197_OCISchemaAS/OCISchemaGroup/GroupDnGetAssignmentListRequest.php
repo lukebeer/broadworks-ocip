@@ -30,19 +30,19 @@ use Broadworks_OCIP\core\Client\Client;
 class GroupDnGetAssignmentListRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType                    = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupDnGetAssignmentListResponse';
-    public    $name                            = 'GroupDnGetAssignmentListRequest';
-    protected $serviceProviderId               = null;
-    protected $groupId                         = null;
-    protected $responseSizeLimit               = null;
-    protected $searchCriteriaDn                = null;
-    protected $searchCriteriaUserFirstName     = null;
-    protected $searchCriteriaUserLastName      = null;
-    protected $searchCriteriaExactDnDepartment = null;
-    protected $searchCriteriaExactDnActivation = null;
+    public    $name = 'GroupDnGetAssignmentListRequest';
+    protected $serviceProviderId;
+    protected $groupId;
+    protected $responseSizeLimit;
+    protected $searchCriteriaDn;
+    protected $searchCriteriaUserFirstName;
+    protected $searchCriteriaUserLastName;
+    protected $searchCriteriaExactDnDepartment;
+    protected $searchCriteriaExactDnActivation;
 
     public function __construct(
-         $serviceProviderId,
-         $groupId,
+         $serviceProviderId = '',
+         $groupId = '',
          $responseSizeLimit = null,
          SearchCriteriaDn $searchCriteriaDn = null,
          SearchCriteriaUserFirstName $searchCriteriaUserFirstName = null,
@@ -73,7 +73,6 @@ class GroupDnGetAssignmentListRequest extends ComplexType implements ComplexInte
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
-        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
@@ -87,7 +86,7 @@ class GroupDnGetAssignmentListRequest extends ComplexType implements ComplexInte
      */
     public function getServiceProviderId()
     {
-        return $this->serviceProviderId->getValue();
+        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
     }
 
     /**
@@ -95,7 +94,6 @@ class GroupDnGetAssignmentListRequest extends ComplexType implements ComplexInte
      */
     public function setGroupId($groupId = null)
     {
-        if (!$groupId) return $this;
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
@@ -109,7 +107,7 @@ class GroupDnGetAssignmentListRequest extends ComplexType implements ComplexInte
      */
     public function getGroupId()
     {
-        return $this->groupId->getValue();
+        return ($this->groupId) ? $this->groupId->getValue() : null;
     }
 
     /**
@@ -117,7 +115,6 @@ class GroupDnGetAssignmentListRequest extends ComplexType implements ComplexInte
      */
     public function setResponseSizeLimit($responseSizeLimit = null)
     {
-        if (!$responseSizeLimit) return $this;
         $this->responseSizeLimit = ($responseSizeLimit InstanceOf ResponseSizeLimit)
              ? $responseSizeLimit
              : new ResponseSizeLimit($responseSizeLimit);
@@ -131,7 +128,7 @@ class GroupDnGetAssignmentListRequest extends ComplexType implements ComplexInte
      */
     public function getResponseSizeLimit()
     {
-        return $this->responseSizeLimit->getValue();
+        return ($this->responseSizeLimit) ? $this->responseSizeLimit->getValue() : null;
     }
 
     /**
@@ -139,7 +136,6 @@ class GroupDnGetAssignmentListRequest extends ComplexType implements ComplexInte
      */
     public function setSearchCriteriaDn(SearchCriteriaDn $searchCriteriaDn = null)
     {
-        if (!$searchCriteriaDn) return $this;
         $this->searchCriteriaDn = ($searchCriteriaDn InstanceOf SearchCriteriaDn)
              ? $searchCriteriaDn
              : new SearchCriteriaDn($searchCriteriaDn);
@@ -161,7 +157,6 @@ class GroupDnGetAssignmentListRequest extends ComplexType implements ComplexInte
      */
     public function setSearchCriteriaUserFirstName(SearchCriteriaUserFirstName $searchCriteriaUserFirstName = null)
     {
-        if (!$searchCriteriaUserFirstName) return $this;
         $this->searchCriteriaUserFirstName = ($searchCriteriaUserFirstName InstanceOf SearchCriteriaUserFirstName)
              ? $searchCriteriaUserFirstName
              : new SearchCriteriaUserFirstName($searchCriteriaUserFirstName);
@@ -183,7 +178,6 @@ class GroupDnGetAssignmentListRequest extends ComplexType implements ComplexInte
      */
     public function setSearchCriteriaUserLastName(SearchCriteriaUserLastName $searchCriteriaUserLastName = null)
     {
-        if (!$searchCriteriaUserLastName) return $this;
         $this->searchCriteriaUserLastName = ($searchCriteriaUserLastName InstanceOf SearchCriteriaUserLastName)
              ? $searchCriteriaUserLastName
              : new SearchCriteriaUserLastName($searchCriteriaUserLastName);
@@ -205,7 +199,6 @@ class GroupDnGetAssignmentListRequest extends ComplexType implements ComplexInte
      */
     public function setSearchCriteriaExactDnDepartment(SearchCriteriaExactDnDepartment $searchCriteriaExactDnDepartment = null)
     {
-        if (!$searchCriteriaExactDnDepartment) return $this;
         $this->searchCriteriaExactDnDepartment = ($searchCriteriaExactDnDepartment InstanceOf SearchCriteriaExactDnDepartment)
              ? $searchCriteriaExactDnDepartment
              : new SearchCriteriaExactDnDepartment($searchCriteriaExactDnDepartment);
@@ -227,7 +220,6 @@ class GroupDnGetAssignmentListRequest extends ComplexType implements ComplexInte
      */
     public function setSearchCriteriaExactDnActivation(SearchCriteriaExactDnActivation $searchCriteriaExactDnActivation = null)
     {
-        if (!$searchCriteriaExactDnActivation) return $this;
         $this->searchCriteriaExactDnActivation = ($searchCriteriaExactDnActivation InstanceOf SearchCriteriaExactDnActivation)
              ? $searchCriteriaExactDnActivation
              : new SearchCriteriaExactDnActivation($searchCriteriaExactDnActivation);

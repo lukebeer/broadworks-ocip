@@ -20,12 +20,12 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserPreferredCarrierName extends ComplexType implements ComplexInterface
 {
-    public    $name                     = 'UserPreferredCarrierName';
-    protected $useGroupPreferredCarrier = null;
-    protected $carrier                  = null;
+    public    $name = 'UserPreferredCarrierName';
+    protected $useGroupPreferredCarrier;
+    protected $carrier;
 
     public function __construct(
-         $useGroupPreferredCarrier,
+         $useGroupPreferredCarrier = '',
          $carrier = null
     ) {
         $this->setUseGroupPreferredCarrier($useGroupPreferredCarrier);
@@ -45,7 +45,6 @@ class UserPreferredCarrierName extends ComplexType implements ComplexInterface
      */
     public function setUseGroupPreferredCarrier($useGroupPreferredCarrier = null)
     {
-        if (!$useGroupPreferredCarrier) return $this;
         $this->useGroupPreferredCarrier = new SimpleContent($useGroupPreferredCarrier);
         $this->useGroupPreferredCarrier->setName('useGroupPreferredCarrier');
         return $this;
@@ -57,7 +56,7 @@ class UserPreferredCarrierName extends ComplexType implements ComplexInterface
      */
     public function getUseGroupPreferredCarrier()
     {
-        return $this->useGroupPreferredCarrier->getValue();
+        return ($this->useGroupPreferredCarrier) ? $this->useGroupPreferredCarrier->getValue() : null;
     }
 
     /**
@@ -65,7 +64,6 @@ class UserPreferredCarrierName extends ComplexType implements ComplexInterface
      */
     public function setCarrier($carrier = null)
     {
-        if (!$carrier) return $this;
         $this->carrier = new SimpleContent($carrier);
         $this->carrier->setName('carrier');
         return $this;
@@ -77,6 +75,6 @@ class UserPreferredCarrierName extends ComplexType implements ComplexInterface
      */
     public function getCarrier()
     {
-        return $this->carrier->getValue();
+        return ($this->carrier) ? $this->carrier->getValue() : null;
     }
 }

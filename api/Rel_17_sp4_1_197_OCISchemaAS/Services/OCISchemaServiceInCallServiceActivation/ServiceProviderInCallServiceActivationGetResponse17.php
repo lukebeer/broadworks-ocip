@@ -19,9 +19,9 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderInCallServiceActivationGetResponse17 extends ComplexType implements ComplexInterface
 {
-    public    $name                         = 'ServiceProviderInCallServiceActivationGetResponse17';
-    protected $flashActivationDigits        = null;
-    protected $callTransferActivationDigits = null;
+    public    $name = 'ServiceProviderInCallServiceActivationGetResponse17';
+    protected $flashActivationDigits;
+    protected $callTransferActivationDigits;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInCallServiceActivation\ServiceProviderInCallServiceActivationGetResponse17 $response
@@ -36,7 +36,6 @@ class ServiceProviderInCallServiceActivationGetResponse17 extends ComplexType im
      */
     public function setFlashActivationDigits($flashActivationDigits = null)
     {
-        if (!$flashActivationDigits) return $this;
         $this->flashActivationDigits = ($flashActivationDigits InstanceOf InCallServiceActivationDigits)
              ? $flashActivationDigits
              : new InCallServiceActivationDigits($flashActivationDigits);
@@ -50,7 +49,7 @@ class ServiceProviderInCallServiceActivationGetResponse17 extends ComplexType im
      */
     public function getFlashActivationDigits()
     {
-        return $this->flashActivationDigits->getValue();
+        return ($this->flashActivationDigits) ? $this->flashActivationDigits->getValue() : null;
     }
 
     /**
@@ -58,7 +57,6 @@ class ServiceProviderInCallServiceActivationGetResponse17 extends ComplexType im
      */
     public function setCallTransferActivationDigits($callTransferActivationDigits = null)
     {
-        if (!$callTransferActivationDigits) return $this;
         $this->callTransferActivationDigits = ($callTransferActivationDigits InstanceOf InCallServiceActivationDigits)
              ? $callTransferActivationDigits
              : new InCallServiceActivationDigits($callTransferActivationDigits);
@@ -72,6 +70,6 @@ class ServiceProviderInCallServiceActivationGetResponse17 extends ComplexType im
      */
     public function getCallTransferActivationDigits()
     {
-        return $this->callTransferActivationDigits->getValue();
+        return ($this->callTransferActivationDigits) ? $this->callTransferActivationDigits->getValue() : null;
     }
 }

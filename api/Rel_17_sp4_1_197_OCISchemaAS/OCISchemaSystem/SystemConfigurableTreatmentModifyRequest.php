@@ -30,28 +30,28 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemConfigurableTreatmentModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                      = 'SystemConfigurableTreatmentModifyRequest';
-    protected $treatmentId               = null;
-    protected $chargeIndicator           = null;
-    protected $description               = null;
-    protected $accessSIPStatusCode       = null;
-    protected $accessSIPStatusMessage    = null;
-    protected $networkSIPStatusCode      = null;
-    protected $networkSIPStatusMessage   = null;
-    protected $q850CauseValue            = null;
-    protected $q850Text                  = null;
-    protected $accessTreatmentAudioFile  = null;
-    protected $accessTreatmentVideoFile  = null;
-    protected $networkTreatmentAudioFile = null;
-    protected $networkTreatmentVideoFile = null;
-    protected $cdrTerminationCause       = null;
-    protected $routeAdvance              = null;
-    protected $internalReleaseCause      = null;
-    protected $accessSendReasonHeader    = null;
-    protected $networkSendReasonHeader   = null;
+    public    $name = 'SystemConfigurableTreatmentModifyRequest';
+    protected $treatmentId;
+    protected $chargeIndicator;
+    protected $description;
+    protected $accessSIPStatusCode;
+    protected $accessSIPStatusMessage;
+    protected $networkSIPStatusCode;
+    protected $networkSIPStatusMessage;
+    protected $q850CauseValue;
+    protected $q850Text;
+    protected $accessTreatmentAudioFile;
+    protected $accessTreatmentVideoFile;
+    protected $networkTreatmentAudioFile;
+    protected $networkTreatmentVideoFile;
+    protected $cdrTerminationCause;
+    protected $routeAdvance;
+    protected $internalReleaseCause;
+    protected $accessSendReasonHeader;
+    protected $networkSendReasonHeader;
 
     public function __construct(
-         $treatmentId,
+         $treatmentId = '',
          $chargeIndicator = null,
          $description = null,
          $accessSIPStatusCode = null,
@@ -103,7 +103,6 @@ class SystemConfigurableTreatmentModifyRequest extends ComplexType implements Co
      */
     public function setTreatmentId($treatmentId = null)
     {
-        if (!$treatmentId) return $this;
         $this->treatmentId = ($treatmentId InstanceOf TreatmentId)
              ? $treatmentId
              : new TreatmentId($treatmentId);
@@ -117,7 +116,7 @@ class SystemConfigurableTreatmentModifyRequest extends ComplexType implements Co
      */
     public function getTreatmentId()
     {
-        return $this->treatmentId->getValue();
+        return ($this->treatmentId) ? $this->treatmentId->getValue() : null;
     }
 
     /**
@@ -125,7 +124,6 @@ class SystemConfigurableTreatmentModifyRequest extends ComplexType implements Co
      */
     public function setChargeIndicator($chargeIndicator = null)
     {
-        if (!$chargeIndicator) return $this;
         $this->chargeIndicator = ($chargeIndicator InstanceOf ChargeIndicator)
              ? $chargeIndicator
              : new ChargeIndicator($chargeIndicator);
@@ -139,7 +137,7 @@ class SystemConfigurableTreatmentModifyRequest extends ComplexType implements Co
      */
     public function getChargeIndicator()
     {
-        return $this->chargeIndicator->getValue();
+        return ($this->chargeIndicator) ? $this->chargeIndicator->getValue() : null;
     }
 
     /**
@@ -147,7 +145,6 @@ class SystemConfigurableTreatmentModifyRequest extends ComplexType implements Co
      */
     public function setDescription($description = null)
     {
-        if (!$description) return $this;
         $this->description = ($description InstanceOf ConfigurableTreatmentDescription)
              ? $description
              : new ConfigurableTreatmentDescription($description);
@@ -161,7 +158,7 @@ class SystemConfigurableTreatmentModifyRequest extends ComplexType implements Co
      */
     public function getDescription()
     {
-        return $this->description->getValue();
+        return ($this->description) ? $this->description->getValue() : null;
     }
 
     /**
@@ -169,7 +166,6 @@ class SystemConfigurableTreatmentModifyRequest extends ComplexType implements Co
      */
     public function setAccessSIPStatusCode($accessSIPStatusCode = null)
     {
-        if (!$accessSIPStatusCode) return $this;
         $this->accessSIPStatusCode = ($accessSIPStatusCode InstanceOf SIPFailureStatusCode)
              ? $accessSIPStatusCode
              : new SIPFailureStatusCode($accessSIPStatusCode);
@@ -183,7 +179,7 @@ class SystemConfigurableTreatmentModifyRequest extends ComplexType implements Co
      */
     public function getAccessSIPStatusCode()
     {
-        return $this->accessSIPStatusCode->getValue();
+        return ($this->accessSIPStatusCode) ? $this->accessSIPStatusCode->getValue() : null;
     }
 
     /**
@@ -191,7 +187,6 @@ class SystemConfigurableTreatmentModifyRequest extends ComplexType implements Co
      */
     public function setAccessSIPStatusMessage($accessSIPStatusMessage = null)
     {
-        if (!$accessSIPStatusMessage) return $this;
         $this->accessSIPStatusMessage = ($accessSIPStatusMessage InstanceOf SIPStatusMessage)
              ? $accessSIPStatusMessage
              : new SIPStatusMessage($accessSIPStatusMessage);
@@ -205,7 +200,7 @@ class SystemConfigurableTreatmentModifyRequest extends ComplexType implements Co
      */
     public function getAccessSIPStatusMessage()
     {
-        return $this->accessSIPStatusMessage->getValue();
+        return ($this->accessSIPStatusMessage) ? $this->accessSIPStatusMessage->getValue() : null;
     }
 
     /**
@@ -213,7 +208,6 @@ class SystemConfigurableTreatmentModifyRequest extends ComplexType implements Co
      */
     public function setNetworkSIPStatusCode($networkSIPStatusCode = null)
     {
-        if (!$networkSIPStatusCode) return $this;
         $this->networkSIPStatusCode = ($networkSIPStatusCode InstanceOf SIPFailureStatusCode)
              ? $networkSIPStatusCode
              : new SIPFailureStatusCode($networkSIPStatusCode);
@@ -227,7 +221,7 @@ class SystemConfigurableTreatmentModifyRequest extends ComplexType implements Co
      */
     public function getNetworkSIPStatusCode()
     {
-        return $this->networkSIPStatusCode->getValue();
+        return ($this->networkSIPStatusCode) ? $this->networkSIPStatusCode->getValue() : null;
     }
 
     /**
@@ -235,7 +229,6 @@ class SystemConfigurableTreatmentModifyRequest extends ComplexType implements Co
      */
     public function setNetworkSIPStatusMessage($networkSIPStatusMessage = null)
     {
-        if (!$networkSIPStatusMessage) return $this;
         $this->networkSIPStatusMessage = ($networkSIPStatusMessage InstanceOf SIPStatusMessage)
              ? $networkSIPStatusMessage
              : new SIPStatusMessage($networkSIPStatusMessage);
@@ -249,7 +242,7 @@ class SystemConfigurableTreatmentModifyRequest extends ComplexType implements Co
      */
     public function getNetworkSIPStatusMessage()
     {
-        return $this->networkSIPStatusMessage->getValue();
+        return ($this->networkSIPStatusMessage) ? $this->networkSIPStatusMessage->getValue() : null;
     }
 
     /**
@@ -257,7 +250,6 @@ class SystemConfigurableTreatmentModifyRequest extends ComplexType implements Co
      */
     public function setQ850CauseValue($q850CauseValue = null)
     {
-        if (!$q850CauseValue) return $this;
         $this->q850CauseValue = ($q850CauseValue InstanceOf Q850CauseValue)
              ? $q850CauseValue
              : new Q850CauseValue($q850CauseValue);
@@ -271,7 +263,7 @@ class SystemConfigurableTreatmentModifyRequest extends ComplexType implements Co
      */
     public function getQ850CauseValue()
     {
-        return $this->q850CauseValue->getValue();
+        return ($this->q850CauseValue) ? $this->q850CauseValue->getValue() : null;
     }
 
     /**
@@ -279,7 +271,6 @@ class SystemConfigurableTreatmentModifyRequest extends ComplexType implements Co
      */
     public function setQ850Text($q850Text = null)
     {
-        if (!$q850Text) return $this;
         $this->q850Text = ($q850Text InstanceOf Q850Text)
              ? $q850Text
              : new Q850Text($q850Text);
@@ -293,7 +284,7 @@ class SystemConfigurableTreatmentModifyRequest extends ComplexType implements Co
      */
     public function getQ850Text()
     {
-        return $this->q850Text->getValue();
+        return ($this->q850Text) ? $this->q850Text->getValue() : null;
     }
 
     /**
@@ -301,7 +292,6 @@ class SystemConfigurableTreatmentModifyRequest extends ComplexType implements Co
      */
     public function setAccessTreatmentAudioFile($accessTreatmentAudioFile = null)
     {
-        if (!$accessTreatmentAudioFile) return $this;
         $this->accessTreatmentAudioFile = ($accessTreatmentAudioFile InstanceOf MediaTreatmentFileName)
              ? $accessTreatmentAudioFile
              : new MediaTreatmentFileName($accessTreatmentAudioFile);
@@ -315,7 +305,7 @@ class SystemConfigurableTreatmentModifyRequest extends ComplexType implements Co
      */
     public function getAccessTreatmentAudioFile()
     {
-        return $this->accessTreatmentAudioFile->getValue();
+        return ($this->accessTreatmentAudioFile) ? $this->accessTreatmentAudioFile->getValue() : null;
     }
 
     /**
@@ -323,7 +313,6 @@ class SystemConfigurableTreatmentModifyRequest extends ComplexType implements Co
      */
     public function setAccessTreatmentVideoFile($accessTreatmentVideoFile = null)
     {
-        if (!$accessTreatmentVideoFile) return $this;
         $this->accessTreatmentVideoFile = ($accessTreatmentVideoFile InstanceOf MediaTreatmentFileName)
              ? $accessTreatmentVideoFile
              : new MediaTreatmentFileName($accessTreatmentVideoFile);
@@ -337,7 +326,7 @@ class SystemConfigurableTreatmentModifyRequest extends ComplexType implements Co
      */
     public function getAccessTreatmentVideoFile()
     {
-        return $this->accessTreatmentVideoFile->getValue();
+        return ($this->accessTreatmentVideoFile) ? $this->accessTreatmentVideoFile->getValue() : null;
     }
 
     /**
@@ -345,7 +334,6 @@ class SystemConfigurableTreatmentModifyRequest extends ComplexType implements Co
      */
     public function setNetworkTreatmentAudioFile($networkTreatmentAudioFile = null)
     {
-        if (!$networkTreatmentAudioFile) return $this;
         $this->networkTreatmentAudioFile = ($networkTreatmentAudioFile InstanceOf MediaTreatmentFileName)
              ? $networkTreatmentAudioFile
              : new MediaTreatmentFileName($networkTreatmentAudioFile);
@@ -359,7 +347,7 @@ class SystemConfigurableTreatmentModifyRequest extends ComplexType implements Co
      */
     public function getNetworkTreatmentAudioFile()
     {
-        return $this->networkTreatmentAudioFile->getValue();
+        return ($this->networkTreatmentAudioFile) ? $this->networkTreatmentAudioFile->getValue() : null;
     }
 
     /**
@@ -367,7 +355,6 @@ class SystemConfigurableTreatmentModifyRequest extends ComplexType implements Co
      */
     public function setNetworkTreatmentVideoFile($networkTreatmentVideoFile = null)
     {
-        if (!$networkTreatmentVideoFile) return $this;
         $this->networkTreatmentVideoFile = ($networkTreatmentVideoFile InstanceOf MediaTreatmentFileName)
              ? $networkTreatmentVideoFile
              : new MediaTreatmentFileName($networkTreatmentVideoFile);
@@ -381,7 +368,7 @@ class SystemConfigurableTreatmentModifyRequest extends ComplexType implements Co
      */
     public function getNetworkTreatmentVideoFile()
     {
-        return $this->networkTreatmentVideoFile->getValue();
+        return ($this->networkTreatmentVideoFile) ? $this->networkTreatmentVideoFile->getValue() : null;
     }
 
     /**
@@ -389,7 +376,6 @@ class SystemConfigurableTreatmentModifyRequest extends ComplexType implements Co
      */
     public function setCdrTerminationCause($cdrTerminationCause = null)
     {
-        if (!$cdrTerminationCause) return $this;
         $this->cdrTerminationCause = ($cdrTerminationCause InstanceOf CDRTerminationCause)
              ? $cdrTerminationCause
              : new CDRTerminationCause($cdrTerminationCause);
@@ -403,7 +389,7 @@ class SystemConfigurableTreatmentModifyRequest extends ComplexType implements Co
      */
     public function getCdrTerminationCause()
     {
-        return $this->cdrTerminationCause->getValue();
+        return ($this->cdrTerminationCause) ? $this->cdrTerminationCause->getValue() : null;
     }
 
     /**
@@ -411,7 +397,6 @@ class SystemConfigurableTreatmentModifyRequest extends ComplexType implements Co
      */
     public function setRouteAdvance($routeAdvance = null)
     {
-        if (!$routeAdvance) return $this;
         $this->routeAdvance = new PrimitiveType($routeAdvance);
         $this->routeAdvance->setName('routeAdvance');
         return $this;
@@ -423,7 +408,7 @@ class SystemConfigurableTreatmentModifyRequest extends ComplexType implements Co
      */
     public function getRouteAdvance()
     {
-        return $this->routeAdvance->getValue();
+        return ($this->routeAdvance) ? $this->routeAdvance->getValue() : null;
     }
 
     /**
@@ -431,7 +416,6 @@ class SystemConfigurableTreatmentModifyRequest extends ComplexType implements Co
      */
     public function setInternalReleaseCause($internalReleaseCause = null)
     {
-        if (!$internalReleaseCause) return $this;
         $this->internalReleaseCause = ($internalReleaseCause InstanceOf InternalReleaseCause16)
              ? $internalReleaseCause
              : new InternalReleaseCause16($internalReleaseCause);
@@ -445,7 +429,7 @@ class SystemConfigurableTreatmentModifyRequest extends ComplexType implements Co
      */
     public function getInternalReleaseCause()
     {
-        return $this->internalReleaseCause->getValue();
+        return ($this->internalReleaseCause) ? $this->internalReleaseCause->getValue() : null;
     }
 
     /**
@@ -453,7 +437,6 @@ class SystemConfigurableTreatmentModifyRequest extends ComplexType implements Co
      */
     public function setAccessSendReasonHeader($accessSendReasonHeader = null)
     {
-        if (!$accessSendReasonHeader) return $this;
         $this->accessSendReasonHeader = new PrimitiveType($accessSendReasonHeader);
         $this->accessSendReasonHeader->setName('accessSendReasonHeader');
         return $this;
@@ -465,7 +448,7 @@ class SystemConfigurableTreatmentModifyRequest extends ComplexType implements Co
      */
     public function getAccessSendReasonHeader()
     {
-        return $this->accessSendReasonHeader->getValue();
+        return ($this->accessSendReasonHeader) ? $this->accessSendReasonHeader->getValue() : null;
     }
 
     /**
@@ -473,7 +456,6 @@ class SystemConfigurableTreatmentModifyRequest extends ComplexType implements Co
      */
     public function setNetworkSendReasonHeader($networkSendReasonHeader = null)
     {
-        if (!$networkSendReasonHeader) return $this;
         $this->networkSendReasonHeader = new PrimitiveType($networkSendReasonHeader);
         $this->networkSendReasonHeader->setName('networkSendReasonHeader');
         return $this;
@@ -485,6 +467,6 @@ class SystemConfigurableTreatmentModifyRequest extends ComplexType implements Co
      */
     public function getNetworkSendReasonHeader()
     {
-        return $this->networkSendReasonHeader->getValue();
+        return ($this->networkSendReasonHeader) ? $this->networkSendReasonHeader->getValue() : null;
     }
 }

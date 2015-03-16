@@ -22,9 +22,9 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserInstantConferencingGetStandAloneSlideShowContentResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                  = 'UserInstantConferencingGetStandAloneSlideShowContentResponse';
-    protected $audioURL              = null;
-    protected $slideShowContentTable = null;
+    public    $name = 'UserInstantConferencingGetStandAloneSlideShowContentResponse';
+    protected $audioURL;
+    protected $slideShowContentTable;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing\UserInstantConferencingGetStandAloneSlideShowContentResponse $response
@@ -39,7 +39,6 @@ class UserInstantConferencingGetStandAloneSlideShowContentResponse extends Compl
      */
     public function setAudioURL($audioURL = null)
     {
-        if (!$audioURL) return $this;
         $this->audioURL = ($audioURL InstanceOf URL)
              ? $audioURL
              : new URL($audioURL);
@@ -53,7 +52,7 @@ class UserInstantConferencingGetStandAloneSlideShowContentResponse extends Compl
      */
     public function getAudioURL()
     {
-        return $this->audioURL->getValue();
+        return ($this->audioURL) ? $this->audioURL->getValue() : null;
     }
 
     /**
@@ -61,7 +60,6 @@ class UserInstantConferencingGetStandAloneSlideShowContentResponse extends Compl
      */
     public function setSlideShowContentTable(TableType $slideShowContentTable = null)
     {
-        if (!$slideShowContentTable) return $this;
         $this->slideShowContentTable = $slideShowContentTable;
         $this->slideShowContentTable->setName('slideShowContentTable');
         return $this;

@@ -23,15 +23,15 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupEmergencyZonesDeleteHomeZoneListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                   = 'GroupEmergencyZonesDeleteHomeZoneListRequest';
-    protected $serviceProviderId      = null;
-    protected $groupId                = null;
-    protected $homeZoneIpAddress      = null;
-    protected $homeZoneIpAddressRange = null;
+    public    $name = 'GroupEmergencyZonesDeleteHomeZoneListRequest';
+    protected $serviceProviderId;
+    protected $groupId;
+    protected $homeZoneIpAddress;
+    protected $homeZoneIpAddressRange;
 
     public function __construct(
-         $serviceProviderId,
-         $groupId,
+         $serviceProviderId = '',
+         $groupId = '',
          $homeZoneIpAddress = null,
          IPAddressRange $homeZoneIpAddressRange = null
     ) {
@@ -54,7 +54,6 @@ class GroupEmergencyZonesDeleteHomeZoneListRequest extends ComplexType implement
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
-        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
@@ -68,7 +67,7 @@ class GroupEmergencyZonesDeleteHomeZoneListRequest extends ComplexType implement
      */
     public function getServiceProviderId()
     {
-        return $this->serviceProviderId->getValue();
+        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
     }
 
     /**
@@ -76,7 +75,6 @@ class GroupEmergencyZonesDeleteHomeZoneListRequest extends ComplexType implement
      */
     public function setGroupId($groupId = null)
     {
-        if (!$groupId) return $this;
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
@@ -90,7 +88,7 @@ class GroupEmergencyZonesDeleteHomeZoneListRequest extends ComplexType implement
      */
     public function getGroupId()
     {
-        return $this->groupId->getValue();
+        return ($this->groupId) ? $this->groupId->getValue() : null;
     }
 
     /**
@@ -98,7 +96,6 @@ class GroupEmergencyZonesDeleteHomeZoneListRequest extends ComplexType implement
      */
     public function setHomeZoneIpAddress($homeZoneIpAddress = null)
     {
-        if (!$homeZoneIpAddress) return $this;
         $this->homeZoneIpAddress = ($homeZoneIpAddress InstanceOf IPAddress)
              ? $homeZoneIpAddress
              : new IPAddress($homeZoneIpAddress);
@@ -112,7 +109,7 @@ class GroupEmergencyZonesDeleteHomeZoneListRequest extends ComplexType implement
      */
     public function getHomeZoneIpAddress()
     {
-        return $this->homeZoneIpAddress->getValue();
+        return ($this->homeZoneIpAddress) ? $this->homeZoneIpAddress->getValue() : null;
     }
 
     /**
@@ -120,8 +117,9 @@ class GroupEmergencyZonesDeleteHomeZoneListRequest extends ComplexType implement
      */
     public function setHomeZoneIpAddressRange(IPAddressRange $homeZoneIpAddressRange = null)
     {
-        if (!$homeZoneIpAddressRange) return $this;
-        $this->homeZoneIpAddressRange = $homeZoneIpAddressRange;
+        $this->homeZoneIpAddressRange = ($homeZoneIpAddressRange InstanceOf IPAddressRange)
+             ? $homeZoneIpAddressRange
+             : new IPAddressRange($homeZoneIpAddressRange);
         $this->homeZoneIpAddressRange->setName('homeZoneIpAddressRange');
         return $this;
     }

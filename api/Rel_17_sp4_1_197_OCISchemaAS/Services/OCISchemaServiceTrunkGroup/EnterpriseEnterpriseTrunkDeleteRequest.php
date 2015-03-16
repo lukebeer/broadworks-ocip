@@ -21,13 +21,13 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class EnterpriseEnterpriseTrunkDeleteRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                = 'EnterpriseEnterpriseTrunkDeleteRequest';
-    protected $serviceProviderId   = null;
-    protected $enterpriseTrunkName = null;
+    public    $name = 'EnterpriseEnterpriseTrunkDeleteRequest';
+    protected $serviceProviderId;
+    protected $enterpriseTrunkName;
 
     public function __construct(
-         $serviceProviderId,
-         $enterpriseTrunkName
+         $serviceProviderId = '',
+         $enterpriseTrunkName = ''
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setEnterpriseTrunkName($enterpriseTrunkName);
@@ -46,7 +46,6 @@ class EnterpriseEnterpriseTrunkDeleteRequest extends ComplexType implements Comp
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
-        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
@@ -60,7 +59,7 @@ class EnterpriseEnterpriseTrunkDeleteRequest extends ComplexType implements Comp
      */
     public function getServiceProviderId()
     {
-        return $this->serviceProviderId->getValue();
+        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
     }
 
     /**
@@ -68,7 +67,6 @@ class EnterpriseEnterpriseTrunkDeleteRequest extends ComplexType implements Comp
      */
     public function setEnterpriseTrunkName($enterpriseTrunkName = null)
     {
-        if (!$enterpriseTrunkName) return $this;
         $this->enterpriseTrunkName = ($enterpriseTrunkName InstanceOf EnterpriseTrunkName)
              ? $enterpriseTrunkName
              : new EnterpriseTrunkName($enterpriseTrunkName);
@@ -82,6 +80,6 @@ class EnterpriseEnterpriseTrunkDeleteRequest extends ComplexType implements Comp
      */
     public function getEnterpriseTrunkName()
     {
-        return $this->enterpriseTrunkName->getValue();
+        return ($this->enterpriseTrunkName) ? $this->enterpriseTrunkName->getValue() : null;
     }
 }

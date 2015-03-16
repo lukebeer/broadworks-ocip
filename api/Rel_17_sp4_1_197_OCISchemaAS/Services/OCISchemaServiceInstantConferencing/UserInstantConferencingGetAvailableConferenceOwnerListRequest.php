@@ -26,12 +26,12 @@ use Broadworks_OCIP\core\Client\Client;
 class UserInstantConferencingGetAvailableConferenceOwnerListRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType        = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing\UserInstantConferencingGetAvailableConferenceOwnerListResponse';
-    public    $name                = 'UserInstantConferencingGetAvailableConferenceOwnerListRequest';
-    protected $userId              = null;
-    protected $bridgeServiceUserId = null;
+    public    $name = 'UserInstantConferencingGetAvailableConferenceOwnerListRequest';
+    protected $userId;
+    protected $bridgeServiceUserId;
 
     public function __construct(
-         $userId,
+         $userId = '',
          $bridgeServiceUserId = null
     ) {
         $this->setUserId($userId);
@@ -51,7 +51,6 @@ class UserInstantConferencingGetAvailableConferenceOwnerListRequest extends Comp
      */
     public function setUserId($userId = null)
     {
-        if (!$userId) return $this;
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
@@ -65,7 +64,7 @@ class UserInstantConferencingGetAvailableConferenceOwnerListRequest extends Comp
      */
     public function getUserId()
     {
-        return $this->userId->getValue();
+        return ($this->userId) ? $this->userId->getValue() : null;
     }
 
     /**
@@ -73,7 +72,6 @@ class UserInstantConferencingGetAvailableConferenceOwnerListRequest extends Comp
      */
     public function setBridgeServiceUserId($bridgeServiceUserId = null)
     {
-        if (!$bridgeServiceUserId) return $this;
         $this->bridgeServiceUserId = ($bridgeServiceUserId InstanceOf UserId)
              ? $bridgeServiceUserId
              : new UserId($bridgeServiceUserId);
@@ -87,6 +85,6 @@ class UserInstantConferencingGetAvailableConferenceOwnerListRequest extends Comp
      */
     public function getBridgeServiceUserId()
     {
-        return $this->bridgeServiceUserId->getValue();
+        return ($this->bridgeServiceUserId) ? $this->bridgeServiceUserId->getValue() : null;
     }
 }

@@ -26,17 +26,17 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserHotelingHostGetResponse14sp4 extends ComplexType implements ComplexInterface
 {
-    public    $name                     = 'UserHotelingHostGetResponse14sp4';
-    protected $isActive                 = null;
-    protected $enforceAssociationLimit  = null;
-    protected $associationLimitHours    = null;
-    protected $accessLevel              = null;
-    protected $guestLastName            = null;
-    protected $guestFirstName           = null;
-    protected $guestPhoneNumber         = null;
-    protected $guestExtension           = null;
-    protected $guestLocationDialingCode = null;
-    protected $guestAssociationDateTime = null;
+    public    $name = 'UserHotelingHostGetResponse14sp4';
+    protected $isActive;
+    protected $enforceAssociationLimit;
+    protected $associationLimitHours;
+    protected $accessLevel;
+    protected $guestLastName;
+    protected $guestFirstName;
+    protected $guestPhoneNumber;
+    protected $guestExtension;
+    protected $guestLocationDialingCode;
+    protected $guestAssociationDateTime;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\UserHotelingHostGetResponse14sp4 $response
@@ -51,7 +51,6 @@ class UserHotelingHostGetResponse14sp4 extends ComplexType implements ComplexInt
      */
     public function setIsActive($isActive = null)
     {
-        if (!$isActive) return $this;
         $this->isActive = new PrimitiveType($isActive);
         $this->isActive->setName('isActive');
         return $this;
@@ -63,7 +62,7 @@ class UserHotelingHostGetResponse14sp4 extends ComplexType implements ComplexInt
      */
     public function getIsActive()
     {
-        return $this->isActive->getValue();
+        return ($this->isActive) ? $this->isActive->getValue() : null;
     }
 
     /**
@@ -71,7 +70,6 @@ class UserHotelingHostGetResponse14sp4 extends ComplexType implements ComplexInt
      */
     public function setEnforceAssociationLimit($enforceAssociationLimit = null)
     {
-        if (!$enforceAssociationLimit) return $this;
         $this->enforceAssociationLimit = new PrimitiveType($enforceAssociationLimit);
         $this->enforceAssociationLimit->setName('enforceAssociationLimit');
         return $this;
@@ -83,7 +81,7 @@ class UserHotelingHostGetResponse14sp4 extends ComplexType implements ComplexInt
      */
     public function getEnforceAssociationLimit()
     {
-        return $this->enforceAssociationLimit->getValue();
+        return ($this->enforceAssociationLimit) ? $this->enforceAssociationLimit->getValue() : null;
     }
 
     /**
@@ -91,7 +89,6 @@ class UserHotelingHostGetResponse14sp4 extends ComplexType implements ComplexInt
      */
     public function setAssociationLimitHours($associationLimitHours = null)
     {
-        if (!$associationLimitHours) return $this;
         $this->associationLimitHours = ($associationLimitHours InstanceOf HotelingAssociationLimitHours)
              ? $associationLimitHours
              : new HotelingAssociationLimitHours($associationLimitHours);
@@ -105,7 +102,7 @@ class UserHotelingHostGetResponse14sp4 extends ComplexType implements ComplexInt
      */
     public function getAssociationLimitHours()
     {
-        return $this->associationLimitHours->getValue();
+        return ($this->associationLimitHours) ? $this->associationLimitHours->getValue() : null;
     }
 
     /**
@@ -113,7 +110,6 @@ class UserHotelingHostGetResponse14sp4 extends ComplexType implements ComplexInt
      */
     public function setAccessLevel($accessLevel = null)
     {
-        if (!$accessLevel) return $this;
         $this->accessLevel = ($accessLevel InstanceOf HotelingHostAccessLevel)
              ? $accessLevel
              : new HotelingHostAccessLevel($accessLevel);
@@ -127,7 +123,7 @@ class UserHotelingHostGetResponse14sp4 extends ComplexType implements ComplexInt
      */
     public function getAccessLevel()
     {
-        return $this->accessLevel->getValue();
+        return ($this->accessLevel) ? $this->accessLevel->getValue() : null;
     }
 
     /**
@@ -135,7 +131,6 @@ class UserHotelingHostGetResponse14sp4 extends ComplexType implements ComplexInt
      */
     public function setGuestLastName($guestLastName = null)
     {
-        if (!$guestLastName) return $this;
         $this->guestLastName = ($guestLastName InstanceOf LastName)
              ? $guestLastName
              : new LastName($guestLastName);
@@ -149,7 +144,7 @@ class UserHotelingHostGetResponse14sp4 extends ComplexType implements ComplexInt
      */
     public function getGuestLastName()
     {
-        return $this->guestLastName->getValue();
+        return ($this->guestLastName) ? $this->guestLastName->getValue() : null;
     }
 
     /**
@@ -157,7 +152,6 @@ class UserHotelingHostGetResponse14sp4 extends ComplexType implements ComplexInt
      */
     public function setGuestFirstName($guestFirstName = null)
     {
-        if (!$guestFirstName) return $this;
         $this->guestFirstName = ($guestFirstName InstanceOf FirstName)
              ? $guestFirstName
              : new FirstName($guestFirstName);
@@ -171,7 +165,7 @@ class UserHotelingHostGetResponse14sp4 extends ComplexType implements ComplexInt
      */
     public function getGuestFirstName()
     {
-        return $this->guestFirstName->getValue();
+        return ($this->guestFirstName) ? $this->guestFirstName->getValue() : null;
     }
 
     /**
@@ -179,7 +173,6 @@ class UserHotelingHostGetResponse14sp4 extends ComplexType implements ComplexInt
      */
     public function setGuestPhoneNumber($guestPhoneNumber = null)
     {
-        if (!$guestPhoneNumber) return $this;
         $this->guestPhoneNumber = ($guestPhoneNumber InstanceOf DN)
              ? $guestPhoneNumber
              : new DN($guestPhoneNumber);
@@ -193,7 +186,7 @@ class UserHotelingHostGetResponse14sp4 extends ComplexType implements ComplexInt
      */
     public function getGuestPhoneNumber()
     {
-        return $this->guestPhoneNumber->getValue();
+        return ($this->guestPhoneNumber) ? $this->guestPhoneNumber->getValue() : null;
     }
 
     /**
@@ -201,7 +194,6 @@ class UserHotelingHostGetResponse14sp4 extends ComplexType implements ComplexInt
      */
     public function setGuestExtension($guestExtension = null)
     {
-        if (!$guestExtension) return $this;
         $this->guestExtension = ($guestExtension InstanceOf Extension)
              ? $guestExtension
              : new Extension($guestExtension);
@@ -215,7 +207,7 @@ class UserHotelingHostGetResponse14sp4 extends ComplexType implements ComplexInt
      */
     public function getGuestExtension()
     {
-        return $this->guestExtension->getValue();
+        return ($this->guestExtension) ? $this->guestExtension->getValue() : null;
     }
 
     /**
@@ -223,7 +215,6 @@ class UserHotelingHostGetResponse14sp4 extends ComplexType implements ComplexInt
      */
     public function setGuestLocationDialingCode($guestLocationDialingCode = null)
     {
-        if (!$guestLocationDialingCode) return $this;
         $this->guestLocationDialingCode = ($guestLocationDialingCode InstanceOf LocationDialingCode)
              ? $guestLocationDialingCode
              : new LocationDialingCode($guestLocationDialingCode);
@@ -237,7 +228,7 @@ class UserHotelingHostGetResponse14sp4 extends ComplexType implements ComplexInt
      */
     public function getGuestLocationDialingCode()
     {
-        return $this->guestLocationDialingCode->getValue();
+        return ($this->guestLocationDialingCode) ? $this->guestLocationDialingCode->getValue() : null;
     }
 
     /**
@@ -245,7 +236,6 @@ class UserHotelingHostGetResponse14sp4 extends ComplexType implements ComplexInt
      */
     public function setGuestAssociationDateTime(xs:dateTime $guestAssociationDateTime = null)
     {
-        if (!$guestAssociationDateTime) return $this;
         $this->guestAssociationDateTime->setName('guestAssociationDateTime');
         return $this;
     }
@@ -256,6 +246,6 @@ class UserHotelingHostGetResponse14sp4 extends ComplexType implements ComplexInt
      */
     public function getGuestAssociationDateTime()
     {
-        return $this->guestAssociationDateTime->getValue();
+        return ($this->guestAssociationDateTime) ? $this->guestAssociationDateTime->getValue() : null;
     }
 }

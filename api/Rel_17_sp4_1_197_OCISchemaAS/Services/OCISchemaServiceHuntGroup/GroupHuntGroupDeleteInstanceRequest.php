@@ -20,11 +20,11 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupHuntGroupDeleteInstanceRequest extends ComplexType implements ComplexInterface
 {
-    public    $name          = 'GroupHuntGroupDeleteInstanceRequest';
-    protected $serviceUserId = null;
+    public    $name = 'GroupHuntGroupDeleteInstanceRequest';
+    protected $serviceUserId;
 
     public function __construct(
-         $serviceUserId
+         $serviceUserId = ''
     ) {
         $this->setServiceUserId($serviceUserId);
     }
@@ -42,7 +42,6 @@ class GroupHuntGroupDeleteInstanceRequest extends ComplexType implements Complex
      */
     public function setServiceUserId($serviceUserId = null)
     {
-        if (!$serviceUserId) return $this;
         $this->serviceUserId = ($serviceUserId InstanceOf UserId)
              ? $serviceUserId
              : new UserId($serviceUserId);
@@ -56,6 +55,6 @@ class GroupHuntGroupDeleteInstanceRequest extends ComplexType implements Complex
      */
     public function getServiceUserId()
     {
-        return $this->serviceUserId->getValue();
+        return ($this->serviceUserId) ? $this->serviceUserId->getValue() : null;
     }
 }

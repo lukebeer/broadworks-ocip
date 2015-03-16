@@ -22,8 +22,8 @@ use Broadworks_OCIP\core\Client\Client;
 class SystemBroadWorksMobilityGetIMRNListRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType       = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceBroadWorksMobility\SystemBroadWorksMobilityGetIMRNListResponse';
-    public    $name               = 'SystemBroadWorksMobilityGetIMRNListRequest';
-    protected $searchCriteriaIMRN = null;
+    public    $name = 'SystemBroadWorksMobilityGetIMRNListRequest';
+    protected $searchCriteriaIMRN;
 
     public function __construct(
          SearchCriteriaIMRN $searchCriteriaIMRN = null
@@ -44,7 +44,6 @@ class SystemBroadWorksMobilityGetIMRNListRequest extends ComplexType implements 
      */
     public function setSearchCriteriaIMRN(SearchCriteriaIMRN $searchCriteriaIMRN = null)
     {
-        if (!$searchCriteriaIMRN) return $this;
         $this->searchCriteriaIMRN = ($searchCriteriaIMRN InstanceOf SearchCriteriaIMRN)
              ? $searchCriteriaIMRN
              : new SearchCriteriaIMRN($searchCriteriaIMRN);

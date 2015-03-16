@@ -24,16 +24,16 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemRoutingModifyRouteDeviceRequest extends ComplexType implements ComplexInterface
 {
-    public    $name              = 'SystemRoutingModifyRouteDeviceRequest';
-    protected $routeName         = null;
-    protected $netAddress        = null;
-    protected $port              = null;
-    protected $transportProtocol = null;
-    protected $description       = null;
+    public    $name = 'SystemRoutingModifyRouteDeviceRequest';
+    protected $routeName;
+    protected $netAddress;
+    protected $port;
+    protected $transportProtocol;
+    protected $description;
 
     public function __construct(
-         $routeName,
-         $netAddress,
+         $routeName = '',
+         $netAddress = '',
          $port = null,
          $transportProtocol = null,
          $description = null
@@ -58,7 +58,6 @@ class SystemRoutingModifyRouteDeviceRequest extends ComplexType implements Compl
      */
     public function setRouteName($routeName = null)
     {
-        if (!$routeName) return $this;
         $this->routeName = ($routeName InstanceOf RouteName)
              ? $routeName
              : new RouteName($routeName);
@@ -72,7 +71,7 @@ class SystemRoutingModifyRouteDeviceRequest extends ComplexType implements Compl
      */
     public function getRouteName()
     {
-        return $this->routeName->getValue();
+        return ($this->routeName) ? $this->routeName->getValue() : null;
     }
 
     /**
@@ -80,7 +79,6 @@ class SystemRoutingModifyRouteDeviceRequest extends ComplexType implements Compl
      */
     public function setNetAddress($netAddress = null)
     {
-        if (!$netAddress) return $this;
         $this->netAddress = ($netAddress InstanceOf NetAddress)
              ? $netAddress
              : new NetAddress($netAddress);
@@ -94,7 +92,7 @@ class SystemRoutingModifyRouteDeviceRequest extends ComplexType implements Compl
      */
     public function getNetAddress()
     {
-        return $this->netAddress->getValue();
+        return ($this->netAddress) ? $this->netAddress->getValue() : null;
     }
 
     /**
@@ -102,7 +100,6 @@ class SystemRoutingModifyRouteDeviceRequest extends ComplexType implements Compl
      */
     public function setPort($port = null)
     {
-        if (!$port) return $this;
         $this->port = ($port InstanceOf Port1025)
              ? $port
              : new Port1025($port);
@@ -116,7 +113,7 @@ class SystemRoutingModifyRouteDeviceRequest extends ComplexType implements Compl
      */
     public function getPort()
     {
-        return $this->port->getValue();
+        return ($this->port) ? $this->port->getValue() : null;
     }
 
     /**
@@ -124,7 +121,6 @@ class SystemRoutingModifyRouteDeviceRequest extends ComplexType implements Compl
      */
     public function setTransportProtocol($transportProtocol = null)
     {
-        if (!$transportProtocol) return $this;
         $this->transportProtocol = ($transportProtocol InstanceOf TransportProtocol)
              ? $transportProtocol
              : new TransportProtocol($transportProtocol);
@@ -138,7 +134,7 @@ class SystemRoutingModifyRouteDeviceRequest extends ComplexType implements Compl
      */
     public function getTransportProtocol()
     {
-        return $this->transportProtocol->getValue();
+        return ($this->transportProtocol) ? $this->transportProtocol->getValue() : null;
     }
 
     /**
@@ -146,7 +142,6 @@ class SystemRoutingModifyRouteDeviceRequest extends ComplexType implements Compl
      */
     public function setDescription($description = null)
     {
-        if (!$description) return $this;
         $this->description = ($description InstanceOf RouteDeviceDescription)
              ? $description
              : new RouteDeviceDescription($description);
@@ -160,6 +155,6 @@ class SystemRoutingModifyRouteDeviceRequest extends ComplexType implements Compl
      */
     public function getDescription()
     {
-        return $this->description->getValue();
+        return ($this->description) ? $this->description->getValue() : null;
     }
 }

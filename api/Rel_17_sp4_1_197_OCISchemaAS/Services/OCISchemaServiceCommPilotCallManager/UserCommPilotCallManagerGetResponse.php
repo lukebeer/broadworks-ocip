@@ -19,8 +19,8 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserCommPilotCallManagerGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name          = 'UserCommPilotCallManagerGetResponse';
-    protected $launchOnLogin = null;
+    public    $name = 'UserCommPilotCallManagerGetResponse';
+    protected $launchOnLogin;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCommPilotCallManager\UserCommPilotCallManagerGetResponse $response
@@ -35,7 +35,6 @@ class UserCommPilotCallManagerGetResponse extends ComplexType implements Complex
      */
     public function setLaunchOnLogin($launchOnLogin = null)
     {
-        if (!$launchOnLogin) return $this;
         $this->launchOnLogin = new PrimitiveType($launchOnLogin);
         $this->launchOnLogin->setName('launchOnLogin');
         return $this;
@@ -47,6 +46,6 @@ class UserCommPilotCallManagerGetResponse extends ComplexType implements Complex
      */
     public function getLaunchOnLogin()
     {
-        return $this->launchOnLogin->getValue();
+        return ($this->launchOnLogin) ? $this->launchOnLogin->getValue() : null;
     }
 }

@@ -20,13 +20,13 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderDomainAssignListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name              = 'ServiceProviderDomainAssignListRequest';
-    protected $serviceProviderId = null;
-    protected $domain            = null;
+    public    $name = 'ServiceProviderDomainAssignListRequest';
+    protected $serviceProviderId;
+    protected $domain;
 
     public function __construct(
-         $serviceProviderId,
-         $domain
+         $serviceProviderId = '',
+         $domain = ''
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setDomain($domain);
@@ -45,7 +45,6 @@ class ServiceProviderDomainAssignListRequest extends ComplexType implements Comp
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
-        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
@@ -59,7 +58,7 @@ class ServiceProviderDomainAssignListRequest extends ComplexType implements Comp
      */
     public function getServiceProviderId()
     {
-        return $this->serviceProviderId->getValue();
+        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
     }
 
     /**
@@ -67,7 +66,6 @@ class ServiceProviderDomainAssignListRequest extends ComplexType implements Comp
      */
     public function setDomain($domain = null)
     {
-        if (!$domain) return $this;
         $this->domain = ($domain InstanceOf NetAddress)
              ? $domain
              : new NetAddress($domain);
@@ -81,6 +79,6 @@ class ServiceProviderDomainAssignListRequest extends ComplexType implements Comp
      */
     public function getDomain()
     {
-        return $this->domain->getValue();
+        return ($this->domain) ? $this->domain->getValue() : null;
     }
 }

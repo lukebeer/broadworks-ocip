@@ -25,17 +25,17 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupCustomContactDirectoryModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name              = 'GroupCustomContactDirectoryModifyRequest';
-    protected $serviceProviderId = null;
-    protected $groupId           = null;
-    protected $name              = null;
-    protected $newName           = null;
-    protected $userIdList        = null;
+    public    $name = 'GroupCustomContactDirectoryModifyRequest';
+    protected $serviceProviderId;
+    protected $groupId;
+    protected $name;
+    protected $newName;
+    protected $userIdList;
 
     public function __construct(
-         $serviceProviderId,
-         $groupId,
-         $name,
+         $serviceProviderId = '',
+         $groupId = '',
+         $name = '',
          $newName = null,
          ReplacementUserIdList $userIdList = null
     ) {
@@ -59,7 +59,6 @@ class GroupCustomContactDirectoryModifyRequest extends ComplexType implements Co
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
-        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
@@ -73,7 +72,7 @@ class GroupCustomContactDirectoryModifyRequest extends ComplexType implements Co
      */
     public function getServiceProviderId()
     {
-        return $this->serviceProviderId->getValue();
+        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
     }
 
     /**
@@ -81,7 +80,6 @@ class GroupCustomContactDirectoryModifyRequest extends ComplexType implements Co
      */
     public function setGroupId($groupId = null)
     {
-        if (!$groupId) return $this;
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
@@ -95,7 +93,7 @@ class GroupCustomContactDirectoryModifyRequest extends ComplexType implements Co
      */
     public function getGroupId()
     {
-        return $this->groupId->getValue();
+        return ($this->groupId) ? $this->groupId->getValue() : null;
     }
 
     /**
@@ -103,7 +101,6 @@ class GroupCustomContactDirectoryModifyRequest extends ComplexType implements Co
      */
     public function setName($name = null)
     {
-        if (!$name) return $this;
         $this->name = ($name InstanceOf CustomContactDirectoryName)
              ? $name
              : new CustomContactDirectoryName($name);
@@ -117,7 +114,7 @@ class GroupCustomContactDirectoryModifyRequest extends ComplexType implements Co
      */
     public function getName()
     {
-        return $this->name->getValue();
+        return ($this->name) ? $this->name->getValue() : null;
     }
 
     /**
@@ -125,7 +122,6 @@ class GroupCustomContactDirectoryModifyRequest extends ComplexType implements Co
      */
     public function setNewName($newName = null)
     {
-        if (!$newName) return $this;
         $this->newName = ($newName InstanceOf CustomContactDirectoryName)
              ? $newName
              : new CustomContactDirectoryName($newName);
@@ -139,7 +135,7 @@ class GroupCustomContactDirectoryModifyRequest extends ComplexType implements Co
      */
     public function getNewName()
     {
-        return $this->newName->getValue();
+        return ($this->newName) ? $this->newName->getValue() : null;
     }
 
     /**
@@ -147,8 +143,9 @@ class GroupCustomContactDirectoryModifyRequest extends ComplexType implements Co
      */
     public function setUserIdList(ReplacementUserIdList $userIdList = null)
     {
-        if (!$userIdList) return $this;
-        $this->userIdList = $userIdList;
+        $this->userIdList = ($userIdList InstanceOf ReplacementUserIdList)
+             ? $userIdList
+             : new ReplacementUserIdList($userIdList);
         $this->userIdList->setName('userIdList');
         return $this;
     }

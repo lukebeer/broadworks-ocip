@@ -22,14 +22,14 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemAccessDeviceCustomTagAddRequest extends ComplexType implements ComplexInterface
 {
-    public    $name       = 'SystemAccessDeviceCustomTagAddRequest';
-    protected $deviceName = null;
-    protected $tagName    = null;
-    protected $tagValue   = null;
+    public    $name = 'SystemAccessDeviceCustomTagAddRequest';
+    protected $deviceName;
+    protected $tagName;
+    protected $tagValue;
 
     public function __construct(
-         $deviceName,
-         $tagName,
+         $deviceName = '',
+         $tagName = '',
          $tagValue = null
     ) {
         $this->setDeviceName($deviceName);
@@ -50,7 +50,6 @@ class SystemAccessDeviceCustomTagAddRequest extends ComplexType implements Compl
      */
     public function setDeviceName($deviceName = null)
     {
-        if (!$deviceName) return $this;
         $this->deviceName = ($deviceName InstanceOf AccessDeviceName)
              ? $deviceName
              : new AccessDeviceName($deviceName);
@@ -64,7 +63,7 @@ class SystemAccessDeviceCustomTagAddRequest extends ComplexType implements Compl
      */
     public function getDeviceName()
     {
-        return $this->deviceName->getValue();
+        return ($this->deviceName) ? $this->deviceName->getValue() : null;
     }
 
     /**
@@ -72,7 +71,6 @@ class SystemAccessDeviceCustomTagAddRequest extends ComplexType implements Compl
      */
     public function setTagName($tagName = null)
     {
-        if (!$tagName) return $this;
         $this->tagName = ($tagName InstanceOf DeviceManagementTagName)
              ? $tagName
              : new DeviceManagementTagName($tagName);
@@ -86,7 +84,7 @@ class SystemAccessDeviceCustomTagAddRequest extends ComplexType implements Compl
      */
     public function getTagName()
     {
-        return $this->tagName->getValue();
+        return ($this->tagName) ? $this->tagName->getValue() : null;
     }
 
     /**
@@ -94,7 +92,6 @@ class SystemAccessDeviceCustomTagAddRequest extends ComplexType implements Compl
      */
     public function setTagValue($tagValue = null)
     {
-        if (!$tagValue) return $this;
         $this->tagValue = ($tagValue InstanceOf DeviceManagementTagValue)
              ? $tagValue
              : new DeviceManagementTagValue($tagValue);
@@ -108,6 +105,6 @@ class SystemAccessDeviceCustomTagAddRequest extends ComplexType implements Compl
      */
     public function getTagValue()
     {
-        return $this->tagValue->getValue();
+        return ($this->tagValue) ? $this->tagValue->getValue() : null;
     }
 }

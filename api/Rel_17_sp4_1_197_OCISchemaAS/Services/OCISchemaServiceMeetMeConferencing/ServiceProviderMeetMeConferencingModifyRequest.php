@@ -21,12 +21,12 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderMeetMeConferencingModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name              = 'ServiceProviderMeetMeConferencingModifyRequest';
-    protected $serviceProviderId = null;
-    protected $allocatedPorts    = null;
+    public    $name = 'ServiceProviderMeetMeConferencingModifyRequest';
+    protected $serviceProviderId;
+    protected $allocatedPorts;
 
     public function __construct(
-         $serviceProviderId,
+         $serviceProviderId = '',
          MeetMeConferencingConferencePorts $allocatedPorts = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
@@ -46,7 +46,6 @@ class ServiceProviderMeetMeConferencingModifyRequest extends ComplexType impleme
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
-        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
@@ -60,7 +59,7 @@ class ServiceProviderMeetMeConferencingModifyRequest extends ComplexType impleme
      */
     public function getServiceProviderId()
     {
-        return $this->serviceProviderId->getValue();
+        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
     }
 
     /**
@@ -68,8 +67,9 @@ class ServiceProviderMeetMeConferencingModifyRequest extends ComplexType impleme
      */
     public function setAllocatedPorts(MeetMeConferencingConferencePorts $allocatedPorts = null)
     {
-        if (!$allocatedPorts) return $this;
-        $this->allocatedPorts = $allocatedPorts;
+        $this->allocatedPorts = ($allocatedPorts InstanceOf MeetMeConferencingConferencePorts)
+             ? $allocatedPorts
+             : new MeetMeConferencingConferencePorts($allocatedPorts);
         $this->allocatedPorts->setName('allocatedPorts');
         return $this;
     }

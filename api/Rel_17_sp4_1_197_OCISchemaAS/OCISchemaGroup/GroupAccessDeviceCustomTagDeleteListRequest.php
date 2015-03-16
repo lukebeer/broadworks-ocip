@@ -23,16 +23,16 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupAccessDeviceCustomTagDeleteListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name              = 'GroupAccessDeviceCustomTagDeleteListRequest';
-    protected $serviceProviderId = null;
-    protected $groupId           = null;
-    protected $deviceName        = null;
-    protected $tagName           = null;
+    public    $name = 'GroupAccessDeviceCustomTagDeleteListRequest';
+    protected $serviceProviderId;
+    protected $groupId;
+    protected $deviceName;
+    protected $tagName;
 
     public function __construct(
-         $serviceProviderId,
-         $groupId,
-         $deviceName,
+         $serviceProviderId = '',
+         $groupId = '',
+         $deviceName = '',
          $tagName = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
@@ -54,7 +54,6 @@ class GroupAccessDeviceCustomTagDeleteListRequest extends ComplexType implements
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
-        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
@@ -68,7 +67,7 @@ class GroupAccessDeviceCustomTagDeleteListRequest extends ComplexType implements
      */
     public function getServiceProviderId()
     {
-        return $this->serviceProviderId->getValue();
+        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
     }
 
     /**
@@ -76,7 +75,6 @@ class GroupAccessDeviceCustomTagDeleteListRequest extends ComplexType implements
      */
     public function setGroupId($groupId = null)
     {
-        if (!$groupId) return $this;
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
@@ -90,7 +88,7 @@ class GroupAccessDeviceCustomTagDeleteListRequest extends ComplexType implements
      */
     public function getGroupId()
     {
-        return $this->groupId->getValue();
+        return ($this->groupId) ? $this->groupId->getValue() : null;
     }
 
     /**
@@ -98,7 +96,6 @@ class GroupAccessDeviceCustomTagDeleteListRequest extends ComplexType implements
      */
     public function setDeviceName($deviceName = null)
     {
-        if (!$deviceName) return $this;
         $this->deviceName = ($deviceName InstanceOf AccessDeviceName)
              ? $deviceName
              : new AccessDeviceName($deviceName);
@@ -112,7 +109,7 @@ class GroupAccessDeviceCustomTagDeleteListRequest extends ComplexType implements
      */
     public function getDeviceName()
     {
-        return $this->deviceName->getValue();
+        return ($this->deviceName) ? $this->deviceName->getValue() : null;
     }
 
     /**
@@ -120,7 +117,6 @@ class GroupAccessDeviceCustomTagDeleteListRequest extends ComplexType implements
      */
     public function setTagName($tagName = null)
     {
-        if (!$tagName) return $this;
         $this->tagName = ($tagName InstanceOf DeviceManagementTagName)
              ? $tagName
              : new DeviceManagementTagName($tagName);
@@ -134,6 +130,6 @@ class GroupAccessDeviceCustomTagDeleteListRequest extends ComplexType implements
      */
     public function getTagName()
     {
-        return $this->tagName->getValue();
+        return ($this->tagName) ? $this->tagName->getValue() : null;
     }
 }

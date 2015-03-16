@@ -22,10 +22,10 @@ class SystemCallCenterEnhancedReportingReportTemplateGetRequest extends ComplexT
 {
     public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\SystemCallCenterEnhancedReportingReportTemplateGetResponse';
     public    $name = 'SystemCallCenterEnhancedReportingReportTemplateGetRequest';
-    protected $name = null;
+    protected $name;
 
     public function __construct(
-         $name
+         $name = ''
     ) {
         $this->setName($name);
     }
@@ -43,7 +43,6 @@ class SystemCallCenterEnhancedReportingReportTemplateGetRequest extends ComplexT
      */
     public function setName($name = null)
     {
-        if (!$name) return $this;
         $this->name = ($name InstanceOf CallCenterReportTemplateName)
              ? $name
              : new CallCenterReportTemplateName($name);
@@ -57,6 +56,6 @@ class SystemCallCenterEnhancedReportingReportTemplateGetRequest extends ComplexT
      */
     public function getName()
     {
-        return $this->name->getValue();
+        return ($this->name) ? $this->name->getValue() : null;
     }
 }

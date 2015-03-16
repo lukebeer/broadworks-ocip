@@ -19,15 +19,15 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class OutgoingCallingPlanDigitPatternOriginatingDepartmentPermissions extends ComplexType implements ComplexInterface
 {
-    public    $name                    = 'OutgoingCallingPlanDigitPatternOriginatingDepartmentPermissions';
-    protected $departmentKey           = null;
-    protected $departmentName          = null;
-    protected $digitPatternPermissions = null;
+    public    $name = 'OutgoingCallingPlanDigitPatternOriginatingDepartmentPermissions';
+    protected $departmentKey;
+    protected $departmentName;
+    protected $digitPatternPermissions;
 
     public function __construct(
-         $departmentKey,
-         $departmentName,
-         $digitPatternPermissions
+         $departmentKey = '',
+         $departmentName = '',
+         $digitPatternPermissions = ''
     ) {
         $this->setDepartmentKey($departmentKey);
         $this->setDepartmentName($departmentName);
@@ -47,7 +47,6 @@ class OutgoingCallingPlanDigitPatternOriginatingDepartmentPermissions extends Co
      */
     public function setDepartmentKey($departmentKey = null)
     {
-        if (!$departmentKey) return $this;
         $this->departmentKey = new SimpleContent($departmentKey);
         $this->departmentKey->setName('departmentKey');
         return $this;
@@ -59,7 +58,7 @@ class OutgoingCallingPlanDigitPatternOriginatingDepartmentPermissions extends Co
      */
     public function getDepartmentKey()
     {
-        return $this->departmentKey->getValue();
+        return ($this->departmentKey) ? $this->departmentKey->getValue() : null;
     }
 
     /**
@@ -67,7 +66,6 @@ class OutgoingCallingPlanDigitPatternOriginatingDepartmentPermissions extends Co
      */
     public function setDepartmentName($departmentName = null)
     {
-        if (!$departmentName) return $this;
         $this->departmentName = new SimpleContent($departmentName);
         $this->departmentName->setName('departmentName');
         return $this;
@@ -79,7 +77,7 @@ class OutgoingCallingPlanDigitPatternOriginatingDepartmentPermissions extends Co
      */
     public function getDepartmentName()
     {
-        return $this->departmentName->getValue();
+        return ($this->departmentName) ? $this->departmentName->getValue() : null;
     }
 
     /**
@@ -87,7 +85,6 @@ class OutgoingCallingPlanDigitPatternOriginatingDepartmentPermissions extends Co
      */
     public function setDigitPatternPermissions($digitPatternPermissions = null)
     {
-        if (!$digitPatternPermissions) return $this;
         $this->digitPatternPermissions = new SimpleContent($digitPatternPermissions);
         $this->digitPatternPermissions->setName('digitPatternPermissions');
         return $this;
@@ -99,6 +96,6 @@ class OutgoingCallingPlanDigitPatternOriginatingDepartmentPermissions extends Co
      */
     public function getDigitPatternPermissions()
     {
-        return $this->digitPatternPermissions->getValue();
+        return ($this->digitPatternPermissions) ? $this->digitPatternPermissions->getValue() : null;
     }
 }

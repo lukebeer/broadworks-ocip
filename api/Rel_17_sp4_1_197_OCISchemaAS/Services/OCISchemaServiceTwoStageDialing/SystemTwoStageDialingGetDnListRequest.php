@@ -23,9 +23,9 @@ use Broadworks_OCIP\core\Client\Client;
 class SystemTwoStageDialingGetDnListRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType                  = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceTwoStageDialing\SystemTwoStageDialingGetDnListResponse';
-    public    $name                          = 'SystemTwoStageDialingGetDnListRequest';
-    protected $responseSizeLimit             = null;
-    protected $searchCriteriaSystemServiceDn = null;
+    public    $name = 'SystemTwoStageDialingGetDnListRequest';
+    protected $responseSizeLimit;
+    protected $searchCriteriaSystemServiceDn;
 
     public function __construct(
          $responseSizeLimit = null,
@@ -48,7 +48,6 @@ class SystemTwoStageDialingGetDnListRequest extends ComplexType implements Compl
      */
     public function setResponseSizeLimit($responseSizeLimit = null)
     {
-        if (!$responseSizeLimit) return $this;
         $this->responseSizeLimit = ($responseSizeLimit InstanceOf ResponseSizeLimit)
              ? $responseSizeLimit
              : new ResponseSizeLimit($responseSizeLimit);
@@ -62,7 +61,7 @@ class SystemTwoStageDialingGetDnListRequest extends ComplexType implements Compl
      */
     public function getResponseSizeLimit()
     {
-        return $this->responseSizeLimit->getValue();
+        return ($this->responseSizeLimit) ? $this->responseSizeLimit->getValue() : null;
     }
 
     /**
@@ -70,7 +69,6 @@ class SystemTwoStageDialingGetDnListRequest extends ComplexType implements Compl
      */
     public function setSearchCriteriaSystemServiceDn(SearchCriteriaSystemServiceDn $searchCriteriaSystemServiceDn = null)
     {
-        if (!$searchCriteriaSystemServiceDn) return $this;
         $this->searchCriteriaSystemServiceDn = ($searchCriteriaSystemServiceDn InstanceOf SearchCriteriaSystemServiceDn)
              ? $searchCriteriaSystemServiceDn
              : new SearchCriteriaSystemServiceDn($searchCriteriaSystemServiceDn);

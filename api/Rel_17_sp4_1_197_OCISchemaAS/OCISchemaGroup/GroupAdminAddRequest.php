@@ -26,19 +26,19 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupAdminAddRequest extends ComplexType implements ComplexInterface
 {
-    public    $name              = 'GroupAdminAddRequest';
-    protected $serviceProviderId = null;
-    protected $groupId           = null;
-    protected $userId            = null;
-    protected $firstName         = null;
-    protected $lastName          = null;
-    protected $password          = null;
-    protected $language          = null;
+    public    $name = 'GroupAdminAddRequest';
+    protected $serviceProviderId;
+    protected $groupId;
+    protected $userId;
+    protected $firstName;
+    protected $lastName;
+    protected $password;
+    protected $language;
 
     public function __construct(
-         $serviceProviderId,
-         $groupId,
-         $userId,
+         $serviceProviderId = '',
+         $groupId = '',
+         $userId = '',
          $firstName = null,
          $lastName = null,
          $password = null,
@@ -66,7 +66,6 @@ class GroupAdminAddRequest extends ComplexType implements ComplexInterface
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
-        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
@@ -80,7 +79,7 @@ class GroupAdminAddRequest extends ComplexType implements ComplexInterface
      */
     public function getServiceProviderId()
     {
-        return $this->serviceProviderId->getValue();
+        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
     }
 
     /**
@@ -88,7 +87,6 @@ class GroupAdminAddRequest extends ComplexType implements ComplexInterface
      */
     public function setGroupId($groupId = null)
     {
-        if (!$groupId) return $this;
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
@@ -102,7 +100,7 @@ class GroupAdminAddRequest extends ComplexType implements ComplexInterface
      */
     public function getGroupId()
     {
-        return $this->groupId->getValue();
+        return ($this->groupId) ? $this->groupId->getValue() : null;
     }
 
     /**
@@ -110,7 +108,6 @@ class GroupAdminAddRequest extends ComplexType implements ComplexInterface
      */
     public function setUserId($userId = null)
     {
-        if (!$userId) return $this;
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
@@ -124,7 +121,7 @@ class GroupAdminAddRequest extends ComplexType implements ComplexInterface
      */
     public function getUserId()
     {
-        return $this->userId->getValue();
+        return ($this->userId) ? $this->userId->getValue() : null;
     }
 
     /**
@@ -132,7 +129,6 @@ class GroupAdminAddRequest extends ComplexType implements ComplexInterface
      */
     public function setFirstName($firstName = null)
     {
-        if (!$firstName) return $this;
         $this->firstName = ($firstName InstanceOf FirstName)
              ? $firstName
              : new FirstName($firstName);
@@ -146,7 +142,7 @@ class GroupAdminAddRequest extends ComplexType implements ComplexInterface
      */
     public function getFirstName()
     {
-        return $this->firstName->getValue();
+        return ($this->firstName) ? $this->firstName->getValue() : null;
     }
 
     /**
@@ -154,7 +150,6 @@ class GroupAdminAddRequest extends ComplexType implements ComplexInterface
      */
     public function setLastName($lastName = null)
     {
-        if (!$lastName) return $this;
         $this->lastName = ($lastName InstanceOf LastName)
              ? $lastName
              : new LastName($lastName);
@@ -168,7 +163,7 @@ class GroupAdminAddRequest extends ComplexType implements ComplexInterface
      */
     public function getLastName()
     {
-        return $this->lastName->getValue();
+        return ($this->lastName) ? $this->lastName->getValue() : null;
     }
 
     /**
@@ -176,7 +171,6 @@ class GroupAdminAddRequest extends ComplexType implements ComplexInterface
      */
     public function setPassword($password = null)
     {
-        if (!$password) return $this;
         $this->password = ($password InstanceOf Password)
              ? $password
              : new Password($password);
@@ -190,7 +184,7 @@ class GroupAdminAddRequest extends ComplexType implements ComplexInterface
      */
     public function getPassword()
     {
-        return $this->password->getValue();
+        return ($this->password) ? $this->password->getValue() : null;
     }
 
     /**
@@ -198,7 +192,6 @@ class GroupAdminAddRequest extends ComplexType implements ComplexInterface
      */
     public function setLanguage($language = null)
     {
-        if (!$language) return $this;
         $this->language = ($language InstanceOf Language)
              ? $language
              : new Language($language);
@@ -212,6 +205,6 @@ class GroupAdminAddRequest extends ComplexType implements ComplexInterface
      */
     public function getLanguage()
     {
-        return $this->language->getValue();
+        return ($this->language) ? $this->language->getValue() : null;
     }
 }

@@ -26,11 +26,11 @@ use Broadworks_OCIP\core\Client\Client;
 class ServiceProviderGetListRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType                      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderGetListResponse';
-    public    $name                              = 'ServiceProviderGetListRequest';
-    protected $isEnterprise                      = null;
-    protected $responseSizeLimit                 = null;
-    protected $searchCriteriaServiceProviderId   = null;
-    protected $searchCriteriaServiceProviderName = null;
+    public    $name = 'ServiceProviderGetListRequest';
+    protected $isEnterprise;
+    protected $responseSizeLimit;
+    protected $searchCriteriaServiceProviderId;
+    protected $searchCriteriaServiceProviderName;
 
     public function __construct(
          $isEnterprise = null,
@@ -57,7 +57,6 @@ class ServiceProviderGetListRequest extends ComplexType implements ComplexInterf
      */
     public function setIsEnterprise($isEnterprise = null)
     {
-        if (!$isEnterprise) return $this;
         $this->isEnterprise = new PrimitiveType($isEnterprise);
         $this->isEnterprise->setName('isEnterprise');
         return $this;
@@ -69,7 +68,7 @@ class ServiceProviderGetListRequest extends ComplexType implements ComplexInterf
      */
     public function getIsEnterprise()
     {
-        return $this->isEnterprise->getValue();
+        return ($this->isEnterprise) ? $this->isEnterprise->getValue() : null;
     }
 
     /**
@@ -77,7 +76,6 @@ class ServiceProviderGetListRequest extends ComplexType implements ComplexInterf
      */
     public function setResponseSizeLimit($responseSizeLimit = null)
     {
-        if (!$responseSizeLimit) return $this;
         $this->responseSizeLimit = ($responseSizeLimit InstanceOf ResponseSizeLimit)
              ? $responseSizeLimit
              : new ResponseSizeLimit($responseSizeLimit);
@@ -91,7 +89,7 @@ class ServiceProviderGetListRequest extends ComplexType implements ComplexInterf
      */
     public function getResponseSizeLimit()
     {
-        return $this->responseSizeLimit->getValue();
+        return ($this->responseSizeLimit) ? $this->responseSizeLimit->getValue() : null;
     }
 
     /**
@@ -99,7 +97,6 @@ class ServiceProviderGetListRequest extends ComplexType implements ComplexInterf
      */
     public function setSearchCriteriaServiceProviderId(SearchCriteriaServiceProviderId $searchCriteriaServiceProviderId = null)
     {
-        if (!$searchCriteriaServiceProviderId) return $this;
         $this->searchCriteriaServiceProviderId = ($searchCriteriaServiceProviderId InstanceOf SearchCriteriaServiceProviderId)
              ? $searchCriteriaServiceProviderId
              : new SearchCriteriaServiceProviderId($searchCriteriaServiceProviderId);
@@ -121,7 +118,6 @@ class ServiceProviderGetListRequest extends ComplexType implements ComplexInterf
      */
     public function setSearchCriteriaServiceProviderName(SearchCriteriaServiceProviderName $searchCriteriaServiceProviderName = null)
     {
-        if (!$searchCriteriaServiceProviderName) return $this;
         $this->searchCriteriaServiceProviderName = ($searchCriteriaServiceProviderName InstanceOf SearchCriteriaServiceProviderName)
              ? $searchCriteriaServiceProviderName
              : new SearchCriteriaServiceProviderName($searchCriteriaServiceProviderName);

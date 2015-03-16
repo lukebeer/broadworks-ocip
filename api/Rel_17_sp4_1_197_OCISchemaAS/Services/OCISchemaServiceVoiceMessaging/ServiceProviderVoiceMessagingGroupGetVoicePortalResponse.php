@@ -19,8 +19,8 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderVoiceMessagingGroupGetVoicePortalResponse extends ComplexType implements ComplexInterface
 {
-    public    $name             = 'ServiceProviderVoiceMessagingGroupGetVoicePortalResponse';
-    protected $voicePortalScope = null;
+    public    $name = 'ServiceProviderVoiceMessagingGroupGetVoicePortalResponse';
+    protected $voicePortalScope;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceVoiceMessaging\ServiceProviderVoiceMessagingGroupGetVoicePortalResponse $response
@@ -35,7 +35,6 @@ class ServiceProviderVoiceMessagingGroupGetVoicePortalResponse extends ComplexTy
      */
     public function setVoicePortalScope($voicePortalScope = null)
     {
-        if (!$voicePortalScope) return $this;
         $this->voicePortalScope = ($voicePortalScope InstanceOf ServiceProviderVoicePortalScope)
              ? $voicePortalScope
              : new ServiceProviderVoicePortalScope($voicePortalScope);
@@ -49,6 +48,6 @@ class ServiceProviderVoiceMessagingGroupGetVoicePortalResponse extends ComplexTy
      */
     public function getVoicePortalScope()
     {
-        return $this->voicePortalScope->getValue();
+        return ($this->voicePortalScope) ? $this->voicePortalScope->getValue() : null;
     }
 }

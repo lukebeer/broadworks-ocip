@@ -20,8 +20,8 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemSIPGetACLListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name     = 'SystemSIPGetACLListResponse';
-    protected $aclTable = null;
+    public    $name = 'SystemSIPGetACLListResponse';
+    protected $aclTable;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemSIPGetACLListResponse $response
@@ -36,7 +36,6 @@ class SystemSIPGetACLListResponse extends ComplexType implements ComplexInterfac
      */
     public function setAclTable(TableType $aclTable = null)
     {
-        if (!$aclTable) return $this;
         $this->aclTable = $aclTable;
         $this->aclTable->setName('aclTable');
         return $this;

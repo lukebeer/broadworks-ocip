@@ -20,12 +20,12 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class InstantConferencingRecurrenceScheduleWeekly extends ComplexType implements ComplexInterface
 {
-    public    $name                   = 'InstantConferencingRecurrenceScheduleWeekly';
-    protected $recurrenceWeekInterval = null;
-    protected $dayOfWeek              = null;
+    public    $name = 'InstantConferencingRecurrenceScheduleWeekly';
+    protected $recurrenceWeekInterval;
+    protected $dayOfWeek;
 
     public function __construct(
-         $recurrenceWeekInterval,
+         $recurrenceWeekInterval = '',
          $dayOfWeek = null
     ) {
         $this->setRecurrenceWeekInterval($recurrenceWeekInterval);
@@ -45,7 +45,6 @@ class InstantConferencingRecurrenceScheduleWeekly extends ComplexType implements
      */
     public function setRecurrenceWeekInterval($recurrenceWeekInterval = null)
     {
-        if (!$recurrenceWeekInterval) return $this;
         $this->recurrenceWeekInterval = ($recurrenceWeekInterval InstanceOf InstantConferencingRecurrenceWeekInterval)
              ? $recurrenceWeekInterval
              : new InstantConferencingRecurrenceWeekInterval($recurrenceWeekInterval);
@@ -59,7 +58,7 @@ class InstantConferencingRecurrenceScheduleWeekly extends ComplexType implements
      */
     public function getRecurrenceWeekInterval()
     {
-        return $this->recurrenceWeekInterval->getValue();
+        return ($this->recurrenceWeekInterval) ? $this->recurrenceWeekInterval->getValue() : null;
     }
 
     /**
@@ -67,7 +66,6 @@ class InstantConferencingRecurrenceScheduleWeekly extends ComplexType implements
      */
     public function setDayOfWeek($dayOfWeek = null)
     {
-        if (!$dayOfWeek) return $this;
         $this->dayOfWeek = ($dayOfWeek InstanceOf DayOfWeek)
              ? $dayOfWeek
              : new DayOfWeek($dayOfWeek);
@@ -81,6 +79,6 @@ class InstantConferencingRecurrenceScheduleWeekly extends ComplexType implements
      */
     public function getDayOfWeek()
     {
-        return $this->dayOfWeek->getValue();
+        return ($this->dayOfWeek) ? $this->dayOfWeek->getValue() : null;
     }
 }

@@ -29,30 +29,30 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupCallCenterNightServiceModifyRequest17sp1 extends ComplexType implements ComplexInterface
 {
-    public    $name                         = 'GroupCallCenterNightServiceModifyRequest17sp1';
-    protected $serviceUserId                = null;
-    protected $action                       = null;
-    protected $businessHours                = null;
-    protected $forceNightService            = null;
-    protected $allowManualOverrideViaFAC    = null;
-    protected $transferPhoneNumber          = null;
-    protected $playAnnouncementBeforeAction = null;
-    protected $audioMessageSelection        = null;
-    protected $audioUrlList                 = null;
-    protected $audioFileList                = null;
-    protected $videoMessageSelection        = null;
-    protected $videoUrlList                 = null;
-    protected $videoFileList                = null;
-    protected $manualAnnouncementMode       = null;
-    protected $manualAudioMessageSelection  = null;
-    protected $manualAudioUrlList           = null;
-    protected $manualAudioFileList          = null;
-    protected $manualVideoMessageSelection  = null;
-    protected $manualVideoUrlList           = null;
-    protected $manualVideoFileList          = null;
+    public    $name = 'GroupCallCenterNightServiceModifyRequest17sp1';
+    protected $serviceUserId;
+    protected $action;
+    protected $businessHours;
+    protected $forceNightService;
+    protected $allowManualOverrideViaFAC;
+    protected $transferPhoneNumber;
+    protected $playAnnouncementBeforeAction;
+    protected $audioMessageSelection;
+    protected $audioUrlList;
+    protected $audioFileList;
+    protected $videoMessageSelection;
+    protected $videoUrlList;
+    protected $videoFileList;
+    protected $manualAnnouncementMode;
+    protected $manualAudioMessageSelection;
+    protected $manualAudioUrlList;
+    protected $manualAudioFileList;
+    protected $manualVideoMessageSelection;
+    protected $manualVideoUrlList;
+    protected $manualVideoFileList;
 
     public function __construct(
-         $serviceUserId,
+         $serviceUserId = '',
          $action = null,
          TimeSchedule $businessHours = null,
          $forceNightService = null,
@@ -108,7 +108,6 @@ class GroupCallCenterNightServiceModifyRequest17sp1 extends ComplexType implemen
      */
     public function setServiceUserId($serviceUserId = null)
     {
-        if (!$serviceUserId) return $this;
         $this->serviceUserId = ($serviceUserId InstanceOf UserId)
              ? $serviceUserId
              : new UserId($serviceUserId);
@@ -122,7 +121,7 @@ class GroupCallCenterNightServiceModifyRequest17sp1 extends ComplexType implemen
      */
     public function getServiceUserId()
     {
-        return $this->serviceUserId->getValue();
+        return ($this->serviceUserId) ? $this->serviceUserId->getValue() : null;
     }
 
     /**
@@ -130,7 +129,6 @@ class GroupCallCenterNightServiceModifyRequest17sp1 extends ComplexType implemen
      */
     public function setAction($action = null)
     {
-        if (!$action) return $this;
         $this->action = ($action InstanceOf CallCenterScheduledServiceAction)
              ? $action
              : new CallCenterScheduledServiceAction($action);
@@ -144,7 +142,7 @@ class GroupCallCenterNightServiceModifyRequest17sp1 extends ComplexType implemen
      */
     public function getAction()
     {
-        return $this->action->getValue();
+        return ($this->action) ? $this->action->getValue() : null;
     }
 
     /**
@@ -152,8 +150,9 @@ class GroupCallCenterNightServiceModifyRequest17sp1 extends ComplexType implemen
      */
     public function setBusinessHours(TimeSchedule $businessHours = null)
     {
-        if (!$businessHours) return $this;
-        $this->businessHours = $businessHours;
+        $this->businessHours = ($businessHours InstanceOf TimeSchedule)
+             ? $businessHours
+             : new TimeSchedule($businessHours);
         $this->businessHours->setName('businessHours');
         return $this;
     }
@@ -172,7 +171,6 @@ class GroupCallCenterNightServiceModifyRequest17sp1 extends ComplexType implemen
      */
     public function setForceNightService($forceNightService = null)
     {
-        if (!$forceNightService) return $this;
         $this->forceNightService = new PrimitiveType($forceNightService);
         $this->forceNightService->setName('forceNightService');
         return $this;
@@ -184,7 +182,7 @@ class GroupCallCenterNightServiceModifyRequest17sp1 extends ComplexType implemen
      */
     public function getForceNightService()
     {
-        return $this->forceNightService->getValue();
+        return ($this->forceNightService) ? $this->forceNightService->getValue() : null;
     }
 
     /**
@@ -192,7 +190,6 @@ class GroupCallCenterNightServiceModifyRequest17sp1 extends ComplexType implemen
      */
     public function setAllowManualOverrideViaFAC($allowManualOverrideViaFAC = null)
     {
-        if (!$allowManualOverrideViaFAC) return $this;
         $this->allowManualOverrideViaFAC = new PrimitiveType($allowManualOverrideViaFAC);
         $this->allowManualOverrideViaFAC->setName('allowManualOverrideViaFAC');
         return $this;
@@ -204,7 +201,7 @@ class GroupCallCenterNightServiceModifyRequest17sp1 extends ComplexType implemen
      */
     public function getAllowManualOverrideViaFAC()
     {
-        return $this->allowManualOverrideViaFAC->getValue();
+        return ($this->allowManualOverrideViaFAC) ? $this->allowManualOverrideViaFAC->getValue() : null;
     }
 
     /**
@@ -212,7 +209,6 @@ class GroupCallCenterNightServiceModifyRequest17sp1 extends ComplexType implemen
      */
     public function setTransferPhoneNumber($transferPhoneNumber = null)
     {
-        if (!$transferPhoneNumber) return $this;
         $this->transferPhoneNumber = ($transferPhoneNumber InstanceOf OutgoingDNorSIPURI)
              ? $transferPhoneNumber
              : new OutgoingDNorSIPURI($transferPhoneNumber);
@@ -226,7 +222,7 @@ class GroupCallCenterNightServiceModifyRequest17sp1 extends ComplexType implemen
      */
     public function getTransferPhoneNumber()
     {
-        return $this->transferPhoneNumber->getValue();
+        return ($this->transferPhoneNumber) ? $this->transferPhoneNumber->getValue() : null;
     }
 
     /**
@@ -234,7 +230,6 @@ class GroupCallCenterNightServiceModifyRequest17sp1 extends ComplexType implemen
      */
     public function setPlayAnnouncementBeforeAction($playAnnouncementBeforeAction = null)
     {
-        if (!$playAnnouncementBeforeAction) return $this;
         $this->playAnnouncementBeforeAction = new PrimitiveType($playAnnouncementBeforeAction);
         $this->playAnnouncementBeforeAction->setName('playAnnouncementBeforeAction');
         return $this;
@@ -246,7 +241,7 @@ class GroupCallCenterNightServiceModifyRequest17sp1 extends ComplexType implemen
      */
     public function getPlayAnnouncementBeforeAction()
     {
-        return $this->playAnnouncementBeforeAction->getValue();
+        return ($this->playAnnouncementBeforeAction) ? $this->playAnnouncementBeforeAction->getValue() : null;
     }
 
     /**
@@ -254,7 +249,6 @@ class GroupCallCenterNightServiceModifyRequest17sp1 extends ComplexType implemen
      */
     public function setAudioMessageSelection($audioMessageSelection = null)
     {
-        if (!$audioMessageSelection) return $this;
         $this->audioMessageSelection = ($audioMessageSelection InstanceOf ExtendedFileResourceSelection)
              ? $audioMessageSelection
              : new ExtendedFileResourceSelection($audioMessageSelection);
@@ -268,7 +262,7 @@ class GroupCallCenterNightServiceModifyRequest17sp1 extends ComplexType implemen
      */
     public function getAudioMessageSelection()
     {
-        return $this->audioMessageSelection->getValue();
+        return ($this->audioMessageSelection) ? $this->audioMessageSelection->getValue() : null;
     }
 
     /**
@@ -276,8 +270,9 @@ class GroupCallCenterNightServiceModifyRequest17sp1 extends ComplexType implemen
      */
     public function setAudioUrlList(CallCenterAnnouncementURLListModify $audioUrlList = null)
     {
-        if (!$audioUrlList) return $this;
-        $this->audioUrlList = $audioUrlList;
+        $this->audioUrlList = ($audioUrlList InstanceOf CallCenterAnnouncementURLListModify)
+             ? $audioUrlList
+             : new CallCenterAnnouncementURLListModify($audioUrlList);
         $this->audioUrlList->setName('audioUrlList');
         return $this;
     }
@@ -296,8 +291,9 @@ class GroupCallCenterNightServiceModifyRequest17sp1 extends ComplexType implemen
      */
     public function setAudioFileList(CallCenterAnnouncementFileListModify $audioFileList = null)
     {
-        if (!$audioFileList) return $this;
-        $this->audioFileList = $audioFileList;
+        $this->audioFileList = ($audioFileList InstanceOf CallCenterAnnouncementFileListModify)
+             ? $audioFileList
+             : new CallCenterAnnouncementFileListModify($audioFileList);
         $this->audioFileList->setName('audioFileList');
         return $this;
     }
@@ -316,7 +312,6 @@ class GroupCallCenterNightServiceModifyRequest17sp1 extends ComplexType implemen
      */
     public function setVideoMessageSelection($videoMessageSelection = null)
     {
-        if (!$videoMessageSelection) return $this;
         $this->videoMessageSelection = ($videoMessageSelection InstanceOf ExtendedFileResourceSelection)
              ? $videoMessageSelection
              : new ExtendedFileResourceSelection($videoMessageSelection);
@@ -330,7 +325,7 @@ class GroupCallCenterNightServiceModifyRequest17sp1 extends ComplexType implemen
      */
     public function getVideoMessageSelection()
     {
-        return $this->videoMessageSelection->getValue();
+        return ($this->videoMessageSelection) ? $this->videoMessageSelection->getValue() : null;
     }
 
     /**
@@ -338,8 +333,9 @@ class GroupCallCenterNightServiceModifyRequest17sp1 extends ComplexType implemen
      */
     public function setVideoUrlList(CallCenterAnnouncementURLListModify $videoUrlList = null)
     {
-        if (!$videoUrlList) return $this;
-        $this->videoUrlList = $videoUrlList;
+        $this->videoUrlList = ($videoUrlList InstanceOf CallCenterAnnouncementURLListModify)
+             ? $videoUrlList
+             : new CallCenterAnnouncementURLListModify($videoUrlList);
         $this->videoUrlList->setName('videoUrlList');
         return $this;
     }
@@ -358,8 +354,9 @@ class GroupCallCenterNightServiceModifyRequest17sp1 extends ComplexType implemen
      */
     public function setVideoFileList(CallCenterAnnouncementFileListModify $videoFileList = null)
     {
-        if (!$videoFileList) return $this;
-        $this->videoFileList = $videoFileList;
+        $this->videoFileList = ($videoFileList InstanceOf CallCenterAnnouncementFileListModify)
+             ? $videoFileList
+             : new CallCenterAnnouncementFileListModify($videoFileList);
         $this->videoFileList->setName('videoFileList');
         return $this;
     }
@@ -378,7 +375,6 @@ class GroupCallCenterNightServiceModifyRequest17sp1 extends ComplexType implemen
      */
     public function setManualAnnouncementMode($manualAnnouncementMode = null)
     {
-        if (!$manualAnnouncementMode) return $this;
         $this->manualAnnouncementMode = ($manualAnnouncementMode InstanceOf CallCenterManualNightServiceAnnouncementMode)
              ? $manualAnnouncementMode
              : new CallCenterManualNightServiceAnnouncementMode($manualAnnouncementMode);
@@ -392,7 +388,7 @@ class GroupCallCenterNightServiceModifyRequest17sp1 extends ComplexType implemen
      */
     public function getManualAnnouncementMode()
     {
-        return $this->manualAnnouncementMode->getValue();
+        return ($this->manualAnnouncementMode) ? $this->manualAnnouncementMode->getValue() : null;
     }
 
     /**
@@ -400,7 +396,6 @@ class GroupCallCenterNightServiceModifyRequest17sp1 extends ComplexType implemen
      */
     public function setManualAudioMessageSelection($manualAudioMessageSelection = null)
     {
-        if (!$manualAudioMessageSelection) return $this;
         $this->manualAudioMessageSelection = ($manualAudioMessageSelection InstanceOf ExtendedFileResourceSelection)
              ? $manualAudioMessageSelection
              : new ExtendedFileResourceSelection($manualAudioMessageSelection);
@@ -414,7 +409,7 @@ class GroupCallCenterNightServiceModifyRequest17sp1 extends ComplexType implemen
      */
     public function getManualAudioMessageSelection()
     {
-        return $this->manualAudioMessageSelection->getValue();
+        return ($this->manualAudioMessageSelection) ? $this->manualAudioMessageSelection->getValue() : null;
     }
 
     /**
@@ -422,8 +417,9 @@ class GroupCallCenterNightServiceModifyRequest17sp1 extends ComplexType implemen
      */
     public function setManualAudioUrlList(CallCenterAnnouncementURLListModify $manualAudioUrlList = null)
     {
-        if (!$manualAudioUrlList) return $this;
-        $this->manualAudioUrlList = $manualAudioUrlList;
+        $this->manualAudioUrlList = ($manualAudioUrlList InstanceOf CallCenterAnnouncementURLListModify)
+             ? $manualAudioUrlList
+             : new CallCenterAnnouncementURLListModify($manualAudioUrlList);
         $this->manualAudioUrlList->setName('manualAudioUrlList');
         return $this;
     }
@@ -442,8 +438,9 @@ class GroupCallCenterNightServiceModifyRequest17sp1 extends ComplexType implemen
      */
     public function setManualAudioFileList(CallCenterAnnouncementFileListModify $manualAudioFileList = null)
     {
-        if (!$manualAudioFileList) return $this;
-        $this->manualAudioFileList = $manualAudioFileList;
+        $this->manualAudioFileList = ($manualAudioFileList InstanceOf CallCenterAnnouncementFileListModify)
+             ? $manualAudioFileList
+             : new CallCenterAnnouncementFileListModify($manualAudioFileList);
         $this->manualAudioFileList->setName('manualAudioFileList');
         return $this;
     }
@@ -462,7 +459,6 @@ class GroupCallCenterNightServiceModifyRequest17sp1 extends ComplexType implemen
      */
     public function setManualVideoMessageSelection($manualVideoMessageSelection = null)
     {
-        if (!$manualVideoMessageSelection) return $this;
         $this->manualVideoMessageSelection = ($manualVideoMessageSelection InstanceOf ExtendedFileResourceSelection)
              ? $manualVideoMessageSelection
              : new ExtendedFileResourceSelection($manualVideoMessageSelection);
@@ -476,7 +472,7 @@ class GroupCallCenterNightServiceModifyRequest17sp1 extends ComplexType implemen
      */
     public function getManualVideoMessageSelection()
     {
-        return $this->manualVideoMessageSelection->getValue();
+        return ($this->manualVideoMessageSelection) ? $this->manualVideoMessageSelection->getValue() : null;
     }
 
     /**
@@ -484,8 +480,9 @@ class GroupCallCenterNightServiceModifyRequest17sp1 extends ComplexType implemen
      */
     public function setManualVideoUrlList(CallCenterAnnouncementURLListModify $manualVideoUrlList = null)
     {
-        if (!$manualVideoUrlList) return $this;
-        $this->manualVideoUrlList = $manualVideoUrlList;
+        $this->manualVideoUrlList = ($manualVideoUrlList InstanceOf CallCenterAnnouncementURLListModify)
+             ? $manualVideoUrlList
+             : new CallCenterAnnouncementURLListModify($manualVideoUrlList);
         $this->manualVideoUrlList->setName('manualVideoUrlList');
         return $this;
     }
@@ -504,8 +501,9 @@ class GroupCallCenterNightServiceModifyRequest17sp1 extends ComplexType implemen
      */
     public function setManualVideoFileList(CallCenterAnnouncementFileListModify $manualVideoFileList = null)
     {
-        if (!$manualVideoFileList) return $this;
-        $this->manualVideoFileList = $manualVideoFileList;
+        $this->manualVideoFileList = ($manualVideoFileList InstanceOf CallCenterAnnouncementFileListModify)
+             ? $manualVideoFileList
+             : new CallCenterAnnouncementFileListModify($manualVideoFileList);
         $this->manualVideoFileList->setName('manualVideoFileList');
         return $this;
     }

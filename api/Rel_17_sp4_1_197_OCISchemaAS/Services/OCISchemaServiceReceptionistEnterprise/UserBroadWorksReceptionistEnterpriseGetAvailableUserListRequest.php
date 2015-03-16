@@ -26,16 +26,16 @@ use Broadworks_OCIP\core\Client\Client;
 class UserBroadWorksReceptionistEnterpriseGetAvailableUserListRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType                      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceReceptionistEnterprise\UserBroadWorksReceptionistEnterpriseGetAvailableUserListResponse';
-    public    $name                              = 'UserBroadWorksReceptionistEnterpriseGetAvailableUserListRequest';
-    protected $userId                            = null;
-    protected $responseSizeLimit                 = null;
-    protected $searchCriteriaUserLastName        = null;
-    protected $searchCriteriaUserFirstName       = null;
-    protected $searchCriteriaExactUserDepartment = null;
-    protected $searchCriteriaExactUserGroup      = null;
+    public    $name = 'UserBroadWorksReceptionistEnterpriseGetAvailableUserListRequest';
+    protected $userId;
+    protected $responseSizeLimit;
+    protected $searchCriteriaUserLastName;
+    protected $searchCriteriaUserFirstName;
+    protected $searchCriteriaExactUserDepartment;
+    protected $searchCriteriaExactUserGroup;
 
     public function __construct(
-         $userId,
+         $userId = '',
          $responseSizeLimit = null,
          SearchCriteriaUserLastName $searchCriteriaUserLastName = null,
          SearchCriteriaUserFirstName $searchCriteriaUserFirstName = null,
@@ -63,7 +63,6 @@ class UserBroadWorksReceptionistEnterpriseGetAvailableUserListRequest extends Co
      */
     public function setUserId($userId = null)
     {
-        if (!$userId) return $this;
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
@@ -77,7 +76,7 @@ class UserBroadWorksReceptionistEnterpriseGetAvailableUserListRequest extends Co
      */
     public function getUserId()
     {
-        return $this->userId->getValue();
+        return ($this->userId) ? $this->userId->getValue() : null;
     }
 
     /**
@@ -85,7 +84,6 @@ class UserBroadWorksReceptionistEnterpriseGetAvailableUserListRequest extends Co
      */
     public function setResponseSizeLimit($responseSizeLimit = null)
     {
-        if (!$responseSizeLimit) return $this;
         $this->responseSizeLimit = ($responseSizeLimit InstanceOf ResponseSizeLimit)
              ? $responseSizeLimit
              : new ResponseSizeLimit($responseSizeLimit);
@@ -99,7 +97,7 @@ class UserBroadWorksReceptionistEnterpriseGetAvailableUserListRequest extends Co
      */
     public function getResponseSizeLimit()
     {
-        return $this->responseSizeLimit->getValue();
+        return ($this->responseSizeLimit) ? $this->responseSizeLimit->getValue() : null;
     }
 
     /**
@@ -107,7 +105,6 @@ class UserBroadWorksReceptionistEnterpriseGetAvailableUserListRequest extends Co
      */
     public function setSearchCriteriaUserLastName(SearchCriteriaUserLastName $searchCriteriaUserLastName = null)
     {
-        if (!$searchCriteriaUserLastName) return $this;
         $this->searchCriteriaUserLastName = ($searchCriteriaUserLastName InstanceOf SearchCriteriaUserLastName)
              ? $searchCriteriaUserLastName
              : new SearchCriteriaUserLastName($searchCriteriaUserLastName);
@@ -129,7 +126,6 @@ class UserBroadWorksReceptionistEnterpriseGetAvailableUserListRequest extends Co
      */
     public function setSearchCriteriaUserFirstName(SearchCriteriaUserFirstName $searchCriteriaUserFirstName = null)
     {
-        if (!$searchCriteriaUserFirstName) return $this;
         $this->searchCriteriaUserFirstName = ($searchCriteriaUserFirstName InstanceOf SearchCriteriaUserFirstName)
              ? $searchCriteriaUserFirstName
              : new SearchCriteriaUserFirstName($searchCriteriaUserFirstName);
@@ -151,7 +147,6 @@ class UserBroadWorksReceptionistEnterpriseGetAvailableUserListRequest extends Co
      */
     public function setSearchCriteriaExactUserDepartment(SearchCriteriaExactUserDepartment $searchCriteriaExactUserDepartment = null)
     {
-        if (!$searchCriteriaExactUserDepartment) return $this;
         $this->searchCriteriaExactUserDepartment = ($searchCriteriaExactUserDepartment InstanceOf SearchCriteriaExactUserDepartment)
              ? $searchCriteriaExactUserDepartment
              : new SearchCriteriaExactUserDepartment($searchCriteriaExactUserDepartment);
@@ -173,7 +168,6 @@ class UserBroadWorksReceptionistEnterpriseGetAvailableUserListRequest extends Co
      */
     public function setSearchCriteriaExactUserGroup(SearchCriteriaExactUserGroup $searchCriteriaExactUserGroup = null)
     {
-        if (!$searchCriteriaExactUserGroup) return $this;
         $this->searchCriteriaExactUserGroup = ($searchCriteriaExactUserGroup InstanceOf SearchCriteriaExactUserGroup)
              ? $searchCriteriaExactUserGroup
              : new SearchCriteriaExactUserGroup($searchCriteriaExactUserGroup);

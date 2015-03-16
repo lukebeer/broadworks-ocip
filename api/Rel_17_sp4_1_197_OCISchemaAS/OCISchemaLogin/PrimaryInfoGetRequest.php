@@ -20,13 +20,13 @@ use Broadworks_OCIP\core\Client\Client;
 class PrimaryInfoGetRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType           = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaLogin\PrimaryInfoGetResponse';
-    public    $name                   = 'PrimaryInfoGetRequest';
-    protected $isPrivate              = null;
-    protected $isAddressInfoRequested = null;
+    public    $name = 'PrimaryInfoGetRequest';
+    protected $isPrivate;
+    protected $isAddressInfoRequested;
 
     public function __construct(
-         $isPrivate,
-         $isAddressInfoRequested
+         $isPrivate = '',
+         $isAddressInfoRequested = ''
     ) {
         $this->setIsPrivate($isPrivate);
         $this->setIsAddressInfoRequested($isAddressInfoRequested);
@@ -45,7 +45,6 @@ class PrimaryInfoGetRequest extends ComplexType implements ComplexInterface
      */
     public function setIsPrivate($isPrivate = null)
     {
-        if (!$isPrivate) return $this;
         $this->isPrivate = new PrimitiveType($isPrivate);
         $this->isPrivate->setName('isPrivate');
         return $this;
@@ -57,7 +56,7 @@ class PrimaryInfoGetRequest extends ComplexType implements ComplexInterface
      */
     public function getIsPrivate()
     {
-        return $this->isPrivate->getValue();
+        return ($this->isPrivate) ? $this->isPrivate->getValue() : null;
     }
 
     /**
@@ -68,7 +67,6 @@ class PrimaryInfoGetRequest extends ComplexType implements ComplexInterface
      */
     public function setIsAddressInfoRequested($isAddressInfoRequested = null)
     {
-        if (!$isAddressInfoRequested) return $this;
         $this->isAddressInfoRequested = new PrimitiveType($isAddressInfoRequested);
         $this->isAddressInfoRequested->setName('isAddressInfoRequested');
         return $this;
@@ -83,6 +81,6 @@ class PrimaryInfoGetRequest extends ComplexType implements ComplexInterface
      */
     public function getIsAddressInfoRequested()
     {
-        return $this->isAddressInfoRequested->getValue();
+        return ($this->isAddressInfoRequested) ? $this->isAddressInfoRequested->getValue() : null;
     }
 }

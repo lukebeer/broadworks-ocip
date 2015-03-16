@@ -19,13 +19,13 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class InstantConferencingRecordingKey extends ComplexType implements ComplexInterface
 {
-    public    $name                = 'InstantConferencingRecordingKey';
-    protected $bridgeServiceUserId = null;
-    protected $recordingId         = null;
+    public    $name = 'InstantConferencingRecordingKey';
+    protected $bridgeServiceUserId;
+    protected $recordingId;
 
     public function __construct(
-         $bridgeServiceUserId,
-         $recordingId
+         $bridgeServiceUserId = '',
+         $recordingId = ''
     ) {
         $this->setBridgeServiceUserId($bridgeServiceUserId);
         $this->setRecordingId($recordingId);
@@ -44,7 +44,6 @@ class InstantConferencingRecordingKey extends ComplexType implements ComplexInte
      */
     public function setBridgeServiceUserId($bridgeServiceUserId = null)
     {
-        if (!$bridgeServiceUserId) return $this;
         $this->bridgeServiceUserId = new SimpleContent($bridgeServiceUserId);
         $this->bridgeServiceUserId->setName('bridgeServiceUserId');
         return $this;
@@ -56,7 +55,7 @@ class InstantConferencingRecordingKey extends ComplexType implements ComplexInte
      */
     public function getBridgeServiceUserId()
     {
-        return $this->bridgeServiceUserId->getValue();
+        return ($this->bridgeServiceUserId) ? $this->bridgeServiceUserId->getValue() : null;
     }
 
     /**
@@ -64,7 +63,6 @@ class InstantConferencingRecordingKey extends ComplexType implements ComplexInte
      */
     public function setRecordingId($recordingId = null)
     {
-        if (!$recordingId) return $this;
         $this->recordingId = new SimpleContent($recordingId);
         $this->recordingId->setName('recordingId');
         return $this;
@@ -76,6 +74,6 @@ class InstantConferencingRecordingKey extends ComplexType implements ComplexInte
      */
     public function getRecordingId()
     {
-        return $this->recordingId->getValue();
+        return ($this->recordingId) ? $this->recordingId->getValue() : null;
     }
 }

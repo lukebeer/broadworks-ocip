@@ -20,11 +20,11 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupRoutePointQueueCallDispositionCodeSettingsGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                           = 'GroupRoutePointQueueCallDispositionCodeSettingsGetResponse';
-    protected $enableCallDispositionCodes     = null;
-    protected $includeOrganizationCodes       = null;
-    protected $forceUseOfCallDispositionCodes = null;
-    protected $defaultCallDispositionCode     = null;
+    public    $name = 'GroupRoutePointQueueCallDispositionCodeSettingsGetResponse';
+    protected $enableCallDispositionCodes;
+    protected $includeOrganizationCodes;
+    protected $forceUseOfCallDispositionCodes;
+    protected $defaultCallDispositionCode;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceRoutePoint\GroupRoutePointQueueCallDispositionCodeSettingsGetResponse $response
@@ -39,7 +39,6 @@ class GroupRoutePointQueueCallDispositionCodeSettingsGetResponse extends Complex
      */
     public function setEnableCallDispositionCodes($enableCallDispositionCodes = null)
     {
-        if (!$enableCallDispositionCodes) return $this;
         $this->enableCallDispositionCodes = new PrimitiveType($enableCallDispositionCodes);
         $this->enableCallDispositionCodes->setName('enableCallDispositionCodes');
         return $this;
@@ -51,7 +50,7 @@ class GroupRoutePointQueueCallDispositionCodeSettingsGetResponse extends Complex
      */
     public function getEnableCallDispositionCodes()
     {
-        return $this->enableCallDispositionCodes->getValue();
+        return ($this->enableCallDispositionCodes) ? $this->enableCallDispositionCodes->getValue() : null;
     }
 
     /**
@@ -59,7 +58,6 @@ class GroupRoutePointQueueCallDispositionCodeSettingsGetResponse extends Complex
      */
     public function setIncludeOrganizationCodes($includeOrganizationCodes = null)
     {
-        if (!$includeOrganizationCodes) return $this;
         $this->includeOrganizationCodes = new PrimitiveType($includeOrganizationCodes);
         $this->includeOrganizationCodes->setName('includeOrganizationCodes');
         return $this;
@@ -71,7 +69,7 @@ class GroupRoutePointQueueCallDispositionCodeSettingsGetResponse extends Complex
      */
     public function getIncludeOrganizationCodes()
     {
-        return $this->includeOrganizationCodes->getValue();
+        return ($this->includeOrganizationCodes) ? $this->includeOrganizationCodes->getValue() : null;
     }
 
     /**
@@ -79,7 +77,6 @@ class GroupRoutePointQueueCallDispositionCodeSettingsGetResponse extends Complex
      */
     public function setForceUseOfCallDispositionCodes($forceUseOfCallDispositionCodes = null)
     {
-        if (!$forceUseOfCallDispositionCodes) return $this;
         $this->forceUseOfCallDispositionCodes = new PrimitiveType($forceUseOfCallDispositionCodes);
         $this->forceUseOfCallDispositionCodes->setName('forceUseOfCallDispositionCodes');
         return $this;
@@ -91,7 +88,7 @@ class GroupRoutePointQueueCallDispositionCodeSettingsGetResponse extends Complex
      */
     public function getForceUseOfCallDispositionCodes()
     {
-        return $this->forceUseOfCallDispositionCodes->getValue();
+        return ($this->forceUseOfCallDispositionCodes) ? $this->forceUseOfCallDispositionCodes->getValue() : null;
     }
 
     /**
@@ -99,8 +96,9 @@ class GroupRoutePointQueueCallDispositionCodeSettingsGetResponse extends Complex
      */
     public function setDefaultCallDispositionCode(CallDispositionCodeWithLevel $defaultCallDispositionCode = null)
     {
-        if (!$defaultCallDispositionCode) return $this;
-        $this->defaultCallDispositionCode = $defaultCallDispositionCode;
+        $this->defaultCallDispositionCode = ($defaultCallDispositionCode InstanceOf CallDispositionCodeWithLevel)
+             ? $defaultCallDispositionCode
+             : new CallDispositionCodeWithLevel($defaultCallDispositionCode);
         $this->defaultCallDispositionCode->setName('defaultCallDispositionCode');
         return $this;
     }

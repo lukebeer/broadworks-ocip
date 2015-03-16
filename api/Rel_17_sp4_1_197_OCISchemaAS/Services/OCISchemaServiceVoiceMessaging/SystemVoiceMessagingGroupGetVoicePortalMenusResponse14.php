@@ -19,34 +19,34 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemVoiceMessagingGroupGetVoicePortalMenusResponse14 extends ComplexType implements ComplexInterface
 {
-    public    $name                                              = 'SystemVoiceMessagingGroupGetVoicePortalMenusResponse14';
-    protected $useVoicePortalCustomization                       = null;
-    protected $voicePortalMainMenuKeys                           = null;
-    protected $voiceMessagingMenuKeys                            = null;
-    protected $changeBusyOrNoAnswerGreetingMenuKeys              = null;
-    protected $recordNewGreetingOrPersonalizedNameMenuKeys       = null;
-    protected $deleteAllMessagesMenuKeys                         = null;
-    protected $commPilotExpressProfileMenuKeys                   = null;
-    protected $personalizedNameMenuKeys                          = null;
-    protected $callForwardingOptionsMenuKeys                     = null;
-    protected $changeCallForwardingDestinationMenuKeys           = null;
-    protected $voicePortalCallingMenuKeys                        = null;
-    protected $hotelingMenuKeys                                  = null;
-    protected $passcodeMenuKeys                                  = null;
-    protected $playMessagesMenuKeys                              = null;
-    protected $playMessageMenuKeys                               = null;
-    protected $additionalMessageOptionsMenuKeys                  = null;
-    protected $forwardOrComposeMessageMenuKeys                   = null;
-    protected $replyMessageMenuKeys                              = null;
-    protected $sendToDistributionListMenuKeys                    = null;
-    protected $selectDistributionListMenuKeys                    = null;
-    protected $reviewSelectedDistributionListMenuKeys            = null;
-    protected $sendMessageToSelectedDistributionListMenuKeys     = null;
-    protected $sendToAllGroupMembersMenuKeys                     = null;
-    protected $sendToPersonMenuKeys                              = null;
-    protected $changeCurrentIntroductionOrMessageOrReplyMenuKeys = null;
-    protected $voicePortalLoginMenuKeys                          = null;
-    protected $faxMessagingMenuKeys                              = null;
+    public    $name = 'SystemVoiceMessagingGroupGetVoicePortalMenusResponse14';
+    protected $useVoicePortalCustomization;
+    protected $voicePortalMainMenuKeys;
+    protected $voiceMessagingMenuKeys;
+    protected $changeBusyOrNoAnswerGreetingMenuKeys;
+    protected $recordNewGreetingOrPersonalizedNameMenuKeys;
+    protected $deleteAllMessagesMenuKeys;
+    protected $commPilotExpressProfileMenuKeys;
+    protected $personalizedNameMenuKeys;
+    protected $callForwardingOptionsMenuKeys;
+    protected $changeCallForwardingDestinationMenuKeys;
+    protected $voicePortalCallingMenuKeys;
+    protected $hotelingMenuKeys;
+    protected $passcodeMenuKeys;
+    protected $playMessagesMenuKeys;
+    protected $playMessageMenuKeys;
+    protected $additionalMessageOptionsMenuKeys;
+    protected $forwardOrComposeMessageMenuKeys;
+    protected $replyMessageMenuKeys;
+    protected $sendToDistributionListMenuKeys;
+    protected $selectDistributionListMenuKeys;
+    protected $reviewSelectedDistributionListMenuKeys;
+    protected $sendMessageToSelectedDistributionListMenuKeys;
+    protected $sendToAllGroupMembersMenuKeys;
+    protected $sendToPersonMenuKeys;
+    protected $changeCurrentIntroductionOrMessageOrReplyMenuKeys;
+    protected $voicePortalLoginMenuKeys;
+    protected $faxMessagingMenuKeys;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceVoiceMessaging\SystemVoiceMessagingGroupGetVoicePortalMenusResponse14 $response
@@ -61,7 +61,6 @@ class SystemVoiceMessagingGroupGetVoicePortalMenusResponse14 extends ComplexType
      */
     public function setUseVoicePortalCustomization($useVoicePortalCustomization = null)
     {
-        if (!$useVoicePortalCustomization) return $this;
         $this->useVoicePortalCustomization = new PrimitiveType($useVoicePortalCustomization);
         $this->useVoicePortalCustomization->setName('useVoicePortalCustomization');
         return $this;
@@ -73,7 +72,7 @@ class SystemVoiceMessagingGroupGetVoicePortalMenusResponse14 extends ComplexType
      */
     public function getUseVoicePortalCustomization()
     {
-        return $this->useVoicePortalCustomization->getValue();
+        return ($this->useVoicePortalCustomization) ? $this->useVoicePortalCustomization->getValue() : null;
     }
 
     /**
@@ -81,7 +80,6 @@ class SystemVoiceMessagingGroupGetVoicePortalMenusResponse14 extends ComplexType
      */
     public function setVoicePortalMainMenuKeys($voicePortalMainMenuKeys = null)
     {
-        if (!$voicePortalMainMenuKeys) return $this;
         $this->voicePortalMainMenuKeys->setName('voicePortalMainMenuKeys');
         return $this;
     }
@@ -92,7 +90,7 @@ class SystemVoiceMessagingGroupGetVoicePortalMenusResponse14 extends ComplexType
      */
     public function getVoicePortalMainMenuKeys()
     {
-        return $this->voicePortalMainMenuKeys->getValue();
+        return ($this->voicePortalMainMenuKeys) ? $this->voicePortalMainMenuKeys->getValue() : null;
     }
 
     /**
@@ -100,7 +98,6 @@ class SystemVoiceMessagingGroupGetVoicePortalMenusResponse14 extends ComplexType
      */
     public function setVoiceMessagingMenuKeys($voiceMessagingMenuKeys = null)
     {
-        if (!$voiceMessagingMenuKeys) return $this;
         $this->voiceMessagingMenuKeys->setName('voiceMessagingMenuKeys');
         return $this;
     }
@@ -111,7 +108,7 @@ class SystemVoiceMessagingGroupGetVoicePortalMenusResponse14 extends ComplexType
      */
     public function getVoiceMessagingMenuKeys()
     {
-        return $this->voiceMessagingMenuKeys->getValue();
+        return ($this->voiceMessagingMenuKeys) ? $this->voiceMessagingMenuKeys->getValue() : null;
     }
 
     /**
@@ -119,7 +116,6 @@ class SystemVoiceMessagingGroupGetVoicePortalMenusResponse14 extends ComplexType
      */
     public function setChangeBusyOrNoAnswerGreetingMenuKeys($changeBusyOrNoAnswerGreetingMenuKeys = null)
     {
-        if (!$changeBusyOrNoAnswerGreetingMenuKeys) return $this;
         $this->changeBusyOrNoAnswerGreetingMenuKeys->setName('changeBusyOrNoAnswerGreetingMenuKeys');
         return $this;
     }
@@ -130,7 +126,7 @@ class SystemVoiceMessagingGroupGetVoicePortalMenusResponse14 extends ComplexType
      */
     public function getChangeBusyOrNoAnswerGreetingMenuKeys()
     {
-        return $this->changeBusyOrNoAnswerGreetingMenuKeys->getValue();
+        return ($this->changeBusyOrNoAnswerGreetingMenuKeys) ? $this->changeBusyOrNoAnswerGreetingMenuKeys->getValue() : null;
     }
 
     /**
@@ -138,7 +134,6 @@ class SystemVoiceMessagingGroupGetVoicePortalMenusResponse14 extends ComplexType
      */
     public function setRecordNewGreetingOrPersonalizedNameMenuKeys($recordNewGreetingOrPersonalizedNameMenuKeys = null)
     {
-        if (!$recordNewGreetingOrPersonalizedNameMenuKeys) return $this;
         $this->recordNewGreetingOrPersonalizedNameMenuKeys->setName('recordNewGreetingOrPersonalizedNameMenuKeys');
         return $this;
     }
@@ -149,7 +144,7 @@ class SystemVoiceMessagingGroupGetVoicePortalMenusResponse14 extends ComplexType
      */
     public function getRecordNewGreetingOrPersonalizedNameMenuKeys()
     {
-        return $this->recordNewGreetingOrPersonalizedNameMenuKeys->getValue();
+        return ($this->recordNewGreetingOrPersonalizedNameMenuKeys) ? $this->recordNewGreetingOrPersonalizedNameMenuKeys->getValue() : null;
     }
 
     /**
@@ -157,7 +152,6 @@ class SystemVoiceMessagingGroupGetVoicePortalMenusResponse14 extends ComplexType
      */
     public function setDeleteAllMessagesMenuKeys($deleteAllMessagesMenuKeys = null)
     {
-        if (!$deleteAllMessagesMenuKeys) return $this;
         $this->deleteAllMessagesMenuKeys->setName('deleteAllMessagesMenuKeys');
         return $this;
     }
@@ -168,7 +162,7 @@ class SystemVoiceMessagingGroupGetVoicePortalMenusResponse14 extends ComplexType
      */
     public function getDeleteAllMessagesMenuKeys()
     {
-        return $this->deleteAllMessagesMenuKeys->getValue();
+        return ($this->deleteAllMessagesMenuKeys) ? $this->deleteAllMessagesMenuKeys->getValue() : null;
     }
 
     /**
@@ -176,7 +170,6 @@ class SystemVoiceMessagingGroupGetVoicePortalMenusResponse14 extends ComplexType
      */
     public function setCommPilotExpressProfileMenuKeys($commPilotExpressProfileMenuKeys = null)
     {
-        if (!$commPilotExpressProfileMenuKeys) return $this;
         $this->commPilotExpressProfileMenuKeys->setName('commPilotExpressProfileMenuKeys');
         return $this;
     }
@@ -187,7 +180,7 @@ class SystemVoiceMessagingGroupGetVoicePortalMenusResponse14 extends ComplexType
      */
     public function getCommPilotExpressProfileMenuKeys()
     {
-        return $this->commPilotExpressProfileMenuKeys->getValue();
+        return ($this->commPilotExpressProfileMenuKeys) ? $this->commPilotExpressProfileMenuKeys->getValue() : null;
     }
 
     /**
@@ -195,7 +188,6 @@ class SystemVoiceMessagingGroupGetVoicePortalMenusResponse14 extends ComplexType
      */
     public function setPersonalizedNameMenuKeys($personalizedNameMenuKeys = null)
     {
-        if (!$personalizedNameMenuKeys) return $this;
         $this->personalizedNameMenuKeys->setName('personalizedNameMenuKeys');
         return $this;
     }
@@ -206,7 +198,7 @@ class SystemVoiceMessagingGroupGetVoicePortalMenusResponse14 extends ComplexType
      */
     public function getPersonalizedNameMenuKeys()
     {
-        return $this->personalizedNameMenuKeys->getValue();
+        return ($this->personalizedNameMenuKeys) ? $this->personalizedNameMenuKeys->getValue() : null;
     }
 
     /**
@@ -214,7 +206,6 @@ class SystemVoiceMessagingGroupGetVoicePortalMenusResponse14 extends ComplexType
      */
     public function setCallForwardingOptionsMenuKeys($callForwardingOptionsMenuKeys = null)
     {
-        if (!$callForwardingOptionsMenuKeys) return $this;
         $this->callForwardingOptionsMenuKeys->setName('callForwardingOptionsMenuKeys');
         return $this;
     }
@@ -225,7 +216,7 @@ class SystemVoiceMessagingGroupGetVoicePortalMenusResponse14 extends ComplexType
      */
     public function getCallForwardingOptionsMenuKeys()
     {
-        return $this->callForwardingOptionsMenuKeys->getValue();
+        return ($this->callForwardingOptionsMenuKeys) ? $this->callForwardingOptionsMenuKeys->getValue() : null;
     }
 
     /**
@@ -233,7 +224,6 @@ class SystemVoiceMessagingGroupGetVoicePortalMenusResponse14 extends ComplexType
      */
     public function setChangeCallForwardingDestinationMenuKeys($changeCallForwardingDestinationMenuKeys = null)
     {
-        if (!$changeCallForwardingDestinationMenuKeys) return $this;
         $this->changeCallForwardingDestinationMenuKeys->setName('changeCallForwardingDestinationMenuKeys');
         return $this;
     }
@@ -244,7 +234,7 @@ class SystemVoiceMessagingGroupGetVoicePortalMenusResponse14 extends ComplexType
      */
     public function getChangeCallForwardingDestinationMenuKeys()
     {
-        return $this->changeCallForwardingDestinationMenuKeys->getValue();
+        return ($this->changeCallForwardingDestinationMenuKeys) ? $this->changeCallForwardingDestinationMenuKeys->getValue() : null;
     }
 
     /**
@@ -252,7 +242,6 @@ class SystemVoiceMessagingGroupGetVoicePortalMenusResponse14 extends ComplexType
      */
     public function setVoicePortalCallingMenuKeys($voicePortalCallingMenuKeys = null)
     {
-        if (!$voicePortalCallingMenuKeys) return $this;
         $this->voicePortalCallingMenuKeys->setName('voicePortalCallingMenuKeys');
         return $this;
     }
@@ -263,7 +252,7 @@ class SystemVoiceMessagingGroupGetVoicePortalMenusResponse14 extends ComplexType
      */
     public function getVoicePortalCallingMenuKeys()
     {
-        return $this->voicePortalCallingMenuKeys->getValue();
+        return ($this->voicePortalCallingMenuKeys) ? $this->voicePortalCallingMenuKeys->getValue() : null;
     }
 
     /**
@@ -271,7 +260,6 @@ class SystemVoiceMessagingGroupGetVoicePortalMenusResponse14 extends ComplexType
      */
     public function setHotelingMenuKeys($hotelingMenuKeys = null)
     {
-        if (!$hotelingMenuKeys) return $this;
         $this->hotelingMenuKeys->setName('hotelingMenuKeys');
         return $this;
     }
@@ -282,7 +270,7 @@ class SystemVoiceMessagingGroupGetVoicePortalMenusResponse14 extends ComplexType
      */
     public function getHotelingMenuKeys()
     {
-        return $this->hotelingMenuKeys->getValue();
+        return ($this->hotelingMenuKeys) ? $this->hotelingMenuKeys->getValue() : null;
     }
 
     /**
@@ -290,7 +278,6 @@ class SystemVoiceMessagingGroupGetVoicePortalMenusResponse14 extends ComplexType
      */
     public function setPasscodeMenuKeys($passcodeMenuKeys = null)
     {
-        if (!$passcodeMenuKeys) return $this;
         $this->passcodeMenuKeys->setName('passcodeMenuKeys');
         return $this;
     }
@@ -301,7 +288,7 @@ class SystemVoiceMessagingGroupGetVoicePortalMenusResponse14 extends ComplexType
      */
     public function getPasscodeMenuKeys()
     {
-        return $this->passcodeMenuKeys->getValue();
+        return ($this->passcodeMenuKeys) ? $this->passcodeMenuKeys->getValue() : null;
     }
 
     /**
@@ -309,7 +296,6 @@ class SystemVoiceMessagingGroupGetVoicePortalMenusResponse14 extends ComplexType
      */
     public function setPlayMessagesMenuKeys($playMessagesMenuKeys = null)
     {
-        if (!$playMessagesMenuKeys) return $this;
         $this->playMessagesMenuKeys->setName('playMessagesMenuKeys');
         return $this;
     }
@@ -320,7 +306,7 @@ class SystemVoiceMessagingGroupGetVoicePortalMenusResponse14 extends ComplexType
      */
     public function getPlayMessagesMenuKeys()
     {
-        return $this->playMessagesMenuKeys->getValue();
+        return ($this->playMessagesMenuKeys) ? $this->playMessagesMenuKeys->getValue() : null;
     }
 
     /**
@@ -328,7 +314,6 @@ class SystemVoiceMessagingGroupGetVoicePortalMenusResponse14 extends ComplexType
      */
     public function setPlayMessageMenuKeys($playMessageMenuKeys = null)
     {
-        if (!$playMessageMenuKeys) return $this;
         $this->playMessageMenuKeys->setName('playMessageMenuKeys');
         return $this;
     }
@@ -339,7 +324,7 @@ class SystemVoiceMessagingGroupGetVoicePortalMenusResponse14 extends ComplexType
      */
     public function getPlayMessageMenuKeys()
     {
-        return $this->playMessageMenuKeys->getValue();
+        return ($this->playMessageMenuKeys) ? $this->playMessageMenuKeys->getValue() : null;
     }
 
     /**
@@ -347,7 +332,6 @@ class SystemVoiceMessagingGroupGetVoicePortalMenusResponse14 extends ComplexType
      */
     public function setAdditionalMessageOptionsMenuKeys($additionalMessageOptionsMenuKeys = null)
     {
-        if (!$additionalMessageOptionsMenuKeys) return $this;
         $this->additionalMessageOptionsMenuKeys->setName('additionalMessageOptionsMenuKeys');
         return $this;
     }
@@ -358,7 +342,7 @@ class SystemVoiceMessagingGroupGetVoicePortalMenusResponse14 extends ComplexType
      */
     public function getAdditionalMessageOptionsMenuKeys()
     {
-        return $this->additionalMessageOptionsMenuKeys->getValue();
+        return ($this->additionalMessageOptionsMenuKeys) ? $this->additionalMessageOptionsMenuKeys->getValue() : null;
     }
 
     /**
@@ -366,7 +350,6 @@ class SystemVoiceMessagingGroupGetVoicePortalMenusResponse14 extends ComplexType
      */
     public function setForwardOrComposeMessageMenuKeys($forwardOrComposeMessageMenuKeys = null)
     {
-        if (!$forwardOrComposeMessageMenuKeys) return $this;
         $this->forwardOrComposeMessageMenuKeys->setName('forwardOrComposeMessageMenuKeys');
         return $this;
     }
@@ -377,7 +360,7 @@ class SystemVoiceMessagingGroupGetVoicePortalMenusResponse14 extends ComplexType
      */
     public function getForwardOrComposeMessageMenuKeys()
     {
-        return $this->forwardOrComposeMessageMenuKeys->getValue();
+        return ($this->forwardOrComposeMessageMenuKeys) ? $this->forwardOrComposeMessageMenuKeys->getValue() : null;
     }
 
     /**
@@ -385,7 +368,6 @@ class SystemVoiceMessagingGroupGetVoicePortalMenusResponse14 extends ComplexType
      */
     public function setReplyMessageMenuKeys($replyMessageMenuKeys = null)
     {
-        if (!$replyMessageMenuKeys) return $this;
         $this->replyMessageMenuKeys->setName('replyMessageMenuKeys');
         return $this;
     }
@@ -396,7 +378,7 @@ class SystemVoiceMessagingGroupGetVoicePortalMenusResponse14 extends ComplexType
      */
     public function getReplyMessageMenuKeys()
     {
-        return $this->replyMessageMenuKeys->getValue();
+        return ($this->replyMessageMenuKeys) ? $this->replyMessageMenuKeys->getValue() : null;
     }
 
     /**
@@ -404,7 +386,6 @@ class SystemVoiceMessagingGroupGetVoicePortalMenusResponse14 extends ComplexType
      */
     public function setSendToDistributionListMenuKeys($sendToDistributionListMenuKeys = null)
     {
-        if (!$sendToDistributionListMenuKeys) return $this;
         $this->sendToDistributionListMenuKeys->setName('sendToDistributionListMenuKeys');
         return $this;
     }
@@ -415,7 +396,7 @@ class SystemVoiceMessagingGroupGetVoicePortalMenusResponse14 extends ComplexType
      */
     public function getSendToDistributionListMenuKeys()
     {
-        return $this->sendToDistributionListMenuKeys->getValue();
+        return ($this->sendToDistributionListMenuKeys) ? $this->sendToDistributionListMenuKeys->getValue() : null;
     }
 
     /**
@@ -423,7 +404,6 @@ class SystemVoiceMessagingGroupGetVoicePortalMenusResponse14 extends ComplexType
      */
     public function setSelectDistributionListMenuKeys($selectDistributionListMenuKeys = null)
     {
-        if (!$selectDistributionListMenuKeys) return $this;
         $this->selectDistributionListMenuKeys->setName('selectDistributionListMenuKeys');
         return $this;
     }
@@ -434,7 +414,7 @@ class SystemVoiceMessagingGroupGetVoicePortalMenusResponse14 extends ComplexType
      */
     public function getSelectDistributionListMenuKeys()
     {
-        return $this->selectDistributionListMenuKeys->getValue();
+        return ($this->selectDistributionListMenuKeys) ? $this->selectDistributionListMenuKeys->getValue() : null;
     }
 
     /**
@@ -442,7 +422,6 @@ class SystemVoiceMessagingGroupGetVoicePortalMenusResponse14 extends ComplexType
      */
     public function setReviewSelectedDistributionListMenuKeys($reviewSelectedDistributionListMenuKeys = null)
     {
-        if (!$reviewSelectedDistributionListMenuKeys) return $this;
         $this->reviewSelectedDistributionListMenuKeys->setName('reviewSelectedDistributionListMenuKeys');
         return $this;
     }
@@ -453,7 +432,7 @@ class SystemVoiceMessagingGroupGetVoicePortalMenusResponse14 extends ComplexType
      */
     public function getReviewSelectedDistributionListMenuKeys()
     {
-        return $this->reviewSelectedDistributionListMenuKeys->getValue();
+        return ($this->reviewSelectedDistributionListMenuKeys) ? $this->reviewSelectedDistributionListMenuKeys->getValue() : null;
     }
 
     /**
@@ -461,7 +440,6 @@ class SystemVoiceMessagingGroupGetVoicePortalMenusResponse14 extends ComplexType
      */
     public function setSendMessageToSelectedDistributionListMenuKeys($sendMessageToSelectedDistributionListMenuKeys = null)
     {
-        if (!$sendMessageToSelectedDistributionListMenuKeys) return $this;
         $this->sendMessageToSelectedDistributionListMenuKeys->setName('sendMessageToSelectedDistributionListMenuKeys');
         return $this;
     }
@@ -472,7 +450,7 @@ class SystemVoiceMessagingGroupGetVoicePortalMenusResponse14 extends ComplexType
      */
     public function getSendMessageToSelectedDistributionListMenuKeys()
     {
-        return $this->sendMessageToSelectedDistributionListMenuKeys->getValue();
+        return ($this->sendMessageToSelectedDistributionListMenuKeys) ? $this->sendMessageToSelectedDistributionListMenuKeys->getValue() : null;
     }
 
     /**
@@ -480,7 +458,6 @@ class SystemVoiceMessagingGroupGetVoicePortalMenusResponse14 extends ComplexType
      */
     public function setSendToAllGroupMembersMenuKeys($sendToAllGroupMembersMenuKeys = null)
     {
-        if (!$sendToAllGroupMembersMenuKeys) return $this;
         $this->sendToAllGroupMembersMenuKeys->setName('sendToAllGroupMembersMenuKeys');
         return $this;
     }
@@ -491,7 +468,7 @@ class SystemVoiceMessagingGroupGetVoicePortalMenusResponse14 extends ComplexType
      */
     public function getSendToAllGroupMembersMenuKeys()
     {
-        return $this->sendToAllGroupMembersMenuKeys->getValue();
+        return ($this->sendToAllGroupMembersMenuKeys) ? $this->sendToAllGroupMembersMenuKeys->getValue() : null;
     }
 
     /**
@@ -499,7 +476,6 @@ class SystemVoiceMessagingGroupGetVoicePortalMenusResponse14 extends ComplexType
      */
     public function setSendToPersonMenuKeys($sendToPersonMenuKeys = null)
     {
-        if (!$sendToPersonMenuKeys) return $this;
         $this->sendToPersonMenuKeys->setName('sendToPersonMenuKeys');
         return $this;
     }
@@ -510,7 +486,7 @@ class SystemVoiceMessagingGroupGetVoicePortalMenusResponse14 extends ComplexType
      */
     public function getSendToPersonMenuKeys()
     {
-        return $this->sendToPersonMenuKeys->getValue();
+        return ($this->sendToPersonMenuKeys) ? $this->sendToPersonMenuKeys->getValue() : null;
     }
 
     /**
@@ -518,7 +494,6 @@ class SystemVoiceMessagingGroupGetVoicePortalMenusResponse14 extends ComplexType
      */
     public function setChangeCurrentIntroductionOrMessageOrReplyMenuKeys($changeCurrentIntroductionOrMessageOrReplyMenuKeys = null)
     {
-        if (!$changeCurrentIntroductionOrMessageOrReplyMenuKeys) return $this;
         $this->changeCurrentIntroductionOrMessageOrReplyMenuKeys->setName('changeCurrentIntroductionOrMessageOrReplyMenuKeys');
         return $this;
     }
@@ -529,7 +504,7 @@ class SystemVoiceMessagingGroupGetVoicePortalMenusResponse14 extends ComplexType
      */
     public function getChangeCurrentIntroductionOrMessageOrReplyMenuKeys()
     {
-        return $this->changeCurrentIntroductionOrMessageOrReplyMenuKeys->getValue();
+        return ($this->changeCurrentIntroductionOrMessageOrReplyMenuKeys) ? $this->changeCurrentIntroductionOrMessageOrReplyMenuKeys->getValue() : null;
     }
 
     /**
@@ -537,7 +512,6 @@ class SystemVoiceMessagingGroupGetVoicePortalMenusResponse14 extends ComplexType
      */
     public function setVoicePortalLoginMenuKeys($voicePortalLoginMenuKeys = null)
     {
-        if (!$voicePortalLoginMenuKeys) return $this;
         $this->voicePortalLoginMenuKeys->setName('voicePortalLoginMenuKeys');
         return $this;
     }
@@ -548,7 +522,7 @@ class SystemVoiceMessagingGroupGetVoicePortalMenusResponse14 extends ComplexType
      */
     public function getVoicePortalLoginMenuKeys()
     {
-        return $this->voicePortalLoginMenuKeys->getValue();
+        return ($this->voicePortalLoginMenuKeys) ? $this->voicePortalLoginMenuKeys->getValue() : null;
     }
 
     /**
@@ -556,7 +530,6 @@ class SystemVoiceMessagingGroupGetVoicePortalMenusResponse14 extends ComplexType
      */
     public function setFaxMessagingMenuKeys($faxMessagingMenuKeys = null)
     {
-        if (!$faxMessagingMenuKeys) return $this;
         $this->faxMessagingMenuKeys->setName('faxMessagingMenuKeys');
         return $this;
     }
@@ -567,6 +540,6 @@ class SystemVoiceMessagingGroupGetVoicePortalMenusResponse14 extends ComplexType
      */
     public function getFaxMessagingMenuKeys()
     {
-        return $this->faxMessagingMenuKeys->getValue();
+        return ($this->faxMessagingMenuKeys) ? $this->faxMessagingMenuKeys->getValue() : null;
     }
 }

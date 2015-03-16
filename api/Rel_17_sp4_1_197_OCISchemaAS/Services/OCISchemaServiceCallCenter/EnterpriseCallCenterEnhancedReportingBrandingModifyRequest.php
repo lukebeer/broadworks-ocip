@@ -22,13 +22,13 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class EnterpriseCallCenterEnhancedReportingBrandingModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name              = 'EnterpriseCallCenterEnhancedReportingBrandingModifyRequest';
-    protected $serviceProviderId = null;
-    protected $brandingChoice    = null;
-    protected $brandingFile      = null;
+    public    $name = 'EnterpriseCallCenterEnhancedReportingBrandingModifyRequest';
+    protected $serviceProviderId;
+    protected $brandingChoice;
+    protected $brandingFile;
 
     public function __construct(
-         $serviceProviderId,
+         $serviceProviderId = '',
          $brandingChoice = null,
          LabeledFileResource $brandingFile = null
     ) {
@@ -50,7 +50,6 @@ class EnterpriseCallCenterEnhancedReportingBrandingModifyRequest extends Complex
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
-        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
@@ -64,7 +63,7 @@ class EnterpriseCallCenterEnhancedReportingBrandingModifyRequest extends Complex
      */
     public function getServiceProviderId()
     {
-        return $this->serviceProviderId->getValue();
+        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
     }
 
     /**
@@ -72,7 +71,6 @@ class EnterpriseCallCenterEnhancedReportingBrandingModifyRequest extends Complex
      */
     public function setBrandingChoice($brandingChoice = null)
     {
-        if (!$brandingChoice) return $this;
         $this->brandingChoice = ($brandingChoice InstanceOf CallCenterEnhancedReportingBrandingChoice)
              ? $brandingChoice
              : new CallCenterEnhancedReportingBrandingChoice($brandingChoice);
@@ -86,7 +84,7 @@ class EnterpriseCallCenterEnhancedReportingBrandingModifyRequest extends Complex
      */
     public function getBrandingChoice()
     {
-        return $this->brandingChoice->getValue();
+        return ($this->brandingChoice) ? $this->brandingChoice->getValue() : null;
     }
 
     /**
@@ -94,8 +92,9 @@ class EnterpriseCallCenterEnhancedReportingBrandingModifyRequest extends Complex
      */
     public function setBrandingFile(LabeledFileResource $brandingFile = null)
     {
-        if (!$brandingFile) return $this;
-        $this->brandingFile = $brandingFile;
+        $this->brandingFile = ($brandingFile InstanceOf LabeledFileResource)
+             ? $brandingFile
+             : new LabeledFileResource($brandingFile);
         $this->brandingFile->setName('brandingFile');
         return $this;
     }

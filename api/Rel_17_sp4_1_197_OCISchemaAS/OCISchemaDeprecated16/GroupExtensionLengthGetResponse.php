@@ -19,8 +19,8 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupExtensionLengthGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name            = 'GroupExtensionLengthGetResponse';
-    protected $extensionLength = null;
+    public    $name = 'GroupExtensionLengthGetResponse';
+    protected $extensionLength;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\GroupExtensionLengthGetResponse $response
@@ -35,7 +35,6 @@ class GroupExtensionLengthGetResponse extends ComplexType implements ComplexInte
      */
     public function setExtensionLength($extensionLength = null)
     {
-        if (!$extensionLength) return $this;
         $this->extensionLength = ($extensionLength InstanceOf GroupExtensionLength)
              ? $extensionLength
              : new GroupExtensionLength($extensionLength);
@@ -49,6 +48,6 @@ class GroupExtensionLengthGetResponse extends ComplexType implements ComplexInte
      */
     public function getExtensionLength()
     {
-        return $this->extensionLength->getValue();
+        return ($this->extensionLength) ? $this->extensionLength->getValue() : null;
     }
 }

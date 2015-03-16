@@ -21,12 +21,12 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupCallCenterModifyAgentListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name            = 'GroupCallCenterModifyAgentListRequest';
-    protected $serviceUserId   = null;
-    protected $agentUserIdList = null;
+    public    $name = 'GroupCallCenterModifyAgentListRequest';
+    protected $serviceUserId;
+    protected $agentUserIdList;
 
     public function __construct(
-         $serviceUserId,
+         $serviceUserId = '',
          ReplacementUserIdList $agentUserIdList = null
     ) {
         $this->setServiceUserId($serviceUserId);
@@ -46,7 +46,6 @@ class GroupCallCenterModifyAgentListRequest extends ComplexType implements Compl
      */
     public function setServiceUserId($serviceUserId = null)
     {
-        if (!$serviceUserId) return $this;
         $this->serviceUserId = ($serviceUserId InstanceOf UserId)
              ? $serviceUserId
              : new UserId($serviceUserId);
@@ -60,7 +59,7 @@ class GroupCallCenterModifyAgentListRequest extends ComplexType implements Compl
      */
     public function getServiceUserId()
     {
-        return $this->serviceUserId->getValue();
+        return ($this->serviceUserId) ? $this->serviceUserId->getValue() : null;
     }
 
     /**
@@ -68,8 +67,9 @@ class GroupCallCenterModifyAgentListRequest extends ComplexType implements Compl
      */
     public function setAgentUserIdList(ReplacementUserIdList $agentUserIdList = null)
     {
-        if (!$agentUserIdList) return $this;
-        $this->agentUserIdList = $agentUserIdList;
+        $this->agentUserIdList = ($agentUserIdList InstanceOf ReplacementUserIdList)
+             ? $agentUserIdList
+             : new ReplacementUserIdList($agentUserIdList);
         $this->agentUserIdList->setName('agentUserIdList');
         return $this;
     }

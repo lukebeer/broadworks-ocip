@@ -21,10 +21,10 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemHuntGroupModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                               = 'SystemHuntGroupModifyRequest';
-    protected $anonymousInsteadOfPrivateCLID      = null;
-    protected $removeHuntGroupNameFromCLID        = null;
-    protected $uniformCallDistributionPolicyScope = null;
+    public    $name = 'SystemHuntGroupModifyRequest';
+    protected $anonymousInsteadOfPrivateCLID;
+    protected $removeHuntGroupNameFromCLID;
+    protected $uniformCallDistributionPolicyScope;
 
     public function __construct(
          $anonymousInsteadOfPrivateCLID = null,
@@ -49,7 +49,6 @@ class SystemHuntGroupModifyRequest extends ComplexType implements ComplexInterfa
      */
     public function setAnonymousInsteadOfPrivateCLID($anonymousInsteadOfPrivateCLID = null)
     {
-        if (!$anonymousInsteadOfPrivateCLID) return $this;
         $this->anonymousInsteadOfPrivateCLID = new PrimitiveType($anonymousInsteadOfPrivateCLID);
         $this->anonymousInsteadOfPrivateCLID->setName('anonymousInsteadOfPrivateCLID');
         return $this;
@@ -61,7 +60,7 @@ class SystemHuntGroupModifyRequest extends ComplexType implements ComplexInterfa
      */
     public function getAnonymousInsteadOfPrivateCLID()
     {
-        return $this->anonymousInsteadOfPrivateCLID->getValue();
+        return ($this->anonymousInsteadOfPrivateCLID) ? $this->anonymousInsteadOfPrivateCLID->getValue() : null;
     }
 
     /**
@@ -69,7 +68,6 @@ class SystemHuntGroupModifyRequest extends ComplexType implements ComplexInterfa
      */
     public function setRemoveHuntGroupNameFromCLID($removeHuntGroupNameFromCLID = null)
     {
-        if (!$removeHuntGroupNameFromCLID) return $this;
         $this->removeHuntGroupNameFromCLID = new PrimitiveType($removeHuntGroupNameFromCLID);
         $this->removeHuntGroupNameFromCLID->setName('removeHuntGroupNameFromCLID');
         return $this;
@@ -81,7 +79,7 @@ class SystemHuntGroupModifyRequest extends ComplexType implements ComplexInterfa
      */
     public function getRemoveHuntGroupNameFromCLID()
     {
-        return $this->removeHuntGroupNameFromCLID->getValue();
+        return ($this->removeHuntGroupNameFromCLID) ? $this->removeHuntGroupNameFromCLID->getValue() : null;
     }
 
     /**
@@ -89,7 +87,6 @@ class SystemHuntGroupModifyRequest extends ComplexType implements ComplexInterfa
      */
     public function setUniformCallDistributionPolicyScope($uniformCallDistributionPolicyScope = null)
     {
-        if (!$uniformCallDistributionPolicyScope) return $this;
         $this->uniformCallDistributionPolicyScope = ($uniformCallDistributionPolicyScope InstanceOf HuntGroupUniformCallDistributionPolicyScope)
              ? $uniformCallDistributionPolicyScope
              : new HuntGroupUniformCallDistributionPolicyScope($uniformCallDistributionPolicyScope);
@@ -103,6 +100,6 @@ class SystemHuntGroupModifyRequest extends ComplexType implements ComplexInterfa
      */
     public function getUniformCallDistributionPolicyScope()
     {
-        return $this->uniformCallDistributionPolicyScope->getValue();
+        return ($this->uniformCallDistributionPolicyScope) ? $this->uniformCallDistributionPolicyScope->getValue() : null;
     }
 }

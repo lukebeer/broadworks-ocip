@@ -20,12 +20,12 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemServiceCodeModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name        = 'SystemServiceCodeModifyRequest';
-    protected $serviceCode = null;
-    protected $description = null;
+    public    $name = 'SystemServiceCodeModifyRequest';
+    protected $serviceCode;
+    protected $description;
 
     public function __construct(
-         $serviceCode,
+         $serviceCode = '',
          $description = null
     ) {
         $this->setServiceCode($serviceCode);
@@ -45,7 +45,6 @@ class SystemServiceCodeModifyRequest extends ComplexType implements ComplexInter
      */
     public function setServiceCode($serviceCode = null)
     {
-        if (!$serviceCode) return $this;
         $this->serviceCode = ($serviceCode InstanceOf ServiceCode)
              ? $serviceCode
              : new ServiceCode($serviceCode);
@@ -59,7 +58,7 @@ class SystemServiceCodeModifyRequest extends ComplexType implements ComplexInter
      */
     public function getServiceCode()
     {
-        return $this->serviceCode->getValue();
+        return ($this->serviceCode) ? $this->serviceCode->getValue() : null;
     }
 
     /**
@@ -67,7 +66,6 @@ class SystemServiceCodeModifyRequest extends ComplexType implements ComplexInter
      */
     public function setDescription($description = null)
     {
-        if (!$description) return $this;
         $this->description = ($description InstanceOf ServiceCodeDescription)
              ? $description
              : new ServiceCodeDescription($description);
@@ -81,6 +79,6 @@ class SystemServiceCodeModifyRequest extends ComplexType implements ComplexInter
      */
     public function getDescription()
     {
-        return $this->description->getValue();
+        return ($this->description) ? $this->description->getValue() : null;
     }
 }

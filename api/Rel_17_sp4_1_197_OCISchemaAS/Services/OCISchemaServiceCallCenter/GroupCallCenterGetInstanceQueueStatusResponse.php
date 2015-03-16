@@ -20,9 +20,9 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupCallCenterGetInstanceQueueStatusResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                   = 'GroupCallCenterGetInstanceQueueStatusResponse';
-    protected $numberOfCallsQueuedNow = null;
-    protected $agentsCurrentlyStaffed = null;
+    public    $name = 'GroupCallCenterGetInstanceQueueStatusResponse';
+    protected $numberOfCallsQueuedNow;
+    protected $agentsCurrentlyStaffed;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\GroupCallCenterGetInstanceQueueStatusResponse $response
@@ -37,7 +37,6 @@ class GroupCallCenterGetInstanceQueueStatusResponse extends ComplexType implemen
      */
     public function setNumberOfCallsQueuedNow($numberOfCallsQueuedNow = null)
     {
-        if (!$numberOfCallsQueuedNow) return $this;
         $this->numberOfCallsQueuedNow = new PrimitiveType($numberOfCallsQueuedNow);
         $this->numberOfCallsQueuedNow->setName('numberOfCallsQueuedNow');
         return $this;
@@ -49,7 +48,7 @@ class GroupCallCenterGetInstanceQueueStatusResponse extends ComplexType implemen
      */
     public function getNumberOfCallsQueuedNow()
     {
-        return $this->numberOfCallsQueuedNow->getValue();
+        return ($this->numberOfCallsQueuedNow) ? $this->numberOfCallsQueuedNow->getValue() : null;
     }
 
     /**
@@ -57,7 +56,6 @@ class GroupCallCenterGetInstanceQueueStatusResponse extends ComplexType implemen
      */
     public function setAgentsCurrentlyStaffed(TableType $agentsCurrentlyStaffed = null)
     {
-        if (!$agentsCurrentlyStaffed) return $this;
         $this->agentsCurrentlyStaffed = $agentsCurrentlyStaffed;
         $this->agentsCurrentlyStaffed->setName('agentsCurrentlyStaffed');
         return $this;
@@ -69,6 +67,6 @@ class GroupCallCenterGetInstanceQueueStatusResponse extends ComplexType implemen
      */
     public function getAgentsCurrentlyStaffed()
     {
-        return $this->agentsCurrentlyStaffed->getValue();
+        return ($this->agentsCurrentlyStaffed) ? $this->agentsCurrentlyStaffed->getValue() : null;
     }
 }

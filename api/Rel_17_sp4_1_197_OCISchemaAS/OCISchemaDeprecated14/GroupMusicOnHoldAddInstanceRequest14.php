@@ -27,24 +27,24 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupMusicOnHoldAddInstanceRequest14 extends ComplexType implements ComplexInterface
 {
-    public    $name                   = 'GroupMusicOnHoldAddInstanceRequest14';
-    protected $serviceProviderId      = null;
-    protected $groupId                = null;
-    protected $department             = null;
-    protected $isActiveDuringCallHold = null;
-    protected $isActiveDuringCallPark = null;
-    protected $messageSelection       = null;
-    protected $accessDeviceEndpoint   = null;
-    protected $audioFile              = null;
-    protected $videoFile              = null;
+    public    $name = 'GroupMusicOnHoldAddInstanceRequest14';
+    protected $serviceProviderId;
+    protected $groupId;
+    protected $department;
+    protected $isActiveDuringCallHold;
+    protected $isActiveDuringCallPark;
+    protected $messageSelection;
+    protected $accessDeviceEndpoint;
+    protected $audioFile;
+    protected $videoFile;
 
     public function __construct(
-         $serviceProviderId,
-         $groupId,
-         DepartmentKey $department,
-         $isActiveDuringCallHold,
-         $isActiveDuringCallPark,
-         $messageSelection,
+         $serviceProviderId = '',
+         $groupId = '',
+         DepartmentKey $department = '',
+         $isActiveDuringCallHold = '',
+         $isActiveDuringCallPark = '',
+         $messageSelection = '',
          AccessDeviceEndpointAdd $accessDeviceEndpoint = null,
          LabeledFileResource $audioFile = null,
          LabeledFileResource $videoFile = null
@@ -73,7 +73,6 @@ class GroupMusicOnHoldAddInstanceRequest14 extends ComplexType implements Comple
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
-        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
@@ -87,7 +86,7 @@ class GroupMusicOnHoldAddInstanceRequest14 extends ComplexType implements Comple
      */
     public function getServiceProviderId()
     {
-        return $this->serviceProviderId->getValue();
+        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
     }
 
     /**
@@ -95,7 +94,6 @@ class GroupMusicOnHoldAddInstanceRequest14 extends ComplexType implements Comple
      */
     public function setGroupId($groupId = null)
     {
-        if (!$groupId) return $this;
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
@@ -109,7 +107,7 @@ class GroupMusicOnHoldAddInstanceRequest14 extends ComplexType implements Comple
      */
     public function getGroupId()
     {
-        return $this->groupId->getValue();
+        return ($this->groupId) ? $this->groupId->getValue() : null;
     }
 
     /**
@@ -117,8 +115,9 @@ class GroupMusicOnHoldAddInstanceRequest14 extends ComplexType implements Comple
      */
     public function setDepartment(DepartmentKey $department = null)
     {
-        if (!$department) return $this;
-        $this->department = $department;
+        $this->department = ($department InstanceOf DepartmentKey)
+             ? $department
+             : new DepartmentKey($department);
         $this->department->setName('department');
         return $this;
     }
@@ -137,7 +136,6 @@ class GroupMusicOnHoldAddInstanceRequest14 extends ComplexType implements Comple
      */
     public function setIsActiveDuringCallHold($isActiveDuringCallHold = null)
     {
-        if (!$isActiveDuringCallHold) return $this;
         $this->isActiveDuringCallHold = new PrimitiveType($isActiveDuringCallHold);
         $this->isActiveDuringCallHold->setName('isActiveDuringCallHold');
         return $this;
@@ -149,7 +147,7 @@ class GroupMusicOnHoldAddInstanceRequest14 extends ComplexType implements Comple
      */
     public function getIsActiveDuringCallHold()
     {
-        return $this->isActiveDuringCallHold->getValue();
+        return ($this->isActiveDuringCallHold) ? $this->isActiveDuringCallHold->getValue() : null;
     }
 
     /**
@@ -157,7 +155,6 @@ class GroupMusicOnHoldAddInstanceRequest14 extends ComplexType implements Comple
      */
     public function setIsActiveDuringCallPark($isActiveDuringCallPark = null)
     {
-        if (!$isActiveDuringCallPark) return $this;
         $this->isActiveDuringCallPark = new PrimitiveType($isActiveDuringCallPark);
         $this->isActiveDuringCallPark->setName('isActiveDuringCallPark');
         return $this;
@@ -169,7 +166,7 @@ class GroupMusicOnHoldAddInstanceRequest14 extends ComplexType implements Comple
      */
     public function getIsActiveDuringCallPark()
     {
-        return $this->isActiveDuringCallPark->getValue();
+        return ($this->isActiveDuringCallPark) ? $this->isActiveDuringCallPark->getValue() : null;
     }
 
     /**
@@ -177,7 +174,6 @@ class GroupMusicOnHoldAddInstanceRequest14 extends ComplexType implements Comple
      */
     public function setMessageSelection($messageSelection = null)
     {
-        if (!$messageSelection) return $this;
         $this->messageSelection = ($messageSelection InstanceOf MusicOnHoldMessageSelection)
              ? $messageSelection
              : new MusicOnHoldMessageSelection($messageSelection);
@@ -191,7 +187,7 @@ class GroupMusicOnHoldAddInstanceRequest14 extends ComplexType implements Comple
      */
     public function getMessageSelection()
     {
-        return $this->messageSelection->getValue();
+        return ($this->messageSelection) ? $this->messageSelection->getValue() : null;
     }
 
     /**
@@ -199,8 +195,9 @@ class GroupMusicOnHoldAddInstanceRequest14 extends ComplexType implements Comple
      */
     public function setAccessDeviceEndpoint(AccessDeviceEndpointAdd $accessDeviceEndpoint = null)
     {
-        if (!$accessDeviceEndpoint) return $this;
-        $this->accessDeviceEndpoint = $accessDeviceEndpoint;
+        $this->accessDeviceEndpoint = ($accessDeviceEndpoint InstanceOf AccessDeviceEndpointAdd)
+             ? $accessDeviceEndpoint
+             : new AccessDeviceEndpointAdd($accessDeviceEndpoint);
         $this->accessDeviceEndpoint->setName('accessDeviceEndpoint');
         return $this;
     }
@@ -219,8 +216,9 @@ class GroupMusicOnHoldAddInstanceRequest14 extends ComplexType implements Comple
      */
     public function setAudioFile(LabeledFileResource $audioFile = null)
     {
-        if (!$audioFile) return $this;
-        $this->audioFile = $audioFile;
+        $this->audioFile = ($audioFile InstanceOf LabeledFileResource)
+             ? $audioFile
+             : new LabeledFileResource($audioFile);
         $this->audioFile->setName('audioFile');
         return $this;
     }
@@ -239,8 +237,9 @@ class GroupMusicOnHoldAddInstanceRequest14 extends ComplexType implements Comple
      */
     public function setVideoFile(LabeledFileResource $videoFile = null)
     {
-        if (!$videoFile) return $this;
-        $this->videoFile = $videoFile;
+        $this->videoFile = ($videoFile InstanceOf LabeledFileResource)
+             ? $videoFile
+             : new LabeledFileResource($videoFile);
         $this->videoFile->setName('videoFile');
         return $this;
     }

@@ -19,8 +19,8 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderInstantConferencingGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                            = 'ServiceProviderInstantConferencingGetResponse';
-    protected $portsAllocatedToServiceProvider = null;
+    public    $name = 'ServiceProviderInstantConferencingGetResponse';
+    protected $portsAllocatedToServiceProvider;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing\ServiceProviderInstantConferencingGetResponse $response
@@ -35,8 +35,9 @@ class ServiceProviderInstantConferencingGetResponse extends ComplexType implemen
      */
     public function setPortsAllocatedToServiceProvider(UnboundedNonNegativeInt $portsAllocatedToServiceProvider = null)
     {
-        if (!$portsAllocatedToServiceProvider) return $this;
-        $this->portsAllocatedToServiceProvider = $portsAllocatedToServiceProvider;
+        $this->portsAllocatedToServiceProvider = ($portsAllocatedToServiceProvider InstanceOf UnboundedNonNegativeInt)
+             ? $portsAllocatedToServiceProvider
+             : new UnboundedNonNegativeInt($portsAllocatedToServiceProvider);
         $this->portsAllocatedToServiceProvider->setName('portsAllocatedToServiceProvider');
         return $this;
     }

@@ -20,9 +20,9 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderEnhancedCallLogsGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name               = 'ServiceProviderEnhancedCallLogsGetResponse';
-    protected $maxLoggedCalls     = null;
-    protected $callExpirationDays = null;
+    public    $name = 'ServiceProviderEnhancedCallLogsGetResponse';
+    protected $maxLoggedCalls;
+    protected $callExpirationDays;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated17\ServiceProviderEnhancedCallLogsGetResponse $response
@@ -37,7 +37,6 @@ class ServiceProviderEnhancedCallLogsGetResponse extends ComplexType implements 
      */
     public function setMaxLoggedCalls($maxLoggedCalls = null)
     {
-        if (!$maxLoggedCalls) return $this;
         $this->maxLoggedCalls = ($maxLoggedCalls InstanceOf EnhancedCallLogsMaxLoggedCalls)
              ? $maxLoggedCalls
              : new EnhancedCallLogsMaxLoggedCalls($maxLoggedCalls);
@@ -51,7 +50,7 @@ class ServiceProviderEnhancedCallLogsGetResponse extends ComplexType implements 
      */
     public function getMaxLoggedCalls()
     {
-        return $this->maxLoggedCalls->getValue();
+        return ($this->maxLoggedCalls) ? $this->maxLoggedCalls->getValue() : null;
     }
 
     /**
@@ -59,7 +58,6 @@ class ServiceProviderEnhancedCallLogsGetResponse extends ComplexType implements 
      */
     public function setCallExpirationDays($callExpirationDays = null)
     {
-        if (!$callExpirationDays) return $this;
         $this->callExpirationDays = ($callExpirationDays InstanceOf EnhancedCallLogsCallExpirationDays)
              ? $callExpirationDays
              : new EnhancedCallLogsCallExpirationDays($callExpirationDays);
@@ -73,6 +71,6 @@ class ServiceProviderEnhancedCallLogsGetResponse extends ComplexType implements 
      */
     public function getCallExpirationDays()
     {
-        return $this->callExpirationDays->getValue();
+        return ($this->callExpirationDays) ? $this->callExpirationDays->getValue() : null;
     }
 }

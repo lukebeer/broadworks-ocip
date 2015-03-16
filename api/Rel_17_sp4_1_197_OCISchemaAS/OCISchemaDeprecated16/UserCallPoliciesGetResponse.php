@@ -19,8 +19,8 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserCallPoliciesGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                       = 'UserCallPoliciesGetResponse';
-    protected $redirectedCallsCOLPPrivacy = null;
+    public    $name = 'UserCallPoliciesGetResponse';
+    protected $redirectedCallsCOLPPrivacy;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\UserCallPoliciesGetResponse $response
@@ -35,7 +35,6 @@ class UserCallPoliciesGetResponse extends ComplexType implements ComplexInterfac
      */
     public function setRedirectedCallsCOLPPrivacy($redirectedCallsCOLPPrivacy = null)
     {
-        if (!$redirectedCallsCOLPPrivacy) return $this;
         $this->redirectedCallsCOLPPrivacy = ($redirectedCallsCOLPPrivacy InstanceOf ConnectedLineIdentificationPrivacyOnRedirectedCalls)
              ? $redirectedCallsCOLPPrivacy
              : new ConnectedLineIdentificationPrivacyOnRedirectedCalls($redirectedCallsCOLPPrivacy);
@@ -49,6 +48,6 @@ class UserCallPoliciesGetResponse extends ComplexType implements ComplexInterfac
      */
     public function getRedirectedCallsCOLPPrivacy()
     {
-        return $this->redirectedCallsCOLPPrivacy->getValue();
+        return ($this->redirectedCallsCOLPPrivacy) ? $this->redirectedCallsCOLPPrivacy->getValue() : null;
     }
 }

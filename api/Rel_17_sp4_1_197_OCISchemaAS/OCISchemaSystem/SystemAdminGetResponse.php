@@ -24,12 +24,12 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemAdminGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name      = 'SystemAdminGetResponse';
-    protected $firstName = null;
-    protected $lastName  = null;
-    protected $language  = null;
-    protected $adminType = null;
-    protected $readOnly  = null;
+    public    $name = 'SystemAdminGetResponse';
+    protected $firstName;
+    protected $lastName;
+    protected $language;
+    protected $adminType;
+    protected $readOnly;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemAdminGetResponse $response
@@ -44,7 +44,6 @@ class SystemAdminGetResponse extends ComplexType implements ComplexInterface
      */
     public function setFirstName($firstName = null)
     {
-        if (!$firstName) return $this;
         $this->firstName = ($firstName InstanceOf FirstName)
              ? $firstName
              : new FirstName($firstName);
@@ -58,7 +57,7 @@ class SystemAdminGetResponse extends ComplexType implements ComplexInterface
      */
     public function getFirstName()
     {
-        return $this->firstName->getValue();
+        return ($this->firstName) ? $this->firstName->getValue() : null;
     }
 
     /**
@@ -66,7 +65,6 @@ class SystemAdminGetResponse extends ComplexType implements ComplexInterface
      */
     public function setLastName($lastName = null)
     {
-        if (!$lastName) return $this;
         $this->lastName = ($lastName InstanceOf LastName)
              ? $lastName
              : new LastName($lastName);
@@ -80,7 +78,7 @@ class SystemAdminGetResponse extends ComplexType implements ComplexInterface
      */
     public function getLastName()
     {
-        return $this->lastName->getValue();
+        return ($this->lastName) ? $this->lastName->getValue() : null;
     }
 
     /**
@@ -88,7 +86,6 @@ class SystemAdminGetResponse extends ComplexType implements ComplexInterface
      */
     public function setLanguage($language = null)
     {
-        if (!$language) return $this;
         $this->language = ($language InstanceOf Language)
              ? $language
              : new Language($language);
@@ -102,7 +99,7 @@ class SystemAdminGetResponse extends ComplexType implements ComplexInterface
      */
     public function getLanguage()
     {
-        return $this->language->getValue();
+        return ($this->language) ? $this->language->getValue() : null;
     }
 
     /**
@@ -110,7 +107,6 @@ class SystemAdminGetResponse extends ComplexType implements ComplexInterface
      */
     public function setAdminType($adminType = null)
     {
-        if (!$adminType) return $this;
         $this->adminType = ($adminType InstanceOf SystemAdminType)
              ? $adminType
              : new SystemAdminType($adminType);
@@ -124,7 +120,7 @@ class SystemAdminGetResponse extends ComplexType implements ComplexInterface
      */
     public function getAdminType()
     {
-        return $this->adminType->getValue();
+        return ($this->adminType) ? $this->adminType->getValue() : null;
     }
 
     /**
@@ -132,7 +128,6 @@ class SystemAdminGetResponse extends ComplexType implements ComplexInterface
      */
     public function setReadOnly($readOnly = null)
     {
-        if (!$readOnly) return $this;
         $this->readOnly = new PrimitiveType($readOnly);
         $this->readOnly->setName('readOnly');
         return $this;
@@ -144,6 +139,6 @@ class SystemAdminGetResponse extends ComplexType implements ComplexInterface
      */
     public function getReadOnly()
     {
-        return $this->readOnly->getValue();
+        return ($this->readOnly) ? $this->readOnly->getValue() : null;
     }
 }

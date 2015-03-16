@@ -21,12 +21,12 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserIntelligentNetworkServiceControlModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                    = 'UserIntelligentNetworkServiceControlModifyRequest';
-    protected $userId                  = null;
-    protected $preAnswerActionsEnabled = null;
+    public    $name = 'UserIntelligentNetworkServiceControlModifyRequest';
+    protected $userId;
+    protected $preAnswerActionsEnabled;
 
     public function __construct(
-         $userId,
+         $userId = '',
          $preAnswerActionsEnabled = null
     ) {
         $this->setUserId($userId);
@@ -46,7 +46,6 @@ class UserIntelligentNetworkServiceControlModifyRequest extends ComplexType impl
      */
     public function setUserId($userId = null)
     {
-        if (!$userId) return $this;
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
@@ -60,7 +59,7 @@ class UserIntelligentNetworkServiceControlModifyRequest extends ComplexType impl
      */
     public function getUserId()
     {
-        return $this->userId->getValue();
+        return ($this->userId) ? $this->userId->getValue() : null;
     }
 
     /**
@@ -68,7 +67,6 @@ class UserIntelligentNetworkServiceControlModifyRequest extends ComplexType impl
      */
     public function setPreAnswerActionsEnabled($preAnswerActionsEnabled = null)
     {
-        if (!$preAnswerActionsEnabled) return $this;
         $this->preAnswerActionsEnabled = new PrimitiveType($preAnswerActionsEnabled);
         $this->preAnswerActionsEnabled->setName('preAnswerActionsEnabled');
         return $this;
@@ -80,6 +78,6 @@ class UserIntelligentNetworkServiceControlModifyRequest extends ComplexType impl
      */
     public function getPreAnswerActionsEnabled()
     {
-        return $this->preAnswerActionsEnabled->getValue();
+        return ($this->preAnswerActionsEnabled) ? $this->preAnswerActionsEnabled->getValue() : null;
     }
 }

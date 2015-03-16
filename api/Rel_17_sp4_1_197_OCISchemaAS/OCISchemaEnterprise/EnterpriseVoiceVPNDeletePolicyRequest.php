@@ -21,13 +21,13 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class EnterpriseVoiceVPNDeletePolicyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                = 'EnterpriseVoiceVPNDeletePolicyRequest';
-    protected $serviceProviderId   = null;
-    protected $locationDialingCode = null;
+    public    $name = 'EnterpriseVoiceVPNDeletePolicyRequest';
+    protected $serviceProviderId;
+    protected $locationDialingCode;
 
     public function __construct(
-         $serviceProviderId,
-         $locationDialingCode
+         $serviceProviderId = '',
+         $locationDialingCode = ''
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setLocationDialingCode($locationDialingCode);
@@ -46,7 +46,6 @@ class EnterpriseVoiceVPNDeletePolicyRequest extends ComplexType implements Compl
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
-        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
@@ -60,7 +59,7 @@ class EnterpriseVoiceVPNDeletePolicyRequest extends ComplexType implements Compl
      */
     public function getServiceProviderId()
     {
-        return $this->serviceProviderId->getValue();
+        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
     }
 
     /**
@@ -68,7 +67,6 @@ class EnterpriseVoiceVPNDeletePolicyRequest extends ComplexType implements Compl
      */
     public function setLocationDialingCode($locationDialingCode = null)
     {
-        if (!$locationDialingCode) return $this;
         $this->locationDialingCode = ($locationDialingCode InstanceOf EnterpriseVoiceVPNLocationCode)
              ? $locationDialingCode
              : new EnterpriseVoiceVPNLocationCode($locationDialingCode);
@@ -82,6 +80,6 @@ class EnterpriseVoiceVPNDeletePolicyRequest extends ComplexType implements Compl
      */
     public function getLocationDialingCode()
     {
-        return $this->locationDialingCode->getValue();
+        return ($this->locationDialingCode) ? $this->locationDialingCode->getValue() : null;
     }
 }

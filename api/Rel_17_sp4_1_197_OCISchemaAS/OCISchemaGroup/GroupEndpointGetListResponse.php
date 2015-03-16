@@ -22,8 +22,8 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupEndpointGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name          = 'GroupEndpointGetListResponse';
-    protected $endpointTable = null;
+    public    $name = 'GroupEndpointGetListResponse';
+    protected $endpointTable;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupEndpointGetListResponse $response
@@ -38,7 +38,6 @@ class GroupEndpointGetListResponse extends ComplexType implements ComplexInterfa
      */
     public function setEndpointTable(TableType $endpointTable = null)
     {
-        if (!$endpointTable) return $this;
         $this->endpointTable = $endpointTable;
         $this->endpointTable->setName('endpointTable');
         return $this;

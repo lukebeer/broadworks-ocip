@@ -20,11 +20,11 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemCommunicationBarringAlternateCallIndicatorDeleteRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                   = 'SystemCommunicationBarringAlternateCallIndicatorDeleteRequest';
-    protected $alternateCallIndicator = null;
+    public    $name = 'SystemCommunicationBarringAlternateCallIndicatorDeleteRequest';
+    protected $alternateCallIndicator;
 
     public function __construct(
-         $alternateCallIndicator
+         $alternateCallIndicator = ''
     ) {
         $this->setAlternateCallIndicator($alternateCallIndicator);
     }
@@ -42,7 +42,6 @@ class SystemCommunicationBarringAlternateCallIndicatorDeleteRequest extends Comp
      */
     public function setAlternateCallIndicator($alternateCallIndicator = null)
     {
-        if (!$alternateCallIndicator) return $this;
         $this->alternateCallIndicator = ($alternateCallIndicator InstanceOf CommunicationBarringAlternateCallIndicator)
              ? $alternateCallIndicator
              : new CommunicationBarringAlternateCallIndicator($alternateCallIndicator);
@@ -56,6 +55,6 @@ class SystemCommunicationBarringAlternateCallIndicatorDeleteRequest extends Comp
      */
     public function getAlternateCallIndicator()
     {
-        return $this->alternateCallIndicator->getValue();
+        return ($this->alternateCallIndicator) ? $this->alternateCallIndicator->getValue() : null;
     }
 }

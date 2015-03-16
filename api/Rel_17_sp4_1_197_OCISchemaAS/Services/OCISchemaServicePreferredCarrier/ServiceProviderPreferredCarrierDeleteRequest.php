@@ -25,13 +25,13 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderPreferredCarrierDeleteRequest extends ComplexType implements ComplexInterface
 {
-    public    $name              = 'ServiceProviderPreferredCarrierDeleteRequest';
-    protected $serviceProviderId = null;
-    protected $countryCode       = null;
+    public    $name = 'ServiceProviderPreferredCarrierDeleteRequest';
+    protected $serviceProviderId;
+    protected $countryCode;
 
     public function __construct(
-         $serviceProviderId,
-         $countryCode
+         $serviceProviderId = '',
+         $countryCode = ''
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setCountryCode($countryCode);
@@ -50,7 +50,6 @@ class ServiceProviderPreferredCarrierDeleteRequest extends ComplexType implement
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
-        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
@@ -64,7 +63,7 @@ class ServiceProviderPreferredCarrierDeleteRequest extends ComplexType implement
      */
     public function getServiceProviderId()
     {
-        return $this->serviceProviderId->getValue();
+        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
     }
 
     /**
@@ -72,7 +71,6 @@ class ServiceProviderPreferredCarrierDeleteRequest extends ComplexType implement
      */
     public function setCountryCode($countryCode = null)
     {
-        if (!$countryCode) return $this;
         $this->countryCode = ($countryCode InstanceOf CountryCode)
              ? $countryCode
              : new CountryCode($countryCode);
@@ -86,6 +84,6 @@ class ServiceProviderPreferredCarrierDeleteRequest extends ComplexType implement
      */
     public function getCountryCode()
     {
-        return $this->countryCode->getValue();
+        return ($this->countryCode) ? $this->countryCode->getValue() : null;
     }
 }

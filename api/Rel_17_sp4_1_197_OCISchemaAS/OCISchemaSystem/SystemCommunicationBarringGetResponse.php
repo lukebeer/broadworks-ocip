@@ -19,8 +19,8 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemCommunicationBarringGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                    = 'SystemCommunicationBarringGetResponse';
-    protected $directTransferScreening = null;
+    public    $name = 'SystemCommunicationBarringGetResponse';
+    protected $directTransferScreening;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemCommunicationBarringGetResponse $response
@@ -35,7 +35,6 @@ class SystemCommunicationBarringGetResponse extends ComplexType implements Compl
      */
     public function setDirectTransferScreening($directTransferScreening = null)
     {
-        if (!$directTransferScreening) return $this;
         $this->directTransferScreening = new PrimitiveType($directTransferScreening);
         $this->directTransferScreening->setName('directTransferScreening');
         return $this;
@@ -47,6 +46,6 @@ class SystemCommunicationBarringGetResponse extends ComplexType implements Compl
      */
     public function getDirectTransferScreening()
     {
-        return $this->directTransferScreening->getValue();
+        return ($this->directTransferScreening) ? $this->directTransferScreening->getValue() : null;
     }
 }

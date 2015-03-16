@@ -26,14 +26,14 @@ use Broadworks_OCIP\core\Client\Client;
 class EnterpriseVoiceVPNGetPolicyListRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType                       = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaEnterprise\EnterpriseVoiceVPNGetPolicyListResponse';
-    public    $name                               = 'EnterpriseVoiceVPNGetPolicyListRequest';
-    protected $serviceProviderId                  = null;
-    protected $responseSizeLimit                  = null;
-    protected $searchCriteriaGroupLocationCode    = null;
-    protected $searchCriteriaExactPolicySelection = null;
+    public    $name = 'EnterpriseVoiceVPNGetPolicyListRequest';
+    protected $serviceProviderId;
+    protected $responseSizeLimit;
+    protected $searchCriteriaGroupLocationCode;
+    protected $searchCriteriaExactPolicySelection;
 
     public function __construct(
-         $serviceProviderId,
+         $serviceProviderId = '',
          $responseSizeLimit = null,
          SearchCriteriaGroupLocationCode $searchCriteriaGroupLocationCode = null,
          SearchCriteriaExactPolicySelection $searchCriteriaExactPolicySelection = null
@@ -57,7 +57,6 @@ class EnterpriseVoiceVPNGetPolicyListRequest extends ComplexType implements Comp
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
-        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
@@ -71,7 +70,7 @@ class EnterpriseVoiceVPNGetPolicyListRequest extends ComplexType implements Comp
      */
     public function getServiceProviderId()
     {
-        return $this->serviceProviderId->getValue();
+        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
     }
 
     /**
@@ -79,7 +78,6 @@ class EnterpriseVoiceVPNGetPolicyListRequest extends ComplexType implements Comp
      */
     public function setResponseSizeLimit($responseSizeLimit = null)
     {
-        if (!$responseSizeLimit) return $this;
         $this->responseSizeLimit = ($responseSizeLimit InstanceOf ResponseSizeLimit)
              ? $responseSizeLimit
              : new ResponseSizeLimit($responseSizeLimit);
@@ -93,7 +91,7 @@ class EnterpriseVoiceVPNGetPolicyListRequest extends ComplexType implements Comp
      */
     public function getResponseSizeLimit()
     {
-        return $this->responseSizeLimit->getValue();
+        return ($this->responseSizeLimit) ? $this->responseSizeLimit->getValue() : null;
     }
 
     /**
@@ -101,7 +99,6 @@ class EnterpriseVoiceVPNGetPolicyListRequest extends ComplexType implements Comp
      */
     public function setSearchCriteriaGroupLocationCode(SearchCriteriaGroupLocationCode $searchCriteriaGroupLocationCode = null)
     {
-        if (!$searchCriteriaGroupLocationCode) return $this;
         $this->searchCriteriaGroupLocationCode = ($searchCriteriaGroupLocationCode InstanceOf SearchCriteriaGroupLocationCode)
              ? $searchCriteriaGroupLocationCode
              : new SearchCriteriaGroupLocationCode($searchCriteriaGroupLocationCode);
@@ -123,7 +120,6 @@ class EnterpriseVoiceVPNGetPolicyListRequest extends ComplexType implements Comp
      */
     public function setSearchCriteriaExactPolicySelection(SearchCriteriaExactPolicySelection $searchCriteriaExactPolicySelection = null)
     {
-        if (!$searchCriteriaExactPolicySelection) return $this;
         $this->searchCriteriaExactPolicySelection = ($searchCriteriaExactPolicySelection InstanceOf SearchCriteriaExactPolicySelection)
              ? $searchCriteriaExactPolicySelection
              : new SearchCriteriaExactPolicySelection($searchCriteriaExactPolicySelection);

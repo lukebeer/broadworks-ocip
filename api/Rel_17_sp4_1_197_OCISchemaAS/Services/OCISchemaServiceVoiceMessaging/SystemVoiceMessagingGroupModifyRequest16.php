@@ -29,26 +29,26 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemVoiceMessagingGroupModifyRequest16 extends ComplexType implements ComplexInterface
 {
-    public    $name                                 = 'SystemVoiceMessagingGroupModifyRequest16';
-    protected $realDeleteForImap                    = null;
-    protected $useDnInMailBody                      = null;
-    protected $useShortSubjectLine                  = null;
-    protected $maxMessageLengthMinutes              = null;
-    protected $maxMailboxLengthMinutes              = null;
-    protected $doesMessageAge                       = null;
-    protected $holdPeriodDays                       = null;
-    protected $mailServerNetAddress                 = null;
-    protected $mailServerProtocol                   = null;
-    protected $defaultDeliveryFromAddress           = null;
-    protected $defaultNotificationFromAddress       = null;
-    protected $defaultVoicePortalLockoutFromAddress = null;
-    protected $useOutgoingMWIOnSMDI                 = null;
-    protected $mwiDelayInSeconds                    = null;
-    protected $voicePortalScope                     = null;
-    protected $networkWideMessaging                 = null;
-    protected $useExternalRouting                   = null;
-    protected $defaultExternalRoutingAddress        = null;
-    protected $vmOnlySystem                         = null;
+    public    $name = 'SystemVoiceMessagingGroupModifyRequest16';
+    protected $realDeleteForImap;
+    protected $useDnInMailBody;
+    protected $useShortSubjectLine;
+    protected $maxMessageLengthMinutes;
+    protected $maxMailboxLengthMinutes;
+    protected $doesMessageAge;
+    protected $holdPeriodDays;
+    protected $mailServerNetAddress;
+    protected $mailServerProtocol;
+    protected $defaultDeliveryFromAddress;
+    protected $defaultNotificationFromAddress;
+    protected $defaultVoicePortalLockoutFromAddress;
+    protected $useOutgoingMWIOnSMDI;
+    protected $mwiDelayInSeconds;
+    protected $voicePortalScope;
+    protected $networkWideMessaging;
+    protected $useExternalRouting;
+    protected $defaultExternalRoutingAddress;
+    protected $vmOnlySystem;
 
     public function __construct(
          $realDeleteForImap = null,
@@ -105,7 +105,6 @@ class SystemVoiceMessagingGroupModifyRequest16 extends ComplexType implements Co
      */
     public function setRealDeleteForImap($realDeleteForImap = null)
     {
-        if (!$realDeleteForImap) return $this;
         $this->realDeleteForImap = new PrimitiveType($realDeleteForImap);
         $this->realDeleteForImap->setName('realDeleteForImap');
         return $this;
@@ -117,7 +116,7 @@ class SystemVoiceMessagingGroupModifyRequest16 extends ComplexType implements Co
      */
     public function getRealDeleteForImap()
     {
-        return $this->realDeleteForImap->getValue();
+        return ($this->realDeleteForImap) ? $this->realDeleteForImap->getValue() : null;
     }
 
     /**
@@ -125,7 +124,6 @@ class SystemVoiceMessagingGroupModifyRequest16 extends ComplexType implements Co
      */
     public function setUseDnInMailBody($useDnInMailBody = null)
     {
-        if (!$useDnInMailBody) return $this;
         $this->useDnInMailBody = new PrimitiveType($useDnInMailBody);
         $this->useDnInMailBody->setName('useDnInMailBody');
         return $this;
@@ -137,7 +135,7 @@ class SystemVoiceMessagingGroupModifyRequest16 extends ComplexType implements Co
      */
     public function getUseDnInMailBody()
     {
-        return $this->useDnInMailBody->getValue();
+        return ($this->useDnInMailBody) ? $this->useDnInMailBody->getValue() : null;
     }
 
     /**
@@ -145,7 +143,6 @@ class SystemVoiceMessagingGroupModifyRequest16 extends ComplexType implements Co
      */
     public function setUseShortSubjectLine($useShortSubjectLine = null)
     {
-        if (!$useShortSubjectLine) return $this;
         $this->useShortSubjectLine = new PrimitiveType($useShortSubjectLine);
         $this->useShortSubjectLine->setName('useShortSubjectLine');
         return $this;
@@ -157,7 +154,7 @@ class SystemVoiceMessagingGroupModifyRequest16 extends ComplexType implements Co
      */
     public function getUseShortSubjectLine()
     {
-        return $this->useShortSubjectLine->getValue();
+        return ($this->useShortSubjectLine) ? $this->useShortSubjectLine->getValue() : null;
     }
 
     /**
@@ -165,7 +162,6 @@ class SystemVoiceMessagingGroupModifyRequest16 extends ComplexType implements Co
      */
     public function setMaxMessageLengthMinutes($maxMessageLengthMinutes = null)
     {
-        if (!$maxMessageLengthMinutes) return $this;
         $this->maxMessageLengthMinutes = ($maxMessageLengthMinutes InstanceOf VoiceMessagingMaxMessageLengthMinutes)
              ? $maxMessageLengthMinutes
              : new VoiceMessagingMaxMessageLengthMinutes($maxMessageLengthMinutes);
@@ -179,7 +175,7 @@ class SystemVoiceMessagingGroupModifyRequest16 extends ComplexType implements Co
      */
     public function getMaxMessageLengthMinutes()
     {
-        return $this->maxMessageLengthMinutes->getValue();
+        return ($this->maxMessageLengthMinutes) ? $this->maxMessageLengthMinutes->getValue() : null;
     }
 
     /**
@@ -187,7 +183,6 @@ class SystemVoiceMessagingGroupModifyRequest16 extends ComplexType implements Co
      */
     public function setMaxMailboxLengthMinutes($maxMailboxLengthMinutes = null)
     {
-        if (!$maxMailboxLengthMinutes) return $this;
         $this->maxMailboxLengthMinutes = ($maxMailboxLengthMinutes InstanceOf VoiceMessagingMailboxLengthMinutes)
              ? $maxMailboxLengthMinutes
              : new VoiceMessagingMailboxLengthMinutes($maxMailboxLengthMinutes);
@@ -201,7 +196,7 @@ class SystemVoiceMessagingGroupModifyRequest16 extends ComplexType implements Co
      */
     public function getMaxMailboxLengthMinutes()
     {
-        return $this->maxMailboxLengthMinutes->getValue();
+        return ($this->maxMailboxLengthMinutes) ? $this->maxMailboxLengthMinutes->getValue() : null;
     }
 
     /**
@@ -209,7 +204,6 @@ class SystemVoiceMessagingGroupModifyRequest16 extends ComplexType implements Co
      */
     public function setDoesMessageAge($doesMessageAge = null)
     {
-        if (!$doesMessageAge) return $this;
         $this->doesMessageAge = new PrimitiveType($doesMessageAge);
         $this->doesMessageAge->setName('doesMessageAge');
         return $this;
@@ -221,7 +215,7 @@ class SystemVoiceMessagingGroupModifyRequest16 extends ComplexType implements Co
      */
     public function getDoesMessageAge()
     {
-        return $this->doesMessageAge->getValue();
+        return ($this->doesMessageAge) ? $this->doesMessageAge->getValue() : null;
     }
 
     /**
@@ -229,7 +223,6 @@ class SystemVoiceMessagingGroupModifyRequest16 extends ComplexType implements Co
      */
     public function setHoldPeriodDays($holdPeriodDays = null)
     {
-        if (!$holdPeriodDays) return $this;
         $this->holdPeriodDays = ($holdPeriodDays InstanceOf VoiceMessagingHoldPeriodDays)
              ? $holdPeriodDays
              : new VoiceMessagingHoldPeriodDays($holdPeriodDays);
@@ -243,7 +236,7 @@ class SystemVoiceMessagingGroupModifyRequest16 extends ComplexType implements Co
      */
     public function getHoldPeriodDays()
     {
-        return $this->holdPeriodDays->getValue();
+        return ($this->holdPeriodDays) ? $this->holdPeriodDays->getValue() : null;
     }
 
     /**
@@ -251,7 +244,6 @@ class SystemVoiceMessagingGroupModifyRequest16 extends ComplexType implements Co
      */
     public function setMailServerNetAddress($mailServerNetAddress = null)
     {
-        if (!$mailServerNetAddress) return $this;
         $this->mailServerNetAddress = ($mailServerNetAddress InstanceOf NetAddress)
              ? $mailServerNetAddress
              : new NetAddress($mailServerNetAddress);
@@ -265,7 +257,7 @@ class SystemVoiceMessagingGroupModifyRequest16 extends ComplexType implements Co
      */
     public function getMailServerNetAddress()
     {
-        return $this->mailServerNetAddress->getValue();
+        return ($this->mailServerNetAddress) ? $this->mailServerNetAddress->getValue() : null;
     }
 
     /**
@@ -273,7 +265,6 @@ class SystemVoiceMessagingGroupModifyRequest16 extends ComplexType implements Co
      */
     public function setMailServerProtocol($mailServerProtocol = null)
     {
-        if (!$mailServerProtocol) return $this;
         $this->mailServerProtocol = ($mailServerProtocol InstanceOf VoiceMessagingMailServerProtocol)
              ? $mailServerProtocol
              : new VoiceMessagingMailServerProtocol($mailServerProtocol);
@@ -287,7 +278,7 @@ class SystemVoiceMessagingGroupModifyRequest16 extends ComplexType implements Co
      */
     public function getMailServerProtocol()
     {
-        return $this->mailServerProtocol->getValue();
+        return ($this->mailServerProtocol) ? $this->mailServerProtocol->getValue() : null;
     }
 
     /**
@@ -295,7 +286,6 @@ class SystemVoiceMessagingGroupModifyRequest16 extends ComplexType implements Co
      */
     public function setDefaultDeliveryFromAddress($defaultDeliveryFromAddress = null)
     {
-        if (!$defaultDeliveryFromAddress) return $this;
         $this->defaultDeliveryFromAddress = ($defaultDeliveryFromAddress InstanceOf EmailAddress)
              ? $defaultDeliveryFromAddress
              : new EmailAddress($defaultDeliveryFromAddress);
@@ -309,7 +299,7 @@ class SystemVoiceMessagingGroupModifyRequest16 extends ComplexType implements Co
      */
     public function getDefaultDeliveryFromAddress()
     {
-        return $this->defaultDeliveryFromAddress->getValue();
+        return ($this->defaultDeliveryFromAddress) ? $this->defaultDeliveryFromAddress->getValue() : null;
     }
 
     /**
@@ -317,7 +307,6 @@ class SystemVoiceMessagingGroupModifyRequest16 extends ComplexType implements Co
      */
     public function setDefaultNotificationFromAddress($defaultNotificationFromAddress = null)
     {
-        if (!$defaultNotificationFromAddress) return $this;
         $this->defaultNotificationFromAddress = ($defaultNotificationFromAddress InstanceOf EmailAddress)
              ? $defaultNotificationFromAddress
              : new EmailAddress($defaultNotificationFromAddress);
@@ -331,7 +320,7 @@ class SystemVoiceMessagingGroupModifyRequest16 extends ComplexType implements Co
      */
     public function getDefaultNotificationFromAddress()
     {
-        return $this->defaultNotificationFromAddress->getValue();
+        return ($this->defaultNotificationFromAddress) ? $this->defaultNotificationFromAddress->getValue() : null;
     }
 
     /**
@@ -339,7 +328,6 @@ class SystemVoiceMessagingGroupModifyRequest16 extends ComplexType implements Co
      */
     public function setDefaultVoicePortalLockoutFromAddress($defaultVoicePortalLockoutFromAddress = null)
     {
-        if (!$defaultVoicePortalLockoutFromAddress) return $this;
         $this->defaultVoicePortalLockoutFromAddress = ($defaultVoicePortalLockoutFromAddress InstanceOf EmailAddress)
              ? $defaultVoicePortalLockoutFromAddress
              : new EmailAddress($defaultVoicePortalLockoutFromAddress);
@@ -353,7 +341,7 @@ class SystemVoiceMessagingGroupModifyRequest16 extends ComplexType implements Co
      */
     public function getDefaultVoicePortalLockoutFromAddress()
     {
-        return $this->defaultVoicePortalLockoutFromAddress->getValue();
+        return ($this->defaultVoicePortalLockoutFromAddress) ? $this->defaultVoicePortalLockoutFromAddress->getValue() : null;
     }
 
     /**
@@ -361,7 +349,6 @@ class SystemVoiceMessagingGroupModifyRequest16 extends ComplexType implements Co
      */
     public function setUseOutgoingMWIOnSMDI($useOutgoingMWIOnSMDI = null)
     {
-        if (!$useOutgoingMWIOnSMDI) return $this;
         $this->useOutgoingMWIOnSMDI = new PrimitiveType($useOutgoingMWIOnSMDI);
         $this->useOutgoingMWIOnSMDI->setName('useOutgoingMWIOnSMDI');
         return $this;
@@ -373,7 +360,7 @@ class SystemVoiceMessagingGroupModifyRequest16 extends ComplexType implements Co
      */
     public function getUseOutgoingMWIOnSMDI()
     {
-        return $this->useOutgoingMWIOnSMDI->getValue();
+        return ($this->useOutgoingMWIOnSMDI) ? $this->useOutgoingMWIOnSMDI->getValue() : null;
     }
 
     /**
@@ -381,7 +368,6 @@ class SystemVoiceMessagingGroupModifyRequest16 extends ComplexType implements Co
      */
     public function setMwiDelayInSeconds($mwiDelayInSeconds = null)
     {
-        if (!$mwiDelayInSeconds) return $this;
         $this->mwiDelayInSeconds = ($mwiDelayInSeconds InstanceOf VoiceMessagingMessageWaitingIndicatorDelayInSeconds)
              ? $mwiDelayInSeconds
              : new VoiceMessagingMessageWaitingIndicatorDelayInSeconds($mwiDelayInSeconds);
@@ -395,7 +381,7 @@ class SystemVoiceMessagingGroupModifyRequest16 extends ComplexType implements Co
      */
     public function getMwiDelayInSeconds()
     {
-        return $this->mwiDelayInSeconds->getValue();
+        return ($this->mwiDelayInSeconds) ? $this->mwiDelayInSeconds->getValue() : null;
     }
 
     /**
@@ -403,7 +389,6 @@ class SystemVoiceMessagingGroupModifyRequest16 extends ComplexType implements Co
      */
     public function setVoicePortalScope($voicePortalScope = null)
     {
-        if (!$voicePortalScope) return $this;
         $this->voicePortalScope = ($voicePortalScope InstanceOf SystemVoicePortalScope)
              ? $voicePortalScope
              : new SystemVoicePortalScope($voicePortalScope);
@@ -417,7 +402,7 @@ class SystemVoiceMessagingGroupModifyRequest16 extends ComplexType implements Co
      */
     public function getVoicePortalScope()
     {
-        return $this->voicePortalScope->getValue();
+        return ($this->voicePortalScope) ? $this->voicePortalScope->getValue() : null;
     }
 
     /**
@@ -425,7 +410,6 @@ class SystemVoiceMessagingGroupModifyRequest16 extends ComplexType implements Co
      */
     public function setNetworkWideMessaging($networkWideMessaging = null)
     {
-        if (!$networkWideMessaging) return $this;
         $this->networkWideMessaging = new PrimitiveType($networkWideMessaging);
         $this->networkWideMessaging->setName('networkWideMessaging');
         return $this;
@@ -437,7 +421,7 @@ class SystemVoiceMessagingGroupModifyRequest16 extends ComplexType implements Co
      */
     public function getNetworkWideMessaging()
     {
-        return $this->networkWideMessaging->getValue();
+        return ($this->networkWideMessaging) ? $this->networkWideMessaging->getValue() : null;
     }
 
     /**
@@ -445,7 +429,6 @@ class SystemVoiceMessagingGroupModifyRequest16 extends ComplexType implements Co
      */
     public function setUseExternalRouting($useExternalRouting = null)
     {
-        if (!$useExternalRouting) return $this;
         $this->useExternalRouting = new PrimitiveType($useExternalRouting);
         $this->useExternalRouting->setName('useExternalRouting');
         return $this;
@@ -457,7 +440,7 @@ class SystemVoiceMessagingGroupModifyRequest16 extends ComplexType implements Co
      */
     public function getUseExternalRouting()
     {
-        return $this->useExternalRouting->getValue();
+        return ($this->useExternalRouting) ? $this->useExternalRouting->getValue() : null;
     }
 
     /**
@@ -465,7 +448,6 @@ class SystemVoiceMessagingGroupModifyRequest16 extends ComplexType implements Co
      */
     public function setDefaultExternalRoutingAddress($defaultExternalRoutingAddress = null)
     {
-        if (!$defaultExternalRoutingAddress) return $this;
         $this->defaultExternalRoutingAddress = ($defaultExternalRoutingAddress InstanceOf OutgoingDNorSIPURI)
              ? $defaultExternalRoutingAddress
              : new OutgoingDNorSIPURI($defaultExternalRoutingAddress);
@@ -479,7 +461,7 @@ class SystemVoiceMessagingGroupModifyRequest16 extends ComplexType implements Co
      */
     public function getDefaultExternalRoutingAddress()
     {
-        return $this->defaultExternalRoutingAddress->getValue();
+        return ($this->defaultExternalRoutingAddress) ? $this->defaultExternalRoutingAddress->getValue() : null;
     }
 
     /**
@@ -487,7 +469,6 @@ class SystemVoiceMessagingGroupModifyRequest16 extends ComplexType implements Co
      */
     public function setVmOnlySystem($vmOnlySystem = null)
     {
-        if (!$vmOnlySystem) return $this;
         $this->vmOnlySystem = new PrimitiveType($vmOnlySystem);
         $this->vmOnlySystem->setName('vmOnlySystem');
         return $this;
@@ -499,6 +480,6 @@ class SystemVoiceMessagingGroupModifyRequest16 extends ComplexType implements Co
      */
     public function getVmOnlySystem()
     {
-        return $this->vmOnlySystem->getValue();
+        return ($this->vmOnlySystem) ? $this->vmOnlySystem->getValue() : null;
     }
 }

@@ -23,10 +23,10 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemSessionAuditModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                 = 'SystemSessionAuditModifyRequest';
-    protected $isActive             = null;
-    protected $intervalSeconds      = null;
-    protected $timeoutPeriodSeconds = null;
+    public    $name = 'SystemSessionAuditModifyRequest';
+    protected $isActive;
+    protected $intervalSeconds;
+    protected $timeoutPeriodSeconds;
 
     public function __construct(
          $isActive = null,
@@ -51,7 +51,6 @@ class SystemSessionAuditModifyRequest extends ComplexType implements ComplexInte
      */
     public function setIsActive($isActive = null)
     {
-        if (!$isActive) return $this;
         $this->isActive = new PrimitiveType($isActive);
         $this->isActive->setName('isActive');
         return $this;
@@ -63,7 +62,7 @@ class SystemSessionAuditModifyRequest extends ComplexType implements ComplexInte
      */
     public function getIsActive()
     {
-        return $this->isActive->getValue();
+        return ($this->isActive) ? $this->isActive->getValue() : null;
     }
 
     /**
@@ -71,7 +70,6 @@ class SystemSessionAuditModifyRequest extends ComplexType implements ComplexInte
      */
     public function setIntervalSeconds($intervalSeconds = null)
     {
-        if (!$intervalSeconds) return $this;
         $this->intervalSeconds = ($intervalSeconds InstanceOf SessionAuditIntervalSeconds)
              ? $intervalSeconds
              : new SessionAuditIntervalSeconds($intervalSeconds);
@@ -85,7 +83,7 @@ class SystemSessionAuditModifyRequest extends ComplexType implements ComplexInte
      */
     public function getIntervalSeconds()
     {
-        return $this->intervalSeconds->getValue();
+        return ($this->intervalSeconds) ? $this->intervalSeconds->getValue() : null;
     }
 
     /**
@@ -93,7 +91,6 @@ class SystemSessionAuditModifyRequest extends ComplexType implements ComplexInte
      */
     public function setTimeoutPeriodSeconds($timeoutPeriodSeconds = null)
     {
-        if (!$timeoutPeriodSeconds) return $this;
         $this->timeoutPeriodSeconds = ($timeoutPeriodSeconds InstanceOf SessionAuditTimeoutPeriodSeconds)
              ? $timeoutPeriodSeconds
              : new SessionAuditTimeoutPeriodSeconds($timeoutPeriodSeconds);
@@ -107,6 +104,6 @@ class SystemSessionAuditModifyRequest extends ComplexType implements ComplexInte
      */
     public function getTimeoutPeriodSeconds()
     {
-        return $this->timeoutPeriodSeconds->getValue();
+        return ($this->timeoutPeriodSeconds) ? $this->timeoutPeriodSeconds->getValue() : null;
     }
 }

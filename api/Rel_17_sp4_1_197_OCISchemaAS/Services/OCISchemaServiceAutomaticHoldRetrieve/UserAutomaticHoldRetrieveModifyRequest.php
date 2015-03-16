@@ -22,13 +22,13 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserAutomaticHoldRetrieveModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name               = 'UserAutomaticHoldRetrieveModifyRequest';
-    protected $userId             = null;
-    protected $isActive           = null;
-    protected $recallTimerSeconds = null;
+    public    $name = 'UserAutomaticHoldRetrieveModifyRequest';
+    protected $userId;
+    protected $isActive;
+    protected $recallTimerSeconds;
 
     public function __construct(
-         $userId,
+         $userId = '',
          $isActive = null,
          $recallTimerSeconds = null
     ) {
@@ -50,7 +50,6 @@ class UserAutomaticHoldRetrieveModifyRequest extends ComplexType implements Comp
      */
     public function setUserId($userId = null)
     {
-        if (!$userId) return $this;
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
@@ -64,7 +63,7 @@ class UserAutomaticHoldRetrieveModifyRequest extends ComplexType implements Comp
      */
     public function getUserId()
     {
-        return $this->userId->getValue();
+        return ($this->userId) ? $this->userId->getValue() : null;
     }
 
     /**
@@ -72,7 +71,6 @@ class UserAutomaticHoldRetrieveModifyRequest extends ComplexType implements Comp
      */
     public function setIsActive($isActive = null)
     {
-        if (!$isActive) return $this;
         $this->isActive = new PrimitiveType($isActive);
         $this->isActive->setName('isActive');
         return $this;
@@ -84,7 +82,7 @@ class UserAutomaticHoldRetrieveModifyRequest extends ComplexType implements Comp
      */
     public function getIsActive()
     {
-        return $this->isActive->getValue();
+        return ($this->isActive) ? $this->isActive->getValue() : null;
     }
 
     /**
@@ -92,7 +90,6 @@ class UserAutomaticHoldRetrieveModifyRequest extends ComplexType implements Comp
      */
     public function setRecallTimerSeconds($recallTimerSeconds = null)
     {
-        if (!$recallTimerSeconds) return $this;
         $this->recallTimerSeconds = ($recallTimerSeconds InstanceOf AutomaticHoldRetrieveRecallTimerSeconds)
              ? $recallTimerSeconds
              : new AutomaticHoldRetrieveRecallTimerSeconds($recallTimerSeconds);
@@ -106,6 +103,6 @@ class UserAutomaticHoldRetrieveModifyRequest extends ComplexType implements Comp
      */
     public function getRecallTimerSeconds()
     {
-        return $this->recallTimerSeconds->getValue();
+        return ($this->recallTimerSeconds) ? $this->recallTimerSeconds->getValue() : null;
     }
 }

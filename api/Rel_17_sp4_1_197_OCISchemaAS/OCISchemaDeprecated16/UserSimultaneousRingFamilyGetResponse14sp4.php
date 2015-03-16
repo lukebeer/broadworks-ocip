@@ -22,10 +22,10 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserSimultaneousRingFamilyGetResponse14sp4 extends ComplexType implements ComplexInterface
 {
-    public    $name             = 'UserSimultaneousRingFamilyGetResponse14sp4';
-    protected $isActive         = null;
-    protected $incomingCalls    = null;
-    protected $phoneNumberTable = null;
+    public    $name = 'UserSimultaneousRingFamilyGetResponse14sp4';
+    protected $isActive;
+    protected $incomingCalls;
+    protected $phoneNumberTable;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\UserSimultaneousRingFamilyGetResponse14sp4 $response
@@ -40,7 +40,6 @@ class UserSimultaneousRingFamilyGetResponse14sp4 extends ComplexType implements 
      */
     public function setIsActive($isActive = null)
     {
-        if (!$isActive) return $this;
         $this->isActive = new PrimitiveType($isActive);
         $this->isActive->setName('isActive');
         return $this;
@@ -52,7 +51,7 @@ class UserSimultaneousRingFamilyGetResponse14sp4 extends ComplexType implements 
      */
     public function getIsActive()
     {
-        return $this->isActive->getValue();
+        return ($this->isActive) ? $this->isActive->getValue() : null;
     }
 
     /**
@@ -60,7 +59,6 @@ class UserSimultaneousRingFamilyGetResponse14sp4 extends ComplexType implements 
      */
     public function setIncomingCalls($incomingCalls = null)
     {
-        if (!$incomingCalls) return $this;
         $this->incomingCalls = ($incomingCalls InstanceOf SimultaneousRingSelection)
              ? $incomingCalls
              : new SimultaneousRingSelection($incomingCalls);
@@ -74,7 +72,7 @@ class UserSimultaneousRingFamilyGetResponse14sp4 extends ComplexType implements 
      */
     public function getIncomingCalls()
     {
-        return $this->incomingCalls->getValue();
+        return ($this->incomingCalls) ? $this->incomingCalls->getValue() : null;
     }
 
     /**
@@ -82,7 +80,6 @@ class UserSimultaneousRingFamilyGetResponse14sp4 extends ComplexType implements 
      */
     public function setPhoneNumberTable(TableType $phoneNumberTable = null)
     {
-        if (!$phoneNumberTable) return $this;
         $this->phoneNumberTable = $phoneNumberTable;
         $this->phoneNumberTable->setName('phoneNumberTable');
         return $this;

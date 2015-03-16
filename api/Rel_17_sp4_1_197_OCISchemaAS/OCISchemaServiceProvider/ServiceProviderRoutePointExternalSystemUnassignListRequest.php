@@ -20,12 +20,12 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderRoutePointExternalSystemUnassignListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                     = 'ServiceProviderRoutePointExternalSystemUnassignListRequest';
-    protected $serviceProviderId        = null;
-    protected $routePointExternalSystem = null;
+    public    $name = 'ServiceProviderRoutePointExternalSystemUnassignListRequest';
+    protected $serviceProviderId;
+    protected $routePointExternalSystem;
 
     public function __construct(
-         $serviceProviderId,
+         $serviceProviderId = '',
          $routePointExternalSystem = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
@@ -45,7 +45,6 @@ class ServiceProviderRoutePointExternalSystemUnassignListRequest extends Complex
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
-        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
@@ -59,7 +58,7 @@ class ServiceProviderRoutePointExternalSystemUnassignListRequest extends Complex
      */
     public function getServiceProviderId()
     {
-        return $this->serviceProviderId->getValue();
+        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
     }
 
     /**
@@ -67,7 +66,6 @@ class ServiceProviderRoutePointExternalSystemUnassignListRequest extends Complex
      */
     public function setRoutePointExternalSystem($routePointExternalSystem = null)
     {
-        if (!$routePointExternalSystem) return $this;
         $this->routePointExternalSystem = ($routePointExternalSystem InstanceOf RoutePointExternalSystem)
              ? $routePointExternalSystem
              : new RoutePointExternalSystem($routePointExternalSystem);
@@ -81,6 +79,6 @@ class ServiceProviderRoutePointExternalSystemUnassignListRequest extends Complex
      */
     public function getRoutePointExternalSystem()
     {
-        return $this->routePointExternalSystem->getValue();
+        return ($this->routePointExternalSystem) ? $this->routePointExternalSystem->getValue() : null;
     }
 }

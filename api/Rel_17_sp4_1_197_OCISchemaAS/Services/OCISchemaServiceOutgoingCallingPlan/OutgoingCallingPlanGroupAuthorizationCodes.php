@@ -19,8 +19,8 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class OutgoingCallingPlanGroupAuthorizationCodes extends ComplexType implements ComplexInterface
 {
-    public    $name      = 'OutgoingCallingPlanGroupAuthorizationCodes';
-    protected $codeEntry = null;
+    public    $name = 'OutgoingCallingPlanGroupAuthorizationCodes';
+    protected $codeEntry;
 
     public function __construct(
          $codeEntry = null
@@ -41,7 +41,6 @@ class OutgoingCallingPlanGroupAuthorizationCodes extends ComplexType implements 
      */
     public function setCodeEntry($codeEntry = null)
     {
-        if (!$codeEntry) return $this;
         $this->codeEntry = new SimpleContent($codeEntry);
         $this->codeEntry->setName('codeEntry');
         return $this;
@@ -53,6 +52,6 @@ class OutgoingCallingPlanGroupAuthorizationCodes extends ComplexType implements 
      */
     public function getCodeEntry()
     {
-        return $this->codeEntry->getValue();
+        return ($this->codeEntry) ? $this->codeEntry->getValue() : null;
     }
 }

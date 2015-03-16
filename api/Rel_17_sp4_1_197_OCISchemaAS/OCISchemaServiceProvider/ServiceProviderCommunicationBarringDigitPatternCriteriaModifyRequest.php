@@ -23,17 +23,17 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderCommunicationBarringDigitPatternCriteriaModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                    = 'ServiceProviderCommunicationBarringDigitPatternCriteriaModifyRequest';
-    protected $serviceProviderId       = null;
-    protected $name                    = null;
-    protected $newName                 = null;
-    protected $description             = null;
-    protected $addMatchDigitPattern    = null;
-    protected $deleteMatchDigitPattern = null;
+    public    $name = 'ServiceProviderCommunicationBarringDigitPatternCriteriaModifyRequest';
+    protected $serviceProviderId;
+    protected $name;
+    protected $newName;
+    protected $description;
+    protected $addMatchDigitPattern;
+    protected $deleteMatchDigitPattern;
 
     public function __construct(
-         $serviceProviderId,
-         $name,
+         $serviceProviderId = '',
+         $name = '',
          $newName = null,
          $description = null,
          $addMatchDigitPattern = null,
@@ -60,7 +60,6 @@ class ServiceProviderCommunicationBarringDigitPatternCriteriaModifyRequest exten
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
-        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
@@ -74,7 +73,7 @@ class ServiceProviderCommunicationBarringDigitPatternCriteriaModifyRequest exten
      */
     public function getServiceProviderId()
     {
-        return $this->serviceProviderId->getValue();
+        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
     }
 
     /**
@@ -82,7 +81,6 @@ class ServiceProviderCommunicationBarringDigitPatternCriteriaModifyRequest exten
      */
     public function setName($name = null)
     {
-        if (!$name) return $this;
         $this->name = ($name InstanceOf DigitPatternCriteriaName)
              ? $name
              : new DigitPatternCriteriaName($name);
@@ -96,7 +94,7 @@ class ServiceProviderCommunicationBarringDigitPatternCriteriaModifyRequest exten
      */
     public function getName()
     {
-        return $this->name->getValue();
+        return ($this->name) ? $this->name->getValue() : null;
     }
 
     /**
@@ -104,7 +102,6 @@ class ServiceProviderCommunicationBarringDigitPatternCriteriaModifyRequest exten
      */
     public function setNewName($newName = null)
     {
-        if (!$newName) return $this;
         $this->newName = ($newName InstanceOf DigitPatternCriteriaName)
              ? $newName
              : new DigitPatternCriteriaName($newName);
@@ -118,7 +115,7 @@ class ServiceProviderCommunicationBarringDigitPatternCriteriaModifyRequest exten
      */
     public function getNewName()
     {
-        return $this->newName->getValue();
+        return ($this->newName) ? $this->newName->getValue() : null;
     }
 
     /**
@@ -126,7 +123,6 @@ class ServiceProviderCommunicationBarringDigitPatternCriteriaModifyRequest exten
      */
     public function setDescription($description = null)
     {
-        if (!$description) return $this;
         $this->description = ($description InstanceOf DigitPatternCriteriaDescription)
              ? $description
              : new DigitPatternCriteriaDescription($description);
@@ -140,7 +136,7 @@ class ServiceProviderCommunicationBarringDigitPatternCriteriaModifyRequest exten
      */
     public function getDescription()
     {
-        return $this->description->getValue();
+        return ($this->description) ? $this->description->getValue() : null;
     }
 
     /**
@@ -148,7 +144,6 @@ class ServiceProviderCommunicationBarringDigitPatternCriteriaModifyRequest exten
      */
     public function setAddMatchDigitPattern($addMatchDigitPattern = null)
     {
-        if (!$addMatchDigitPattern) return $this;
         $this->addMatchDigitPattern = ($addMatchDigitPattern InstanceOf DigitPattern)
              ? $addMatchDigitPattern
              : new DigitPattern($addMatchDigitPattern);
@@ -162,7 +157,7 @@ class ServiceProviderCommunicationBarringDigitPatternCriteriaModifyRequest exten
      */
     public function getAddMatchDigitPattern()
     {
-        return $this->addMatchDigitPattern->getValue();
+        return ($this->addMatchDigitPattern) ? $this->addMatchDigitPattern->getValue() : null;
     }
 
     /**
@@ -170,7 +165,6 @@ class ServiceProviderCommunicationBarringDigitPatternCriteriaModifyRequest exten
      */
     public function setDeleteMatchDigitPattern($deleteMatchDigitPattern = null)
     {
-        if (!$deleteMatchDigitPattern) return $this;
         $this->deleteMatchDigitPattern = ($deleteMatchDigitPattern InstanceOf DigitPattern)
              ? $deleteMatchDigitPattern
              : new DigitPattern($deleteMatchDigitPattern);
@@ -184,6 +178,6 @@ class ServiceProviderCommunicationBarringDigitPatternCriteriaModifyRequest exten
      */
     public function getDeleteMatchDigitPattern()
     {
-        return $this->deleteMatchDigitPattern->getValue();
+        return ($this->deleteMatchDigitPattern) ? $this->deleteMatchDigitPattern->getValue() : null;
     }
 }

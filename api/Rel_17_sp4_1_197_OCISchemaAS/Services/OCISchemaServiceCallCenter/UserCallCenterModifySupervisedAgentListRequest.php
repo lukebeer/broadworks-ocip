@@ -21,14 +21,14 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserCallCenterModifySupervisedAgentListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name             = 'UserCallCenterModifySupervisedAgentListRequest';
-    protected $supervisorUserId = null;
-    protected $serviceUserId    = null;
-    protected $agentUserIdList  = null;
+    public    $name = 'UserCallCenterModifySupervisedAgentListRequest';
+    protected $supervisorUserId;
+    protected $serviceUserId;
+    protected $agentUserIdList;
 
     public function __construct(
-         $supervisorUserId,
-         $serviceUserId,
+         $supervisorUserId = '',
+         $serviceUserId = '',
          ReplacementUserIdList $agentUserIdList = null
     ) {
         $this->setSupervisorUserId($supervisorUserId);
@@ -49,7 +49,6 @@ class UserCallCenterModifySupervisedAgentListRequest extends ComplexType impleme
      */
     public function setSupervisorUserId($supervisorUserId = null)
     {
-        if (!$supervisorUserId) return $this;
         $this->supervisorUserId = ($supervisorUserId InstanceOf UserId)
              ? $supervisorUserId
              : new UserId($supervisorUserId);
@@ -63,7 +62,7 @@ class UserCallCenterModifySupervisedAgentListRequest extends ComplexType impleme
      */
     public function getSupervisorUserId()
     {
-        return $this->supervisorUserId->getValue();
+        return ($this->supervisorUserId) ? $this->supervisorUserId->getValue() : null;
     }
 
     /**
@@ -71,7 +70,6 @@ class UserCallCenterModifySupervisedAgentListRequest extends ComplexType impleme
      */
     public function setServiceUserId($serviceUserId = null)
     {
-        if (!$serviceUserId) return $this;
         $this->serviceUserId = ($serviceUserId InstanceOf UserId)
              ? $serviceUserId
              : new UserId($serviceUserId);
@@ -85,7 +83,7 @@ class UserCallCenterModifySupervisedAgentListRequest extends ComplexType impleme
      */
     public function getServiceUserId()
     {
-        return $this->serviceUserId->getValue();
+        return ($this->serviceUserId) ? $this->serviceUserId->getValue() : null;
     }
 
     /**
@@ -93,8 +91,9 @@ class UserCallCenterModifySupervisedAgentListRequest extends ComplexType impleme
      */
     public function setAgentUserIdList(ReplacementUserIdList $agentUserIdList = null)
     {
-        if (!$agentUserIdList) return $this;
-        $this->agentUserIdList = $agentUserIdList;
+        $this->agentUserIdList = ($agentUserIdList InstanceOf ReplacementUserIdList)
+             ? $agentUserIdList
+             : new ReplacementUserIdList($agentUserIdList);
         $this->agentUserIdList->setName('agentUserIdList');
         return $this;
     }

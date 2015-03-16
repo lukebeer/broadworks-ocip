@@ -46,27 +46,27 @@ use Broadworks_OCIP\core\Client\Client;
 class UserPhoneDirectoryGetPagedListRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType                      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser\UserPhoneDirectoryGetPagedListResponse';
-    public    $name                              = 'UserPhoneDirectoryGetPagedListRequest';
-    protected $userId                            = null;
-    protected $isEnterpriseInfoRequested         = null;
-    protected $responsePagingControl             = null;
-    protected $searchCriteriaModeOr              = null;
-    protected $searchCriteriaUserLastName        = null;
-    protected $searchCriteriaUserFirstName       = null;
-    protected $searchCriteriaDn                  = null;
-    protected $searchCriteriaGroupLocationCode   = null;
-    protected $searchCriteriaExtension           = null;
-    protected $searchCriteriaMobilePhoneNumber   = null;
-    protected $searchCriteriaEmailAddress        = null;
-    protected $searchCriteriaYahooId             = null;
-    protected $searchCriteriaExactUserGroup      = null;
-    protected $searchCriteriaExactUserDepartment = null;
-    protected $searchCriteriaUserId              = null;
+    public    $name = 'UserPhoneDirectoryGetPagedListRequest';
+    protected $userId;
+    protected $isEnterpriseInfoRequested;
+    protected $responsePagingControl;
+    protected $searchCriteriaModeOr;
+    protected $searchCriteriaUserLastName;
+    protected $searchCriteriaUserFirstName;
+    protected $searchCriteriaDn;
+    protected $searchCriteriaGroupLocationCode;
+    protected $searchCriteriaExtension;
+    protected $searchCriteriaMobilePhoneNumber;
+    protected $searchCriteriaEmailAddress;
+    protected $searchCriteriaYahooId;
+    protected $searchCriteriaExactUserGroup;
+    protected $searchCriteriaExactUserDepartment;
+    protected $searchCriteriaUserId;
 
     public function __construct(
-         $userId,
-         $isEnterpriseInfoRequested,
-         ResponsePagingControl $responsePagingControl,
+         $userId = '',
+         $isEnterpriseInfoRequested = '',
+         ResponsePagingControl $responsePagingControl = '',
          $searchCriteriaModeOr = null,
          SearchCriteriaUserLastName $searchCriteriaUserLastName = null,
          SearchCriteriaUserFirstName $searchCriteriaUserFirstName = null,
@@ -110,7 +110,6 @@ class UserPhoneDirectoryGetPagedListRequest extends ComplexType implements Compl
      */
     public function setUserId($userId = null)
     {
-        if (!$userId) return $this;
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
@@ -124,7 +123,7 @@ class UserPhoneDirectoryGetPagedListRequest extends ComplexType implements Compl
      */
     public function getUserId()
     {
-        return $this->userId->getValue();
+        return ($this->userId) ? $this->userId->getValue() : null;
     }
 
     /**
@@ -132,7 +131,6 @@ class UserPhoneDirectoryGetPagedListRequest extends ComplexType implements Compl
      */
     public function setIsEnterpriseInfoRequested($isEnterpriseInfoRequested = null)
     {
-        if (!$isEnterpriseInfoRequested) return $this;
         $this->isEnterpriseInfoRequested = new PrimitiveType($isEnterpriseInfoRequested);
         $this->isEnterpriseInfoRequested->setName('isEnterpriseInfoRequested');
         return $this;
@@ -144,7 +142,7 @@ class UserPhoneDirectoryGetPagedListRequest extends ComplexType implements Compl
      */
     public function getIsEnterpriseInfoRequested()
     {
-        return $this->isEnterpriseInfoRequested->getValue();
+        return ($this->isEnterpriseInfoRequested) ? $this->isEnterpriseInfoRequested->getValue() : null;
     }
 
     /**
@@ -152,8 +150,9 @@ class UserPhoneDirectoryGetPagedListRequest extends ComplexType implements Compl
      */
     public function setResponsePagingControl(ResponsePagingControl $responsePagingControl = null)
     {
-        if (!$responsePagingControl) return $this;
-        $this->responsePagingControl = $responsePagingControl;
+        $this->responsePagingControl = ($responsePagingControl InstanceOf ResponsePagingControl)
+             ? $responsePagingControl
+             : new ResponsePagingControl($responsePagingControl);
         $this->responsePagingControl->setName('responsePagingControl');
         return $this;
     }
@@ -172,7 +171,6 @@ class UserPhoneDirectoryGetPagedListRequest extends ComplexType implements Compl
      */
     public function setSearchCriteriaModeOr($searchCriteriaModeOr = null)
     {
-        if (!$searchCriteriaModeOr) return $this;
         $this->searchCriteriaModeOr = new PrimitiveType($searchCriteriaModeOr);
         $this->searchCriteriaModeOr->setName('searchCriteriaModeOr');
         return $this;
@@ -184,7 +182,7 @@ class UserPhoneDirectoryGetPagedListRequest extends ComplexType implements Compl
      */
     public function getSearchCriteriaModeOr()
     {
-        return $this->searchCriteriaModeOr->getValue();
+        return ($this->searchCriteriaModeOr) ? $this->searchCriteriaModeOr->getValue() : null;
     }
 
     /**
@@ -192,7 +190,6 @@ class UserPhoneDirectoryGetPagedListRequest extends ComplexType implements Compl
      */
     public function setSearchCriteriaUserLastName(SearchCriteriaUserLastName $searchCriteriaUserLastName = null)
     {
-        if (!$searchCriteriaUserLastName) return $this;
         $this->searchCriteriaUserLastName = ($searchCriteriaUserLastName InstanceOf SearchCriteriaUserLastName)
              ? $searchCriteriaUserLastName
              : new SearchCriteriaUserLastName($searchCriteriaUserLastName);
@@ -214,7 +211,6 @@ class UserPhoneDirectoryGetPagedListRequest extends ComplexType implements Compl
      */
     public function setSearchCriteriaUserFirstName(SearchCriteriaUserFirstName $searchCriteriaUserFirstName = null)
     {
-        if (!$searchCriteriaUserFirstName) return $this;
         $this->searchCriteriaUserFirstName = ($searchCriteriaUserFirstName InstanceOf SearchCriteriaUserFirstName)
              ? $searchCriteriaUserFirstName
              : new SearchCriteriaUserFirstName($searchCriteriaUserFirstName);
@@ -236,7 +232,6 @@ class UserPhoneDirectoryGetPagedListRequest extends ComplexType implements Compl
      */
     public function setSearchCriteriaDn(SearchCriteriaDn $searchCriteriaDn = null)
     {
-        if (!$searchCriteriaDn) return $this;
         $this->searchCriteriaDn = ($searchCriteriaDn InstanceOf SearchCriteriaDn)
              ? $searchCriteriaDn
              : new SearchCriteriaDn($searchCriteriaDn);
@@ -258,7 +253,6 @@ class UserPhoneDirectoryGetPagedListRequest extends ComplexType implements Compl
      */
     public function setSearchCriteriaGroupLocationCode(SearchCriteriaGroupLocationCode $searchCriteriaGroupLocationCode = null)
     {
-        if (!$searchCriteriaGroupLocationCode) return $this;
         $this->searchCriteriaGroupLocationCode = ($searchCriteriaGroupLocationCode InstanceOf SearchCriteriaGroupLocationCode)
              ? $searchCriteriaGroupLocationCode
              : new SearchCriteriaGroupLocationCode($searchCriteriaGroupLocationCode);
@@ -280,7 +274,6 @@ class UserPhoneDirectoryGetPagedListRequest extends ComplexType implements Compl
      */
     public function setSearchCriteriaExtension(SearchCriteriaExtension $searchCriteriaExtension = null)
     {
-        if (!$searchCriteriaExtension) return $this;
         $this->searchCriteriaExtension = ($searchCriteriaExtension InstanceOf SearchCriteriaExtension)
              ? $searchCriteriaExtension
              : new SearchCriteriaExtension($searchCriteriaExtension);
@@ -302,7 +295,6 @@ class UserPhoneDirectoryGetPagedListRequest extends ComplexType implements Compl
      */
     public function setSearchCriteriaMobilePhoneNumber(SearchCriteriaMobilePhoneNumber $searchCriteriaMobilePhoneNumber = null)
     {
-        if (!$searchCriteriaMobilePhoneNumber) return $this;
         $this->searchCriteriaMobilePhoneNumber = ($searchCriteriaMobilePhoneNumber InstanceOf SearchCriteriaMobilePhoneNumber)
              ? $searchCriteriaMobilePhoneNumber
              : new SearchCriteriaMobilePhoneNumber($searchCriteriaMobilePhoneNumber);
@@ -324,7 +316,6 @@ class UserPhoneDirectoryGetPagedListRequest extends ComplexType implements Compl
      */
     public function setSearchCriteriaEmailAddress(SearchCriteriaEmailAddress $searchCriteriaEmailAddress = null)
     {
-        if (!$searchCriteriaEmailAddress) return $this;
         $this->searchCriteriaEmailAddress = ($searchCriteriaEmailAddress InstanceOf SearchCriteriaEmailAddress)
              ? $searchCriteriaEmailAddress
              : new SearchCriteriaEmailAddress($searchCriteriaEmailAddress);
@@ -346,7 +337,6 @@ class UserPhoneDirectoryGetPagedListRequest extends ComplexType implements Compl
      */
     public function setSearchCriteriaYahooId(SearchCriteriaYahooId $searchCriteriaYahooId = null)
     {
-        if (!$searchCriteriaYahooId) return $this;
         $this->searchCriteriaYahooId = ($searchCriteriaYahooId InstanceOf SearchCriteriaYahooId)
              ? $searchCriteriaYahooId
              : new SearchCriteriaYahooId($searchCriteriaYahooId);
@@ -368,7 +358,6 @@ class UserPhoneDirectoryGetPagedListRequest extends ComplexType implements Compl
      */
     public function setSearchCriteriaExactUserGroup(SearchCriteriaExactUserGroup $searchCriteriaExactUserGroup = null)
     {
-        if (!$searchCriteriaExactUserGroup) return $this;
         $this->searchCriteriaExactUserGroup = ($searchCriteriaExactUserGroup InstanceOf SearchCriteriaExactUserGroup)
              ? $searchCriteriaExactUserGroup
              : new SearchCriteriaExactUserGroup($searchCriteriaExactUserGroup);
@@ -390,7 +379,6 @@ class UserPhoneDirectoryGetPagedListRequest extends ComplexType implements Compl
      */
     public function setSearchCriteriaExactUserDepartment(SearchCriteriaExactUserDepartment $searchCriteriaExactUserDepartment = null)
     {
-        if (!$searchCriteriaExactUserDepartment) return $this;
         $this->searchCriteriaExactUserDepartment = ($searchCriteriaExactUserDepartment InstanceOf SearchCriteriaExactUserDepartment)
              ? $searchCriteriaExactUserDepartment
              : new SearchCriteriaExactUserDepartment($searchCriteriaExactUserDepartment);
@@ -412,7 +400,6 @@ class UserPhoneDirectoryGetPagedListRequest extends ComplexType implements Compl
      */
     public function setSearchCriteriaUserId(SearchCriteriaUserId $searchCriteriaUserId = null)
     {
-        if (!$searchCriteriaUserId) return $this;
         $this->searchCriteriaUserId = ($searchCriteriaUserId InstanceOf SearchCriteriaUserId)
              ? $searchCriteriaUserId
              : new SearchCriteriaUserId($searchCriteriaUserId);

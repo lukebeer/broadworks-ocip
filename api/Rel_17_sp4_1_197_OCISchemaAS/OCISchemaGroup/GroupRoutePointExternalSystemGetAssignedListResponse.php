@@ -21,8 +21,8 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupRoutePointExternalSystemGetAssignedListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                = 'GroupRoutePointExternalSystemGetAssignedListResponse';
-    protected $externalSystemTable = null;
+    public    $name = 'GroupRoutePointExternalSystemGetAssignedListResponse';
+    protected $externalSystemTable;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupRoutePointExternalSystemGetAssignedListResponse $response
@@ -37,7 +37,6 @@ class GroupRoutePointExternalSystemGetAssignedListResponse extends ComplexType i
      */
     public function setExternalSystemTable(TableType $externalSystemTable = null)
     {
-        if (!$externalSystemTable) return $this;
         $this->externalSystemTable = $externalSystemTable;
         $this->externalSystemTable->setName('externalSystemTable');
         return $this;

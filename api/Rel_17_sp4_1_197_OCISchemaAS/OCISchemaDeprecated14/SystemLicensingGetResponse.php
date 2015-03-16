@@ -25,13 +25,13 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemLicensingGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name              = 'SystemLicensingGetResponse';
-    protected $licenseStrictness = null;
-    protected $groupUserlimit    = null;
-    protected $expirationDate    = null;
-    protected $hostId            = null;
-    protected $licenseName       = null;
-    protected $licenseTable      = null;
+    public    $name = 'SystemLicensingGetResponse';
+    protected $licenseStrictness;
+    protected $groupUserlimit;
+    protected $expirationDate;
+    protected $hostId;
+    protected $licenseName;
+    protected $licenseTable;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\SystemLicensingGetResponse $response
@@ -46,7 +46,6 @@ class SystemLicensingGetResponse extends ComplexType implements ComplexInterface
      */
     public function setLicenseStrictness($licenseStrictness = null)
     {
-        if (!$licenseStrictness) return $this;
         $this->licenseStrictness = ($licenseStrictness InstanceOf LicenseStrictness)
              ? $licenseStrictness
              : new LicenseStrictness($licenseStrictness);
@@ -60,7 +59,7 @@ class SystemLicensingGetResponse extends ComplexType implements ComplexInterface
      */
     public function getLicenseStrictness()
     {
-        return $this->licenseStrictness->getValue();
+        return ($this->licenseStrictness) ? $this->licenseStrictness->getValue() : null;
     }
 
     /**
@@ -68,7 +67,6 @@ class SystemLicensingGetResponse extends ComplexType implements ComplexInterface
      */
     public function setGroupUserlimit($groupUserlimit = null)
     {
-        if (!$groupUserlimit) return $this;
         $this->groupUserlimit = ($groupUserlimit InstanceOf GroupUserLicenseLimit)
              ? $groupUserlimit
              : new GroupUserLicenseLimit($groupUserlimit);
@@ -82,7 +80,7 @@ class SystemLicensingGetResponse extends ComplexType implements ComplexInterface
      */
     public function getGroupUserlimit()
     {
-        return $this->groupUserlimit->getValue();
+        return ($this->groupUserlimit) ? $this->groupUserlimit->getValue() : null;
     }
 
     /**
@@ -90,7 +88,6 @@ class SystemLicensingGetResponse extends ComplexType implements ComplexInterface
      */
     public function setExpirationDate(xs:dateTime $expirationDate = null)
     {
-        if (!$expirationDate) return $this;
         $this->expirationDate->setName('expirationDate');
         return $this;
     }
@@ -101,7 +98,7 @@ class SystemLicensingGetResponse extends ComplexType implements ComplexInterface
      */
     public function getExpirationDate()
     {
-        return $this->expirationDate->getValue();
+        return ($this->expirationDate) ? $this->expirationDate->getValue() : null;
     }
 
     /**
@@ -109,7 +106,6 @@ class SystemLicensingGetResponse extends ComplexType implements ComplexInterface
      */
     public function setHostId($hostId = null)
     {
-        if (!$hostId) return $this;
         $this->hostId = ($hostId InstanceOf ServerHostId)
              ? $hostId
              : new ServerHostId($hostId);
@@ -123,7 +119,7 @@ class SystemLicensingGetResponse extends ComplexType implements ComplexInterface
      */
     public function getHostId()
     {
-        return $this->hostId->getValue();
+        return ($this->hostId) ? $this->hostId->getValue() : null;
     }
 
     /**
@@ -131,7 +127,6 @@ class SystemLicensingGetResponse extends ComplexType implements ComplexInterface
      */
     public function setLicenseName($licenseName = null)
     {
-        if (!$licenseName) return $this;
         $this->licenseName = ($licenseName InstanceOf LicenseName)
              ? $licenseName
              : new LicenseName($licenseName);
@@ -145,7 +140,7 @@ class SystemLicensingGetResponse extends ComplexType implements ComplexInterface
      */
     public function getLicenseName()
     {
-        return $this->licenseName->getValue();
+        return ($this->licenseName) ? $this->licenseName->getValue() : null;
     }
 
     /**
@@ -153,7 +148,6 @@ class SystemLicensingGetResponse extends ComplexType implements ComplexInterface
      */
     public function setLicenseTable(TableType $licenseTable = null)
     {
-        if (!$licenseTable) return $this;
         $this->licenseTable = $licenseTable;
         $this->licenseTable->setName('licenseTable');
         return $this;

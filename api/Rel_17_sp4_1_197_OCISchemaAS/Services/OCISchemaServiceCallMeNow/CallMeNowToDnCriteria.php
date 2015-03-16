@@ -19,12 +19,12 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class CallMeNowToDnCriteria extends ComplexType implements ComplexInterface
 {
-    public    $name                  = 'CallMeNowToDnCriteria';
-    protected $toDnCriteriaSelection = null;
-    protected $phoneNumber           = null;
+    public    $name = 'CallMeNowToDnCriteria';
+    protected $toDnCriteriaSelection;
+    protected $phoneNumber;
 
     public function __construct(
-         $toDnCriteriaSelection,
+         $toDnCriteriaSelection = '',
          $phoneNumber = null
     ) {
         $this->setToDnCriteriaSelection($toDnCriteriaSelection);
@@ -44,7 +44,6 @@ class CallMeNowToDnCriteria extends ComplexType implements ComplexInterface
      */
     public function setToDnCriteriaSelection($toDnCriteriaSelection = null)
     {
-        if (!$toDnCriteriaSelection) return $this;
         $this->toDnCriteriaSelection = new SimpleContent($toDnCriteriaSelection);
         $this->toDnCriteriaSelection->setName('toDnCriteriaSelection');
         return $this;
@@ -56,7 +55,7 @@ class CallMeNowToDnCriteria extends ComplexType implements ComplexInterface
      */
     public function getToDnCriteriaSelection()
     {
-        return $this->toDnCriteriaSelection->getValue();
+        return ($this->toDnCriteriaSelection) ? $this->toDnCriteriaSelection->getValue() : null;
     }
 
     /**
@@ -64,7 +63,6 @@ class CallMeNowToDnCriteria extends ComplexType implements ComplexInterface
      */
     public function setPhoneNumber($phoneNumber = null)
     {
-        if (!$phoneNumber) return $this;
         $this->phoneNumber = new SimpleContent($phoneNumber);
         $this->phoneNumber->setName('phoneNumber');
         return $this;
@@ -76,6 +74,6 @@ class CallMeNowToDnCriteria extends ComplexType implements ComplexInterface
      */
     public function getPhoneNumber()
     {
-        return $this->phoneNumber->getValue();
+        return ($this->phoneNumber) ? $this->phoneNumber->getValue() : null;
     }
 }

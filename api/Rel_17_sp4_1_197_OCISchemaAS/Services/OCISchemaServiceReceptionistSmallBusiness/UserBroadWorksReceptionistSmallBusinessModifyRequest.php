@@ -21,12 +21,12 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserBroadWorksReceptionistSmallBusinessModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                = 'UserBroadWorksReceptionistSmallBusinessModifyRequest';
-    protected $userId              = null;
-    protected $monitoredUserIdList = null;
+    public    $name = 'UserBroadWorksReceptionistSmallBusinessModifyRequest';
+    protected $userId;
+    protected $monitoredUserIdList;
 
     public function __construct(
-         $userId,
+         $userId = '',
          ReplacementUserIdList $monitoredUserIdList = null
     ) {
         $this->setUserId($userId);
@@ -46,7 +46,6 @@ class UserBroadWorksReceptionistSmallBusinessModifyRequest extends ComplexType i
      */
     public function setUserId($userId = null)
     {
-        if (!$userId) return $this;
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
@@ -60,7 +59,7 @@ class UserBroadWorksReceptionistSmallBusinessModifyRequest extends ComplexType i
      */
     public function getUserId()
     {
-        return $this->userId->getValue();
+        return ($this->userId) ? $this->userId->getValue() : null;
     }
 
     /**
@@ -68,8 +67,9 @@ class UserBroadWorksReceptionistSmallBusinessModifyRequest extends ComplexType i
      */
     public function setMonitoredUserIdList(ReplacementUserIdList $monitoredUserIdList = null)
     {
-        if (!$monitoredUserIdList) return $this;
-        $this->monitoredUserIdList = $monitoredUserIdList;
+        $this->monitoredUserIdList = ($monitoredUserIdList InstanceOf ReplacementUserIdList)
+             ? $monitoredUserIdList
+             : new ReplacementUserIdList($monitoredUserIdList);
         $this->monitoredUserIdList->setName('monitoredUserIdList');
         return $this;
     }

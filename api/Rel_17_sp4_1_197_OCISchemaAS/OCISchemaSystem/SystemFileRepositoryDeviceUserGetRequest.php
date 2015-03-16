@@ -22,13 +22,13 @@ use Broadworks_OCIP\core\Client\Client;
 class SystemFileRepositoryDeviceUserGetRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType       = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemFileRepositoryDeviceUserGetResponse';
-    public    $name               = 'SystemFileRepositoryDeviceUserGetRequest';
-    protected $fileRepositoryName = null;
-    protected $userName           = null;
+    public    $name = 'SystemFileRepositoryDeviceUserGetRequest';
+    protected $fileRepositoryName;
+    protected $userName;
 
     public function __construct(
-         $fileRepositoryName,
-         $userName
+         $fileRepositoryName = '',
+         $userName = ''
     ) {
         $this->setFileRepositoryName($fileRepositoryName);
         $this->setUserName($userName);
@@ -47,7 +47,6 @@ class SystemFileRepositoryDeviceUserGetRequest extends ComplexType implements Co
      */
     public function setFileRepositoryName($fileRepositoryName = null)
     {
-        if (!$fileRepositoryName) return $this;
         $this->fileRepositoryName = ($fileRepositoryName InstanceOf FileRepositoryName)
              ? $fileRepositoryName
              : new FileRepositoryName($fileRepositoryName);
@@ -61,7 +60,7 @@ class SystemFileRepositoryDeviceUserGetRequest extends ComplexType implements Co
      */
     public function getFileRepositoryName()
     {
-        return $this->fileRepositoryName->getValue();
+        return ($this->fileRepositoryName) ? $this->fileRepositoryName->getValue() : null;
     }
 
     /**
@@ -69,7 +68,6 @@ class SystemFileRepositoryDeviceUserGetRequest extends ComplexType implements Co
      */
     public function setUserName($userName = null)
     {
-        if (!$userName) return $this;
         $this->userName = ($userName InstanceOf FileRepositoryUserName)
              ? $userName
              : new FileRepositoryUserName($userName);
@@ -83,6 +81,6 @@ class SystemFileRepositoryDeviceUserGetRequest extends ComplexType implements Co
      */
     public function getUserName()
     {
-        return $this->userName->getValue();
+        return ($this->userName) ? $this->userName->getValue() : null;
     }
 }

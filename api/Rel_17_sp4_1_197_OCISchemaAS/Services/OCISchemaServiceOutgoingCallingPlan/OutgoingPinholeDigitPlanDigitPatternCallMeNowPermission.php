@@ -19,13 +19,13 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class OutgoingPinholeDigitPlanDigitPatternCallMeNowPermission extends ComplexType implements ComplexInterface
 {
-    public    $name             = 'OutgoingPinholeDigitPlanDigitPatternCallMeNowPermission';
-    protected $digitPatternName = null;
-    protected $permission       = null;
+    public    $name = 'OutgoingPinholeDigitPlanDigitPatternCallMeNowPermission';
+    protected $digitPatternName;
+    protected $permission;
 
     public function __construct(
-         $digitPatternName,
-         $permission
+         $digitPatternName = '',
+         $permission = ''
     ) {
         $this->setDigitPatternName($digitPatternName);
         $this->setPermission($permission);
@@ -44,7 +44,6 @@ class OutgoingPinholeDigitPlanDigitPatternCallMeNowPermission extends ComplexTyp
      */
     public function setDigitPatternName($digitPatternName = null)
     {
-        if (!$digitPatternName) return $this;
         $this->digitPatternName = new SimpleContent($digitPatternName);
         $this->digitPatternName->setName('digitPatternName');
         return $this;
@@ -56,7 +55,7 @@ class OutgoingPinholeDigitPlanDigitPatternCallMeNowPermission extends ComplexTyp
      */
     public function getDigitPatternName()
     {
-        return $this->digitPatternName->getValue();
+        return ($this->digitPatternName) ? $this->digitPatternName->getValue() : null;
     }
 
     /**
@@ -64,7 +63,6 @@ class OutgoingPinholeDigitPlanDigitPatternCallMeNowPermission extends ComplexTyp
      */
     public function setPermission($permission = null)
     {
-        if (!$permission) return $this;
         $this->permission = new SimpleContent($permission);
         $this->permission->setName('permission');
         return $this;
@@ -76,6 +74,6 @@ class OutgoingPinholeDigitPlanDigitPatternCallMeNowPermission extends ComplexTyp
      */
     public function getPermission()
     {
-        return $this->permission->getValue();
+        return ($this->permission) ? $this->permission->getValue() : null;
     }
 }

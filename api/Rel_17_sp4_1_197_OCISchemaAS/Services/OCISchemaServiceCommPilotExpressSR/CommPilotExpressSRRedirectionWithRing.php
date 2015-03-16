@@ -19,13 +19,13 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class CommPilotExpressSRRedirectionWithRing extends ComplexType implements ComplexInterface
 {
-    public    $name                = 'CommPilotExpressSRRedirectionWithRing';
-    protected $phoneNumber         = null;
-    protected $numberOfTimesToRing = null;
+    public    $name = 'CommPilotExpressSRRedirectionWithRing';
+    protected $phoneNumber;
+    protected $numberOfTimesToRing;
 
     public function __construct(
          $phoneNumber = null,
-         $numberOfTimesToRing
+         $numberOfTimesToRing = ''
     ) {
         $this->setPhoneNumber($phoneNumber);
         $this->setNumberOfTimesToRing($numberOfTimesToRing);
@@ -44,7 +44,6 @@ class CommPilotExpressSRRedirectionWithRing extends ComplexType implements Compl
      */
     public function setPhoneNumber($phoneNumber = null)
     {
-        if (!$phoneNumber) return $this;
         $this->phoneNumber = new SimpleContent($phoneNumber);
         $this->phoneNumber->setName('phoneNumber');
         return $this;
@@ -56,7 +55,7 @@ class CommPilotExpressSRRedirectionWithRing extends ComplexType implements Compl
      */
     public function getPhoneNumber()
     {
-        return $this->phoneNumber->getValue();
+        return ($this->phoneNumber) ? $this->phoneNumber->getValue() : null;
     }
 
     /**
@@ -64,7 +63,6 @@ class CommPilotExpressSRRedirectionWithRing extends ComplexType implements Compl
      */
     public function setNumberOfTimesToRing($numberOfTimesToRing = null)
     {
-        if (!$numberOfTimesToRing) return $this;
         $this->numberOfTimesToRing = new SimpleContent($numberOfTimesToRing);
         $this->numberOfTimesToRing->setName('numberOfTimesToRing');
         return $this;
@@ -76,6 +74,6 @@ class CommPilotExpressSRRedirectionWithRing extends ComplexType implements Compl
      */
     public function getNumberOfTimesToRing()
     {
-        return $this->numberOfTimesToRing->getValue();
+        return ($this->numberOfTimesToRing) ? $this->numberOfTimesToRing->getValue() : null;
     }
 }

@@ -21,14 +21,14 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupRoutePointExternalSystemAssignListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                     = 'GroupRoutePointExternalSystemAssignListRequest';
-    protected $serviceProviderId        = null;
-    protected $groupId                  = null;
-    protected $routePointExternalSystem = null;
+    public    $name = 'GroupRoutePointExternalSystemAssignListRequest';
+    protected $serviceProviderId;
+    protected $groupId;
+    protected $routePointExternalSystem;
 
     public function __construct(
-         $serviceProviderId,
-         $groupId,
+         $serviceProviderId = '',
+         $groupId = '',
          $routePointExternalSystem = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
@@ -49,7 +49,6 @@ class GroupRoutePointExternalSystemAssignListRequest extends ComplexType impleme
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
-        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
@@ -63,7 +62,7 @@ class GroupRoutePointExternalSystemAssignListRequest extends ComplexType impleme
      */
     public function getServiceProviderId()
     {
-        return $this->serviceProviderId->getValue();
+        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
     }
 
     /**
@@ -71,7 +70,6 @@ class GroupRoutePointExternalSystemAssignListRequest extends ComplexType impleme
      */
     public function setGroupId($groupId = null)
     {
-        if (!$groupId) return $this;
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
@@ -85,7 +83,7 @@ class GroupRoutePointExternalSystemAssignListRequest extends ComplexType impleme
      */
     public function getGroupId()
     {
-        return $this->groupId->getValue();
+        return ($this->groupId) ? $this->groupId->getValue() : null;
     }
 
     /**
@@ -93,7 +91,6 @@ class GroupRoutePointExternalSystemAssignListRequest extends ComplexType impleme
      */
     public function setRoutePointExternalSystem($routePointExternalSystem = null)
     {
-        if (!$routePointExternalSystem) return $this;
         $this->routePointExternalSystem = ($routePointExternalSystem InstanceOf RoutePointExternalSystem)
              ? $routePointExternalSystem
              : new RoutePointExternalSystem($routePointExternalSystem);
@@ -107,6 +104,6 @@ class GroupRoutePointExternalSystemAssignListRequest extends ComplexType impleme
      */
     public function getRoutePointExternalSystem()
     {
-        return $this->routePointExternalSystem->getValue();
+        return ($this->routePointExternalSystem) ? $this->routePointExternalSystem->getValue() : null;
     }
 }

@@ -24,24 +24,24 @@ use Broadworks_OCIP\core\Client\Client;
 class GroupInventoryReportGetRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType               = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInventoryReport\GroupInventoryReportGetResponse';
-    public    $name                       = 'GroupInventoryReportGetRequest';
-    protected $serviceProviderId          = null;
-    protected $groupId                    = null;
-    protected $includeUsers               = null;
-    protected $includeServices            = null;
-    protected $includeDns                 = null;
-    protected $includeAccessDevices       = null;
-    protected $includeDepartments         = null;
-    protected $reportDeliveryEmailAddress = null;
+    public    $name = 'GroupInventoryReportGetRequest';
+    protected $serviceProviderId;
+    protected $groupId;
+    protected $includeUsers;
+    protected $includeServices;
+    protected $includeDns;
+    protected $includeAccessDevices;
+    protected $includeDepartments;
+    protected $reportDeliveryEmailAddress;
 
     public function __construct(
-         $serviceProviderId,
-         $groupId,
-         $includeUsers,
-         $includeServices,
-         $includeDns,
-         $includeAccessDevices,
-         $includeDepartments,
+         $serviceProviderId = '',
+         $groupId = '',
+         $includeUsers = '',
+         $includeServices = '',
+         $includeDns = '',
+         $includeAccessDevices = '',
+         $includeDepartments = '',
          $reportDeliveryEmailAddress = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
@@ -67,7 +67,6 @@ class GroupInventoryReportGetRequest extends ComplexType implements ComplexInter
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
-        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
@@ -81,7 +80,7 @@ class GroupInventoryReportGetRequest extends ComplexType implements ComplexInter
      */
     public function getServiceProviderId()
     {
-        return $this->serviceProviderId->getValue();
+        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
     }
 
     /**
@@ -89,7 +88,6 @@ class GroupInventoryReportGetRequest extends ComplexType implements ComplexInter
      */
     public function setGroupId($groupId = null)
     {
-        if (!$groupId) return $this;
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
@@ -103,7 +101,7 @@ class GroupInventoryReportGetRequest extends ComplexType implements ComplexInter
      */
     public function getGroupId()
     {
-        return $this->groupId->getValue();
+        return ($this->groupId) ? $this->groupId->getValue() : null;
     }
 
     /**
@@ -111,7 +109,6 @@ class GroupInventoryReportGetRequest extends ComplexType implements ComplexInter
      */
     public function setIncludeUsers($includeUsers = null)
     {
-        if (!$includeUsers) return $this;
         $this->includeUsers = new PrimitiveType($includeUsers);
         $this->includeUsers->setName('includeUsers');
         return $this;
@@ -123,7 +120,7 @@ class GroupInventoryReportGetRequest extends ComplexType implements ComplexInter
      */
     public function getIncludeUsers()
     {
-        return $this->includeUsers->getValue();
+        return ($this->includeUsers) ? $this->includeUsers->getValue() : null;
     }
 
     /**
@@ -131,7 +128,6 @@ class GroupInventoryReportGetRequest extends ComplexType implements ComplexInter
      */
     public function setIncludeServices($includeServices = null)
     {
-        if (!$includeServices) return $this;
         $this->includeServices = new PrimitiveType($includeServices);
         $this->includeServices->setName('includeServices');
         return $this;
@@ -143,7 +139,7 @@ class GroupInventoryReportGetRequest extends ComplexType implements ComplexInter
      */
     public function getIncludeServices()
     {
-        return $this->includeServices->getValue();
+        return ($this->includeServices) ? $this->includeServices->getValue() : null;
     }
 
     /**
@@ -151,7 +147,6 @@ class GroupInventoryReportGetRequest extends ComplexType implements ComplexInter
      */
     public function setIncludeDns($includeDns = null)
     {
-        if (!$includeDns) return $this;
         $this->includeDns = new PrimitiveType($includeDns);
         $this->includeDns->setName('includeDns');
         return $this;
@@ -163,7 +158,7 @@ class GroupInventoryReportGetRequest extends ComplexType implements ComplexInter
      */
     public function getIncludeDns()
     {
-        return $this->includeDns->getValue();
+        return ($this->includeDns) ? $this->includeDns->getValue() : null;
     }
 
     /**
@@ -171,7 +166,6 @@ class GroupInventoryReportGetRequest extends ComplexType implements ComplexInter
      */
     public function setIncludeAccessDevices($includeAccessDevices = null)
     {
-        if (!$includeAccessDevices) return $this;
         $this->includeAccessDevices = new PrimitiveType($includeAccessDevices);
         $this->includeAccessDevices->setName('includeAccessDevices');
         return $this;
@@ -183,7 +177,7 @@ class GroupInventoryReportGetRequest extends ComplexType implements ComplexInter
      */
     public function getIncludeAccessDevices()
     {
-        return $this->includeAccessDevices->getValue();
+        return ($this->includeAccessDevices) ? $this->includeAccessDevices->getValue() : null;
     }
 
     /**
@@ -191,7 +185,6 @@ class GroupInventoryReportGetRequest extends ComplexType implements ComplexInter
      */
     public function setIncludeDepartments($includeDepartments = null)
     {
-        if (!$includeDepartments) return $this;
         $this->includeDepartments = new PrimitiveType($includeDepartments);
         $this->includeDepartments->setName('includeDepartments');
         return $this;
@@ -203,7 +196,7 @@ class GroupInventoryReportGetRequest extends ComplexType implements ComplexInter
      */
     public function getIncludeDepartments()
     {
-        return $this->includeDepartments->getValue();
+        return ($this->includeDepartments) ? $this->includeDepartments->getValue() : null;
     }
 
     /**
@@ -211,7 +204,6 @@ class GroupInventoryReportGetRequest extends ComplexType implements ComplexInter
      */
     public function setReportDeliveryEmailAddress($reportDeliveryEmailAddress = null)
     {
-        if (!$reportDeliveryEmailAddress) return $this;
         $this->reportDeliveryEmailAddress = ($reportDeliveryEmailAddress InstanceOf EmailAddress)
              ? $reportDeliveryEmailAddress
              : new EmailAddress($reportDeliveryEmailAddress);
@@ -225,6 +217,6 @@ class GroupInventoryReportGetRequest extends ComplexType implements ComplexInter
      */
     public function getReportDeliveryEmailAddress()
     {
-        return $this->reportDeliveryEmailAddress->getValue();
+        return ($this->reportDeliveryEmailAddress) ? $this->reportDeliveryEmailAddress->getValue() : null;
     }
 }

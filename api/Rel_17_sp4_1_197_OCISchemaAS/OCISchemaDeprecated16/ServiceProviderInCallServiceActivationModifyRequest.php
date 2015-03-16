@@ -22,12 +22,12 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderInCallServiceActivationModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name              = 'ServiceProviderInCallServiceActivationModifyRequest';
-    protected $serviceProviderId = null;
-    protected $activationDigits  = null;
+    public    $name = 'ServiceProviderInCallServiceActivationModifyRequest';
+    protected $serviceProviderId;
+    protected $activationDigits;
 
     public function __construct(
-         $serviceProviderId,
+         $serviceProviderId = '',
          $activationDigits = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
@@ -47,7 +47,6 @@ class ServiceProviderInCallServiceActivationModifyRequest extends ComplexType im
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
-        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
@@ -61,7 +60,7 @@ class ServiceProviderInCallServiceActivationModifyRequest extends ComplexType im
      */
     public function getServiceProviderId()
     {
-        return $this->serviceProviderId->getValue();
+        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
     }
 
     /**
@@ -69,7 +68,6 @@ class ServiceProviderInCallServiceActivationModifyRequest extends ComplexType im
      */
     public function setActivationDigits($activationDigits = null)
     {
-        if (!$activationDigits) return $this;
         $this->activationDigits = ($activationDigits InstanceOf InCallServiceActivationDigits)
              ? $activationDigits
              : new InCallServiceActivationDigits($activationDigits);
@@ -83,6 +81,6 @@ class ServiceProviderInCallServiceActivationModifyRequest extends ComplexType im
      */
     public function getActivationDigits()
     {
-        return $this->activationDigits->getValue();
+        return ($this->activationDigits) ? $this->activationDigits->getValue() : null;
     }
 }

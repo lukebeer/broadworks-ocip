@@ -20,8 +20,8 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class AttendantConsoleReplacementDisplayColumnList extends ComplexType implements ComplexInterface
 {
-    public    $name          = 'AttendantConsoleReplacementDisplayColumnList';
-    protected $displayColumn = null;
+    public    $name = 'AttendantConsoleReplacementDisplayColumnList';
+    protected $displayColumn;
 
     public function __construct(
          $displayColumn = null
@@ -42,7 +42,6 @@ class AttendantConsoleReplacementDisplayColumnList extends ComplexType implement
      */
     public function setDisplayColumn($displayColumn = null)
     {
-        if (!$displayColumn) return $this;
         $this->displayColumn = new SimpleContent($displayColumn);
         $this->displayColumn->setName('displayColumn');
         return $this;
@@ -54,6 +53,6 @@ class AttendantConsoleReplacementDisplayColumnList extends ComplexType implement
      */
     public function getDisplayColumn()
     {
-        return $this->displayColumn->getValue();
+        return ($this->displayColumn) ? $this->displayColumn->getValue() : null;
     }
 }

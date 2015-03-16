@@ -20,11 +20,11 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemCallingPartyCategoryDeleteRequest extends ComplexType implements ComplexInterface
 {
-    public    $name     = 'SystemCallingPartyCategoryDeleteRequest';
-    protected $category = null;
+    public    $name = 'SystemCallingPartyCategoryDeleteRequest';
+    protected $category;
 
     public function __construct(
-         $category
+         $category = ''
     ) {
         $this->setCategory($category);
     }
@@ -42,7 +42,6 @@ class SystemCallingPartyCategoryDeleteRequest extends ComplexType implements Com
      */
     public function setCategory($category = null)
     {
-        if (!$category) return $this;
         $this->category = ($category InstanceOf CallingPartyCategoryName)
              ? $category
              : new CallingPartyCategoryName($category);
@@ -56,6 +55,6 @@ class SystemCallingPartyCategoryDeleteRequest extends ComplexType implements Com
      */
     public function getCategory()
     {
-        return $this->category->getValue();
+        return ($this->category) ? $this->category->getValue() : null;
     }
 }

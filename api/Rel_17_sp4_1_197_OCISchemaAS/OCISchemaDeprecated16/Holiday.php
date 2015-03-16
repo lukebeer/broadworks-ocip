@@ -19,14 +19,14 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class Holiday extends ComplexType implements ComplexInterface
 {
-    public    $name        = 'Holiday';
-    protected $holidayName = null;
-    protected $startDate   = null;
-    protected $endDate     = null;
+    public    $name = 'Holiday';
+    protected $holidayName;
+    protected $startDate;
+    protected $endDate;
 
     public function __construct(
-         $holidayName,
-         $startDate,
+         $holidayName = '',
+         $startDate = '',
          $endDate = null
     ) {
         $this->setHolidayName($holidayName);
@@ -47,7 +47,6 @@ class Holiday extends ComplexType implements ComplexInterface
      */
     public function setHolidayName($holidayName = null)
     {
-        if (!$holidayName) return $this;
         $this->holidayName = new SimpleContent($holidayName);
         $this->holidayName->setName('holidayName');
         return $this;
@@ -59,7 +58,7 @@ class Holiday extends ComplexType implements ComplexInterface
      */
     public function getHolidayName()
     {
-        return $this->holidayName->getValue();
+        return ($this->holidayName) ? $this->holidayName->getValue() : null;
     }
 
     /**
@@ -67,7 +66,6 @@ class Holiday extends ComplexType implements ComplexInterface
      */
     public function setStartDate($startDate = null)
     {
-        if (!$startDate) return $this;
         $this->startDate = new SimpleContent($startDate);
         $this->startDate->setName('startDate');
         return $this;
@@ -79,7 +77,7 @@ class Holiday extends ComplexType implements ComplexInterface
      */
     public function getStartDate()
     {
-        return $this->startDate->getValue();
+        return ($this->startDate) ? $this->startDate->getValue() : null;
     }
 
     /**
@@ -87,7 +85,6 @@ class Holiday extends ComplexType implements ComplexInterface
      */
     public function setEndDate($endDate = null)
     {
-        if (!$endDate) return $this;
         $this->endDate = new SimpleContent($endDate);
         $this->endDate->setName('endDate');
         return $this;
@@ -99,6 +96,6 @@ class Holiday extends ComplexType implements ComplexInterface
      */
     public function getEndDate()
     {
-        return $this->endDate->getValue();
+        return ($this->endDate) ? $this->endDate->getValue() : null;
     }
 }

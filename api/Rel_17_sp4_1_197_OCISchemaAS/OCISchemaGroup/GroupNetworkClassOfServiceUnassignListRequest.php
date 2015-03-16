@@ -22,15 +22,15 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupNetworkClassOfServiceUnassignListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                         = 'GroupNetworkClassOfServiceUnassignListRequest';
-    protected $serviceProviderId            = null;
-    protected $groupId                      = null;
-    protected $networkClassOfService        = null;
-    protected $defaultNetworkClassOfService = null;
+    public    $name = 'GroupNetworkClassOfServiceUnassignListRequest';
+    protected $serviceProviderId;
+    protected $groupId;
+    protected $networkClassOfService;
+    protected $defaultNetworkClassOfService;
 
     public function __construct(
-         $serviceProviderId,
-         $groupId,
+         $serviceProviderId = '',
+         $groupId = '',
          $networkClassOfService = null,
          $defaultNetworkClassOfService = null
     ) {
@@ -53,7 +53,6 @@ class GroupNetworkClassOfServiceUnassignListRequest extends ComplexType implemen
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
-        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
@@ -67,7 +66,7 @@ class GroupNetworkClassOfServiceUnassignListRequest extends ComplexType implemen
      */
     public function getServiceProviderId()
     {
-        return $this->serviceProviderId->getValue();
+        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
     }
 
     /**
@@ -75,7 +74,6 @@ class GroupNetworkClassOfServiceUnassignListRequest extends ComplexType implemen
      */
     public function setGroupId($groupId = null)
     {
-        if (!$groupId) return $this;
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
@@ -89,7 +87,7 @@ class GroupNetworkClassOfServiceUnassignListRequest extends ComplexType implemen
      */
     public function getGroupId()
     {
-        return $this->groupId->getValue();
+        return ($this->groupId) ? $this->groupId->getValue() : null;
     }
 
     /**
@@ -97,7 +95,6 @@ class GroupNetworkClassOfServiceUnassignListRequest extends ComplexType implemen
      */
     public function setNetworkClassOfService($networkClassOfService = null)
     {
-        if (!$networkClassOfService) return $this;
         $this->networkClassOfService = ($networkClassOfService InstanceOf NetworkClassOfServiceName)
              ? $networkClassOfService
              : new NetworkClassOfServiceName($networkClassOfService);
@@ -111,7 +108,7 @@ class GroupNetworkClassOfServiceUnassignListRequest extends ComplexType implemen
      */
     public function getNetworkClassOfService()
     {
-        return $this->networkClassOfService->getValue();
+        return ($this->networkClassOfService) ? $this->networkClassOfService->getValue() : null;
     }
 
     /**
@@ -119,7 +116,6 @@ class GroupNetworkClassOfServiceUnassignListRequest extends ComplexType implemen
      */
     public function setDefaultNetworkClassOfService($defaultNetworkClassOfService = null)
     {
-        if (!$defaultNetworkClassOfService) return $this;
         $this->defaultNetworkClassOfService = ($defaultNetworkClassOfService InstanceOf NetworkClassOfServiceName)
              ? $defaultNetworkClassOfService
              : new NetworkClassOfServiceName($defaultNetworkClassOfService);
@@ -133,6 +129,6 @@ class GroupNetworkClassOfServiceUnassignListRequest extends ComplexType implemen
      */
     public function getDefaultNetworkClassOfService()
     {
-        return $this->defaultNetworkClassOfService->getValue();
+        return ($this->defaultNetworkClassOfService) ? $this->defaultNetworkClassOfService->getValue() : null;
     }
 }

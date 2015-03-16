@@ -20,11 +20,11 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupTrunkGroupGetResponse14sp1 extends ComplexType implements ComplexInterface
 {
-    public    $name                            = 'GroupTrunkGroupGetResponse14sp1';
-    protected $maxActiveCalls                  = null;
-    protected $maxAvailableActiveCalls         = null;
-    protected $burstingMaxActiveCalls          = null;
-    protected $burstingMaxAvailableActiveCalls = null;
+    public    $name = 'GroupTrunkGroupGetResponse14sp1';
+    protected $maxActiveCalls;
+    protected $maxAvailableActiveCalls;
+    protected $burstingMaxActiveCalls;
+    protected $burstingMaxAvailableActiveCalls;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\GroupTrunkGroupGetResponse14sp1 $response
@@ -39,8 +39,9 @@ class GroupTrunkGroupGetResponse14sp1 extends ComplexType implements ComplexInte
      */
     public function setMaxActiveCalls(UnboundedNonNegativeInt $maxActiveCalls = null)
     {
-        if (!$maxActiveCalls) return $this;
-        $this->maxActiveCalls = $maxActiveCalls;
+        $this->maxActiveCalls = ($maxActiveCalls InstanceOf UnboundedNonNegativeInt)
+             ? $maxActiveCalls
+             : new UnboundedNonNegativeInt($maxActiveCalls);
         $this->maxActiveCalls->setName('maxActiveCalls');
         return $this;
     }
@@ -59,8 +60,9 @@ class GroupTrunkGroupGetResponse14sp1 extends ComplexType implements ComplexInte
      */
     public function setMaxAvailableActiveCalls(UnboundedNonNegativeInt $maxAvailableActiveCalls = null)
     {
-        if (!$maxAvailableActiveCalls) return $this;
-        $this->maxAvailableActiveCalls = $maxAvailableActiveCalls;
+        $this->maxAvailableActiveCalls = ($maxAvailableActiveCalls InstanceOf UnboundedNonNegativeInt)
+             ? $maxAvailableActiveCalls
+             : new UnboundedNonNegativeInt($maxAvailableActiveCalls);
         $this->maxAvailableActiveCalls->setName('maxAvailableActiveCalls');
         return $this;
     }
@@ -79,8 +81,9 @@ class GroupTrunkGroupGetResponse14sp1 extends ComplexType implements ComplexInte
      */
     public function setBurstingMaxActiveCalls(UnboundedNonNegativeInt $burstingMaxActiveCalls = null)
     {
-        if (!$burstingMaxActiveCalls) return $this;
-        $this->burstingMaxActiveCalls = $burstingMaxActiveCalls;
+        $this->burstingMaxActiveCalls = ($burstingMaxActiveCalls InstanceOf UnboundedNonNegativeInt)
+             ? $burstingMaxActiveCalls
+             : new UnboundedNonNegativeInt($burstingMaxActiveCalls);
         $this->burstingMaxActiveCalls->setName('burstingMaxActiveCalls');
         return $this;
     }
@@ -99,8 +102,9 @@ class GroupTrunkGroupGetResponse14sp1 extends ComplexType implements ComplexInte
      */
     public function setBurstingMaxAvailableActiveCalls(UnboundedNonNegativeInt $burstingMaxAvailableActiveCalls = null)
     {
-        if (!$burstingMaxAvailableActiveCalls) return $this;
-        $this->burstingMaxAvailableActiveCalls = $burstingMaxAvailableActiveCalls;
+        $this->burstingMaxAvailableActiveCalls = ($burstingMaxAvailableActiveCalls InstanceOf UnboundedNonNegativeInt)
+             ? $burstingMaxAvailableActiveCalls
+             : new UnboundedNonNegativeInt($burstingMaxAvailableActiveCalls);
         $this->burstingMaxAvailableActiveCalls->setName('burstingMaxAvailableActiveCalls');
         return $this;
     }

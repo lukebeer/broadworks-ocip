@@ -19,8 +19,8 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemCommunicationBarringAlternateCallIndicatorGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                        = 'SystemCommunicationBarringAlternateCallIndicatorGetListResponse';
-    protected $alternateCallIndicatorTable = null;
+    public    $name = 'SystemCommunicationBarringAlternateCallIndicatorGetListResponse';
+    protected $alternateCallIndicatorTable;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemCommunicationBarringAlternateCallIndicatorGetListResponse $response
@@ -35,7 +35,6 @@ class SystemCommunicationBarringAlternateCallIndicatorGetListResponse extends Co
      */
     public function setAlternateCallIndicatorTable(TableType $alternateCallIndicatorTable = null)
     {
-        if (!$alternateCallIndicatorTable) return $this;
         $this->alternateCallIndicatorTable = $alternateCallIndicatorTable;
         $this->alternateCallIndicatorTable->setName('alternateCallIndicatorTable');
         return $this;

@@ -20,10 +20,10 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserEnhancedCallLogsGetListResponse14sp4 extends ComplexType implements ComplexInterface
 {
-    public    $name     = 'UserEnhancedCallLogsGetListResponse14sp4';
-    protected $placed   = null;
-    protected $received = null;
-    protected $missed   = null;
+    public    $name = 'UserEnhancedCallLogsGetListResponse14sp4';
+    protected $placed;
+    protected $received;
+    protected $missed;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15\UserEnhancedCallLogsGetListResponse14sp4 $response
@@ -38,8 +38,9 @@ class UserEnhancedCallLogsGetListResponse14sp4 extends ComplexType implements Co
      */
     public function setPlaced(CallLogsEntry $placed = null)
     {
-        if (!$placed) return $this;
-        $this->placed = $placed;
+        $this->placed = ($placed InstanceOf CallLogsEntry)
+             ? $placed
+             : new CallLogsEntry($placed);
         $this->placed->setName('placed');
         return $this;
     }
@@ -58,8 +59,9 @@ class UserEnhancedCallLogsGetListResponse14sp4 extends ComplexType implements Co
      */
     public function setReceived(CallLogsEntry $received = null)
     {
-        if (!$received) return $this;
-        $this->received = $received;
+        $this->received = ($received InstanceOf CallLogsEntry)
+             ? $received
+             : new CallLogsEntry($received);
         $this->received->setName('received');
         return $this;
     }
@@ -78,8 +80,9 @@ class UserEnhancedCallLogsGetListResponse14sp4 extends ComplexType implements Co
      */
     public function setMissed(CallLogsEntry $missed = null)
     {
-        if (!$missed) return $this;
-        $this->missed = $missed;
+        $this->missed = ($missed InstanceOf CallLogsEntry)
+             ? $missed
+             : new CallLogsEntry($missed);
         $this->missed->setName('missed');
         return $this;
     }

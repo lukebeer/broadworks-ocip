@@ -20,11 +20,11 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemSMDIMessageDeskDeleteServerRequest extends ComplexType implements ComplexInterface
 {
-    public    $name       = 'SystemSMDIMessageDeskDeleteServerRequest';
-    protected $deviceName = null;
+    public    $name = 'SystemSMDIMessageDeskDeleteServerRequest';
+    protected $deviceName;
 
     public function __construct(
-         $deviceName
+         $deviceName = ''
     ) {
         $this->setDeviceName($deviceName);
     }
@@ -42,7 +42,6 @@ class SystemSMDIMessageDeskDeleteServerRequest extends ComplexType implements Co
      */
     public function setDeviceName($deviceName = null)
     {
-        if (!$deviceName) return $this;
         $this->deviceName = ($deviceName InstanceOf SMDIDeviceName)
              ? $deviceName
              : new SMDIDeviceName($deviceName);
@@ -56,6 +55,6 @@ class SystemSMDIMessageDeskDeleteServerRequest extends ComplexType implements Co
      */
     public function getDeviceName()
     {
-        return $this->deviceName->getValue();
+        return ($this->deviceName) ? $this->deviceName->getValue() : null;
     }
 }

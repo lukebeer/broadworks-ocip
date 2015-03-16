@@ -22,11 +22,11 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserCallMeNowGetCriteriaResponse extends ComplexType implements ComplexInterface
 {
-    public    $name            = 'UserCallMeNowGetCriteriaResponse';
-    protected $timeSchedule    = null;
-    protected $holidaySchedule = null;
-    protected $rejectCall      = null;
-    protected $toDnCriteria    = null;
+    public    $name = 'UserCallMeNowGetCriteriaResponse';
+    protected $timeSchedule;
+    protected $holidaySchedule;
+    protected $rejectCall;
+    protected $toDnCriteria;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallMeNow\UserCallMeNowGetCriteriaResponse $response
@@ -41,8 +41,9 @@ class UserCallMeNowGetCriteriaResponse extends ComplexType implements ComplexInt
      */
     public function setTimeSchedule(TimeSchedule $timeSchedule = null)
     {
-        if (!$timeSchedule) return $this;
-        $this->timeSchedule = $timeSchedule;
+        $this->timeSchedule = ($timeSchedule InstanceOf TimeSchedule)
+             ? $timeSchedule
+             : new TimeSchedule($timeSchedule);
         $this->timeSchedule->setName('timeSchedule');
         return $this;
     }
@@ -61,8 +62,9 @@ class UserCallMeNowGetCriteriaResponse extends ComplexType implements ComplexInt
      */
     public function setHolidaySchedule(HolidaySchedule $holidaySchedule = null)
     {
-        if (!$holidaySchedule) return $this;
-        $this->holidaySchedule = $holidaySchedule;
+        $this->holidaySchedule = ($holidaySchedule InstanceOf HolidaySchedule)
+             ? $holidaySchedule
+             : new HolidaySchedule($holidaySchedule);
         $this->holidaySchedule->setName('holidaySchedule');
         return $this;
     }
@@ -81,7 +83,6 @@ class UserCallMeNowGetCriteriaResponse extends ComplexType implements ComplexInt
      */
     public function setRejectCall($rejectCall = null)
     {
-        if (!$rejectCall) return $this;
         $this->rejectCall = new PrimitiveType($rejectCall);
         $this->rejectCall->setName('rejectCall');
         return $this;
@@ -93,7 +94,7 @@ class UserCallMeNowGetCriteriaResponse extends ComplexType implements ComplexInt
      */
     public function getRejectCall()
     {
-        return $this->rejectCall->getValue();
+        return ($this->rejectCall) ? $this->rejectCall->getValue() : null;
     }
 
     /**
@@ -101,8 +102,9 @@ class UserCallMeNowGetCriteriaResponse extends ComplexType implements ComplexInt
      */
     public function setToDnCriteria(CallMeNowToDnCriteria $toDnCriteria = null)
     {
-        if (!$toDnCriteria) return $this;
-        $this->toDnCriteria = $toDnCriteria;
+        $this->toDnCriteria = ($toDnCriteria InstanceOf CallMeNowToDnCriteria)
+             ? $toDnCriteria
+             : new CallMeNowToDnCriteria($toDnCriteria);
         $this->toDnCriteria->setName('toDnCriteria');
         return $this;
     }

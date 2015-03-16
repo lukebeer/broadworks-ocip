@@ -19,10 +19,10 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SequentialRingLocationModify extends ComplexType implements ComplexInterface
 {
-    public    $name                       = 'SequentialRingLocationModify';
-    protected $phoneNumber                = null;
-    protected $numberOfRings              = null;
-    protected $answerConfirmationRequired = null;
+    public    $name = 'SequentialRingLocationModify';
+    protected $phoneNumber;
+    protected $numberOfRings;
+    protected $answerConfirmationRequired;
 
     public function __construct(
          $phoneNumber = null,
@@ -47,7 +47,6 @@ class SequentialRingLocationModify extends ComplexType implements ComplexInterfa
      */
     public function setPhoneNumber($phoneNumber = null)
     {
-        if (!$phoneNumber) return $this;
         $this->phoneNumber = new SimpleContent($phoneNumber);
         $this->phoneNumber->setName('phoneNumber');
         return $this;
@@ -59,7 +58,7 @@ class SequentialRingLocationModify extends ComplexType implements ComplexInterfa
      */
     public function getPhoneNumber()
     {
-        return $this->phoneNumber->getValue();
+        return ($this->phoneNumber) ? $this->phoneNumber->getValue() : null;
     }
 
     /**
@@ -67,7 +66,6 @@ class SequentialRingLocationModify extends ComplexType implements ComplexInterfa
      */
     public function setNumberOfRings($numberOfRings = null)
     {
-        if (!$numberOfRings) return $this;
         $this->numberOfRings = new SimpleContent($numberOfRings);
         $this->numberOfRings->setName('numberOfRings');
         return $this;
@@ -79,7 +77,7 @@ class SequentialRingLocationModify extends ComplexType implements ComplexInterfa
      */
     public function getNumberOfRings()
     {
-        return $this->numberOfRings->getValue();
+        return ($this->numberOfRings) ? $this->numberOfRings->getValue() : null;
     }
 
     /**
@@ -87,7 +85,6 @@ class SequentialRingLocationModify extends ComplexType implements ComplexInterfa
      */
     public function setAnswerConfirmationRequired($answerConfirmationRequired = null)
     {
-        if (!$answerConfirmationRequired) return $this;
         $this->answerConfirmationRequired = new SimpleContent($answerConfirmationRequired);
         $this->answerConfirmationRequired->setName('answerConfirmationRequired');
         return $this;
@@ -99,6 +96,6 @@ class SequentialRingLocationModify extends ComplexType implements ComplexInterfa
      */
     public function getAnswerConfirmationRequired()
     {
-        return $this->answerConfirmationRequired->getValue();
+        return ($this->answerConfirmationRequired) ? $this->answerConfirmationRequired->getValue() : null;
     }
 }

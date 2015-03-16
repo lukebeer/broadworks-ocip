@@ -20,9 +20,9 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupOutgoingCallingPlanPinholeDigitPlanOriginatingGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                  = 'GroupOutgoingCallingPlanPinholeDigitPlanOriginatingGetListResponse';
-    protected $groupPermissions      = null;
-    protected $departmentPermissions = null;
+    public    $name = 'GroupOutgoingCallingPlanPinholeDigitPlanOriginatingGetListResponse';
+    protected $groupPermissions;
+    protected $departmentPermissions;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceOutgoingCallingPlan\GroupOutgoingCallingPlanPinholeDigitPlanOriginatingGetListResponse $response
@@ -37,8 +37,9 @@ class GroupOutgoingCallingPlanPinholeDigitPlanOriginatingGetListResponse extends
      */
     public function setGroupPermissions(OutgoingPinholeDigitPlanDigitPatternOriginatingPermissions $groupPermissions = null)
     {
-        if (!$groupPermissions) return $this;
-        $this->groupPermissions = $groupPermissions;
+        $this->groupPermissions = ($groupPermissions InstanceOf OutgoingPinholeDigitPlanDigitPatternOriginatingPermissions)
+             ? $groupPermissions
+             : new OutgoingPinholeDigitPlanDigitPatternOriginatingPermissions($groupPermissions);
         $this->groupPermissions->setName('groupPermissions');
         return $this;
     }
@@ -57,8 +58,9 @@ class GroupOutgoingCallingPlanPinholeDigitPlanOriginatingGetListResponse extends
      */
     public function setDepartmentPermissions(OutgoingPinholeDigitPlanDigitPatternOriginatingDepartmentPermissions $departmentPermissions = null)
     {
-        if (!$departmentPermissions) return $this;
-        $this->departmentPermissions = $departmentPermissions;
+        $this->departmentPermissions = ($departmentPermissions InstanceOf OutgoingPinholeDigitPlanDigitPatternOriginatingDepartmentPermissions)
+             ? $departmentPermissions
+             : new OutgoingPinholeDigitPlanDigitPatternOriginatingDepartmentPermissions($departmentPermissions);
         $this->departmentPermissions->setName('departmentPermissions');
         return $this;
     }

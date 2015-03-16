@@ -23,15 +23,15 @@ use Broadworks_OCIP\core\Client\Client;
 class ServiceProviderScheduleGetEventRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderScheduleGetEventResponse';
-    public    $name              = 'ServiceProviderScheduleGetEventRequest';
-    protected $serviceProviderId = null;
-    protected $scheduleKey       = null;
-    protected $eventName         = null;
+    public    $name = 'ServiceProviderScheduleGetEventRequest';
+    protected $serviceProviderId;
+    protected $scheduleKey;
+    protected $eventName;
 
     public function __construct(
-         $serviceProviderId,
-         ScheduleKey $scheduleKey,
-         $eventName
+         $serviceProviderId = '',
+         ScheduleKey $scheduleKey = '',
+         $eventName = ''
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setScheduleKey($scheduleKey);
@@ -51,7 +51,6 @@ class ServiceProviderScheduleGetEventRequest extends ComplexType implements Comp
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
-        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
@@ -65,7 +64,7 @@ class ServiceProviderScheduleGetEventRequest extends ComplexType implements Comp
      */
     public function getServiceProviderId()
     {
-        return $this->serviceProviderId->getValue();
+        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
     }
 
     /**
@@ -73,8 +72,9 @@ class ServiceProviderScheduleGetEventRequest extends ComplexType implements Comp
      */
     public function setScheduleKey(ScheduleKey $scheduleKey = null)
     {
-        if (!$scheduleKey) return $this;
-        $this->scheduleKey = $scheduleKey;
+        $this->scheduleKey = ($scheduleKey InstanceOf ScheduleKey)
+             ? $scheduleKey
+             : new ScheduleKey($scheduleKey);
         $this->scheduleKey->setName('scheduleKey');
         return $this;
     }
@@ -93,7 +93,6 @@ class ServiceProviderScheduleGetEventRequest extends ComplexType implements Comp
      */
     public function setEventName($eventName = null)
     {
-        if (!$eventName) return $this;
         $this->eventName = ($eventName InstanceOf EventName)
              ? $eventName
              : new EventName($eventName);
@@ -107,6 +106,6 @@ class ServiceProviderScheduleGetEventRequest extends ComplexType implements Comp
      */
     public function getEventName()
     {
-        return $this->eventName->getValue();
+        return ($this->eventName) ? $this->eventName->getValue() : null;
     }
 }

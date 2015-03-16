@@ -23,15 +23,15 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemZoneAddRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                          = 'SystemZoneAddRequest';
-    protected $zoneName                      = null;
-    protected $netAddress                    = null;
-    protected $netAddressRange               = null;
-    protected $locationBasedPhysicalLocation = null;
-    protected $callingZonePhysicalLocation   = null;
+    public    $name = 'SystemZoneAddRequest';
+    protected $zoneName;
+    protected $netAddress;
+    protected $netAddressRange;
+    protected $locationBasedPhysicalLocation;
+    protected $callingZonePhysicalLocation;
 
     public function __construct(
-         $zoneName,
+         $zoneName = '',
          $netAddress = null,
          IPAddressRange $netAddressRange = null,
          $locationBasedPhysicalLocation = null,
@@ -57,7 +57,6 @@ class SystemZoneAddRequest extends ComplexType implements ComplexInterface
      */
     public function setZoneName($zoneName = null)
     {
-        if (!$zoneName) return $this;
         $this->zoneName = ($zoneName InstanceOf ZoneName)
              ? $zoneName
              : new ZoneName($zoneName);
@@ -71,7 +70,7 @@ class SystemZoneAddRequest extends ComplexType implements ComplexInterface
      */
     public function getZoneName()
     {
-        return $this->zoneName->getValue();
+        return ($this->zoneName) ? $this->zoneName->getValue() : null;
     }
 
     /**
@@ -79,7 +78,6 @@ class SystemZoneAddRequest extends ComplexType implements ComplexInterface
      */
     public function setNetAddress($netAddress = null)
     {
-        if (!$netAddress) return $this;
         $this->netAddress = ($netAddress InstanceOf IPAddress)
              ? $netAddress
              : new IPAddress($netAddress);
@@ -93,7 +91,7 @@ class SystemZoneAddRequest extends ComplexType implements ComplexInterface
      */
     public function getNetAddress()
     {
-        return $this->netAddress->getValue();
+        return ($this->netAddress) ? $this->netAddress->getValue() : null;
     }
 
     /**
@@ -101,8 +99,9 @@ class SystemZoneAddRequest extends ComplexType implements ComplexInterface
      */
     public function setNetAddressRange(IPAddressRange $netAddressRange = null)
     {
-        if (!$netAddressRange) return $this;
-        $this->netAddressRange = $netAddressRange;
+        $this->netAddressRange = ($netAddressRange InstanceOf IPAddressRange)
+             ? $netAddressRange
+             : new IPAddressRange($netAddressRange);
         $this->netAddressRange->setName('netAddressRange');
         return $this;
     }
@@ -121,7 +120,6 @@ class SystemZoneAddRequest extends ComplexType implements ComplexInterface
      */
     public function setLocationBasedPhysicalLocation($locationBasedPhysicalLocation = null)
     {
-        if (!$locationBasedPhysicalLocation) return $this;
         $this->locationBasedPhysicalLocation = ($locationBasedPhysicalLocation InstanceOf PhysicalLocation)
              ? $locationBasedPhysicalLocation
              : new PhysicalLocation($locationBasedPhysicalLocation);
@@ -135,7 +133,7 @@ class SystemZoneAddRequest extends ComplexType implements ComplexInterface
      */
     public function getLocationBasedPhysicalLocation()
     {
-        return $this->locationBasedPhysicalLocation->getValue();
+        return ($this->locationBasedPhysicalLocation) ? $this->locationBasedPhysicalLocation->getValue() : null;
     }
 
     /**
@@ -143,7 +141,6 @@ class SystemZoneAddRequest extends ComplexType implements ComplexInterface
      */
     public function setCallingZonePhysicalLocation($callingZonePhysicalLocation = null)
     {
-        if (!$callingZonePhysicalLocation) return $this;
         $this->callingZonePhysicalLocation = ($callingZonePhysicalLocation InstanceOf PhysicalLocation)
              ? $callingZonePhysicalLocation
              : new PhysicalLocation($callingZonePhysicalLocation);
@@ -157,6 +154,6 @@ class SystemZoneAddRequest extends ComplexType implements ComplexInterface
      */
     public function getCallingZonePhysicalLocation()
     {
-        return $this->callingZonePhysicalLocation->getValue();
+        return ($this->callingZonePhysicalLocation) ? $this->callingZonePhysicalLocation->getValue() : null;
     }
 }

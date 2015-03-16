@@ -26,23 +26,23 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderAdminAddRequest14 extends ComplexType implements ComplexInterface
 {
-    public    $name              = 'ServiceProviderAdminAddRequest14';
-    protected $serviceProviderId = null;
-    protected $userId            = null;
-    protected $firstName         = null;
-    protected $lastName          = null;
-    protected $password          = null;
-    protected $language          = null;
-    protected $administratorType = null;
+    public    $name = 'ServiceProviderAdminAddRequest14';
+    protected $serviceProviderId;
+    protected $userId;
+    protected $firstName;
+    protected $lastName;
+    protected $password;
+    protected $language;
+    protected $administratorType;
 
     public function __construct(
-         $serviceProviderId,
-         $userId,
+         $serviceProviderId = '',
+         $userId = '',
          $firstName = null,
          $lastName = null,
          $password = null,
          $language = null,
-         $administratorType
+         $administratorType = ''
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setUserId($userId);
@@ -66,7 +66,6 @@ class ServiceProviderAdminAddRequest14 extends ComplexType implements ComplexInt
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
-        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
@@ -80,7 +79,7 @@ class ServiceProviderAdminAddRequest14 extends ComplexType implements ComplexInt
      */
     public function getServiceProviderId()
     {
-        return $this->serviceProviderId->getValue();
+        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
     }
 
     /**
@@ -88,7 +87,6 @@ class ServiceProviderAdminAddRequest14 extends ComplexType implements ComplexInt
      */
     public function setUserId($userId = null)
     {
-        if (!$userId) return $this;
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
@@ -102,7 +100,7 @@ class ServiceProviderAdminAddRequest14 extends ComplexType implements ComplexInt
      */
     public function getUserId()
     {
-        return $this->userId->getValue();
+        return ($this->userId) ? $this->userId->getValue() : null;
     }
 
     /**
@@ -110,7 +108,6 @@ class ServiceProviderAdminAddRequest14 extends ComplexType implements ComplexInt
      */
     public function setFirstName($firstName = null)
     {
-        if (!$firstName) return $this;
         $this->firstName = ($firstName InstanceOf FirstName)
              ? $firstName
              : new FirstName($firstName);
@@ -124,7 +121,7 @@ class ServiceProviderAdminAddRequest14 extends ComplexType implements ComplexInt
      */
     public function getFirstName()
     {
-        return $this->firstName->getValue();
+        return ($this->firstName) ? $this->firstName->getValue() : null;
     }
 
     /**
@@ -132,7 +129,6 @@ class ServiceProviderAdminAddRequest14 extends ComplexType implements ComplexInt
      */
     public function setLastName($lastName = null)
     {
-        if (!$lastName) return $this;
         $this->lastName = ($lastName InstanceOf LastName)
              ? $lastName
              : new LastName($lastName);
@@ -146,7 +142,7 @@ class ServiceProviderAdminAddRequest14 extends ComplexType implements ComplexInt
      */
     public function getLastName()
     {
-        return $this->lastName->getValue();
+        return ($this->lastName) ? $this->lastName->getValue() : null;
     }
 
     /**
@@ -154,7 +150,6 @@ class ServiceProviderAdminAddRequest14 extends ComplexType implements ComplexInt
      */
     public function setPassword($password = null)
     {
-        if (!$password) return $this;
         $this->password = ($password InstanceOf Password)
              ? $password
              : new Password($password);
@@ -168,7 +163,7 @@ class ServiceProviderAdminAddRequest14 extends ComplexType implements ComplexInt
      */
     public function getPassword()
     {
-        return $this->password->getValue();
+        return ($this->password) ? $this->password->getValue() : null;
     }
 
     /**
@@ -176,7 +171,6 @@ class ServiceProviderAdminAddRequest14 extends ComplexType implements ComplexInt
      */
     public function setLanguage($language = null)
     {
-        if (!$language) return $this;
         $this->language = ($language InstanceOf Language)
              ? $language
              : new Language($language);
@@ -190,7 +184,7 @@ class ServiceProviderAdminAddRequest14 extends ComplexType implements ComplexInt
      */
     public function getLanguage()
     {
-        return $this->language->getValue();
+        return ($this->language) ? $this->language->getValue() : null;
     }
 
     /**
@@ -198,7 +192,6 @@ class ServiceProviderAdminAddRequest14 extends ComplexType implements ComplexInt
      */
     public function setAdministratorType($administratorType = null)
     {
-        if (!$administratorType) return $this;
         $this->administratorType = ($administratorType InstanceOf ServiceProviderAdminType)
              ? $administratorType
              : new ServiceProviderAdminType($administratorType);
@@ -212,6 +205,6 @@ class ServiceProviderAdminAddRequest14 extends ComplexType implements ComplexInt
      */
     public function getAdministratorType()
     {
-        return $this->administratorType->getValue();
+        return ($this->administratorType) ? $this->administratorType->getValue() : null;
     }
 }

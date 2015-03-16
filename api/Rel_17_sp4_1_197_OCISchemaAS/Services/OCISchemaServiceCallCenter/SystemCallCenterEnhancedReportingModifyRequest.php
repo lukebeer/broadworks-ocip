@@ -21,10 +21,10 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemCallCenterEnhancedReportingModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                     = 'SystemCallCenterEnhancedReportingModifyRequest';
-    protected $archiveReports           = null;
-    protected $reportApplicationURL     = null;
-    protected $repositoryApplicationURL = null;
+    public    $name = 'SystemCallCenterEnhancedReportingModifyRequest';
+    protected $archiveReports;
+    protected $reportApplicationURL;
+    protected $repositoryApplicationURL;
 
     public function __construct(
          $archiveReports = null,
@@ -49,7 +49,6 @@ class SystemCallCenterEnhancedReportingModifyRequest extends ComplexType impleme
      */
     public function setArchiveReports($archiveReports = null)
     {
-        if (!$archiveReports) return $this;
         $this->archiveReports = new PrimitiveType($archiveReports);
         $this->archiveReports->setName('archiveReports');
         return $this;
@@ -61,7 +60,7 @@ class SystemCallCenterEnhancedReportingModifyRequest extends ComplexType impleme
      */
     public function getArchiveReports()
     {
-        return $this->archiveReports->getValue();
+        return ($this->archiveReports) ? $this->archiveReports->getValue() : null;
     }
 
     /**
@@ -69,7 +68,6 @@ class SystemCallCenterEnhancedReportingModifyRequest extends ComplexType impleme
      */
     public function setReportApplicationURL($reportApplicationURL = null)
     {
-        if (!$reportApplicationURL) return $this;
         $this->reportApplicationURL = ($reportApplicationURL InstanceOf URL)
              ? $reportApplicationURL
              : new URL($reportApplicationURL);
@@ -83,7 +81,7 @@ class SystemCallCenterEnhancedReportingModifyRequest extends ComplexType impleme
      */
     public function getReportApplicationURL()
     {
-        return $this->reportApplicationURL->getValue();
+        return ($this->reportApplicationURL) ? $this->reportApplicationURL->getValue() : null;
     }
 
     /**
@@ -91,7 +89,6 @@ class SystemCallCenterEnhancedReportingModifyRequest extends ComplexType impleme
      */
     public function setRepositoryApplicationURL($repositoryApplicationURL = null)
     {
-        if (!$repositoryApplicationURL) return $this;
         $this->repositoryApplicationURL = ($repositoryApplicationURL InstanceOf URL)
              ? $repositoryApplicationURL
              : new URL($repositoryApplicationURL);
@@ -105,6 +102,6 @@ class SystemCallCenterEnhancedReportingModifyRequest extends ComplexType impleme
      */
     public function getRepositoryApplicationURL()
     {
-        return $this->repositoryApplicationURL->getValue();
+        return ($this->repositoryApplicationURL) ? $this->repositoryApplicationURL->getValue() : null;
     }
 }

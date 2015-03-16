@@ -21,12 +21,12 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupCallCenterBouncedCallGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                            = 'GroupCallCenterBouncedCallGetResponse';
-    protected $isActive                        = null;
-    protected $numberOfRingsBeforeBouncingCall = null;
-    protected $enableTransfer                  = null;
-    protected $transferPhoneNumber             = null;
-    protected $bounceCallWhenAgentUnavailable  = null;
+    public    $name = 'GroupCallCenterBouncedCallGetResponse';
+    protected $isActive;
+    protected $numberOfRingsBeforeBouncingCall;
+    protected $enableTransfer;
+    protected $transferPhoneNumber;
+    protected $bounceCallWhenAgentUnavailable;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\GroupCallCenterBouncedCallGetResponse $response
@@ -41,7 +41,6 @@ class GroupCallCenterBouncedCallGetResponse extends ComplexType implements Compl
      */
     public function setIsActive($isActive = null)
     {
-        if (!$isActive) return $this;
         $this->isActive = new PrimitiveType($isActive);
         $this->isActive->setName('isActive');
         return $this;
@@ -53,7 +52,7 @@ class GroupCallCenterBouncedCallGetResponse extends ComplexType implements Compl
      */
     public function getIsActive()
     {
-        return $this->isActive->getValue();
+        return ($this->isActive) ? $this->isActive->getValue() : null;
     }
 
     /**
@@ -61,7 +60,6 @@ class GroupCallCenterBouncedCallGetResponse extends ComplexType implements Compl
      */
     public function setNumberOfRingsBeforeBouncingCall($numberOfRingsBeforeBouncingCall = null)
     {
-        if (!$numberOfRingsBeforeBouncingCall) return $this;
         $this->numberOfRingsBeforeBouncingCall = ($numberOfRingsBeforeBouncingCall InstanceOf HuntNoAnswerRings)
              ? $numberOfRingsBeforeBouncingCall
              : new HuntNoAnswerRings($numberOfRingsBeforeBouncingCall);
@@ -75,7 +73,7 @@ class GroupCallCenterBouncedCallGetResponse extends ComplexType implements Compl
      */
     public function getNumberOfRingsBeforeBouncingCall()
     {
-        return $this->numberOfRingsBeforeBouncingCall->getValue();
+        return ($this->numberOfRingsBeforeBouncingCall) ? $this->numberOfRingsBeforeBouncingCall->getValue() : null;
     }
 
     /**
@@ -83,7 +81,6 @@ class GroupCallCenterBouncedCallGetResponse extends ComplexType implements Compl
      */
     public function setEnableTransfer($enableTransfer = null)
     {
-        if (!$enableTransfer) return $this;
         $this->enableTransfer = new PrimitiveType($enableTransfer);
         $this->enableTransfer->setName('enableTransfer');
         return $this;
@@ -95,7 +92,7 @@ class GroupCallCenterBouncedCallGetResponse extends ComplexType implements Compl
      */
     public function getEnableTransfer()
     {
-        return $this->enableTransfer->getValue();
+        return ($this->enableTransfer) ? $this->enableTransfer->getValue() : null;
     }
 
     /**
@@ -103,7 +100,6 @@ class GroupCallCenterBouncedCallGetResponse extends ComplexType implements Compl
      */
     public function setTransferPhoneNumber($transferPhoneNumber = null)
     {
-        if (!$transferPhoneNumber) return $this;
         $this->transferPhoneNumber = ($transferPhoneNumber InstanceOf OutgoingDNorSIPURI)
              ? $transferPhoneNumber
              : new OutgoingDNorSIPURI($transferPhoneNumber);
@@ -117,7 +113,7 @@ class GroupCallCenterBouncedCallGetResponse extends ComplexType implements Compl
      */
     public function getTransferPhoneNumber()
     {
-        return $this->transferPhoneNumber->getValue();
+        return ($this->transferPhoneNumber) ? $this->transferPhoneNumber->getValue() : null;
     }
 
     /**
@@ -125,7 +121,6 @@ class GroupCallCenterBouncedCallGetResponse extends ComplexType implements Compl
      */
     public function setBounceCallWhenAgentUnavailable($bounceCallWhenAgentUnavailable = null)
     {
-        if (!$bounceCallWhenAgentUnavailable) return $this;
         $this->bounceCallWhenAgentUnavailable = new PrimitiveType($bounceCallWhenAgentUnavailable);
         $this->bounceCallWhenAgentUnavailable->setName('bounceCallWhenAgentUnavailable');
         return $this;
@@ -137,6 +132,6 @@ class GroupCallCenterBouncedCallGetResponse extends ComplexType implements Compl
      */
     public function getBounceCallWhenAgentUnavailable()
     {
-        return $this->bounceCallWhenAgentUnavailable->getValue();
+        return ($this->bounceCallWhenAgentUnavailable) ? $this->bounceCallWhenAgentUnavailable->getValue() : null;
     }
 }

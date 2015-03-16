@@ -22,15 +22,15 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserHotelingGuestModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                   = 'UserHotelingGuestModifyRequest';
-    protected $userId                 = null;
-    protected $isActive               = null;
-    protected $enableAssociationLimit = null;
-    protected $associationLimitHours  = null;
-    protected $hostUserId             = null;
+    public    $name = 'UserHotelingGuestModifyRequest';
+    protected $userId;
+    protected $isActive;
+    protected $enableAssociationLimit;
+    protected $associationLimitHours;
+    protected $hostUserId;
 
     public function __construct(
-         $userId,
+         $userId = '',
          $isActive = null,
          $enableAssociationLimit = null,
          $associationLimitHours = null,
@@ -56,7 +56,6 @@ class UserHotelingGuestModifyRequest extends ComplexType implements ComplexInter
      */
     public function setUserId($userId = null)
     {
-        if (!$userId) return $this;
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
@@ -70,7 +69,7 @@ class UserHotelingGuestModifyRequest extends ComplexType implements ComplexInter
      */
     public function getUserId()
     {
-        return $this->userId->getValue();
+        return ($this->userId) ? $this->userId->getValue() : null;
     }
 
     /**
@@ -78,7 +77,6 @@ class UserHotelingGuestModifyRequest extends ComplexType implements ComplexInter
      */
     public function setIsActive($isActive = null)
     {
-        if (!$isActive) return $this;
         $this->isActive = new PrimitiveType($isActive);
         $this->isActive->setName('isActive');
         return $this;
@@ -90,7 +88,7 @@ class UserHotelingGuestModifyRequest extends ComplexType implements ComplexInter
      */
     public function getIsActive()
     {
-        return $this->isActive->getValue();
+        return ($this->isActive) ? $this->isActive->getValue() : null;
     }
 
     /**
@@ -98,7 +96,6 @@ class UserHotelingGuestModifyRequest extends ComplexType implements ComplexInter
      */
     public function setEnableAssociationLimit($enableAssociationLimit = null)
     {
-        if (!$enableAssociationLimit) return $this;
         $this->enableAssociationLimit = new PrimitiveType($enableAssociationLimit);
         $this->enableAssociationLimit->setName('enableAssociationLimit');
         return $this;
@@ -110,7 +107,7 @@ class UserHotelingGuestModifyRequest extends ComplexType implements ComplexInter
      */
     public function getEnableAssociationLimit()
     {
-        return $this->enableAssociationLimit->getValue();
+        return ($this->enableAssociationLimit) ? $this->enableAssociationLimit->getValue() : null;
     }
 
     /**
@@ -118,7 +115,6 @@ class UserHotelingGuestModifyRequest extends ComplexType implements ComplexInter
      */
     public function setAssociationLimitHours($associationLimitHours = null)
     {
-        if (!$associationLimitHours) return $this;
         $this->associationLimitHours = ($associationLimitHours InstanceOf HotelingAssociationLimitHours)
              ? $associationLimitHours
              : new HotelingAssociationLimitHours($associationLimitHours);
@@ -132,7 +128,7 @@ class UserHotelingGuestModifyRequest extends ComplexType implements ComplexInter
      */
     public function getAssociationLimitHours()
     {
-        return $this->associationLimitHours->getValue();
+        return ($this->associationLimitHours) ? $this->associationLimitHours->getValue() : null;
     }
 
     /**
@@ -140,7 +136,6 @@ class UserHotelingGuestModifyRequest extends ComplexType implements ComplexInter
      */
     public function setHostUserId($hostUserId = null)
     {
-        if (!$hostUserId) return $this;
         $this->hostUserId = ($hostUserId InstanceOf UserId)
              ? $hostUserId
              : new UserId($hostUserId);
@@ -154,6 +149,6 @@ class UserHotelingGuestModifyRequest extends ComplexType implements ComplexInter
      */
     public function getHostUserId()
     {
-        return $this->hostUserId->getValue();
+        return ($this->hostUserId) ? $this->hostUserId->getValue() : null;
     }
 }

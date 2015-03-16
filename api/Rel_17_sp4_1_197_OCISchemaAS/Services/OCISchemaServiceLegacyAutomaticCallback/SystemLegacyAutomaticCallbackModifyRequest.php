@@ -30,18 +30,18 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemLegacyAutomaticCallbackModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                     = 'SystemLegacyAutomaticCallbackModifyRequest';
-    protected $maxMonitorsPerOriginator = null;
-    protected $maxMonitorsPerTerminator = null;
-    protected $t2Minutes                = null;
-    protected $t4Seconds                = null;
-    protected $t5Seconds                = null;
-    protected $t6Minutes                = null;
-    protected $t7Minutes                = null;
-    protected $t8Seconds                = null;
-    protected $tRingSeconds             = null;
-    protected $t10OMinutes              = null;
-    protected $t10TMinutes              = null;
+    public    $name = 'SystemLegacyAutomaticCallbackModifyRequest';
+    protected $maxMonitorsPerOriginator;
+    protected $maxMonitorsPerTerminator;
+    protected $t2Minutes;
+    protected $t4Seconds;
+    protected $t5Seconds;
+    protected $t6Minutes;
+    protected $t7Minutes;
+    protected $t8Seconds;
+    protected $tRingSeconds;
+    protected $t10OMinutes;
+    protected $t10TMinutes;
 
     public function __construct(
          $maxMonitorsPerOriginator = null,
@@ -82,7 +82,6 @@ class SystemLegacyAutomaticCallbackModifyRequest extends ComplexType implements 
      */
     public function setMaxMonitorsPerOriginator($maxMonitorsPerOriginator = null)
     {
-        if (!$maxMonitorsPerOriginator) return $this;
         $this->maxMonitorsPerOriginator = ($maxMonitorsPerOriginator InstanceOf LegacyAutomaticCallbackMaxMonitorsPerOriginator)
              ? $maxMonitorsPerOriginator
              : new LegacyAutomaticCallbackMaxMonitorsPerOriginator($maxMonitorsPerOriginator);
@@ -96,7 +95,7 @@ class SystemLegacyAutomaticCallbackModifyRequest extends ComplexType implements 
      */
     public function getMaxMonitorsPerOriginator()
     {
-        return $this->maxMonitorsPerOriginator->getValue();
+        return ($this->maxMonitorsPerOriginator) ? $this->maxMonitorsPerOriginator->getValue() : null;
     }
 
     /**
@@ -104,7 +103,6 @@ class SystemLegacyAutomaticCallbackModifyRequest extends ComplexType implements 
      */
     public function setMaxMonitorsPerTerminator($maxMonitorsPerTerminator = null)
     {
-        if (!$maxMonitorsPerTerminator) return $this;
         $this->maxMonitorsPerTerminator = ($maxMonitorsPerTerminator InstanceOf LegacyAutomaticCallbackMaxMonitorsPerTerminator)
              ? $maxMonitorsPerTerminator
              : new LegacyAutomaticCallbackMaxMonitorsPerTerminator($maxMonitorsPerTerminator);
@@ -118,7 +116,7 @@ class SystemLegacyAutomaticCallbackModifyRequest extends ComplexType implements 
      */
     public function getMaxMonitorsPerTerminator()
     {
-        return $this->maxMonitorsPerTerminator->getValue();
+        return ($this->maxMonitorsPerTerminator) ? $this->maxMonitorsPerTerminator->getValue() : null;
     }
 
     /**
@@ -126,7 +124,6 @@ class SystemLegacyAutomaticCallbackModifyRequest extends ComplexType implements 
      */
     public function setT2Minutes($t2Minutes = null)
     {
-        if (!$t2Minutes) return $this;
         $this->t2Minutes = ($t2Minutes InstanceOf LegacyAutomaticCallbackT2Minutes)
              ? $t2Minutes
              : new LegacyAutomaticCallbackT2Minutes($t2Minutes);
@@ -140,7 +137,7 @@ class SystemLegacyAutomaticCallbackModifyRequest extends ComplexType implements 
      */
     public function getT2Minutes()
     {
-        return $this->t2Minutes->getValue();
+        return ($this->t2Minutes) ? $this->t2Minutes->getValue() : null;
     }
 
     /**
@@ -148,7 +145,6 @@ class SystemLegacyAutomaticCallbackModifyRequest extends ComplexType implements 
      */
     public function setT4Seconds($t4Seconds = null)
     {
-        if (!$t4Seconds) return $this;
         $this->t4Seconds = ($t4Seconds InstanceOf LegacyAutomaticCallbackT4Seconds)
              ? $t4Seconds
              : new LegacyAutomaticCallbackT4Seconds($t4Seconds);
@@ -162,7 +158,7 @@ class SystemLegacyAutomaticCallbackModifyRequest extends ComplexType implements 
      */
     public function getT4Seconds()
     {
-        return $this->t4Seconds->getValue();
+        return ($this->t4Seconds) ? $this->t4Seconds->getValue() : null;
     }
 
     /**
@@ -170,7 +166,6 @@ class SystemLegacyAutomaticCallbackModifyRequest extends ComplexType implements 
      */
     public function setT5Seconds($t5Seconds = null)
     {
-        if (!$t5Seconds) return $this;
         $this->t5Seconds = ($t5Seconds InstanceOf LegacyAutomaticCallbackT5Seconds)
              ? $t5Seconds
              : new LegacyAutomaticCallbackT5Seconds($t5Seconds);
@@ -184,7 +179,7 @@ class SystemLegacyAutomaticCallbackModifyRequest extends ComplexType implements 
      */
     public function getT5Seconds()
     {
-        return $this->t5Seconds->getValue();
+        return ($this->t5Seconds) ? $this->t5Seconds->getValue() : null;
     }
 
     /**
@@ -192,7 +187,6 @@ class SystemLegacyAutomaticCallbackModifyRequest extends ComplexType implements 
      */
     public function setT6Minutes($t6Minutes = null)
     {
-        if (!$t6Minutes) return $this;
         $this->t6Minutes = ($t6Minutes InstanceOf LegacyAutomaticCallbackT6Minutes)
              ? $t6Minutes
              : new LegacyAutomaticCallbackT6Minutes($t6Minutes);
@@ -206,7 +200,7 @@ class SystemLegacyAutomaticCallbackModifyRequest extends ComplexType implements 
      */
     public function getT6Minutes()
     {
-        return $this->t6Minutes->getValue();
+        return ($this->t6Minutes) ? $this->t6Minutes->getValue() : null;
     }
 
     /**
@@ -214,7 +208,6 @@ class SystemLegacyAutomaticCallbackModifyRequest extends ComplexType implements 
      */
     public function setT7Minutes($t7Minutes = null)
     {
-        if (!$t7Minutes) return $this;
         $this->t7Minutes = ($t7Minutes InstanceOf LegacyAutomaticCallbackT7Minutes)
              ? $t7Minutes
              : new LegacyAutomaticCallbackT7Minutes($t7Minutes);
@@ -228,7 +221,7 @@ class SystemLegacyAutomaticCallbackModifyRequest extends ComplexType implements 
      */
     public function getT7Minutes()
     {
-        return $this->t7Minutes->getValue();
+        return ($this->t7Minutes) ? $this->t7Minutes->getValue() : null;
     }
 
     /**
@@ -236,7 +229,6 @@ class SystemLegacyAutomaticCallbackModifyRequest extends ComplexType implements 
      */
     public function setT8Seconds($t8Seconds = null)
     {
-        if (!$t8Seconds) return $this;
         $this->t8Seconds = ($t8Seconds InstanceOf LegacyAutomaticCallbackT8Seconds)
              ? $t8Seconds
              : new LegacyAutomaticCallbackT8Seconds($t8Seconds);
@@ -250,7 +242,7 @@ class SystemLegacyAutomaticCallbackModifyRequest extends ComplexType implements 
      */
     public function getT8Seconds()
     {
-        return $this->t8Seconds->getValue();
+        return ($this->t8Seconds) ? $this->t8Seconds->getValue() : null;
     }
 
     /**
@@ -258,7 +250,6 @@ class SystemLegacyAutomaticCallbackModifyRequest extends ComplexType implements 
      */
     public function setTRingSeconds($tRingSeconds = null)
     {
-        if (!$tRingSeconds) return $this;
         $this->tRingSeconds = ($tRingSeconds InstanceOf LegacyAutomaticCallbackTRingSeconds)
              ? $tRingSeconds
              : new LegacyAutomaticCallbackTRingSeconds($tRingSeconds);
@@ -272,7 +263,7 @@ class SystemLegacyAutomaticCallbackModifyRequest extends ComplexType implements 
      */
     public function getTRingSeconds()
     {
-        return $this->tRingSeconds->getValue();
+        return ($this->tRingSeconds) ? $this->tRingSeconds->getValue() : null;
     }
 
     /**
@@ -280,7 +271,6 @@ class SystemLegacyAutomaticCallbackModifyRequest extends ComplexType implements 
      */
     public function setT10OMinutes($t10OMinutes = null)
     {
-        if (!$t10OMinutes) return $this;
         $this->t10OMinutes = ($t10OMinutes InstanceOf LegacyAutomaticCallbackT10OMinutes)
              ? $t10OMinutes
              : new LegacyAutomaticCallbackT10OMinutes($t10OMinutes);
@@ -294,7 +284,7 @@ class SystemLegacyAutomaticCallbackModifyRequest extends ComplexType implements 
      */
     public function getT10OMinutes()
     {
-        return $this->t10OMinutes->getValue();
+        return ($this->t10OMinutes) ? $this->t10OMinutes->getValue() : null;
     }
 
     /**
@@ -302,7 +292,6 @@ class SystemLegacyAutomaticCallbackModifyRequest extends ComplexType implements 
      */
     public function setT10TMinutes($t10TMinutes = null)
     {
-        if (!$t10TMinutes) return $this;
         $this->t10TMinutes = ($t10TMinutes InstanceOf LegacyAutomaticCallbackT10TMinutes)
              ? $t10TMinutes
              : new LegacyAutomaticCallbackT10TMinutes($t10TMinutes);
@@ -316,6 +305,6 @@ class SystemLegacyAutomaticCallbackModifyRequest extends ComplexType implements 
      */
     public function getT10TMinutes()
     {
-        return $this->t10TMinutes->getValue();
+        return ($this->t10TMinutes) ? $this->t10TMinutes->getValue() : null;
     }
 }

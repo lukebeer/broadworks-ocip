@@ -22,14 +22,14 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class EnterpriseSessionAdmissionControlGroupAddDeviceListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name              = 'EnterpriseSessionAdmissionControlGroupAddDeviceListRequest';
-    protected $serviceProviderId = null;
-    protected $name              = null;
-    protected $devices           = null;
+    public    $name = 'EnterpriseSessionAdmissionControlGroupAddDeviceListRequest';
+    protected $serviceProviderId;
+    protected $name;
+    protected $devices;
 
     public function __construct(
-         $serviceProviderId,
-         $name,
+         $serviceProviderId = '',
+         $name = '',
          EnterpriseAccessDevice $devices = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
@@ -50,7 +50,6 @@ class EnterpriseSessionAdmissionControlGroupAddDeviceListRequest extends Complex
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
-        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
@@ -64,7 +63,7 @@ class EnterpriseSessionAdmissionControlGroupAddDeviceListRequest extends Complex
      */
     public function getServiceProviderId()
     {
-        return $this->serviceProviderId->getValue();
+        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
     }
 
     /**
@@ -72,7 +71,6 @@ class EnterpriseSessionAdmissionControlGroupAddDeviceListRequest extends Complex
      */
     public function setName($name = null)
     {
-        if (!$name) return $this;
         $this->name = ($name InstanceOf SessionAdmissionControlGroupName)
              ? $name
              : new SessionAdmissionControlGroupName($name);
@@ -86,7 +84,7 @@ class EnterpriseSessionAdmissionControlGroupAddDeviceListRequest extends Complex
      */
     public function getName()
     {
-        return $this->name->getValue();
+        return ($this->name) ? $this->name->getValue() : null;
     }
 
     /**
@@ -94,8 +92,9 @@ class EnterpriseSessionAdmissionControlGroupAddDeviceListRequest extends Complex
      */
     public function setDevices(EnterpriseAccessDevice $devices = null)
     {
-        if (!$devices) return $this;
-        $this->devices = $devices;
+        $this->devices = ($devices InstanceOf EnterpriseAccessDevice)
+             ? $devices
+             : new EnterpriseAccessDevice($devices);
         $this->devices->setName('devices');
         return $this;
     }

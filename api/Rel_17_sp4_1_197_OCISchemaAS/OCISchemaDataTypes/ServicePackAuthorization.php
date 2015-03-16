@@ -19,11 +19,11 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServicePackAuthorization extends ComplexType implements ComplexInterface
 {
-    public    $name            = 'ServicePackAuthorization';
-    protected $servicePackName = null;
+    public    $name = 'ServicePackAuthorization';
+    protected $servicePackName;
 
     public function __construct(
-         $servicePackName
+         $servicePackName = ''
     ) {
         $this->setServicePackName($servicePackName);
     }
@@ -41,7 +41,6 @@ class ServicePackAuthorization extends ComplexType implements ComplexInterface
      */
     public function setServicePackName($servicePackName = null)
     {
-        if (!$servicePackName) return $this;
         $this->servicePackName = new SimpleContent($servicePackName);
         $this->servicePackName->setName('servicePackName');
         return $this;
@@ -53,6 +52,6 @@ class ServicePackAuthorization extends ComplexType implements ComplexInterface
      */
     public function getServicePackName()
     {
-        return $this->servicePackName->getValue();
+        return ($this->servicePackName) ? $this->servicePackName->getValue() : null;
     }
 }

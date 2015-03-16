@@ -20,8 +20,8 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserPersonalPhoneListGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name  = 'UserPersonalPhoneListGetListResponse';
-    protected $entry = null;
+    public    $name = 'UserPersonalPhoneListGetListResponse';
+    protected $entry;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser\UserPersonalPhoneListGetListResponse $response
@@ -36,8 +36,9 @@ class UserPersonalPhoneListGetListResponse extends ComplexType implements Comple
      */
     public function setEntry(PhoneListEntry $entry = null)
     {
-        if (!$entry) return $this;
-        $this->entry = $entry;
+        $this->entry = ($entry InstanceOf PhoneListEntry)
+             ? $entry
+             : new PhoneListEntry($entry);
         $this->entry->setName('entry');
         return $this;
     }

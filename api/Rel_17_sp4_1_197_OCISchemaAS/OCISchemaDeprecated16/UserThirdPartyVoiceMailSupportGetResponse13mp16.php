@@ -25,16 +25,16 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserThirdPartyVoiceMailSupportGetResponse13mp16 extends ComplexType implements ComplexInterface
 {
-    public    $name                        = 'UserThirdPartyVoiceMailSupportGetResponse13mp16';
-    protected $isActive                    = null;
-    protected $busyRedirectToVoiceMail     = null;
-    protected $noAnswerRedirectToVoiceMail = null;
-    protected $serverSelection             = null;
-    protected $userServer                  = null;
-    protected $mailboxIdType               = null;
-    protected $mailboxURL                  = null;
-    protected $noAnswerNumberOfRings       = null;
-    protected $alwaysRedirectToVoiceMail   = null;
+    public    $name = 'UserThirdPartyVoiceMailSupportGetResponse13mp16';
+    protected $isActive;
+    protected $busyRedirectToVoiceMail;
+    protected $noAnswerRedirectToVoiceMail;
+    protected $serverSelection;
+    protected $userServer;
+    protected $mailboxIdType;
+    protected $mailboxURL;
+    protected $noAnswerNumberOfRings;
+    protected $alwaysRedirectToVoiceMail;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\UserThirdPartyVoiceMailSupportGetResponse13mp16 $response
@@ -49,7 +49,6 @@ class UserThirdPartyVoiceMailSupportGetResponse13mp16 extends ComplexType implem
      */
     public function setIsActive($isActive = null)
     {
-        if (!$isActive) return $this;
         $this->isActive = new PrimitiveType($isActive);
         $this->isActive->setName('isActive');
         return $this;
@@ -61,7 +60,7 @@ class UserThirdPartyVoiceMailSupportGetResponse13mp16 extends ComplexType implem
      */
     public function getIsActive()
     {
-        return $this->isActive->getValue();
+        return ($this->isActive) ? $this->isActive->getValue() : null;
     }
 
     /**
@@ -69,7 +68,6 @@ class UserThirdPartyVoiceMailSupportGetResponse13mp16 extends ComplexType implem
      */
     public function setBusyRedirectToVoiceMail($busyRedirectToVoiceMail = null)
     {
-        if (!$busyRedirectToVoiceMail) return $this;
         $this->busyRedirectToVoiceMail = new PrimitiveType($busyRedirectToVoiceMail);
         $this->busyRedirectToVoiceMail->setName('busyRedirectToVoiceMail');
         return $this;
@@ -81,7 +79,7 @@ class UserThirdPartyVoiceMailSupportGetResponse13mp16 extends ComplexType implem
      */
     public function getBusyRedirectToVoiceMail()
     {
-        return $this->busyRedirectToVoiceMail->getValue();
+        return ($this->busyRedirectToVoiceMail) ? $this->busyRedirectToVoiceMail->getValue() : null;
     }
 
     /**
@@ -89,7 +87,6 @@ class UserThirdPartyVoiceMailSupportGetResponse13mp16 extends ComplexType implem
      */
     public function setNoAnswerRedirectToVoiceMail($noAnswerRedirectToVoiceMail = null)
     {
-        if (!$noAnswerRedirectToVoiceMail) return $this;
         $this->noAnswerRedirectToVoiceMail = new PrimitiveType($noAnswerRedirectToVoiceMail);
         $this->noAnswerRedirectToVoiceMail->setName('noAnswerRedirectToVoiceMail');
         return $this;
@@ -101,7 +98,7 @@ class UserThirdPartyVoiceMailSupportGetResponse13mp16 extends ComplexType implem
      */
     public function getNoAnswerRedirectToVoiceMail()
     {
-        return $this->noAnswerRedirectToVoiceMail->getValue();
+        return ($this->noAnswerRedirectToVoiceMail) ? $this->noAnswerRedirectToVoiceMail->getValue() : null;
     }
 
     /**
@@ -109,7 +106,6 @@ class UserThirdPartyVoiceMailSupportGetResponse13mp16 extends ComplexType implem
      */
     public function setServerSelection($serverSelection = null)
     {
-        if (!$serverSelection) return $this;
         $this->serverSelection = ($serverSelection InstanceOf ThirdPartyVoiceMailSupportServerSelection)
              ? $serverSelection
              : new ThirdPartyVoiceMailSupportServerSelection($serverSelection);
@@ -123,7 +119,7 @@ class UserThirdPartyVoiceMailSupportGetResponse13mp16 extends ComplexType implem
      */
     public function getServerSelection()
     {
-        return $this->serverSelection->getValue();
+        return ($this->serverSelection) ? $this->serverSelection->getValue() : null;
     }
 
     /**
@@ -131,7 +127,6 @@ class UserThirdPartyVoiceMailSupportGetResponse13mp16 extends ComplexType implem
      */
     public function setUserServer($userServer = null)
     {
-        if (!$userServer) return $this;
         $this->userServer = ($userServer InstanceOf ThirdPartyVoiceMailSupportMailServer)
              ? $userServer
              : new ThirdPartyVoiceMailSupportMailServer($userServer);
@@ -145,7 +140,7 @@ class UserThirdPartyVoiceMailSupportGetResponse13mp16 extends ComplexType implem
      */
     public function getUserServer()
     {
-        return $this->userServer->getValue();
+        return ($this->userServer) ? $this->userServer->getValue() : null;
     }
 
     /**
@@ -153,7 +148,6 @@ class UserThirdPartyVoiceMailSupportGetResponse13mp16 extends ComplexType implem
      */
     public function setMailboxIdType($mailboxIdType = null)
     {
-        if (!$mailboxIdType) return $this;
         $this->mailboxIdType = ($mailboxIdType InstanceOf ThirdPartyVoiceMailSupportMailboxIdType)
              ? $mailboxIdType
              : new ThirdPartyVoiceMailSupportMailboxIdType($mailboxIdType);
@@ -167,7 +161,7 @@ class UserThirdPartyVoiceMailSupportGetResponse13mp16 extends ComplexType implem
      */
     public function getMailboxIdType()
     {
-        return $this->mailboxIdType->getValue();
+        return ($this->mailboxIdType) ? $this->mailboxIdType->getValue() : null;
     }
 
     /**
@@ -175,7 +169,6 @@ class UserThirdPartyVoiceMailSupportGetResponse13mp16 extends ComplexType implem
      */
     public function setMailboxURL($mailboxURL = null)
     {
-        if (!$mailboxURL) return $this;
         $this->mailboxURL = ($mailboxURL InstanceOf SIPURI)
              ? $mailboxURL
              : new SIPURI($mailboxURL);
@@ -189,7 +182,7 @@ class UserThirdPartyVoiceMailSupportGetResponse13mp16 extends ComplexType implem
      */
     public function getMailboxURL()
     {
-        return $this->mailboxURL->getValue();
+        return ($this->mailboxURL) ? $this->mailboxURL->getValue() : null;
     }
 
     /**
@@ -197,7 +190,6 @@ class UserThirdPartyVoiceMailSupportGetResponse13mp16 extends ComplexType implem
      */
     public function setNoAnswerNumberOfRings($noAnswerNumberOfRings = null)
     {
-        if (!$noAnswerNumberOfRings) return $this;
         $this->noAnswerNumberOfRings = ($noAnswerNumberOfRings InstanceOf ThirdPartyVoiceMailSupportNumberOfRings)
              ? $noAnswerNumberOfRings
              : new ThirdPartyVoiceMailSupportNumberOfRings($noAnswerNumberOfRings);
@@ -211,7 +203,7 @@ class UserThirdPartyVoiceMailSupportGetResponse13mp16 extends ComplexType implem
      */
     public function getNoAnswerNumberOfRings()
     {
-        return $this->noAnswerNumberOfRings->getValue();
+        return ($this->noAnswerNumberOfRings) ? $this->noAnswerNumberOfRings->getValue() : null;
     }
 
     /**
@@ -219,7 +211,6 @@ class UserThirdPartyVoiceMailSupportGetResponse13mp16 extends ComplexType implem
      */
     public function setAlwaysRedirectToVoiceMail($alwaysRedirectToVoiceMail = null)
     {
-        if (!$alwaysRedirectToVoiceMail) return $this;
         $this->alwaysRedirectToVoiceMail = new PrimitiveType($alwaysRedirectToVoiceMail);
         $this->alwaysRedirectToVoiceMail->setName('alwaysRedirectToVoiceMail');
         return $this;
@@ -231,6 +222,6 @@ class UserThirdPartyVoiceMailSupportGetResponse13mp16 extends ComplexType implem
      */
     public function getAlwaysRedirectToVoiceMail()
     {
-        return $this->alwaysRedirectToVoiceMail->getValue();
+        return ($this->alwaysRedirectToVoiceMail) ? $this->alwaysRedirectToVoiceMail->getValue() : null;
     }
 }

@@ -24,18 +24,18 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupAccessDeviceCustomTagAddRequest extends ComplexType implements ComplexInterface
 {
-    public    $name              = 'GroupAccessDeviceCustomTagAddRequest';
-    protected $serviceProviderId = null;
-    protected $groupId           = null;
-    protected $deviceName        = null;
-    protected $tagName           = null;
-    protected $tagValue          = null;
+    public    $name = 'GroupAccessDeviceCustomTagAddRequest';
+    protected $serviceProviderId;
+    protected $groupId;
+    protected $deviceName;
+    protected $tagName;
+    protected $tagValue;
 
     public function __construct(
-         $serviceProviderId,
-         $groupId,
-         $deviceName,
-         $tagName,
+         $serviceProviderId = '',
+         $groupId = '',
+         $deviceName = '',
+         $tagName = '',
          $tagValue = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
@@ -58,7 +58,6 @@ class GroupAccessDeviceCustomTagAddRequest extends ComplexType implements Comple
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
-        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
@@ -72,7 +71,7 @@ class GroupAccessDeviceCustomTagAddRequest extends ComplexType implements Comple
      */
     public function getServiceProviderId()
     {
-        return $this->serviceProviderId->getValue();
+        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
     }
 
     /**
@@ -80,7 +79,6 @@ class GroupAccessDeviceCustomTagAddRequest extends ComplexType implements Comple
      */
     public function setGroupId($groupId = null)
     {
-        if (!$groupId) return $this;
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
@@ -94,7 +92,7 @@ class GroupAccessDeviceCustomTagAddRequest extends ComplexType implements Comple
      */
     public function getGroupId()
     {
-        return $this->groupId->getValue();
+        return ($this->groupId) ? $this->groupId->getValue() : null;
     }
 
     /**
@@ -102,7 +100,6 @@ class GroupAccessDeviceCustomTagAddRequest extends ComplexType implements Comple
      */
     public function setDeviceName($deviceName = null)
     {
-        if (!$deviceName) return $this;
         $this->deviceName = ($deviceName InstanceOf AccessDeviceName)
              ? $deviceName
              : new AccessDeviceName($deviceName);
@@ -116,7 +113,7 @@ class GroupAccessDeviceCustomTagAddRequest extends ComplexType implements Comple
      */
     public function getDeviceName()
     {
-        return $this->deviceName->getValue();
+        return ($this->deviceName) ? $this->deviceName->getValue() : null;
     }
 
     /**
@@ -124,7 +121,6 @@ class GroupAccessDeviceCustomTagAddRequest extends ComplexType implements Comple
      */
     public function setTagName($tagName = null)
     {
-        if (!$tagName) return $this;
         $this->tagName = ($tagName InstanceOf DeviceManagementTagName)
              ? $tagName
              : new DeviceManagementTagName($tagName);
@@ -138,7 +134,7 @@ class GroupAccessDeviceCustomTagAddRequest extends ComplexType implements Comple
      */
     public function getTagName()
     {
-        return $this->tagName->getValue();
+        return ($this->tagName) ? $this->tagName->getValue() : null;
     }
 
     /**
@@ -146,7 +142,6 @@ class GroupAccessDeviceCustomTagAddRequest extends ComplexType implements Comple
      */
     public function setTagValue($tagValue = null)
     {
-        if (!$tagValue) return $this;
         $this->tagValue = ($tagValue InstanceOf DeviceManagementTagValue)
              ? $tagValue
              : new DeviceManagementTagValue($tagValue);
@@ -160,6 +155,6 @@ class GroupAccessDeviceCustomTagAddRequest extends ComplexType implements Comple
      */
     public function getTagValue()
     {
-        return $this->tagValue->getValue();
+        return ($this->tagValue) ? $this->tagValue->getValue() : null;
     }
 }

@@ -20,8 +20,8 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemBroadWorksMobilityServiceAccessCodeGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                   = 'SystemBroadWorksMobilityServiceAccessCodeGetListResponse';
-    protected $serviceAccessCodeTable = null;
+    public    $name = 'SystemBroadWorksMobilityServiceAccessCodeGetListResponse';
+    protected $serviceAccessCodeTable;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceBroadWorksMobility\SystemBroadWorksMobilityServiceAccessCodeGetListResponse $response
@@ -36,7 +36,6 @@ class SystemBroadWorksMobilityServiceAccessCodeGetListResponse extends ComplexTy
      */
     public function setServiceAccessCodeTable(TableType $serviceAccessCodeTable = null)
     {
-        if (!$serviceAccessCodeTable) return $this;
         $this->serviceAccessCodeTable = $serviceAccessCodeTable;
         $this->serviceAccessCodeTable->setName('serviceAccessCodeTable');
         return $this;

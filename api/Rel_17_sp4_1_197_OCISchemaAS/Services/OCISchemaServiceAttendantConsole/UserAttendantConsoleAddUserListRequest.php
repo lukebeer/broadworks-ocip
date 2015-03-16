@@ -20,12 +20,12 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserAttendantConsoleAddUserListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name            = 'UserAttendantConsoleAddUserListRequest';
-    protected $userId          = null;
-    protected $monitoredUserId = null;
+    public    $name = 'UserAttendantConsoleAddUserListRequest';
+    protected $userId;
+    protected $monitoredUserId;
 
     public function __construct(
-         $userId,
+         $userId = '',
          $monitoredUserId = null
     ) {
         $this->setUserId($userId);
@@ -45,7 +45,6 @@ class UserAttendantConsoleAddUserListRequest extends ComplexType implements Comp
      */
     public function setUserId($userId = null)
     {
-        if (!$userId) return $this;
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
@@ -59,7 +58,7 @@ class UserAttendantConsoleAddUserListRequest extends ComplexType implements Comp
      */
     public function getUserId()
     {
-        return $this->userId->getValue();
+        return ($this->userId) ? $this->userId->getValue() : null;
     }
 
     /**
@@ -67,7 +66,6 @@ class UserAttendantConsoleAddUserListRequest extends ComplexType implements Comp
      */
     public function setMonitoredUserId($monitoredUserId = null)
     {
-        if (!$monitoredUserId) return $this;
         $this->monitoredUserId = ($monitoredUserId InstanceOf UserId)
              ? $monitoredUserId
              : new UserId($monitoredUserId);
@@ -81,6 +79,6 @@ class UserAttendantConsoleAddUserListRequest extends ComplexType implements Comp
      */
     public function getMonitoredUserId()
     {
-        return $this->monitoredUserId->getValue();
+        return ($this->monitoredUserId) ? $this->monitoredUserId->getValue() : null;
     }
 }

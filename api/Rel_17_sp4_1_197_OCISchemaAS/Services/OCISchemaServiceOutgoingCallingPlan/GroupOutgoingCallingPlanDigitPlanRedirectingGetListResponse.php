@@ -20,9 +20,9 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupOutgoingCallingPlanDigitPlanRedirectingGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                  = 'GroupOutgoingCallingPlanDigitPlanRedirectingGetListResponse';
-    protected $groupPermissions      = null;
-    protected $departmentPermissions = null;
+    public    $name = 'GroupOutgoingCallingPlanDigitPlanRedirectingGetListResponse';
+    protected $groupPermissions;
+    protected $departmentPermissions;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceOutgoingCallingPlan\GroupOutgoingCallingPlanDigitPlanRedirectingGetListResponse $response
@@ -37,8 +37,9 @@ class GroupOutgoingCallingPlanDigitPlanRedirectingGetListResponse extends Comple
      */
     public function setGroupPermissions(OutgoingCallingPlanDigitPatternRedirectingPermissions $groupPermissions = null)
     {
-        if (!$groupPermissions) return $this;
-        $this->groupPermissions = $groupPermissions;
+        $this->groupPermissions = ($groupPermissions InstanceOf OutgoingCallingPlanDigitPatternRedirectingPermissions)
+             ? $groupPermissions
+             : new OutgoingCallingPlanDigitPatternRedirectingPermissions($groupPermissions);
         $this->groupPermissions->setName('groupPermissions');
         return $this;
     }
@@ -57,8 +58,9 @@ class GroupOutgoingCallingPlanDigitPlanRedirectingGetListResponse extends Comple
      */
     public function setDepartmentPermissions(OutgoingCallingPlanDigitPatternRedirectingDepartmentPermissions $departmentPermissions = null)
     {
-        if (!$departmentPermissions) return $this;
-        $this->departmentPermissions = $departmentPermissions;
+        $this->departmentPermissions = ($departmentPermissions InstanceOf OutgoingCallingPlanDigitPatternRedirectingDepartmentPermissions)
+             ? $departmentPermissions
+             : new OutgoingCallingPlanDigitPatternRedirectingDepartmentPermissions($departmentPermissions);
         $this->departmentPermissions->setName('departmentPermissions');
         return $this;
     }

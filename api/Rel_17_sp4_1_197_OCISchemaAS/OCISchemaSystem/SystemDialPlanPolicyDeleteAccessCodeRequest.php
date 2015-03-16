@@ -20,11 +20,11 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemDialPlanPolicyDeleteAccessCodeRequest extends ComplexType implements ComplexInterface
 {
-    public    $name       = 'SystemDialPlanPolicyDeleteAccessCodeRequest';
-    protected $accessCode = null;
+    public    $name = 'SystemDialPlanPolicyDeleteAccessCodeRequest';
+    protected $accessCode;
 
     public function __construct(
-         $accessCode
+         $accessCode = ''
     ) {
         $this->setAccessCode($accessCode);
     }
@@ -42,7 +42,6 @@ class SystemDialPlanPolicyDeleteAccessCodeRequest extends ComplexType implements
      */
     public function setAccessCode($accessCode = null)
     {
-        if (!$accessCode) return $this;
         $this->accessCode = ($accessCode InstanceOf DialPlanAccessCode)
              ? $accessCode
              : new DialPlanAccessCode($accessCode);
@@ -56,6 +55,6 @@ class SystemDialPlanPolicyDeleteAccessCodeRequest extends ComplexType implements
      */
     public function getAccessCode()
     {
-        return $this->accessCode->getValue();
+        return ($this->accessCode) ? $this->accessCode->getValue() : null;
     }
 }

@@ -19,13 +19,13 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class DialableCallerIDCriteriaPriorityOrder extends ComplexType implements ComplexInterface
 {
-    public    $name         = 'DialableCallerIDCriteriaPriorityOrder';
-    protected $criteriaName = null;
-    protected $priority     = null;
+    public    $name = 'DialableCallerIDCriteriaPriorityOrder';
+    protected $criteriaName;
+    protected $priority;
 
     public function __construct(
-         $criteriaName,
-         $priority
+         $criteriaName = '',
+         $priority = ''
     ) {
         $this->setCriteriaName($criteriaName);
         $this->setPriority($priority);
@@ -44,7 +44,6 @@ class DialableCallerIDCriteriaPriorityOrder extends ComplexType implements Compl
      */
     public function setCriteriaName($criteriaName = null)
     {
-        if (!$criteriaName) return $this;
         $this->criteriaName = new SimpleContent($criteriaName);
         $this->criteriaName->setName('criteriaName');
         return $this;
@@ -56,7 +55,7 @@ class DialableCallerIDCriteriaPriorityOrder extends ComplexType implements Compl
      */
     public function getCriteriaName()
     {
-        return $this->criteriaName->getValue();
+        return ($this->criteriaName) ? $this->criteriaName->getValue() : null;
     }
 
     /**
@@ -64,7 +63,6 @@ class DialableCallerIDCriteriaPriorityOrder extends ComplexType implements Compl
      */
     public function setPriority($priority = null)
     {
-        if (!$priority) return $this;
         $this->priority = new SimpleContent($priority);
         $this->priority->setName('priority');
         return $this;
@@ -76,6 +74,6 @@ class DialableCallerIDCriteriaPriorityOrder extends ComplexType implements Compl
      */
     public function getPriority()
     {
-        return $this->priority->getValue();
+        return ($this->priority) ? $this->priority->getValue() : null;
     }
 }

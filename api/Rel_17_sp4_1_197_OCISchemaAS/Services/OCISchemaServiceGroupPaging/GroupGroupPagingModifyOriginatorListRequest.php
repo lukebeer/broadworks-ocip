@@ -21,12 +21,12 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupGroupPagingModifyOriginatorListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                 = 'GroupGroupPagingModifyOriginatorListRequest';
-    protected $serviceUserId        = null;
-    protected $originatorUserIdList = null;
+    public    $name = 'GroupGroupPagingModifyOriginatorListRequest';
+    protected $serviceUserId;
+    protected $originatorUserIdList;
 
     public function __construct(
-         $serviceUserId,
+         $serviceUserId = '',
          ReplacementUserIdList $originatorUserIdList = null
     ) {
         $this->setServiceUserId($serviceUserId);
@@ -46,7 +46,6 @@ class GroupGroupPagingModifyOriginatorListRequest extends ComplexType implements
      */
     public function setServiceUserId($serviceUserId = null)
     {
-        if (!$serviceUserId) return $this;
         $this->serviceUserId = ($serviceUserId InstanceOf UserId)
              ? $serviceUserId
              : new UserId($serviceUserId);
@@ -60,7 +59,7 @@ class GroupGroupPagingModifyOriginatorListRequest extends ComplexType implements
      */
     public function getServiceUserId()
     {
-        return $this->serviceUserId->getValue();
+        return ($this->serviceUserId) ? $this->serviceUserId->getValue() : null;
     }
 
     /**
@@ -68,8 +67,9 @@ class GroupGroupPagingModifyOriginatorListRequest extends ComplexType implements
      */
     public function setOriginatorUserIdList(ReplacementUserIdList $originatorUserIdList = null)
     {
-        if (!$originatorUserIdList) return $this;
-        $this->originatorUserIdList = $originatorUserIdList;
+        $this->originatorUserIdList = ($originatorUserIdList InstanceOf ReplacementUserIdList)
+             ? $originatorUserIdList
+             : new ReplacementUserIdList($originatorUserIdList);
         $this->originatorUserIdList->setName('originatorUserIdList');
         return $this;
     }

@@ -22,17 +22,17 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemOfficeZoneAddRequest extends ComplexType implements ComplexInterface
 {
-    public    $name            = 'SystemOfficeZoneAddRequest';
-    protected $officeZoneName  = null;
-    protected $description     = null;
-    protected $zoneName        = null;
-    protected $primaryZoneName = null;
+    public    $name = 'SystemOfficeZoneAddRequest';
+    protected $officeZoneName;
+    protected $description;
+    protected $zoneName;
+    protected $primaryZoneName;
 
     public function __construct(
-         $officeZoneName,
+         $officeZoneName = '',
          $description = null,
          $zoneName = null,
-         $primaryZoneName
+         $primaryZoneName = ''
     ) {
         $this->setOfficeZoneName($officeZoneName);
         $this->setDescription($description);
@@ -53,7 +53,6 @@ class SystemOfficeZoneAddRequest extends ComplexType implements ComplexInterface
      */
     public function setOfficeZoneName($officeZoneName = null)
     {
-        if (!$officeZoneName) return $this;
         $this->officeZoneName = ($officeZoneName InstanceOf OfficeZoneName)
              ? $officeZoneName
              : new OfficeZoneName($officeZoneName);
@@ -67,7 +66,7 @@ class SystemOfficeZoneAddRequest extends ComplexType implements ComplexInterface
      */
     public function getOfficeZoneName()
     {
-        return $this->officeZoneName->getValue();
+        return ($this->officeZoneName) ? $this->officeZoneName->getValue() : null;
     }
 
     /**
@@ -75,7 +74,6 @@ class SystemOfficeZoneAddRequest extends ComplexType implements ComplexInterface
      */
     public function setDescription($description = null)
     {
-        if (!$description) return $this;
         $this->description = ($description InstanceOf OfficeZoneDescription)
              ? $description
              : new OfficeZoneDescription($description);
@@ -89,7 +87,7 @@ class SystemOfficeZoneAddRequest extends ComplexType implements ComplexInterface
      */
     public function getDescription()
     {
-        return $this->description->getValue();
+        return ($this->description) ? $this->description->getValue() : null;
     }
 
     /**
@@ -97,7 +95,6 @@ class SystemOfficeZoneAddRequest extends ComplexType implements ComplexInterface
      */
     public function setZoneName($zoneName = null)
     {
-        if (!$zoneName) return $this;
         $this->zoneName = ($zoneName InstanceOf ZoneName)
              ? $zoneName
              : new ZoneName($zoneName);
@@ -111,7 +108,7 @@ class SystemOfficeZoneAddRequest extends ComplexType implements ComplexInterface
      */
     public function getZoneName()
     {
-        return $this->zoneName->getValue();
+        return ($this->zoneName) ? $this->zoneName->getValue() : null;
     }
 
     /**
@@ -119,7 +116,6 @@ class SystemOfficeZoneAddRequest extends ComplexType implements ComplexInterface
      */
     public function setPrimaryZoneName($primaryZoneName = null)
     {
-        if (!$primaryZoneName) return $this;
         $this->primaryZoneName = ($primaryZoneName InstanceOf ZoneName)
              ? $primaryZoneName
              : new ZoneName($primaryZoneName);
@@ -133,6 +129,6 @@ class SystemOfficeZoneAddRequest extends ComplexType implements ComplexInterface
      */
     public function getPrimaryZoneName()
     {
-        return $this->primaryZoneName->getValue();
+        return ($this->primaryZoneName) ? $this->primaryZoneName->getValue() : null;
     }
 }

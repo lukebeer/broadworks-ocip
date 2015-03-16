@@ -20,9 +20,9 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupServiceInstancePrivacyGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                                       = 'GroupServiceInstancePrivacyGetResponse';
-    protected $enableDirectoryPrivacy                     = null;
-    protected $enableAutoAttendantExtensionDialingPrivacy = null;
+    public    $name = 'GroupServiceInstancePrivacyGetResponse';
+    protected $enableDirectoryPrivacy;
+    protected $enableAutoAttendantExtensionDialingPrivacy;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated17\GroupServiceInstancePrivacyGetResponse $response
@@ -37,7 +37,6 @@ class GroupServiceInstancePrivacyGetResponse extends ComplexType implements Comp
      */
     public function setEnableDirectoryPrivacy($enableDirectoryPrivacy = null)
     {
-        if (!$enableDirectoryPrivacy) return $this;
         $this->enableDirectoryPrivacy = new PrimitiveType($enableDirectoryPrivacy);
         $this->enableDirectoryPrivacy->setName('enableDirectoryPrivacy');
         return $this;
@@ -49,7 +48,7 @@ class GroupServiceInstancePrivacyGetResponse extends ComplexType implements Comp
      */
     public function getEnableDirectoryPrivacy()
     {
-        return $this->enableDirectoryPrivacy->getValue();
+        return ($this->enableDirectoryPrivacy) ? $this->enableDirectoryPrivacy->getValue() : null;
     }
 
     /**
@@ -57,7 +56,6 @@ class GroupServiceInstancePrivacyGetResponse extends ComplexType implements Comp
      */
     public function setEnableAutoAttendantExtensionDialingPrivacy($enableAutoAttendantExtensionDialingPrivacy = null)
     {
-        if (!$enableAutoAttendantExtensionDialingPrivacy) return $this;
         $this->enableAutoAttendantExtensionDialingPrivacy = new PrimitiveType($enableAutoAttendantExtensionDialingPrivacy);
         $this->enableAutoAttendantExtensionDialingPrivacy->setName('enableAutoAttendantExtensionDialingPrivacy');
         return $this;
@@ -69,6 +67,6 @@ class GroupServiceInstancePrivacyGetResponse extends ComplexType implements Comp
      */
     public function getEnableAutoAttendantExtensionDialingPrivacy()
     {
-        return $this->enableAutoAttendantExtensionDialingPrivacy->getValue();
+        return ($this->enableAutoAttendantExtensionDialingPrivacy) ? $this->enableAutoAttendantExtensionDialingPrivacy->getValue() : null;
     }
 }

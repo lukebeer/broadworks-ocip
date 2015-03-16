@@ -23,13 +23,13 @@ use Broadworks_OCIP\core\Client\Client;
 class LoginRequest14sp4 extends ComplexType implements ComplexInterface
 {
     public    $responseType      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaLogin\LoginResponse14sp4';
-    public    $name              = 'LoginRequest14sp4';
-    protected $userId            = null;
-    protected $signedPassword    = null;
-    protected $plainTextPassword = null;
+    public    $name = 'LoginRequest14sp4';
+    protected $userId;
+    protected $signedPassword;
+    protected $plainTextPassword;
 
     public function __construct(
-         $userId,
+         $userId = '',
          $signedPassword = null,
          $plainTextPassword = null
     ) {
@@ -51,7 +51,6 @@ class LoginRequest14sp4 extends ComplexType implements ComplexInterface
      */
     public function setUserId($userId = null)
     {
-        if (!$userId) return $this;
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
@@ -65,7 +64,7 @@ class LoginRequest14sp4 extends ComplexType implements ComplexInterface
      */
     public function getUserId()
     {
-        return $this->userId->getValue();
+        return ($this->userId) ? $this->userId->getValue() : null;
     }
 
     /**
@@ -73,7 +72,6 @@ class LoginRequest14sp4 extends ComplexType implements ComplexInterface
      */
     public function setSignedPassword($signedPassword = null)
     {
-        if (!$signedPassword) return $this;
         $this->signedPassword = ($signedPassword InstanceOf SignedPassword)
              ? $signedPassword
              : new SignedPassword($signedPassword);
@@ -87,7 +85,7 @@ class LoginRequest14sp4 extends ComplexType implements ComplexInterface
      */
     public function getSignedPassword()
     {
-        return $this->signedPassword->getValue();
+        return ($this->signedPassword) ? $this->signedPassword->getValue() : null;
     }
 
     /**
@@ -95,7 +93,6 @@ class LoginRequest14sp4 extends ComplexType implements ComplexInterface
      */
     public function setPlainTextPassword($plainTextPassword = null)
     {
-        if (!$plainTextPassword) return $this;
         $this->plainTextPassword = ($plainTextPassword InstanceOf Password)
              ? $plainTextPassword
              : new Password($plainTextPassword);
@@ -109,6 +106,6 @@ class LoginRequest14sp4 extends ComplexType implements ComplexInterface
      */
     public function getPlainTextPassword()
     {
-        return $this->plainTextPassword->getValue();
+        return ($this->plainTextPassword) ? $this->plainTextPassword->getValue() : null;
     }
 }

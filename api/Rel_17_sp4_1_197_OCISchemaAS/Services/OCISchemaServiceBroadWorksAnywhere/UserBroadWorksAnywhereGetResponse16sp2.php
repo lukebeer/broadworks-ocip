@@ -21,10 +21,10 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserBroadWorksAnywhereGetResponse16sp2 extends ComplexType implements ComplexInterface
 {
-    public    $name                                 = 'UserBroadWorksAnywhereGetResponse16sp2';
-    protected $alertAllLocationsForClickToDialCalls = null;
-    protected $alertAllLocationsForGroupPagingCalls = null;
-    protected $phoneNumberTable                     = null;
+    public    $name = 'UserBroadWorksAnywhereGetResponse16sp2';
+    protected $alertAllLocationsForClickToDialCalls;
+    protected $alertAllLocationsForGroupPagingCalls;
+    protected $phoneNumberTable;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceBroadWorksAnywhere\UserBroadWorksAnywhereGetResponse16sp2 $response
@@ -39,7 +39,6 @@ class UserBroadWorksAnywhereGetResponse16sp2 extends ComplexType implements Comp
      */
     public function setAlertAllLocationsForClickToDialCalls($alertAllLocationsForClickToDialCalls = null)
     {
-        if (!$alertAllLocationsForClickToDialCalls) return $this;
         $this->alertAllLocationsForClickToDialCalls = new PrimitiveType($alertAllLocationsForClickToDialCalls);
         $this->alertAllLocationsForClickToDialCalls->setName('alertAllLocationsForClickToDialCalls');
         return $this;
@@ -51,7 +50,7 @@ class UserBroadWorksAnywhereGetResponse16sp2 extends ComplexType implements Comp
      */
     public function getAlertAllLocationsForClickToDialCalls()
     {
-        return $this->alertAllLocationsForClickToDialCalls->getValue();
+        return ($this->alertAllLocationsForClickToDialCalls) ? $this->alertAllLocationsForClickToDialCalls->getValue() : null;
     }
 
     /**
@@ -59,7 +58,6 @@ class UserBroadWorksAnywhereGetResponse16sp2 extends ComplexType implements Comp
      */
     public function setAlertAllLocationsForGroupPagingCalls($alertAllLocationsForGroupPagingCalls = null)
     {
-        if (!$alertAllLocationsForGroupPagingCalls) return $this;
         $this->alertAllLocationsForGroupPagingCalls = new PrimitiveType($alertAllLocationsForGroupPagingCalls);
         $this->alertAllLocationsForGroupPagingCalls->setName('alertAllLocationsForGroupPagingCalls');
         return $this;
@@ -71,7 +69,7 @@ class UserBroadWorksAnywhereGetResponse16sp2 extends ComplexType implements Comp
      */
     public function getAlertAllLocationsForGroupPagingCalls()
     {
-        return $this->alertAllLocationsForGroupPagingCalls->getValue();
+        return ($this->alertAllLocationsForGroupPagingCalls) ? $this->alertAllLocationsForGroupPagingCalls->getValue() : null;
     }
 
     /**
@@ -79,7 +77,6 @@ class UserBroadWorksAnywhereGetResponse16sp2 extends ComplexType implements Comp
      */
     public function setPhoneNumberTable(TableType $phoneNumberTable = null)
     {
-        if (!$phoneNumberTable) return $this;
         $this->phoneNumberTable = $phoneNumberTable;
         $this->phoneNumberTable->setName('phoneNumberTable');
         return $this;

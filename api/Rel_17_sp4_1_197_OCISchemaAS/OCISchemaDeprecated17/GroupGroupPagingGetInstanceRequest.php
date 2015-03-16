@@ -22,11 +22,11 @@ use Broadworks_OCIP\core\Client\Client;
 class GroupGroupPagingGetInstanceRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType  = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated17\GroupGroupPagingGetInstanceResponse';
-    public    $name          = 'GroupGroupPagingGetInstanceRequest';
-    protected $serviceUserId = null;
+    public    $name = 'GroupGroupPagingGetInstanceRequest';
+    protected $serviceUserId;
 
     public function __construct(
-         $serviceUserId
+         $serviceUserId = ''
     ) {
         $this->setServiceUserId($serviceUserId);
     }
@@ -44,7 +44,6 @@ class GroupGroupPagingGetInstanceRequest extends ComplexType implements ComplexI
      */
     public function setServiceUserId($serviceUserId = null)
     {
-        if (!$serviceUserId) return $this;
         $this->serviceUserId = ($serviceUserId InstanceOf UserId)
              ? $serviceUserId
              : new UserId($serviceUserId);
@@ -58,6 +57,6 @@ class GroupGroupPagingGetInstanceRequest extends ComplexType implements ComplexI
      */
     public function getServiceUserId()
     {
-        return $this->serviceUserId->getValue();
+        return ($this->serviceUserId) ? $this->serviceUserId->getValue() : null;
     }
 }

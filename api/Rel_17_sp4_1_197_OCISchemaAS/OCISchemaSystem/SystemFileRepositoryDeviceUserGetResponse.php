@@ -19,10 +19,10 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemFileRepositoryDeviceUserGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name        = 'SystemFileRepositoryDeviceUserGetResponse';
-    protected $allowPut    = null;
-    protected $allowDelete = null;
-    protected $allowGet    = null;
+    public    $name = 'SystemFileRepositoryDeviceUserGetResponse';
+    protected $allowPut;
+    protected $allowDelete;
+    protected $allowGet;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemFileRepositoryDeviceUserGetResponse $response
@@ -37,7 +37,6 @@ class SystemFileRepositoryDeviceUserGetResponse extends ComplexType implements C
      */
     public function setAllowPut($allowPut = null)
     {
-        if (!$allowPut) return $this;
         $this->allowPut = new PrimitiveType($allowPut);
         $this->allowPut->setName('allowPut');
         return $this;
@@ -49,7 +48,7 @@ class SystemFileRepositoryDeviceUserGetResponse extends ComplexType implements C
      */
     public function getAllowPut()
     {
-        return $this->allowPut->getValue();
+        return ($this->allowPut) ? $this->allowPut->getValue() : null;
     }
 
     /**
@@ -57,7 +56,6 @@ class SystemFileRepositoryDeviceUserGetResponse extends ComplexType implements C
      */
     public function setAllowDelete($allowDelete = null)
     {
-        if (!$allowDelete) return $this;
         $this->allowDelete = new PrimitiveType($allowDelete);
         $this->allowDelete->setName('allowDelete');
         return $this;
@@ -69,7 +67,7 @@ class SystemFileRepositoryDeviceUserGetResponse extends ComplexType implements C
      */
     public function getAllowDelete()
     {
-        return $this->allowDelete->getValue();
+        return ($this->allowDelete) ? $this->allowDelete->getValue() : null;
     }
 
     /**
@@ -77,7 +75,6 @@ class SystemFileRepositoryDeviceUserGetResponse extends ComplexType implements C
      */
     public function setAllowGet($allowGet = null)
     {
-        if (!$allowGet) return $this;
         $this->allowGet = new PrimitiveType($allowGet);
         $this->allowGet->setName('allowGet');
         return $this;
@@ -89,6 +86,6 @@ class SystemFileRepositoryDeviceUserGetResponse extends ComplexType implements C
      */
     public function getAllowGet()
     {
-        return $this->allowGet->getValue();
+        return ($this->allowGet) ? $this->allowGet->getValue() : null;
     }
 }

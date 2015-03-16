@@ -21,12 +21,12 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class EnterpriseCallCenterCallDispositionCodeModifyActiveListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                          = 'EnterpriseCallCenterCallDispositionCodeModifyActiveListRequest';
-    protected $serviceProviderId             = null;
-    protected $callDispositionCodeActivation = null;
+    public    $name = 'EnterpriseCallCenterCallDispositionCodeModifyActiveListRequest';
+    protected $serviceProviderId;
+    protected $callDispositionCodeActivation;
 
     public function __construct(
-         $serviceProviderId,
+         $serviceProviderId = '',
          CallDispositionCodeActivation $callDispositionCodeActivation = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
@@ -46,7 +46,6 @@ class EnterpriseCallCenterCallDispositionCodeModifyActiveListRequest extends Com
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
-        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
@@ -60,7 +59,7 @@ class EnterpriseCallCenterCallDispositionCodeModifyActiveListRequest extends Com
      */
     public function getServiceProviderId()
     {
-        return $this->serviceProviderId->getValue();
+        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
     }
 
     /**
@@ -68,8 +67,9 @@ class EnterpriseCallCenterCallDispositionCodeModifyActiveListRequest extends Com
      */
     public function setCallDispositionCodeActivation(CallDispositionCodeActivation $callDispositionCodeActivation = null)
     {
-        if (!$callDispositionCodeActivation) return $this;
-        $this->callDispositionCodeActivation = $callDispositionCodeActivation;
+        $this->callDispositionCodeActivation = ($callDispositionCodeActivation InstanceOf CallDispositionCodeActivation)
+             ? $callDispositionCodeActivation
+             : new CallDispositionCodeActivation($callDispositionCodeActivation);
         $this->callDispositionCodeActivation->setName('callDispositionCodeActivation');
         return $this;
     }

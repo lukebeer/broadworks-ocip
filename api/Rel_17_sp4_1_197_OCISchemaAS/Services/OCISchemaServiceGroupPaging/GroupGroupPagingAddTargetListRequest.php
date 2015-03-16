@@ -20,12 +20,12 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupGroupPagingAddTargetListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name          = 'GroupGroupPagingAddTargetListRequest';
-    protected $serviceUserId = null;
-    protected $targetUserId  = null;
+    public    $name = 'GroupGroupPagingAddTargetListRequest';
+    protected $serviceUserId;
+    protected $targetUserId;
 
     public function __construct(
-         $serviceUserId,
+         $serviceUserId = '',
          $targetUserId = null
     ) {
         $this->setServiceUserId($serviceUserId);
@@ -45,7 +45,6 @@ class GroupGroupPagingAddTargetListRequest extends ComplexType implements Comple
      */
     public function setServiceUserId($serviceUserId = null)
     {
-        if (!$serviceUserId) return $this;
         $this->serviceUserId = ($serviceUserId InstanceOf UserId)
              ? $serviceUserId
              : new UserId($serviceUserId);
@@ -59,7 +58,7 @@ class GroupGroupPagingAddTargetListRequest extends ComplexType implements Comple
      */
     public function getServiceUserId()
     {
-        return $this->serviceUserId->getValue();
+        return ($this->serviceUserId) ? $this->serviceUserId->getValue() : null;
     }
 
     /**
@@ -67,7 +66,6 @@ class GroupGroupPagingAddTargetListRequest extends ComplexType implements Comple
      */
     public function setTargetUserId($targetUserId = null)
     {
-        if (!$targetUserId) return $this;
         $this->targetUserId = ($targetUserId InstanceOf UserId)
              ? $targetUserId
              : new UserId($targetUserId);
@@ -81,6 +79,6 @@ class GroupGroupPagingAddTargetListRequest extends ComplexType implements Comple
      */
     public function getTargetUserId()
     {
-        return $this->targetUserId->getValue();
+        return ($this->targetUserId) ? $this->targetUserId->getValue() : null;
     }
 }

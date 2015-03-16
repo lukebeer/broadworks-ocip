@@ -24,12 +24,12 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupAccountAuthorizationCodesGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                       = 'GroupAccountAuthorizationCodesGetResponse';
-    protected $type                       = null;
-    protected $numberOfDigits             = null;
-    protected $allowLocalAndTollFreeCalls = null;
-    protected $mandatoryUsageUserTable    = null;
-    protected $optionalUsageUserTable     = null;
+    public    $name = 'GroupAccountAuthorizationCodesGetResponse';
+    protected $type;
+    protected $numberOfDigits;
+    protected $allowLocalAndTollFreeCalls;
+    protected $mandatoryUsageUserTable;
+    protected $optionalUsageUserTable;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceAccountAuthorizationCodes\GroupAccountAuthorizationCodesGetResponse $response
@@ -44,7 +44,6 @@ class GroupAccountAuthorizationCodesGetResponse extends ComplexType implements C
      */
     public function setType($type = null)
     {
-        if (!$type) return $this;
         $this->type = ($type InstanceOf AccountAuthorizationCodeType)
              ? $type
              : new AccountAuthorizationCodeType($type);
@@ -58,7 +57,7 @@ class GroupAccountAuthorizationCodesGetResponse extends ComplexType implements C
      */
     public function getType()
     {
-        return $this->type->getValue();
+        return ($this->type) ? $this->type->getValue() : null;
     }
 
     /**
@@ -66,7 +65,6 @@ class GroupAccountAuthorizationCodesGetResponse extends ComplexType implements C
      */
     public function setNumberOfDigits($numberOfDigits = null)
     {
-        if (!$numberOfDigits) return $this;
         $this->numberOfDigits = ($numberOfDigits InstanceOf AccountAuthorizationCodeNumberOfDigits)
              ? $numberOfDigits
              : new AccountAuthorizationCodeNumberOfDigits($numberOfDigits);
@@ -80,7 +78,7 @@ class GroupAccountAuthorizationCodesGetResponse extends ComplexType implements C
      */
     public function getNumberOfDigits()
     {
-        return $this->numberOfDigits->getValue();
+        return ($this->numberOfDigits) ? $this->numberOfDigits->getValue() : null;
     }
 
     /**
@@ -88,7 +86,6 @@ class GroupAccountAuthorizationCodesGetResponse extends ComplexType implements C
      */
     public function setAllowLocalAndTollFreeCalls($allowLocalAndTollFreeCalls = null)
     {
-        if (!$allowLocalAndTollFreeCalls) return $this;
         $this->allowLocalAndTollFreeCalls = new PrimitiveType($allowLocalAndTollFreeCalls);
         $this->allowLocalAndTollFreeCalls->setName('allowLocalAndTollFreeCalls');
         return $this;
@@ -100,7 +97,7 @@ class GroupAccountAuthorizationCodesGetResponse extends ComplexType implements C
      */
     public function getAllowLocalAndTollFreeCalls()
     {
-        return $this->allowLocalAndTollFreeCalls->getValue();
+        return ($this->allowLocalAndTollFreeCalls) ? $this->allowLocalAndTollFreeCalls->getValue() : null;
     }
 
     /**
@@ -108,7 +105,6 @@ class GroupAccountAuthorizationCodesGetResponse extends ComplexType implements C
      */
     public function setMandatoryUsageUserTable(TableType $mandatoryUsageUserTable = null)
     {
-        if (!$mandatoryUsageUserTable) return $this;
         $this->mandatoryUsageUserTable = $mandatoryUsageUserTable;
         $this->mandatoryUsageUserTable->setName('mandatoryUsageUserTable');
         return $this;
@@ -128,7 +124,6 @@ class GroupAccountAuthorizationCodesGetResponse extends ComplexType implements C
      */
     public function setOptionalUsageUserTable(TableType $optionalUsageUserTable = null)
     {
-        if (!$optionalUsageUserTable) return $this;
         $this->optionalUsageUserTable = $optionalUsageUserTable;
         $this->optionalUsageUserTable->setName('optionalUsageUserTable');
         return $this;

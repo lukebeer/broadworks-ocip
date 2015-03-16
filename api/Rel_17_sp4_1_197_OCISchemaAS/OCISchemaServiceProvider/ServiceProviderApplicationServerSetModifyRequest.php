@@ -21,12 +21,12 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderApplicationServerSetModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                     = 'ServiceProviderApplicationServerSetModifyRequest';
-    protected $serviceProviderId        = null;
-    protected $applicationServerSetName = null;
+    public    $name = 'ServiceProviderApplicationServerSetModifyRequest';
+    protected $serviceProviderId;
+    protected $applicationServerSetName;
 
     public function __construct(
-         $serviceProviderId,
+         $serviceProviderId = '',
          $applicationServerSetName = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
@@ -46,7 +46,6 @@ class ServiceProviderApplicationServerSetModifyRequest extends ComplexType imple
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
-        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
@@ -60,7 +59,7 @@ class ServiceProviderApplicationServerSetModifyRequest extends ComplexType imple
      */
     public function getServiceProviderId()
     {
-        return $this->serviceProviderId->getValue();
+        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
     }
 
     /**
@@ -68,7 +67,6 @@ class ServiceProviderApplicationServerSetModifyRequest extends ComplexType imple
      */
     public function setApplicationServerSetName($applicationServerSetName = null)
     {
-        if (!$applicationServerSetName) return $this;
         $this->applicationServerSetName = ($applicationServerSetName InstanceOf ApplicationServerSetName)
              ? $applicationServerSetName
              : new ApplicationServerSetName($applicationServerSetName);
@@ -82,6 +80,6 @@ class ServiceProviderApplicationServerSetModifyRequest extends ComplexType imple
      */
     public function getApplicationServerSetName()
     {
-        return $this->applicationServerSetName->getValue();
+        return ($this->applicationServerSetName) ? $this->applicationServerSetName->getValue() : null;
     }
 }

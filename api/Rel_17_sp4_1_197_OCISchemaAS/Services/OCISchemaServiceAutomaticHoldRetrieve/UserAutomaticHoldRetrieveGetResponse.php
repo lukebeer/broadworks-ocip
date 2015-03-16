@@ -20,9 +20,9 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserAutomaticHoldRetrieveGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name               = 'UserAutomaticHoldRetrieveGetResponse';
-    protected $isActive           = null;
-    protected $recallTimerSeconds = null;
+    public    $name = 'UserAutomaticHoldRetrieveGetResponse';
+    protected $isActive;
+    protected $recallTimerSeconds;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceAutomaticHoldRetrieve\UserAutomaticHoldRetrieveGetResponse $response
@@ -37,7 +37,6 @@ class UserAutomaticHoldRetrieveGetResponse extends ComplexType implements Comple
      */
     public function setIsActive($isActive = null)
     {
-        if (!$isActive) return $this;
         $this->isActive = new PrimitiveType($isActive);
         $this->isActive->setName('isActive');
         return $this;
@@ -49,7 +48,7 @@ class UserAutomaticHoldRetrieveGetResponse extends ComplexType implements Comple
      */
     public function getIsActive()
     {
-        return $this->isActive->getValue();
+        return ($this->isActive) ? $this->isActive->getValue() : null;
     }
 
     /**
@@ -57,7 +56,6 @@ class UserAutomaticHoldRetrieveGetResponse extends ComplexType implements Comple
      */
     public function setRecallTimerSeconds($recallTimerSeconds = null)
     {
-        if (!$recallTimerSeconds) return $this;
         $this->recallTimerSeconds = ($recallTimerSeconds InstanceOf AutomaticHoldRetrieveRecallTimerSeconds)
              ? $recallTimerSeconds
              : new AutomaticHoldRetrieveRecallTimerSeconds($recallTimerSeconds);
@@ -71,6 +69,6 @@ class UserAutomaticHoldRetrieveGetResponse extends ComplexType implements Comple
      */
     public function getRecallTimerSeconds()
     {
-        return $this->recallTimerSeconds->getValue();
+        return ($this->recallTimerSeconds) ? $this->recallTimerSeconds->getValue() : null;
     }
 }

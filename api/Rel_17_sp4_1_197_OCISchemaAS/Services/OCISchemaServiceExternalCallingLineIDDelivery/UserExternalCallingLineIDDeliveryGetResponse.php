@@ -19,8 +19,8 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserExternalCallingLineIDDeliveryGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name     = 'UserExternalCallingLineIDDeliveryGetResponse';
-    protected $isActive = null;
+    public    $name = 'UserExternalCallingLineIDDeliveryGetResponse';
+    protected $isActive;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceExternalCallingLineIDDelivery\UserExternalCallingLineIDDeliveryGetResponse $response
@@ -35,7 +35,6 @@ class UserExternalCallingLineIDDeliveryGetResponse extends ComplexType implement
      */
     public function setIsActive($isActive = null)
     {
-        if (!$isActive) return $this;
         $this->isActive = new PrimitiveType($isActive);
         $this->isActive->setName('isActive');
         return $this;
@@ -47,6 +46,6 @@ class UserExternalCallingLineIDDeliveryGetResponse extends ComplexType implement
      */
     public function getIsActive()
     {
-        return $this->isActive->getValue();
+        return ($this->isActive) ? $this->isActive->getValue() : null;
     }
 }

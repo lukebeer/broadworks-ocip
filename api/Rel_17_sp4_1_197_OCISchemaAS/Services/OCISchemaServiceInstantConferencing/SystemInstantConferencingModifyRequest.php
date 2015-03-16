@@ -21,10 +21,10 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemInstantConferencingModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                                       = 'SystemInstantConferencingModifyRequest';
-    protected $defaultDropAllParticipantsWhenLeaderLeaves = null;
-    protected $defaultAllowDialOutInInvitation            = null;
-    protected $defaultFromAddress                         = null;
+    public    $name = 'SystemInstantConferencingModifyRequest';
+    protected $defaultDropAllParticipantsWhenLeaderLeaves;
+    protected $defaultAllowDialOutInInvitation;
+    protected $defaultFromAddress;
 
     public function __construct(
          $defaultDropAllParticipantsWhenLeaderLeaves = null,
@@ -49,7 +49,6 @@ class SystemInstantConferencingModifyRequest extends ComplexType implements Comp
      */
     public function setDefaultDropAllParticipantsWhenLeaderLeaves($defaultDropAllParticipantsWhenLeaderLeaves = null)
     {
-        if (!$defaultDropAllParticipantsWhenLeaderLeaves) return $this;
         $this->defaultDropAllParticipantsWhenLeaderLeaves = new PrimitiveType($defaultDropAllParticipantsWhenLeaderLeaves);
         $this->defaultDropAllParticipantsWhenLeaderLeaves->setName('defaultDropAllParticipantsWhenLeaderLeaves');
         return $this;
@@ -61,7 +60,7 @@ class SystemInstantConferencingModifyRequest extends ComplexType implements Comp
      */
     public function getDefaultDropAllParticipantsWhenLeaderLeaves()
     {
-        return $this->defaultDropAllParticipantsWhenLeaderLeaves->getValue();
+        return ($this->defaultDropAllParticipantsWhenLeaderLeaves) ? $this->defaultDropAllParticipantsWhenLeaderLeaves->getValue() : null;
     }
 
     /**
@@ -69,7 +68,6 @@ class SystemInstantConferencingModifyRequest extends ComplexType implements Comp
      */
     public function setDefaultAllowDialOutInInvitation($defaultAllowDialOutInInvitation = null)
     {
-        if (!$defaultAllowDialOutInInvitation) return $this;
         $this->defaultAllowDialOutInInvitation = new PrimitiveType($defaultAllowDialOutInInvitation);
         $this->defaultAllowDialOutInInvitation->setName('defaultAllowDialOutInInvitation');
         return $this;
@@ -81,7 +79,7 @@ class SystemInstantConferencingModifyRequest extends ComplexType implements Comp
      */
     public function getDefaultAllowDialOutInInvitation()
     {
-        return $this->defaultAllowDialOutInInvitation->getValue();
+        return ($this->defaultAllowDialOutInInvitation) ? $this->defaultAllowDialOutInInvitation->getValue() : null;
     }
 
     /**
@@ -89,7 +87,6 @@ class SystemInstantConferencingModifyRequest extends ComplexType implements Comp
      */
     public function setDefaultFromAddress($defaultFromAddress = null)
     {
-        if (!$defaultFromAddress) return $this;
         $this->defaultFromAddress = ($defaultFromAddress InstanceOf EmailAddress)
              ? $defaultFromAddress
              : new EmailAddress($defaultFromAddress);
@@ -103,6 +100,6 @@ class SystemInstantConferencingModifyRequest extends ComplexType implements Comp
      */
     public function getDefaultFromAddress()
     {
-        return $this->defaultFromAddress->getValue();
+        return ($this->defaultFromAddress) ? $this->defaultFromAddress->getValue() : null;
     }
 }

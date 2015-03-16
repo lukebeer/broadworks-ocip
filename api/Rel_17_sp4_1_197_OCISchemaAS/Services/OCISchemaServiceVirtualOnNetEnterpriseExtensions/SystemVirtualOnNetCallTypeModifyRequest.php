@@ -21,12 +21,12 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemVirtualOnNetCallTypeModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                         = 'SystemVirtualOnNetCallTypeModifyRequest';
-    protected $virtualOnNetCallTypeName     = null;
-    protected $virtualOnNetCallTypeCdrValue = null;
+    public    $name = 'SystemVirtualOnNetCallTypeModifyRequest';
+    protected $virtualOnNetCallTypeName;
+    protected $virtualOnNetCallTypeCdrValue;
 
     public function __construct(
-         $virtualOnNetCallTypeName,
+         $virtualOnNetCallTypeName = '',
          $virtualOnNetCallTypeCdrValue = null
     ) {
         $this->setVirtualOnNetCallTypeName($virtualOnNetCallTypeName);
@@ -46,7 +46,6 @@ class SystemVirtualOnNetCallTypeModifyRequest extends ComplexType implements Com
      */
     public function setVirtualOnNetCallTypeName($virtualOnNetCallTypeName = null)
     {
-        if (!$virtualOnNetCallTypeName) return $this;
         $this->virtualOnNetCallTypeName = ($virtualOnNetCallTypeName InstanceOf VirtualOnNetCallTypeName)
              ? $virtualOnNetCallTypeName
              : new VirtualOnNetCallTypeName($virtualOnNetCallTypeName);
@@ -60,7 +59,7 @@ class SystemVirtualOnNetCallTypeModifyRequest extends ComplexType implements Com
      */
     public function getVirtualOnNetCallTypeName()
     {
-        return $this->virtualOnNetCallTypeName->getValue();
+        return ($this->virtualOnNetCallTypeName) ? $this->virtualOnNetCallTypeName->getValue() : null;
     }
 
     /**
@@ -68,7 +67,6 @@ class SystemVirtualOnNetCallTypeModifyRequest extends ComplexType implements Com
      */
     public function setVirtualOnNetCallTypeCdrValue($virtualOnNetCallTypeCdrValue = null)
     {
-        if (!$virtualOnNetCallTypeCdrValue) return $this;
         $this->virtualOnNetCallTypeCdrValue = ($virtualOnNetCallTypeCdrValue InstanceOf VirtualOnNetCallTypeCdrValue)
              ? $virtualOnNetCallTypeCdrValue
              : new VirtualOnNetCallTypeCdrValue($virtualOnNetCallTypeCdrValue);
@@ -82,6 +80,6 @@ class SystemVirtualOnNetCallTypeModifyRequest extends ComplexType implements Com
      */
     public function getVirtualOnNetCallTypeCdrValue()
     {
-        return $this->virtualOnNetCallTypeCdrValue->getValue();
+        return ($this->virtualOnNetCallTypeCdrValue) ? $this->virtualOnNetCallTypeCdrValue->getValue() : null;
     }
 }

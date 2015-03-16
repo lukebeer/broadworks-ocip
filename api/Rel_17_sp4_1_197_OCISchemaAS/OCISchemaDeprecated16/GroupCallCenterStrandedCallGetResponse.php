@@ -24,17 +24,17 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupCallCenterStrandedCallGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                  = 'GroupCallCenterStrandedCallGetResponse';
-    protected $action                = null;
-    protected $transferPhoneNumber   = null;
-    protected $audioMessageSelection = null;
-    protected $audioFileUrl          = null;
-    protected $audioFileDescription  = null;
-    protected $audioMediaType        = null;
-    protected $videoMessageSelection = null;
-    protected $videoFileUrl          = null;
-    protected $videoFileDescription  = null;
-    protected $videoMediaType        = null;
+    public    $name = 'GroupCallCenterStrandedCallGetResponse';
+    protected $action;
+    protected $transferPhoneNumber;
+    protected $audioMessageSelection;
+    protected $audioFileUrl;
+    protected $audioFileDescription;
+    protected $audioMediaType;
+    protected $videoMessageSelection;
+    protected $videoFileUrl;
+    protected $videoFileDescription;
+    protected $videoMediaType;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\GroupCallCenterStrandedCallGetResponse $response
@@ -49,7 +49,6 @@ class GroupCallCenterStrandedCallGetResponse extends ComplexType implements Comp
      */
     public function setAction($action = null)
     {
-        if (!$action) return $this;
         $this->action = ($action InstanceOf CallCenterStrandedCallProcessingAction)
              ? $action
              : new CallCenterStrandedCallProcessingAction($action);
@@ -63,7 +62,7 @@ class GroupCallCenterStrandedCallGetResponse extends ComplexType implements Comp
      */
     public function getAction()
     {
-        return $this->action->getValue();
+        return ($this->action) ? $this->action->getValue() : null;
     }
 
     /**
@@ -71,7 +70,6 @@ class GroupCallCenterStrandedCallGetResponse extends ComplexType implements Comp
      */
     public function setTransferPhoneNumber($transferPhoneNumber = null)
     {
-        if (!$transferPhoneNumber) return $this;
         $this->transferPhoneNumber = ($transferPhoneNumber InstanceOf OutgoingDNorSIPURI)
              ? $transferPhoneNumber
              : new OutgoingDNorSIPURI($transferPhoneNumber);
@@ -85,7 +83,7 @@ class GroupCallCenterStrandedCallGetResponse extends ComplexType implements Comp
      */
     public function getTransferPhoneNumber()
     {
-        return $this->transferPhoneNumber->getValue();
+        return ($this->transferPhoneNumber) ? $this->transferPhoneNumber->getValue() : null;
     }
 
     /**
@@ -93,7 +91,6 @@ class GroupCallCenterStrandedCallGetResponse extends ComplexType implements Comp
      */
     public function setAudioMessageSelection($audioMessageSelection = null)
     {
-        if (!$audioMessageSelection) return $this;
         $this->audioMessageSelection = ($audioMessageSelection InstanceOf ExtendedFileResourceSelection)
              ? $audioMessageSelection
              : new ExtendedFileResourceSelection($audioMessageSelection);
@@ -107,7 +104,7 @@ class GroupCallCenterStrandedCallGetResponse extends ComplexType implements Comp
      */
     public function getAudioMessageSelection()
     {
-        return $this->audioMessageSelection->getValue();
+        return ($this->audioMessageSelection) ? $this->audioMessageSelection->getValue() : null;
     }
 
     /**
@@ -115,7 +112,6 @@ class GroupCallCenterStrandedCallGetResponse extends ComplexType implements Comp
      */
     public function setAudioFileUrl($audioFileUrl = null)
     {
-        if (!$audioFileUrl) return $this;
         $this->audioFileUrl = ($audioFileUrl InstanceOf URL)
              ? $audioFileUrl
              : new URL($audioFileUrl);
@@ -129,7 +125,7 @@ class GroupCallCenterStrandedCallGetResponse extends ComplexType implements Comp
      */
     public function getAudioFileUrl()
     {
-        return $this->audioFileUrl->getValue();
+        return ($this->audioFileUrl) ? $this->audioFileUrl->getValue() : null;
     }
 
     /**
@@ -137,7 +133,6 @@ class GroupCallCenterStrandedCallGetResponse extends ComplexType implements Comp
      */
     public function setAudioFileDescription($audioFileDescription = null)
     {
-        if (!$audioFileDescription) return $this;
         $this->audioFileDescription = ($audioFileDescription InstanceOf FileDescription)
              ? $audioFileDescription
              : new FileDescription($audioFileDescription);
@@ -151,7 +146,7 @@ class GroupCallCenterStrandedCallGetResponse extends ComplexType implements Comp
      */
     public function getAudioFileDescription()
     {
-        return $this->audioFileDescription->getValue();
+        return ($this->audioFileDescription) ? $this->audioFileDescription->getValue() : null;
     }
 
     /**
@@ -159,7 +154,6 @@ class GroupCallCenterStrandedCallGetResponse extends ComplexType implements Comp
      */
     public function setAudioMediaType($audioMediaType = null)
     {
-        if (!$audioMediaType) return $this;
         $this->audioMediaType = ($audioMediaType InstanceOf MediaFileType)
              ? $audioMediaType
              : new MediaFileType($audioMediaType);
@@ -173,7 +167,7 @@ class GroupCallCenterStrandedCallGetResponse extends ComplexType implements Comp
      */
     public function getAudioMediaType()
     {
-        return $this->audioMediaType->getValue();
+        return ($this->audioMediaType) ? $this->audioMediaType->getValue() : null;
     }
 
     /**
@@ -181,7 +175,6 @@ class GroupCallCenterStrandedCallGetResponse extends ComplexType implements Comp
      */
     public function setVideoMessageSelection($videoMessageSelection = null)
     {
-        if (!$videoMessageSelection) return $this;
         $this->videoMessageSelection = ($videoMessageSelection InstanceOf ExtendedFileResourceSelection)
              ? $videoMessageSelection
              : new ExtendedFileResourceSelection($videoMessageSelection);
@@ -195,7 +188,7 @@ class GroupCallCenterStrandedCallGetResponse extends ComplexType implements Comp
      */
     public function getVideoMessageSelection()
     {
-        return $this->videoMessageSelection->getValue();
+        return ($this->videoMessageSelection) ? $this->videoMessageSelection->getValue() : null;
     }
 
     /**
@@ -203,7 +196,6 @@ class GroupCallCenterStrandedCallGetResponse extends ComplexType implements Comp
      */
     public function setVideoFileUrl($videoFileUrl = null)
     {
-        if (!$videoFileUrl) return $this;
         $this->videoFileUrl = ($videoFileUrl InstanceOf URL)
              ? $videoFileUrl
              : new URL($videoFileUrl);
@@ -217,7 +209,7 @@ class GroupCallCenterStrandedCallGetResponse extends ComplexType implements Comp
      */
     public function getVideoFileUrl()
     {
-        return $this->videoFileUrl->getValue();
+        return ($this->videoFileUrl) ? $this->videoFileUrl->getValue() : null;
     }
 
     /**
@@ -225,7 +217,6 @@ class GroupCallCenterStrandedCallGetResponse extends ComplexType implements Comp
      */
     public function setVideoFileDescription($videoFileDescription = null)
     {
-        if (!$videoFileDescription) return $this;
         $this->videoFileDescription = ($videoFileDescription InstanceOf FileDescription)
              ? $videoFileDescription
              : new FileDescription($videoFileDescription);
@@ -239,7 +230,7 @@ class GroupCallCenterStrandedCallGetResponse extends ComplexType implements Comp
      */
     public function getVideoFileDescription()
     {
-        return $this->videoFileDescription->getValue();
+        return ($this->videoFileDescription) ? $this->videoFileDescription->getValue() : null;
     }
 
     /**
@@ -247,7 +238,6 @@ class GroupCallCenterStrandedCallGetResponse extends ComplexType implements Comp
      */
     public function setVideoMediaType($videoMediaType = null)
     {
-        if (!$videoMediaType) return $this;
         $this->videoMediaType = ($videoMediaType InstanceOf MediaFileType)
              ? $videoMediaType
              : new MediaFileType($videoMediaType);
@@ -261,6 +251,6 @@ class GroupCallCenterStrandedCallGetResponse extends ComplexType implements Comp
      */
     public function getVideoMediaType()
     {
-        return $this->videoMediaType->getValue();
+        return ($this->videoMediaType) ? $this->videoMediaType->getValue() : null;
     }
 }

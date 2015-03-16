@@ -23,9 +23,9 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class OCITable extends ComplexType implements ComplexInterface
 {
-    public    $name       = 'OCITable';
-    protected $colHeading = null;
-    protected $row        = null;
+    public    $name = 'OCITable';
+    protected $colHeading;
+    protected $row;
 
     public function __construct(
          $colHeading = null,
@@ -48,7 +48,6 @@ class OCITable extends ComplexType implements ComplexInterface
      */
     public function setColHeading($colHeading = null)
     {
-        if (!$colHeading) return $this;
         $this->colHeading = new SimpleContent($colHeading);
         $this->colHeading->setName('colHeading');
         return $this;
@@ -60,7 +59,7 @@ class OCITable extends ComplexType implements ComplexInterface
      */
     public function getColHeading()
     {
-        return $this->colHeading->getValue();
+        return ($this->colHeading) ? $this->colHeading->getValue() : null;
     }
 
     /**
@@ -68,7 +67,6 @@ class OCITable extends ComplexType implements ComplexInterface
      */
     public function setRow($row = null)
     {
-        if (!$row) return $this;
         $this->row = new SimpleContent($row);
         $this->row->setName('row');
         return $this;
@@ -80,6 +78,6 @@ class OCITable extends ComplexType implements ComplexInterface
      */
     public function getRow()
     {
-        return $this->row->getValue();
+        return ($this->row) ? $this->row->getValue() : null;
     }
 }

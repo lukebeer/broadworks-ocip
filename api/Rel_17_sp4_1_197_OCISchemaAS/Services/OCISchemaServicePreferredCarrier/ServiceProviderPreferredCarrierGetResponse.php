@@ -20,10 +20,10 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderPreferredCarrierGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                 = 'ServiceProviderPreferredCarrierGetResponse';
-    protected $intraLataCarrier     = null;
-    protected $interLataCarrier     = null;
-    protected $internationalCarrier = null;
+    public    $name = 'ServiceProviderPreferredCarrierGetResponse';
+    protected $intraLataCarrier;
+    protected $interLataCarrier;
+    protected $internationalCarrier;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServicePreferredCarrier\ServiceProviderPreferredCarrierGetResponse $response
@@ -38,7 +38,6 @@ class ServiceProviderPreferredCarrierGetResponse extends ComplexType implements 
      */
     public function setIntraLataCarrier($intraLataCarrier = null)
     {
-        if (!$intraLataCarrier) return $this;
         $this->intraLataCarrier = ($intraLataCarrier InstanceOf PreferredCarrierName)
              ? $intraLataCarrier
              : new PreferredCarrierName($intraLataCarrier);
@@ -52,7 +51,7 @@ class ServiceProviderPreferredCarrierGetResponse extends ComplexType implements 
      */
     public function getIntraLataCarrier()
     {
-        return $this->intraLataCarrier->getValue();
+        return ($this->intraLataCarrier) ? $this->intraLataCarrier->getValue() : null;
     }
 
     /**
@@ -60,7 +59,6 @@ class ServiceProviderPreferredCarrierGetResponse extends ComplexType implements 
      */
     public function setInterLataCarrier($interLataCarrier = null)
     {
-        if (!$interLataCarrier) return $this;
         $this->interLataCarrier = ($interLataCarrier InstanceOf PreferredCarrierName)
              ? $interLataCarrier
              : new PreferredCarrierName($interLataCarrier);
@@ -74,7 +72,7 @@ class ServiceProviderPreferredCarrierGetResponse extends ComplexType implements 
      */
     public function getInterLataCarrier()
     {
-        return $this->interLataCarrier->getValue();
+        return ($this->interLataCarrier) ? $this->interLataCarrier->getValue() : null;
     }
 
     /**
@@ -82,7 +80,6 @@ class ServiceProviderPreferredCarrierGetResponse extends ComplexType implements 
      */
     public function setInternationalCarrier($internationalCarrier = null)
     {
-        if (!$internationalCarrier) return $this;
         $this->internationalCarrier = ($internationalCarrier InstanceOf PreferredCarrierName)
              ? $internationalCarrier
              : new PreferredCarrierName($internationalCarrier);
@@ -96,6 +93,6 @@ class ServiceProviderPreferredCarrierGetResponse extends ComplexType implements 
      */
     public function getInternationalCarrier()
     {
-        return $this->internationalCarrier->getValue();
+        return ($this->internationalCarrier) ? $this->internationalCarrier->getValue() : null;
     }
 }

@@ -21,13 +21,13 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserOutgoingCallingPlanAuthorizationCodeAddListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name      = 'UserOutgoingCallingPlanAuthorizationCodeAddListRequest';
-    protected $userId    = null;
-    protected $codeEntry = null;
+    public    $name = 'UserOutgoingCallingPlanAuthorizationCodeAddListRequest';
+    protected $userId;
+    protected $codeEntry;
 
     public function __construct(
-         $userId,
-         OutgoingCallingPlanAuthorizationCodeEntry $codeEntry
+         $userId = '',
+         OutgoingCallingPlanAuthorizationCodeEntry $codeEntry = ''
     ) {
         $this->setUserId($userId);
         $this->setCodeEntry($codeEntry);
@@ -46,7 +46,6 @@ class UserOutgoingCallingPlanAuthorizationCodeAddListRequest extends ComplexType
      */
     public function setUserId($userId = null)
     {
-        if (!$userId) return $this;
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
@@ -60,7 +59,7 @@ class UserOutgoingCallingPlanAuthorizationCodeAddListRequest extends ComplexType
      */
     public function getUserId()
     {
-        return $this->userId->getValue();
+        return ($this->userId) ? $this->userId->getValue() : null;
     }
 
     /**
@@ -68,8 +67,9 @@ class UserOutgoingCallingPlanAuthorizationCodeAddListRequest extends ComplexType
      */
     public function setCodeEntry(OutgoingCallingPlanAuthorizationCodeEntry $codeEntry = null)
     {
-        if (!$codeEntry) return $this;
-        $this->codeEntry = $codeEntry;
+        $this->codeEntry = ($codeEntry InstanceOf OutgoingCallingPlanAuthorizationCodeEntry)
+             ? $codeEntry
+             : new OutgoingCallingPlanAuthorizationCodeEntry($codeEntry);
         $this->codeEntry->setName('codeEntry');
         return $this;
     }

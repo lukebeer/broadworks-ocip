@@ -20,8 +20,8 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemDialableCallerIDModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                  = 'SystemDialableCallerIDModifyRequest';
-    protected $criteriaPriorityOrder = null;
+    public    $name = 'SystemDialableCallerIDModifyRequest';
+    protected $criteriaPriorityOrder;
 
     public function __construct(
          DialableCallerIDCriteriaPriorityOrder $criteriaPriorityOrder = null
@@ -42,8 +42,9 @@ class SystemDialableCallerIDModifyRequest extends ComplexType implements Complex
      */
     public function setCriteriaPriorityOrder(DialableCallerIDCriteriaPriorityOrder $criteriaPriorityOrder = null)
     {
-        if (!$criteriaPriorityOrder) return $this;
-        $this->criteriaPriorityOrder = $criteriaPriorityOrder;
+        $this->criteriaPriorityOrder = ($criteriaPriorityOrder InstanceOf DialableCallerIDCriteriaPriorityOrder)
+             ? $criteriaPriorityOrder
+             : new DialableCallerIDCriteriaPriorityOrder($criteriaPriorityOrder);
         $this->criteriaPriorityOrder->setName('criteriaPriorityOrder');
         return $this;
     }

@@ -24,7 +24,7 @@ use Broadworks_OCIP\core\Client\Client;
 class OCITableRow extends ComplexType implements ComplexInterface
 {
     public    $name = 'OCITableRow';
-    protected $col = null;
+    protected $col;
 
     public function __construct(
          $col = null
@@ -45,7 +45,6 @@ class OCITableRow extends ComplexType implements ComplexInterface
      */
     public function setCol($col = null)
     {
-        if (!$col) return $this;
         $this->col = new SimpleContent($col);
         $this->col->setName('col');
         return $this;
@@ -57,6 +56,6 @@ class OCITableRow extends ComplexType implements ComplexInterface
      */
     public function getCol()
     {
-        return $this->col->getValue();
+        return ($this->col) ? $this->col->getValue() : null;
     }
 }

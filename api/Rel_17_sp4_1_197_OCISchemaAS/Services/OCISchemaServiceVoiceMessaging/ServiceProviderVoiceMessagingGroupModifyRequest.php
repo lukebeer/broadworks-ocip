@@ -22,17 +22,17 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderVoiceMessagingGroupModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                                          = 'ServiceProviderVoiceMessagingGroupModifyRequest';
-    protected $serviceProviderId                             = null;
-    protected $deliveryFromAddress                           = null;
-    protected $notificationFromAddress                       = null;
-    protected $voicePortalLockoutFromAddress                 = null;
-    protected $useSystemDefaultDeliveryFromAddress           = null;
-    protected $useSystemDefaultNotificationFromAddress       = null;
-    protected $useSystemDefaultVoicePortalLockoutFromAddress = null;
+    public    $name = 'ServiceProviderVoiceMessagingGroupModifyRequest';
+    protected $serviceProviderId;
+    protected $deliveryFromAddress;
+    protected $notificationFromAddress;
+    protected $voicePortalLockoutFromAddress;
+    protected $useSystemDefaultDeliveryFromAddress;
+    protected $useSystemDefaultNotificationFromAddress;
+    protected $useSystemDefaultVoicePortalLockoutFromAddress;
 
     public function __construct(
-         $serviceProviderId,
+         $serviceProviderId = '',
          $deliveryFromAddress = null,
          $notificationFromAddress = null,
          $voicePortalLockoutFromAddress = null,
@@ -62,7 +62,6 @@ class ServiceProviderVoiceMessagingGroupModifyRequest extends ComplexType implem
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
-        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
@@ -76,7 +75,7 @@ class ServiceProviderVoiceMessagingGroupModifyRequest extends ComplexType implem
      */
     public function getServiceProviderId()
     {
-        return $this->serviceProviderId->getValue();
+        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
     }
 
     /**
@@ -84,7 +83,6 @@ class ServiceProviderVoiceMessagingGroupModifyRequest extends ComplexType implem
      */
     public function setDeliveryFromAddress($deliveryFromAddress = null)
     {
-        if (!$deliveryFromAddress) return $this;
         $this->deliveryFromAddress = ($deliveryFromAddress InstanceOf EmailAddress)
              ? $deliveryFromAddress
              : new EmailAddress($deliveryFromAddress);
@@ -98,7 +96,7 @@ class ServiceProviderVoiceMessagingGroupModifyRequest extends ComplexType implem
      */
     public function getDeliveryFromAddress()
     {
-        return $this->deliveryFromAddress->getValue();
+        return ($this->deliveryFromAddress) ? $this->deliveryFromAddress->getValue() : null;
     }
 
     /**
@@ -106,7 +104,6 @@ class ServiceProviderVoiceMessagingGroupModifyRequest extends ComplexType implem
      */
     public function setNotificationFromAddress($notificationFromAddress = null)
     {
-        if (!$notificationFromAddress) return $this;
         $this->notificationFromAddress = ($notificationFromAddress InstanceOf EmailAddress)
              ? $notificationFromAddress
              : new EmailAddress($notificationFromAddress);
@@ -120,7 +117,7 @@ class ServiceProviderVoiceMessagingGroupModifyRequest extends ComplexType implem
      */
     public function getNotificationFromAddress()
     {
-        return $this->notificationFromAddress->getValue();
+        return ($this->notificationFromAddress) ? $this->notificationFromAddress->getValue() : null;
     }
 
     /**
@@ -128,7 +125,6 @@ class ServiceProviderVoiceMessagingGroupModifyRequest extends ComplexType implem
      */
     public function setVoicePortalLockoutFromAddress($voicePortalLockoutFromAddress = null)
     {
-        if (!$voicePortalLockoutFromAddress) return $this;
         $this->voicePortalLockoutFromAddress = ($voicePortalLockoutFromAddress InstanceOf EmailAddress)
              ? $voicePortalLockoutFromAddress
              : new EmailAddress($voicePortalLockoutFromAddress);
@@ -142,7 +138,7 @@ class ServiceProviderVoiceMessagingGroupModifyRequest extends ComplexType implem
      */
     public function getVoicePortalLockoutFromAddress()
     {
-        return $this->voicePortalLockoutFromAddress->getValue();
+        return ($this->voicePortalLockoutFromAddress) ? $this->voicePortalLockoutFromAddress->getValue() : null;
     }
 
     /**
@@ -150,7 +146,6 @@ class ServiceProviderVoiceMessagingGroupModifyRequest extends ComplexType implem
      */
     public function setUseSystemDefaultDeliveryFromAddress($useSystemDefaultDeliveryFromAddress = null)
     {
-        if (!$useSystemDefaultDeliveryFromAddress) return $this;
         $this->useSystemDefaultDeliveryFromAddress = new PrimitiveType($useSystemDefaultDeliveryFromAddress);
         $this->useSystemDefaultDeliveryFromAddress->setName('useSystemDefaultDeliveryFromAddress');
         return $this;
@@ -162,7 +157,7 @@ class ServiceProviderVoiceMessagingGroupModifyRequest extends ComplexType implem
      */
     public function getUseSystemDefaultDeliveryFromAddress()
     {
-        return $this->useSystemDefaultDeliveryFromAddress->getValue();
+        return ($this->useSystemDefaultDeliveryFromAddress) ? $this->useSystemDefaultDeliveryFromAddress->getValue() : null;
     }
 
     /**
@@ -170,7 +165,6 @@ class ServiceProviderVoiceMessagingGroupModifyRequest extends ComplexType implem
      */
     public function setUseSystemDefaultNotificationFromAddress($useSystemDefaultNotificationFromAddress = null)
     {
-        if (!$useSystemDefaultNotificationFromAddress) return $this;
         $this->useSystemDefaultNotificationFromAddress = new PrimitiveType($useSystemDefaultNotificationFromAddress);
         $this->useSystemDefaultNotificationFromAddress->setName('useSystemDefaultNotificationFromAddress');
         return $this;
@@ -182,7 +176,7 @@ class ServiceProviderVoiceMessagingGroupModifyRequest extends ComplexType implem
      */
     public function getUseSystemDefaultNotificationFromAddress()
     {
-        return $this->useSystemDefaultNotificationFromAddress->getValue();
+        return ($this->useSystemDefaultNotificationFromAddress) ? $this->useSystemDefaultNotificationFromAddress->getValue() : null;
     }
 
     /**
@@ -190,7 +184,6 @@ class ServiceProviderVoiceMessagingGroupModifyRequest extends ComplexType implem
      */
     public function setUseSystemDefaultVoicePortalLockoutFromAddress($useSystemDefaultVoicePortalLockoutFromAddress = null)
     {
-        if (!$useSystemDefaultVoicePortalLockoutFromAddress) return $this;
         $this->useSystemDefaultVoicePortalLockoutFromAddress = new PrimitiveType($useSystemDefaultVoicePortalLockoutFromAddress);
         $this->useSystemDefaultVoicePortalLockoutFromAddress->setName('useSystemDefaultVoicePortalLockoutFromAddress');
         return $this;
@@ -202,6 +195,6 @@ class ServiceProviderVoiceMessagingGroupModifyRequest extends ComplexType implem
      */
     public function getUseSystemDefaultVoicePortalLockoutFromAddress()
     {
-        return $this->useSystemDefaultVoicePortalLockoutFromAddress->getValue();
+        return ($this->useSystemDefaultVoicePortalLockoutFromAddress) ? $this->useSystemDefaultVoicePortalLockoutFromAddress->getValue() : null;
     }
 }

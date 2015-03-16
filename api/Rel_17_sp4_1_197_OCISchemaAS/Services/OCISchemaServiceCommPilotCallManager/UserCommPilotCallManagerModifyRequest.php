@@ -21,12 +21,12 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserCommPilotCallManagerModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name          = 'UserCommPilotCallManagerModifyRequest';
-    protected $userId        = null;
-    protected $launchOnLogin = null;
+    public    $name = 'UserCommPilotCallManagerModifyRequest';
+    protected $userId;
+    protected $launchOnLogin;
 
     public function __construct(
-         $userId,
+         $userId = '',
          $launchOnLogin = null
     ) {
         $this->setUserId($userId);
@@ -46,7 +46,6 @@ class UserCommPilotCallManagerModifyRequest extends ComplexType implements Compl
      */
     public function setUserId($userId = null)
     {
-        if (!$userId) return $this;
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
@@ -60,7 +59,7 @@ class UserCommPilotCallManagerModifyRequest extends ComplexType implements Compl
      */
     public function getUserId()
     {
-        return $this->userId->getValue();
+        return ($this->userId) ? $this->userId->getValue() : null;
     }
 
     /**
@@ -68,7 +67,6 @@ class UserCommPilotCallManagerModifyRequest extends ComplexType implements Compl
      */
     public function setLaunchOnLogin($launchOnLogin = null)
     {
-        if (!$launchOnLogin) return $this;
         $this->launchOnLogin = new PrimitiveType($launchOnLogin);
         $this->launchOnLogin->setName('launchOnLogin');
         return $this;
@@ -80,6 +78,6 @@ class UserCommPilotCallManagerModifyRequest extends ComplexType implements Compl
      */
     public function getLaunchOnLogin()
     {
-        return $this->launchOnLogin->getValue();
+        return ($this->launchOnLogin) ? $this->launchOnLogin->getValue() : null;
     }
 }

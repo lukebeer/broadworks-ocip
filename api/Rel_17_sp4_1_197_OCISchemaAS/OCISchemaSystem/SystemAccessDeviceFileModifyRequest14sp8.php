@@ -23,15 +23,15 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemAccessDeviceFileModifyRequest14sp8 extends ComplexType implements ComplexInterface
 {
-    public    $name       = 'SystemAccessDeviceFileModifyRequest14sp8';
-    protected $deviceName = null;
-    protected $fileFormat = null;
-    protected $fileSource = null;
-    protected $uploadFile = null;
+    public    $name = 'SystemAccessDeviceFileModifyRequest14sp8';
+    protected $deviceName;
+    protected $fileFormat;
+    protected $fileSource;
+    protected $uploadFile;
 
     public function __construct(
-         $deviceName,
-         $fileFormat,
+         $deviceName = '',
+         $fileFormat = '',
          $fileSource = null,
          FileResource $uploadFile = null
     ) {
@@ -54,7 +54,6 @@ class SystemAccessDeviceFileModifyRequest14sp8 extends ComplexType implements Co
      */
     public function setDeviceName($deviceName = null)
     {
-        if (!$deviceName) return $this;
         $this->deviceName = ($deviceName InstanceOf AccessDeviceName)
              ? $deviceName
              : new AccessDeviceName($deviceName);
@@ -68,7 +67,7 @@ class SystemAccessDeviceFileModifyRequest14sp8 extends ComplexType implements Co
      */
     public function getDeviceName()
     {
-        return $this->deviceName->getValue();
+        return ($this->deviceName) ? $this->deviceName->getValue() : null;
     }
 
     /**
@@ -76,7 +75,6 @@ class SystemAccessDeviceFileModifyRequest14sp8 extends ComplexType implements Co
      */
     public function setFileFormat($fileFormat = null)
     {
-        if (!$fileFormat) return $this;
         $this->fileFormat = ($fileFormat InstanceOf DeviceManagementFileFormat)
              ? $fileFormat
              : new DeviceManagementFileFormat($fileFormat);
@@ -90,7 +88,7 @@ class SystemAccessDeviceFileModifyRequest14sp8 extends ComplexType implements Co
      */
     public function getFileFormat()
     {
-        return $this->fileFormat->getValue();
+        return ($this->fileFormat) ? $this->fileFormat->getValue() : null;
     }
 
     /**
@@ -98,7 +96,6 @@ class SystemAccessDeviceFileModifyRequest14sp8 extends ComplexType implements Co
      */
     public function setFileSource($fileSource = null)
     {
-        if (!$fileSource) return $this;
         $this->fileSource = ($fileSource InstanceOf AccessDeviceEnhancedConfigurationMode)
              ? $fileSource
              : new AccessDeviceEnhancedConfigurationMode($fileSource);
@@ -112,7 +109,7 @@ class SystemAccessDeviceFileModifyRequest14sp8 extends ComplexType implements Co
      */
     public function getFileSource()
     {
-        return $this->fileSource->getValue();
+        return ($this->fileSource) ? $this->fileSource->getValue() : null;
     }
 
     /**
@@ -120,8 +117,9 @@ class SystemAccessDeviceFileModifyRequest14sp8 extends ComplexType implements Co
      */
     public function setUploadFile(FileResource $uploadFile = null)
     {
-        if (!$uploadFile) return $this;
-        $this->uploadFile = $uploadFile;
+        $this->uploadFile = ($uploadFile InstanceOf FileResource)
+             ? $uploadFile
+             : new FileResource($uploadFile);
         $this->uploadFile->setName('uploadFile');
         return $this;
     }

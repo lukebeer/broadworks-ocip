@@ -20,9 +20,9 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemCallCenterEnhancedReportingBrandingGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                          = 'SystemCallCenterEnhancedReportingBrandingGetResponse';
-    protected $brandingChoice                = null;
-    protected $customBrandingFileDescription = null;
+    public    $name = 'SystemCallCenterEnhancedReportingBrandingGetResponse';
+    protected $brandingChoice;
+    protected $customBrandingFileDescription;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\SystemCallCenterEnhancedReportingBrandingGetResponse $response
@@ -37,7 +37,6 @@ class SystemCallCenterEnhancedReportingBrandingGetResponse extends ComplexType i
      */
     public function setBrandingChoice($brandingChoice = null)
     {
-        if (!$brandingChoice) return $this;
         $this->brandingChoice = ($brandingChoice InstanceOf CallCenterEnhancedReportingSystemBrandingChoice)
              ? $brandingChoice
              : new CallCenterEnhancedReportingSystemBrandingChoice($brandingChoice);
@@ -51,7 +50,7 @@ class SystemCallCenterEnhancedReportingBrandingGetResponse extends ComplexType i
      */
     public function getBrandingChoice()
     {
-        return $this->brandingChoice->getValue();
+        return ($this->brandingChoice) ? $this->brandingChoice->getValue() : null;
     }
 
     /**
@@ -59,7 +58,6 @@ class SystemCallCenterEnhancedReportingBrandingGetResponse extends ComplexType i
      */
     public function setCustomBrandingFileDescription($customBrandingFileDescription = null)
     {
-        if (!$customBrandingFileDescription) return $this;
         $this->customBrandingFileDescription = ($customBrandingFileDescription InstanceOf FileDescription)
              ? $customBrandingFileDescription
              : new FileDescription($customBrandingFileDescription);
@@ -73,6 +71,6 @@ class SystemCallCenterEnhancedReportingBrandingGetResponse extends ComplexType i
      */
     public function getCustomBrandingFileDescription()
     {
-        return $this->customBrandingFileDescription->getValue();
+        return ($this->customBrandingFileDescription) ? $this->customBrandingFileDescription->getValue() : null;
     }
 }

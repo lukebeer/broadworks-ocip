@@ -20,9 +20,9 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupOutgoingCallingPlanCallMeNowGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                  = 'GroupOutgoingCallingPlanCallMeNowGetListResponse';
-    protected $groupPermissions      = null;
-    protected $departmentPermissions = null;
+    public    $name = 'GroupOutgoingCallingPlanCallMeNowGetListResponse';
+    protected $groupPermissions;
+    protected $departmentPermissions;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceOutgoingCallingPlan\GroupOutgoingCallingPlanCallMeNowGetListResponse $response
@@ -37,8 +37,9 @@ class GroupOutgoingCallingPlanCallMeNowGetListResponse extends ComplexType imple
      */
     public function setGroupPermissions(OutgoingCallingPlanCallMeNowPermissions $groupPermissions = null)
     {
-        if (!$groupPermissions) return $this;
-        $this->groupPermissions = $groupPermissions;
+        $this->groupPermissions = ($groupPermissions InstanceOf OutgoingCallingPlanCallMeNowPermissions)
+             ? $groupPermissions
+             : new OutgoingCallingPlanCallMeNowPermissions($groupPermissions);
         $this->groupPermissions->setName('groupPermissions');
         return $this;
     }
@@ -57,8 +58,9 @@ class GroupOutgoingCallingPlanCallMeNowGetListResponse extends ComplexType imple
      */
     public function setDepartmentPermissions(OutgoingCallingPlanCallMeNowDepartmentPermissions $departmentPermissions = null)
     {
-        if (!$departmentPermissions) return $this;
-        $this->departmentPermissions = $departmentPermissions;
+        $this->departmentPermissions = ($departmentPermissions InstanceOf OutgoingCallingPlanCallMeNowDepartmentPermissions)
+             ? $departmentPermissions
+             : new OutgoingCallingPlanCallMeNowDepartmentPermissions($departmentPermissions);
         $this->departmentPermissions->setName('departmentPermissions');
         return $this;
     }

@@ -22,10 +22,10 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupDialableCallerIDGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                     = 'GroupDialableCallerIDGetResponse';
-    protected $useGroupCriteria         = null;
-    protected $nsScreeningFailurePolicy = null;
-    protected $criteriaTable            = null;
+    public    $name = 'GroupDialableCallerIDGetResponse';
+    protected $useGroupCriteria;
+    protected $nsScreeningFailurePolicy;
+    protected $criteriaTable;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupDialableCallerIDGetResponse $response
@@ -40,7 +40,6 @@ class GroupDialableCallerIDGetResponse extends ComplexType implements ComplexInt
      */
     public function setUseGroupCriteria($useGroupCriteria = null)
     {
-        if (!$useGroupCriteria) return $this;
         $this->useGroupCriteria = new PrimitiveType($useGroupCriteria);
         $this->useGroupCriteria->setName('useGroupCriteria');
         return $this;
@@ -52,7 +51,7 @@ class GroupDialableCallerIDGetResponse extends ComplexType implements ComplexInt
      */
     public function getUseGroupCriteria()
     {
-        return $this->useGroupCriteria->getValue();
+        return ($this->useGroupCriteria) ? $this->useGroupCriteria->getValue() : null;
     }
 
     /**
@@ -60,7 +59,6 @@ class GroupDialableCallerIDGetResponse extends ComplexType implements ComplexInt
      */
     public function setNsScreeningFailurePolicy($nsScreeningFailurePolicy = null)
     {
-        if (!$nsScreeningFailurePolicy) return $this;
         $this->nsScreeningFailurePolicy = ($nsScreeningFailurePolicy InstanceOf NsScreeningFailurePolicy)
              ? $nsScreeningFailurePolicy
              : new NsScreeningFailurePolicy($nsScreeningFailurePolicy);
@@ -74,7 +72,7 @@ class GroupDialableCallerIDGetResponse extends ComplexType implements ComplexInt
      */
     public function getNsScreeningFailurePolicy()
     {
-        return $this->nsScreeningFailurePolicy->getValue();
+        return ($this->nsScreeningFailurePolicy) ? $this->nsScreeningFailurePolicy->getValue() : null;
     }
 
     /**
@@ -82,7 +80,6 @@ class GroupDialableCallerIDGetResponse extends ComplexType implements ComplexInt
      */
     public function setCriteriaTable(TableType $criteriaTable = null)
     {
-        if (!$criteriaTable) return $this;
         $this->criteriaTable = $criteriaTable;
         $this->criteriaTable->setName('criteriaTable');
         return $this;

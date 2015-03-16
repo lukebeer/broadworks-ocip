@@ -21,15 +21,15 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserPortalPasscodeModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name        = 'UserPortalPasscodeModifyRequest';
-    protected $userId      = null;
-    protected $oldPasscode = null;
-    protected $newPasscode = null;
+    public    $name = 'UserPortalPasscodeModifyRequest';
+    protected $userId;
+    protected $oldPasscode;
+    protected $newPasscode;
 
     public function __construct(
-         $userId,
+         $userId = '',
          $oldPasscode = null,
-         $newPasscode
+         $newPasscode = ''
     ) {
         $this->setUserId($userId);
         $this->setOldPasscode($oldPasscode);
@@ -49,7 +49,6 @@ class UserPortalPasscodeModifyRequest extends ComplexType implements ComplexInte
      */
     public function setUserId($userId = null)
     {
-        if (!$userId) return $this;
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
@@ -63,7 +62,7 @@ class UserPortalPasscodeModifyRequest extends ComplexType implements ComplexInte
      */
     public function getUserId()
     {
-        return $this->userId->getValue();
+        return ($this->userId) ? $this->userId->getValue() : null;
     }
 
     /**
@@ -71,7 +70,6 @@ class UserPortalPasscodeModifyRequest extends ComplexType implements ComplexInte
      */
     public function setOldPasscode($oldPasscode = null)
     {
-        if (!$oldPasscode) return $this;
         $this->oldPasscode = ($oldPasscode InstanceOf Passcode)
              ? $oldPasscode
              : new Passcode($oldPasscode);
@@ -85,7 +83,7 @@ class UserPortalPasscodeModifyRequest extends ComplexType implements ComplexInte
      */
     public function getOldPasscode()
     {
-        return $this->oldPasscode->getValue();
+        return ($this->oldPasscode) ? $this->oldPasscode->getValue() : null;
     }
 
     /**
@@ -93,7 +91,6 @@ class UserPortalPasscodeModifyRequest extends ComplexType implements ComplexInte
      */
     public function setNewPasscode($newPasscode = null)
     {
-        if (!$newPasscode) return $this;
         $this->newPasscode = ($newPasscode InstanceOf Passcode)
              ? $newPasscode
              : new Passcode($newPasscode);
@@ -107,6 +104,6 @@ class UserPortalPasscodeModifyRequest extends ComplexType implements ComplexInte
      */
     public function getNewPasscode()
     {
-        return $this->newPasscode->getValue();
+        return ($this->newPasscode) ? $this->newPasscode->getValue() : null;
     }
 }

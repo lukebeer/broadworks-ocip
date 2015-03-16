@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
 class ServiceProviderReplacementCommunicationBarringHierarchicalRedirectingRuleList extends ComplexType implements ComplexInterface
 {
     public    $name = 'ServiceProviderReplacementCommunicationBarringHierarchicalRedirectingRuleList';
-    protected $rule = null;
+    protected $rule;
 
     public function __construct(
          $rule = null
@@ -42,7 +42,6 @@ class ServiceProviderReplacementCommunicationBarringHierarchicalRedirectingRuleL
      */
     public function setRule($rule = null)
     {
-        if (!$rule) return $this;
         $this->rule = new SimpleContent($rule);
         $this->rule->setName('rule');
         return $this;
@@ -54,6 +53,6 @@ class ServiceProviderReplacementCommunicationBarringHierarchicalRedirectingRuleL
      */
     public function getRule()
     {
-        return $this->rule->getValue();
+        return ($this->rule) ? $this->rule->getValue() : null;
     }
 }

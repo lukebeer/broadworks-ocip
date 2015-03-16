@@ -25,15 +25,15 @@ use Broadworks_OCIP\core\Client\Client;
 class EnterpriseCallCenterEnhancedReportingScheduledReportGetListRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType                                                    = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\EnterpriseCallCenterEnhancedReportingScheduledReportGetListResponse';
-    public    $name                                                            = 'EnterpriseCallCenterEnhancedReportingScheduledReportGetListRequest';
-    protected $serviceProviderId                                               = null;
-    protected $responseSizeLimit                                               = null;
-    protected $searchCriteriaCallCenterScheduledReportName                     = null;
-    protected $searchCriteriaExactCallCenterScheduledReportCreatedBySupervisor = null;
-    protected $searchCriteriaExactCallCenterReportTemplateKey                  = null;
+    public    $name = 'EnterpriseCallCenterEnhancedReportingScheduledReportGetListRequest';
+    protected $serviceProviderId;
+    protected $responseSizeLimit;
+    protected $searchCriteriaCallCenterScheduledReportName;
+    protected $searchCriteriaExactCallCenterScheduledReportCreatedBySupervisor;
+    protected $searchCriteriaExactCallCenterReportTemplateKey;
 
     public function __construct(
-         $serviceProviderId,
+         $serviceProviderId = '',
          $responseSizeLimit = null,
          SearchCriteriaCallCenterScheduledReportName $searchCriteriaCallCenterScheduledReportName = null,
          SearchCriteriaExactCallCenterScheduledReportCreatedBySupervisor $searchCriteriaExactCallCenterScheduledReportCreatedBySupervisor = null,
@@ -59,7 +59,6 @@ class EnterpriseCallCenterEnhancedReportingScheduledReportGetListRequest extends
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
-        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
@@ -73,7 +72,7 @@ class EnterpriseCallCenterEnhancedReportingScheduledReportGetListRequest extends
      */
     public function getServiceProviderId()
     {
-        return $this->serviceProviderId->getValue();
+        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
     }
 
     /**
@@ -81,7 +80,6 @@ class EnterpriseCallCenterEnhancedReportingScheduledReportGetListRequest extends
      */
     public function setResponseSizeLimit($responseSizeLimit = null)
     {
-        if (!$responseSizeLimit) return $this;
         $this->responseSizeLimit = ($responseSizeLimit InstanceOf ResponseSizeLimit)
              ? $responseSizeLimit
              : new ResponseSizeLimit($responseSizeLimit);
@@ -95,7 +93,7 @@ class EnterpriseCallCenterEnhancedReportingScheduledReportGetListRequest extends
      */
     public function getResponseSizeLimit()
     {
-        return $this->responseSizeLimit->getValue();
+        return ($this->responseSizeLimit) ? $this->responseSizeLimit->getValue() : null;
     }
 
     /**
@@ -103,7 +101,6 @@ class EnterpriseCallCenterEnhancedReportingScheduledReportGetListRequest extends
      */
     public function setSearchCriteriaCallCenterScheduledReportName(SearchCriteriaCallCenterScheduledReportName $searchCriteriaCallCenterScheduledReportName = null)
     {
-        if (!$searchCriteriaCallCenterScheduledReportName) return $this;
         $this->searchCriteriaCallCenterScheduledReportName = ($searchCriteriaCallCenterScheduledReportName InstanceOf SearchCriteriaCallCenterScheduledReportName)
              ? $searchCriteriaCallCenterScheduledReportName
              : new SearchCriteriaCallCenterScheduledReportName($searchCriteriaCallCenterScheduledReportName);
@@ -125,7 +122,6 @@ class EnterpriseCallCenterEnhancedReportingScheduledReportGetListRequest extends
      */
     public function setSearchCriteriaExactCallCenterScheduledReportCreatedBySupervisor(SearchCriteriaExactCallCenterScheduledReportCreatedBySupervisor $searchCriteriaExactCallCenterScheduledReportCreatedBySupervisor = null)
     {
-        if (!$searchCriteriaExactCallCenterScheduledReportCreatedBySupervisor) return $this;
         $this->searchCriteriaExactCallCenterScheduledReportCreatedBySupervisor = ($searchCriteriaExactCallCenterScheduledReportCreatedBySupervisor InstanceOf SearchCriteriaExactCallCenterScheduledReportCreatedBySupervisor)
              ? $searchCriteriaExactCallCenterScheduledReportCreatedBySupervisor
              : new SearchCriteriaExactCallCenterScheduledReportCreatedBySupervisor($searchCriteriaExactCallCenterScheduledReportCreatedBySupervisor);
@@ -147,7 +143,6 @@ class EnterpriseCallCenterEnhancedReportingScheduledReportGetListRequest extends
      */
     public function setSearchCriteriaExactCallCenterReportTemplateKey(SearchCriteriaExactCallCenterReportTemplateKey $searchCriteriaExactCallCenterReportTemplateKey = null)
     {
-        if (!$searchCriteriaExactCallCenterReportTemplateKey) return $this;
         $this->searchCriteriaExactCallCenterReportTemplateKey = ($searchCriteriaExactCallCenterReportTemplateKey InstanceOf SearchCriteriaExactCallCenterReportTemplateKey)
              ? $searchCriteriaExactCallCenterReportTemplateKey
              : new SearchCriteriaExactCallCenterReportTemplateKey($searchCriteriaExactCallCenterReportTemplateKey);

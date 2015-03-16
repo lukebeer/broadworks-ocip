@@ -28,12 +28,12 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserPrivacyGetResponse13mp17 extends ComplexType implements ComplexInterface
 {
-    public    $name                                       = 'UserPrivacyGetResponse13mp17';
-    protected $enableDirectoryPrivacy                     = null;
-    protected $enableAutoAttendantExtensionDialingPrivacy = null;
-    protected $enableAutoAttendantNameDialingPrivacy      = null;
-    protected $enablePhoneStatusPrivacy                   = null;
-    protected $permittedMonitorUserIdTable                = null;
+    public    $name = 'UserPrivacyGetResponse13mp17';
+    protected $enableDirectoryPrivacy;
+    protected $enableAutoAttendantExtensionDialingPrivacy;
+    protected $enableAutoAttendantNameDialingPrivacy;
+    protected $enablePhoneStatusPrivacy;
+    protected $permittedMonitorUserIdTable;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServicePrivacy\UserPrivacyGetResponse13mp17 $response
@@ -48,7 +48,6 @@ class UserPrivacyGetResponse13mp17 extends ComplexType implements ComplexInterfa
      */
     public function setEnableDirectoryPrivacy($enableDirectoryPrivacy = null)
     {
-        if (!$enableDirectoryPrivacy) return $this;
         $this->enableDirectoryPrivacy = new PrimitiveType($enableDirectoryPrivacy);
         $this->enableDirectoryPrivacy->setName('enableDirectoryPrivacy');
         return $this;
@@ -60,7 +59,7 @@ class UserPrivacyGetResponse13mp17 extends ComplexType implements ComplexInterfa
      */
     public function getEnableDirectoryPrivacy()
     {
-        return $this->enableDirectoryPrivacy->getValue();
+        return ($this->enableDirectoryPrivacy) ? $this->enableDirectoryPrivacy->getValue() : null;
     }
 
     /**
@@ -68,7 +67,6 @@ class UserPrivacyGetResponse13mp17 extends ComplexType implements ComplexInterfa
      */
     public function setEnableAutoAttendantExtensionDialingPrivacy($enableAutoAttendantExtensionDialingPrivacy = null)
     {
-        if (!$enableAutoAttendantExtensionDialingPrivacy) return $this;
         $this->enableAutoAttendantExtensionDialingPrivacy = new PrimitiveType($enableAutoAttendantExtensionDialingPrivacy);
         $this->enableAutoAttendantExtensionDialingPrivacy->setName('enableAutoAttendantExtensionDialingPrivacy');
         return $this;
@@ -80,7 +78,7 @@ class UserPrivacyGetResponse13mp17 extends ComplexType implements ComplexInterfa
      */
     public function getEnableAutoAttendantExtensionDialingPrivacy()
     {
-        return $this->enableAutoAttendantExtensionDialingPrivacy->getValue();
+        return ($this->enableAutoAttendantExtensionDialingPrivacy) ? $this->enableAutoAttendantExtensionDialingPrivacy->getValue() : null;
     }
 
     /**
@@ -88,7 +86,6 @@ class UserPrivacyGetResponse13mp17 extends ComplexType implements ComplexInterfa
      */
     public function setEnableAutoAttendantNameDialingPrivacy($enableAutoAttendantNameDialingPrivacy = null)
     {
-        if (!$enableAutoAttendantNameDialingPrivacy) return $this;
         $this->enableAutoAttendantNameDialingPrivacy = new PrimitiveType($enableAutoAttendantNameDialingPrivacy);
         $this->enableAutoAttendantNameDialingPrivacy->setName('enableAutoAttendantNameDialingPrivacy');
         return $this;
@@ -100,7 +97,7 @@ class UserPrivacyGetResponse13mp17 extends ComplexType implements ComplexInterfa
      */
     public function getEnableAutoAttendantNameDialingPrivacy()
     {
-        return $this->enableAutoAttendantNameDialingPrivacy->getValue();
+        return ($this->enableAutoAttendantNameDialingPrivacy) ? $this->enableAutoAttendantNameDialingPrivacy->getValue() : null;
     }
 
     /**
@@ -108,7 +105,6 @@ class UserPrivacyGetResponse13mp17 extends ComplexType implements ComplexInterfa
      */
     public function setEnablePhoneStatusPrivacy($enablePhoneStatusPrivacy = null)
     {
-        if (!$enablePhoneStatusPrivacy) return $this;
         $this->enablePhoneStatusPrivacy = new PrimitiveType($enablePhoneStatusPrivacy);
         $this->enablePhoneStatusPrivacy->setName('enablePhoneStatusPrivacy');
         return $this;
@@ -120,7 +116,7 @@ class UserPrivacyGetResponse13mp17 extends ComplexType implements ComplexInterfa
      */
     public function getEnablePhoneStatusPrivacy()
     {
-        return $this->enablePhoneStatusPrivacy->getValue();
+        return ($this->enablePhoneStatusPrivacy) ? $this->enablePhoneStatusPrivacy->getValue() : null;
     }
 
     /**
@@ -128,7 +124,6 @@ class UserPrivacyGetResponse13mp17 extends ComplexType implements ComplexInterfa
      */
     public function setPermittedMonitorUserIdTable(TableType $permittedMonitorUserIdTable = null)
     {
-        if (!$permittedMonitorUserIdTable) return $this;
         $this->permittedMonitorUserIdTable = $permittedMonitorUserIdTable;
         $this->permittedMonitorUserIdTable->setName('permittedMonitorUserIdTable');
         return $this;

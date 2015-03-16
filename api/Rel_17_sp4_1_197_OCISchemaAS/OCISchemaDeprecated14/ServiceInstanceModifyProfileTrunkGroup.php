@@ -19,19 +19,19 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceInstanceModifyProfileTrunkGroup extends ComplexType implements ComplexInterface
 {
-    public    $name                   = 'ServiceInstanceModifyProfileTrunkGroup';
-    protected $name                   = null;
-    protected $callingLineIdLastName  = null;
-    protected $callingLineIdFirstName = null;
-    protected $hiraganaLastName       = null;
-    protected $hiraganaFirstName      = null;
-    protected $phoneNumber            = null;
-    protected $extension              = null;
-    protected $password               = null;
-    protected $department             = null;
-    protected $language               = null;
-    protected $timeZone               = null;
-    protected $sipAliasList           = null;
+    public    $name = 'ServiceInstanceModifyProfileTrunkGroup';
+    protected $name;
+    protected $callingLineIdLastName;
+    protected $callingLineIdFirstName;
+    protected $hiraganaLastName;
+    protected $hiraganaFirstName;
+    protected $phoneNumber;
+    protected $extension;
+    protected $password;
+    protected $department;
+    protected $language;
+    protected $timeZone;
+    protected $sipAliasList;
 
     public function __construct(
          $name = null,
@@ -74,7 +74,6 @@ class ServiceInstanceModifyProfileTrunkGroup extends ComplexType implements Comp
      */
     public function setName($name = null)
     {
-        if (!$name) return $this;
         $this->name = new SimpleContent($name);
         $this->name->setName('name');
         return $this;
@@ -86,7 +85,7 @@ class ServiceInstanceModifyProfileTrunkGroup extends ComplexType implements Comp
      */
     public function getName()
     {
-        return $this->name->getValue();
+        return ($this->name) ? $this->name->getValue() : null;
     }
 
     /**
@@ -94,7 +93,6 @@ class ServiceInstanceModifyProfileTrunkGroup extends ComplexType implements Comp
      */
     public function setCallingLineIdLastName($callingLineIdLastName = null)
     {
-        if (!$callingLineIdLastName) return $this;
         $this->callingLineIdLastName = new SimpleContent($callingLineIdLastName);
         $this->callingLineIdLastName->setName('callingLineIdLastName');
         return $this;
@@ -106,7 +104,7 @@ class ServiceInstanceModifyProfileTrunkGroup extends ComplexType implements Comp
      */
     public function getCallingLineIdLastName()
     {
-        return $this->callingLineIdLastName->getValue();
+        return ($this->callingLineIdLastName) ? $this->callingLineIdLastName->getValue() : null;
     }
 
     /**
@@ -114,7 +112,6 @@ class ServiceInstanceModifyProfileTrunkGroup extends ComplexType implements Comp
      */
     public function setCallingLineIdFirstName($callingLineIdFirstName = null)
     {
-        if (!$callingLineIdFirstName) return $this;
         $this->callingLineIdFirstName = new SimpleContent($callingLineIdFirstName);
         $this->callingLineIdFirstName->setName('callingLineIdFirstName');
         return $this;
@@ -126,7 +123,7 @@ class ServiceInstanceModifyProfileTrunkGroup extends ComplexType implements Comp
      */
     public function getCallingLineIdFirstName()
     {
-        return $this->callingLineIdFirstName->getValue();
+        return ($this->callingLineIdFirstName) ? $this->callingLineIdFirstName->getValue() : null;
     }
 
     /**
@@ -134,7 +131,6 @@ class ServiceInstanceModifyProfileTrunkGroup extends ComplexType implements Comp
      */
     public function setHiraganaLastName($hiraganaLastName = null)
     {
-        if (!$hiraganaLastName) return $this;
         $this->hiraganaLastName = new SimpleContent($hiraganaLastName);
         $this->hiraganaLastName->setName('hiraganaLastName');
         return $this;
@@ -146,7 +142,7 @@ class ServiceInstanceModifyProfileTrunkGroup extends ComplexType implements Comp
      */
     public function getHiraganaLastName()
     {
-        return $this->hiraganaLastName->getValue();
+        return ($this->hiraganaLastName) ? $this->hiraganaLastName->getValue() : null;
     }
 
     /**
@@ -154,7 +150,6 @@ class ServiceInstanceModifyProfileTrunkGroup extends ComplexType implements Comp
      */
     public function setHiraganaFirstName($hiraganaFirstName = null)
     {
-        if (!$hiraganaFirstName) return $this;
         $this->hiraganaFirstName = new SimpleContent($hiraganaFirstName);
         $this->hiraganaFirstName->setName('hiraganaFirstName');
         return $this;
@@ -166,7 +161,7 @@ class ServiceInstanceModifyProfileTrunkGroup extends ComplexType implements Comp
      */
     public function getHiraganaFirstName()
     {
-        return $this->hiraganaFirstName->getValue();
+        return ($this->hiraganaFirstName) ? $this->hiraganaFirstName->getValue() : null;
     }
 
     /**
@@ -174,7 +169,6 @@ class ServiceInstanceModifyProfileTrunkGroup extends ComplexType implements Comp
      */
     public function setPhoneNumber($phoneNumber = null)
     {
-        if (!$phoneNumber) return $this;
         $this->phoneNumber = new SimpleContent($phoneNumber);
         $this->phoneNumber->setName('phoneNumber');
         return $this;
@@ -186,7 +180,7 @@ class ServiceInstanceModifyProfileTrunkGroup extends ComplexType implements Comp
      */
     public function getPhoneNumber()
     {
-        return $this->phoneNumber->getValue();
+        return ($this->phoneNumber) ? $this->phoneNumber->getValue() : null;
     }
 
     /**
@@ -194,7 +188,6 @@ class ServiceInstanceModifyProfileTrunkGroup extends ComplexType implements Comp
      */
     public function setExtension($extension = null)
     {
-        if (!$extension) return $this;
         $this->extension = new SimpleContent($extension);
         $this->extension->setName('extension');
         return $this;
@@ -206,7 +199,7 @@ class ServiceInstanceModifyProfileTrunkGroup extends ComplexType implements Comp
      */
     public function getExtension()
     {
-        return $this->extension->getValue();
+        return ($this->extension) ? $this->extension->getValue() : null;
     }
 
     /**
@@ -214,7 +207,6 @@ class ServiceInstanceModifyProfileTrunkGroup extends ComplexType implements Comp
      */
     public function setPassword($password = null)
     {
-        if (!$password) return $this;
         $this->password = new SimpleContent($password);
         $this->password->setName('password');
         return $this;
@@ -226,7 +218,7 @@ class ServiceInstanceModifyProfileTrunkGroup extends ComplexType implements Comp
      */
     public function getPassword()
     {
-        return $this->password->getValue();
+        return ($this->password) ? $this->password->getValue() : null;
     }
 
     /**
@@ -234,7 +226,6 @@ class ServiceInstanceModifyProfileTrunkGroup extends ComplexType implements Comp
      */
     public function setDepartment($department = null)
     {
-        if (!$department) return $this;
         $this->department = new SimpleContent($department);
         $this->department->setName('department');
         return $this;
@@ -246,7 +237,7 @@ class ServiceInstanceModifyProfileTrunkGroup extends ComplexType implements Comp
      */
     public function getDepartment()
     {
-        return $this->department->getValue();
+        return ($this->department) ? $this->department->getValue() : null;
     }
 
     /**
@@ -254,7 +245,6 @@ class ServiceInstanceModifyProfileTrunkGroup extends ComplexType implements Comp
      */
     public function setLanguage($language = null)
     {
-        if (!$language) return $this;
         $this->language = new SimpleContent($language);
         $this->language->setName('language');
         return $this;
@@ -266,7 +256,7 @@ class ServiceInstanceModifyProfileTrunkGroup extends ComplexType implements Comp
      */
     public function getLanguage()
     {
-        return $this->language->getValue();
+        return ($this->language) ? $this->language->getValue() : null;
     }
 
     /**
@@ -274,7 +264,6 @@ class ServiceInstanceModifyProfileTrunkGroup extends ComplexType implements Comp
      */
     public function setTimeZone($timeZone = null)
     {
-        if (!$timeZone) return $this;
         $this->timeZone = new SimpleContent($timeZone);
         $this->timeZone->setName('timeZone');
         return $this;
@@ -286,7 +275,7 @@ class ServiceInstanceModifyProfileTrunkGroup extends ComplexType implements Comp
      */
     public function getTimeZone()
     {
-        return $this->timeZone->getValue();
+        return ($this->timeZone) ? $this->timeZone->getValue() : null;
     }
 
     /**
@@ -294,7 +283,6 @@ class ServiceInstanceModifyProfileTrunkGroup extends ComplexType implements Comp
      */
     public function setSipAliasList($sipAliasList = null)
     {
-        if (!$sipAliasList) return $this;
         $this->sipAliasList = new SimpleContent($sipAliasList);
         $this->sipAliasList->setName('sipAliasList');
         return $this;
@@ -306,6 +294,6 @@ class ServiceInstanceModifyProfileTrunkGroup extends ComplexType implements Comp
      */
     public function getSipAliasList()
     {
-        return $this->sipAliasList->getValue();
+        return ($this->sipAliasList) ? $this->sipAliasList->getValue() : null;
     }
 }

@@ -24,17 +24,17 @@ use Broadworks_OCIP\core\Client\Client;
 class GroupDeviceTypeFileGetRequest14sp8 extends ComplexType implements ComplexInterface
 {
     public    $responseType      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\GroupDeviceTypeFileGetResponse14sp8';
-    public    $name              = 'GroupDeviceTypeFileGetRequest14sp8';
-    protected $serviceProviderId = null;
-    protected $groupId           = null;
-    protected $deviceType        = null;
-    protected $fileFormat        = null;
+    public    $name = 'GroupDeviceTypeFileGetRequest14sp8';
+    protected $serviceProviderId;
+    protected $groupId;
+    protected $deviceType;
+    protected $fileFormat;
 
     public function __construct(
-         $serviceProviderId,
-         $groupId,
-         $deviceType,
-         $fileFormat
+         $serviceProviderId = '',
+         $groupId = '',
+         $deviceType = '',
+         $fileFormat = ''
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setGroupId($groupId);
@@ -55,7 +55,6 @@ class GroupDeviceTypeFileGetRequest14sp8 extends ComplexType implements ComplexI
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
-        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
@@ -69,7 +68,7 @@ class GroupDeviceTypeFileGetRequest14sp8 extends ComplexType implements ComplexI
      */
     public function getServiceProviderId()
     {
-        return $this->serviceProviderId->getValue();
+        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
     }
 
     /**
@@ -77,7 +76,6 @@ class GroupDeviceTypeFileGetRequest14sp8 extends ComplexType implements ComplexI
      */
     public function setGroupId($groupId = null)
     {
-        if (!$groupId) return $this;
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
@@ -91,7 +89,7 @@ class GroupDeviceTypeFileGetRequest14sp8 extends ComplexType implements ComplexI
      */
     public function getGroupId()
     {
-        return $this->groupId->getValue();
+        return ($this->groupId) ? $this->groupId->getValue() : null;
     }
 
     /**
@@ -99,7 +97,6 @@ class GroupDeviceTypeFileGetRequest14sp8 extends ComplexType implements ComplexI
      */
     public function setDeviceType($deviceType = null)
     {
-        if (!$deviceType) return $this;
         $this->deviceType = ($deviceType InstanceOf AccessDeviceType)
              ? $deviceType
              : new AccessDeviceType($deviceType);
@@ -113,7 +110,7 @@ class GroupDeviceTypeFileGetRequest14sp8 extends ComplexType implements ComplexI
      */
     public function getDeviceType()
     {
-        return $this->deviceType->getValue();
+        return ($this->deviceType) ? $this->deviceType->getValue() : null;
     }
 
     /**
@@ -121,7 +118,6 @@ class GroupDeviceTypeFileGetRequest14sp8 extends ComplexType implements ComplexI
      */
     public function setFileFormat($fileFormat = null)
     {
-        if (!$fileFormat) return $this;
         $this->fileFormat = ($fileFormat InstanceOf DeviceManagementFileFormat)
              ? $fileFormat
              : new DeviceManagementFileFormat($fileFormat);
@@ -135,6 +131,6 @@ class GroupDeviceTypeFileGetRequest14sp8 extends ComplexType implements ComplexI
      */
     public function getFileFormat()
     {
-        return $this->fileFormat->getValue();
+        return ($this->fileFormat) ? $this->fileFormat->getValue() : null;
     }
 }

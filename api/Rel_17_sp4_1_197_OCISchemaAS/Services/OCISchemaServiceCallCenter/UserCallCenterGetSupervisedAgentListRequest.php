@@ -35,19 +35,19 @@ use Broadworks_OCIP\core\Client\Client;
 class UserCallCenterGetSupervisedAgentListRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType                = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\UserCallCenterGetSupervisedAgentListResponse';
-    public    $name                        = 'UserCallCenterGetSupervisedAgentListRequest';
-    protected $supervisorUserId            = null;
-    protected $serviceUserId               = null;
-    protected $responseSizeLimit           = null;
-    protected $searchCriteriaModeOr        = null;
-    protected $searchCriteriaUserLastName  = null;
-    protected $searchCriteriaUserFirstName = null;
-    protected $searchCriteriaDn            = null;
-    protected $searchCriteriaExtension     = null;
+    public    $name = 'UserCallCenterGetSupervisedAgentListRequest';
+    protected $supervisorUserId;
+    protected $serviceUserId;
+    protected $responseSizeLimit;
+    protected $searchCriteriaModeOr;
+    protected $searchCriteriaUserLastName;
+    protected $searchCriteriaUserFirstName;
+    protected $searchCriteriaDn;
+    protected $searchCriteriaExtension;
 
     public function __construct(
-         $supervisorUserId,
-         $serviceUserId,
+         $supervisorUserId = '',
+         $serviceUserId = '',
          $responseSizeLimit = null,
          $searchCriteriaModeOr = null,
          SearchCriteriaUserLastName $searchCriteriaUserLastName = null,
@@ -78,7 +78,6 @@ class UserCallCenterGetSupervisedAgentListRequest extends ComplexType implements
      */
     public function setSupervisorUserId($supervisorUserId = null)
     {
-        if (!$supervisorUserId) return $this;
         $this->supervisorUserId = ($supervisorUserId InstanceOf UserId)
              ? $supervisorUserId
              : new UserId($supervisorUserId);
@@ -92,7 +91,7 @@ class UserCallCenterGetSupervisedAgentListRequest extends ComplexType implements
      */
     public function getSupervisorUserId()
     {
-        return $this->supervisorUserId->getValue();
+        return ($this->supervisorUserId) ? $this->supervisorUserId->getValue() : null;
     }
 
     /**
@@ -100,7 +99,6 @@ class UserCallCenterGetSupervisedAgentListRequest extends ComplexType implements
      */
     public function setServiceUserId($serviceUserId = null)
     {
-        if (!$serviceUserId) return $this;
         $this->serviceUserId = ($serviceUserId InstanceOf UserId)
              ? $serviceUserId
              : new UserId($serviceUserId);
@@ -114,7 +112,7 @@ class UserCallCenterGetSupervisedAgentListRequest extends ComplexType implements
      */
     public function getServiceUserId()
     {
-        return $this->serviceUserId->getValue();
+        return ($this->serviceUserId) ? $this->serviceUserId->getValue() : null;
     }
 
     /**
@@ -122,7 +120,6 @@ class UserCallCenterGetSupervisedAgentListRequest extends ComplexType implements
      */
     public function setResponseSizeLimit($responseSizeLimit = null)
     {
-        if (!$responseSizeLimit) return $this;
         $this->responseSizeLimit = ($responseSizeLimit InstanceOf ResponseSizeLimit)
              ? $responseSizeLimit
              : new ResponseSizeLimit($responseSizeLimit);
@@ -136,7 +133,7 @@ class UserCallCenterGetSupervisedAgentListRequest extends ComplexType implements
      */
     public function getResponseSizeLimit()
     {
-        return $this->responseSizeLimit->getValue();
+        return ($this->responseSizeLimit) ? $this->responseSizeLimit->getValue() : null;
     }
 
     /**
@@ -144,7 +141,6 @@ class UserCallCenterGetSupervisedAgentListRequest extends ComplexType implements
      */
     public function setSearchCriteriaModeOr($searchCriteriaModeOr = null)
     {
-        if (!$searchCriteriaModeOr) return $this;
         $this->searchCriteriaModeOr = new PrimitiveType($searchCriteriaModeOr);
         $this->searchCriteriaModeOr->setName('searchCriteriaModeOr');
         return $this;
@@ -156,7 +152,7 @@ class UserCallCenterGetSupervisedAgentListRequest extends ComplexType implements
      */
     public function getSearchCriteriaModeOr()
     {
-        return $this->searchCriteriaModeOr->getValue();
+        return ($this->searchCriteriaModeOr) ? $this->searchCriteriaModeOr->getValue() : null;
     }
 
     /**
@@ -164,7 +160,6 @@ class UserCallCenterGetSupervisedAgentListRequest extends ComplexType implements
      */
     public function setSearchCriteriaUserLastName(SearchCriteriaUserLastName $searchCriteriaUserLastName = null)
     {
-        if (!$searchCriteriaUserLastName) return $this;
         $this->searchCriteriaUserLastName = ($searchCriteriaUserLastName InstanceOf SearchCriteriaUserLastName)
              ? $searchCriteriaUserLastName
              : new SearchCriteriaUserLastName($searchCriteriaUserLastName);
@@ -186,7 +181,6 @@ class UserCallCenterGetSupervisedAgentListRequest extends ComplexType implements
      */
     public function setSearchCriteriaUserFirstName(SearchCriteriaUserFirstName $searchCriteriaUserFirstName = null)
     {
-        if (!$searchCriteriaUserFirstName) return $this;
         $this->searchCriteriaUserFirstName = ($searchCriteriaUserFirstName InstanceOf SearchCriteriaUserFirstName)
              ? $searchCriteriaUserFirstName
              : new SearchCriteriaUserFirstName($searchCriteriaUserFirstName);
@@ -208,7 +202,6 @@ class UserCallCenterGetSupervisedAgentListRequest extends ComplexType implements
      */
     public function setSearchCriteriaDn(SearchCriteriaDn $searchCriteriaDn = null)
     {
-        if (!$searchCriteriaDn) return $this;
         $this->searchCriteriaDn = ($searchCriteriaDn InstanceOf SearchCriteriaDn)
              ? $searchCriteriaDn
              : new SearchCriteriaDn($searchCriteriaDn);
@@ -230,7 +223,6 @@ class UserCallCenterGetSupervisedAgentListRequest extends ComplexType implements
      */
     public function setSearchCriteriaExtension(SearchCriteriaExtension $searchCriteriaExtension = null)
     {
-        if (!$searchCriteriaExtension) return $this;
         $this->searchCriteriaExtension = ($searchCriteriaExtension InstanceOf SearchCriteriaExtension)
              ? $searchCriteriaExtension
              : new SearchCriteriaExtension($searchCriteriaExtension);

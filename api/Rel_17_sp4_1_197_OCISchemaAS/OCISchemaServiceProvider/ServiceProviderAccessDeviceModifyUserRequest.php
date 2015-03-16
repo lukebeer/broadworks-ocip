@@ -23,16 +23,16 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderAccessDeviceModifyUserRequest extends ComplexType implements ComplexInterface
 {
-    public    $name              = 'ServiceProviderAccessDeviceModifyUserRequest';
-    protected $serviceProviderId = null;
-    protected $deviceName        = null;
-    protected $linePort          = null;
-    protected $isPrimaryLinePort = null;
+    public    $name = 'ServiceProviderAccessDeviceModifyUserRequest';
+    protected $serviceProviderId;
+    protected $deviceName;
+    protected $linePort;
+    protected $isPrimaryLinePort;
 
     public function __construct(
-         $serviceProviderId,
-         $deviceName,
-         $linePort,
+         $serviceProviderId = '',
+         $deviceName = '',
+         $linePort = '',
          $isPrimaryLinePort = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
@@ -54,7 +54,6 @@ class ServiceProviderAccessDeviceModifyUserRequest extends ComplexType implement
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
-        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
@@ -68,7 +67,7 @@ class ServiceProviderAccessDeviceModifyUserRequest extends ComplexType implement
      */
     public function getServiceProviderId()
     {
-        return $this->serviceProviderId->getValue();
+        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
     }
 
     /**
@@ -76,7 +75,6 @@ class ServiceProviderAccessDeviceModifyUserRequest extends ComplexType implement
      */
     public function setDeviceName($deviceName = null)
     {
-        if (!$deviceName) return $this;
         $this->deviceName = ($deviceName InstanceOf AccessDeviceName)
              ? $deviceName
              : new AccessDeviceName($deviceName);
@@ -90,7 +88,7 @@ class ServiceProviderAccessDeviceModifyUserRequest extends ComplexType implement
      */
     public function getDeviceName()
     {
-        return $this->deviceName->getValue();
+        return ($this->deviceName) ? $this->deviceName->getValue() : null;
     }
 
     /**
@@ -98,7 +96,6 @@ class ServiceProviderAccessDeviceModifyUserRequest extends ComplexType implement
      */
     public function setLinePort($linePort = null)
     {
-        if (!$linePort) return $this;
         $this->linePort = ($linePort InstanceOf AccessDeviceEndpointLinePort)
              ? $linePort
              : new AccessDeviceEndpointLinePort($linePort);
@@ -112,7 +109,7 @@ class ServiceProviderAccessDeviceModifyUserRequest extends ComplexType implement
      */
     public function getLinePort()
     {
-        return $this->linePort->getValue();
+        return ($this->linePort) ? $this->linePort->getValue() : null;
     }
 
     /**
@@ -120,7 +117,6 @@ class ServiceProviderAccessDeviceModifyUserRequest extends ComplexType implement
      */
     public function setIsPrimaryLinePort($isPrimaryLinePort = null)
     {
-        if (!$isPrimaryLinePort) return $this;
         $this->isPrimaryLinePort = new PrimitiveType($isPrimaryLinePort);
         $this->isPrimaryLinePort->setName('isPrimaryLinePort');
         return $this;
@@ -132,6 +128,6 @@ class ServiceProviderAccessDeviceModifyUserRequest extends ComplexType implement
      */
     public function getIsPrimaryLinePort()
     {
-        return $this->isPrimaryLinePort->getValue();
+        return ($this->isPrimaryLinePort) ? $this->isPrimaryLinePort->getValue() : null;
     }
 }

@@ -24,14 +24,14 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserSimultaneousRingPersonalModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                   = 'UserSimultaneousRingPersonalModifyRequest';
-    protected $userId                 = null;
-    protected $isActive               = null;
-    protected $incomingCalls          = null;
-    protected $simRingPhoneNumberList = null;
+    public    $name = 'UserSimultaneousRingPersonalModifyRequest';
+    protected $userId;
+    protected $isActive;
+    protected $incomingCalls;
+    protected $simRingPhoneNumberList;
 
     public function __construct(
-         $userId,
+         $userId = '',
          $isActive = null,
          $incomingCalls = null,
          ReplacementOutgoingDNorSIPURIList $simRingPhoneNumberList = null
@@ -55,7 +55,6 @@ class UserSimultaneousRingPersonalModifyRequest extends ComplexType implements C
      */
     public function setUserId($userId = null)
     {
-        if (!$userId) return $this;
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
@@ -69,7 +68,7 @@ class UserSimultaneousRingPersonalModifyRequest extends ComplexType implements C
      */
     public function getUserId()
     {
-        return $this->userId->getValue();
+        return ($this->userId) ? $this->userId->getValue() : null;
     }
 
     /**
@@ -77,7 +76,6 @@ class UserSimultaneousRingPersonalModifyRequest extends ComplexType implements C
      */
     public function setIsActive($isActive = null)
     {
-        if (!$isActive) return $this;
         $this->isActive = new PrimitiveType($isActive);
         $this->isActive->setName('isActive');
         return $this;
@@ -89,7 +87,7 @@ class UserSimultaneousRingPersonalModifyRequest extends ComplexType implements C
      */
     public function getIsActive()
     {
-        return $this->isActive->getValue();
+        return ($this->isActive) ? $this->isActive->getValue() : null;
     }
 
     /**
@@ -97,7 +95,6 @@ class UserSimultaneousRingPersonalModifyRequest extends ComplexType implements C
      */
     public function setIncomingCalls($incomingCalls = null)
     {
-        if (!$incomingCalls) return $this;
         $this->incomingCalls = ($incomingCalls InstanceOf SimultaneousRingSelection)
              ? $incomingCalls
              : new SimultaneousRingSelection($incomingCalls);
@@ -111,7 +108,7 @@ class UserSimultaneousRingPersonalModifyRequest extends ComplexType implements C
      */
     public function getIncomingCalls()
     {
-        return $this->incomingCalls->getValue();
+        return ($this->incomingCalls) ? $this->incomingCalls->getValue() : null;
     }
 
     /**
@@ -119,8 +116,9 @@ class UserSimultaneousRingPersonalModifyRequest extends ComplexType implements C
      */
     public function setSimRingPhoneNumberList(ReplacementOutgoingDNorSIPURIList $simRingPhoneNumberList = null)
     {
-        if (!$simRingPhoneNumberList) return $this;
-        $this->simRingPhoneNumberList = $simRingPhoneNumberList;
+        $this->simRingPhoneNumberList = ($simRingPhoneNumberList InstanceOf ReplacementOutgoingDNorSIPURIList)
+             ? $simRingPhoneNumberList
+             : new ReplacementOutgoingDNorSIPURIList($simRingPhoneNumberList);
         $this->simRingPhoneNumberList->setName('simRingPhoneNumberList');
         return $this;
     }

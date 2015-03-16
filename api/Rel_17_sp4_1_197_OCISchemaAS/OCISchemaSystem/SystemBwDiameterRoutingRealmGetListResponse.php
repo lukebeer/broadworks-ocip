@@ -19,8 +19,8 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemBwDiameterRoutingRealmGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name              = 'SystemBwDiameterRoutingRealmGetListResponse';
-    protected $routingRealmTable = null;
+    public    $name = 'SystemBwDiameterRoutingRealmGetListResponse';
+    protected $routingRealmTable;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemBwDiameterRoutingRealmGetListResponse $response
@@ -35,7 +35,6 @@ class SystemBwDiameterRoutingRealmGetListResponse extends ComplexType implements
      */
     public function setRoutingRealmTable(TableType $routingRealmTable = null)
     {
-        if (!$routingRealmTable) return $this;
         $this->routingRealmTable = $routingRealmTable;
         $this->routingRealmTable->setName('routingRealmTable');
         return $this;

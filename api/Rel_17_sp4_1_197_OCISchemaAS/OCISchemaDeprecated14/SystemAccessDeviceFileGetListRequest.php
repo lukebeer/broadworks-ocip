@@ -22,11 +22,11 @@ use Broadworks_OCIP\core\Client\Client;
 class SystemAccessDeviceFileGetListRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\SystemAccessDeviceFileGetListResponse';
-    public    $name       = 'SystemAccessDeviceFileGetListRequest';
-    protected $deviceName = null;
+    public    $name = 'SystemAccessDeviceFileGetListRequest';
+    protected $deviceName;
 
     public function __construct(
-         $deviceName
+         $deviceName = ''
     ) {
         $this->setDeviceName($deviceName);
     }
@@ -44,7 +44,6 @@ class SystemAccessDeviceFileGetListRequest extends ComplexType implements Comple
      */
     public function setDeviceName($deviceName = null)
     {
-        if (!$deviceName) return $this;
         $this->deviceName = ($deviceName InstanceOf AccessDeviceName)
              ? $deviceName
              : new AccessDeviceName($deviceName);
@@ -58,6 +57,6 @@ class SystemAccessDeviceFileGetListRequest extends ComplexType implements Comple
      */
     public function getDeviceName()
     {
-        return $this->deviceName->getValue();
+        return ($this->deviceName) ? $this->deviceName->getValue() : null;
     }
 }

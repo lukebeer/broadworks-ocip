@@ -20,11 +20,11 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemVirtualOnNetCallTypeDeleteRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                     = 'SystemVirtualOnNetCallTypeDeleteRequest';
-    protected $virtualOnNetCallTypeName = null;
+    public    $name = 'SystemVirtualOnNetCallTypeDeleteRequest';
+    protected $virtualOnNetCallTypeName;
 
     public function __construct(
-         $virtualOnNetCallTypeName
+         $virtualOnNetCallTypeName = ''
     ) {
         $this->setVirtualOnNetCallTypeName($virtualOnNetCallTypeName);
     }
@@ -42,7 +42,6 @@ class SystemVirtualOnNetCallTypeDeleteRequest extends ComplexType implements Com
      */
     public function setVirtualOnNetCallTypeName($virtualOnNetCallTypeName = null)
     {
-        if (!$virtualOnNetCallTypeName) return $this;
         $this->virtualOnNetCallTypeName = ($virtualOnNetCallTypeName InstanceOf VirtualOnNetCallTypeName)
              ? $virtualOnNetCallTypeName
              : new VirtualOnNetCallTypeName($virtualOnNetCallTypeName);
@@ -56,6 +55,6 @@ class SystemVirtualOnNetCallTypeDeleteRequest extends ComplexType implements Com
      */
     public function getVirtualOnNetCallTypeName()
     {
-        return $this->virtualOnNetCallTypeName->getValue();
+        return ($this->virtualOnNetCallTypeName) ? $this->virtualOnNetCallTypeName->getValue() : null;
     }
 }

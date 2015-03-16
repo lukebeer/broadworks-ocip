@@ -22,8 +22,8 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserInstantConferencingGetBridgeDelegatesListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name      = 'UserInstantConferencingGetBridgeDelegatesListResponse';
-    protected $userTable = null;
+    public    $name = 'UserInstantConferencingGetBridgeDelegatesListResponse';
+    protected $userTable;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing\UserInstantConferencingGetBridgeDelegatesListResponse $response
@@ -38,7 +38,6 @@ class UserInstantConferencingGetBridgeDelegatesListResponse extends ComplexType 
      */
     public function setUserTable(TableType $userTable = null)
     {
-        if (!$userTable) return $this;
         $this->userTable = $userTable;
         $this->userTable->setName('userTable');
         return $this;

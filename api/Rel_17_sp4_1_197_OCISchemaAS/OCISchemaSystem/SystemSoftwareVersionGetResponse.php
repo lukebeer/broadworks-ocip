@@ -19,8 +19,8 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemSoftwareVersionGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name    = 'SystemSoftwareVersionGetResponse';
-    protected $version = null;
+    public    $name = 'SystemSoftwareVersionGetResponse';
+    protected $version;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemSoftwareVersionGetResponse $response
@@ -35,7 +35,6 @@ class SystemSoftwareVersionGetResponse extends ComplexType implements ComplexInt
      */
     public function setVersion($version = null)
     {
-        if (!$version) return $this;
         $this->version = new PrimitiveType($version);
         $this->version->setName('version');
         return $this;
@@ -47,6 +46,6 @@ class SystemSoftwareVersionGetResponse extends ComplexType implements ComplexInt
      */
     public function getVersion()
     {
-        return $this->version->getValue();
+        return ($this->version) ? $this->version->getValue() : null;
     }
 }

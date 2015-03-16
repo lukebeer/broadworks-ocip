@@ -19,13 +19,13 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class FileRepositoryProtocolWebDAV extends ComplexType implements ComplexInterface
 {
-    public    $name       = 'FileRepositoryProtocolWebDAV';
-    protected $secure     = null;
-    protected $netAddress = null;
+    public    $name = 'FileRepositoryProtocolWebDAV';
+    protected $secure;
+    protected $netAddress;
 
     public function __construct(
-         $secure,
-         $netAddress
+         $secure = '',
+         $netAddress = ''
     ) {
         $this->setSecure($secure);
         $this->setNetAddress($netAddress);
@@ -44,7 +44,6 @@ class FileRepositoryProtocolWebDAV extends ComplexType implements ComplexInterfa
      */
     public function setSecure($secure = null)
     {
-        if (!$secure) return $this;
         $this->secure = new SimpleContent($secure);
         $this->secure->setName('secure');
         return $this;
@@ -56,7 +55,7 @@ class FileRepositoryProtocolWebDAV extends ComplexType implements ComplexInterfa
      */
     public function getSecure()
     {
-        return $this->secure->getValue();
+        return ($this->secure) ? $this->secure->getValue() : null;
     }
 
     /**
@@ -64,7 +63,6 @@ class FileRepositoryProtocolWebDAV extends ComplexType implements ComplexInterfa
      */
     public function setNetAddress($netAddress = null)
     {
-        if (!$netAddress) return $this;
         $this->netAddress = new SimpleContent($netAddress);
         $this->netAddress->setName('netAddress');
         return $this;
@@ -76,6 +74,6 @@ class FileRepositoryProtocolWebDAV extends ComplexType implements ComplexInterfa
      */
     public function getNetAddress()
     {
-        return $this->netAddress->getValue();
+        return ($this->netAddress) ? $this->netAddress->getValue() : null;
     }
 }

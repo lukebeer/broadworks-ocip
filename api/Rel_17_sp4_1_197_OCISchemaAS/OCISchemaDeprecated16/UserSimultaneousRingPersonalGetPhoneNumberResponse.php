@@ -19,8 +19,8 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserSimultaneousRingPersonalGetPhoneNumberResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                       = 'UserSimultaneousRingPersonalGetPhoneNumberResponse';
-    protected $answerConfirmationRequired = null;
+    public    $name = 'UserSimultaneousRingPersonalGetPhoneNumberResponse';
+    protected $answerConfirmationRequired;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\UserSimultaneousRingPersonalGetPhoneNumberResponse $response
@@ -35,7 +35,6 @@ class UserSimultaneousRingPersonalGetPhoneNumberResponse extends ComplexType imp
      */
     public function setAnswerConfirmationRequired($answerConfirmationRequired = null)
     {
-        if (!$answerConfirmationRequired) return $this;
         $this->answerConfirmationRequired = new PrimitiveType($answerConfirmationRequired);
         $this->answerConfirmationRequired->setName('answerConfirmationRequired');
         return $this;
@@ -47,6 +46,6 @@ class UserSimultaneousRingPersonalGetPhoneNumberResponse extends ComplexType imp
      */
     public function getAnswerConfirmationRequired()
     {
-        return $this->answerConfirmationRequired->getValue();
+        return ($this->answerConfirmationRequired) ? $this->answerConfirmationRequired->getValue() : null;
     }
 }

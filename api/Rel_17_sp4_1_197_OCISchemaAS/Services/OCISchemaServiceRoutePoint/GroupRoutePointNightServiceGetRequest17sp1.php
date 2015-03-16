@@ -21,11 +21,11 @@ use Broadworks_OCIP\core\Client\Client;
 class GroupRoutePointNightServiceGetRequest17sp1 extends ComplexType implements ComplexInterface
 {
     public    $responseType  = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceRoutePoint\GroupRoutePointNightServiceGetResponse17sp1';
-    public    $name          = 'GroupRoutePointNightServiceGetRequest17sp1';
-    protected $serviceUserId = null;
+    public    $name = 'GroupRoutePointNightServiceGetRequest17sp1';
+    protected $serviceUserId;
 
     public function __construct(
-         $serviceUserId
+         $serviceUserId = ''
     ) {
         $this->setServiceUserId($serviceUserId);
     }
@@ -43,7 +43,6 @@ class GroupRoutePointNightServiceGetRequest17sp1 extends ComplexType implements 
      */
     public function setServiceUserId($serviceUserId = null)
     {
-        if (!$serviceUserId) return $this;
         $this->serviceUserId = ($serviceUserId InstanceOf UserId)
              ? $serviceUserId
              : new UserId($serviceUserId);
@@ -57,6 +56,6 @@ class GroupRoutePointNightServiceGetRequest17sp1 extends ComplexType implements 
      */
     public function getServiceUserId()
     {
-        return $this->serviceUserId->getValue();
+        return ($this->serviceUserId) ? $this->serviceUserId->getValue() : null;
     }
 }

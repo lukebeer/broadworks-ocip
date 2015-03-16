@@ -22,13 +22,13 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderServicePackMigrationTaskDeleteRequest extends ComplexType implements ComplexInterface
 {
-    public    $name              = 'ServiceProviderServicePackMigrationTaskDeleteRequest';
-    protected $serviceProviderId = null;
-    protected $taskName          = null;
+    public    $name = 'ServiceProviderServicePackMigrationTaskDeleteRequest';
+    protected $serviceProviderId;
+    protected $taskName;
 
     public function __construct(
-         $serviceProviderId,
-         $taskName
+         $serviceProviderId = '',
+         $taskName = ''
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setTaskName($taskName);
@@ -47,7 +47,6 @@ class ServiceProviderServicePackMigrationTaskDeleteRequest extends ComplexType i
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
-        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
@@ -61,7 +60,7 @@ class ServiceProviderServicePackMigrationTaskDeleteRequest extends ComplexType i
      */
     public function getServiceProviderId()
     {
-        return $this->serviceProviderId->getValue();
+        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
     }
 
     /**
@@ -69,7 +68,6 @@ class ServiceProviderServicePackMigrationTaskDeleteRequest extends ComplexType i
      */
     public function setTaskName($taskName = null)
     {
-        if (!$taskName) return $this;
         $this->taskName = ($taskName InstanceOf ServicePackMigrationTaskName)
              ? $taskName
              : new ServicePackMigrationTaskName($taskName);
@@ -83,6 +81,6 @@ class ServiceProviderServicePackMigrationTaskDeleteRequest extends ComplexType i
      */
     public function getTaskName()
     {
-        return $this->taskName->getValue();
+        return ($this->taskName) ? $this->taskName->getValue() : null;
     }
 }

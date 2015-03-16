@@ -22,13 +22,13 @@ use Broadworks_OCIP\core\Client\Client;
 class GroupVoiceMessagingGroupGetVoicePortalBrandingRequest16 extends ComplexType implements ComplexInterface
 {
     public    $responseType      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceVoiceMessaging\GroupVoiceMessagingGroupGetVoicePortalBrandingResponse16';
-    public    $name              = 'GroupVoiceMessagingGroupGetVoicePortalBrandingRequest16';
-    protected $serviceProviderId = null;
-    protected $groupId           = null;
+    public    $name = 'GroupVoiceMessagingGroupGetVoicePortalBrandingRequest16';
+    protected $serviceProviderId;
+    protected $groupId;
 
     public function __construct(
-         $serviceProviderId,
-         $groupId
+         $serviceProviderId = '',
+         $groupId = ''
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setGroupId($groupId);
@@ -47,7 +47,6 @@ class GroupVoiceMessagingGroupGetVoicePortalBrandingRequest16 extends ComplexTyp
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
-        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
@@ -61,7 +60,7 @@ class GroupVoiceMessagingGroupGetVoicePortalBrandingRequest16 extends ComplexTyp
      */
     public function getServiceProviderId()
     {
-        return $this->serviceProviderId->getValue();
+        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
     }
 
     /**
@@ -69,7 +68,6 @@ class GroupVoiceMessagingGroupGetVoicePortalBrandingRequest16 extends ComplexTyp
      */
     public function setGroupId($groupId = null)
     {
-        if (!$groupId) return $this;
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
@@ -83,6 +81,6 @@ class GroupVoiceMessagingGroupGetVoicePortalBrandingRequest16 extends ComplexTyp
      */
     public function getGroupId()
     {
-        return $this->groupId->getValue();
+        return ($this->groupId) ? $this->groupId->getValue() : null;
     }
 }

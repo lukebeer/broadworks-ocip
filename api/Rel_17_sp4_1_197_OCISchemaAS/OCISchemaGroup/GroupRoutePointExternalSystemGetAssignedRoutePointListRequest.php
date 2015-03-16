@@ -24,17 +24,17 @@ use Broadworks_OCIP\core\Client\Client;
 class GroupRoutePointExternalSystemGetAssignedRoutePointListRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType                 = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupRoutePointExternalSystemGetAssignedRoutePointListResponse';
-    public    $name                         = 'GroupRoutePointExternalSystemGetAssignedRoutePointListRequest';
-    protected $serviceProviderId            = null;
-    protected $groupId                      = null;
-    protected $externalSystem               = null;
-    protected $responseSizeLimit            = null;
-    protected $searchCriteriaRoutePointName = null;
+    public    $name = 'GroupRoutePointExternalSystemGetAssignedRoutePointListRequest';
+    protected $serviceProviderId;
+    protected $groupId;
+    protected $externalSystem;
+    protected $responseSizeLimit;
+    protected $searchCriteriaRoutePointName;
 
     public function __construct(
-         $serviceProviderId,
-         $groupId,
-         $externalSystem,
+         $serviceProviderId = '',
+         $groupId = '',
+         $externalSystem = '',
          $responseSizeLimit = null,
          SearchCriteriaRoutePointName $searchCriteriaRoutePointName = null
     ) {
@@ -58,7 +58,6 @@ class GroupRoutePointExternalSystemGetAssignedRoutePointListRequest extends Comp
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
-        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
@@ -72,7 +71,7 @@ class GroupRoutePointExternalSystemGetAssignedRoutePointListRequest extends Comp
      */
     public function getServiceProviderId()
     {
-        return $this->serviceProviderId->getValue();
+        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
     }
 
     /**
@@ -80,7 +79,6 @@ class GroupRoutePointExternalSystemGetAssignedRoutePointListRequest extends Comp
      */
     public function setGroupId($groupId = null)
     {
-        if (!$groupId) return $this;
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
@@ -94,7 +92,7 @@ class GroupRoutePointExternalSystemGetAssignedRoutePointListRequest extends Comp
      */
     public function getGroupId()
     {
-        return $this->groupId->getValue();
+        return ($this->groupId) ? $this->groupId->getValue() : null;
     }
 
     /**
@@ -102,7 +100,6 @@ class GroupRoutePointExternalSystemGetAssignedRoutePointListRequest extends Comp
      */
     public function setExternalSystem($externalSystem = null)
     {
-        if (!$externalSystem) return $this;
         $this->externalSystem = ($externalSystem InstanceOf RoutePointExternalSystem)
              ? $externalSystem
              : new RoutePointExternalSystem($externalSystem);
@@ -116,7 +113,7 @@ class GroupRoutePointExternalSystemGetAssignedRoutePointListRequest extends Comp
      */
     public function getExternalSystem()
     {
-        return $this->externalSystem->getValue();
+        return ($this->externalSystem) ? $this->externalSystem->getValue() : null;
     }
 
     /**
@@ -124,7 +121,6 @@ class GroupRoutePointExternalSystemGetAssignedRoutePointListRequest extends Comp
      */
     public function setResponseSizeLimit($responseSizeLimit = null)
     {
-        if (!$responseSizeLimit) return $this;
         $this->responseSizeLimit = ($responseSizeLimit InstanceOf ResponseSizeLimit)
              ? $responseSizeLimit
              : new ResponseSizeLimit($responseSizeLimit);
@@ -138,7 +134,7 @@ class GroupRoutePointExternalSystemGetAssignedRoutePointListRequest extends Comp
      */
     public function getResponseSizeLimit()
     {
-        return $this->responseSizeLimit->getValue();
+        return ($this->responseSizeLimit) ? $this->responseSizeLimit->getValue() : null;
     }
 
     /**
@@ -146,7 +142,6 @@ class GroupRoutePointExternalSystemGetAssignedRoutePointListRequest extends Comp
      */
     public function setSearchCriteriaRoutePointName(SearchCriteriaRoutePointName $searchCriteriaRoutePointName = null)
     {
-        if (!$searchCriteriaRoutePointName) return $this;
         $this->searchCriteriaRoutePointName = ($searchCriteriaRoutePointName InstanceOf SearchCriteriaRoutePointName)
              ? $searchCriteriaRoutePointName
              : new SearchCriteriaRoutePointName($searchCriteriaRoutePointName);

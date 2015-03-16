@@ -22,15 +22,15 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class EnterpriseCallCenterCallDispositionCodeModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name              = 'EnterpriseCallCenterCallDispositionCodeModifyRequest';
-    protected $serviceProviderId = null;
-    protected $code              = null;
-    protected $isActive          = null;
-    protected $description       = null;
+    public    $name = 'EnterpriseCallCenterCallDispositionCodeModifyRequest';
+    protected $serviceProviderId;
+    protected $code;
+    protected $isActive;
+    protected $description;
 
     public function __construct(
-         $serviceProviderId,
-         $code,
+         $serviceProviderId = '',
+         $code = '',
          $isActive = null,
          $description = null
     ) {
@@ -53,7 +53,6 @@ class EnterpriseCallCenterCallDispositionCodeModifyRequest extends ComplexType i
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
-        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
@@ -67,7 +66,7 @@ class EnterpriseCallCenterCallDispositionCodeModifyRequest extends ComplexType i
      */
     public function getServiceProviderId()
     {
-        return $this->serviceProviderId->getValue();
+        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
     }
 
     /**
@@ -75,7 +74,6 @@ class EnterpriseCallCenterCallDispositionCodeModifyRequest extends ComplexType i
      */
     public function setCode($code = null)
     {
-        if (!$code) return $this;
         $this->code = ($code InstanceOf CallDispositionCode)
              ? $code
              : new CallDispositionCode($code);
@@ -89,7 +87,7 @@ class EnterpriseCallCenterCallDispositionCodeModifyRequest extends ComplexType i
      */
     public function getCode()
     {
-        return $this->code->getValue();
+        return ($this->code) ? $this->code->getValue() : null;
     }
 
     /**
@@ -97,7 +95,6 @@ class EnterpriseCallCenterCallDispositionCodeModifyRequest extends ComplexType i
      */
     public function setIsActive($isActive = null)
     {
-        if (!$isActive) return $this;
         $this->isActive = new PrimitiveType($isActive);
         $this->isActive->setName('isActive');
         return $this;
@@ -109,7 +106,7 @@ class EnterpriseCallCenterCallDispositionCodeModifyRequest extends ComplexType i
      */
     public function getIsActive()
     {
-        return $this->isActive->getValue();
+        return ($this->isActive) ? $this->isActive->getValue() : null;
     }
 
     /**
@@ -117,7 +114,6 @@ class EnterpriseCallCenterCallDispositionCodeModifyRequest extends ComplexType i
      */
     public function setDescription($description = null)
     {
-        if (!$description) return $this;
         $this->description = ($description InstanceOf CallDispositionCodeDescription)
              ? $description
              : new CallDispositionCodeDescription($description);
@@ -131,6 +127,6 @@ class EnterpriseCallCenterCallDispositionCodeModifyRequest extends ComplexType i
      */
     public function getDescription()
     {
-        return $this->description->getValue();
+        return ($this->description) ? $this->description->getValue() : null;
     }
 }

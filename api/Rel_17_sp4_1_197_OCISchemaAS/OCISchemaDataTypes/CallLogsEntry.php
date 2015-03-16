@@ -19,19 +19,19 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class CallLogsEntry extends ComplexType implements ComplexInterface
 {
-    public    $name        = 'CallLogsEntry';
-    protected $countryCode = null;
-    protected $callLogId   = null;
-    protected $phoneNumber = null;
-    protected $name        = null;
-    protected $time        = null;
+    public    $name = 'CallLogsEntry';
+    protected $countryCode;
+    protected $callLogId;
+    protected $phoneNumber;
+    protected $name;
+    protected $time;
 
     public function __construct(
          $countryCode = null,
-         $callLogId,
-         $phoneNumber,
-         $name,
-         $time
+         $callLogId = '',
+         $phoneNumber = '',
+         $name = '',
+         $time = ''
     ) {
         $this->setCountryCode($countryCode);
         $this->setCallLogId($callLogId);
@@ -53,7 +53,6 @@ class CallLogsEntry extends ComplexType implements ComplexInterface
      */
     public function setCountryCode($countryCode = null)
     {
-        if (!$countryCode) return $this;
         $this->countryCode = new SimpleContent($countryCode);
         $this->countryCode->setName('countryCode');
         return $this;
@@ -65,7 +64,7 @@ class CallLogsEntry extends ComplexType implements ComplexInterface
      */
     public function getCountryCode()
     {
-        return $this->countryCode->getValue();
+        return ($this->countryCode) ? $this->countryCode->getValue() : null;
     }
 
     /**
@@ -73,7 +72,6 @@ class CallLogsEntry extends ComplexType implements ComplexInterface
      */
     public function setCallLogId($callLogId = null)
     {
-        if (!$callLogId) return $this;
         $this->callLogId = new SimpleContent($callLogId);
         $this->callLogId->setName('callLogId');
         return $this;
@@ -85,7 +83,7 @@ class CallLogsEntry extends ComplexType implements ComplexInterface
      */
     public function getCallLogId()
     {
-        return $this->callLogId->getValue();
+        return ($this->callLogId) ? $this->callLogId->getValue() : null;
     }
 
     /**
@@ -93,7 +91,6 @@ class CallLogsEntry extends ComplexType implements ComplexInterface
      */
     public function setPhoneNumber($phoneNumber = null)
     {
-        if (!$phoneNumber) return $this;
         $this->phoneNumber = new SimpleContent($phoneNumber);
         $this->phoneNumber->setName('phoneNumber');
         return $this;
@@ -105,7 +102,7 @@ class CallLogsEntry extends ComplexType implements ComplexInterface
      */
     public function getPhoneNumber()
     {
-        return $this->phoneNumber->getValue();
+        return ($this->phoneNumber) ? $this->phoneNumber->getValue() : null;
     }
 
     /**
@@ -113,7 +110,6 @@ class CallLogsEntry extends ComplexType implements ComplexInterface
      */
     public function setName($name = null)
     {
-        if (!$name) return $this;
         $this->name = new SimpleContent($name);
         $this->name->setName('name');
         return $this;
@@ -125,7 +121,7 @@ class CallLogsEntry extends ComplexType implements ComplexInterface
      */
     public function getName()
     {
-        return $this->name->getValue();
+        return ($this->name) ? $this->name->getValue() : null;
     }
 
     /**
@@ -133,7 +129,6 @@ class CallLogsEntry extends ComplexType implements ComplexInterface
      */
     public function setTime($time = null)
     {
-        if (!$time) return $this;
         $this->time = new SimpleContent($time);
         $this->time->setName('time');
         return $this;
@@ -145,6 +140,6 @@ class CallLogsEntry extends ComplexType implements ComplexInterface
      */
     public function getTime()
     {
-        return $this->time->getValue();
+        return ($this->time) ? $this->time->getValue() : null;
     }
 }

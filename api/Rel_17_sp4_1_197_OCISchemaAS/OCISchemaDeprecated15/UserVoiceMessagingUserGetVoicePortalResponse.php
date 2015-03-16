@@ -21,10 +21,10 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserVoiceMessagingUserGetVoicePortalResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                                 = 'UserVoiceMessagingUserGetVoicePortalResponse';
-    protected $usePersonalizedName                  = null;
-    protected $voicePortalAutoLogin                 = null;
-    protected $personalizedNameAudioFileDescription = null;
+    public    $name = 'UserVoiceMessagingUserGetVoicePortalResponse';
+    protected $usePersonalizedName;
+    protected $voicePortalAutoLogin;
+    protected $personalizedNameAudioFileDescription;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15\UserVoiceMessagingUserGetVoicePortalResponse $response
@@ -39,7 +39,6 @@ class UserVoiceMessagingUserGetVoicePortalResponse extends ComplexType implement
      */
     public function setUsePersonalizedName($usePersonalizedName = null)
     {
-        if (!$usePersonalizedName) return $this;
         $this->usePersonalizedName = new PrimitiveType($usePersonalizedName);
         $this->usePersonalizedName->setName('usePersonalizedName');
         return $this;
@@ -51,7 +50,7 @@ class UserVoiceMessagingUserGetVoicePortalResponse extends ComplexType implement
      */
     public function getUsePersonalizedName()
     {
-        return $this->usePersonalizedName->getValue();
+        return ($this->usePersonalizedName) ? $this->usePersonalizedName->getValue() : null;
     }
 
     /**
@@ -59,7 +58,6 @@ class UserVoiceMessagingUserGetVoicePortalResponse extends ComplexType implement
      */
     public function setVoicePortalAutoLogin($voicePortalAutoLogin = null)
     {
-        if (!$voicePortalAutoLogin) return $this;
         $this->voicePortalAutoLogin = new PrimitiveType($voicePortalAutoLogin);
         $this->voicePortalAutoLogin->setName('voicePortalAutoLogin');
         return $this;
@@ -71,7 +69,7 @@ class UserVoiceMessagingUserGetVoicePortalResponse extends ComplexType implement
      */
     public function getVoicePortalAutoLogin()
     {
-        return $this->voicePortalAutoLogin->getValue();
+        return ($this->voicePortalAutoLogin) ? $this->voicePortalAutoLogin->getValue() : null;
     }
 
     /**
@@ -79,7 +77,6 @@ class UserVoiceMessagingUserGetVoicePortalResponse extends ComplexType implement
      */
     public function setPersonalizedNameAudioFileDescription($personalizedNameAudioFileDescription = null)
     {
-        if (!$personalizedNameAudioFileDescription) return $this;
         $this->personalizedNameAudioFileDescription = ($personalizedNameAudioFileDescription InstanceOf FileDescription)
              ? $personalizedNameAudioFileDescription
              : new FileDescription($personalizedNameAudioFileDescription);
@@ -93,6 +90,6 @@ class UserVoiceMessagingUserGetVoicePortalResponse extends ComplexType implement
      */
     public function getPersonalizedNameAudioFileDescription()
     {
-        return $this->personalizedNameAudioFileDescription->getValue();
+        return ($this->personalizedNameAudioFileDescription) ? $this->personalizedNameAudioFileDescription->getValue() : null;
     }
 }

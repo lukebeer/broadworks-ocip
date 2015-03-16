@@ -19,12 +19,12 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class OutgoingCallingPlanOriginatingDepartmentPermissionsModify extends ComplexType implements ComplexInterface
 {
-    public    $name          = 'OutgoingCallingPlanOriginatingDepartmentPermissionsModify';
-    protected $departmentKey = null;
-    protected $permissions   = null;
+    public    $name = 'OutgoingCallingPlanOriginatingDepartmentPermissionsModify';
+    protected $departmentKey;
+    protected $permissions;
 
     public function __construct(
-         $departmentKey,
+         $departmentKey = '',
          $permissions = null
     ) {
         $this->setDepartmentKey($departmentKey);
@@ -44,7 +44,6 @@ class OutgoingCallingPlanOriginatingDepartmentPermissionsModify extends ComplexT
      */
     public function setDepartmentKey($departmentKey = null)
     {
-        if (!$departmentKey) return $this;
         $this->departmentKey = new SimpleContent($departmentKey);
         $this->departmentKey->setName('departmentKey');
         return $this;
@@ -56,7 +55,7 @@ class OutgoingCallingPlanOriginatingDepartmentPermissionsModify extends ComplexT
      */
     public function getDepartmentKey()
     {
-        return $this->departmentKey->getValue();
+        return ($this->departmentKey) ? $this->departmentKey->getValue() : null;
     }
 
     /**
@@ -64,7 +63,6 @@ class OutgoingCallingPlanOriginatingDepartmentPermissionsModify extends ComplexT
      */
     public function setPermissions($permissions = null)
     {
-        if (!$permissions) return $this;
         $this->permissions = new SimpleContent($permissions);
         $this->permissions->setName('permissions');
         return $this;
@@ -76,6 +74,6 @@ class OutgoingCallingPlanOriginatingDepartmentPermissionsModify extends ComplexT
      */
     public function getPermissions()
     {
-        return $this->permissions->getValue();
+        return ($this->permissions) ? $this->permissions->getValue() : null;
     }
 }

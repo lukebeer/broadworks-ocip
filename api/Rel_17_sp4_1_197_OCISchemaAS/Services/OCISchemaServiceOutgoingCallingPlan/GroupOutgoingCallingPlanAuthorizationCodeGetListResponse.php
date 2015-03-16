@@ -20,9 +20,9 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupOutgoingCallingPlanAuthorizationCodeGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name               = 'GroupOutgoingCallingPlanAuthorizationCodeGetListResponse';
-    protected $groupCodeList      = null;
-    protected $departmentCodeList = null;
+    public    $name = 'GroupOutgoingCallingPlanAuthorizationCodeGetListResponse';
+    protected $groupCodeList;
+    protected $departmentCodeList;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceOutgoingCallingPlan\GroupOutgoingCallingPlanAuthorizationCodeGetListResponse $response
@@ -37,8 +37,9 @@ class GroupOutgoingCallingPlanAuthorizationCodeGetListResponse extends ComplexTy
      */
     public function setGroupCodeList(OutgoingCallingPlanGroupAuthorizationCodes $groupCodeList = null)
     {
-        if (!$groupCodeList) return $this;
-        $this->groupCodeList = $groupCodeList;
+        $this->groupCodeList = ($groupCodeList InstanceOf OutgoingCallingPlanGroupAuthorizationCodes)
+             ? $groupCodeList
+             : new OutgoingCallingPlanGroupAuthorizationCodes($groupCodeList);
         $this->groupCodeList->setName('groupCodeList');
         return $this;
     }
@@ -57,8 +58,9 @@ class GroupOutgoingCallingPlanAuthorizationCodeGetListResponse extends ComplexTy
      */
     public function setDepartmentCodeList(OutgoingCallingPlanDepartmentAuthorizationCodes $departmentCodeList = null)
     {
-        if (!$departmentCodeList) return $this;
-        $this->departmentCodeList = $departmentCodeList;
+        $this->departmentCodeList = ($departmentCodeList InstanceOf OutgoingCallingPlanDepartmentAuthorizationCodes)
+             ? $departmentCodeList
+             : new OutgoingCallingPlanDepartmentAuthorizationCodes($departmentCodeList);
         $this->departmentCodeList->setName('departmentCodeList');
         return $this;
     }

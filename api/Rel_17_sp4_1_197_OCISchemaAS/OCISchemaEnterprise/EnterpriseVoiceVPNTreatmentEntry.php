@@ -19,12 +19,12 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class EnterpriseVoiceVPNTreatmentEntry extends ComplexType implements ComplexInterface
 {
-    public    $name        = 'EnterpriseVoiceVPNTreatmentEntry';
-    protected $id          = null;
-    protected $description = null;
+    public    $name = 'EnterpriseVoiceVPNTreatmentEntry';
+    protected $id;
+    protected $description;
 
     public function __construct(
-         $id,
+         $id = '',
          $description = null
     ) {
         $this->setId($id);
@@ -44,7 +44,6 @@ class EnterpriseVoiceVPNTreatmentEntry extends ComplexType implements ComplexInt
      */
     public function setId($id = null)
     {
-        if (!$id) return $this;
         $this->id = new SimpleContent($id);
         $this->id->setName('id');
         return $this;
@@ -56,7 +55,7 @@ class EnterpriseVoiceVPNTreatmentEntry extends ComplexType implements ComplexInt
      */
     public function getId()
     {
-        return $this->id->getValue();
+        return ($this->id) ? $this->id->getValue() : null;
     }
 
     /**
@@ -64,7 +63,6 @@ class EnterpriseVoiceVPNTreatmentEntry extends ComplexType implements ComplexInt
      */
     public function setDescription($description = null)
     {
-        if (!$description) return $this;
         $this->description = new SimpleContent($description);
         $this->description->setName('description');
         return $this;
@@ -76,6 +74,6 @@ class EnterpriseVoiceVPNTreatmentEntry extends ComplexType implements ComplexInt
      */
     public function getDescription()
     {
-        return $this->description->getValue();
+        return ($this->description) ? $this->description->getValue() : null;
     }
 }

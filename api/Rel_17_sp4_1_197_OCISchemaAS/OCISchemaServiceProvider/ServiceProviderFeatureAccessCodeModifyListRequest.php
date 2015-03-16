@@ -20,12 +20,12 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderFeatureAccessCodeModifyListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name              = 'ServiceProviderFeatureAccessCodeModifyListRequest';
-    protected $serviceProviderId = null;
-    protected $featureAccessCode = null;
+    public    $name = 'ServiceProviderFeatureAccessCodeModifyListRequest';
+    protected $serviceProviderId;
+    protected $featureAccessCode;
 
     public function __construct(
-         $serviceProviderId,
+         $serviceProviderId = '',
          FeatureAccessCodeEntry $featureAccessCode = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
@@ -45,7 +45,6 @@ class ServiceProviderFeatureAccessCodeModifyListRequest extends ComplexType impl
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
-        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
@@ -59,7 +58,7 @@ class ServiceProviderFeatureAccessCodeModifyListRequest extends ComplexType impl
      */
     public function getServiceProviderId()
     {
-        return $this->serviceProviderId->getValue();
+        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
     }
 
     /**
@@ -67,8 +66,9 @@ class ServiceProviderFeatureAccessCodeModifyListRequest extends ComplexType impl
      */
     public function setFeatureAccessCode(FeatureAccessCodeEntry $featureAccessCode = null)
     {
-        if (!$featureAccessCode) return $this;
-        $this->featureAccessCode = $featureAccessCode;
+        $this->featureAccessCode = ($featureAccessCode InstanceOf FeatureAccessCodeEntry)
+             ? $featureAccessCode
+             : new FeatureAccessCodeEntry($featureAccessCode);
         $this->featureAccessCode->setName('featureAccessCode');
         return $this;
     }

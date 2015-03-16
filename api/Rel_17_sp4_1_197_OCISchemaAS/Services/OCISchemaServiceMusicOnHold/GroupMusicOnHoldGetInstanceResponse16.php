@@ -21,15 +21,15 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupMusicOnHoldGetInstanceResponse16 extends ComplexType implements ComplexInterface
 {
-    public    $name                               = 'GroupMusicOnHoldGetInstanceResponse16';
-    protected $serviceUserId                      = null;
-    protected $isActiveDuringCallHold             = null;
-    protected $isActiveDuringCallPark             = null;
-    protected $isActiveDuringBusyCampOn           = null;
-    protected $enableVideo                        = null;
-    protected $source                             = null;
-    protected $useAlternateSourceForInternalCalls = null;
-    protected $internalSource                     = null;
+    public    $name = 'GroupMusicOnHoldGetInstanceResponse16';
+    protected $serviceUserId;
+    protected $isActiveDuringCallHold;
+    protected $isActiveDuringCallPark;
+    protected $isActiveDuringBusyCampOn;
+    protected $enableVideo;
+    protected $source;
+    protected $useAlternateSourceForInternalCalls;
+    protected $internalSource;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceMusicOnHold\GroupMusicOnHoldGetInstanceResponse16 $response
@@ -44,7 +44,6 @@ class GroupMusicOnHoldGetInstanceResponse16 extends ComplexType implements Compl
      */
     public function setServiceUserId($serviceUserId = null)
     {
-        if (!$serviceUserId) return $this;
         $this->serviceUserId = ($serviceUserId InstanceOf UserId)
              ? $serviceUserId
              : new UserId($serviceUserId);
@@ -58,7 +57,7 @@ class GroupMusicOnHoldGetInstanceResponse16 extends ComplexType implements Compl
      */
     public function getServiceUserId()
     {
-        return $this->serviceUserId->getValue();
+        return ($this->serviceUserId) ? $this->serviceUserId->getValue() : null;
     }
 
     /**
@@ -66,7 +65,6 @@ class GroupMusicOnHoldGetInstanceResponse16 extends ComplexType implements Compl
      */
     public function setIsActiveDuringCallHold($isActiveDuringCallHold = null)
     {
-        if (!$isActiveDuringCallHold) return $this;
         $this->isActiveDuringCallHold = new PrimitiveType($isActiveDuringCallHold);
         $this->isActiveDuringCallHold->setName('isActiveDuringCallHold');
         return $this;
@@ -78,7 +76,7 @@ class GroupMusicOnHoldGetInstanceResponse16 extends ComplexType implements Compl
      */
     public function getIsActiveDuringCallHold()
     {
-        return $this->isActiveDuringCallHold->getValue();
+        return ($this->isActiveDuringCallHold) ? $this->isActiveDuringCallHold->getValue() : null;
     }
 
     /**
@@ -86,7 +84,6 @@ class GroupMusicOnHoldGetInstanceResponse16 extends ComplexType implements Compl
      */
     public function setIsActiveDuringCallPark($isActiveDuringCallPark = null)
     {
-        if (!$isActiveDuringCallPark) return $this;
         $this->isActiveDuringCallPark = new PrimitiveType($isActiveDuringCallPark);
         $this->isActiveDuringCallPark->setName('isActiveDuringCallPark');
         return $this;
@@ -98,7 +95,7 @@ class GroupMusicOnHoldGetInstanceResponse16 extends ComplexType implements Compl
      */
     public function getIsActiveDuringCallPark()
     {
-        return $this->isActiveDuringCallPark->getValue();
+        return ($this->isActiveDuringCallPark) ? $this->isActiveDuringCallPark->getValue() : null;
     }
 
     /**
@@ -106,7 +103,6 @@ class GroupMusicOnHoldGetInstanceResponse16 extends ComplexType implements Compl
      */
     public function setIsActiveDuringBusyCampOn($isActiveDuringBusyCampOn = null)
     {
-        if (!$isActiveDuringBusyCampOn) return $this;
         $this->isActiveDuringBusyCampOn = new PrimitiveType($isActiveDuringBusyCampOn);
         $this->isActiveDuringBusyCampOn->setName('isActiveDuringBusyCampOn');
         return $this;
@@ -118,7 +114,7 @@ class GroupMusicOnHoldGetInstanceResponse16 extends ComplexType implements Compl
      */
     public function getIsActiveDuringBusyCampOn()
     {
-        return $this->isActiveDuringBusyCampOn->getValue();
+        return ($this->isActiveDuringBusyCampOn) ? $this->isActiveDuringBusyCampOn->getValue() : null;
     }
 
     /**
@@ -126,7 +122,6 @@ class GroupMusicOnHoldGetInstanceResponse16 extends ComplexType implements Compl
      */
     public function setEnableVideo($enableVideo = null)
     {
-        if (!$enableVideo) return $this;
         $this->enableVideo = new PrimitiveType($enableVideo);
         $this->enableVideo->setName('enableVideo');
         return $this;
@@ -138,7 +133,7 @@ class GroupMusicOnHoldGetInstanceResponse16 extends ComplexType implements Compl
      */
     public function getEnableVideo()
     {
-        return $this->enableVideo->getValue();
+        return ($this->enableVideo) ? $this->enableVideo->getValue() : null;
     }
 
     /**
@@ -146,8 +141,9 @@ class GroupMusicOnHoldGetInstanceResponse16 extends ComplexType implements Compl
      */
     public function setSource(MusicOnHoldSourceRead16 $source = null)
     {
-        if (!$source) return $this;
-        $this->source = $source;
+        $this->source = ($source InstanceOf MusicOnHoldSourceRead16)
+             ? $source
+             : new MusicOnHoldSourceRead16($source);
         $this->source->setName('source');
         return $this;
     }
@@ -166,7 +162,6 @@ class GroupMusicOnHoldGetInstanceResponse16 extends ComplexType implements Compl
      */
     public function setUseAlternateSourceForInternalCalls($useAlternateSourceForInternalCalls = null)
     {
-        if (!$useAlternateSourceForInternalCalls) return $this;
         $this->useAlternateSourceForInternalCalls = new PrimitiveType($useAlternateSourceForInternalCalls);
         $this->useAlternateSourceForInternalCalls->setName('useAlternateSourceForInternalCalls');
         return $this;
@@ -178,7 +173,7 @@ class GroupMusicOnHoldGetInstanceResponse16 extends ComplexType implements Compl
      */
     public function getUseAlternateSourceForInternalCalls()
     {
-        return $this->useAlternateSourceForInternalCalls->getValue();
+        return ($this->useAlternateSourceForInternalCalls) ? $this->useAlternateSourceForInternalCalls->getValue() : null;
     }
 
     /**
@@ -186,8 +181,9 @@ class GroupMusicOnHoldGetInstanceResponse16 extends ComplexType implements Compl
      */
     public function setInternalSource(MusicOnHoldSourceRead16 $internalSource = null)
     {
-        if (!$internalSource) return $this;
-        $this->internalSource = $internalSource;
+        $this->internalSource = ($internalSource InstanceOf MusicOnHoldSourceRead16)
+             ? $internalSource
+             : new MusicOnHoldSourceRead16($internalSource);
         $this->internalSource->setName('internalSource');
         return $this;
     }

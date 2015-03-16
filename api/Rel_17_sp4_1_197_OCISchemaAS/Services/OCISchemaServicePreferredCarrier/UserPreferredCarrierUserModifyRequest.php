@@ -21,14 +21,14 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserPreferredCarrierUserModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                 = 'UserPreferredCarrierUserModifyRequest';
-    protected $userId               = null;
-    protected $intraLataCarrier     = null;
-    protected $interLataCarrier     = null;
-    protected $internationalCarrier = null;
+    public    $name = 'UserPreferredCarrierUserModifyRequest';
+    protected $userId;
+    protected $intraLataCarrier;
+    protected $interLataCarrier;
+    protected $internationalCarrier;
 
     public function __construct(
-         $userId,
+         $userId = '',
          UserPreferredCarrierNameModify $intraLataCarrier = null,
          UserPreferredCarrierNameModify $interLataCarrier = null,
          UserPreferredCarrierNameModify $internationalCarrier = null
@@ -52,7 +52,6 @@ class UserPreferredCarrierUserModifyRequest extends ComplexType implements Compl
      */
     public function setUserId($userId = null)
     {
-        if (!$userId) return $this;
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
@@ -66,7 +65,7 @@ class UserPreferredCarrierUserModifyRequest extends ComplexType implements Compl
      */
     public function getUserId()
     {
-        return $this->userId->getValue();
+        return ($this->userId) ? $this->userId->getValue() : null;
     }
 
     /**
@@ -74,8 +73,9 @@ class UserPreferredCarrierUserModifyRequest extends ComplexType implements Compl
      */
     public function setIntraLataCarrier(UserPreferredCarrierNameModify $intraLataCarrier = null)
     {
-        if (!$intraLataCarrier) return $this;
-        $this->intraLataCarrier = $intraLataCarrier;
+        $this->intraLataCarrier = ($intraLataCarrier InstanceOf UserPreferredCarrierNameModify)
+             ? $intraLataCarrier
+             : new UserPreferredCarrierNameModify($intraLataCarrier);
         $this->intraLataCarrier->setName('intraLataCarrier');
         return $this;
     }
@@ -94,8 +94,9 @@ class UserPreferredCarrierUserModifyRequest extends ComplexType implements Compl
      */
     public function setInterLataCarrier(UserPreferredCarrierNameModify $interLataCarrier = null)
     {
-        if (!$interLataCarrier) return $this;
-        $this->interLataCarrier = $interLataCarrier;
+        $this->interLataCarrier = ($interLataCarrier InstanceOf UserPreferredCarrierNameModify)
+             ? $interLataCarrier
+             : new UserPreferredCarrierNameModify($interLataCarrier);
         $this->interLataCarrier->setName('interLataCarrier');
         return $this;
     }
@@ -114,8 +115,9 @@ class UserPreferredCarrierUserModifyRequest extends ComplexType implements Compl
      */
     public function setInternationalCarrier(UserPreferredCarrierNameModify $internationalCarrier = null)
     {
-        if (!$internationalCarrier) return $this;
-        $this->internationalCarrier = $internationalCarrier;
+        $this->internationalCarrier = ($internationalCarrier InstanceOf UserPreferredCarrierNameModify)
+             ? $internationalCarrier
+             : new UserPreferredCarrierNameModify($internationalCarrier);
         $this->internationalCarrier->setName('internationalCarrier');
         return $this;
     }

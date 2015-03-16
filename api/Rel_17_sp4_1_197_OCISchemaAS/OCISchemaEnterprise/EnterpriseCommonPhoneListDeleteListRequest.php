@@ -21,13 +21,13 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class EnterpriseCommonPhoneListDeleteListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name              = 'EnterpriseCommonPhoneListDeleteListRequest';
-    protected $serviceProviderId = null;
-    protected $entryName         = null;
+    public    $name = 'EnterpriseCommonPhoneListDeleteListRequest';
+    protected $serviceProviderId;
+    protected $entryName;
 
     public function __construct(
-         $serviceProviderId,
-         $entryName
+         $serviceProviderId = '',
+         $entryName = ''
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setEntryName($entryName);
@@ -46,7 +46,6 @@ class EnterpriseCommonPhoneListDeleteListRequest extends ComplexType implements 
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
-        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
@@ -60,7 +59,7 @@ class EnterpriseCommonPhoneListDeleteListRequest extends ComplexType implements 
      */
     public function getServiceProviderId()
     {
-        return $this->serviceProviderId->getValue();
+        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
     }
 
     /**
@@ -68,7 +67,6 @@ class EnterpriseCommonPhoneListDeleteListRequest extends ComplexType implements 
      */
     public function setEntryName($entryName = null)
     {
-        if (!$entryName) return $this;
         $this->entryName = ($entryName InstanceOf PhoneListEntryName)
              ? $entryName
              : new PhoneListEntryName($entryName);
@@ -82,6 +80,6 @@ class EnterpriseCommonPhoneListDeleteListRequest extends ComplexType implements 
      */
     public function getEntryName()
     {
-        return $this->entryName->getValue();
+        return ($this->entryName) ? $this->entryName->getValue() : null;
     }
 }

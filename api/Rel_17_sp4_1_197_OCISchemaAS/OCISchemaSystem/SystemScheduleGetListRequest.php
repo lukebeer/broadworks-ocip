@@ -21,8 +21,8 @@ use Broadworks_OCIP\core\Client\Client;
 class SystemScheduleGetListRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemScheduleGetListResponse';
-    public    $name         = 'SystemScheduleGetListRequest';
-    protected $scheduleType = null;
+    public    $name = 'SystemScheduleGetListRequest';
+    protected $scheduleType;
 
     public function __construct(
          $scheduleType = null
@@ -43,7 +43,6 @@ class SystemScheduleGetListRequest extends ComplexType implements ComplexInterfa
      */
     public function setScheduleType($scheduleType = null)
     {
-        if (!$scheduleType) return $this;
         $this->scheduleType = ($scheduleType InstanceOf ScheduleType)
              ? $scheduleType
              : new ScheduleType($scheduleType);
@@ -57,6 +56,6 @@ class SystemScheduleGetListRequest extends ComplexType implements ComplexInterfa
      */
     public function getScheduleType()
     {
-        return $this->scheduleType->getValue();
+        return ($this->scheduleType) ? $this->scheduleType->getValue() : null;
     }
 }

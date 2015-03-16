@@ -21,9 +21,9 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemServiceControlParametersModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                 = 'SystemServiceControlParametersModifyRequest';
-    protected $serverPort           = null;
-    protected $maxClientConnections = null;
+    public    $name = 'SystemServiceControlParametersModifyRequest';
+    protected $serverPort;
+    protected $maxClientConnections;
 
     public function __construct(
          $serverPort = null,
@@ -46,7 +46,6 @@ class SystemServiceControlParametersModifyRequest extends ComplexType implements
      */
     public function setServerPort($serverPort = null)
     {
-        if (!$serverPort) return $this;
         $this->serverPort = ($serverPort InstanceOf Port1025)
              ? $serverPort
              : new Port1025($serverPort);
@@ -60,7 +59,7 @@ class SystemServiceControlParametersModifyRequest extends ComplexType implements
      */
     public function getServerPort()
     {
-        return $this->serverPort->getValue();
+        return ($this->serverPort) ? $this->serverPort->getValue() : null;
     }
 
     /**
@@ -68,7 +67,6 @@ class SystemServiceControlParametersModifyRequest extends ComplexType implements
      */
     public function setMaxClientConnections($maxClientConnections = null)
     {
-        if (!$maxClientConnections) return $this;
         $this->maxClientConnections = ($maxClientConnections InstanceOf ServiceControlMaxClientConnections)
              ? $maxClientConnections
              : new ServiceControlMaxClientConnections($maxClientConnections);
@@ -82,6 +80,6 @@ class SystemServiceControlParametersModifyRequest extends ComplexType implements
      */
     public function getMaxClientConnections()
     {
-        return $this->maxClientConnections->getValue();
+        return ($this->maxClientConnections) ? $this->maxClientConnections->getValue() : null;
     }
 }

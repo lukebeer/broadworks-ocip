@@ -19,9 +19,9 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserMeetMeConferencingAddConferenceResponse extends ComplexType implements ComplexInterface
 {
-    public    $name         = 'UserMeetMeConferencingAddConferenceResponse';
-    protected $conferenceId = null;
-    protected $moderatorPin = null;
+    public    $name = 'UserMeetMeConferencingAddConferenceResponse';
+    protected $conferenceId;
+    protected $moderatorPin;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceMeetMeConferencing\UserMeetMeConferencingAddConferenceResponse $response
@@ -36,7 +36,6 @@ class UserMeetMeConferencingAddConferenceResponse extends ComplexType implements
      */
     public function setConferenceId($conferenceId = null)
     {
-        if (!$conferenceId) return $this;
         $this->conferenceId = ($conferenceId InstanceOf MeetMeConferencingConferencePassCode)
              ? $conferenceId
              : new MeetMeConferencingConferencePassCode($conferenceId);
@@ -50,7 +49,7 @@ class UserMeetMeConferencingAddConferenceResponse extends ComplexType implements
      */
     public function getConferenceId()
     {
-        return $this->conferenceId->getValue();
+        return ($this->conferenceId) ? $this->conferenceId->getValue() : null;
     }
 
     /**
@@ -58,7 +57,6 @@ class UserMeetMeConferencingAddConferenceResponse extends ComplexType implements
      */
     public function setModeratorPin($moderatorPin = null)
     {
-        if (!$moderatorPin) return $this;
         $this->moderatorPin = ($moderatorPin InstanceOf MeetMeConferencingConferencePassCode)
              ? $moderatorPin
              : new MeetMeConferencingConferencePassCode($moderatorPin);
@@ -72,6 +70,6 @@ class UserMeetMeConferencingAddConferenceResponse extends ComplexType implements
      */
     public function getModeratorPin()
     {
-        return $this->moderatorPin->getValue();
+        return ($this->moderatorPin) ? $this->moderatorPin->getValue() : null;
     }
 }

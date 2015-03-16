@@ -24,12 +24,12 @@ use Broadworks_OCIP\core\Client\Client;
 class UserBasicCallLogsGetListRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\UserBasicCallLogsGetListResponse';
-    public    $name        = 'UserBasicCallLogsGetListRequest';
-    protected $userId      = null;
-    protected $callLogType = null;
+    public    $name = 'UserBasicCallLogsGetListRequest';
+    protected $userId;
+    protected $callLogType;
 
     public function __construct(
-         $userId,
+         $userId = '',
          $callLogType = null
     ) {
         $this->setUserId($userId);
@@ -49,7 +49,6 @@ class UserBasicCallLogsGetListRequest extends ComplexType implements ComplexInte
      */
     public function setUserId($userId = null)
     {
-        if (!$userId) return $this;
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
@@ -63,7 +62,7 @@ class UserBasicCallLogsGetListRequest extends ComplexType implements ComplexInte
      */
     public function getUserId()
     {
-        return $this->userId->getValue();
+        return ($this->userId) ? $this->userId->getValue() : null;
     }
 
     /**
@@ -71,7 +70,6 @@ class UserBasicCallLogsGetListRequest extends ComplexType implements ComplexInte
      */
     public function setCallLogType($callLogType = null)
     {
-        if (!$callLogType) return $this;
         $this->callLogType = ($callLogType InstanceOf BasicCallLogsType)
              ? $callLogType
              : new BasicCallLogsType($callLogType);
@@ -85,6 +83,6 @@ class UserBasicCallLogsGetListRequest extends ComplexType implements ComplexInte
      */
     public function getCallLogType()
     {
-        return $this->callLogType->getValue();
+        return ($this->callLogType) ? $this->callLogType->getValue() : null;
     }
 }

@@ -22,15 +22,15 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupCommonPhoneListDeleteListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name              = 'GroupCommonPhoneListDeleteListRequest';
-    protected $serviceProviderId = null;
-    protected $groupId           = null;
-    protected $entryName         = null;
+    public    $name = 'GroupCommonPhoneListDeleteListRequest';
+    protected $serviceProviderId;
+    protected $groupId;
+    protected $entryName;
 
     public function __construct(
-         $serviceProviderId,
-         $groupId,
-         $entryName
+         $serviceProviderId = '',
+         $groupId = '',
+         $entryName = ''
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setGroupId($groupId);
@@ -50,7 +50,6 @@ class GroupCommonPhoneListDeleteListRequest extends ComplexType implements Compl
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
-        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
@@ -64,7 +63,7 @@ class GroupCommonPhoneListDeleteListRequest extends ComplexType implements Compl
      */
     public function getServiceProviderId()
     {
-        return $this->serviceProviderId->getValue();
+        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
     }
 
     /**
@@ -72,7 +71,6 @@ class GroupCommonPhoneListDeleteListRequest extends ComplexType implements Compl
      */
     public function setGroupId($groupId = null)
     {
-        if (!$groupId) return $this;
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
@@ -86,7 +84,7 @@ class GroupCommonPhoneListDeleteListRequest extends ComplexType implements Compl
      */
     public function getGroupId()
     {
-        return $this->groupId->getValue();
+        return ($this->groupId) ? $this->groupId->getValue() : null;
     }
 
     /**
@@ -94,7 +92,6 @@ class GroupCommonPhoneListDeleteListRequest extends ComplexType implements Compl
      */
     public function setEntryName($entryName = null)
     {
-        if (!$entryName) return $this;
         $this->entryName = ($entryName InstanceOf PhoneListEntryName)
              ? $entryName
              : new PhoneListEntryName($entryName);
@@ -108,6 +105,6 @@ class GroupCommonPhoneListDeleteListRequest extends ComplexType implements Compl
      */
     public function getEntryName()
     {
-        return $this->entryName->getValue();
+        return ($this->entryName) ? $this->entryName->getValue() : null;
     }
 }

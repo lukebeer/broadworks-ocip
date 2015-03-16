@@ -25,18 +25,18 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserCallMeNowModifyCriteriaRequest extends ComplexType implements ComplexInterface
 {
-    public    $name            = 'UserCallMeNowModifyCriteriaRequest';
-    protected $userId          = null;
-    protected $criteriaName    = null;
-    protected $newCriteriaName = null;
-    protected $timeSchedule    = null;
-    protected $holidaySchedule = null;
-    protected $rejectCall      = null;
-    protected $toDnCriteria    = null;
+    public    $name = 'UserCallMeNowModifyCriteriaRequest';
+    protected $userId;
+    protected $criteriaName;
+    protected $newCriteriaName;
+    protected $timeSchedule;
+    protected $holidaySchedule;
+    protected $rejectCall;
+    protected $toDnCriteria;
 
     public function __construct(
-         $userId,
-         $criteriaName,
+         $userId = '',
+         $criteriaName = '',
          $newCriteriaName = null,
          TimeSchedule $timeSchedule = null,
          HolidaySchedule $holidaySchedule = null,
@@ -65,7 +65,6 @@ class UserCallMeNowModifyCriteriaRequest extends ComplexType implements ComplexI
      */
     public function setUserId($userId = null)
     {
-        if (!$userId) return $this;
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
@@ -79,7 +78,7 @@ class UserCallMeNowModifyCriteriaRequest extends ComplexType implements ComplexI
      */
     public function getUserId()
     {
-        return $this->userId->getValue();
+        return ($this->userId) ? $this->userId->getValue() : null;
     }
 
     /**
@@ -87,7 +86,6 @@ class UserCallMeNowModifyCriteriaRequest extends ComplexType implements ComplexI
      */
     public function setCriteriaName($criteriaName = null)
     {
-        if (!$criteriaName) return $this;
         $this->criteriaName = ($criteriaName InstanceOf CriteriaName)
              ? $criteriaName
              : new CriteriaName($criteriaName);
@@ -101,7 +99,7 @@ class UserCallMeNowModifyCriteriaRequest extends ComplexType implements ComplexI
      */
     public function getCriteriaName()
     {
-        return $this->criteriaName->getValue();
+        return ($this->criteriaName) ? $this->criteriaName->getValue() : null;
     }
 
     /**
@@ -109,7 +107,6 @@ class UserCallMeNowModifyCriteriaRequest extends ComplexType implements ComplexI
      */
     public function setNewCriteriaName($newCriteriaName = null)
     {
-        if (!$newCriteriaName) return $this;
         $this->newCriteriaName = ($newCriteriaName InstanceOf CriteriaName)
              ? $newCriteriaName
              : new CriteriaName($newCriteriaName);
@@ -123,7 +120,7 @@ class UserCallMeNowModifyCriteriaRequest extends ComplexType implements ComplexI
      */
     public function getNewCriteriaName()
     {
-        return $this->newCriteriaName->getValue();
+        return ($this->newCriteriaName) ? $this->newCriteriaName->getValue() : null;
     }
 
     /**
@@ -131,8 +128,9 @@ class UserCallMeNowModifyCriteriaRequest extends ComplexType implements ComplexI
      */
     public function setTimeSchedule(TimeSchedule $timeSchedule = null)
     {
-        if (!$timeSchedule) return $this;
-        $this->timeSchedule = $timeSchedule;
+        $this->timeSchedule = ($timeSchedule InstanceOf TimeSchedule)
+             ? $timeSchedule
+             : new TimeSchedule($timeSchedule);
         $this->timeSchedule->setName('timeSchedule');
         return $this;
     }
@@ -151,8 +149,9 @@ class UserCallMeNowModifyCriteriaRequest extends ComplexType implements ComplexI
      */
     public function setHolidaySchedule(HolidaySchedule $holidaySchedule = null)
     {
-        if (!$holidaySchedule) return $this;
-        $this->holidaySchedule = $holidaySchedule;
+        $this->holidaySchedule = ($holidaySchedule InstanceOf HolidaySchedule)
+             ? $holidaySchedule
+             : new HolidaySchedule($holidaySchedule);
         $this->holidaySchedule->setName('holidaySchedule');
         return $this;
     }
@@ -171,7 +170,6 @@ class UserCallMeNowModifyCriteriaRequest extends ComplexType implements ComplexI
      */
     public function setRejectCall($rejectCall = null)
     {
-        if (!$rejectCall) return $this;
         $this->rejectCall = new PrimitiveType($rejectCall);
         $this->rejectCall->setName('rejectCall');
         return $this;
@@ -183,7 +181,7 @@ class UserCallMeNowModifyCriteriaRequest extends ComplexType implements ComplexI
      */
     public function getRejectCall()
     {
-        return $this->rejectCall->getValue();
+        return ($this->rejectCall) ? $this->rejectCall->getValue() : null;
     }
 
     /**
@@ -191,8 +189,9 @@ class UserCallMeNowModifyCriteriaRequest extends ComplexType implements ComplexI
      */
     public function setToDnCriteria(CallMeNowToDnCriteriaModify $toDnCriteria = null)
     {
-        if (!$toDnCriteria) return $this;
-        $this->toDnCriteria = $toDnCriteria;
+        $this->toDnCriteria = ($toDnCriteria InstanceOf CallMeNowToDnCriteriaModify)
+             ? $toDnCriteria
+             : new CallMeNowToDnCriteriaModify($toDnCriteria);
         $this->toDnCriteria->setName('toDnCriteria');
         return $this;
     }

@@ -140,9 +140,9 @@ class BuildAPI {
                         $code .= str_pad("    public    \$responseType", $maxlen+15, ' ') . " = '$this->base_namespace\\$this->schema_out\\{$this->namespaces[$responseName]}\\$responseName';\n";
                     }
                 }
-                $code .= str_pad("    public    \$name", $maxlen+15, ' ')." = '$name';\n";
+                $code .= "    public    \$name = '$name';\n";
                 foreach ($elements as $item) {
-                    $code .= str_pad("    protected \${$item['name']}", $maxlen+15, ' ')." = null;\n";
+                    $code .= "    protected \${$item['name']};\n";
                 }
                 $code .= "\n";
                 if (!preg_match("/response/i", $uname)) {
@@ -156,7 +156,7 @@ class BuildAPI {
                             }
                         }
                         $code .= '$' . $item['name'];
-                        $code .= ((array_key_exists('minOccurs', $item['attributes']) || (strripos($name, 'Response')))) ? " = null," : ",";
+                        $code .= ((array_key_exists('minOccurs', $item['attributes']) || (strripos($name, 'Response')))) ? " = null," : " = '',";
                     }
                     $code = rtrim($code, ',');
                     if (!empty($elements)) $code .= "\n";
@@ -195,14 +195,13 @@ class BuildAPI {
                     $code .= "\n$pad */\n$pad";
                     $code .= "public function set".ucfirst($item['name'])."($type\${$item['name']} = null)\n";
                     $code .= "$pad{\n";
-                    $code .= "$pad    if (!\${$item['name']}) return \$this;\n";
+                  //  $code .= "$pad    if (!\${$item['name']}) return \$this;\n";
                     if (array_key_exists('type', $item)) {
-                        if (($this->checkSimpleType($item['type'])) || (preg_match("/SearchCriteria/i", $item['type']))) {
+                        if (($this->checkSimpleType($item['type'])) || (preg_match("/SearchCriteria/i",
+                                $item['type'])) || ($this->checkComplexType($item['type']))) {
                             $code .= "$pad    \$this->{$item['name']} = (\${$item['name']} InstanceOf {$item['type']})\n";
                             $code .= "$pad         ? \${$item['name']}\n";
                             $code .= "$pad         : new {$item['type']}(\${$item['name']});\n";
-                        } elseif ($this->checkComplexType($item['type'])) {
-                            $code .= "$pad    \$this->{$item['name']} = \${$item['name']};\n";
                         } elseif (preg_match('/Table/i', ($item['type']))) {
                             $types[] = "use Broadworks_OCIP\core\Builder\Types\TableType;";
                             $code .= "$pad    \$this->{$item['name']} = \${$item['name']};\n";
@@ -248,7 +247,9 @@ class BuildAPI {
                     $code .= "\n$pad */\n$pad";
                     $code .= "public function get".ucfirst($item['name'])."()\n";
                     $code .= "$pad{\n";
-                    $code .= (($this->checkComplexType($item['type']) || (preg_match('/table/i', $item['name'])))) ? "$pad    return \$this->{$item['name']};" : "$pad    return \$this->{$item['name']}->getValue();";
+                    $code .= (($this->checkComplexType($item['type']) || (preg_match('/table/i', $item['name']))))
+                        ? "$pad    return \$this->{$item['name']};"
+                        : "$pad    return (\$this->{$item['name']}) ? \$this->{$item['name']}->getValue() : null;";
                     $code .= "\n$pad}\n";
                 }
                 $code .= "}\n";

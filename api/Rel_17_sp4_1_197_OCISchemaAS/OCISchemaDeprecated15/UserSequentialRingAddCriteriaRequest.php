@@ -23,17 +23,17 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserSequentialRingAddCriteriaRequest extends ComplexType implements ComplexInterface
 {
-    public    $name           = 'UserSequentialRingAddCriteriaRequest';
-    protected $userId         = null;
-    protected $criteriaName   = null;
-    protected $timeSchedule   = null;
-    protected $fromDnCriteria = null;
+    public    $name = 'UserSequentialRingAddCriteriaRequest';
+    protected $userId;
+    protected $criteriaName;
+    protected $timeSchedule;
+    protected $fromDnCriteria;
 
     public function __construct(
-         $userId,
-         $criteriaName,
+         $userId = '',
+         $criteriaName = '',
          TimeSchedule $timeSchedule = null,
-         CriteriaFromDn $fromDnCriteria
+         CriteriaFromDn $fromDnCriteria = ''
     ) {
         $this->setUserId($userId);
         $this->setCriteriaName($criteriaName);
@@ -54,7 +54,6 @@ class UserSequentialRingAddCriteriaRequest extends ComplexType implements Comple
      */
     public function setUserId($userId = null)
     {
-        if (!$userId) return $this;
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
@@ -68,7 +67,7 @@ class UserSequentialRingAddCriteriaRequest extends ComplexType implements Comple
      */
     public function getUserId()
     {
-        return $this->userId->getValue();
+        return ($this->userId) ? $this->userId->getValue() : null;
     }
 
     /**
@@ -76,7 +75,6 @@ class UserSequentialRingAddCriteriaRequest extends ComplexType implements Comple
      */
     public function setCriteriaName($criteriaName = null)
     {
-        if (!$criteriaName) return $this;
         $this->criteriaName = ($criteriaName InstanceOf CriteriaName)
              ? $criteriaName
              : new CriteriaName($criteriaName);
@@ -90,7 +88,7 @@ class UserSequentialRingAddCriteriaRequest extends ComplexType implements Comple
      */
     public function getCriteriaName()
     {
-        return $this->criteriaName->getValue();
+        return ($this->criteriaName) ? $this->criteriaName->getValue() : null;
     }
 
     /**
@@ -98,8 +96,9 @@ class UserSequentialRingAddCriteriaRequest extends ComplexType implements Comple
      */
     public function setTimeSchedule(TimeSchedule $timeSchedule = null)
     {
-        if (!$timeSchedule) return $this;
-        $this->timeSchedule = $timeSchedule;
+        $this->timeSchedule = ($timeSchedule InstanceOf TimeSchedule)
+             ? $timeSchedule
+             : new TimeSchedule($timeSchedule);
         $this->timeSchedule->setName('timeSchedule');
         return $this;
     }
@@ -118,8 +117,9 @@ class UserSequentialRingAddCriteriaRequest extends ComplexType implements Comple
      */
     public function setFromDnCriteria(CriteriaFromDn $fromDnCriteria = null)
     {
-        if (!$fromDnCriteria) return $this;
-        $this->fromDnCriteria = $fromDnCriteria;
+        $this->fromDnCriteria = ($fromDnCriteria InstanceOf CriteriaFromDn)
+             ? $fromDnCriteria
+             : new CriteriaFromDn($fromDnCriteria);
         $this->fromDnCriteria->setName('fromDnCriteria');
         return $this;
     }

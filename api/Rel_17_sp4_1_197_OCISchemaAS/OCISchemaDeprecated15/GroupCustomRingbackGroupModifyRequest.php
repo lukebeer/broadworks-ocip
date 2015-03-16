@@ -25,18 +25,18 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupCustomRingbackGroupModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name              = 'GroupCustomRingbackGroupModifyRequest';
-    protected $serviceProviderId = null;
-    protected $groupId           = null;
-    protected $isActive          = null;
-    protected $audioSelection    = null;
-    protected $audioFile         = null;
-    protected $videoSelection    = null;
-    protected $videoFile         = null;
+    public    $name = 'GroupCustomRingbackGroupModifyRequest';
+    protected $serviceProviderId;
+    protected $groupId;
+    protected $isActive;
+    protected $audioSelection;
+    protected $audioFile;
+    protected $videoSelection;
+    protected $videoFile;
 
     public function __construct(
-         $serviceProviderId,
-         $groupId,
+         $serviceProviderId = '',
+         $groupId = '',
          $isActive = null,
          $audioSelection = null,
          ExtendedFileResource $audioFile = null,
@@ -65,7 +65,6 @@ class GroupCustomRingbackGroupModifyRequest extends ComplexType implements Compl
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
-        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
@@ -79,7 +78,7 @@ class GroupCustomRingbackGroupModifyRequest extends ComplexType implements Compl
      */
     public function getServiceProviderId()
     {
-        return $this->serviceProviderId->getValue();
+        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
     }
 
     /**
@@ -87,7 +86,6 @@ class GroupCustomRingbackGroupModifyRequest extends ComplexType implements Compl
      */
     public function setGroupId($groupId = null)
     {
-        if (!$groupId) return $this;
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
@@ -101,7 +99,7 @@ class GroupCustomRingbackGroupModifyRequest extends ComplexType implements Compl
      */
     public function getGroupId()
     {
-        return $this->groupId->getValue();
+        return ($this->groupId) ? $this->groupId->getValue() : null;
     }
 
     /**
@@ -109,7 +107,6 @@ class GroupCustomRingbackGroupModifyRequest extends ComplexType implements Compl
      */
     public function setIsActive($isActive = null)
     {
-        if (!$isActive) return $this;
         $this->isActive = new PrimitiveType($isActive);
         $this->isActive->setName('isActive');
         return $this;
@@ -121,7 +118,7 @@ class GroupCustomRingbackGroupModifyRequest extends ComplexType implements Compl
      */
     public function getIsActive()
     {
-        return $this->isActive->getValue();
+        return ($this->isActive) ? $this->isActive->getValue() : null;
     }
 
     /**
@@ -129,7 +126,6 @@ class GroupCustomRingbackGroupModifyRequest extends ComplexType implements Compl
      */
     public function setAudioSelection($audioSelection = null)
     {
-        if (!$audioSelection) return $this;
         $this->audioSelection = ($audioSelection InstanceOf ExtendedFileResourceSelection)
              ? $audioSelection
              : new ExtendedFileResourceSelection($audioSelection);
@@ -143,7 +139,7 @@ class GroupCustomRingbackGroupModifyRequest extends ComplexType implements Compl
      */
     public function getAudioSelection()
     {
-        return $this->audioSelection->getValue();
+        return ($this->audioSelection) ? $this->audioSelection->getValue() : null;
     }
 
     /**
@@ -151,8 +147,9 @@ class GroupCustomRingbackGroupModifyRequest extends ComplexType implements Compl
      */
     public function setAudioFile(ExtendedFileResource $audioFile = null)
     {
-        if (!$audioFile) return $this;
-        $this->audioFile = $audioFile;
+        $this->audioFile = ($audioFile InstanceOf ExtendedFileResource)
+             ? $audioFile
+             : new ExtendedFileResource($audioFile);
         $this->audioFile->setName('audioFile');
         return $this;
     }
@@ -171,7 +168,6 @@ class GroupCustomRingbackGroupModifyRequest extends ComplexType implements Compl
      */
     public function setVideoSelection($videoSelection = null)
     {
-        if (!$videoSelection) return $this;
         $this->videoSelection = ($videoSelection InstanceOf ExtendedFileResourceSelection)
              ? $videoSelection
              : new ExtendedFileResourceSelection($videoSelection);
@@ -185,7 +181,7 @@ class GroupCustomRingbackGroupModifyRequest extends ComplexType implements Compl
      */
     public function getVideoSelection()
     {
-        return $this->videoSelection->getValue();
+        return ($this->videoSelection) ? $this->videoSelection->getValue() : null;
     }
 
     /**
@@ -193,8 +189,9 @@ class GroupCustomRingbackGroupModifyRequest extends ComplexType implements Compl
      */
     public function setVideoFile(ExtendedFileResource $videoFile = null)
     {
-        if (!$videoFile) return $this;
-        $this->videoFile = $videoFile;
+        $this->videoFile = ($videoFile InstanceOf ExtendedFileResource)
+             ? $videoFile
+             : new ExtendedFileResource($videoFile);
         $this->videoFile->setName('videoFile');
         return $this;
     }

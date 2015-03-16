@@ -24,19 +24,19 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupCallCenterForcedForwardingModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                             = 'GroupCallCenterForcedForwardingModifyRequest';
-    protected $serviceUserId                    = null;
-    protected $isActive                         = null;
-    protected $forwardToPhoneNumber             = null;
-    protected $allowEnableViaFAC                = null;
-    protected $playAnnouncementBeforeForwarding = null;
-    protected $audioMessageSelection            = null;
-    protected $audioFile                        = null;
-    protected $videoMessageSelection            = null;
-    protected $videoFile                        = null;
+    public    $name = 'GroupCallCenterForcedForwardingModifyRequest';
+    protected $serviceUserId;
+    protected $isActive;
+    protected $forwardToPhoneNumber;
+    protected $allowEnableViaFAC;
+    protected $playAnnouncementBeforeForwarding;
+    protected $audioMessageSelection;
+    protected $audioFile;
+    protected $videoMessageSelection;
+    protected $videoFile;
 
     public function __construct(
-         $serviceUserId,
+         $serviceUserId = '',
          $isActive = null,
          $forwardToPhoneNumber = null,
          $allowEnableViaFAC = null,
@@ -70,7 +70,6 @@ class GroupCallCenterForcedForwardingModifyRequest extends ComplexType implement
      */
     public function setServiceUserId($serviceUserId = null)
     {
-        if (!$serviceUserId) return $this;
         $this->serviceUserId = ($serviceUserId InstanceOf UserId)
              ? $serviceUserId
              : new UserId($serviceUserId);
@@ -84,7 +83,7 @@ class GroupCallCenterForcedForwardingModifyRequest extends ComplexType implement
      */
     public function getServiceUserId()
     {
-        return $this->serviceUserId->getValue();
+        return ($this->serviceUserId) ? $this->serviceUserId->getValue() : null;
     }
 
     /**
@@ -92,7 +91,6 @@ class GroupCallCenterForcedForwardingModifyRequest extends ComplexType implement
      */
     public function setIsActive($isActive = null)
     {
-        if (!$isActive) return $this;
         $this->isActive = new PrimitiveType($isActive);
         $this->isActive->setName('isActive');
         return $this;
@@ -104,7 +102,7 @@ class GroupCallCenterForcedForwardingModifyRequest extends ComplexType implement
      */
     public function getIsActive()
     {
-        return $this->isActive->getValue();
+        return ($this->isActive) ? $this->isActive->getValue() : null;
     }
 
     /**
@@ -112,7 +110,6 @@ class GroupCallCenterForcedForwardingModifyRequest extends ComplexType implement
      */
     public function setForwardToPhoneNumber($forwardToPhoneNumber = null)
     {
-        if (!$forwardToPhoneNumber) return $this;
         $this->forwardToPhoneNumber = ($forwardToPhoneNumber InstanceOf OutgoingDNorSIPURI)
              ? $forwardToPhoneNumber
              : new OutgoingDNorSIPURI($forwardToPhoneNumber);
@@ -126,7 +123,7 @@ class GroupCallCenterForcedForwardingModifyRequest extends ComplexType implement
      */
     public function getForwardToPhoneNumber()
     {
-        return $this->forwardToPhoneNumber->getValue();
+        return ($this->forwardToPhoneNumber) ? $this->forwardToPhoneNumber->getValue() : null;
     }
 
     /**
@@ -134,7 +131,6 @@ class GroupCallCenterForcedForwardingModifyRequest extends ComplexType implement
      */
     public function setAllowEnableViaFAC($allowEnableViaFAC = null)
     {
-        if (!$allowEnableViaFAC) return $this;
         $this->allowEnableViaFAC = new PrimitiveType($allowEnableViaFAC);
         $this->allowEnableViaFAC->setName('allowEnableViaFAC');
         return $this;
@@ -146,7 +142,7 @@ class GroupCallCenterForcedForwardingModifyRequest extends ComplexType implement
      */
     public function getAllowEnableViaFAC()
     {
-        return $this->allowEnableViaFAC->getValue();
+        return ($this->allowEnableViaFAC) ? $this->allowEnableViaFAC->getValue() : null;
     }
 
     /**
@@ -154,7 +150,6 @@ class GroupCallCenterForcedForwardingModifyRequest extends ComplexType implement
      */
     public function setPlayAnnouncementBeforeForwarding($playAnnouncementBeforeForwarding = null)
     {
-        if (!$playAnnouncementBeforeForwarding) return $this;
         $this->playAnnouncementBeforeForwarding = new PrimitiveType($playAnnouncementBeforeForwarding);
         $this->playAnnouncementBeforeForwarding->setName('playAnnouncementBeforeForwarding');
         return $this;
@@ -166,7 +161,7 @@ class GroupCallCenterForcedForwardingModifyRequest extends ComplexType implement
      */
     public function getPlayAnnouncementBeforeForwarding()
     {
-        return $this->playAnnouncementBeforeForwarding->getValue();
+        return ($this->playAnnouncementBeforeForwarding) ? $this->playAnnouncementBeforeForwarding->getValue() : null;
     }
 
     /**
@@ -174,7 +169,6 @@ class GroupCallCenterForcedForwardingModifyRequest extends ComplexType implement
      */
     public function setAudioMessageSelection($audioMessageSelection = null)
     {
-        if (!$audioMessageSelection) return $this;
         $this->audioMessageSelection = ($audioMessageSelection InstanceOf ExtendedFileResourceSelection)
              ? $audioMessageSelection
              : new ExtendedFileResourceSelection($audioMessageSelection);
@@ -188,7 +182,7 @@ class GroupCallCenterForcedForwardingModifyRequest extends ComplexType implement
      */
     public function getAudioMessageSelection()
     {
-        return $this->audioMessageSelection->getValue();
+        return ($this->audioMessageSelection) ? $this->audioMessageSelection->getValue() : null;
     }
 
     /**
@@ -196,8 +190,9 @@ class GroupCallCenterForcedForwardingModifyRequest extends ComplexType implement
      */
     public function setAudioFile(ExtendedMediaFileResource $audioFile = null)
     {
-        if (!$audioFile) return $this;
-        $this->audioFile = $audioFile;
+        $this->audioFile = ($audioFile InstanceOf ExtendedMediaFileResource)
+             ? $audioFile
+             : new ExtendedMediaFileResource($audioFile);
         $this->audioFile->setName('audioFile');
         return $this;
     }
@@ -216,7 +211,6 @@ class GroupCallCenterForcedForwardingModifyRequest extends ComplexType implement
      */
     public function setVideoMessageSelection($videoMessageSelection = null)
     {
-        if (!$videoMessageSelection) return $this;
         $this->videoMessageSelection = ($videoMessageSelection InstanceOf ExtendedFileResourceSelection)
              ? $videoMessageSelection
              : new ExtendedFileResourceSelection($videoMessageSelection);
@@ -230,7 +224,7 @@ class GroupCallCenterForcedForwardingModifyRequest extends ComplexType implement
      */
     public function getVideoMessageSelection()
     {
-        return $this->videoMessageSelection->getValue();
+        return ($this->videoMessageSelection) ? $this->videoMessageSelection->getValue() : null;
     }
 
     /**
@@ -238,8 +232,9 @@ class GroupCallCenterForcedForwardingModifyRequest extends ComplexType implement
      */
     public function setVideoFile(ExtendedMediaFileResource $videoFile = null)
     {
-        if (!$videoFile) return $this;
-        $this->videoFile = $videoFile;
+        $this->videoFile = ($videoFile InstanceOf ExtendedMediaFileResource)
+             ? $videoFile
+             : new ExtendedMediaFileResource($videoFile);
         $this->videoFile->setName('videoFile');
         return $this;
     }

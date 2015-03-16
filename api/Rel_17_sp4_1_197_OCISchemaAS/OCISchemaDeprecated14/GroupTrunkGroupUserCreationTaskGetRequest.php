@@ -22,13 +22,13 @@ use Broadworks_OCIP\core\Client\Client;
 class GroupTrunkGroupUserCreationTaskGetRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType  = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\GroupTrunkGroupUserCreationTaskGetResponse';
-    public    $name          = 'GroupTrunkGroupUserCreationTaskGetRequest';
-    protected $serviceUserId = null;
-    protected $taskName      = null;
+    public    $name = 'GroupTrunkGroupUserCreationTaskGetRequest';
+    protected $serviceUserId;
+    protected $taskName;
 
     public function __construct(
-         $serviceUserId,
-         $taskName
+         $serviceUserId = '',
+         $taskName = ''
     ) {
         $this->setServiceUserId($serviceUserId);
         $this->setTaskName($taskName);
@@ -47,7 +47,6 @@ class GroupTrunkGroupUserCreationTaskGetRequest extends ComplexType implements C
      */
     public function setServiceUserId($serviceUserId = null)
     {
-        if (!$serviceUserId) return $this;
         $this->serviceUserId = ($serviceUserId InstanceOf UserId)
              ? $serviceUserId
              : new UserId($serviceUserId);
@@ -61,7 +60,7 @@ class GroupTrunkGroupUserCreationTaskGetRequest extends ComplexType implements C
      */
     public function getServiceUserId()
     {
-        return $this->serviceUserId->getValue();
+        return ($this->serviceUserId) ? $this->serviceUserId->getValue() : null;
     }
 
     /**
@@ -69,7 +68,6 @@ class GroupTrunkGroupUserCreationTaskGetRequest extends ComplexType implements C
      */
     public function setTaskName($taskName = null)
     {
-        if (!$taskName) return $this;
         $this->taskName = ($taskName InstanceOf TrunkGroupUserCreationTaskName)
              ? $taskName
              : new TrunkGroupUserCreationTaskName($taskName);
@@ -83,6 +81,6 @@ class GroupTrunkGroupUserCreationTaskGetRequest extends ComplexType implements C
      */
     public function getTaskName()
     {
-        return $this->taskName->getValue();
+        return ($this->taskName) ? $this->taskName->getValue() : null;
     }
 }

@@ -21,9 +21,9 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemDomainParametersGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name              = 'SystemDomainParametersGetResponse';
-    protected $useAliasForDomain = null;
-    protected $defaultDomain     = null;
+    public    $name = 'SystemDomainParametersGetResponse';
+    protected $useAliasForDomain;
+    protected $defaultDomain;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemDomainParametersGetResponse $response
@@ -38,7 +38,6 @@ class SystemDomainParametersGetResponse extends ComplexType implements ComplexIn
      */
     public function setUseAliasForDomain($useAliasForDomain = null)
     {
-        if (!$useAliasForDomain) return $this;
         $this->useAliasForDomain = new PrimitiveType($useAliasForDomain);
         $this->useAliasForDomain->setName('useAliasForDomain');
         return $this;
@@ -50,7 +49,7 @@ class SystemDomainParametersGetResponse extends ComplexType implements ComplexIn
      */
     public function getUseAliasForDomain()
     {
-        return $this->useAliasForDomain->getValue();
+        return ($this->useAliasForDomain) ? $this->useAliasForDomain->getValue() : null;
     }
 
     /**
@@ -58,7 +57,6 @@ class SystemDomainParametersGetResponse extends ComplexType implements ComplexIn
      */
     public function setDefaultDomain($defaultDomain = null)
     {
-        if (!$defaultDomain) return $this;
         $this->defaultDomain = ($defaultDomain InstanceOf NetAddress)
              ? $defaultDomain
              : new NetAddress($defaultDomain);
@@ -72,6 +70,6 @@ class SystemDomainParametersGetResponse extends ComplexType implements ComplexIn
      */
     public function getDefaultDomain()
     {
-        return $this->defaultDomain->getValue();
+        return ($this->defaultDomain) ? $this->defaultDomain->getValue() : null;
     }
 }

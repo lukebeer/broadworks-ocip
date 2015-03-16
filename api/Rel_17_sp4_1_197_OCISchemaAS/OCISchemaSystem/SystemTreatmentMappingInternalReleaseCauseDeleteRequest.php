@@ -20,11 +20,11 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemTreatmentMappingInternalReleaseCauseDeleteRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                 = 'SystemTreatmentMappingInternalReleaseCauseDeleteRequest';
-    protected $internalReleaseCause = null;
+    public    $name = 'SystemTreatmentMappingInternalReleaseCauseDeleteRequest';
+    protected $internalReleaseCause;
 
     public function __construct(
-         $internalReleaseCause
+         $internalReleaseCause = ''
     ) {
         $this->setInternalReleaseCause($internalReleaseCause);
     }
@@ -42,7 +42,6 @@ class SystemTreatmentMappingInternalReleaseCauseDeleteRequest extends ComplexTyp
      */
     public function setInternalReleaseCause($internalReleaseCause = null)
     {
-        if (!$internalReleaseCause) return $this;
         $this->internalReleaseCause = ($internalReleaseCause InstanceOf InternalReleaseCause16)
              ? $internalReleaseCause
              : new InternalReleaseCause16($internalReleaseCause);
@@ -56,6 +55,6 @@ class SystemTreatmentMappingInternalReleaseCauseDeleteRequest extends ComplexTyp
      */
     public function getInternalReleaseCause()
     {
-        return $this->internalReleaseCause->getValue();
+        return ($this->internalReleaseCause) ? $this->internalReleaseCause->getValue() : null;
     }
 }

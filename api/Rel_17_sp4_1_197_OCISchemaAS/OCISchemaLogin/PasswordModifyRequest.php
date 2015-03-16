@@ -23,15 +23,15 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class PasswordModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name        = 'PasswordModifyRequest';
-    protected $userId      = null;
-    protected $oldPassword = null;
-    protected $newPassword = null;
+    public    $name = 'PasswordModifyRequest';
+    protected $userId;
+    protected $oldPassword;
+    protected $newPassword;
 
     public function __construct(
-         $userId,
+         $userId = '',
          $oldPassword = null,
-         $newPassword
+         $newPassword = ''
     ) {
         $this->setUserId($userId);
         $this->setOldPassword($oldPassword);
@@ -51,7 +51,6 @@ class PasswordModifyRequest extends ComplexType implements ComplexInterface
      */
     public function setUserId($userId = null)
     {
-        if (!$userId) return $this;
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
@@ -65,7 +64,7 @@ class PasswordModifyRequest extends ComplexType implements ComplexInterface
      */
     public function getUserId()
     {
-        return $this->userId->getValue();
+        return ($this->userId) ? $this->userId->getValue() : null;
     }
 
     /**
@@ -73,7 +72,6 @@ class PasswordModifyRequest extends ComplexType implements ComplexInterface
      */
     public function setOldPassword($oldPassword = null)
     {
-        if (!$oldPassword) return $this;
         $this->oldPassword = ($oldPassword InstanceOf Password)
              ? $oldPassword
              : new Password($oldPassword);
@@ -87,7 +85,7 @@ class PasswordModifyRequest extends ComplexType implements ComplexInterface
      */
     public function getOldPassword()
     {
-        return $this->oldPassword->getValue();
+        return ($this->oldPassword) ? $this->oldPassword->getValue() : null;
     }
 
     /**
@@ -95,7 +93,6 @@ class PasswordModifyRequest extends ComplexType implements ComplexInterface
      */
     public function setNewPassword($newPassword = null)
     {
-        if (!$newPassword) return $this;
         $this->newPassword = ($newPassword InstanceOf Password)
              ? $newPassword
              : new Password($newPassword);
@@ -109,6 +106,6 @@ class PasswordModifyRequest extends ComplexType implements ComplexInterface
      */
     public function getNewPassword()
     {
-        return $this->newPassword->getValue();
+        return ($this->newPassword) ? $this->newPassword->getValue() : null;
     }
 }

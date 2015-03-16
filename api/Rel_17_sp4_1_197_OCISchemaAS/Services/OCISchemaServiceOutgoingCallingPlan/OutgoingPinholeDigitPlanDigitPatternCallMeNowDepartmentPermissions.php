@@ -19,15 +19,15 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class OutgoingPinholeDigitPlanDigitPatternCallMeNowDepartmentPermissions extends ComplexType implements ComplexInterface
 {
-    public    $name           = 'OutgoingPinholeDigitPlanDigitPatternCallMeNowDepartmentPermissions';
-    protected $departmentKey  = null;
-    protected $departmentName = null;
-    protected $permissions    = null;
+    public    $name = 'OutgoingPinholeDigitPlanDigitPatternCallMeNowDepartmentPermissions';
+    protected $departmentKey;
+    protected $departmentName;
+    protected $permissions;
 
     public function __construct(
-         $departmentKey,
-         $departmentName,
-         $permissions
+         $departmentKey = '',
+         $departmentName = '',
+         $permissions = ''
     ) {
         $this->setDepartmentKey($departmentKey);
         $this->setDepartmentName($departmentName);
@@ -47,7 +47,6 @@ class OutgoingPinholeDigitPlanDigitPatternCallMeNowDepartmentPermissions extends
      */
     public function setDepartmentKey($departmentKey = null)
     {
-        if (!$departmentKey) return $this;
         $this->departmentKey = new SimpleContent($departmentKey);
         $this->departmentKey->setName('departmentKey');
         return $this;
@@ -59,7 +58,7 @@ class OutgoingPinholeDigitPlanDigitPatternCallMeNowDepartmentPermissions extends
      */
     public function getDepartmentKey()
     {
-        return $this->departmentKey->getValue();
+        return ($this->departmentKey) ? $this->departmentKey->getValue() : null;
     }
 
     /**
@@ -67,7 +66,6 @@ class OutgoingPinholeDigitPlanDigitPatternCallMeNowDepartmentPermissions extends
      */
     public function setDepartmentName($departmentName = null)
     {
-        if (!$departmentName) return $this;
         $this->departmentName = new SimpleContent($departmentName);
         $this->departmentName->setName('departmentName');
         return $this;
@@ -79,7 +77,7 @@ class OutgoingPinholeDigitPlanDigitPatternCallMeNowDepartmentPermissions extends
      */
     public function getDepartmentName()
     {
-        return $this->departmentName->getValue();
+        return ($this->departmentName) ? $this->departmentName->getValue() : null;
     }
 
     /**
@@ -87,7 +85,6 @@ class OutgoingPinholeDigitPlanDigitPatternCallMeNowDepartmentPermissions extends
      */
     public function setPermissions($permissions = null)
     {
-        if (!$permissions) return $this;
         $this->permissions = new SimpleContent($permissions);
         $this->permissions->setName('permissions');
         return $this;
@@ -99,6 +96,6 @@ class OutgoingPinholeDigitPlanDigitPatternCallMeNowDepartmentPermissions extends
      */
     public function getPermissions()
     {
-        return $this->permissions->getValue();
+        return ($this->permissions) ? $this->permissions->getValue() : null;
     }
 }

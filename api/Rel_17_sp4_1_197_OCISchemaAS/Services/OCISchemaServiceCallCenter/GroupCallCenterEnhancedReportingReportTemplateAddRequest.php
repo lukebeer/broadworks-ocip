@@ -32,37 +32,37 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupCallCenterEnhancedReportingReportTemplateAddRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                                = 'GroupCallCenterEnhancedReportingReportTemplateAddRequest';
-    protected $serviceProviderId                   = null;
-    protected $groupId                             = null;
-    protected $name                                = null;
-    protected $description                         = null;
-    protected $dataTemplate                        = null;
-    protected $filterNumber                        = null;
-    protected $xsltTemplate                        = null;
-    protected $scope                               = null;
-    protected $isEnabled                           = null;
-    protected $isRealtimeReport                    = null;
-    protected $callCompletionThresholdParam        = null;
-    protected $shortDurationThresholdParam         = null;
-    protected $serviceLevelThresholdParam          = null;
-    protected $serviceLevelInclusionsParam         = null;
-    protected $serviceLevelObjectiveThresholdParam = null;
-    protected $abandonedCallThresholdParam         = null;
-    protected $serviceLevelThresholdParamNumber    = null;
-    protected $abandonedCallThresholdParamNumber   = null;
-    protected $filterValue                         = null;
+    public    $name = 'GroupCallCenterEnhancedReportingReportTemplateAddRequest';
+    protected $serviceProviderId;
+    protected $groupId;
+    protected $name;
+    protected $description;
+    protected $dataTemplate;
+    protected $filterNumber;
+    protected $xsltTemplate;
+    protected $scope;
+    protected $isEnabled;
+    protected $isRealtimeReport;
+    protected $callCompletionThresholdParam;
+    protected $shortDurationThresholdParam;
+    protected $serviceLevelThresholdParam;
+    protected $serviceLevelInclusionsParam;
+    protected $serviceLevelObjectiveThresholdParam;
+    protected $abandonedCallThresholdParam;
+    protected $serviceLevelThresholdParamNumber;
+    protected $abandonedCallThresholdParamNumber;
+    protected $filterValue;
 
     public function __construct(
-         $serviceProviderId,
-         $groupId,
-         $name,
+         $serviceProviderId = '',
+         $groupId = '',
+         $name = '',
          $description = null,
-         $dataTemplate,
+         $dataTemplate = '',
          $filterNumber = null,
-         LabeledFileResource $xsltTemplate,
-         $scope,
-         $isEnabled,
+         LabeledFileResource $xsltTemplate = '',
+         $scope = '',
+         $isEnabled = '',
          $isRealtimeReport = null,
          $callCompletionThresholdParam = null,
          $shortDurationThresholdParam = null,
@@ -108,7 +108,6 @@ class GroupCallCenterEnhancedReportingReportTemplateAddRequest extends ComplexTy
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
-        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
@@ -122,7 +121,7 @@ class GroupCallCenterEnhancedReportingReportTemplateAddRequest extends ComplexTy
      */
     public function getServiceProviderId()
     {
-        return $this->serviceProviderId->getValue();
+        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
     }
 
     /**
@@ -130,7 +129,6 @@ class GroupCallCenterEnhancedReportingReportTemplateAddRequest extends ComplexTy
      */
     public function setGroupId($groupId = null)
     {
-        if (!$groupId) return $this;
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
@@ -144,7 +142,7 @@ class GroupCallCenterEnhancedReportingReportTemplateAddRequest extends ComplexTy
      */
     public function getGroupId()
     {
-        return $this->groupId->getValue();
+        return ($this->groupId) ? $this->groupId->getValue() : null;
     }
 
     /**
@@ -152,7 +150,6 @@ class GroupCallCenterEnhancedReportingReportTemplateAddRequest extends ComplexTy
      */
     public function setName($name = null)
     {
-        if (!$name) return $this;
         $this->name = ($name InstanceOf CallCenterReportTemplateName)
              ? $name
              : new CallCenterReportTemplateName($name);
@@ -166,7 +163,7 @@ class GroupCallCenterEnhancedReportingReportTemplateAddRequest extends ComplexTy
      */
     public function getName()
     {
-        return $this->name->getValue();
+        return ($this->name) ? $this->name->getValue() : null;
     }
 
     /**
@@ -174,7 +171,6 @@ class GroupCallCenterEnhancedReportingReportTemplateAddRequest extends ComplexTy
      */
     public function setDescription($description = null)
     {
-        if (!$description) return $this;
         $this->description = ($description InstanceOf CallCenterReportTemplateDescription)
              ? $description
              : new CallCenterReportTemplateDescription($description);
@@ -188,7 +184,7 @@ class GroupCallCenterEnhancedReportingReportTemplateAddRequest extends ComplexTy
      */
     public function getDescription()
     {
-        return $this->description->getValue();
+        return ($this->description) ? $this->description->getValue() : null;
     }
 
     /**
@@ -196,7 +192,6 @@ class GroupCallCenterEnhancedReportingReportTemplateAddRequest extends ComplexTy
      */
     public function setDataTemplate($dataTemplate = null)
     {
-        if (!$dataTemplate) return $this;
         $this->dataTemplate = ($dataTemplate InstanceOf CallCenterReportDataTemplateName)
              ? $dataTemplate
              : new CallCenterReportDataTemplateName($dataTemplate);
@@ -210,7 +205,7 @@ class GroupCallCenterEnhancedReportingReportTemplateAddRequest extends ComplexTy
      */
     public function getDataTemplate()
     {
-        return $this->dataTemplate->getValue();
+        return ($this->dataTemplate) ? $this->dataTemplate->getValue() : null;
     }
 
     /**
@@ -218,7 +213,6 @@ class GroupCallCenterEnhancedReportingReportTemplateAddRequest extends ComplexTy
      */
     public function setFilterNumber($filterNumber = null)
     {
-        if (!$filterNumber) return $this;
         $this->filterNumber = ($filterNumber InstanceOf CallCenterReportDataTemplateFilterNumber)
              ? $filterNumber
              : new CallCenterReportDataTemplateFilterNumber($filterNumber);
@@ -232,7 +226,7 @@ class GroupCallCenterEnhancedReportingReportTemplateAddRequest extends ComplexTy
      */
     public function getFilterNumber()
     {
-        return $this->filterNumber->getValue();
+        return ($this->filterNumber) ? $this->filterNumber->getValue() : null;
     }
 
     /**
@@ -240,8 +234,9 @@ class GroupCallCenterEnhancedReportingReportTemplateAddRequest extends ComplexTy
      */
     public function setXsltTemplate(LabeledFileResource $xsltTemplate = null)
     {
-        if (!$xsltTemplate) return $this;
-        $this->xsltTemplate = $xsltTemplate;
+        $this->xsltTemplate = ($xsltTemplate InstanceOf LabeledFileResource)
+             ? $xsltTemplate
+             : new LabeledFileResource($xsltTemplate);
         $this->xsltTemplate->setName('xsltTemplate');
         return $this;
     }
@@ -260,7 +255,6 @@ class GroupCallCenterEnhancedReportingReportTemplateAddRequest extends ComplexTy
      */
     public function setScope($scope = null)
     {
-        if (!$scope) return $this;
         $this->scope = ($scope InstanceOf CallCenterReportTemplateAccessOption)
              ? $scope
              : new CallCenterReportTemplateAccessOption($scope);
@@ -274,7 +268,7 @@ class GroupCallCenterEnhancedReportingReportTemplateAddRequest extends ComplexTy
      */
     public function getScope()
     {
-        return $this->scope->getValue();
+        return ($this->scope) ? $this->scope->getValue() : null;
     }
 
     /**
@@ -282,7 +276,6 @@ class GroupCallCenterEnhancedReportingReportTemplateAddRequest extends ComplexTy
      */
     public function setIsEnabled($isEnabled = null)
     {
-        if (!$isEnabled) return $this;
         $this->isEnabled = new PrimitiveType($isEnabled);
         $this->isEnabled->setName('isEnabled');
         return $this;
@@ -294,7 +287,7 @@ class GroupCallCenterEnhancedReportingReportTemplateAddRequest extends ComplexTy
      */
     public function getIsEnabled()
     {
-        return $this->isEnabled->getValue();
+        return ($this->isEnabled) ? $this->isEnabled->getValue() : null;
     }
 
     /**
@@ -302,7 +295,6 @@ class GroupCallCenterEnhancedReportingReportTemplateAddRequest extends ComplexTy
      */
     public function setIsRealtimeReport($isRealtimeReport = null)
     {
-        if (!$isRealtimeReport) return $this;
         $this->isRealtimeReport = new PrimitiveType($isRealtimeReport);
         $this->isRealtimeReport->setName('isRealtimeReport');
         return $this;
@@ -314,7 +306,7 @@ class GroupCallCenterEnhancedReportingReportTemplateAddRequest extends ComplexTy
      */
     public function getIsRealtimeReport()
     {
-        return $this->isRealtimeReport->getValue();
+        return ($this->isRealtimeReport) ? $this->isRealtimeReport->getValue() : null;
     }
 
     /**
@@ -322,7 +314,6 @@ class GroupCallCenterEnhancedReportingReportTemplateAddRequest extends ComplexTy
      */
     public function setCallCompletionThresholdParam($callCompletionThresholdParam = null)
     {
-        if (!$callCompletionThresholdParam) return $this;
         $this->callCompletionThresholdParam = ($callCompletionThresholdParam InstanceOf CallCenterReportInputParameterOption)
              ? $callCompletionThresholdParam
              : new CallCenterReportInputParameterOption($callCompletionThresholdParam);
@@ -336,7 +327,7 @@ class GroupCallCenterEnhancedReportingReportTemplateAddRequest extends ComplexTy
      */
     public function getCallCompletionThresholdParam()
     {
-        return $this->callCompletionThresholdParam->getValue();
+        return ($this->callCompletionThresholdParam) ? $this->callCompletionThresholdParam->getValue() : null;
     }
 
     /**
@@ -344,7 +335,6 @@ class GroupCallCenterEnhancedReportingReportTemplateAddRequest extends ComplexTy
      */
     public function setShortDurationThresholdParam($shortDurationThresholdParam = null)
     {
-        if (!$shortDurationThresholdParam) return $this;
         $this->shortDurationThresholdParam = ($shortDurationThresholdParam InstanceOf CallCenterReportInputParameterOption)
              ? $shortDurationThresholdParam
              : new CallCenterReportInputParameterOption($shortDurationThresholdParam);
@@ -358,7 +348,7 @@ class GroupCallCenterEnhancedReportingReportTemplateAddRequest extends ComplexTy
      */
     public function getShortDurationThresholdParam()
     {
-        return $this->shortDurationThresholdParam->getValue();
+        return ($this->shortDurationThresholdParam) ? $this->shortDurationThresholdParam->getValue() : null;
     }
 
     /**
@@ -366,7 +356,6 @@ class GroupCallCenterEnhancedReportingReportTemplateAddRequest extends ComplexTy
      */
     public function setServiceLevelThresholdParam($serviceLevelThresholdParam = null)
     {
-        if (!$serviceLevelThresholdParam) return $this;
         $this->serviceLevelThresholdParam = ($serviceLevelThresholdParam InstanceOf CallCenterReportInputParameterOption)
              ? $serviceLevelThresholdParam
              : new CallCenterReportInputParameterOption($serviceLevelThresholdParam);
@@ -380,7 +369,7 @@ class GroupCallCenterEnhancedReportingReportTemplateAddRequest extends ComplexTy
      */
     public function getServiceLevelThresholdParam()
     {
-        return $this->serviceLevelThresholdParam->getValue();
+        return ($this->serviceLevelThresholdParam) ? $this->serviceLevelThresholdParam->getValue() : null;
     }
 
     /**
@@ -388,7 +377,6 @@ class GroupCallCenterEnhancedReportingReportTemplateAddRequest extends ComplexTy
      */
     public function setServiceLevelInclusionsParam($serviceLevelInclusionsParam = null)
     {
-        if (!$serviceLevelInclusionsParam) return $this;
         $this->serviceLevelInclusionsParam = ($serviceLevelInclusionsParam InstanceOf CallCenterReportInputParameterOption)
              ? $serviceLevelInclusionsParam
              : new CallCenterReportInputParameterOption($serviceLevelInclusionsParam);
@@ -402,7 +390,7 @@ class GroupCallCenterEnhancedReportingReportTemplateAddRequest extends ComplexTy
      */
     public function getServiceLevelInclusionsParam()
     {
-        return $this->serviceLevelInclusionsParam->getValue();
+        return ($this->serviceLevelInclusionsParam) ? $this->serviceLevelInclusionsParam->getValue() : null;
     }
 
     /**
@@ -410,7 +398,6 @@ class GroupCallCenterEnhancedReportingReportTemplateAddRequest extends ComplexTy
      */
     public function setServiceLevelObjectiveThresholdParam($serviceLevelObjectiveThresholdParam = null)
     {
-        if (!$serviceLevelObjectiveThresholdParam) return $this;
         $this->serviceLevelObjectiveThresholdParam = ($serviceLevelObjectiveThresholdParam InstanceOf CallCenterReportInputParameterOption)
              ? $serviceLevelObjectiveThresholdParam
              : new CallCenterReportInputParameterOption($serviceLevelObjectiveThresholdParam);
@@ -424,7 +411,7 @@ class GroupCallCenterEnhancedReportingReportTemplateAddRequest extends ComplexTy
      */
     public function getServiceLevelObjectiveThresholdParam()
     {
-        return $this->serviceLevelObjectiveThresholdParam->getValue();
+        return ($this->serviceLevelObjectiveThresholdParam) ? $this->serviceLevelObjectiveThresholdParam->getValue() : null;
     }
 
     /**
@@ -432,7 +419,6 @@ class GroupCallCenterEnhancedReportingReportTemplateAddRequest extends ComplexTy
      */
     public function setAbandonedCallThresholdParam($abandonedCallThresholdParam = null)
     {
-        if (!$abandonedCallThresholdParam) return $this;
         $this->abandonedCallThresholdParam = ($abandonedCallThresholdParam InstanceOf CallCenterReportInputParameterOption)
              ? $abandonedCallThresholdParam
              : new CallCenterReportInputParameterOption($abandonedCallThresholdParam);
@@ -446,7 +432,7 @@ class GroupCallCenterEnhancedReportingReportTemplateAddRequest extends ComplexTy
      */
     public function getAbandonedCallThresholdParam()
     {
-        return $this->abandonedCallThresholdParam->getValue();
+        return ($this->abandonedCallThresholdParam) ? $this->abandonedCallThresholdParam->getValue() : null;
     }
 
     /**
@@ -454,7 +440,6 @@ class GroupCallCenterEnhancedReportingReportTemplateAddRequest extends ComplexTy
      */
     public function setServiceLevelThresholdParamNumber($serviceLevelThresholdParamNumber = null)
     {
-        if (!$serviceLevelThresholdParamNumber) return $this;
         $this->serviceLevelThresholdParamNumber = ($serviceLevelThresholdParamNumber InstanceOf CallCenterReportServiceLevelInputParameterNumber)
              ? $serviceLevelThresholdParamNumber
              : new CallCenterReportServiceLevelInputParameterNumber($serviceLevelThresholdParamNumber);
@@ -468,7 +453,7 @@ class GroupCallCenterEnhancedReportingReportTemplateAddRequest extends ComplexTy
      */
     public function getServiceLevelThresholdParamNumber()
     {
-        return $this->serviceLevelThresholdParamNumber->getValue();
+        return ($this->serviceLevelThresholdParamNumber) ? $this->serviceLevelThresholdParamNumber->getValue() : null;
     }
 
     /**
@@ -476,7 +461,6 @@ class GroupCallCenterEnhancedReportingReportTemplateAddRequest extends ComplexTy
      */
     public function setAbandonedCallThresholdParamNumber($abandonedCallThresholdParamNumber = null)
     {
-        if (!$abandonedCallThresholdParamNumber) return $this;
         $this->abandonedCallThresholdParamNumber = ($abandonedCallThresholdParamNumber InstanceOf CallCenterReportAbandonedCallInputParameterNumber)
              ? $abandonedCallThresholdParamNumber
              : new CallCenterReportAbandonedCallInputParameterNumber($abandonedCallThresholdParamNumber);
@@ -490,7 +474,7 @@ class GroupCallCenterEnhancedReportingReportTemplateAddRequest extends ComplexTy
      */
     public function getAbandonedCallThresholdParamNumber()
     {
-        return $this->abandonedCallThresholdParamNumber->getValue();
+        return ($this->abandonedCallThresholdParamNumber) ? $this->abandonedCallThresholdParamNumber->getValue() : null;
     }
 
     /**
@@ -498,7 +482,6 @@ class GroupCallCenterEnhancedReportingReportTemplateAddRequest extends ComplexTy
      */
     public function setFilterValue($filterValue = null)
     {
-        if (!$filterValue) return $this;
         $this->filterValue = ($filterValue InstanceOf CallCenterReportDataTemplateQueryFilterValue)
              ? $filterValue
              : new CallCenterReportDataTemplateQueryFilterValue($filterValue);
@@ -512,6 +495,6 @@ class GroupCallCenterEnhancedReportingReportTemplateAddRequest extends ComplexTy
      */
     public function getFilterValue()
     {
-        return $this->filterValue->getValue();
+        return ($this->filterValue) ? $this->filterValue->getValue() : null;
     }
 }

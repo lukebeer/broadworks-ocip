@@ -22,13 +22,13 @@ use Broadworks_OCIP\core\Client\Client;
 class GroupApplicationServerSetGetRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupApplicationServerSetGetResponse';
-    public    $name              = 'GroupApplicationServerSetGetRequest';
-    protected $groupId           = null;
-    protected $serviceProviderId = null;
+    public    $name = 'GroupApplicationServerSetGetRequest';
+    protected $groupId;
+    protected $serviceProviderId;
 
     public function __construct(
-         $groupId,
-         $serviceProviderId
+         $groupId = '',
+         $serviceProviderId = ''
     ) {
         $this->setGroupId($groupId);
         $this->setServiceProviderId($serviceProviderId);
@@ -47,7 +47,6 @@ class GroupApplicationServerSetGetRequest extends ComplexType implements Complex
      */
     public function setGroupId($groupId = null)
     {
-        if (!$groupId) return $this;
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
@@ -61,7 +60,7 @@ class GroupApplicationServerSetGetRequest extends ComplexType implements Complex
      */
     public function getGroupId()
     {
-        return $this->groupId->getValue();
+        return ($this->groupId) ? $this->groupId->getValue() : null;
     }
 
     /**
@@ -69,7 +68,6 @@ class GroupApplicationServerSetGetRequest extends ComplexType implements Complex
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
-        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
@@ -83,6 +81,6 @@ class GroupApplicationServerSetGetRequest extends ComplexType implements Complex
      */
     public function getServiceProviderId()
     {
-        return $this->serviceProviderId->getValue();
+        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
     }
 }

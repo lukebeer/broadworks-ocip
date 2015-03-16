@@ -19,9 +19,9 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserDirectedCallPickupWithBargeInGetResponse14sp7 extends ComplexType implements ComplexInterface
 {
-    public    $name                           = 'UserDirectedCallPickupWithBargeInGetResponse14sp7';
-    protected $enableBargeInWarningTone       = null;
-    protected $enableAutomaticTargetSelection = null;
+    public    $name = 'UserDirectedCallPickupWithBargeInGetResponse14sp7';
+    protected $enableBargeInWarningTone;
+    protected $enableAutomaticTargetSelection;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceDirectedCallPickupWithBargeIn\UserDirectedCallPickupWithBargeInGetResponse14sp7 $response
@@ -36,7 +36,6 @@ class UserDirectedCallPickupWithBargeInGetResponse14sp7 extends ComplexType impl
      */
     public function setEnableBargeInWarningTone($enableBargeInWarningTone = null)
     {
-        if (!$enableBargeInWarningTone) return $this;
         $this->enableBargeInWarningTone = new PrimitiveType($enableBargeInWarningTone);
         $this->enableBargeInWarningTone->setName('enableBargeInWarningTone');
         return $this;
@@ -48,7 +47,7 @@ class UserDirectedCallPickupWithBargeInGetResponse14sp7 extends ComplexType impl
      */
     public function getEnableBargeInWarningTone()
     {
-        return $this->enableBargeInWarningTone->getValue();
+        return ($this->enableBargeInWarningTone) ? $this->enableBargeInWarningTone->getValue() : null;
     }
 
     /**
@@ -56,7 +55,6 @@ class UserDirectedCallPickupWithBargeInGetResponse14sp7 extends ComplexType impl
      */
     public function setEnableAutomaticTargetSelection($enableAutomaticTargetSelection = null)
     {
-        if (!$enableAutomaticTargetSelection) return $this;
         $this->enableAutomaticTargetSelection = new PrimitiveType($enableAutomaticTargetSelection);
         $this->enableAutomaticTargetSelection->setName('enableAutomaticTargetSelection');
         return $this;
@@ -68,6 +66,6 @@ class UserDirectedCallPickupWithBargeInGetResponse14sp7 extends ComplexType impl
      */
     public function getEnableAutomaticTargetSelection()
     {
-        return $this->enableAutomaticTargetSelection->getValue();
+        return ($this->enableAutomaticTargetSelection) ? $this->enableAutomaticTargetSelection->getValue() : null;
     }
 }

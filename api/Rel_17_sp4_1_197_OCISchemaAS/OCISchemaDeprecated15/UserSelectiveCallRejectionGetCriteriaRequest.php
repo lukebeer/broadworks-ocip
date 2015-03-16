@@ -22,13 +22,13 @@ use Broadworks_OCIP\core\Client\Client;
 class UserSelectiveCallRejectionGetCriteriaRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15\UserSelectiveCallRejectionGetCriteriaResponse';
-    public    $name         = 'UserSelectiveCallRejectionGetCriteriaRequest';
-    protected $userId       = null;
-    protected $criteriaName = null;
+    public    $name = 'UserSelectiveCallRejectionGetCriteriaRequest';
+    protected $userId;
+    protected $criteriaName;
 
     public function __construct(
-         $userId,
-         $criteriaName
+         $userId = '',
+         $criteriaName = ''
     ) {
         $this->setUserId($userId);
         $this->setCriteriaName($criteriaName);
@@ -47,7 +47,6 @@ class UserSelectiveCallRejectionGetCriteriaRequest extends ComplexType implement
      */
     public function setUserId($userId = null)
     {
-        if (!$userId) return $this;
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
@@ -61,7 +60,7 @@ class UserSelectiveCallRejectionGetCriteriaRequest extends ComplexType implement
      */
     public function getUserId()
     {
-        return $this->userId->getValue();
+        return ($this->userId) ? $this->userId->getValue() : null;
     }
 
     /**
@@ -69,7 +68,6 @@ class UserSelectiveCallRejectionGetCriteriaRequest extends ComplexType implement
      */
     public function setCriteriaName($criteriaName = null)
     {
-        if (!$criteriaName) return $this;
         $this->criteriaName = ($criteriaName InstanceOf CriteriaName)
              ? $criteriaName
              : new CriteriaName($criteriaName);
@@ -83,6 +81,6 @@ class UserSelectiveCallRejectionGetCriteriaRequest extends ComplexType implement
      */
     public function getCriteriaName()
     {
-        return $this->criteriaName->getValue();
+        return ($this->criteriaName) ? $this->criteriaName->getValue() : null;
     }
 }

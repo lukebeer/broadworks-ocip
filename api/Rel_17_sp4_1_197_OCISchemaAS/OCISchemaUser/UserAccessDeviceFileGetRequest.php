@@ -22,15 +22,15 @@ use Broadworks_OCIP\core\Client\Client;
 class UserAccessDeviceFileGetRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser\UserAccessDeviceFileGetResponse';
-    public    $name         = 'UserAccessDeviceFileGetRequest';
-    protected $userId       = null;
-    protected $accessDevice = null;
-    protected $fileFormat   = null;
+    public    $name = 'UserAccessDeviceFileGetRequest';
+    protected $userId;
+    protected $accessDevice;
+    protected $fileFormat;
 
     public function __construct(
-         $userId,
-         AccessDevice $accessDevice,
-         $fileFormat
+         $userId = '',
+         AccessDevice $accessDevice = '',
+         $fileFormat = ''
     ) {
         $this->setUserId($userId);
         $this->setAccessDevice($accessDevice);
@@ -50,7 +50,6 @@ class UserAccessDeviceFileGetRequest extends ComplexType implements ComplexInter
      */
     public function setUserId($userId = null)
     {
-        if (!$userId) return $this;
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
@@ -64,7 +63,7 @@ class UserAccessDeviceFileGetRequest extends ComplexType implements ComplexInter
      */
     public function getUserId()
     {
-        return $this->userId->getValue();
+        return ($this->userId) ? $this->userId->getValue() : null;
     }
 
     /**
@@ -72,8 +71,9 @@ class UserAccessDeviceFileGetRequest extends ComplexType implements ComplexInter
      */
     public function setAccessDevice(AccessDevice $accessDevice = null)
     {
-        if (!$accessDevice) return $this;
-        $this->accessDevice = $accessDevice;
+        $this->accessDevice = ($accessDevice InstanceOf AccessDevice)
+             ? $accessDevice
+             : new AccessDevice($accessDevice);
         $this->accessDevice->setName('accessDevice');
         return $this;
     }
@@ -92,7 +92,6 @@ class UserAccessDeviceFileGetRequest extends ComplexType implements ComplexInter
      */
     public function setFileFormat($fileFormat = null)
     {
-        if (!$fileFormat) return $this;
         $this->fileFormat = ($fileFormat InstanceOf DeviceManagementFileFormat)
              ? $fileFormat
              : new DeviceManagementFileFormat($fileFormat);
@@ -106,6 +105,6 @@ class UserAccessDeviceFileGetRequest extends ComplexType implements ComplexInter
      */
     public function getFileFormat()
     {
-        return $this->fileFormat->getValue();
+        return ($this->fileFormat) ? $this->fileFormat->getValue() : null;
     }
 }

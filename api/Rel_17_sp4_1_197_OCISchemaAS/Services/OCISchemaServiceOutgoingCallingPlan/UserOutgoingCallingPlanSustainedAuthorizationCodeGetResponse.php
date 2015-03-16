@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
 class UserOutgoingCallingPlanSustainedAuthorizationCodeGetResponse extends ComplexType implements ComplexInterface
 {
     public    $name = 'UserOutgoingCallingPlanSustainedAuthorizationCodeGetResponse';
-    protected $code = null;
+    protected $code;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceOutgoingCallingPlan\UserOutgoingCallingPlanSustainedAuthorizationCodeGetResponse $response
@@ -35,7 +35,6 @@ class UserOutgoingCallingPlanSustainedAuthorizationCodeGetResponse extends Compl
      */
     public function setCode($code = null)
     {
-        if (!$code) return $this;
         $this->code = ($code InstanceOf OutgoingCallingPlanAuthorizationCode)
              ? $code
              : new OutgoingCallingPlanAuthorizationCode($code);
@@ -49,6 +48,6 @@ class UserOutgoingCallingPlanSustainedAuthorizationCodeGetResponse extends Compl
      */
     public function getCode()
     {
-        return $this->code->getValue();
+        return ($this->code) ? $this->code->getValue() : null;
     }
 }

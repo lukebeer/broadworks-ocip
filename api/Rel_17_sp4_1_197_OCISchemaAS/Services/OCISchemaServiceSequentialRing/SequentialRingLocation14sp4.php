@@ -19,15 +19,15 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SequentialRingLocation14sp4 extends ComplexType implements ComplexInterface
 {
-    public    $name                       = 'SequentialRingLocation14sp4';
-    protected $phoneNumber                = null;
-    protected $numberOfRings              = null;
-    protected $answerConfirmationRequired = null;
+    public    $name = 'SequentialRingLocation14sp4';
+    protected $phoneNumber;
+    protected $numberOfRings;
+    protected $answerConfirmationRequired;
 
     public function __construct(
          $phoneNumber = null,
-         $numberOfRings,
-         $answerConfirmationRequired
+         $numberOfRings = '',
+         $answerConfirmationRequired = ''
     ) {
         $this->setPhoneNumber($phoneNumber);
         $this->setNumberOfRings($numberOfRings);
@@ -47,7 +47,6 @@ class SequentialRingLocation14sp4 extends ComplexType implements ComplexInterfac
      */
     public function setPhoneNumber($phoneNumber = null)
     {
-        if (!$phoneNumber) return $this;
         $this->phoneNumber = new SimpleContent($phoneNumber);
         $this->phoneNumber->setName('phoneNumber');
         return $this;
@@ -59,7 +58,7 @@ class SequentialRingLocation14sp4 extends ComplexType implements ComplexInterfac
      */
     public function getPhoneNumber()
     {
-        return $this->phoneNumber->getValue();
+        return ($this->phoneNumber) ? $this->phoneNumber->getValue() : null;
     }
 
     /**
@@ -67,7 +66,6 @@ class SequentialRingLocation14sp4 extends ComplexType implements ComplexInterfac
      */
     public function setNumberOfRings($numberOfRings = null)
     {
-        if (!$numberOfRings) return $this;
         $this->numberOfRings = new SimpleContent($numberOfRings);
         $this->numberOfRings->setName('numberOfRings');
         return $this;
@@ -79,7 +77,7 @@ class SequentialRingLocation14sp4 extends ComplexType implements ComplexInterfac
      */
     public function getNumberOfRings()
     {
-        return $this->numberOfRings->getValue();
+        return ($this->numberOfRings) ? $this->numberOfRings->getValue() : null;
     }
 
     /**
@@ -87,7 +85,6 @@ class SequentialRingLocation14sp4 extends ComplexType implements ComplexInterfac
      */
     public function setAnswerConfirmationRequired($answerConfirmationRequired = null)
     {
-        if (!$answerConfirmationRequired) return $this;
         $this->answerConfirmationRequired = new SimpleContent($answerConfirmationRequired);
         $this->answerConfirmationRequired->setName('answerConfirmationRequired');
         return $this;
@@ -99,6 +96,6 @@ class SequentialRingLocation14sp4 extends ComplexType implements ComplexInterfac
      */
     public function getAnswerConfirmationRequired()
     {
-        return $this->answerConfirmationRequired->getValue();
+        return ($this->answerConfirmationRequired) ? $this->answerConfirmationRequired->getValue() : null;
     }
 }

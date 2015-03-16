@@ -20,8 +20,8 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemDnGetSummaryListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name           = 'SystemDnGetSummaryListResponse';
-    protected $dnSummaryTable = null;
+    public    $name = 'SystemDnGetSummaryListResponse';
+    protected $dnSummaryTable;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemDnGetSummaryListResponse $response
@@ -36,7 +36,6 @@ class SystemDnGetSummaryListResponse extends ComplexType implements ComplexInter
      */
     public function setDnSummaryTable(TableType $dnSummaryTable = null)
     {
-        if (!$dnSummaryTable) return $this;
         $this->dnSummaryTable = $dnSummaryTable;
         $this->dnSummaryTable->setName('dnSummaryTable');
         return $this;

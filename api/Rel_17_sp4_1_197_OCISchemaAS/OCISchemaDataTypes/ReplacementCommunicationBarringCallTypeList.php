@@ -21,8 +21,8 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ReplacementCommunicationBarringCallTypeList extends ComplexType implements ComplexInterface
 {
-    public    $name     = 'ReplacementCommunicationBarringCallTypeList';
-    protected $callType = null;
+    public    $name = 'ReplacementCommunicationBarringCallTypeList';
+    protected $callType;
 
     public function __construct(
          $callType = null
@@ -43,7 +43,6 @@ class ReplacementCommunicationBarringCallTypeList extends ComplexType implements
      */
     public function setCallType($callType = null)
     {
-        if (!$callType) return $this;
         $this->callType = new SimpleContent($callType);
         $this->callType->setName('callType');
         return $this;
@@ -55,6 +54,6 @@ class ReplacementCommunicationBarringCallTypeList extends ComplexType implements
      */
     public function getCallType()
     {
-        return $this->callType->getValue();
+        return ($this->callType) ? $this->callType->getValue() : null;
     }
 }

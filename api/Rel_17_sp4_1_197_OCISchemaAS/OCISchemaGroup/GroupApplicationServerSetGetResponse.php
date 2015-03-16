@@ -20,8 +20,8 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupApplicationServerSetGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                     = 'GroupApplicationServerSetGetResponse';
-    protected $applicationServerSetName = null;
+    public    $name = 'GroupApplicationServerSetGetResponse';
+    protected $applicationServerSetName;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupApplicationServerSetGetResponse $response
@@ -36,7 +36,6 @@ class GroupApplicationServerSetGetResponse extends ComplexType implements Comple
      */
     public function setApplicationServerSetName($applicationServerSetName = null)
     {
-        if (!$applicationServerSetName) return $this;
         $this->applicationServerSetName = ($applicationServerSetName InstanceOf ApplicationServerSetName)
              ? $applicationServerSetName
              : new ApplicationServerSetName($applicationServerSetName);
@@ -50,6 +49,6 @@ class GroupApplicationServerSetGetResponse extends ComplexType implements Comple
      */
     public function getApplicationServerSetName()
     {
-        return $this->applicationServerSetName->getValue();
+        return ($this->applicationServerSetName) ? $this->applicationServerSetName->getValue() : null;
     }
 }

@@ -19,9 +19,9 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupFeatureAccessCodeGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                      = 'GroupFeatureAccessCodeGetResponse';
-    protected $useFeatureAccessCodeLevel = null;
-    protected $featureAccessCode         = null;
+    public    $name = 'GroupFeatureAccessCodeGetResponse';
+    protected $useFeatureAccessCodeLevel;
+    protected $featureAccessCode;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupFeatureAccessCodeGetResponse $response
@@ -36,7 +36,6 @@ class GroupFeatureAccessCodeGetResponse extends ComplexType implements ComplexIn
      */
     public function setUseFeatureAccessCodeLevel($useFeatureAccessCodeLevel = null)
     {
-        if (!$useFeatureAccessCodeLevel) return $this;
         $this->useFeatureAccessCodeLevel = ($useFeatureAccessCodeLevel InstanceOf GroupFeatureAccessCodeLevel)
              ? $useFeatureAccessCodeLevel
              : new GroupFeatureAccessCodeLevel($useFeatureAccessCodeLevel);
@@ -50,7 +49,7 @@ class GroupFeatureAccessCodeGetResponse extends ComplexType implements ComplexIn
      */
     public function getUseFeatureAccessCodeLevel()
     {
-        return $this->useFeatureAccessCodeLevel->getValue();
+        return ($this->useFeatureAccessCodeLevel) ? $this->useFeatureAccessCodeLevel->getValue() : null;
     }
 
     /**
@@ -58,8 +57,9 @@ class GroupFeatureAccessCodeGetResponse extends ComplexType implements ComplexIn
      */
     public function setFeatureAccessCode(FeatureAccessCodeEntry $featureAccessCode = null)
     {
-        if (!$featureAccessCode) return $this;
-        $this->featureAccessCode = $featureAccessCode;
+        $this->featureAccessCode = ($featureAccessCode InstanceOf FeatureAccessCodeEntry)
+             ? $featureAccessCode
+             : new FeatureAccessCodeEntry($featureAccessCode);
         $this->featureAccessCode->setName('featureAccessCode');
         return $this;
     }

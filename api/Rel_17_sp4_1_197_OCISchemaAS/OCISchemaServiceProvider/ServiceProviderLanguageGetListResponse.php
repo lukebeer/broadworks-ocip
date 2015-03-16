@@ -19,9 +19,9 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderLanguageGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name            = 'ServiceProviderLanguageGetListResponse';
-    protected $language        = null;
-    protected $defaultLanguage = null;
+    public    $name = 'ServiceProviderLanguageGetListResponse';
+    protected $language;
+    protected $defaultLanguage;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderLanguageGetListResponse $response
@@ -36,7 +36,6 @@ class ServiceProviderLanguageGetListResponse extends ComplexType implements Comp
      */
     public function setLanguage($language = null)
     {
-        if (!$language) return $this;
         $this->language = ($language InstanceOf Language)
              ? $language
              : new Language($language);
@@ -50,7 +49,7 @@ class ServiceProviderLanguageGetListResponse extends ComplexType implements Comp
      */
     public function getLanguage()
     {
-        return $this->language->getValue();
+        return ($this->language) ? $this->language->getValue() : null;
     }
 
     /**
@@ -58,7 +57,6 @@ class ServiceProviderLanguageGetListResponse extends ComplexType implements Comp
      */
     public function setDefaultLanguage($defaultLanguage = null)
     {
-        if (!$defaultLanguage) return $this;
         $this->defaultLanguage = ($defaultLanguage InstanceOf Language)
              ? $defaultLanguage
              : new Language($defaultLanguage);
@@ -72,6 +70,6 @@ class ServiceProviderLanguageGetListResponse extends ComplexType implements Comp
      */
     public function getDefaultLanguage()
     {
-        return $this->defaultLanguage->getValue();
+        return ($this->defaultLanguage) ? $this->defaultLanguage->getValue() : null;
     }
 }

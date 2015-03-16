@@ -19,11 +19,11 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SearchCriteriaExactCallCenterReportTemplateKey extends ComplexType implements ComplexInterface
 {
-    public    $name           = 'SearchCriteriaExactCallCenterReportTemplateKey';
-    protected $reportTemplate = null;
+    public    $name = 'SearchCriteriaExactCallCenterReportTemplateKey';
+    protected $reportTemplate;
 
     public function __construct(
-         CallCenterReportTemplateKey $reportTemplate
+         CallCenterReportTemplateKey $reportTemplate = ''
     ) {
         $this->setReportTemplate($reportTemplate);
     }
@@ -41,8 +41,9 @@ class SearchCriteriaExactCallCenterReportTemplateKey extends ComplexType impleme
      */
     public function setReportTemplate(CallCenterReportTemplateKey $reportTemplate = null)
     {
-        if (!$reportTemplate) return $this;
-        $this->reportTemplate = $reportTemplate;
+        $this->reportTemplate = ($reportTemplate InstanceOf CallCenterReportTemplateKey)
+             ? $reportTemplate
+             : new CallCenterReportTemplateKey($reportTemplate);
         $this->reportTemplate->setName('reportTemplate');
         return $this;
     }

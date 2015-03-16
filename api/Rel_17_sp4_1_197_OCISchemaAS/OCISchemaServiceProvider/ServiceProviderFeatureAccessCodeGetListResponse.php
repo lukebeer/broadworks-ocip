@@ -19,8 +19,8 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderFeatureAccessCodeGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name              = 'ServiceProviderFeatureAccessCodeGetListResponse';
-    protected $featureAccessCode = null;
+    public    $name = 'ServiceProviderFeatureAccessCodeGetListResponse';
+    protected $featureAccessCode;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderFeatureAccessCodeGetListResponse $response
@@ -35,8 +35,9 @@ class ServiceProviderFeatureAccessCodeGetListResponse extends ComplexType implem
      */
     public function setFeatureAccessCode(FeatureAccessCodeEntry $featureAccessCode = null)
     {
-        if (!$featureAccessCode) return $this;
-        $this->featureAccessCode = $featureAccessCode;
+        $this->featureAccessCode = ($featureAccessCode InstanceOf FeatureAccessCodeEntry)
+             ? $featureAccessCode
+             : new FeatureAccessCodeEntry($featureAccessCode);
         $this->featureAccessCode->setName('featureAccessCode');
         return $this;
     }

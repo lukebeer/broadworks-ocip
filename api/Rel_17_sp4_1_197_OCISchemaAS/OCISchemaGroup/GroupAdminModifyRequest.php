@@ -26,15 +26,15 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupAdminModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name      = 'GroupAdminModifyRequest';
-    protected $userId    = null;
-    protected $firstName = null;
-    protected $lastName  = null;
-    protected $password  = null;
-    protected $language  = null;
+    public    $name = 'GroupAdminModifyRequest';
+    protected $userId;
+    protected $firstName;
+    protected $lastName;
+    protected $password;
+    protected $language;
 
     public function __construct(
-         $userId,
+         $userId = '',
          $firstName = null,
          $lastName = null,
          $password = null,
@@ -60,7 +60,6 @@ class GroupAdminModifyRequest extends ComplexType implements ComplexInterface
      */
     public function setUserId($userId = null)
     {
-        if (!$userId) return $this;
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
@@ -74,7 +73,7 @@ class GroupAdminModifyRequest extends ComplexType implements ComplexInterface
      */
     public function getUserId()
     {
-        return $this->userId->getValue();
+        return ($this->userId) ? $this->userId->getValue() : null;
     }
 
     /**
@@ -82,7 +81,6 @@ class GroupAdminModifyRequest extends ComplexType implements ComplexInterface
      */
     public function setFirstName($firstName = null)
     {
-        if (!$firstName) return $this;
         $this->firstName = ($firstName InstanceOf FirstName)
              ? $firstName
              : new FirstName($firstName);
@@ -96,7 +94,7 @@ class GroupAdminModifyRequest extends ComplexType implements ComplexInterface
      */
     public function getFirstName()
     {
-        return $this->firstName->getValue();
+        return ($this->firstName) ? $this->firstName->getValue() : null;
     }
 
     /**
@@ -104,7 +102,6 @@ class GroupAdminModifyRequest extends ComplexType implements ComplexInterface
      */
     public function setLastName($lastName = null)
     {
-        if (!$lastName) return $this;
         $this->lastName = ($lastName InstanceOf LastName)
              ? $lastName
              : new LastName($lastName);
@@ -118,7 +115,7 @@ class GroupAdminModifyRequest extends ComplexType implements ComplexInterface
      */
     public function getLastName()
     {
-        return $this->lastName->getValue();
+        return ($this->lastName) ? $this->lastName->getValue() : null;
     }
 
     /**
@@ -126,7 +123,6 @@ class GroupAdminModifyRequest extends ComplexType implements ComplexInterface
      */
     public function setPassword($password = null)
     {
-        if (!$password) return $this;
         $this->password = ($password InstanceOf Password)
              ? $password
              : new Password($password);
@@ -140,7 +136,7 @@ class GroupAdminModifyRequest extends ComplexType implements ComplexInterface
      */
     public function getPassword()
     {
-        return $this->password->getValue();
+        return ($this->password) ? $this->password->getValue() : null;
     }
 
     /**
@@ -148,7 +144,6 @@ class GroupAdminModifyRequest extends ComplexType implements ComplexInterface
      */
     public function setLanguage($language = null)
     {
-        if (!$language) return $this;
         $this->language = ($language InstanceOf Language)
              ? $language
              : new Language($language);
@@ -162,6 +157,6 @@ class GroupAdminModifyRequest extends ComplexType implements ComplexInterface
      */
     public function getLanguage()
     {
-        return $this->language->getValue();
+        return ($this->language) ? $this->language->getValue() : null;
     }
 }

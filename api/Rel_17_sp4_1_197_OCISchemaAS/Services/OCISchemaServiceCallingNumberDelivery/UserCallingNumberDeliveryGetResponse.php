@@ -19,9 +19,9 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserCallingNumberDeliveryGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                     = 'UserCallingNumberDeliveryGetResponse';
-    protected $isActiveForExternalCalls = null;
-    protected $isActiveForInternalCalls = null;
+    public    $name = 'UserCallingNumberDeliveryGetResponse';
+    protected $isActiveForExternalCalls;
+    protected $isActiveForInternalCalls;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallingNumberDelivery\UserCallingNumberDeliveryGetResponse $response
@@ -36,7 +36,6 @@ class UserCallingNumberDeliveryGetResponse extends ComplexType implements Comple
      */
     public function setIsActiveForExternalCalls($isActiveForExternalCalls = null)
     {
-        if (!$isActiveForExternalCalls) return $this;
         $this->isActiveForExternalCalls = new PrimitiveType($isActiveForExternalCalls);
         $this->isActiveForExternalCalls->setName('isActiveForExternalCalls');
         return $this;
@@ -48,7 +47,7 @@ class UserCallingNumberDeliveryGetResponse extends ComplexType implements Comple
      */
     public function getIsActiveForExternalCalls()
     {
-        return $this->isActiveForExternalCalls->getValue();
+        return ($this->isActiveForExternalCalls) ? $this->isActiveForExternalCalls->getValue() : null;
     }
 
     /**
@@ -56,7 +55,6 @@ class UserCallingNumberDeliveryGetResponse extends ComplexType implements Comple
      */
     public function setIsActiveForInternalCalls($isActiveForInternalCalls = null)
     {
-        if (!$isActiveForInternalCalls) return $this;
         $this->isActiveForInternalCalls = new PrimitiveType($isActiveForInternalCalls);
         $this->isActiveForInternalCalls->setName('isActiveForInternalCalls');
         return $this;
@@ -68,6 +66,6 @@ class UserCallingNumberDeliveryGetResponse extends ComplexType implements Comple
      */
     public function getIsActiveForInternalCalls()
     {
-        return $this->isActiveForInternalCalls->getValue();
+        return ($this->isActiveForInternalCalls) ? $this->isActiveForInternalCalls->getValue() : null;
     }
 }

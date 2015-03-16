@@ -22,14 +22,14 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupCallRecordingModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name              = 'GroupCallRecordingModifyRequest';
-    protected $serviceProviderId = null;
-    protected $groupId           = null;
-    protected $name              = null;
+    public    $name = 'GroupCallRecordingModifyRequest';
+    protected $serviceProviderId;
+    protected $groupId;
+    protected $name;
 
     public function __construct(
-         $serviceProviderId,
-         $groupId,
+         $serviceProviderId = '',
+         $groupId = '',
          $name = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
@@ -50,7 +50,6 @@ class GroupCallRecordingModifyRequest extends ComplexType implements ComplexInte
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
-        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
@@ -64,7 +63,7 @@ class GroupCallRecordingModifyRequest extends ComplexType implements ComplexInte
      */
     public function getServiceProviderId()
     {
-        return $this->serviceProviderId->getValue();
+        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
     }
 
     /**
@@ -72,7 +71,6 @@ class GroupCallRecordingModifyRequest extends ComplexType implements ComplexInte
      */
     public function setGroupId($groupId = null)
     {
-        if (!$groupId) return $this;
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
@@ -86,7 +84,7 @@ class GroupCallRecordingModifyRequest extends ComplexType implements ComplexInte
      */
     public function getGroupId()
     {
-        return $this->groupId->getValue();
+        return ($this->groupId) ? $this->groupId->getValue() : null;
     }
 
     /**
@@ -94,7 +92,6 @@ class GroupCallRecordingModifyRequest extends ComplexType implements ComplexInte
      */
     public function setName($name = null)
     {
-        if (!$name) return $this;
         $this->name = ($name InstanceOf CallRecordingPlatformName)
              ? $name
              : new CallRecordingPlatformName($name);
@@ -108,6 +105,6 @@ class GroupCallRecordingModifyRequest extends ComplexType implements ComplexInte
      */
     public function getName()
     {
-        return $this->name->getValue();
+        return ($this->name) ? $this->name->getValue() : null;
     }
 }

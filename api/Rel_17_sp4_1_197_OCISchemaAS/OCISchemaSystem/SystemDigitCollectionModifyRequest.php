@@ -21,10 +21,10 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemDigitCollectionModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name            = 'SystemDigitCollectionModifyRequest';
-    protected $accessCode      = null;
-    protected $publicDigitMap  = null;
-    protected $privateDigitMap = null;
+    public    $name = 'SystemDigitCollectionModifyRequest';
+    protected $accessCode;
+    protected $publicDigitMap;
+    protected $privateDigitMap;
 
     public function __construct(
          $accessCode = null,
@@ -49,7 +49,6 @@ class SystemDigitCollectionModifyRequest extends ComplexType implements ComplexI
      */
     public function setAccessCode($accessCode = null)
     {
-        if (!$accessCode) return $this;
         $this->accessCode = ($accessCode InstanceOf AccessCode)
              ? $accessCode
              : new AccessCode($accessCode);
@@ -63,7 +62,7 @@ class SystemDigitCollectionModifyRequest extends ComplexType implements ComplexI
      */
     public function getAccessCode()
     {
-        return $this->accessCode->getValue();
+        return ($this->accessCode) ? $this->accessCode->getValue() : null;
     }
 
     /**
@@ -71,7 +70,6 @@ class SystemDigitCollectionModifyRequest extends ComplexType implements ComplexI
      */
     public function setPublicDigitMap($publicDigitMap = null)
     {
-        if (!$publicDigitMap) return $this;
         $this->publicDigitMap = ($publicDigitMap InstanceOf DigitMap)
              ? $publicDigitMap
              : new DigitMap($publicDigitMap);
@@ -85,7 +83,7 @@ class SystemDigitCollectionModifyRequest extends ComplexType implements ComplexI
      */
     public function getPublicDigitMap()
     {
-        return $this->publicDigitMap->getValue();
+        return ($this->publicDigitMap) ? $this->publicDigitMap->getValue() : null;
     }
 
     /**
@@ -93,7 +91,6 @@ class SystemDigitCollectionModifyRequest extends ComplexType implements ComplexI
      */
     public function setPrivateDigitMap($privateDigitMap = null)
     {
-        if (!$privateDigitMap) return $this;
         $this->privateDigitMap = ($privateDigitMap InstanceOf DigitMap)
              ? $privateDigitMap
              : new DigitMap($privateDigitMap);
@@ -107,6 +104,6 @@ class SystemDigitCollectionModifyRequest extends ComplexType implements ComplexI
      */
     public function getPrivateDigitMap()
     {
-        return $this->privateDigitMap->getValue();
+        return ($this->privateDigitMap) ? $this->privateDigitMap->getValue() : null;
     }
 }

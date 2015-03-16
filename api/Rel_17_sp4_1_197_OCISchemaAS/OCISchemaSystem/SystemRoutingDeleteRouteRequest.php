@@ -20,11 +20,11 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemRoutingDeleteRouteRequest extends ComplexType implements ComplexInterface
 {
-    public    $name      = 'SystemRoutingDeleteRouteRequest';
-    protected $routeName = null;
+    public    $name = 'SystemRoutingDeleteRouteRequest';
+    protected $routeName;
 
     public function __construct(
-         $routeName
+         $routeName = ''
     ) {
         $this->setRouteName($routeName);
     }
@@ -42,7 +42,6 @@ class SystemRoutingDeleteRouteRequest extends ComplexType implements ComplexInte
      */
     public function setRouteName($routeName = null)
     {
-        if (!$routeName) return $this;
         $this->routeName = ($routeName InstanceOf RouteName)
              ? $routeName
              : new RouteName($routeName);
@@ -56,6 +55,6 @@ class SystemRoutingDeleteRouteRequest extends ComplexType implements ComplexInte
      */
     public function getRouteName()
     {
-        return $this->routeName->getValue();
+        return ($this->routeName) ? $this->routeName->getValue() : null;
     }
 }

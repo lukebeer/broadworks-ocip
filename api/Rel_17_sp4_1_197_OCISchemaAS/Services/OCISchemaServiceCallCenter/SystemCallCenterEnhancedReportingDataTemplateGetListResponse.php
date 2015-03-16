@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
 class SystemCallCenterEnhancedReportingDataTemplateGetListResponse extends ComplexType implements ComplexInterface
 {
     public    $name = 'SystemCallCenterEnhancedReportingDataTemplateGetListResponse';
-    protected $info = null;
+    protected $info;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\SystemCallCenterEnhancedReportingDataTemplateGetListResponse $response
@@ -35,8 +35,9 @@ class SystemCallCenterEnhancedReportingDataTemplateGetListResponse extends Compl
      */
     public function setInfo(CallCenterReportDataTemplateInfo $info = null)
     {
-        if (!$info) return $this;
-        $this->info = $info;
+        $this->info = ($info InstanceOf CallCenterReportDataTemplateInfo)
+             ? $info
+             : new CallCenterReportDataTemplateInfo($info);
         $this->info->setName('info');
         return $this;
     }

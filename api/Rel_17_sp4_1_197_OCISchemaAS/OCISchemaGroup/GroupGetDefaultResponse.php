@@ -22,11 +22,11 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupGetDefaultResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                = 'GroupGetDefaultResponse';
-    protected $defaultDomain       = null;
-    protected $userLimit           = null;
-    protected $timeZone            = null;
-    protected $timeZoneDisplayName = null;
+    public    $name = 'GroupGetDefaultResponse';
+    protected $defaultDomain;
+    protected $userLimit;
+    protected $timeZone;
+    protected $timeZoneDisplayName;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupGetDefaultResponse $response
@@ -41,7 +41,6 @@ class GroupGetDefaultResponse extends ComplexType implements ComplexInterface
      */
     public function setDefaultDomain($defaultDomain = null)
     {
-        if (!$defaultDomain) return $this;
         $this->defaultDomain = ($defaultDomain InstanceOf NetAddress)
              ? $defaultDomain
              : new NetAddress($defaultDomain);
@@ -55,7 +54,7 @@ class GroupGetDefaultResponse extends ComplexType implements ComplexInterface
      */
     public function getDefaultDomain()
     {
-        return $this->defaultDomain->getValue();
+        return ($this->defaultDomain) ? $this->defaultDomain->getValue() : null;
     }
 
     /**
@@ -63,7 +62,6 @@ class GroupGetDefaultResponse extends ComplexType implements ComplexInterface
      */
     public function setUserLimit($userLimit = null)
     {
-        if (!$userLimit) return $this;
         $this->userLimit = ($userLimit InstanceOf GroupUserLimit)
              ? $userLimit
              : new GroupUserLimit($userLimit);
@@ -77,7 +75,7 @@ class GroupGetDefaultResponse extends ComplexType implements ComplexInterface
      */
     public function getUserLimit()
     {
-        return $this->userLimit->getValue();
+        return ($this->userLimit) ? $this->userLimit->getValue() : null;
     }
 
     /**
@@ -85,7 +83,6 @@ class GroupGetDefaultResponse extends ComplexType implements ComplexInterface
      */
     public function setTimeZone($timeZone = null)
     {
-        if (!$timeZone) return $this;
         $this->timeZone = ($timeZone InstanceOf TimeZone)
              ? $timeZone
              : new TimeZone($timeZone);
@@ -99,7 +96,7 @@ class GroupGetDefaultResponse extends ComplexType implements ComplexInterface
      */
     public function getTimeZone()
     {
-        return $this->timeZone->getValue();
+        return ($this->timeZone) ? $this->timeZone->getValue() : null;
     }
 
     /**
@@ -107,7 +104,6 @@ class GroupGetDefaultResponse extends ComplexType implements ComplexInterface
      */
     public function setTimeZoneDisplayName($timeZoneDisplayName = null)
     {
-        if (!$timeZoneDisplayName) return $this;
         $this->timeZoneDisplayName = ($timeZoneDisplayName InstanceOf TimeZoneDisplayName)
              ? $timeZoneDisplayName
              : new TimeZoneDisplayName($timeZoneDisplayName);
@@ -121,6 +117,6 @@ class GroupGetDefaultResponse extends ComplexType implements ComplexInterface
      */
     public function getTimeZoneDisplayName()
     {
-        return $this->timeZoneDisplayName->getValue();
+        return ($this->timeZoneDisplayName) ? $this->timeZoneDisplayName->getValue() : null;
     }
 }

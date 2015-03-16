@@ -19,8 +19,8 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemAccessDeviceMonitorGetDeviceTypeListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name       = 'SystemAccessDeviceMonitorGetDeviceTypeListResponse';
-    protected $deviceType = null;
+    public    $name = 'SystemAccessDeviceMonitorGetDeviceTypeListResponse';
+    protected $deviceType;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemAccessDeviceMonitorGetDeviceTypeListResponse $response
@@ -35,7 +35,6 @@ class SystemAccessDeviceMonitorGetDeviceTypeListResponse extends ComplexType imp
      */
     public function setDeviceType($deviceType = null)
     {
-        if (!$deviceType) return $this;
         $this->deviceType = ($deviceType InstanceOf AccessDeviceType)
              ? $deviceType
              : new AccessDeviceType($deviceType);
@@ -49,6 +48,6 @@ class SystemAccessDeviceMonitorGetDeviceTypeListResponse extends ComplexType imp
      */
     public function getDeviceType()
     {
-        return $this->deviceType->getValue();
+        return ($this->deviceType) ? $this->deviceType->getValue() : null;
     }
 }

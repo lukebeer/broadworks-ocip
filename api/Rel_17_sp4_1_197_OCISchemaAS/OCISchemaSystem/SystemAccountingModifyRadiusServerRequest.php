@@ -22,14 +22,14 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemAccountingModifyRadiusServerRequest extends ComplexType implements ComplexInterface
 {
-    public    $name        = 'SystemAccountingModifyRadiusServerRequest';
-    protected $netAddress  = null;
-    protected $port        = null;
-    protected $description = null;
+    public    $name = 'SystemAccountingModifyRadiusServerRequest';
+    protected $netAddress;
+    protected $port;
+    protected $description;
 
     public function __construct(
-         $netAddress,
-         $port,
+         $netAddress = '',
+         $port = '',
          $description = null
     ) {
         $this->setNetAddress($netAddress);
@@ -50,7 +50,6 @@ class SystemAccountingModifyRadiusServerRequest extends ComplexType implements C
      */
     public function setNetAddress($netAddress = null)
     {
-        if (!$netAddress) return $this;
         $this->netAddress = ($netAddress InstanceOf NetAddress)
              ? $netAddress
              : new NetAddress($netAddress);
@@ -64,7 +63,7 @@ class SystemAccountingModifyRadiusServerRequest extends ComplexType implements C
      */
     public function getNetAddress()
     {
-        return $this->netAddress->getValue();
+        return ($this->netAddress) ? $this->netAddress->getValue() : null;
     }
 
     /**
@@ -72,7 +71,6 @@ class SystemAccountingModifyRadiusServerRequest extends ComplexType implements C
      */
     public function setPort($port = null)
     {
-        if (!$port) return $this;
         $this->port = ($port InstanceOf Port1025)
              ? $port
              : new Port1025($port);
@@ -86,7 +84,7 @@ class SystemAccountingModifyRadiusServerRequest extends ComplexType implements C
      */
     public function getPort()
     {
-        return $this->port->getValue();
+        return ($this->port) ? $this->port->getValue() : null;
     }
 
     /**
@@ -94,7 +92,6 @@ class SystemAccountingModifyRadiusServerRequest extends ComplexType implements C
      */
     public function setDescription($description = null)
     {
-        if (!$description) return $this;
         $this->description = ($description InstanceOf RadiusServerDescription)
              ? $description
              : new RadiusServerDescription($description);
@@ -108,6 +105,6 @@ class SystemAccountingModifyRadiusServerRequest extends ComplexType implements C
      */
     public function getDescription()
     {
-        return $this->description->getValue();
+        return ($this->description) ? $this->description->getValue() : null;
     }
 }

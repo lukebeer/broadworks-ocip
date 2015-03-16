@@ -21,13 +21,13 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemZoneNetAddressAddListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name            = 'SystemZoneNetAddressAddListRequest';
-    protected $zoneName        = null;
-    protected $netAddress      = null;
-    protected $netAddressRange = null;
+    public    $name = 'SystemZoneNetAddressAddListRequest';
+    protected $zoneName;
+    protected $netAddress;
+    protected $netAddressRange;
 
     public function __construct(
-         $zoneName,
+         $zoneName = '',
          $netAddress = null,
          IPAddressRange $netAddressRange = null
     ) {
@@ -49,7 +49,6 @@ class SystemZoneNetAddressAddListRequest extends ComplexType implements ComplexI
      */
     public function setZoneName($zoneName = null)
     {
-        if (!$zoneName) return $this;
         $this->zoneName = ($zoneName InstanceOf ZoneName)
              ? $zoneName
              : new ZoneName($zoneName);
@@ -63,7 +62,7 @@ class SystemZoneNetAddressAddListRequest extends ComplexType implements ComplexI
      */
     public function getZoneName()
     {
-        return $this->zoneName->getValue();
+        return ($this->zoneName) ? $this->zoneName->getValue() : null;
     }
 
     /**
@@ -71,7 +70,6 @@ class SystemZoneNetAddressAddListRequest extends ComplexType implements ComplexI
      */
     public function setNetAddress($netAddress = null)
     {
-        if (!$netAddress) return $this;
         $this->netAddress = ($netAddress InstanceOf IPAddress)
              ? $netAddress
              : new IPAddress($netAddress);
@@ -85,7 +83,7 @@ class SystemZoneNetAddressAddListRequest extends ComplexType implements ComplexI
      */
     public function getNetAddress()
     {
-        return $this->netAddress->getValue();
+        return ($this->netAddress) ? $this->netAddress->getValue() : null;
     }
 
     /**
@@ -93,8 +91,9 @@ class SystemZoneNetAddressAddListRequest extends ComplexType implements ComplexI
      */
     public function setNetAddressRange(IPAddressRange $netAddressRange = null)
     {
-        if (!$netAddressRange) return $this;
-        $this->netAddressRange = $netAddressRange;
+        $this->netAddressRange = ($netAddressRange InstanceOf IPAddressRange)
+             ? $netAddressRange
+             : new IPAddressRange($netAddressRange);
         $this->netAddressRange->setName('netAddressRange');
         return $this;
     }

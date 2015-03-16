@@ -22,9 +22,9 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemBroadWorksMobilityAddIMRNListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name        = 'SystemBroadWorksMobilityAddIMRNListRequest';
-    protected $imrnNumber  = null;
-    protected $numberRange = null;
+    public    $name = 'SystemBroadWorksMobilityAddIMRNListRequest';
+    protected $imrnNumber;
+    protected $numberRange;
 
     public function __construct(
          $imrnNumber = null,
@@ -47,7 +47,6 @@ class SystemBroadWorksMobilityAddIMRNListRequest extends ComplexType implements 
      */
     public function setImrnNumber($imrnNumber = null)
     {
-        if (!$imrnNumber) return $this;
         $this->imrnNumber = ($imrnNumber InstanceOf DN)
              ? $imrnNumber
              : new DN($imrnNumber);
@@ -61,7 +60,7 @@ class SystemBroadWorksMobilityAddIMRNListRequest extends ComplexType implements 
      */
     public function getImrnNumber()
     {
-        return $this->imrnNumber->getValue();
+        return ($this->imrnNumber) ? $this->imrnNumber->getValue() : null;
     }
 
     /**
@@ -69,8 +68,9 @@ class SystemBroadWorksMobilityAddIMRNListRequest extends ComplexType implements 
      */
     public function setNumberRange(DNRange $numberRange = null)
     {
-        if (!$numberRange) return $this;
-        $this->numberRange = $numberRange;
+        $this->numberRange = ($numberRange InstanceOf DNRange)
+             ? $numberRange
+             : new DNRange($numberRange);
         $this->numberRange->setName('numberRange');
         return $this;
     }

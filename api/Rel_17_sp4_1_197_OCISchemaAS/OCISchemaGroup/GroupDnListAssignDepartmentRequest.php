@@ -25,16 +25,16 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupDnListAssignDepartmentRequest extends ComplexType implements ComplexInterface
 {
-    public    $name              = 'GroupDnListAssignDepartmentRequest';
-    protected $serviceProviderId = null;
-    protected $groupId           = null;
-    protected $departmentKey     = null;
-    protected $phoneNumber       = null;
-    protected $dnRange           = null;
+    public    $name = 'GroupDnListAssignDepartmentRequest';
+    protected $serviceProviderId;
+    protected $groupId;
+    protected $departmentKey;
+    protected $phoneNumber;
+    protected $dnRange;
 
     public function __construct(
-         $serviceProviderId,
-         $groupId,
+         $serviceProviderId = '',
+         $groupId = '',
          DepartmentKey $departmentKey = null,
          $phoneNumber = null,
          DNRange $dnRange = null
@@ -59,7 +59,6 @@ class GroupDnListAssignDepartmentRequest extends ComplexType implements ComplexI
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
-        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
@@ -73,7 +72,7 @@ class GroupDnListAssignDepartmentRequest extends ComplexType implements ComplexI
      */
     public function getServiceProviderId()
     {
-        return $this->serviceProviderId->getValue();
+        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
     }
 
     /**
@@ -81,7 +80,6 @@ class GroupDnListAssignDepartmentRequest extends ComplexType implements ComplexI
      */
     public function setGroupId($groupId = null)
     {
-        if (!$groupId) return $this;
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
@@ -95,7 +93,7 @@ class GroupDnListAssignDepartmentRequest extends ComplexType implements ComplexI
      */
     public function getGroupId()
     {
-        return $this->groupId->getValue();
+        return ($this->groupId) ? $this->groupId->getValue() : null;
     }
 
     /**
@@ -103,8 +101,9 @@ class GroupDnListAssignDepartmentRequest extends ComplexType implements ComplexI
      */
     public function setDepartmentKey(DepartmentKey $departmentKey = null)
     {
-        if (!$departmentKey) return $this;
-        $this->departmentKey = $departmentKey;
+        $this->departmentKey = ($departmentKey InstanceOf DepartmentKey)
+             ? $departmentKey
+             : new DepartmentKey($departmentKey);
         $this->departmentKey->setName('departmentKey');
         return $this;
     }
@@ -123,7 +122,6 @@ class GroupDnListAssignDepartmentRequest extends ComplexType implements ComplexI
      */
     public function setPhoneNumber($phoneNumber = null)
     {
-        if (!$phoneNumber) return $this;
         $this->phoneNumber = ($phoneNumber InstanceOf DN)
              ? $phoneNumber
              : new DN($phoneNumber);
@@ -137,7 +135,7 @@ class GroupDnListAssignDepartmentRequest extends ComplexType implements ComplexI
      */
     public function getPhoneNumber()
     {
-        return $this->phoneNumber->getValue();
+        return ($this->phoneNumber) ? $this->phoneNumber->getValue() : null;
     }
 
     /**
@@ -145,8 +143,9 @@ class GroupDnListAssignDepartmentRequest extends ComplexType implements ComplexI
      */
     public function setDnRange(DNRange $dnRange = null)
     {
-        if (!$dnRange) return $this;
-        $this->dnRange = $dnRange;
+        $this->dnRange = ($dnRange InstanceOf DNRange)
+             ? $dnRange
+             : new DNRange($dnRange);
         $this->dnRange->setName('dnRange');
         return $this;
     }

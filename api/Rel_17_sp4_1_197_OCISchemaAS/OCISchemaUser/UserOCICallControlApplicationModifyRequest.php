@@ -21,12 +21,12 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserOCICallControlApplicationModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name              = 'UserOCICallControlApplicationModifyRequest';
-    protected $userId            = null;
-    protected $applicationIdList = null;
+    public    $name = 'UserOCICallControlApplicationModifyRequest';
+    protected $userId;
+    protected $applicationIdList;
 
     public function __construct(
-         $userId,
+         $userId = '',
          ReplacementOCICallControlApplicationIdList $applicationIdList = null
     ) {
         $this->setUserId($userId);
@@ -46,7 +46,6 @@ class UserOCICallControlApplicationModifyRequest extends ComplexType implements 
      */
     public function setUserId($userId = null)
     {
-        if (!$userId) return $this;
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
@@ -60,7 +59,7 @@ class UserOCICallControlApplicationModifyRequest extends ComplexType implements 
      */
     public function getUserId()
     {
-        return $this->userId->getValue();
+        return ($this->userId) ? $this->userId->getValue() : null;
     }
 
     /**
@@ -68,8 +67,9 @@ class UserOCICallControlApplicationModifyRequest extends ComplexType implements 
      */
     public function setApplicationIdList(ReplacementOCICallControlApplicationIdList $applicationIdList = null)
     {
-        if (!$applicationIdList) return $this;
-        $this->applicationIdList = $applicationIdList;
+        $this->applicationIdList = ($applicationIdList InstanceOf ReplacementOCICallControlApplicationIdList)
+             ? $applicationIdList
+             : new ReplacementOCICallControlApplicationIdList($applicationIdList);
         $this->applicationIdList->setName('applicationIdList');
         return $this;
     }

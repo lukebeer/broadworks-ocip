@@ -21,11 +21,11 @@ use Broadworks_OCIP\core\Client\Client;
 class SystemAccessDeviceCustomTagGetListRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemAccessDeviceCustomTagGetListResponse';
-    public    $name       = 'SystemAccessDeviceCustomTagGetListRequest';
-    protected $deviceName = null;
+    public    $name = 'SystemAccessDeviceCustomTagGetListRequest';
+    protected $deviceName;
 
     public function __construct(
-         $deviceName
+         $deviceName = ''
     ) {
         $this->setDeviceName($deviceName);
     }
@@ -43,7 +43,6 @@ class SystemAccessDeviceCustomTagGetListRequest extends ComplexType implements C
      */
     public function setDeviceName($deviceName = null)
     {
-        if (!$deviceName) return $this;
         $this->deviceName = ($deviceName InstanceOf AccessDeviceName)
              ? $deviceName
              : new AccessDeviceName($deviceName);
@@ -57,6 +56,6 @@ class SystemAccessDeviceCustomTagGetListRequest extends ComplexType implements C
      */
     public function getDeviceName()
     {
-        return $this->deviceName->getValue();
+        return ($this->deviceName) ? $this->deviceName->getValue() : null;
     }
 }

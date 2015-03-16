@@ -23,11 +23,11 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserLDAPIntegrationGetDirectoryListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name           = 'UserLDAPIntegrationGetDirectoryListResponse';
-    protected $ldapEntryTable = null;
-    protected $searchLabel    = null;
-    protected $hasMoreEntries = null;
-    protected $lastPageNumber = null;
+    public    $name = 'UserLDAPIntegrationGetDirectoryListResponse';
+    protected $ldapEntryTable;
+    protected $searchLabel;
+    protected $hasMoreEntries;
+    protected $lastPageNumber;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceLDAPIntegration\UserLDAPIntegrationGetDirectoryListResponse $response
@@ -42,7 +42,6 @@ class UserLDAPIntegrationGetDirectoryListResponse extends ComplexType implements
      */
     public function setLdapEntryTable(TableType $ldapEntryTable = null)
     {
-        if (!$ldapEntryTable) return $this;
         $this->ldapEntryTable = $ldapEntryTable;
         $this->ldapEntryTable->setName('ldapEntryTable');
         return $this;
@@ -62,7 +61,6 @@ class UserLDAPIntegrationGetDirectoryListResponse extends ComplexType implements
      */
     public function setSearchLabel($searchLabel = null)
     {
-        if (!$searchLabel) return $this;
         $this->searchLabel = ($searchLabel InstanceOf LDAPColumnLabel)
              ? $searchLabel
              : new LDAPColumnLabel($searchLabel);
@@ -76,7 +74,7 @@ class UserLDAPIntegrationGetDirectoryListResponse extends ComplexType implements
      */
     public function getSearchLabel()
     {
-        return $this->searchLabel->getValue();
+        return ($this->searchLabel) ? $this->searchLabel->getValue() : null;
     }
 
     /**
@@ -84,7 +82,6 @@ class UserLDAPIntegrationGetDirectoryListResponse extends ComplexType implements
      */
     public function setHasMoreEntries($hasMoreEntries = null)
     {
-        if (!$hasMoreEntries) return $this;
         $this->hasMoreEntries = new PrimitiveType($hasMoreEntries);
         $this->hasMoreEntries->setName('hasMoreEntries');
         return $this;
@@ -96,7 +93,7 @@ class UserLDAPIntegrationGetDirectoryListResponse extends ComplexType implements
      */
     public function getHasMoreEntries()
     {
-        return $this->hasMoreEntries->getValue();
+        return ($this->hasMoreEntries) ? $this->hasMoreEntries->getValue() : null;
     }
 
     /**
@@ -104,7 +101,6 @@ class UserLDAPIntegrationGetDirectoryListResponse extends ComplexType implements
      */
     public function setLastPageNumber($lastPageNumber = null)
     {
-        if (!$lastPageNumber) return $this;
         $this->lastPageNumber = ($lastPageNumber InstanceOf LDAPPageNumber)
              ? $lastPageNumber
              : new LDAPPageNumber($lastPageNumber);
@@ -118,6 +114,6 @@ class UserLDAPIntegrationGetDirectoryListResponse extends ComplexType implements
      */
     public function getLastPageNumber()
     {
-        return $this->lastPageNumber->getValue();
+        return ($this->lastPageNumber) ? $this->lastPageNumber->getValue() : null;
     }
 }

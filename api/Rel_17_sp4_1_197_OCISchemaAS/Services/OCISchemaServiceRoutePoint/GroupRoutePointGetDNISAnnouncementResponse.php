@@ -19,8 +19,8 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupRoutePointGetDNISAnnouncementResponse extends ComplexType implements ComplexInterface
 {
-    public    $name              = 'GroupRoutePointGetDNISAnnouncementResponse';
-    protected $mediaOnHoldSource = null;
+    public    $name = 'GroupRoutePointGetDNISAnnouncementResponse';
+    protected $mediaOnHoldSource;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceRoutePoint\GroupRoutePointGetDNISAnnouncementResponse $response
@@ -35,8 +35,9 @@ class GroupRoutePointGetDNISAnnouncementResponse extends ComplexType implements 
      */
     public function setMediaOnHoldSource(CallCenterMediaOnHoldSourceRead17 $mediaOnHoldSource = null)
     {
-        if (!$mediaOnHoldSource) return $this;
-        $this->mediaOnHoldSource = $mediaOnHoldSource;
+        $this->mediaOnHoldSource = ($mediaOnHoldSource InstanceOf CallCenterMediaOnHoldSourceRead17)
+             ? $mediaOnHoldSource
+             : new CallCenterMediaOnHoldSourceRead17($mediaOnHoldSource);
         $this->mediaOnHoldSource->setName('mediaOnHoldSource');
         return $this;
     }

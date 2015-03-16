@@ -21,8 +21,8 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserShInterfaceGetUserIdDataResponse extends ComplexType implements ComplexInterface
 {
-    public    $name  = 'UserShInterfaceGetUserIdDataResponse';
-    protected $entry = null;
+    public    $name = 'UserShInterfaceGetUserIdDataResponse';
+    protected $entry;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser\UserShInterfaceGetUserIdDataResponse $response
@@ -37,8 +37,9 @@ class UserShInterfaceGetUserIdDataResponse extends ComplexType implements Comple
      */
     public function setEntry(ShInterfaceUserIdDataEntry $entry = null)
     {
-        if (!$entry) return $this;
-        $this->entry = $entry;
+        $this->entry = ($entry InstanceOf ShInterfaceUserIdDataEntry)
+             ? $entry
+             : new ShInterfaceUserIdDataEntry($entry);
         $this->entry->setName('entry');
         return $this;
     }

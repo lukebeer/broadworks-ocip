@@ -25,13 +25,13 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupCallCenterSupervisorReportingModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                 = 'GroupCallCenterSupervisorReportingModifyRequest';
-    protected $serviceUserId        = null;
-    protected $reportingServerName  = null;
-    protected $supervisorUserIdList = null;
+    public    $name = 'GroupCallCenterSupervisorReportingModifyRequest';
+    protected $serviceUserId;
+    protected $reportingServerName;
+    protected $supervisorUserIdList;
 
     public function __construct(
-         $serviceUserId,
+         $serviceUserId = '',
          $reportingServerName = null,
          ReplacementUserIdList $supervisorUserIdList = null
     ) {
@@ -53,7 +53,6 @@ class GroupCallCenterSupervisorReportingModifyRequest extends ComplexType implem
      */
     public function setServiceUserId($serviceUserId = null)
     {
-        if (!$serviceUserId) return $this;
         $this->serviceUserId = ($serviceUserId InstanceOf UserId)
              ? $serviceUserId
              : new UserId($serviceUserId);
@@ -67,7 +66,7 @@ class GroupCallCenterSupervisorReportingModifyRequest extends ComplexType implem
      */
     public function getServiceUserId()
     {
-        return $this->serviceUserId->getValue();
+        return ($this->serviceUserId) ? $this->serviceUserId->getValue() : null;
     }
 
     /**
@@ -75,7 +74,6 @@ class GroupCallCenterSupervisorReportingModifyRequest extends ComplexType implem
      */
     public function setReportingServerName($reportingServerName = null)
     {
-        if (!$reportingServerName) return $this;
         $this->reportingServerName = ($reportingServerName InstanceOf CallCenterReportingServerName)
              ? $reportingServerName
              : new CallCenterReportingServerName($reportingServerName);
@@ -89,7 +87,7 @@ class GroupCallCenterSupervisorReportingModifyRequest extends ComplexType implem
      */
     public function getReportingServerName()
     {
-        return $this->reportingServerName->getValue();
+        return ($this->reportingServerName) ? $this->reportingServerName->getValue() : null;
     }
 
     /**
@@ -97,8 +95,9 @@ class GroupCallCenterSupervisorReportingModifyRequest extends ComplexType implem
      */
     public function setSupervisorUserIdList(ReplacementUserIdList $supervisorUserIdList = null)
     {
-        if (!$supervisorUserIdList) return $this;
-        $this->supervisorUserIdList = $supervisorUserIdList;
+        $this->supervisorUserIdList = ($supervisorUserIdList InstanceOf ReplacementUserIdList)
+             ? $supervisorUserIdList
+             : new ReplacementUserIdList($supervisorUserIdList);
         $this->supervisorUserIdList->setName('supervisorUserIdList');
         return $this;
     }

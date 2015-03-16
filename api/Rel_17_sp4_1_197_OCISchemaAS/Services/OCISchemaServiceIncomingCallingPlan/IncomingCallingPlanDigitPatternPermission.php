@@ -19,13 +19,13 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class IncomingCallingPlanDigitPatternPermission extends ComplexType implements ComplexInterface
 {
-    public    $name             = 'IncomingCallingPlanDigitPatternPermission';
-    protected $digitPatternName = null;
-    protected $allow            = null;
+    public    $name = 'IncomingCallingPlanDigitPatternPermission';
+    protected $digitPatternName;
+    protected $allow;
 
     public function __construct(
-         $digitPatternName,
-         $allow
+         $digitPatternName = '',
+         $allow = ''
     ) {
         $this->setDigitPatternName($digitPatternName);
         $this->setAllow($allow);
@@ -44,7 +44,6 @@ class IncomingCallingPlanDigitPatternPermission extends ComplexType implements C
      */
     public function setDigitPatternName($digitPatternName = null)
     {
-        if (!$digitPatternName) return $this;
         $this->digitPatternName = new SimpleContent($digitPatternName);
         $this->digitPatternName->setName('digitPatternName');
         return $this;
@@ -56,7 +55,7 @@ class IncomingCallingPlanDigitPatternPermission extends ComplexType implements C
      */
     public function getDigitPatternName()
     {
-        return $this->digitPatternName->getValue();
+        return ($this->digitPatternName) ? $this->digitPatternName->getValue() : null;
     }
 
     /**
@@ -64,7 +63,6 @@ class IncomingCallingPlanDigitPatternPermission extends ComplexType implements C
      */
     public function setAllow($allow = null)
     {
-        if (!$allow) return $this;
         $this->allow = new SimpleContent($allow);
         $this->allow->setName('allow');
         return $this;
@@ -76,6 +74,6 @@ class IncomingCallingPlanDigitPatternPermission extends ComplexType implements C
      */
     public function getAllow()
     {
-        return $this->allow->getValue();
+        return ($this->allow) ? $this->allow->getValue() : null;
     }
 }

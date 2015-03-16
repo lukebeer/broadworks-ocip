@@ -21,10 +21,10 @@ use Broadworks_OCIP\core\Client\Client;
 class SystemFileRepositoryDeviceDeleteRequest extends ComplexType implements ComplexInterface
 {
     public    $name = 'SystemFileRepositoryDeviceDeleteRequest';
-    protected $name = null;
+    protected $name;
 
     public function __construct(
-         $name
+         $name = ''
     ) {
         $this->setName($name);
     }
@@ -42,7 +42,6 @@ class SystemFileRepositoryDeviceDeleteRequest extends ComplexType implements Com
      */
     public function setName($name = null)
     {
-        if (!$name) return $this;
         $this->name = ($name InstanceOf FileRepositoryName)
              ? $name
              : new FileRepositoryName($name);
@@ -56,6 +55,6 @@ class SystemFileRepositoryDeviceDeleteRequest extends ComplexType implements Com
      */
     public function getName()
     {
-        return $this->name->getValue();
+        return ($this->name) ? $this->name->getValue() : null;
     }
 }

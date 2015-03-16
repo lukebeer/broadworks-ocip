@@ -20,8 +20,8 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SimultaneousRingReplacementNumberList extends ComplexType implements ComplexInterface
 {
-    public    $name                   = 'SimultaneousRingReplacementNumberList';
-    protected $simultaneousRingNumber = null;
+    public    $name = 'SimultaneousRingReplacementNumberList';
+    protected $simultaneousRingNumber;
 
     public function __construct(
          $simultaneousRingNumber = null
@@ -42,7 +42,6 @@ class SimultaneousRingReplacementNumberList extends ComplexType implements Compl
      */
     public function setSimultaneousRingNumber($simultaneousRingNumber = null)
     {
-        if (!$simultaneousRingNumber) return $this;
         $this->simultaneousRingNumber = new SimpleContent($simultaneousRingNumber);
         $this->simultaneousRingNumber->setName('simultaneousRingNumber');
         return $this;
@@ -54,6 +53,6 @@ class SimultaneousRingReplacementNumberList extends ComplexType implements Compl
      */
     public function getSimultaneousRingNumber()
     {
-        return $this->simultaneousRingNumber->getValue();
+        return ($this->simultaneousRingNumber) ? $this->simultaneousRingNumber->getValue() : null;
     }
 }

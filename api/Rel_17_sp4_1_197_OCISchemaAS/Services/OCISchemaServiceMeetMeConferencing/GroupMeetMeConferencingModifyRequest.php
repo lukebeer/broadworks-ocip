@@ -22,14 +22,14 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupMeetMeConferencingModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name              = 'GroupMeetMeConferencingModifyRequest';
-    protected $serviceProviderId = null;
-    protected $groupId           = null;
-    protected $allocatedPorts    = null;
+    public    $name = 'GroupMeetMeConferencingModifyRequest';
+    protected $serviceProviderId;
+    protected $groupId;
+    protected $allocatedPorts;
 
     public function __construct(
-         $serviceProviderId,
-         $groupId,
+         $serviceProviderId = '',
+         $groupId = '',
          MeetMeConferencingConferencePorts $allocatedPorts = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
@@ -50,7 +50,6 @@ class GroupMeetMeConferencingModifyRequest extends ComplexType implements Comple
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
-        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
@@ -64,7 +63,7 @@ class GroupMeetMeConferencingModifyRequest extends ComplexType implements Comple
      */
     public function getServiceProviderId()
     {
-        return $this->serviceProviderId->getValue();
+        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
     }
 
     /**
@@ -72,7 +71,6 @@ class GroupMeetMeConferencingModifyRequest extends ComplexType implements Comple
      */
     public function setGroupId($groupId = null)
     {
-        if (!$groupId) return $this;
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
@@ -86,7 +84,7 @@ class GroupMeetMeConferencingModifyRequest extends ComplexType implements Comple
      */
     public function getGroupId()
     {
-        return $this->groupId->getValue();
+        return ($this->groupId) ? $this->groupId->getValue() : null;
     }
 
     /**
@@ -94,8 +92,9 @@ class GroupMeetMeConferencingModifyRequest extends ComplexType implements Comple
      */
     public function setAllocatedPorts(MeetMeConferencingConferencePorts $allocatedPorts = null)
     {
-        if (!$allocatedPorts) return $this;
-        $this->allocatedPorts = $allocatedPorts;
+        $this->allocatedPorts = ($allocatedPorts InstanceOf MeetMeConferencingConferencePorts)
+             ? $allocatedPorts
+             : new MeetMeConferencingConferencePorts($allocatedPorts);
         $this->allocatedPorts->setName('allocatedPorts');
         return $this;
     }

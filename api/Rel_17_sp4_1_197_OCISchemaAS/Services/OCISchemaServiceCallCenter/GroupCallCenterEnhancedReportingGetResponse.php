@@ -20,9 +20,9 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupCallCenterEnhancedReportingGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name               = 'GroupCallCenterEnhancedReportingGetResponse';
-    protected $reportingServer    = null;
-    protected $webStatisticSource = null;
+    public    $name = 'GroupCallCenterEnhancedReportingGetResponse';
+    protected $reportingServer;
+    protected $webStatisticSource;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\GroupCallCenterEnhancedReportingGetResponse $response
@@ -37,7 +37,6 @@ class GroupCallCenterEnhancedReportingGetResponse extends ComplexType implements
      */
     public function setReportingServer($reportingServer = null)
     {
-        if (!$reportingServer) return $this;
         $this->reportingServer = ($reportingServer InstanceOf CallCenterReportServerChoice)
              ? $reportingServer
              : new CallCenterReportServerChoice($reportingServer);
@@ -51,7 +50,7 @@ class GroupCallCenterEnhancedReportingGetResponse extends ComplexType implements
      */
     public function getReportingServer()
     {
-        return $this->reportingServer->getValue();
+        return ($this->reportingServer) ? $this->reportingServer->getValue() : null;
     }
 
     /**
@@ -59,7 +58,6 @@ class GroupCallCenterEnhancedReportingGetResponse extends ComplexType implements
      */
     public function setWebStatisticSource($webStatisticSource = null)
     {
-        if (!$webStatisticSource) return $this;
         $this->webStatisticSource = ($webStatisticSource InstanceOf CallCenterReportWebStatisticsSource)
              ? $webStatisticSource
              : new CallCenterReportWebStatisticsSource($webStatisticSource);
@@ -73,6 +71,6 @@ class GroupCallCenterEnhancedReportingGetResponse extends ComplexType implements
      */
     public function getWebStatisticSource()
     {
-        return $this->webStatisticSource->getValue();
+        return ($this->webStatisticSource) ? $this->webStatisticSource->getValue() : null;
     }
 }

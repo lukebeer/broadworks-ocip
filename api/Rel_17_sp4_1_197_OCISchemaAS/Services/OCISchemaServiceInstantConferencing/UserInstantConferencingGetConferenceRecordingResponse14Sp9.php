@@ -31,23 +31,23 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserInstantConferencingGetConferenceRecordingResponse14Sp9 extends ComplexType implements ComplexInterface
 {
-    public    $name                        = 'UserInstantConferencingGetConferenceRecordingResponse14Sp9';
-    protected $recordingCallId             = null;
-    protected $conferenceOwnerUserId       = null;
-    protected $conferenceOwnerDisplayNames = null;
-    protected $title                       = null;
-    protected $documentId                  = null;
-    protected $startDateTime               = null;
-    protected $duration                    = null;
-    protected $isBridgeActive              = null;
-    protected $bridgeName                  = null;
-    protected $bridgePhoneNumber           = null;
-    protected $accessCode                  = null;
-    protected $hasSlideShow                = null;
-    protected $slideShowPassword           = null;
-    protected $slideShowPasswordHex        = null;
-    protected $conferenceServerFQDN        = null;
-    protected $allowOutdialInInvitation    = null;
+    public    $name = 'UserInstantConferencingGetConferenceRecordingResponse14Sp9';
+    protected $recordingCallId;
+    protected $conferenceOwnerUserId;
+    protected $conferenceOwnerDisplayNames;
+    protected $title;
+    protected $documentId;
+    protected $startDateTime;
+    protected $duration;
+    protected $isBridgeActive;
+    protected $bridgeName;
+    protected $bridgePhoneNumber;
+    protected $accessCode;
+    protected $hasSlideShow;
+    protected $slideShowPassword;
+    protected $slideShowPasswordHex;
+    protected $conferenceServerFQDN;
+    protected $allowOutdialInInvitation;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing\UserInstantConferencingGetConferenceRecordingResponse14Sp9 $response
@@ -62,7 +62,6 @@ class UserInstantConferencingGetConferenceRecordingResponse14Sp9 extends Complex
      */
     public function setRecordingCallId($recordingCallId = null)
     {
-        if (!$recordingCallId) return $this;
         $this->recordingCallId = ($recordingCallId InstanceOf InstantConferencingRecordingCallId)
              ? $recordingCallId
              : new InstantConferencingRecordingCallId($recordingCallId);
@@ -76,7 +75,7 @@ class UserInstantConferencingGetConferenceRecordingResponse14Sp9 extends Complex
      */
     public function getRecordingCallId()
     {
-        return $this->recordingCallId->getValue();
+        return ($this->recordingCallId) ? $this->recordingCallId->getValue() : null;
     }
 
     /**
@@ -84,7 +83,6 @@ class UserInstantConferencingGetConferenceRecordingResponse14Sp9 extends Complex
      */
     public function setConferenceOwnerUserId($conferenceOwnerUserId = null)
     {
-        if (!$conferenceOwnerUserId) return $this;
         $this->conferenceOwnerUserId = ($conferenceOwnerUserId InstanceOf UserId)
              ? $conferenceOwnerUserId
              : new UserId($conferenceOwnerUserId);
@@ -98,7 +96,7 @@ class UserInstantConferencingGetConferenceRecordingResponse14Sp9 extends Complex
      */
     public function getConferenceOwnerUserId()
     {
-        return $this->conferenceOwnerUserId->getValue();
+        return ($this->conferenceOwnerUserId) ? $this->conferenceOwnerUserId->getValue() : null;
     }
 
     /**
@@ -106,8 +104,9 @@ class UserInstantConferencingGetConferenceRecordingResponse14Sp9 extends Complex
      */
     public function setConferenceOwnerDisplayNames(UserDisplayNames $conferenceOwnerDisplayNames = null)
     {
-        if (!$conferenceOwnerDisplayNames) return $this;
-        $this->conferenceOwnerDisplayNames = $conferenceOwnerDisplayNames;
+        $this->conferenceOwnerDisplayNames = ($conferenceOwnerDisplayNames InstanceOf UserDisplayNames)
+             ? $conferenceOwnerDisplayNames
+             : new UserDisplayNames($conferenceOwnerDisplayNames);
         $this->conferenceOwnerDisplayNames->setName('conferenceOwnerDisplayNames');
         return $this;
     }
@@ -126,7 +125,6 @@ class UserInstantConferencingGetConferenceRecordingResponse14Sp9 extends Complex
      */
     public function setTitle($title = null)
     {
-        if (!$title) return $this;
         $this->title = ($title InstanceOf InstantConferencingTitle)
              ? $title
              : new InstantConferencingTitle($title);
@@ -140,7 +138,7 @@ class UserInstantConferencingGetConferenceRecordingResponse14Sp9 extends Complex
      */
     public function getTitle()
     {
-        return $this->title->getValue();
+        return ($this->title) ? $this->title->getValue() : null;
     }
 
     /**
@@ -148,7 +146,6 @@ class UserInstantConferencingGetConferenceRecordingResponse14Sp9 extends Complex
      */
     public function setDocumentId($documentId = null)
     {
-        if (!$documentId) return $this;
         $this->documentId = ($documentId InstanceOf InstantConferencingDocumentId)
              ? $documentId
              : new InstantConferencingDocumentId($documentId);
@@ -162,7 +159,7 @@ class UserInstantConferencingGetConferenceRecordingResponse14Sp9 extends Complex
      */
     public function getDocumentId()
     {
-        return $this->documentId->getValue();
+        return ($this->documentId) ? $this->documentId->getValue() : null;
     }
 
     /**
@@ -170,7 +167,6 @@ class UserInstantConferencingGetConferenceRecordingResponse14Sp9 extends Complex
      */
     public function setStartDateTime(xs:dateTime $startDateTime = null)
     {
-        if (!$startDateTime) return $this;
         $this->startDateTime->setName('startDateTime');
         return $this;
     }
@@ -181,7 +177,7 @@ class UserInstantConferencingGetConferenceRecordingResponse14Sp9 extends Complex
      */
     public function getStartDateTime()
     {
-        return $this->startDateTime->getValue();
+        return ($this->startDateTime) ? $this->startDateTime->getValue() : null;
     }
 
     /**
@@ -189,7 +185,6 @@ class UserInstantConferencingGetConferenceRecordingResponse14Sp9 extends Complex
      */
     public function setDuration(xs:duration $duration = null)
     {
-        if (!$duration) return $this;
         $this->duration->setName('duration');
         return $this;
     }
@@ -200,7 +195,7 @@ class UserInstantConferencingGetConferenceRecordingResponse14Sp9 extends Complex
      */
     public function getDuration()
     {
-        return $this->duration->getValue();
+        return ($this->duration) ? $this->duration->getValue() : null;
     }
 
     /**
@@ -208,7 +203,6 @@ class UserInstantConferencingGetConferenceRecordingResponse14Sp9 extends Complex
      */
     public function setIsBridgeActive($isBridgeActive = null)
     {
-        if (!$isBridgeActive) return $this;
         $this->isBridgeActive = new PrimitiveType($isBridgeActive);
         $this->isBridgeActive->setName('isBridgeActive');
         return $this;
@@ -220,7 +214,7 @@ class UserInstantConferencingGetConferenceRecordingResponse14Sp9 extends Complex
      */
     public function getIsBridgeActive()
     {
-        return $this->isBridgeActive->getValue();
+        return ($this->isBridgeActive) ? $this->isBridgeActive->getValue() : null;
     }
 
     /**
@@ -228,7 +222,6 @@ class UserInstantConferencingGetConferenceRecordingResponse14Sp9 extends Complex
      */
     public function setBridgeName($bridgeName = null)
     {
-        if (!$bridgeName) return $this;
         $this->bridgeName = ($bridgeName InstanceOf ServiceInstanceProfileName)
              ? $bridgeName
              : new ServiceInstanceProfileName($bridgeName);
@@ -242,7 +235,7 @@ class UserInstantConferencingGetConferenceRecordingResponse14Sp9 extends Complex
      */
     public function getBridgeName()
     {
-        return $this->bridgeName->getValue();
+        return ($this->bridgeName) ? $this->bridgeName->getValue() : null;
     }
 
     /**
@@ -250,7 +243,6 @@ class UserInstantConferencingGetConferenceRecordingResponse14Sp9 extends Complex
      */
     public function setBridgePhoneNumber($bridgePhoneNumber = null)
     {
-        if (!$bridgePhoneNumber) return $this;
         $this->bridgePhoneNumber = ($bridgePhoneNumber InstanceOf DN)
              ? $bridgePhoneNumber
              : new DN($bridgePhoneNumber);
@@ -264,7 +256,7 @@ class UserInstantConferencingGetConferenceRecordingResponse14Sp9 extends Complex
      */
     public function getBridgePhoneNumber()
     {
-        return $this->bridgePhoneNumber->getValue();
+        return ($this->bridgePhoneNumber) ? $this->bridgePhoneNumber->getValue() : null;
     }
 
     /**
@@ -272,7 +264,6 @@ class UserInstantConferencingGetConferenceRecordingResponse14Sp9 extends Complex
      */
     public function setAccessCode($accessCode = null)
     {
-        if (!$accessCode) return $this;
         $this->accessCode = ($accessCode InstanceOf InstantConferencingAccessCode)
              ? $accessCode
              : new InstantConferencingAccessCode($accessCode);
@@ -286,7 +277,7 @@ class UserInstantConferencingGetConferenceRecordingResponse14Sp9 extends Complex
      */
     public function getAccessCode()
     {
-        return $this->accessCode->getValue();
+        return ($this->accessCode) ? $this->accessCode->getValue() : null;
     }
 
     /**
@@ -294,7 +285,6 @@ class UserInstantConferencingGetConferenceRecordingResponse14Sp9 extends Complex
      */
     public function setHasSlideShow($hasSlideShow = null)
     {
-        if (!$hasSlideShow) return $this;
         $this->hasSlideShow = new PrimitiveType($hasSlideShow);
         $this->hasSlideShow->setName('hasSlideShow');
         return $this;
@@ -306,7 +296,7 @@ class UserInstantConferencingGetConferenceRecordingResponse14Sp9 extends Complex
      */
     public function getHasSlideShow()
     {
-        return $this->hasSlideShow->getValue();
+        return ($this->hasSlideShow) ? $this->hasSlideShow->getValue() : null;
     }
 
     /**
@@ -314,7 +304,6 @@ class UserInstantConferencingGetConferenceRecordingResponse14Sp9 extends Complex
      */
     public function setSlideShowPassword($slideShowPassword = null)
     {
-        if (!$slideShowPassword) return $this;
         $this->slideShowPassword = ($slideShowPassword InstanceOf InstantConferencingSlideShowPassword)
              ? $slideShowPassword
              : new InstantConferencingSlideShowPassword($slideShowPassword);
@@ -328,7 +317,7 @@ class UserInstantConferencingGetConferenceRecordingResponse14Sp9 extends Complex
      */
     public function getSlideShowPassword()
     {
-        return $this->slideShowPassword->getValue();
+        return ($this->slideShowPassword) ? $this->slideShowPassword->getValue() : null;
     }
 
     /**
@@ -336,7 +325,6 @@ class UserInstantConferencingGetConferenceRecordingResponse14Sp9 extends Complex
      */
     public function setSlideShowPasswordHex($slideShowPasswordHex = null)
     {
-        if (!$slideShowPasswordHex) return $this;
         $this->slideShowPasswordHex = ($slideShowPasswordHex InstanceOf InstantConferencingSlideShowPasswordHex)
              ? $slideShowPasswordHex
              : new InstantConferencingSlideShowPasswordHex($slideShowPasswordHex);
@@ -350,7 +338,7 @@ class UserInstantConferencingGetConferenceRecordingResponse14Sp9 extends Complex
      */
     public function getSlideShowPasswordHex()
     {
-        return $this->slideShowPasswordHex->getValue();
+        return ($this->slideShowPasswordHex) ? $this->slideShowPasswordHex->getValue() : null;
     }
 
     /**
@@ -358,7 +346,6 @@ class UserInstantConferencingGetConferenceRecordingResponse14Sp9 extends Complex
      */
     public function setConferenceServerFQDN($conferenceServerFQDN = null)
     {
-        if (!$conferenceServerFQDN) return $this;
         $this->conferenceServerFQDN = ($conferenceServerFQDN InstanceOf DomainName)
              ? $conferenceServerFQDN
              : new DomainName($conferenceServerFQDN);
@@ -372,7 +359,7 @@ class UserInstantConferencingGetConferenceRecordingResponse14Sp9 extends Complex
      */
     public function getConferenceServerFQDN()
     {
-        return $this->conferenceServerFQDN->getValue();
+        return ($this->conferenceServerFQDN) ? $this->conferenceServerFQDN->getValue() : null;
     }
 
     /**
@@ -380,7 +367,6 @@ class UserInstantConferencingGetConferenceRecordingResponse14Sp9 extends Complex
      */
     public function setAllowOutdialInInvitation($allowOutdialInInvitation = null)
     {
-        if (!$allowOutdialInInvitation) return $this;
         $this->allowOutdialInInvitation = new PrimitiveType($allowOutdialInInvitation);
         $this->allowOutdialInInvitation->setName('allowOutdialInInvitation');
         return $this;
@@ -392,6 +378,6 @@ class UserInstantConferencingGetConferenceRecordingResponse14Sp9 extends Complex
      */
     public function getAllowOutdialInInvitation()
     {
-        return $this->allowOutdialInInvitation->getValue();
+        return ($this->allowOutdialInInvitation) ? $this->allowOutdialInInvitation->getValue() : null;
     }
 }

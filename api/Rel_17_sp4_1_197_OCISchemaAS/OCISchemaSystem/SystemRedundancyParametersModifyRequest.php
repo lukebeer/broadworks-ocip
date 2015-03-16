@@ -21,9 +21,9 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemRedundancyParametersModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                              = 'SystemRedundancyParametersModifyRequest';
-    protected $rollBackTimerMinutes              = null;
-    protected $sendSipOptionMessageUponMigration = null;
+    public    $name = 'SystemRedundancyParametersModifyRequest';
+    protected $rollBackTimerMinutes;
+    protected $sendSipOptionMessageUponMigration;
 
     public function __construct(
          $rollBackTimerMinutes = null,
@@ -46,7 +46,6 @@ class SystemRedundancyParametersModifyRequest extends ComplexType implements Com
      */
     public function setRollBackTimerMinutes($rollBackTimerMinutes = null)
     {
-        if (!$rollBackTimerMinutes) return $this;
         $this->rollBackTimerMinutes = ($rollBackTimerMinutes InstanceOf RedundancyRollBackTimerMinutes)
              ? $rollBackTimerMinutes
              : new RedundancyRollBackTimerMinutes($rollBackTimerMinutes);
@@ -60,7 +59,7 @@ class SystemRedundancyParametersModifyRequest extends ComplexType implements Com
      */
     public function getRollBackTimerMinutes()
     {
-        return $this->rollBackTimerMinutes->getValue();
+        return ($this->rollBackTimerMinutes) ? $this->rollBackTimerMinutes->getValue() : null;
     }
 
     /**
@@ -68,7 +67,6 @@ class SystemRedundancyParametersModifyRequest extends ComplexType implements Com
      */
     public function setSendSipOptionMessageUponMigration($sendSipOptionMessageUponMigration = null)
     {
-        if (!$sendSipOptionMessageUponMigration) return $this;
         $this->sendSipOptionMessageUponMigration = new PrimitiveType($sendSipOptionMessageUponMigration);
         $this->sendSipOptionMessageUponMigration->setName('sendSipOptionMessageUponMigration');
         return $this;
@@ -80,6 +78,6 @@ class SystemRedundancyParametersModifyRequest extends ComplexType implements Com
      */
     public function getSendSipOptionMessageUponMigration()
     {
-        return $this->sendSipOptionMessageUponMigration->getValue();
+        return ($this->sendSipOptionMessageUponMigration) ? $this->sendSipOptionMessageUponMigration->getValue() : null;
     }
 }

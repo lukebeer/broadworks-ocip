@@ -26,19 +26,19 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserCallForwardingSelectiveModifyCriteriaRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                     = 'UserCallForwardingSelectiveModifyCriteriaRequest';
-    protected $userId                   = null;
-    protected $criteriaName             = null;
-    protected $newCriteriaName          = null;
-    protected $timeSchedule             = null;
-    protected $holidaySchedule          = null;
-    protected $forwardToNumberSelection = null;
-    protected $forwardToPhoneNumber     = null;
-    protected $fromDnCriteria           = null;
+    public    $name = 'UserCallForwardingSelectiveModifyCriteriaRequest';
+    protected $userId;
+    protected $criteriaName;
+    protected $newCriteriaName;
+    protected $timeSchedule;
+    protected $holidaySchedule;
+    protected $forwardToNumberSelection;
+    protected $forwardToPhoneNumber;
+    protected $fromDnCriteria;
 
     public function __construct(
-         $userId,
-         $criteriaName,
+         $userId = '',
+         $criteriaName = '',
          $newCriteriaName = null,
          TimeSchedule $timeSchedule = null,
          HolidaySchedule $holidaySchedule = null,
@@ -69,7 +69,6 @@ class UserCallForwardingSelectiveModifyCriteriaRequest extends ComplexType imple
      */
     public function setUserId($userId = null)
     {
-        if (!$userId) return $this;
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
@@ -83,7 +82,7 @@ class UserCallForwardingSelectiveModifyCriteriaRequest extends ComplexType imple
      */
     public function getUserId()
     {
-        return $this->userId->getValue();
+        return ($this->userId) ? $this->userId->getValue() : null;
     }
 
     /**
@@ -91,7 +90,6 @@ class UserCallForwardingSelectiveModifyCriteriaRequest extends ComplexType imple
      */
     public function setCriteriaName($criteriaName = null)
     {
-        if (!$criteriaName) return $this;
         $this->criteriaName = ($criteriaName InstanceOf CriteriaName)
              ? $criteriaName
              : new CriteriaName($criteriaName);
@@ -105,7 +103,7 @@ class UserCallForwardingSelectiveModifyCriteriaRequest extends ComplexType imple
      */
     public function getCriteriaName()
     {
-        return $this->criteriaName->getValue();
+        return ($this->criteriaName) ? $this->criteriaName->getValue() : null;
     }
 
     /**
@@ -113,7 +111,6 @@ class UserCallForwardingSelectiveModifyCriteriaRequest extends ComplexType imple
      */
     public function setNewCriteriaName($newCriteriaName = null)
     {
-        if (!$newCriteriaName) return $this;
         $this->newCriteriaName = ($newCriteriaName InstanceOf CriteriaName)
              ? $newCriteriaName
              : new CriteriaName($newCriteriaName);
@@ -127,7 +124,7 @@ class UserCallForwardingSelectiveModifyCriteriaRequest extends ComplexType imple
      */
     public function getNewCriteriaName()
     {
-        return $this->newCriteriaName->getValue();
+        return ($this->newCriteriaName) ? $this->newCriteriaName->getValue() : null;
     }
 
     /**
@@ -135,8 +132,9 @@ class UserCallForwardingSelectiveModifyCriteriaRequest extends ComplexType imple
      */
     public function setTimeSchedule(TimeSchedule $timeSchedule = null)
     {
-        if (!$timeSchedule) return $this;
-        $this->timeSchedule = $timeSchedule;
+        $this->timeSchedule = ($timeSchedule InstanceOf TimeSchedule)
+             ? $timeSchedule
+             : new TimeSchedule($timeSchedule);
         $this->timeSchedule->setName('timeSchedule');
         return $this;
     }
@@ -155,8 +153,9 @@ class UserCallForwardingSelectiveModifyCriteriaRequest extends ComplexType imple
      */
     public function setHolidaySchedule(HolidaySchedule $holidaySchedule = null)
     {
-        if (!$holidaySchedule) return $this;
-        $this->holidaySchedule = $holidaySchedule;
+        $this->holidaySchedule = ($holidaySchedule InstanceOf HolidaySchedule)
+             ? $holidaySchedule
+             : new HolidaySchedule($holidaySchedule);
         $this->holidaySchedule->setName('holidaySchedule');
         return $this;
     }
@@ -175,7 +174,6 @@ class UserCallForwardingSelectiveModifyCriteriaRequest extends ComplexType imple
      */
     public function setForwardToNumberSelection($forwardToNumberSelection = null)
     {
-        if (!$forwardToNumberSelection) return $this;
         $this->forwardToNumberSelection = ($forwardToNumberSelection InstanceOf CallForwardingSelectiveNumberSelection16)
              ? $forwardToNumberSelection
              : new CallForwardingSelectiveNumberSelection16($forwardToNumberSelection);
@@ -189,7 +187,7 @@ class UserCallForwardingSelectiveModifyCriteriaRequest extends ComplexType imple
      */
     public function getForwardToNumberSelection()
     {
-        return $this->forwardToNumberSelection->getValue();
+        return ($this->forwardToNumberSelection) ? $this->forwardToNumberSelection->getValue() : null;
     }
 
     /**
@@ -197,7 +195,6 @@ class UserCallForwardingSelectiveModifyCriteriaRequest extends ComplexType imple
      */
     public function setForwardToPhoneNumber($forwardToPhoneNumber = null)
     {
-        if (!$forwardToPhoneNumber) return $this;
         $this->forwardToPhoneNumber = ($forwardToPhoneNumber InstanceOf OutgoingDNorSIPURI)
              ? $forwardToPhoneNumber
              : new OutgoingDNorSIPURI($forwardToPhoneNumber);
@@ -211,7 +208,7 @@ class UserCallForwardingSelectiveModifyCriteriaRequest extends ComplexType imple
      */
     public function getForwardToPhoneNumber()
     {
-        return $this->forwardToPhoneNumber->getValue();
+        return ($this->forwardToPhoneNumber) ? $this->forwardToPhoneNumber->getValue() : null;
     }
 
     /**
@@ -219,8 +216,9 @@ class UserCallForwardingSelectiveModifyCriteriaRequest extends ComplexType imple
      */
     public function setFromDnCriteria(CriteriaFromDnModify $fromDnCriteria = null)
     {
-        if (!$fromDnCriteria) return $this;
-        $this->fromDnCriteria = $fromDnCriteria;
+        $this->fromDnCriteria = ($fromDnCriteria InstanceOf CriteriaFromDnModify)
+             ? $fromDnCriteria
+             : new CriteriaFromDnModify($fromDnCriteria);
         $this->fromDnCriteria->setName('fromDnCriteria');
         return $this;
     }

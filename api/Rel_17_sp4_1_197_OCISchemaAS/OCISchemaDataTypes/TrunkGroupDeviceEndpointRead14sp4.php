@@ -19,21 +19,21 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class TrunkGroupDeviceEndpointRead14sp4 extends ComplexType implements ComplexInterface
 {
-    public    $name                      = 'TrunkGroupDeviceEndpointRead14sp4';
-    protected $name                      = null;
-    protected $linePort                  = null;
-    protected $contact                   = null;
-    protected $staticRegistrationCapable = null;
-    protected $useDomain                 = null;
-    protected $isPilotUser               = null;
+    public    $name = 'TrunkGroupDeviceEndpointRead14sp4';
+    protected $name;
+    protected $linePort;
+    protected $contact;
+    protected $staticRegistrationCapable;
+    protected $useDomain;
+    protected $isPilotUser;
 
     public function __construct(
-         $name,
-         $linePort,
+         $name = '',
+         $linePort = '',
          $contact = null,
-         $staticRegistrationCapable,
-         $useDomain,
-         $isPilotUser
+         $staticRegistrationCapable = '',
+         $useDomain = '',
+         $isPilotUser = ''
     ) {
         $this->setName($name);
         $this->setLinePort($linePort);
@@ -56,7 +56,6 @@ class TrunkGroupDeviceEndpointRead14sp4 extends ComplexType implements ComplexIn
      */
     public function setName($name = null)
     {
-        if (!$name) return $this;
         $this->name = new SimpleContent($name);
         $this->name->setName('name');
         return $this;
@@ -68,7 +67,7 @@ class TrunkGroupDeviceEndpointRead14sp4 extends ComplexType implements ComplexIn
      */
     public function getName()
     {
-        return $this->name->getValue();
+        return ($this->name) ? $this->name->getValue() : null;
     }
 
     /**
@@ -76,7 +75,6 @@ class TrunkGroupDeviceEndpointRead14sp4 extends ComplexType implements ComplexIn
      */
     public function setLinePort($linePort = null)
     {
-        if (!$linePort) return $this;
         $this->linePort = new SimpleContent($linePort);
         $this->linePort->setName('linePort');
         return $this;
@@ -88,7 +86,7 @@ class TrunkGroupDeviceEndpointRead14sp4 extends ComplexType implements ComplexIn
      */
     public function getLinePort()
     {
-        return $this->linePort->getValue();
+        return ($this->linePort) ? $this->linePort->getValue() : null;
     }
 
     /**
@@ -96,7 +94,6 @@ class TrunkGroupDeviceEndpointRead14sp4 extends ComplexType implements ComplexIn
      */
     public function setContact($contact = null)
     {
-        if (!$contact) return $this;
         $this->contact = new SimpleContent($contact);
         $this->contact->setName('contact');
         return $this;
@@ -108,7 +105,7 @@ class TrunkGroupDeviceEndpointRead14sp4 extends ComplexType implements ComplexIn
      */
     public function getContact()
     {
-        return $this->contact->getValue();
+        return ($this->contact) ? $this->contact->getValue() : null;
     }
 
     /**
@@ -116,7 +113,6 @@ class TrunkGroupDeviceEndpointRead14sp4 extends ComplexType implements ComplexIn
      */
     public function setStaticRegistrationCapable($staticRegistrationCapable = null)
     {
-        if (!$staticRegistrationCapable) return $this;
         $this->staticRegistrationCapable = new SimpleContent($staticRegistrationCapable);
         $this->staticRegistrationCapable->setName('staticRegistrationCapable');
         return $this;
@@ -128,7 +124,7 @@ class TrunkGroupDeviceEndpointRead14sp4 extends ComplexType implements ComplexIn
      */
     public function getStaticRegistrationCapable()
     {
-        return $this->staticRegistrationCapable->getValue();
+        return ($this->staticRegistrationCapable) ? $this->staticRegistrationCapable->getValue() : null;
     }
 
     /**
@@ -136,7 +132,6 @@ class TrunkGroupDeviceEndpointRead14sp4 extends ComplexType implements ComplexIn
      */
     public function setUseDomain($useDomain = null)
     {
-        if (!$useDomain) return $this;
         $this->useDomain = new SimpleContent($useDomain);
         $this->useDomain->setName('useDomain');
         return $this;
@@ -148,7 +143,7 @@ class TrunkGroupDeviceEndpointRead14sp4 extends ComplexType implements ComplexIn
      */
     public function getUseDomain()
     {
-        return $this->useDomain->getValue();
+        return ($this->useDomain) ? $this->useDomain->getValue() : null;
     }
 
     /**
@@ -156,7 +151,6 @@ class TrunkGroupDeviceEndpointRead14sp4 extends ComplexType implements ComplexIn
      */
     public function setIsPilotUser($isPilotUser = null)
     {
-        if (!$isPilotUser) return $this;
         $this->isPilotUser = new SimpleContent($isPilotUser);
         $this->isPilotUser->setName('isPilotUser');
         return $this;
@@ -168,6 +162,6 @@ class TrunkGroupDeviceEndpointRead14sp4 extends ComplexType implements ComplexIn
      */
     public function getIsPilotUser()
     {
-        return $this->isPilotUser->getValue();
+        return ($this->isPilotUser) ? $this->isPilotUser->getValue() : null;
     }
 }

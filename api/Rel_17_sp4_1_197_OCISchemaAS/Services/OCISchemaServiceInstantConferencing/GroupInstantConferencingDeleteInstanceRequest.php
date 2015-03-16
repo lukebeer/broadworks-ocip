@@ -20,11 +20,11 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupInstantConferencingDeleteInstanceRequest extends ComplexType implements ComplexInterface
 {
-    public    $name          = 'GroupInstantConferencingDeleteInstanceRequest';
-    protected $serviceUserId = null;
+    public    $name = 'GroupInstantConferencingDeleteInstanceRequest';
+    protected $serviceUserId;
 
     public function __construct(
-         $serviceUserId
+         $serviceUserId = ''
     ) {
         $this->setServiceUserId($serviceUserId);
     }
@@ -42,7 +42,6 @@ class GroupInstantConferencingDeleteInstanceRequest extends ComplexType implemen
      */
     public function setServiceUserId($serviceUserId = null)
     {
-        if (!$serviceUserId) return $this;
         $this->serviceUserId = ($serviceUserId InstanceOf UserId)
              ? $serviceUserId
              : new UserId($serviceUserId);
@@ -56,6 +55,6 @@ class GroupInstantConferencingDeleteInstanceRequest extends ComplexType implemen
      */
     public function getServiceUserId()
     {
-        return $this->serviceUserId->getValue();
+        return ($this->serviceUserId) ? $this->serviceUserId->getValue() : null;
     }
 }

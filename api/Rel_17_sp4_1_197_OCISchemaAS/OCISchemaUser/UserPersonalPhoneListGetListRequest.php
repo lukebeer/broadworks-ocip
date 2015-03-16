@@ -32,15 +32,15 @@ use Broadworks_OCIP\core\Client\Client;
 class UserPersonalPhoneListGetListRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType                              = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser\UserPersonalPhoneListGetListResponse';
-    public    $name                                      = 'UserPersonalPhoneListGetListRequest';
-    protected $userId                                    = null;
-    protected $responseSizeLimit                         = null;
-    protected $searchCriteriaModeOr                      = null;
-    protected $searchCriteriaUserPersonalPhoneListName   = null;
-    protected $searchCriteriaUserPersonalPhoneListNumber = null;
+    public    $name = 'UserPersonalPhoneListGetListRequest';
+    protected $userId;
+    protected $responseSizeLimit;
+    protected $searchCriteriaModeOr;
+    protected $searchCriteriaUserPersonalPhoneListName;
+    protected $searchCriteriaUserPersonalPhoneListNumber;
 
     public function __construct(
-         $userId,
+         $userId = '',
          $responseSizeLimit = null,
          $searchCriteriaModeOr = null,
          SearchCriteriaUserPersonalPhoneListName $searchCriteriaUserPersonalPhoneListName = null,
@@ -66,7 +66,6 @@ class UserPersonalPhoneListGetListRequest extends ComplexType implements Complex
      */
     public function setUserId($userId = null)
     {
-        if (!$userId) return $this;
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
@@ -80,7 +79,7 @@ class UserPersonalPhoneListGetListRequest extends ComplexType implements Complex
      */
     public function getUserId()
     {
-        return $this->userId->getValue();
+        return ($this->userId) ? $this->userId->getValue() : null;
     }
 
     /**
@@ -88,7 +87,6 @@ class UserPersonalPhoneListGetListRequest extends ComplexType implements Complex
      */
     public function setResponseSizeLimit($responseSizeLimit = null)
     {
-        if (!$responseSizeLimit) return $this;
         $this->responseSizeLimit = ($responseSizeLimit InstanceOf ResponseSizeLimit)
              ? $responseSizeLimit
              : new ResponseSizeLimit($responseSizeLimit);
@@ -102,7 +100,7 @@ class UserPersonalPhoneListGetListRequest extends ComplexType implements Complex
      */
     public function getResponseSizeLimit()
     {
-        return $this->responseSizeLimit->getValue();
+        return ($this->responseSizeLimit) ? $this->responseSizeLimit->getValue() : null;
     }
 
     /**
@@ -110,7 +108,6 @@ class UserPersonalPhoneListGetListRequest extends ComplexType implements Complex
      */
     public function setSearchCriteriaModeOr($searchCriteriaModeOr = null)
     {
-        if (!$searchCriteriaModeOr) return $this;
         $this->searchCriteriaModeOr = new PrimitiveType($searchCriteriaModeOr);
         $this->searchCriteriaModeOr->setName('searchCriteriaModeOr');
         return $this;
@@ -122,7 +119,7 @@ class UserPersonalPhoneListGetListRequest extends ComplexType implements Complex
      */
     public function getSearchCriteriaModeOr()
     {
-        return $this->searchCriteriaModeOr->getValue();
+        return ($this->searchCriteriaModeOr) ? $this->searchCriteriaModeOr->getValue() : null;
     }
 
     /**
@@ -130,7 +127,6 @@ class UserPersonalPhoneListGetListRequest extends ComplexType implements Complex
      */
     public function setSearchCriteriaUserPersonalPhoneListName(SearchCriteriaUserPersonalPhoneListName $searchCriteriaUserPersonalPhoneListName = null)
     {
-        if (!$searchCriteriaUserPersonalPhoneListName) return $this;
         $this->searchCriteriaUserPersonalPhoneListName = ($searchCriteriaUserPersonalPhoneListName InstanceOf SearchCriteriaUserPersonalPhoneListName)
              ? $searchCriteriaUserPersonalPhoneListName
              : new SearchCriteriaUserPersonalPhoneListName($searchCriteriaUserPersonalPhoneListName);
@@ -152,7 +148,6 @@ class UserPersonalPhoneListGetListRequest extends ComplexType implements Complex
      */
     public function setSearchCriteriaUserPersonalPhoneListNumber(SearchCriteriaUserPersonalPhoneListNumber $searchCriteriaUserPersonalPhoneListNumber = null)
     {
-        if (!$searchCriteriaUserPersonalPhoneListNumber) return $this;
         $this->searchCriteriaUserPersonalPhoneListNumber = ($searchCriteriaUserPersonalPhoneListNumber InstanceOf SearchCriteriaUserPersonalPhoneListNumber)
              ? $searchCriteriaUserPersonalPhoneListNumber
              : new SearchCriteriaUserPersonalPhoneListNumber($searchCriteriaUserPersonalPhoneListNumber);

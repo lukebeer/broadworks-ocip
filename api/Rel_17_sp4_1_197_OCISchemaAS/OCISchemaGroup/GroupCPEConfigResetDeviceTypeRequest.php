@@ -21,15 +21,15 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupCPEConfigResetDeviceTypeRequest extends ComplexType implements ComplexInterface
 {
-    public    $name              = 'GroupCPEConfigResetDeviceTypeRequest';
-    protected $serviceProviderId = null;
-    protected $groupId           = null;
-    protected $deviceType        = null;
+    public    $name = 'GroupCPEConfigResetDeviceTypeRequest';
+    protected $serviceProviderId;
+    protected $groupId;
+    protected $deviceType;
 
     public function __construct(
-         $serviceProviderId,
-         $groupId,
-         $deviceType
+         $serviceProviderId = '',
+         $groupId = '',
+         $deviceType = ''
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setGroupId($groupId);
@@ -49,7 +49,6 @@ class GroupCPEConfigResetDeviceTypeRequest extends ComplexType implements Comple
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
-        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
@@ -63,7 +62,7 @@ class GroupCPEConfigResetDeviceTypeRequest extends ComplexType implements Comple
      */
     public function getServiceProviderId()
     {
-        return $this->serviceProviderId->getValue();
+        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
     }
 
     /**
@@ -71,7 +70,6 @@ class GroupCPEConfigResetDeviceTypeRequest extends ComplexType implements Comple
      */
     public function setGroupId($groupId = null)
     {
-        if (!$groupId) return $this;
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
@@ -85,7 +83,7 @@ class GroupCPEConfigResetDeviceTypeRequest extends ComplexType implements Comple
      */
     public function getGroupId()
     {
-        return $this->groupId->getValue();
+        return ($this->groupId) ? $this->groupId->getValue() : null;
     }
 
     /**
@@ -93,7 +91,6 @@ class GroupCPEConfigResetDeviceTypeRequest extends ComplexType implements Comple
      */
     public function setDeviceType($deviceType = null)
     {
-        if (!$deviceType) return $this;
         $this->deviceType = ($deviceType InstanceOf AccessDeviceType)
              ? $deviceType
              : new AccessDeviceType($deviceType);
@@ -107,6 +104,6 @@ class GroupCPEConfigResetDeviceTypeRequest extends ComplexType implements Comple
      */
     public function getDeviceType()
     {
-        return $this->deviceType->getValue();
+        return ($this->deviceType) ? $this->deviceType->getValue() : null;
     }
 }

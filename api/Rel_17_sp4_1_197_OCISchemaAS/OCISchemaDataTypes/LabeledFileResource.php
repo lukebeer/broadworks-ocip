@@ -20,11 +20,11 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class LabeledFileResource extends ComplexType implements ComplexInterface
 {
-    public    $name        = 'LabeledFileResource';
-    protected $description = null;
+    public    $name = 'LabeledFileResource';
+    protected $description;
 
     public function __construct(
-         $description
+         $description = ''
     ) {
         $this->setDescription($description);
     }
@@ -42,7 +42,6 @@ class LabeledFileResource extends ComplexType implements ComplexInterface
      */
     public function setDescription($description = null)
     {
-        if (!$description) return $this;
         $this->description = new SimpleContent($description);
         $this->description->setName('description');
         return $this;
@@ -54,6 +53,6 @@ class LabeledFileResource extends ComplexType implements ComplexInterface
      */
     public function getDescription()
     {
-        return $this->description->getValue();
+        return ($this->description) ? $this->description->getValue() : null;
     }
 }

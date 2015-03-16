@@ -45,41 +45,41 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserAddRequest17sp4 extends ComplexType implements ComplexInterface
 {
-    public    $name                     = 'UserAddRequest17sp4';
-    protected $serviceProviderId        = null;
-    protected $groupId                  = null;
-    protected $userId                   = null;
-    protected $lastName                 = null;
-    protected $firstName                = null;
-    protected $callingLineIdLastName    = null;
-    protected $callingLineIdFirstName   = null;
-    protected $hiraganaLastName         = null;
-    protected $hiraganaFirstName        = null;
-    protected $phoneNumber              = null;
-    protected $extension                = null;
-    protected $callingLineIdPhoneNumber = null;
-    protected $password                 = null;
-    protected $department               = null;
-    protected $language                 = null;
-    protected $timeZone                 = null;
-    protected $alias                    = null;
-    protected $title                    = null;
-    protected $pagerPhoneNumber         = null;
-    protected $mobilePhoneNumber        = null;
-    protected $emailAddress             = null;
-    protected $yahooId                  = null;
-    protected $addressLocation          = null;
-    protected $address                  = null;
-    protected $networkClassOfService    = null;
+    public    $name = 'UserAddRequest17sp4';
+    protected $serviceProviderId;
+    protected $groupId;
+    protected $userId;
+    protected $lastName;
+    protected $firstName;
+    protected $callingLineIdLastName;
+    protected $callingLineIdFirstName;
+    protected $hiraganaLastName;
+    protected $hiraganaFirstName;
+    protected $phoneNumber;
+    protected $extension;
+    protected $callingLineIdPhoneNumber;
+    protected $password;
+    protected $department;
+    protected $language;
+    protected $timeZone;
+    protected $alias;
+    protected $title;
+    protected $pagerPhoneNumber;
+    protected $mobilePhoneNumber;
+    protected $emailAddress;
+    protected $yahooId;
+    protected $addressLocation;
+    protected $address;
+    protected $networkClassOfService;
 
     public function __construct(
-         $serviceProviderId,
-         $groupId,
-         $userId,
-         $lastName,
-         $firstName,
-         $callingLineIdLastName,
-         $callingLineIdFirstName,
+         $serviceProviderId = '',
+         $groupId = '',
+         $userId = '',
+         $lastName = '',
+         $firstName = '',
+         $callingLineIdLastName = '',
+         $callingLineIdFirstName = '',
          $hiraganaLastName = null,
          $hiraganaFirstName = null,
          $phoneNumber = null,
@@ -139,7 +139,6 @@ class UserAddRequest17sp4 extends ComplexType implements ComplexInterface
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
-        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
@@ -153,7 +152,7 @@ class UserAddRequest17sp4 extends ComplexType implements ComplexInterface
      */
     public function getServiceProviderId()
     {
-        return $this->serviceProviderId->getValue();
+        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
     }
 
     /**
@@ -161,7 +160,6 @@ class UserAddRequest17sp4 extends ComplexType implements ComplexInterface
      */
     public function setGroupId($groupId = null)
     {
-        if (!$groupId) return $this;
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
@@ -175,7 +173,7 @@ class UserAddRequest17sp4 extends ComplexType implements ComplexInterface
      */
     public function getGroupId()
     {
-        return $this->groupId->getValue();
+        return ($this->groupId) ? $this->groupId->getValue() : null;
     }
 
     /**
@@ -183,7 +181,6 @@ class UserAddRequest17sp4 extends ComplexType implements ComplexInterface
      */
     public function setUserId($userId = null)
     {
-        if (!$userId) return $this;
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
@@ -197,7 +194,7 @@ class UserAddRequest17sp4 extends ComplexType implements ComplexInterface
      */
     public function getUserId()
     {
-        return $this->userId->getValue();
+        return ($this->userId) ? $this->userId->getValue() : null;
     }
 
     /**
@@ -205,7 +202,6 @@ class UserAddRequest17sp4 extends ComplexType implements ComplexInterface
      */
     public function setLastName($lastName = null)
     {
-        if (!$lastName) return $this;
         $this->lastName = ($lastName InstanceOf LastName)
              ? $lastName
              : new LastName($lastName);
@@ -219,7 +215,7 @@ class UserAddRequest17sp4 extends ComplexType implements ComplexInterface
      */
     public function getLastName()
     {
-        return $this->lastName->getValue();
+        return ($this->lastName) ? $this->lastName->getValue() : null;
     }
 
     /**
@@ -227,7 +223,6 @@ class UserAddRequest17sp4 extends ComplexType implements ComplexInterface
      */
     public function setFirstName($firstName = null)
     {
-        if (!$firstName) return $this;
         $this->firstName = ($firstName InstanceOf FirstName)
              ? $firstName
              : new FirstName($firstName);
@@ -241,7 +236,7 @@ class UserAddRequest17sp4 extends ComplexType implements ComplexInterface
      */
     public function getFirstName()
     {
-        return $this->firstName->getValue();
+        return ($this->firstName) ? $this->firstName->getValue() : null;
     }
 
     /**
@@ -249,7 +244,6 @@ class UserAddRequest17sp4 extends ComplexType implements ComplexInterface
      */
     public function setCallingLineIdLastName($callingLineIdLastName = null)
     {
-        if (!$callingLineIdLastName) return $this;
         $this->callingLineIdLastName = ($callingLineIdLastName InstanceOf CallingLineIdLastName)
              ? $callingLineIdLastName
              : new CallingLineIdLastName($callingLineIdLastName);
@@ -263,7 +257,7 @@ class UserAddRequest17sp4 extends ComplexType implements ComplexInterface
      */
     public function getCallingLineIdLastName()
     {
-        return $this->callingLineIdLastName->getValue();
+        return ($this->callingLineIdLastName) ? $this->callingLineIdLastName->getValue() : null;
     }
 
     /**
@@ -271,7 +265,6 @@ class UserAddRequest17sp4 extends ComplexType implements ComplexInterface
      */
     public function setCallingLineIdFirstName($callingLineIdFirstName = null)
     {
-        if (!$callingLineIdFirstName) return $this;
         $this->callingLineIdFirstName = ($callingLineIdFirstName InstanceOf CallingLineIdFirstName)
              ? $callingLineIdFirstName
              : new CallingLineIdFirstName($callingLineIdFirstName);
@@ -285,7 +278,7 @@ class UserAddRequest17sp4 extends ComplexType implements ComplexInterface
      */
     public function getCallingLineIdFirstName()
     {
-        return $this->callingLineIdFirstName->getValue();
+        return ($this->callingLineIdFirstName) ? $this->callingLineIdFirstName->getValue() : null;
     }
 
     /**
@@ -293,7 +286,6 @@ class UserAddRequest17sp4 extends ComplexType implements ComplexInterface
      */
     public function setHiraganaLastName($hiraganaLastName = null)
     {
-        if (!$hiraganaLastName) return $this;
         $this->hiraganaLastName = ($hiraganaLastName InstanceOf HiraganaLastName)
              ? $hiraganaLastName
              : new HiraganaLastName($hiraganaLastName);
@@ -307,7 +299,7 @@ class UserAddRequest17sp4 extends ComplexType implements ComplexInterface
      */
     public function getHiraganaLastName()
     {
-        return $this->hiraganaLastName->getValue();
+        return ($this->hiraganaLastName) ? $this->hiraganaLastName->getValue() : null;
     }
 
     /**
@@ -315,7 +307,6 @@ class UserAddRequest17sp4 extends ComplexType implements ComplexInterface
      */
     public function setHiraganaFirstName($hiraganaFirstName = null)
     {
-        if (!$hiraganaFirstName) return $this;
         $this->hiraganaFirstName = ($hiraganaFirstName InstanceOf HiraganaFirstName)
              ? $hiraganaFirstName
              : new HiraganaFirstName($hiraganaFirstName);
@@ -329,7 +320,7 @@ class UserAddRequest17sp4 extends ComplexType implements ComplexInterface
      */
     public function getHiraganaFirstName()
     {
-        return $this->hiraganaFirstName->getValue();
+        return ($this->hiraganaFirstName) ? $this->hiraganaFirstName->getValue() : null;
     }
 
     /**
@@ -337,7 +328,6 @@ class UserAddRequest17sp4 extends ComplexType implements ComplexInterface
      */
     public function setPhoneNumber($phoneNumber = null)
     {
-        if (!$phoneNumber) return $this;
         $this->phoneNumber = ($phoneNumber InstanceOf DN)
              ? $phoneNumber
              : new DN($phoneNumber);
@@ -351,7 +341,7 @@ class UserAddRequest17sp4 extends ComplexType implements ComplexInterface
      */
     public function getPhoneNumber()
     {
-        return $this->phoneNumber->getValue();
+        return ($this->phoneNumber) ? $this->phoneNumber->getValue() : null;
     }
 
     /**
@@ -359,7 +349,6 @@ class UserAddRequest17sp4 extends ComplexType implements ComplexInterface
      */
     public function setExtension($extension = null)
     {
-        if (!$extension) return $this;
         $this->extension = ($extension InstanceOf Extension17)
              ? $extension
              : new Extension17($extension);
@@ -373,7 +362,7 @@ class UserAddRequest17sp4 extends ComplexType implements ComplexInterface
      */
     public function getExtension()
     {
-        return $this->extension->getValue();
+        return ($this->extension) ? $this->extension->getValue() : null;
     }
 
     /**
@@ -381,7 +370,6 @@ class UserAddRequest17sp4 extends ComplexType implements ComplexInterface
      */
     public function setCallingLineIdPhoneNumber($callingLineIdPhoneNumber = null)
     {
-        if (!$callingLineIdPhoneNumber) return $this;
         $this->callingLineIdPhoneNumber = ($callingLineIdPhoneNumber InstanceOf DN)
              ? $callingLineIdPhoneNumber
              : new DN($callingLineIdPhoneNumber);
@@ -395,7 +383,7 @@ class UserAddRequest17sp4 extends ComplexType implements ComplexInterface
      */
     public function getCallingLineIdPhoneNumber()
     {
-        return $this->callingLineIdPhoneNumber->getValue();
+        return ($this->callingLineIdPhoneNumber) ? $this->callingLineIdPhoneNumber->getValue() : null;
     }
 
     /**
@@ -403,7 +391,6 @@ class UserAddRequest17sp4 extends ComplexType implements ComplexInterface
      */
     public function setPassword($password = null)
     {
-        if (!$password) return $this;
         $this->password = ($password InstanceOf Password)
              ? $password
              : new Password($password);
@@ -417,7 +404,7 @@ class UserAddRequest17sp4 extends ComplexType implements ComplexInterface
      */
     public function getPassword()
     {
-        return $this->password->getValue();
+        return ($this->password) ? $this->password->getValue() : null;
     }
 
     /**
@@ -425,8 +412,9 @@ class UserAddRequest17sp4 extends ComplexType implements ComplexInterface
      */
     public function setDepartment(DepartmentKey $department = null)
     {
-        if (!$department) return $this;
-        $this->department = $department;
+        $this->department = ($department InstanceOf DepartmentKey)
+             ? $department
+             : new DepartmentKey($department);
         $this->department->setName('department');
         return $this;
     }
@@ -445,7 +433,6 @@ class UserAddRequest17sp4 extends ComplexType implements ComplexInterface
      */
     public function setLanguage($language = null)
     {
-        if (!$language) return $this;
         $this->language = ($language InstanceOf Language)
              ? $language
              : new Language($language);
@@ -459,7 +446,7 @@ class UserAddRequest17sp4 extends ComplexType implements ComplexInterface
      */
     public function getLanguage()
     {
-        return $this->language->getValue();
+        return ($this->language) ? $this->language->getValue() : null;
     }
 
     /**
@@ -467,7 +454,6 @@ class UserAddRequest17sp4 extends ComplexType implements ComplexInterface
      */
     public function setTimeZone($timeZone = null)
     {
-        if (!$timeZone) return $this;
         $this->timeZone = ($timeZone InstanceOf TimeZone)
              ? $timeZone
              : new TimeZone($timeZone);
@@ -481,7 +467,7 @@ class UserAddRequest17sp4 extends ComplexType implements ComplexInterface
      */
     public function getTimeZone()
     {
-        return $this->timeZone->getValue();
+        return ($this->timeZone) ? $this->timeZone->getValue() : null;
     }
 
     /**
@@ -489,7 +475,6 @@ class UserAddRequest17sp4 extends ComplexType implements ComplexInterface
      */
     public function setAlias($alias = null)
     {
-        if (!$alias) return $this;
         $this->alias = ($alias InstanceOf SIPURI)
              ? $alias
              : new SIPURI($alias);
@@ -503,7 +488,7 @@ class UserAddRequest17sp4 extends ComplexType implements ComplexInterface
      */
     public function getAlias()
     {
-        return $this->alias->getValue();
+        return ($this->alias) ? $this->alias->getValue() : null;
     }
 
     /**
@@ -511,7 +496,6 @@ class UserAddRequest17sp4 extends ComplexType implements ComplexInterface
      */
     public function setTitle($title = null)
     {
-        if (!$title) return $this;
         $this->title = ($title InstanceOf Title)
              ? $title
              : new Title($title);
@@ -525,7 +509,7 @@ class UserAddRequest17sp4 extends ComplexType implements ComplexInterface
      */
     public function getTitle()
     {
-        return $this->title->getValue();
+        return ($this->title) ? $this->title->getValue() : null;
     }
 
     /**
@@ -533,7 +517,6 @@ class UserAddRequest17sp4 extends ComplexType implements ComplexInterface
      */
     public function setPagerPhoneNumber($pagerPhoneNumber = null)
     {
-        if (!$pagerPhoneNumber) return $this;
         $this->pagerPhoneNumber = ($pagerPhoneNumber InstanceOf InformationalDN)
              ? $pagerPhoneNumber
              : new InformationalDN($pagerPhoneNumber);
@@ -547,7 +530,7 @@ class UserAddRequest17sp4 extends ComplexType implements ComplexInterface
      */
     public function getPagerPhoneNumber()
     {
-        return $this->pagerPhoneNumber->getValue();
+        return ($this->pagerPhoneNumber) ? $this->pagerPhoneNumber->getValue() : null;
     }
 
     /**
@@ -555,7 +538,6 @@ class UserAddRequest17sp4 extends ComplexType implements ComplexInterface
      */
     public function setMobilePhoneNumber($mobilePhoneNumber = null)
     {
-        if (!$mobilePhoneNumber) return $this;
         $this->mobilePhoneNumber = ($mobilePhoneNumber InstanceOf OutgoingDN)
              ? $mobilePhoneNumber
              : new OutgoingDN($mobilePhoneNumber);
@@ -569,7 +551,7 @@ class UserAddRequest17sp4 extends ComplexType implements ComplexInterface
      */
     public function getMobilePhoneNumber()
     {
-        return $this->mobilePhoneNumber->getValue();
+        return ($this->mobilePhoneNumber) ? $this->mobilePhoneNumber->getValue() : null;
     }
 
     /**
@@ -577,7 +559,6 @@ class UserAddRequest17sp4 extends ComplexType implements ComplexInterface
      */
     public function setEmailAddress($emailAddress = null)
     {
-        if (!$emailAddress) return $this;
         $this->emailAddress = ($emailAddress InstanceOf EmailAddress)
              ? $emailAddress
              : new EmailAddress($emailAddress);
@@ -591,7 +572,7 @@ class UserAddRequest17sp4 extends ComplexType implements ComplexInterface
      */
     public function getEmailAddress()
     {
-        return $this->emailAddress->getValue();
+        return ($this->emailAddress) ? $this->emailAddress->getValue() : null;
     }
 
     /**
@@ -599,7 +580,6 @@ class UserAddRequest17sp4 extends ComplexType implements ComplexInterface
      */
     public function setYahooId($yahooId = null)
     {
-        if (!$yahooId) return $this;
         $this->yahooId = ($yahooId InstanceOf YahooId)
              ? $yahooId
              : new YahooId($yahooId);
@@ -613,7 +593,7 @@ class UserAddRequest17sp4 extends ComplexType implements ComplexInterface
      */
     public function getYahooId()
     {
-        return $this->yahooId->getValue();
+        return ($this->yahooId) ? $this->yahooId->getValue() : null;
     }
 
     /**
@@ -621,7 +601,6 @@ class UserAddRequest17sp4 extends ComplexType implements ComplexInterface
      */
     public function setAddressLocation($addressLocation = null)
     {
-        if (!$addressLocation) return $this;
         $this->addressLocation = ($addressLocation InstanceOf AddressLocation)
              ? $addressLocation
              : new AddressLocation($addressLocation);
@@ -635,7 +614,7 @@ class UserAddRequest17sp4 extends ComplexType implements ComplexInterface
      */
     public function getAddressLocation()
     {
-        return $this->addressLocation->getValue();
+        return ($this->addressLocation) ? $this->addressLocation->getValue() : null;
     }
 
     /**
@@ -643,8 +622,9 @@ class UserAddRequest17sp4 extends ComplexType implements ComplexInterface
      */
     public function setAddress(StreetAddress $address = null)
     {
-        if (!$address) return $this;
-        $this->address = $address;
+        $this->address = ($address InstanceOf StreetAddress)
+             ? $address
+             : new StreetAddress($address);
         $this->address->setName('address');
         return $this;
     }
@@ -663,7 +643,6 @@ class UserAddRequest17sp4 extends ComplexType implements ComplexInterface
      */
     public function setNetworkClassOfService($networkClassOfService = null)
     {
-        if (!$networkClassOfService) return $this;
         $this->networkClassOfService = ($networkClassOfService InstanceOf NetworkClassOfServiceName)
              ? $networkClassOfService
              : new NetworkClassOfServiceName($networkClassOfService);
@@ -677,6 +656,6 @@ class UserAddRequest17sp4 extends ComplexType implements ComplexInterface
      */
     public function getNetworkClassOfService()
     {
-        return $this->networkClassOfService->getValue();
+        return ($this->networkClassOfService) ? $this->networkClassOfService->getValue() : null;
     }
 }

@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
 class UserLDAPIntegrationGetDirectoryEntryResponse extends ComplexType implements ComplexInterface
 {
     public    $name = 'UserLDAPIntegrationGetDirectoryEntryResponse';
-    protected $data = null;
+    protected $data;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceLDAPIntegration\UserLDAPIntegrationGetDirectoryEntryResponse $response
@@ -35,8 +35,9 @@ class UserLDAPIntegrationGetDirectoryEntryResponse extends ComplexType implement
      */
     public function setData(LDAPEntryField $data = null)
     {
-        if (!$data) return $this;
-        $this->data = $data;
+        $this->data = ($data InstanceOf LDAPEntryField)
+             ? $data
+             : new LDAPEntryField($data);
         $this->data->setName('data');
         return $this;
     }

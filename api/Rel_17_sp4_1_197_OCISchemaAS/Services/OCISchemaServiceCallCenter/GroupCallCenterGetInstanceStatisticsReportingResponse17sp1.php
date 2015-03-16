@@ -23,12 +23,12 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupCallCenterGetInstanceStatisticsReportingResponse17sp1 extends ComplexType implements ComplexInterface
 {
-    public    $name                    = 'GroupCallCenterGetInstanceStatisticsReportingResponse17sp1';
-    protected $generateDailyReport     = null;
-    protected $collectionPeriodMinutes = null;
-    protected $reportingEmailAddress1  = null;
-    protected $reportingEmailAddress2  = null;
-    protected $statisticsSource        = null;
+    public    $name = 'GroupCallCenterGetInstanceStatisticsReportingResponse17sp1';
+    protected $generateDailyReport;
+    protected $collectionPeriodMinutes;
+    protected $reportingEmailAddress1;
+    protected $reportingEmailAddress2;
+    protected $statisticsSource;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\GroupCallCenterGetInstanceStatisticsReportingResponse17sp1 $response
@@ -43,7 +43,6 @@ class GroupCallCenterGetInstanceStatisticsReportingResponse17sp1 extends Complex
      */
     public function setGenerateDailyReport($generateDailyReport = null)
     {
-        if (!$generateDailyReport) return $this;
         $this->generateDailyReport = new PrimitiveType($generateDailyReport);
         $this->generateDailyReport->setName('generateDailyReport');
         return $this;
@@ -55,7 +54,7 @@ class GroupCallCenterGetInstanceStatisticsReportingResponse17sp1 extends Complex
      */
     public function getGenerateDailyReport()
     {
-        return $this->generateDailyReport->getValue();
+        return ($this->generateDailyReport) ? $this->generateDailyReport->getValue() : null;
     }
 
     /**
@@ -63,7 +62,6 @@ class GroupCallCenterGetInstanceStatisticsReportingResponse17sp1 extends Complex
      */
     public function setCollectionPeriodMinutes($collectionPeriodMinutes = null)
     {
-        if (!$collectionPeriodMinutes) return $this;
         $this->collectionPeriodMinutes = ($collectionPeriodMinutes InstanceOf CallCenterStatisticsCollectionPeriodMinutes)
              ? $collectionPeriodMinutes
              : new CallCenterStatisticsCollectionPeriodMinutes($collectionPeriodMinutes);
@@ -77,7 +75,7 @@ class GroupCallCenterGetInstanceStatisticsReportingResponse17sp1 extends Complex
      */
     public function getCollectionPeriodMinutes()
     {
-        return $this->collectionPeriodMinutes->getValue();
+        return ($this->collectionPeriodMinutes) ? $this->collectionPeriodMinutes->getValue() : null;
     }
 
     /**
@@ -85,7 +83,6 @@ class GroupCallCenterGetInstanceStatisticsReportingResponse17sp1 extends Complex
      */
     public function setReportingEmailAddress1($reportingEmailAddress1 = null)
     {
-        if (!$reportingEmailAddress1) return $this;
         $this->reportingEmailAddress1 = ($reportingEmailAddress1 InstanceOf EmailAddress)
              ? $reportingEmailAddress1
              : new EmailAddress($reportingEmailAddress1);
@@ -99,7 +96,7 @@ class GroupCallCenterGetInstanceStatisticsReportingResponse17sp1 extends Complex
      */
     public function getReportingEmailAddress1()
     {
-        return $this->reportingEmailAddress1->getValue();
+        return ($this->reportingEmailAddress1) ? $this->reportingEmailAddress1->getValue() : null;
     }
 
     /**
@@ -107,7 +104,6 @@ class GroupCallCenterGetInstanceStatisticsReportingResponse17sp1 extends Complex
      */
     public function setReportingEmailAddress2($reportingEmailAddress2 = null)
     {
-        if (!$reportingEmailAddress2) return $this;
         $this->reportingEmailAddress2 = ($reportingEmailAddress2 InstanceOf EmailAddress)
              ? $reportingEmailAddress2
              : new EmailAddress($reportingEmailAddress2);
@@ -121,7 +117,7 @@ class GroupCallCenterGetInstanceStatisticsReportingResponse17sp1 extends Complex
      */
     public function getReportingEmailAddress2()
     {
-        return $this->reportingEmailAddress2->getValue();
+        return ($this->reportingEmailAddress2) ? $this->reportingEmailAddress2->getValue() : null;
     }
 
     /**
@@ -129,7 +125,6 @@ class GroupCallCenterGetInstanceStatisticsReportingResponse17sp1 extends Complex
      */
     public function setStatisticsSource($statisticsSource = null)
     {
-        if (!$statisticsSource) return $this;
         $this->statisticsSource = ($statisticsSource InstanceOf CallCenterStatisticsSource17sp1)
              ? $statisticsSource
              : new CallCenterStatisticsSource17sp1($statisticsSource);
@@ -143,6 +138,6 @@ class GroupCallCenterGetInstanceStatisticsReportingResponse17sp1 extends Complex
      */
     public function getStatisticsSource()
     {
-        return $this->statisticsSource->getValue();
+        return ($this->statisticsSource) ? $this->statisticsSource->getValue() : null;
     }
 }

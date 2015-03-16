@@ -24,13 +24,13 @@ use Broadworks_OCIP\core\Client\Client;
 class ServiceProviderServicePackMigrationTaskGetRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\ServiceProviderServicePackMigrationTaskGetResponse';
-    public    $name              = 'ServiceProviderServicePackMigrationTaskGetRequest';
-    protected $serviceProviderId = null;
-    protected $taskName          = null;
+    public    $name = 'ServiceProviderServicePackMigrationTaskGetRequest';
+    protected $serviceProviderId;
+    protected $taskName;
 
     public function __construct(
-         $serviceProviderId,
-         $taskName
+         $serviceProviderId = '',
+         $taskName = ''
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setTaskName($taskName);
@@ -49,7 +49,6 @@ class ServiceProviderServicePackMigrationTaskGetRequest extends ComplexType impl
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
-        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
@@ -63,7 +62,7 @@ class ServiceProviderServicePackMigrationTaskGetRequest extends ComplexType impl
      */
     public function getServiceProviderId()
     {
-        return $this->serviceProviderId->getValue();
+        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
     }
 
     /**
@@ -71,7 +70,6 @@ class ServiceProviderServicePackMigrationTaskGetRequest extends ComplexType impl
      */
     public function setTaskName($taskName = null)
     {
-        if (!$taskName) return $this;
         $this->taskName = ($taskName InstanceOf ServicePackMigrationTaskName)
              ? $taskName
              : new ServicePackMigrationTaskName($taskName);
@@ -85,6 +83,6 @@ class ServiceProviderServicePackMigrationTaskGetRequest extends ComplexType impl
      */
     public function getTaskName()
     {
-        return $this->taskName->getValue();
+        return ($this->taskName) ? $this->taskName->getValue() : null;
     }
 }

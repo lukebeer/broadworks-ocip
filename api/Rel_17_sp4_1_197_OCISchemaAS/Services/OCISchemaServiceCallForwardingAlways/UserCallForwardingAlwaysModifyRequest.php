@@ -23,14 +23,14 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserCallForwardingAlwaysModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                 = 'UserCallForwardingAlwaysModifyRequest';
-    protected $userId               = null;
-    protected $isActive             = null;
-    protected $forwardToPhoneNumber = null;
-    protected $isRingSplashActive   = null;
+    public    $name = 'UserCallForwardingAlwaysModifyRequest';
+    protected $userId;
+    protected $isActive;
+    protected $forwardToPhoneNumber;
+    protected $isRingSplashActive;
 
     public function __construct(
-         $userId,
+         $userId = '',
          $isActive = null,
          $forwardToPhoneNumber = null,
          $isRingSplashActive = null
@@ -54,7 +54,6 @@ class UserCallForwardingAlwaysModifyRequest extends ComplexType implements Compl
      */
     public function setUserId($userId = null)
     {
-        if (!$userId) return $this;
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
@@ -68,7 +67,7 @@ class UserCallForwardingAlwaysModifyRequest extends ComplexType implements Compl
      */
     public function getUserId()
     {
-        return $this->userId->getValue();
+        return ($this->userId) ? $this->userId->getValue() : null;
     }
 
     /**
@@ -76,7 +75,6 @@ class UserCallForwardingAlwaysModifyRequest extends ComplexType implements Compl
      */
     public function setIsActive($isActive = null)
     {
-        if (!$isActive) return $this;
         $this->isActive = new PrimitiveType($isActive);
         $this->isActive->setName('isActive');
         return $this;
@@ -88,7 +86,7 @@ class UserCallForwardingAlwaysModifyRequest extends ComplexType implements Compl
      */
     public function getIsActive()
     {
-        return $this->isActive->getValue();
+        return ($this->isActive) ? $this->isActive->getValue() : null;
     }
 
     /**
@@ -96,7 +94,6 @@ class UserCallForwardingAlwaysModifyRequest extends ComplexType implements Compl
      */
     public function setForwardToPhoneNumber($forwardToPhoneNumber = null)
     {
-        if (!$forwardToPhoneNumber) return $this;
         $this->forwardToPhoneNumber = ($forwardToPhoneNumber InstanceOf OutgoingDNorSIPURI)
              ? $forwardToPhoneNumber
              : new OutgoingDNorSIPURI($forwardToPhoneNumber);
@@ -110,7 +107,7 @@ class UserCallForwardingAlwaysModifyRequest extends ComplexType implements Compl
      */
     public function getForwardToPhoneNumber()
     {
-        return $this->forwardToPhoneNumber->getValue();
+        return ($this->forwardToPhoneNumber) ? $this->forwardToPhoneNumber->getValue() : null;
     }
 
     /**
@@ -118,7 +115,6 @@ class UserCallForwardingAlwaysModifyRequest extends ComplexType implements Compl
      */
     public function setIsRingSplashActive($isRingSplashActive = null)
     {
-        if (!$isRingSplashActive) return $this;
         $this->isRingSplashActive = new PrimitiveType($isRingSplashActive);
         $this->isRingSplashActive->setName('isRingSplashActive');
         return $this;
@@ -130,6 +126,6 @@ class UserCallForwardingAlwaysModifyRequest extends ComplexType implements Compl
      */
     public function getIsRingSplashActive()
     {
-        return $this->isRingSplashActive->getValue();
+        return ($this->isRingSplashActive) ? $this->isRingSplashActive->getValue() : null;
     }
 }

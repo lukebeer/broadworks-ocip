@@ -22,15 +22,15 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupAccountAuthorizationCodesAddListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name              = 'GroupAccountAuthorizationCodesAddListRequest';
-    protected $serviceProviderId = null;
-    protected $groupId           = null;
-    protected $codeEntry         = null;
+    public    $name = 'GroupAccountAuthorizationCodesAddListRequest';
+    protected $serviceProviderId;
+    protected $groupId;
+    protected $codeEntry;
 
     public function __construct(
-         $serviceProviderId,
-         $groupId,
-         AccountAuthorizationCodeEntry $codeEntry
+         $serviceProviderId = '',
+         $groupId = '',
+         AccountAuthorizationCodeEntry $codeEntry = ''
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setGroupId($groupId);
@@ -50,7 +50,6 @@ class GroupAccountAuthorizationCodesAddListRequest extends ComplexType implement
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
-        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
@@ -64,7 +63,7 @@ class GroupAccountAuthorizationCodesAddListRequest extends ComplexType implement
      */
     public function getServiceProviderId()
     {
-        return $this->serviceProviderId->getValue();
+        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
     }
 
     /**
@@ -72,7 +71,6 @@ class GroupAccountAuthorizationCodesAddListRequest extends ComplexType implement
      */
     public function setGroupId($groupId = null)
     {
-        if (!$groupId) return $this;
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
@@ -86,7 +84,7 @@ class GroupAccountAuthorizationCodesAddListRequest extends ComplexType implement
      */
     public function getGroupId()
     {
-        return $this->groupId->getValue();
+        return ($this->groupId) ? $this->groupId->getValue() : null;
     }
 
     /**
@@ -94,8 +92,9 @@ class GroupAccountAuthorizationCodesAddListRequest extends ComplexType implement
      */
     public function setCodeEntry(AccountAuthorizationCodeEntry $codeEntry = null)
     {
-        if (!$codeEntry) return $this;
-        $this->codeEntry = $codeEntry;
+        $this->codeEntry = ($codeEntry InstanceOf AccountAuthorizationCodeEntry)
+             ? $codeEntry
+             : new AccountAuthorizationCodeEntry($codeEntry);
         $this->codeEntry->setName('codeEntry');
         return $this;
     }

@@ -23,16 +23,16 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserInstantConferencingAddConferenceDocumentRequest extends ComplexType implements ComplexInterface
 {
-    public    $name               = 'UserInstantConferencingAddConferenceDocumentRequest';
-    protected $userId             = null;
-    protected $conferenceKey      = null;
-    protected $documentFile       = null;
-    protected $encryptionPassword = null;
+    public    $name = 'UserInstantConferencingAddConferenceDocumentRequest';
+    protected $userId;
+    protected $conferenceKey;
+    protected $documentFile;
+    protected $encryptionPassword;
 
     public function __construct(
-         $userId,
-         InstantConferencingConferenceKey $conferenceKey,
-         LabeledFileResource $documentFile,
+         $userId = '',
+         InstantConferencingConferenceKey $conferenceKey = '',
+         LabeledFileResource $documentFile = '',
          $encryptionPassword = null
     ) {
         $this->setUserId($userId);
@@ -54,7 +54,6 @@ class UserInstantConferencingAddConferenceDocumentRequest extends ComplexType im
      */
     public function setUserId($userId = null)
     {
-        if (!$userId) return $this;
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
@@ -68,7 +67,7 @@ class UserInstantConferencingAddConferenceDocumentRequest extends ComplexType im
      */
     public function getUserId()
     {
-        return $this->userId->getValue();
+        return ($this->userId) ? $this->userId->getValue() : null;
     }
 
     /**
@@ -76,8 +75,9 @@ class UserInstantConferencingAddConferenceDocumentRequest extends ComplexType im
      */
     public function setConferenceKey(InstantConferencingConferenceKey $conferenceKey = null)
     {
-        if (!$conferenceKey) return $this;
-        $this->conferenceKey = $conferenceKey;
+        $this->conferenceKey = ($conferenceKey InstanceOf InstantConferencingConferenceKey)
+             ? $conferenceKey
+             : new InstantConferencingConferenceKey($conferenceKey);
         $this->conferenceKey->setName('conferenceKey');
         return $this;
     }
@@ -96,8 +96,9 @@ class UserInstantConferencingAddConferenceDocumentRequest extends ComplexType im
      */
     public function setDocumentFile(LabeledFileResource $documentFile = null)
     {
-        if (!$documentFile) return $this;
-        $this->documentFile = $documentFile;
+        $this->documentFile = ($documentFile InstanceOf LabeledFileResource)
+             ? $documentFile
+             : new LabeledFileResource($documentFile);
         $this->documentFile->setName('documentFile');
         return $this;
     }
@@ -116,7 +117,6 @@ class UserInstantConferencingAddConferenceDocumentRequest extends ComplexType im
      */
     public function setEncryptionPassword($encryptionPassword = null)
     {
-        if (!$encryptionPassword) return $this;
         $this->encryptionPassword = ($encryptionPassword InstanceOf Password)
              ? $encryptionPassword
              : new Password($encryptionPassword);
@@ -130,6 +130,6 @@ class UserInstantConferencingAddConferenceDocumentRequest extends ComplexType im
      */
     public function getEncryptionPassword()
     {
-        return $this->encryptionPassword->getValue();
+        return ($this->encryptionPassword) ? $this->encryptionPassword->getValue() : null;
     }
 }

@@ -21,13 +21,13 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserCallingNameDeliveryModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                     = 'UserCallingNameDeliveryModifyRequest';
-    protected $userId                   = null;
-    protected $isActiveForExternalCalls = null;
-    protected $isActiveForInternalCalls = null;
+    public    $name = 'UserCallingNameDeliveryModifyRequest';
+    protected $userId;
+    protected $isActiveForExternalCalls;
+    protected $isActiveForInternalCalls;
 
     public function __construct(
-         $userId,
+         $userId = '',
          $isActiveForExternalCalls = null,
          $isActiveForInternalCalls = null
     ) {
@@ -49,7 +49,6 @@ class UserCallingNameDeliveryModifyRequest extends ComplexType implements Comple
      */
     public function setUserId($userId = null)
     {
-        if (!$userId) return $this;
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
@@ -63,7 +62,7 @@ class UserCallingNameDeliveryModifyRequest extends ComplexType implements Comple
      */
     public function getUserId()
     {
-        return $this->userId->getValue();
+        return ($this->userId) ? $this->userId->getValue() : null;
     }
 
     /**
@@ -71,7 +70,6 @@ class UserCallingNameDeliveryModifyRequest extends ComplexType implements Comple
      */
     public function setIsActiveForExternalCalls($isActiveForExternalCalls = null)
     {
-        if (!$isActiveForExternalCalls) return $this;
         $this->isActiveForExternalCalls = new PrimitiveType($isActiveForExternalCalls);
         $this->isActiveForExternalCalls->setName('isActiveForExternalCalls');
         return $this;
@@ -83,7 +81,7 @@ class UserCallingNameDeliveryModifyRequest extends ComplexType implements Comple
      */
     public function getIsActiveForExternalCalls()
     {
-        return $this->isActiveForExternalCalls->getValue();
+        return ($this->isActiveForExternalCalls) ? $this->isActiveForExternalCalls->getValue() : null;
     }
 
     /**
@@ -91,7 +89,6 @@ class UserCallingNameDeliveryModifyRequest extends ComplexType implements Comple
      */
     public function setIsActiveForInternalCalls($isActiveForInternalCalls = null)
     {
-        if (!$isActiveForInternalCalls) return $this;
         $this->isActiveForInternalCalls = new PrimitiveType($isActiveForInternalCalls);
         $this->isActiveForInternalCalls->setName('isActiveForInternalCalls');
         return $this;
@@ -103,6 +100,6 @@ class UserCallingNameDeliveryModifyRequest extends ComplexType implements Comple
      */
     public function getIsActiveForInternalCalls()
     {
-        return $this->isActiveForInternalCalls->getValue();
+        return ($this->isActiveForInternalCalls) ? $this->isActiveForInternalCalls->getValue() : null;
     }
 }

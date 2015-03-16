@@ -24,12 +24,12 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserInstantConferencingLoginStandAloneResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                = 'UserInstantConferencingLoginStandAloneResponse';
-    protected $locale              = null;
-    protected $encoding            = null;
-    protected $timeZone            = null;
-    protected $timeZoneDisplayName = null;
-    protected $phoneNumber         = null;
+    public    $name = 'UserInstantConferencingLoginStandAloneResponse';
+    protected $locale;
+    protected $encoding;
+    protected $timeZone;
+    protected $timeZoneDisplayName;
+    protected $phoneNumber;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing\UserInstantConferencingLoginStandAloneResponse $response
@@ -44,7 +44,6 @@ class UserInstantConferencingLoginStandAloneResponse extends ComplexType impleme
      */
     public function setLocale($locale = null)
     {
-        if (!$locale) return $this;
         $this->locale = ($locale InstanceOf OCILocale)
              ? $locale
              : new OCILocale($locale);
@@ -58,7 +57,7 @@ class UserInstantConferencingLoginStandAloneResponse extends ComplexType impleme
      */
     public function getLocale()
     {
-        return $this->locale->getValue();
+        return ($this->locale) ? $this->locale->getValue() : null;
     }
 
     /**
@@ -66,7 +65,6 @@ class UserInstantConferencingLoginStandAloneResponse extends ComplexType impleme
      */
     public function setEncoding($encoding = null)
     {
-        if (!$encoding) return $this;
         $this->encoding = ($encoding InstanceOf Encoding)
              ? $encoding
              : new Encoding($encoding);
@@ -80,7 +78,7 @@ class UserInstantConferencingLoginStandAloneResponse extends ComplexType impleme
      */
     public function getEncoding()
     {
-        return $this->encoding->getValue();
+        return ($this->encoding) ? $this->encoding->getValue() : null;
     }
 
     /**
@@ -88,7 +86,6 @@ class UserInstantConferencingLoginStandAloneResponse extends ComplexType impleme
      */
     public function setTimeZone($timeZone = null)
     {
-        if (!$timeZone) return $this;
         $this->timeZone = ($timeZone InstanceOf TimeZone)
              ? $timeZone
              : new TimeZone($timeZone);
@@ -102,7 +99,7 @@ class UserInstantConferencingLoginStandAloneResponse extends ComplexType impleme
      */
     public function getTimeZone()
     {
-        return $this->timeZone->getValue();
+        return ($this->timeZone) ? $this->timeZone->getValue() : null;
     }
 
     /**
@@ -110,7 +107,6 @@ class UserInstantConferencingLoginStandAloneResponse extends ComplexType impleme
      */
     public function setTimeZoneDisplayName($timeZoneDisplayName = null)
     {
-        if (!$timeZoneDisplayName) return $this;
         $this->timeZoneDisplayName = ($timeZoneDisplayName InstanceOf TimeZoneDisplayName)
              ? $timeZoneDisplayName
              : new TimeZoneDisplayName($timeZoneDisplayName);
@@ -124,7 +120,7 @@ class UserInstantConferencingLoginStandAloneResponse extends ComplexType impleme
      */
     public function getTimeZoneDisplayName()
     {
-        return $this->timeZoneDisplayName->getValue();
+        return ($this->timeZoneDisplayName) ? $this->timeZoneDisplayName->getValue() : null;
     }
 
     /**
@@ -132,7 +128,6 @@ class UserInstantConferencingLoginStandAloneResponse extends ComplexType impleme
      */
     public function setPhoneNumber($phoneNumber = null)
     {
-        if (!$phoneNumber) return $this;
         $this->phoneNumber = ($phoneNumber InstanceOf DN)
              ? $phoneNumber
              : new DN($phoneNumber);
@@ -146,6 +141,6 @@ class UserInstantConferencingLoginStandAloneResponse extends ComplexType impleme
      */
     public function getPhoneNumber()
     {
-        return $this->phoneNumber->getValue();
+        return ($this->phoneNumber) ? $this->phoneNumber->getValue() : null;
     }
 }

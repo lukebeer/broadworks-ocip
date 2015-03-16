@@ -21,13 +21,13 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserPersonalPhoneListAddListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name   = 'UserPersonalPhoneListAddListRequest';
-    protected $userId = null;
-    protected $entry  = null;
+    public    $name = 'UserPersonalPhoneListAddListRequest';
+    protected $userId;
+    protected $entry;
 
     public function __construct(
-         $userId,
-         PhoneListEntry $entry
+         $userId = '',
+         PhoneListEntry $entry = ''
     ) {
         $this->setUserId($userId);
         $this->setEntry($entry);
@@ -46,7 +46,6 @@ class UserPersonalPhoneListAddListRequest extends ComplexType implements Complex
      */
     public function setUserId($userId = null)
     {
-        if (!$userId) return $this;
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
@@ -60,7 +59,7 @@ class UserPersonalPhoneListAddListRequest extends ComplexType implements Complex
      */
     public function getUserId()
     {
-        return $this->userId->getValue();
+        return ($this->userId) ? $this->userId->getValue() : null;
     }
 
     /**
@@ -68,8 +67,9 @@ class UserPersonalPhoneListAddListRequest extends ComplexType implements Complex
      */
     public function setEntry(PhoneListEntry $entry = null)
     {
-        if (!$entry) return $this;
-        $this->entry = $entry;
+        $this->entry = ($entry InstanceOf PhoneListEntry)
+             ? $entry
+             : new PhoneListEntry($entry);
         $this->entry->setName('entry');
         return $this;
     }

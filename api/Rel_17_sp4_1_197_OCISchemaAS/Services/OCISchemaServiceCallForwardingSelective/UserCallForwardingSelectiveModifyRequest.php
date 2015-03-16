@@ -23,15 +23,15 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserCallForwardingSelectiveModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                        = 'UserCallForwardingSelectiveModifyRequest';
-    protected $userId                      = null;
-    protected $isActive                    = null;
-    protected $defaultForwardToPhoneNumber = null;
-    protected $playRingReminder            = null;
-    protected $criteriaActivation          = null;
+    public    $name = 'UserCallForwardingSelectiveModifyRequest';
+    protected $userId;
+    protected $isActive;
+    protected $defaultForwardToPhoneNumber;
+    protected $playRingReminder;
+    protected $criteriaActivation;
 
     public function __construct(
-         $userId,
+         $userId = '',
          $isActive = null,
          $defaultForwardToPhoneNumber = null,
          $playRingReminder = null,
@@ -57,7 +57,6 @@ class UserCallForwardingSelectiveModifyRequest extends ComplexType implements Co
      */
     public function setUserId($userId = null)
     {
-        if (!$userId) return $this;
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
@@ -71,7 +70,7 @@ class UserCallForwardingSelectiveModifyRequest extends ComplexType implements Co
      */
     public function getUserId()
     {
-        return $this->userId->getValue();
+        return ($this->userId) ? $this->userId->getValue() : null;
     }
 
     /**
@@ -79,7 +78,6 @@ class UserCallForwardingSelectiveModifyRequest extends ComplexType implements Co
      */
     public function setIsActive($isActive = null)
     {
-        if (!$isActive) return $this;
         $this->isActive = new PrimitiveType($isActive);
         $this->isActive->setName('isActive');
         return $this;
@@ -91,7 +89,7 @@ class UserCallForwardingSelectiveModifyRequest extends ComplexType implements Co
      */
     public function getIsActive()
     {
-        return $this->isActive->getValue();
+        return ($this->isActive) ? $this->isActive->getValue() : null;
     }
 
     /**
@@ -99,7 +97,6 @@ class UserCallForwardingSelectiveModifyRequest extends ComplexType implements Co
      */
     public function setDefaultForwardToPhoneNumber($defaultForwardToPhoneNumber = null)
     {
-        if (!$defaultForwardToPhoneNumber) return $this;
         $this->defaultForwardToPhoneNumber = ($defaultForwardToPhoneNumber InstanceOf OutgoingDNorSIPURI)
              ? $defaultForwardToPhoneNumber
              : new OutgoingDNorSIPURI($defaultForwardToPhoneNumber);
@@ -113,7 +110,7 @@ class UserCallForwardingSelectiveModifyRequest extends ComplexType implements Co
      */
     public function getDefaultForwardToPhoneNumber()
     {
-        return $this->defaultForwardToPhoneNumber->getValue();
+        return ($this->defaultForwardToPhoneNumber) ? $this->defaultForwardToPhoneNumber->getValue() : null;
     }
 
     /**
@@ -121,7 +118,6 @@ class UserCallForwardingSelectiveModifyRequest extends ComplexType implements Co
      */
     public function setPlayRingReminder($playRingReminder = null)
     {
-        if (!$playRingReminder) return $this;
         $this->playRingReminder = new PrimitiveType($playRingReminder);
         $this->playRingReminder->setName('playRingReminder');
         return $this;
@@ -133,7 +129,7 @@ class UserCallForwardingSelectiveModifyRequest extends ComplexType implements Co
      */
     public function getPlayRingReminder()
     {
-        return $this->playRingReminder->getValue();
+        return ($this->playRingReminder) ? $this->playRingReminder->getValue() : null;
     }
 
     /**
@@ -141,8 +137,9 @@ class UserCallForwardingSelectiveModifyRequest extends ComplexType implements Co
      */
     public function setCriteriaActivation(CriteriaActivation $criteriaActivation = null)
     {
-        if (!$criteriaActivation) return $this;
-        $this->criteriaActivation = $criteriaActivation;
+        $this->criteriaActivation = ($criteriaActivation InstanceOf CriteriaActivation)
+             ? $criteriaActivation
+             : new CriteriaActivation($criteriaActivation);
         $this->criteriaActivation->setName('criteriaActivation');
         return $this;
     }

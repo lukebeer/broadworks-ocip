@@ -22,15 +22,15 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupMusicOnHoldDeleteInstanceRequest extends ComplexType implements ComplexInterface
 {
-    public    $name              = 'GroupMusicOnHoldDeleteInstanceRequest';
-    protected $serviceProviderId = null;
-    protected $groupId           = null;
-    protected $department        = null;
+    public    $name = 'GroupMusicOnHoldDeleteInstanceRequest';
+    protected $serviceProviderId;
+    protected $groupId;
+    protected $department;
 
     public function __construct(
-         $serviceProviderId,
-         $groupId,
-         DepartmentKey $department
+         $serviceProviderId = '',
+         $groupId = '',
+         DepartmentKey $department = ''
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setGroupId($groupId);
@@ -50,7 +50,6 @@ class GroupMusicOnHoldDeleteInstanceRequest extends ComplexType implements Compl
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
-        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
@@ -64,7 +63,7 @@ class GroupMusicOnHoldDeleteInstanceRequest extends ComplexType implements Compl
      */
     public function getServiceProviderId()
     {
-        return $this->serviceProviderId->getValue();
+        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
     }
 
     /**
@@ -72,7 +71,6 @@ class GroupMusicOnHoldDeleteInstanceRequest extends ComplexType implements Compl
      */
     public function setGroupId($groupId = null)
     {
-        if (!$groupId) return $this;
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
@@ -86,7 +84,7 @@ class GroupMusicOnHoldDeleteInstanceRequest extends ComplexType implements Compl
      */
     public function getGroupId()
     {
-        return $this->groupId->getValue();
+        return ($this->groupId) ? $this->groupId->getValue() : null;
     }
 
     /**
@@ -94,8 +92,9 @@ class GroupMusicOnHoldDeleteInstanceRequest extends ComplexType implements Compl
      */
     public function setDepartment(DepartmentKey $department = null)
     {
-        if (!$department) return $this;
-        $this->department = $department;
+        $this->department = ($department InstanceOf DepartmentKey)
+             ? $department
+             : new DepartmentKey($department);
         $this->department->setName('department');
         return $this;
     }

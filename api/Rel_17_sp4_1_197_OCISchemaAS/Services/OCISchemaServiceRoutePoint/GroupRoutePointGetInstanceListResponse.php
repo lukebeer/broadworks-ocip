@@ -22,8 +22,8 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupRoutePointGetInstanceListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name            = 'GroupRoutePointGetInstanceListResponse';
-    protected $routePointTable = null;
+    public    $name = 'GroupRoutePointGetInstanceListResponse';
+    protected $routePointTable;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceRoutePoint\GroupRoutePointGetInstanceListResponse $response
@@ -38,7 +38,6 @@ class GroupRoutePointGetInstanceListResponse extends ComplexType implements Comp
      */
     public function setRoutePointTable(TableType $routePointTable = null)
     {
-        if (!$routePointTable) return $this;
         $this->routePointTable = $routePointTable;
         $this->routePointTable->setName('routePointTable');
         return $this;

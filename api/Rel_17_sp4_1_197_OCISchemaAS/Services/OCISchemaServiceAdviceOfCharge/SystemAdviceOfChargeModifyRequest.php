@@ -22,10 +22,10 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemAdviceOfChargeModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                            = 'SystemAdviceOfChargeModifyRequest';
-    protected $delayBetweenNotificationSeconds = null;
-    protected $incomingAocHandling             = null;
-    protected $costInformationSource           = null;
+    public    $name = 'SystemAdviceOfChargeModifyRequest';
+    protected $delayBetweenNotificationSeconds;
+    protected $incomingAocHandling;
+    protected $costInformationSource;
 
     public function __construct(
          $delayBetweenNotificationSeconds = null,
@@ -50,7 +50,6 @@ class SystemAdviceOfChargeModifyRequest extends ComplexType implements ComplexIn
      */
     public function setDelayBetweenNotificationSeconds($delayBetweenNotificationSeconds = null)
     {
-        if (!$delayBetweenNotificationSeconds) return $this;
         $this->delayBetweenNotificationSeconds = ($delayBetweenNotificationSeconds InstanceOf AdviceOfChargeDelayBetweenNotificationSeconds)
              ? $delayBetweenNotificationSeconds
              : new AdviceOfChargeDelayBetweenNotificationSeconds($delayBetweenNotificationSeconds);
@@ -64,7 +63,7 @@ class SystemAdviceOfChargeModifyRequest extends ComplexType implements ComplexIn
      */
     public function getDelayBetweenNotificationSeconds()
     {
-        return $this->delayBetweenNotificationSeconds->getValue();
+        return ($this->delayBetweenNotificationSeconds) ? $this->delayBetweenNotificationSeconds->getValue() : null;
     }
 
     /**
@@ -72,7 +71,6 @@ class SystemAdviceOfChargeModifyRequest extends ComplexType implements ComplexIn
      */
     public function setIncomingAocHandling($incomingAocHandling = null)
     {
-        if (!$incomingAocHandling) return $this;
         $this->incomingAocHandling = ($incomingAocHandling InstanceOf AdviceOfChargeIncomingAocHandling)
              ? $incomingAocHandling
              : new AdviceOfChargeIncomingAocHandling($incomingAocHandling);
@@ -86,7 +84,7 @@ class SystemAdviceOfChargeModifyRequest extends ComplexType implements ComplexIn
      */
     public function getIncomingAocHandling()
     {
-        return $this->incomingAocHandling->getValue();
+        return ($this->incomingAocHandling) ? $this->incomingAocHandling->getValue() : null;
     }
 
     /**
@@ -94,7 +92,6 @@ class SystemAdviceOfChargeModifyRequest extends ComplexType implements ComplexIn
      */
     public function setCostInformationSource($costInformationSource = null)
     {
-        if (!$costInformationSource) return $this;
         $this->costInformationSource = ($costInformationSource InstanceOf NetAddress)
              ? $costInformationSource
              : new NetAddress($costInformationSource);
@@ -108,6 +105,6 @@ class SystemAdviceOfChargeModifyRequest extends ComplexType implements ComplexIn
      */
     public function getCostInformationSource()
     {
-        return $this->costInformationSource->getValue();
+        return ($this->costInformationSource) ? $this->costInformationSource->getValue() : null;
     }
 }

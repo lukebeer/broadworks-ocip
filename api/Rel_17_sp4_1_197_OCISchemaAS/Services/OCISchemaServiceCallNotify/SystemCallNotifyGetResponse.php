@@ -20,10 +20,10 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemCallNotifyGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                = 'SystemCallNotifyGetResponse';
-    protected $defaultFromAddress  = null;
-    protected $useShortSubjectLine = null;
-    protected $useDnInMailBody     = null;
+    public    $name = 'SystemCallNotifyGetResponse';
+    protected $defaultFromAddress;
+    protected $useShortSubjectLine;
+    protected $useDnInMailBody;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallNotify\SystemCallNotifyGetResponse $response
@@ -38,7 +38,6 @@ class SystemCallNotifyGetResponse extends ComplexType implements ComplexInterfac
      */
     public function setDefaultFromAddress($defaultFromAddress = null)
     {
-        if (!$defaultFromAddress) return $this;
         $this->defaultFromAddress = ($defaultFromAddress InstanceOf EmailAddress)
              ? $defaultFromAddress
              : new EmailAddress($defaultFromAddress);
@@ -52,7 +51,7 @@ class SystemCallNotifyGetResponse extends ComplexType implements ComplexInterfac
      */
     public function getDefaultFromAddress()
     {
-        return $this->defaultFromAddress->getValue();
+        return ($this->defaultFromAddress) ? $this->defaultFromAddress->getValue() : null;
     }
 
     /**
@@ -60,7 +59,6 @@ class SystemCallNotifyGetResponse extends ComplexType implements ComplexInterfac
      */
     public function setUseShortSubjectLine($useShortSubjectLine = null)
     {
-        if (!$useShortSubjectLine) return $this;
         $this->useShortSubjectLine = new PrimitiveType($useShortSubjectLine);
         $this->useShortSubjectLine->setName('useShortSubjectLine');
         return $this;
@@ -72,7 +70,7 @@ class SystemCallNotifyGetResponse extends ComplexType implements ComplexInterfac
      */
     public function getUseShortSubjectLine()
     {
-        return $this->useShortSubjectLine->getValue();
+        return ($this->useShortSubjectLine) ? $this->useShortSubjectLine->getValue() : null;
     }
 
     /**
@@ -80,7 +78,6 @@ class SystemCallNotifyGetResponse extends ComplexType implements ComplexInterfac
      */
     public function setUseDnInMailBody($useDnInMailBody = null)
     {
-        if (!$useDnInMailBody) return $this;
         $this->useDnInMailBody = new PrimitiveType($useDnInMailBody);
         $this->useDnInMailBody->setName('useDnInMailBody');
         return $this;
@@ -92,6 +89,6 @@ class SystemCallNotifyGetResponse extends ComplexType implements ComplexInterfac
      */
     public function getUseDnInMailBody()
     {
-        return $this->useDnInMailBody->getValue();
+        return ($this->useDnInMailBody) ? $this->useDnInMailBody->getValue() : null;
     }
 }

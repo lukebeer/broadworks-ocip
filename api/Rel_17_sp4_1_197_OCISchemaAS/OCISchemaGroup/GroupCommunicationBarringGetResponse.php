@@ -20,9 +20,9 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupCommunicationBarringGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                             = 'GroupCommunicationBarringGetResponse';
-    protected $useDefaultServiceProviderProfile = null;
-    protected $profile                          = null;
+    public    $name = 'GroupCommunicationBarringGetResponse';
+    protected $useDefaultServiceProviderProfile;
+    protected $profile;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupCommunicationBarringGetResponse $response
@@ -37,7 +37,6 @@ class GroupCommunicationBarringGetResponse extends ComplexType implements Comple
      */
     public function setUseDefaultServiceProviderProfile($useDefaultServiceProviderProfile = null)
     {
-        if (!$useDefaultServiceProviderProfile) return $this;
         $this->useDefaultServiceProviderProfile = new PrimitiveType($useDefaultServiceProviderProfile);
         $this->useDefaultServiceProviderProfile->setName('useDefaultServiceProviderProfile');
         return $this;
@@ -49,7 +48,7 @@ class GroupCommunicationBarringGetResponse extends ComplexType implements Comple
      */
     public function getUseDefaultServiceProviderProfile()
     {
-        return $this->useDefaultServiceProviderProfile->getValue();
+        return ($this->useDefaultServiceProviderProfile) ? $this->useDefaultServiceProviderProfile->getValue() : null;
     }
 
     /**
@@ -57,7 +56,6 @@ class GroupCommunicationBarringGetResponse extends ComplexType implements Comple
      */
     public function setProfile($profile = null)
     {
-        if (!$profile) return $this;
         $this->profile = ($profile InstanceOf CommunicationBarringProfileName)
              ? $profile
              : new CommunicationBarringProfileName($profile);
@@ -71,6 +69,6 @@ class GroupCommunicationBarringGetResponse extends ComplexType implements Comple
      */
     public function getProfile()
     {
-        return $this->profile->getValue();
+        return ($this->profile) ? $this->profile->getValue() : null;
     }
 }

@@ -22,13 +22,13 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserOutgoingCallingPlanTransferNumbersModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name              = 'UserOutgoingCallingPlanTransferNumbersModifyRequest';
-    protected $userId            = null;
-    protected $useCustomSettings = null;
-    protected $userNumbers       = null;
+    public    $name = 'UserOutgoingCallingPlanTransferNumbersModifyRequest';
+    protected $userId;
+    protected $useCustomSettings;
+    protected $userNumbers;
 
     public function __construct(
-         $userId,
+         $userId = '',
          $useCustomSettings = null,
          OutgoingCallingPlanTransferNumbersModify $userNumbers = null
     ) {
@@ -50,7 +50,6 @@ class UserOutgoingCallingPlanTransferNumbersModifyRequest extends ComplexType im
      */
     public function setUserId($userId = null)
     {
-        if (!$userId) return $this;
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
@@ -64,7 +63,7 @@ class UserOutgoingCallingPlanTransferNumbersModifyRequest extends ComplexType im
      */
     public function getUserId()
     {
-        return $this->userId->getValue();
+        return ($this->userId) ? $this->userId->getValue() : null;
     }
 
     /**
@@ -72,7 +71,6 @@ class UserOutgoingCallingPlanTransferNumbersModifyRequest extends ComplexType im
      */
     public function setUseCustomSettings($useCustomSettings = null)
     {
-        if (!$useCustomSettings) return $this;
         $this->useCustomSettings = new PrimitiveType($useCustomSettings);
         $this->useCustomSettings->setName('useCustomSettings');
         return $this;
@@ -84,7 +82,7 @@ class UserOutgoingCallingPlanTransferNumbersModifyRequest extends ComplexType im
      */
     public function getUseCustomSettings()
     {
-        return $this->useCustomSettings->getValue();
+        return ($this->useCustomSettings) ? $this->useCustomSettings->getValue() : null;
     }
 
     /**
@@ -92,8 +90,9 @@ class UserOutgoingCallingPlanTransferNumbersModifyRequest extends ComplexType im
      */
     public function setUserNumbers(OutgoingCallingPlanTransferNumbersModify $userNumbers = null)
     {
-        if (!$userNumbers) return $this;
-        $this->userNumbers = $userNumbers;
+        $this->userNumbers = ($userNumbers InstanceOf OutgoingCallingPlanTransferNumbersModify)
+             ? $userNumbers
+             : new OutgoingCallingPlanTransferNumbersModify($userNumbers);
         $this->userNumbers->setName('userNumbers');
         return $this;
     }

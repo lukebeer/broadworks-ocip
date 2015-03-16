@@ -26,14 +26,14 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderServicePackGetDetailListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                   = 'ServiceProviderServicePackGetDetailListResponse';
-    protected $servicePackName        = null;
-    protected $servicePackDescription = null;
-    protected $isAvailableForUse      = null;
-    protected $servicePackQuantity    = null;
-    protected $assignedQuantity       = null;
-    protected $allowedQuantity        = null;
-    protected $userServiceTable       = null;
+    public    $name = 'ServiceProviderServicePackGetDetailListResponse';
+    protected $servicePackName;
+    protected $servicePackDescription;
+    protected $isAvailableForUse;
+    protected $servicePackQuantity;
+    protected $assignedQuantity;
+    protected $allowedQuantity;
+    protected $userServiceTable;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderServicePackGetDetailListResponse $response
@@ -48,7 +48,6 @@ class ServiceProviderServicePackGetDetailListResponse extends ComplexType implem
      */
     public function setServicePackName($servicePackName = null)
     {
-        if (!$servicePackName) return $this;
         $this->servicePackName = ($servicePackName InstanceOf ServicePackName)
              ? $servicePackName
              : new ServicePackName($servicePackName);
@@ -62,7 +61,7 @@ class ServiceProviderServicePackGetDetailListResponse extends ComplexType implem
      */
     public function getServicePackName()
     {
-        return $this->servicePackName->getValue();
+        return ($this->servicePackName) ? $this->servicePackName->getValue() : null;
     }
 
     /**
@@ -70,7 +69,6 @@ class ServiceProviderServicePackGetDetailListResponse extends ComplexType implem
      */
     public function setServicePackDescription($servicePackDescription = null)
     {
-        if (!$servicePackDescription) return $this;
         $this->servicePackDescription = ($servicePackDescription InstanceOf ServicePackDescription)
              ? $servicePackDescription
              : new ServicePackDescription($servicePackDescription);
@@ -84,7 +82,7 @@ class ServiceProviderServicePackGetDetailListResponse extends ComplexType implem
      */
     public function getServicePackDescription()
     {
-        return $this->servicePackDescription->getValue();
+        return ($this->servicePackDescription) ? $this->servicePackDescription->getValue() : null;
     }
 
     /**
@@ -92,7 +90,6 @@ class ServiceProviderServicePackGetDetailListResponse extends ComplexType implem
      */
     public function setIsAvailableForUse($isAvailableForUse = null)
     {
-        if (!$isAvailableForUse) return $this;
         $this->isAvailableForUse = new PrimitiveType($isAvailableForUse);
         $this->isAvailableForUse->setName('isAvailableForUse');
         return $this;
@@ -104,7 +101,7 @@ class ServiceProviderServicePackGetDetailListResponse extends ComplexType implem
      */
     public function getIsAvailableForUse()
     {
-        return $this->isAvailableForUse->getValue();
+        return ($this->isAvailableForUse) ? $this->isAvailableForUse->getValue() : null;
     }
 
     /**
@@ -112,8 +109,9 @@ class ServiceProviderServicePackGetDetailListResponse extends ComplexType implem
      */
     public function setServicePackQuantity(UnboundedPositiveInt $servicePackQuantity = null)
     {
-        if (!$servicePackQuantity) return $this;
-        $this->servicePackQuantity = $servicePackQuantity;
+        $this->servicePackQuantity = ($servicePackQuantity InstanceOf UnboundedPositiveInt)
+             ? $servicePackQuantity
+             : new UnboundedPositiveInt($servicePackQuantity);
         $this->servicePackQuantity->setName('servicePackQuantity');
         return $this;
     }
@@ -132,8 +130,9 @@ class ServiceProviderServicePackGetDetailListResponse extends ComplexType implem
      */
     public function setAssignedQuantity(UnboundedNonNegativeInt $assignedQuantity = null)
     {
-        if (!$assignedQuantity) return $this;
-        $this->assignedQuantity = $assignedQuantity;
+        $this->assignedQuantity = ($assignedQuantity InstanceOf UnboundedNonNegativeInt)
+             ? $assignedQuantity
+             : new UnboundedNonNegativeInt($assignedQuantity);
         $this->assignedQuantity->setName('assignedQuantity');
         return $this;
     }
@@ -152,8 +151,9 @@ class ServiceProviderServicePackGetDetailListResponse extends ComplexType implem
      */
     public function setAllowedQuantity(UnboundedPositiveInt $allowedQuantity = null)
     {
-        if (!$allowedQuantity) return $this;
-        $this->allowedQuantity = $allowedQuantity;
+        $this->allowedQuantity = ($allowedQuantity InstanceOf UnboundedPositiveInt)
+             ? $allowedQuantity
+             : new UnboundedPositiveInt($allowedQuantity);
         $this->allowedQuantity->setName('allowedQuantity');
         return $this;
     }
@@ -172,7 +172,6 @@ class ServiceProviderServicePackGetDetailListResponse extends ComplexType implem
      */
     public function setUserServiceTable(TableType $userServiceTable = null)
     {
-        if (!$userServiceTable) return $this;
         $this->userServiceTable = $userServiceTable;
         $this->userServiceTable->setName('userServiceTable');
         return $this;

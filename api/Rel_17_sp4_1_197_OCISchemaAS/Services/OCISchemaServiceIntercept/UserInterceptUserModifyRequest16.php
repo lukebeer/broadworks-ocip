@@ -27,25 +27,25 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserInterceptUserModifyRequest16 extends ComplexType implements ComplexInterface
 {
-    public    $name                          = 'UserInterceptUserModifyRequest16';
-    protected $userId                        = null;
-    protected $isActive                      = null;
-    protected $announcementSelection         = null;
-    protected $audioFile                     = null;
-    protected $videoFile                     = null;
-    protected $playNewPhoneNumber            = null;
-    protected $newPhoneNumber                = null;
-    protected $transferOnZeroToPhoneNumber   = null;
-    protected $transferPhoneNumber           = null;
-    protected $rerouteOutboundCalls          = null;
-    protected $outboundReroutePhoneNumber    = null;
-    protected $allowOutboundLocalCalls       = null;
-    protected $inboundCallMode               = null;
-    protected $alternateBlockingAnnouncement = null;
-    protected $routeToVoiceMail              = null;
+    public    $name = 'UserInterceptUserModifyRequest16';
+    protected $userId;
+    protected $isActive;
+    protected $announcementSelection;
+    protected $audioFile;
+    protected $videoFile;
+    protected $playNewPhoneNumber;
+    protected $newPhoneNumber;
+    protected $transferOnZeroToPhoneNumber;
+    protected $transferPhoneNumber;
+    protected $rerouteOutboundCalls;
+    protected $outboundReroutePhoneNumber;
+    protected $allowOutboundLocalCalls;
+    protected $inboundCallMode;
+    protected $alternateBlockingAnnouncement;
+    protected $routeToVoiceMail;
 
     public function __construct(
-         $userId,
+         $userId = '',
          $isActive = null,
          $announcementSelection = null,
          LabeledMediaFileResource $audioFile = null,
@@ -91,7 +91,6 @@ class UserInterceptUserModifyRequest16 extends ComplexType implements ComplexInt
      */
     public function setUserId($userId = null)
     {
-        if (!$userId) return $this;
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
@@ -105,7 +104,7 @@ class UserInterceptUserModifyRequest16 extends ComplexType implements ComplexInt
      */
     public function getUserId()
     {
-        return $this->userId->getValue();
+        return ($this->userId) ? $this->userId->getValue() : null;
     }
 
     /**
@@ -113,7 +112,6 @@ class UserInterceptUserModifyRequest16 extends ComplexType implements ComplexInt
      */
     public function setIsActive($isActive = null)
     {
-        if (!$isActive) return $this;
         $this->isActive = new PrimitiveType($isActive);
         $this->isActive->setName('isActive');
         return $this;
@@ -125,7 +123,7 @@ class UserInterceptUserModifyRequest16 extends ComplexType implements ComplexInt
      */
     public function getIsActive()
     {
-        return $this->isActive->getValue();
+        return ($this->isActive) ? $this->isActive->getValue() : null;
     }
 
     /**
@@ -133,7 +131,6 @@ class UserInterceptUserModifyRequest16 extends ComplexType implements ComplexInt
      */
     public function setAnnouncementSelection($announcementSelection = null)
     {
-        if (!$announcementSelection) return $this;
         $this->announcementSelection = ($announcementSelection InstanceOf AnnouncementSelection)
              ? $announcementSelection
              : new AnnouncementSelection($announcementSelection);
@@ -147,7 +144,7 @@ class UserInterceptUserModifyRequest16 extends ComplexType implements ComplexInt
      */
     public function getAnnouncementSelection()
     {
-        return $this->announcementSelection->getValue();
+        return ($this->announcementSelection) ? $this->announcementSelection->getValue() : null;
     }
 
     /**
@@ -155,8 +152,9 @@ class UserInterceptUserModifyRequest16 extends ComplexType implements ComplexInt
      */
     public function setAudioFile(LabeledMediaFileResource $audioFile = null)
     {
-        if (!$audioFile) return $this;
-        $this->audioFile = $audioFile;
+        $this->audioFile = ($audioFile InstanceOf LabeledMediaFileResource)
+             ? $audioFile
+             : new LabeledMediaFileResource($audioFile);
         $this->audioFile->setName('audioFile');
         return $this;
     }
@@ -175,8 +173,9 @@ class UserInterceptUserModifyRequest16 extends ComplexType implements ComplexInt
      */
     public function setVideoFile(LabeledMediaFileResource $videoFile = null)
     {
-        if (!$videoFile) return $this;
-        $this->videoFile = $videoFile;
+        $this->videoFile = ($videoFile InstanceOf LabeledMediaFileResource)
+             ? $videoFile
+             : new LabeledMediaFileResource($videoFile);
         $this->videoFile->setName('videoFile');
         return $this;
     }
@@ -195,7 +194,6 @@ class UserInterceptUserModifyRequest16 extends ComplexType implements ComplexInt
      */
     public function setPlayNewPhoneNumber($playNewPhoneNumber = null)
     {
-        if (!$playNewPhoneNumber) return $this;
         $this->playNewPhoneNumber = new PrimitiveType($playNewPhoneNumber);
         $this->playNewPhoneNumber->setName('playNewPhoneNumber');
         return $this;
@@ -207,7 +205,7 @@ class UserInterceptUserModifyRequest16 extends ComplexType implements ComplexInt
      */
     public function getPlayNewPhoneNumber()
     {
-        return $this->playNewPhoneNumber->getValue();
+        return ($this->playNewPhoneNumber) ? $this->playNewPhoneNumber->getValue() : null;
     }
 
     /**
@@ -215,7 +213,6 @@ class UserInterceptUserModifyRequest16 extends ComplexType implements ComplexInt
      */
     public function setNewPhoneNumber($newPhoneNumber = null)
     {
-        if (!$newPhoneNumber) return $this;
         $this->newPhoneNumber = ($newPhoneNumber InstanceOf DN)
              ? $newPhoneNumber
              : new DN($newPhoneNumber);
@@ -229,7 +226,7 @@ class UserInterceptUserModifyRequest16 extends ComplexType implements ComplexInt
      */
     public function getNewPhoneNumber()
     {
-        return $this->newPhoneNumber->getValue();
+        return ($this->newPhoneNumber) ? $this->newPhoneNumber->getValue() : null;
     }
 
     /**
@@ -237,7 +234,6 @@ class UserInterceptUserModifyRequest16 extends ComplexType implements ComplexInt
      */
     public function setTransferOnZeroToPhoneNumber($transferOnZeroToPhoneNumber = null)
     {
-        if (!$transferOnZeroToPhoneNumber) return $this;
         $this->transferOnZeroToPhoneNumber = new PrimitiveType($transferOnZeroToPhoneNumber);
         $this->transferOnZeroToPhoneNumber->setName('transferOnZeroToPhoneNumber');
         return $this;
@@ -249,7 +245,7 @@ class UserInterceptUserModifyRequest16 extends ComplexType implements ComplexInt
      */
     public function getTransferOnZeroToPhoneNumber()
     {
-        return $this->transferOnZeroToPhoneNumber->getValue();
+        return ($this->transferOnZeroToPhoneNumber) ? $this->transferOnZeroToPhoneNumber->getValue() : null;
     }
 
     /**
@@ -257,7 +253,6 @@ class UserInterceptUserModifyRequest16 extends ComplexType implements ComplexInt
      */
     public function setTransferPhoneNumber($transferPhoneNumber = null)
     {
-        if (!$transferPhoneNumber) return $this;
         $this->transferPhoneNumber = ($transferPhoneNumber InstanceOf OutgoingDN)
              ? $transferPhoneNumber
              : new OutgoingDN($transferPhoneNumber);
@@ -271,7 +266,7 @@ class UserInterceptUserModifyRequest16 extends ComplexType implements ComplexInt
      */
     public function getTransferPhoneNumber()
     {
-        return $this->transferPhoneNumber->getValue();
+        return ($this->transferPhoneNumber) ? $this->transferPhoneNumber->getValue() : null;
     }
 
     /**
@@ -279,7 +274,6 @@ class UserInterceptUserModifyRequest16 extends ComplexType implements ComplexInt
      */
     public function setRerouteOutboundCalls($rerouteOutboundCalls = null)
     {
-        if (!$rerouteOutboundCalls) return $this;
         $this->rerouteOutboundCalls = new PrimitiveType($rerouteOutboundCalls);
         $this->rerouteOutboundCalls->setName('rerouteOutboundCalls');
         return $this;
@@ -291,7 +285,7 @@ class UserInterceptUserModifyRequest16 extends ComplexType implements ComplexInt
      */
     public function getRerouteOutboundCalls()
     {
-        return $this->rerouteOutboundCalls->getValue();
+        return ($this->rerouteOutboundCalls) ? $this->rerouteOutboundCalls->getValue() : null;
     }
 
     /**
@@ -299,7 +293,6 @@ class UserInterceptUserModifyRequest16 extends ComplexType implements ComplexInt
      */
     public function setOutboundReroutePhoneNumber($outboundReroutePhoneNumber = null)
     {
-        if (!$outboundReroutePhoneNumber) return $this;
         $this->outboundReroutePhoneNumber = ($outboundReroutePhoneNumber InstanceOf OutgoingDNorSIPURI)
              ? $outboundReroutePhoneNumber
              : new OutgoingDNorSIPURI($outboundReroutePhoneNumber);
@@ -313,7 +306,7 @@ class UserInterceptUserModifyRequest16 extends ComplexType implements ComplexInt
      */
     public function getOutboundReroutePhoneNumber()
     {
-        return $this->outboundReroutePhoneNumber->getValue();
+        return ($this->outboundReroutePhoneNumber) ? $this->outboundReroutePhoneNumber->getValue() : null;
     }
 
     /**
@@ -321,7 +314,6 @@ class UserInterceptUserModifyRequest16 extends ComplexType implements ComplexInt
      */
     public function setAllowOutboundLocalCalls($allowOutboundLocalCalls = null)
     {
-        if (!$allowOutboundLocalCalls) return $this;
         $this->allowOutboundLocalCalls = new PrimitiveType($allowOutboundLocalCalls);
         $this->allowOutboundLocalCalls->setName('allowOutboundLocalCalls');
         return $this;
@@ -333,7 +325,7 @@ class UserInterceptUserModifyRequest16 extends ComplexType implements ComplexInt
      */
     public function getAllowOutboundLocalCalls()
     {
-        return $this->allowOutboundLocalCalls->getValue();
+        return ($this->allowOutboundLocalCalls) ? $this->allowOutboundLocalCalls->getValue() : null;
     }
 
     /**
@@ -341,7 +333,6 @@ class UserInterceptUserModifyRequest16 extends ComplexType implements ComplexInt
      */
     public function setInboundCallMode($inboundCallMode = null)
     {
-        if (!$inboundCallMode) return $this;
         $this->inboundCallMode = ($inboundCallMode InstanceOf InterceptInboundCall)
              ? $inboundCallMode
              : new InterceptInboundCall($inboundCallMode);
@@ -355,7 +346,7 @@ class UserInterceptUserModifyRequest16 extends ComplexType implements ComplexInt
      */
     public function getInboundCallMode()
     {
-        return $this->inboundCallMode->getValue();
+        return ($this->inboundCallMode) ? $this->inboundCallMode->getValue() : null;
     }
 
     /**
@@ -363,7 +354,6 @@ class UserInterceptUserModifyRequest16 extends ComplexType implements ComplexInt
      */
     public function setAlternateBlockingAnnouncement($alternateBlockingAnnouncement = null)
     {
-        if (!$alternateBlockingAnnouncement) return $this;
         $this->alternateBlockingAnnouncement = new PrimitiveType($alternateBlockingAnnouncement);
         $this->alternateBlockingAnnouncement->setName('alternateBlockingAnnouncement');
         return $this;
@@ -375,7 +365,7 @@ class UserInterceptUserModifyRequest16 extends ComplexType implements ComplexInt
      */
     public function getAlternateBlockingAnnouncement()
     {
-        return $this->alternateBlockingAnnouncement->getValue();
+        return ($this->alternateBlockingAnnouncement) ? $this->alternateBlockingAnnouncement->getValue() : null;
     }
 
     /**
@@ -383,7 +373,6 @@ class UserInterceptUserModifyRequest16 extends ComplexType implements ComplexInt
      */
     public function setRouteToVoiceMail($routeToVoiceMail = null)
     {
-        if (!$routeToVoiceMail) return $this;
         $this->routeToVoiceMail = new PrimitiveType($routeToVoiceMail);
         $this->routeToVoiceMail->setName('routeToVoiceMail');
         return $this;
@@ -395,6 +384,6 @@ class UserInterceptUserModifyRequest16 extends ComplexType implements ComplexInt
      */
     public function getRouteToVoiceMail()
     {
-        return $this->routeToVoiceMail->getValue();
+        return ($this->routeToVoiceMail) ? $this->routeToVoiceMail->getValue() : null;
     }
 }

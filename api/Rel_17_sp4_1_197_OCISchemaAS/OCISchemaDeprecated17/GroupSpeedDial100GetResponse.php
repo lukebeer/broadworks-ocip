@@ -19,8 +19,8 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupSpeedDial100GetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name   = 'GroupSpeedDial100GetResponse';
-    protected $prefix = null;
+    public    $name = 'GroupSpeedDial100GetResponse';
+    protected $prefix;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated17\GroupSpeedDial100GetResponse $response
@@ -35,7 +35,6 @@ class GroupSpeedDial100GetResponse extends ComplexType implements ComplexInterfa
      */
     public function setPrefix($prefix = null)
     {
-        if (!$prefix) return $this;
         $this->prefix = ($prefix InstanceOf SpeedDialPrefix)
              ? $prefix
              : new SpeedDialPrefix($prefix);
@@ -49,6 +48,6 @@ class GroupSpeedDial100GetResponse extends ComplexType implements ComplexInterfa
      */
     public function getPrefix()
     {
-        return $this->prefix->getValue();
+        return ($this->prefix) ? $this->prefix->getValue() : null;
     }
 }

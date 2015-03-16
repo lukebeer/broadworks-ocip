@@ -22,13 +22,13 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemAccountingModifyChargingFunctionElementServerRequest extends ComplexType implements ComplexInterface
 {
-    public    $name        = 'SystemAccountingModifyChargingFunctionElementServerRequest';
-    protected $address     = null;
-    protected $type        = null;
-    protected $description = null;
+    public    $name = 'SystemAccountingModifyChargingFunctionElementServerRequest';
+    protected $address;
+    protected $type;
+    protected $description;
 
     public function __construct(
-         $address,
+         $address = '',
          $type = null,
          $description = null
     ) {
@@ -50,7 +50,6 @@ class SystemAccountingModifyChargingFunctionElementServerRequest extends Complex
      */
     public function setAddress($address = null)
     {
-        if (!$address) return $this;
         $this->address = ($address InstanceOf NetAddressExtended)
              ? $address
              : new NetAddressExtended($address);
@@ -64,7 +63,7 @@ class SystemAccountingModifyChargingFunctionElementServerRequest extends Complex
      */
     public function getAddress()
     {
-        return $this->address->getValue();
+        return ($this->address) ? $this->address->getValue() : null;
     }
 
     /**
@@ -72,7 +71,6 @@ class SystemAccountingModifyChargingFunctionElementServerRequest extends Complex
      */
     public function setType($type = null)
     {
-        if (!$type) return $this;
         $this->type = ($type InstanceOf ChargingFunctionElementServerType)
              ? $type
              : new ChargingFunctionElementServerType($type);
@@ -86,7 +84,7 @@ class SystemAccountingModifyChargingFunctionElementServerRequest extends Complex
      */
     public function getType()
     {
-        return $this->type->getValue();
+        return ($this->type) ? $this->type->getValue() : null;
     }
 
     /**
@@ -94,7 +92,6 @@ class SystemAccountingModifyChargingFunctionElementServerRequest extends Complex
      */
     public function setDescription($description = null)
     {
-        if (!$description) return $this;
         $this->description = ($description InstanceOf ChargingFunctionElementServerDescription)
              ? $description
              : new ChargingFunctionElementServerDescription($description);
@@ -108,6 +105,6 @@ class SystemAccountingModifyChargingFunctionElementServerRequest extends Complex
      */
     public function getDescription()
     {
-        return $this->description->getValue();
+        return ($this->description) ? $this->description->getValue() : null;
     }
 }

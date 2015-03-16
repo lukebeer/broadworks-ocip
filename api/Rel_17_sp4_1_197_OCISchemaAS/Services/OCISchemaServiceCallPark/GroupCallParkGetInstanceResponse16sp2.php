@@ -27,10 +27,10 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupCallParkGetInstanceResponse16sp2 extends ComplexType implements ComplexInterface
 {
-    public    $name                  = 'GroupCallParkGetInstanceResponse16sp2';
-    protected $recallAlternateUserId = null;
-    protected $recallTo              = null;
-    protected $userTable             = null;
+    public    $name = 'GroupCallParkGetInstanceResponse16sp2';
+    protected $recallAlternateUserId;
+    protected $recallTo;
+    protected $userTable;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallPark\GroupCallParkGetInstanceResponse16sp2 $response
@@ -45,7 +45,6 @@ class GroupCallParkGetInstanceResponse16sp2 extends ComplexType implements Compl
      */
     public function setRecallAlternateUserId($recallAlternateUserId = null)
     {
-        if (!$recallAlternateUserId) return $this;
         $this->recallAlternateUserId = ($recallAlternateUserId InstanceOf UserId)
              ? $recallAlternateUserId
              : new UserId($recallAlternateUserId);
@@ -59,7 +58,7 @@ class GroupCallParkGetInstanceResponse16sp2 extends ComplexType implements Compl
      */
     public function getRecallAlternateUserId()
     {
-        return $this->recallAlternateUserId->getValue();
+        return ($this->recallAlternateUserId) ? $this->recallAlternateUserId->getValue() : null;
     }
 
     /**
@@ -67,7 +66,6 @@ class GroupCallParkGetInstanceResponse16sp2 extends ComplexType implements Compl
      */
     public function setRecallTo($recallTo = null)
     {
-        if (!$recallTo) return $this;
         $this->recallTo = ($recallTo InstanceOf CallParkRecallTo)
              ? $recallTo
              : new CallParkRecallTo($recallTo);
@@ -81,7 +79,7 @@ class GroupCallParkGetInstanceResponse16sp2 extends ComplexType implements Compl
      */
     public function getRecallTo()
     {
-        return $this->recallTo->getValue();
+        return ($this->recallTo) ? $this->recallTo->getValue() : null;
     }
 
     /**
@@ -89,7 +87,6 @@ class GroupCallParkGetInstanceResponse16sp2 extends ComplexType implements Compl
      */
     public function setUserTable(TableType $userTable = null)
     {
-        if (!$userTable) return $this;
         $this->userTable = $userTable;
         $this->userTable->setName('userTable');
         return $this;

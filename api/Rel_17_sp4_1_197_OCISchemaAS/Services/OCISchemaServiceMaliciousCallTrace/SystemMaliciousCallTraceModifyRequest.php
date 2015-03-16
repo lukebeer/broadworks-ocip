@@ -20,8 +20,8 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemMaliciousCallTraceModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                       = 'SystemMaliciousCallTraceModifyRequest';
-    protected $playMCTWarningAnnouncement = null;
+    public    $name = 'SystemMaliciousCallTraceModifyRequest';
+    protected $playMCTWarningAnnouncement;
 
     public function __construct(
          $playMCTWarningAnnouncement = null
@@ -42,7 +42,6 @@ class SystemMaliciousCallTraceModifyRequest extends ComplexType implements Compl
      */
     public function setPlayMCTWarningAnnouncement($playMCTWarningAnnouncement = null)
     {
-        if (!$playMCTWarningAnnouncement) return $this;
         $this->playMCTWarningAnnouncement = new PrimitiveType($playMCTWarningAnnouncement);
         $this->playMCTWarningAnnouncement->setName('playMCTWarningAnnouncement');
         return $this;
@@ -54,6 +53,6 @@ class SystemMaliciousCallTraceModifyRequest extends ComplexType implements Compl
      */
     public function getPlayMCTWarningAnnouncement()
     {
-        return $this->playMCTWarningAnnouncement->getValue();
+        return ($this->playMCTWarningAnnouncement) ? $this->playMCTWarningAnnouncement->getValue() : null;
     }
 }

@@ -19,16 +19,16 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class PriorityAlertCriteriaFromDn extends ComplexType implements ComplexInterface
 {
-    public    $name                      = 'PriorityAlertCriteriaFromDn';
-    protected $fromDnCriteriaSelection   = null;
-    protected $includeAnonymousCallers   = null;
-    protected $includeUnavailableCallers = null;
-    protected $phoneNumber               = null;
+    public    $name = 'PriorityAlertCriteriaFromDn';
+    protected $fromDnCriteriaSelection;
+    protected $includeAnonymousCallers;
+    protected $includeUnavailableCallers;
+    protected $phoneNumber;
 
     public function __construct(
-         $fromDnCriteriaSelection,
-         $includeAnonymousCallers,
-         $includeUnavailableCallers,
+         $fromDnCriteriaSelection = '',
+         $includeAnonymousCallers = '',
+         $includeUnavailableCallers = '',
          $phoneNumber = null
     ) {
         $this->setFromDnCriteriaSelection($fromDnCriteriaSelection);
@@ -50,7 +50,6 @@ class PriorityAlertCriteriaFromDn extends ComplexType implements ComplexInterfac
      */
     public function setFromDnCriteriaSelection($fromDnCriteriaSelection = null)
     {
-        if (!$fromDnCriteriaSelection) return $this;
         $this->fromDnCriteriaSelection = new SimpleContent($fromDnCriteriaSelection);
         $this->fromDnCriteriaSelection->setName('fromDnCriteriaSelection');
         return $this;
@@ -62,7 +61,7 @@ class PriorityAlertCriteriaFromDn extends ComplexType implements ComplexInterfac
      */
     public function getFromDnCriteriaSelection()
     {
-        return $this->fromDnCriteriaSelection->getValue();
+        return ($this->fromDnCriteriaSelection) ? $this->fromDnCriteriaSelection->getValue() : null;
     }
 
     /**
@@ -70,7 +69,6 @@ class PriorityAlertCriteriaFromDn extends ComplexType implements ComplexInterfac
      */
     public function setIncludeAnonymousCallers($includeAnonymousCallers = null)
     {
-        if (!$includeAnonymousCallers) return $this;
         $this->includeAnonymousCallers = new SimpleContent($includeAnonymousCallers);
         $this->includeAnonymousCallers->setName('includeAnonymousCallers');
         return $this;
@@ -82,7 +80,7 @@ class PriorityAlertCriteriaFromDn extends ComplexType implements ComplexInterfac
      */
     public function getIncludeAnonymousCallers()
     {
-        return $this->includeAnonymousCallers->getValue();
+        return ($this->includeAnonymousCallers) ? $this->includeAnonymousCallers->getValue() : null;
     }
 
     /**
@@ -90,7 +88,6 @@ class PriorityAlertCriteriaFromDn extends ComplexType implements ComplexInterfac
      */
     public function setIncludeUnavailableCallers($includeUnavailableCallers = null)
     {
-        if (!$includeUnavailableCallers) return $this;
         $this->includeUnavailableCallers = new SimpleContent($includeUnavailableCallers);
         $this->includeUnavailableCallers->setName('includeUnavailableCallers');
         return $this;
@@ -102,7 +99,7 @@ class PriorityAlertCriteriaFromDn extends ComplexType implements ComplexInterfac
      */
     public function getIncludeUnavailableCallers()
     {
-        return $this->includeUnavailableCallers->getValue();
+        return ($this->includeUnavailableCallers) ? $this->includeUnavailableCallers->getValue() : null;
     }
 
     /**
@@ -110,7 +107,6 @@ class PriorityAlertCriteriaFromDn extends ComplexType implements ComplexInterfac
      */
     public function setPhoneNumber($phoneNumber = null)
     {
-        if (!$phoneNumber) return $this;
         $this->phoneNumber = new SimpleContent($phoneNumber);
         $this->phoneNumber->setName('phoneNumber');
         return $this;
@@ -122,6 +118,6 @@ class PriorityAlertCriteriaFromDn extends ComplexType implements ComplexInterfac
      */
     public function getPhoneNumber()
     {
-        return $this->phoneNumber->getValue();
+        return ($this->phoneNumber) ? $this->phoneNumber->getValue() : null;
     }
 }

@@ -21,11 +21,11 @@ use Broadworks_OCIP\core\Client\Client;
 class UserCallCenterGetAvailableDNISListRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\UserCallCenterGetAvailableDNISListResponse';
-    public    $name        = 'UserCallCenterGetAvailableDNISListRequest';
-    protected $agentUserId = null;
+    public    $name = 'UserCallCenterGetAvailableDNISListRequest';
+    protected $agentUserId;
 
     public function __construct(
-         $agentUserId
+         $agentUserId = ''
     ) {
         $this->setAgentUserId($agentUserId);
     }
@@ -43,7 +43,6 @@ class UserCallCenterGetAvailableDNISListRequest extends ComplexType implements C
      */
     public function setAgentUserId($agentUserId = null)
     {
-        if (!$agentUserId) return $this;
         $this->agentUserId = ($agentUserId InstanceOf UserId)
              ? $agentUserId
              : new UserId($agentUserId);
@@ -57,6 +56,6 @@ class UserCallCenterGetAvailableDNISListRequest extends ComplexType implements C
      */
     public function getAgentUserId()
     {
-        return $this->agentUserId->getValue();
+        return ($this->agentUserId) ? $this->agentUserId->getValue() : null;
     }
 }

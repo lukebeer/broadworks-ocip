@@ -20,9 +20,9 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class CommPilotExpressSRRedirectionModify extends ComplexType implements ComplexInterface
 {
-    public    $name                  = 'CommPilotExpressSRRedirectionModify';
-    protected $action                = null;
-    protected $forwardingPhoneNumber = null;
+    public    $name = 'CommPilotExpressSRRedirectionModify';
+    protected $action;
+    protected $forwardingPhoneNumber;
 
     public function __construct(
          $action = null,
@@ -45,7 +45,6 @@ class CommPilotExpressSRRedirectionModify extends ComplexType implements Complex
      */
     public function setAction($action = null)
     {
-        if (!$action) return $this;
         $this->action = new SimpleContent($action);
         $this->action->setName('action');
         return $this;
@@ -57,7 +56,7 @@ class CommPilotExpressSRRedirectionModify extends ComplexType implements Complex
      */
     public function getAction()
     {
-        return $this->action->getValue();
+        return ($this->action) ? $this->action->getValue() : null;
     }
 
     /**
@@ -65,7 +64,6 @@ class CommPilotExpressSRRedirectionModify extends ComplexType implements Complex
      */
     public function setForwardingPhoneNumber($forwardingPhoneNumber = null)
     {
-        if (!$forwardingPhoneNumber) return $this;
         $this->forwardingPhoneNumber = new SimpleContent($forwardingPhoneNumber);
         $this->forwardingPhoneNumber->setName('forwardingPhoneNumber');
         return $this;
@@ -77,6 +75,6 @@ class CommPilotExpressSRRedirectionModify extends ComplexType implements Complex
      */
     public function getForwardingPhoneNumber()
     {
-        return $this->forwardingPhoneNumber->getValue();
+        return ($this->forwardingPhoneNumber) ? $this->forwardingPhoneNumber->getValue() : null;
     }
 }

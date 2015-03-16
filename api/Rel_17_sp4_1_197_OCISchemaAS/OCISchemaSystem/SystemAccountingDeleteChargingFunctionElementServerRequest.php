@@ -20,11 +20,11 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemAccountingDeleteChargingFunctionElementServerRequest extends ComplexType implements ComplexInterface
 {
-    public    $name    = 'SystemAccountingDeleteChargingFunctionElementServerRequest';
-    protected $address = null;
+    public    $name = 'SystemAccountingDeleteChargingFunctionElementServerRequest';
+    protected $address;
 
     public function __construct(
-         $address
+         $address = ''
     ) {
         $this->setAddress($address);
     }
@@ -42,7 +42,6 @@ class SystemAccountingDeleteChargingFunctionElementServerRequest extends Complex
      */
     public function setAddress($address = null)
     {
-        if (!$address) return $this;
         $this->address = ($address InstanceOf NetAddressExtended)
              ? $address
              : new NetAddressExtended($address);
@@ -56,6 +55,6 @@ class SystemAccountingDeleteChargingFunctionElementServerRequest extends Complex
      */
     public function getAddress()
     {
-        return $this->address->getValue();
+        return ($this->address) ? $this->address->getValue() : null;
     }
 }

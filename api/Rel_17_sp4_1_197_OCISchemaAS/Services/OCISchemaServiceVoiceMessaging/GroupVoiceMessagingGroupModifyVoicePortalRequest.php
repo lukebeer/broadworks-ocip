@@ -26,21 +26,21 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupVoiceMessagingGroupModifyVoicePortalRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                                                      = 'GroupVoiceMessagingGroupModifyVoicePortalRequest';
-    protected $serviceProviderId                                         = null;
-    protected $groupId                                                   = null;
-    protected $serviceInstanceProfile                                    = null;
-    protected $isActive                                                  = null;
-    protected $allowIdentificationByPhoneNumberOrVoiceMailAliasesOnLogin = null;
-    protected $useVoicePortalWizard                                      = null;
-    protected $voicePortalExternalRoutingScope                           = null;
-    protected $useExternalRouting                                        = null;
-    protected $externalRoutingAddress                                    = null;
-    protected $homeZoneName                                              = null;
+    public    $name = 'GroupVoiceMessagingGroupModifyVoicePortalRequest';
+    protected $serviceProviderId;
+    protected $groupId;
+    protected $serviceInstanceProfile;
+    protected $isActive;
+    protected $allowIdentificationByPhoneNumberOrVoiceMailAliasesOnLogin;
+    protected $useVoicePortalWizard;
+    protected $voicePortalExternalRoutingScope;
+    protected $useExternalRouting;
+    protected $externalRoutingAddress;
+    protected $homeZoneName;
 
     public function __construct(
-         $serviceProviderId,
-         $groupId,
+         $serviceProviderId = '',
+         $groupId = '',
          ServiceInstanceModifyProfile $serviceInstanceProfile = null,
          $isActive = null,
          $allowIdentificationByPhoneNumberOrVoiceMailAliasesOnLogin = null,
@@ -75,7 +75,6 @@ class GroupVoiceMessagingGroupModifyVoicePortalRequest extends ComplexType imple
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
-        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
@@ -89,7 +88,7 @@ class GroupVoiceMessagingGroupModifyVoicePortalRequest extends ComplexType imple
      */
     public function getServiceProviderId()
     {
-        return $this->serviceProviderId->getValue();
+        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
     }
 
     /**
@@ -97,7 +96,6 @@ class GroupVoiceMessagingGroupModifyVoicePortalRequest extends ComplexType imple
      */
     public function setGroupId($groupId = null)
     {
-        if (!$groupId) return $this;
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
@@ -111,7 +109,7 @@ class GroupVoiceMessagingGroupModifyVoicePortalRequest extends ComplexType imple
      */
     public function getGroupId()
     {
-        return $this->groupId->getValue();
+        return ($this->groupId) ? $this->groupId->getValue() : null;
     }
 
     /**
@@ -119,8 +117,9 @@ class GroupVoiceMessagingGroupModifyVoicePortalRequest extends ComplexType imple
      */
     public function setServiceInstanceProfile(ServiceInstanceModifyProfile $serviceInstanceProfile = null)
     {
-        if (!$serviceInstanceProfile) return $this;
-        $this->serviceInstanceProfile = $serviceInstanceProfile;
+        $this->serviceInstanceProfile = ($serviceInstanceProfile InstanceOf ServiceInstanceModifyProfile)
+             ? $serviceInstanceProfile
+             : new ServiceInstanceModifyProfile($serviceInstanceProfile);
         $this->serviceInstanceProfile->setName('serviceInstanceProfile');
         return $this;
     }
@@ -139,7 +138,6 @@ class GroupVoiceMessagingGroupModifyVoicePortalRequest extends ComplexType imple
      */
     public function setIsActive($isActive = null)
     {
-        if (!$isActive) return $this;
         $this->isActive = new PrimitiveType($isActive);
         $this->isActive->setName('isActive');
         return $this;
@@ -151,7 +149,7 @@ class GroupVoiceMessagingGroupModifyVoicePortalRequest extends ComplexType imple
      */
     public function getIsActive()
     {
-        return $this->isActive->getValue();
+        return ($this->isActive) ? $this->isActive->getValue() : null;
     }
 
     /**
@@ -159,7 +157,6 @@ class GroupVoiceMessagingGroupModifyVoicePortalRequest extends ComplexType imple
      */
     public function setAllowIdentificationByPhoneNumberOrVoiceMailAliasesOnLogin($allowIdentificationByPhoneNumberOrVoiceMailAliasesOnLogin = null)
     {
-        if (!$allowIdentificationByPhoneNumberOrVoiceMailAliasesOnLogin) return $this;
         $this->allowIdentificationByPhoneNumberOrVoiceMailAliasesOnLogin = new PrimitiveType($allowIdentificationByPhoneNumberOrVoiceMailAliasesOnLogin);
         $this->allowIdentificationByPhoneNumberOrVoiceMailAliasesOnLogin->setName('allowIdentificationByPhoneNumberOrVoiceMailAliasesOnLogin');
         return $this;
@@ -171,7 +168,7 @@ class GroupVoiceMessagingGroupModifyVoicePortalRequest extends ComplexType imple
      */
     public function getAllowIdentificationByPhoneNumberOrVoiceMailAliasesOnLogin()
     {
-        return $this->allowIdentificationByPhoneNumberOrVoiceMailAliasesOnLogin->getValue();
+        return ($this->allowIdentificationByPhoneNumberOrVoiceMailAliasesOnLogin) ? $this->allowIdentificationByPhoneNumberOrVoiceMailAliasesOnLogin->getValue() : null;
     }
 
     /**
@@ -179,7 +176,6 @@ class GroupVoiceMessagingGroupModifyVoicePortalRequest extends ComplexType imple
      */
     public function setUseVoicePortalWizard($useVoicePortalWizard = null)
     {
-        if (!$useVoicePortalWizard) return $this;
         $this->useVoicePortalWizard = new PrimitiveType($useVoicePortalWizard);
         $this->useVoicePortalWizard->setName('useVoicePortalWizard');
         return $this;
@@ -191,7 +187,7 @@ class GroupVoiceMessagingGroupModifyVoicePortalRequest extends ComplexType imple
      */
     public function getUseVoicePortalWizard()
     {
-        return $this->useVoicePortalWizard->getValue();
+        return ($this->useVoicePortalWizard) ? $this->useVoicePortalWizard->getValue() : null;
     }
 
     /**
@@ -199,7 +195,6 @@ class GroupVoiceMessagingGroupModifyVoicePortalRequest extends ComplexType imple
      */
     public function setVoicePortalExternalRoutingScope($voicePortalExternalRoutingScope = null)
     {
-        if (!$voicePortalExternalRoutingScope) return $this;
         $this->voicePortalExternalRoutingScope = ($voicePortalExternalRoutingScope InstanceOf VoicePortalExternalRoutingScope)
              ? $voicePortalExternalRoutingScope
              : new VoicePortalExternalRoutingScope($voicePortalExternalRoutingScope);
@@ -213,7 +208,7 @@ class GroupVoiceMessagingGroupModifyVoicePortalRequest extends ComplexType imple
      */
     public function getVoicePortalExternalRoutingScope()
     {
-        return $this->voicePortalExternalRoutingScope->getValue();
+        return ($this->voicePortalExternalRoutingScope) ? $this->voicePortalExternalRoutingScope->getValue() : null;
     }
 
     /**
@@ -221,7 +216,6 @@ class GroupVoiceMessagingGroupModifyVoicePortalRequest extends ComplexType imple
      */
     public function setUseExternalRouting($useExternalRouting = null)
     {
-        if (!$useExternalRouting) return $this;
         $this->useExternalRouting = new PrimitiveType($useExternalRouting);
         $this->useExternalRouting->setName('useExternalRouting');
         return $this;
@@ -233,7 +227,7 @@ class GroupVoiceMessagingGroupModifyVoicePortalRequest extends ComplexType imple
      */
     public function getUseExternalRouting()
     {
-        return $this->useExternalRouting->getValue();
+        return ($this->useExternalRouting) ? $this->useExternalRouting->getValue() : null;
     }
 
     /**
@@ -241,7 +235,6 @@ class GroupVoiceMessagingGroupModifyVoicePortalRequest extends ComplexType imple
      */
     public function setExternalRoutingAddress($externalRoutingAddress = null)
     {
-        if (!$externalRoutingAddress) return $this;
         $this->externalRoutingAddress = ($externalRoutingAddress InstanceOf OutgoingDNorSIPURI)
              ? $externalRoutingAddress
              : new OutgoingDNorSIPURI($externalRoutingAddress);
@@ -255,7 +248,7 @@ class GroupVoiceMessagingGroupModifyVoicePortalRequest extends ComplexType imple
      */
     public function getExternalRoutingAddress()
     {
-        return $this->externalRoutingAddress->getValue();
+        return ($this->externalRoutingAddress) ? $this->externalRoutingAddress->getValue() : null;
     }
 
     /**
@@ -263,7 +256,6 @@ class GroupVoiceMessagingGroupModifyVoicePortalRequest extends ComplexType imple
      */
     public function setHomeZoneName($homeZoneName = null)
     {
-        if (!$homeZoneName) return $this;
         $this->homeZoneName = ($homeZoneName InstanceOf ZoneName)
              ? $homeZoneName
              : new ZoneName($homeZoneName);
@@ -277,6 +269,6 @@ class GroupVoiceMessagingGroupModifyVoicePortalRequest extends ComplexType imple
      */
     public function getHomeZoneName()
     {
-        return $this->homeZoneName->getValue();
+        return ($this->homeZoneName) ? $this->homeZoneName->getValue() : null;
     }
 }

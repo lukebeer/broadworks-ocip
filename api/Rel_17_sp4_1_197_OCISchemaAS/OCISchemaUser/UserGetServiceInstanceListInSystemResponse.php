@@ -21,8 +21,8 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserGetServiceInstanceListInSystemResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                 = 'UserGetServiceInstanceListInSystemResponse';
-    protected $serviceInstanceTable = null;
+    public    $name = 'UserGetServiceInstanceListInSystemResponse';
+    protected $serviceInstanceTable;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser\UserGetServiceInstanceListInSystemResponse $response
@@ -37,7 +37,6 @@ class UserGetServiceInstanceListInSystemResponse extends ComplexType implements 
      */
     public function setServiceInstanceTable(TableType $serviceInstanceTable = null)
     {
-        if (!$serviceInstanceTable) return $this;
         $this->serviceInstanceTable = $serviceInstanceTable;
         $this->serviceInstanceTable->setName('serviceInstanceTable');
         return $this;

@@ -27,17 +27,17 @@ use Broadworks_OCIP\core\Client\Client;
 class SystemClassmarkGetUtilizationListRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType                         = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceClassMark\SystemClassmarkGetUtilizationListResponse';
-    public    $name                                 = 'SystemClassmarkGetUtilizationListRequest';
-    protected $classmark                            = null;
-    protected $responseSizeLimit                    = null;
-    protected $searchCriteriaGroupId                = null;
-    protected $searchCriteriaExactServiceProviderId = null;
-    protected $searchCriteriaUserFirstName          = null;
-    protected $searchCriteriaUserLastName           = null;
-    protected $searchCriteriaDn                     = null;
+    public    $name = 'SystemClassmarkGetUtilizationListRequest';
+    protected $classmark;
+    protected $responseSizeLimit;
+    protected $searchCriteriaGroupId;
+    protected $searchCriteriaExactServiceProviderId;
+    protected $searchCriteriaUserFirstName;
+    protected $searchCriteriaUserLastName;
+    protected $searchCriteriaDn;
 
     public function __construct(
-         $classmark,
+         $classmark = '',
          $responseSizeLimit = null,
          SearchCriteriaGroupId $searchCriteriaGroupId = null,
          SearchCriteriaExactServiceProvider $searchCriteriaExactServiceProviderId = null,
@@ -67,7 +67,6 @@ class SystemClassmarkGetUtilizationListRequest extends ComplexType implements Co
      */
     public function setClassmark($classmark = null)
     {
-        if (!$classmark) return $this;
         $this->classmark = ($classmark InstanceOf Classmark)
              ? $classmark
              : new Classmark($classmark);
@@ -81,7 +80,7 @@ class SystemClassmarkGetUtilizationListRequest extends ComplexType implements Co
      */
     public function getClassmark()
     {
-        return $this->classmark->getValue();
+        return ($this->classmark) ? $this->classmark->getValue() : null;
     }
 
     /**
@@ -89,7 +88,6 @@ class SystemClassmarkGetUtilizationListRequest extends ComplexType implements Co
      */
     public function setResponseSizeLimit($responseSizeLimit = null)
     {
-        if (!$responseSizeLimit) return $this;
         $this->responseSizeLimit = ($responseSizeLimit InstanceOf ResponseSizeLimit)
              ? $responseSizeLimit
              : new ResponseSizeLimit($responseSizeLimit);
@@ -103,7 +101,7 @@ class SystemClassmarkGetUtilizationListRequest extends ComplexType implements Co
      */
     public function getResponseSizeLimit()
     {
-        return $this->responseSizeLimit->getValue();
+        return ($this->responseSizeLimit) ? $this->responseSizeLimit->getValue() : null;
     }
 
     /**
@@ -111,7 +109,6 @@ class SystemClassmarkGetUtilizationListRequest extends ComplexType implements Co
      */
     public function setSearchCriteriaGroupId(SearchCriteriaGroupId $searchCriteriaGroupId = null)
     {
-        if (!$searchCriteriaGroupId) return $this;
         $this->searchCriteriaGroupId = ($searchCriteriaGroupId InstanceOf SearchCriteriaGroupId)
              ? $searchCriteriaGroupId
              : new SearchCriteriaGroupId($searchCriteriaGroupId);
@@ -133,7 +130,6 @@ class SystemClassmarkGetUtilizationListRequest extends ComplexType implements Co
      */
     public function setSearchCriteriaExactServiceProviderId(SearchCriteriaExactServiceProvider $searchCriteriaExactServiceProviderId = null)
     {
-        if (!$searchCriteriaExactServiceProviderId) return $this;
         $this->searchCriteriaExactServiceProviderId = ($searchCriteriaExactServiceProviderId InstanceOf SearchCriteriaExactServiceProvider)
              ? $searchCriteriaExactServiceProviderId
              : new SearchCriteriaExactServiceProvider($searchCriteriaExactServiceProviderId);
@@ -155,7 +151,6 @@ class SystemClassmarkGetUtilizationListRequest extends ComplexType implements Co
      */
     public function setSearchCriteriaUserFirstName(SearchCriteriaUserFirstName $searchCriteriaUserFirstName = null)
     {
-        if (!$searchCriteriaUserFirstName) return $this;
         $this->searchCriteriaUserFirstName = ($searchCriteriaUserFirstName InstanceOf SearchCriteriaUserFirstName)
              ? $searchCriteriaUserFirstName
              : new SearchCriteriaUserFirstName($searchCriteriaUserFirstName);
@@ -177,7 +172,6 @@ class SystemClassmarkGetUtilizationListRequest extends ComplexType implements Co
      */
     public function setSearchCriteriaUserLastName(SearchCriteriaUserLastName $searchCriteriaUserLastName = null)
     {
-        if (!$searchCriteriaUserLastName) return $this;
         $this->searchCriteriaUserLastName = ($searchCriteriaUserLastName InstanceOf SearchCriteriaUserLastName)
              ? $searchCriteriaUserLastName
              : new SearchCriteriaUserLastName($searchCriteriaUserLastName);
@@ -199,7 +193,6 @@ class SystemClassmarkGetUtilizationListRequest extends ComplexType implements Co
      */
     public function setSearchCriteriaDn(SearchCriteriaDn $searchCriteriaDn = null)
     {
-        if (!$searchCriteriaDn) return $this;
         $this->searchCriteriaDn = ($searchCriteriaDn InstanceOf SearchCriteriaDn)
              ? $searchCriteriaDn
              : new SearchCriteriaDn($searchCriteriaDn);

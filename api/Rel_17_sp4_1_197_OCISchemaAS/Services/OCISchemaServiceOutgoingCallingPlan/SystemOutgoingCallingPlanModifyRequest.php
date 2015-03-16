@@ -20,9 +20,9 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemOutgoingCallingPlanModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                         = 'SystemOutgoingCallingPlanModifyRequest';
-    protected $directTransferScreening      = null;
-    protected $enableEnhancedTollCallTyping = null;
+    public    $name = 'SystemOutgoingCallingPlanModifyRequest';
+    protected $directTransferScreening;
+    protected $enableEnhancedTollCallTyping;
 
     public function __construct(
          $directTransferScreening = null,
@@ -45,7 +45,6 @@ class SystemOutgoingCallingPlanModifyRequest extends ComplexType implements Comp
      */
     public function setDirectTransferScreening($directTransferScreening = null)
     {
-        if (!$directTransferScreening) return $this;
         $this->directTransferScreening = new PrimitiveType($directTransferScreening);
         $this->directTransferScreening->setName('directTransferScreening');
         return $this;
@@ -57,7 +56,7 @@ class SystemOutgoingCallingPlanModifyRequest extends ComplexType implements Comp
      */
     public function getDirectTransferScreening()
     {
-        return $this->directTransferScreening->getValue();
+        return ($this->directTransferScreening) ? $this->directTransferScreening->getValue() : null;
     }
 
     /**
@@ -65,7 +64,6 @@ class SystemOutgoingCallingPlanModifyRequest extends ComplexType implements Comp
      */
     public function setEnableEnhancedTollCallTyping($enableEnhancedTollCallTyping = null)
     {
-        if (!$enableEnhancedTollCallTyping) return $this;
         $this->enableEnhancedTollCallTyping = new PrimitiveType($enableEnhancedTollCallTyping);
         $this->enableEnhancedTollCallTyping->setName('enableEnhancedTollCallTyping');
         return $this;
@@ -77,6 +75,6 @@ class SystemOutgoingCallingPlanModifyRequest extends ComplexType implements Comp
      */
     public function getEnableEnhancedTollCallTyping()
     {
-        return $this->enableEnhancedTollCallTyping->getValue();
+        return ($this->enableEnhancedTollCallTyping) ? $this->enableEnhancedTollCallTyping->getValue() : null;
     }
 }

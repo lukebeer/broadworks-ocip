@@ -21,8 +21,8 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemCallingPartyCategoryGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                      = 'SystemCallingPartyCategoryGetListResponse';
-    protected $callingPartyCategoryTable = null;
+    public    $name = 'SystemCallingPartyCategoryGetListResponse';
+    protected $callingPartyCategoryTable;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallingPartyCategory\SystemCallingPartyCategoryGetListResponse $response
@@ -37,7 +37,6 @@ class SystemCallingPartyCategoryGetListResponse extends ComplexType implements C
      */
     public function setCallingPartyCategoryTable(TableType $callingPartyCategoryTable = null)
     {
-        if (!$callingPartyCategoryTable) return $this;
         $this->callingPartyCategoryTable = $callingPartyCategoryTable;
         $this->callingPartyCategoryTable->setName('callingPartyCategoryTable');
         return $this;

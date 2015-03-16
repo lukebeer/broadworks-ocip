@@ -19,13 +19,13 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class CommPilotExpressUnavailable extends ComplexType implements ComplexInterface
 {
-    public    $name              = 'CommPilotExpressUnavailable';
-    protected $incomingCalls     = null;
-    protected $voiceMailGreeting = null;
+    public    $name = 'CommPilotExpressUnavailable';
+    protected $incomingCalls;
+    protected $voiceMailGreeting;
 
     public function __construct(
-         $incomingCalls,
-         $voiceMailGreeting
+         $incomingCalls = '',
+         $voiceMailGreeting = ''
     ) {
         $this->setIncomingCalls($incomingCalls);
         $this->setVoiceMailGreeting($voiceMailGreeting);
@@ -44,7 +44,6 @@ class CommPilotExpressUnavailable extends ComplexType implements ComplexInterfac
      */
     public function setIncomingCalls($incomingCalls = null)
     {
-        if (!$incomingCalls) return $this;
         $this->incomingCalls = new SimpleContent($incomingCalls);
         $this->incomingCalls->setName('incomingCalls');
         return $this;
@@ -56,7 +55,7 @@ class CommPilotExpressUnavailable extends ComplexType implements ComplexInterfac
      */
     public function getIncomingCalls()
     {
-        return $this->incomingCalls->getValue();
+        return ($this->incomingCalls) ? $this->incomingCalls->getValue() : null;
     }
 
     /**
@@ -64,7 +63,6 @@ class CommPilotExpressUnavailable extends ComplexType implements ComplexInterfac
      */
     public function setVoiceMailGreeting($voiceMailGreeting = null)
     {
-        if (!$voiceMailGreeting) return $this;
         $this->voiceMailGreeting = new SimpleContent($voiceMailGreeting);
         $this->voiceMailGreeting->setName('voiceMailGreeting');
         return $this;
@@ -76,6 +74,6 @@ class CommPilotExpressUnavailable extends ComplexType implements ComplexInterfac
      */
     public function getVoiceMailGreeting()
     {
-        return $this->voiceMailGreeting->getValue();
+        return ($this->voiceMailGreeting) ? $this->voiceMailGreeting->getValue() : null;
     }
 }

@@ -23,14 +23,14 @@ use Broadworks_OCIP\core\Client\Client;
 class GroupScheduleGetListRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated17\GroupScheduleGetListResponse';
-    public    $name              = 'GroupScheduleGetListRequest';
-    protected $serviceProviderId = null;
-    protected $groupId           = null;
-    protected $scheduleType      = null;
+    public    $name = 'GroupScheduleGetListRequest';
+    protected $serviceProviderId;
+    protected $groupId;
+    protected $scheduleType;
 
     public function __construct(
-         $serviceProviderId,
-         $groupId,
+         $serviceProviderId = '',
+         $groupId = '',
          $scheduleType = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
@@ -51,7 +51,6 @@ class GroupScheduleGetListRequest extends ComplexType implements ComplexInterfac
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
-        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
@@ -65,7 +64,7 @@ class GroupScheduleGetListRequest extends ComplexType implements ComplexInterfac
      */
     public function getServiceProviderId()
     {
-        return $this->serviceProviderId->getValue();
+        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
     }
 
     /**
@@ -73,7 +72,6 @@ class GroupScheduleGetListRequest extends ComplexType implements ComplexInterfac
      */
     public function setGroupId($groupId = null)
     {
-        if (!$groupId) return $this;
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
@@ -87,7 +85,7 @@ class GroupScheduleGetListRequest extends ComplexType implements ComplexInterfac
      */
     public function getGroupId()
     {
-        return $this->groupId->getValue();
+        return ($this->groupId) ? $this->groupId->getValue() : null;
     }
 
     /**
@@ -95,7 +93,6 @@ class GroupScheduleGetListRequest extends ComplexType implements ComplexInterfac
      */
     public function setScheduleType($scheduleType = null)
     {
-        if (!$scheduleType) return $this;
         $this->scheduleType = ($scheduleType InstanceOf ScheduleType)
              ? $scheduleType
              : new ScheduleType($scheduleType);
@@ -109,6 +106,6 @@ class GroupScheduleGetListRequest extends ComplexType implements ComplexInterfac
      */
     public function getScheduleType()
     {
-        return $this->scheduleType->getValue();
+        return ($this->scheduleType) ? $this->scheduleType->getValue() : null;
     }
 }

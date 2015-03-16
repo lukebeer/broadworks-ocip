@@ -21,12 +21,12 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupRoutePointModifyDNISAnnouncementRequest extends ComplexType implements ComplexInterface
 {
-    public    $name              = 'GroupRoutePointModifyDNISAnnouncementRequest';
-    protected $dnisKey           = null;
-    protected $mediaOnHoldSource = null;
+    public    $name = 'GroupRoutePointModifyDNISAnnouncementRequest';
+    protected $dnisKey;
+    protected $mediaOnHoldSource;
 
     public function __construct(
-         DNISKey $dnisKey,
+         DNISKey $dnisKey = '',
          CallCenterMediaOnHoldSourceModify17 $mediaOnHoldSource = null
     ) {
         $this->setDnisKey($dnisKey);
@@ -46,8 +46,9 @@ class GroupRoutePointModifyDNISAnnouncementRequest extends ComplexType implement
      */
     public function setDnisKey(DNISKey $dnisKey = null)
     {
-        if (!$dnisKey) return $this;
-        $this->dnisKey = $dnisKey;
+        $this->dnisKey = ($dnisKey InstanceOf DNISKey)
+             ? $dnisKey
+             : new DNISKey($dnisKey);
         $this->dnisKey->setName('dnisKey');
         return $this;
     }
@@ -66,8 +67,9 @@ class GroupRoutePointModifyDNISAnnouncementRequest extends ComplexType implement
      */
     public function setMediaOnHoldSource(CallCenterMediaOnHoldSourceModify17 $mediaOnHoldSource = null)
     {
-        if (!$mediaOnHoldSource) return $this;
-        $this->mediaOnHoldSource = $mediaOnHoldSource;
+        $this->mediaOnHoldSource = ($mediaOnHoldSource InstanceOf CallCenterMediaOnHoldSourceModify17)
+             ? $mediaOnHoldSource
+             : new CallCenterMediaOnHoldSourceModify17($mediaOnHoldSource);
         $this->mediaOnHoldSource->setName('mediaOnHoldSource');
         return $this;
     }

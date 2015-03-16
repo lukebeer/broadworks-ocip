@@ -22,15 +22,15 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupDepartmentDeleteRequest extends ComplexType implements ComplexInterface
 {
-    public    $name              = 'GroupDepartmentDeleteRequest';
-    protected $serviceProviderId = null;
-    protected $groupId           = null;
-    protected $departmentName    = null;
+    public    $name = 'GroupDepartmentDeleteRequest';
+    protected $serviceProviderId;
+    protected $groupId;
+    protected $departmentName;
 
     public function __construct(
-         $serviceProviderId,
-         $groupId,
-         $departmentName
+         $serviceProviderId = '',
+         $groupId = '',
+         $departmentName = ''
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setGroupId($groupId);
@@ -50,7 +50,6 @@ class GroupDepartmentDeleteRequest extends ComplexType implements ComplexInterfa
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
-        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
@@ -64,7 +63,7 @@ class GroupDepartmentDeleteRequest extends ComplexType implements ComplexInterfa
      */
     public function getServiceProviderId()
     {
-        return $this->serviceProviderId->getValue();
+        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
     }
 
     /**
@@ -72,7 +71,6 @@ class GroupDepartmentDeleteRequest extends ComplexType implements ComplexInterfa
      */
     public function setGroupId($groupId = null)
     {
-        if (!$groupId) return $this;
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
@@ -86,7 +84,7 @@ class GroupDepartmentDeleteRequest extends ComplexType implements ComplexInterfa
      */
     public function getGroupId()
     {
-        return $this->groupId->getValue();
+        return ($this->groupId) ? $this->groupId->getValue() : null;
     }
 
     /**
@@ -94,7 +92,6 @@ class GroupDepartmentDeleteRequest extends ComplexType implements ComplexInterfa
      */
     public function setDepartmentName($departmentName = null)
     {
-        if (!$departmentName) return $this;
         $this->departmentName = ($departmentName InstanceOf DepartmentName)
              ? $departmentName
              : new DepartmentName($departmentName);
@@ -108,6 +105,6 @@ class GroupDepartmentDeleteRequest extends ComplexType implements ComplexInterfa
      */
     public function getDepartmentName()
     {
-        return $this->departmentName->getValue();
+        return ($this->departmentName) ? $this->departmentName->getValue() : null;
     }
 }

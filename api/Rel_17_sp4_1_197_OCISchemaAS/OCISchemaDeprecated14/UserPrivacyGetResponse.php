@@ -19,8 +19,8 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserPrivacyGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                   = 'UserPrivacyGetResponse';
-    protected $enableDirectoryPrivacy = null;
+    public    $name = 'UserPrivacyGetResponse';
+    protected $enableDirectoryPrivacy;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\UserPrivacyGetResponse $response
@@ -35,7 +35,6 @@ class UserPrivacyGetResponse extends ComplexType implements ComplexInterface
      */
     public function setEnableDirectoryPrivacy($enableDirectoryPrivacy = null)
     {
-        if (!$enableDirectoryPrivacy) return $this;
         $this->enableDirectoryPrivacy = new PrimitiveType($enableDirectoryPrivacy);
         $this->enableDirectoryPrivacy->setName('enableDirectoryPrivacy');
         return $this;
@@ -47,6 +46,6 @@ class UserPrivacyGetResponse extends ComplexType implements ComplexInterface
      */
     public function getEnableDirectoryPrivacy()
     {
-        return $this->enableDirectoryPrivacy->getValue();
+        return ($this->enableDirectoryPrivacy) ? $this->enableDirectoryPrivacy->getValue() : null;
     }
 }

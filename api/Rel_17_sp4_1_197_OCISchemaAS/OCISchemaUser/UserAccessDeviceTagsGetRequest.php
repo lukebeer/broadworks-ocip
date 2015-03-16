@@ -21,13 +21,13 @@ use Broadworks_OCIP\core\Client\Client;
 class UserAccessDeviceTagsGetRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser\UserAccessDeviceTagsGetResponse';
-    public    $name         = 'UserAccessDeviceTagsGetRequest';
-    protected $userId       = null;
-    protected $accessDevice = null;
+    public    $name = 'UserAccessDeviceTagsGetRequest';
+    protected $userId;
+    protected $accessDevice;
 
     public function __construct(
-         $userId,
-         AccessDevice $accessDevice
+         $userId = '',
+         AccessDevice $accessDevice = ''
     ) {
         $this->setUserId($userId);
         $this->setAccessDevice($accessDevice);
@@ -46,7 +46,6 @@ class UserAccessDeviceTagsGetRequest extends ComplexType implements ComplexInter
      */
     public function setUserId($userId = null)
     {
-        if (!$userId) return $this;
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
@@ -60,7 +59,7 @@ class UserAccessDeviceTagsGetRequest extends ComplexType implements ComplexInter
      */
     public function getUserId()
     {
-        return $this->userId->getValue();
+        return ($this->userId) ? $this->userId->getValue() : null;
     }
 
     /**
@@ -68,8 +67,9 @@ class UserAccessDeviceTagsGetRequest extends ComplexType implements ComplexInter
      */
     public function setAccessDevice(AccessDevice $accessDevice = null)
     {
-        if (!$accessDevice) return $this;
-        $this->accessDevice = $accessDevice;
+        $this->accessDevice = ($accessDevice InstanceOf AccessDevice)
+             ? $accessDevice
+             : new AccessDevice($accessDevice);
         $this->accessDevice->setName('accessDevice');
         return $this;
     }

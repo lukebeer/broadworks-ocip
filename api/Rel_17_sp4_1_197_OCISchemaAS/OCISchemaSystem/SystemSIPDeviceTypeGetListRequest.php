@@ -24,10 +24,10 @@ use Broadworks_OCIP\core\Client\Client;
 class SystemSIPDeviceTypeGetListRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType                            = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemSIPDeviceTypeGetListResponse';
-    public    $name                                    = 'SystemSIPDeviceTypeGetListRequest';
-    protected $responseSizeLimit                       = null;
-    protected $searchCriteriaDeviceType                = null;
-    protected $searchCriteriaExactSignalingAddressType = null;
+    public    $name = 'SystemSIPDeviceTypeGetListRequest';
+    protected $responseSizeLimit;
+    protected $searchCriteriaDeviceType;
+    protected $searchCriteriaExactSignalingAddressType;
 
     public function __construct(
          $responseSizeLimit = null,
@@ -52,7 +52,6 @@ class SystemSIPDeviceTypeGetListRequest extends ComplexType implements ComplexIn
      */
     public function setResponseSizeLimit($responseSizeLimit = null)
     {
-        if (!$responseSizeLimit) return $this;
         $this->responseSizeLimit = ($responseSizeLimit InstanceOf ResponseSizeLimit)
              ? $responseSizeLimit
              : new ResponseSizeLimit($responseSizeLimit);
@@ -66,7 +65,7 @@ class SystemSIPDeviceTypeGetListRequest extends ComplexType implements ComplexIn
      */
     public function getResponseSizeLimit()
     {
-        return $this->responseSizeLimit->getValue();
+        return ($this->responseSizeLimit) ? $this->responseSizeLimit->getValue() : null;
     }
 
     /**
@@ -74,7 +73,6 @@ class SystemSIPDeviceTypeGetListRequest extends ComplexType implements ComplexIn
      */
     public function setSearchCriteriaDeviceType(SearchCriteriaDeviceType $searchCriteriaDeviceType = null)
     {
-        if (!$searchCriteriaDeviceType) return $this;
         $this->searchCriteriaDeviceType = ($searchCriteriaDeviceType InstanceOf SearchCriteriaDeviceType)
              ? $searchCriteriaDeviceType
              : new SearchCriteriaDeviceType($searchCriteriaDeviceType);
@@ -96,7 +94,6 @@ class SystemSIPDeviceTypeGetListRequest extends ComplexType implements ComplexIn
      */
     public function setSearchCriteriaExactSignalingAddressType(SearchCriteriaExactSignalingAddressType $searchCriteriaExactSignalingAddressType = null)
     {
-        if (!$searchCriteriaExactSignalingAddressType) return $this;
         $this->searchCriteriaExactSignalingAddressType = ($searchCriteriaExactSignalingAddressType InstanceOf SearchCriteriaExactSignalingAddressType)
              ? $searchCriteriaExactSignalingAddressType
              : new SearchCriteriaExactSignalingAddressType($searchCriteriaExactSignalingAddressType);

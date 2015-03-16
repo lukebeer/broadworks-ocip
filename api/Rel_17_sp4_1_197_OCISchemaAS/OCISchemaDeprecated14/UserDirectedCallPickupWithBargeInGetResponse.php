@@ -19,8 +19,8 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserDirectedCallPickupWithBargeInGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                     = 'UserDirectedCallPickupWithBargeInGetResponse';
-    protected $enableBargeInWarningTone = null;
+    public    $name = 'UserDirectedCallPickupWithBargeInGetResponse';
+    protected $enableBargeInWarningTone;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\UserDirectedCallPickupWithBargeInGetResponse $response
@@ -35,7 +35,6 @@ class UserDirectedCallPickupWithBargeInGetResponse extends ComplexType implement
      */
     public function setEnableBargeInWarningTone($enableBargeInWarningTone = null)
     {
-        if (!$enableBargeInWarningTone) return $this;
         $this->enableBargeInWarningTone = new PrimitiveType($enableBargeInWarningTone);
         $this->enableBargeInWarningTone->setName('enableBargeInWarningTone');
         return $this;
@@ -47,6 +46,6 @@ class UserDirectedCallPickupWithBargeInGetResponse extends ComplexType implement
      */
     public function getEnableBargeInWarningTone()
     {
-        return $this->enableBargeInWarningTone->getValue();
+        return ($this->enableBargeInWarningTone) ? $this->enableBargeInWarningTone->getValue() : null;
     }
 }

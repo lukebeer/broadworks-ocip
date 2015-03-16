@@ -21,11 +21,11 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemServiceActivationAccessCodeGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                  = 'SystemServiceActivationAccessCodeGetResponse';
-    protected $isActive              = null;
-    protected $terminatingAccessCode = null;
-    protected $redirectingAccessCode = null;
-    protected $clickToDialAccessCode = null;
+    public    $name = 'SystemServiceActivationAccessCodeGetResponse';
+    protected $isActive;
+    protected $terminatingAccessCode;
+    protected $redirectingAccessCode;
+    protected $clickToDialAccessCode;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemServiceActivationAccessCodeGetResponse $response
@@ -40,7 +40,6 @@ class SystemServiceActivationAccessCodeGetResponse extends ComplexType implement
      */
     public function setIsActive($isActive = null)
     {
-        if (!$isActive) return $this;
         $this->isActive = new PrimitiveType($isActive);
         $this->isActive->setName('isActive');
         return $this;
@@ -52,7 +51,7 @@ class SystemServiceActivationAccessCodeGetResponse extends ComplexType implement
      */
     public function getIsActive()
     {
-        return $this->isActive->getValue();
+        return ($this->isActive) ? $this->isActive->getValue() : null;
     }
 
     /**
@@ -60,7 +59,6 @@ class SystemServiceActivationAccessCodeGetResponse extends ComplexType implement
      */
     public function setTerminatingAccessCode($terminatingAccessCode = null)
     {
-        if (!$terminatingAccessCode) return $this;
         $this->terminatingAccessCode = ($terminatingAccessCode InstanceOf ServiceActivationAccessCode)
              ? $terminatingAccessCode
              : new ServiceActivationAccessCode($terminatingAccessCode);
@@ -74,7 +72,7 @@ class SystemServiceActivationAccessCodeGetResponse extends ComplexType implement
      */
     public function getTerminatingAccessCode()
     {
-        return $this->terminatingAccessCode->getValue();
+        return ($this->terminatingAccessCode) ? $this->terminatingAccessCode->getValue() : null;
     }
 
     /**
@@ -82,7 +80,6 @@ class SystemServiceActivationAccessCodeGetResponse extends ComplexType implement
      */
     public function setRedirectingAccessCode($redirectingAccessCode = null)
     {
-        if (!$redirectingAccessCode) return $this;
         $this->redirectingAccessCode = ($redirectingAccessCode InstanceOf ServiceActivationAccessCode)
              ? $redirectingAccessCode
              : new ServiceActivationAccessCode($redirectingAccessCode);
@@ -96,7 +93,7 @@ class SystemServiceActivationAccessCodeGetResponse extends ComplexType implement
      */
     public function getRedirectingAccessCode()
     {
-        return $this->redirectingAccessCode->getValue();
+        return ($this->redirectingAccessCode) ? $this->redirectingAccessCode->getValue() : null;
     }
 
     /**
@@ -104,7 +101,6 @@ class SystemServiceActivationAccessCodeGetResponse extends ComplexType implement
      */
     public function setClickToDialAccessCode($clickToDialAccessCode = null)
     {
-        if (!$clickToDialAccessCode) return $this;
         $this->clickToDialAccessCode = ($clickToDialAccessCode InstanceOf ServiceActivationAccessCode)
              ? $clickToDialAccessCode
              : new ServiceActivationAccessCode($clickToDialAccessCode);
@@ -118,6 +114,6 @@ class SystemServiceActivationAccessCodeGetResponse extends ComplexType implement
      */
     public function getClickToDialAccessCode()
     {
-        return $this->clickToDialAccessCode->getValue();
+        return ($this->clickToDialAccessCode) ? $this->clickToDialAccessCode->getValue() : null;
     }
 }

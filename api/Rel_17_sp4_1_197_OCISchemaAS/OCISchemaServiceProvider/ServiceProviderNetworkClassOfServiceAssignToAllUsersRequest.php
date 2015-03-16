@@ -26,13 +26,13 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderNetworkClassOfServiceAssignToAllUsersRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                  = 'ServiceProviderNetworkClassOfServiceAssignToAllUsersRequest';
-    protected $serviceProviderId     = null;
-    protected $networkClassOfService = null;
+    public    $name = 'ServiceProviderNetworkClassOfServiceAssignToAllUsersRequest';
+    protected $serviceProviderId;
+    protected $networkClassOfService;
 
     public function __construct(
-         $serviceProviderId,
-         $networkClassOfService
+         $serviceProviderId = '',
+         $networkClassOfService = ''
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setNetworkClassOfService($networkClassOfService);
@@ -51,7 +51,6 @@ class ServiceProviderNetworkClassOfServiceAssignToAllUsersRequest extends Comple
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
-        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
@@ -65,7 +64,7 @@ class ServiceProviderNetworkClassOfServiceAssignToAllUsersRequest extends Comple
      */
     public function getServiceProviderId()
     {
-        return $this->serviceProviderId->getValue();
+        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
     }
 
     /**
@@ -73,7 +72,6 @@ class ServiceProviderNetworkClassOfServiceAssignToAllUsersRequest extends Comple
      */
     public function setNetworkClassOfService($networkClassOfService = null)
     {
-        if (!$networkClassOfService) return $this;
         $this->networkClassOfService = ($networkClassOfService InstanceOf NetworkClassOfServiceName)
              ? $networkClassOfService
              : new NetworkClassOfServiceName($networkClassOfService);
@@ -87,6 +85,6 @@ class ServiceProviderNetworkClassOfServiceAssignToAllUsersRequest extends Comple
      */
     public function getNetworkClassOfService()
     {
-        return $this->networkClassOfService->getValue();
+        return ($this->networkClassOfService) ? $this->networkClassOfService->getValue() : null;
     }
 }

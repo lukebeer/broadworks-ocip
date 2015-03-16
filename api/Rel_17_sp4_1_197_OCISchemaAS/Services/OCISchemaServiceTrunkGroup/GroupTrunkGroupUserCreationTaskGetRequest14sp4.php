@@ -22,13 +22,13 @@ use Broadworks_OCIP\core\Client\Client;
 class GroupTrunkGroupUserCreationTaskGetRequest14sp4 extends ComplexType implements ComplexInterface
 {
     public    $responseType  = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceTrunkGroup\GroupTrunkGroupUserCreationTaskGetResponse14sp4';
-    public    $name          = 'GroupTrunkGroupUserCreationTaskGetRequest14sp4';
-    protected $trunkGroupKey = null;
-    protected $taskName      = null;
+    public    $name = 'GroupTrunkGroupUserCreationTaskGetRequest14sp4';
+    protected $trunkGroupKey;
+    protected $taskName;
 
     public function __construct(
-         TrunkGroupKey $trunkGroupKey,
-         $taskName
+         TrunkGroupKey $trunkGroupKey = '',
+         $taskName = ''
     ) {
         $this->setTrunkGroupKey($trunkGroupKey);
         $this->setTaskName($taskName);
@@ -47,8 +47,9 @@ class GroupTrunkGroupUserCreationTaskGetRequest14sp4 extends ComplexType impleme
      */
     public function setTrunkGroupKey(TrunkGroupKey $trunkGroupKey = null)
     {
-        if (!$trunkGroupKey) return $this;
-        $this->trunkGroupKey = $trunkGroupKey;
+        $this->trunkGroupKey = ($trunkGroupKey InstanceOf TrunkGroupKey)
+             ? $trunkGroupKey
+             : new TrunkGroupKey($trunkGroupKey);
         $this->trunkGroupKey->setName('trunkGroupKey');
         return $this;
     }
@@ -67,7 +68,6 @@ class GroupTrunkGroupUserCreationTaskGetRequest14sp4 extends ComplexType impleme
      */
     public function setTaskName($taskName = null)
     {
-        if (!$taskName) return $this;
         $this->taskName = ($taskName InstanceOf TrunkGroupUserCreationTaskName)
              ? $taskName
              : new TrunkGroupUserCreationTaskName($taskName);
@@ -81,6 +81,6 @@ class GroupTrunkGroupUserCreationTaskGetRequest14sp4 extends ComplexType impleme
      */
     public function getTaskName()
     {
-        return $this->taskName->getValue();
+        return ($this->taskName) ? $this->taskName->getValue() : null;
     }
 }

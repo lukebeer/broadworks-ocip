@@ -27,8 +27,8 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemCallCenterEnhancedReportingScheduledReportGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                 = 'SystemCallCenterEnhancedReportingScheduledReportGetListResponse';
-    protected $scheduledReportTable = null;
+    public    $name = 'SystemCallCenterEnhancedReportingScheduledReportGetListResponse';
+    protected $scheduledReportTable;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\SystemCallCenterEnhancedReportingScheduledReportGetListResponse $response
@@ -43,7 +43,6 @@ class SystemCallCenterEnhancedReportingScheduledReportGetListResponse extends Co
      */
     public function setScheduledReportTable(TableType $scheduledReportTable = null)
     {
-        if (!$scheduledReportTable) return $this;
         $this->scheduledReportTable = $scheduledReportTable;
         $this->scheduledReportTable->setName('scheduledReportTable');
         return $this;

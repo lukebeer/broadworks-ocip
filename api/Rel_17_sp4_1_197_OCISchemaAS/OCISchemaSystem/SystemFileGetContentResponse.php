@@ -19,8 +19,8 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemFileGetContentResponse extends ComplexType implements ComplexInterface
 {
-    public    $name        = 'SystemFileGetContentResponse';
-    protected $fileContent = null;
+    public    $name = 'SystemFileGetContentResponse';
+    protected $fileContent;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemFileGetContentResponse $response
@@ -35,7 +35,6 @@ class SystemFileGetContentResponse extends ComplexType implements ComplexInterfa
      */
     public function setFileContent(xs:base64Binary $fileContent = null)
     {
-        if (!$fileContent) return $this;
         $this->fileContent->setName('fileContent');
         return $this;
     }
@@ -46,6 +45,6 @@ class SystemFileGetContentResponse extends ComplexType implements ComplexInterfa
      */
     public function getFileContent()
     {
-        return $this->fileContent->getValue();
+        return ($this->fileContent) ? $this->fileContent->getValue() : null;
     }
 }

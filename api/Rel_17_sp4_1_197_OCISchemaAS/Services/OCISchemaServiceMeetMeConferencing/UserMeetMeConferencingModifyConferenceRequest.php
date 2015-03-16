@@ -27,21 +27,21 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserMeetMeConferencingModifyConferenceRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                         = 'UserMeetMeConferencingModifyConferenceRequest';
-    protected $userId                       = null;
-    protected $conferenceKey                = null;
-    protected $title                        = null;
-    protected $estimatedParticipants        = null;
-    protected $accountCode                  = null;
-    protected $muteAllAttendeesOnEntry      = null;
-    protected $endConferenceOnModeratorExit = null;
-    protected $moderatorRequired            = null;
-    protected $attendeeNotification         = null;
-    protected $conferenceSchedule           = null;
+    public    $name = 'UserMeetMeConferencingModifyConferenceRequest';
+    protected $userId;
+    protected $conferenceKey;
+    protected $title;
+    protected $estimatedParticipants;
+    protected $accountCode;
+    protected $muteAllAttendeesOnEntry;
+    protected $endConferenceOnModeratorExit;
+    protected $moderatorRequired;
+    protected $attendeeNotification;
+    protected $conferenceSchedule;
 
     public function __construct(
-         $userId,
-         MeetMeConferencingConferenceKey $conferenceKey,
+         $userId = '',
+         MeetMeConferencingConferenceKey $conferenceKey = '',
          $title = null,
          $estimatedParticipants = null,
          $accountCode = null,
@@ -76,7 +76,6 @@ class UserMeetMeConferencingModifyConferenceRequest extends ComplexType implemen
      */
     public function setUserId($userId = null)
     {
-        if (!$userId) return $this;
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
@@ -90,7 +89,7 @@ class UserMeetMeConferencingModifyConferenceRequest extends ComplexType implemen
      */
     public function getUserId()
     {
-        return $this->userId->getValue();
+        return ($this->userId) ? $this->userId->getValue() : null;
     }
 
     /**
@@ -98,8 +97,9 @@ class UserMeetMeConferencingModifyConferenceRequest extends ComplexType implemen
      */
     public function setConferenceKey(MeetMeConferencingConferenceKey $conferenceKey = null)
     {
-        if (!$conferenceKey) return $this;
-        $this->conferenceKey = $conferenceKey;
+        $this->conferenceKey = ($conferenceKey InstanceOf MeetMeConferencingConferenceKey)
+             ? $conferenceKey
+             : new MeetMeConferencingConferenceKey($conferenceKey);
         $this->conferenceKey->setName('conferenceKey');
         return $this;
     }
@@ -118,7 +118,6 @@ class UserMeetMeConferencingModifyConferenceRequest extends ComplexType implemen
      */
     public function setTitle($title = null)
     {
-        if (!$title) return $this;
         $this->title = ($title InstanceOf MeetMeConferencingConferenceTitle)
              ? $title
              : new MeetMeConferencingConferenceTitle($title);
@@ -132,7 +131,7 @@ class UserMeetMeConferencingModifyConferenceRequest extends ComplexType implemen
      */
     public function getTitle()
     {
-        return $this->title->getValue();
+        return ($this->title) ? $this->title->getValue() : null;
     }
 
     /**
@@ -140,7 +139,6 @@ class UserMeetMeConferencingModifyConferenceRequest extends ComplexType implemen
      */
     public function setEstimatedParticipants($estimatedParticipants = null)
     {
-        if (!$estimatedParticipants) return $this;
         $this->estimatedParticipants = ($estimatedParticipants InstanceOf MeetMeConferencingNumberOfParticipants)
              ? $estimatedParticipants
              : new MeetMeConferencingNumberOfParticipants($estimatedParticipants);
@@ -154,7 +152,7 @@ class UserMeetMeConferencingModifyConferenceRequest extends ComplexType implemen
      */
     public function getEstimatedParticipants()
     {
-        return $this->estimatedParticipants->getValue();
+        return ($this->estimatedParticipants) ? $this->estimatedParticipants->getValue() : null;
     }
 
     /**
@@ -162,7 +160,6 @@ class UserMeetMeConferencingModifyConferenceRequest extends ComplexType implemen
      */
     public function setAccountCode($accountCode = null)
     {
-        if (!$accountCode) return $this;
         $this->accountCode = ($accountCode InstanceOf MeetMeConferencingConferenceAccountCode)
              ? $accountCode
              : new MeetMeConferencingConferenceAccountCode($accountCode);
@@ -176,7 +173,7 @@ class UserMeetMeConferencingModifyConferenceRequest extends ComplexType implemen
      */
     public function getAccountCode()
     {
-        return $this->accountCode->getValue();
+        return ($this->accountCode) ? $this->accountCode->getValue() : null;
     }
 
     /**
@@ -184,7 +181,6 @@ class UserMeetMeConferencingModifyConferenceRequest extends ComplexType implemen
      */
     public function setMuteAllAttendeesOnEntry($muteAllAttendeesOnEntry = null)
     {
-        if (!$muteAllAttendeesOnEntry) return $this;
         $this->muteAllAttendeesOnEntry = new PrimitiveType($muteAllAttendeesOnEntry);
         $this->muteAllAttendeesOnEntry->setName('muteAllAttendeesOnEntry');
         return $this;
@@ -196,7 +192,7 @@ class UserMeetMeConferencingModifyConferenceRequest extends ComplexType implemen
      */
     public function getMuteAllAttendeesOnEntry()
     {
-        return $this->muteAllAttendeesOnEntry->getValue();
+        return ($this->muteAllAttendeesOnEntry) ? $this->muteAllAttendeesOnEntry->getValue() : null;
     }
 
     /**
@@ -204,7 +200,6 @@ class UserMeetMeConferencingModifyConferenceRequest extends ComplexType implemen
      */
     public function setEndConferenceOnModeratorExit($endConferenceOnModeratorExit = null)
     {
-        if (!$endConferenceOnModeratorExit) return $this;
         $this->endConferenceOnModeratorExit = new PrimitiveType($endConferenceOnModeratorExit);
         $this->endConferenceOnModeratorExit->setName('endConferenceOnModeratorExit');
         return $this;
@@ -216,7 +211,7 @@ class UserMeetMeConferencingModifyConferenceRequest extends ComplexType implemen
      */
     public function getEndConferenceOnModeratorExit()
     {
-        return $this->endConferenceOnModeratorExit->getValue();
+        return ($this->endConferenceOnModeratorExit) ? $this->endConferenceOnModeratorExit->getValue() : null;
     }
 
     /**
@@ -224,7 +219,6 @@ class UserMeetMeConferencingModifyConferenceRequest extends ComplexType implemen
      */
     public function setModeratorRequired($moderatorRequired = null)
     {
-        if (!$moderatorRequired) return $this;
         $this->moderatorRequired = new PrimitiveType($moderatorRequired);
         $this->moderatorRequired->setName('moderatorRequired');
         return $this;
@@ -236,7 +230,7 @@ class UserMeetMeConferencingModifyConferenceRequest extends ComplexType implemen
      */
     public function getModeratorRequired()
     {
-        return $this->moderatorRequired->getValue();
+        return ($this->moderatorRequired) ? $this->moderatorRequired->getValue() : null;
     }
 
     /**
@@ -244,7 +238,6 @@ class UserMeetMeConferencingModifyConferenceRequest extends ComplexType implemen
      */
     public function setAttendeeNotification($attendeeNotification = null)
     {
-        if (!$attendeeNotification) return $this;
         $this->attendeeNotification = ($attendeeNotification InstanceOf MeetMeConferencingConferenceAttendeeNotification)
              ? $attendeeNotification
              : new MeetMeConferencingConferenceAttendeeNotification($attendeeNotification);
@@ -258,7 +251,7 @@ class UserMeetMeConferencingModifyConferenceRequest extends ComplexType implemen
      */
     public function getAttendeeNotification()
     {
-        return $this->attendeeNotification->getValue();
+        return ($this->attendeeNotification) ? $this->attendeeNotification->getValue() : null;
     }
 
     /**
@@ -266,8 +259,9 @@ class UserMeetMeConferencingModifyConferenceRequest extends ComplexType implemen
      */
     public function setConferenceSchedule(MeetMeConferencingConferenceSchedule $conferenceSchedule = null)
     {
-        if (!$conferenceSchedule) return $this;
-        $this->conferenceSchedule = $conferenceSchedule;
+        $this->conferenceSchedule = ($conferenceSchedule InstanceOf MeetMeConferencingConferenceSchedule)
+             ? $conferenceSchedule
+             : new MeetMeConferencingConferenceSchedule($conferenceSchedule);
         $this->conferenceSchedule->setName('conferenceSchedule');
         return $this;
     }

@@ -20,10 +20,10 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemInstantConferencingGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                                       = 'SystemInstantConferencingGetResponse';
-    protected $defaultDropAllParticipantsWhenLeaderLeaves = null;
-    protected $defaultAllowDialOutInInvitation            = null;
-    protected $defaultFromAddress                         = null;
+    public    $name = 'SystemInstantConferencingGetResponse';
+    protected $defaultDropAllParticipantsWhenLeaderLeaves;
+    protected $defaultAllowDialOutInInvitation;
+    protected $defaultFromAddress;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing\SystemInstantConferencingGetResponse $response
@@ -38,7 +38,6 @@ class SystemInstantConferencingGetResponse extends ComplexType implements Comple
      */
     public function setDefaultDropAllParticipantsWhenLeaderLeaves($defaultDropAllParticipantsWhenLeaderLeaves = null)
     {
-        if (!$defaultDropAllParticipantsWhenLeaderLeaves) return $this;
         $this->defaultDropAllParticipantsWhenLeaderLeaves = new PrimitiveType($defaultDropAllParticipantsWhenLeaderLeaves);
         $this->defaultDropAllParticipantsWhenLeaderLeaves->setName('defaultDropAllParticipantsWhenLeaderLeaves');
         return $this;
@@ -50,7 +49,7 @@ class SystemInstantConferencingGetResponse extends ComplexType implements Comple
      */
     public function getDefaultDropAllParticipantsWhenLeaderLeaves()
     {
-        return $this->defaultDropAllParticipantsWhenLeaderLeaves->getValue();
+        return ($this->defaultDropAllParticipantsWhenLeaderLeaves) ? $this->defaultDropAllParticipantsWhenLeaderLeaves->getValue() : null;
     }
 
     /**
@@ -58,7 +57,6 @@ class SystemInstantConferencingGetResponse extends ComplexType implements Comple
      */
     public function setDefaultAllowDialOutInInvitation($defaultAllowDialOutInInvitation = null)
     {
-        if (!$defaultAllowDialOutInInvitation) return $this;
         $this->defaultAllowDialOutInInvitation = new PrimitiveType($defaultAllowDialOutInInvitation);
         $this->defaultAllowDialOutInInvitation->setName('defaultAllowDialOutInInvitation');
         return $this;
@@ -70,7 +68,7 @@ class SystemInstantConferencingGetResponse extends ComplexType implements Comple
      */
     public function getDefaultAllowDialOutInInvitation()
     {
-        return $this->defaultAllowDialOutInInvitation->getValue();
+        return ($this->defaultAllowDialOutInInvitation) ? $this->defaultAllowDialOutInInvitation->getValue() : null;
     }
 
     /**
@@ -78,7 +76,6 @@ class SystemInstantConferencingGetResponse extends ComplexType implements Comple
      */
     public function setDefaultFromAddress($defaultFromAddress = null)
     {
-        if (!$defaultFromAddress) return $this;
         $this->defaultFromAddress = ($defaultFromAddress InstanceOf EmailAddress)
              ? $defaultFromAddress
              : new EmailAddress($defaultFromAddress);
@@ -92,6 +89,6 @@ class SystemInstantConferencingGetResponse extends ComplexType implements Comple
      */
     public function getDefaultFromAddress()
     {
-        return $this->defaultFromAddress->getValue();
+        return ($this->defaultFromAddress) ? $this->defaultFromAddress->getValue() : null;
     }
 }

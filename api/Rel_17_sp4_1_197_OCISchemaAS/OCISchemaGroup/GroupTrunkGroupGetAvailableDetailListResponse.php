@@ -19,8 +19,8 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupTrunkGroupGetAvailableDetailListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name       = 'GroupTrunkGroupGetAvailableDetailListResponse';
-    protected $trunkGroup = null;
+    public    $name = 'GroupTrunkGroupGetAvailableDetailListResponse';
+    protected $trunkGroup;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupTrunkGroupGetAvailableDetailListResponse $response
@@ -35,7 +35,6 @@ class GroupTrunkGroupGetAvailableDetailListResponse extends ComplexType implemen
      */
     public function setTrunkGroup($trunkGroup = null)
     {
-        if (!$trunkGroup) return $this;
         $this->trunkGroup->setName('trunkGroup');
         return $this;
     }
@@ -46,6 +45,6 @@ class GroupTrunkGroupGetAvailableDetailListResponse extends ComplexType implemen
      */
     public function getTrunkGroup()
     {
-        return $this->trunkGroup->getValue();
+        return ($this->trunkGroup) ? $this->trunkGroup->getValue() : null;
     }
 }

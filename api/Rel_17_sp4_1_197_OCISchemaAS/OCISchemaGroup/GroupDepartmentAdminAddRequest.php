@@ -25,17 +25,17 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupDepartmentAdminAddRequest extends ComplexType implements ComplexInterface
 {
-    public    $name          = 'GroupDepartmentAdminAddRequest';
-    protected $departmentKey = null;
-    protected $userId        = null;
-    protected $firstName     = null;
-    protected $lastName      = null;
-    protected $password      = null;
-    protected $language      = null;
+    public    $name = 'GroupDepartmentAdminAddRequest';
+    protected $departmentKey;
+    protected $userId;
+    protected $firstName;
+    protected $lastName;
+    protected $password;
+    protected $language;
 
     public function __construct(
-         GroupDepartmentKey $departmentKey,
-         $userId,
+         GroupDepartmentKey $departmentKey = '',
+         $userId = '',
          $firstName = null,
          $lastName = null,
          $password = null,
@@ -62,8 +62,9 @@ class GroupDepartmentAdminAddRequest extends ComplexType implements ComplexInter
      */
     public function setDepartmentKey(GroupDepartmentKey $departmentKey = null)
     {
-        if (!$departmentKey) return $this;
-        $this->departmentKey = $departmentKey;
+        $this->departmentKey = ($departmentKey InstanceOf GroupDepartmentKey)
+             ? $departmentKey
+             : new GroupDepartmentKey($departmentKey);
         $this->departmentKey->setName('departmentKey');
         return $this;
     }
@@ -82,7 +83,6 @@ class GroupDepartmentAdminAddRequest extends ComplexType implements ComplexInter
      */
     public function setUserId($userId = null)
     {
-        if (!$userId) return $this;
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
@@ -96,7 +96,7 @@ class GroupDepartmentAdminAddRequest extends ComplexType implements ComplexInter
      */
     public function getUserId()
     {
-        return $this->userId->getValue();
+        return ($this->userId) ? $this->userId->getValue() : null;
     }
 
     /**
@@ -104,7 +104,6 @@ class GroupDepartmentAdminAddRequest extends ComplexType implements ComplexInter
      */
     public function setFirstName($firstName = null)
     {
-        if (!$firstName) return $this;
         $this->firstName = ($firstName InstanceOf FirstName)
              ? $firstName
              : new FirstName($firstName);
@@ -118,7 +117,7 @@ class GroupDepartmentAdminAddRequest extends ComplexType implements ComplexInter
      */
     public function getFirstName()
     {
-        return $this->firstName->getValue();
+        return ($this->firstName) ? $this->firstName->getValue() : null;
     }
 
     /**
@@ -126,7 +125,6 @@ class GroupDepartmentAdminAddRequest extends ComplexType implements ComplexInter
      */
     public function setLastName($lastName = null)
     {
-        if (!$lastName) return $this;
         $this->lastName = ($lastName InstanceOf LastName)
              ? $lastName
              : new LastName($lastName);
@@ -140,7 +138,7 @@ class GroupDepartmentAdminAddRequest extends ComplexType implements ComplexInter
      */
     public function getLastName()
     {
-        return $this->lastName->getValue();
+        return ($this->lastName) ? $this->lastName->getValue() : null;
     }
 
     /**
@@ -148,7 +146,6 @@ class GroupDepartmentAdminAddRequest extends ComplexType implements ComplexInter
      */
     public function setPassword($password = null)
     {
-        if (!$password) return $this;
         $this->password = ($password InstanceOf Password)
              ? $password
              : new Password($password);
@@ -162,7 +159,7 @@ class GroupDepartmentAdminAddRequest extends ComplexType implements ComplexInter
      */
     public function getPassword()
     {
-        return $this->password->getValue();
+        return ($this->password) ? $this->password->getValue() : null;
     }
 
     /**
@@ -170,7 +167,6 @@ class GroupDepartmentAdminAddRequest extends ComplexType implements ComplexInter
      */
     public function setLanguage($language = null)
     {
-        if (!$language) return $this;
         $this->language = ($language InstanceOf Language)
              ? $language
              : new Language($language);
@@ -184,6 +180,6 @@ class GroupDepartmentAdminAddRequest extends ComplexType implements ComplexInter
      */
     public function getLanguage()
     {
-        return $this->language->getValue();
+        return ($this->language) ? $this->language->getValue() : null;
     }
 }

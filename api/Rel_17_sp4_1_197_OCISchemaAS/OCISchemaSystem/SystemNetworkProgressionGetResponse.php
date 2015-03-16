@@ -20,9 +20,9 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemNetworkProgressionGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name              = 'SystemNetworkProgressionGetResponse';
-    protected $isActive          = null;
-    protected $waitPeriodSeconds = null;
+    public    $name = 'SystemNetworkProgressionGetResponse';
+    protected $isActive;
+    protected $waitPeriodSeconds;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemNetworkProgressionGetResponse $response
@@ -37,7 +37,6 @@ class SystemNetworkProgressionGetResponse extends ComplexType implements Complex
      */
     public function setIsActive($isActive = null)
     {
-        if (!$isActive) return $this;
         $this->isActive = new PrimitiveType($isActive);
         $this->isActive->setName('isActive');
         return $this;
@@ -49,7 +48,7 @@ class SystemNetworkProgressionGetResponse extends ComplexType implements Complex
      */
     public function getIsActive()
     {
-        return $this->isActive->getValue();
+        return ($this->isActive) ? $this->isActive->getValue() : null;
     }
 
     /**
@@ -57,7 +56,6 @@ class SystemNetworkProgressionGetResponse extends ComplexType implements Complex
      */
     public function setWaitPeriodSeconds($waitPeriodSeconds = null)
     {
-        if (!$waitPeriodSeconds) return $this;
         $this->waitPeriodSeconds = ($waitPeriodSeconds InstanceOf NetworkProgressionWaitPeriodSeconds)
              ? $waitPeriodSeconds
              : new NetworkProgressionWaitPeriodSeconds($waitPeriodSeconds);
@@ -71,6 +69,6 @@ class SystemNetworkProgressionGetResponse extends ComplexType implements Complex
      */
     public function getWaitPeriodSeconds()
     {
-        return $this->waitPeriodSeconds->getValue();
+        return ($this->waitPeriodSeconds) ? $this->waitPeriodSeconds->getValue() : null;
     }
 }

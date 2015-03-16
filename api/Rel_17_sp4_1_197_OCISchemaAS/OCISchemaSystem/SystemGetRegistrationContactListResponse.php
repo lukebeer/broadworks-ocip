@@ -19,8 +19,8 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemGetRegistrationContactListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name              = 'SystemGetRegistrationContactListResponse';
-    protected $registrationTable = null;
+    public    $name = 'SystemGetRegistrationContactListResponse';
+    protected $registrationTable;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemGetRegistrationContactListResponse $response
@@ -35,7 +35,6 @@ class SystemGetRegistrationContactListResponse extends ComplexType implements Co
      */
     public function setRegistrationTable(TableType $registrationTable = null)
     {
-        if (!$registrationTable) return $this;
         $this->registrationTable = $registrationTable;
         $this->registrationTable->setName('registrationTable');
         return $this;

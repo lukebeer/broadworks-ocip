@@ -21,13 +21,13 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class NetworkClassOfServiceCommunicationBarringProfile extends ComplexType implements ComplexInterface
 {
-    public    $name      = 'NetworkClassOfServiceCommunicationBarringProfile';
-    protected $name      = null;
-    protected $isPrimary = null;
+    public    $name = 'NetworkClassOfServiceCommunicationBarringProfile';
+    protected $name;
+    protected $isPrimary;
 
     public function __construct(
-         $name,
-         $isPrimary
+         $name = '',
+         $isPrimary = ''
     ) {
         $this->setName($name);
         $this->setIsPrimary($isPrimary);
@@ -46,7 +46,6 @@ class NetworkClassOfServiceCommunicationBarringProfile extends ComplexType imple
      */
     public function setName($name = null)
     {
-        if (!$name) return $this;
         $this->name = new SimpleContent($name);
         $this->name->setName('name');
         return $this;
@@ -58,7 +57,7 @@ class NetworkClassOfServiceCommunicationBarringProfile extends ComplexType imple
      */
     public function getName()
     {
-        return $this->name->getValue();
+        return ($this->name) ? $this->name->getValue() : null;
     }
 
     /**
@@ -66,7 +65,6 @@ class NetworkClassOfServiceCommunicationBarringProfile extends ComplexType imple
      */
     public function setIsPrimary($isPrimary = null)
     {
-        if (!$isPrimary) return $this;
         $this->isPrimary = new SimpleContent($isPrimary);
         $this->isPrimary->setName('isPrimary');
         return $this;
@@ -78,6 +76,6 @@ class NetworkClassOfServiceCommunicationBarringProfile extends ComplexType imple
      */
     public function getIsPrimary()
     {
-        return $this->isPrimary->getValue();
+        return ($this->isPrimary) ? $this->isPrimary->getValue() : null;
     }
 }

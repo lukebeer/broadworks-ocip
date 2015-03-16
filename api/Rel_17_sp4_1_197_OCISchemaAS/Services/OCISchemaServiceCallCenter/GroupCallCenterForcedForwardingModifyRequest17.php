@@ -25,21 +25,21 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupCallCenterForcedForwardingModifyRequest17 extends ComplexType implements ComplexInterface
 {
-    public    $name                             = 'GroupCallCenterForcedForwardingModifyRequest17';
-    protected $serviceUserId                    = null;
-    protected $isActive                         = null;
-    protected $forwardToPhoneNumber             = null;
-    protected $allowEnableViaFAC                = null;
-    protected $playAnnouncementBeforeForwarding = null;
-    protected $audioMessageSelection            = null;
-    protected $audioUrlList                     = null;
-    protected $audioFileList                    = null;
-    protected $videoMessageSelection            = null;
-    protected $videoUrlList                     = null;
-    protected $videoFileList                    = null;
+    public    $name = 'GroupCallCenterForcedForwardingModifyRequest17';
+    protected $serviceUserId;
+    protected $isActive;
+    protected $forwardToPhoneNumber;
+    protected $allowEnableViaFAC;
+    protected $playAnnouncementBeforeForwarding;
+    protected $audioMessageSelection;
+    protected $audioUrlList;
+    protected $audioFileList;
+    protected $videoMessageSelection;
+    protected $videoUrlList;
+    protected $videoFileList;
 
     public function __construct(
-         $serviceUserId,
+         $serviceUserId = '',
          $isActive = null,
          $forwardToPhoneNumber = null,
          $allowEnableViaFAC = null,
@@ -77,7 +77,6 @@ class GroupCallCenterForcedForwardingModifyRequest17 extends ComplexType impleme
      */
     public function setServiceUserId($serviceUserId = null)
     {
-        if (!$serviceUserId) return $this;
         $this->serviceUserId = ($serviceUserId InstanceOf UserId)
              ? $serviceUserId
              : new UserId($serviceUserId);
@@ -91,7 +90,7 @@ class GroupCallCenterForcedForwardingModifyRequest17 extends ComplexType impleme
      */
     public function getServiceUserId()
     {
-        return $this->serviceUserId->getValue();
+        return ($this->serviceUserId) ? $this->serviceUserId->getValue() : null;
     }
 
     /**
@@ -99,7 +98,6 @@ class GroupCallCenterForcedForwardingModifyRequest17 extends ComplexType impleme
      */
     public function setIsActive($isActive = null)
     {
-        if (!$isActive) return $this;
         $this->isActive = new PrimitiveType($isActive);
         $this->isActive->setName('isActive');
         return $this;
@@ -111,7 +109,7 @@ class GroupCallCenterForcedForwardingModifyRequest17 extends ComplexType impleme
      */
     public function getIsActive()
     {
-        return $this->isActive->getValue();
+        return ($this->isActive) ? $this->isActive->getValue() : null;
     }
 
     /**
@@ -119,7 +117,6 @@ class GroupCallCenterForcedForwardingModifyRequest17 extends ComplexType impleme
      */
     public function setForwardToPhoneNumber($forwardToPhoneNumber = null)
     {
-        if (!$forwardToPhoneNumber) return $this;
         $this->forwardToPhoneNumber = ($forwardToPhoneNumber InstanceOf OutgoingDNorSIPURI)
              ? $forwardToPhoneNumber
              : new OutgoingDNorSIPURI($forwardToPhoneNumber);
@@ -133,7 +130,7 @@ class GroupCallCenterForcedForwardingModifyRequest17 extends ComplexType impleme
      */
     public function getForwardToPhoneNumber()
     {
-        return $this->forwardToPhoneNumber->getValue();
+        return ($this->forwardToPhoneNumber) ? $this->forwardToPhoneNumber->getValue() : null;
     }
 
     /**
@@ -141,7 +138,6 @@ class GroupCallCenterForcedForwardingModifyRequest17 extends ComplexType impleme
      */
     public function setAllowEnableViaFAC($allowEnableViaFAC = null)
     {
-        if (!$allowEnableViaFAC) return $this;
         $this->allowEnableViaFAC = new PrimitiveType($allowEnableViaFAC);
         $this->allowEnableViaFAC->setName('allowEnableViaFAC');
         return $this;
@@ -153,7 +149,7 @@ class GroupCallCenterForcedForwardingModifyRequest17 extends ComplexType impleme
      */
     public function getAllowEnableViaFAC()
     {
-        return $this->allowEnableViaFAC->getValue();
+        return ($this->allowEnableViaFAC) ? $this->allowEnableViaFAC->getValue() : null;
     }
 
     /**
@@ -161,7 +157,6 @@ class GroupCallCenterForcedForwardingModifyRequest17 extends ComplexType impleme
      */
     public function setPlayAnnouncementBeforeForwarding($playAnnouncementBeforeForwarding = null)
     {
-        if (!$playAnnouncementBeforeForwarding) return $this;
         $this->playAnnouncementBeforeForwarding = new PrimitiveType($playAnnouncementBeforeForwarding);
         $this->playAnnouncementBeforeForwarding->setName('playAnnouncementBeforeForwarding');
         return $this;
@@ -173,7 +168,7 @@ class GroupCallCenterForcedForwardingModifyRequest17 extends ComplexType impleme
      */
     public function getPlayAnnouncementBeforeForwarding()
     {
-        return $this->playAnnouncementBeforeForwarding->getValue();
+        return ($this->playAnnouncementBeforeForwarding) ? $this->playAnnouncementBeforeForwarding->getValue() : null;
     }
 
     /**
@@ -181,7 +176,6 @@ class GroupCallCenterForcedForwardingModifyRequest17 extends ComplexType impleme
      */
     public function setAudioMessageSelection($audioMessageSelection = null)
     {
-        if (!$audioMessageSelection) return $this;
         $this->audioMessageSelection = ($audioMessageSelection InstanceOf ExtendedFileResourceSelection)
              ? $audioMessageSelection
              : new ExtendedFileResourceSelection($audioMessageSelection);
@@ -195,7 +189,7 @@ class GroupCallCenterForcedForwardingModifyRequest17 extends ComplexType impleme
      */
     public function getAudioMessageSelection()
     {
-        return $this->audioMessageSelection->getValue();
+        return ($this->audioMessageSelection) ? $this->audioMessageSelection->getValue() : null;
     }
 
     /**
@@ -203,8 +197,9 @@ class GroupCallCenterForcedForwardingModifyRequest17 extends ComplexType impleme
      */
     public function setAudioUrlList(CallCenterAnnouncementURLListModify $audioUrlList = null)
     {
-        if (!$audioUrlList) return $this;
-        $this->audioUrlList = $audioUrlList;
+        $this->audioUrlList = ($audioUrlList InstanceOf CallCenterAnnouncementURLListModify)
+             ? $audioUrlList
+             : new CallCenterAnnouncementURLListModify($audioUrlList);
         $this->audioUrlList->setName('audioUrlList');
         return $this;
     }
@@ -223,8 +218,9 @@ class GroupCallCenterForcedForwardingModifyRequest17 extends ComplexType impleme
      */
     public function setAudioFileList(CallCenterAnnouncementFileListModify $audioFileList = null)
     {
-        if (!$audioFileList) return $this;
-        $this->audioFileList = $audioFileList;
+        $this->audioFileList = ($audioFileList InstanceOf CallCenterAnnouncementFileListModify)
+             ? $audioFileList
+             : new CallCenterAnnouncementFileListModify($audioFileList);
         $this->audioFileList->setName('audioFileList');
         return $this;
     }
@@ -243,7 +239,6 @@ class GroupCallCenterForcedForwardingModifyRequest17 extends ComplexType impleme
      */
     public function setVideoMessageSelection($videoMessageSelection = null)
     {
-        if (!$videoMessageSelection) return $this;
         $this->videoMessageSelection = ($videoMessageSelection InstanceOf ExtendedFileResourceSelection)
              ? $videoMessageSelection
              : new ExtendedFileResourceSelection($videoMessageSelection);
@@ -257,7 +252,7 @@ class GroupCallCenterForcedForwardingModifyRequest17 extends ComplexType impleme
      */
     public function getVideoMessageSelection()
     {
-        return $this->videoMessageSelection->getValue();
+        return ($this->videoMessageSelection) ? $this->videoMessageSelection->getValue() : null;
     }
 
     /**
@@ -265,8 +260,9 @@ class GroupCallCenterForcedForwardingModifyRequest17 extends ComplexType impleme
      */
     public function setVideoUrlList(CallCenterAnnouncementURLListModify $videoUrlList = null)
     {
-        if (!$videoUrlList) return $this;
-        $this->videoUrlList = $videoUrlList;
+        $this->videoUrlList = ($videoUrlList InstanceOf CallCenterAnnouncementURLListModify)
+             ? $videoUrlList
+             : new CallCenterAnnouncementURLListModify($videoUrlList);
         $this->videoUrlList->setName('videoUrlList');
         return $this;
     }
@@ -285,8 +281,9 @@ class GroupCallCenterForcedForwardingModifyRequest17 extends ComplexType impleme
      */
     public function setVideoFileList(CallCenterAnnouncementFileListModify $videoFileList = null)
     {
-        if (!$videoFileList) return $this;
-        $this->videoFileList = $videoFileList;
+        $this->videoFileList = ($videoFileList InstanceOf CallCenterAnnouncementFileListModify)
+             ? $videoFileList
+             : new CallCenterAnnouncementFileListModify($videoFileList);
         $this->videoFileList->setName('videoFileList');
         return $this;
     }

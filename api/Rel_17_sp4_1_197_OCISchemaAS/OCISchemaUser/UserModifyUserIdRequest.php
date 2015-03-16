@@ -20,13 +20,13 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserModifyUserIdRequest extends ComplexType implements ComplexInterface
 {
-    public    $name      = 'UserModifyUserIdRequest';
-    protected $userId    = null;
-    protected $newUserId = null;
+    public    $name = 'UserModifyUserIdRequest';
+    protected $userId;
+    protected $newUserId;
 
     public function __construct(
-         $userId,
-         $newUserId
+         $userId = '',
+         $newUserId = ''
     ) {
         $this->setUserId($userId);
         $this->setNewUserId($newUserId);
@@ -45,7 +45,6 @@ class UserModifyUserIdRequest extends ComplexType implements ComplexInterface
      */
     public function setUserId($userId = null)
     {
-        if (!$userId) return $this;
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
@@ -59,7 +58,7 @@ class UserModifyUserIdRequest extends ComplexType implements ComplexInterface
      */
     public function getUserId()
     {
-        return $this->userId->getValue();
+        return ($this->userId) ? $this->userId->getValue() : null;
     }
 
     /**
@@ -67,7 +66,6 @@ class UserModifyUserIdRequest extends ComplexType implements ComplexInterface
      */
     public function setNewUserId($newUserId = null)
     {
-        if (!$newUserId) return $this;
         $this->newUserId = ($newUserId InstanceOf UserId)
              ? $newUserId
              : new UserId($newUserId);
@@ -81,6 +79,6 @@ class UserModifyUserIdRequest extends ComplexType implements ComplexInterface
      */
     public function getNewUserId()
     {
-        return $this->newUserId->getValue();
+        return ($this->newUserId) ? $this->newUserId->getValue() : null;
     }
 }

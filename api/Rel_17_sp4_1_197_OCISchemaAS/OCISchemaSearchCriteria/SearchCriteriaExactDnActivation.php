@@ -19,11 +19,11 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SearchCriteriaExactDnActivation extends ComplexType implements ComplexInterface
 {
-    public    $name      = 'SearchCriteriaExactDnActivation';
-    protected $activated = null;
+    public    $name = 'SearchCriteriaExactDnActivation';
+    protected $activated;
 
     public function __construct(
-         $activated
+         $activated = ''
     ) {
         $this->setActivated($activated);
     }
@@ -41,7 +41,6 @@ class SearchCriteriaExactDnActivation extends ComplexType implements ComplexInte
      */
     public function setActivated($activated = null)
     {
-        if (!$activated) return $this;
         $this->activated = new PrimitiveType($activated);
         $this->activated->setName('activated');
         return $this;
@@ -53,6 +52,6 @@ class SearchCriteriaExactDnActivation extends ComplexType implements ComplexInte
      */
     public function getActivated()
     {
-        return $this->activated->getValue();
+        return ($this->activated) ? $this->activated->getValue() : null;
     }
 }

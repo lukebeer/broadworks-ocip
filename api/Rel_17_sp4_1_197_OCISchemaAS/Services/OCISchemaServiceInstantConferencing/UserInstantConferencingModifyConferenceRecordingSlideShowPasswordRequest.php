@@ -22,16 +22,16 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserInstantConferencingModifyConferenceRecordingSlideShowPasswordRequest extends ComplexType implements ComplexInterface
 {
-    public    $name              = 'UserInstantConferencingModifyConferenceRecordingSlideShowPasswordRequest';
-    protected $userId            = null;
-    protected $recordingKey      = null;
-    protected $recordingCallId   = null;
-    protected $slideShowPassword = null;
+    public    $name = 'UserInstantConferencingModifyConferenceRecordingSlideShowPasswordRequest';
+    protected $userId;
+    protected $recordingKey;
+    protected $recordingCallId;
+    protected $slideShowPassword;
 
     public function __construct(
-         $userId,
-         InstantConferencingRecordingKey $recordingKey,
-         $recordingCallId,
+         $userId = '',
+         InstantConferencingRecordingKey $recordingKey = '',
+         $recordingCallId = '',
          $slideShowPassword = null
     ) {
         $this->setUserId($userId);
@@ -53,7 +53,6 @@ class UserInstantConferencingModifyConferenceRecordingSlideShowPasswordRequest e
      */
     public function setUserId($userId = null)
     {
-        if (!$userId) return $this;
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
@@ -67,7 +66,7 @@ class UserInstantConferencingModifyConferenceRecordingSlideShowPasswordRequest e
      */
     public function getUserId()
     {
-        return $this->userId->getValue();
+        return ($this->userId) ? $this->userId->getValue() : null;
     }
 
     /**
@@ -75,8 +74,9 @@ class UserInstantConferencingModifyConferenceRecordingSlideShowPasswordRequest e
      */
     public function setRecordingKey(InstantConferencingRecordingKey $recordingKey = null)
     {
-        if (!$recordingKey) return $this;
-        $this->recordingKey = $recordingKey;
+        $this->recordingKey = ($recordingKey InstanceOf InstantConferencingRecordingKey)
+             ? $recordingKey
+             : new InstantConferencingRecordingKey($recordingKey);
         $this->recordingKey->setName('recordingKey');
         return $this;
     }
@@ -95,7 +95,6 @@ class UserInstantConferencingModifyConferenceRecordingSlideShowPasswordRequest e
      */
     public function setRecordingCallId($recordingCallId = null)
     {
-        if (!$recordingCallId) return $this;
         $this->recordingCallId = ($recordingCallId InstanceOf InstantConferencingRecordingCallId)
              ? $recordingCallId
              : new InstantConferencingRecordingCallId($recordingCallId);
@@ -109,7 +108,7 @@ class UserInstantConferencingModifyConferenceRecordingSlideShowPasswordRequest e
      */
     public function getRecordingCallId()
     {
-        return $this->recordingCallId->getValue();
+        return ($this->recordingCallId) ? $this->recordingCallId->getValue() : null;
     }
 
     /**
@@ -117,7 +116,6 @@ class UserInstantConferencingModifyConferenceRecordingSlideShowPasswordRequest e
      */
     public function setSlideShowPassword($slideShowPassword = null)
     {
-        if (!$slideShowPassword) return $this;
         $this->slideShowPassword = ($slideShowPassword InstanceOf InstantConferencingSlideShowPassword)
              ? $slideShowPassword
              : new InstantConferencingSlideShowPassword($slideShowPassword);
@@ -131,6 +129,6 @@ class UserInstantConferencingModifyConferenceRecordingSlideShowPasswordRequest e
      */
     public function getSlideShowPassword()
     {
-        return $this->slideShowPassword->getValue();
+        return ($this->slideShowPassword) ? $this->slideShowPassword->getValue() : null;
     }
 }

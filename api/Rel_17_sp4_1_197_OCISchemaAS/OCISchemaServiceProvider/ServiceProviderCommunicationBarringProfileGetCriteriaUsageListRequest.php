@@ -23,13 +23,13 @@ use Broadworks_OCIP\core\Client\Client;
 class ServiceProviderCommunicationBarringProfileGetCriteriaUsageListRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderCommunicationBarringProfileGetCriteriaUsageListResponse';
-    public    $name              = 'ServiceProviderCommunicationBarringProfileGetCriteriaUsageListRequest';
-    protected $serviceProviderId = null;
-    protected $criteriaName      = null;
+    public    $name = 'ServiceProviderCommunicationBarringProfileGetCriteriaUsageListRequest';
+    protected $serviceProviderId;
+    protected $criteriaName;
 
     public function __construct(
-         $serviceProviderId,
-         $criteriaName
+         $serviceProviderId = '',
+         $criteriaName = ''
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setCriteriaName($criteriaName);
@@ -48,7 +48,6 @@ class ServiceProviderCommunicationBarringProfileGetCriteriaUsageListRequest exte
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
-        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
@@ -62,7 +61,7 @@ class ServiceProviderCommunicationBarringProfileGetCriteriaUsageListRequest exte
      */
     public function getServiceProviderId()
     {
-        return $this->serviceProviderId->getValue();
+        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
     }
 
     /**
@@ -70,7 +69,6 @@ class ServiceProviderCommunicationBarringProfileGetCriteriaUsageListRequest exte
      */
     public function setCriteriaName($criteriaName = null)
     {
-        if (!$criteriaName) return $this;
         $this->criteriaName = ($criteriaName InstanceOf CommunicationBarringCriteriaName)
              ? $criteriaName
              : new CommunicationBarringCriteriaName($criteriaName);
@@ -84,6 +82,6 @@ class ServiceProviderCommunicationBarringProfileGetCriteriaUsageListRequest exte
      */
     public function getCriteriaName()
     {
-        return $this->criteriaName->getValue();
+        return ($this->criteriaName) ? $this->criteriaName->getValue() : null;
     }
 }

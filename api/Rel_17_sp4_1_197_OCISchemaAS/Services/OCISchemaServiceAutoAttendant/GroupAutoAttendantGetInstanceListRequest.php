@@ -24,14 +24,14 @@ use Broadworks_OCIP\core\Client\Client;
 class GroupAutoAttendantGetInstanceListRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType        = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceAutoAttendant\GroupAutoAttendantGetInstanceListResponse';
-    public    $name                = 'GroupAutoAttendantGetInstanceListRequest';
-    protected $serviceProviderId   = null;
-    protected $groupId             = null;
-    protected $groupDepartmentName = null;
+    public    $name = 'GroupAutoAttendantGetInstanceListRequest';
+    protected $serviceProviderId;
+    protected $groupId;
+    protected $groupDepartmentName;
 
     public function __construct(
-         $serviceProviderId,
-         $groupId,
+         $serviceProviderId = '',
+         $groupId = '',
          $groupDepartmentName = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
@@ -52,7 +52,6 @@ class GroupAutoAttendantGetInstanceListRequest extends ComplexType implements Co
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
-        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
@@ -66,7 +65,7 @@ class GroupAutoAttendantGetInstanceListRequest extends ComplexType implements Co
      */
     public function getServiceProviderId()
     {
-        return $this->serviceProviderId->getValue();
+        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
     }
 
     /**
@@ -74,7 +73,6 @@ class GroupAutoAttendantGetInstanceListRequest extends ComplexType implements Co
      */
     public function setGroupId($groupId = null)
     {
-        if (!$groupId) return $this;
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
@@ -88,7 +86,7 @@ class GroupAutoAttendantGetInstanceListRequest extends ComplexType implements Co
      */
     public function getGroupId()
     {
-        return $this->groupId->getValue();
+        return ($this->groupId) ? $this->groupId->getValue() : null;
     }
 
     /**
@@ -96,7 +94,6 @@ class GroupAutoAttendantGetInstanceListRequest extends ComplexType implements Co
      */
     public function setGroupDepartmentName($groupDepartmentName = null)
     {
-        if (!$groupDepartmentName) return $this;
         $this->groupDepartmentName = ($groupDepartmentName InstanceOf DepartmentName)
              ? $groupDepartmentName
              : new DepartmentName($groupDepartmentName);
@@ -110,6 +107,6 @@ class GroupAutoAttendantGetInstanceListRequest extends ComplexType implements Co
      */
     public function getGroupDepartmentName()
     {
-        return $this->groupDepartmentName->getValue();
+        return ($this->groupDepartmentName) ? $this->groupDepartmentName->getValue() : null;
     }
 }

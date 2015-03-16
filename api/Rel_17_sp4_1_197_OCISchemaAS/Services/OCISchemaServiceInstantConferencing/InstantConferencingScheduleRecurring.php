@@ -20,17 +20,17 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class InstantConferencingScheduleRecurring extends ComplexType implements ComplexInterface
 {
-    public    $name                = 'InstantConferencingScheduleRecurring';
-    protected $startTime           = null;
-    protected $duration            = null;
-    protected $recurrenceTimeFrame = null;
-    protected $recurrenceSchedule  = null;
+    public    $name = 'InstantConferencingScheduleRecurring';
+    protected $startTime;
+    protected $duration;
+    protected $recurrenceTimeFrame;
+    protected $recurrenceSchedule;
 
     public function __construct(
-         $startTime,
-         $duration,
-         $recurrenceTimeFrame,
-         InstantConferencingRecurrenceSchedule $recurrenceSchedule
+         $startTime = '',
+         $duration = '',
+         $recurrenceTimeFrame = '',
+         InstantConferencingRecurrenceSchedule $recurrenceSchedule = ''
     ) {
         $this->setStartTime($startTime);
         $this->setDuration($duration);
@@ -51,7 +51,6 @@ class InstantConferencingScheduleRecurring extends ComplexType implements Comple
      */
     public function setStartTime(xs:time $startTime = null)
     {
-        if (!$startTime) return $this;
         $this->startTime->setName('startTime');
         return $this;
     }
@@ -62,7 +61,7 @@ class InstantConferencingScheduleRecurring extends ComplexType implements Comple
      */
     public function getStartTime()
     {
-        return $this->startTime->getValue();
+        return ($this->startTime) ? $this->startTime->getValue() : null;
     }
 
     /**
@@ -70,7 +69,6 @@ class InstantConferencingScheduleRecurring extends ComplexType implements Comple
      */
     public function setDuration(xs:duration $duration = null)
     {
-        if (!$duration) return $this;
         $this->duration->setName('duration');
         return $this;
     }
@@ -81,7 +79,7 @@ class InstantConferencingScheduleRecurring extends ComplexType implements Comple
      */
     public function getDuration()
     {
-        return $this->duration->getValue();
+        return ($this->duration) ? $this->duration->getValue() : null;
     }
 
     /**
@@ -89,7 +87,6 @@ class InstantConferencingScheduleRecurring extends ComplexType implements Comple
      */
     public function setRecurrenceTimeFrame($recurrenceTimeFrame = null)
     {
-        if (!$recurrenceTimeFrame) return $this;
         $this->recurrenceTimeFrame = ($recurrenceTimeFrame InstanceOf InstantConferencingRecurrenceTimeFrame)
              ? $recurrenceTimeFrame
              : new InstantConferencingRecurrenceTimeFrame($recurrenceTimeFrame);
@@ -103,7 +100,7 @@ class InstantConferencingScheduleRecurring extends ComplexType implements Comple
      */
     public function getRecurrenceTimeFrame()
     {
-        return $this->recurrenceTimeFrame->getValue();
+        return ($this->recurrenceTimeFrame) ? $this->recurrenceTimeFrame->getValue() : null;
     }
 
     /**
@@ -111,8 +108,9 @@ class InstantConferencingScheduleRecurring extends ComplexType implements Comple
      */
     public function setRecurrenceSchedule(InstantConferencingRecurrenceSchedule $recurrenceSchedule = null)
     {
-        if (!$recurrenceSchedule) return $this;
-        $this->recurrenceSchedule = $recurrenceSchedule;
+        $this->recurrenceSchedule = ($recurrenceSchedule InstanceOf InstantConferencingRecurrenceSchedule)
+             ? $recurrenceSchedule
+             : new InstantConferencingRecurrenceSchedule($recurrenceSchedule);
         $this->recurrenceSchedule->setName('recurrenceSchedule');
         return $this;
     }

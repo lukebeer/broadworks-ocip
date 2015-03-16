@@ -21,13 +21,13 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderAccessDeviceDeleteRequest extends ComplexType implements ComplexInterface
 {
-    public    $name              = 'ServiceProviderAccessDeviceDeleteRequest';
-    protected $serviceProviderId = null;
-    protected $deviceName        = null;
+    public    $name = 'ServiceProviderAccessDeviceDeleteRequest';
+    protected $serviceProviderId;
+    protected $deviceName;
 
     public function __construct(
-         $serviceProviderId,
-         $deviceName
+         $serviceProviderId = '',
+         $deviceName = ''
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setDeviceName($deviceName);
@@ -46,7 +46,6 @@ class ServiceProviderAccessDeviceDeleteRequest extends ComplexType implements Co
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
-        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
@@ -60,7 +59,7 @@ class ServiceProviderAccessDeviceDeleteRequest extends ComplexType implements Co
      */
     public function getServiceProviderId()
     {
-        return $this->serviceProviderId->getValue();
+        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
     }
 
     /**
@@ -68,7 +67,6 @@ class ServiceProviderAccessDeviceDeleteRequest extends ComplexType implements Co
      */
     public function setDeviceName($deviceName = null)
     {
-        if (!$deviceName) return $this;
         $this->deviceName = ($deviceName InstanceOf AccessDeviceName)
              ? $deviceName
              : new AccessDeviceName($deviceName);
@@ -82,6 +80,6 @@ class ServiceProviderAccessDeviceDeleteRequest extends ComplexType implements Co
      */
     public function getDeviceName()
     {
-        return $this->deviceName->getValue();
+        return ($this->deviceName) ? $this->deviceName->getValue() : null;
     }
 }

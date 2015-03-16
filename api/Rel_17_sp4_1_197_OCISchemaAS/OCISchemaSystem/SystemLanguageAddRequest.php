@@ -21,15 +21,15 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemLanguageAddRequest extends ComplexType implements ComplexInterface
 {
-    public    $name     = 'SystemLanguageAddRequest';
-    protected $language = null;
-    protected $locale   = null;
-    protected $encoding = null;
+    public    $name = 'SystemLanguageAddRequest';
+    protected $language;
+    protected $locale;
+    protected $encoding;
 
     public function __construct(
-         $language,
-         $locale,
-         $encoding
+         $language = '',
+         $locale = '',
+         $encoding = ''
     ) {
         $this->setLanguage($language);
         $this->setLocale($locale);
@@ -49,7 +49,6 @@ class SystemLanguageAddRequest extends ComplexType implements ComplexInterface
      */
     public function setLanguage($language = null)
     {
-        if (!$language) return $this;
         $this->language = ($language InstanceOf Language)
              ? $language
              : new Language($language);
@@ -63,7 +62,7 @@ class SystemLanguageAddRequest extends ComplexType implements ComplexInterface
      */
     public function getLanguage()
     {
-        return $this->language->getValue();
+        return ($this->language) ? $this->language->getValue() : null;
     }
 
     /**
@@ -71,7 +70,6 @@ class SystemLanguageAddRequest extends ComplexType implements ComplexInterface
      */
     public function setLocale($locale = null)
     {
-        if (!$locale) return $this;
         $this->locale = ($locale InstanceOf OCILocale)
              ? $locale
              : new OCILocale($locale);
@@ -85,7 +83,7 @@ class SystemLanguageAddRequest extends ComplexType implements ComplexInterface
      */
     public function getLocale()
     {
-        return $this->locale->getValue();
+        return ($this->locale) ? $this->locale->getValue() : null;
     }
 
     /**
@@ -93,7 +91,6 @@ class SystemLanguageAddRequest extends ComplexType implements ComplexInterface
      */
     public function setEncoding($encoding = null)
     {
-        if (!$encoding) return $this;
         $this->encoding = ($encoding InstanceOf Encoding)
              ? $encoding
              : new Encoding($encoding);
@@ -107,6 +104,6 @@ class SystemLanguageAddRequest extends ComplexType implements ComplexInterface
      */
     public function getEncoding()
     {
-        return $this->encoding->getValue();
+        return ($this->encoding) ? $this->encoding->getValue() : null;
     }
 }

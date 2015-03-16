@@ -20,8 +20,8 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemExpensiveCallTypeGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                   = 'SystemExpensiveCallTypeGetListResponse';
-    protected $alternateCallIndicator = null;
+    public    $name = 'SystemExpensiveCallTypeGetListResponse';
+    protected $alternateCallIndicator;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\SystemExpensiveCallTypeGetListResponse $response
@@ -36,7 +36,6 @@ class SystemExpensiveCallTypeGetListResponse extends ComplexType implements Comp
      */
     public function setAlternateCallIndicator($alternateCallIndicator = null)
     {
-        if (!$alternateCallIndicator) return $this;
         $this->alternateCallIndicator = ($alternateCallIndicator InstanceOf NetworkServerAlternateCallIndicator)
              ? $alternateCallIndicator
              : new NetworkServerAlternateCallIndicator($alternateCallIndicator);
@@ -50,6 +49,6 @@ class SystemExpensiveCallTypeGetListResponse extends ComplexType implements Comp
      */
     public function getAlternateCallIndicator()
     {
-        return $this->alternateCallIndicator->getValue();
+        return ($this->alternateCallIndicator) ? $this->alternateCallIndicator->getValue() : null;
     }
 }

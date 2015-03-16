@@ -21,13 +21,13 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemBwDiameterPeerDeleteRequest extends ComplexType implements ComplexInterface
 {
-    public    $name     = 'SystemBwDiameterPeerDeleteRequest';
-    protected $instance = null;
-    protected $identity = null;
+    public    $name = 'SystemBwDiameterPeerDeleteRequest';
+    protected $instance;
+    protected $identity;
 
     public function __construct(
-         $instance,
-         $identity
+         $instance = '',
+         $identity = ''
     ) {
         $this->setInstance($instance);
         $this->setIdentity($identity);
@@ -46,7 +46,6 @@ class SystemBwDiameterPeerDeleteRequest extends ComplexType implements ComplexIn
      */
     public function setInstance($instance = null)
     {
-        if (!$instance) return $this;
         $this->instance = ($instance InstanceOf BwDiameterPeerInstance)
              ? $instance
              : new BwDiameterPeerInstance($instance);
@@ -60,7 +59,7 @@ class SystemBwDiameterPeerDeleteRequest extends ComplexType implements ComplexIn
      */
     public function getInstance()
     {
-        return $this->instance->getValue();
+        return ($this->instance) ? $this->instance->getValue() : null;
     }
 
     /**
@@ -68,7 +67,6 @@ class SystemBwDiameterPeerDeleteRequest extends ComplexType implements ComplexIn
      */
     public function setIdentity($identity = null)
     {
-        if (!$identity) return $this;
         $this->identity = ($identity InstanceOf DomainName)
              ? $identity
              : new DomainName($identity);
@@ -82,6 +80,6 @@ class SystemBwDiameterPeerDeleteRequest extends ComplexType implements ComplexIn
      */
     public function getIdentity()
     {
-        return $this->identity->getValue();
+        return ($this->identity) ? $this->identity->getValue() : null;
     }
 }

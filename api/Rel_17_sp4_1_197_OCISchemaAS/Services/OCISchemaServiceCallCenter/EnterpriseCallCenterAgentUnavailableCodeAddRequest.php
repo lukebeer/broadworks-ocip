@@ -22,16 +22,16 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class EnterpriseCallCenterAgentUnavailableCodeAddRequest extends ComplexType implements ComplexInterface
 {
-    public    $name              = 'EnterpriseCallCenterAgentUnavailableCodeAddRequest';
-    protected $serviceProviderId = null;
-    protected $isActive          = null;
-    protected $code              = null;
-    protected $description       = null;
+    public    $name = 'EnterpriseCallCenterAgentUnavailableCodeAddRequest';
+    protected $serviceProviderId;
+    protected $isActive;
+    protected $code;
+    protected $description;
 
     public function __construct(
-         $serviceProviderId,
-         $isActive,
-         $code,
+         $serviceProviderId = '',
+         $isActive = '',
+         $code = '',
          $description = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
@@ -53,7 +53,6 @@ class EnterpriseCallCenterAgentUnavailableCodeAddRequest extends ComplexType imp
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
-        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
@@ -67,7 +66,7 @@ class EnterpriseCallCenterAgentUnavailableCodeAddRequest extends ComplexType imp
      */
     public function getServiceProviderId()
     {
-        return $this->serviceProviderId->getValue();
+        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
     }
 
     /**
@@ -75,7 +74,6 @@ class EnterpriseCallCenterAgentUnavailableCodeAddRequest extends ComplexType imp
      */
     public function setIsActive($isActive = null)
     {
-        if (!$isActive) return $this;
         $this->isActive = new PrimitiveType($isActive);
         $this->isActive->setName('isActive');
         return $this;
@@ -87,7 +85,7 @@ class EnterpriseCallCenterAgentUnavailableCodeAddRequest extends ComplexType imp
      */
     public function getIsActive()
     {
-        return $this->isActive->getValue();
+        return ($this->isActive) ? $this->isActive->getValue() : null;
     }
 
     /**
@@ -95,7 +93,6 @@ class EnterpriseCallCenterAgentUnavailableCodeAddRequest extends ComplexType imp
      */
     public function setCode($code = null)
     {
-        if (!$code) return $this;
         $this->code = ($code InstanceOf CallCenterAgentUnavailableCode)
              ? $code
              : new CallCenterAgentUnavailableCode($code);
@@ -109,7 +106,7 @@ class EnterpriseCallCenterAgentUnavailableCodeAddRequest extends ComplexType imp
      */
     public function getCode()
     {
-        return $this->code->getValue();
+        return ($this->code) ? $this->code->getValue() : null;
     }
 
     /**
@@ -117,7 +114,6 @@ class EnterpriseCallCenterAgentUnavailableCodeAddRequest extends ComplexType imp
      */
     public function setDescription($description = null)
     {
-        if (!$description) return $this;
         $this->description = ($description InstanceOf CallCenterAgentUnavailableCodeDescription)
              ? $description
              : new CallCenterAgentUnavailableCodeDescription($description);
@@ -131,6 +127,6 @@ class EnterpriseCallCenterAgentUnavailableCodeAddRequest extends ComplexType imp
      */
     public function getDescription()
     {
-        return $this->description->getValue();
+        return ($this->description) ? $this->description->getValue() : null;
     }
 }

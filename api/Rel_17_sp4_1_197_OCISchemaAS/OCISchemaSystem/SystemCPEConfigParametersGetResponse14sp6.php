@@ -25,13 +25,13 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemCPEConfigParametersGetResponse14sp6 extends ComplexType implements ComplexInterface
 {
-    public    $name                                = 'SystemCPEConfigParametersGetResponse14sp6';
-    protected $enableIPDeviceManagement            = null;
-    protected $ftpConnectTimeoutSeconds            = null;
-    protected $ftpFileTransferTimeoutSeconds       = null;
-    protected $pauseBetweenFileRebuildMilliseconds = null;
-    protected $maxBusyTimeMinutes                  = null;
-    protected $deviceAccessAppServerClusterName    = null;
+    public    $name = 'SystemCPEConfigParametersGetResponse14sp6';
+    protected $enableIPDeviceManagement;
+    protected $ftpConnectTimeoutSeconds;
+    protected $ftpFileTransferTimeoutSeconds;
+    protected $pauseBetweenFileRebuildMilliseconds;
+    protected $maxBusyTimeMinutes;
+    protected $deviceAccessAppServerClusterName;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemCPEConfigParametersGetResponse14sp6 $response
@@ -46,7 +46,6 @@ class SystemCPEConfigParametersGetResponse14sp6 extends ComplexType implements C
      */
     public function setEnableIPDeviceManagement($enableIPDeviceManagement = null)
     {
-        if (!$enableIPDeviceManagement) return $this;
         $this->enableIPDeviceManagement = new PrimitiveType($enableIPDeviceManagement);
         $this->enableIPDeviceManagement->setName('enableIPDeviceManagement');
         return $this;
@@ -58,7 +57,7 @@ class SystemCPEConfigParametersGetResponse14sp6 extends ComplexType implements C
      */
     public function getEnableIPDeviceManagement()
     {
-        return $this->enableIPDeviceManagement->getValue();
+        return ($this->enableIPDeviceManagement) ? $this->enableIPDeviceManagement->getValue() : null;
     }
 
     /**
@@ -66,7 +65,6 @@ class SystemCPEConfigParametersGetResponse14sp6 extends ComplexType implements C
      */
     public function setFtpConnectTimeoutSeconds($ftpConnectTimeoutSeconds = null)
     {
-        if (!$ftpConnectTimeoutSeconds) return $this;
         $this->ftpConnectTimeoutSeconds = ($ftpConnectTimeoutSeconds InstanceOf DeviceManagementFTPConnectTimeoutSeconds)
              ? $ftpConnectTimeoutSeconds
              : new DeviceManagementFTPConnectTimeoutSeconds($ftpConnectTimeoutSeconds);
@@ -80,7 +78,7 @@ class SystemCPEConfigParametersGetResponse14sp6 extends ComplexType implements C
      */
     public function getFtpConnectTimeoutSeconds()
     {
-        return $this->ftpConnectTimeoutSeconds->getValue();
+        return ($this->ftpConnectTimeoutSeconds) ? $this->ftpConnectTimeoutSeconds->getValue() : null;
     }
 
     /**
@@ -88,7 +86,6 @@ class SystemCPEConfigParametersGetResponse14sp6 extends ComplexType implements C
      */
     public function setFtpFileTransferTimeoutSeconds($ftpFileTransferTimeoutSeconds = null)
     {
-        if (!$ftpFileTransferTimeoutSeconds) return $this;
         $this->ftpFileTransferTimeoutSeconds = ($ftpFileTransferTimeoutSeconds InstanceOf DeviceManagementFTPFileTransferTimeoutSeconds)
              ? $ftpFileTransferTimeoutSeconds
              : new DeviceManagementFTPFileTransferTimeoutSeconds($ftpFileTransferTimeoutSeconds);
@@ -102,7 +99,7 @@ class SystemCPEConfigParametersGetResponse14sp6 extends ComplexType implements C
      */
     public function getFtpFileTransferTimeoutSeconds()
     {
-        return $this->ftpFileTransferTimeoutSeconds->getValue();
+        return ($this->ftpFileTransferTimeoutSeconds) ? $this->ftpFileTransferTimeoutSeconds->getValue() : null;
     }
 
     /**
@@ -110,7 +107,6 @@ class SystemCPEConfigParametersGetResponse14sp6 extends ComplexType implements C
      */
     public function setPauseBetweenFileRebuildMilliseconds($pauseBetweenFileRebuildMilliseconds = null)
     {
-        if (!$pauseBetweenFileRebuildMilliseconds) return $this;
         $this->pauseBetweenFileRebuildMilliseconds = ($pauseBetweenFileRebuildMilliseconds InstanceOf DeviceManagementPauseBetweenFileRebuildMilliseconds)
              ? $pauseBetweenFileRebuildMilliseconds
              : new DeviceManagementPauseBetweenFileRebuildMilliseconds($pauseBetweenFileRebuildMilliseconds);
@@ -124,7 +120,7 @@ class SystemCPEConfigParametersGetResponse14sp6 extends ComplexType implements C
      */
     public function getPauseBetweenFileRebuildMilliseconds()
     {
-        return $this->pauseBetweenFileRebuildMilliseconds->getValue();
+        return ($this->pauseBetweenFileRebuildMilliseconds) ? $this->pauseBetweenFileRebuildMilliseconds->getValue() : null;
     }
 
     /**
@@ -132,7 +128,6 @@ class SystemCPEConfigParametersGetResponse14sp6 extends ComplexType implements C
      */
     public function setMaxBusyTimeMinutes($maxBusyTimeMinutes = null)
     {
-        if (!$maxBusyTimeMinutes) return $this;
         $this->maxBusyTimeMinutes = ($maxBusyTimeMinutes InstanceOf DeviceManagementMaxBusyTimeMinutes)
              ? $maxBusyTimeMinutes
              : new DeviceManagementMaxBusyTimeMinutes($maxBusyTimeMinutes);
@@ -146,7 +141,7 @@ class SystemCPEConfigParametersGetResponse14sp6 extends ComplexType implements C
      */
     public function getMaxBusyTimeMinutes()
     {
-        return $this->maxBusyTimeMinutes->getValue();
+        return ($this->maxBusyTimeMinutes) ? $this->maxBusyTimeMinutes->getValue() : null;
     }
 
     /**
@@ -154,7 +149,6 @@ class SystemCPEConfigParametersGetResponse14sp6 extends ComplexType implements C
      */
     public function setDeviceAccessAppServerClusterName($deviceAccessAppServerClusterName = null)
     {
-        if (!$deviceAccessAppServerClusterName) return $this;
         $this->deviceAccessAppServerClusterName = ($deviceAccessAppServerClusterName InstanceOf NetAddress)
              ? $deviceAccessAppServerClusterName
              : new NetAddress($deviceAccessAppServerClusterName);
@@ -168,6 +162,6 @@ class SystemCPEConfigParametersGetResponse14sp6 extends ComplexType implements C
      */
     public function getDeviceAccessAppServerClusterName()
     {
-        return $this->deviceAccessAppServerClusterName->getValue();
+        return ($this->deviceAccessAppServerClusterName) ? $this->deviceAccessAppServerClusterName->getValue() : null;
     }
 }

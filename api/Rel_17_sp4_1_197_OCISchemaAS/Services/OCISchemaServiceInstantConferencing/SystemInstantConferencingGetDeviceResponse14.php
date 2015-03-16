@@ -22,11 +22,11 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemInstantConferencingGetDeviceResponse14 extends ComplexType implements ComplexInterface
 {
-    public    $name              = 'SystemInstantConferencingGetDeviceResponse14';
-    protected $clusterNetAddress = null;
-    protected $signalingPort     = null;
-    protected $description       = null;
-    protected $transportProtocol = null;
+    public    $name = 'SystemInstantConferencingGetDeviceResponse14';
+    protected $clusterNetAddress;
+    protected $signalingPort;
+    protected $description;
+    protected $transportProtocol;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing\SystemInstantConferencingGetDeviceResponse14 $response
@@ -41,7 +41,6 @@ class SystemInstantConferencingGetDeviceResponse14 extends ComplexType implement
      */
     public function setClusterNetAddress($clusterNetAddress = null)
     {
-        if (!$clusterNetAddress) return $this;
         $this->clusterNetAddress = ($clusterNetAddress InstanceOf NetAddress)
              ? $clusterNetAddress
              : new NetAddress($clusterNetAddress);
@@ -55,7 +54,7 @@ class SystemInstantConferencingGetDeviceResponse14 extends ComplexType implement
      */
     public function getClusterNetAddress()
     {
-        return $this->clusterNetAddress->getValue();
+        return ($this->clusterNetAddress) ? $this->clusterNetAddress->getValue() : null;
     }
 
     /**
@@ -63,7 +62,6 @@ class SystemInstantConferencingGetDeviceResponse14 extends ComplexType implement
      */
     public function setSignalingPort($signalingPort = null)
     {
-        if (!$signalingPort) return $this;
         $this->signalingPort = ($signalingPort InstanceOf Port1025)
              ? $signalingPort
              : new Port1025($signalingPort);
@@ -77,7 +75,7 @@ class SystemInstantConferencingGetDeviceResponse14 extends ComplexType implement
      */
     public function getSignalingPort()
     {
-        return $this->signalingPort->getValue();
+        return ($this->signalingPort) ? $this->signalingPort->getValue() : null;
     }
 
     /**
@@ -85,7 +83,6 @@ class SystemInstantConferencingGetDeviceResponse14 extends ComplexType implement
      */
     public function setDescription($description = null)
     {
-        if (!$description) return $this;
         $this->description = ($description InstanceOf InstantConferencingDeviceDescription)
              ? $description
              : new InstantConferencingDeviceDescription($description);
@@ -99,7 +96,7 @@ class SystemInstantConferencingGetDeviceResponse14 extends ComplexType implement
      */
     public function getDescription()
     {
-        return $this->description->getValue();
+        return ($this->description) ? $this->description->getValue() : null;
     }
 
     /**
@@ -107,7 +104,6 @@ class SystemInstantConferencingGetDeviceResponse14 extends ComplexType implement
      */
     public function setTransportProtocol($transportProtocol = null)
     {
-        if (!$transportProtocol) return $this;
         $this->transportProtocol = ($transportProtocol InstanceOf TransportProtocol)
              ? $transportProtocol
              : new TransportProtocol($transportProtocol);
@@ -121,6 +117,6 @@ class SystemInstantConferencingGetDeviceResponse14 extends ComplexType implement
      */
     public function getTransportProtocol()
     {
-        return $this->transportProtocol->getValue();
+        return ($this->transportProtocol) ? $this->transportProtocol->getValue() : null;
     }
 }

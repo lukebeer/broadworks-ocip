@@ -20,8 +20,8 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderCommunicationBarringProfileGetDigitPatternCriteriaUsageListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name         = 'ServiceProviderCommunicationBarringProfileGetDigitPatternCriteriaUsageListResponse';
-    protected $profileTable = null;
+    public    $name = 'ServiceProviderCommunicationBarringProfileGetDigitPatternCriteriaUsageListResponse';
+    protected $profileTable;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderCommunicationBarringProfileGetDigitPatternCriteriaUsageListResponse $response
@@ -36,7 +36,6 @@ class ServiceProviderCommunicationBarringProfileGetDigitPatternCriteriaUsageList
      */
     public function setProfileTable(TableType $profileTable = null)
     {
-        if (!$profileTable) return $this;
         $this->profileTable = $profileTable;
         $this->profileTable->setName('profileTable');
         return $this;

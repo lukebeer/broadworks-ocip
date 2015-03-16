@@ -21,9 +21,9 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemSubscriberModifyLoginParametersRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                   = 'SystemSubscriberModifyLoginParametersRequest';
-    protected $maxFailedLoginAttempts = null;
-    protected $minLoginIdLength       = null;
+    public    $name = 'SystemSubscriberModifyLoginParametersRequest';
+    protected $maxFailedLoginAttempts;
+    protected $minLoginIdLength;
 
     public function __construct(
          $maxFailedLoginAttempts = null,
@@ -46,7 +46,6 @@ class SystemSubscriberModifyLoginParametersRequest extends ComplexType implement
      */
     public function setMaxFailedLoginAttempts($maxFailedLoginAttempts = null)
     {
-        if (!$maxFailedLoginAttempts) return $this;
         $this->maxFailedLoginAttempts = ($maxFailedLoginAttempts InstanceOf SystemMaxLoginAttempts)
              ? $maxFailedLoginAttempts
              : new SystemMaxLoginAttempts($maxFailedLoginAttempts);
@@ -60,7 +59,7 @@ class SystemSubscriberModifyLoginParametersRequest extends ComplexType implement
      */
     public function getMaxFailedLoginAttempts()
     {
-        return $this->maxFailedLoginAttempts->getValue();
+        return ($this->maxFailedLoginAttempts) ? $this->maxFailedLoginAttempts->getValue() : null;
     }
 
     /**
@@ -68,7 +67,6 @@ class SystemSubscriberModifyLoginParametersRequest extends ComplexType implement
      */
     public function setMinLoginIdLength($minLoginIdLength = null)
     {
-        if (!$minLoginIdLength) return $this;
         $this->minLoginIdLength = ($minLoginIdLength InstanceOf SystemMinLoginIdLength)
              ? $minLoginIdLength
              : new SystemMinLoginIdLength($minLoginIdLength);
@@ -82,6 +80,6 @@ class SystemSubscriberModifyLoginParametersRequest extends ComplexType implement
      */
     public function getMinLoginIdLength()
     {
-        return $this->minLoginIdLength->getValue();
+        return ($this->minLoginIdLength) ? $this->minLoginIdLength->getValue() : null;
     }
 }

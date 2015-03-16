@@ -25,18 +25,18 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserSelectiveCallAcceptanceModifyCriteriaRequest extends ComplexType implements ComplexInterface
 {
-    public    $name            = 'UserSelectiveCallAcceptanceModifyCriteriaRequest';
-    protected $userId          = null;
-    protected $criteriaName    = null;
-    protected $newCriteriaName = null;
-    protected $timeSchedule    = null;
-    protected $fromDnCriteria  = null;
-    protected $holidaySchedule = null;
-    protected $blacklisted     = null;
+    public    $name = 'UserSelectiveCallAcceptanceModifyCriteriaRequest';
+    protected $userId;
+    protected $criteriaName;
+    protected $newCriteriaName;
+    protected $timeSchedule;
+    protected $fromDnCriteria;
+    protected $holidaySchedule;
+    protected $blacklisted;
 
     public function __construct(
-         $userId,
-         $criteriaName,
+         $userId = '',
+         $criteriaName = '',
          $newCriteriaName = null,
          TimeSchedule $timeSchedule = null,
          CriteriaFromDnModify $fromDnCriteria = null,
@@ -65,7 +65,6 @@ class UserSelectiveCallAcceptanceModifyCriteriaRequest extends ComplexType imple
      */
     public function setUserId($userId = null)
     {
-        if (!$userId) return $this;
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
@@ -79,7 +78,7 @@ class UserSelectiveCallAcceptanceModifyCriteriaRequest extends ComplexType imple
      */
     public function getUserId()
     {
-        return $this->userId->getValue();
+        return ($this->userId) ? $this->userId->getValue() : null;
     }
 
     /**
@@ -87,7 +86,6 @@ class UserSelectiveCallAcceptanceModifyCriteriaRequest extends ComplexType imple
      */
     public function setCriteriaName($criteriaName = null)
     {
-        if (!$criteriaName) return $this;
         $this->criteriaName = ($criteriaName InstanceOf CriteriaName)
              ? $criteriaName
              : new CriteriaName($criteriaName);
@@ -101,7 +99,7 @@ class UserSelectiveCallAcceptanceModifyCriteriaRequest extends ComplexType imple
      */
     public function getCriteriaName()
     {
-        return $this->criteriaName->getValue();
+        return ($this->criteriaName) ? $this->criteriaName->getValue() : null;
     }
 
     /**
@@ -109,7 +107,6 @@ class UserSelectiveCallAcceptanceModifyCriteriaRequest extends ComplexType imple
      */
     public function setNewCriteriaName($newCriteriaName = null)
     {
-        if (!$newCriteriaName) return $this;
         $this->newCriteriaName = ($newCriteriaName InstanceOf CriteriaName)
              ? $newCriteriaName
              : new CriteriaName($newCriteriaName);
@@ -123,7 +120,7 @@ class UserSelectiveCallAcceptanceModifyCriteriaRequest extends ComplexType imple
      */
     public function getNewCriteriaName()
     {
-        return $this->newCriteriaName->getValue();
+        return ($this->newCriteriaName) ? $this->newCriteriaName->getValue() : null;
     }
 
     /**
@@ -131,8 +128,9 @@ class UserSelectiveCallAcceptanceModifyCriteriaRequest extends ComplexType imple
      */
     public function setTimeSchedule(TimeSchedule $timeSchedule = null)
     {
-        if (!$timeSchedule) return $this;
-        $this->timeSchedule = $timeSchedule;
+        $this->timeSchedule = ($timeSchedule InstanceOf TimeSchedule)
+             ? $timeSchedule
+             : new TimeSchedule($timeSchedule);
         $this->timeSchedule->setName('timeSchedule');
         return $this;
     }
@@ -151,8 +149,9 @@ class UserSelectiveCallAcceptanceModifyCriteriaRequest extends ComplexType imple
      */
     public function setFromDnCriteria(CriteriaFromDnModify $fromDnCriteria = null)
     {
-        if (!$fromDnCriteria) return $this;
-        $this->fromDnCriteria = $fromDnCriteria;
+        $this->fromDnCriteria = ($fromDnCriteria InstanceOf CriteriaFromDnModify)
+             ? $fromDnCriteria
+             : new CriteriaFromDnModify($fromDnCriteria);
         $this->fromDnCriteria->setName('fromDnCriteria');
         return $this;
     }
@@ -171,8 +170,9 @@ class UserSelectiveCallAcceptanceModifyCriteriaRequest extends ComplexType imple
      */
     public function setHolidaySchedule(HolidaySchedule $holidaySchedule = null)
     {
-        if (!$holidaySchedule) return $this;
-        $this->holidaySchedule = $holidaySchedule;
+        $this->holidaySchedule = ($holidaySchedule InstanceOf HolidaySchedule)
+             ? $holidaySchedule
+             : new HolidaySchedule($holidaySchedule);
         $this->holidaySchedule->setName('holidaySchedule');
         return $this;
     }
@@ -191,7 +191,6 @@ class UserSelectiveCallAcceptanceModifyCriteriaRequest extends ComplexType imple
      */
     public function setBlacklisted($blacklisted = null)
     {
-        if (!$blacklisted) return $this;
         $this->blacklisted = new PrimitiveType($blacklisted);
         $this->blacklisted->setName('blacklisted');
         return $this;
@@ -203,6 +202,6 @@ class UserSelectiveCallAcceptanceModifyCriteriaRequest extends ComplexType imple
      */
     public function getBlacklisted()
     {
-        return $this->blacklisted->getValue();
+        return ($this->blacklisted) ? $this->blacklisted->getValue() : null;
     }
 }

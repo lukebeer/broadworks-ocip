@@ -19,9 +19,9 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class CommPilotExpressBusyModify extends ComplexType implements ComplexInterface
 {
-    public    $name            = 'CommPilotExpressBusyModify';
-    protected $incomingCalls   = null;
-    protected $voiceMailNotify = null;
+    public    $name = 'CommPilotExpressBusyModify';
+    protected $incomingCalls;
+    protected $voiceMailNotify;
 
     public function __construct(
          $incomingCalls = null,
@@ -44,7 +44,6 @@ class CommPilotExpressBusyModify extends ComplexType implements ComplexInterface
      */
     public function setIncomingCalls($incomingCalls = null)
     {
-        if (!$incomingCalls) return $this;
         $this->incomingCalls = new SimpleContent($incomingCalls);
         $this->incomingCalls->setName('incomingCalls');
         return $this;
@@ -56,7 +55,7 @@ class CommPilotExpressBusyModify extends ComplexType implements ComplexInterface
      */
     public function getIncomingCalls()
     {
-        return $this->incomingCalls->getValue();
+        return ($this->incomingCalls) ? $this->incomingCalls->getValue() : null;
     }
 
     /**
@@ -64,7 +63,6 @@ class CommPilotExpressBusyModify extends ComplexType implements ComplexInterface
      */
     public function setVoiceMailNotify($voiceMailNotify = null)
     {
-        if (!$voiceMailNotify) return $this;
         $this->voiceMailNotify = new SimpleContent($voiceMailNotify);
         $this->voiceMailNotify->setName('voiceMailNotify');
         return $this;
@@ -76,6 +74,6 @@ class CommPilotExpressBusyModify extends ComplexType implements ComplexInterface
      */
     public function getVoiceMailNotify()
     {
-        return $this->voiceMailNotify->getValue();
+        return ($this->voiceMailNotify) ? $this->voiceMailNotify->getValue() : null;
     }
 }

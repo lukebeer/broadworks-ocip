@@ -30,19 +30,19 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupCallParkModifyInstanceRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                  = 'GroupCallParkModifyInstanceRequest';
-    protected $serviceProviderId     = null;
-    protected $groupId               = null;
-    protected $name                  = null;
-    protected $newName               = null;
-    protected $userIdList            = null;
-    protected $recallAlternateUserId = null;
-    protected $recallTo              = null;
+    public    $name = 'GroupCallParkModifyInstanceRequest';
+    protected $serviceProviderId;
+    protected $groupId;
+    protected $name;
+    protected $newName;
+    protected $userIdList;
+    protected $recallAlternateUserId;
+    protected $recallTo;
 
     public function __construct(
-         $serviceProviderId,
-         $groupId,
-         $name,
+         $serviceProviderId = '',
+         $groupId = '',
+         $name = '',
          $newName = null,
          ReplacementUserIdList $userIdList = null,
          $recallAlternateUserId = null,
@@ -70,7 +70,6 @@ class GroupCallParkModifyInstanceRequest extends ComplexType implements ComplexI
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
-        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
@@ -84,7 +83,7 @@ class GroupCallParkModifyInstanceRequest extends ComplexType implements ComplexI
      */
     public function getServiceProviderId()
     {
-        return $this->serviceProviderId->getValue();
+        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
     }
 
     /**
@@ -92,7 +91,6 @@ class GroupCallParkModifyInstanceRequest extends ComplexType implements ComplexI
      */
     public function setGroupId($groupId = null)
     {
-        if (!$groupId) return $this;
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
@@ -106,7 +104,7 @@ class GroupCallParkModifyInstanceRequest extends ComplexType implements ComplexI
      */
     public function getGroupId()
     {
-        return $this->groupId->getValue();
+        return ($this->groupId) ? $this->groupId->getValue() : null;
     }
 
     /**
@@ -114,7 +112,6 @@ class GroupCallParkModifyInstanceRequest extends ComplexType implements ComplexI
      */
     public function setName($name = null)
     {
-        if (!$name) return $this;
         $this->name = ($name InstanceOf ServiceInstanceName)
              ? $name
              : new ServiceInstanceName($name);
@@ -128,7 +125,7 @@ class GroupCallParkModifyInstanceRequest extends ComplexType implements ComplexI
      */
     public function getName()
     {
-        return $this->name->getValue();
+        return ($this->name) ? $this->name->getValue() : null;
     }
 
     /**
@@ -136,7 +133,6 @@ class GroupCallParkModifyInstanceRequest extends ComplexType implements ComplexI
      */
     public function setNewName($newName = null)
     {
-        if (!$newName) return $this;
         $this->newName = ($newName InstanceOf ServiceInstanceName)
              ? $newName
              : new ServiceInstanceName($newName);
@@ -150,7 +146,7 @@ class GroupCallParkModifyInstanceRequest extends ComplexType implements ComplexI
      */
     public function getNewName()
     {
-        return $this->newName->getValue();
+        return ($this->newName) ? $this->newName->getValue() : null;
     }
 
     /**
@@ -158,8 +154,9 @@ class GroupCallParkModifyInstanceRequest extends ComplexType implements ComplexI
      */
     public function setUserIdList(ReplacementUserIdList $userIdList = null)
     {
-        if (!$userIdList) return $this;
-        $this->userIdList = $userIdList;
+        $this->userIdList = ($userIdList InstanceOf ReplacementUserIdList)
+             ? $userIdList
+             : new ReplacementUserIdList($userIdList);
         $this->userIdList->setName('userIdList');
         return $this;
     }
@@ -178,7 +175,6 @@ class GroupCallParkModifyInstanceRequest extends ComplexType implements ComplexI
      */
     public function setRecallAlternateUserId($recallAlternateUserId = null)
     {
-        if (!$recallAlternateUserId) return $this;
         $this->recallAlternateUserId = ($recallAlternateUserId InstanceOf UserId)
              ? $recallAlternateUserId
              : new UserId($recallAlternateUserId);
@@ -192,7 +188,7 @@ class GroupCallParkModifyInstanceRequest extends ComplexType implements ComplexI
      */
     public function getRecallAlternateUserId()
     {
-        return $this->recallAlternateUserId->getValue();
+        return ($this->recallAlternateUserId) ? $this->recallAlternateUserId->getValue() : null;
     }
 
     /**
@@ -200,7 +196,6 @@ class GroupCallParkModifyInstanceRequest extends ComplexType implements ComplexI
      */
     public function setRecallTo($recallTo = null)
     {
-        if (!$recallTo) return $this;
         $this->recallTo = ($recallTo InstanceOf CallParkRecallTo)
              ? $recallTo
              : new CallParkRecallTo($recallTo);
@@ -214,6 +209,6 @@ class GroupCallParkModifyInstanceRequest extends ComplexType implements ComplexI
      */
     public function getRecallTo()
     {
-        return $this->recallTo->getValue();
+        return ($this->recallTo) ? $this->recallTo->getValue() : null;
     }
 }

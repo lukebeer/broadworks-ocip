@@ -21,11 +21,11 @@ use Broadworks_OCIP\core\Client\Client;
 class GroupTrunkGroupUserCreationTaskGetListRequest14sp4 extends ComplexType implements ComplexInterface
 {
     public    $responseType  = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceTrunkGroup\GroupTrunkGroupUserCreationTaskGetListResponse14sp4';
-    public    $name          = 'GroupTrunkGroupUserCreationTaskGetListRequest14sp4';
-    protected $trunkGroupKey = null;
+    public    $name = 'GroupTrunkGroupUserCreationTaskGetListRequest14sp4';
+    protected $trunkGroupKey;
 
     public function __construct(
-         TrunkGroupKey $trunkGroupKey
+         TrunkGroupKey $trunkGroupKey = ''
     ) {
         $this->setTrunkGroupKey($trunkGroupKey);
     }
@@ -43,8 +43,9 @@ class GroupTrunkGroupUserCreationTaskGetListRequest14sp4 extends ComplexType imp
      */
     public function setTrunkGroupKey(TrunkGroupKey $trunkGroupKey = null)
     {
-        if (!$trunkGroupKey) return $this;
-        $this->trunkGroupKey = $trunkGroupKey;
+        $this->trunkGroupKey = ($trunkGroupKey InstanceOf TrunkGroupKey)
+             ? $trunkGroupKey
+             : new TrunkGroupKey($trunkGroupKey);
         $this->trunkGroupKey->setName('trunkGroupKey');
         return $this;
     }

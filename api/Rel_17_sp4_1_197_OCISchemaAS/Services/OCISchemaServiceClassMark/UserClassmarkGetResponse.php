@@ -20,8 +20,8 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserClassmarkGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name      = 'UserClassmarkGetResponse';
-    protected $classmark = null;
+    public    $name = 'UserClassmarkGetResponse';
+    protected $classmark;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceClassMark\UserClassmarkGetResponse $response
@@ -36,7 +36,6 @@ class UserClassmarkGetResponse extends ComplexType implements ComplexInterface
      */
     public function setClassmark($classmark = null)
     {
-        if (!$classmark) return $this;
         $this->classmark = ($classmark InstanceOf Classmark)
              ? $classmark
              : new Classmark($classmark);
@@ -50,6 +49,6 @@ class UserClassmarkGetResponse extends ComplexType implements ComplexInterface
      */
     public function getClassmark()
     {
-        return $this->classmark->getValue();
+        return ($this->classmark) ? $this->classmark->getValue() : null;
     }
 }

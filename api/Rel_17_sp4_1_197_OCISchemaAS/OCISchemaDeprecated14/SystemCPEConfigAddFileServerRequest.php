@@ -26,19 +26,19 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemCPEConfigAddFileServerRequest extends ComplexType implements ComplexInterface
 {
-    public    $name              = 'SystemCPEConfigAddFileServerRequest';
-    protected $deviceType        = null;
-    protected $ftpHostNetAddress = null;
-    protected $ftpUserId         = null;
-    protected $ftpUserPassword   = null;
-    protected $cpeFileDirectory  = null;
-    protected $passiveFTP        = null;
+    public    $name = 'SystemCPEConfigAddFileServerRequest';
+    protected $deviceType;
+    protected $ftpHostNetAddress;
+    protected $ftpUserId;
+    protected $ftpUserPassword;
+    protected $cpeFileDirectory;
+    protected $passiveFTP;
 
     public function __construct(
-         $deviceType,
-         $ftpHostNetAddress,
-         $ftpUserId,
-         $ftpUserPassword,
+         $deviceType = '',
+         $ftpHostNetAddress = '',
+         $ftpUserId = '',
+         $ftpUserPassword = '',
          $cpeFileDirectory = null,
          $passiveFTP = null
     ) {
@@ -63,7 +63,6 @@ class SystemCPEConfigAddFileServerRequest extends ComplexType implements Complex
      */
     public function setDeviceType($deviceType = null)
     {
-        if (!$deviceType) return $this;
         $this->deviceType = ($deviceType InstanceOf AccessDeviceType)
              ? $deviceType
              : new AccessDeviceType($deviceType);
@@ -77,7 +76,7 @@ class SystemCPEConfigAddFileServerRequest extends ComplexType implements Complex
      */
     public function getDeviceType()
     {
-        return $this->deviceType->getValue();
+        return ($this->deviceType) ? $this->deviceType->getValue() : null;
     }
 
     /**
@@ -85,7 +84,6 @@ class SystemCPEConfigAddFileServerRequest extends ComplexType implements Complex
      */
     public function setFtpHostNetAddress($ftpHostNetAddress = null)
     {
-        if (!$ftpHostNetAddress) return $this;
         $this->ftpHostNetAddress = ($ftpHostNetAddress InstanceOf NetAddress)
              ? $ftpHostNetAddress
              : new NetAddress($ftpHostNetAddress);
@@ -99,7 +97,7 @@ class SystemCPEConfigAddFileServerRequest extends ComplexType implements Complex
      */
     public function getFtpHostNetAddress()
     {
-        return $this->ftpHostNetAddress->getValue();
+        return ($this->ftpHostNetAddress) ? $this->ftpHostNetAddress->getValue() : null;
     }
 
     /**
@@ -107,7 +105,6 @@ class SystemCPEConfigAddFileServerRequest extends ComplexType implements Complex
      */
     public function setFtpUserId($ftpUserId = null)
     {
-        if (!$ftpUserId) return $this;
         $this->ftpUserId = ($ftpUserId InstanceOf FTPUserId)
              ? $ftpUserId
              : new FTPUserId($ftpUserId);
@@ -121,7 +118,7 @@ class SystemCPEConfigAddFileServerRequest extends ComplexType implements Complex
      */
     public function getFtpUserId()
     {
-        return $this->ftpUserId->getValue();
+        return ($this->ftpUserId) ? $this->ftpUserId->getValue() : null;
     }
 
     /**
@@ -129,7 +126,6 @@ class SystemCPEConfigAddFileServerRequest extends ComplexType implements Complex
      */
     public function setFtpUserPassword($ftpUserPassword = null)
     {
-        if (!$ftpUserPassword) return $this;
         $this->ftpUserPassword = ($ftpUserPassword InstanceOf FTPUserPassword)
              ? $ftpUserPassword
              : new FTPUserPassword($ftpUserPassword);
@@ -143,7 +139,7 @@ class SystemCPEConfigAddFileServerRequest extends ComplexType implements Complex
      */
     public function getFtpUserPassword()
     {
-        return $this->ftpUserPassword->getValue();
+        return ($this->ftpUserPassword) ? $this->ftpUserPassword->getValue() : null;
     }
 
     /**
@@ -151,7 +147,6 @@ class SystemCPEConfigAddFileServerRequest extends ComplexType implements Complex
      */
     public function setCpeFileDirectory($cpeFileDirectory = null)
     {
-        if (!$cpeFileDirectory) return $this;
         $this->cpeFileDirectory = ($cpeFileDirectory InstanceOf CPEFileDirectory)
              ? $cpeFileDirectory
              : new CPEFileDirectory($cpeFileDirectory);
@@ -165,7 +160,7 @@ class SystemCPEConfigAddFileServerRequest extends ComplexType implements Complex
      */
     public function getCpeFileDirectory()
     {
-        return $this->cpeFileDirectory->getValue();
+        return ($this->cpeFileDirectory) ? $this->cpeFileDirectory->getValue() : null;
     }
 
     /**
@@ -173,7 +168,6 @@ class SystemCPEConfigAddFileServerRequest extends ComplexType implements Complex
      */
     public function setPassiveFTP($passiveFTP = null)
     {
-        if (!$passiveFTP) return $this;
         $this->passiveFTP = new PrimitiveType($passiveFTP);
         $this->passiveFTP->setName('passiveFTP');
         return $this;
@@ -185,6 +179,6 @@ class SystemCPEConfigAddFileServerRequest extends ComplexType implements Complex
      */
     public function getPassiveFTP()
     {
-        return $this->passiveFTP->getValue();
+        return ($this->passiveFTP) ? $this->passiveFTP->getValue() : null;
     }
 }

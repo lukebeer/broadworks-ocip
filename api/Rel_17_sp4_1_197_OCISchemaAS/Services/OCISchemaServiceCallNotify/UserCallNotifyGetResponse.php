@@ -21,9 +21,9 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserCallNotifyGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                   = 'UserCallNotifyGetResponse';
-    protected $callNotifyEmailAddress = null;
-    protected $criteriaTable          = null;
+    public    $name = 'UserCallNotifyGetResponse';
+    protected $callNotifyEmailAddress;
+    protected $criteriaTable;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallNotify\UserCallNotifyGetResponse $response
@@ -38,7 +38,6 @@ class UserCallNotifyGetResponse extends ComplexType implements ComplexInterface
      */
     public function setCallNotifyEmailAddress($callNotifyEmailAddress = null)
     {
-        if (!$callNotifyEmailAddress) return $this;
         $this->callNotifyEmailAddress = ($callNotifyEmailAddress InstanceOf EmailAddress)
              ? $callNotifyEmailAddress
              : new EmailAddress($callNotifyEmailAddress);
@@ -52,7 +51,7 @@ class UserCallNotifyGetResponse extends ComplexType implements ComplexInterface
      */
     public function getCallNotifyEmailAddress()
     {
-        return $this->callNotifyEmailAddress->getValue();
+        return ($this->callNotifyEmailAddress) ? $this->callNotifyEmailAddress->getValue() : null;
     }
 
     /**
@@ -60,7 +59,6 @@ class UserCallNotifyGetResponse extends ComplexType implements ComplexInterface
      */
     public function setCriteriaTable(TableType $criteriaTable = null)
     {
-        if (!$criteriaTable) return $this;
         $this->criteriaTable = $criteriaTable;
         $this->criteriaTable->setName('criteriaTable');
         return $this;

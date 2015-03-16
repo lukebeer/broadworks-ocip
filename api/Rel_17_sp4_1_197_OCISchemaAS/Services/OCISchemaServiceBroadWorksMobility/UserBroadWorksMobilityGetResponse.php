@@ -22,18 +22,18 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserBroadWorksMobilityGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                      = 'UserBroadWorksMobilityGetResponse';
-    protected $isActive                  = null;
-    protected $phonesToRing              = null;
-    protected $mobilePhoneNumber         = null;
-    protected $alertClickToDialCalls     = null;
-    protected $alertGroupPagingCalls     = null;
-    protected $enableDiversionInhibitor  = null;
-    protected $requireAnswerConfirmation = null;
-    protected $broadworksCallControl     = null;
-    protected $useSettingLevel           = null;
-    protected $denyCallOriginations      = null;
-    protected $denyCallTerminations      = null;
+    public    $name = 'UserBroadWorksMobilityGetResponse';
+    protected $isActive;
+    protected $phonesToRing;
+    protected $mobilePhoneNumber;
+    protected $alertClickToDialCalls;
+    protected $alertGroupPagingCalls;
+    protected $enableDiversionInhibitor;
+    protected $requireAnswerConfirmation;
+    protected $broadworksCallControl;
+    protected $useSettingLevel;
+    protected $denyCallOriginations;
+    protected $denyCallTerminations;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceBroadWorksMobility\UserBroadWorksMobilityGetResponse $response
@@ -48,7 +48,6 @@ class UserBroadWorksMobilityGetResponse extends ComplexType implements ComplexIn
      */
     public function setIsActive($isActive = null)
     {
-        if (!$isActive) return $this;
         $this->isActive = new PrimitiveType($isActive);
         $this->isActive->setName('isActive');
         return $this;
@@ -60,7 +59,7 @@ class UserBroadWorksMobilityGetResponse extends ComplexType implements ComplexIn
      */
     public function getIsActive()
     {
-        return $this->isActive->getValue();
+        return ($this->isActive) ? $this->isActive->getValue() : null;
     }
 
     /**
@@ -68,7 +67,6 @@ class UserBroadWorksMobilityGetResponse extends ComplexType implements ComplexIn
      */
     public function setPhonesToRing($phonesToRing = null)
     {
-        if (!$phonesToRing) return $this;
         $this->phonesToRing = ($phonesToRing InstanceOf BroadWorksMobilityPhoneToRing)
              ? $phonesToRing
              : new BroadWorksMobilityPhoneToRing($phonesToRing);
@@ -82,7 +80,7 @@ class UserBroadWorksMobilityGetResponse extends ComplexType implements ComplexIn
      */
     public function getPhonesToRing()
     {
-        return $this->phonesToRing->getValue();
+        return ($this->phonesToRing) ? $this->phonesToRing->getValue() : null;
     }
 
     /**
@@ -90,7 +88,6 @@ class UserBroadWorksMobilityGetResponse extends ComplexType implements ComplexIn
      */
     public function setMobilePhoneNumber($mobilePhoneNumber = null)
     {
-        if (!$mobilePhoneNumber) return $this;
         $this->mobilePhoneNumber = ($mobilePhoneNumber InstanceOf DN)
              ? $mobilePhoneNumber
              : new DN($mobilePhoneNumber);
@@ -104,7 +101,7 @@ class UserBroadWorksMobilityGetResponse extends ComplexType implements ComplexIn
      */
     public function getMobilePhoneNumber()
     {
-        return $this->mobilePhoneNumber->getValue();
+        return ($this->mobilePhoneNumber) ? $this->mobilePhoneNumber->getValue() : null;
     }
 
     /**
@@ -112,7 +109,6 @@ class UserBroadWorksMobilityGetResponse extends ComplexType implements ComplexIn
      */
     public function setAlertClickToDialCalls($alertClickToDialCalls = null)
     {
-        if (!$alertClickToDialCalls) return $this;
         $this->alertClickToDialCalls = new PrimitiveType($alertClickToDialCalls);
         $this->alertClickToDialCalls->setName('alertClickToDialCalls');
         return $this;
@@ -124,7 +120,7 @@ class UserBroadWorksMobilityGetResponse extends ComplexType implements ComplexIn
      */
     public function getAlertClickToDialCalls()
     {
-        return $this->alertClickToDialCalls->getValue();
+        return ($this->alertClickToDialCalls) ? $this->alertClickToDialCalls->getValue() : null;
     }
 
     /**
@@ -132,7 +128,6 @@ class UserBroadWorksMobilityGetResponse extends ComplexType implements ComplexIn
      */
     public function setAlertGroupPagingCalls($alertGroupPagingCalls = null)
     {
-        if (!$alertGroupPagingCalls) return $this;
         $this->alertGroupPagingCalls = new PrimitiveType($alertGroupPagingCalls);
         $this->alertGroupPagingCalls->setName('alertGroupPagingCalls');
         return $this;
@@ -144,7 +139,7 @@ class UserBroadWorksMobilityGetResponse extends ComplexType implements ComplexIn
      */
     public function getAlertGroupPagingCalls()
     {
-        return $this->alertGroupPagingCalls->getValue();
+        return ($this->alertGroupPagingCalls) ? $this->alertGroupPagingCalls->getValue() : null;
     }
 
     /**
@@ -152,7 +147,6 @@ class UserBroadWorksMobilityGetResponse extends ComplexType implements ComplexIn
      */
     public function setEnableDiversionInhibitor($enableDiversionInhibitor = null)
     {
-        if (!$enableDiversionInhibitor) return $this;
         $this->enableDiversionInhibitor = new PrimitiveType($enableDiversionInhibitor);
         $this->enableDiversionInhibitor->setName('enableDiversionInhibitor');
         return $this;
@@ -164,7 +158,7 @@ class UserBroadWorksMobilityGetResponse extends ComplexType implements ComplexIn
      */
     public function getEnableDiversionInhibitor()
     {
-        return $this->enableDiversionInhibitor->getValue();
+        return ($this->enableDiversionInhibitor) ? $this->enableDiversionInhibitor->getValue() : null;
     }
 
     /**
@@ -172,7 +166,6 @@ class UserBroadWorksMobilityGetResponse extends ComplexType implements ComplexIn
      */
     public function setRequireAnswerConfirmation($requireAnswerConfirmation = null)
     {
-        if (!$requireAnswerConfirmation) return $this;
         $this->requireAnswerConfirmation = new PrimitiveType($requireAnswerConfirmation);
         $this->requireAnswerConfirmation->setName('requireAnswerConfirmation');
         return $this;
@@ -184,7 +177,7 @@ class UserBroadWorksMobilityGetResponse extends ComplexType implements ComplexIn
      */
     public function getRequireAnswerConfirmation()
     {
-        return $this->requireAnswerConfirmation->getValue();
+        return ($this->requireAnswerConfirmation) ? $this->requireAnswerConfirmation->getValue() : null;
     }
 
     /**
@@ -192,7 +185,6 @@ class UserBroadWorksMobilityGetResponse extends ComplexType implements ComplexIn
      */
     public function setBroadworksCallControl($broadworksCallControl = null)
     {
-        if (!$broadworksCallControl) return $this;
         $this->broadworksCallControl = new PrimitiveType($broadworksCallControl);
         $this->broadworksCallControl->setName('broadworksCallControl');
         return $this;
@@ -204,7 +196,7 @@ class UserBroadWorksMobilityGetResponse extends ComplexType implements ComplexIn
      */
     public function getBroadworksCallControl()
     {
-        return $this->broadworksCallControl->getValue();
+        return ($this->broadworksCallControl) ? $this->broadworksCallControl->getValue() : null;
     }
 
     /**
@@ -212,7 +204,6 @@ class UserBroadWorksMobilityGetResponse extends ComplexType implements ComplexIn
      */
     public function setUseSettingLevel($useSettingLevel = null)
     {
-        if (!$useSettingLevel) return $this;
         $this->useSettingLevel = ($useSettingLevel InstanceOf BroadWorksMobilityUserSettingLevel)
              ? $useSettingLevel
              : new BroadWorksMobilityUserSettingLevel($useSettingLevel);
@@ -226,7 +217,7 @@ class UserBroadWorksMobilityGetResponse extends ComplexType implements ComplexIn
      */
     public function getUseSettingLevel()
     {
-        return $this->useSettingLevel->getValue();
+        return ($this->useSettingLevel) ? $this->useSettingLevel->getValue() : null;
     }
 
     /**
@@ -234,7 +225,6 @@ class UserBroadWorksMobilityGetResponse extends ComplexType implements ComplexIn
      */
     public function setDenyCallOriginations($denyCallOriginations = null)
     {
-        if (!$denyCallOriginations) return $this;
         $this->denyCallOriginations = new PrimitiveType($denyCallOriginations);
         $this->denyCallOriginations->setName('denyCallOriginations');
         return $this;
@@ -246,7 +236,7 @@ class UserBroadWorksMobilityGetResponse extends ComplexType implements ComplexIn
      */
     public function getDenyCallOriginations()
     {
-        return $this->denyCallOriginations->getValue();
+        return ($this->denyCallOriginations) ? $this->denyCallOriginations->getValue() : null;
     }
 
     /**
@@ -254,7 +244,6 @@ class UserBroadWorksMobilityGetResponse extends ComplexType implements ComplexIn
      */
     public function setDenyCallTerminations($denyCallTerminations = null)
     {
-        if (!$denyCallTerminations) return $this;
         $this->denyCallTerminations = new PrimitiveType($denyCallTerminations);
         $this->denyCallTerminations->setName('denyCallTerminations');
         return $this;
@@ -266,6 +255,6 @@ class UserBroadWorksMobilityGetResponse extends ComplexType implements ComplexIn
      */
     public function getDenyCallTerminations()
     {
-        return $this->denyCallTerminations->getValue();
+        return ($this->denyCallTerminations) ? $this->denyCallTerminations->getValue() : null;
     }
 }

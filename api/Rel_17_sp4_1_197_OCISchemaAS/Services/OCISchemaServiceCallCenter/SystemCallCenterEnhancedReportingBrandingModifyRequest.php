@@ -21,9 +21,9 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemCallCenterEnhancedReportingBrandingModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name               = 'SystemCallCenterEnhancedReportingBrandingModifyRequest';
-    protected $brandingChoice     = null;
-    protected $customBrandingFile = null;
+    public    $name = 'SystemCallCenterEnhancedReportingBrandingModifyRequest';
+    protected $brandingChoice;
+    protected $customBrandingFile;
 
     public function __construct(
          $brandingChoice = null,
@@ -46,7 +46,6 @@ class SystemCallCenterEnhancedReportingBrandingModifyRequest extends ComplexType
      */
     public function setBrandingChoice($brandingChoice = null)
     {
-        if (!$brandingChoice) return $this;
         $this->brandingChoice = ($brandingChoice InstanceOf CallCenterEnhancedReportingSystemBrandingChoice)
              ? $brandingChoice
              : new CallCenterEnhancedReportingSystemBrandingChoice($brandingChoice);
@@ -60,7 +59,7 @@ class SystemCallCenterEnhancedReportingBrandingModifyRequest extends ComplexType
      */
     public function getBrandingChoice()
     {
-        return $this->brandingChoice->getValue();
+        return ($this->brandingChoice) ? $this->brandingChoice->getValue() : null;
     }
 
     /**
@@ -68,8 +67,9 @@ class SystemCallCenterEnhancedReportingBrandingModifyRequest extends ComplexType
      */
     public function setCustomBrandingFile(LabeledFileResource $customBrandingFile = null)
     {
-        if (!$customBrandingFile) return $this;
-        $this->customBrandingFile = $customBrandingFile;
+        $this->customBrandingFile = ($customBrandingFile InstanceOf LabeledFileResource)
+             ? $customBrandingFile
+             : new LabeledFileResource($customBrandingFile);
         $this->customBrandingFile->setName('customBrandingFile');
         return $this;
     }

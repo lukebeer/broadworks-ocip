@@ -23,12 +23,12 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserSelectiveCallRejectionGetCriteriaResponse16sp1 extends ComplexType implements ComplexInterface
 {
-    public    $name            = 'UserSelectiveCallRejectionGetCriteriaResponse16sp1';
-    protected $timeSchedule    = null;
-    protected $fromDnCriteria  = null;
-    protected $blacklisted     = null;
-    protected $holidaySchedule = null;
-    protected $private         = null;
+    public    $name = 'UserSelectiveCallRejectionGetCriteriaResponse16sp1';
+    protected $timeSchedule;
+    protected $fromDnCriteria;
+    protected $blacklisted;
+    protected $holidaySchedule;
+    protected $private;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceSelectiveCallRejection\UserSelectiveCallRejectionGetCriteriaResponse16sp1 $response
@@ -43,8 +43,9 @@ class UserSelectiveCallRejectionGetCriteriaResponse16sp1 extends ComplexType imp
      */
     public function setTimeSchedule(TimeSchedule $timeSchedule = null)
     {
-        if (!$timeSchedule) return $this;
-        $this->timeSchedule = $timeSchedule;
+        $this->timeSchedule = ($timeSchedule InstanceOf TimeSchedule)
+             ? $timeSchedule
+             : new TimeSchedule($timeSchedule);
         $this->timeSchedule->setName('timeSchedule');
         return $this;
     }
@@ -63,8 +64,9 @@ class UserSelectiveCallRejectionGetCriteriaResponse16sp1 extends ComplexType imp
      */
     public function setFromDnCriteria(SelectiveCallRejectionCriteriaCallType $fromDnCriteria = null)
     {
-        if (!$fromDnCriteria) return $this;
-        $this->fromDnCriteria = $fromDnCriteria;
+        $this->fromDnCriteria = ($fromDnCriteria InstanceOf SelectiveCallRejectionCriteriaCallType)
+             ? $fromDnCriteria
+             : new SelectiveCallRejectionCriteriaCallType($fromDnCriteria);
         $this->fromDnCriteria->setName('fromDnCriteria');
         return $this;
     }
@@ -83,7 +85,6 @@ class UserSelectiveCallRejectionGetCriteriaResponse16sp1 extends ComplexType imp
      */
     public function setBlacklisted($blacklisted = null)
     {
-        if (!$blacklisted) return $this;
         $this->blacklisted = new PrimitiveType($blacklisted);
         $this->blacklisted->setName('blacklisted');
         return $this;
@@ -95,7 +96,7 @@ class UserSelectiveCallRejectionGetCriteriaResponse16sp1 extends ComplexType imp
      */
     public function getBlacklisted()
     {
-        return $this->blacklisted->getValue();
+        return ($this->blacklisted) ? $this->blacklisted->getValue() : null;
     }
 
     /**
@@ -103,8 +104,9 @@ class UserSelectiveCallRejectionGetCriteriaResponse16sp1 extends ComplexType imp
      */
     public function setHolidaySchedule(HolidaySchedule $holidaySchedule = null)
     {
-        if (!$holidaySchedule) return $this;
-        $this->holidaySchedule = $holidaySchedule;
+        $this->holidaySchedule = ($holidaySchedule InstanceOf HolidaySchedule)
+             ? $holidaySchedule
+             : new HolidaySchedule($holidaySchedule);
         $this->holidaySchedule->setName('holidaySchedule');
         return $this;
     }
@@ -123,7 +125,6 @@ class UserSelectiveCallRejectionGetCriteriaResponse16sp1 extends ComplexType imp
      */
     public function setPrivate($private = null)
     {
-        if (!$private) return $this;
         $this->private = new PrimitiveType($private);
         $this->private->setName('private');
         return $this;
@@ -135,6 +136,6 @@ class UserSelectiveCallRejectionGetCriteriaResponse16sp1 extends ComplexType imp
      */
     public function getPrivate()
     {
-        return $this->private->getValue();
+        return ($this->private) ? $this->private->getValue() : null;
     }
 }

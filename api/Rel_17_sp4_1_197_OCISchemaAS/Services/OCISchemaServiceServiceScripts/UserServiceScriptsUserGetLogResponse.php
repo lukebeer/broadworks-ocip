@@ -19,8 +19,8 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserServiceScriptsUserGetLogResponse extends ComplexType implements ComplexInterface
 {
-    public    $name       = 'UserServiceScriptsUserGetLogResponse';
-    protected $logContent = null;
+    public    $name = 'UserServiceScriptsUserGetLogResponse';
+    protected $logContent;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceServiceScripts\UserServiceScriptsUserGetLogResponse $response
@@ -35,7 +35,6 @@ class UserServiceScriptsUserGetLogResponse extends ComplexType implements Comple
      */
     public function setLogContent(xs:base64Binary $logContent = null)
     {
-        if (!$logContent) return $this;
         $this->logContent->setName('logContent');
         return $this;
     }
@@ -46,6 +45,6 @@ class UserServiceScriptsUserGetLogResponse extends ComplexType implements Comple
      */
     public function getLogContent()
     {
-        return $this->logContent->getValue();
+        return ($this->logContent) ? $this->logContent->getValue() : null;
     }
 }

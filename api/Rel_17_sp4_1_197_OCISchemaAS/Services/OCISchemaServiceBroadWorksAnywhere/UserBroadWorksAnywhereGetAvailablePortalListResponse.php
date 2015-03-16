@@ -20,8 +20,8 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserBroadWorksAnywhereGetAvailablePortalListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name        = 'UserBroadWorksAnywhereGetAvailablePortalListResponse';
-    protected $portalTable = null;
+    public    $name = 'UserBroadWorksAnywhereGetAvailablePortalListResponse';
+    protected $portalTable;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceBroadWorksAnywhere\UserBroadWorksAnywhereGetAvailablePortalListResponse $response
@@ -36,7 +36,6 @@ class UserBroadWorksAnywhereGetAvailablePortalListResponse extends ComplexType i
      */
     public function setPortalTable(TableType $portalTable = null)
     {
-        if (!$portalTable) return $this;
         $this->portalTable = $portalTable;
         $this->portalTable->setName('portalTable');
         return $this;

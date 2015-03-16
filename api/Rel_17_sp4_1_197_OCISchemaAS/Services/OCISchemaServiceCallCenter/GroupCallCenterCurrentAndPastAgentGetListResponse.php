@@ -20,9 +20,9 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupCallCenterCurrentAndPastAgentGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                  = 'GroupCallCenterCurrentAndPastAgentGetListResponse';
-    protected $agentUserTable        = null;
-    protected $deletedAgentUserTable = null;
+    public    $name = 'GroupCallCenterCurrentAndPastAgentGetListResponse';
+    protected $agentUserTable;
+    protected $deletedAgentUserTable;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\GroupCallCenterCurrentAndPastAgentGetListResponse $response
@@ -37,7 +37,6 @@ class GroupCallCenterCurrentAndPastAgentGetListResponse extends ComplexType impl
      */
     public function setAgentUserTable(TableType $agentUserTable = null)
     {
-        if (!$agentUserTable) return $this;
         $this->agentUserTable = $agentUserTable;
         $this->agentUserTable->setName('agentUserTable');
         return $this;
@@ -57,7 +56,6 @@ class GroupCallCenterCurrentAndPastAgentGetListResponse extends ComplexType impl
      */
     public function setDeletedAgentUserTable(TableType $deletedAgentUserTable = null)
     {
-        if (!$deletedAgentUserTable) return $this;
         $this->deletedAgentUserTable = $deletedAgentUserTable;
         $this->deletedAgentUserTable->setName('deletedAgentUserTable');
         return $this;

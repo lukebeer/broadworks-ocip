@@ -24,11 +24,11 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupGroupPagingGetInstanceResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                           = 'GroupGroupPagingGetInstanceResponse';
-    protected $serviceInstanceProfile         = null;
-    protected $confirmationToneTimeoutSeconds = null;
-    protected $deliverOriginatorCLIDInstead   = null;
-    protected $originatorCLIDPrefix           = null;
+    public    $name = 'GroupGroupPagingGetInstanceResponse';
+    protected $serviceInstanceProfile;
+    protected $confirmationToneTimeoutSeconds;
+    protected $deliverOriginatorCLIDInstead;
+    protected $originatorCLIDPrefix;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated17\GroupGroupPagingGetInstanceResponse $response
@@ -43,8 +43,9 @@ class GroupGroupPagingGetInstanceResponse extends ComplexType implements Complex
      */
     public function setServiceInstanceProfile(ServiceInstanceReadProfile $serviceInstanceProfile = null)
     {
-        if (!$serviceInstanceProfile) return $this;
-        $this->serviceInstanceProfile = $serviceInstanceProfile;
+        $this->serviceInstanceProfile = ($serviceInstanceProfile InstanceOf ServiceInstanceReadProfile)
+             ? $serviceInstanceProfile
+             : new ServiceInstanceReadProfile($serviceInstanceProfile);
         $this->serviceInstanceProfile->setName('serviceInstanceProfile');
         return $this;
     }
@@ -63,7 +64,6 @@ class GroupGroupPagingGetInstanceResponse extends ComplexType implements Complex
      */
     public function setConfirmationToneTimeoutSeconds($confirmationToneTimeoutSeconds = null)
     {
-        if (!$confirmationToneTimeoutSeconds) return $this;
         $this->confirmationToneTimeoutSeconds = ($confirmationToneTimeoutSeconds InstanceOf GroupPagingConfirmationToneTimeoutSeconds)
              ? $confirmationToneTimeoutSeconds
              : new GroupPagingConfirmationToneTimeoutSeconds($confirmationToneTimeoutSeconds);
@@ -77,7 +77,7 @@ class GroupGroupPagingGetInstanceResponse extends ComplexType implements Complex
      */
     public function getConfirmationToneTimeoutSeconds()
     {
-        return $this->confirmationToneTimeoutSeconds->getValue();
+        return ($this->confirmationToneTimeoutSeconds) ? $this->confirmationToneTimeoutSeconds->getValue() : null;
     }
 
     /**
@@ -85,7 +85,6 @@ class GroupGroupPagingGetInstanceResponse extends ComplexType implements Complex
      */
     public function setDeliverOriginatorCLIDInstead($deliverOriginatorCLIDInstead = null)
     {
-        if (!$deliverOriginatorCLIDInstead) return $this;
         $this->deliverOriginatorCLIDInstead = new PrimitiveType($deliverOriginatorCLIDInstead);
         $this->deliverOriginatorCLIDInstead->setName('deliverOriginatorCLIDInstead');
         return $this;
@@ -97,7 +96,7 @@ class GroupGroupPagingGetInstanceResponse extends ComplexType implements Complex
      */
     public function getDeliverOriginatorCLIDInstead()
     {
-        return $this->deliverOriginatorCLIDInstead->getValue();
+        return ($this->deliverOriginatorCLIDInstead) ? $this->deliverOriginatorCLIDInstead->getValue() : null;
     }
 
     /**
@@ -105,7 +104,6 @@ class GroupGroupPagingGetInstanceResponse extends ComplexType implements Complex
      */
     public function setOriginatorCLIDPrefix($originatorCLIDPrefix = null)
     {
-        if (!$originatorCLIDPrefix) return $this;
         $this->originatorCLIDPrefix = ($originatorCLIDPrefix InstanceOf GroupPagingOriginatorCLIDPrefix)
              ? $originatorCLIDPrefix
              : new GroupPagingOriginatorCLIDPrefix($originatorCLIDPrefix);
@@ -119,6 +117,6 @@ class GroupGroupPagingGetInstanceResponse extends ComplexType implements Complex
      */
     public function getOriginatorCLIDPrefix()
     {
-        return $this->originatorCLIDPrefix->getValue();
+        return ($this->originatorCLIDPrefix) ? $this->originatorCLIDPrefix->getValue() : null;
     }
 }

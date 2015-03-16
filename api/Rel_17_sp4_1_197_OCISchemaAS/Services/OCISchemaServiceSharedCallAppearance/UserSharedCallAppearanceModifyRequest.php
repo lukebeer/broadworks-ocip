@@ -25,18 +25,18 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserSharedCallAppearanceModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                                   = 'UserSharedCallAppearanceModifyRequest';
-    protected $userId                                 = null;
-    protected $alertAllAppearancesForClickToDialCalls = null;
-    protected $alertAllAppearancesForGroupPagingCalls = null;
-    protected $allowSCACallRetrieve                   = null;
-    protected $multipleCallArrangementIsActive        = null;
-    protected $allowBridgingBetweenLocations          = null;
-    protected $bridgeWarningTone                      = null;
-    protected $enableCallParkNotification             = null;
+    public    $name = 'UserSharedCallAppearanceModifyRequest';
+    protected $userId;
+    protected $alertAllAppearancesForClickToDialCalls;
+    protected $alertAllAppearancesForGroupPagingCalls;
+    protected $allowSCACallRetrieve;
+    protected $multipleCallArrangementIsActive;
+    protected $allowBridgingBetweenLocations;
+    protected $bridgeWarningTone;
+    protected $enableCallParkNotification;
 
     public function __construct(
-         $userId,
+         $userId = '',
          $alertAllAppearancesForClickToDialCalls = null,
          $alertAllAppearancesForGroupPagingCalls = null,
          $allowSCACallRetrieve = null,
@@ -68,7 +68,6 @@ class UserSharedCallAppearanceModifyRequest extends ComplexType implements Compl
      */
     public function setUserId($userId = null)
     {
-        if (!$userId) return $this;
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
@@ -82,7 +81,7 @@ class UserSharedCallAppearanceModifyRequest extends ComplexType implements Compl
      */
     public function getUserId()
     {
-        return $this->userId->getValue();
+        return ($this->userId) ? $this->userId->getValue() : null;
     }
 
     /**
@@ -90,7 +89,6 @@ class UserSharedCallAppearanceModifyRequest extends ComplexType implements Compl
      */
     public function setAlertAllAppearancesForClickToDialCalls($alertAllAppearancesForClickToDialCalls = null)
     {
-        if (!$alertAllAppearancesForClickToDialCalls) return $this;
         $this->alertAllAppearancesForClickToDialCalls = new PrimitiveType($alertAllAppearancesForClickToDialCalls);
         $this->alertAllAppearancesForClickToDialCalls->setName('alertAllAppearancesForClickToDialCalls');
         return $this;
@@ -102,7 +100,7 @@ class UserSharedCallAppearanceModifyRequest extends ComplexType implements Compl
      */
     public function getAlertAllAppearancesForClickToDialCalls()
     {
-        return $this->alertAllAppearancesForClickToDialCalls->getValue();
+        return ($this->alertAllAppearancesForClickToDialCalls) ? $this->alertAllAppearancesForClickToDialCalls->getValue() : null;
     }
 
     /**
@@ -110,7 +108,6 @@ class UserSharedCallAppearanceModifyRequest extends ComplexType implements Compl
      */
     public function setAlertAllAppearancesForGroupPagingCalls($alertAllAppearancesForGroupPagingCalls = null)
     {
-        if (!$alertAllAppearancesForGroupPagingCalls) return $this;
         $this->alertAllAppearancesForGroupPagingCalls = new PrimitiveType($alertAllAppearancesForGroupPagingCalls);
         $this->alertAllAppearancesForGroupPagingCalls->setName('alertAllAppearancesForGroupPagingCalls');
         return $this;
@@ -122,7 +119,7 @@ class UserSharedCallAppearanceModifyRequest extends ComplexType implements Compl
      */
     public function getAlertAllAppearancesForGroupPagingCalls()
     {
-        return $this->alertAllAppearancesForGroupPagingCalls->getValue();
+        return ($this->alertAllAppearancesForGroupPagingCalls) ? $this->alertAllAppearancesForGroupPagingCalls->getValue() : null;
     }
 
     /**
@@ -130,7 +127,6 @@ class UserSharedCallAppearanceModifyRequest extends ComplexType implements Compl
      */
     public function setAllowSCACallRetrieve($allowSCACallRetrieve = null)
     {
-        if (!$allowSCACallRetrieve) return $this;
         $this->allowSCACallRetrieve = new PrimitiveType($allowSCACallRetrieve);
         $this->allowSCACallRetrieve->setName('allowSCACallRetrieve');
         return $this;
@@ -142,7 +138,7 @@ class UserSharedCallAppearanceModifyRequest extends ComplexType implements Compl
      */
     public function getAllowSCACallRetrieve()
     {
-        return $this->allowSCACallRetrieve->getValue();
+        return ($this->allowSCACallRetrieve) ? $this->allowSCACallRetrieve->getValue() : null;
     }
 
     /**
@@ -150,7 +146,6 @@ class UserSharedCallAppearanceModifyRequest extends ComplexType implements Compl
      */
     public function setMultipleCallArrangementIsActive($multipleCallArrangementIsActive = null)
     {
-        if (!$multipleCallArrangementIsActive) return $this;
         $this->multipleCallArrangementIsActive = new PrimitiveType($multipleCallArrangementIsActive);
         $this->multipleCallArrangementIsActive->setName('multipleCallArrangementIsActive');
         return $this;
@@ -162,7 +157,7 @@ class UserSharedCallAppearanceModifyRequest extends ComplexType implements Compl
      */
     public function getMultipleCallArrangementIsActive()
     {
-        return $this->multipleCallArrangementIsActive->getValue();
+        return ($this->multipleCallArrangementIsActive) ? $this->multipleCallArrangementIsActive->getValue() : null;
     }
 
     /**
@@ -170,7 +165,6 @@ class UserSharedCallAppearanceModifyRequest extends ComplexType implements Compl
      */
     public function setAllowBridgingBetweenLocations($allowBridgingBetweenLocations = null)
     {
-        if (!$allowBridgingBetweenLocations) return $this;
         $this->allowBridgingBetweenLocations = new PrimitiveType($allowBridgingBetweenLocations);
         $this->allowBridgingBetweenLocations->setName('allowBridgingBetweenLocations');
         return $this;
@@ -182,7 +176,7 @@ class UserSharedCallAppearanceModifyRequest extends ComplexType implements Compl
      */
     public function getAllowBridgingBetweenLocations()
     {
-        return $this->allowBridgingBetweenLocations->getValue();
+        return ($this->allowBridgingBetweenLocations) ? $this->allowBridgingBetweenLocations->getValue() : null;
     }
 
     /**
@@ -190,7 +184,6 @@ class UserSharedCallAppearanceModifyRequest extends ComplexType implements Compl
      */
     public function setBridgeWarningTone($bridgeWarningTone = null)
     {
-        if (!$bridgeWarningTone) return $this;
         $this->bridgeWarningTone = ($bridgeWarningTone InstanceOf SharedCallAppearanceBridgeWarningTone)
              ? $bridgeWarningTone
              : new SharedCallAppearanceBridgeWarningTone($bridgeWarningTone);
@@ -204,7 +197,7 @@ class UserSharedCallAppearanceModifyRequest extends ComplexType implements Compl
      */
     public function getBridgeWarningTone()
     {
-        return $this->bridgeWarningTone->getValue();
+        return ($this->bridgeWarningTone) ? $this->bridgeWarningTone->getValue() : null;
     }
 
     /**
@@ -212,7 +205,6 @@ class UserSharedCallAppearanceModifyRequest extends ComplexType implements Compl
      */
     public function setEnableCallParkNotification($enableCallParkNotification = null)
     {
-        if (!$enableCallParkNotification) return $this;
         $this->enableCallParkNotification = new PrimitiveType($enableCallParkNotification);
         $this->enableCallParkNotification->setName('enableCallParkNotification');
         return $this;
@@ -224,6 +216,6 @@ class UserSharedCallAppearanceModifyRequest extends ComplexType implements Compl
      */
     public function getEnableCallParkNotification()
     {
-        return $this->enableCallParkNotification->getValue();
+        return ($this->enableCallParkNotification) ? $this->enableCallParkNotification->getValue() : null;
     }
 }

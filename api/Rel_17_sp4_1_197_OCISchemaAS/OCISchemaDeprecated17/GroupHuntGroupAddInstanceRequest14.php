@@ -29,33 +29,33 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupHuntGroupAddInstanceRequest14 extends ComplexType implements ComplexInterface
 {
-    public    $name                      = 'GroupHuntGroupAddInstanceRequest14';
-    protected $serviceProviderId         = null;
-    protected $groupId                   = null;
-    protected $serviceUserId             = null;
-    protected $serviceInstanceProfile    = null;
-    protected $policy                    = null;
-    protected $huntAfterNoAnswer         = null;
-    protected $noAnswerNumberOfRings     = null;
-    protected $forwardAfterTimeout       = null;
-    protected $forwardTimeoutSeconds     = null;
-    protected $forwardToPhoneNumber      = null;
-    protected $agentUserId               = null;
-    protected $allowCallWaitingForAgents = null;
+    public    $name = 'GroupHuntGroupAddInstanceRequest14';
+    protected $serviceProviderId;
+    protected $groupId;
+    protected $serviceUserId;
+    protected $serviceInstanceProfile;
+    protected $policy;
+    protected $huntAfterNoAnswer;
+    protected $noAnswerNumberOfRings;
+    protected $forwardAfterTimeout;
+    protected $forwardTimeoutSeconds;
+    protected $forwardToPhoneNumber;
+    protected $agentUserId;
+    protected $allowCallWaitingForAgents;
 
     public function __construct(
-         $serviceProviderId,
-         $groupId,
-         $serviceUserId,
-         ServiceInstanceAddProfile $serviceInstanceProfile,
-         $policy,
-         $huntAfterNoAnswer,
-         $noAnswerNumberOfRings,
-         $forwardAfterTimeout,
-         $forwardTimeoutSeconds,
+         $serviceProviderId = '',
+         $groupId = '',
+         $serviceUserId = '',
+         ServiceInstanceAddProfile $serviceInstanceProfile = '',
+         $policy = '',
+         $huntAfterNoAnswer = '',
+         $noAnswerNumberOfRings = '',
+         $forwardAfterTimeout = '',
+         $forwardTimeoutSeconds = '',
          $forwardToPhoneNumber = null,
          $agentUserId = null,
-         $allowCallWaitingForAgents
+         $allowCallWaitingForAgents = ''
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setGroupId($groupId);
@@ -84,7 +84,6 @@ class GroupHuntGroupAddInstanceRequest14 extends ComplexType implements ComplexI
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
-        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
@@ -98,7 +97,7 @@ class GroupHuntGroupAddInstanceRequest14 extends ComplexType implements ComplexI
      */
     public function getServiceProviderId()
     {
-        return $this->serviceProviderId->getValue();
+        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
     }
 
     /**
@@ -106,7 +105,6 @@ class GroupHuntGroupAddInstanceRequest14 extends ComplexType implements ComplexI
      */
     public function setGroupId($groupId = null)
     {
-        if (!$groupId) return $this;
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
@@ -120,7 +118,7 @@ class GroupHuntGroupAddInstanceRequest14 extends ComplexType implements ComplexI
      */
     public function getGroupId()
     {
-        return $this->groupId->getValue();
+        return ($this->groupId) ? $this->groupId->getValue() : null;
     }
 
     /**
@@ -128,7 +126,6 @@ class GroupHuntGroupAddInstanceRequest14 extends ComplexType implements ComplexI
      */
     public function setServiceUserId($serviceUserId = null)
     {
-        if (!$serviceUserId) return $this;
         $this->serviceUserId = ($serviceUserId InstanceOf UserId)
              ? $serviceUserId
              : new UserId($serviceUserId);
@@ -142,7 +139,7 @@ class GroupHuntGroupAddInstanceRequest14 extends ComplexType implements ComplexI
      */
     public function getServiceUserId()
     {
-        return $this->serviceUserId->getValue();
+        return ($this->serviceUserId) ? $this->serviceUserId->getValue() : null;
     }
 
     /**
@@ -150,8 +147,9 @@ class GroupHuntGroupAddInstanceRequest14 extends ComplexType implements ComplexI
      */
     public function setServiceInstanceProfile(ServiceInstanceAddProfile $serviceInstanceProfile = null)
     {
-        if (!$serviceInstanceProfile) return $this;
-        $this->serviceInstanceProfile = $serviceInstanceProfile;
+        $this->serviceInstanceProfile = ($serviceInstanceProfile InstanceOf ServiceInstanceAddProfile)
+             ? $serviceInstanceProfile
+             : new ServiceInstanceAddProfile($serviceInstanceProfile);
         $this->serviceInstanceProfile->setName('serviceInstanceProfile');
         return $this;
     }
@@ -170,7 +168,6 @@ class GroupHuntGroupAddInstanceRequest14 extends ComplexType implements ComplexI
      */
     public function setPolicy($policy = null)
     {
-        if (!$policy) return $this;
         $this->policy = ($policy InstanceOf HuntPolicy)
              ? $policy
              : new HuntPolicy($policy);
@@ -184,7 +181,7 @@ class GroupHuntGroupAddInstanceRequest14 extends ComplexType implements ComplexI
      */
     public function getPolicy()
     {
-        return $this->policy->getValue();
+        return ($this->policy) ? $this->policy->getValue() : null;
     }
 
     /**
@@ -192,7 +189,6 @@ class GroupHuntGroupAddInstanceRequest14 extends ComplexType implements ComplexI
      */
     public function setHuntAfterNoAnswer($huntAfterNoAnswer = null)
     {
-        if (!$huntAfterNoAnswer) return $this;
         $this->huntAfterNoAnswer = new PrimitiveType($huntAfterNoAnswer);
         $this->huntAfterNoAnswer->setName('huntAfterNoAnswer');
         return $this;
@@ -204,7 +200,7 @@ class GroupHuntGroupAddInstanceRequest14 extends ComplexType implements ComplexI
      */
     public function getHuntAfterNoAnswer()
     {
-        return $this->huntAfterNoAnswer->getValue();
+        return ($this->huntAfterNoAnswer) ? $this->huntAfterNoAnswer->getValue() : null;
     }
 
     /**
@@ -212,7 +208,6 @@ class GroupHuntGroupAddInstanceRequest14 extends ComplexType implements ComplexI
      */
     public function setNoAnswerNumberOfRings($noAnswerNumberOfRings = null)
     {
-        if (!$noAnswerNumberOfRings) return $this;
         $this->noAnswerNumberOfRings = ($noAnswerNumberOfRings InstanceOf HuntNoAnswerRings)
              ? $noAnswerNumberOfRings
              : new HuntNoAnswerRings($noAnswerNumberOfRings);
@@ -226,7 +221,7 @@ class GroupHuntGroupAddInstanceRequest14 extends ComplexType implements ComplexI
      */
     public function getNoAnswerNumberOfRings()
     {
-        return $this->noAnswerNumberOfRings->getValue();
+        return ($this->noAnswerNumberOfRings) ? $this->noAnswerNumberOfRings->getValue() : null;
     }
 
     /**
@@ -234,7 +229,6 @@ class GroupHuntGroupAddInstanceRequest14 extends ComplexType implements ComplexI
      */
     public function setForwardAfterTimeout($forwardAfterTimeout = null)
     {
-        if (!$forwardAfterTimeout) return $this;
         $this->forwardAfterTimeout = new PrimitiveType($forwardAfterTimeout);
         $this->forwardAfterTimeout->setName('forwardAfterTimeout');
         return $this;
@@ -246,7 +240,7 @@ class GroupHuntGroupAddInstanceRequest14 extends ComplexType implements ComplexI
      */
     public function getForwardAfterTimeout()
     {
-        return $this->forwardAfterTimeout->getValue();
+        return ($this->forwardAfterTimeout) ? $this->forwardAfterTimeout->getValue() : null;
     }
 
     /**
@@ -254,7 +248,6 @@ class GroupHuntGroupAddInstanceRequest14 extends ComplexType implements ComplexI
      */
     public function setForwardTimeoutSeconds($forwardTimeoutSeconds = null)
     {
-        if (!$forwardTimeoutSeconds) return $this;
         $this->forwardTimeoutSeconds = ($forwardTimeoutSeconds InstanceOf HuntForwardTimeoutSeconds)
              ? $forwardTimeoutSeconds
              : new HuntForwardTimeoutSeconds($forwardTimeoutSeconds);
@@ -268,7 +261,7 @@ class GroupHuntGroupAddInstanceRequest14 extends ComplexType implements ComplexI
      */
     public function getForwardTimeoutSeconds()
     {
-        return $this->forwardTimeoutSeconds->getValue();
+        return ($this->forwardTimeoutSeconds) ? $this->forwardTimeoutSeconds->getValue() : null;
     }
 
     /**
@@ -276,7 +269,6 @@ class GroupHuntGroupAddInstanceRequest14 extends ComplexType implements ComplexI
      */
     public function setForwardToPhoneNumber($forwardToPhoneNumber = null)
     {
-        if (!$forwardToPhoneNumber) return $this;
         $this->forwardToPhoneNumber = ($forwardToPhoneNumber InstanceOf OutgoingDN)
              ? $forwardToPhoneNumber
              : new OutgoingDN($forwardToPhoneNumber);
@@ -290,7 +282,7 @@ class GroupHuntGroupAddInstanceRequest14 extends ComplexType implements ComplexI
      */
     public function getForwardToPhoneNumber()
     {
-        return $this->forwardToPhoneNumber->getValue();
+        return ($this->forwardToPhoneNumber) ? $this->forwardToPhoneNumber->getValue() : null;
     }
 
     /**
@@ -298,7 +290,6 @@ class GroupHuntGroupAddInstanceRequest14 extends ComplexType implements ComplexI
      */
     public function setAgentUserId($agentUserId = null)
     {
-        if (!$agentUserId) return $this;
         $this->agentUserId = ($agentUserId InstanceOf UserId)
              ? $agentUserId
              : new UserId($agentUserId);
@@ -312,7 +303,7 @@ class GroupHuntGroupAddInstanceRequest14 extends ComplexType implements ComplexI
      */
     public function getAgentUserId()
     {
-        return $this->agentUserId->getValue();
+        return ($this->agentUserId) ? $this->agentUserId->getValue() : null;
     }
 
     /**
@@ -320,7 +311,6 @@ class GroupHuntGroupAddInstanceRequest14 extends ComplexType implements ComplexI
      */
     public function setAllowCallWaitingForAgents($allowCallWaitingForAgents = null)
     {
-        if (!$allowCallWaitingForAgents) return $this;
         $this->allowCallWaitingForAgents = new PrimitiveType($allowCallWaitingForAgents);
         $this->allowCallWaitingForAgents->setName('allowCallWaitingForAgents');
         return $this;
@@ -332,6 +322,6 @@ class GroupHuntGroupAddInstanceRequest14 extends ComplexType implements ComplexI
      */
     public function getAllowCallWaitingForAgents()
     {
-        return $this->allowCallWaitingForAgents->getValue();
+        return ($this->allowCallWaitingForAgents) ? $this->allowCallWaitingForAgents->getValue() : null;
     }
 }

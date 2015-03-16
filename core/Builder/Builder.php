@@ -12,6 +12,8 @@ namespace Broadworks_OCIP\core\Builder;
 
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Builder\Types\SimpleType;
+use Broadworks_OCIP\core\Builder\Types\SimpleContent;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Session\Session;
 
 /**
@@ -59,7 +61,11 @@ class Builder
         foreach ($command->getElements() as $element) {
             if ($element InstanceOf ComplexType) {
                 $oci .= self::buildComplex($element);
-            } elseif ($element InstanceOf SimpleType) {
+            } elseif (
+                ($element InstanceOf SimpleType)
+                || ($element InstanceOf SimpleContent)
+                || ($element InstanceOf PrimitiveType)
+            ) {
                 $oci .= self::buildSimple($element);
             }
         }
@@ -87,14 +93,19 @@ class Builder
      */
     public static function buildComplex(ComplexType $complex)
     {
-        $oci = "<{$complex->getName()}>";
+        $oci = '';
         foreach ($complex->getElements() as $element) {
-            $oci .= ($element InstanceOf ComplexType)
-                ? self::buildComplex($element)
-                : self::buildSimple($element);
+            if ($element InstanceOf ComplexType) {
+                $oci .= self::buildComplex($element);
+            } elseif (
+                ($element InstanceOf SimpleType)
+                || ($element InstanceOf SimpleContent)
+                || ($element InstanceOf PrimitiveType)
+            ) {
+                $oci .= self::buildSimple($element);
+            }
         }
-        $oci .= "</{$complex->getName()}>";
-        return $oci;
+        return ($oci) ? "<{$complex->getName()}>$oci</{$complex->getName()}>" : '';
     }
 
     /**

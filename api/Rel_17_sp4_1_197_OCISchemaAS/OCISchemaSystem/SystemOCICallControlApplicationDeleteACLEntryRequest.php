@@ -21,13 +21,13 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemOCICallControlApplicationDeleteACLEntryRequest extends ComplexType implements ComplexInterface
 {
-    public    $name          = 'SystemOCICallControlApplicationDeleteACLEntryRequest';
-    protected $applicationId = null;
-    protected $netAddress    = null;
+    public    $name = 'SystemOCICallControlApplicationDeleteACLEntryRequest';
+    protected $applicationId;
+    protected $netAddress;
 
     public function __construct(
-         $applicationId,
-         $netAddress
+         $applicationId = '',
+         $netAddress = ''
     ) {
         $this->setApplicationId($applicationId);
         $this->setNetAddress($netAddress);
@@ -46,7 +46,6 @@ class SystemOCICallControlApplicationDeleteACLEntryRequest extends ComplexType i
      */
     public function setApplicationId($applicationId = null)
     {
-        if (!$applicationId) return $this;
         $this->applicationId = ($applicationId InstanceOf OCICallControlApplicationId)
              ? $applicationId
              : new OCICallControlApplicationId($applicationId);
@@ -60,7 +59,7 @@ class SystemOCICallControlApplicationDeleteACLEntryRequest extends ComplexType i
      */
     public function getApplicationId()
     {
-        return $this->applicationId->getValue();
+        return ($this->applicationId) ? $this->applicationId->getValue() : null;
     }
 
     /**
@@ -68,7 +67,6 @@ class SystemOCICallControlApplicationDeleteACLEntryRequest extends ComplexType i
      */
     public function setNetAddress($netAddress = null)
     {
-        if (!$netAddress) return $this;
         $this->netAddress = ($netAddress InstanceOf IPAddress)
              ? $netAddress
              : new IPAddress($netAddress);
@@ -82,6 +80,6 @@ class SystemOCICallControlApplicationDeleteACLEntryRequest extends ComplexType i
      */
     public function getNetAddress()
     {
-        return $this->netAddress->getValue();
+        return ($this->netAddress) ? $this->netAddress->getValue() : null;
     }
 }

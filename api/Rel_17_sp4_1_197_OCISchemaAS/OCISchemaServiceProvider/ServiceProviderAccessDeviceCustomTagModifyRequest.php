@@ -23,16 +23,16 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderAccessDeviceCustomTagModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name              = 'ServiceProviderAccessDeviceCustomTagModifyRequest';
-    protected $serviceProviderId = null;
-    protected $deviceName        = null;
-    protected $tagName           = null;
-    protected $tagValue          = null;
+    public    $name = 'ServiceProviderAccessDeviceCustomTagModifyRequest';
+    protected $serviceProviderId;
+    protected $deviceName;
+    protected $tagName;
+    protected $tagValue;
 
     public function __construct(
-         $serviceProviderId,
-         $deviceName,
-         $tagName,
+         $serviceProviderId = '',
+         $deviceName = '',
+         $tagName = '',
          $tagValue = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
@@ -54,7 +54,6 @@ class ServiceProviderAccessDeviceCustomTagModifyRequest extends ComplexType impl
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
-        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
@@ -68,7 +67,7 @@ class ServiceProviderAccessDeviceCustomTagModifyRequest extends ComplexType impl
      */
     public function getServiceProviderId()
     {
-        return $this->serviceProviderId->getValue();
+        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
     }
 
     /**
@@ -76,7 +75,6 @@ class ServiceProviderAccessDeviceCustomTagModifyRequest extends ComplexType impl
      */
     public function setDeviceName($deviceName = null)
     {
-        if (!$deviceName) return $this;
         $this->deviceName = ($deviceName InstanceOf AccessDeviceName)
              ? $deviceName
              : new AccessDeviceName($deviceName);
@@ -90,7 +88,7 @@ class ServiceProviderAccessDeviceCustomTagModifyRequest extends ComplexType impl
      */
     public function getDeviceName()
     {
-        return $this->deviceName->getValue();
+        return ($this->deviceName) ? $this->deviceName->getValue() : null;
     }
 
     /**
@@ -98,7 +96,6 @@ class ServiceProviderAccessDeviceCustomTagModifyRequest extends ComplexType impl
      */
     public function setTagName($tagName = null)
     {
-        if (!$tagName) return $this;
         $this->tagName = ($tagName InstanceOf DeviceManagementTagName)
              ? $tagName
              : new DeviceManagementTagName($tagName);
@@ -112,7 +109,7 @@ class ServiceProviderAccessDeviceCustomTagModifyRequest extends ComplexType impl
      */
     public function getTagName()
     {
-        return $this->tagName->getValue();
+        return ($this->tagName) ? $this->tagName->getValue() : null;
     }
 
     /**
@@ -120,7 +117,6 @@ class ServiceProviderAccessDeviceCustomTagModifyRequest extends ComplexType impl
      */
     public function setTagValue($tagValue = null)
     {
-        if (!$tagValue) return $this;
         $this->tagValue = ($tagValue InstanceOf DeviceManagementTagValue)
              ? $tagValue
              : new DeviceManagementTagValue($tagValue);
@@ -134,6 +130,6 @@ class ServiceProviderAccessDeviceCustomTagModifyRequest extends ComplexType impl
      */
     public function getTagValue()
     {
-        return $this->tagValue->getValue();
+        return ($this->tagValue) ? $this->tagValue->getValue() : null;
     }
 }

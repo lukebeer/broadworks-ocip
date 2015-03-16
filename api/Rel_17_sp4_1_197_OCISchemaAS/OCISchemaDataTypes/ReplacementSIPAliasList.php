@@ -20,8 +20,8 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ReplacementSIPAliasList extends ComplexType implements ComplexInterface
 {
-    public    $name     = 'ReplacementSIPAliasList';
-    protected $sipAlias = null;
+    public    $name = 'ReplacementSIPAliasList';
+    protected $sipAlias;
 
     public function __construct(
          $sipAlias = null
@@ -42,7 +42,6 @@ class ReplacementSIPAliasList extends ComplexType implements ComplexInterface
      */
     public function setSipAlias($sipAlias = null)
     {
-        if (!$sipAlias) return $this;
         $this->sipAlias = new SimpleContent($sipAlias);
         $this->sipAlias->setName('sipAlias');
         return $this;
@@ -54,6 +53,6 @@ class ReplacementSIPAliasList extends ComplexType implements ComplexInterface
      */
     public function getSipAlias()
     {
-        return $this->sipAlias->getValue();
+        return ($this->sipAlias) ? $this->sipAlias->getValue() : null;
     }
 }

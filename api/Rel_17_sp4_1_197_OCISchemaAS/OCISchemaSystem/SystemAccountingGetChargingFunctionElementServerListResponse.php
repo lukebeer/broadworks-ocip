@@ -20,8 +20,8 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemAccountingGetChargingFunctionElementServerListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                               = 'SystemAccountingGetChargingFunctionElementServerListResponse';
-    protected $chargingFunctionElementServerTable = null;
+    public    $name = 'SystemAccountingGetChargingFunctionElementServerListResponse';
+    protected $chargingFunctionElementServerTable;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemAccountingGetChargingFunctionElementServerListResponse $response
@@ -36,7 +36,6 @@ class SystemAccountingGetChargingFunctionElementServerListResponse extends Compl
      */
     public function setChargingFunctionElementServerTable(TableType $chargingFunctionElementServerTable = null)
     {
-        if (!$chargingFunctionElementServerTable) return $this;
         $this->chargingFunctionElementServerTable = $chargingFunctionElementServerTable;
         $this->chargingFunctionElementServerTable->setName('chargingFunctionElementServerTable');
         return $this;

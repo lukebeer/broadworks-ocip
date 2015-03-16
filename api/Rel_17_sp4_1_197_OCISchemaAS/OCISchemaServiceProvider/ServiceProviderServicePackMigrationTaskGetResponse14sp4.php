@@ -29,30 +29,30 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderServicePackMigrationTaskGetResponse14sp4 extends ComplexType implements ComplexInterface
 {
-    public    $name                                  = 'ServiceProviderServicePackMigrationTaskGetResponse14sp4';
-    protected $taskName                              = null;
-    protected $startTimestamp                        = null;
-    protected $maxDurationHours                      = null;
-    protected $sendReportEmail                       = null;
-    protected $reportDeliveryEmailAddress            = null;
-    protected $abortOnError                          = null;
-    protected $abortErrorThreshold                   = null;
-    protected $reportAllUsers                        = null;
-    protected $automaticallyIncrementServiceQuantity = null;
-    protected $errorCount                            = null;
-    protected $status                                = null;
-    protected $groupsProcessed                       = null;
-    protected $groupsTotal                           = null;
-    protected $usersProcessed                        = null;
-    protected $usersTotal                            = null;
-    protected $userSelectionType                     = null;
-    protected $reportFilePathName                    = null;
-    protected $userSelectionServicePackName          = null;
-    protected $userSelectionServiceName              = null;
-    protected $removeServicePackName                 = null;
-    protected $removeServiceName                     = null;
-    protected $assignServicePackName                 = null;
-    protected $assignServiceName                     = null;
+    public    $name = 'ServiceProviderServicePackMigrationTaskGetResponse14sp4';
+    protected $taskName;
+    protected $startTimestamp;
+    protected $maxDurationHours;
+    protected $sendReportEmail;
+    protected $reportDeliveryEmailAddress;
+    protected $abortOnError;
+    protected $abortErrorThreshold;
+    protected $reportAllUsers;
+    protected $automaticallyIncrementServiceQuantity;
+    protected $errorCount;
+    protected $status;
+    protected $groupsProcessed;
+    protected $groupsTotal;
+    protected $usersProcessed;
+    protected $usersTotal;
+    protected $userSelectionType;
+    protected $reportFilePathName;
+    protected $userSelectionServicePackName;
+    protected $userSelectionServiceName;
+    protected $removeServicePackName;
+    protected $removeServiceName;
+    protected $assignServicePackName;
+    protected $assignServiceName;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderServicePackMigrationTaskGetResponse14sp4 $response
@@ -67,7 +67,6 @@ class ServiceProviderServicePackMigrationTaskGetResponse14sp4 extends ComplexTyp
      */
     public function setTaskName($taskName = null)
     {
-        if (!$taskName) return $this;
         $this->taskName = ($taskName InstanceOf ServicePackMigrationTaskName)
              ? $taskName
              : new ServicePackMigrationTaskName($taskName);
@@ -81,7 +80,7 @@ class ServiceProviderServicePackMigrationTaskGetResponse14sp4 extends ComplexTyp
      */
     public function getTaskName()
     {
-        return $this->taskName->getValue();
+        return ($this->taskName) ? $this->taskName->getValue() : null;
     }
 
     /**
@@ -89,7 +88,6 @@ class ServiceProviderServicePackMigrationTaskGetResponse14sp4 extends ComplexTyp
      */
     public function setStartTimestamp(xs:dateTime $startTimestamp = null)
     {
-        if (!$startTimestamp) return $this;
         $this->startTimestamp->setName('startTimestamp');
         return $this;
     }
@@ -100,7 +98,7 @@ class ServiceProviderServicePackMigrationTaskGetResponse14sp4 extends ComplexTyp
      */
     public function getStartTimestamp()
     {
-        return $this->startTimestamp->getValue();
+        return ($this->startTimestamp) ? $this->startTimestamp->getValue() : null;
     }
 
     /**
@@ -108,7 +106,6 @@ class ServiceProviderServicePackMigrationTaskGetResponse14sp4 extends ComplexTyp
      */
     public function setMaxDurationHours($maxDurationHours = null)
     {
-        if (!$maxDurationHours) return $this;
         $this->maxDurationHours = ($maxDurationHours InstanceOf ServicePackMigrationMaxDurationHours)
              ? $maxDurationHours
              : new ServicePackMigrationMaxDurationHours($maxDurationHours);
@@ -122,7 +119,7 @@ class ServiceProviderServicePackMigrationTaskGetResponse14sp4 extends ComplexTyp
      */
     public function getMaxDurationHours()
     {
-        return $this->maxDurationHours->getValue();
+        return ($this->maxDurationHours) ? $this->maxDurationHours->getValue() : null;
     }
 
     /**
@@ -130,7 +127,6 @@ class ServiceProviderServicePackMigrationTaskGetResponse14sp4 extends ComplexTyp
      */
     public function setSendReportEmail($sendReportEmail = null)
     {
-        if (!$sendReportEmail) return $this;
         $this->sendReportEmail = new PrimitiveType($sendReportEmail);
         $this->sendReportEmail->setName('sendReportEmail');
         return $this;
@@ -142,7 +138,7 @@ class ServiceProviderServicePackMigrationTaskGetResponse14sp4 extends ComplexTyp
      */
     public function getSendReportEmail()
     {
-        return $this->sendReportEmail->getValue();
+        return ($this->sendReportEmail) ? $this->sendReportEmail->getValue() : null;
     }
 
     /**
@@ -150,7 +146,6 @@ class ServiceProviderServicePackMigrationTaskGetResponse14sp4 extends ComplexTyp
      */
     public function setReportDeliveryEmailAddress($reportDeliveryEmailAddress = null)
     {
-        if (!$reportDeliveryEmailAddress) return $this;
         $this->reportDeliveryEmailAddress = ($reportDeliveryEmailAddress InstanceOf EmailAddress)
              ? $reportDeliveryEmailAddress
              : new EmailAddress($reportDeliveryEmailAddress);
@@ -164,7 +159,7 @@ class ServiceProviderServicePackMigrationTaskGetResponse14sp4 extends ComplexTyp
      */
     public function getReportDeliveryEmailAddress()
     {
-        return $this->reportDeliveryEmailAddress->getValue();
+        return ($this->reportDeliveryEmailAddress) ? $this->reportDeliveryEmailAddress->getValue() : null;
     }
 
     /**
@@ -172,7 +167,6 @@ class ServiceProviderServicePackMigrationTaskGetResponse14sp4 extends ComplexTyp
      */
     public function setAbortOnError($abortOnError = null)
     {
-        if (!$abortOnError) return $this;
         $this->abortOnError = new PrimitiveType($abortOnError);
         $this->abortOnError->setName('abortOnError');
         return $this;
@@ -184,7 +178,7 @@ class ServiceProviderServicePackMigrationTaskGetResponse14sp4 extends ComplexTyp
      */
     public function getAbortOnError()
     {
-        return $this->abortOnError->getValue();
+        return ($this->abortOnError) ? $this->abortOnError->getValue() : null;
     }
 
     /**
@@ -192,7 +186,6 @@ class ServiceProviderServicePackMigrationTaskGetResponse14sp4 extends ComplexTyp
      */
     public function setAbortErrorThreshold($abortErrorThreshold = null)
     {
-        if (!$abortErrorThreshold) return $this;
         $this->abortErrorThreshold = ($abortErrorThreshold InstanceOf ServicePackMigrationAbortErrorThreshold)
              ? $abortErrorThreshold
              : new ServicePackMigrationAbortErrorThreshold($abortErrorThreshold);
@@ -206,7 +199,7 @@ class ServiceProviderServicePackMigrationTaskGetResponse14sp4 extends ComplexTyp
      */
     public function getAbortErrorThreshold()
     {
-        return $this->abortErrorThreshold->getValue();
+        return ($this->abortErrorThreshold) ? $this->abortErrorThreshold->getValue() : null;
     }
 
     /**
@@ -214,7 +207,6 @@ class ServiceProviderServicePackMigrationTaskGetResponse14sp4 extends ComplexTyp
      */
     public function setReportAllUsers($reportAllUsers = null)
     {
-        if (!$reportAllUsers) return $this;
         $this->reportAllUsers = new PrimitiveType($reportAllUsers);
         $this->reportAllUsers->setName('reportAllUsers');
         return $this;
@@ -226,7 +218,7 @@ class ServiceProviderServicePackMigrationTaskGetResponse14sp4 extends ComplexTyp
      */
     public function getReportAllUsers()
     {
-        return $this->reportAllUsers->getValue();
+        return ($this->reportAllUsers) ? $this->reportAllUsers->getValue() : null;
     }
 
     /**
@@ -234,7 +226,6 @@ class ServiceProviderServicePackMigrationTaskGetResponse14sp4 extends ComplexTyp
      */
     public function setAutomaticallyIncrementServiceQuantity($automaticallyIncrementServiceQuantity = null)
     {
-        if (!$automaticallyIncrementServiceQuantity) return $this;
         $this->automaticallyIncrementServiceQuantity = new PrimitiveType($automaticallyIncrementServiceQuantity);
         $this->automaticallyIncrementServiceQuantity->setName('automaticallyIncrementServiceQuantity');
         return $this;
@@ -246,7 +237,7 @@ class ServiceProviderServicePackMigrationTaskGetResponse14sp4 extends ComplexTyp
      */
     public function getAutomaticallyIncrementServiceQuantity()
     {
-        return $this->automaticallyIncrementServiceQuantity->getValue();
+        return ($this->automaticallyIncrementServiceQuantity) ? $this->automaticallyIncrementServiceQuantity->getValue() : null;
     }
 
     /**
@@ -254,7 +245,6 @@ class ServiceProviderServicePackMigrationTaskGetResponse14sp4 extends ComplexTyp
      */
     public function setErrorCount($errorCount = null)
     {
-        if (!$errorCount) return $this;
         $this->errorCount = new PrimitiveType($errorCount);
         $this->errorCount->setName('errorCount');
         return $this;
@@ -266,7 +256,7 @@ class ServiceProviderServicePackMigrationTaskGetResponse14sp4 extends ComplexTyp
      */
     public function getErrorCount()
     {
-        return $this->errorCount->getValue();
+        return ($this->errorCount) ? $this->errorCount->getValue() : null;
     }
 
     /**
@@ -274,7 +264,6 @@ class ServiceProviderServicePackMigrationTaskGetResponse14sp4 extends ComplexTyp
      */
     public function setStatus($status = null)
     {
-        if (!$status) return $this;
         $this->status = ($status InstanceOf ServicePackMigrationTaskStatus)
              ? $status
              : new ServicePackMigrationTaskStatus($status);
@@ -288,7 +277,7 @@ class ServiceProviderServicePackMigrationTaskGetResponse14sp4 extends ComplexTyp
      */
     public function getStatus()
     {
-        return $this->status->getValue();
+        return ($this->status) ? $this->status->getValue() : null;
     }
 
     /**
@@ -296,7 +285,6 @@ class ServiceProviderServicePackMigrationTaskGetResponse14sp4 extends ComplexTyp
      */
     public function setGroupsProcessed($groupsProcessed = null)
     {
-        if (!$groupsProcessed) return $this;
         $this->groupsProcessed = new PrimitiveType($groupsProcessed);
         $this->groupsProcessed->setName('groupsProcessed');
         return $this;
@@ -308,7 +296,7 @@ class ServiceProviderServicePackMigrationTaskGetResponse14sp4 extends ComplexTyp
      */
     public function getGroupsProcessed()
     {
-        return $this->groupsProcessed->getValue();
+        return ($this->groupsProcessed) ? $this->groupsProcessed->getValue() : null;
     }
 
     /**
@@ -316,7 +304,6 @@ class ServiceProviderServicePackMigrationTaskGetResponse14sp4 extends ComplexTyp
      */
     public function setGroupsTotal($groupsTotal = null)
     {
-        if (!$groupsTotal) return $this;
         $this->groupsTotal = new PrimitiveType($groupsTotal);
         $this->groupsTotal->setName('groupsTotal');
         return $this;
@@ -328,7 +315,7 @@ class ServiceProviderServicePackMigrationTaskGetResponse14sp4 extends ComplexTyp
      */
     public function getGroupsTotal()
     {
-        return $this->groupsTotal->getValue();
+        return ($this->groupsTotal) ? $this->groupsTotal->getValue() : null;
     }
 
     /**
@@ -336,7 +323,6 @@ class ServiceProviderServicePackMigrationTaskGetResponse14sp4 extends ComplexTyp
      */
     public function setUsersProcessed($usersProcessed = null)
     {
-        if (!$usersProcessed) return $this;
         $this->usersProcessed = new PrimitiveType($usersProcessed);
         $this->usersProcessed->setName('usersProcessed');
         return $this;
@@ -348,7 +334,7 @@ class ServiceProviderServicePackMigrationTaskGetResponse14sp4 extends ComplexTyp
      */
     public function getUsersProcessed()
     {
-        return $this->usersProcessed->getValue();
+        return ($this->usersProcessed) ? $this->usersProcessed->getValue() : null;
     }
 
     /**
@@ -356,7 +342,6 @@ class ServiceProviderServicePackMigrationTaskGetResponse14sp4 extends ComplexTyp
      */
     public function setUsersTotal($usersTotal = null)
     {
-        if (!$usersTotal) return $this;
         $this->usersTotal = new PrimitiveType($usersTotal);
         $this->usersTotal->setName('usersTotal');
         return $this;
@@ -368,7 +353,7 @@ class ServiceProviderServicePackMigrationTaskGetResponse14sp4 extends ComplexTyp
      */
     public function getUsersTotal()
     {
-        return $this->usersTotal->getValue();
+        return ($this->usersTotal) ? $this->usersTotal->getValue() : null;
     }
 
     /**
@@ -376,7 +361,6 @@ class ServiceProviderServicePackMigrationTaskGetResponse14sp4 extends ComplexTyp
      */
     public function setUserSelectionType($userSelectionType = null)
     {
-        if (!$userSelectionType) return $this;
         $this->userSelectionType = ($userSelectionType InstanceOf ServicePackMigrationTaskUserSelectionType)
              ? $userSelectionType
              : new ServicePackMigrationTaskUserSelectionType($userSelectionType);
@@ -390,7 +374,7 @@ class ServiceProviderServicePackMigrationTaskGetResponse14sp4 extends ComplexTyp
      */
     public function getUserSelectionType()
     {
-        return $this->userSelectionType->getValue();
+        return ($this->userSelectionType) ? $this->userSelectionType->getValue() : null;
     }
 
     /**
@@ -398,7 +382,6 @@ class ServiceProviderServicePackMigrationTaskGetResponse14sp4 extends ComplexTyp
      */
     public function setReportFilePathName($reportFilePathName = null)
     {
-        if (!$reportFilePathName) return $this;
         $this->reportFilePathName = ($reportFilePathName InstanceOf FileName)
              ? $reportFilePathName
              : new FileName($reportFilePathName);
@@ -412,7 +395,7 @@ class ServiceProviderServicePackMigrationTaskGetResponse14sp4 extends ComplexTyp
      */
     public function getReportFilePathName()
     {
-        return $this->reportFilePathName->getValue();
+        return ($this->reportFilePathName) ? $this->reportFilePathName->getValue() : null;
     }
 
     /**
@@ -420,7 +403,6 @@ class ServiceProviderServicePackMigrationTaskGetResponse14sp4 extends ComplexTyp
      */
     public function setUserSelectionServicePackName($userSelectionServicePackName = null)
     {
-        if (!$userSelectionServicePackName) return $this;
         $this->userSelectionServicePackName = ($userSelectionServicePackName InstanceOf ServicePackName)
              ? $userSelectionServicePackName
              : new ServicePackName($userSelectionServicePackName);
@@ -434,7 +416,7 @@ class ServiceProviderServicePackMigrationTaskGetResponse14sp4 extends ComplexTyp
      */
     public function getUserSelectionServicePackName()
     {
-        return $this->userSelectionServicePackName->getValue();
+        return ($this->userSelectionServicePackName) ? $this->userSelectionServicePackName->getValue() : null;
     }
 
     /**
@@ -442,7 +424,6 @@ class ServiceProviderServicePackMigrationTaskGetResponse14sp4 extends ComplexTyp
      */
     public function setUserSelectionServiceName($userSelectionServiceName = null)
     {
-        if (!$userSelectionServiceName) return $this;
         $this->userSelectionServiceName = ($userSelectionServiceName InstanceOf UserService)
              ? $userSelectionServiceName
              : new UserService($userSelectionServiceName);
@@ -456,7 +437,7 @@ class ServiceProviderServicePackMigrationTaskGetResponse14sp4 extends ComplexTyp
      */
     public function getUserSelectionServiceName()
     {
-        return $this->userSelectionServiceName->getValue();
+        return ($this->userSelectionServiceName) ? $this->userSelectionServiceName->getValue() : null;
     }
 
     /**
@@ -464,7 +445,6 @@ class ServiceProviderServicePackMigrationTaskGetResponse14sp4 extends ComplexTyp
      */
     public function setRemoveServicePackName($removeServicePackName = null)
     {
-        if (!$removeServicePackName) return $this;
         $this->removeServicePackName = ($removeServicePackName InstanceOf ServicePackName)
              ? $removeServicePackName
              : new ServicePackName($removeServicePackName);
@@ -478,7 +458,7 @@ class ServiceProviderServicePackMigrationTaskGetResponse14sp4 extends ComplexTyp
      */
     public function getRemoveServicePackName()
     {
-        return $this->removeServicePackName->getValue();
+        return ($this->removeServicePackName) ? $this->removeServicePackName->getValue() : null;
     }
 
     /**
@@ -486,7 +466,6 @@ class ServiceProviderServicePackMigrationTaskGetResponse14sp4 extends ComplexTyp
      */
     public function setRemoveServiceName($removeServiceName = null)
     {
-        if (!$removeServiceName) return $this;
         $this->removeServiceName = ($removeServiceName InstanceOf UserService)
              ? $removeServiceName
              : new UserService($removeServiceName);
@@ -500,7 +479,7 @@ class ServiceProviderServicePackMigrationTaskGetResponse14sp4 extends ComplexTyp
      */
     public function getRemoveServiceName()
     {
-        return $this->removeServiceName->getValue();
+        return ($this->removeServiceName) ? $this->removeServiceName->getValue() : null;
     }
 
     /**
@@ -508,7 +487,6 @@ class ServiceProviderServicePackMigrationTaskGetResponse14sp4 extends ComplexTyp
      */
     public function setAssignServicePackName($assignServicePackName = null)
     {
-        if (!$assignServicePackName) return $this;
         $this->assignServicePackName = ($assignServicePackName InstanceOf ServicePackName)
              ? $assignServicePackName
              : new ServicePackName($assignServicePackName);
@@ -522,7 +500,7 @@ class ServiceProviderServicePackMigrationTaskGetResponse14sp4 extends ComplexTyp
      */
     public function getAssignServicePackName()
     {
-        return $this->assignServicePackName->getValue();
+        return ($this->assignServicePackName) ? $this->assignServicePackName->getValue() : null;
     }
 
     /**
@@ -530,7 +508,6 @@ class ServiceProviderServicePackMigrationTaskGetResponse14sp4 extends ComplexTyp
      */
     public function setAssignServiceName($assignServiceName = null)
     {
-        if (!$assignServiceName) return $this;
         $this->assignServiceName = ($assignServiceName InstanceOf UserService)
              ? $assignServiceName
              : new UserService($assignServiceName);
@@ -544,6 +521,6 @@ class ServiceProviderServicePackMigrationTaskGetResponse14sp4 extends ComplexTyp
      */
     public function getAssignServiceName()
     {
-        return $this->assignServiceName->getValue();
+        return ($this->assignServiceName) ? $this->assignServiceName->getValue() : null;
     }
 }

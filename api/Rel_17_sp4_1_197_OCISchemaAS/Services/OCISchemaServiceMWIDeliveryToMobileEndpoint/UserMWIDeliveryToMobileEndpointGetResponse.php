@@ -20,9 +20,9 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserMWIDeliveryToMobileEndpointGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name              = 'UserMWIDeliveryToMobileEndpointGetResponse';
-    protected $isActive          = null;
-    protected $mobilePhoneNumber = null;
+    public    $name = 'UserMWIDeliveryToMobileEndpointGetResponse';
+    protected $isActive;
+    protected $mobilePhoneNumber;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceMWIDeliveryToMobileEndpoint\UserMWIDeliveryToMobileEndpointGetResponse $response
@@ -37,7 +37,6 @@ class UserMWIDeliveryToMobileEndpointGetResponse extends ComplexType implements 
      */
     public function setIsActive($isActive = null)
     {
-        if (!$isActive) return $this;
         $this->isActive = new PrimitiveType($isActive);
         $this->isActive->setName('isActive');
         return $this;
@@ -49,7 +48,7 @@ class UserMWIDeliveryToMobileEndpointGetResponse extends ComplexType implements 
      */
     public function getIsActive()
     {
-        return $this->isActive->getValue();
+        return ($this->isActive) ? $this->isActive->getValue() : null;
     }
 
     /**
@@ -57,7 +56,6 @@ class UserMWIDeliveryToMobileEndpointGetResponse extends ComplexType implements 
      */
     public function setMobilePhoneNumber($mobilePhoneNumber = null)
     {
-        if (!$mobilePhoneNumber) return $this;
         $this->mobilePhoneNumber = ($mobilePhoneNumber InstanceOf DN)
              ? $mobilePhoneNumber
              : new DN($mobilePhoneNumber);
@@ -71,6 +69,6 @@ class UserMWIDeliveryToMobileEndpointGetResponse extends ComplexType implements 
      */
     public function getMobilePhoneNumber()
     {
-        return $this->mobilePhoneNumber->getValue();
+        return ($this->mobilePhoneNumber) ? $this->mobilePhoneNumber->getValue() : null;
     }
 }

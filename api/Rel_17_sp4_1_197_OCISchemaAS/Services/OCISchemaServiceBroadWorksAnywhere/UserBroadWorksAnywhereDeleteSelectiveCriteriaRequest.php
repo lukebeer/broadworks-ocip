@@ -22,15 +22,15 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserBroadWorksAnywhereDeleteSelectiveCriteriaRequest extends ComplexType implements ComplexInterface
 {
-    public    $name         = 'UserBroadWorksAnywhereDeleteSelectiveCriteriaRequest';
-    protected $userId       = null;
-    protected $phoneNumber  = null;
-    protected $criteriaName = null;
+    public    $name = 'UserBroadWorksAnywhereDeleteSelectiveCriteriaRequest';
+    protected $userId;
+    protected $phoneNumber;
+    protected $criteriaName;
 
     public function __construct(
-         $userId,
-         $phoneNumber,
-         $criteriaName
+         $userId = '',
+         $phoneNumber = '',
+         $criteriaName = ''
     ) {
         $this->setUserId($userId);
         $this->setPhoneNumber($phoneNumber);
@@ -50,7 +50,6 @@ class UserBroadWorksAnywhereDeleteSelectiveCriteriaRequest extends ComplexType i
      */
     public function setUserId($userId = null)
     {
-        if (!$userId) return $this;
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
@@ -64,7 +63,7 @@ class UserBroadWorksAnywhereDeleteSelectiveCriteriaRequest extends ComplexType i
      */
     public function getUserId()
     {
-        return $this->userId->getValue();
+        return ($this->userId) ? $this->userId->getValue() : null;
     }
 
     /**
@@ -72,7 +71,6 @@ class UserBroadWorksAnywhereDeleteSelectiveCriteriaRequest extends ComplexType i
      */
     public function setPhoneNumber($phoneNumber = null)
     {
-        if (!$phoneNumber) return $this;
         $this->phoneNumber = ($phoneNumber InstanceOf DN)
              ? $phoneNumber
              : new DN($phoneNumber);
@@ -86,7 +84,7 @@ class UserBroadWorksAnywhereDeleteSelectiveCriteriaRequest extends ComplexType i
      */
     public function getPhoneNumber()
     {
-        return $this->phoneNumber->getValue();
+        return ($this->phoneNumber) ? $this->phoneNumber->getValue() : null;
     }
 
     /**
@@ -94,7 +92,6 @@ class UserBroadWorksAnywhereDeleteSelectiveCriteriaRequest extends ComplexType i
      */
     public function setCriteriaName($criteriaName = null)
     {
-        if (!$criteriaName) return $this;
         $this->criteriaName = ($criteriaName InstanceOf CriteriaName)
              ? $criteriaName
              : new CriteriaName($criteriaName);
@@ -108,6 +105,6 @@ class UserBroadWorksAnywhereDeleteSelectiveCriteriaRequest extends ComplexType i
      */
     public function getCriteriaName()
     {
-        return $this->criteriaName->getValue();
+        return ($this->criteriaName) ? $this->criteriaName->getValue() : null;
     }
 }

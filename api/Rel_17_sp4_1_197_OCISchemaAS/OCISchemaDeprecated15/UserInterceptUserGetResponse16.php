@@ -25,17 +25,17 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserInterceptUserGetResponse16 extends ComplexType implements ComplexInterface
 {
-    public    $name                        = 'UserInterceptUserGetResponse16';
-    protected $isActive                    = null;
-    protected $announcementSelection       = null;
-    protected $audioFileDescription        = null;
-    protected $audioMediaType              = null;
-    protected $videoFileDescription        = null;
-    protected $videoMediaType              = null;
-    protected $playNewPhoneNumber          = null;
-    protected $newPhoneNumber              = null;
-    protected $transferOnZeroToPhoneNumber = null;
-    protected $transferPhoneNumber         = null;
+    public    $name = 'UserInterceptUserGetResponse16';
+    protected $isActive;
+    protected $announcementSelection;
+    protected $audioFileDescription;
+    protected $audioMediaType;
+    protected $videoFileDescription;
+    protected $videoMediaType;
+    protected $playNewPhoneNumber;
+    protected $newPhoneNumber;
+    protected $transferOnZeroToPhoneNumber;
+    protected $transferPhoneNumber;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15\UserInterceptUserGetResponse16 $response
@@ -50,7 +50,6 @@ class UserInterceptUserGetResponse16 extends ComplexType implements ComplexInter
      */
     public function setIsActive($isActive = null)
     {
-        if (!$isActive) return $this;
         $this->isActive = new PrimitiveType($isActive);
         $this->isActive->setName('isActive');
         return $this;
@@ -62,7 +61,7 @@ class UserInterceptUserGetResponse16 extends ComplexType implements ComplexInter
      */
     public function getIsActive()
     {
-        return $this->isActive->getValue();
+        return ($this->isActive) ? $this->isActive->getValue() : null;
     }
 
     /**
@@ -70,7 +69,6 @@ class UserInterceptUserGetResponse16 extends ComplexType implements ComplexInter
      */
     public function setAnnouncementSelection($announcementSelection = null)
     {
-        if (!$announcementSelection) return $this;
         $this->announcementSelection = ($announcementSelection InstanceOf AnnouncementSelection)
              ? $announcementSelection
              : new AnnouncementSelection($announcementSelection);
@@ -84,7 +82,7 @@ class UserInterceptUserGetResponse16 extends ComplexType implements ComplexInter
      */
     public function getAnnouncementSelection()
     {
-        return $this->announcementSelection->getValue();
+        return ($this->announcementSelection) ? $this->announcementSelection->getValue() : null;
     }
 
     /**
@@ -92,7 +90,6 @@ class UserInterceptUserGetResponse16 extends ComplexType implements ComplexInter
      */
     public function setAudioFileDescription($audioFileDescription = null)
     {
-        if (!$audioFileDescription) return $this;
         $this->audioFileDescription = ($audioFileDescription InstanceOf FileDescription)
              ? $audioFileDescription
              : new FileDescription($audioFileDescription);
@@ -106,7 +103,7 @@ class UserInterceptUserGetResponse16 extends ComplexType implements ComplexInter
      */
     public function getAudioFileDescription()
     {
-        return $this->audioFileDescription->getValue();
+        return ($this->audioFileDescription) ? $this->audioFileDescription->getValue() : null;
     }
 
     /**
@@ -114,7 +111,6 @@ class UserInterceptUserGetResponse16 extends ComplexType implements ComplexInter
      */
     public function setAudioMediaType($audioMediaType = null)
     {
-        if (!$audioMediaType) return $this;
         $this->audioMediaType = ($audioMediaType InstanceOf MediaFileType)
              ? $audioMediaType
              : new MediaFileType($audioMediaType);
@@ -128,7 +124,7 @@ class UserInterceptUserGetResponse16 extends ComplexType implements ComplexInter
      */
     public function getAudioMediaType()
     {
-        return $this->audioMediaType->getValue();
+        return ($this->audioMediaType) ? $this->audioMediaType->getValue() : null;
     }
 
     /**
@@ -136,7 +132,6 @@ class UserInterceptUserGetResponse16 extends ComplexType implements ComplexInter
      */
     public function setVideoFileDescription($videoFileDescription = null)
     {
-        if (!$videoFileDescription) return $this;
         $this->videoFileDescription = ($videoFileDescription InstanceOf FileDescription)
              ? $videoFileDescription
              : new FileDescription($videoFileDescription);
@@ -150,7 +145,7 @@ class UserInterceptUserGetResponse16 extends ComplexType implements ComplexInter
      */
     public function getVideoFileDescription()
     {
-        return $this->videoFileDescription->getValue();
+        return ($this->videoFileDescription) ? $this->videoFileDescription->getValue() : null;
     }
 
     /**
@@ -158,7 +153,6 @@ class UserInterceptUserGetResponse16 extends ComplexType implements ComplexInter
      */
     public function setVideoMediaType($videoMediaType = null)
     {
-        if (!$videoMediaType) return $this;
         $this->videoMediaType = ($videoMediaType InstanceOf MediaFileType)
              ? $videoMediaType
              : new MediaFileType($videoMediaType);
@@ -172,7 +166,7 @@ class UserInterceptUserGetResponse16 extends ComplexType implements ComplexInter
      */
     public function getVideoMediaType()
     {
-        return $this->videoMediaType->getValue();
+        return ($this->videoMediaType) ? $this->videoMediaType->getValue() : null;
     }
 
     /**
@@ -180,7 +174,6 @@ class UserInterceptUserGetResponse16 extends ComplexType implements ComplexInter
      */
     public function setPlayNewPhoneNumber($playNewPhoneNumber = null)
     {
-        if (!$playNewPhoneNumber) return $this;
         $this->playNewPhoneNumber = new PrimitiveType($playNewPhoneNumber);
         $this->playNewPhoneNumber->setName('playNewPhoneNumber');
         return $this;
@@ -192,7 +185,7 @@ class UserInterceptUserGetResponse16 extends ComplexType implements ComplexInter
      */
     public function getPlayNewPhoneNumber()
     {
-        return $this->playNewPhoneNumber->getValue();
+        return ($this->playNewPhoneNumber) ? $this->playNewPhoneNumber->getValue() : null;
     }
 
     /**
@@ -200,7 +193,6 @@ class UserInterceptUserGetResponse16 extends ComplexType implements ComplexInter
      */
     public function setNewPhoneNumber($newPhoneNumber = null)
     {
-        if (!$newPhoneNumber) return $this;
         $this->newPhoneNumber = ($newPhoneNumber InstanceOf DN)
              ? $newPhoneNumber
              : new DN($newPhoneNumber);
@@ -214,7 +206,7 @@ class UserInterceptUserGetResponse16 extends ComplexType implements ComplexInter
      */
     public function getNewPhoneNumber()
     {
-        return $this->newPhoneNumber->getValue();
+        return ($this->newPhoneNumber) ? $this->newPhoneNumber->getValue() : null;
     }
 
     /**
@@ -222,7 +214,6 @@ class UserInterceptUserGetResponse16 extends ComplexType implements ComplexInter
      */
     public function setTransferOnZeroToPhoneNumber($transferOnZeroToPhoneNumber = null)
     {
-        if (!$transferOnZeroToPhoneNumber) return $this;
         $this->transferOnZeroToPhoneNumber = new PrimitiveType($transferOnZeroToPhoneNumber);
         $this->transferOnZeroToPhoneNumber->setName('transferOnZeroToPhoneNumber');
         return $this;
@@ -234,7 +225,7 @@ class UserInterceptUserGetResponse16 extends ComplexType implements ComplexInter
      */
     public function getTransferOnZeroToPhoneNumber()
     {
-        return $this->transferOnZeroToPhoneNumber->getValue();
+        return ($this->transferOnZeroToPhoneNumber) ? $this->transferOnZeroToPhoneNumber->getValue() : null;
     }
 
     /**
@@ -242,7 +233,6 @@ class UserInterceptUserGetResponse16 extends ComplexType implements ComplexInter
      */
     public function setTransferPhoneNumber($transferPhoneNumber = null)
     {
-        if (!$transferPhoneNumber) return $this;
         $this->transferPhoneNumber = ($transferPhoneNumber InstanceOf OutgoingDN)
              ? $transferPhoneNumber
              : new OutgoingDN($transferPhoneNumber);
@@ -256,6 +246,6 @@ class UserInterceptUserGetResponse16 extends ComplexType implements ComplexInter
      */
     public function getTransferPhoneNumber()
     {
-        return $this->transferPhoneNumber->getValue();
+        return ($this->transferPhoneNumber) ? $this->transferPhoneNumber->getValue() : null;
     }
 }

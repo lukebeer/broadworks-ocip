@@ -21,10 +21,10 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemNetworkServerSyncParametersGetResponse16 extends ComplexType implements ComplexInterface
 {
-    public    $name                     = 'SystemNetworkServerSyncParametersGetResponse16';
-    protected $enableSync               = null;
-    protected $syncLinePorts            = null;
-    protected $syncDeviceManagementInfo = null;
+    public    $name = 'SystemNetworkServerSyncParametersGetResponse16';
+    protected $enableSync;
+    protected $syncLinePorts;
+    protected $syncDeviceManagementInfo;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated17\SystemNetworkServerSyncParametersGetResponse16 $response
@@ -39,7 +39,6 @@ class SystemNetworkServerSyncParametersGetResponse16 extends ComplexType impleme
      */
     public function setEnableSync($enableSync = null)
     {
-        if (!$enableSync) return $this;
         $this->enableSync = new PrimitiveType($enableSync);
         $this->enableSync->setName('enableSync');
         return $this;
@@ -51,7 +50,7 @@ class SystemNetworkServerSyncParametersGetResponse16 extends ComplexType impleme
      */
     public function getEnableSync()
     {
-        return $this->enableSync->getValue();
+        return ($this->enableSync) ? $this->enableSync->getValue() : null;
     }
 
     /**
@@ -59,7 +58,6 @@ class SystemNetworkServerSyncParametersGetResponse16 extends ComplexType impleme
      */
     public function setSyncLinePorts($syncLinePorts = null)
     {
-        if (!$syncLinePorts) return $this;
         $this->syncLinePorts = new PrimitiveType($syncLinePorts);
         $this->syncLinePorts->setName('syncLinePorts');
         return $this;
@@ -71,7 +69,7 @@ class SystemNetworkServerSyncParametersGetResponse16 extends ComplexType impleme
      */
     public function getSyncLinePorts()
     {
-        return $this->syncLinePorts->getValue();
+        return ($this->syncLinePorts) ? $this->syncLinePorts->getValue() : null;
     }
 
     /**
@@ -79,7 +77,6 @@ class SystemNetworkServerSyncParametersGetResponse16 extends ComplexType impleme
      */
     public function setSyncDeviceManagementInfo($syncDeviceManagementInfo = null)
     {
-        if (!$syncDeviceManagementInfo) return $this;
         $this->syncDeviceManagementInfo = new PrimitiveType($syncDeviceManagementInfo);
         $this->syncDeviceManagementInfo->setName('syncDeviceManagementInfo');
         return $this;
@@ -91,6 +88,6 @@ class SystemNetworkServerSyncParametersGetResponse16 extends ComplexType impleme
      */
     public function getSyncDeviceManagementInfo()
     {
-        return $this->syncDeviceManagementInfo->getValue();
+        return ($this->syncDeviceManagementInfo) ? $this->syncDeviceManagementInfo->getValue() : null;
     }
 }

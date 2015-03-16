@@ -19,11 +19,11 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class CallCenterReportCurrentInterval extends ComplexType implements ComplexInterface
 {
-    public    $name     = 'CallCenterReportCurrentInterval';
-    protected $timeUnit = null;
+    public    $name = 'CallCenterReportCurrentInterval';
+    protected $timeUnit;
 
     public function __construct(
-         $timeUnit
+         $timeUnit = ''
     ) {
         $this->setTimeUnit($timeUnit);
     }
@@ -41,7 +41,6 @@ class CallCenterReportCurrentInterval extends ComplexType implements ComplexInte
      */
     public function setTimeUnit($timeUnit = null)
     {
-        if (!$timeUnit) return $this;
         $this->timeUnit = new SimpleContent($timeUnit);
         $this->timeUnit->setName('timeUnit');
         return $this;
@@ -53,6 +52,6 @@ class CallCenterReportCurrentInterval extends ComplexType implements ComplexInte
      */
     public function getTimeUnit()
     {
-        return $this->timeUnit->getValue();
+        return ($this->timeUnit) ? $this->timeUnit->getValue() : null;
     }
 }

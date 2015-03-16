@@ -19,19 +19,19 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class CallCenterAgentStatistics13mp8 extends ComplexType implements ComplexInterface
 {
-    public    $name                = 'CallCenterAgentStatistics13mp8';
-    protected $agentUserId         = null;
-    protected $agentDisplayNames   = null;
-    protected $available           = null;
-    protected $statisticsYesterday = null;
-    protected $statisticsToday     = null;
+    public    $name = 'CallCenterAgentStatistics13mp8';
+    protected $agentUserId;
+    protected $agentDisplayNames;
+    protected $available;
+    protected $statisticsYesterday;
+    protected $statisticsToday;
 
     public function __construct(
-         $agentUserId,
-         $agentDisplayNames,
-         $available,
-         $statisticsYesterday,
-         $statisticsToday
+         $agentUserId = '',
+         $agentDisplayNames = '',
+         $available = '',
+         $statisticsYesterday = '',
+         $statisticsToday = ''
     ) {
         $this->setAgentUserId($agentUserId);
         $this->setAgentDisplayNames($agentDisplayNames);
@@ -53,7 +53,6 @@ class CallCenterAgentStatistics13mp8 extends ComplexType implements ComplexInter
      */
     public function setAgentUserId($agentUserId = null)
     {
-        if (!$agentUserId) return $this;
         $this->agentUserId = new SimpleContent($agentUserId);
         $this->agentUserId->setName('agentUserId');
         return $this;
@@ -65,7 +64,7 @@ class CallCenterAgentStatistics13mp8 extends ComplexType implements ComplexInter
      */
     public function getAgentUserId()
     {
-        return $this->agentUserId->getValue();
+        return ($this->agentUserId) ? $this->agentUserId->getValue() : null;
     }
 
     /**
@@ -73,7 +72,6 @@ class CallCenterAgentStatistics13mp8 extends ComplexType implements ComplexInter
      */
     public function setAgentDisplayNames($agentDisplayNames = null)
     {
-        if (!$agentDisplayNames) return $this;
         $this->agentDisplayNames = new SimpleContent($agentDisplayNames);
         $this->agentDisplayNames->setName('agentDisplayNames');
         return $this;
@@ -85,7 +83,7 @@ class CallCenterAgentStatistics13mp8 extends ComplexType implements ComplexInter
      */
     public function getAgentDisplayNames()
     {
-        return $this->agentDisplayNames->getValue();
+        return ($this->agentDisplayNames) ? $this->agentDisplayNames->getValue() : null;
     }
 
     /**
@@ -93,7 +91,6 @@ class CallCenterAgentStatistics13mp8 extends ComplexType implements ComplexInter
      */
     public function setAvailable($available = null)
     {
-        if (!$available) return $this;
         $this->available = new SimpleContent($available);
         $this->available->setName('available');
         return $this;
@@ -105,7 +102,7 @@ class CallCenterAgentStatistics13mp8 extends ComplexType implements ComplexInter
      */
     public function getAvailable()
     {
-        return $this->available->getValue();
+        return ($this->available) ? $this->available->getValue() : null;
     }
 
     /**
@@ -113,7 +110,6 @@ class CallCenterAgentStatistics13mp8 extends ComplexType implements ComplexInter
      */
     public function setStatisticsYesterday($statisticsYesterday = null)
     {
-        if (!$statisticsYesterday) return $this;
         $this->statisticsYesterday = new SimpleContent($statisticsYesterday);
         $this->statisticsYesterday->setName('statisticsYesterday');
         return $this;
@@ -125,7 +121,7 @@ class CallCenterAgentStatistics13mp8 extends ComplexType implements ComplexInter
      */
     public function getStatisticsYesterday()
     {
-        return $this->statisticsYesterday->getValue();
+        return ($this->statisticsYesterday) ? $this->statisticsYesterday->getValue() : null;
     }
 
     /**
@@ -133,7 +129,6 @@ class CallCenterAgentStatistics13mp8 extends ComplexType implements ComplexInter
      */
     public function setStatisticsToday($statisticsToday = null)
     {
-        if (!$statisticsToday) return $this;
         $this->statisticsToday = new SimpleContent($statisticsToday);
         $this->statisticsToday->setName('statisticsToday');
         return $this;
@@ -145,6 +140,6 @@ class CallCenterAgentStatistics13mp8 extends ComplexType implements ComplexInter
      */
     public function getStatisticsToday()
     {
-        return $this->statisticsToday->getValue();
+        return ($this->statisticsToday) ? $this->statisticsToday->getValue() : null;
     }
 }

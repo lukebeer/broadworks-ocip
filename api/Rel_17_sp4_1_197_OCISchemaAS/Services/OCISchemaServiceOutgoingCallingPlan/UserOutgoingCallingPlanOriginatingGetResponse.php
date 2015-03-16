@@ -20,9 +20,9 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserOutgoingCallingPlanOriginatingGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name              = 'UserOutgoingCallingPlanOriginatingGetResponse';
-    protected $useCustomSettings = null;
-    protected $userPermissions   = null;
+    public    $name = 'UserOutgoingCallingPlanOriginatingGetResponse';
+    protected $useCustomSettings;
+    protected $userPermissions;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceOutgoingCallingPlan\UserOutgoingCallingPlanOriginatingGetResponse $response
@@ -37,7 +37,6 @@ class UserOutgoingCallingPlanOriginatingGetResponse extends ComplexType implemen
      */
     public function setUseCustomSettings($useCustomSettings = null)
     {
-        if (!$useCustomSettings) return $this;
         $this->useCustomSettings = new PrimitiveType($useCustomSettings);
         $this->useCustomSettings->setName('useCustomSettings');
         return $this;
@@ -49,7 +48,7 @@ class UserOutgoingCallingPlanOriginatingGetResponse extends ComplexType implemen
      */
     public function getUseCustomSettings()
     {
-        return $this->useCustomSettings->getValue();
+        return ($this->useCustomSettings) ? $this->useCustomSettings->getValue() : null;
     }
 
     /**
@@ -57,8 +56,9 @@ class UserOutgoingCallingPlanOriginatingGetResponse extends ComplexType implemen
      */
     public function setUserPermissions(OutgoingCallingPlanOriginatingPermissions $userPermissions = null)
     {
-        if (!$userPermissions) return $this;
-        $this->userPermissions = $userPermissions;
+        $this->userPermissions = ($userPermissions InstanceOf OutgoingCallingPlanOriginatingPermissions)
+             ? $userPermissions
+             : new OutgoingCallingPlanOriginatingPermissions($userPermissions);
         $this->userPermissions->setName('userPermissions');
         return $this;
     }

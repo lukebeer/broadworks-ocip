@@ -23,19 +23,19 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserScheduleModifyEventRequest extends ComplexType implements ComplexInterface
 {
-    public    $name         = 'UserScheduleModifyEventRequest';
-    protected $userId       = null;
-    protected $scheduleKey  = null;
-    protected $eventName    = null;
-    protected $newEventName = null;
-    protected $startDate    = null;
-    protected $endDate      = null;
-    protected $recurrence   = null;
+    public    $name = 'UserScheduleModifyEventRequest';
+    protected $userId;
+    protected $scheduleKey;
+    protected $eventName;
+    protected $newEventName;
+    protected $startDate;
+    protected $endDate;
+    protected $recurrence;
 
     public function __construct(
-         $userId,
-         ScheduleKey $scheduleKey,
-         $eventName,
+         $userId = '',
+         ScheduleKey $scheduleKey = '',
+         $eventName = '',
          $newEventName = null,
          $startDate = null,
          $endDate = null,
@@ -63,7 +63,6 @@ class UserScheduleModifyEventRequest extends ComplexType implements ComplexInter
      */
     public function setUserId($userId = null)
     {
-        if (!$userId) return $this;
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
@@ -77,7 +76,7 @@ class UserScheduleModifyEventRequest extends ComplexType implements ComplexInter
      */
     public function getUserId()
     {
-        return $this->userId->getValue();
+        return ($this->userId) ? $this->userId->getValue() : null;
     }
 
     /**
@@ -85,8 +84,9 @@ class UserScheduleModifyEventRequest extends ComplexType implements ComplexInter
      */
     public function setScheduleKey(ScheduleKey $scheduleKey = null)
     {
-        if (!$scheduleKey) return $this;
-        $this->scheduleKey = $scheduleKey;
+        $this->scheduleKey = ($scheduleKey InstanceOf ScheduleKey)
+             ? $scheduleKey
+             : new ScheduleKey($scheduleKey);
         $this->scheduleKey->setName('scheduleKey');
         return $this;
     }
@@ -105,7 +105,6 @@ class UserScheduleModifyEventRequest extends ComplexType implements ComplexInter
      */
     public function setEventName($eventName = null)
     {
-        if (!$eventName) return $this;
         $this->eventName = ($eventName InstanceOf EventName)
              ? $eventName
              : new EventName($eventName);
@@ -119,7 +118,7 @@ class UserScheduleModifyEventRequest extends ComplexType implements ComplexInter
      */
     public function getEventName()
     {
-        return $this->eventName->getValue();
+        return ($this->eventName) ? $this->eventName->getValue() : null;
     }
 
     /**
@@ -127,7 +126,6 @@ class UserScheduleModifyEventRequest extends ComplexType implements ComplexInter
      */
     public function setNewEventName($newEventName = null)
     {
-        if (!$newEventName) return $this;
         $this->newEventName = ($newEventName InstanceOf EventName)
              ? $newEventName
              : new EventName($newEventName);
@@ -141,7 +139,7 @@ class UserScheduleModifyEventRequest extends ComplexType implements ComplexInter
      */
     public function getNewEventName()
     {
-        return $this->newEventName->getValue();
+        return ($this->newEventName) ? $this->newEventName->getValue() : null;
     }
 
     /**
@@ -149,7 +147,6 @@ class UserScheduleModifyEventRequest extends ComplexType implements ComplexInter
      */
     public function setStartDate(xs:date $startDate = null)
     {
-        if (!$startDate) return $this;
         $this->startDate->setName('startDate');
         return $this;
     }
@@ -160,7 +157,7 @@ class UserScheduleModifyEventRequest extends ComplexType implements ComplexInter
      */
     public function getStartDate()
     {
-        return $this->startDate->getValue();
+        return ($this->startDate) ? $this->startDate->getValue() : null;
     }
 
     /**
@@ -168,7 +165,6 @@ class UserScheduleModifyEventRequest extends ComplexType implements ComplexInter
      */
     public function setEndDate(xs:date $endDate = null)
     {
-        if (!$endDate) return $this;
         $this->endDate->setName('endDate');
         return $this;
     }
@@ -179,7 +175,7 @@ class UserScheduleModifyEventRequest extends ComplexType implements ComplexInter
      */
     public function getEndDate()
     {
-        return $this->endDate->getValue();
+        return ($this->endDate) ? $this->endDate->getValue() : null;
     }
 
     /**
@@ -187,8 +183,9 @@ class UserScheduleModifyEventRequest extends ComplexType implements ComplexInter
      */
     public function setRecurrence(Recurrence $recurrence = null)
     {
-        if (!$recurrence) return $this;
-        $this->recurrence = $recurrence;
+        $this->recurrence = ($recurrence InstanceOf Recurrence)
+             ? $recurrence
+             : new Recurrence($recurrence);
         $this->recurrence->setName('recurrence');
         return $this;
     }

@@ -23,12 +23,12 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupDialPlanPolicyGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                             = 'GroupDialPlanPolicyGetResponse';
-    protected $useSetting                       = null;
-    protected $requiresAccessCodeForPublicCalls = null;
-    protected $allowE164PublicCalls             = null;
-    protected $publicDigitMap                   = null;
-    protected $privateDigitMap                  = null;
+    public    $name = 'GroupDialPlanPolicyGetResponse';
+    protected $useSetting;
+    protected $requiresAccessCodeForPublicCalls;
+    protected $allowE164PublicCalls;
+    protected $publicDigitMap;
+    protected $privateDigitMap;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\GroupDialPlanPolicyGetResponse $response
@@ -43,7 +43,6 @@ class GroupDialPlanPolicyGetResponse extends ComplexType implements ComplexInter
      */
     public function setUseSetting($useSetting = null)
     {
-        if (!$useSetting) return $this;
         $this->useSetting = ($useSetting InstanceOf GroupDialPlanPolicySettingLevel)
              ? $useSetting
              : new GroupDialPlanPolicySettingLevel($useSetting);
@@ -57,7 +56,7 @@ class GroupDialPlanPolicyGetResponse extends ComplexType implements ComplexInter
      */
     public function getUseSetting()
     {
-        return $this->useSetting->getValue();
+        return ($this->useSetting) ? $this->useSetting->getValue() : null;
     }
 
     /**
@@ -65,7 +64,6 @@ class GroupDialPlanPolicyGetResponse extends ComplexType implements ComplexInter
      */
     public function setRequiresAccessCodeForPublicCalls($requiresAccessCodeForPublicCalls = null)
     {
-        if (!$requiresAccessCodeForPublicCalls) return $this;
         $this->requiresAccessCodeForPublicCalls = new PrimitiveType($requiresAccessCodeForPublicCalls);
         $this->requiresAccessCodeForPublicCalls->setName('requiresAccessCodeForPublicCalls');
         return $this;
@@ -77,7 +75,7 @@ class GroupDialPlanPolicyGetResponse extends ComplexType implements ComplexInter
      */
     public function getRequiresAccessCodeForPublicCalls()
     {
-        return $this->requiresAccessCodeForPublicCalls->getValue();
+        return ($this->requiresAccessCodeForPublicCalls) ? $this->requiresAccessCodeForPublicCalls->getValue() : null;
     }
 
     /**
@@ -85,7 +83,6 @@ class GroupDialPlanPolicyGetResponse extends ComplexType implements ComplexInter
      */
     public function setAllowE164PublicCalls($allowE164PublicCalls = null)
     {
-        if (!$allowE164PublicCalls) return $this;
         $this->allowE164PublicCalls = new PrimitiveType($allowE164PublicCalls);
         $this->allowE164PublicCalls->setName('allowE164PublicCalls');
         return $this;
@@ -97,7 +94,7 @@ class GroupDialPlanPolicyGetResponse extends ComplexType implements ComplexInter
      */
     public function getAllowE164PublicCalls()
     {
-        return $this->allowE164PublicCalls->getValue();
+        return ($this->allowE164PublicCalls) ? $this->allowE164PublicCalls->getValue() : null;
     }
 
     /**
@@ -105,7 +102,6 @@ class GroupDialPlanPolicyGetResponse extends ComplexType implements ComplexInter
      */
     public function setPublicDigitMap($publicDigitMap = null)
     {
-        if (!$publicDigitMap) return $this;
         $this->publicDigitMap = ($publicDigitMap InstanceOf DigitMap)
              ? $publicDigitMap
              : new DigitMap($publicDigitMap);
@@ -119,7 +115,7 @@ class GroupDialPlanPolicyGetResponse extends ComplexType implements ComplexInter
      */
     public function getPublicDigitMap()
     {
-        return $this->publicDigitMap->getValue();
+        return ($this->publicDigitMap) ? $this->publicDigitMap->getValue() : null;
     }
 
     /**
@@ -127,7 +123,6 @@ class GroupDialPlanPolicyGetResponse extends ComplexType implements ComplexInter
      */
     public function setPrivateDigitMap($privateDigitMap = null)
     {
-        if (!$privateDigitMap) return $this;
         $this->privateDigitMap = ($privateDigitMap InstanceOf DigitMap)
              ? $privateDigitMap
              : new DigitMap($privateDigitMap);
@@ -141,6 +136,6 @@ class GroupDialPlanPolicyGetResponse extends ComplexType implements ComplexInter
      */
     public function getPrivateDigitMap()
     {
-        return $this->privateDigitMap->getValue();
+        return ($this->privateDigitMap) ? $this->privateDigitMap->getValue() : null;
     }
 }

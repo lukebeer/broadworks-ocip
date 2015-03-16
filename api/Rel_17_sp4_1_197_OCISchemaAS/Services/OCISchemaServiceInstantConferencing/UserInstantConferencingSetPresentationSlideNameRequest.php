@@ -23,21 +23,21 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserInstantConferencingSetPresentationSlideNameRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                = 'UserInstantConferencingSetPresentationSlideNameRequest';
-    protected $userId              = null;
-    protected $bridgeServiceUserId = null;
-    protected $documentId          = null;
-    protected $accessCode          = null;
-    protected $previousSlideName   = null;
-    protected $newSlideName        = null;
+    public    $name = 'UserInstantConferencingSetPresentationSlideNameRequest';
+    protected $userId;
+    protected $bridgeServiceUserId;
+    protected $documentId;
+    protected $accessCode;
+    protected $previousSlideName;
+    protected $newSlideName;
 
     public function __construct(
-         $userId,
-         $bridgeServiceUserId,
-         $documentId,
-         $accessCode,
-         $previousSlideName,
-         $newSlideName
+         $userId = '',
+         $bridgeServiceUserId = '',
+         $documentId = '',
+         $accessCode = '',
+         $previousSlideName = '',
+         $newSlideName = ''
     ) {
         $this->setUserId($userId);
         $this->setBridgeServiceUserId($bridgeServiceUserId);
@@ -60,7 +60,6 @@ class UserInstantConferencingSetPresentationSlideNameRequest extends ComplexType
      */
     public function setUserId($userId = null)
     {
-        if (!$userId) return $this;
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
@@ -74,7 +73,7 @@ class UserInstantConferencingSetPresentationSlideNameRequest extends ComplexType
      */
     public function getUserId()
     {
-        return $this->userId->getValue();
+        return ($this->userId) ? $this->userId->getValue() : null;
     }
 
     /**
@@ -82,7 +81,6 @@ class UserInstantConferencingSetPresentationSlideNameRequest extends ComplexType
      */
     public function setBridgeServiceUserId($bridgeServiceUserId = null)
     {
-        if (!$bridgeServiceUserId) return $this;
         $this->bridgeServiceUserId = ($bridgeServiceUserId InstanceOf UserId)
              ? $bridgeServiceUserId
              : new UserId($bridgeServiceUserId);
@@ -96,7 +94,7 @@ class UserInstantConferencingSetPresentationSlideNameRequest extends ComplexType
      */
     public function getBridgeServiceUserId()
     {
-        return $this->bridgeServiceUserId->getValue();
+        return ($this->bridgeServiceUserId) ? $this->bridgeServiceUserId->getValue() : null;
     }
 
     /**
@@ -104,7 +102,6 @@ class UserInstantConferencingSetPresentationSlideNameRequest extends ComplexType
      */
     public function setDocumentId($documentId = null)
     {
-        if (!$documentId) return $this;
         $this->documentId = ($documentId InstanceOf InstantConferencingDocumentId)
              ? $documentId
              : new InstantConferencingDocumentId($documentId);
@@ -118,7 +115,7 @@ class UserInstantConferencingSetPresentationSlideNameRequest extends ComplexType
      */
     public function getDocumentId()
     {
-        return $this->documentId->getValue();
+        return ($this->documentId) ? $this->documentId->getValue() : null;
     }
 
     /**
@@ -126,7 +123,6 @@ class UserInstantConferencingSetPresentationSlideNameRequest extends ComplexType
      */
     public function setAccessCode($accessCode = null)
     {
-        if (!$accessCode) return $this;
         $this->accessCode = ($accessCode InstanceOf InstantConferencingAccessCode)
              ? $accessCode
              : new InstantConferencingAccessCode($accessCode);
@@ -140,7 +136,7 @@ class UserInstantConferencingSetPresentationSlideNameRequest extends ComplexType
      */
     public function getAccessCode()
     {
-        return $this->accessCode->getValue();
+        return ($this->accessCode) ? $this->accessCode->getValue() : null;
     }
 
     /**
@@ -148,7 +144,6 @@ class UserInstantConferencingSetPresentationSlideNameRequest extends ComplexType
      */
     public function setPreviousSlideName($previousSlideName = null)
     {
-        if (!$previousSlideName) return $this;
         $this->previousSlideName = ($previousSlideName InstanceOf InstantConferencingSlideName)
              ? $previousSlideName
              : new InstantConferencingSlideName($previousSlideName);
@@ -162,7 +157,7 @@ class UserInstantConferencingSetPresentationSlideNameRequest extends ComplexType
      */
     public function getPreviousSlideName()
     {
-        return $this->previousSlideName->getValue();
+        return ($this->previousSlideName) ? $this->previousSlideName->getValue() : null;
     }
 
     /**
@@ -170,7 +165,6 @@ class UserInstantConferencingSetPresentationSlideNameRequest extends ComplexType
      */
     public function setNewSlideName($newSlideName = null)
     {
-        if (!$newSlideName) return $this;
         $this->newSlideName = ($newSlideName InstanceOf InstantConferencingSlideName)
              ? $newSlideName
              : new InstantConferencingSlideName($newSlideName);
@@ -184,6 +178,6 @@ class UserInstantConferencingSetPresentationSlideNameRequest extends ComplexType
      */
     public function getNewSlideName()
     {
-        return $this->newSlideName->getValue();
+        return ($this->newSlideName) ? $this->newSlideName->getValue() : null;
     }
 }

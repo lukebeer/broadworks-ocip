@@ -23,10 +23,10 @@ class SystemDialableCallerIDCriteriaGetRequest extends ComplexType implements Co
 {
     public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemDialableCallerIDCriteriaGetResponse';
     public    $name = 'SystemDialableCallerIDCriteriaGetRequest';
-    protected $name = null;
+    protected $name;
 
     public function __construct(
-         $name
+         $name = ''
     ) {
         $this->setName($name);
     }
@@ -44,7 +44,6 @@ class SystemDialableCallerIDCriteriaGetRequest extends ComplexType implements Co
      */
     public function setName($name = null)
     {
-        if (!$name) return $this;
         $this->name = ($name InstanceOf DialableCallerIDCriteriaName)
              ? $name
              : new DialableCallerIDCriteriaName($name);
@@ -58,6 +57,6 @@ class SystemDialableCallerIDCriteriaGetRequest extends ComplexType implements Co
      */
     public function getName()
     {
-        return $this->name->getValue();
+        return ($this->name) ? $this->name->getValue() : null;
     }
 }

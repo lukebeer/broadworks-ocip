@@ -24,14 +24,14 @@ use Broadworks_OCIP\core\Client\Client;
 class GroupMusicOnHoldGetInstanceRequest14 extends ComplexType implements ComplexInterface
 {
     public    $responseType      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\GroupMusicOnHoldGetInstanceResponse14';
-    public    $name              = 'GroupMusicOnHoldGetInstanceRequest14';
-    protected $serviceProviderId = null;
-    protected $groupId           = null;
-    protected $department        = null;
+    public    $name = 'GroupMusicOnHoldGetInstanceRequest14';
+    protected $serviceProviderId;
+    protected $groupId;
+    protected $department;
 
     public function __construct(
-         $serviceProviderId,
-         $groupId,
+         $serviceProviderId = '',
+         $groupId = '',
          DepartmentKey $department = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
@@ -52,7 +52,6 @@ class GroupMusicOnHoldGetInstanceRequest14 extends ComplexType implements Comple
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
-        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
@@ -66,7 +65,7 @@ class GroupMusicOnHoldGetInstanceRequest14 extends ComplexType implements Comple
      */
     public function getServiceProviderId()
     {
-        return $this->serviceProviderId->getValue();
+        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
     }
 
     /**
@@ -74,7 +73,6 @@ class GroupMusicOnHoldGetInstanceRequest14 extends ComplexType implements Comple
      */
     public function setGroupId($groupId = null)
     {
-        if (!$groupId) return $this;
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
@@ -88,7 +86,7 @@ class GroupMusicOnHoldGetInstanceRequest14 extends ComplexType implements Comple
      */
     public function getGroupId()
     {
-        return $this->groupId->getValue();
+        return ($this->groupId) ? $this->groupId->getValue() : null;
     }
 
     /**
@@ -96,8 +94,9 @@ class GroupMusicOnHoldGetInstanceRequest14 extends ComplexType implements Comple
      */
     public function setDepartment(DepartmentKey $department = null)
     {
-        if (!$department) return $this;
-        $this->department = $department;
+        $this->department = ($department InstanceOf DepartmentKey)
+             ? $department
+             : new DepartmentKey($department);
         $this->department->setName('department');
         return $this;
     }

@@ -24,19 +24,19 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderDialableCallerIDCriteriaGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                        = 'ServiceProviderDialableCallerIDCriteriaGetResponse';
-    protected $description                 = null;
-    protected $prefixDigits                = null;
-    protected $matchCallType               = null;
-    protected $matchAlternateCallIndicator = null;
-    protected $matchLocalCategory          = null;
-    protected $matchNationalCategory       = null;
-    protected $matchInterlataCategory      = null;
-    protected $matchIntralataCategory      = null;
-    protected $matchInternationalCategory  = null;
-    protected $matchPrivateCategory        = null;
-    protected $matchEmergencyCategory      = null;
-    protected $matchOtherCategory          = null;
+    public    $name = 'ServiceProviderDialableCallerIDCriteriaGetResponse';
+    protected $description;
+    protected $prefixDigits;
+    protected $matchCallType;
+    protected $matchAlternateCallIndicator;
+    protected $matchLocalCategory;
+    protected $matchNationalCategory;
+    protected $matchInterlataCategory;
+    protected $matchIntralataCategory;
+    protected $matchInternationalCategory;
+    protected $matchPrivateCategory;
+    protected $matchEmergencyCategory;
+    protected $matchOtherCategory;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderDialableCallerIDCriteriaGetResponse $response
@@ -51,7 +51,6 @@ class ServiceProviderDialableCallerIDCriteriaGetResponse extends ComplexType imp
      */
     public function setDescription($description = null)
     {
-        if (!$description) return $this;
         $this->description = ($description InstanceOf DialableCallerIDCriteriaDescription)
              ? $description
              : new DialableCallerIDCriteriaDescription($description);
@@ -65,7 +64,7 @@ class ServiceProviderDialableCallerIDCriteriaGetResponse extends ComplexType imp
      */
     public function getDescription()
     {
-        return $this->description->getValue();
+        return ($this->description) ? $this->description->getValue() : null;
     }
 
     /**
@@ -73,7 +72,6 @@ class ServiceProviderDialableCallerIDCriteriaGetResponse extends ComplexType imp
      */
     public function setPrefixDigits($prefixDigits = null)
     {
-        if (!$prefixDigits) return $this;
         $this->prefixDigits = ($prefixDigits InstanceOf DialableCallerIDPrefixDigits)
              ? $prefixDigits
              : new DialableCallerIDPrefixDigits($prefixDigits);
@@ -87,7 +85,7 @@ class ServiceProviderDialableCallerIDCriteriaGetResponse extends ComplexType imp
      */
     public function getPrefixDigits()
     {
-        return $this->prefixDigits->getValue();
+        return ($this->prefixDigits) ? $this->prefixDigits->getValue() : null;
     }
 
     /**
@@ -95,7 +93,6 @@ class ServiceProviderDialableCallerIDCriteriaGetResponse extends ComplexType imp
      */
     public function setMatchCallType($matchCallType = null)
     {
-        if (!$matchCallType) return $this;
         $this->matchCallType = ($matchCallType InstanceOf CommunicationBarringCallType)
              ? $matchCallType
              : new CommunicationBarringCallType($matchCallType);
@@ -109,7 +106,7 @@ class ServiceProviderDialableCallerIDCriteriaGetResponse extends ComplexType imp
      */
     public function getMatchCallType()
     {
-        return $this->matchCallType->getValue();
+        return ($this->matchCallType) ? $this->matchCallType->getValue() : null;
     }
 
     /**
@@ -117,7 +114,6 @@ class ServiceProviderDialableCallerIDCriteriaGetResponse extends ComplexType imp
      */
     public function setMatchAlternateCallIndicator($matchAlternateCallIndicator = null)
     {
-        if (!$matchAlternateCallIndicator) return $this;
         $this->matchAlternateCallIndicator = ($matchAlternateCallIndicator InstanceOf CommunicationBarringAlternateCallIndicator)
              ? $matchAlternateCallIndicator
              : new CommunicationBarringAlternateCallIndicator($matchAlternateCallIndicator);
@@ -131,7 +127,7 @@ class ServiceProviderDialableCallerIDCriteriaGetResponse extends ComplexType imp
      */
     public function getMatchAlternateCallIndicator()
     {
-        return $this->matchAlternateCallIndicator->getValue();
+        return ($this->matchAlternateCallIndicator) ? $this->matchAlternateCallIndicator->getValue() : null;
     }
 
     /**
@@ -139,7 +135,6 @@ class ServiceProviderDialableCallerIDCriteriaGetResponse extends ComplexType imp
      */
     public function setMatchLocalCategory($matchLocalCategory = null)
     {
-        if (!$matchLocalCategory) return $this;
         $this->matchLocalCategory = new PrimitiveType($matchLocalCategory);
         $this->matchLocalCategory->setName('matchLocalCategory');
         return $this;
@@ -151,7 +146,7 @@ class ServiceProviderDialableCallerIDCriteriaGetResponse extends ComplexType imp
      */
     public function getMatchLocalCategory()
     {
-        return $this->matchLocalCategory->getValue();
+        return ($this->matchLocalCategory) ? $this->matchLocalCategory->getValue() : null;
     }
 
     /**
@@ -159,7 +154,6 @@ class ServiceProviderDialableCallerIDCriteriaGetResponse extends ComplexType imp
      */
     public function setMatchNationalCategory($matchNationalCategory = null)
     {
-        if (!$matchNationalCategory) return $this;
         $this->matchNationalCategory = new PrimitiveType($matchNationalCategory);
         $this->matchNationalCategory->setName('matchNationalCategory');
         return $this;
@@ -171,7 +165,7 @@ class ServiceProviderDialableCallerIDCriteriaGetResponse extends ComplexType imp
      */
     public function getMatchNationalCategory()
     {
-        return $this->matchNationalCategory->getValue();
+        return ($this->matchNationalCategory) ? $this->matchNationalCategory->getValue() : null;
     }
 
     /**
@@ -179,7 +173,6 @@ class ServiceProviderDialableCallerIDCriteriaGetResponse extends ComplexType imp
      */
     public function setMatchInterlataCategory($matchInterlataCategory = null)
     {
-        if (!$matchInterlataCategory) return $this;
         $this->matchInterlataCategory = new PrimitiveType($matchInterlataCategory);
         $this->matchInterlataCategory->setName('matchInterlataCategory');
         return $this;
@@ -191,7 +184,7 @@ class ServiceProviderDialableCallerIDCriteriaGetResponse extends ComplexType imp
      */
     public function getMatchInterlataCategory()
     {
-        return $this->matchInterlataCategory->getValue();
+        return ($this->matchInterlataCategory) ? $this->matchInterlataCategory->getValue() : null;
     }
 
     /**
@@ -199,7 +192,6 @@ class ServiceProviderDialableCallerIDCriteriaGetResponse extends ComplexType imp
      */
     public function setMatchIntralataCategory($matchIntralataCategory = null)
     {
-        if (!$matchIntralataCategory) return $this;
         $this->matchIntralataCategory = new PrimitiveType($matchIntralataCategory);
         $this->matchIntralataCategory->setName('matchIntralataCategory');
         return $this;
@@ -211,7 +203,7 @@ class ServiceProviderDialableCallerIDCriteriaGetResponse extends ComplexType imp
      */
     public function getMatchIntralataCategory()
     {
-        return $this->matchIntralataCategory->getValue();
+        return ($this->matchIntralataCategory) ? $this->matchIntralataCategory->getValue() : null;
     }
 
     /**
@@ -219,7 +211,6 @@ class ServiceProviderDialableCallerIDCriteriaGetResponse extends ComplexType imp
      */
     public function setMatchInternationalCategory($matchInternationalCategory = null)
     {
-        if (!$matchInternationalCategory) return $this;
         $this->matchInternationalCategory = new PrimitiveType($matchInternationalCategory);
         $this->matchInternationalCategory->setName('matchInternationalCategory');
         return $this;
@@ -231,7 +222,7 @@ class ServiceProviderDialableCallerIDCriteriaGetResponse extends ComplexType imp
      */
     public function getMatchInternationalCategory()
     {
-        return $this->matchInternationalCategory->getValue();
+        return ($this->matchInternationalCategory) ? $this->matchInternationalCategory->getValue() : null;
     }
 
     /**
@@ -239,7 +230,6 @@ class ServiceProviderDialableCallerIDCriteriaGetResponse extends ComplexType imp
      */
     public function setMatchPrivateCategory($matchPrivateCategory = null)
     {
-        if (!$matchPrivateCategory) return $this;
         $this->matchPrivateCategory = new PrimitiveType($matchPrivateCategory);
         $this->matchPrivateCategory->setName('matchPrivateCategory');
         return $this;
@@ -251,7 +241,7 @@ class ServiceProviderDialableCallerIDCriteriaGetResponse extends ComplexType imp
      */
     public function getMatchPrivateCategory()
     {
-        return $this->matchPrivateCategory->getValue();
+        return ($this->matchPrivateCategory) ? $this->matchPrivateCategory->getValue() : null;
     }
 
     /**
@@ -259,7 +249,6 @@ class ServiceProviderDialableCallerIDCriteriaGetResponse extends ComplexType imp
      */
     public function setMatchEmergencyCategory($matchEmergencyCategory = null)
     {
-        if (!$matchEmergencyCategory) return $this;
         $this->matchEmergencyCategory = new PrimitiveType($matchEmergencyCategory);
         $this->matchEmergencyCategory->setName('matchEmergencyCategory');
         return $this;
@@ -271,7 +260,7 @@ class ServiceProviderDialableCallerIDCriteriaGetResponse extends ComplexType imp
      */
     public function getMatchEmergencyCategory()
     {
-        return $this->matchEmergencyCategory->getValue();
+        return ($this->matchEmergencyCategory) ? $this->matchEmergencyCategory->getValue() : null;
     }
 
     /**
@@ -279,7 +268,6 @@ class ServiceProviderDialableCallerIDCriteriaGetResponse extends ComplexType imp
      */
     public function setMatchOtherCategory($matchOtherCategory = null)
     {
-        if (!$matchOtherCategory) return $this;
         $this->matchOtherCategory = new PrimitiveType($matchOtherCategory);
         $this->matchOtherCategory->setName('matchOtherCategory');
         return $this;
@@ -291,6 +279,6 @@ class ServiceProviderDialableCallerIDCriteriaGetResponse extends ComplexType imp
      */
     public function getMatchOtherCategory()
     {
-        return $this->matchOtherCategory->getValue();
+        return ($this->matchOtherCategory) ? $this->matchOtherCategory->getValue() : null;
     }
 }

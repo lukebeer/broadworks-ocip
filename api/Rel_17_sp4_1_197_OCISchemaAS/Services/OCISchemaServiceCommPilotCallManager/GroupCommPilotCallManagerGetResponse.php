@@ -19,8 +19,8 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupCommPilotCallManagerGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name           = 'GroupCommPilotCallManagerGetResponse';
-    protected $groupDirectory = null;
+    public    $name = 'GroupCommPilotCallManagerGetResponse';
+    protected $groupDirectory;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCommPilotCallManager\GroupCommPilotCallManagerGetResponse $response
@@ -35,7 +35,6 @@ class GroupCommPilotCallManagerGetResponse extends ComplexType implements Comple
      */
     public function setGroupDirectory($groupDirectory = null)
     {
-        if (!$groupDirectory) return $this;
         $this->groupDirectory = ($groupDirectory InstanceOf CommPilotCallManagerGroupDirectoryDisplaySelection)
              ? $groupDirectory
              : new CommPilotCallManagerGroupDirectoryDisplaySelection($groupDirectory);
@@ -49,6 +48,6 @@ class GroupCommPilotCallManagerGetResponse extends ComplexType implements Comple
      */
     public function getGroupDirectory()
     {
-        return $this->groupDirectory->getValue();
+        return ($this->groupDirectory) ? $this->groupDirectory->getValue() : null;
     }
 }

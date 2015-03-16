@@ -20,10 +20,10 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupInstantConferencingGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                              = 'GroupInstantConferencingGetResponse';
-    protected $portsAvailableFromServiceProvider = null;
-    protected $portsAllocatedToGroup             = null;
-    protected $portsConsumedByGroupBridges       = null;
+    public    $name = 'GroupInstantConferencingGetResponse';
+    protected $portsAvailableFromServiceProvider;
+    protected $portsAllocatedToGroup;
+    protected $portsConsumedByGroupBridges;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing\GroupInstantConferencingGetResponse $response
@@ -38,8 +38,9 @@ class GroupInstantConferencingGetResponse extends ComplexType implements Complex
      */
     public function setPortsAvailableFromServiceProvider(UnboundedNonNegativeInt $portsAvailableFromServiceProvider = null)
     {
-        if (!$portsAvailableFromServiceProvider) return $this;
-        $this->portsAvailableFromServiceProvider = $portsAvailableFromServiceProvider;
+        $this->portsAvailableFromServiceProvider = ($portsAvailableFromServiceProvider InstanceOf UnboundedNonNegativeInt)
+             ? $portsAvailableFromServiceProvider
+             : new UnboundedNonNegativeInt($portsAvailableFromServiceProvider);
         $this->portsAvailableFromServiceProvider->setName('portsAvailableFromServiceProvider');
         return $this;
     }
@@ -58,8 +59,9 @@ class GroupInstantConferencingGetResponse extends ComplexType implements Complex
      */
     public function setPortsAllocatedToGroup(UnboundedNonNegativeInt $portsAllocatedToGroup = null)
     {
-        if (!$portsAllocatedToGroup) return $this;
-        $this->portsAllocatedToGroup = $portsAllocatedToGroup;
+        $this->portsAllocatedToGroup = ($portsAllocatedToGroup InstanceOf UnboundedNonNegativeInt)
+             ? $portsAllocatedToGroup
+             : new UnboundedNonNegativeInt($portsAllocatedToGroup);
         $this->portsAllocatedToGroup->setName('portsAllocatedToGroup');
         return $this;
     }
@@ -78,7 +80,6 @@ class GroupInstantConferencingGetResponse extends ComplexType implements Complex
      */
     public function setPortsConsumedByGroupBridges($portsConsumedByGroupBridges = null)
     {
-        if (!$portsConsumedByGroupBridges) return $this;
         $this->portsConsumedByGroupBridges = new PrimitiveType($portsConsumedByGroupBridges);
         $this->portsConsumedByGroupBridges->setName('portsConsumedByGroupBridges');
         return $this;
@@ -90,6 +91,6 @@ class GroupInstantConferencingGetResponse extends ComplexType implements Complex
      */
     public function getPortsConsumedByGroupBridges()
     {
-        return $this->portsConsumedByGroupBridges->getValue();
+        return ($this->portsConsumedByGroupBridges) ? $this->portsConsumedByGroupBridges->getValue() : null;
     }
 }

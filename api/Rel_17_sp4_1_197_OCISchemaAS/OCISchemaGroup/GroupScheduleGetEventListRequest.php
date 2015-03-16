@@ -23,15 +23,15 @@ use Broadworks_OCIP\core\Client\Client;
 class GroupScheduleGetEventListRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupScheduleGetEventListResponse';
-    public    $name              = 'GroupScheduleGetEventListRequest';
-    protected $serviceProviderId = null;
-    protected $groupId           = null;
-    protected $scheduleKey       = null;
+    public    $name = 'GroupScheduleGetEventListRequest';
+    protected $serviceProviderId;
+    protected $groupId;
+    protected $scheduleKey;
 
     public function __construct(
-         $serviceProviderId,
-         $groupId,
-         ScheduleKey $scheduleKey
+         $serviceProviderId = '',
+         $groupId = '',
+         ScheduleKey $scheduleKey = ''
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setGroupId($groupId);
@@ -51,7 +51,6 @@ class GroupScheduleGetEventListRequest extends ComplexType implements ComplexInt
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
-        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
@@ -65,7 +64,7 @@ class GroupScheduleGetEventListRequest extends ComplexType implements ComplexInt
      */
     public function getServiceProviderId()
     {
-        return $this->serviceProviderId->getValue();
+        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
     }
 
     /**
@@ -73,7 +72,6 @@ class GroupScheduleGetEventListRequest extends ComplexType implements ComplexInt
      */
     public function setGroupId($groupId = null)
     {
-        if (!$groupId) return $this;
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
@@ -87,7 +85,7 @@ class GroupScheduleGetEventListRequest extends ComplexType implements ComplexInt
      */
     public function getGroupId()
     {
-        return $this->groupId->getValue();
+        return ($this->groupId) ? $this->groupId->getValue() : null;
     }
 
     /**
@@ -95,8 +93,9 @@ class GroupScheduleGetEventListRequest extends ComplexType implements ComplexInt
      */
     public function setScheduleKey(ScheduleKey $scheduleKey = null)
     {
-        if (!$scheduleKey) return $this;
-        $this->scheduleKey = $scheduleKey;
+        $this->scheduleKey = ($scheduleKey InstanceOf ScheduleKey)
+             ? $scheduleKey
+             : new ScheduleKey($scheduleKey);
         $this->scheduleKey->setName('scheduleKey');
         return $this;
     }

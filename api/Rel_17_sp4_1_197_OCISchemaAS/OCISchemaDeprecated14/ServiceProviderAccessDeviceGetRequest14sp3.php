@@ -23,13 +23,13 @@ use Broadworks_OCIP\core\Client\Client;
 class ServiceProviderAccessDeviceGetRequest14sp3 extends ComplexType implements ComplexInterface
 {
     public    $responseType      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\ServiceProviderAccessDeviceGetResponse14sp3';
-    public    $name              = 'ServiceProviderAccessDeviceGetRequest14sp3';
-    protected $serviceProviderId = null;
-    protected $deviceName        = null;
+    public    $name = 'ServiceProviderAccessDeviceGetRequest14sp3';
+    protected $serviceProviderId;
+    protected $deviceName;
 
     public function __construct(
-         $serviceProviderId,
-         $deviceName
+         $serviceProviderId = '',
+         $deviceName = ''
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setDeviceName($deviceName);
@@ -48,7 +48,6 @@ class ServiceProviderAccessDeviceGetRequest14sp3 extends ComplexType implements 
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
-        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
@@ -62,7 +61,7 @@ class ServiceProviderAccessDeviceGetRequest14sp3 extends ComplexType implements 
      */
     public function getServiceProviderId()
     {
-        return $this->serviceProviderId->getValue();
+        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
     }
 
     /**
@@ -70,7 +69,6 @@ class ServiceProviderAccessDeviceGetRequest14sp3 extends ComplexType implements 
      */
     public function setDeviceName($deviceName = null)
     {
-        if (!$deviceName) return $this;
         $this->deviceName = ($deviceName InstanceOf AccessDeviceName)
              ? $deviceName
              : new AccessDeviceName($deviceName);
@@ -84,6 +82,6 @@ class ServiceProviderAccessDeviceGetRequest14sp3 extends ComplexType implements 
      */
     public function getDeviceName()
     {
-        return $this->deviceName->getValue();
+        return ($this->deviceName) ? $this->deviceName->getValue() : null;
     }
 }

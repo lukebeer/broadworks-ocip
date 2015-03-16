@@ -27,12 +27,12 @@ use Broadworks_OCIP\core\Client\Client;
 class SystemAccessDeviceGetListRequest14 extends ComplexType implements ComplexInterface
 {
     public    $responseType                   = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemAccessDeviceGetListResponse14';
-    public    $name                           = 'SystemAccessDeviceGetListRequest14';
-    protected $responseSizeLimit              = null;
-    protected $searchCriteriaDeviceName       = null;
-    protected $searchCriteriaDeviceMACAddress = null;
-    protected $searchCriteriaDeviceNetAddress = null;
-    protected $searchCriteriaExactDeviceType  = null;
+    public    $name = 'SystemAccessDeviceGetListRequest14';
+    protected $responseSizeLimit;
+    protected $searchCriteriaDeviceName;
+    protected $searchCriteriaDeviceMACAddress;
+    protected $searchCriteriaDeviceNetAddress;
+    protected $searchCriteriaExactDeviceType;
 
     public function __construct(
          $responseSizeLimit = null,
@@ -61,7 +61,6 @@ class SystemAccessDeviceGetListRequest14 extends ComplexType implements ComplexI
      */
     public function setResponseSizeLimit($responseSizeLimit = null)
     {
-        if (!$responseSizeLimit) return $this;
         $this->responseSizeLimit = ($responseSizeLimit InstanceOf ResponseSizeLimit)
              ? $responseSizeLimit
              : new ResponseSizeLimit($responseSizeLimit);
@@ -75,7 +74,7 @@ class SystemAccessDeviceGetListRequest14 extends ComplexType implements ComplexI
      */
     public function getResponseSizeLimit()
     {
-        return $this->responseSizeLimit->getValue();
+        return ($this->responseSizeLimit) ? $this->responseSizeLimit->getValue() : null;
     }
 
     /**
@@ -83,7 +82,6 @@ class SystemAccessDeviceGetListRequest14 extends ComplexType implements ComplexI
      */
     public function setSearchCriteriaDeviceName(SearchCriteriaDeviceName $searchCriteriaDeviceName = null)
     {
-        if (!$searchCriteriaDeviceName) return $this;
         $this->searchCriteriaDeviceName = ($searchCriteriaDeviceName InstanceOf SearchCriteriaDeviceName)
              ? $searchCriteriaDeviceName
              : new SearchCriteriaDeviceName($searchCriteriaDeviceName);
@@ -105,7 +103,6 @@ class SystemAccessDeviceGetListRequest14 extends ComplexType implements ComplexI
      */
     public function setSearchCriteriaDeviceMACAddress(SearchCriteriaDeviceMACAddress $searchCriteriaDeviceMACAddress = null)
     {
-        if (!$searchCriteriaDeviceMACAddress) return $this;
         $this->searchCriteriaDeviceMACAddress = ($searchCriteriaDeviceMACAddress InstanceOf SearchCriteriaDeviceMACAddress)
              ? $searchCriteriaDeviceMACAddress
              : new SearchCriteriaDeviceMACAddress($searchCriteriaDeviceMACAddress);
@@ -127,7 +124,6 @@ class SystemAccessDeviceGetListRequest14 extends ComplexType implements ComplexI
      */
     public function setSearchCriteriaDeviceNetAddress(SearchCriteriaDeviceNetAddress $searchCriteriaDeviceNetAddress = null)
     {
-        if (!$searchCriteriaDeviceNetAddress) return $this;
         $this->searchCriteriaDeviceNetAddress = ($searchCriteriaDeviceNetAddress InstanceOf SearchCriteriaDeviceNetAddress)
              ? $searchCriteriaDeviceNetAddress
              : new SearchCriteriaDeviceNetAddress($searchCriteriaDeviceNetAddress);
@@ -149,7 +145,6 @@ class SystemAccessDeviceGetListRequest14 extends ComplexType implements ComplexI
      */
     public function setSearchCriteriaExactDeviceType(SearchCriteriaExactDeviceType $searchCriteriaExactDeviceType = null)
     {
-        if (!$searchCriteriaExactDeviceType) return $this;
         $this->searchCriteriaExactDeviceType = ($searchCriteriaExactDeviceType InstanceOf SearchCriteriaExactDeviceType)
              ? $searchCriteriaExactDeviceType
              : new SearchCriteriaExactDeviceType($searchCriteriaExactDeviceType);

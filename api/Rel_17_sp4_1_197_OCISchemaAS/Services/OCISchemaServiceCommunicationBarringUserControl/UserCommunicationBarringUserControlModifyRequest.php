@@ -26,15 +26,15 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserCommunicationBarringUserControlModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name          = 'UserCommunicationBarringUserControlModifyRequest';
-    protected $userId        = null;
-    protected $enableProfile = null;
-    protected $oldPasscode   = null;
-    protected $newPasscode   = null;
-    protected $resetLockout  = null;
+    public    $name = 'UserCommunicationBarringUserControlModifyRequest';
+    protected $userId;
+    protected $enableProfile;
+    protected $oldPasscode;
+    protected $newPasscode;
+    protected $resetLockout;
 
     public function __construct(
-         $userId,
+         $userId = '',
          $enableProfile = null,
          $oldPasscode = null,
          $newPasscode = null,
@@ -60,7 +60,6 @@ class UserCommunicationBarringUserControlModifyRequest extends ComplexType imple
      */
     public function setUserId($userId = null)
     {
-        if (!$userId) return $this;
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
@@ -74,7 +73,7 @@ class UserCommunicationBarringUserControlModifyRequest extends ComplexType imple
      */
     public function getUserId()
     {
-        return $this->userId->getValue();
+        return ($this->userId) ? $this->userId->getValue() : null;
     }
 
     /**
@@ -82,7 +81,6 @@ class UserCommunicationBarringUserControlModifyRequest extends ComplexType imple
      */
     public function setEnableProfile($enableProfile = null)
     {
-        if (!$enableProfile) return $this;
         $this->enableProfile = ($enableProfile InstanceOf CommunicationBarringUserControlProfileCode)
              ? $enableProfile
              : new CommunicationBarringUserControlProfileCode($enableProfile);
@@ -96,7 +94,7 @@ class UserCommunicationBarringUserControlModifyRequest extends ComplexType imple
      */
     public function getEnableProfile()
     {
-        return $this->enableProfile->getValue();
+        return ($this->enableProfile) ? $this->enableProfile->getValue() : null;
     }
 
     /**
@@ -104,7 +102,6 @@ class UserCommunicationBarringUserControlModifyRequest extends ComplexType imple
      */
     public function setOldPasscode($oldPasscode = null)
     {
-        if (!$oldPasscode) return $this;
         $this->oldPasscode = ($oldPasscode InstanceOf Passcode)
              ? $oldPasscode
              : new Passcode($oldPasscode);
@@ -118,7 +115,7 @@ class UserCommunicationBarringUserControlModifyRequest extends ComplexType imple
      */
     public function getOldPasscode()
     {
-        return $this->oldPasscode->getValue();
+        return ($this->oldPasscode) ? $this->oldPasscode->getValue() : null;
     }
 
     /**
@@ -126,7 +123,6 @@ class UserCommunicationBarringUserControlModifyRequest extends ComplexType imple
      */
     public function setNewPasscode($newPasscode = null)
     {
-        if (!$newPasscode) return $this;
         $this->newPasscode = ($newPasscode InstanceOf Passcode)
              ? $newPasscode
              : new Passcode($newPasscode);
@@ -140,7 +136,7 @@ class UserCommunicationBarringUserControlModifyRequest extends ComplexType imple
      */
     public function getNewPasscode()
     {
-        return $this->newPasscode->getValue();
+        return ($this->newPasscode) ? $this->newPasscode->getValue() : null;
     }
 
     /**
@@ -148,7 +144,6 @@ class UserCommunicationBarringUserControlModifyRequest extends ComplexType imple
      */
     public function setResetLockout($resetLockout = null)
     {
-        if (!$resetLockout) return $this;
         $this->resetLockout = new PrimitiveType($resetLockout);
         $this->resetLockout->setName('resetLockout');
         return $this;
@@ -160,6 +155,6 @@ class UserCommunicationBarringUserControlModifyRequest extends ComplexType imple
      */
     public function getResetLockout()
     {
-        return $this->resetLockout->getValue();
+        return ($this->resetLockout) ? $this->resetLockout->getValue() : null;
     }
 }

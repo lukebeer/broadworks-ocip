@@ -19,14 +19,14 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class TrunkGroupDeviceEndpointAdd extends ComplexType implements ComplexInterface
 {
-    public    $name     = 'TrunkGroupDeviceEndpointAdd';
-    protected $name     = null;
-    protected $linePort = null;
-    protected $contact  = null;
+    public    $name = 'TrunkGroupDeviceEndpointAdd';
+    protected $name;
+    protected $linePort;
+    protected $contact;
 
     public function __construct(
-         $name,
-         $linePort,
+         $name = '',
+         $linePort = '',
          $contact = null
     ) {
         $this->setName($name);
@@ -47,7 +47,6 @@ class TrunkGroupDeviceEndpointAdd extends ComplexType implements ComplexInterfac
      */
     public function setName($name = null)
     {
-        if (!$name) return $this;
         $this->name = new SimpleContent($name);
         $this->name->setName('name');
         return $this;
@@ -59,7 +58,7 @@ class TrunkGroupDeviceEndpointAdd extends ComplexType implements ComplexInterfac
      */
     public function getName()
     {
-        return $this->name->getValue();
+        return ($this->name) ? $this->name->getValue() : null;
     }
 
     /**
@@ -67,7 +66,6 @@ class TrunkGroupDeviceEndpointAdd extends ComplexType implements ComplexInterfac
      */
     public function setLinePort($linePort = null)
     {
-        if (!$linePort) return $this;
         $this->linePort = new SimpleContent($linePort);
         $this->linePort->setName('linePort');
         return $this;
@@ -79,7 +77,7 @@ class TrunkGroupDeviceEndpointAdd extends ComplexType implements ComplexInterfac
      */
     public function getLinePort()
     {
-        return $this->linePort->getValue();
+        return ($this->linePort) ? $this->linePort->getValue() : null;
     }
 
     /**
@@ -87,7 +85,6 @@ class TrunkGroupDeviceEndpointAdd extends ComplexType implements ComplexInterfac
      */
     public function setContact($contact = null)
     {
-        if (!$contact) return $this;
         $this->contact = new SimpleContent($contact);
         $this->contact->setName('contact');
         return $this;
@@ -99,6 +96,6 @@ class TrunkGroupDeviceEndpointAdd extends ComplexType implements ComplexInterfac
      */
     public function getContact()
     {
-        return $this->contact->getValue();
+        return ($this->contact) ? $this->contact->getValue() : null;
     }
 }

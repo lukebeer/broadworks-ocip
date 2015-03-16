@@ -23,16 +23,16 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupCustomRingbackGroupGetResponse16 extends ComplexType implements ComplexInterface
 {
-    public    $name                 = 'GroupCustomRingbackGroupGetResponse16';
-    protected $isActive             = null;
-    protected $audioSelection       = null;
-    protected $audioFileDescription = null;
-    protected $audioMediaType       = null;
-    protected $audioFileUrl         = null;
-    protected $videoSelection       = null;
-    protected $videoFileDescription = null;
-    protected $videoMediaType       = null;
-    protected $videoFileUrl         = null;
+    public    $name = 'GroupCustomRingbackGroupGetResponse16';
+    protected $isActive;
+    protected $audioSelection;
+    protected $audioFileDescription;
+    protected $audioMediaType;
+    protected $audioFileUrl;
+    protected $videoSelection;
+    protected $videoFileDescription;
+    protected $videoMediaType;
+    protected $videoFileUrl;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCustomRingback\GroupCustomRingbackGroupGetResponse16 $response
@@ -47,7 +47,6 @@ class GroupCustomRingbackGroupGetResponse16 extends ComplexType implements Compl
      */
     public function setIsActive($isActive = null)
     {
-        if (!$isActive) return $this;
         $this->isActive = new PrimitiveType($isActive);
         $this->isActive->setName('isActive');
         return $this;
@@ -59,7 +58,7 @@ class GroupCustomRingbackGroupGetResponse16 extends ComplexType implements Compl
      */
     public function getIsActive()
     {
-        return $this->isActive->getValue();
+        return ($this->isActive) ? $this->isActive->getValue() : null;
     }
 
     /**
@@ -67,7 +66,6 @@ class GroupCustomRingbackGroupGetResponse16 extends ComplexType implements Compl
      */
     public function setAudioSelection($audioSelection = null)
     {
-        if (!$audioSelection) return $this;
         $this->audioSelection = ($audioSelection InstanceOf ExtendedFileResourceSelection)
              ? $audioSelection
              : new ExtendedFileResourceSelection($audioSelection);
@@ -81,7 +79,7 @@ class GroupCustomRingbackGroupGetResponse16 extends ComplexType implements Compl
      */
     public function getAudioSelection()
     {
-        return $this->audioSelection->getValue();
+        return ($this->audioSelection) ? $this->audioSelection->getValue() : null;
     }
 
     /**
@@ -89,7 +87,6 @@ class GroupCustomRingbackGroupGetResponse16 extends ComplexType implements Compl
      */
     public function setAudioFileDescription($audioFileDescription = null)
     {
-        if (!$audioFileDescription) return $this;
         $this->audioFileDescription = ($audioFileDescription InstanceOf FileDescription)
              ? $audioFileDescription
              : new FileDescription($audioFileDescription);
@@ -103,7 +100,7 @@ class GroupCustomRingbackGroupGetResponse16 extends ComplexType implements Compl
      */
     public function getAudioFileDescription()
     {
-        return $this->audioFileDescription->getValue();
+        return ($this->audioFileDescription) ? $this->audioFileDescription->getValue() : null;
     }
 
     /**
@@ -111,7 +108,6 @@ class GroupCustomRingbackGroupGetResponse16 extends ComplexType implements Compl
      */
     public function setAudioMediaType($audioMediaType = null)
     {
-        if (!$audioMediaType) return $this;
         $this->audioMediaType = ($audioMediaType InstanceOf MediaFileType)
              ? $audioMediaType
              : new MediaFileType($audioMediaType);
@@ -125,7 +121,7 @@ class GroupCustomRingbackGroupGetResponse16 extends ComplexType implements Compl
      */
     public function getAudioMediaType()
     {
-        return $this->audioMediaType->getValue();
+        return ($this->audioMediaType) ? $this->audioMediaType->getValue() : null;
     }
 
     /**
@@ -133,7 +129,6 @@ class GroupCustomRingbackGroupGetResponse16 extends ComplexType implements Compl
      */
     public function setAudioFileUrl($audioFileUrl = null)
     {
-        if (!$audioFileUrl) return $this;
         $this->audioFileUrl = ($audioFileUrl InstanceOf URL)
              ? $audioFileUrl
              : new URL($audioFileUrl);
@@ -147,7 +142,7 @@ class GroupCustomRingbackGroupGetResponse16 extends ComplexType implements Compl
      */
     public function getAudioFileUrl()
     {
-        return $this->audioFileUrl->getValue();
+        return ($this->audioFileUrl) ? $this->audioFileUrl->getValue() : null;
     }
 
     /**
@@ -155,7 +150,6 @@ class GroupCustomRingbackGroupGetResponse16 extends ComplexType implements Compl
      */
     public function setVideoSelection($videoSelection = null)
     {
-        if (!$videoSelection) return $this;
         $this->videoSelection = ($videoSelection InstanceOf ExtendedFileResourceSelection)
              ? $videoSelection
              : new ExtendedFileResourceSelection($videoSelection);
@@ -169,7 +163,7 @@ class GroupCustomRingbackGroupGetResponse16 extends ComplexType implements Compl
      */
     public function getVideoSelection()
     {
-        return $this->videoSelection->getValue();
+        return ($this->videoSelection) ? $this->videoSelection->getValue() : null;
     }
 
     /**
@@ -177,7 +171,6 @@ class GroupCustomRingbackGroupGetResponse16 extends ComplexType implements Compl
      */
     public function setVideoFileDescription($videoFileDescription = null)
     {
-        if (!$videoFileDescription) return $this;
         $this->videoFileDescription = ($videoFileDescription InstanceOf FileDescription)
              ? $videoFileDescription
              : new FileDescription($videoFileDescription);
@@ -191,7 +184,7 @@ class GroupCustomRingbackGroupGetResponse16 extends ComplexType implements Compl
      */
     public function getVideoFileDescription()
     {
-        return $this->videoFileDescription->getValue();
+        return ($this->videoFileDescription) ? $this->videoFileDescription->getValue() : null;
     }
 
     /**
@@ -199,7 +192,6 @@ class GroupCustomRingbackGroupGetResponse16 extends ComplexType implements Compl
      */
     public function setVideoMediaType($videoMediaType = null)
     {
-        if (!$videoMediaType) return $this;
         $this->videoMediaType = ($videoMediaType InstanceOf MediaFileType)
              ? $videoMediaType
              : new MediaFileType($videoMediaType);
@@ -213,7 +205,7 @@ class GroupCustomRingbackGroupGetResponse16 extends ComplexType implements Compl
      */
     public function getVideoMediaType()
     {
-        return $this->videoMediaType->getValue();
+        return ($this->videoMediaType) ? $this->videoMediaType->getValue() : null;
     }
 
     /**
@@ -221,7 +213,6 @@ class GroupCustomRingbackGroupGetResponse16 extends ComplexType implements Compl
      */
     public function setVideoFileUrl($videoFileUrl = null)
     {
-        if (!$videoFileUrl) return $this;
         $this->videoFileUrl = ($videoFileUrl InstanceOf URL)
              ? $videoFileUrl
              : new URL($videoFileUrl);
@@ -235,6 +226,6 @@ class GroupCustomRingbackGroupGetResponse16 extends ComplexType implements Compl
      */
     public function getVideoFileUrl()
     {
-        return $this->videoFileUrl->getValue();
+        return ($this->videoFileUrl) ? $this->videoFileUrl->getValue() : null;
     }
 }

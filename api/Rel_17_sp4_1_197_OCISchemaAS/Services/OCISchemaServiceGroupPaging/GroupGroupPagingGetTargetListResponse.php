@@ -21,8 +21,8 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupGroupPagingGetTargetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name        = 'GroupGroupPagingGetTargetListResponse';
-    protected $targetTable = null;
+    public    $name = 'GroupGroupPagingGetTargetListResponse';
+    protected $targetTable;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceGroupPaging\GroupGroupPagingGetTargetListResponse $response
@@ -37,7 +37,6 @@ class GroupGroupPagingGetTargetListResponse extends ComplexType implements Compl
      */
     public function setTargetTable(TableType $targetTable = null)
     {
-        if (!$targetTable) return $this;
         $this->targetTable = $targetTable;
         $this->targetTable->setName('targetTable');
         return $this;

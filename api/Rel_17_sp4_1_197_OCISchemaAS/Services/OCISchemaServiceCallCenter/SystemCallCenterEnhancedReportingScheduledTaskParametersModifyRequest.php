@@ -22,10 +22,10 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemCallCenterEnhancedReportingScheduledTaskParametersModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                                     = 'SystemCallCenterEnhancedReportingScheduledTaskParametersModifyRequest';
-    protected $scheduledReportSearchIntervalMinutes     = null;
-    protected $maximumScheduledReportsPerInterval       = null;
-    protected $deleteScheduledReportDaysAfterCompletion = null;
+    public    $name = 'SystemCallCenterEnhancedReportingScheduledTaskParametersModifyRequest';
+    protected $scheduledReportSearchIntervalMinutes;
+    protected $maximumScheduledReportsPerInterval;
+    protected $deleteScheduledReportDaysAfterCompletion;
 
     public function __construct(
          $scheduledReportSearchIntervalMinutes = null,
@@ -50,7 +50,6 @@ class SystemCallCenterEnhancedReportingScheduledTaskParametersModifyRequest exte
      */
     public function setScheduledReportSearchIntervalMinutes($scheduledReportSearchIntervalMinutes = null)
     {
-        if (!$scheduledReportSearchIntervalMinutes) return $this;
         $this->scheduledReportSearchIntervalMinutes = ($scheduledReportSearchIntervalMinutes InstanceOf CallCenterScheduledReportSearchIntervalMinutes)
              ? $scheduledReportSearchIntervalMinutes
              : new CallCenterScheduledReportSearchIntervalMinutes($scheduledReportSearchIntervalMinutes);
@@ -64,7 +63,7 @@ class SystemCallCenterEnhancedReportingScheduledTaskParametersModifyRequest exte
      */
     public function getScheduledReportSearchIntervalMinutes()
     {
-        return $this->scheduledReportSearchIntervalMinutes->getValue();
+        return ($this->scheduledReportSearchIntervalMinutes) ? $this->scheduledReportSearchIntervalMinutes->getValue() : null;
     }
 
     /**
@@ -72,7 +71,6 @@ class SystemCallCenterEnhancedReportingScheduledTaskParametersModifyRequest exte
      */
     public function setMaximumScheduledReportsPerInterval($maximumScheduledReportsPerInterval = null)
     {
-        if (!$maximumScheduledReportsPerInterval) return $this;
         $this->maximumScheduledReportsPerInterval = ($maximumScheduledReportsPerInterval InstanceOf CallCenterMaximumScheduledReportsPerInterval)
              ? $maximumScheduledReportsPerInterval
              : new CallCenterMaximumScheduledReportsPerInterval($maximumScheduledReportsPerInterval);
@@ -86,7 +84,7 @@ class SystemCallCenterEnhancedReportingScheduledTaskParametersModifyRequest exte
      */
     public function getMaximumScheduledReportsPerInterval()
     {
-        return $this->maximumScheduledReportsPerInterval->getValue();
+        return ($this->maximumScheduledReportsPerInterval) ? $this->maximumScheduledReportsPerInterval->getValue() : null;
     }
 
     /**
@@ -94,7 +92,6 @@ class SystemCallCenterEnhancedReportingScheduledTaskParametersModifyRequest exte
      */
     public function setDeleteScheduledReportDaysAfterCompletion($deleteScheduledReportDaysAfterCompletion = null)
     {
-        if (!$deleteScheduledReportDaysAfterCompletion) return $this;
         $this->deleteScheduledReportDaysAfterCompletion = ($deleteScheduledReportDaysAfterCompletion InstanceOf CallCenterDaysAfterScheduledReportCompletion)
              ? $deleteScheduledReportDaysAfterCompletion
              : new CallCenterDaysAfterScheduledReportCompletion($deleteScheduledReportDaysAfterCompletion);
@@ -108,6 +105,6 @@ class SystemCallCenterEnhancedReportingScheduledTaskParametersModifyRequest exte
      */
     public function getDeleteScheduledReportDaysAfterCompletion()
     {
-        return $this->deleteScheduledReportDaysAfterCompletion->getValue();
+        return ($this->deleteScheduledReportDaysAfterCompletion) ? $this->deleteScheduledReportDaysAfterCompletion->getValue() : null;
     }
 }

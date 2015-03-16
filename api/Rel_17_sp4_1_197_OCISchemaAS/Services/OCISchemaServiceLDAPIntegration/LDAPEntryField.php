@@ -19,12 +19,12 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class LDAPEntryField extends ComplexType implements ComplexInterface
 {
-    public    $name           = 'LDAPEntryField';
-    protected $attributeName  = null;
-    protected $attributeValue = null;
+    public    $name = 'LDAPEntryField';
+    protected $attributeName;
+    protected $attributeValue;
 
     public function __construct(
-         $attributeName,
+         $attributeName = '',
          $attributeValue = null
     ) {
         $this->setAttributeName($attributeName);
@@ -44,7 +44,6 @@ class LDAPEntryField extends ComplexType implements ComplexInterface
      */
     public function setAttributeName($attributeName = null)
     {
-        if (!$attributeName) return $this;
         $this->attributeName = new SimpleContent($attributeName);
         $this->attributeName->setName('attributeName');
         return $this;
@@ -56,7 +55,7 @@ class LDAPEntryField extends ComplexType implements ComplexInterface
      */
     public function getAttributeName()
     {
-        return $this->attributeName->getValue();
+        return ($this->attributeName) ? $this->attributeName->getValue() : null;
     }
 
     /**
@@ -64,7 +63,6 @@ class LDAPEntryField extends ComplexType implements ComplexInterface
      */
     public function setAttributeValue($attributeValue = null)
     {
-        if (!$attributeValue) return $this;
         $this->attributeValue = new SimpleContent($attributeValue);
         $this->attributeValue->setName('attributeValue');
         return $this;
@@ -76,6 +74,6 @@ class LDAPEntryField extends ComplexType implements ComplexInterface
      */
     public function getAttributeValue()
     {
-        return $this->attributeValue->getValue();
+        return ($this->attributeValue) ? $this->attributeValue->getValue() : null;
     }
 }

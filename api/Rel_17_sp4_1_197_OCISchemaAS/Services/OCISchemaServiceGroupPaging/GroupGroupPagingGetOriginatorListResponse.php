@@ -21,8 +21,8 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupGroupPagingGetOriginatorListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name            = 'GroupGroupPagingGetOriginatorListResponse';
-    protected $originatorTable = null;
+    public    $name = 'GroupGroupPagingGetOriginatorListResponse';
+    protected $originatorTable;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceGroupPaging\GroupGroupPagingGetOriginatorListResponse $response
@@ -37,7 +37,6 @@ class GroupGroupPagingGetOriginatorListResponse extends ComplexType implements C
      */
     public function setOriginatorTable(TableType $originatorTable = null)
     {
-        if (!$originatorTable) return $this;
         $this->originatorTable = $originatorTable;
         $this->originatorTable->setName('originatorTable');
         return $this;

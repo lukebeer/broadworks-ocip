@@ -21,8 +21,8 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ReplacementVirtualOnNetCallTypeNameList extends ComplexType implements ComplexInterface
 {
-    public    $name                     = 'ReplacementVirtualOnNetCallTypeNameList';
-    protected $virtualOnNetCallTypeName = null;
+    public    $name = 'ReplacementVirtualOnNetCallTypeNameList';
+    protected $virtualOnNetCallTypeName;
 
     public function __construct(
          $virtualOnNetCallTypeName = null
@@ -43,7 +43,6 @@ class ReplacementVirtualOnNetCallTypeNameList extends ComplexType implements Com
      */
     public function setVirtualOnNetCallTypeName($virtualOnNetCallTypeName = null)
     {
-        if (!$virtualOnNetCallTypeName) return $this;
         $this->virtualOnNetCallTypeName = new SimpleContent($virtualOnNetCallTypeName);
         $this->virtualOnNetCallTypeName->setName('virtualOnNetCallTypeName');
         return $this;
@@ -55,6 +54,6 @@ class ReplacementVirtualOnNetCallTypeNameList extends ComplexType implements Com
      */
     public function getVirtualOnNetCallTypeName()
     {
-        return $this->virtualOnNetCallTypeName->getValue();
+        return ($this->virtualOnNetCallTypeName) ? $this->virtualOnNetCallTypeName->getValue() : null;
     }
 }

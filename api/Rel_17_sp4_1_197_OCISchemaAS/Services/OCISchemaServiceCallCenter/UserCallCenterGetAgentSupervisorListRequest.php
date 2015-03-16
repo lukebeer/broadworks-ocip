@@ -22,13 +22,13 @@ use Broadworks_OCIP\core\Client\Client;
 class UserCallCenterGetAgentSupervisorListRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType  = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\UserCallCenterGetAgentSupervisorListResponse';
-    public    $name          = 'UserCallCenterGetAgentSupervisorListRequest';
-    protected $agentUserId   = null;
-    protected $serviceUserId = null;
+    public    $name = 'UserCallCenterGetAgentSupervisorListRequest';
+    protected $agentUserId;
+    protected $serviceUserId;
 
     public function __construct(
-         $agentUserId,
-         $serviceUserId
+         $agentUserId = '',
+         $serviceUserId = ''
     ) {
         $this->setAgentUserId($agentUserId);
         $this->setServiceUserId($serviceUserId);
@@ -47,7 +47,6 @@ class UserCallCenterGetAgentSupervisorListRequest extends ComplexType implements
      */
     public function setAgentUserId($agentUserId = null)
     {
-        if (!$agentUserId) return $this;
         $this->agentUserId = ($agentUserId InstanceOf UserId)
              ? $agentUserId
              : new UserId($agentUserId);
@@ -61,7 +60,7 @@ class UserCallCenterGetAgentSupervisorListRequest extends ComplexType implements
      */
     public function getAgentUserId()
     {
-        return $this->agentUserId->getValue();
+        return ($this->agentUserId) ? $this->agentUserId->getValue() : null;
     }
 
     /**
@@ -69,7 +68,6 @@ class UserCallCenterGetAgentSupervisorListRequest extends ComplexType implements
      */
     public function setServiceUserId($serviceUserId = null)
     {
-        if (!$serviceUserId) return $this;
         $this->serviceUserId = ($serviceUserId InstanceOf UserId)
              ? $serviceUserId
              : new UserId($serviceUserId);
@@ -83,6 +81,6 @@ class UserCallCenterGetAgentSupervisorListRequest extends ComplexType implements
      */
     public function getServiceUserId()
     {
-        return $this->serviceUserId->getValue();
+        return ($this->serviceUserId) ? $this->serviceUserId->getValue() : null;
     }
 }

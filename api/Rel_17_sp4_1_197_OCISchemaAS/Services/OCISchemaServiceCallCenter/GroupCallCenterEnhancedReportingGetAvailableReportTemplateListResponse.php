@@ -31,8 +31,8 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupCallCenterEnhancedReportingGetAvailableReportTemplateListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                = 'GroupCallCenterEnhancedReportingGetAvailableReportTemplateListResponse';
-    protected $reportTemplateTable = null;
+    public    $name = 'GroupCallCenterEnhancedReportingGetAvailableReportTemplateListResponse';
+    protected $reportTemplateTable;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\GroupCallCenterEnhancedReportingGetAvailableReportTemplateListResponse $response
@@ -47,7 +47,6 @@ class GroupCallCenterEnhancedReportingGetAvailableReportTemplateListResponse ext
      */
     public function setReportTemplateTable(TableType $reportTemplateTable = null)
     {
-        if (!$reportTemplateTable) return $this;
         $this->reportTemplateTable = $reportTemplateTable;
         $this->reportTemplateTable->setName('reportTemplateTable');
         return $this;

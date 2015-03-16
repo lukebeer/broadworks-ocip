@@ -19,27 +19,27 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class CallCenterQueueStatistics14sp9 extends ComplexType implements ComplexInterface
 {
-    public    $name                         = 'CallCenterQueueStatistics14sp9';
-    protected $numberOfBusyOverflows        = null;
-    protected $numberOfCallsAnswered        = null;
-    protected $numberOfCallsAbandoned       = null;
-    protected $numberOfCallsTransferred     = null;
-    protected $numberOfCallsTimedout        = null;
-    protected $averageNumberOfAgentsTalking = null;
-    protected $averageNumberOfAgentsStaffed = null;
-    protected $averageWaitSeconds           = null;
-    protected $averageAbandonmentSeconds    = null;
+    public    $name = 'CallCenterQueueStatistics14sp9';
+    protected $numberOfBusyOverflows;
+    protected $numberOfCallsAnswered;
+    protected $numberOfCallsAbandoned;
+    protected $numberOfCallsTransferred;
+    protected $numberOfCallsTimedout;
+    protected $averageNumberOfAgentsTalking;
+    protected $averageNumberOfAgentsStaffed;
+    protected $averageWaitSeconds;
+    protected $averageAbandonmentSeconds;
 
     public function __construct(
-         $numberOfBusyOverflows,
-         $numberOfCallsAnswered,
-         $numberOfCallsAbandoned,
-         $numberOfCallsTransferred,
-         $numberOfCallsTimedout,
-         $averageNumberOfAgentsTalking,
-         $averageNumberOfAgentsStaffed,
-         $averageWaitSeconds,
-         $averageAbandonmentSeconds
+         $numberOfBusyOverflows = '',
+         $numberOfCallsAnswered = '',
+         $numberOfCallsAbandoned = '',
+         $numberOfCallsTransferred = '',
+         $numberOfCallsTimedout = '',
+         $averageNumberOfAgentsTalking = '',
+         $averageNumberOfAgentsStaffed = '',
+         $averageWaitSeconds = '',
+         $averageAbandonmentSeconds = ''
     ) {
         $this->setNumberOfBusyOverflows($numberOfBusyOverflows);
         $this->setNumberOfCallsAnswered($numberOfCallsAnswered);
@@ -65,7 +65,6 @@ class CallCenterQueueStatistics14sp9 extends ComplexType implements ComplexInter
      */
     public function setNumberOfBusyOverflows($numberOfBusyOverflows = null)
     {
-        if (!$numberOfBusyOverflows) return $this;
         $this->numberOfBusyOverflows = new SimpleContent($numberOfBusyOverflows);
         $this->numberOfBusyOverflows->setName('numberOfBusyOverflows');
         return $this;
@@ -77,7 +76,7 @@ class CallCenterQueueStatistics14sp9 extends ComplexType implements ComplexInter
      */
     public function getNumberOfBusyOverflows()
     {
-        return $this->numberOfBusyOverflows->getValue();
+        return ($this->numberOfBusyOverflows) ? $this->numberOfBusyOverflows->getValue() : null;
     }
 
     /**
@@ -85,7 +84,6 @@ class CallCenterQueueStatistics14sp9 extends ComplexType implements ComplexInter
      */
     public function setNumberOfCallsAnswered($numberOfCallsAnswered = null)
     {
-        if (!$numberOfCallsAnswered) return $this;
         $this->numberOfCallsAnswered = new SimpleContent($numberOfCallsAnswered);
         $this->numberOfCallsAnswered->setName('numberOfCallsAnswered');
         return $this;
@@ -97,7 +95,7 @@ class CallCenterQueueStatistics14sp9 extends ComplexType implements ComplexInter
      */
     public function getNumberOfCallsAnswered()
     {
-        return $this->numberOfCallsAnswered->getValue();
+        return ($this->numberOfCallsAnswered) ? $this->numberOfCallsAnswered->getValue() : null;
     }
 
     /**
@@ -105,7 +103,6 @@ class CallCenterQueueStatistics14sp9 extends ComplexType implements ComplexInter
      */
     public function setNumberOfCallsAbandoned($numberOfCallsAbandoned = null)
     {
-        if (!$numberOfCallsAbandoned) return $this;
         $this->numberOfCallsAbandoned = new SimpleContent($numberOfCallsAbandoned);
         $this->numberOfCallsAbandoned->setName('numberOfCallsAbandoned');
         return $this;
@@ -117,7 +114,7 @@ class CallCenterQueueStatistics14sp9 extends ComplexType implements ComplexInter
      */
     public function getNumberOfCallsAbandoned()
     {
-        return $this->numberOfCallsAbandoned->getValue();
+        return ($this->numberOfCallsAbandoned) ? $this->numberOfCallsAbandoned->getValue() : null;
     }
 
     /**
@@ -125,7 +122,6 @@ class CallCenterQueueStatistics14sp9 extends ComplexType implements ComplexInter
      */
     public function setNumberOfCallsTransferred($numberOfCallsTransferred = null)
     {
-        if (!$numberOfCallsTransferred) return $this;
         $this->numberOfCallsTransferred = new SimpleContent($numberOfCallsTransferred);
         $this->numberOfCallsTransferred->setName('numberOfCallsTransferred');
         return $this;
@@ -137,7 +133,7 @@ class CallCenterQueueStatistics14sp9 extends ComplexType implements ComplexInter
      */
     public function getNumberOfCallsTransferred()
     {
-        return $this->numberOfCallsTransferred->getValue();
+        return ($this->numberOfCallsTransferred) ? $this->numberOfCallsTransferred->getValue() : null;
     }
 
     /**
@@ -145,7 +141,6 @@ class CallCenterQueueStatistics14sp9 extends ComplexType implements ComplexInter
      */
     public function setNumberOfCallsTimedout($numberOfCallsTimedout = null)
     {
-        if (!$numberOfCallsTimedout) return $this;
         $this->numberOfCallsTimedout = new SimpleContent($numberOfCallsTimedout);
         $this->numberOfCallsTimedout->setName('numberOfCallsTimedout');
         return $this;
@@ -157,7 +152,7 @@ class CallCenterQueueStatistics14sp9 extends ComplexType implements ComplexInter
      */
     public function getNumberOfCallsTimedout()
     {
-        return $this->numberOfCallsTimedout->getValue();
+        return ($this->numberOfCallsTimedout) ? $this->numberOfCallsTimedout->getValue() : null;
     }
 
     /**
@@ -165,7 +160,6 @@ class CallCenterQueueStatistics14sp9 extends ComplexType implements ComplexInter
      */
     public function setAverageNumberOfAgentsTalking($averageNumberOfAgentsTalking = null)
     {
-        if (!$averageNumberOfAgentsTalking) return $this;
         $this->averageNumberOfAgentsTalking = new SimpleContent($averageNumberOfAgentsTalking);
         $this->averageNumberOfAgentsTalking->setName('averageNumberOfAgentsTalking');
         return $this;
@@ -177,7 +171,7 @@ class CallCenterQueueStatistics14sp9 extends ComplexType implements ComplexInter
      */
     public function getAverageNumberOfAgentsTalking()
     {
-        return $this->averageNumberOfAgentsTalking->getValue();
+        return ($this->averageNumberOfAgentsTalking) ? $this->averageNumberOfAgentsTalking->getValue() : null;
     }
 
     /**
@@ -185,7 +179,6 @@ class CallCenterQueueStatistics14sp9 extends ComplexType implements ComplexInter
      */
     public function setAverageNumberOfAgentsStaffed($averageNumberOfAgentsStaffed = null)
     {
-        if (!$averageNumberOfAgentsStaffed) return $this;
         $this->averageNumberOfAgentsStaffed = new SimpleContent($averageNumberOfAgentsStaffed);
         $this->averageNumberOfAgentsStaffed->setName('averageNumberOfAgentsStaffed');
         return $this;
@@ -197,7 +190,7 @@ class CallCenterQueueStatistics14sp9 extends ComplexType implements ComplexInter
      */
     public function getAverageNumberOfAgentsStaffed()
     {
-        return $this->averageNumberOfAgentsStaffed->getValue();
+        return ($this->averageNumberOfAgentsStaffed) ? $this->averageNumberOfAgentsStaffed->getValue() : null;
     }
 
     /**
@@ -205,7 +198,6 @@ class CallCenterQueueStatistics14sp9 extends ComplexType implements ComplexInter
      */
     public function setAverageWaitSeconds($averageWaitSeconds = null)
     {
-        if (!$averageWaitSeconds) return $this;
         $this->averageWaitSeconds = new SimpleContent($averageWaitSeconds);
         $this->averageWaitSeconds->setName('averageWaitSeconds');
         return $this;
@@ -217,7 +209,7 @@ class CallCenterQueueStatistics14sp9 extends ComplexType implements ComplexInter
      */
     public function getAverageWaitSeconds()
     {
-        return $this->averageWaitSeconds->getValue();
+        return ($this->averageWaitSeconds) ? $this->averageWaitSeconds->getValue() : null;
     }
 
     /**
@@ -225,7 +217,6 @@ class CallCenterQueueStatistics14sp9 extends ComplexType implements ComplexInter
      */
     public function setAverageAbandonmentSeconds($averageAbandonmentSeconds = null)
     {
-        if (!$averageAbandonmentSeconds) return $this;
         $this->averageAbandonmentSeconds = new SimpleContent($averageAbandonmentSeconds);
         $this->averageAbandonmentSeconds->setName('averageAbandonmentSeconds');
         return $this;
@@ -237,6 +228,6 @@ class CallCenterQueueStatistics14sp9 extends ComplexType implements ComplexInter
      */
     public function getAverageAbandonmentSeconds()
     {
-        return $this->averageAbandonmentSeconds->getValue();
+        return ($this->averageAbandonmentSeconds) ? $this->averageAbandonmentSeconds->getValue() : null;
     }
 }

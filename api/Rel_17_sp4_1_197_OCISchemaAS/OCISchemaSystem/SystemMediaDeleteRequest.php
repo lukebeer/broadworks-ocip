@@ -20,11 +20,11 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemMediaDeleteRequest extends ComplexType implements ComplexInterface
 {
-    public    $name      = 'SystemMediaDeleteRequest';
-    protected $mediaName = null;
+    public    $name = 'SystemMediaDeleteRequest';
+    protected $mediaName;
 
     public function __construct(
-         $mediaName
+         $mediaName = ''
     ) {
         $this->setMediaName($mediaName);
     }
@@ -42,7 +42,6 @@ class SystemMediaDeleteRequest extends ComplexType implements ComplexInterface
      */
     public function setMediaName($mediaName = null)
     {
-        if (!$mediaName) return $this;
         $this->mediaName = ($mediaName InstanceOf MediaName)
              ? $mediaName
              : new MediaName($mediaName);
@@ -56,6 +55,6 @@ class SystemMediaDeleteRequest extends ComplexType implements ComplexInterface
      */
     public function getMediaName()
     {
-        return $this->mediaName->getValue();
+        return ($this->mediaName) ? $this->mediaName->getValue() : null;
     }
 }

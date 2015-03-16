@@ -20,13 +20,13 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupBroadWorksMobilityGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                      = 'GroupBroadWorksMobilityGetResponse';
-    protected $useSettingLevel           = null;
-    protected $enableLocationServices    = null;
-    protected $enableMSRNLookup          = null;
-    protected $enableMobileStateChecking = null;
-    protected $denyCallOriginations      = null;
-    protected $denyCallTerminations      = null;
+    public    $name = 'GroupBroadWorksMobilityGetResponse';
+    protected $useSettingLevel;
+    protected $enableLocationServices;
+    protected $enableMSRNLookup;
+    protected $enableMobileStateChecking;
+    protected $denyCallOriginations;
+    protected $denyCallTerminations;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceBroadWorksMobility\GroupBroadWorksMobilityGetResponse $response
@@ -41,7 +41,6 @@ class GroupBroadWorksMobilityGetResponse extends ComplexType implements ComplexI
      */
     public function setUseSettingLevel($useSettingLevel = null)
     {
-        if (!$useSettingLevel) return $this;
         $this->useSettingLevel = ($useSettingLevel InstanceOf BroadWorksMobilityGroupSettingLevel)
              ? $useSettingLevel
              : new BroadWorksMobilityGroupSettingLevel($useSettingLevel);
@@ -55,7 +54,7 @@ class GroupBroadWorksMobilityGetResponse extends ComplexType implements ComplexI
      */
     public function getUseSettingLevel()
     {
-        return $this->useSettingLevel->getValue();
+        return ($this->useSettingLevel) ? $this->useSettingLevel->getValue() : null;
     }
 
     /**
@@ -63,7 +62,6 @@ class GroupBroadWorksMobilityGetResponse extends ComplexType implements ComplexI
      */
     public function setEnableLocationServices($enableLocationServices = null)
     {
-        if (!$enableLocationServices) return $this;
         $this->enableLocationServices = new PrimitiveType($enableLocationServices);
         $this->enableLocationServices->setName('enableLocationServices');
         return $this;
@@ -75,7 +73,7 @@ class GroupBroadWorksMobilityGetResponse extends ComplexType implements ComplexI
      */
     public function getEnableLocationServices()
     {
-        return $this->enableLocationServices->getValue();
+        return ($this->enableLocationServices) ? $this->enableLocationServices->getValue() : null;
     }
 
     /**
@@ -83,7 +81,6 @@ class GroupBroadWorksMobilityGetResponse extends ComplexType implements ComplexI
      */
     public function setEnableMSRNLookup($enableMSRNLookup = null)
     {
-        if (!$enableMSRNLookup) return $this;
         $this->enableMSRNLookup = new PrimitiveType($enableMSRNLookup);
         $this->enableMSRNLookup->setName('enableMSRNLookup');
         return $this;
@@ -95,7 +92,7 @@ class GroupBroadWorksMobilityGetResponse extends ComplexType implements ComplexI
      */
     public function getEnableMSRNLookup()
     {
-        return $this->enableMSRNLookup->getValue();
+        return ($this->enableMSRNLookup) ? $this->enableMSRNLookup->getValue() : null;
     }
 
     /**
@@ -103,7 +100,6 @@ class GroupBroadWorksMobilityGetResponse extends ComplexType implements ComplexI
      */
     public function setEnableMobileStateChecking($enableMobileStateChecking = null)
     {
-        if (!$enableMobileStateChecking) return $this;
         $this->enableMobileStateChecking = new PrimitiveType($enableMobileStateChecking);
         $this->enableMobileStateChecking->setName('enableMobileStateChecking');
         return $this;
@@ -115,7 +111,7 @@ class GroupBroadWorksMobilityGetResponse extends ComplexType implements ComplexI
      */
     public function getEnableMobileStateChecking()
     {
-        return $this->enableMobileStateChecking->getValue();
+        return ($this->enableMobileStateChecking) ? $this->enableMobileStateChecking->getValue() : null;
     }
 
     /**
@@ -123,7 +119,6 @@ class GroupBroadWorksMobilityGetResponse extends ComplexType implements ComplexI
      */
     public function setDenyCallOriginations($denyCallOriginations = null)
     {
-        if (!$denyCallOriginations) return $this;
         $this->denyCallOriginations = new PrimitiveType($denyCallOriginations);
         $this->denyCallOriginations->setName('denyCallOriginations');
         return $this;
@@ -135,7 +130,7 @@ class GroupBroadWorksMobilityGetResponse extends ComplexType implements ComplexI
      */
     public function getDenyCallOriginations()
     {
-        return $this->denyCallOriginations->getValue();
+        return ($this->denyCallOriginations) ? $this->denyCallOriginations->getValue() : null;
     }
 
     /**
@@ -143,7 +138,6 @@ class GroupBroadWorksMobilityGetResponse extends ComplexType implements ComplexI
      */
     public function setDenyCallTerminations($denyCallTerminations = null)
     {
-        if (!$denyCallTerminations) return $this;
         $this->denyCallTerminations = new PrimitiveType($denyCallTerminations);
         $this->denyCallTerminations->setName('denyCallTerminations');
         return $this;
@@ -155,6 +149,6 @@ class GroupBroadWorksMobilityGetResponse extends ComplexType implements ComplexI
      */
     public function getDenyCallTerminations()
     {
-        return $this->denyCallTerminations->getValue();
+        return ($this->denyCallTerminations) ? $this->denyCallTerminations->getValue() : null;
     }
 }

@@ -21,11 +21,11 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemPreferredCarrierDeleteRequest extends ComplexType implements ComplexInterface
 {
-    public    $name    = 'SystemPreferredCarrierDeleteRequest';
-    protected $carrier = null;
+    public    $name = 'SystemPreferredCarrierDeleteRequest';
+    protected $carrier;
 
     public function __construct(
-         $carrier
+         $carrier = ''
     ) {
         $this->setCarrier($carrier);
     }
@@ -43,7 +43,6 @@ class SystemPreferredCarrierDeleteRequest extends ComplexType implements Complex
      */
     public function setCarrier($carrier = null)
     {
-        if (!$carrier) return $this;
         $this->carrier = ($carrier InstanceOf PreferredCarrierName)
              ? $carrier
              : new PreferredCarrierName($carrier);
@@ -57,6 +56,6 @@ class SystemPreferredCarrierDeleteRequest extends ComplexType implements Complex
      */
     public function getCarrier()
     {
-        return $this->carrier->getValue();
+        return ($this->carrier) ? $this->carrier->getValue() : null;
     }
 }

@@ -28,23 +28,23 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupCallCenterEnhancedReportingReportTemplateModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name              = 'GroupCallCenterEnhancedReportingReportTemplateModifyRequest';
-    protected $serviceProviderId = null;
-    protected $groupId           = null;
-    protected $name              = null;
-    protected $newName           = null;
-    protected $description       = null;
-    protected $xsltTemplate      = null;
-    protected $scope             = null;
-    protected $isEnabled         = null;
-    protected $isRealtimeReport  = null;
-    protected $filterNumber      = null;
-    protected $filterValue       = null;
+    public    $name = 'GroupCallCenterEnhancedReportingReportTemplateModifyRequest';
+    protected $serviceProviderId;
+    protected $groupId;
+    protected $name;
+    protected $newName;
+    protected $description;
+    protected $xsltTemplate;
+    protected $scope;
+    protected $isEnabled;
+    protected $isRealtimeReport;
+    protected $filterNumber;
+    protected $filterValue;
 
     public function __construct(
-         $serviceProviderId,
-         $groupId,
-         $name,
+         $serviceProviderId = '',
+         $groupId = '',
+         $name = '',
          $newName = null,
          $description = null,
          LabeledFileResource $xsltTemplate = null,
@@ -80,7 +80,6 @@ class GroupCallCenterEnhancedReportingReportTemplateModifyRequest extends Comple
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
-        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
@@ -94,7 +93,7 @@ class GroupCallCenterEnhancedReportingReportTemplateModifyRequest extends Comple
      */
     public function getServiceProviderId()
     {
-        return $this->serviceProviderId->getValue();
+        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
     }
 
     /**
@@ -102,7 +101,6 @@ class GroupCallCenterEnhancedReportingReportTemplateModifyRequest extends Comple
      */
     public function setGroupId($groupId = null)
     {
-        if (!$groupId) return $this;
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
@@ -116,7 +114,7 @@ class GroupCallCenterEnhancedReportingReportTemplateModifyRequest extends Comple
      */
     public function getGroupId()
     {
-        return $this->groupId->getValue();
+        return ($this->groupId) ? $this->groupId->getValue() : null;
     }
 
     /**
@@ -124,7 +122,6 @@ class GroupCallCenterEnhancedReportingReportTemplateModifyRequest extends Comple
      */
     public function setName($name = null)
     {
-        if (!$name) return $this;
         $this->name = ($name InstanceOf CallCenterReportTemplateName)
              ? $name
              : new CallCenterReportTemplateName($name);
@@ -138,7 +135,7 @@ class GroupCallCenterEnhancedReportingReportTemplateModifyRequest extends Comple
      */
     public function getName()
     {
-        return $this->name->getValue();
+        return ($this->name) ? $this->name->getValue() : null;
     }
 
     /**
@@ -146,7 +143,6 @@ class GroupCallCenterEnhancedReportingReportTemplateModifyRequest extends Comple
      */
     public function setNewName($newName = null)
     {
-        if (!$newName) return $this;
         $this->newName = ($newName InstanceOf CallCenterReportTemplateName)
              ? $newName
              : new CallCenterReportTemplateName($newName);
@@ -160,7 +156,7 @@ class GroupCallCenterEnhancedReportingReportTemplateModifyRequest extends Comple
      */
     public function getNewName()
     {
-        return $this->newName->getValue();
+        return ($this->newName) ? $this->newName->getValue() : null;
     }
 
     /**
@@ -168,7 +164,6 @@ class GroupCallCenterEnhancedReportingReportTemplateModifyRequest extends Comple
      */
     public function setDescription($description = null)
     {
-        if (!$description) return $this;
         $this->description = ($description InstanceOf CallCenterReportTemplateDescription)
              ? $description
              : new CallCenterReportTemplateDescription($description);
@@ -182,7 +177,7 @@ class GroupCallCenterEnhancedReportingReportTemplateModifyRequest extends Comple
      */
     public function getDescription()
     {
-        return $this->description->getValue();
+        return ($this->description) ? $this->description->getValue() : null;
     }
 
     /**
@@ -190,8 +185,9 @@ class GroupCallCenterEnhancedReportingReportTemplateModifyRequest extends Comple
      */
     public function setXsltTemplate(LabeledFileResource $xsltTemplate = null)
     {
-        if (!$xsltTemplate) return $this;
-        $this->xsltTemplate = $xsltTemplate;
+        $this->xsltTemplate = ($xsltTemplate InstanceOf LabeledFileResource)
+             ? $xsltTemplate
+             : new LabeledFileResource($xsltTemplate);
         $this->xsltTemplate->setName('xsltTemplate');
         return $this;
     }
@@ -210,7 +206,6 @@ class GroupCallCenterEnhancedReportingReportTemplateModifyRequest extends Comple
      */
     public function setScope($scope = null)
     {
-        if (!$scope) return $this;
         $this->scope = ($scope InstanceOf CallCenterReportTemplateAccessOption)
              ? $scope
              : new CallCenterReportTemplateAccessOption($scope);
@@ -224,7 +219,7 @@ class GroupCallCenterEnhancedReportingReportTemplateModifyRequest extends Comple
      */
     public function getScope()
     {
-        return $this->scope->getValue();
+        return ($this->scope) ? $this->scope->getValue() : null;
     }
 
     /**
@@ -232,7 +227,6 @@ class GroupCallCenterEnhancedReportingReportTemplateModifyRequest extends Comple
      */
     public function setIsEnabled($isEnabled = null)
     {
-        if (!$isEnabled) return $this;
         $this->isEnabled = new PrimitiveType($isEnabled);
         $this->isEnabled->setName('isEnabled');
         return $this;
@@ -244,7 +238,7 @@ class GroupCallCenterEnhancedReportingReportTemplateModifyRequest extends Comple
      */
     public function getIsEnabled()
     {
-        return $this->isEnabled->getValue();
+        return ($this->isEnabled) ? $this->isEnabled->getValue() : null;
     }
 
     /**
@@ -252,7 +246,6 @@ class GroupCallCenterEnhancedReportingReportTemplateModifyRequest extends Comple
      */
     public function setIsRealtimeReport($isRealtimeReport = null)
     {
-        if (!$isRealtimeReport) return $this;
         $this->isRealtimeReport = new PrimitiveType($isRealtimeReport);
         $this->isRealtimeReport->setName('isRealtimeReport');
         return $this;
@@ -264,7 +257,7 @@ class GroupCallCenterEnhancedReportingReportTemplateModifyRequest extends Comple
      */
     public function getIsRealtimeReport()
     {
-        return $this->isRealtimeReport->getValue();
+        return ($this->isRealtimeReport) ? $this->isRealtimeReport->getValue() : null;
     }
 
     /**
@@ -272,7 +265,6 @@ class GroupCallCenterEnhancedReportingReportTemplateModifyRequest extends Comple
      */
     public function setFilterNumber($filterNumber = null)
     {
-        if (!$filterNumber) return $this;
         $this->filterNumber = ($filterNumber InstanceOf CallCenterReportDataTemplateFilterNumber)
              ? $filterNumber
              : new CallCenterReportDataTemplateFilterNumber($filterNumber);
@@ -286,7 +278,7 @@ class GroupCallCenterEnhancedReportingReportTemplateModifyRequest extends Comple
      */
     public function getFilterNumber()
     {
-        return $this->filterNumber->getValue();
+        return ($this->filterNumber) ? $this->filterNumber->getValue() : null;
     }
 
     /**
@@ -294,8 +286,9 @@ class GroupCallCenterEnhancedReportingReportTemplateModifyRequest extends Comple
      */
     public function setFilterValue(CallCenterReportDataTemplateQueryFilterValueReplacementList $filterValue = null)
     {
-        if (!$filterValue) return $this;
-        $this->filterValue = $filterValue;
+        $this->filterValue = ($filterValue InstanceOf CallCenterReportDataTemplateQueryFilterValueReplacementList)
+             ? $filterValue
+             : new CallCenterReportDataTemplateQueryFilterValueReplacementList($filterValue);
         $this->filterValue->setName('filterValue');
         return $this;
     }

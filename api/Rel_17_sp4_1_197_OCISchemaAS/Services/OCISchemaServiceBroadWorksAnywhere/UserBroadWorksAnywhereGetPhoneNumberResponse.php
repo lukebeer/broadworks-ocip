@@ -24,14 +24,14 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserBroadWorksAnywhereGetPhoneNumberResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                       = 'UserBroadWorksAnywhereGetPhoneNumberResponse';
-    protected $description                = null;
-    protected $outboundAlternateNumber    = null;
-    protected $isActive                   = null;
-    protected $broadworksCallControl      = null;
-    protected $useDiversionInhibitor      = null;
-    protected $answerConfirmationRequired = null;
-    protected $criteriaTable              = null;
+    public    $name = 'UserBroadWorksAnywhereGetPhoneNumberResponse';
+    protected $description;
+    protected $outboundAlternateNumber;
+    protected $isActive;
+    protected $broadworksCallControl;
+    protected $useDiversionInhibitor;
+    protected $answerConfirmationRequired;
+    protected $criteriaTable;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceBroadWorksAnywhere\UserBroadWorksAnywhereGetPhoneNumberResponse $response
@@ -46,7 +46,6 @@ class UserBroadWorksAnywhereGetPhoneNumberResponse extends ComplexType implement
      */
     public function setDescription($description = null)
     {
-        if (!$description) return $this;
         $this->description = ($description InstanceOf BroadWorksAnywherePhoneNumberDescription)
              ? $description
              : new BroadWorksAnywherePhoneNumberDescription($description);
@@ -60,7 +59,7 @@ class UserBroadWorksAnywhereGetPhoneNumberResponse extends ComplexType implement
      */
     public function getDescription()
     {
-        return $this->description->getValue();
+        return ($this->description) ? $this->description->getValue() : null;
     }
 
     /**
@@ -68,7 +67,6 @@ class UserBroadWorksAnywhereGetPhoneNumberResponse extends ComplexType implement
      */
     public function setOutboundAlternateNumber($outboundAlternateNumber = null)
     {
-        if (!$outboundAlternateNumber) return $this;
         $this->outboundAlternateNumber = ($outboundAlternateNumber InstanceOf OutgoingDNorSIPURI)
              ? $outboundAlternateNumber
              : new OutgoingDNorSIPURI($outboundAlternateNumber);
@@ -82,7 +80,7 @@ class UserBroadWorksAnywhereGetPhoneNumberResponse extends ComplexType implement
      */
     public function getOutboundAlternateNumber()
     {
-        return $this->outboundAlternateNumber->getValue();
+        return ($this->outboundAlternateNumber) ? $this->outboundAlternateNumber->getValue() : null;
     }
 
     /**
@@ -90,7 +88,6 @@ class UserBroadWorksAnywhereGetPhoneNumberResponse extends ComplexType implement
      */
     public function setIsActive($isActive = null)
     {
-        if (!$isActive) return $this;
         $this->isActive = new PrimitiveType($isActive);
         $this->isActive->setName('isActive');
         return $this;
@@ -102,7 +99,7 @@ class UserBroadWorksAnywhereGetPhoneNumberResponse extends ComplexType implement
      */
     public function getIsActive()
     {
-        return $this->isActive->getValue();
+        return ($this->isActive) ? $this->isActive->getValue() : null;
     }
 
     /**
@@ -110,7 +107,6 @@ class UserBroadWorksAnywhereGetPhoneNumberResponse extends ComplexType implement
      */
     public function setBroadworksCallControl($broadworksCallControl = null)
     {
-        if (!$broadworksCallControl) return $this;
         $this->broadworksCallControl = new PrimitiveType($broadworksCallControl);
         $this->broadworksCallControl->setName('broadworksCallControl');
         return $this;
@@ -122,7 +118,7 @@ class UserBroadWorksAnywhereGetPhoneNumberResponse extends ComplexType implement
      */
     public function getBroadworksCallControl()
     {
-        return $this->broadworksCallControl->getValue();
+        return ($this->broadworksCallControl) ? $this->broadworksCallControl->getValue() : null;
     }
 
     /**
@@ -130,7 +126,6 @@ class UserBroadWorksAnywhereGetPhoneNumberResponse extends ComplexType implement
      */
     public function setUseDiversionInhibitor($useDiversionInhibitor = null)
     {
-        if (!$useDiversionInhibitor) return $this;
         $this->useDiversionInhibitor = new PrimitiveType($useDiversionInhibitor);
         $this->useDiversionInhibitor->setName('useDiversionInhibitor');
         return $this;
@@ -142,7 +137,7 @@ class UserBroadWorksAnywhereGetPhoneNumberResponse extends ComplexType implement
      */
     public function getUseDiversionInhibitor()
     {
-        return $this->useDiversionInhibitor->getValue();
+        return ($this->useDiversionInhibitor) ? $this->useDiversionInhibitor->getValue() : null;
     }
 
     /**
@@ -150,7 +145,6 @@ class UserBroadWorksAnywhereGetPhoneNumberResponse extends ComplexType implement
      */
     public function setAnswerConfirmationRequired($answerConfirmationRequired = null)
     {
-        if (!$answerConfirmationRequired) return $this;
         $this->answerConfirmationRequired = new PrimitiveType($answerConfirmationRequired);
         $this->answerConfirmationRequired->setName('answerConfirmationRequired');
         return $this;
@@ -162,7 +156,7 @@ class UserBroadWorksAnywhereGetPhoneNumberResponse extends ComplexType implement
      */
     public function getAnswerConfirmationRequired()
     {
-        return $this->answerConfirmationRequired->getValue();
+        return ($this->answerConfirmationRequired) ? $this->answerConfirmationRequired->getValue() : null;
     }
 
     /**
@@ -170,7 +164,6 @@ class UserBroadWorksAnywhereGetPhoneNumberResponse extends ComplexType implement
      */
     public function setCriteriaTable(TableType $criteriaTable = null)
     {
-        if (!$criteriaTable) return $this;
         $this->criteriaTable = $criteriaTable;
         $this->criteriaTable->setName('criteriaTable');
         return $this;

@@ -30,19 +30,19 @@ use Broadworks_OCIP\core\Client\Client;
 class GroupEnterpriseTrunkGetAvailableUserListRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType                         = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceTrunkGroup\GroupEnterpriseTrunkGetAvailableUserListResponse';
-    public    $name                                 = 'GroupEnterpriseTrunkGetAvailableUserListRequest';
-    protected $serviceProviderId                    = null;
-    protected $groupId                              = null;
-    protected $responseSizeLimit                    = null;
-    protected $searchCriteriaUserLastName           = null;
-    protected $searchCriteriaUserFirstName          = null;
-    protected $searchCriteriaDn                     = null;
-    protected $searchCriteriaUserId                 = null;
-    protected $searchCriteriaAlternateTrunkIdentity = null;
+    public    $name = 'GroupEnterpriseTrunkGetAvailableUserListRequest';
+    protected $serviceProviderId;
+    protected $groupId;
+    protected $responseSizeLimit;
+    protected $searchCriteriaUserLastName;
+    protected $searchCriteriaUserFirstName;
+    protected $searchCriteriaDn;
+    protected $searchCriteriaUserId;
+    protected $searchCriteriaAlternateTrunkIdentity;
 
     public function __construct(
-         $serviceProviderId,
-         $groupId,
+         $serviceProviderId = '',
+         $groupId = '',
          $responseSizeLimit = null,
          SearchCriteriaUserLastName $searchCriteriaUserLastName = null,
          SearchCriteriaUserFirstName $searchCriteriaUserFirstName = null,
@@ -73,7 +73,6 @@ class GroupEnterpriseTrunkGetAvailableUserListRequest extends ComplexType implem
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
-        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
@@ -87,7 +86,7 @@ class GroupEnterpriseTrunkGetAvailableUserListRequest extends ComplexType implem
      */
     public function getServiceProviderId()
     {
-        return $this->serviceProviderId->getValue();
+        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
     }
 
     /**
@@ -95,7 +94,6 @@ class GroupEnterpriseTrunkGetAvailableUserListRequest extends ComplexType implem
      */
     public function setGroupId($groupId = null)
     {
-        if (!$groupId) return $this;
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
@@ -109,7 +107,7 @@ class GroupEnterpriseTrunkGetAvailableUserListRequest extends ComplexType implem
      */
     public function getGroupId()
     {
-        return $this->groupId->getValue();
+        return ($this->groupId) ? $this->groupId->getValue() : null;
     }
 
     /**
@@ -117,7 +115,6 @@ class GroupEnterpriseTrunkGetAvailableUserListRequest extends ComplexType implem
      */
     public function setResponseSizeLimit($responseSizeLimit = null)
     {
-        if (!$responseSizeLimit) return $this;
         $this->responseSizeLimit = ($responseSizeLimit InstanceOf ResponseSizeLimit)
              ? $responseSizeLimit
              : new ResponseSizeLimit($responseSizeLimit);
@@ -131,7 +128,7 @@ class GroupEnterpriseTrunkGetAvailableUserListRequest extends ComplexType implem
      */
     public function getResponseSizeLimit()
     {
-        return $this->responseSizeLimit->getValue();
+        return ($this->responseSizeLimit) ? $this->responseSizeLimit->getValue() : null;
     }
 
     /**
@@ -139,7 +136,6 @@ class GroupEnterpriseTrunkGetAvailableUserListRequest extends ComplexType implem
      */
     public function setSearchCriteriaUserLastName(SearchCriteriaUserLastName $searchCriteriaUserLastName = null)
     {
-        if (!$searchCriteriaUserLastName) return $this;
         $this->searchCriteriaUserLastName = ($searchCriteriaUserLastName InstanceOf SearchCriteriaUserLastName)
              ? $searchCriteriaUserLastName
              : new SearchCriteriaUserLastName($searchCriteriaUserLastName);
@@ -161,7 +157,6 @@ class GroupEnterpriseTrunkGetAvailableUserListRequest extends ComplexType implem
      */
     public function setSearchCriteriaUserFirstName(SearchCriteriaUserFirstName $searchCriteriaUserFirstName = null)
     {
-        if (!$searchCriteriaUserFirstName) return $this;
         $this->searchCriteriaUserFirstName = ($searchCriteriaUserFirstName InstanceOf SearchCriteriaUserFirstName)
              ? $searchCriteriaUserFirstName
              : new SearchCriteriaUserFirstName($searchCriteriaUserFirstName);
@@ -183,7 +178,6 @@ class GroupEnterpriseTrunkGetAvailableUserListRequest extends ComplexType implem
      */
     public function setSearchCriteriaDn(SearchCriteriaDn $searchCriteriaDn = null)
     {
-        if (!$searchCriteriaDn) return $this;
         $this->searchCriteriaDn = ($searchCriteriaDn InstanceOf SearchCriteriaDn)
              ? $searchCriteriaDn
              : new SearchCriteriaDn($searchCriteriaDn);
@@ -205,7 +199,6 @@ class GroupEnterpriseTrunkGetAvailableUserListRequest extends ComplexType implem
      */
     public function setSearchCriteriaUserId(SearchCriteriaUserId $searchCriteriaUserId = null)
     {
-        if (!$searchCriteriaUserId) return $this;
         $this->searchCriteriaUserId = ($searchCriteriaUserId InstanceOf SearchCriteriaUserId)
              ? $searchCriteriaUserId
              : new SearchCriteriaUserId($searchCriteriaUserId);
@@ -227,7 +220,6 @@ class GroupEnterpriseTrunkGetAvailableUserListRequest extends ComplexType implem
      */
     public function setSearchCriteriaAlternateTrunkIdentity(SearchCriteriaAlternateTrunkIdentity $searchCriteriaAlternateTrunkIdentity = null)
     {
-        if (!$searchCriteriaAlternateTrunkIdentity) return $this;
         $this->searchCriteriaAlternateTrunkIdentity = ($searchCriteriaAlternateTrunkIdentity InstanceOf SearchCriteriaAlternateTrunkIdentity)
              ? $searchCriteriaAlternateTrunkIdentity
              : new SearchCriteriaAlternateTrunkIdentity($searchCriteriaAlternateTrunkIdentity);

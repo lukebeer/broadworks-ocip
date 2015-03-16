@@ -23,15 +23,15 @@ use Broadworks_OCIP\core\Client\Client;
 class UserBroadWorksAnywhereGetSelectiveCriteriaRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15\UserBroadWorksAnywhereGetSelectiveCriteriaResponse';
-    public    $name         = 'UserBroadWorksAnywhereGetSelectiveCriteriaRequest';
-    protected $userId       = null;
-    protected $phoneNumber  = null;
-    protected $criteriaName = null;
+    public    $name = 'UserBroadWorksAnywhereGetSelectiveCriteriaRequest';
+    protected $userId;
+    protected $phoneNumber;
+    protected $criteriaName;
 
     public function __construct(
-         $userId,
-         $phoneNumber,
-         $criteriaName
+         $userId = '',
+         $phoneNumber = '',
+         $criteriaName = ''
     ) {
         $this->setUserId($userId);
         $this->setPhoneNumber($phoneNumber);
@@ -51,7 +51,6 @@ class UserBroadWorksAnywhereGetSelectiveCriteriaRequest extends ComplexType impl
      */
     public function setUserId($userId = null)
     {
-        if (!$userId) return $this;
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
@@ -65,7 +64,7 @@ class UserBroadWorksAnywhereGetSelectiveCriteriaRequest extends ComplexType impl
      */
     public function getUserId()
     {
-        return $this->userId->getValue();
+        return ($this->userId) ? $this->userId->getValue() : null;
     }
 
     /**
@@ -73,7 +72,6 @@ class UserBroadWorksAnywhereGetSelectiveCriteriaRequest extends ComplexType impl
      */
     public function setPhoneNumber($phoneNumber = null)
     {
-        if (!$phoneNumber) return $this;
         $this->phoneNumber = ($phoneNumber InstanceOf DN)
              ? $phoneNumber
              : new DN($phoneNumber);
@@ -87,7 +85,7 @@ class UserBroadWorksAnywhereGetSelectiveCriteriaRequest extends ComplexType impl
      */
     public function getPhoneNumber()
     {
-        return $this->phoneNumber->getValue();
+        return ($this->phoneNumber) ? $this->phoneNumber->getValue() : null;
     }
 
     /**
@@ -95,7 +93,6 @@ class UserBroadWorksAnywhereGetSelectiveCriteriaRequest extends ComplexType impl
      */
     public function setCriteriaName($criteriaName = null)
     {
-        if (!$criteriaName) return $this;
         $this->criteriaName = ($criteriaName InstanceOf CriteriaName)
              ? $criteriaName
              : new CriteriaName($criteriaName);
@@ -109,6 +106,6 @@ class UserBroadWorksAnywhereGetSelectiveCriteriaRequest extends ComplexType impl
      */
     public function getCriteriaName()
     {
-        return $this->criteriaName->getValue();
+        return ($this->criteriaName) ? $this->criteriaName->getValue() : null;
     }
 }

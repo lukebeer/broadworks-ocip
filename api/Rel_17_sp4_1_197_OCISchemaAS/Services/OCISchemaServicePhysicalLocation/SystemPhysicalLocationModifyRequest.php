@@ -20,8 +20,8 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemPhysicalLocationModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                      = 'SystemPhysicalLocationModifyRequest';
-    protected $alwaysAllowEmergencyCalls = null;
+    public    $name = 'SystemPhysicalLocationModifyRequest';
+    protected $alwaysAllowEmergencyCalls;
 
     public function __construct(
          $alwaysAllowEmergencyCalls = null
@@ -42,7 +42,6 @@ class SystemPhysicalLocationModifyRequest extends ComplexType implements Complex
      */
     public function setAlwaysAllowEmergencyCalls($alwaysAllowEmergencyCalls = null)
     {
-        if (!$alwaysAllowEmergencyCalls) return $this;
         $this->alwaysAllowEmergencyCalls = new PrimitiveType($alwaysAllowEmergencyCalls);
         $this->alwaysAllowEmergencyCalls->setName('alwaysAllowEmergencyCalls');
         return $this;
@@ -54,6 +53,6 @@ class SystemPhysicalLocationModifyRequest extends ComplexType implements Complex
      */
     public function getAlwaysAllowEmergencyCalls()
     {
-        return $this->alwaysAllowEmergencyCalls->getValue();
+        return ($this->alwaysAllowEmergencyCalls) ? $this->alwaysAllowEmergencyCalls->getValue() : null;
     }
 }

@@ -21,9 +21,9 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemNetworkDeviceMonitorParametersGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                         = 'SystemNetworkDeviceMonitorParametersGetResponse';
-    protected $pollingIntervalMinutes       = null;
-    protected $failedPollingIntervalMinutes = null;
+    public    $name = 'SystemNetworkDeviceMonitorParametersGetResponse';
+    protected $pollingIntervalMinutes;
+    protected $failedPollingIntervalMinutes;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemNetworkDeviceMonitorParametersGetResponse $response
@@ -38,7 +38,6 @@ class SystemNetworkDeviceMonitorParametersGetResponse extends ComplexType implem
      */
     public function setPollingIntervalMinutes($pollingIntervalMinutes = null)
     {
-        if (!$pollingIntervalMinutes) return $this;
         $this->pollingIntervalMinutes = ($pollingIntervalMinutes InstanceOf NetworkDeviceMonitorPollingIntervalMinutes)
              ? $pollingIntervalMinutes
              : new NetworkDeviceMonitorPollingIntervalMinutes($pollingIntervalMinutes);
@@ -52,7 +51,7 @@ class SystemNetworkDeviceMonitorParametersGetResponse extends ComplexType implem
      */
     public function getPollingIntervalMinutes()
     {
-        return $this->pollingIntervalMinutes->getValue();
+        return ($this->pollingIntervalMinutes) ? $this->pollingIntervalMinutes->getValue() : null;
     }
 
     /**
@@ -60,7 +59,6 @@ class SystemNetworkDeviceMonitorParametersGetResponse extends ComplexType implem
      */
     public function setFailedPollingIntervalMinutes($failedPollingIntervalMinutes = null)
     {
-        if (!$failedPollingIntervalMinutes) return $this;
         $this->failedPollingIntervalMinutes = ($failedPollingIntervalMinutes InstanceOf NetworkDeviceMonitorFailedPollingIntervalMinutes)
              ? $failedPollingIntervalMinutes
              : new NetworkDeviceMonitorFailedPollingIntervalMinutes($failedPollingIntervalMinutes);
@@ -74,6 +72,6 @@ class SystemNetworkDeviceMonitorParametersGetResponse extends ComplexType implem
      */
     public function getFailedPollingIntervalMinutes()
     {
-        return $this->failedPollingIntervalMinutes->getValue();
+        return ($this->failedPollingIntervalMinutes) ? $this->failedPollingIntervalMinutes->getValue() : null;
     }
 }

@@ -32,27 +32,27 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemPasswordRulesModifyRequest14sp3 extends ComplexType implements ComplexInterface
 {
-    public    $name                                   = 'SystemPasswordRulesModifyRequest14sp3';
-    protected $rulesApplyTo                           = null;
-    protected $allowWebAddExternalAuthenticationUsers = null;
-    protected $disallowUserId                         = null;
-    protected $disallowOldPassword                    = null;
-    protected $disallowReversedOldPassword            = null;
-    protected $restrictMinDigits                      = null;
-    protected $minDigits                              = null;
-    protected $restrictMinUpperCaseLetters            = null;
-    protected $minUpperCaseLetters                    = null;
-    protected $restrictMinLowerCaseLetters            = null;
-    protected $minLowerCaseLetters                    = null;
-    protected $restrictMinNonAlphanumericCharacters   = null;
-    protected $minNonAlphanumericCharacters           = null;
-    protected $minLength                              = null;
-    protected $maxFailedLoginAttempts                 = null;
-    protected $passwordExpiresDays                    = null;
-    protected $sendLoginDisabledNotifyEmail           = null;
-    protected $loginDisabledNotifyEmailAddress        = null;
-    protected $disallowPreviousPasswords              = null;
-    protected $numberOfPreviousPasswords              = null;
+    public    $name = 'SystemPasswordRulesModifyRequest14sp3';
+    protected $rulesApplyTo;
+    protected $allowWebAddExternalAuthenticationUsers;
+    protected $disallowUserId;
+    protected $disallowOldPassword;
+    protected $disallowReversedOldPassword;
+    protected $restrictMinDigits;
+    protected $minDigits;
+    protected $restrictMinUpperCaseLetters;
+    protected $minUpperCaseLetters;
+    protected $restrictMinLowerCaseLetters;
+    protected $minLowerCaseLetters;
+    protected $restrictMinNonAlphanumericCharacters;
+    protected $minNonAlphanumericCharacters;
+    protected $minLength;
+    protected $maxFailedLoginAttempts;
+    protected $passwordExpiresDays;
+    protected $sendLoginDisabledNotifyEmail;
+    protected $loginDisabledNotifyEmailAddress;
+    protected $disallowPreviousPasswords;
+    protected $numberOfPreviousPasswords;
 
     public function __construct(
          $rulesApplyTo = null,
@@ -111,7 +111,6 @@ class SystemPasswordRulesModifyRequest14sp3 extends ComplexType implements Compl
      */
     public function setRulesApplyTo($rulesApplyTo = null)
     {
-        if (!$rulesApplyTo) return $this;
         $this->rulesApplyTo = ($rulesApplyTo InstanceOf SystemPasswordRulesApplyTo)
              ? $rulesApplyTo
              : new SystemPasswordRulesApplyTo($rulesApplyTo);
@@ -125,7 +124,7 @@ class SystemPasswordRulesModifyRequest14sp3 extends ComplexType implements Compl
      */
     public function getRulesApplyTo()
     {
-        return $this->rulesApplyTo->getValue();
+        return ($this->rulesApplyTo) ? $this->rulesApplyTo->getValue() : null;
     }
 
     /**
@@ -133,7 +132,6 @@ class SystemPasswordRulesModifyRequest14sp3 extends ComplexType implements Compl
      */
     public function setAllowWebAddExternalAuthenticationUsers($allowWebAddExternalAuthenticationUsers = null)
     {
-        if (!$allowWebAddExternalAuthenticationUsers) return $this;
         $this->allowWebAddExternalAuthenticationUsers = new PrimitiveType($allowWebAddExternalAuthenticationUsers);
         $this->allowWebAddExternalAuthenticationUsers->setName('allowWebAddExternalAuthenticationUsers');
         return $this;
@@ -145,7 +143,7 @@ class SystemPasswordRulesModifyRequest14sp3 extends ComplexType implements Compl
      */
     public function getAllowWebAddExternalAuthenticationUsers()
     {
-        return $this->allowWebAddExternalAuthenticationUsers->getValue();
+        return ($this->allowWebAddExternalAuthenticationUsers) ? $this->allowWebAddExternalAuthenticationUsers->getValue() : null;
     }
 
     /**
@@ -153,7 +151,6 @@ class SystemPasswordRulesModifyRequest14sp3 extends ComplexType implements Compl
      */
     public function setDisallowUserId($disallowUserId = null)
     {
-        if (!$disallowUserId) return $this;
         $this->disallowUserId = new PrimitiveType($disallowUserId);
         $this->disallowUserId->setName('disallowUserId');
         return $this;
@@ -165,7 +162,7 @@ class SystemPasswordRulesModifyRequest14sp3 extends ComplexType implements Compl
      */
     public function getDisallowUserId()
     {
-        return $this->disallowUserId->getValue();
+        return ($this->disallowUserId) ? $this->disallowUserId->getValue() : null;
     }
 
     /**
@@ -173,7 +170,6 @@ class SystemPasswordRulesModifyRequest14sp3 extends ComplexType implements Compl
      */
     public function setDisallowOldPassword($disallowOldPassword = null)
     {
-        if (!$disallowOldPassword) return $this;
         $this->disallowOldPassword = new PrimitiveType($disallowOldPassword);
         $this->disallowOldPassword->setName('disallowOldPassword');
         return $this;
@@ -185,7 +181,7 @@ class SystemPasswordRulesModifyRequest14sp3 extends ComplexType implements Compl
      */
     public function getDisallowOldPassword()
     {
-        return $this->disallowOldPassword->getValue();
+        return ($this->disallowOldPassword) ? $this->disallowOldPassword->getValue() : null;
     }
 
     /**
@@ -193,7 +189,6 @@ class SystemPasswordRulesModifyRequest14sp3 extends ComplexType implements Compl
      */
     public function setDisallowReversedOldPassword($disallowReversedOldPassword = null)
     {
-        if (!$disallowReversedOldPassword) return $this;
         $this->disallowReversedOldPassword = new PrimitiveType($disallowReversedOldPassword);
         $this->disallowReversedOldPassword->setName('disallowReversedOldPassword');
         return $this;
@@ -205,7 +200,7 @@ class SystemPasswordRulesModifyRequest14sp3 extends ComplexType implements Compl
      */
     public function getDisallowReversedOldPassword()
     {
-        return $this->disallowReversedOldPassword->getValue();
+        return ($this->disallowReversedOldPassword) ? $this->disallowReversedOldPassword->getValue() : null;
     }
 
     /**
@@ -213,7 +208,6 @@ class SystemPasswordRulesModifyRequest14sp3 extends ComplexType implements Compl
      */
     public function setRestrictMinDigits($restrictMinDigits = null)
     {
-        if (!$restrictMinDigits) return $this;
         $this->restrictMinDigits = new PrimitiveType($restrictMinDigits);
         $this->restrictMinDigits->setName('restrictMinDigits');
         return $this;
@@ -225,7 +219,7 @@ class SystemPasswordRulesModifyRequest14sp3 extends ComplexType implements Compl
      */
     public function getRestrictMinDigits()
     {
-        return $this->restrictMinDigits->getValue();
+        return ($this->restrictMinDigits) ? $this->restrictMinDigits->getValue() : null;
     }
 
     /**
@@ -233,7 +227,6 @@ class SystemPasswordRulesModifyRequest14sp3 extends ComplexType implements Compl
      */
     public function setMinDigits($minDigits = null)
     {
-        if (!$minDigits) return $this;
         $this->minDigits = ($minDigits InstanceOf PasswordMinDigits)
              ? $minDigits
              : new PasswordMinDigits($minDigits);
@@ -247,7 +240,7 @@ class SystemPasswordRulesModifyRequest14sp3 extends ComplexType implements Compl
      */
     public function getMinDigits()
     {
-        return $this->minDigits->getValue();
+        return ($this->minDigits) ? $this->minDigits->getValue() : null;
     }
 
     /**
@@ -255,7 +248,6 @@ class SystemPasswordRulesModifyRequest14sp3 extends ComplexType implements Compl
      */
     public function setRestrictMinUpperCaseLetters($restrictMinUpperCaseLetters = null)
     {
-        if (!$restrictMinUpperCaseLetters) return $this;
         $this->restrictMinUpperCaseLetters = new PrimitiveType($restrictMinUpperCaseLetters);
         $this->restrictMinUpperCaseLetters->setName('restrictMinUpperCaseLetters');
         return $this;
@@ -267,7 +259,7 @@ class SystemPasswordRulesModifyRequest14sp3 extends ComplexType implements Compl
      */
     public function getRestrictMinUpperCaseLetters()
     {
-        return $this->restrictMinUpperCaseLetters->getValue();
+        return ($this->restrictMinUpperCaseLetters) ? $this->restrictMinUpperCaseLetters->getValue() : null;
     }
 
     /**
@@ -275,7 +267,6 @@ class SystemPasswordRulesModifyRequest14sp3 extends ComplexType implements Compl
      */
     public function setMinUpperCaseLetters($minUpperCaseLetters = null)
     {
-        if (!$minUpperCaseLetters) return $this;
         $this->minUpperCaseLetters = ($minUpperCaseLetters InstanceOf PasswordMinUpperCaseLetters)
              ? $minUpperCaseLetters
              : new PasswordMinUpperCaseLetters($minUpperCaseLetters);
@@ -289,7 +280,7 @@ class SystemPasswordRulesModifyRequest14sp3 extends ComplexType implements Compl
      */
     public function getMinUpperCaseLetters()
     {
-        return $this->minUpperCaseLetters->getValue();
+        return ($this->minUpperCaseLetters) ? $this->minUpperCaseLetters->getValue() : null;
     }
 
     /**
@@ -297,7 +288,6 @@ class SystemPasswordRulesModifyRequest14sp3 extends ComplexType implements Compl
      */
     public function setRestrictMinLowerCaseLetters($restrictMinLowerCaseLetters = null)
     {
-        if (!$restrictMinLowerCaseLetters) return $this;
         $this->restrictMinLowerCaseLetters = new PrimitiveType($restrictMinLowerCaseLetters);
         $this->restrictMinLowerCaseLetters->setName('restrictMinLowerCaseLetters');
         return $this;
@@ -309,7 +299,7 @@ class SystemPasswordRulesModifyRequest14sp3 extends ComplexType implements Compl
      */
     public function getRestrictMinLowerCaseLetters()
     {
-        return $this->restrictMinLowerCaseLetters->getValue();
+        return ($this->restrictMinLowerCaseLetters) ? $this->restrictMinLowerCaseLetters->getValue() : null;
     }
 
     /**
@@ -317,7 +307,6 @@ class SystemPasswordRulesModifyRequest14sp3 extends ComplexType implements Compl
      */
     public function setMinLowerCaseLetters($minLowerCaseLetters = null)
     {
-        if (!$minLowerCaseLetters) return $this;
         $this->minLowerCaseLetters = ($minLowerCaseLetters InstanceOf PasswordMinLowerCaseLetters)
              ? $minLowerCaseLetters
              : new PasswordMinLowerCaseLetters($minLowerCaseLetters);
@@ -331,7 +320,7 @@ class SystemPasswordRulesModifyRequest14sp3 extends ComplexType implements Compl
      */
     public function getMinLowerCaseLetters()
     {
-        return $this->minLowerCaseLetters->getValue();
+        return ($this->minLowerCaseLetters) ? $this->minLowerCaseLetters->getValue() : null;
     }
 
     /**
@@ -339,7 +328,6 @@ class SystemPasswordRulesModifyRequest14sp3 extends ComplexType implements Compl
      */
     public function setRestrictMinNonAlphanumericCharacters($restrictMinNonAlphanumericCharacters = null)
     {
-        if (!$restrictMinNonAlphanumericCharacters) return $this;
         $this->restrictMinNonAlphanumericCharacters = new PrimitiveType($restrictMinNonAlphanumericCharacters);
         $this->restrictMinNonAlphanumericCharacters->setName('restrictMinNonAlphanumericCharacters');
         return $this;
@@ -351,7 +339,7 @@ class SystemPasswordRulesModifyRequest14sp3 extends ComplexType implements Compl
      */
     public function getRestrictMinNonAlphanumericCharacters()
     {
-        return $this->restrictMinNonAlphanumericCharacters->getValue();
+        return ($this->restrictMinNonAlphanumericCharacters) ? $this->restrictMinNonAlphanumericCharacters->getValue() : null;
     }
 
     /**
@@ -359,7 +347,6 @@ class SystemPasswordRulesModifyRequest14sp3 extends ComplexType implements Compl
      */
     public function setMinNonAlphanumericCharacters($minNonAlphanumericCharacters = null)
     {
-        if (!$minNonAlphanumericCharacters) return $this;
         $this->minNonAlphanumericCharacters = ($minNonAlphanumericCharacters InstanceOf PasswordMinNonAlphanumericCharacters)
              ? $minNonAlphanumericCharacters
              : new PasswordMinNonAlphanumericCharacters($minNonAlphanumericCharacters);
@@ -373,7 +360,7 @@ class SystemPasswordRulesModifyRequest14sp3 extends ComplexType implements Compl
      */
     public function getMinNonAlphanumericCharacters()
     {
-        return $this->minNonAlphanumericCharacters->getValue();
+        return ($this->minNonAlphanumericCharacters) ? $this->minNonAlphanumericCharacters->getValue() : null;
     }
 
     /**
@@ -381,7 +368,6 @@ class SystemPasswordRulesModifyRequest14sp3 extends ComplexType implements Compl
      */
     public function setMinLength($minLength = null)
     {
-        if (!$minLength) return $this;
         $this->minLength = ($minLength InstanceOf PasswordMinLength)
              ? $minLength
              : new PasswordMinLength($minLength);
@@ -395,7 +381,7 @@ class SystemPasswordRulesModifyRequest14sp3 extends ComplexType implements Compl
      */
     public function getMinLength()
     {
-        return $this->minLength->getValue();
+        return ($this->minLength) ? $this->minLength->getValue() : null;
     }
 
     /**
@@ -403,7 +389,6 @@ class SystemPasswordRulesModifyRequest14sp3 extends ComplexType implements Compl
      */
     public function setMaxFailedLoginAttempts($maxFailedLoginAttempts = null)
     {
-        if (!$maxFailedLoginAttempts) return $this;
         $this->maxFailedLoginAttempts = ($maxFailedLoginAttempts InstanceOf MaxFailedLoginAttempts)
              ? $maxFailedLoginAttempts
              : new MaxFailedLoginAttempts($maxFailedLoginAttempts);
@@ -417,7 +402,7 @@ class SystemPasswordRulesModifyRequest14sp3 extends ComplexType implements Compl
      */
     public function getMaxFailedLoginAttempts()
     {
-        return $this->maxFailedLoginAttempts->getValue();
+        return ($this->maxFailedLoginAttempts) ? $this->maxFailedLoginAttempts->getValue() : null;
     }
 
     /**
@@ -425,7 +410,6 @@ class SystemPasswordRulesModifyRequest14sp3 extends ComplexType implements Compl
      */
     public function setPasswordExpiresDays($passwordExpiresDays = null)
     {
-        if (!$passwordExpiresDays) return $this;
         $this->passwordExpiresDays = ($passwordExpiresDays InstanceOf PasswordExpiresDays)
              ? $passwordExpiresDays
              : new PasswordExpiresDays($passwordExpiresDays);
@@ -439,7 +423,7 @@ class SystemPasswordRulesModifyRequest14sp3 extends ComplexType implements Compl
      */
     public function getPasswordExpiresDays()
     {
-        return $this->passwordExpiresDays->getValue();
+        return ($this->passwordExpiresDays) ? $this->passwordExpiresDays->getValue() : null;
     }
 
     /**
@@ -447,7 +431,6 @@ class SystemPasswordRulesModifyRequest14sp3 extends ComplexType implements Compl
      */
     public function setSendLoginDisabledNotifyEmail($sendLoginDisabledNotifyEmail = null)
     {
-        if (!$sendLoginDisabledNotifyEmail) return $this;
         $this->sendLoginDisabledNotifyEmail = new PrimitiveType($sendLoginDisabledNotifyEmail);
         $this->sendLoginDisabledNotifyEmail->setName('sendLoginDisabledNotifyEmail');
         return $this;
@@ -459,7 +442,7 @@ class SystemPasswordRulesModifyRequest14sp3 extends ComplexType implements Compl
      */
     public function getSendLoginDisabledNotifyEmail()
     {
-        return $this->sendLoginDisabledNotifyEmail->getValue();
+        return ($this->sendLoginDisabledNotifyEmail) ? $this->sendLoginDisabledNotifyEmail->getValue() : null;
     }
 
     /**
@@ -467,7 +450,6 @@ class SystemPasswordRulesModifyRequest14sp3 extends ComplexType implements Compl
      */
     public function setLoginDisabledNotifyEmailAddress($loginDisabledNotifyEmailAddress = null)
     {
-        if (!$loginDisabledNotifyEmailAddress) return $this;
         $this->loginDisabledNotifyEmailAddress = ($loginDisabledNotifyEmailAddress InstanceOf EmailAddress)
              ? $loginDisabledNotifyEmailAddress
              : new EmailAddress($loginDisabledNotifyEmailAddress);
@@ -481,7 +463,7 @@ class SystemPasswordRulesModifyRequest14sp3 extends ComplexType implements Compl
      */
     public function getLoginDisabledNotifyEmailAddress()
     {
-        return $this->loginDisabledNotifyEmailAddress->getValue();
+        return ($this->loginDisabledNotifyEmailAddress) ? $this->loginDisabledNotifyEmailAddress->getValue() : null;
     }
 
     /**
@@ -489,7 +471,6 @@ class SystemPasswordRulesModifyRequest14sp3 extends ComplexType implements Compl
      */
     public function setDisallowPreviousPasswords($disallowPreviousPasswords = null)
     {
-        if (!$disallowPreviousPasswords) return $this;
         $this->disallowPreviousPasswords = new PrimitiveType($disallowPreviousPasswords);
         $this->disallowPreviousPasswords->setName('disallowPreviousPasswords');
         return $this;
@@ -501,7 +482,7 @@ class SystemPasswordRulesModifyRequest14sp3 extends ComplexType implements Compl
      */
     public function getDisallowPreviousPasswords()
     {
-        return $this->disallowPreviousPasswords->getValue();
+        return ($this->disallowPreviousPasswords) ? $this->disallowPreviousPasswords->getValue() : null;
     }
 
     /**
@@ -509,7 +490,6 @@ class SystemPasswordRulesModifyRequest14sp3 extends ComplexType implements Compl
      */
     public function setNumberOfPreviousPasswords($numberOfPreviousPasswords = null)
     {
-        if (!$numberOfPreviousPasswords) return $this;
         $this->numberOfPreviousPasswords = ($numberOfPreviousPasswords InstanceOf PasswordHistoryCount)
              ? $numberOfPreviousPasswords
              : new PasswordHistoryCount($numberOfPreviousPasswords);
@@ -523,6 +503,6 @@ class SystemPasswordRulesModifyRequest14sp3 extends ComplexType implements Compl
      */
     public function getNumberOfPreviousPasswords()
     {
-        return $this->numberOfPreviousPasswords->getValue();
+        return ($this->numberOfPreviousPasswords) ? $this->numberOfPreviousPasswords->getValue() : null;
     }
 }

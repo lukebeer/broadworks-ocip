@@ -23,13 +23,13 @@ use Broadworks_OCIP\core\Client\Client;
 class UserLDAPIntegrationGetDirectoryListRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceLDAPIntegration\UserLDAPIntegrationGetDirectoryListResponse';
-    public    $name      = 'UserLDAPIntegrationGetDirectoryListRequest';
-    protected $userId    = null;
-    protected $searchKey = null;
-    protected $page      = null;
+    public    $name = 'UserLDAPIntegrationGetDirectoryListRequest';
+    protected $userId;
+    protected $searchKey;
+    protected $page;
 
     public function __construct(
-         $userId,
+         $userId = '',
          $searchKey = null,
          LDAPPage $page = null
     ) {
@@ -51,7 +51,6 @@ class UserLDAPIntegrationGetDirectoryListRequest extends ComplexType implements 
      */
     public function setUserId($userId = null)
     {
-        if (!$userId) return $this;
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
@@ -65,7 +64,7 @@ class UserLDAPIntegrationGetDirectoryListRequest extends ComplexType implements 
      */
     public function getUserId()
     {
-        return $this->userId->getValue();
+        return ($this->userId) ? $this->userId->getValue() : null;
     }
 
     /**
@@ -73,7 +72,6 @@ class UserLDAPIntegrationGetDirectoryListRequest extends ComplexType implements 
      */
     public function setSearchKey($searchKey = null)
     {
-        if (!$searchKey) return $this;
         $this->searchKey = ($searchKey InstanceOf LDAPSearchKey)
              ? $searchKey
              : new LDAPSearchKey($searchKey);
@@ -87,7 +85,7 @@ class UserLDAPIntegrationGetDirectoryListRequest extends ComplexType implements 
      */
     public function getSearchKey()
     {
-        return $this->searchKey->getValue();
+        return ($this->searchKey) ? $this->searchKey->getValue() : null;
     }
 
     /**
@@ -95,8 +93,9 @@ class UserLDAPIntegrationGetDirectoryListRequest extends ComplexType implements 
      */
     public function setPage(LDAPPage $page = null)
     {
-        if (!$page) return $this;
-        $this->page = $page;
+        $this->page = ($page InstanceOf LDAPPage)
+             ? $page
+             : new LDAPPage($page);
         $this->page->setName('page');
         return $this;
     }

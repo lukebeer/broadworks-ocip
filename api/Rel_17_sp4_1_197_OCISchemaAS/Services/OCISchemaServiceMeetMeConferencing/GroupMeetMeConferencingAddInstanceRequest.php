@@ -28,25 +28,25 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupMeetMeConferencingAddInstanceRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                   = 'GroupMeetMeConferencingAddInstanceRequest';
-    protected $serviceProviderId      = null;
-    protected $groupId                = null;
-    protected $serviceUserId          = null;
-    protected $serviceInstanceProfile = null;
-    protected $allocatedPorts         = null;
-    protected $networkClassOfService  = null;
-    protected $allowIndividualOutDial = null;
-    protected $operatorNumber         = null;
-    protected $conferenceHostUserId   = null;
+    public    $name = 'GroupMeetMeConferencingAddInstanceRequest';
+    protected $serviceProviderId;
+    protected $groupId;
+    protected $serviceUserId;
+    protected $serviceInstanceProfile;
+    protected $allocatedPorts;
+    protected $networkClassOfService;
+    protected $allowIndividualOutDial;
+    protected $operatorNumber;
+    protected $conferenceHostUserId;
 
     public function __construct(
-         $serviceProviderId,
-         $groupId,
-         $serviceUserId,
-         ServiceInstanceAddProfile $serviceInstanceProfile,
-         MeetMeConferencingConferencePorts $allocatedPorts,
+         $serviceProviderId = '',
+         $groupId = '',
+         $serviceUserId = '',
+         ServiceInstanceAddProfile $serviceInstanceProfile = '',
+         MeetMeConferencingConferencePorts $allocatedPorts = '',
          $networkClassOfService = null,
-         $allowIndividualOutDial,
+         $allowIndividualOutDial = '',
          $operatorNumber = null,
          $conferenceHostUserId = null
     ) {
@@ -74,7 +74,6 @@ class GroupMeetMeConferencingAddInstanceRequest extends ComplexType implements C
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
-        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
@@ -88,7 +87,7 @@ class GroupMeetMeConferencingAddInstanceRequest extends ComplexType implements C
      */
     public function getServiceProviderId()
     {
-        return $this->serviceProviderId->getValue();
+        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
     }
 
     /**
@@ -96,7 +95,6 @@ class GroupMeetMeConferencingAddInstanceRequest extends ComplexType implements C
      */
     public function setGroupId($groupId = null)
     {
-        if (!$groupId) return $this;
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
@@ -110,7 +108,7 @@ class GroupMeetMeConferencingAddInstanceRequest extends ComplexType implements C
      */
     public function getGroupId()
     {
-        return $this->groupId->getValue();
+        return ($this->groupId) ? $this->groupId->getValue() : null;
     }
 
     /**
@@ -118,7 +116,6 @@ class GroupMeetMeConferencingAddInstanceRequest extends ComplexType implements C
      */
     public function setServiceUserId($serviceUserId = null)
     {
-        if (!$serviceUserId) return $this;
         $this->serviceUserId = ($serviceUserId InstanceOf UserId)
              ? $serviceUserId
              : new UserId($serviceUserId);
@@ -132,7 +129,7 @@ class GroupMeetMeConferencingAddInstanceRequest extends ComplexType implements C
      */
     public function getServiceUserId()
     {
-        return $this->serviceUserId->getValue();
+        return ($this->serviceUserId) ? $this->serviceUserId->getValue() : null;
     }
 
     /**
@@ -140,8 +137,9 @@ class GroupMeetMeConferencingAddInstanceRequest extends ComplexType implements C
      */
     public function setServiceInstanceProfile(ServiceInstanceAddProfile $serviceInstanceProfile = null)
     {
-        if (!$serviceInstanceProfile) return $this;
-        $this->serviceInstanceProfile = $serviceInstanceProfile;
+        $this->serviceInstanceProfile = ($serviceInstanceProfile InstanceOf ServiceInstanceAddProfile)
+             ? $serviceInstanceProfile
+             : new ServiceInstanceAddProfile($serviceInstanceProfile);
         $this->serviceInstanceProfile->setName('serviceInstanceProfile');
         return $this;
     }
@@ -160,8 +158,9 @@ class GroupMeetMeConferencingAddInstanceRequest extends ComplexType implements C
      */
     public function setAllocatedPorts(MeetMeConferencingConferencePorts $allocatedPorts = null)
     {
-        if (!$allocatedPorts) return $this;
-        $this->allocatedPorts = $allocatedPorts;
+        $this->allocatedPorts = ($allocatedPorts InstanceOf MeetMeConferencingConferencePorts)
+             ? $allocatedPorts
+             : new MeetMeConferencingConferencePorts($allocatedPorts);
         $this->allocatedPorts->setName('allocatedPorts');
         return $this;
     }
@@ -180,7 +179,6 @@ class GroupMeetMeConferencingAddInstanceRequest extends ComplexType implements C
      */
     public function setNetworkClassOfService($networkClassOfService = null)
     {
-        if (!$networkClassOfService) return $this;
         $this->networkClassOfService = ($networkClassOfService InstanceOf NetworkClassOfServiceName)
              ? $networkClassOfService
              : new NetworkClassOfServiceName($networkClassOfService);
@@ -194,7 +192,7 @@ class GroupMeetMeConferencingAddInstanceRequest extends ComplexType implements C
      */
     public function getNetworkClassOfService()
     {
-        return $this->networkClassOfService->getValue();
+        return ($this->networkClassOfService) ? $this->networkClassOfService->getValue() : null;
     }
 
     /**
@@ -202,7 +200,6 @@ class GroupMeetMeConferencingAddInstanceRequest extends ComplexType implements C
      */
     public function setAllowIndividualOutDial($allowIndividualOutDial = null)
     {
-        if (!$allowIndividualOutDial) return $this;
         $this->allowIndividualOutDial = new PrimitiveType($allowIndividualOutDial);
         $this->allowIndividualOutDial->setName('allowIndividualOutDial');
         return $this;
@@ -214,7 +211,7 @@ class GroupMeetMeConferencingAddInstanceRequest extends ComplexType implements C
      */
     public function getAllowIndividualOutDial()
     {
-        return $this->allowIndividualOutDial->getValue();
+        return ($this->allowIndividualOutDial) ? $this->allowIndividualOutDial->getValue() : null;
     }
 
     /**
@@ -222,7 +219,6 @@ class GroupMeetMeConferencingAddInstanceRequest extends ComplexType implements C
      */
     public function setOperatorNumber($operatorNumber = null)
     {
-        if (!$operatorNumber) return $this;
         $this->operatorNumber = ($operatorNumber InstanceOf OutgoingDNorSIPURI)
              ? $operatorNumber
              : new OutgoingDNorSIPURI($operatorNumber);
@@ -236,7 +232,7 @@ class GroupMeetMeConferencingAddInstanceRequest extends ComplexType implements C
      */
     public function getOperatorNumber()
     {
-        return $this->operatorNumber->getValue();
+        return ($this->operatorNumber) ? $this->operatorNumber->getValue() : null;
     }
 
     /**
@@ -244,7 +240,6 @@ class GroupMeetMeConferencingAddInstanceRequest extends ComplexType implements C
      */
     public function setConferenceHostUserId($conferenceHostUserId = null)
     {
-        if (!$conferenceHostUserId) return $this;
         $this->conferenceHostUserId = ($conferenceHostUserId InstanceOf UserId)
              ? $conferenceHostUserId
              : new UserId($conferenceHostUserId);
@@ -258,6 +253,6 @@ class GroupMeetMeConferencingAddInstanceRequest extends ComplexType implements C
      */
     public function getConferenceHostUserId()
     {
-        return $this->conferenceHostUserId->getValue();
+        return ($this->conferenceHostUserId) ? $this->conferenceHostUserId->getValue() : null;
     }
 }

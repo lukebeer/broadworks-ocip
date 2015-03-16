@@ -23,15 +23,15 @@ use Broadworks_OCIP\core\Client\Client;
 class GroupCallCenterCurrentAndPastDNISGetListRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\GroupCallCenterCurrentAndPastDNISGetListResponse';
-    public    $name              = 'GroupCallCenterCurrentAndPastDNISGetListRequest';
-    protected $serviceProviderId = null;
-    protected $groupId           = null;
-    protected $serviceUserId     = null;
+    public    $name = 'GroupCallCenterCurrentAndPastDNISGetListRequest';
+    protected $serviceProviderId;
+    protected $groupId;
+    protected $serviceUserId;
 
     public function __construct(
-         $serviceProviderId,
-         $groupId,
-         $serviceUserId
+         $serviceProviderId = '',
+         $groupId = '',
+         $serviceUserId = ''
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setGroupId($groupId);
@@ -51,7 +51,6 @@ class GroupCallCenterCurrentAndPastDNISGetListRequest extends ComplexType implem
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
-        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
@@ -65,7 +64,7 @@ class GroupCallCenterCurrentAndPastDNISGetListRequest extends ComplexType implem
      */
     public function getServiceProviderId()
     {
-        return $this->serviceProviderId->getValue();
+        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
     }
 
     /**
@@ -73,7 +72,6 @@ class GroupCallCenterCurrentAndPastDNISGetListRequest extends ComplexType implem
      */
     public function setGroupId($groupId = null)
     {
-        if (!$groupId) return $this;
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
@@ -87,7 +85,7 @@ class GroupCallCenterCurrentAndPastDNISGetListRequest extends ComplexType implem
      */
     public function getGroupId()
     {
-        return $this->groupId->getValue();
+        return ($this->groupId) ? $this->groupId->getValue() : null;
     }
 
     /**
@@ -95,7 +93,6 @@ class GroupCallCenterCurrentAndPastDNISGetListRequest extends ComplexType implem
      */
     public function setServiceUserId($serviceUserId = null)
     {
-        if (!$serviceUserId) return $this;
         $this->serviceUserId = ($serviceUserId InstanceOf UserId)
              ? $serviceUserId
              : new UserId($serviceUserId);
@@ -109,6 +106,6 @@ class GroupCallCenterCurrentAndPastDNISGetListRequest extends ComplexType implem
      */
     public function getServiceUserId()
     {
-        return $this->serviceUserId->getValue();
+        return ($this->serviceUserId) ? $this->serviceUserId->getValue() : null;
     }
 }

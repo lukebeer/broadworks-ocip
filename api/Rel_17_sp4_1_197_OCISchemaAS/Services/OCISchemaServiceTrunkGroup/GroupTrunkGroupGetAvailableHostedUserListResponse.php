@@ -20,8 +20,8 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupTrunkGroupGetAvailableHostedUserListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name      = 'GroupTrunkGroupGetAvailableHostedUserListResponse';
-    protected $userTable = null;
+    public    $name = 'GroupTrunkGroupGetAvailableHostedUserListResponse';
+    protected $userTable;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceTrunkGroup\GroupTrunkGroupGetAvailableHostedUserListResponse $response
@@ -36,7 +36,6 @@ class GroupTrunkGroupGetAvailableHostedUserListResponse extends ComplexType impl
      */
     public function setUserTable(TableType $userTable = null)
     {
-        if (!$userTable) return $this;
         $this->userTable = $userTable;
         $this->userTable->setName('userTable');
         return $this;

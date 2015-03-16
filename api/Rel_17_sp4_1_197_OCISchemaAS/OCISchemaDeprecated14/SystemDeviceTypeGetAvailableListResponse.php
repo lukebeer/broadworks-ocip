@@ -19,9 +19,9 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemDeviceTypeGetAvailableListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name       = 'SystemDeviceTypeGetAvailableListResponse';
-    protected $deviceType = null;
-    protected $typeInfo   = null;
+    public    $name = 'SystemDeviceTypeGetAvailableListResponse';
+    protected $deviceType;
+    protected $typeInfo;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\SystemDeviceTypeGetAvailableListResponse $response
@@ -36,7 +36,6 @@ class SystemDeviceTypeGetAvailableListResponse extends ComplexType implements Co
      */
     public function setDeviceType($deviceType = null)
     {
-        if (!$deviceType) return $this;
         $this->deviceType = ($deviceType InstanceOf AccessDeviceType)
              ? $deviceType
              : new AccessDeviceType($deviceType);
@@ -50,7 +49,7 @@ class SystemDeviceTypeGetAvailableListResponse extends ComplexType implements Co
      */
     public function getDeviceType()
     {
-        return $this->deviceType->getValue();
+        return ($this->deviceType) ? $this->deviceType->getValue() : null;
     }
 
     /**
@@ -58,7 +57,6 @@ class SystemDeviceTypeGetAvailableListResponse extends ComplexType implements Co
      */
     public function setTypeInfo($typeInfo = null)
     {
-        if (!$typeInfo) return $this;
         $this->typeInfo->setName('typeInfo');
         return $this;
     }
@@ -69,6 +67,6 @@ class SystemDeviceTypeGetAvailableListResponse extends ComplexType implements Co
      */
     public function getTypeInfo()
     {
-        return $this->typeInfo->getValue();
+        return ($this->typeInfo) ? $this->typeInfo->getValue() : null;
     }
 }

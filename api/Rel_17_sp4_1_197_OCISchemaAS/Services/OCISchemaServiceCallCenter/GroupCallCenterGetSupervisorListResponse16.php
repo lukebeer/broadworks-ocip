@@ -21,8 +21,8 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupCallCenterGetSupervisorListResponse16 extends ComplexType implements ComplexInterface
 {
-    public    $name            = 'GroupCallCenterGetSupervisorListResponse16';
-    protected $supervisorTable = null;
+    public    $name = 'GroupCallCenterGetSupervisorListResponse16';
+    protected $supervisorTable;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\GroupCallCenterGetSupervisorListResponse16 $response
@@ -37,7 +37,6 @@ class GroupCallCenterGetSupervisorListResponse16 extends ComplexType implements 
      */
     public function setSupervisorTable(TableType $supervisorTable = null)
     {
-        if (!$supervisorTable) return $this;
         $this->supervisorTable = $supervisorTable;
         $this->supervisorTable->setName('supervisorTable');
         return $this;

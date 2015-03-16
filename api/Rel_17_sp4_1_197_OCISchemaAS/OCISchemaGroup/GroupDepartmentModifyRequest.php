@@ -23,17 +23,17 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupDepartmentModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                   = 'GroupDepartmentModifyRequest';
-    protected $serviceProviderId      = null;
-    protected $groupId                = null;
-    protected $departmentName         = null;
-    protected $newDepartmentName      = null;
-    protected $newParentDepartmentKey = null;
+    public    $name = 'GroupDepartmentModifyRequest';
+    protected $serviceProviderId;
+    protected $groupId;
+    protected $departmentName;
+    protected $newDepartmentName;
+    protected $newParentDepartmentKey;
 
     public function __construct(
-         $serviceProviderId,
-         $groupId,
-         $departmentName,
+         $serviceProviderId = '',
+         $groupId = '',
+         $departmentName = '',
          $newDepartmentName = null,
          DepartmentKey $newParentDepartmentKey = null
     ) {
@@ -57,7 +57,6 @@ class GroupDepartmentModifyRequest extends ComplexType implements ComplexInterfa
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
-        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
@@ -71,7 +70,7 @@ class GroupDepartmentModifyRequest extends ComplexType implements ComplexInterfa
      */
     public function getServiceProviderId()
     {
-        return $this->serviceProviderId->getValue();
+        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
     }
 
     /**
@@ -79,7 +78,6 @@ class GroupDepartmentModifyRequest extends ComplexType implements ComplexInterfa
      */
     public function setGroupId($groupId = null)
     {
-        if (!$groupId) return $this;
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
@@ -93,7 +91,7 @@ class GroupDepartmentModifyRequest extends ComplexType implements ComplexInterfa
      */
     public function getGroupId()
     {
-        return $this->groupId->getValue();
+        return ($this->groupId) ? $this->groupId->getValue() : null;
     }
 
     /**
@@ -101,7 +99,6 @@ class GroupDepartmentModifyRequest extends ComplexType implements ComplexInterfa
      */
     public function setDepartmentName($departmentName = null)
     {
-        if (!$departmentName) return $this;
         $this->departmentName = ($departmentName InstanceOf DepartmentName)
              ? $departmentName
              : new DepartmentName($departmentName);
@@ -115,7 +112,7 @@ class GroupDepartmentModifyRequest extends ComplexType implements ComplexInterfa
      */
     public function getDepartmentName()
     {
-        return $this->departmentName->getValue();
+        return ($this->departmentName) ? $this->departmentName->getValue() : null;
     }
 
     /**
@@ -123,7 +120,6 @@ class GroupDepartmentModifyRequest extends ComplexType implements ComplexInterfa
      */
     public function setNewDepartmentName($newDepartmentName = null)
     {
-        if (!$newDepartmentName) return $this;
         $this->newDepartmentName = ($newDepartmentName InstanceOf DepartmentName)
              ? $newDepartmentName
              : new DepartmentName($newDepartmentName);
@@ -137,7 +133,7 @@ class GroupDepartmentModifyRequest extends ComplexType implements ComplexInterfa
      */
     public function getNewDepartmentName()
     {
-        return $this->newDepartmentName->getValue();
+        return ($this->newDepartmentName) ? $this->newDepartmentName->getValue() : null;
     }
 
     /**
@@ -145,8 +141,9 @@ class GroupDepartmentModifyRequest extends ComplexType implements ComplexInterfa
      */
     public function setNewParentDepartmentKey(DepartmentKey $newParentDepartmentKey = null)
     {
-        if (!$newParentDepartmentKey) return $this;
-        $this->newParentDepartmentKey = $newParentDepartmentKey;
+        $this->newParentDepartmentKey = ($newParentDepartmentKey InstanceOf DepartmentKey)
+             ? $newParentDepartmentKey
+             : new DepartmentKey($newParentDepartmentKey);
         $this->newParentDepartmentKey->setName('newParentDepartmentKey');
         return $this;
     }

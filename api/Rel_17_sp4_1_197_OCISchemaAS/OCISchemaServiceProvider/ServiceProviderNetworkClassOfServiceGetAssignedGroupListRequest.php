@@ -26,16 +26,16 @@ use Broadworks_OCIP\core\Client\Client;
 class ServiceProviderNetworkClassOfServiceGetAssignedGroupListRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType            = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderNetworkClassOfServiceGetAssignedGroupListResponse';
-    public    $name                    = 'ServiceProviderNetworkClassOfServiceGetAssignedGroupListRequest';
-    protected $serviceProviderId       = null;
-    protected $networkClassOfService   = null;
-    protected $responseSizeLimit       = null;
-    protected $searchCriteriaGroupId   = null;
-    protected $searchCriteriaGroupName = null;
+    public    $name = 'ServiceProviderNetworkClassOfServiceGetAssignedGroupListRequest';
+    protected $serviceProviderId;
+    protected $networkClassOfService;
+    protected $responseSizeLimit;
+    protected $searchCriteriaGroupId;
+    protected $searchCriteriaGroupName;
 
     public function __construct(
-         $serviceProviderId,
-         $networkClassOfService,
+         $serviceProviderId = '',
+         $networkClassOfService = '',
          $responseSizeLimit = null,
          SearchCriteriaGroupId $searchCriteriaGroupId = null,
          SearchCriteriaGroupName $searchCriteriaGroupName = null
@@ -60,7 +60,6 @@ class ServiceProviderNetworkClassOfServiceGetAssignedGroupListRequest extends Co
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
-        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
@@ -74,7 +73,7 @@ class ServiceProviderNetworkClassOfServiceGetAssignedGroupListRequest extends Co
      */
     public function getServiceProviderId()
     {
-        return $this->serviceProviderId->getValue();
+        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
     }
 
     /**
@@ -82,7 +81,6 @@ class ServiceProviderNetworkClassOfServiceGetAssignedGroupListRequest extends Co
      */
     public function setNetworkClassOfService($networkClassOfService = null)
     {
-        if (!$networkClassOfService) return $this;
         $this->networkClassOfService = ($networkClassOfService InstanceOf NetworkClassOfServiceName)
              ? $networkClassOfService
              : new NetworkClassOfServiceName($networkClassOfService);
@@ -96,7 +94,7 @@ class ServiceProviderNetworkClassOfServiceGetAssignedGroupListRequest extends Co
      */
     public function getNetworkClassOfService()
     {
-        return $this->networkClassOfService->getValue();
+        return ($this->networkClassOfService) ? $this->networkClassOfService->getValue() : null;
     }
 
     /**
@@ -104,7 +102,6 @@ class ServiceProviderNetworkClassOfServiceGetAssignedGroupListRequest extends Co
      */
     public function setResponseSizeLimit($responseSizeLimit = null)
     {
-        if (!$responseSizeLimit) return $this;
         $this->responseSizeLimit = ($responseSizeLimit InstanceOf ResponseSizeLimit)
              ? $responseSizeLimit
              : new ResponseSizeLimit($responseSizeLimit);
@@ -118,7 +115,7 @@ class ServiceProviderNetworkClassOfServiceGetAssignedGroupListRequest extends Co
      */
     public function getResponseSizeLimit()
     {
-        return $this->responseSizeLimit->getValue();
+        return ($this->responseSizeLimit) ? $this->responseSizeLimit->getValue() : null;
     }
 
     /**
@@ -126,7 +123,6 @@ class ServiceProviderNetworkClassOfServiceGetAssignedGroupListRequest extends Co
      */
     public function setSearchCriteriaGroupId(SearchCriteriaGroupId $searchCriteriaGroupId = null)
     {
-        if (!$searchCriteriaGroupId) return $this;
         $this->searchCriteriaGroupId = ($searchCriteriaGroupId InstanceOf SearchCriteriaGroupId)
              ? $searchCriteriaGroupId
              : new SearchCriteriaGroupId($searchCriteriaGroupId);
@@ -148,7 +144,6 @@ class ServiceProviderNetworkClassOfServiceGetAssignedGroupListRequest extends Co
      */
     public function setSearchCriteriaGroupName(SearchCriteriaGroupName $searchCriteriaGroupName = null)
     {
-        if (!$searchCriteriaGroupName) return $this;
         $this->searchCriteriaGroupName = ($searchCriteriaGroupName InstanceOf SearchCriteriaGroupName)
              ? $searchCriteriaGroupName
              : new SearchCriteriaGroupName($searchCriteriaGroupName);

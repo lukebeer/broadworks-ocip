@@ -20,15 +20,15 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class InstantConferencingBridgeOwnerList extends ComplexType implements ComplexInterface
 {
-    public    $name                = 'InstantConferencingBridgeOwnerList';
-    protected $bridgeServiceUserId = null;
-    protected $bridgeName          = null;
-    protected $userTable           = null;
+    public    $name = 'InstantConferencingBridgeOwnerList';
+    protected $bridgeServiceUserId;
+    protected $bridgeName;
+    protected $userTable;
 
     public function __construct(
-         $bridgeServiceUserId,
-         $bridgeName,
-         $userTable
+         $bridgeServiceUserId = '',
+         $bridgeName = '',
+         $userTable = ''
     ) {
         $this->setBridgeServiceUserId($bridgeServiceUserId);
         $this->setBridgeName($bridgeName);
@@ -48,7 +48,6 @@ class InstantConferencingBridgeOwnerList extends ComplexType implements ComplexI
      */
     public function setBridgeServiceUserId($bridgeServiceUserId = null)
     {
-        if (!$bridgeServiceUserId) return $this;
         $this->bridgeServiceUserId = new SimpleContent($bridgeServiceUserId);
         $this->bridgeServiceUserId->setName('bridgeServiceUserId');
         return $this;
@@ -60,7 +59,7 @@ class InstantConferencingBridgeOwnerList extends ComplexType implements ComplexI
      */
     public function getBridgeServiceUserId()
     {
-        return $this->bridgeServiceUserId->getValue();
+        return ($this->bridgeServiceUserId) ? $this->bridgeServiceUserId->getValue() : null;
     }
 
     /**
@@ -68,7 +67,6 @@ class InstantConferencingBridgeOwnerList extends ComplexType implements ComplexI
      */
     public function setBridgeName($bridgeName = null)
     {
-        if (!$bridgeName) return $this;
         $this->bridgeName = new SimpleContent($bridgeName);
         $this->bridgeName->setName('bridgeName');
         return $this;
@@ -80,7 +78,7 @@ class InstantConferencingBridgeOwnerList extends ComplexType implements ComplexI
      */
     public function getBridgeName()
     {
-        return $this->bridgeName->getValue();
+        return ($this->bridgeName) ? $this->bridgeName->getValue() : null;
     }
 
     /**
@@ -88,7 +86,6 @@ class InstantConferencingBridgeOwnerList extends ComplexType implements ComplexI
      */
     public function setUserTable($userTable = null)
     {
-        if (!$userTable) return $this;
         $this->userTable = new SimpleContent($userTable);
         $this->userTable->setName('userTable');
         return $this;

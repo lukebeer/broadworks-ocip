@@ -32,15 +32,15 @@ use Broadworks_OCIP\core\Client\Client;
 class EnterpriseCommonPhoneListGetListRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType                                  = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaEnterprise\EnterpriseCommonPhoneListGetListResponse';
-    public    $name                                          = 'EnterpriseCommonPhoneListGetListRequest';
-    protected $serviceProviderId                             = null;
-    protected $responseSizeLimit                             = null;
-    protected $searchCriteriaModeOr                          = null;
-    protected $searchCriteriaEnterpriseCommonPhoneListName   = null;
-    protected $searchCriteriaEnterpriseCommonPhoneListNumber = null;
+    public    $name = 'EnterpriseCommonPhoneListGetListRequest';
+    protected $serviceProviderId;
+    protected $responseSizeLimit;
+    protected $searchCriteriaModeOr;
+    protected $searchCriteriaEnterpriseCommonPhoneListName;
+    protected $searchCriteriaEnterpriseCommonPhoneListNumber;
 
     public function __construct(
-         $serviceProviderId,
+         $serviceProviderId = '',
          $responseSizeLimit = null,
          $searchCriteriaModeOr = null,
          SearchCriteriaEnterpriseCommonPhoneListName $searchCriteriaEnterpriseCommonPhoneListName = null,
@@ -66,7 +66,6 @@ class EnterpriseCommonPhoneListGetListRequest extends ComplexType implements Com
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
-        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
@@ -80,7 +79,7 @@ class EnterpriseCommonPhoneListGetListRequest extends ComplexType implements Com
      */
     public function getServiceProviderId()
     {
-        return $this->serviceProviderId->getValue();
+        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
     }
 
     /**
@@ -88,7 +87,6 @@ class EnterpriseCommonPhoneListGetListRequest extends ComplexType implements Com
      */
     public function setResponseSizeLimit($responseSizeLimit = null)
     {
-        if (!$responseSizeLimit) return $this;
         $this->responseSizeLimit = ($responseSizeLimit InstanceOf ResponseSizeLimit)
              ? $responseSizeLimit
              : new ResponseSizeLimit($responseSizeLimit);
@@ -102,7 +100,7 @@ class EnterpriseCommonPhoneListGetListRequest extends ComplexType implements Com
      */
     public function getResponseSizeLimit()
     {
-        return $this->responseSizeLimit->getValue();
+        return ($this->responseSizeLimit) ? $this->responseSizeLimit->getValue() : null;
     }
 
     /**
@@ -110,7 +108,6 @@ class EnterpriseCommonPhoneListGetListRequest extends ComplexType implements Com
      */
     public function setSearchCriteriaModeOr($searchCriteriaModeOr = null)
     {
-        if (!$searchCriteriaModeOr) return $this;
         $this->searchCriteriaModeOr = new PrimitiveType($searchCriteriaModeOr);
         $this->searchCriteriaModeOr->setName('searchCriteriaModeOr');
         return $this;
@@ -122,7 +119,7 @@ class EnterpriseCommonPhoneListGetListRequest extends ComplexType implements Com
      */
     public function getSearchCriteriaModeOr()
     {
-        return $this->searchCriteriaModeOr->getValue();
+        return ($this->searchCriteriaModeOr) ? $this->searchCriteriaModeOr->getValue() : null;
     }
 
     /**
@@ -130,7 +127,6 @@ class EnterpriseCommonPhoneListGetListRequest extends ComplexType implements Com
      */
     public function setSearchCriteriaEnterpriseCommonPhoneListName(SearchCriteriaEnterpriseCommonPhoneListName $searchCriteriaEnterpriseCommonPhoneListName = null)
     {
-        if (!$searchCriteriaEnterpriseCommonPhoneListName) return $this;
         $this->searchCriteriaEnterpriseCommonPhoneListName = ($searchCriteriaEnterpriseCommonPhoneListName InstanceOf SearchCriteriaEnterpriseCommonPhoneListName)
              ? $searchCriteriaEnterpriseCommonPhoneListName
              : new SearchCriteriaEnterpriseCommonPhoneListName($searchCriteriaEnterpriseCommonPhoneListName);
@@ -152,7 +148,6 @@ class EnterpriseCommonPhoneListGetListRequest extends ComplexType implements Com
      */
     public function setSearchCriteriaEnterpriseCommonPhoneListNumber(SearchCriteriaEnterpriseCommonPhoneListNumber $searchCriteriaEnterpriseCommonPhoneListNumber = null)
     {
-        if (!$searchCriteriaEnterpriseCommonPhoneListNumber) return $this;
         $this->searchCriteriaEnterpriseCommonPhoneListNumber = ($searchCriteriaEnterpriseCommonPhoneListNumber InstanceOf SearchCriteriaEnterpriseCommonPhoneListNumber)
              ? $searchCriteriaEnterpriseCommonPhoneListNumber
              : new SearchCriteriaEnterpriseCommonPhoneListNumber($searchCriteriaEnterpriseCommonPhoneListNumber);

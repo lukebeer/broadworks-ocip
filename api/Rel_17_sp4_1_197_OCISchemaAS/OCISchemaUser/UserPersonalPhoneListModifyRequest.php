@@ -22,15 +22,15 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserPersonalPhoneListModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name         = 'UserPersonalPhoneListModifyRequest';
-    protected $userId       = null;
-    protected $entryName    = null;
-    protected $newEntryName = null;
-    protected $phoneNumber  = null;
+    public    $name = 'UserPersonalPhoneListModifyRequest';
+    protected $userId;
+    protected $entryName;
+    protected $newEntryName;
+    protected $phoneNumber;
 
     public function __construct(
-         $userId,
-         $entryName,
+         $userId = '',
+         $entryName = '',
          $newEntryName = null,
          $phoneNumber = null
     ) {
@@ -53,7 +53,6 @@ class UserPersonalPhoneListModifyRequest extends ComplexType implements ComplexI
      */
     public function setUserId($userId = null)
     {
-        if (!$userId) return $this;
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
@@ -67,7 +66,7 @@ class UserPersonalPhoneListModifyRequest extends ComplexType implements ComplexI
      */
     public function getUserId()
     {
-        return $this->userId->getValue();
+        return ($this->userId) ? $this->userId->getValue() : null;
     }
 
     /**
@@ -75,7 +74,6 @@ class UserPersonalPhoneListModifyRequest extends ComplexType implements ComplexI
      */
     public function setEntryName($entryName = null)
     {
-        if (!$entryName) return $this;
         $this->entryName = ($entryName InstanceOf PhoneListEntryName)
              ? $entryName
              : new PhoneListEntryName($entryName);
@@ -89,7 +87,7 @@ class UserPersonalPhoneListModifyRequest extends ComplexType implements ComplexI
      */
     public function getEntryName()
     {
-        return $this->entryName->getValue();
+        return ($this->entryName) ? $this->entryName->getValue() : null;
     }
 
     /**
@@ -97,7 +95,6 @@ class UserPersonalPhoneListModifyRequest extends ComplexType implements ComplexI
      */
     public function setNewEntryName($newEntryName = null)
     {
-        if (!$newEntryName) return $this;
         $this->newEntryName = ($newEntryName InstanceOf PhoneListEntryName)
              ? $newEntryName
              : new PhoneListEntryName($newEntryName);
@@ -111,7 +108,7 @@ class UserPersonalPhoneListModifyRequest extends ComplexType implements ComplexI
      */
     public function getNewEntryName()
     {
-        return $this->newEntryName->getValue();
+        return ($this->newEntryName) ? $this->newEntryName->getValue() : null;
     }
 
     /**
@@ -119,7 +116,6 @@ class UserPersonalPhoneListModifyRequest extends ComplexType implements ComplexI
      */
     public function setPhoneNumber($phoneNumber = null)
     {
-        if (!$phoneNumber) return $this;
         $this->phoneNumber = ($phoneNumber InstanceOf OutgoingDN)
              ? $phoneNumber
              : new OutgoingDN($phoneNumber);
@@ -133,6 +129,6 @@ class UserPersonalPhoneListModifyRequest extends ComplexType implements ComplexI
      */
     public function getPhoneNumber()
     {
-        return $this->phoneNumber->getValue();
+        return ($this->phoneNumber) ? $this->phoneNumber->getValue() : null;
     }
 }

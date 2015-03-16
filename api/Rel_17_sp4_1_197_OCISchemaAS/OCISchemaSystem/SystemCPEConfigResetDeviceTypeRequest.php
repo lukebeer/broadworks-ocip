@@ -21,8 +21,8 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemCPEConfigResetDeviceTypeRequest extends ComplexType implements ComplexInterface
 {
-    public    $name       = 'SystemCPEConfigResetDeviceTypeRequest';
-    protected $deviceType = null;
+    public    $name = 'SystemCPEConfigResetDeviceTypeRequest';
+    protected $deviceType;
 
     public function __construct(
          $deviceType = null
@@ -43,7 +43,6 @@ class SystemCPEConfigResetDeviceTypeRequest extends ComplexType implements Compl
      */
     public function setDeviceType($deviceType = null)
     {
-        if (!$deviceType) return $this;
         $this->deviceType = ($deviceType InstanceOf AccessDeviceType)
              ? $deviceType
              : new AccessDeviceType($deviceType);
@@ -57,6 +56,6 @@ class SystemCPEConfigResetDeviceTypeRequest extends ComplexType implements Compl
      */
     public function getDeviceType()
     {
-        return $this->deviceType->getValue();
+        return ($this->deviceType) ? $this->deviceType->getValue() : null;
     }
 }

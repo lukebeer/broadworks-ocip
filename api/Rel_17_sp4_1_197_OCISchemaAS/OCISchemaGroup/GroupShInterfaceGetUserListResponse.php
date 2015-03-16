@@ -21,8 +21,8 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupShInterfaceGetUserListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name  = 'GroupShInterfaceGetUserListResponse';
-    protected $entry = null;
+    public    $name = 'GroupShInterfaceGetUserListResponse';
+    protected $entry;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupShInterfaceGetUserListResponse $response
@@ -37,8 +37,9 @@ class GroupShInterfaceGetUserListResponse extends ComplexType implements Complex
      */
     public function setEntry(ShInterfaceUserListEntry $entry = null)
     {
-        if (!$entry) return $this;
-        $this->entry = $entry;
+        $this->entry = ($entry InstanceOf ShInterfaceUserListEntry)
+             ? $entry
+             : new ShInterfaceUserListEntry($entry);
         $this->entry->setName('entry');
         return $this;
     }

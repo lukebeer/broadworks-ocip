@@ -25,18 +25,18 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupAccountAuthorizationCodesModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                       = 'GroupAccountAuthorizationCodesModifyRequest';
-    protected $serviceProviderId          = null;
-    protected $groupId                    = null;
-    protected $codeType                   = null;
-    protected $numberOfDigits             = null;
-    protected $allowLocalAndTollFreeCalls = null;
-    protected $mandatoryUsageUserIdList   = null;
-    protected $optionalUsageUserIdList    = null;
+    public    $name = 'GroupAccountAuthorizationCodesModifyRequest';
+    protected $serviceProviderId;
+    protected $groupId;
+    protected $codeType;
+    protected $numberOfDigits;
+    protected $allowLocalAndTollFreeCalls;
+    protected $mandatoryUsageUserIdList;
+    protected $optionalUsageUserIdList;
 
     public function __construct(
-         $serviceProviderId,
-         $groupId,
+         $serviceProviderId = '',
+         $groupId = '',
          $codeType = null,
          $numberOfDigits = null,
          $allowLocalAndTollFreeCalls = null,
@@ -65,7 +65,6 @@ class GroupAccountAuthorizationCodesModifyRequest extends ComplexType implements
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
-        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
@@ -79,7 +78,7 @@ class GroupAccountAuthorizationCodesModifyRequest extends ComplexType implements
      */
     public function getServiceProviderId()
     {
-        return $this->serviceProviderId->getValue();
+        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
     }
 
     /**
@@ -87,7 +86,6 @@ class GroupAccountAuthorizationCodesModifyRequest extends ComplexType implements
      */
     public function setGroupId($groupId = null)
     {
-        if (!$groupId) return $this;
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
@@ -101,7 +99,7 @@ class GroupAccountAuthorizationCodesModifyRequest extends ComplexType implements
      */
     public function getGroupId()
     {
-        return $this->groupId->getValue();
+        return ($this->groupId) ? $this->groupId->getValue() : null;
     }
 
     /**
@@ -109,7 +107,6 @@ class GroupAccountAuthorizationCodesModifyRequest extends ComplexType implements
      */
     public function setCodeType($codeType = null)
     {
-        if (!$codeType) return $this;
         $this->codeType = ($codeType InstanceOf AccountAuthorizationCodeType)
              ? $codeType
              : new AccountAuthorizationCodeType($codeType);
@@ -123,7 +120,7 @@ class GroupAccountAuthorizationCodesModifyRequest extends ComplexType implements
      */
     public function getCodeType()
     {
-        return $this->codeType->getValue();
+        return ($this->codeType) ? $this->codeType->getValue() : null;
     }
 
     /**
@@ -131,7 +128,6 @@ class GroupAccountAuthorizationCodesModifyRequest extends ComplexType implements
      */
     public function setNumberOfDigits($numberOfDigits = null)
     {
-        if (!$numberOfDigits) return $this;
         $this->numberOfDigits = ($numberOfDigits InstanceOf AccountAuthorizationCodeNumberOfDigits)
              ? $numberOfDigits
              : new AccountAuthorizationCodeNumberOfDigits($numberOfDigits);
@@ -145,7 +141,7 @@ class GroupAccountAuthorizationCodesModifyRequest extends ComplexType implements
      */
     public function getNumberOfDigits()
     {
-        return $this->numberOfDigits->getValue();
+        return ($this->numberOfDigits) ? $this->numberOfDigits->getValue() : null;
     }
 
     /**
@@ -153,7 +149,6 @@ class GroupAccountAuthorizationCodesModifyRequest extends ComplexType implements
      */
     public function setAllowLocalAndTollFreeCalls($allowLocalAndTollFreeCalls = null)
     {
-        if (!$allowLocalAndTollFreeCalls) return $this;
         $this->allowLocalAndTollFreeCalls = new PrimitiveType($allowLocalAndTollFreeCalls);
         $this->allowLocalAndTollFreeCalls->setName('allowLocalAndTollFreeCalls');
         return $this;
@@ -165,7 +160,7 @@ class GroupAccountAuthorizationCodesModifyRequest extends ComplexType implements
      */
     public function getAllowLocalAndTollFreeCalls()
     {
-        return $this->allowLocalAndTollFreeCalls->getValue();
+        return ($this->allowLocalAndTollFreeCalls) ? $this->allowLocalAndTollFreeCalls->getValue() : null;
     }
 
     /**
@@ -173,8 +168,9 @@ class GroupAccountAuthorizationCodesModifyRequest extends ComplexType implements
      */
     public function setMandatoryUsageUserIdList(ReplacementUserIdList $mandatoryUsageUserIdList = null)
     {
-        if (!$mandatoryUsageUserIdList) return $this;
-        $this->mandatoryUsageUserIdList = $mandatoryUsageUserIdList;
+        $this->mandatoryUsageUserIdList = ($mandatoryUsageUserIdList InstanceOf ReplacementUserIdList)
+             ? $mandatoryUsageUserIdList
+             : new ReplacementUserIdList($mandatoryUsageUserIdList);
         $this->mandatoryUsageUserIdList->setName('mandatoryUsageUserIdList');
         return $this;
     }
@@ -193,8 +189,9 @@ class GroupAccountAuthorizationCodesModifyRequest extends ComplexType implements
      */
     public function setOptionalUsageUserIdList(ReplacementUserIdList $optionalUsageUserIdList = null)
     {
-        if (!$optionalUsageUserIdList) return $this;
-        $this->optionalUsageUserIdList = $optionalUsageUserIdList;
+        $this->optionalUsageUserIdList = ($optionalUsageUserIdList InstanceOf ReplacementUserIdList)
+             ? $optionalUsageUserIdList
+             : new ReplacementUserIdList($optionalUsageUserIdList);
         $this->optionalUsageUserIdList->setName('optionalUsageUserIdList');
         return $this;
     }

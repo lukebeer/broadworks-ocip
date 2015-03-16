@@ -26,17 +26,17 @@ use Broadworks_OCIP\core\Client\Client;
 class GroupCallCenterEnhancedReportingScheduledReportGetCompletedListRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType                                                    = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\GroupCallCenterEnhancedReportingScheduledReportGetCompletedListResponse';
-    public    $name                                                            = 'GroupCallCenterEnhancedReportingScheduledReportGetCompletedListRequest';
-    protected $serviceProviderId                                               = null;
-    protected $groupId                                                         = null;
-    protected $responseSizeLimit                                               = null;
-    protected $searchCriteriaCallCenterScheduledReportName                     = null;
-    protected $searchCriteriaExactCallCenterScheduledReportCreatedBySupervisor = null;
-    protected $searchCriteriaExactCallCenterReportTemplateKey                  = null;
+    public    $name = 'GroupCallCenterEnhancedReportingScheduledReportGetCompletedListRequest';
+    protected $serviceProviderId;
+    protected $groupId;
+    protected $responseSizeLimit;
+    protected $searchCriteriaCallCenterScheduledReportName;
+    protected $searchCriteriaExactCallCenterScheduledReportCreatedBySupervisor;
+    protected $searchCriteriaExactCallCenterReportTemplateKey;
 
     public function __construct(
-         $serviceProviderId,
-         $groupId,
+         $serviceProviderId = '',
+         $groupId = '',
          $responseSizeLimit = null,
          SearchCriteriaCallCenterScheduledReportName $searchCriteriaCallCenterScheduledReportName = null,
          SearchCriteriaExactCallCenterScheduledReportCreatedBySupervisor $searchCriteriaExactCallCenterScheduledReportCreatedBySupervisor = null,
@@ -63,7 +63,6 @@ class GroupCallCenterEnhancedReportingScheduledReportGetCompletedListRequest ext
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
-        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
@@ -77,7 +76,7 @@ class GroupCallCenterEnhancedReportingScheduledReportGetCompletedListRequest ext
      */
     public function getServiceProviderId()
     {
-        return $this->serviceProviderId->getValue();
+        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
     }
 
     /**
@@ -85,7 +84,6 @@ class GroupCallCenterEnhancedReportingScheduledReportGetCompletedListRequest ext
      */
     public function setGroupId($groupId = null)
     {
-        if (!$groupId) return $this;
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
@@ -99,7 +97,7 @@ class GroupCallCenterEnhancedReportingScheduledReportGetCompletedListRequest ext
      */
     public function getGroupId()
     {
-        return $this->groupId->getValue();
+        return ($this->groupId) ? $this->groupId->getValue() : null;
     }
 
     /**
@@ -107,7 +105,6 @@ class GroupCallCenterEnhancedReportingScheduledReportGetCompletedListRequest ext
      */
     public function setResponseSizeLimit($responseSizeLimit = null)
     {
-        if (!$responseSizeLimit) return $this;
         $this->responseSizeLimit = ($responseSizeLimit InstanceOf ResponseSizeLimit)
              ? $responseSizeLimit
              : new ResponseSizeLimit($responseSizeLimit);
@@ -121,7 +118,7 @@ class GroupCallCenterEnhancedReportingScheduledReportGetCompletedListRequest ext
      */
     public function getResponseSizeLimit()
     {
-        return $this->responseSizeLimit->getValue();
+        return ($this->responseSizeLimit) ? $this->responseSizeLimit->getValue() : null;
     }
 
     /**
@@ -129,7 +126,6 @@ class GroupCallCenterEnhancedReportingScheduledReportGetCompletedListRequest ext
      */
     public function setSearchCriteriaCallCenterScheduledReportName(SearchCriteriaCallCenterScheduledReportName $searchCriteriaCallCenterScheduledReportName = null)
     {
-        if (!$searchCriteriaCallCenterScheduledReportName) return $this;
         $this->searchCriteriaCallCenterScheduledReportName = ($searchCriteriaCallCenterScheduledReportName InstanceOf SearchCriteriaCallCenterScheduledReportName)
              ? $searchCriteriaCallCenterScheduledReportName
              : new SearchCriteriaCallCenterScheduledReportName($searchCriteriaCallCenterScheduledReportName);
@@ -151,7 +147,6 @@ class GroupCallCenterEnhancedReportingScheduledReportGetCompletedListRequest ext
      */
     public function setSearchCriteriaExactCallCenterScheduledReportCreatedBySupervisor(SearchCriteriaExactCallCenterScheduledReportCreatedBySupervisor $searchCriteriaExactCallCenterScheduledReportCreatedBySupervisor = null)
     {
-        if (!$searchCriteriaExactCallCenterScheduledReportCreatedBySupervisor) return $this;
         $this->searchCriteriaExactCallCenterScheduledReportCreatedBySupervisor = ($searchCriteriaExactCallCenterScheduledReportCreatedBySupervisor InstanceOf SearchCriteriaExactCallCenterScheduledReportCreatedBySupervisor)
              ? $searchCriteriaExactCallCenterScheduledReportCreatedBySupervisor
              : new SearchCriteriaExactCallCenterScheduledReportCreatedBySupervisor($searchCriteriaExactCallCenterScheduledReportCreatedBySupervisor);
@@ -173,7 +168,6 @@ class GroupCallCenterEnhancedReportingScheduledReportGetCompletedListRequest ext
      */
     public function setSearchCriteriaExactCallCenterReportTemplateKey(SearchCriteriaExactCallCenterReportTemplateKey $searchCriteriaExactCallCenterReportTemplateKey = null)
     {
-        if (!$searchCriteriaExactCallCenterReportTemplateKey) return $this;
         $this->searchCriteriaExactCallCenterReportTemplateKey = ($searchCriteriaExactCallCenterReportTemplateKey InstanceOf SearchCriteriaExactCallCenterReportTemplateKey)
              ? $searchCriteriaExactCallCenterReportTemplateKey
              : new SearchCriteriaExactCallCenterReportTemplateKey($searchCriteriaExactCallCenterReportTemplateKey);

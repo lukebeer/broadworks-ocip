@@ -32,24 +32,24 @@ use Broadworks_OCIP\core\Client\Client;
 class GroupAccessDeviceGetUserListRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType                    = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupAccessDeviceGetUserListResponse';
-    public    $name                            = 'GroupAccessDeviceGetUserListRequest';
-    protected $serviceProviderId               = null;
-    protected $groupId                         = null;
-    protected $deviceName                      = null;
-    protected $responseSizeLimit               = null;
-    protected $searchCriteriaLinePortUserPart  = null;
-    protected $searchCriteriaLinePortDomain    = null;
-    protected $searchCriteriaUserLastName      = null;
-    protected $searchCriteriaUserFirstName     = null;
-    protected $searchCriteriaDn                = null;
-    protected $searchCriteriaUserId            = null;
-    protected $searchCriteriaExactEndpointType = null;
-    protected $searchCriteriaExactUserType     = null;
+    public    $name = 'GroupAccessDeviceGetUserListRequest';
+    protected $serviceProviderId;
+    protected $groupId;
+    protected $deviceName;
+    protected $responseSizeLimit;
+    protected $searchCriteriaLinePortUserPart;
+    protected $searchCriteriaLinePortDomain;
+    protected $searchCriteriaUserLastName;
+    protected $searchCriteriaUserFirstName;
+    protected $searchCriteriaDn;
+    protected $searchCriteriaUserId;
+    protected $searchCriteriaExactEndpointType;
+    protected $searchCriteriaExactUserType;
 
     public function __construct(
-         $serviceProviderId,
-         $groupId,
-         $deviceName,
+         $serviceProviderId = '',
+         $groupId = '',
+         $deviceName = '',
          $responseSizeLimit = null,
          SearchCriteriaLinePortUserPart $searchCriteriaLinePortUserPart = null,
          SearchCriteriaLinePortDomain $searchCriteriaLinePortDomain = null,
@@ -87,7 +87,6 @@ class GroupAccessDeviceGetUserListRequest extends ComplexType implements Complex
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
-        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
@@ -101,7 +100,7 @@ class GroupAccessDeviceGetUserListRequest extends ComplexType implements Complex
      */
     public function getServiceProviderId()
     {
-        return $this->serviceProviderId->getValue();
+        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
     }
 
     /**
@@ -109,7 +108,6 @@ class GroupAccessDeviceGetUserListRequest extends ComplexType implements Complex
      */
     public function setGroupId($groupId = null)
     {
-        if (!$groupId) return $this;
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
@@ -123,7 +121,7 @@ class GroupAccessDeviceGetUserListRequest extends ComplexType implements Complex
      */
     public function getGroupId()
     {
-        return $this->groupId->getValue();
+        return ($this->groupId) ? $this->groupId->getValue() : null;
     }
 
     /**
@@ -131,7 +129,6 @@ class GroupAccessDeviceGetUserListRequest extends ComplexType implements Complex
      */
     public function setDeviceName($deviceName = null)
     {
-        if (!$deviceName) return $this;
         $this->deviceName = ($deviceName InstanceOf AccessDeviceName)
              ? $deviceName
              : new AccessDeviceName($deviceName);
@@ -145,7 +142,7 @@ class GroupAccessDeviceGetUserListRequest extends ComplexType implements Complex
      */
     public function getDeviceName()
     {
-        return $this->deviceName->getValue();
+        return ($this->deviceName) ? $this->deviceName->getValue() : null;
     }
 
     /**
@@ -153,7 +150,6 @@ class GroupAccessDeviceGetUserListRequest extends ComplexType implements Complex
      */
     public function setResponseSizeLimit($responseSizeLimit = null)
     {
-        if (!$responseSizeLimit) return $this;
         $this->responseSizeLimit = ($responseSizeLimit InstanceOf ResponseSizeLimit)
              ? $responseSizeLimit
              : new ResponseSizeLimit($responseSizeLimit);
@@ -167,7 +163,7 @@ class GroupAccessDeviceGetUserListRequest extends ComplexType implements Complex
      */
     public function getResponseSizeLimit()
     {
-        return $this->responseSizeLimit->getValue();
+        return ($this->responseSizeLimit) ? $this->responseSizeLimit->getValue() : null;
     }
 
     /**
@@ -175,7 +171,6 @@ class GroupAccessDeviceGetUserListRequest extends ComplexType implements Complex
      */
     public function setSearchCriteriaLinePortUserPart(SearchCriteriaLinePortUserPart $searchCriteriaLinePortUserPart = null)
     {
-        if (!$searchCriteriaLinePortUserPart) return $this;
         $this->searchCriteriaLinePortUserPart = ($searchCriteriaLinePortUserPart InstanceOf SearchCriteriaLinePortUserPart)
              ? $searchCriteriaLinePortUserPart
              : new SearchCriteriaLinePortUserPart($searchCriteriaLinePortUserPart);
@@ -197,7 +192,6 @@ class GroupAccessDeviceGetUserListRequest extends ComplexType implements Complex
      */
     public function setSearchCriteriaLinePortDomain(SearchCriteriaLinePortDomain $searchCriteriaLinePortDomain = null)
     {
-        if (!$searchCriteriaLinePortDomain) return $this;
         $this->searchCriteriaLinePortDomain = ($searchCriteriaLinePortDomain InstanceOf SearchCriteriaLinePortDomain)
              ? $searchCriteriaLinePortDomain
              : new SearchCriteriaLinePortDomain($searchCriteriaLinePortDomain);
@@ -219,7 +213,6 @@ class GroupAccessDeviceGetUserListRequest extends ComplexType implements Complex
      */
     public function setSearchCriteriaUserLastName(SearchCriteriaUserLastName $searchCriteriaUserLastName = null)
     {
-        if (!$searchCriteriaUserLastName) return $this;
         $this->searchCriteriaUserLastName = ($searchCriteriaUserLastName InstanceOf SearchCriteriaUserLastName)
              ? $searchCriteriaUserLastName
              : new SearchCriteriaUserLastName($searchCriteriaUserLastName);
@@ -241,7 +234,6 @@ class GroupAccessDeviceGetUserListRequest extends ComplexType implements Complex
      */
     public function setSearchCriteriaUserFirstName(SearchCriteriaUserFirstName $searchCriteriaUserFirstName = null)
     {
-        if (!$searchCriteriaUserFirstName) return $this;
         $this->searchCriteriaUserFirstName = ($searchCriteriaUserFirstName InstanceOf SearchCriteriaUserFirstName)
              ? $searchCriteriaUserFirstName
              : new SearchCriteriaUserFirstName($searchCriteriaUserFirstName);
@@ -263,7 +255,6 @@ class GroupAccessDeviceGetUserListRequest extends ComplexType implements Complex
      */
     public function setSearchCriteriaDn(SearchCriteriaDn $searchCriteriaDn = null)
     {
-        if (!$searchCriteriaDn) return $this;
         $this->searchCriteriaDn = ($searchCriteriaDn InstanceOf SearchCriteriaDn)
              ? $searchCriteriaDn
              : new SearchCriteriaDn($searchCriteriaDn);
@@ -285,7 +276,6 @@ class GroupAccessDeviceGetUserListRequest extends ComplexType implements Complex
      */
     public function setSearchCriteriaUserId(SearchCriteriaUserId $searchCriteriaUserId = null)
     {
-        if (!$searchCriteriaUserId) return $this;
         $this->searchCriteriaUserId = ($searchCriteriaUserId InstanceOf SearchCriteriaUserId)
              ? $searchCriteriaUserId
              : new SearchCriteriaUserId($searchCriteriaUserId);
@@ -307,7 +297,6 @@ class GroupAccessDeviceGetUserListRequest extends ComplexType implements Complex
      */
     public function setSearchCriteriaExactEndpointType(SearchCriteriaExactEndpointType $searchCriteriaExactEndpointType = null)
     {
-        if (!$searchCriteriaExactEndpointType) return $this;
         $this->searchCriteriaExactEndpointType = ($searchCriteriaExactEndpointType InstanceOf SearchCriteriaExactEndpointType)
              ? $searchCriteriaExactEndpointType
              : new SearchCriteriaExactEndpointType($searchCriteriaExactEndpointType);
@@ -329,7 +318,6 @@ class GroupAccessDeviceGetUserListRequest extends ComplexType implements Complex
      */
     public function setSearchCriteriaExactUserType(SearchCriteriaExactUserType $searchCriteriaExactUserType = null)
     {
-        if (!$searchCriteriaExactUserType) return $this;
         $this->searchCriteriaExactUserType = ($searchCriteriaExactUserType InstanceOf SearchCriteriaExactUserType)
              ? $searchCriteriaExactUserType
              : new SearchCriteriaExactUserType($searchCriteriaExactUserType);

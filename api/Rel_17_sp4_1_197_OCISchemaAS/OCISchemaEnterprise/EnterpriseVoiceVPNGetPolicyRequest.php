@@ -22,13 +22,13 @@ use Broadworks_OCIP\core\Client\Client;
 class EnterpriseVoiceVPNGetPolicyRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType        = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaEnterprise\EnterpriseVoiceVPNGetPolicyResponse';
-    public    $name                = 'EnterpriseVoiceVPNGetPolicyRequest';
-    protected $serviceProviderId   = null;
-    protected $locationDialingCode = null;
+    public    $name = 'EnterpriseVoiceVPNGetPolicyRequest';
+    protected $serviceProviderId;
+    protected $locationDialingCode;
 
     public function __construct(
-         $serviceProviderId,
-         $locationDialingCode
+         $serviceProviderId = '',
+         $locationDialingCode = ''
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setLocationDialingCode($locationDialingCode);
@@ -47,7 +47,6 @@ class EnterpriseVoiceVPNGetPolicyRequest extends ComplexType implements ComplexI
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
-        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
@@ -61,7 +60,7 @@ class EnterpriseVoiceVPNGetPolicyRequest extends ComplexType implements ComplexI
      */
     public function getServiceProviderId()
     {
-        return $this->serviceProviderId->getValue();
+        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
     }
 
     /**
@@ -69,7 +68,6 @@ class EnterpriseVoiceVPNGetPolicyRequest extends ComplexType implements ComplexI
      */
     public function setLocationDialingCode($locationDialingCode = null)
     {
-        if (!$locationDialingCode) return $this;
         $this->locationDialingCode = ($locationDialingCode InstanceOf EnterpriseVoiceVPNLocationCode)
              ? $locationDialingCode
              : new EnterpriseVoiceVPNLocationCode($locationDialingCode);
@@ -83,6 +81,6 @@ class EnterpriseVoiceVPNGetPolicyRequest extends ComplexType implements ComplexI
      */
     public function getLocationDialingCode()
     {
-        return $this->locationDialingCode->getValue();
+        return ($this->locationDialingCode) ? $this->locationDialingCode->getValue() : null;
     }
 }

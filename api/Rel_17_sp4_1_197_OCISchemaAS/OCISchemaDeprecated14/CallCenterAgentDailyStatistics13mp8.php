@@ -19,21 +19,21 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class CallCenterAgentDailyStatistics13mp8 extends ComplexType implements ComplexInterface
 {
-    public    $name                       = 'CallCenterAgentDailyStatistics13mp8';
-    protected $numberOfCallsReceived      = null;
-    protected $numberOfCallsNotAnswered   = null;
-    protected $averageTimePerCallSeconds  = null;
-    protected $timeInCallsSeconds         = null;
-    protected $timeLoggedOffSeconds       = null;
-    protected $timeLoggedOnAndIdleSeconds = null;
+    public    $name = 'CallCenterAgentDailyStatistics13mp8';
+    protected $numberOfCallsReceived;
+    protected $numberOfCallsNotAnswered;
+    protected $averageTimePerCallSeconds;
+    protected $timeInCallsSeconds;
+    protected $timeLoggedOffSeconds;
+    protected $timeLoggedOnAndIdleSeconds;
 
     public function __construct(
-         $numberOfCallsReceived,
-         $numberOfCallsNotAnswered,
-         $averageTimePerCallSeconds,
-         $timeInCallsSeconds,
-         $timeLoggedOffSeconds,
-         $timeLoggedOnAndIdleSeconds
+         $numberOfCallsReceived = '',
+         $numberOfCallsNotAnswered = '',
+         $averageTimePerCallSeconds = '',
+         $timeInCallsSeconds = '',
+         $timeLoggedOffSeconds = '',
+         $timeLoggedOnAndIdleSeconds = ''
     ) {
         $this->setNumberOfCallsReceived($numberOfCallsReceived);
         $this->setNumberOfCallsNotAnswered($numberOfCallsNotAnswered);
@@ -56,7 +56,6 @@ class CallCenterAgentDailyStatistics13mp8 extends ComplexType implements Complex
      */
     public function setNumberOfCallsReceived($numberOfCallsReceived = null)
     {
-        if (!$numberOfCallsReceived) return $this;
         $this->numberOfCallsReceived = new SimpleContent($numberOfCallsReceived);
         $this->numberOfCallsReceived->setName('numberOfCallsReceived');
         return $this;
@@ -68,7 +67,7 @@ class CallCenterAgentDailyStatistics13mp8 extends ComplexType implements Complex
      */
     public function getNumberOfCallsReceived()
     {
-        return $this->numberOfCallsReceived->getValue();
+        return ($this->numberOfCallsReceived) ? $this->numberOfCallsReceived->getValue() : null;
     }
 
     /**
@@ -76,7 +75,6 @@ class CallCenterAgentDailyStatistics13mp8 extends ComplexType implements Complex
      */
     public function setNumberOfCallsNotAnswered($numberOfCallsNotAnswered = null)
     {
-        if (!$numberOfCallsNotAnswered) return $this;
         $this->numberOfCallsNotAnswered = new SimpleContent($numberOfCallsNotAnswered);
         $this->numberOfCallsNotAnswered->setName('numberOfCallsNotAnswered');
         return $this;
@@ -88,7 +86,7 @@ class CallCenterAgentDailyStatistics13mp8 extends ComplexType implements Complex
      */
     public function getNumberOfCallsNotAnswered()
     {
-        return $this->numberOfCallsNotAnswered->getValue();
+        return ($this->numberOfCallsNotAnswered) ? $this->numberOfCallsNotAnswered->getValue() : null;
     }
 
     /**
@@ -96,7 +94,6 @@ class CallCenterAgentDailyStatistics13mp8 extends ComplexType implements Complex
      */
     public function setAverageTimePerCallSeconds($averageTimePerCallSeconds = null)
     {
-        if (!$averageTimePerCallSeconds) return $this;
         $this->averageTimePerCallSeconds = new SimpleContent($averageTimePerCallSeconds);
         $this->averageTimePerCallSeconds->setName('averageTimePerCallSeconds');
         return $this;
@@ -108,7 +105,7 @@ class CallCenterAgentDailyStatistics13mp8 extends ComplexType implements Complex
      */
     public function getAverageTimePerCallSeconds()
     {
-        return $this->averageTimePerCallSeconds->getValue();
+        return ($this->averageTimePerCallSeconds) ? $this->averageTimePerCallSeconds->getValue() : null;
     }
 
     /**
@@ -116,7 +113,6 @@ class CallCenterAgentDailyStatistics13mp8 extends ComplexType implements Complex
      */
     public function setTimeInCallsSeconds($timeInCallsSeconds = null)
     {
-        if (!$timeInCallsSeconds) return $this;
         $this->timeInCallsSeconds = new SimpleContent($timeInCallsSeconds);
         $this->timeInCallsSeconds->setName('timeInCallsSeconds');
         return $this;
@@ -128,7 +124,7 @@ class CallCenterAgentDailyStatistics13mp8 extends ComplexType implements Complex
      */
     public function getTimeInCallsSeconds()
     {
-        return $this->timeInCallsSeconds->getValue();
+        return ($this->timeInCallsSeconds) ? $this->timeInCallsSeconds->getValue() : null;
     }
 
     /**
@@ -136,7 +132,6 @@ class CallCenterAgentDailyStatistics13mp8 extends ComplexType implements Complex
      */
     public function setTimeLoggedOffSeconds($timeLoggedOffSeconds = null)
     {
-        if (!$timeLoggedOffSeconds) return $this;
         $this->timeLoggedOffSeconds = new SimpleContent($timeLoggedOffSeconds);
         $this->timeLoggedOffSeconds->setName('timeLoggedOffSeconds');
         return $this;
@@ -148,7 +143,7 @@ class CallCenterAgentDailyStatistics13mp8 extends ComplexType implements Complex
      */
     public function getTimeLoggedOffSeconds()
     {
-        return $this->timeLoggedOffSeconds->getValue();
+        return ($this->timeLoggedOffSeconds) ? $this->timeLoggedOffSeconds->getValue() : null;
     }
 
     /**
@@ -156,7 +151,6 @@ class CallCenterAgentDailyStatistics13mp8 extends ComplexType implements Complex
      */
     public function setTimeLoggedOnAndIdleSeconds($timeLoggedOnAndIdleSeconds = null)
     {
-        if (!$timeLoggedOnAndIdleSeconds) return $this;
         $this->timeLoggedOnAndIdleSeconds = new SimpleContent($timeLoggedOnAndIdleSeconds);
         $this->timeLoggedOnAndIdleSeconds->setName('timeLoggedOnAndIdleSeconds');
         return $this;
@@ -168,6 +162,6 @@ class CallCenterAgentDailyStatistics13mp8 extends ComplexType implements Complex
      */
     public function getTimeLoggedOnAndIdleSeconds()
     {
-        return $this->timeLoggedOnAndIdleSeconds->getValue();
+        return ($this->timeLoggedOnAndIdleSeconds) ? $this->timeLoggedOnAndIdleSeconds->getValue() : null;
     }
 }

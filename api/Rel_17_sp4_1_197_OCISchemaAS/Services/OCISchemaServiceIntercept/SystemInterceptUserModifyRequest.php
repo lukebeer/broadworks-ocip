@@ -20,8 +20,8 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemInterceptUserModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                        = 'SystemInterceptUserModifyRequest';
-    protected $emergencyAndRepairIntercept = null;
+    public    $name = 'SystemInterceptUserModifyRequest';
+    protected $emergencyAndRepairIntercept;
 
     public function __construct(
          $emergencyAndRepairIntercept = null
@@ -42,7 +42,6 @@ class SystemInterceptUserModifyRequest extends ComplexType implements ComplexInt
      */
     public function setEmergencyAndRepairIntercept($emergencyAndRepairIntercept = null)
     {
-        if (!$emergencyAndRepairIntercept) return $this;
         $this->emergencyAndRepairIntercept = new PrimitiveType($emergencyAndRepairIntercept);
         $this->emergencyAndRepairIntercept->setName('emergencyAndRepairIntercept');
         return $this;
@@ -54,6 +53,6 @@ class SystemInterceptUserModifyRequest extends ComplexType implements ComplexInt
      */
     public function getEmergencyAndRepairIntercept()
     {
-        return $this->emergencyAndRepairIntercept->getValue();
+        return ($this->emergencyAndRepairIntercept) ? $this->emergencyAndRepairIntercept->getValue() : null;
     }
 }

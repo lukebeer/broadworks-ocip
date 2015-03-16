@@ -23,13 +23,13 @@ use Broadworks_OCIP\core\Client\Client;
 class UserInstantConferencingGetConferenceDocumentListRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType  = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing\UserInstantConferencingGetConferenceDocumentListResponse';
-    public    $name          = 'UserInstantConferencingGetConferenceDocumentListRequest';
-    protected $userId        = null;
-    protected $conferenceKey = null;
+    public    $name = 'UserInstantConferencingGetConferenceDocumentListRequest';
+    protected $userId;
+    protected $conferenceKey;
 
     public function __construct(
-         $userId,
-         InstantConferencingConferenceKey $conferenceKey
+         $userId = '',
+         InstantConferencingConferenceKey $conferenceKey = ''
     ) {
         $this->setUserId($userId);
         $this->setConferenceKey($conferenceKey);
@@ -48,7 +48,6 @@ class UserInstantConferencingGetConferenceDocumentListRequest extends ComplexTyp
      */
     public function setUserId($userId = null)
     {
-        if (!$userId) return $this;
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
@@ -62,7 +61,7 @@ class UserInstantConferencingGetConferenceDocumentListRequest extends ComplexTyp
      */
     public function getUserId()
     {
-        return $this->userId->getValue();
+        return ($this->userId) ? $this->userId->getValue() : null;
     }
 
     /**
@@ -70,8 +69,9 @@ class UserInstantConferencingGetConferenceDocumentListRequest extends ComplexTyp
      */
     public function setConferenceKey(InstantConferencingConferenceKey $conferenceKey = null)
     {
-        if (!$conferenceKey) return $this;
-        $this->conferenceKey = $conferenceKey;
+        $this->conferenceKey = ($conferenceKey InstanceOf InstantConferencingConferenceKey)
+             ? $conferenceKey
+             : new InstantConferencingConferenceKey($conferenceKey);
         $this->conferenceKey->setName('conferenceKey');
         return $this;
     }

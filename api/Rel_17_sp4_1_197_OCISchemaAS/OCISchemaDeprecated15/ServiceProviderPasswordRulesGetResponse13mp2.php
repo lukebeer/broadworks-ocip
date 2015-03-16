@@ -32,27 +32,27 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderPasswordRulesGetResponse13mp2 extends ComplexType implements ComplexInterface
 {
-    public    $name                                   = 'ServiceProviderPasswordRulesGetResponse13mp2';
-    protected $serviceProviderId                      = null;
-    protected $rulesApplyTo                           = null;
-    protected $allowWebAddExternalAuthenticationUsers = null;
-    protected $disallowUserId                         = null;
-    protected $disallowOldPassword                    = null;
-    protected $disallowReversedOldPassword            = null;
-    protected $restrictMinDigits                      = null;
-    protected $minDigits                              = null;
-    protected $restrictMinUpperCaseLetters            = null;
-    protected $minUpperCaseLetters                    = null;
-    protected $restrictMinLowerCaseLetters            = null;
-    protected $minLowerCaseLetters                    = null;
-    protected $restrictMinNonAlphanumericCharacters   = null;
-    protected $minNonAlphanumericCharacters           = null;
-    protected $minLength                              = null;
-    protected $maxFailedLoginAttempts                 = null;
-    protected $passwordExpiresDays                    = null;
-    protected $sendLoginDisabledNotifyEmail           = null;
-    protected $loginDisabledNotifyEmailAddress        = null;
-    protected $disallowRulesModification              = null;
+    public    $name = 'ServiceProviderPasswordRulesGetResponse13mp2';
+    protected $serviceProviderId;
+    protected $rulesApplyTo;
+    protected $allowWebAddExternalAuthenticationUsers;
+    protected $disallowUserId;
+    protected $disallowOldPassword;
+    protected $disallowReversedOldPassword;
+    protected $restrictMinDigits;
+    protected $minDigits;
+    protected $restrictMinUpperCaseLetters;
+    protected $minUpperCaseLetters;
+    protected $restrictMinLowerCaseLetters;
+    protected $minLowerCaseLetters;
+    protected $restrictMinNonAlphanumericCharacters;
+    protected $minNonAlphanumericCharacters;
+    protected $minLength;
+    protected $maxFailedLoginAttempts;
+    protected $passwordExpiresDays;
+    protected $sendLoginDisabledNotifyEmail;
+    protected $loginDisabledNotifyEmailAddress;
+    protected $disallowRulesModification;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15\ServiceProviderPasswordRulesGetResponse13mp2 $response
@@ -67,7 +67,6 @@ class ServiceProviderPasswordRulesGetResponse13mp2 extends ComplexType implement
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
-        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
@@ -81,7 +80,7 @@ class ServiceProviderPasswordRulesGetResponse13mp2 extends ComplexType implement
      */
     public function getServiceProviderId()
     {
-        return $this->serviceProviderId->getValue();
+        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
     }
 
     /**
@@ -89,7 +88,6 @@ class ServiceProviderPasswordRulesGetResponse13mp2 extends ComplexType implement
      */
     public function setRulesApplyTo($rulesApplyTo = null)
     {
-        if (!$rulesApplyTo) return $this;
         $this->rulesApplyTo = ($rulesApplyTo InstanceOf ServiceProviderPasswordRulesApplyTo)
              ? $rulesApplyTo
              : new ServiceProviderPasswordRulesApplyTo($rulesApplyTo);
@@ -103,7 +101,7 @@ class ServiceProviderPasswordRulesGetResponse13mp2 extends ComplexType implement
      */
     public function getRulesApplyTo()
     {
-        return $this->rulesApplyTo->getValue();
+        return ($this->rulesApplyTo) ? $this->rulesApplyTo->getValue() : null;
     }
 
     /**
@@ -111,7 +109,6 @@ class ServiceProviderPasswordRulesGetResponse13mp2 extends ComplexType implement
      */
     public function setAllowWebAddExternalAuthenticationUsers($allowWebAddExternalAuthenticationUsers = null)
     {
-        if (!$allowWebAddExternalAuthenticationUsers) return $this;
         $this->allowWebAddExternalAuthenticationUsers = new PrimitiveType($allowWebAddExternalAuthenticationUsers);
         $this->allowWebAddExternalAuthenticationUsers->setName('allowWebAddExternalAuthenticationUsers');
         return $this;
@@ -123,7 +120,7 @@ class ServiceProviderPasswordRulesGetResponse13mp2 extends ComplexType implement
      */
     public function getAllowWebAddExternalAuthenticationUsers()
     {
-        return $this->allowWebAddExternalAuthenticationUsers->getValue();
+        return ($this->allowWebAddExternalAuthenticationUsers) ? $this->allowWebAddExternalAuthenticationUsers->getValue() : null;
     }
 
     /**
@@ -131,7 +128,6 @@ class ServiceProviderPasswordRulesGetResponse13mp2 extends ComplexType implement
      */
     public function setDisallowUserId($disallowUserId = null)
     {
-        if (!$disallowUserId) return $this;
         $this->disallowUserId = new PrimitiveType($disallowUserId);
         $this->disallowUserId->setName('disallowUserId');
         return $this;
@@ -143,7 +139,7 @@ class ServiceProviderPasswordRulesGetResponse13mp2 extends ComplexType implement
      */
     public function getDisallowUserId()
     {
-        return $this->disallowUserId->getValue();
+        return ($this->disallowUserId) ? $this->disallowUserId->getValue() : null;
     }
 
     /**
@@ -151,7 +147,6 @@ class ServiceProviderPasswordRulesGetResponse13mp2 extends ComplexType implement
      */
     public function setDisallowOldPassword($disallowOldPassword = null)
     {
-        if (!$disallowOldPassword) return $this;
         $this->disallowOldPassword = new PrimitiveType($disallowOldPassword);
         $this->disallowOldPassword->setName('disallowOldPassword');
         return $this;
@@ -163,7 +158,7 @@ class ServiceProviderPasswordRulesGetResponse13mp2 extends ComplexType implement
      */
     public function getDisallowOldPassword()
     {
-        return $this->disallowOldPassword->getValue();
+        return ($this->disallowOldPassword) ? $this->disallowOldPassword->getValue() : null;
     }
 
     /**
@@ -171,7 +166,6 @@ class ServiceProviderPasswordRulesGetResponse13mp2 extends ComplexType implement
      */
     public function setDisallowReversedOldPassword($disallowReversedOldPassword = null)
     {
-        if (!$disallowReversedOldPassword) return $this;
         $this->disallowReversedOldPassword = new PrimitiveType($disallowReversedOldPassword);
         $this->disallowReversedOldPassword->setName('disallowReversedOldPassword');
         return $this;
@@ -183,7 +177,7 @@ class ServiceProviderPasswordRulesGetResponse13mp2 extends ComplexType implement
      */
     public function getDisallowReversedOldPassword()
     {
-        return $this->disallowReversedOldPassword->getValue();
+        return ($this->disallowReversedOldPassword) ? $this->disallowReversedOldPassword->getValue() : null;
     }
 
     /**
@@ -191,7 +185,6 @@ class ServiceProviderPasswordRulesGetResponse13mp2 extends ComplexType implement
      */
     public function setRestrictMinDigits($restrictMinDigits = null)
     {
-        if (!$restrictMinDigits) return $this;
         $this->restrictMinDigits = new PrimitiveType($restrictMinDigits);
         $this->restrictMinDigits->setName('restrictMinDigits');
         return $this;
@@ -203,7 +196,7 @@ class ServiceProviderPasswordRulesGetResponse13mp2 extends ComplexType implement
      */
     public function getRestrictMinDigits()
     {
-        return $this->restrictMinDigits->getValue();
+        return ($this->restrictMinDigits) ? $this->restrictMinDigits->getValue() : null;
     }
 
     /**
@@ -211,7 +204,6 @@ class ServiceProviderPasswordRulesGetResponse13mp2 extends ComplexType implement
      */
     public function setMinDigits($minDigits = null)
     {
-        if (!$minDigits) return $this;
         $this->minDigits = ($minDigits InstanceOf PasswordMinDigits)
              ? $minDigits
              : new PasswordMinDigits($minDigits);
@@ -225,7 +217,7 @@ class ServiceProviderPasswordRulesGetResponse13mp2 extends ComplexType implement
      */
     public function getMinDigits()
     {
-        return $this->minDigits->getValue();
+        return ($this->minDigits) ? $this->minDigits->getValue() : null;
     }
 
     /**
@@ -233,7 +225,6 @@ class ServiceProviderPasswordRulesGetResponse13mp2 extends ComplexType implement
      */
     public function setRestrictMinUpperCaseLetters($restrictMinUpperCaseLetters = null)
     {
-        if (!$restrictMinUpperCaseLetters) return $this;
         $this->restrictMinUpperCaseLetters = new PrimitiveType($restrictMinUpperCaseLetters);
         $this->restrictMinUpperCaseLetters->setName('restrictMinUpperCaseLetters');
         return $this;
@@ -245,7 +236,7 @@ class ServiceProviderPasswordRulesGetResponse13mp2 extends ComplexType implement
      */
     public function getRestrictMinUpperCaseLetters()
     {
-        return $this->restrictMinUpperCaseLetters->getValue();
+        return ($this->restrictMinUpperCaseLetters) ? $this->restrictMinUpperCaseLetters->getValue() : null;
     }
 
     /**
@@ -253,7 +244,6 @@ class ServiceProviderPasswordRulesGetResponse13mp2 extends ComplexType implement
      */
     public function setMinUpperCaseLetters($minUpperCaseLetters = null)
     {
-        if (!$minUpperCaseLetters) return $this;
         $this->minUpperCaseLetters = ($minUpperCaseLetters InstanceOf PasswordMinUpperCaseLetters)
              ? $minUpperCaseLetters
              : new PasswordMinUpperCaseLetters($minUpperCaseLetters);
@@ -267,7 +257,7 @@ class ServiceProviderPasswordRulesGetResponse13mp2 extends ComplexType implement
      */
     public function getMinUpperCaseLetters()
     {
-        return $this->minUpperCaseLetters->getValue();
+        return ($this->minUpperCaseLetters) ? $this->minUpperCaseLetters->getValue() : null;
     }
 
     /**
@@ -275,7 +265,6 @@ class ServiceProviderPasswordRulesGetResponse13mp2 extends ComplexType implement
      */
     public function setRestrictMinLowerCaseLetters($restrictMinLowerCaseLetters = null)
     {
-        if (!$restrictMinLowerCaseLetters) return $this;
         $this->restrictMinLowerCaseLetters = new PrimitiveType($restrictMinLowerCaseLetters);
         $this->restrictMinLowerCaseLetters->setName('restrictMinLowerCaseLetters');
         return $this;
@@ -287,7 +276,7 @@ class ServiceProviderPasswordRulesGetResponse13mp2 extends ComplexType implement
      */
     public function getRestrictMinLowerCaseLetters()
     {
-        return $this->restrictMinLowerCaseLetters->getValue();
+        return ($this->restrictMinLowerCaseLetters) ? $this->restrictMinLowerCaseLetters->getValue() : null;
     }
 
     /**
@@ -295,7 +284,6 @@ class ServiceProviderPasswordRulesGetResponse13mp2 extends ComplexType implement
      */
     public function setMinLowerCaseLetters($minLowerCaseLetters = null)
     {
-        if (!$minLowerCaseLetters) return $this;
         $this->minLowerCaseLetters = ($minLowerCaseLetters InstanceOf PasswordMinLowerCaseLetters)
              ? $minLowerCaseLetters
              : new PasswordMinLowerCaseLetters($minLowerCaseLetters);
@@ -309,7 +297,7 @@ class ServiceProviderPasswordRulesGetResponse13mp2 extends ComplexType implement
      */
     public function getMinLowerCaseLetters()
     {
-        return $this->minLowerCaseLetters->getValue();
+        return ($this->minLowerCaseLetters) ? $this->minLowerCaseLetters->getValue() : null;
     }
 
     /**
@@ -317,7 +305,6 @@ class ServiceProviderPasswordRulesGetResponse13mp2 extends ComplexType implement
      */
     public function setRestrictMinNonAlphanumericCharacters($restrictMinNonAlphanumericCharacters = null)
     {
-        if (!$restrictMinNonAlphanumericCharacters) return $this;
         $this->restrictMinNonAlphanumericCharacters = new PrimitiveType($restrictMinNonAlphanumericCharacters);
         $this->restrictMinNonAlphanumericCharacters->setName('restrictMinNonAlphanumericCharacters');
         return $this;
@@ -329,7 +316,7 @@ class ServiceProviderPasswordRulesGetResponse13mp2 extends ComplexType implement
      */
     public function getRestrictMinNonAlphanumericCharacters()
     {
-        return $this->restrictMinNonAlphanumericCharacters->getValue();
+        return ($this->restrictMinNonAlphanumericCharacters) ? $this->restrictMinNonAlphanumericCharacters->getValue() : null;
     }
 
     /**
@@ -337,7 +324,6 @@ class ServiceProviderPasswordRulesGetResponse13mp2 extends ComplexType implement
      */
     public function setMinNonAlphanumericCharacters($minNonAlphanumericCharacters = null)
     {
-        if (!$minNonAlphanumericCharacters) return $this;
         $this->minNonAlphanumericCharacters = ($minNonAlphanumericCharacters InstanceOf PasswordMinNonAlphanumericCharacters)
              ? $minNonAlphanumericCharacters
              : new PasswordMinNonAlphanumericCharacters($minNonAlphanumericCharacters);
@@ -351,7 +337,7 @@ class ServiceProviderPasswordRulesGetResponse13mp2 extends ComplexType implement
      */
     public function getMinNonAlphanumericCharacters()
     {
-        return $this->minNonAlphanumericCharacters->getValue();
+        return ($this->minNonAlphanumericCharacters) ? $this->minNonAlphanumericCharacters->getValue() : null;
     }
 
     /**
@@ -359,7 +345,6 @@ class ServiceProviderPasswordRulesGetResponse13mp2 extends ComplexType implement
      */
     public function setMinLength($minLength = null)
     {
-        if (!$minLength) return $this;
         $this->minLength = ($minLength InstanceOf PasswordMinLength)
              ? $minLength
              : new PasswordMinLength($minLength);
@@ -373,7 +358,7 @@ class ServiceProviderPasswordRulesGetResponse13mp2 extends ComplexType implement
      */
     public function getMinLength()
     {
-        return $this->minLength->getValue();
+        return ($this->minLength) ? $this->minLength->getValue() : null;
     }
 
     /**
@@ -381,7 +366,6 @@ class ServiceProviderPasswordRulesGetResponse13mp2 extends ComplexType implement
      */
     public function setMaxFailedLoginAttempts($maxFailedLoginAttempts = null)
     {
-        if (!$maxFailedLoginAttempts) return $this;
         $this->maxFailedLoginAttempts = ($maxFailedLoginAttempts InstanceOf MaxFailedLoginAttempts)
              ? $maxFailedLoginAttempts
              : new MaxFailedLoginAttempts($maxFailedLoginAttempts);
@@ -395,7 +379,7 @@ class ServiceProviderPasswordRulesGetResponse13mp2 extends ComplexType implement
      */
     public function getMaxFailedLoginAttempts()
     {
-        return $this->maxFailedLoginAttempts->getValue();
+        return ($this->maxFailedLoginAttempts) ? $this->maxFailedLoginAttempts->getValue() : null;
     }
 
     /**
@@ -403,7 +387,6 @@ class ServiceProviderPasswordRulesGetResponse13mp2 extends ComplexType implement
      */
     public function setPasswordExpiresDays($passwordExpiresDays = null)
     {
-        if (!$passwordExpiresDays) return $this;
         $this->passwordExpiresDays = ($passwordExpiresDays InstanceOf PasswordExpiresDays)
              ? $passwordExpiresDays
              : new PasswordExpiresDays($passwordExpiresDays);
@@ -417,7 +400,7 @@ class ServiceProviderPasswordRulesGetResponse13mp2 extends ComplexType implement
      */
     public function getPasswordExpiresDays()
     {
-        return $this->passwordExpiresDays->getValue();
+        return ($this->passwordExpiresDays) ? $this->passwordExpiresDays->getValue() : null;
     }
 
     /**
@@ -425,7 +408,6 @@ class ServiceProviderPasswordRulesGetResponse13mp2 extends ComplexType implement
      */
     public function setSendLoginDisabledNotifyEmail($sendLoginDisabledNotifyEmail = null)
     {
-        if (!$sendLoginDisabledNotifyEmail) return $this;
         $this->sendLoginDisabledNotifyEmail = new PrimitiveType($sendLoginDisabledNotifyEmail);
         $this->sendLoginDisabledNotifyEmail->setName('sendLoginDisabledNotifyEmail');
         return $this;
@@ -437,7 +419,7 @@ class ServiceProviderPasswordRulesGetResponse13mp2 extends ComplexType implement
      */
     public function getSendLoginDisabledNotifyEmail()
     {
-        return $this->sendLoginDisabledNotifyEmail->getValue();
+        return ($this->sendLoginDisabledNotifyEmail) ? $this->sendLoginDisabledNotifyEmail->getValue() : null;
     }
 
     /**
@@ -445,7 +427,6 @@ class ServiceProviderPasswordRulesGetResponse13mp2 extends ComplexType implement
      */
     public function setLoginDisabledNotifyEmailAddress($loginDisabledNotifyEmailAddress = null)
     {
-        if (!$loginDisabledNotifyEmailAddress) return $this;
         $this->loginDisabledNotifyEmailAddress = ($loginDisabledNotifyEmailAddress InstanceOf EmailAddress)
              ? $loginDisabledNotifyEmailAddress
              : new EmailAddress($loginDisabledNotifyEmailAddress);
@@ -459,7 +440,7 @@ class ServiceProviderPasswordRulesGetResponse13mp2 extends ComplexType implement
      */
     public function getLoginDisabledNotifyEmailAddress()
     {
-        return $this->loginDisabledNotifyEmailAddress->getValue();
+        return ($this->loginDisabledNotifyEmailAddress) ? $this->loginDisabledNotifyEmailAddress->getValue() : null;
     }
 
     /**
@@ -467,7 +448,6 @@ class ServiceProviderPasswordRulesGetResponse13mp2 extends ComplexType implement
      */
     public function setDisallowRulesModification($disallowRulesModification = null)
     {
-        if (!$disallowRulesModification) return $this;
         $this->disallowRulesModification = new PrimitiveType($disallowRulesModification);
         $this->disallowRulesModification->setName('disallowRulesModification');
         return $this;
@@ -479,6 +459,6 @@ class ServiceProviderPasswordRulesGetResponse13mp2 extends ComplexType implement
      */
     public function getDisallowRulesModification()
     {
-        return $this->disallowRulesModification->getValue();
+        return ($this->disallowRulesModification) ? $this->disallowRulesModification->getValue() : null;
     }
 }

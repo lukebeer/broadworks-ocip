@@ -27,16 +27,16 @@ use Broadworks_OCIP\core\Client\Client;
 class GroupRoutePointGetInstanceListRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType                 = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceRoutePoint\GroupRoutePointGetInstanceListResponse';
-    public    $name                         = 'GroupRoutePointGetInstanceListRequest';
-    protected $serviceProviderId            = null;
-    protected $groupId                      = null;
-    protected $groupDepartmentName          = null;
-    protected $responseSizeLimit            = null;
-    protected $searchCriteriaRoutePointName = null;
+    public    $name = 'GroupRoutePointGetInstanceListRequest';
+    protected $serviceProviderId;
+    protected $groupId;
+    protected $groupDepartmentName;
+    protected $responseSizeLimit;
+    protected $searchCriteriaRoutePointName;
 
     public function __construct(
-         $serviceProviderId,
-         $groupId,
+         $serviceProviderId = '',
+         $groupId = '',
          $groupDepartmentName = null,
          $responseSizeLimit = null,
          SearchCriteriaRoutePointName $searchCriteriaRoutePointName = null
@@ -61,7 +61,6 @@ class GroupRoutePointGetInstanceListRequest extends ComplexType implements Compl
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
-        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
@@ -75,7 +74,7 @@ class GroupRoutePointGetInstanceListRequest extends ComplexType implements Compl
      */
     public function getServiceProviderId()
     {
-        return $this->serviceProviderId->getValue();
+        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
     }
 
     /**
@@ -83,7 +82,6 @@ class GroupRoutePointGetInstanceListRequest extends ComplexType implements Compl
      */
     public function setGroupId($groupId = null)
     {
-        if (!$groupId) return $this;
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
@@ -97,7 +95,7 @@ class GroupRoutePointGetInstanceListRequest extends ComplexType implements Compl
      */
     public function getGroupId()
     {
-        return $this->groupId->getValue();
+        return ($this->groupId) ? $this->groupId->getValue() : null;
     }
 
     /**
@@ -105,7 +103,6 @@ class GroupRoutePointGetInstanceListRequest extends ComplexType implements Compl
      */
     public function setGroupDepartmentName($groupDepartmentName = null)
     {
-        if (!$groupDepartmentName) return $this;
         $this->groupDepartmentName = ($groupDepartmentName InstanceOf DepartmentName)
              ? $groupDepartmentName
              : new DepartmentName($groupDepartmentName);
@@ -119,7 +116,7 @@ class GroupRoutePointGetInstanceListRequest extends ComplexType implements Compl
      */
     public function getGroupDepartmentName()
     {
-        return $this->groupDepartmentName->getValue();
+        return ($this->groupDepartmentName) ? $this->groupDepartmentName->getValue() : null;
     }
 
     /**
@@ -127,7 +124,6 @@ class GroupRoutePointGetInstanceListRequest extends ComplexType implements Compl
      */
     public function setResponseSizeLimit($responseSizeLimit = null)
     {
-        if (!$responseSizeLimit) return $this;
         $this->responseSizeLimit = ($responseSizeLimit InstanceOf ResponseSizeLimit)
              ? $responseSizeLimit
              : new ResponseSizeLimit($responseSizeLimit);
@@ -141,7 +137,7 @@ class GroupRoutePointGetInstanceListRequest extends ComplexType implements Compl
      */
     public function getResponseSizeLimit()
     {
-        return $this->responseSizeLimit->getValue();
+        return ($this->responseSizeLimit) ? $this->responseSizeLimit->getValue() : null;
     }
 
     /**
@@ -149,7 +145,6 @@ class GroupRoutePointGetInstanceListRequest extends ComplexType implements Compl
      */
     public function setSearchCriteriaRoutePointName(SearchCriteriaRoutePointName $searchCriteriaRoutePointName = null)
     {
-        if (!$searchCriteriaRoutePointName) return $this;
         $this->searchCriteriaRoutePointName = ($searchCriteriaRoutePointName InstanceOf SearchCriteriaRoutePointName)
              ? $searchCriteriaRoutePointName
              : new SearchCriteriaRoutePointName($searchCriteriaRoutePointName);

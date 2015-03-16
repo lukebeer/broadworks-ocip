@@ -23,15 +23,15 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupCallCenterEnhancedReportingBrandingModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name              = 'GroupCallCenterEnhancedReportingBrandingModifyRequest';
-    protected $serviceProviderId = null;
-    protected $groupId           = null;
-    protected $brandingChoice    = null;
-    protected $brandingFile      = null;
+    public    $name = 'GroupCallCenterEnhancedReportingBrandingModifyRequest';
+    protected $serviceProviderId;
+    protected $groupId;
+    protected $brandingChoice;
+    protected $brandingFile;
 
     public function __construct(
-         $serviceProviderId,
-         $groupId,
+         $serviceProviderId = '',
+         $groupId = '',
          $brandingChoice = null,
          LabeledFileResource $brandingFile = null
     ) {
@@ -54,7 +54,6 @@ class GroupCallCenterEnhancedReportingBrandingModifyRequest extends ComplexType 
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
-        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
@@ -68,7 +67,7 @@ class GroupCallCenterEnhancedReportingBrandingModifyRequest extends ComplexType 
      */
     public function getServiceProviderId()
     {
-        return $this->serviceProviderId->getValue();
+        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
     }
 
     /**
@@ -76,7 +75,6 @@ class GroupCallCenterEnhancedReportingBrandingModifyRequest extends ComplexType 
      */
     public function setGroupId($groupId = null)
     {
-        if (!$groupId) return $this;
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
@@ -90,7 +88,7 @@ class GroupCallCenterEnhancedReportingBrandingModifyRequest extends ComplexType 
      */
     public function getGroupId()
     {
-        return $this->groupId->getValue();
+        return ($this->groupId) ? $this->groupId->getValue() : null;
     }
 
     /**
@@ -98,7 +96,6 @@ class GroupCallCenterEnhancedReportingBrandingModifyRequest extends ComplexType 
      */
     public function setBrandingChoice($brandingChoice = null)
     {
-        if (!$brandingChoice) return $this;
         $this->brandingChoice = ($brandingChoice InstanceOf CallCenterEnhancedReportingBrandingChoice)
              ? $brandingChoice
              : new CallCenterEnhancedReportingBrandingChoice($brandingChoice);
@@ -112,7 +109,7 @@ class GroupCallCenterEnhancedReportingBrandingModifyRequest extends ComplexType 
      */
     public function getBrandingChoice()
     {
-        return $this->brandingChoice->getValue();
+        return ($this->brandingChoice) ? $this->brandingChoice->getValue() : null;
     }
 
     /**
@@ -120,8 +117,9 @@ class GroupCallCenterEnhancedReportingBrandingModifyRequest extends ComplexType 
      */
     public function setBrandingFile(LabeledFileResource $brandingFile = null)
     {
-        if (!$brandingFile) return $this;
-        $this->brandingFile = $brandingFile;
+        $this->brandingFile = ($brandingFile InstanceOf LabeledFileResource)
+             ? $brandingFile
+             : new LabeledFileResource($brandingFile);
         $this->brandingFile->setName('brandingFile');
         return $this;
     }

@@ -23,10 +23,10 @@ class SystemNetworkClassOfServiceGetRequest17 extends ComplexType implements Com
 {
     public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemNetworkClassOfServiceGetResponse17';
     public    $name = 'SystemNetworkClassOfServiceGetRequest17';
-    protected $name = null;
+    protected $name;
 
     public function __construct(
-         $name
+         $name = ''
     ) {
         $this->setName($name);
     }
@@ -44,7 +44,6 @@ class SystemNetworkClassOfServiceGetRequest17 extends ComplexType implements Com
      */
     public function setName($name = null)
     {
-        if (!$name) return $this;
         $this->name = ($name InstanceOf NetworkClassOfServiceName)
              ? $name
              : new NetworkClassOfServiceName($name);
@@ -58,6 +57,6 @@ class SystemNetworkClassOfServiceGetRequest17 extends ComplexType implements Com
      */
     public function getName()
     {
-        return $this->name->getValue();
+        return ($this->name) ? $this->name->getValue() : null;
     }
 }

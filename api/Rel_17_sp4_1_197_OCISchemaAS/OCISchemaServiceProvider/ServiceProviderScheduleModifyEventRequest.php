@@ -23,19 +23,19 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderScheduleModifyEventRequest extends ComplexType implements ComplexInterface
 {
-    public    $name              = 'ServiceProviderScheduleModifyEventRequest';
-    protected $serviceProviderId = null;
-    protected $scheduleKey       = null;
-    protected $eventName         = null;
-    protected $newEventName      = null;
-    protected $startDate         = null;
-    protected $endDate           = null;
-    protected $recurrence        = null;
+    public    $name = 'ServiceProviderScheduleModifyEventRequest';
+    protected $serviceProviderId;
+    protected $scheduleKey;
+    protected $eventName;
+    protected $newEventName;
+    protected $startDate;
+    protected $endDate;
+    protected $recurrence;
 
     public function __construct(
-         $serviceProviderId,
-         ScheduleKey $scheduleKey,
-         $eventName,
+         $serviceProviderId = '',
+         ScheduleKey $scheduleKey = '',
+         $eventName = '',
          $newEventName = null,
          $startDate = null,
          $endDate = null,
@@ -63,7 +63,6 @@ class ServiceProviderScheduleModifyEventRequest extends ComplexType implements C
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
-        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
@@ -77,7 +76,7 @@ class ServiceProviderScheduleModifyEventRequest extends ComplexType implements C
      */
     public function getServiceProviderId()
     {
-        return $this->serviceProviderId->getValue();
+        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
     }
 
     /**
@@ -85,8 +84,9 @@ class ServiceProviderScheduleModifyEventRequest extends ComplexType implements C
      */
     public function setScheduleKey(ScheduleKey $scheduleKey = null)
     {
-        if (!$scheduleKey) return $this;
-        $this->scheduleKey = $scheduleKey;
+        $this->scheduleKey = ($scheduleKey InstanceOf ScheduleKey)
+             ? $scheduleKey
+             : new ScheduleKey($scheduleKey);
         $this->scheduleKey->setName('scheduleKey');
         return $this;
     }
@@ -105,7 +105,6 @@ class ServiceProviderScheduleModifyEventRequest extends ComplexType implements C
      */
     public function setEventName($eventName = null)
     {
-        if (!$eventName) return $this;
         $this->eventName = ($eventName InstanceOf EventName)
              ? $eventName
              : new EventName($eventName);
@@ -119,7 +118,7 @@ class ServiceProviderScheduleModifyEventRequest extends ComplexType implements C
      */
     public function getEventName()
     {
-        return $this->eventName->getValue();
+        return ($this->eventName) ? $this->eventName->getValue() : null;
     }
 
     /**
@@ -127,7 +126,6 @@ class ServiceProviderScheduleModifyEventRequest extends ComplexType implements C
      */
     public function setNewEventName($newEventName = null)
     {
-        if (!$newEventName) return $this;
         $this->newEventName = ($newEventName InstanceOf EventName)
              ? $newEventName
              : new EventName($newEventName);
@@ -141,7 +139,7 @@ class ServiceProviderScheduleModifyEventRequest extends ComplexType implements C
      */
     public function getNewEventName()
     {
-        return $this->newEventName->getValue();
+        return ($this->newEventName) ? $this->newEventName->getValue() : null;
     }
 
     /**
@@ -149,7 +147,6 @@ class ServiceProviderScheduleModifyEventRequest extends ComplexType implements C
      */
     public function setStartDate(xs:date $startDate = null)
     {
-        if (!$startDate) return $this;
         $this->startDate->setName('startDate');
         return $this;
     }
@@ -160,7 +157,7 @@ class ServiceProviderScheduleModifyEventRequest extends ComplexType implements C
      */
     public function getStartDate()
     {
-        return $this->startDate->getValue();
+        return ($this->startDate) ? $this->startDate->getValue() : null;
     }
 
     /**
@@ -168,7 +165,6 @@ class ServiceProviderScheduleModifyEventRequest extends ComplexType implements C
      */
     public function setEndDate(xs:date $endDate = null)
     {
-        if (!$endDate) return $this;
         $this->endDate->setName('endDate');
         return $this;
     }
@@ -179,7 +175,7 @@ class ServiceProviderScheduleModifyEventRequest extends ComplexType implements C
      */
     public function getEndDate()
     {
-        return $this->endDate->getValue();
+        return ($this->endDate) ? $this->endDate->getValue() : null;
     }
 
     /**
@@ -187,8 +183,9 @@ class ServiceProviderScheduleModifyEventRequest extends ComplexType implements C
      */
     public function setRecurrence(Recurrence $recurrence = null)
     {
-        if (!$recurrence) return $this;
-        $this->recurrence = $recurrence;
+        $this->recurrence = ($recurrence InstanceOf Recurrence)
+             ? $recurrence
+             : new Recurrence($recurrence);
         $this->recurrence->setName('recurrence');
         return $this;
     }

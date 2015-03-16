@@ -19,9 +19,9 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupDomainGetAssignedListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name               = 'GroupDomainGetAssignedListResponse';
-    protected $groupDefaultDomain = null;
-    protected $domain             = null;
+    public    $name = 'GroupDomainGetAssignedListResponse';
+    protected $groupDefaultDomain;
+    protected $domain;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupDomainGetAssignedListResponse $response
@@ -36,7 +36,6 @@ class GroupDomainGetAssignedListResponse extends ComplexType implements ComplexI
      */
     public function setGroupDefaultDomain($groupDefaultDomain = null)
     {
-        if (!$groupDefaultDomain) return $this;
         $this->groupDefaultDomain = ($groupDefaultDomain InstanceOf NetAddress)
              ? $groupDefaultDomain
              : new NetAddress($groupDefaultDomain);
@@ -50,7 +49,7 @@ class GroupDomainGetAssignedListResponse extends ComplexType implements ComplexI
      */
     public function getGroupDefaultDomain()
     {
-        return $this->groupDefaultDomain->getValue();
+        return ($this->groupDefaultDomain) ? $this->groupDefaultDomain->getValue() : null;
     }
 
     /**
@@ -58,7 +57,6 @@ class GroupDomainGetAssignedListResponse extends ComplexType implements ComplexI
      */
     public function setDomain($domain = null)
     {
-        if (!$domain) return $this;
         $this->domain = ($domain InstanceOf NetAddress)
              ? $domain
              : new NetAddress($domain);
@@ -72,6 +70,6 @@ class GroupDomainGetAssignedListResponse extends ComplexType implements ComplexI
      */
     public function getDomain()
     {
-        return $this->domain->getValue();
+        return ($this->domain) ? $this->domain->getValue() : null;
     }
 }

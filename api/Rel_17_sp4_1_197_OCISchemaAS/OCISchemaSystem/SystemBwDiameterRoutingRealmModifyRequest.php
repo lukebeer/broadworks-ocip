@@ -22,16 +22,16 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemBwDiameterRoutingRealmModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name          = 'SystemBwDiameterRoutingRealmModifyRequest';
-    protected $instance      = null;
-    protected $realm         = null;
-    protected $applicationId = null;
-    protected $default       = null;
+    public    $name = 'SystemBwDiameterRoutingRealmModifyRequest';
+    protected $instance;
+    protected $realm;
+    protected $applicationId;
+    protected $default;
 
     public function __construct(
-         $instance,
-         $realm,
-         $applicationId,
+         $instance = '',
+         $realm = '',
+         $applicationId = '',
          $default = null
     ) {
         $this->setInstance($instance);
@@ -53,7 +53,6 @@ class SystemBwDiameterRoutingRealmModifyRequest extends ComplexType implements C
      */
     public function setInstance($instance = null)
     {
-        if (!$instance) return $this;
         $this->instance = ($instance InstanceOf BwDiameterPeerInstance)
              ? $instance
              : new BwDiameterPeerInstance($instance);
@@ -67,7 +66,7 @@ class SystemBwDiameterRoutingRealmModifyRequest extends ComplexType implements C
      */
     public function getInstance()
     {
-        return $this->instance->getValue();
+        return ($this->instance) ? $this->instance->getValue() : null;
     }
 
     /**
@@ -75,7 +74,6 @@ class SystemBwDiameterRoutingRealmModifyRequest extends ComplexType implements C
      */
     public function setRealm($realm = null)
     {
-        if (!$realm) return $this;
         $this->realm = ($realm InstanceOf DomainName)
              ? $realm
              : new DomainName($realm);
@@ -89,7 +87,7 @@ class SystemBwDiameterRoutingRealmModifyRequest extends ComplexType implements C
      */
     public function getRealm()
     {
-        return $this->realm->getValue();
+        return ($this->realm) ? $this->realm->getValue() : null;
     }
 
     /**
@@ -97,7 +95,6 @@ class SystemBwDiameterRoutingRealmModifyRequest extends ComplexType implements C
      */
     public function setApplicationId($applicationId = null)
     {
-        if (!$applicationId) return $this;
         $this->applicationId = ($applicationId InstanceOf BwDiameterApplicationId)
              ? $applicationId
              : new BwDiameterApplicationId($applicationId);
@@ -111,7 +108,7 @@ class SystemBwDiameterRoutingRealmModifyRequest extends ComplexType implements C
      */
     public function getApplicationId()
     {
-        return $this->applicationId->getValue();
+        return ($this->applicationId) ? $this->applicationId->getValue() : null;
     }
 
     /**
@@ -119,7 +116,6 @@ class SystemBwDiameterRoutingRealmModifyRequest extends ComplexType implements C
      */
     public function setDefault($default = null)
     {
-        if (!$default) return $this;
         $this->default = new PrimitiveType($default);
         $this->default->setName('default');
         return $this;
@@ -131,6 +127,6 @@ class SystemBwDiameterRoutingRealmModifyRequest extends ComplexType implements C
      */
     public function getDefault()
     {
-        return $this->default->getValue();
+        return ($this->default) ? $this->default->getValue() : null;
     }
 }

@@ -20,9 +20,9 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserVoiceMessagingUserGetOutgoingSMDIMWIResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                       = 'UserVoiceMessagingUserGetOutgoingSMDIMWIResponse';
-    protected $isActive                   = null;
-    protected $outgoingSMDIMWIPhoneNumber = null;
+    public    $name = 'UserVoiceMessagingUserGetOutgoingSMDIMWIResponse';
+    protected $isActive;
+    protected $outgoingSMDIMWIPhoneNumber;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceVoiceMessaging\UserVoiceMessagingUserGetOutgoingSMDIMWIResponse $response
@@ -37,7 +37,6 @@ class UserVoiceMessagingUserGetOutgoingSMDIMWIResponse extends ComplexType imple
      */
     public function setIsActive($isActive = null)
     {
-        if (!$isActive) return $this;
         $this->isActive = new PrimitiveType($isActive);
         $this->isActive->setName('isActive');
         return $this;
@@ -49,7 +48,7 @@ class UserVoiceMessagingUserGetOutgoingSMDIMWIResponse extends ComplexType imple
      */
     public function getIsActive()
     {
-        return $this->isActive->getValue();
+        return ($this->isActive) ? $this->isActive->getValue() : null;
     }
 
     /**
@@ -57,7 +56,6 @@ class UserVoiceMessagingUserGetOutgoingSMDIMWIResponse extends ComplexType imple
      */
     public function setOutgoingSMDIMWIPhoneNumber($outgoingSMDIMWIPhoneNumber = null)
     {
-        if (!$outgoingSMDIMWIPhoneNumber) return $this;
         $this->outgoingSMDIMWIPhoneNumber = ($outgoingSMDIMWIPhoneNumber InstanceOf OutgoingDN)
              ? $outgoingSMDIMWIPhoneNumber
              : new OutgoingDN($outgoingSMDIMWIPhoneNumber);
@@ -71,6 +69,6 @@ class UserVoiceMessagingUserGetOutgoingSMDIMWIResponse extends ComplexType imple
      */
     public function getOutgoingSMDIMWIPhoneNumber()
     {
-        return $this->outgoingSMDIMWIPhoneNumber->getValue();
+        return ($this->outgoingSMDIMWIPhoneNumber) ? $this->outgoingSMDIMWIPhoneNumber->getValue() : null;
     }
 }

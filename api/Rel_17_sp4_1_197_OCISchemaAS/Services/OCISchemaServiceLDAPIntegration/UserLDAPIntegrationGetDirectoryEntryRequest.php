@@ -22,13 +22,13 @@ use Broadworks_OCIP\core\Client\Client;
 class UserLDAPIntegrationGetDirectoryEntryRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceLDAPIntegration\UserLDAPIntegrationGetDirectoryEntryResponse';
-    public    $name      = 'UserLDAPIntegrationGetDirectoryEntryRequest';
-    protected $userId    = null;
-    protected $entryName = null;
+    public    $name = 'UserLDAPIntegrationGetDirectoryEntryRequest';
+    protected $userId;
+    protected $entryName;
 
     public function __construct(
-         $userId,
-         $entryName
+         $userId = '',
+         $entryName = ''
     ) {
         $this->setUserId($userId);
         $this->setEntryName($entryName);
@@ -47,7 +47,6 @@ class UserLDAPIntegrationGetDirectoryEntryRequest extends ComplexType implements
      */
     public function setUserId($userId = null)
     {
-        if (!$userId) return $this;
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
@@ -61,7 +60,7 @@ class UserLDAPIntegrationGetDirectoryEntryRequest extends ComplexType implements
      */
     public function getUserId()
     {
-        return $this->userId->getValue();
+        return ($this->userId) ? $this->userId->getValue() : null;
     }
 
     /**
@@ -69,7 +68,6 @@ class UserLDAPIntegrationGetDirectoryEntryRequest extends ComplexType implements
      */
     public function setEntryName($entryName = null)
     {
-        if (!$entryName) return $this;
         $this->entryName = ($entryName InstanceOf LDAPEntryName)
              ? $entryName
              : new LDAPEntryName($entryName);
@@ -83,6 +81,6 @@ class UserLDAPIntegrationGetDirectoryEntryRequest extends ComplexType implements
      */
     public function getEntryName()
     {
-        return $this->entryName->getValue();
+        return ($this->entryName) ? $this->entryName->getValue() : null;
     }
 }

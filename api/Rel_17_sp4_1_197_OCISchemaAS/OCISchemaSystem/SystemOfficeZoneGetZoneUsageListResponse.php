@@ -22,8 +22,8 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemOfficeZoneGetZoneUsageListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name            = 'SystemOfficeZoneGetZoneUsageListResponse';
-    protected $officeZoneTable = null;
+    public    $name = 'SystemOfficeZoneGetZoneUsageListResponse';
+    protected $officeZoneTable;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemOfficeZoneGetZoneUsageListResponse $response
@@ -38,7 +38,6 @@ class SystemOfficeZoneGetZoneUsageListResponse extends ComplexType implements Co
      */
     public function setOfficeZoneTable(TableType $officeZoneTable = null)
     {
-        if (!$officeZoneTable) return $this;
         $this->officeZoneTable = $officeZoneTable;
         $this->officeZoneTable->setName('officeZoneTable');
         return $this;

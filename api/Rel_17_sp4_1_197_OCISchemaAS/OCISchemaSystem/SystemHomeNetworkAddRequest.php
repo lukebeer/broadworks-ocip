@@ -20,11 +20,11 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemHomeNetworkAddRequest extends ComplexType implements ComplexInterface
 {
-    public    $name       = 'SystemHomeNetworkAddRequest';
-    protected $mscAddress = null;
+    public    $name = 'SystemHomeNetworkAddRequest';
+    protected $mscAddress;
 
     public function __construct(
-         $mscAddress
+         $mscAddress = ''
     ) {
         $this->setMscAddress($mscAddress);
     }
@@ -42,7 +42,6 @@ class SystemHomeNetworkAddRequest extends ComplexType implements ComplexInterfac
      */
     public function setMscAddress($mscAddress = null)
     {
-        if (!$mscAddress) return $this;
         $this->mscAddress = ($mscAddress InstanceOf DN)
              ? $mscAddress
              : new DN($mscAddress);
@@ -56,6 +55,6 @@ class SystemHomeNetworkAddRequest extends ComplexType implements ComplexInterfac
      */
     public function getMscAddress()
     {
-        return $this->mscAddress->getValue();
+        return ($this->mscAddress) ? $this->mscAddress->getValue() : null;
     }
 }

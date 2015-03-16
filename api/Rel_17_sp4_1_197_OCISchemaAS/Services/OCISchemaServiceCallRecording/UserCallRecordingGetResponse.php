@@ -20,8 +20,8 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserCallRecordingGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name            = 'UserCallRecordingGetResponse';
-    protected $recordingOption = null;
+    public    $name = 'UserCallRecordingGetResponse';
+    protected $recordingOption;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallRecording\UserCallRecordingGetResponse $response
@@ -36,7 +36,6 @@ class UserCallRecordingGetResponse extends ComplexType implements ComplexInterfa
      */
     public function setRecordingOption($recordingOption = null)
     {
-        if (!$recordingOption) return $this;
         $this->recordingOption = ($recordingOption InstanceOf RecordingOption)
              ? $recordingOption
              : new RecordingOption($recordingOption);
@@ -50,6 +49,6 @@ class UserCallRecordingGetResponse extends ComplexType implements ComplexInterfa
      */
     public function getRecordingOption()
     {
-        return $this->recordingOption->getValue();
+        return ($this->recordingOption) ? $this->recordingOption->getValue() : null;
     }
 }

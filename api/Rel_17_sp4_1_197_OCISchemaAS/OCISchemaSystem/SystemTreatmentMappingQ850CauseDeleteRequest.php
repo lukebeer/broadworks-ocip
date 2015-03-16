@@ -20,11 +20,11 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemTreatmentMappingQ850CauseDeleteRequest extends ComplexType implements ComplexInterface
 {
-    public    $name           = 'SystemTreatmentMappingQ850CauseDeleteRequest';
-    protected $q850CauseValue = null;
+    public    $name = 'SystemTreatmentMappingQ850CauseDeleteRequest';
+    protected $q850CauseValue;
 
     public function __construct(
-         $q850CauseValue
+         $q850CauseValue = ''
     ) {
         $this->setQ850CauseValue($q850CauseValue);
     }
@@ -42,7 +42,6 @@ class SystemTreatmentMappingQ850CauseDeleteRequest extends ComplexType implement
      */
     public function setQ850CauseValue($q850CauseValue = null)
     {
-        if (!$q850CauseValue) return $this;
         $this->q850CauseValue = ($q850CauseValue InstanceOf Q850CauseValue)
              ? $q850CauseValue
              : new Q850CauseValue($q850CauseValue);
@@ -56,6 +55,6 @@ class SystemTreatmentMappingQ850CauseDeleteRequest extends ComplexType implement
      */
     public function getQ850CauseValue()
     {
-        return $this->q850CauseValue->getValue();
+        return ($this->q850CauseValue) ? $this->q850CauseValue->getValue() : null;
     }
 }

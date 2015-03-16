@@ -25,16 +25,16 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderServicePackMigrationTaskModifyUserSelectionRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                = 'ServiceProviderServicePackMigrationTaskModifyUserSelectionRequest';
-    protected $serviceProviderId   = null;
-    protected $taskName            = null;
-    protected $userSelectionType   = null;
-    protected $userServiceNameList = null;
-    protected $servicePackNameList = null;
+    public    $name = 'ServiceProviderServicePackMigrationTaskModifyUserSelectionRequest';
+    protected $serviceProviderId;
+    protected $taskName;
+    protected $userSelectionType;
+    protected $userServiceNameList;
+    protected $servicePackNameList;
 
     public function __construct(
-         $serviceProviderId,
-         $taskName,
+         $serviceProviderId = '',
+         $taskName = '',
          $userSelectionType = null,
          ReplacementUserServiceList $userServiceNameList = null,
          ReplacementServicePackNameList $servicePackNameList = null
@@ -59,7 +59,6 @@ class ServiceProviderServicePackMigrationTaskModifyUserSelectionRequest extends 
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
-        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
@@ -73,7 +72,7 @@ class ServiceProviderServicePackMigrationTaskModifyUserSelectionRequest extends 
      */
     public function getServiceProviderId()
     {
-        return $this->serviceProviderId->getValue();
+        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
     }
 
     /**
@@ -81,7 +80,6 @@ class ServiceProviderServicePackMigrationTaskModifyUserSelectionRequest extends 
      */
     public function setTaskName($taskName = null)
     {
-        if (!$taskName) return $this;
         $this->taskName = ($taskName InstanceOf ServicePackMigrationTaskName)
              ? $taskName
              : new ServicePackMigrationTaskName($taskName);
@@ -95,7 +93,7 @@ class ServiceProviderServicePackMigrationTaskModifyUserSelectionRequest extends 
      */
     public function getTaskName()
     {
-        return $this->taskName->getValue();
+        return ($this->taskName) ? $this->taskName->getValue() : null;
     }
 
     /**
@@ -103,7 +101,6 @@ class ServiceProviderServicePackMigrationTaskModifyUserSelectionRequest extends 
      */
     public function setUserSelectionType($userSelectionType = null)
     {
-        if (!$userSelectionType) return $this;
         $this->userSelectionType = ($userSelectionType InstanceOf ServicePackMigrationTaskUserSelectionType)
              ? $userSelectionType
              : new ServicePackMigrationTaskUserSelectionType($userSelectionType);
@@ -117,7 +114,7 @@ class ServiceProviderServicePackMigrationTaskModifyUserSelectionRequest extends 
      */
     public function getUserSelectionType()
     {
-        return $this->userSelectionType->getValue();
+        return ($this->userSelectionType) ? $this->userSelectionType->getValue() : null;
     }
 
     /**
@@ -125,8 +122,9 @@ class ServiceProviderServicePackMigrationTaskModifyUserSelectionRequest extends 
      */
     public function setUserServiceNameList(ReplacementUserServiceList $userServiceNameList = null)
     {
-        if (!$userServiceNameList) return $this;
-        $this->userServiceNameList = $userServiceNameList;
+        $this->userServiceNameList = ($userServiceNameList InstanceOf ReplacementUserServiceList)
+             ? $userServiceNameList
+             : new ReplacementUserServiceList($userServiceNameList);
         $this->userServiceNameList->setName('userServiceNameList');
         return $this;
     }
@@ -145,8 +143,9 @@ class ServiceProviderServicePackMigrationTaskModifyUserSelectionRequest extends 
      */
     public function setServicePackNameList(ReplacementServicePackNameList $servicePackNameList = null)
     {
-        if (!$servicePackNameList) return $this;
-        $this->servicePackNameList = $servicePackNameList;
+        $this->servicePackNameList = ($servicePackNameList InstanceOf ReplacementServicePackNameList)
+             ? $servicePackNameList
+             : new ReplacementServicePackNameList($servicePackNameList);
         $this->servicePackNameList->setName('servicePackNameList');
         return $this;
     }

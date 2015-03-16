@@ -23,13 +23,13 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderServiceModifyAuthorizationListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                      = 'ServiceProviderServiceModifyAuthorizationListRequest';
-    protected $serviceProviderId         = null;
-    protected $groupServiceAuthorization = null;
-    protected $userServiceAuthorization  = null;
+    public    $name = 'ServiceProviderServiceModifyAuthorizationListRequest';
+    protected $serviceProviderId;
+    protected $groupServiceAuthorization;
+    protected $userServiceAuthorization;
 
     public function __construct(
-         $serviceProviderId,
+         $serviceProviderId = '',
          GroupServiceAuthorization $groupServiceAuthorization = null,
          UserServiceAuthorization $userServiceAuthorization = null
     ) {
@@ -51,7 +51,6 @@ class ServiceProviderServiceModifyAuthorizationListRequest extends ComplexType i
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
-        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
@@ -65,7 +64,7 @@ class ServiceProviderServiceModifyAuthorizationListRequest extends ComplexType i
      */
     public function getServiceProviderId()
     {
-        return $this->serviceProviderId->getValue();
+        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
     }
 
     /**
@@ -73,8 +72,9 @@ class ServiceProviderServiceModifyAuthorizationListRequest extends ComplexType i
      */
     public function setGroupServiceAuthorization(GroupServiceAuthorization $groupServiceAuthorization = null)
     {
-        if (!$groupServiceAuthorization) return $this;
-        $this->groupServiceAuthorization = $groupServiceAuthorization;
+        $this->groupServiceAuthorization = ($groupServiceAuthorization InstanceOf GroupServiceAuthorization)
+             ? $groupServiceAuthorization
+             : new GroupServiceAuthorization($groupServiceAuthorization);
         $this->groupServiceAuthorization->setName('groupServiceAuthorization');
         return $this;
     }
@@ -93,8 +93,9 @@ class ServiceProviderServiceModifyAuthorizationListRequest extends ComplexType i
      */
     public function setUserServiceAuthorization(UserServiceAuthorization $userServiceAuthorization = null)
     {
-        if (!$userServiceAuthorization) return $this;
-        $this->userServiceAuthorization = $userServiceAuthorization;
+        $this->userServiceAuthorization = ($userServiceAuthorization InstanceOf UserServiceAuthorization)
+             ? $userServiceAuthorization
+             : new UserServiceAuthorization($userServiceAuthorization);
         $this->userServiceAuthorization->setName('userServiceAuthorization');
         return $this;
     }

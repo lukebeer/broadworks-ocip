@@ -25,13 +25,13 @@ use Broadworks_OCIP\core\Client\Client;
 class EnterpriseDepartmentGetListRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType            = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaEnterprise\EnterpriseDepartmentGetListResponse';
-    public    $name                    = 'EnterpriseDepartmentGetListRequest';
-    protected $enterpriseId            = null;
-    protected $includeGroupDepartments = null;
+    public    $name = 'EnterpriseDepartmentGetListRequest';
+    protected $enterpriseId;
+    protected $includeGroupDepartments;
 
     public function __construct(
-         $enterpriseId,
-         $includeGroupDepartments
+         $enterpriseId = '',
+         $includeGroupDepartments = ''
     ) {
         $this->setEnterpriseId($enterpriseId);
         $this->setIncludeGroupDepartments($includeGroupDepartments);
@@ -50,7 +50,6 @@ class EnterpriseDepartmentGetListRequest extends ComplexType implements ComplexI
      */
     public function setEnterpriseId($enterpriseId = null)
     {
-        if (!$enterpriseId) return $this;
         $this->enterpriseId = ($enterpriseId InstanceOf ServiceProviderId)
              ? $enterpriseId
              : new ServiceProviderId($enterpriseId);
@@ -64,7 +63,7 @@ class EnterpriseDepartmentGetListRequest extends ComplexType implements ComplexI
      */
     public function getEnterpriseId()
     {
-        return $this->enterpriseId->getValue();
+        return ($this->enterpriseId) ? $this->enterpriseId->getValue() : null;
     }
 
     /**
@@ -72,7 +71,6 @@ class EnterpriseDepartmentGetListRequest extends ComplexType implements ComplexI
      */
     public function setIncludeGroupDepartments($includeGroupDepartments = null)
     {
-        if (!$includeGroupDepartments) return $this;
         $this->includeGroupDepartments = new PrimitiveType($includeGroupDepartments);
         $this->includeGroupDepartments->setName('includeGroupDepartments');
         return $this;
@@ -84,6 +82,6 @@ class EnterpriseDepartmentGetListRequest extends ComplexType implements ComplexI
      */
     public function getIncludeGroupDepartments()
     {
-        return $this->includeGroupDepartments->getValue();
+        return ($this->includeGroupDepartments) ? $this->includeGroupDepartments->getValue() : null;
     }
 }

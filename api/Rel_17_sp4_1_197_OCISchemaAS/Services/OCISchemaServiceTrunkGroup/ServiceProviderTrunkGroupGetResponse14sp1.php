@@ -20,9 +20,9 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderTrunkGroupGetResponse14sp1 extends ComplexType implements ComplexInterface
 {
-    public    $name                   = 'ServiceProviderTrunkGroupGetResponse14sp1';
-    protected $maxActiveCalls         = null;
-    protected $burstingMaxActiveCalls = null;
+    public    $name = 'ServiceProviderTrunkGroupGetResponse14sp1';
+    protected $maxActiveCalls;
+    protected $burstingMaxActiveCalls;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceTrunkGroup\ServiceProviderTrunkGroupGetResponse14sp1 $response
@@ -37,8 +37,9 @@ class ServiceProviderTrunkGroupGetResponse14sp1 extends ComplexType implements C
      */
     public function setMaxActiveCalls(UnboundedNonNegativeInt $maxActiveCalls = null)
     {
-        if (!$maxActiveCalls) return $this;
-        $this->maxActiveCalls = $maxActiveCalls;
+        $this->maxActiveCalls = ($maxActiveCalls InstanceOf UnboundedNonNegativeInt)
+             ? $maxActiveCalls
+             : new UnboundedNonNegativeInt($maxActiveCalls);
         $this->maxActiveCalls->setName('maxActiveCalls');
         return $this;
     }
@@ -57,8 +58,9 @@ class ServiceProviderTrunkGroupGetResponse14sp1 extends ComplexType implements C
      */
     public function setBurstingMaxActiveCalls(UnboundedNonNegativeInt $burstingMaxActiveCalls = null)
     {
-        if (!$burstingMaxActiveCalls) return $this;
-        $this->burstingMaxActiveCalls = $burstingMaxActiveCalls;
+        $this->burstingMaxActiveCalls = ($burstingMaxActiveCalls InstanceOf UnboundedNonNegativeInt)
+             ? $burstingMaxActiveCalls
+             : new UnboundedNonNegativeInt($burstingMaxActiveCalls);
         $this->burstingMaxActiveCalls->setName('burstingMaxActiveCalls');
         return $this;
     }

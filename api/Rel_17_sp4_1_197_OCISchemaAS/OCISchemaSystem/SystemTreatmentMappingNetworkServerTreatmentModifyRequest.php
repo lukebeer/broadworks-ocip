@@ -21,12 +21,12 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemTreatmentMappingNetworkServerTreatmentModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name        = 'SystemTreatmentMappingNetworkServerTreatmentModifyRequest';
-    protected $nsTreatment = null;
-    protected $treatmentId = null;
+    public    $name = 'SystemTreatmentMappingNetworkServerTreatmentModifyRequest';
+    protected $nsTreatment;
+    protected $treatmentId;
 
     public function __construct(
-         $nsTreatment,
+         $nsTreatment = '',
          $treatmentId = null
     ) {
         $this->setNsTreatment($nsTreatment);
@@ -46,7 +46,6 @@ class SystemTreatmentMappingNetworkServerTreatmentModifyRequest extends ComplexT
      */
     public function setNsTreatment($nsTreatment = null)
     {
-        if (!$nsTreatment) return $this;
         $this->nsTreatment = ($nsTreatment InstanceOf NetworkServerTreatment)
              ? $nsTreatment
              : new NetworkServerTreatment($nsTreatment);
@@ -60,7 +59,7 @@ class SystemTreatmentMappingNetworkServerTreatmentModifyRequest extends ComplexT
      */
     public function getNsTreatment()
     {
-        return $this->nsTreatment->getValue();
+        return ($this->nsTreatment) ? $this->nsTreatment->getValue() : null;
     }
 
     /**
@@ -68,7 +67,6 @@ class SystemTreatmentMappingNetworkServerTreatmentModifyRequest extends ComplexT
      */
     public function setTreatmentId($treatmentId = null)
     {
-        if (!$treatmentId) return $this;
         $this->treatmentId = ($treatmentId InstanceOf TreatmentId)
              ? $treatmentId
              : new TreatmentId($treatmentId);
@@ -82,6 +80,6 @@ class SystemTreatmentMappingNetworkServerTreatmentModifyRequest extends ComplexT
      */
     public function getTreatmentId()
     {
-        return $this->treatmentId->getValue();
+        return ($this->treatmentId) ? $this->treatmentId->getValue() : null;
     }
 }

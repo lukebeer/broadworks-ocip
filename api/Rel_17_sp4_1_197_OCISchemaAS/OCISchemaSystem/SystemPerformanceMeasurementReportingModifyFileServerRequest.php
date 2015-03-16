@@ -21,12 +21,12 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemPerformanceMeasurementReportingModifyFileServerRequest extends ComplexType implements ComplexInterface
 {
-    public    $name              = 'SystemPerformanceMeasurementReportingModifyFileServerRequest';
-    protected $ftpHostNetAddress = null;
-    protected $passiveFTP        = null;
+    public    $name = 'SystemPerformanceMeasurementReportingModifyFileServerRequest';
+    protected $ftpHostNetAddress;
+    protected $passiveFTP;
 
     public function __construct(
-         $ftpHostNetAddress,
+         $ftpHostNetAddress = '',
          $passiveFTP = null
     ) {
         $this->setFtpHostNetAddress($ftpHostNetAddress);
@@ -46,7 +46,6 @@ class SystemPerformanceMeasurementReportingModifyFileServerRequest extends Compl
      */
     public function setFtpHostNetAddress($ftpHostNetAddress = null)
     {
-        if (!$ftpHostNetAddress) return $this;
         $this->ftpHostNetAddress = ($ftpHostNetAddress InstanceOf NetAddress)
              ? $ftpHostNetAddress
              : new NetAddress($ftpHostNetAddress);
@@ -60,7 +59,7 @@ class SystemPerformanceMeasurementReportingModifyFileServerRequest extends Compl
      */
     public function getFtpHostNetAddress()
     {
-        return $this->ftpHostNetAddress->getValue();
+        return ($this->ftpHostNetAddress) ? $this->ftpHostNetAddress->getValue() : null;
     }
 
     /**
@@ -68,7 +67,6 @@ class SystemPerformanceMeasurementReportingModifyFileServerRequest extends Compl
      */
     public function setPassiveFTP($passiveFTP = null)
     {
-        if (!$passiveFTP) return $this;
         $this->passiveFTP = new PrimitiveType($passiveFTP);
         $this->passiveFTP->setName('passiveFTP');
         return $this;
@@ -80,6 +78,6 @@ class SystemPerformanceMeasurementReportingModifyFileServerRequest extends Compl
      */
     public function getPassiveFTP()
     {
-        return $this->passiveFTP->getValue();
+        return ($this->passiveFTP) ? $this->passiveFTP->getValue() : null;
     }
 }

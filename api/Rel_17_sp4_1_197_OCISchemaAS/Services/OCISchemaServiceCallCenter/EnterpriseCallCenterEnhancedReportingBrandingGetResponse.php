@@ -20,9 +20,9 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class EnterpriseCallCenterEnhancedReportingBrandingGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                    = 'EnterpriseCallCenterEnhancedReportingBrandingGetResponse';
-    protected $brandingChoice          = null;
-    protected $brandingFileDescription = null;
+    public    $name = 'EnterpriseCallCenterEnhancedReportingBrandingGetResponse';
+    protected $brandingChoice;
+    protected $brandingFileDescription;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\EnterpriseCallCenterEnhancedReportingBrandingGetResponse $response
@@ -37,7 +37,6 @@ class EnterpriseCallCenterEnhancedReportingBrandingGetResponse extends ComplexTy
      */
     public function setBrandingChoice($brandingChoice = null)
     {
-        if (!$brandingChoice) return $this;
         $this->brandingChoice = ($brandingChoice InstanceOf CallCenterEnhancedReportingBrandingChoice)
              ? $brandingChoice
              : new CallCenterEnhancedReportingBrandingChoice($brandingChoice);
@@ -51,7 +50,7 @@ class EnterpriseCallCenterEnhancedReportingBrandingGetResponse extends ComplexTy
      */
     public function getBrandingChoice()
     {
-        return $this->brandingChoice->getValue();
+        return ($this->brandingChoice) ? $this->brandingChoice->getValue() : null;
     }
 
     /**
@@ -59,7 +58,6 @@ class EnterpriseCallCenterEnhancedReportingBrandingGetResponse extends ComplexTy
      */
     public function setBrandingFileDescription($brandingFileDescription = null)
     {
-        if (!$brandingFileDescription) return $this;
         $this->brandingFileDescription = ($brandingFileDescription InstanceOf FileDescription)
              ? $brandingFileDescription
              : new FileDescription($brandingFileDescription);
@@ -73,6 +71,6 @@ class EnterpriseCallCenterEnhancedReportingBrandingGetResponse extends ComplexTy
      */
     public function getBrandingFileDescription()
     {
-        return $this->brandingFileDescription->getValue();
+        return ($this->brandingFileDescription) ? $this->brandingFileDescription->getValue() : null;
     }
 }

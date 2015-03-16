@@ -27,25 +27,25 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupBroadWorksAnywhereAddInstanceRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                    = 'GroupBroadWorksAnywhereAddInstanceRequest';
-    protected $serviceProviderId       = null;
-    protected $groupId                 = null;
-    protected $serviceUserId           = null;
-    protected $serviceInstanceProfile  = null;
-    protected $broadWorksAnywhereScope = null;
-    protected $promptForCLID           = null;
-    protected $silentPromptMode        = null;
-    protected $promptForPasscode       = null;
+    public    $name = 'GroupBroadWorksAnywhereAddInstanceRequest';
+    protected $serviceProviderId;
+    protected $groupId;
+    protected $serviceUserId;
+    protected $serviceInstanceProfile;
+    protected $broadWorksAnywhereScope;
+    protected $promptForCLID;
+    protected $silentPromptMode;
+    protected $promptForPasscode;
 
     public function __construct(
-         $serviceProviderId,
-         $groupId,
-         $serviceUserId,
-         ServiceInstanceAddProfile $serviceInstanceProfile,
-         $broadWorksAnywhereScope,
-         $promptForCLID,
-         $silentPromptMode,
-         $promptForPasscode
+         $serviceProviderId = '',
+         $groupId = '',
+         $serviceUserId = '',
+         ServiceInstanceAddProfile $serviceInstanceProfile = '',
+         $broadWorksAnywhereScope = '',
+         $promptForCLID = '',
+         $silentPromptMode = '',
+         $promptForPasscode = ''
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setGroupId($groupId);
@@ -70,7 +70,6 @@ class GroupBroadWorksAnywhereAddInstanceRequest extends ComplexType implements C
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
-        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
@@ -84,7 +83,7 @@ class GroupBroadWorksAnywhereAddInstanceRequest extends ComplexType implements C
      */
     public function getServiceProviderId()
     {
-        return $this->serviceProviderId->getValue();
+        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
     }
 
     /**
@@ -92,7 +91,6 @@ class GroupBroadWorksAnywhereAddInstanceRequest extends ComplexType implements C
      */
     public function setGroupId($groupId = null)
     {
-        if (!$groupId) return $this;
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
@@ -106,7 +104,7 @@ class GroupBroadWorksAnywhereAddInstanceRequest extends ComplexType implements C
      */
     public function getGroupId()
     {
-        return $this->groupId->getValue();
+        return ($this->groupId) ? $this->groupId->getValue() : null;
     }
 
     /**
@@ -114,7 +112,6 @@ class GroupBroadWorksAnywhereAddInstanceRequest extends ComplexType implements C
      */
     public function setServiceUserId($serviceUserId = null)
     {
-        if (!$serviceUserId) return $this;
         $this->serviceUserId = ($serviceUserId InstanceOf UserId)
              ? $serviceUserId
              : new UserId($serviceUserId);
@@ -128,7 +125,7 @@ class GroupBroadWorksAnywhereAddInstanceRequest extends ComplexType implements C
      */
     public function getServiceUserId()
     {
-        return $this->serviceUserId->getValue();
+        return ($this->serviceUserId) ? $this->serviceUserId->getValue() : null;
     }
 
     /**
@@ -136,8 +133,9 @@ class GroupBroadWorksAnywhereAddInstanceRequest extends ComplexType implements C
      */
     public function setServiceInstanceProfile(ServiceInstanceAddProfile $serviceInstanceProfile = null)
     {
-        if (!$serviceInstanceProfile) return $this;
-        $this->serviceInstanceProfile = $serviceInstanceProfile;
+        $this->serviceInstanceProfile = ($serviceInstanceProfile InstanceOf ServiceInstanceAddProfile)
+             ? $serviceInstanceProfile
+             : new ServiceInstanceAddProfile($serviceInstanceProfile);
         $this->serviceInstanceProfile->setName('serviceInstanceProfile');
         return $this;
     }
@@ -156,7 +154,6 @@ class GroupBroadWorksAnywhereAddInstanceRequest extends ComplexType implements C
      */
     public function setBroadWorksAnywhereScope($broadWorksAnywhereScope = null)
     {
-        if (!$broadWorksAnywhereScope) return $this;
         $this->broadWorksAnywhereScope = ($broadWorksAnywhereScope InstanceOf BroadWorksAnywhereScope)
              ? $broadWorksAnywhereScope
              : new BroadWorksAnywhereScope($broadWorksAnywhereScope);
@@ -170,7 +167,7 @@ class GroupBroadWorksAnywhereAddInstanceRequest extends ComplexType implements C
      */
     public function getBroadWorksAnywhereScope()
     {
-        return $this->broadWorksAnywhereScope->getValue();
+        return ($this->broadWorksAnywhereScope) ? $this->broadWorksAnywhereScope->getValue() : null;
     }
 
     /**
@@ -178,7 +175,6 @@ class GroupBroadWorksAnywhereAddInstanceRequest extends ComplexType implements C
      */
     public function setPromptForCLID($promptForCLID = null)
     {
-        if (!$promptForCLID) return $this;
         $this->promptForCLID = ($promptForCLID InstanceOf BroadWorksAnywhereCLIDPrompt)
              ? $promptForCLID
              : new BroadWorksAnywhereCLIDPrompt($promptForCLID);
@@ -192,7 +188,7 @@ class GroupBroadWorksAnywhereAddInstanceRequest extends ComplexType implements C
      */
     public function getPromptForCLID()
     {
-        return $this->promptForCLID->getValue();
+        return ($this->promptForCLID) ? $this->promptForCLID->getValue() : null;
     }
 
     /**
@@ -200,7 +196,6 @@ class GroupBroadWorksAnywhereAddInstanceRequest extends ComplexType implements C
      */
     public function setSilentPromptMode($silentPromptMode = null)
     {
-        if (!$silentPromptMode) return $this;
         $this->silentPromptMode = new PrimitiveType($silentPromptMode);
         $this->silentPromptMode->setName('silentPromptMode');
         return $this;
@@ -212,7 +207,7 @@ class GroupBroadWorksAnywhereAddInstanceRequest extends ComplexType implements C
      */
     public function getSilentPromptMode()
     {
-        return $this->silentPromptMode->getValue();
+        return ($this->silentPromptMode) ? $this->silentPromptMode->getValue() : null;
     }
 
     /**
@@ -220,7 +215,6 @@ class GroupBroadWorksAnywhereAddInstanceRequest extends ComplexType implements C
      */
     public function setPromptForPasscode($promptForPasscode = null)
     {
-        if (!$promptForPasscode) return $this;
         $this->promptForPasscode = new PrimitiveType($promptForPasscode);
         $this->promptForPasscode->setName('promptForPasscode');
         return $this;
@@ -232,6 +226,6 @@ class GroupBroadWorksAnywhereAddInstanceRequest extends ComplexType implements C
      */
     public function getPromptForPasscode()
     {
-        return $this->promptForPasscode->getValue();
+        return ($this->promptForPasscode) ? $this->promptForPasscode->getValue() : null;
     }
 }

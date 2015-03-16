@@ -25,16 +25,16 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserCommPilotExpressSRModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                 = 'UserCommPilotExpressSRModifyRequest';
-    protected $userId               = null;
-    protected $profile              = null;
-    protected $availableInOffice    = null;
-    protected $availableOutOfOffice = null;
-    protected $busy                 = null;
-    protected $unavailable          = null;
+    public    $name = 'UserCommPilotExpressSRModifyRequest';
+    protected $userId;
+    protected $profile;
+    protected $availableInOffice;
+    protected $availableOutOfOffice;
+    protected $busy;
+    protected $unavailable;
 
     public function __construct(
-         $userId,
+         $userId = '',
          $profile = null,
          CommPilotExpressSRAvailableInOfficeModify $availableInOffice = null,
          CommPilotExpressSRAvailableOutOfOfficeModify $availableOutOfOffice = null,
@@ -62,7 +62,6 @@ class UserCommPilotExpressSRModifyRequest extends ComplexType implements Complex
      */
     public function setUserId($userId = null)
     {
-        if (!$userId) return $this;
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
@@ -76,7 +75,7 @@ class UserCommPilotExpressSRModifyRequest extends ComplexType implements Complex
      */
     public function getUserId()
     {
-        return $this->userId->getValue();
+        return ($this->userId) ? $this->userId->getValue() : null;
     }
 
     /**
@@ -84,7 +83,6 @@ class UserCommPilotExpressSRModifyRequest extends ComplexType implements Complex
      */
     public function setProfile($profile = null)
     {
-        if (!$profile) return $this;
         $this->profile = ($profile InstanceOf CommPilotExpressSRProfile)
              ? $profile
              : new CommPilotExpressSRProfile($profile);
@@ -98,7 +96,7 @@ class UserCommPilotExpressSRModifyRequest extends ComplexType implements Complex
      */
     public function getProfile()
     {
-        return $this->profile->getValue();
+        return ($this->profile) ? $this->profile->getValue() : null;
     }
 
     /**
@@ -106,8 +104,9 @@ class UserCommPilotExpressSRModifyRequest extends ComplexType implements Complex
      */
     public function setAvailableInOffice(CommPilotExpressSRAvailableInOfficeModify $availableInOffice = null)
     {
-        if (!$availableInOffice) return $this;
-        $this->availableInOffice = $availableInOffice;
+        $this->availableInOffice = ($availableInOffice InstanceOf CommPilotExpressSRAvailableInOfficeModify)
+             ? $availableInOffice
+             : new CommPilotExpressSRAvailableInOfficeModify($availableInOffice);
         $this->availableInOffice->setName('availableInOffice');
         return $this;
     }
@@ -126,8 +125,9 @@ class UserCommPilotExpressSRModifyRequest extends ComplexType implements Complex
      */
     public function setAvailableOutOfOffice(CommPilotExpressSRAvailableOutOfOfficeModify $availableOutOfOffice = null)
     {
-        if (!$availableOutOfOffice) return $this;
-        $this->availableOutOfOffice = $availableOutOfOffice;
+        $this->availableOutOfOffice = ($availableOutOfOffice InstanceOf CommPilotExpressSRAvailableOutOfOfficeModify)
+             ? $availableOutOfOffice
+             : new CommPilotExpressSRAvailableOutOfOfficeModify($availableOutOfOffice);
         $this->availableOutOfOffice->setName('availableOutOfOffice');
         return $this;
     }
@@ -146,8 +146,9 @@ class UserCommPilotExpressSRModifyRequest extends ComplexType implements Complex
      */
     public function setBusy(CommPilotExpressSRBusyModify $busy = null)
     {
-        if (!$busy) return $this;
-        $this->busy = $busy;
+        $this->busy = ($busy InstanceOf CommPilotExpressSRBusyModify)
+             ? $busy
+             : new CommPilotExpressSRBusyModify($busy);
         $this->busy->setName('busy');
         return $this;
     }
@@ -166,8 +167,9 @@ class UserCommPilotExpressSRModifyRequest extends ComplexType implements Complex
      */
     public function setUnavailable(CommPilotExpressSRUnavailableModify $unavailable = null)
     {
-        if (!$unavailable) return $this;
-        $this->unavailable = $unavailable;
+        $this->unavailable = ($unavailable InstanceOf CommPilotExpressSRUnavailableModify)
+             ? $unavailable
+             : new CommPilotExpressSRUnavailableModify($unavailable);
         $this->unavailable->setName('unavailable');
         return $this;
     }

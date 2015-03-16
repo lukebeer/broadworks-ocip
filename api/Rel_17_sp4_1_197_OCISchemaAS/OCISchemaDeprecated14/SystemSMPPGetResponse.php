@@ -23,14 +23,14 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemSMPPGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                          = 'SystemSMPPGetResponse';
-    protected $primarySMPPServerNetAddress   = null;
-    protected $primarySMPPPort               = null;
-    protected $secondarySMPPServerNetAddress = null;
-    protected $secondarySMPPPort             = null;
-    protected $systemId                      = null;
-    protected $password                      = null;
-    protected $version                       = null;
+    public    $name = 'SystemSMPPGetResponse';
+    protected $primarySMPPServerNetAddress;
+    protected $primarySMPPPort;
+    protected $secondarySMPPServerNetAddress;
+    protected $secondarySMPPPort;
+    protected $systemId;
+    protected $password;
+    protected $version;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\SystemSMPPGetResponse $response
@@ -45,7 +45,6 @@ class SystemSMPPGetResponse extends ComplexType implements ComplexInterface
      */
     public function setPrimarySMPPServerNetAddress($primarySMPPServerNetAddress = null)
     {
-        if (!$primarySMPPServerNetAddress) return $this;
         $this->primarySMPPServerNetAddress = ($primarySMPPServerNetAddress InstanceOf NetAddress)
              ? $primarySMPPServerNetAddress
              : new NetAddress($primarySMPPServerNetAddress);
@@ -59,7 +58,7 @@ class SystemSMPPGetResponse extends ComplexType implements ComplexInterface
      */
     public function getPrimarySMPPServerNetAddress()
     {
-        return $this->primarySMPPServerNetAddress->getValue();
+        return ($this->primarySMPPServerNetAddress) ? $this->primarySMPPServerNetAddress->getValue() : null;
     }
 
     /**
@@ -67,7 +66,6 @@ class SystemSMPPGetResponse extends ComplexType implements ComplexInterface
      */
     public function setPrimarySMPPPort($primarySMPPPort = null)
     {
-        if (!$primarySMPPPort) return $this;
         $this->primarySMPPPort = ($primarySMPPPort InstanceOf Port)
              ? $primarySMPPPort
              : new Port($primarySMPPPort);
@@ -81,7 +79,7 @@ class SystemSMPPGetResponse extends ComplexType implements ComplexInterface
      */
     public function getPrimarySMPPPort()
     {
-        return $this->primarySMPPPort->getValue();
+        return ($this->primarySMPPPort) ? $this->primarySMPPPort->getValue() : null;
     }
 
     /**
@@ -89,7 +87,6 @@ class SystemSMPPGetResponse extends ComplexType implements ComplexInterface
      */
     public function setSecondarySMPPServerNetAddress($secondarySMPPServerNetAddress = null)
     {
-        if (!$secondarySMPPServerNetAddress) return $this;
         $this->secondarySMPPServerNetAddress = ($secondarySMPPServerNetAddress InstanceOf NetAddress)
              ? $secondarySMPPServerNetAddress
              : new NetAddress($secondarySMPPServerNetAddress);
@@ -103,7 +100,7 @@ class SystemSMPPGetResponse extends ComplexType implements ComplexInterface
      */
     public function getSecondarySMPPServerNetAddress()
     {
-        return $this->secondarySMPPServerNetAddress->getValue();
+        return ($this->secondarySMPPServerNetAddress) ? $this->secondarySMPPServerNetAddress->getValue() : null;
     }
 
     /**
@@ -111,7 +108,6 @@ class SystemSMPPGetResponse extends ComplexType implements ComplexInterface
      */
     public function setSecondarySMPPPort($secondarySMPPPort = null)
     {
-        if (!$secondarySMPPPort) return $this;
         $this->secondarySMPPPort = ($secondarySMPPPort InstanceOf Port)
              ? $secondarySMPPPort
              : new Port($secondarySMPPPort);
@@ -125,7 +121,7 @@ class SystemSMPPGetResponse extends ComplexType implements ComplexInterface
      */
     public function getSecondarySMPPPort()
     {
-        return $this->secondarySMPPPort->getValue();
+        return ($this->secondarySMPPPort) ? $this->secondarySMPPPort->getValue() : null;
     }
 
     /**
@@ -133,7 +129,6 @@ class SystemSMPPGetResponse extends ComplexType implements ComplexInterface
      */
     public function setSystemId($systemId = null)
     {
-        if (!$systemId) return $this;
         $this->systemId = ($systemId InstanceOf SMPPSystemId)
              ? $systemId
              : new SMPPSystemId($systemId);
@@ -147,7 +142,7 @@ class SystemSMPPGetResponse extends ComplexType implements ComplexInterface
      */
     public function getSystemId()
     {
-        return $this->systemId->getValue();
+        return ($this->systemId) ? $this->systemId->getValue() : null;
     }
 
     /**
@@ -155,7 +150,6 @@ class SystemSMPPGetResponse extends ComplexType implements ComplexInterface
      */
     public function setPassword($password = null)
     {
-        if (!$password) return $this;
         $this->password = ($password InstanceOf SMPPPassword)
              ? $password
              : new SMPPPassword($password);
@@ -169,7 +163,7 @@ class SystemSMPPGetResponse extends ComplexType implements ComplexInterface
      */
     public function getPassword()
     {
-        return $this->password->getValue();
+        return ($this->password) ? $this->password->getValue() : null;
     }
 
     /**
@@ -177,7 +171,6 @@ class SystemSMPPGetResponse extends ComplexType implements ComplexInterface
      */
     public function setVersion($version = null)
     {
-        if (!$version) return $this;
         $this->version = ($version InstanceOf SMPPVersion)
              ? $version
              : new SMPPVersion($version);
@@ -191,6 +184,6 @@ class SystemSMPPGetResponse extends ComplexType implements ComplexInterface
      */
     public function getVersion()
     {
-        return $this->version->getValue();
+        return ($this->version) ? $this->version->getValue() : null;
     }
 }

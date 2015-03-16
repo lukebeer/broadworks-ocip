@@ -27,22 +27,22 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupRoutePointOverflowModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                                     = 'GroupRoutePointOverflowModifyRequest';
-    protected $serviceUserId                            = null;
-    protected $action                                   = null;
-    protected $transferPhoneNumber                      = null;
-    protected $overflowAfterTimeout                     = null;
-    protected $timeoutSeconds                           = null;
-    protected $playAnnouncementBeforeOverflowProcessing = null;
-    protected $audioMessageSelection                    = null;
-    protected $audioUrlList                             = null;
-    protected $audioFileList                            = null;
-    protected $videoMessageSelection                    = null;
-    protected $videoUrlList                             = null;
-    protected $videoFileList                            = null;
+    public    $name = 'GroupRoutePointOverflowModifyRequest';
+    protected $serviceUserId;
+    protected $action;
+    protected $transferPhoneNumber;
+    protected $overflowAfterTimeout;
+    protected $timeoutSeconds;
+    protected $playAnnouncementBeforeOverflowProcessing;
+    protected $audioMessageSelection;
+    protected $audioUrlList;
+    protected $audioFileList;
+    protected $videoMessageSelection;
+    protected $videoUrlList;
+    protected $videoFileList;
 
     public function __construct(
-         $serviceUserId,
+         $serviceUserId = '',
          $action = null,
          $transferPhoneNumber = null,
          $overflowAfterTimeout = null,
@@ -82,7 +82,6 @@ class GroupRoutePointOverflowModifyRequest extends ComplexType implements Comple
      */
     public function setServiceUserId($serviceUserId = null)
     {
-        if (!$serviceUserId) return $this;
         $this->serviceUserId = ($serviceUserId InstanceOf UserId)
              ? $serviceUserId
              : new UserId($serviceUserId);
@@ -96,7 +95,7 @@ class GroupRoutePointOverflowModifyRequest extends ComplexType implements Comple
      */
     public function getServiceUserId()
     {
-        return $this->serviceUserId->getValue();
+        return ($this->serviceUserId) ? $this->serviceUserId->getValue() : null;
     }
 
     /**
@@ -104,7 +103,6 @@ class GroupRoutePointOverflowModifyRequest extends ComplexType implements Comple
      */
     public function setAction($action = null)
     {
-        if (!$action) return $this;
         $this->action = ($action InstanceOf CallCenterOverflowProcessingAction)
              ? $action
              : new CallCenterOverflowProcessingAction($action);
@@ -118,7 +116,7 @@ class GroupRoutePointOverflowModifyRequest extends ComplexType implements Comple
      */
     public function getAction()
     {
-        return $this->action->getValue();
+        return ($this->action) ? $this->action->getValue() : null;
     }
 
     /**
@@ -126,7 +124,6 @@ class GroupRoutePointOverflowModifyRequest extends ComplexType implements Comple
      */
     public function setTransferPhoneNumber($transferPhoneNumber = null)
     {
-        if (!$transferPhoneNumber) return $this;
         $this->transferPhoneNumber = ($transferPhoneNumber InstanceOf OutgoingDNorSIPURI)
              ? $transferPhoneNumber
              : new OutgoingDNorSIPURI($transferPhoneNumber);
@@ -140,7 +137,7 @@ class GroupRoutePointOverflowModifyRequest extends ComplexType implements Comple
      */
     public function getTransferPhoneNumber()
     {
-        return $this->transferPhoneNumber->getValue();
+        return ($this->transferPhoneNumber) ? $this->transferPhoneNumber->getValue() : null;
     }
 
     /**
@@ -148,7 +145,6 @@ class GroupRoutePointOverflowModifyRequest extends ComplexType implements Comple
      */
     public function setOverflowAfterTimeout($overflowAfterTimeout = null)
     {
-        if (!$overflowAfterTimeout) return $this;
         $this->overflowAfterTimeout = new PrimitiveType($overflowAfterTimeout);
         $this->overflowAfterTimeout->setName('overflowAfterTimeout');
         return $this;
@@ -160,7 +156,7 @@ class GroupRoutePointOverflowModifyRequest extends ComplexType implements Comple
      */
     public function getOverflowAfterTimeout()
     {
-        return $this->overflowAfterTimeout->getValue();
+        return ($this->overflowAfterTimeout) ? $this->overflowAfterTimeout->getValue() : null;
     }
 
     /**
@@ -168,7 +164,6 @@ class GroupRoutePointOverflowModifyRequest extends ComplexType implements Comple
      */
     public function setTimeoutSeconds($timeoutSeconds = null)
     {
-        if (!$timeoutSeconds) return $this;
         $this->timeoutSeconds = ($timeoutSeconds InstanceOf HuntForwardTimeoutSeconds)
              ? $timeoutSeconds
              : new HuntForwardTimeoutSeconds($timeoutSeconds);
@@ -182,7 +177,7 @@ class GroupRoutePointOverflowModifyRequest extends ComplexType implements Comple
      */
     public function getTimeoutSeconds()
     {
-        return $this->timeoutSeconds->getValue();
+        return ($this->timeoutSeconds) ? $this->timeoutSeconds->getValue() : null;
     }
 
     /**
@@ -190,7 +185,6 @@ class GroupRoutePointOverflowModifyRequest extends ComplexType implements Comple
      */
     public function setPlayAnnouncementBeforeOverflowProcessing($playAnnouncementBeforeOverflowProcessing = null)
     {
-        if (!$playAnnouncementBeforeOverflowProcessing) return $this;
         $this->playAnnouncementBeforeOverflowProcessing = new PrimitiveType($playAnnouncementBeforeOverflowProcessing);
         $this->playAnnouncementBeforeOverflowProcessing->setName('playAnnouncementBeforeOverflowProcessing');
         return $this;
@@ -202,7 +196,7 @@ class GroupRoutePointOverflowModifyRequest extends ComplexType implements Comple
      */
     public function getPlayAnnouncementBeforeOverflowProcessing()
     {
-        return $this->playAnnouncementBeforeOverflowProcessing->getValue();
+        return ($this->playAnnouncementBeforeOverflowProcessing) ? $this->playAnnouncementBeforeOverflowProcessing->getValue() : null;
     }
 
     /**
@@ -210,7 +204,6 @@ class GroupRoutePointOverflowModifyRequest extends ComplexType implements Comple
      */
     public function setAudioMessageSelection($audioMessageSelection = null)
     {
-        if (!$audioMessageSelection) return $this;
         $this->audioMessageSelection = ($audioMessageSelection InstanceOf ExtendedFileResourceSelection)
              ? $audioMessageSelection
              : new ExtendedFileResourceSelection($audioMessageSelection);
@@ -224,7 +217,7 @@ class GroupRoutePointOverflowModifyRequest extends ComplexType implements Comple
      */
     public function getAudioMessageSelection()
     {
-        return $this->audioMessageSelection->getValue();
+        return ($this->audioMessageSelection) ? $this->audioMessageSelection->getValue() : null;
     }
 
     /**
@@ -232,8 +225,9 @@ class GroupRoutePointOverflowModifyRequest extends ComplexType implements Comple
      */
     public function setAudioUrlList(CallCenterAnnouncementURLListModify $audioUrlList = null)
     {
-        if (!$audioUrlList) return $this;
-        $this->audioUrlList = $audioUrlList;
+        $this->audioUrlList = ($audioUrlList InstanceOf CallCenterAnnouncementURLListModify)
+             ? $audioUrlList
+             : new CallCenterAnnouncementURLListModify($audioUrlList);
         $this->audioUrlList->setName('audioUrlList');
         return $this;
     }
@@ -252,8 +246,9 @@ class GroupRoutePointOverflowModifyRequest extends ComplexType implements Comple
      */
     public function setAudioFileList(CallCenterAnnouncementFileListModify $audioFileList = null)
     {
-        if (!$audioFileList) return $this;
-        $this->audioFileList = $audioFileList;
+        $this->audioFileList = ($audioFileList InstanceOf CallCenterAnnouncementFileListModify)
+             ? $audioFileList
+             : new CallCenterAnnouncementFileListModify($audioFileList);
         $this->audioFileList->setName('audioFileList');
         return $this;
     }
@@ -272,7 +267,6 @@ class GroupRoutePointOverflowModifyRequest extends ComplexType implements Comple
      */
     public function setVideoMessageSelection($videoMessageSelection = null)
     {
-        if (!$videoMessageSelection) return $this;
         $this->videoMessageSelection = ($videoMessageSelection InstanceOf ExtendedFileResourceSelection)
              ? $videoMessageSelection
              : new ExtendedFileResourceSelection($videoMessageSelection);
@@ -286,7 +280,7 @@ class GroupRoutePointOverflowModifyRequest extends ComplexType implements Comple
      */
     public function getVideoMessageSelection()
     {
-        return $this->videoMessageSelection->getValue();
+        return ($this->videoMessageSelection) ? $this->videoMessageSelection->getValue() : null;
     }
 
     /**
@@ -294,8 +288,9 @@ class GroupRoutePointOverflowModifyRequest extends ComplexType implements Comple
      */
     public function setVideoUrlList(CallCenterAnnouncementURLListModify $videoUrlList = null)
     {
-        if (!$videoUrlList) return $this;
-        $this->videoUrlList = $videoUrlList;
+        $this->videoUrlList = ($videoUrlList InstanceOf CallCenterAnnouncementURLListModify)
+             ? $videoUrlList
+             : new CallCenterAnnouncementURLListModify($videoUrlList);
         $this->videoUrlList->setName('videoUrlList');
         return $this;
     }
@@ -314,8 +309,9 @@ class GroupRoutePointOverflowModifyRequest extends ComplexType implements Comple
      */
     public function setVideoFileList(CallCenterAnnouncementFileListModify $videoFileList = null)
     {
-        if (!$videoFileList) return $this;
-        $this->videoFileList = $videoFileList;
+        $this->videoFileList = ($videoFileList InstanceOf CallCenterAnnouncementFileListModify)
+             ? $videoFileList
+             : new CallCenterAnnouncementFileListModify($videoFileList);
         $this->videoFileList->setName('videoFileList');
         return $this;
     }

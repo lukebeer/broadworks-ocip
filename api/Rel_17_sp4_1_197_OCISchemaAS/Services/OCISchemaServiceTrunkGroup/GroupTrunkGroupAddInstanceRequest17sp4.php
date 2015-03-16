@@ -54,121 +54,121 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupTrunkGroupAddInstanceRequest17sp4 extends ComplexType implements ComplexInterface
 {
-    public    $name                                       = 'GroupTrunkGroupAddInstanceRequest17sp4';
-    protected $serviceProviderId                          = null;
-    protected $groupId                                    = null;
-    protected $name                                       = null;
-    protected $pilotUser                                  = null;
-    protected $department                                 = null;
-    protected $accessDevice                               = null;
-    protected $maxActiveCalls                             = null;
-    protected $maxIncomingCalls                           = null;
-    protected $maxOutgoingCalls                           = null;
-    protected $enableBursting                             = null;
-    protected $burstingMaxActiveCalls                     = null;
-    protected $burstingMaxIncomingCalls                   = null;
-    protected $burstingMaxOutgoingCalls                   = null;
-    protected $capacityExceededAction                     = null;
-    protected $capacityExceededForwardAddress             = null;
-    protected $capacityExceededRerouteTrunkGroupKey       = null;
-    protected $capacityExceededTrapInitialCalls           = null;
-    protected $capacityExceededTrapOffsetCalls            = null;
-    protected $unreachableDestinationAction               = null;
-    protected $unreachableDestinationForwardAddress       = null;
-    protected $unreachableDestinationRerouteTrunkGroupKey = null;
-    protected $invitationTimeout                          = null;
-    protected $requireAuthentication                      = null;
-    protected $sipAuthenticationUserName                  = null;
-    protected $sipAuthenticationPassword                  = null;
-    protected $hostedUserId                               = null;
-    protected $trunkGroupIdentity                         = null;
-    protected $otgDtgIdentity                             = null;
-    protected $allowTerminationToTrunkGroupIdentity       = null;
-    protected $allowTerminationToDtgIdentity              = null;
-    protected $includeTrunkGroupIdentity                  = null;
-    protected $includeDtgIdentity                         = null;
-    protected $includeTrunkGroupIdentityForNetworkCalls   = null;
-    protected $includeOtgIdentityForNetworkCalls          = null;
-    protected $enableNetworkAddressIdentity               = null;
-    protected $allowUnscreenedCalls                       = null;
-    protected $allowUnscreenedEmergencyCalls              = null;
-    protected $pilotUserCallingLineIdentityPolicy         = null;
-    protected $pilotUserChargeNumberPolicy                = null;
-    protected $callForwardingAlwaysAction                 = null;
-    protected $callForwardingAlwaysForwardAddress         = null;
-    protected $callForwardingAlwaysRerouteTrunkGroupKey   = null;
-    protected $peeringDomain                              = null;
-    protected $routeToPeeringDomain                       = null;
-    protected $prefixEnabled                              = null;
-    protected $prefix                                     = null;
-    protected $statefulReroutingEnabled                   = null;
-    protected $sendContinuousOptionsMessage               = null;
-    protected $continuousOptionsSendingIntervalSeconds    = null;
-    protected $failureOptionsSendingIntervalSeconds       = null;
-    protected $failureThresholdCounter                    = null;
-    protected $successThresholdCounter                    = null;
-    protected $inviteFailureThresholdCounter              = null;
-    protected $inviteFailureThresholdWindowSeconds        = null;
-    protected $pilotUserCallingLineAssertedIdentityPolicy = null;
-    protected $useSystemCallingLineAssertedIdentityPolicy = null;
+    public    $name = 'GroupTrunkGroupAddInstanceRequest17sp4';
+    protected $serviceProviderId;
+    protected $groupId;
+    protected $name;
+    protected $pilotUser;
+    protected $department;
+    protected $accessDevice;
+    protected $maxActiveCalls;
+    protected $maxIncomingCalls;
+    protected $maxOutgoingCalls;
+    protected $enableBursting;
+    protected $burstingMaxActiveCalls;
+    protected $burstingMaxIncomingCalls;
+    protected $burstingMaxOutgoingCalls;
+    protected $capacityExceededAction;
+    protected $capacityExceededForwardAddress;
+    protected $capacityExceededRerouteTrunkGroupKey;
+    protected $capacityExceededTrapInitialCalls;
+    protected $capacityExceededTrapOffsetCalls;
+    protected $unreachableDestinationAction;
+    protected $unreachableDestinationForwardAddress;
+    protected $unreachableDestinationRerouteTrunkGroupKey;
+    protected $invitationTimeout;
+    protected $requireAuthentication;
+    protected $sipAuthenticationUserName;
+    protected $sipAuthenticationPassword;
+    protected $hostedUserId;
+    protected $trunkGroupIdentity;
+    protected $otgDtgIdentity;
+    protected $allowTerminationToTrunkGroupIdentity;
+    protected $allowTerminationToDtgIdentity;
+    protected $includeTrunkGroupIdentity;
+    protected $includeDtgIdentity;
+    protected $includeTrunkGroupIdentityForNetworkCalls;
+    protected $includeOtgIdentityForNetworkCalls;
+    protected $enableNetworkAddressIdentity;
+    protected $allowUnscreenedCalls;
+    protected $allowUnscreenedEmergencyCalls;
+    protected $pilotUserCallingLineIdentityPolicy;
+    protected $pilotUserChargeNumberPolicy;
+    protected $callForwardingAlwaysAction;
+    protected $callForwardingAlwaysForwardAddress;
+    protected $callForwardingAlwaysRerouteTrunkGroupKey;
+    protected $peeringDomain;
+    protected $routeToPeeringDomain;
+    protected $prefixEnabled;
+    protected $prefix;
+    protected $statefulReroutingEnabled;
+    protected $sendContinuousOptionsMessage;
+    protected $continuousOptionsSendingIntervalSeconds;
+    protected $failureOptionsSendingIntervalSeconds;
+    protected $failureThresholdCounter;
+    protected $successThresholdCounter;
+    protected $inviteFailureThresholdCounter;
+    protected $inviteFailureThresholdWindowSeconds;
+    protected $pilotUserCallingLineAssertedIdentityPolicy;
+    protected $useSystemCallingLineAssertedIdentityPolicy;
 
     public function __construct(
-         $serviceProviderId,
-         $groupId,
-         $name,
+         $serviceProviderId = '',
+         $groupId = '',
+         $name = '',
          TrunkGroupMultipleContactPilotUser $pilotUser = null,
          DepartmentKey $department = null,
          AccessDevice $accessDevice = null,
-         $maxActiveCalls,
+         $maxActiveCalls = '',
          $maxIncomingCalls = null,
          $maxOutgoingCalls = null,
-         $enableBursting,
+         $enableBursting = '',
          $burstingMaxActiveCalls = null,
          $burstingMaxIncomingCalls = null,
          $burstingMaxOutgoingCalls = null,
          $capacityExceededAction = null,
          $capacityExceededForwardAddress = null,
          TrunkGroupKey $capacityExceededRerouteTrunkGroupKey = null,
-         $capacityExceededTrapInitialCalls,
-         $capacityExceededTrapOffsetCalls,
+         $capacityExceededTrapInitialCalls = '',
+         $capacityExceededTrapOffsetCalls = '',
          $unreachableDestinationAction = null,
          $unreachableDestinationForwardAddress = null,
          TrunkGroupKey $unreachableDestinationRerouteTrunkGroupKey = null,
-         $invitationTimeout,
-         $requireAuthentication,
+         $invitationTimeout = '',
+         $requireAuthentication = '',
          $sipAuthenticationUserName = null,
          $sipAuthenticationPassword = null,
          $hostedUserId = null,
          $trunkGroupIdentity = null,
          $otgDtgIdentity = null,
-         $allowTerminationToTrunkGroupIdentity,
-         $allowTerminationToDtgIdentity,
-         $includeTrunkGroupIdentity,
-         $includeDtgIdentity,
-         $includeTrunkGroupIdentityForNetworkCalls,
-         $includeOtgIdentityForNetworkCalls,
-         $enableNetworkAddressIdentity,
-         $allowUnscreenedCalls,
-         $allowUnscreenedEmergencyCalls,
-         $pilotUserCallingLineIdentityPolicy,
-         $pilotUserChargeNumberPolicy,
+         $allowTerminationToTrunkGroupIdentity = '',
+         $allowTerminationToDtgIdentity = '',
+         $includeTrunkGroupIdentity = '',
+         $includeDtgIdentity = '',
+         $includeTrunkGroupIdentityForNetworkCalls = '',
+         $includeOtgIdentityForNetworkCalls = '',
+         $enableNetworkAddressIdentity = '',
+         $allowUnscreenedCalls = '',
+         $allowUnscreenedEmergencyCalls = '',
+         $pilotUserCallingLineIdentityPolicy = '',
+         $pilotUserChargeNumberPolicy = '',
          $callForwardingAlwaysAction = null,
          $callForwardingAlwaysForwardAddress = null,
          TrunkGroupKey $callForwardingAlwaysRerouteTrunkGroupKey = null,
          $peeringDomain = null,
-         $routeToPeeringDomain,
-         $prefixEnabled,
+         $routeToPeeringDomain = '',
+         $prefixEnabled = '',
          $prefix = null,
-         $statefulReroutingEnabled,
-         $sendContinuousOptionsMessage,
-         $continuousOptionsSendingIntervalSeconds,
-         $failureOptionsSendingIntervalSeconds,
-         $failureThresholdCounter,
-         $successThresholdCounter,
-         $inviteFailureThresholdCounter,
-         $inviteFailureThresholdWindowSeconds,
-         $pilotUserCallingLineAssertedIdentityPolicy,
-         $useSystemCallingLineAssertedIdentityPolicy
+         $statefulReroutingEnabled = '',
+         $sendContinuousOptionsMessage = '',
+         $continuousOptionsSendingIntervalSeconds = '',
+         $failureOptionsSendingIntervalSeconds = '',
+         $failureThresholdCounter = '',
+         $successThresholdCounter = '',
+         $inviteFailureThresholdCounter = '',
+         $inviteFailureThresholdWindowSeconds = '',
+         $pilotUserCallingLineAssertedIdentityPolicy = '',
+         $useSystemCallingLineAssertedIdentityPolicy = ''
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setGroupId($groupId);
@@ -241,7 +241,6 @@ class GroupTrunkGroupAddInstanceRequest17sp4 extends ComplexType implements Comp
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
-        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
@@ -255,7 +254,7 @@ class GroupTrunkGroupAddInstanceRequest17sp4 extends ComplexType implements Comp
      */
     public function getServiceProviderId()
     {
-        return $this->serviceProviderId->getValue();
+        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
     }
 
     /**
@@ -263,7 +262,6 @@ class GroupTrunkGroupAddInstanceRequest17sp4 extends ComplexType implements Comp
      */
     public function setGroupId($groupId = null)
     {
-        if (!$groupId) return $this;
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
@@ -277,7 +275,7 @@ class GroupTrunkGroupAddInstanceRequest17sp4 extends ComplexType implements Comp
      */
     public function getGroupId()
     {
-        return $this->groupId->getValue();
+        return ($this->groupId) ? $this->groupId->getValue() : null;
     }
 
     /**
@@ -285,7 +283,6 @@ class GroupTrunkGroupAddInstanceRequest17sp4 extends ComplexType implements Comp
      */
     public function setName($name = null)
     {
-        if (!$name) return $this;
         $this->name = ($name InstanceOf TrunkGroupName)
              ? $name
              : new TrunkGroupName($name);
@@ -299,7 +296,7 @@ class GroupTrunkGroupAddInstanceRequest17sp4 extends ComplexType implements Comp
      */
     public function getName()
     {
-        return $this->name->getValue();
+        return ($this->name) ? $this->name->getValue() : null;
     }
 
     /**
@@ -307,8 +304,9 @@ class GroupTrunkGroupAddInstanceRequest17sp4 extends ComplexType implements Comp
      */
     public function setPilotUser(TrunkGroupMultipleContactPilotUser $pilotUser = null)
     {
-        if (!$pilotUser) return $this;
-        $this->pilotUser = $pilotUser;
+        $this->pilotUser = ($pilotUser InstanceOf TrunkGroupMultipleContactPilotUser)
+             ? $pilotUser
+             : new TrunkGroupMultipleContactPilotUser($pilotUser);
         $this->pilotUser->setName('pilotUser');
         return $this;
     }
@@ -327,8 +325,9 @@ class GroupTrunkGroupAddInstanceRequest17sp4 extends ComplexType implements Comp
      */
     public function setDepartment(DepartmentKey $department = null)
     {
-        if (!$department) return $this;
-        $this->department = $department;
+        $this->department = ($department InstanceOf DepartmentKey)
+             ? $department
+             : new DepartmentKey($department);
         $this->department->setName('department');
         return $this;
     }
@@ -347,8 +346,9 @@ class GroupTrunkGroupAddInstanceRequest17sp4 extends ComplexType implements Comp
      */
     public function setAccessDevice(AccessDevice $accessDevice = null)
     {
-        if (!$accessDevice) return $this;
-        $this->accessDevice = $accessDevice;
+        $this->accessDevice = ($accessDevice InstanceOf AccessDevice)
+             ? $accessDevice
+             : new AccessDevice($accessDevice);
         $this->accessDevice->setName('accessDevice');
         return $this;
     }
@@ -367,7 +367,6 @@ class GroupTrunkGroupAddInstanceRequest17sp4 extends ComplexType implements Comp
      */
     public function setMaxActiveCalls($maxActiveCalls = null)
     {
-        if (!$maxActiveCalls) return $this;
         $this->maxActiveCalls = ($maxActiveCalls InstanceOf MaxActiveCalls)
              ? $maxActiveCalls
              : new MaxActiveCalls($maxActiveCalls);
@@ -381,7 +380,7 @@ class GroupTrunkGroupAddInstanceRequest17sp4 extends ComplexType implements Comp
      */
     public function getMaxActiveCalls()
     {
-        return $this->maxActiveCalls->getValue();
+        return ($this->maxActiveCalls) ? $this->maxActiveCalls->getValue() : null;
     }
 
     /**
@@ -389,7 +388,6 @@ class GroupTrunkGroupAddInstanceRequest17sp4 extends ComplexType implements Comp
      */
     public function setMaxIncomingCalls($maxIncomingCalls = null)
     {
-        if (!$maxIncomingCalls) return $this;
         $this->maxIncomingCalls = ($maxIncomingCalls InstanceOf MaxIncomingCalls)
              ? $maxIncomingCalls
              : new MaxIncomingCalls($maxIncomingCalls);
@@ -403,7 +401,7 @@ class GroupTrunkGroupAddInstanceRequest17sp4 extends ComplexType implements Comp
      */
     public function getMaxIncomingCalls()
     {
-        return $this->maxIncomingCalls->getValue();
+        return ($this->maxIncomingCalls) ? $this->maxIncomingCalls->getValue() : null;
     }
 
     /**
@@ -411,7 +409,6 @@ class GroupTrunkGroupAddInstanceRequest17sp4 extends ComplexType implements Comp
      */
     public function setMaxOutgoingCalls($maxOutgoingCalls = null)
     {
-        if (!$maxOutgoingCalls) return $this;
         $this->maxOutgoingCalls = ($maxOutgoingCalls InstanceOf MaxOutgoingCalls)
              ? $maxOutgoingCalls
              : new MaxOutgoingCalls($maxOutgoingCalls);
@@ -425,7 +422,7 @@ class GroupTrunkGroupAddInstanceRequest17sp4 extends ComplexType implements Comp
      */
     public function getMaxOutgoingCalls()
     {
-        return $this->maxOutgoingCalls->getValue();
+        return ($this->maxOutgoingCalls) ? $this->maxOutgoingCalls->getValue() : null;
     }
 
     /**
@@ -433,7 +430,6 @@ class GroupTrunkGroupAddInstanceRequest17sp4 extends ComplexType implements Comp
      */
     public function setEnableBursting($enableBursting = null)
     {
-        if (!$enableBursting) return $this;
         $this->enableBursting = new PrimitiveType($enableBursting);
         $this->enableBursting->setName('enableBursting');
         return $this;
@@ -445,7 +441,7 @@ class GroupTrunkGroupAddInstanceRequest17sp4 extends ComplexType implements Comp
      */
     public function getEnableBursting()
     {
-        return $this->enableBursting->getValue();
+        return ($this->enableBursting) ? $this->enableBursting->getValue() : null;
     }
 
     /**
@@ -453,7 +449,6 @@ class GroupTrunkGroupAddInstanceRequest17sp4 extends ComplexType implements Comp
      */
     public function setBurstingMaxActiveCalls($burstingMaxActiveCalls = null)
     {
-        if (!$burstingMaxActiveCalls) return $this;
         $this->burstingMaxActiveCalls = ($burstingMaxActiveCalls InstanceOf BurstingMaxActiveCalls)
              ? $burstingMaxActiveCalls
              : new BurstingMaxActiveCalls($burstingMaxActiveCalls);
@@ -467,7 +462,7 @@ class GroupTrunkGroupAddInstanceRequest17sp4 extends ComplexType implements Comp
      */
     public function getBurstingMaxActiveCalls()
     {
-        return $this->burstingMaxActiveCalls->getValue();
+        return ($this->burstingMaxActiveCalls) ? $this->burstingMaxActiveCalls->getValue() : null;
     }
 
     /**
@@ -475,7 +470,6 @@ class GroupTrunkGroupAddInstanceRequest17sp4 extends ComplexType implements Comp
      */
     public function setBurstingMaxIncomingCalls($burstingMaxIncomingCalls = null)
     {
-        if (!$burstingMaxIncomingCalls) return $this;
         $this->burstingMaxIncomingCalls = ($burstingMaxIncomingCalls InstanceOf BurstingMaxIncomingCalls)
              ? $burstingMaxIncomingCalls
              : new BurstingMaxIncomingCalls($burstingMaxIncomingCalls);
@@ -489,7 +483,7 @@ class GroupTrunkGroupAddInstanceRequest17sp4 extends ComplexType implements Comp
      */
     public function getBurstingMaxIncomingCalls()
     {
-        return $this->burstingMaxIncomingCalls->getValue();
+        return ($this->burstingMaxIncomingCalls) ? $this->burstingMaxIncomingCalls->getValue() : null;
     }
 
     /**
@@ -497,7 +491,6 @@ class GroupTrunkGroupAddInstanceRequest17sp4 extends ComplexType implements Comp
      */
     public function setBurstingMaxOutgoingCalls($burstingMaxOutgoingCalls = null)
     {
-        if (!$burstingMaxOutgoingCalls) return $this;
         $this->burstingMaxOutgoingCalls = ($burstingMaxOutgoingCalls InstanceOf BurstingMaxOutgoingCalls)
              ? $burstingMaxOutgoingCalls
              : new BurstingMaxOutgoingCalls($burstingMaxOutgoingCalls);
@@ -511,7 +504,7 @@ class GroupTrunkGroupAddInstanceRequest17sp4 extends ComplexType implements Comp
      */
     public function getBurstingMaxOutgoingCalls()
     {
-        return $this->burstingMaxOutgoingCalls->getValue();
+        return ($this->burstingMaxOutgoingCalls) ? $this->burstingMaxOutgoingCalls->getValue() : null;
     }
 
     /**
@@ -519,7 +512,6 @@ class GroupTrunkGroupAddInstanceRequest17sp4 extends ComplexType implements Comp
      */
     public function setCapacityExceededAction($capacityExceededAction = null)
     {
-        if (!$capacityExceededAction) return $this;
         $this->capacityExceededAction = ($capacityExceededAction InstanceOf TrunkGroupCapacityExceededAction)
              ? $capacityExceededAction
              : new TrunkGroupCapacityExceededAction($capacityExceededAction);
@@ -533,7 +525,7 @@ class GroupTrunkGroupAddInstanceRequest17sp4 extends ComplexType implements Comp
      */
     public function getCapacityExceededAction()
     {
-        return $this->capacityExceededAction->getValue();
+        return ($this->capacityExceededAction) ? $this->capacityExceededAction->getValue() : null;
     }
 
     /**
@@ -541,7 +533,6 @@ class GroupTrunkGroupAddInstanceRequest17sp4 extends ComplexType implements Comp
      */
     public function setCapacityExceededForwardAddress($capacityExceededForwardAddress = null)
     {
-        if (!$capacityExceededForwardAddress) return $this;
         $this->capacityExceededForwardAddress = ($capacityExceededForwardAddress InstanceOf OutgoingDNorSIPURI)
              ? $capacityExceededForwardAddress
              : new OutgoingDNorSIPURI($capacityExceededForwardAddress);
@@ -555,7 +546,7 @@ class GroupTrunkGroupAddInstanceRequest17sp4 extends ComplexType implements Comp
      */
     public function getCapacityExceededForwardAddress()
     {
-        return $this->capacityExceededForwardAddress->getValue();
+        return ($this->capacityExceededForwardAddress) ? $this->capacityExceededForwardAddress->getValue() : null;
     }
 
     /**
@@ -563,8 +554,9 @@ class GroupTrunkGroupAddInstanceRequest17sp4 extends ComplexType implements Comp
      */
     public function setCapacityExceededRerouteTrunkGroupKey(TrunkGroupKey $capacityExceededRerouteTrunkGroupKey = null)
     {
-        if (!$capacityExceededRerouteTrunkGroupKey) return $this;
-        $this->capacityExceededRerouteTrunkGroupKey = $capacityExceededRerouteTrunkGroupKey;
+        $this->capacityExceededRerouteTrunkGroupKey = ($capacityExceededRerouteTrunkGroupKey InstanceOf TrunkGroupKey)
+             ? $capacityExceededRerouteTrunkGroupKey
+             : new TrunkGroupKey($capacityExceededRerouteTrunkGroupKey);
         $this->capacityExceededRerouteTrunkGroupKey->setName('capacityExceededRerouteTrunkGroupKey');
         return $this;
     }
@@ -583,7 +575,6 @@ class GroupTrunkGroupAddInstanceRequest17sp4 extends ComplexType implements Comp
      */
     public function setCapacityExceededTrapInitialCalls($capacityExceededTrapInitialCalls = null)
     {
-        if (!$capacityExceededTrapInitialCalls) return $this;
         $this->capacityExceededTrapInitialCalls = ($capacityExceededTrapInitialCalls InstanceOf TrapInitialThreshold)
              ? $capacityExceededTrapInitialCalls
              : new TrapInitialThreshold($capacityExceededTrapInitialCalls);
@@ -597,7 +588,7 @@ class GroupTrunkGroupAddInstanceRequest17sp4 extends ComplexType implements Comp
      */
     public function getCapacityExceededTrapInitialCalls()
     {
-        return $this->capacityExceededTrapInitialCalls->getValue();
+        return ($this->capacityExceededTrapInitialCalls) ? $this->capacityExceededTrapInitialCalls->getValue() : null;
     }
 
     /**
@@ -605,7 +596,6 @@ class GroupTrunkGroupAddInstanceRequest17sp4 extends ComplexType implements Comp
      */
     public function setCapacityExceededTrapOffsetCalls($capacityExceededTrapOffsetCalls = null)
     {
-        if (!$capacityExceededTrapOffsetCalls) return $this;
         $this->capacityExceededTrapOffsetCalls = ($capacityExceededTrapOffsetCalls InstanceOf TrapOffsetThreshold)
              ? $capacityExceededTrapOffsetCalls
              : new TrapOffsetThreshold($capacityExceededTrapOffsetCalls);
@@ -619,7 +609,7 @@ class GroupTrunkGroupAddInstanceRequest17sp4 extends ComplexType implements Comp
      */
     public function getCapacityExceededTrapOffsetCalls()
     {
-        return $this->capacityExceededTrapOffsetCalls->getValue();
+        return ($this->capacityExceededTrapOffsetCalls) ? $this->capacityExceededTrapOffsetCalls->getValue() : null;
     }
 
     /**
@@ -627,7 +617,6 @@ class GroupTrunkGroupAddInstanceRequest17sp4 extends ComplexType implements Comp
      */
     public function setUnreachableDestinationAction($unreachableDestinationAction = null)
     {
-        if (!$unreachableDestinationAction) return $this;
         $this->unreachableDestinationAction = ($unreachableDestinationAction InstanceOf TrunkGroupUnreachableDestinationAction)
              ? $unreachableDestinationAction
              : new TrunkGroupUnreachableDestinationAction($unreachableDestinationAction);
@@ -641,7 +630,7 @@ class GroupTrunkGroupAddInstanceRequest17sp4 extends ComplexType implements Comp
      */
     public function getUnreachableDestinationAction()
     {
-        return $this->unreachableDestinationAction->getValue();
+        return ($this->unreachableDestinationAction) ? $this->unreachableDestinationAction->getValue() : null;
     }
 
     /**
@@ -649,7 +638,6 @@ class GroupTrunkGroupAddInstanceRequest17sp4 extends ComplexType implements Comp
      */
     public function setUnreachableDestinationForwardAddress($unreachableDestinationForwardAddress = null)
     {
-        if (!$unreachableDestinationForwardAddress) return $this;
         $this->unreachableDestinationForwardAddress = ($unreachableDestinationForwardAddress InstanceOf OutgoingDNorSIPURI)
              ? $unreachableDestinationForwardAddress
              : new OutgoingDNorSIPURI($unreachableDestinationForwardAddress);
@@ -663,7 +651,7 @@ class GroupTrunkGroupAddInstanceRequest17sp4 extends ComplexType implements Comp
      */
     public function getUnreachableDestinationForwardAddress()
     {
-        return $this->unreachableDestinationForwardAddress->getValue();
+        return ($this->unreachableDestinationForwardAddress) ? $this->unreachableDestinationForwardAddress->getValue() : null;
     }
 
     /**
@@ -671,8 +659,9 @@ class GroupTrunkGroupAddInstanceRequest17sp4 extends ComplexType implements Comp
      */
     public function setUnreachableDestinationRerouteTrunkGroupKey(TrunkGroupKey $unreachableDestinationRerouteTrunkGroupKey = null)
     {
-        if (!$unreachableDestinationRerouteTrunkGroupKey) return $this;
-        $this->unreachableDestinationRerouteTrunkGroupKey = $unreachableDestinationRerouteTrunkGroupKey;
+        $this->unreachableDestinationRerouteTrunkGroupKey = ($unreachableDestinationRerouteTrunkGroupKey InstanceOf TrunkGroupKey)
+             ? $unreachableDestinationRerouteTrunkGroupKey
+             : new TrunkGroupKey($unreachableDestinationRerouteTrunkGroupKey);
         $this->unreachableDestinationRerouteTrunkGroupKey->setName('unreachableDestinationRerouteTrunkGroupKey');
         return $this;
     }
@@ -691,7 +680,6 @@ class GroupTrunkGroupAddInstanceRequest17sp4 extends ComplexType implements Comp
      */
     public function setInvitationTimeout($invitationTimeout = null)
     {
-        if (!$invitationTimeout) return $this;
         $this->invitationTimeout = ($invitationTimeout InstanceOf TrunkGroupInvitationTimeoutSeconds)
              ? $invitationTimeout
              : new TrunkGroupInvitationTimeoutSeconds($invitationTimeout);
@@ -705,7 +693,7 @@ class GroupTrunkGroupAddInstanceRequest17sp4 extends ComplexType implements Comp
      */
     public function getInvitationTimeout()
     {
-        return $this->invitationTimeout->getValue();
+        return ($this->invitationTimeout) ? $this->invitationTimeout->getValue() : null;
     }
 
     /**
@@ -713,7 +701,6 @@ class GroupTrunkGroupAddInstanceRequest17sp4 extends ComplexType implements Comp
      */
     public function setRequireAuthentication($requireAuthentication = null)
     {
-        if (!$requireAuthentication) return $this;
         $this->requireAuthentication = new PrimitiveType($requireAuthentication);
         $this->requireAuthentication->setName('requireAuthentication');
         return $this;
@@ -725,7 +712,7 @@ class GroupTrunkGroupAddInstanceRequest17sp4 extends ComplexType implements Comp
      */
     public function getRequireAuthentication()
     {
-        return $this->requireAuthentication->getValue();
+        return ($this->requireAuthentication) ? $this->requireAuthentication->getValue() : null;
     }
 
     /**
@@ -733,7 +720,6 @@ class GroupTrunkGroupAddInstanceRequest17sp4 extends ComplexType implements Comp
      */
     public function setSipAuthenticationUserName($sipAuthenticationUserName = null)
     {
-        if (!$sipAuthenticationUserName) return $this;
         $this->sipAuthenticationUserName = ($sipAuthenticationUserName InstanceOf SIPAuthenticationUserName)
              ? $sipAuthenticationUserName
              : new SIPAuthenticationUserName($sipAuthenticationUserName);
@@ -747,7 +733,7 @@ class GroupTrunkGroupAddInstanceRequest17sp4 extends ComplexType implements Comp
      */
     public function getSipAuthenticationUserName()
     {
-        return $this->sipAuthenticationUserName->getValue();
+        return ($this->sipAuthenticationUserName) ? $this->sipAuthenticationUserName->getValue() : null;
     }
 
     /**
@@ -755,7 +741,6 @@ class GroupTrunkGroupAddInstanceRequest17sp4 extends ComplexType implements Comp
      */
     public function setSipAuthenticationPassword($sipAuthenticationPassword = null)
     {
-        if (!$sipAuthenticationPassword) return $this;
         $this->sipAuthenticationPassword = ($sipAuthenticationPassword InstanceOf Password)
              ? $sipAuthenticationPassword
              : new Password($sipAuthenticationPassword);
@@ -769,7 +754,7 @@ class GroupTrunkGroupAddInstanceRequest17sp4 extends ComplexType implements Comp
      */
     public function getSipAuthenticationPassword()
     {
-        return $this->sipAuthenticationPassword->getValue();
+        return ($this->sipAuthenticationPassword) ? $this->sipAuthenticationPassword->getValue() : null;
     }
 
     /**
@@ -777,7 +762,6 @@ class GroupTrunkGroupAddInstanceRequest17sp4 extends ComplexType implements Comp
      */
     public function setHostedUserId($hostedUserId = null)
     {
-        if (!$hostedUserId) return $this;
         $this->hostedUserId = ($hostedUserId InstanceOf UserId)
              ? $hostedUserId
              : new UserId($hostedUserId);
@@ -791,7 +775,7 @@ class GroupTrunkGroupAddInstanceRequest17sp4 extends ComplexType implements Comp
      */
     public function getHostedUserId()
     {
-        return $this->hostedUserId->getValue();
+        return ($this->hostedUserId) ? $this->hostedUserId->getValue() : null;
     }
 
     /**
@@ -799,7 +783,6 @@ class GroupTrunkGroupAddInstanceRequest17sp4 extends ComplexType implements Comp
      */
     public function setTrunkGroupIdentity($trunkGroupIdentity = null)
     {
-        if (!$trunkGroupIdentity) return $this;
         $this->trunkGroupIdentity = ($trunkGroupIdentity InstanceOf SIPURI)
              ? $trunkGroupIdentity
              : new SIPURI($trunkGroupIdentity);
@@ -813,7 +796,7 @@ class GroupTrunkGroupAddInstanceRequest17sp4 extends ComplexType implements Comp
      */
     public function getTrunkGroupIdentity()
     {
-        return $this->trunkGroupIdentity->getValue();
+        return ($this->trunkGroupIdentity) ? $this->trunkGroupIdentity->getValue() : null;
     }
 
     /**
@@ -821,7 +804,6 @@ class GroupTrunkGroupAddInstanceRequest17sp4 extends ComplexType implements Comp
      */
     public function setOtgDtgIdentity($otgDtgIdentity = null)
     {
-        if (!$otgDtgIdentity) return $this;
         $this->otgDtgIdentity = ($otgDtgIdentity InstanceOf OtgDtgIdentity)
              ? $otgDtgIdentity
              : new OtgDtgIdentity($otgDtgIdentity);
@@ -835,7 +817,7 @@ class GroupTrunkGroupAddInstanceRequest17sp4 extends ComplexType implements Comp
      */
     public function getOtgDtgIdentity()
     {
-        return $this->otgDtgIdentity->getValue();
+        return ($this->otgDtgIdentity) ? $this->otgDtgIdentity->getValue() : null;
     }
 
     /**
@@ -843,7 +825,6 @@ class GroupTrunkGroupAddInstanceRequest17sp4 extends ComplexType implements Comp
      */
     public function setAllowTerminationToTrunkGroupIdentity($allowTerminationToTrunkGroupIdentity = null)
     {
-        if (!$allowTerminationToTrunkGroupIdentity) return $this;
         $this->allowTerminationToTrunkGroupIdentity = new PrimitiveType($allowTerminationToTrunkGroupIdentity);
         $this->allowTerminationToTrunkGroupIdentity->setName('allowTerminationToTrunkGroupIdentity');
         return $this;
@@ -855,7 +836,7 @@ class GroupTrunkGroupAddInstanceRequest17sp4 extends ComplexType implements Comp
      */
     public function getAllowTerminationToTrunkGroupIdentity()
     {
-        return $this->allowTerminationToTrunkGroupIdentity->getValue();
+        return ($this->allowTerminationToTrunkGroupIdentity) ? $this->allowTerminationToTrunkGroupIdentity->getValue() : null;
     }
 
     /**
@@ -863,7 +844,6 @@ class GroupTrunkGroupAddInstanceRequest17sp4 extends ComplexType implements Comp
      */
     public function setAllowTerminationToDtgIdentity($allowTerminationToDtgIdentity = null)
     {
-        if (!$allowTerminationToDtgIdentity) return $this;
         $this->allowTerminationToDtgIdentity = new PrimitiveType($allowTerminationToDtgIdentity);
         $this->allowTerminationToDtgIdentity->setName('allowTerminationToDtgIdentity');
         return $this;
@@ -875,7 +855,7 @@ class GroupTrunkGroupAddInstanceRequest17sp4 extends ComplexType implements Comp
      */
     public function getAllowTerminationToDtgIdentity()
     {
-        return $this->allowTerminationToDtgIdentity->getValue();
+        return ($this->allowTerminationToDtgIdentity) ? $this->allowTerminationToDtgIdentity->getValue() : null;
     }
 
     /**
@@ -883,7 +863,6 @@ class GroupTrunkGroupAddInstanceRequest17sp4 extends ComplexType implements Comp
      */
     public function setIncludeTrunkGroupIdentity($includeTrunkGroupIdentity = null)
     {
-        if (!$includeTrunkGroupIdentity) return $this;
         $this->includeTrunkGroupIdentity = new PrimitiveType($includeTrunkGroupIdentity);
         $this->includeTrunkGroupIdentity->setName('includeTrunkGroupIdentity');
         return $this;
@@ -895,7 +874,7 @@ class GroupTrunkGroupAddInstanceRequest17sp4 extends ComplexType implements Comp
      */
     public function getIncludeTrunkGroupIdentity()
     {
-        return $this->includeTrunkGroupIdentity->getValue();
+        return ($this->includeTrunkGroupIdentity) ? $this->includeTrunkGroupIdentity->getValue() : null;
     }
 
     /**
@@ -903,7 +882,6 @@ class GroupTrunkGroupAddInstanceRequest17sp4 extends ComplexType implements Comp
      */
     public function setIncludeDtgIdentity($includeDtgIdentity = null)
     {
-        if (!$includeDtgIdentity) return $this;
         $this->includeDtgIdentity = new PrimitiveType($includeDtgIdentity);
         $this->includeDtgIdentity->setName('includeDtgIdentity');
         return $this;
@@ -915,7 +893,7 @@ class GroupTrunkGroupAddInstanceRequest17sp4 extends ComplexType implements Comp
      */
     public function getIncludeDtgIdentity()
     {
-        return $this->includeDtgIdentity->getValue();
+        return ($this->includeDtgIdentity) ? $this->includeDtgIdentity->getValue() : null;
     }
 
     /**
@@ -923,7 +901,6 @@ class GroupTrunkGroupAddInstanceRequest17sp4 extends ComplexType implements Comp
      */
     public function setIncludeTrunkGroupIdentityForNetworkCalls($includeTrunkGroupIdentityForNetworkCalls = null)
     {
-        if (!$includeTrunkGroupIdentityForNetworkCalls) return $this;
         $this->includeTrunkGroupIdentityForNetworkCalls = new PrimitiveType($includeTrunkGroupIdentityForNetworkCalls);
         $this->includeTrunkGroupIdentityForNetworkCalls->setName('includeTrunkGroupIdentityForNetworkCalls');
         return $this;
@@ -935,7 +912,7 @@ class GroupTrunkGroupAddInstanceRequest17sp4 extends ComplexType implements Comp
      */
     public function getIncludeTrunkGroupIdentityForNetworkCalls()
     {
-        return $this->includeTrunkGroupIdentityForNetworkCalls->getValue();
+        return ($this->includeTrunkGroupIdentityForNetworkCalls) ? $this->includeTrunkGroupIdentityForNetworkCalls->getValue() : null;
     }
 
     /**
@@ -943,7 +920,6 @@ class GroupTrunkGroupAddInstanceRequest17sp4 extends ComplexType implements Comp
      */
     public function setIncludeOtgIdentityForNetworkCalls($includeOtgIdentityForNetworkCalls = null)
     {
-        if (!$includeOtgIdentityForNetworkCalls) return $this;
         $this->includeOtgIdentityForNetworkCalls = new PrimitiveType($includeOtgIdentityForNetworkCalls);
         $this->includeOtgIdentityForNetworkCalls->setName('includeOtgIdentityForNetworkCalls');
         return $this;
@@ -955,7 +931,7 @@ class GroupTrunkGroupAddInstanceRequest17sp4 extends ComplexType implements Comp
      */
     public function getIncludeOtgIdentityForNetworkCalls()
     {
-        return $this->includeOtgIdentityForNetworkCalls->getValue();
+        return ($this->includeOtgIdentityForNetworkCalls) ? $this->includeOtgIdentityForNetworkCalls->getValue() : null;
     }
 
     /**
@@ -963,7 +939,6 @@ class GroupTrunkGroupAddInstanceRequest17sp4 extends ComplexType implements Comp
      */
     public function setEnableNetworkAddressIdentity($enableNetworkAddressIdentity = null)
     {
-        if (!$enableNetworkAddressIdentity) return $this;
         $this->enableNetworkAddressIdentity = new PrimitiveType($enableNetworkAddressIdentity);
         $this->enableNetworkAddressIdentity->setName('enableNetworkAddressIdentity');
         return $this;
@@ -975,7 +950,7 @@ class GroupTrunkGroupAddInstanceRequest17sp4 extends ComplexType implements Comp
      */
     public function getEnableNetworkAddressIdentity()
     {
-        return $this->enableNetworkAddressIdentity->getValue();
+        return ($this->enableNetworkAddressIdentity) ? $this->enableNetworkAddressIdentity->getValue() : null;
     }
 
     /**
@@ -983,7 +958,6 @@ class GroupTrunkGroupAddInstanceRequest17sp4 extends ComplexType implements Comp
      */
     public function setAllowUnscreenedCalls($allowUnscreenedCalls = null)
     {
-        if (!$allowUnscreenedCalls) return $this;
         $this->allowUnscreenedCalls = new PrimitiveType($allowUnscreenedCalls);
         $this->allowUnscreenedCalls->setName('allowUnscreenedCalls');
         return $this;
@@ -995,7 +969,7 @@ class GroupTrunkGroupAddInstanceRequest17sp4 extends ComplexType implements Comp
      */
     public function getAllowUnscreenedCalls()
     {
-        return $this->allowUnscreenedCalls->getValue();
+        return ($this->allowUnscreenedCalls) ? $this->allowUnscreenedCalls->getValue() : null;
     }
 
     /**
@@ -1003,7 +977,6 @@ class GroupTrunkGroupAddInstanceRequest17sp4 extends ComplexType implements Comp
      */
     public function setAllowUnscreenedEmergencyCalls($allowUnscreenedEmergencyCalls = null)
     {
-        if (!$allowUnscreenedEmergencyCalls) return $this;
         $this->allowUnscreenedEmergencyCalls = new PrimitiveType($allowUnscreenedEmergencyCalls);
         $this->allowUnscreenedEmergencyCalls->setName('allowUnscreenedEmergencyCalls');
         return $this;
@@ -1015,7 +988,7 @@ class GroupTrunkGroupAddInstanceRequest17sp4 extends ComplexType implements Comp
      */
     public function getAllowUnscreenedEmergencyCalls()
     {
-        return $this->allowUnscreenedEmergencyCalls->getValue();
+        return ($this->allowUnscreenedEmergencyCalls) ? $this->allowUnscreenedEmergencyCalls->getValue() : null;
     }
 
     /**
@@ -1023,7 +996,6 @@ class GroupTrunkGroupAddInstanceRequest17sp4 extends ComplexType implements Comp
      */
     public function setPilotUserCallingLineIdentityPolicy($pilotUserCallingLineIdentityPolicy = null)
     {
-        if (!$pilotUserCallingLineIdentityPolicy) return $this;
         $this->pilotUserCallingLineIdentityPolicy = ($pilotUserCallingLineIdentityPolicy InstanceOf TrunkGroupPilotUserCallingLineIdentityUsagePolicy)
              ? $pilotUserCallingLineIdentityPolicy
              : new TrunkGroupPilotUserCallingLineIdentityUsagePolicy($pilotUserCallingLineIdentityPolicy);
@@ -1037,7 +1009,7 @@ class GroupTrunkGroupAddInstanceRequest17sp4 extends ComplexType implements Comp
      */
     public function getPilotUserCallingLineIdentityPolicy()
     {
-        return $this->pilotUserCallingLineIdentityPolicy->getValue();
+        return ($this->pilotUserCallingLineIdentityPolicy) ? $this->pilotUserCallingLineIdentityPolicy->getValue() : null;
     }
 
     /**
@@ -1045,7 +1017,6 @@ class GroupTrunkGroupAddInstanceRequest17sp4 extends ComplexType implements Comp
      */
     public function setPilotUserChargeNumberPolicy($pilotUserChargeNumberPolicy = null)
     {
-        if (!$pilotUserChargeNumberPolicy) return $this;
         $this->pilotUserChargeNumberPolicy = ($pilotUserChargeNumberPolicy InstanceOf TrunkGroupPilotUserChargeNumberUsagePolicy)
              ? $pilotUserChargeNumberPolicy
              : new TrunkGroupPilotUserChargeNumberUsagePolicy($pilotUserChargeNumberPolicy);
@@ -1059,7 +1030,7 @@ class GroupTrunkGroupAddInstanceRequest17sp4 extends ComplexType implements Comp
      */
     public function getPilotUserChargeNumberPolicy()
     {
-        return $this->pilotUserChargeNumberPolicy->getValue();
+        return ($this->pilotUserChargeNumberPolicy) ? $this->pilotUserChargeNumberPolicy->getValue() : null;
     }
 
     /**
@@ -1067,7 +1038,6 @@ class GroupTrunkGroupAddInstanceRequest17sp4 extends ComplexType implements Comp
      */
     public function setCallForwardingAlwaysAction($callForwardingAlwaysAction = null)
     {
-        if (!$callForwardingAlwaysAction) return $this;
         $this->callForwardingAlwaysAction = ($callForwardingAlwaysAction InstanceOf TrunkGroupCallForwardingAlwaysAction)
              ? $callForwardingAlwaysAction
              : new TrunkGroupCallForwardingAlwaysAction($callForwardingAlwaysAction);
@@ -1081,7 +1051,7 @@ class GroupTrunkGroupAddInstanceRequest17sp4 extends ComplexType implements Comp
      */
     public function getCallForwardingAlwaysAction()
     {
-        return $this->callForwardingAlwaysAction->getValue();
+        return ($this->callForwardingAlwaysAction) ? $this->callForwardingAlwaysAction->getValue() : null;
     }
 
     /**
@@ -1089,7 +1059,6 @@ class GroupTrunkGroupAddInstanceRequest17sp4 extends ComplexType implements Comp
      */
     public function setCallForwardingAlwaysForwardAddress($callForwardingAlwaysForwardAddress = null)
     {
-        if (!$callForwardingAlwaysForwardAddress) return $this;
         $this->callForwardingAlwaysForwardAddress = ($callForwardingAlwaysForwardAddress InstanceOf OutgoingDNorSIPURI)
              ? $callForwardingAlwaysForwardAddress
              : new OutgoingDNorSIPURI($callForwardingAlwaysForwardAddress);
@@ -1103,7 +1072,7 @@ class GroupTrunkGroupAddInstanceRequest17sp4 extends ComplexType implements Comp
      */
     public function getCallForwardingAlwaysForwardAddress()
     {
-        return $this->callForwardingAlwaysForwardAddress->getValue();
+        return ($this->callForwardingAlwaysForwardAddress) ? $this->callForwardingAlwaysForwardAddress->getValue() : null;
     }
 
     /**
@@ -1111,8 +1080,9 @@ class GroupTrunkGroupAddInstanceRequest17sp4 extends ComplexType implements Comp
      */
     public function setCallForwardingAlwaysRerouteTrunkGroupKey(TrunkGroupKey $callForwardingAlwaysRerouteTrunkGroupKey = null)
     {
-        if (!$callForwardingAlwaysRerouteTrunkGroupKey) return $this;
-        $this->callForwardingAlwaysRerouteTrunkGroupKey = $callForwardingAlwaysRerouteTrunkGroupKey;
+        $this->callForwardingAlwaysRerouteTrunkGroupKey = ($callForwardingAlwaysRerouteTrunkGroupKey InstanceOf TrunkGroupKey)
+             ? $callForwardingAlwaysRerouteTrunkGroupKey
+             : new TrunkGroupKey($callForwardingAlwaysRerouteTrunkGroupKey);
         $this->callForwardingAlwaysRerouteTrunkGroupKey->setName('callForwardingAlwaysRerouteTrunkGroupKey');
         return $this;
     }
@@ -1131,7 +1101,6 @@ class GroupTrunkGroupAddInstanceRequest17sp4 extends ComplexType implements Comp
      */
     public function setPeeringDomain($peeringDomain = null)
     {
-        if (!$peeringDomain) return $this;
         $this->peeringDomain = ($peeringDomain InstanceOf DomainName)
              ? $peeringDomain
              : new DomainName($peeringDomain);
@@ -1145,7 +1114,7 @@ class GroupTrunkGroupAddInstanceRequest17sp4 extends ComplexType implements Comp
      */
     public function getPeeringDomain()
     {
-        return $this->peeringDomain->getValue();
+        return ($this->peeringDomain) ? $this->peeringDomain->getValue() : null;
     }
 
     /**
@@ -1153,7 +1122,6 @@ class GroupTrunkGroupAddInstanceRequest17sp4 extends ComplexType implements Comp
      */
     public function setRouteToPeeringDomain($routeToPeeringDomain = null)
     {
-        if (!$routeToPeeringDomain) return $this;
         $this->routeToPeeringDomain = new PrimitiveType($routeToPeeringDomain);
         $this->routeToPeeringDomain->setName('routeToPeeringDomain');
         return $this;
@@ -1165,7 +1133,7 @@ class GroupTrunkGroupAddInstanceRequest17sp4 extends ComplexType implements Comp
      */
     public function getRouteToPeeringDomain()
     {
-        return $this->routeToPeeringDomain->getValue();
+        return ($this->routeToPeeringDomain) ? $this->routeToPeeringDomain->getValue() : null;
     }
 
     /**
@@ -1173,7 +1141,6 @@ class GroupTrunkGroupAddInstanceRequest17sp4 extends ComplexType implements Comp
      */
     public function setPrefixEnabled($prefixEnabled = null)
     {
-        if (!$prefixEnabled) return $this;
         $this->prefixEnabled = new PrimitiveType($prefixEnabled);
         $this->prefixEnabled->setName('prefixEnabled');
         return $this;
@@ -1185,7 +1152,7 @@ class GroupTrunkGroupAddInstanceRequest17sp4 extends ComplexType implements Comp
      */
     public function getPrefixEnabled()
     {
-        return $this->prefixEnabled->getValue();
+        return ($this->prefixEnabled) ? $this->prefixEnabled->getValue() : null;
     }
 
     /**
@@ -1193,7 +1160,6 @@ class GroupTrunkGroupAddInstanceRequest17sp4 extends ComplexType implements Comp
      */
     public function setPrefix($prefix = null)
     {
-        if (!$prefix) return $this;
         $this->prefix = ($prefix InstanceOf TrunkGroupPrefix)
              ? $prefix
              : new TrunkGroupPrefix($prefix);
@@ -1207,7 +1173,7 @@ class GroupTrunkGroupAddInstanceRequest17sp4 extends ComplexType implements Comp
      */
     public function getPrefix()
     {
-        return $this->prefix->getValue();
+        return ($this->prefix) ? $this->prefix->getValue() : null;
     }
 
     /**
@@ -1215,7 +1181,6 @@ class GroupTrunkGroupAddInstanceRequest17sp4 extends ComplexType implements Comp
      */
     public function setStatefulReroutingEnabled($statefulReroutingEnabled = null)
     {
-        if (!$statefulReroutingEnabled) return $this;
         $this->statefulReroutingEnabled = new PrimitiveType($statefulReroutingEnabled);
         $this->statefulReroutingEnabled->setName('statefulReroutingEnabled');
         return $this;
@@ -1227,7 +1192,7 @@ class GroupTrunkGroupAddInstanceRequest17sp4 extends ComplexType implements Comp
      */
     public function getStatefulReroutingEnabled()
     {
-        return $this->statefulReroutingEnabled->getValue();
+        return ($this->statefulReroutingEnabled) ? $this->statefulReroutingEnabled->getValue() : null;
     }
 
     /**
@@ -1235,7 +1200,6 @@ class GroupTrunkGroupAddInstanceRequest17sp4 extends ComplexType implements Comp
      */
     public function setSendContinuousOptionsMessage($sendContinuousOptionsMessage = null)
     {
-        if (!$sendContinuousOptionsMessage) return $this;
         $this->sendContinuousOptionsMessage = new PrimitiveType($sendContinuousOptionsMessage);
         $this->sendContinuousOptionsMessage->setName('sendContinuousOptionsMessage');
         return $this;
@@ -1247,7 +1211,7 @@ class GroupTrunkGroupAddInstanceRequest17sp4 extends ComplexType implements Comp
      */
     public function getSendContinuousOptionsMessage()
     {
-        return $this->sendContinuousOptionsMessage->getValue();
+        return ($this->sendContinuousOptionsMessage) ? $this->sendContinuousOptionsMessage->getValue() : null;
     }
 
     /**
@@ -1255,7 +1219,6 @@ class GroupTrunkGroupAddInstanceRequest17sp4 extends ComplexType implements Comp
      */
     public function setContinuousOptionsSendingIntervalSeconds($continuousOptionsSendingIntervalSeconds = null)
     {
-        if (!$continuousOptionsSendingIntervalSeconds) return $this;
         $this->continuousOptionsSendingIntervalSeconds = ($continuousOptionsSendingIntervalSeconds InstanceOf TrunkGroupContinuousOptionsSendingIntervalSeconds)
              ? $continuousOptionsSendingIntervalSeconds
              : new TrunkGroupContinuousOptionsSendingIntervalSeconds($continuousOptionsSendingIntervalSeconds);
@@ -1269,7 +1232,7 @@ class GroupTrunkGroupAddInstanceRequest17sp4 extends ComplexType implements Comp
      */
     public function getContinuousOptionsSendingIntervalSeconds()
     {
-        return $this->continuousOptionsSendingIntervalSeconds->getValue();
+        return ($this->continuousOptionsSendingIntervalSeconds) ? $this->continuousOptionsSendingIntervalSeconds->getValue() : null;
     }
 
     /**
@@ -1277,7 +1240,6 @@ class GroupTrunkGroupAddInstanceRequest17sp4 extends ComplexType implements Comp
      */
     public function setFailureOptionsSendingIntervalSeconds($failureOptionsSendingIntervalSeconds = null)
     {
-        if (!$failureOptionsSendingIntervalSeconds) return $this;
         $this->failureOptionsSendingIntervalSeconds = ($failureOptionsSendingIntervalSeconds InstanceOf TrunkGroupFailureOptionsSendingIntervalSeconds)
              ? $failureOptionsSendingIntervalSeconds
              : new TrunkGroupFailureOptionsSendingIntervalSeconds($failureOptionsSendingIntervalSeconds);
@@ -1291,7 +1253,7 @@ class GroupTrunkGroupAddInstanceRequest17sp4 extends ComplexType implements Comp
      */
     public function getFailureOptionsSendingIntervalSeconds()
     {
-        return $this->failureOptionsSendingIntervalSeconds->getValue();
+        return ($this->failureOptionsSendingIntervalSeconds) ? $this->failureOptionsSendingIntervalSeconds->getValue() : null;
     }
 
     /**
@@ -1299,7 +1261,6 @@ class GroupTrunkGroupAddInstanceRequest17sp4 extends ComplexType implements Comp
      */
     public function setFailureThresholdCounter($failureThresholdCounter = null)
     {
-        if (!$failureThresholdCounter) return $this;
         $this->failureThresholdCounter = ($failureThresholdCounter InstanceOf TrunkGroupThresholdCounter)
              ? $failureThresholdCounter
              : new TrunkGroupThresholdCounter($failureThresholdCounter);
@@ -1313,7 +1274,7 @@ class GroupTrunkGroupAddInstanceRequest17sp4 extends ComplexType implements Comp
      */
     public function getFailureThresholdCounter()
     {
-        return $this->failureThresholdCounter->getValue();
+        return ($this->failureThresholdCounter) ? $this->failureThresholdCounter->getValue() : null;
     }
 
     /**
@@ -1321,7 +1282,6 @@ class GroupTrunkGroupAddInstanceRequest17sp4 extends ComplexType implements Comp
      */
     public function setSuccessThresholdCounter($successThresholdCounter = null)
     {
-        if (!$successThresholdCounter) return $this;
         $this->successThresholdCounter = ($successThresholdCounter InstanceOf TrunkGroupThresholdCounter)
              ? $successThresholdCounter
              : new TrunkGroupThresholdCounter($successThresholdCounter);
@@ -1335,7 +1295,7 @@ class GroupTrunkGroupAddInstanceRequest17sp4 extends ComplexType implements Comp
      */
     public function getSuccessThresholdCounter()
     {
-        return $this->successThresholdCounter->getValue();
+        return ($this->successThresholdCounter) ? $this->successThresholdCounter->getValue() : null;
     }
 
     /**
@@ -1343,7 +1303,6 @@ class GroupTrunkGroupAddInstanceRequest17sp4 extends ComplexType implements Comp
      */
     public function setInviteFailureThresholdCounter($inviteFailureThresholdCounter = null)
     {
-        if (!$inviteFailureThresholdCounter) return $this;
         $this->inviteFailureThresholdCounter = ($inviteFailureThresholdCounter InstanceOf TrunkGroupThresholdCounter)
              ? $inviteFailureThresholdCounter
              : new TrunkGroupThresholdCounter($inviteFailureThresholdCounter);
@@ -1357,7 +1316,7 @@ class GroupTrunkGroupAddInstanceRequest17sp4 extends ComplexType implements Comp
      */
     public function getInviteFailureThresholdCounter()
     {
-        return $this->inviteFailureThresholdCounter->getValue();
+        return ($this->inviteFailureThresholdCounter) ? $this->inviteFailureThresholdCounter->getValue() : null;
     }
 
     /**
@@ -1365,7 +1324,6 @@ class GroupTrunkGroupAddInstanceRequest17sp4 extends ComplexType implements Comp
      */
     public function setInviteFailureThresholdWindowSeconds($inviteFailureThresholdWindowSeconds = null)
     {
-        if (!$inviteFailureThresholdWindowSeconds) return $this;
         $this->inviteFailureThresholdWindowSeconds = ($inviteFailureThresholdWindowSeconds InstanceOf TrunkGroupFailureThresholdWindowSeconds)
              ? $inviteFailureThresholdWindowSeconds
              : new TrunkGroupFailureThresholdWindowSeconds($inviteFailureThresholdWindowSeconds);
@@ -1379,7 +1337,7 @@ class GroupTrunkGroupAddInstanceRequest17sp4 extends ComplexType implements Comp
      */
     public function getInviteFailureThresholdWindowSeconds()
     {
-        return $this->inviteFailureThresholdWindowSeconds->getValue();
+        return ($this->inviteFailureThresholdWindowSeconds) ? $this->inviteFailureThresholdWindowSeconds->getValue() : null;
     }
 
     /**
@@ -1387,7 +1345,6 @@ class GroupTrunkGroupAddInstanceRequest17sp4 extends ComplexType implements Comp
      */
     public function setPilotUserCallingLineAssertedIdentityPolicy($pilotUserCallingLineAssertedIdentityPolicy = null)
     {
-        if (!$pilotUserCallingLineAssertedIdentityPolicy) return $this;
         $this->pilotUserCallingLineAssertedIdentityPolicy = ($pilotUserCallingLineAssertedIdentityPolicy InstanceOf TrunkGroupPilotUserCallingLineAssertedIdentityUsagePolicy)
              ? $pilotUserCallingLineAssertedIdentityPolicy
              : new TrunkGroupPilotUserCallingLineAssertedIdentityUsagePolicy($pilotUserCallingLineAssertedIdentityPolicy);
@@ -1401,7 +1358,7 @@ class GroupTrunkGroupAddInstanceRequest17sp4 extends ComplexType implements Comp
      */
     public function getPilotUserCallingLineAssertedIdentityPolicy()
     {
-        return $this->pilotUserCallingLineAssertedIdentityPolicy->getValue();
+        return ($this->pilotUserCallingLineAssertedIdentityPolicy) ? $this->pilotUserCallingLineAssertedIdentityPolicy->getValue() : null;
     }
 
     /**
@@ -1409,7 +1366,6 @@ class GroupTrunkGroupAddInstanceRequest17sp4 extends ComplexType implements Comp
      */
     public function setUseSystemCallingLineAssertedIdentityPolicy($useSystemCallingLineAssertedIdentityPolicy = null)
     {
-        if (!$useSystemCallingLineAssertedIdentityPolicy) return $this;
         $this->useSystemCallingLineAssertedIdentityPolicy = new PrimitiveType($useSystemCallingLineAssertedIdentityPolicy);
         $this->useSystemCallingLineAssertedIdentityPolicy->setName('useSystemCallingLineAssertedIdentityPolicy');
         return $this;
@@ -1421,6 +1377,6 @@ class GroupTrunkGroupAddInstanceRequest17sp4 extends ComplexType implements Comp
      */
     public function getUseSystemCallingLineAssertedIdentityPolicy()
     {
-        return $this->useSystemCallingLineAssertedIdentityPolicy->getValue();
+        return ($this->useSystemCallingLineAssertedIdentityPolicy) ? $this->useSystemCallingLineAssertedIdentityPolicy->getValue() : null;
     }
 }

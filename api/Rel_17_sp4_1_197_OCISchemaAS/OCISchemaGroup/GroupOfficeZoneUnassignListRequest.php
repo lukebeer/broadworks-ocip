@@ -22,15 +22,15 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupOfficeZoneUnassignListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                  = 'GroupOfficeZoneUnassignListRequest';
-    protected $serviceProviderId     = null;
-    protected $groupId               = null;
-    protected $officeZoneName        = null;
-    protected $defaultOfficeZoneName = null;
+    public    $name = 'GroupOfficeZoneUnassignListRequest';
+    protected $serviceProviderId;
+    protected $groupId;
+    protected $officeZoneName;
+    protected $defaultOfficeZoneName;
 
     public function __construct(
-         $serviceProviderId,
-         $groupId,
+         $serviceProviderId = '',
+         $groupId = '',
          $officeZoneName = null,
          $defaultOfficeZoneName = null
     ) {
@@ -53,7 +53,6 @@ class GroupOfficeZoneUnassignListRequest extends ComplexType implements ComplexI
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
-        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
@@ -67,7 +66,7 @@ class GroupOfficeZoneUnassignListRequest extends ComplexType implements ComplexI
      */
     public function getServiceProviderId()
     {
-        return $this->serviceProviderId->getValue();
+        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
     }
 
     /**
@@ -75,7 +74,6 @@ class GroupOfficeZoneUnassignListRequest extends ComplexType implements ComplexI
      */
     public function setGroupId($groupId = null)
     {
-        if (!$groupId) return $this;
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
@@ -89,7 +87,7 @@ class GroupOfficeZoneUnassignListRequest extends ComplexType implements ComplexI
      */
     public function getGroupId()
     {
-        return $this->groupId->getValue();
+        return ($this->groupId) ? $this->groupId->getValue() : null;
     }
 
     /**
@@ -97,7 +95,6 @@ class GroupOfficeZoneUnassignListRequest extends ComplexType implements ComplexI
      */
     public function setOfficeZoneName($officeZoneName = null)
     {
-        if (!$officeZoneName) return $this;
         $this->officeZoneName = ($officeZoneName InstanceOf OfficeZoneName)
              ? $officeZoneName
              : new OfficeZoneName($officeZoneName);
@@ -111,7 +108,7 @@ class GroupOfficeZoneUnassignListRequest extends ComplexType implements ComplexI
      */
     public function getOfficeZoneName()
     {
-        return $this->officeZoneName->getValue();
+        return ($this->officeZoneName) ? $this->officeZoneName->getValue() : null;
     }
 
     /**
@@ -119,7 +116,6 @@ class GroupOfficeZoneUnassignListRequest extends ComplexType implements ComplexI
      */
     public function setDefaultOfficeZoneName($defaultOfficeZoneName = null)
     {
-        if (!$defaultOfficeZoneName) return $this;
         $this->defaultOfficeZoneName = ($defaultOfficeZoneName InstanceOf OfficeZoneName)
              ? $defaultOfficeZoneName
              : new OfficeZoneName($defaultOfficeZoneName);
@@ -133,6 +129,6 @@ class GroupOfficeZoneUnassignListRequest extends ComplexType implements ComplexI
      */
     public function getDefaultOfficeZoneName()
     {
-        return $this->defaultOfficeZoneName->getValue();
+        return ($this->defaultOfficeZoneName) ? $this->defaultOfficeZoneName->getValue() : null;
     }
 }

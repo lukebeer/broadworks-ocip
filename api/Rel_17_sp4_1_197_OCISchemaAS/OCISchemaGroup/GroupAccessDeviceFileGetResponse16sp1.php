@@ -21,12 +21,12 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupAccessDeviceFileGetResponse16sp1 extends ComplexType implements ComplexInterface
 {
-    public    $name                  = 'GroupAccessDeviceFileGetResponse16sp1';
-    protected $fileSource            = null;
-    protected $configurationFileName = null;
-    protected $accessUrl             = null;
-    protected $repositoryUrl         = null;
-    protected $templateUrl           = null;
+    public    $name = 'GroupAccessDeviceFileGetResponse16sp1';
+    protected $fileSource;
+    protected $configurationFileName;
+    protected $accessUrl;
+    protected $repositoryUrl;
+    protected $templateUrl;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupAccessDeviceFileGetResponse16sp1 $response
@@ -41,7 +41,6 @@ class GroupAccessDeviceFileGetResponse16sp1 extends ComplexType implements Compl
      */
     public function setFileSource($fileSource = null)
     {
-        if (!$fileSource) return $this;
         $this->fileSource = ($fileSource InstanceOf AccessDeviceEnhancedConfigurationMode)
              ? $fileSource
              : new AccessDeviceEnhancedConfigurationMode($fileSource);
@@ -55,7 +54,7 @@ class GroupAccessDeviceFileGetResponse16sp1 extends ComplexType implements Compl
      */
     public function getFileSource()
     {
-        return $this->fileSource->getValue();
+        return ($this->fileSource) ? $this->fileSource->getValue() : null;
     }
 
     /**
@@ -63,7 +62,6 @@ class GroupAccessDeviceFileGetResponse16sp1 extends ComplexType implements Compl
      */
     public function setConfigurationFileName($configurationFileName = null)
     {
-        if (!$configurationFileName) return $this;
         $this->configurationFileName = ($configurationFileName InstanceOf AccessDeviceEnhancedConfigurationFileName)
              ? $configurationFileName
              : new AccessDeviceEnhancedConfigurationFileName($configurationFileName);
@@ -77,7 +75,7 @@ class GroupAccessDeviceFileGetResponse16sp1 extends ComplexType implements Compl
      */
     public function getConfigurationFileName()
     {
-        return $this->configurationFileName->getValue();
+        return ($this->configurationFileName) ? $this->configurationFileName->getValue() : null;
     }
 
     /**
@@ -85,7 +83,6 @@ class GroupAccessDeviceFileGetResponse16sp1 extends ComplexType implements Compl
      */
     public function setAccessUrl($accessUrl = null)
     {
-        if (!$accessUrl) return $this;
         $this->accessUrl = ($accessUrl InstanceOf URL)
              ? $accessUrl
              : new URL($accessUrl);
@@ -99,7 +96,7 @@ class GroupAccessDeviceFileGetResponse16sp1 extends ComplexType implements Compl
      */
     public function getAccessUrl()
     {
-        return $this->accessUrl->getValue();
+        return ($this->accessUrl) ? $this->accessUrl->getValue() : null;
     }
 
     /**
@@ -107,7 +104,6 @@ class GroupAccessDeviceFileGetResponse16sp1 extends ComplexType implements Compl
      */
     public function setRepositoryUrl($repositoryUrl = null)
     {
-        if (!$repositoryUrl) return $this;
         $this->repositoryUrl = ($repositoryUrl InstanceOf URL)
              ? $repositoryUrl
              : new URL($repositoryUrl);
@@ -121,7 +117,7 @@ class GroupAccessDeviceFileGetResponse16sp1 extends ComplexType implements Compl
      */
     public function getRepositoryUrl()
     {
-        return $this->repositoryUrl->getValue();
+        return ($this->repositoryUrl) ? $this->repositoryUrl->getValue() : null;
     }
 
     /**
@@ -129,7 +125,6 @@ class GroupAccessDeviceFileGetResponse16sp1 extends ComplexType implements Compl
      */
     public function setTemplateUrl($templateUrl = null)
     {
-        if (!$templateUrl) return $this;
         $this->templateUrl = ($templateUrl InstanceOf URL)
              ? $templateUrl
              : new URL($templateUrl);
@@ -143,6 +138,6 @@ class GroupAccessDeviceFileGetResponse16sp1 extends ComplexType implements Compl
      */
     public function getTemplateUrl()
     {
-        return $this->templateUrl->getValue();
+        return ($this->templateUrl) ? $this->templateUrl->getValue() : null;
     }
 }

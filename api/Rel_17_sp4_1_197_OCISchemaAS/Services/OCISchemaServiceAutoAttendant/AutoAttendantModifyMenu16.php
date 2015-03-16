@@ -21,12 +21,12 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class AutoAttendantModifyMenu16 extends ComplexType implements ComplexInterface
 {
-    public    $name                                 = 'AutoAttendantModifyMenu16';
-    protected $announcementSelection                = null;
-    protected $audioFile                            = null;
-    protected $videoFile                            = null;
-    protected $enableFirstMenuLevelExtensionDialing = null;
-    protected $keyConfiguration                     = null;
+    public    $name = 'AutoAttendantModifyMenu16';
+    protected $announcementSelection;
+    protected $audioFile;
+    protected $videoFile;
+    protected $enableFirstMenuLevelExtensionDialing;
+    protected $keyConfiguration;
 
     public function __construct(
          $announcementSelection = null,
@@ -55,7 +55,6 @@ class AutoAttendantModifyMenu16 extends ComplexType implements ComplexInterface
      */
     public function setAnnouncementSelection($announcementSelection = null)
     {
-        if (!$announcementSelection) return $this;
         $this->announcementSelection = new SimpleContent($announcementSelection);
         $this->announcementSelection->setName('announcementSelection');
         return $this;
@@ -67,7 +66,7 @@ class AutoAttendantModifyMenu16 extends ComplexType implements ComplexInterface
      */
     public function getAnnouncementSelection()
     {
-        return $this->announcementSelection->getValue();
+        return ($this->announcementSelection) ? $this->announcementSelection->getValue() : null;
     }
 
     /**
@@ -75,7 +74,6 @@ class AutoAttendantModifyMenu16 extends ComplexType implements ComplexInterface
      */
     public function setAudioFile($audioFile = null)
     {
-        if (!$audioFile) return $this;
         $this->audioFile = new SimpleContent($audioFile);
         $this->audioFile->setName('audioFile');
         return $this;
@@ -87,7 +85,7 @@ class AutoAttendantModifyMenu16 extends ComplexType implements ComplexInterface
      */
     public function getAudioFile()
     {
-        return $this->audioFile->getValue();
+        return ($this->audioFile) ? $this->audioFile->getValue() : null;
     }
 
     /**
@@ -95,7 +93,6 @@ class AutoAttendantModifyMenu16 extends ComplexType implements ComplexInterface
      */
     public function setVideoFile($videoFile = null)
     {
-        if (!$videoFile) return $this;
         $this->videoFile = new SimpleContent($videoFile);
         $this->videoFile->setName('videoFile');
         return $this;
@@ -107,7 +104,7 @@ class AutoAttendantModifyMenu16 extends ComplexType implements ComplexInterface
      */
     public function getVideoFile()
     {
-        return $this->videoFile->getValue();
+        return ($this->videoFile) ? $this->videoFile->getValue() : null;
     }
 
     /**
@@ -115,7 +112,6 @@ class AutoAttendantModifyMenu16 extends ComplexType implements ComplexInterface
      */
     public function setEnableFirstMenuLevelExtensionDialing($enableFirstMenuLevelExtensionDialing = null)
     {
-        if (!$enableFirstMenuLevelExtensionDialing) return $this;
         $this->enableFirstMenuLevelExtensionDialing = new SimpleContent($enableFirstMenuLevelExtensionDialing);
         $this->enableFirstMenuLevelExtensionDialing->setName('enableFirstMenuLevelExtensionDialing');
         return $this;
@@ -127,7 +123,7 @@ class AutoAttendantModifyMenu16 extends ComplexType implements ComplexInterface
      */
     public function getEnableFirstMenuLevelExtensionDialing()
     {
-        return $this->enableFirstMenuLevelExtensionDialing->getValue();
+        return ($this->enableFirstMenuLevelExtensionDialing) ? $this->enableFirstMenuLevelExtensionDialing->getValue() : null;
     }
 
     /**
@@ -135,7 +131,6 @@ class AutoAttendantModifyMenu16 extends ComplexType implements ComplexInterface
      */
     public function setKeyConfiguration($keyConfiguration = null)
     {
-        if (!$keyConfiguration) return $this;
         $this->keyConfiguration = new SimpleContent($keyConfiguration);
         $this->keyConfiguration->setName('keyConfiguration');
         return $this;
@@ -147,6 +142,6 @@ class AutoAttendantModifyMenu16 extends ComplexType implements ComplexInterface
      */
     public function getKeyConfiguration()
     {
-        return $this->keyConfiguration->getValue();
+        return ($this->keyConfiguration) ? $this->keyConfiguration->getValue() : null;
     }
 }

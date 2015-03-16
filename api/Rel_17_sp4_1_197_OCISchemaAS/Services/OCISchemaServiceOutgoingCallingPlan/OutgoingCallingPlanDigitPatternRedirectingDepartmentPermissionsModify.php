@@ -19,13 +19,13 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class OutgoingCallingPlanDigitPatternRedirectingDepartmentPermissionsModify extends ComplexType implements ComplexInterface
 {
-    public    $name                    = 'OutgoingCallingPlanDigitPatternRedirectingDepartmentPermissionsModify';
-    protected $departmentKey           = null;
-    protected $digitPatternPermissions = null;
+    public    $name = 'OutgoingCallingPlanDigitPatternRedirectingDepartmentPermissionsModify';
+    protected $departmentKey;
+    protected $digitPatternPermissions;
 
     public function __construct(
-         $departmentKey,
-         $digitPatternPermissions
+         $departmentKey = '',
+         $digitPatternPermissions = ''
     ) {
         $this->setDepartmentKey($departmentKey);
         $this->setDigitPatternPermissions($digitPatternPermissions);
@@ -44,7 +44,6 @@ class OutgoingCallingPlanDigitPatternRedirectingDepartmentPermissionsModify exte
      */
     public function setDepartmentKey($departmentKey = null)
     {
-        if (!$departmentKey) return $this;
         $this->departmentKey = new SimpleContent($departmentKey);
         $this->departmentKey->setName('departmentKey');
         return $this;
@@ -56,7 +55,7 @@ class OutgoingCallingPlanDigitPatternRedirectingDepartmentPermissionsModify exte
      */
     public function getDepartmentKey()
     {
-        return $this->departmentKey->getValue();
+        return ($this->departmentKey) ? $this->departmentKey->getValue() : null;
     }
 
     /**
@@ -64,7 +63,6 @@ class OutgoingCallingPlanDigitPatternRedirectingDepartmentPermissionsModify exte
      */
     public function setDigitPatternPermissions($digitPatternPermissions = null)
     {
-        if (!$digitPatternPermissions) return $this;
         $this->digitPatternPermissions = new SimpleContent($digitPatternPermissions);
         $this->digitPatternPermissions->setName('digitPatternPermissions');
         return $this;
@@ -76,6 +74,6 @@ class OutgoingCallingPlanDigitPatternRedirectingDepartmentPermissionsModify exte
      */
     public function getDigitPatternPermissions()
     {
-        return $this->digitPatternPermissions->getValue();
+        return ($this->digitPatternPermissions) ? $this->digitPatternPermissions->getValue() : null;
     }
 }

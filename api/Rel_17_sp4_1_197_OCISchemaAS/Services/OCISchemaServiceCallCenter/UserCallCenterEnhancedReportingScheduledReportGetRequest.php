@@ -22,13 +22,13 @@ use Broadworks_OCIP\core\Client\Client;
 class UserCallCenterEnhancedReportingScheduledReportGetRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType     = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\UserCallCenterEnhancedReportingScheduledReportGetResponse';
-    public    $name             = 'UserCallCenterEnhancedReportingScheduledReportGetRequest';
-    protected $supervisorUserId = null;
-    protected $name             = null;
+    public    $name = 'UserCallCenterEnhancedReportingScheduledReportGetRequest';
+    protected $supervisorUserId;
+    protected $name;
 
     public function __construct(
-         $supervisorUserId,
-         $name
+         $supervisorUserId = '',
+         $name = ''
     ) {
         $this->setSupervisorUserId($supervisorUserId);
         $this->setName($name);
@@ -47,7 +47,6 @@ class UserCallCenterEnhancedReportingScheduledReportGetRequest extends ComplexTy
      */
     public function setSupervisorUserId($supervisorUserId = null)
     {
-        if (!$supervisorUserId) return $this;
         $this->supervisorUserId = ($supervisorUserId InstanceOf UserId)
              ? $supervisorUserId
              : new UserId($supervisorUserId);
@@ -61,7 +60,7 @@ class UserCallCenterEnhancedReportingScheduledReportGetRequest extends ComplexTy
      */
     public function getSupervisorUserId()
     {
-        return $this->supervisorUserId->getValue();
+        return ($this->supervisorUserId) ? $this->supervisorUserId->getValue() : null;
     }
 
     /**
@@ -69,7 +68,6 @@ class UserCallCenterEnhancedReportingScheduledReportGetRequest extends ComplexTy
      */
     public function setName($name = null)
     {
-        if (!$name) return $this;
         $this->name = ($name InstanceOf CallCenterScheduledReportName)
              ? $name
              : new CallCenterScheduledReportName($name);
@@ -83,6 +81,6 @@ class UserCallCenterEnhancedReportingScheduledReportGetRequest extends ComplexTy
      */
     public function getName()
     {
-        return $this->name->getValue();
+        return ($this->name) ? $this->name->getValue() : null;
     }
 }

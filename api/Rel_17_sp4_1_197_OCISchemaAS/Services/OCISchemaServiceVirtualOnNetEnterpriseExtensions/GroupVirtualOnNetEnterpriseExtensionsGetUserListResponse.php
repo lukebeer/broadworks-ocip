@@ -23,8 +23,8 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupVirtualOnNetEnterpriseExtensionsGetUserListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name      = 'GroupVirtualOnNetEnterpriseExtensionsGetUserListResponse';
-    protected $userTable = null;
+    public    $name = 'GroupVirtualOnNetEnterpriseExtensionsGetUserListResponse';
+    protected $userTable;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceVirtualOnNetEnterpriseExtensions\GroupVirtualOnNetEnterpriseExtensionsGetUserListResponse $response
@@ -39,7 +39,6 @@ class GroupVirtualOnNetEnterpriseExtensionsGetUserListResponse extends ComplexTy
      */
     public function setUserTable(TableType $userTable = null)
     {
-        if (!$userTable) return $this;
         $this->userTable = $userTable;
         $this->userTable->setName('userTable');
         return $this;

@@ -26,17 +26,17 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemCallRecordingModifyPlatformRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                = 'SystemCallRecordingModifyPlatformRequest';
-    protected $name                = null;
-    protected $netAddress          = null;
-    protected $port                = null;
-    protected $mediaStream         = null;
-    protected $becomeSystemDefault = null;
-    protected $transportType       = null;
-    protected $description         = null;
+    public    $name = 'SystemCallRecordingModifyPlatformRequest';
+    protected $name;
+    protected $netAddress;
+    protected $port;
+    protected $mediaStream;
+    protected $becomeSystemDefault;
+    protected $transportType;
+    protected $description;
 
     public function __construct(
-         $name,
+         $name = '',
          $netAddress = null,
          $port = null,
          $mediaStream = null,
@@ -66,7 +66,6 @@ class SystemCallRecordingModifyPlatformRequest extends ComplexType implements Co
      */
     public function setName($name = null)
     {
-        if (!$name) return $this;
         $this->name = ($name InstanceOf CallRecordingPlatformName)
              ? $name
              : new CallRecordingPlatformName($name);
@@ -80,7 +79,7 @@ class SystemCallRecordingModifyPlatformRequest extends ComplexType implements Co
      */
     public function getName()
     {
-        return $this->name->getValue();
+        return ($this->name) ? $this->name->getValue() : null;
     }
 
     /**
@@ -88,7 +87,6 @@ class SystemCallRecordingModifyPlatformRequest extends ComplexType implements Co
      */
     public function setNetAddress($netAddress = null)
     {
-        if (!$netAddress) return $this;
         $this->netAddress = ($netAddress InstanceOf NetAddress)
              ? $netAddress
              : new NetAddress($netAddress);
@@ -102,7 +100,7 @@ class SystemCallRecordingModifyPlatformRequest extends ComplexType implements Co
      */
     public function getNetAddress()
     {
-        return $this->netAddress->getValue();
+        return ($this->netAddress) ? $this->netAddress->getValue() : null;
     }
 
     /**
@@ -110,7 +108,6 @@ class SystemCallRecordingModifyPlatformRequest extends ComplexType implements Co
      */
     public function setPort($port = null)
     {
-        if (!$port) return $this;
         $this->port = ($port InstanceOf Port)
              ? $port
              : new Port($port);
@@ -124,7 +121,7 @@ class SystemCallRecordingModifyPlatformRequest extends ComplexType implements Co
      */
     public function getPort()
     {
-        return $this->port->getValue();
+        return ($this->port) ? $this->port->getValue() : null;
     }
 
     /**
@@ -132,7 +129,6 @@ class SystemCallRecordingModifyPlatformRequest extends ComplexType implements Co
      */
     public function setMediaStream($mediaStream = null)
     {
-        if (!$mediaStream) return $this;
         $this->mediaStream = ($mediaStream InstanceOf MediaStream)
              ? $mediaStream
              : new MediaStream($mediaStream);
@@ -146,7 +142,7 @@ class SystemCallRecordingModifyPlatformRequest extends ComplexType implements Co
      */
     public function getMediaStream()
     {
-        return $this->mediaStream->getValue();
+        return ($this->mediaStream) ? $this->mediaStream->getValue() : null;
     }
 
     /**
@@ -154,7 +150,6 @@ class SystemCallRecordingModifyPlatformRequest extends ComplexType implements Co
      */
     public function setBecomeSystemDefault($becomeSystemDefault = null)
     {
-        if (!$becomeSystemDefault) return $this;
         $this->becomeSystemDefault = new PrimitiveType($becomeSystemDefault);
         $this->becomeSystemDefault->setName('becomeSystemDefault');
         return $this;
@@ -166,7 +161,7 @@ class SystemCallRecordingModifyPlatformRequest extends ComplexType implements Co
      */
     public function getBecomeSystemDefault()
     {
-        return $this->becomeSystemDefault->getValue();
+        return ($this->becomeSystemDefault) ? $this->becomeSystemDefault->getValue() : null;
     }
 
     /**
@@ -174,7 +169,6 @@ class SystemCallRecordingModifyPlatformRequest extends ComplexType implements Co
      */
     public function setTransportType($transportType = null)
     {
-        if (!$transportType) return $this;
         $this->transportType = ($transportType InstanceOf TransportProtocol)
              ? $transportType
              : new TransportProtocol($transportType);
@@ -188,7 +182,7 @@ class SystemCallRecordingModifyPlatformRequest extends ComplexType implements Co
      */
     public function getTransportType()
     {
-        return $this->transportType->getValue();
+        return ($this->transportType) ? $this->transportType->getValue() : null;
     }
 
     /**
@@ -196,7 +190,6 @@ class SystemCallRecordingModifyPlatformRequest extends ComplexType implements Co
      */
     public function setDescription($description = null)
     {
-        if (!$description) return $this;
         $this->description = ($description InstanceOf CallRecordingPlatformDescription)
              ? $description
              : new CallRecordingPlatformDescription($description);
@@ -210,6 +203,6 @@ class SystemCallRecordingModifyPlatformRequest extends ComplexType implements Co
      */
     public function getDescription()
     {
-        return $this->description->getValue();
+        return ($this->description) ? $this->description->getValue() : null;
     }
 }

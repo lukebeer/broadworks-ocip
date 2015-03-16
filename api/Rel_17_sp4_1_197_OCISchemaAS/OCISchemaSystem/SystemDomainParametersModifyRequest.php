@@ -21,9 +21,9 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemDomainParametersModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name              = 'SystemDomainParametersModifyRequest';
-    protected $useAliasForDomain = null;
-    protected $defaultDomain     = null;
+    public    $name = 'SystemDomainParametersModifyRequest';
+    protected $useAliasForDomain;
+    protected $defaultDomain;
 
     public function __construct(
          $useAliasForDomain = null,
@@ -46,7 +46,6 @@ class SystemDomainParametersModifyRequest extends ComplexType implements Complex
      */
     public function setUseAliasForDomain($useAliasForDomain = null)
     {
-        if (!$useAliasForDomain) return $this;
         $this->useAliasForDomain = new PrimitiveType($useAliasForDomain);
         $this->useAliasForDomain->setName('useAliasForDomain');
         return $this;
@@ -58,7 +57,7 @@ class SystemDomainParametersModifyRequest extends ComplexType implements Complex
      */
     public function getUseAliasForDomain()
     {
-        return $this->useAliasForDomain->getValue();
+        return ($this->useAliasForDomain) ? $this->useAliasForDomain->getValue() : null;
     }
 
     /**
@@ -66,7 +65,6 @@ class SystemDomainParametersModifyRequest extends ComplexType implements Complex
      */
     public function setDefaultDomain($defaultDomain = null)
     {
-        if (!$defaultDomain) return $this;
         $this->defaultDomain = ($defaultDomain InstanceOf NetAddress)
              ? $defaultDomain
              : new NetAddress($defaultDomain);
@@ -80,6 +78,6 @@ class SystemDomainParametersModifyRequest extends ComplexType implements Complex
      */
     public function getDefaultDomain()
     {
-        return $this->defaultDomain->getValue();
+        return ($this->defaultDomain) ? $this->defaultDomain->getValue() : null;
     }
 }

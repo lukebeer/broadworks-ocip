@@ -21,11 +21,11 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class EnterpriseVoiceVPNGetResponse14sp3 extends ComplexType implements ComplexInterface
 {
-    public    $name             = 'EnterpriseVoiceVPNGetResponse14sp3';
-    protected $isActive         = null;
-    protected $defaultSelection = null;
-    protected $e164Selection    = null;
-    protected $usePhoneContext  = null;
+    public    $name = 'EnterpriseVoiceVPNGetResponse14sp3';
+    protected $isActive;
+    protected $defaultSelection;
+    protected $e164Selection;
+    protected $usePhoneContext;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaEnterprise\EnterpriseVoiceVPNGetResponse14sp3 $response
@@ -40,7 +40,6 @@ class EnterpriseVoiceVPNGetResponse14sp3 extends ComplexType implements ComplexI
      */
     public function setIsActive($isActive = null)
     {
-        if (!$isActive) return $this;
         $this->isActive = new PrimitiveType($isActive);
         $this->isActive->setName('isActive');
         return $this;
@@ -52,7 +51,7 @@ class EnterpriseVoiceVPNGetResponse14sp3 extends ComplexType implements ComplexI
      */
     public function getIsActive()
     {
-        return $this->isActive->getValue();
+        return ($this->isActive) ? $this->isActive->getValue() : null;
     }
 
     /**
@@ -60,7 +59,6 @@ class EnterpriseVoiceVPNGetResponse14sp3 extends ComplexType implements ComplexI
      */
     public function setDefaultSelection($defaultSelection = null)
     {
-        if (!$defaultSelection) return $this;
         $this->defaultSelection = ($defaultSelection InstanceOf EnterpriseVoiceVPNDefaultSelection)
              ? $defaultSelection
              : new EnterpriseVoiceVPNDefaultSelection($defaultSelection);
@@ -74,7 +72,7 @@ class EnterpriseVoiceVPNGetResponse14sp3 extends ComplexType implements ComplexI
      */
     public function getDefaultSelection()
     {
-        return $this->defaultSelection->getValue();
+        return ($this->defaultSelection) ? $this->defaultSelection->getValue() : null;
     }
 
     /**
@@ -82,7 +80,6 @@ class EnterpriseVoiceVPNGetResponse14sp3 extends ComplexType implements ComplexI
      */
     public function setE164Selection($e164Selection = null)
     {
-        if (!$e164Selection) return $this;
         $this->e164Selection = ($e164Selection InstanceOf EnterpriseVoiceVPNNonMatchingE164NumberSelection)
              ? $e164Selection
              : new EnterpriseVoiceVPNNonMatchingE164NumberSelection($e164Selection);
@@ -96,7 +93,7 @@ class EnterpriseVoiceVPNGetResponse14sp3 extends ComplexType implements ComplexI
      */
     public function getE164Selection()
     {
-        return $this->e164Selection->getValue();
+        return ($this->e164Selection) ? $this->e164Selection->getValue() : null;
     }
 
     /**
@@ -104,7 +101,6 @@ class EnterpriseVoiceVPNGetResponse14sp3 extends ComplexType implements ComplexI
      */
     public function setUsePhoneContext($usePhoneContext = null)
     {
-        if (!$usePhoneContext) return $this;
         $this->usePhoneContext = new PrimitiveType($usePhoneContext);
         $this->usePhoneContext->setName('usePhoneContext');
         return $this;
@@ -116,6 +112,6 @@ class EnterpriseVoiceVPNGetResponse14sp3 extends ComplexType implements ComplexI
      */
     public function getUsePhoneContext()
     {
-        return $this->usePhoneContext->getValue();
+        return ($this->usePhoneContext) ? $this->usePhoneContext->getValue() : null;
     }
 }

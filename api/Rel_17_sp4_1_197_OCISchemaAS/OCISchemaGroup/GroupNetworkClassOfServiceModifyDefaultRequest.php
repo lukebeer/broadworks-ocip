@@ -21,15 +21,15 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupNetworkClassOfServiceModifyDefaultRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                  = 'GroupNetworkClassOfServiceModifyDefaultRequest';
-    protected $serviceProviderId     = null;
-    protected $groupId               = null;
-    protected $networkClassOfService = null;
+    public    $name = 'GroupNetworkClassOfServiceModifyDefaultRequest';
+    protected $serviceProviderId;
+    protected $groupId;
+    protected $networkClassOfService;
 
     public function __construct(
-         $serviceProviderId,
-         $groupId,
-         $networkClassOfService
+         $serviceProviderId = '',
+         $groupId = '',
+         $networkClassOfService = ''
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setGroupId($groupId);
@@ -49,7 +49,6 @@ class GroupNetworkClassOfServiceModifyDefaultRequest extends ComplexType impleme
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
-        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
@@ -63,7 +62,7 @@ class GroupNetworkClassOfServiceModifyDefaultRequest extends ComplexType impleme
      */
     public function getServiceProviderId()
     {
-        return $this->serviceProviderId->getValue();
+        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
     }
 
     /**
@@ -71,7 +70,6 @@ class GroupNetworkClassOfServiceModifyDefaultRequest extends ComplexType impleme
      */
     public function setGroupId($groupId = null)
     {
-        if (!$groupId) return $this;
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
@@ -85,7 +83,7 @@ class GroupNetworkClassOfServiceModifyDefaultRequest extends ComplexType impleme
      */
     public function getGroupId()
     {
-        return $this->groupId->getValue();
+        return ($this->groupId) ? $this->groupId->getValue() : null;
     }
 
     /**
@@ -93,7 +91,6 @@ class GroupNetworkClassOfServiceModifyDefaultRequest extends ComplexType impleme
      */
     public function setNetworkClassOfService($networkClassOfService = null)
     {
-        if (!$networkClassOfService) return $this;
         $this->networkClassOfService = ($networkClassOfService InstanceOf NetworkClassOfServiceName)
              ? $networkClassOfService
              : new NetworkClassOfServiceName($networkClassOfService);
@@ -107,6 +104,6 @@ class GroupNetworkClassOfServiceModifyDefaultRequest extends ComplexType impleme
      */
     public function getNetworkClassOfService()
     {
-        return $this->networkClassOfService->getValue();
+        return ($this->networkClassOfService) ? $this->networkClassOfService->getValue() : null;
     }
 }

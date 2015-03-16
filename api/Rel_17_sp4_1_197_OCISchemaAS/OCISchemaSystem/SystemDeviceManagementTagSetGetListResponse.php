@@ -21,8 +21,8 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemDeviceManagementTagSetGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name       = 'SystemDeviceManagementTagSetGetListResponse';
-    protected $tagSetName = null;
+    public    $name = 'SystemDeviceManagementTagSetGetListResponse';
+    protected $tagSetName;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemDeviceManagementTagSetGetListResponse $response
@@ -37,7 +37,6 @@ class SystemDeviceManagementTagSetGetListResponse extends ComplexType implements
      */
     public function setTagSetName($tagSetName = null)
     {
-        if (!$tagSetName) return $this;
         $this->tagSetName = ($tagSetName InstanceOf DeviceManagementTagSetName)
              ? $tagSetName
              : new DeviceManagementTagSetName($tagSetName);
@@ -51,6 +50,6 @@ class SystemDeviceManagementTagSetGetListResponse extends ComplexType implements
      */
     public function getTagSetName()
     {
-        return $this->tagSetName->getValue();
+        return ($this->tagSetName) ? $this->tagSetName->getValue() : null;
     }
 }

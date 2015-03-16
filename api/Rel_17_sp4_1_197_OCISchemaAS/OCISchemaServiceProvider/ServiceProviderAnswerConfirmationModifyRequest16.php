@@ -23,14 +23,14 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderAnswerConfirmationModifyRequest16 extends ComplexType implements ComplexInterface
 {
-    public    $name                         = 'ServiceProviderAnswerConfirmationModifyRequest16';
-    protected $serviceProviderId            = null;
-    protected $announcementMessageSelection = null;
-    protected $confirmationMessageAudioFile = null;
-    protected $confirmationTimoutSeconds    = null;
+    public    $name = 'ServiceProviderAnswerConfirmationModifyRequest16';
+    protected $serviceProviderId;
+    protected $announcementMessageSelection;
+    protected $confirmationMessageAudioFile;
+    protected $confirmationTimoutSeconds;
 
     public function __construct(
-         $serviceProviderId,
+         $serviceProviderId = '',
          $announcementMessageSelection = null,
          LabeledMediaFileResource $confirmationMessageAudioFile = null,
          $confirmationTimoutSeconds = null
@@ -54,7 +54,6 @@ class ServiceProviderAnswerConfirmationModifyRequest16 extends ComplexType imple
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
-        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
@@ -68,7 +67,7 @@ class ServiceProviderAnswerConfirmationModifyRequest16 extends ComplexType imple
      */
     public function getServiceProviderId()
     {
-        return $this->serviceProviderId->getValue();
+        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
     }
 
     /**
@@ -76,7 +75,6 @@ class ServiceProviderAnswerConfirmationModifyRequest16 extends ComplexType imple
      */
     public function setAnnouncementMessageSelection($announcementMessageSelection = null)
     {
-        if (!$announcementMessageSelection) return $this;
         $this->announcementMessageSelection = ($announcementMessageSelection InstanceOf AnswerConfirmationAnnouncementSelection)
              ? $announcementMessageSelection
              : new AnswerConfirmationAnnouncementSelection($announcementMessageSelection);
@@ -90,7 +88,7 @@ class ServiceProviderAnswerConfirmationModifyRequest16 extends ComplexType imple
      */
     public function getAnnouncementMessageSelection()
     {
-        return $this->announcementMessageSelection->getValue();
+        return ($this->announcementMessageSelection) ? $this->announcementMessageSelection->getValue() : null;
     }
 
     /**
@@ -98,8 +96,9 @@ class ServiceProviderAnswerConfirmationModifyRequest16 extends ComplexType imple
      */
     public function setConfirmationMessageAudioFile(LabeledMediaFileResource $confirmationMessageAudioFile = null)
     {
-        if (!$confirmationMessageAudioFile) return $this;
-        $this->confirmationMessageAudioFile = $confirmationMessageAudioFile;
+        $this->confirmationMessageAudioFile = ($confirmationMessageAudioFile InstanceOf LabeledMediaFileResource)
+             ? $confirmationMessageAudioFile
+             : new LabeledMediaFileResource($confirmationMessageAudioFile);
         $this->confirmationMessageAudioFile->setName('confirmationMessageAudioFile');
         return $this;
     }
@@ -118,7 +117,6 @@ class ServiceProviderAnswerConfirmationModifyRequest16 extends ComplexType imple
      */
     public function setConfirmationTimoutSeconds($confirmationTimoutSeconds = null)
     {
-        if (!$confirmationTimoutSeconds) return $this;
         $this->confirmationTimoutSeconds = ($confirmationTimoutSeconds InstanceOf AnswerConfirmationTimeoutSeconds)
              ? $confirmationTimoutSeconds
              : new AnswerConfirmationTimeoutSeconds($confirmationTimoutSeconds);
@@ -132,6 +130,6 @@ class ServiceProviderAnswerConfirmationModifyRequest16 extends ComplexType imple
      */
     public function getConfirmationTimoutSeconds()
     {
-        return $this->confirmationTimoutSeconds->getValue();
+        return ($this->confirmationTimoutSeconds) ? $this->confirmationTimoutSeconds->getValue() : null;
     }
 }

@@ -23,8 +23,8 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserInstantConferencingGetExpiredConferenceListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name            = 'UserInstantConferencingGetExpiredConferenceListResponse';
-    protected $conferenceTable = null;
+    public    $name = 'UserInstantConferencingGetExpiredConferenceListResponse';
+    protected $conferenceTable;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing\UserInstantConferencingGetExpiredConferenceListResponse $response
@@ -39,7 +39,6 @@ class UserInstantConferencingGetExpiredConferenceListResponse extends ComplexTyp
      */
     public function setConferenceTable(TableType $conferenceTable = null)
     {
-        if (!$conferenceTable) return $this;
         $this->conferenceTable = $conferenceTable;
         $this->conferenceTable->setName('conferenceTable');
         return $this;

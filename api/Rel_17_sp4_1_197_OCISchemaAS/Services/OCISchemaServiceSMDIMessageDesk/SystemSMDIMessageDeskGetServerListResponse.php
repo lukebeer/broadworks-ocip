@@ -20,8 +20,8 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemSMDIMessageDeskGetServerListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name            = 'SystemSMDIMessageDeskGetServerListResponse';
-    protected $smdiServerTable = null;
+    public    $name = 'SystemSMDIMessageDeskGetServerListResponse';
+    protected $smdiServerTable;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceSMDIMessageDesk\SystemSMDIMessageDeskGetServerListResponse $response
@@ -36,7 +36,6 @@ class SystemSMDIMessageDeskGetServerListResponse extends ComplexType implements 
      */
     public function setSmdiServerTable(TableType $smdiServerTable = null)
     {
-        if (!$smdiServerTable) return $this;
         $this->smdiServerTable = $smdiServerTable;
         $this->smdiServerTable->setName('smdiServerTable');
         return $this;

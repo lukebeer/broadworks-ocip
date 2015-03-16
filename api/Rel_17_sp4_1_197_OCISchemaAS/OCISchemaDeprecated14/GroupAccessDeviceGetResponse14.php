@@ -33,23 +33,23 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupAccessDeviceGetResponse14 extends ComplexType implements ComplexInterface
 {
-    public    $name                          = 'GroupAccessDeviceGetResponse14';
-    protected $deviceType                    = null;
-    protected $protocol                      = null;
-    protected $netAddress                    = null;
-    protected $port                          = null;
-    protected $outboundProxyServerNetAddress = null;
-    protected $stunServerNetAddress          = null;
-    protected $macAddress                    = null;
-    protected $serialNumber                  = null;
-    protected $description                   = null;
-    protected $numberOfPorts                 = null;
-    protected $numberOfAssignedPorts         = null;
-    protected $status                        = null;
-    protected $configurationMode             = null;
-    protected $configurationFileName         = null;
-    protected $physicalLocation              = null;
-    protected $transportProtocol             = null;
+    public    $name = 'GroupAccessDeviceGetResponse14';
+    protected $deviceType;
+    protected $protocol;
+    protected $netAddress;
+    protected $port;
+    protected $outboundProxyServerNetAddress;
+    protected $stunServerNetAddress;
+    protected $macAddress;
+    protected $serialNumber;
+    protected $description;
+    protected $numberOfPorts;
+    protected $numberOfAssignedPorts;
+    protected $status;
+    protected $configurationMode;
+    protected $configurationFileName;
+    protected $physicalLocation;
+    protected $transportProtocol;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\GroupAccessDeviceGetResponse14 $response
@@ -64,7 +64,6 @@ class GroupAccessDeviceGetResponse14 extends ComplexType implements ComplexInter
      */
     public function setDeviceType($deviceType = null)
     {
-        if (!$deviceType) return $this;
         $this->deviceType = ($deviceType InstanceOf AccessDeviceType)
              ? $deviceType
              : new AccessDeviceType($deviceType);
@@ -78,7 +77,7 @@ class GroupAccessDeviceGetResponse14 extends ComplexType implements ComplexInter
      */
     public function getDeviceType()
     {
-        return $this->deviceType->getValue();
+        return ($this->deviceType) ? $this->deviceType->getValue() : null;
     }
 
     /**
@@ -86,7 +85,6 @@ class GroupAccessDeviceGetResponse14 extends ComplexType implements ComplexInter
      */
     public function setProtocol($protocol = null)
     {
-        if (!$protocol) return $this;
         $this->protocol = ($protocol InstanceOf AccessDeviceProtocol)
              ? $protocol
              : new AccessDeviceProtocol($protocol);
@@ -100,7 +98,7 @@ class GroupAccessDeviceGetResponse14 extends ComplexType implements ComplexInter
      */
     public function getProtocol()
     {
-        return $this->protocol->getValue();
+        return ($this->protocol) ? $this->protocol->getValue() : null;
     }
 
     /**
@@ -108,7 +106,6 @@ class GroupAccessDeviceGetResponse14 extends ComplexType implements ComplexInter
      */
     public function setNetAddress($netAddress = null)
     {
-        if (!$netAddress) return $this;
         $this->netAddress = ($netAddress InstanceOf NetAddress)
              ? $netAddress
              : new NetAddress($netAddress);
@@ -122,7 +119,7 @@ class GroupAccessDeviceGetResponse14 extends ComplexType implements ComplexInter
      */
     public function getNetAddress()
     {
-        return $this->netAddress->getValue();
+        return ($this->netAddress) ? $this->netAddress->getValue() : null;
     }
 
     /**
@@ -130,7 +127,6 @@ class GroupAccessDeviceGetResponse14 extends ComplexType implements ComplexInter
      */
     public function setPort($port = null)
     {
-        if (!$port) return $this;
         $this->port = ($port InstanceOf Port1025)
              ? $port
              : new Port1025($port);
@@ -144,7 +140,7 @@ class GroupAccessDeviceGetResponse14 extends ComplexType implements ComplexInter
      */
     public function getPort()
     {
-        return $this->port->getValue();
+        return ($this->port) ? $this->port->getValue() : null;
     }
 
     /**
@@ -152,7 +148,6 @@ class GroupAccessDeviceGetResponse14 extends ComplexType implements ComplexInter
      */
     public function setOutboundProxyServerNetAddress($outboundProxyServerNetAddress = null)
     {
-        if (!$outboundProxyServerNetAddress) return $this;
         $this->outboundProxyServerNetAddress = ($outboundProxyServerNetAddress InstanceOf NetAddress)
              ? $outboundProxyServerNetAddress
              : new NetAddress($outboundProxyServerNetAddress);
@@ -166,7 +161,7 @@ class GroupAccessDeviceGetResponse14 extends ComplexType implements ComplexInter
      */
     public function getOutboundProxyServerNetAddress()
     {
-        return $this->outboundProxyServerNetAddress->getValue();
+        return ($this->outboundProxyServerNetAddress) ? $this->outboundProxyServerNetAddress->getValue() : null;
     }
 
     /**
@@ -174,7 +169,6 @@ class GroupAccessDeviceGetResponse14 extends ComplexType implements ComplexInter
      */
     public function setStunServerNetAddress($stunServerNetAddress = null)
     {
-        if (!$stunServerNetAddress) return $this;
         $this->stunServerNetAddress = ($stunServerNetAddress InstanceOf NetAddress)
              ? $stunServerNetAddress
              : new NetAddress($stunServerNetAddress);
@@ -188,7 +182,7 @@ class GroupAccessDeviceGetResponse14 extends ComplexType implements ComplexInter
      */
     public function getStunServerNetAddress()
     {
-        return $this->stunServerNetAddress->getValue();
+        return ($this->stunServerNetAddress) ? $this->stunServerNetAddress->getValue() : null;
     }
 
     /**
@@ -196,7 +190,6 @@ class GroupAccessDeviceGetResponse14 extends ComplexType implements ComplexInter
      */
     public function setMacAddress($macAddress = null)
     {
-        if (!$macAddress) return $this;
         $this->macAddress = ($macAddress InstanceOf AccessDeviceMACAddress)
              ? $macAddress
              : new AccessDeviceMACAddress($macAddress);
@@ -210,7 +203,7 @@ class GroupAccessDeviceGetResponse14 extends ComplexType implements ComplexInter
      */
     public function getMacAddress()
     {
-        return $this->macAddress->getValue();
+        return ($this->macAddress) ? $this->macAddress->getValue() : null;
     }
 
     /**
@@ -218,7 +211,6 @@ class GroupAccessDeviceGetResponse14 extends ComplexType implements ComplexInter
      */
     public function setSerialNumber($serialNumber = null)
     {
-        if (!$serialNumber) return $this;
         $this->serialNumber = ($serialNumber InstanceOf AccessDeviceSerialNumber)
              ? $serialNumber
              : new AccessDeviceSerialNumber($serialNumber);
@@ -232,7 +224,7 @@ class GroupAccessDeviceGetResponse14 extends ComplexType implements ComplexInter
      */
     public function getSerialNumber()
     {
-        return $this->serialNumber->getValue();
+        return ($this->serialNumber) ? $this->serialNumber->getValue() : null;
     }
 
     /**
@@ -240,7 +232,6 @@ class GroupAccessDeviceGetResponse14 extends ComplexType implements ComplexInter
      */
     public function setDescription($description = null)
     {
-        if (!$description) return $this;
         $this->description = ($description InstanceOf AccessDeviceDescription)
              ? $description
              : new AccessDeviceDescription($description);
@@ -254,7 +245,7 @@ class GroupAccessDeviceGetResponse14 extends ComplexType implements ComplexInter
      */
     public function getDescription()
     {
-        return $this->description->getValue();
+        return ($this->description) ? $this->description->getValue() : null;
     }
 
     /**
@@ -262,8 +253,9 @@ class GroupAccessDeviceGetResponse14 extends ComplexType implements ComplexInter
      */
     public function setNumberOfPorts(UnboundedPositiveInt $numberOfPorts = null)
     {
-        if (!$numberOfPorts) return $this;
-        $this->numberOfPorts = $numberOfPorts;
+        $this->numberOfPorts = ($numberOfPorts InstanceOf UnboundedPositiveInt)
+             ? $numberOfPorts
+             : new UnboundedPositiveInt($numberOfPorts);
         $this->numberOfPorts->setName('numberOfPorts');
         return $this;
     }
@@ -282,7 +274,6 @@ class GroupAccessDeviceGetResponse14 extends ComplexType implements ComplexInter
      */
     public function setNumberOfAssignedPorts($numberOfAssignedPorts = null)
     {
-        if (!$numberOfAssignedPorts) return $this;
         $this->numberOfAssignedPorts = new PrimitiveType($numberOfAssignedPorts);
         $this->numberOfAssignedPorts->setName('numberOfAssignedPorts');
         return $this;
@@ -294,7 +285,7 @@ class GroupAccessDeviceGetResponse14 extends ComplexType implements ComplexInter
      */
     public function getNumberOfAssignedPorts()
     {
-        return $this->numberOfAssignedPorts->getValue();
+        return ($this->numberOfAssignedPorts) ? $this->numberOfAssignedPorts->getValue() : null;
     }
 
     /**
@@ -302,7 +293,6 @@ class GroupAccessDeviceGetResponse14 extends ComplexType implements ComplexInter
      */
     public function setStatus($status = null)
     {
-        if (!$status) return $this;
         $this->status = ($status InstanceOf AccessDeviceStatus)
              ? $status
              : new AccessDeviceStatus($status);
@@ -316,7 +306,7 @@ class GroupAccessDeviceGetResponse14 extends ComplexType implements ComplexInter
      */
     public function getStatus()
     {
-        return $this->status->getValue();
+        return ($this->status) ? $this->status->getValue() : null;
     }
 
     /**
@@ -324,7 +314,6 @@ class GroupAccessDeviceGetResponse14 extends ComplexType implements ComplexInter
      */
     public function setConfigurationMode($configurationMode = null)
     {
-        if (!$configurationMode) return $this;
         $this->configurationMode = ($configurationMode InstanceOf AccessDeviceEnhancedConfigurationMode)
              ? $configurationMode
              : new AccessDeviceEnhancedConfigurationMode($configurationMode);
@@ -338,7 +327,7 @@ class GroupAccessDeviceGetResponse14 extends ComplexType implements ComplexInter
      */
     public function getConfigurationMode()
     {
-        return $this->configurationMode->getValue();
+        return ($this->configurationMode) ? $this->configurationMode->getValue() : null;
     }
 
     /**
@@ -346,7 +335,6 @@ class GroupAccessDeviceGetResponse14 extends ComplexType implements ComplexInter
      */
     public function setConfigurationFileName($configurationFileName = null)
     {
-        if (!$configurationFileName) return $this;
         $this->configurationFileName = ($configurationFileName InstanceOf AccessDeviceEnhancedConfigurationFileName)
              ? $configurationFileName
              : new AccessDeviceEnhancedConfigurationFileName($configurationFileName);
@@ -360,7 +348,7 @@ class GroupAccessDeviceGetResponse14 extends ComplexType implements ComplexInter
      */
     public function getConfigurationFileName()
     {
-        return $this->configurationFileName->getValue();
+        return ($this->configurationFileName) ? $this->configurationFileName->getValue() : null;
     }
 
     /**
@@ -368,7 +356,6 @@ class GroupAccessDeviceGetResponse14 extends ComplexType implements ComplexInter
      */
     public function setPhysicalLocation($physicalLocation = null)
     {
-        if (!$physicalLocation) return $this;
         $this->physicalLocation = ($physicalLocation InstanceOf AccessDevicePhysicalLocation)
              ? $physicalLocation
              : new AccessDevicePhysicalLocation($physicalLocation);
@@ -382,7 +369,7 @@ class GroupAccessDeviceGetResponse14 extends ComplexType implements ComplexInter
      */
     public function getPhysicalLocation()
     {
-        return $this->physicalLocation->getValue();
+        return ($this->physicalLocation) ? $this->physicalLocation->getValue() : null;
     }
 
     /**
@@ -390,7 +377,6 @@ class GroupAccessDeviceGetResponse14 extends ComplexType implements ComplexInter
      */
     public function setTransportProtocol($transportProtocol = null)
     {
-        if (!$transportProtocol) return $this;
         $this->transportProtocol = ($transportProtocol InstanceOf TransportProtocol)
              ? $transportProtocol
              : new TransportProtocol($transportProtocol);
@@ -404,6 +390,6 @@ class GroupAccessDeviceGetResponse14 extends ComplexType implements ComplexInter
      */
     public function getTransportProtocol()
     {
-        return $this->transportProtocol->getValue();
+        return ($this->transportProtocol) ? $this->transportProtocol->getValue() : null;
     }
 }

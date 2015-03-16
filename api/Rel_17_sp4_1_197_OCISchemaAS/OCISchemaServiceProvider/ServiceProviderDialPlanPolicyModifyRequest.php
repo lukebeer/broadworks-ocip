@@ -22,16 +22,16 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderDialPlanPolicyModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                                      = 'ServiceProviderDialPlanPolicyModifyRequest';
-    protected $serviceProviderId                         = null;
-    protected $requiresAccessCodeForPublicCalls          = null;
-    protected $allowE164PublicCalls                      = null;
-    protected $preferE164NumberFormatForCallbackServices = null;
-    protected $publicDigitMap                            = null;
-    protected $privateDigitMap                           = null;
+    public    $name = 'ServiceProviderDialPlanPolicyModifyRequest';
+    protected $serviceProviderId;
+    protected $requiresAccessCodeForPublicCalls;
+    protected $allowE164PublicCalls;
+    protected $preferE164NumberFormatForCallbackServices;
+    protected $publicDigitMap;
+    protected $privateDigitMap;
 
     public function __construct(
-         $serviceProviderId,
+         $serviceProviderId = '',
          $requiresAccessCodeForPublicCalls = null,
          $allowE164PublicCalls = null,
          $preferE164NumberFormatForCallbackServices = null,
@@ -59,7 +59,6 @@ class ServiceProviderDialPlanPolicyModifyRequest extends ComplexType implements 
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
-        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
@@ -73,7 +72,7 @@ class ServiceProviderDialPlanPolicyModifyRequest extends ComplexType implements 
      */
     public function getServiceProviderId()
     {
-        return $this->serviceProviderId->getValue();
+        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
     }
 
     /**
@@ -81,7 +80,6 @@ class ServiceProviderDialPlanPolicyModifyRequest extends ComplexType implements 
      */
     public function setRequiresAccessCodeForPublicCalls($requiresAccessCodeForPublicCalls = null)
     {
-        if (!$requiresAccessCodeForPublicCalls) return $this;
         $this->requiresAccessCodeForPublicCalls = new PrimitiveType($requiresAccessCodeForPublicCalls);
         $this->requiresAccessCodeForPublicCalls->setName('requiresAccessCodeForPublicCalls');
         return $this;
@@ -93,7 +91,7 @@ class ServiceProviderDialPlanPolicyModifyRequest extends ComplexType implements 
      */
     public function getRequiresAccessCodeForPublicCalls()
     {
-        return $this->requiresAccessCodeForPublicCalls->getValue();
+        return ($this->requiresAccessCodeForPublicCalls) ? $this->requiresAccessCodeForPublicCalls->getValue() : null;
     }
 
     /**
@@ -101,7 +99,6 @@ class ServiceProviderDialPlanPolicyModifyRequest extends ComplexType implements 
      */
     public function setAllowE164PublicCalls($allowE164PublicCalls = null)
     {
-        if (!$allowE164PublicCalls) return $this;
         $this->allowE164PublicCalls = new PrimitiveType($allowE164PublicCalls);
         $this->allowE164PublicCalls->setName('allowE164PublicCalls');
         return $this;
@@ -113,7 +110,7 @@ class ServiceProviderDialPlanPolicyModifyRequest extends ComplexType implements 
      */
     public function getAllowE164PublicCalls()
     {
-        return $this->allowE164PublicCalls->getValue();
+        return ($this->allowE164PublicCalls) ? $this->allowE164PublicCalls->getValue() : null;
     }
 
     /**
@@ -121,7 +118,6 @@ class ServiceProviderDialPlanPolicyModifyRequest extends ComplexType implements 
      */
     public function setPreferE164NumberFormatForCallbackServices($preferE164NumberFormatForCallbackServices = null)
     {
-        if (!$preferE164NumberFormatForCallbackServices) return $this;
         $this->preferE164NumberFormatForCallbackServices = new PrimitiveType($preferE164NumberFormatForCallbackServices);
         $this->preferE164NumberFormatForCallbackServices->setName('preferE164NumberFormatForCallbackServices');
         return $this;
@@ -133,7 +129,7 @@ class ServiceProviderDialPlanPolicyModifyRequest extends ComplexType implements 
      */
     public function getPreferE164NumberFormatForCallbackServices()
     {
-        return $this->preferE164NumberFormatForCallbackServices->getValue();
+        return ($this->preferE164NumberFormatForCallbackServices) ? $this->preferE164NumberFormatForCallbackServices->getValue() : null;
     }
 
     /**
@@ -141,7 +137,6 @@ class ServiceProviderDialPlanPolicyModifyRequest extends ComplexType implements 
      */
     public function setPublicDigitMap($publicDigitMap = null)
     {
-        if (!$publicDigitMap) return $this;
         $this->publicDigitMap = ($publicDigitMap InstanceOf DigitMap)
              ? $publicDigitMap
              : new DigitMap($publicDigitMap);
@@ -155,7 +150,7 @@ class ServiceProviderDialPlanPolicyModifyRequest extends ComplexType implements 
      */
     public function getPublicDigitMap()
     {
-        return $this->publicDigitMap->getValue();
+        return ($this->publicDigitMap) ? $this->publicDigitMap->getValue() : null;
     }
 
     /**
@@ -163,7 +158,6 @@ class ServiceProviderDialPlanPolicyModifyRequest extends ComplexType implements 
      */
     public function setPrivateDigitMap($privateDigitMap = null)
     {
-        if (!$privateDigitMap) return $this;
         $this->privateDigitMap = ($privateDigitMap InstanceOf DigitMap)
              ? $privateDigitMap
              : new DigitMap($privateDigitMap);
@@ -177,6 +171,6 @@ class ServiceProviderDialPlanPolicyModifyRequest extends ComplexType implements 
      */
     public function getPrivateDigitMap()
     {
-        return $this->privateDigitMap->getValue();
+        return ($this->privateDigitMap) ? $this->privateDigitMap->getValue() : null;
     }
 }

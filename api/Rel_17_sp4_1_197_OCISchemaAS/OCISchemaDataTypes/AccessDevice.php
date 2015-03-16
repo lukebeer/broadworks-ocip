@@ -19,13 +19,13 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class AccessDevice extends ComplexType implements ComplexInterface
 {
-    public    $name        = 'AccessDevice';
-    protected $deviceLevel = null;
-    protected $deviceName  = null;
+    public    $name = 'AccessDevice';
+    protected $deviceLevel;
+    protected $deviceName;
 
     public function __construct(
-         $deviceLevel,
-         $deviceName
+         $deviceLevel = '',
+         $deviceName = ''
     ) {
         $this->setDeviceLevel($deviceLevel);
         $this->setDeviceName($deviceName);
@@ -44,7 +44,6 @@ class AccessDevice extends ComplexType implements ComplexInterface
      */
     public function setDeviceLevel($deviceLevel = null)
     {
-        if (!$deviceLevel) return $this;
         $this->deviceLevel = new SimpleContent($deviceLevel);
         $this->deviceLevel->setName('deviceLevel');
         return $this;
@@ -56,7 +55,7 @@ class AccessDevice extends ComplexType implements ComplexInterface
      */
     public function getDeviceLevel()
     {
-        return $this->deviceLevel->getValue();
+        return ($this->deviceLevel) ? $this->deviceLevel->getValue() : null;
     }
 
     /**
@@ -64,7 +63,6 @@ class AccessDevice extends ComplexType implements ComplexInterface
      */
     public function setDeviceName($deviceName = null)
     {
-        if (!$deviceName) return $this;
         $this->deviceName = new SimpleContent($deviceName);
         $this->deviceName->setName('deviceName');
         return $this;
@@ -76,6 +74,6 @@ class AccessDevice extends ComplexType implements ComplexInterface
      */
     public function getDeviceName()
     {
-        return $this->deviceName->getValue();
+        return ($this->deviceName) ? $this->deviceName->getValue() : null;
     }
 }

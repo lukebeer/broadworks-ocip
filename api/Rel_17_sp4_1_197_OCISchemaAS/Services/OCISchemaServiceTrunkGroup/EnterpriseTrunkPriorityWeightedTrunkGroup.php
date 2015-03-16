@@ -19,15 +19,15 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class EnterpriseTrunkPriorityWeightedTrunkGroup extends ComplexType implements ComplexInterface
 {
-    public    $name       = 'EnterpriseTrunkPriorityWeightedTrunkGroup';
-    protected $trunkGroup = null;
-    protected $priority   = null;
-    protected $weight     = null;
+    public    $name = 'EnterpriseTrunkPriorityWeightedTrunkGroup';
+    protected $trunkGroup;
+    protected $priority;
+    protected $weight;
 
     public function __construct(
-         $trunkGroup,
-         $priority,
-         $weight
+         $trunkGroup = '',
+         $priority = '',
+         $weight = ''
     ) {
         $this->setTrunkGroup($trunkGroup);
         $this->setPriority($priority);
@@ -47,7 +47,6 @@ class EnterpriseTrunkPriorityWeightedTrunkGroup extends ComplexType implements C
      */
     public function setTrunkGroup($trunkGroup = null)
     {
-        if (!$trunkGroup) return $this;
         $this->trunkGroup = new SimpleContent($trunkGroup);
         $this->trunkGroup->setName('trunkGroup');
         return $this;
@@ -59,7 +58,7 @@ class EnterpriseTrunkPriorityWeightedTrunkGroup extends ComplexType implements C
      */
     public function getTrunkGroup()
     {
-        return $this->trunkGroup->getValue();
+        return ($this->trunkGroup) ? $this->trunkGroup->getValue() : null;
     }
 
     /**
@@ -67,7 +66,6 @@ class EnterpriseTrunkPriorityWeightedTrunkGroup extends ComplexType implements C
      */
     public function setPriority($priority = null)
     {
-        if (!$priority) return $this;
         $this->priority = new SimpleContent($priority);
         $this->priority->setName('priority');
         return $this;
@@ -79,7 +77,7 @@ class EnterpriseTrunkPriorityWeightedTrunkGroup extends ComplexType implements C
      */
     public function getPriority()
     {
-        return $this->priority->getValue();
+        return ($this->priority) ? $this->priority->getValue() : null;
     }
 
     /**
@@ -87,7 +85,6 @@ class EnterpriseTrunkPriorityWeightedTrunkGroup extends ComplexType implements C
      */
     public function setWeight($weight = null)
     {
-        if (!$weight) return $this;
         $this->weight = new SimpleContent($weight);
         $this->weight->setName('weight');
         return $this;
@@ -99,6 +96,6 @@ class EnterpriseTrunkPriorityWeightedTrunkGroup extends ComplexType implements C
      */
     public function getWeight()
     {
-        return $this->weight->getValue();
+        return ($this->weight) ? $this->weight->getValue() : null;
     }
 }

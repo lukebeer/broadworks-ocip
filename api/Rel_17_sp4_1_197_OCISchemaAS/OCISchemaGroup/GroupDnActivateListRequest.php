@@ -26,15 +26,15 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupDnActivateListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name              = 'GroupDnActivateListRequest';
-    protected $serviceProviderId = null;
-    protected $groupId           = null;
-    protected $phoneNumber       = null;
-    protected $dnRange           = null;
+    public    $name = 'GroupDnActivateListRequest';
+    protected $serviceProviderId;
+    protected $groupId;
+    protected $phoneNumber;
+    protected $dnRange;
 
     public function __construct(
-         $serviceProviderId,
-         $groupId,
+         $serviceProviderId = '',
+         $groupId = '',
          $phoneNumber = null,
          DNRange $dnRange = null
     ) {
@@ -57,7 +57,6 @@ class GroupDnActivateListRequest extends ComplexType implements ComplexInterface
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
-        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
@@ -71,7 +70,7 @@ class GroupDnActivateListRequest extends ComplexType implements ComplexInterface
      */
     public function getServiceProviderId()
     {
-        return $this->serviceProviderId->getValue();
+        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
     }
 
     /**
@@ -79,7 +78,6 @@ class GroupDnActivateListRequest extends ComplexType implements ComplexInterface
      */
     public function setGroupId($groupId = null)
     {
-        if (!$groupId) return $this;
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
@@ -93,7 +91,7 @@ class GroupDnActivateListRequest extends ComplexType implements ComplexInterface
      */
     public function getGroupId()
     {
-        return $this->groupId->getValue();
+        return ($this->groupId) ? $this->groupId->getValue() : null;
     }
 
     /**
@@ -101,7 +99,6 @@ class GroupDnActivateListRequest extends ComplexType implements ComplexInterface
      */
     public function setPhoneNumber($phoneNumber = null)
     {
-        if (!$phoneNumber) return $this;
         $this->phoneNumber = ($phoneNumber InstanceOf DN)
              ? $phoneNumber
              : new DN($phoneNumber);
@@ -115,7 +112,7 @@ class GroupDnActivateListRequest extends ComplexType implements ComplexInterface
      */
     public function getPhoneNumber()
     {
-        return $this->phoneNumber->getValue();
+        return ($this->phoneNumber) ? $this->phoneNumber->getValue() : null;
     }
 
     /**
@@ -123,8 +120,9 @@ class GroupDnActivateListRequest extends ComplexType implements ComplexInterface
      */
     public function setDnRange(DNRange $dnRange = null)
     {
-        if (!$dnRange) return $this;
-        $this->dnRange = $dnRange;
+        $this->dnRange = ($dnRange InstanceOf DNRange)
+             ? $dnRange
+             : new DNRange($dnRange);
         $this->dnRange->setName('dnRange');
         return $this;
     }

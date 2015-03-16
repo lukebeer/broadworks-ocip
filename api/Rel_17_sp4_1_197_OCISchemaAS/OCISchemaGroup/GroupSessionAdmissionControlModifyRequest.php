@@ -23,18 +23,18 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupSessionAdmissionControlModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                       = 'GroupSessionAdmissionControlModifyRequest';
-    protected $serviceProviderId          = null;
-    protected $groupId                    = null;
-    protected $restrictAggregateSessions  = null;
-    protected $maxSessions                = null;
-    protected $maxUserOriginatingSessions = null;
-    protected $maxUserTerminatingSessions = null;
-    protected $countIntraGroupSessions    = null;
+    public    $name = 'GroupSessionAdmissionControlModifyRequest';
+    protected $serviceProviderId;
+    protected $groupId;
+    protected $restrictAggregateSessions;
+    protected $maxSessions;
+    protected $maxUserOriginatingSessions;
+    protected $maxUserTerminatingSessions;
+    protected $countIntraGroupSessions;
 
     public function __construct(
-         $serviceProviderId,
-         $groupId,
+         $serviceProviderId = '',
+         $groupId = '',
          $restrictAggregateSessions = null,
          $maxSessions = null,
          $maxUserOriginatingSessions = null,
@@ -63,7 +63,6 @@ class GroupSessionAdmissionControlModifyRequest extends ComplexType implements C
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
-        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
@@ -77,7 +76,7 @@ class GroupSessionAdmissionControlModifyRequest extends ComplexType implements C
      */
     public function getServiceProviderId()
     {
-        return $this->serviceProviderId->getValue();
+        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
     }
 
     /**
@@ -85,7 +84,6 @@ class GroupSessionAdmissionControlModifyRequest extends ComplexType implements C
      */
     public function setGroupId($groupId = null)
     {
-        if (!$groupId) return $this;
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
@@ -99,7 +97,7 @@ class GroupSessionAdmissionControlModifyRequest extends ComplexType implements C
      */
     public function getGroupId()
     {
-        return $this->groupId->getValue();
+        return ($this->groupId) ? $this->groupId->getValue() : null;
     }
 
     /**
@@ -107,7 +105,6 @@ class GroupSessionAdmissionControlModifyRequest extends ComplexType implements C
      */
     public function setRestrictAggregateSessions($restrictAggregateSessions = null)
     {
-        if (!$restrictAggregateSessions) return $this;
         $this->restrictAggregateSessions = new PrimitiveType($restrictAggregateSessions);
         $this->restrictAggregateSessions->setName('restrictAggregateSessions');
         return $this;
@@ -119,7 +116,7 @@ class GroupSessionAdmissionControlModifyRequest extends ComplexType implements C
      */
     public function getRestrictAggregateSessions()
     {
-        return $this->restrictAggregateSessions->getValue();
+        return ($this->restrictAggregateSessions) ? $this->restrictAggregateSessions->getValue() : null;
     }
 
     /**
@@ -127,7 +124,6 @@ class GroupSessionAdmissionControlModifyRequest extends ComplexType implements C
      */
     public function setMaxSessions($maxSessions = null)
     {
-        if (!$maxSessions) return $this;
         $this->maxSessions = ($maxSessions InstanceOf NonNegativeInt)
              ? $maxSessions
              : new NonNegativeInt($maxSessions);
@@ -141,7 +137,7 @@ class GroupSessionAdmissionControlModifyRequest extends ComplexType implements C
      */
     public function getMaxSessions()
     {
-        return $this->maxSessions->getValue();
+        return ($this->maxSessions) ? $this->maxSessions->getValue() : null;
     }
 
     /**
@@ -149,7 +145,6 @@ class GroupSessionAdmissionControlModifyRequest extends ComplexType implements C
      */
     public function setMaxUserOriginatingSessions($maxUserOriginatingSessions = null)
     {
-        if (!$maxUserOriginatingSessions) return $this;
         $this->maxUserOriginatingSessions = ($maxUserOriginatingSessions InstanceOf NonNegativeInt)
              ? $maxUserOriginatingSessions
              : new NonNegativeInt($maxUserOriginatingSessions);
@@ -163,7 +158,7 @@ class GroupSessionAdmissionControlModifyRequest extends ComplexType implements C
      */
     public function getMaxUserOriginatingSessions()
     {
-        return $this->maxUserOriginatingSessions->getValue();
+        return ($this->maxUserOriginatingSessions) ? $this->maxUserOriginatingSessions->getValue() : null;
     }
 
     /**
@@ -171,7 +166,6 @@ class GroupSessionAdmissionControlModifyRequest extends ComplexType implements C
      */
     public function setMaxUserTerminatingSessions($maxUserTerminatingSessions = null)
     {
-        if (!$maxUserTerminatingSessions) return $this;
         $this->maxUserTerminatingSessions = ($maxUserTerminatingSessions InstanceOf NonNegativeInt)
              ? $maxUserTerminatingSessions
              : new NonNegativeInt($maxUserTerminatingSessions);
@@ -185,7 +179,7 @@ class GroupSessionAdmissionControlModifyRequest extends ComplexType implements C
      */
     public function getMaxUserTerminatingSessions()
     {
-        return $this->maxUserTerminatingSessions->getValue();
+        return ($this->maxUserTerminatingSessions) ? $this->maxUserTerminatingSessions->getValue() : null;
     }
 
     /**
@@ -193,7 +187,6 @@ class GroupSessionAdmissionControlModifyRequest extends ComplexType implements C
      */
     public function setCountIntraGroupSessions($countIntraGroupSessions = null)
     {
-        if (!$countIntraGroupSessions) return $this;
         $this->countIntraGroupSessions = new PrimitiveType($countIntraGroupSessions);
         $this->countIntraGroupSessions->setName('countIntraGroupSessions');
         return $this;
@@ -205,6 +198,6 @@ class GroupSessionAdmissionControlModifyRequest extends ComplexType implements C
      */
     public function getCountIntraGroupSessions()
     {
-        return $this->countIntraGroupSessions->getValue();
+        return ($this->countIntraGroupSessions) ? $this->countIntraGroupSessions->getValue() : null;
     }
 }

@@ -24,16 +24,16 @@ use Broadworks_OCIP\core\Client\Client;
 class UserInstantConferencingGetStandAloneSlideShowContentRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType          = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing\UserInstantConferencingGetStandAloneSlideShowContentResponse';
-    public    $name                  = 'UserInstantConferencingGetStandAloneSlideShowContentRequest';
-    protected $bridgeServiceUserId   = null;
-    protected $conferenceOwnerUserId = null;
-    protected $documentId            = null;
-    protected $slideshowPasswordHex  = null;
+    public    $name = 'UserInstantConferencingGetStandAloneSlideShowContentRequest';
+    protected $bridgeServiceUserId;
+    protected $conferenceOwnerUserId;
+    protected $documentId;
+    protected $slideshowPasswordHex;
 
     public function __construct(
-         $bridgeServiceUserId,
-         $conferenceOwnerUserId,
-         $documentId,
+         $bridgeServiceUserId = '',
+         $conferenceOwnerUserId = '',
+         $documentId = '',
          $slideshowPasswordHex = null
     ) {
         $this->setBridgeServiceUserId($bridgeServiceUserId);
@@ -55,7 +55,6 @@ class UserInstantConferencingGetStandAloneSlideShowContentRequest extends Comple
      */
     public function setBridgeServiceUserId($bridgeServiceUserId = null)
     {
-        if (!$bridgeServiceUserId) return $this;
         $this->bridgeServiceUserId = ($bridgeServiceUserId InstanceOf UserId)
              ? $bridgeServiceUserId
              : new UserId($bridgeServiceUserId);
@@ -69,7 +68,7 @@ class UserInstantConferencingGetStandAloneSlideShowContentRequest extends Comple
      */
     public function getBridgeServiceUserId()
     {
-        return $this->bridgeServiceUserId->getValue();
+        return ($this->bridgeServiceUserId) ? $this->bridgeServiceUserId->getValue() : null;
     }
 
     /**
@@ -77,7 +76,6 @@ class UserInstantConferencingGetStandAloneSlideShowContentRequest extends Comple
      */
     public function setConferenceOwnerUserId($conferenceOwnerUserId = null)
     {
-        if (!$conferenceOwnerUserId) return $this;
         $this->conferenceOwnerUserId = ($conferenceOwnerUserId InstanceOf UserId)
              ? $conferenceOwnerUserId
              : new UserId($conferenceOwnerUserId);
@@ -91,7 +89,7 @@ class UserInstantConferencingGetStandAloneSlideShowContentRequest extends Comple
      */
     public function getConferenceOwnerUserId()
     {
-        return $this->conferenceOwnerUserId->getValue();
+        return ($this->conferenceOwnerUserId) ? $this->conferenceOwnerUserId->getValue() : null;
     }
 
     /**
@@ -99,7 +97,6 @@ class UserInstantConferencingGetStandAloneSlideShowContentRequest extends Comple
      */
     public function setDocumentId($documentId = null)
     {
-        if (!$documentId) return $this;
         $this->documentId = ($documentId InstanceOf InstantConferencingDocumentId)
              ? $documentId
              : new InstantConferencingDocumentId($documentId);
@@ -113,7 +110,7 @@ class UserInstantConferencingGetStandAloneSlideShowContentRequest extends Comple
      */
     public function getDocumentId()
     {
-        return $this->documentId->getValue();
+        return ($this->documentId) ? $this->documentId->getValue() : null;
     }
 
     /**
@@ -121,7 +118,6 @@ class UserInstantConferencingGetStandAloneSlideShowContentRequest extends Comple
      */
     public function setSlideshowPasswordHex($slideshowPasswordHex = null)
     {
-        if (!$slideshowPasswordHex) return $this;
         $this->slideshowPasswordHex = ($slideshowPasswordHex InstanceOf InstantConferencingSlideShowPasswordHex)
              ? $slideshowPasswordHex
              : new InstantConferencingSlideShowPasswordHex($slideshowPasswordHex);
@@ -135,6 +131,6 @@ class UserInstantConferencingGetStandAloneSlideShowContentRequest extends Comple
      */
     public function getSlideshowPasswordHex()
     {
-        return $this->slideshowPasswordHex->getValue();
+        return ($this->slideshowPasswordHex) ? $this->slideshowPasswordHex->getValue() : null;
     }
 }

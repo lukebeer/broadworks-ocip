@@ -21,13 +21,13 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserSharedCallAppearanceAddEndpointRequest14 extends ComplexType implements ComplexInterface
 {
-    public    $name                 = 'UserSharedCallAppearanceAddEndpointRequest14';
-    protected $userId               = null;
-    protected $accessDeviceEndpoint = null;
+    public    $name = 'UserSharedCallAppearanceAddEndpointRequest14';
+    protected $userId;
+    protected $accessDeviceEndpoint;
 
     public function __construct(
-         $userId,
-         AccessDeviceEndpointAdd $accessDeviceEndpoint
+         $userId = '',
+         AccessDeviceEndpointAdd $accessDeviceEndpoint = ''
     ) {
         $this->setUserId($userId);
         $this->setAccessDeviceEndpoint($accessDeviceEndpoint);
@@ -46,7 +46,6 @@ class UserSharedCallAppearanceAddEndpointRequest14 extends ComplexType implement
      */
     public function setUserId($userId = null)
     {
-        if (!$userId) return $this;
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
@@ -60,7 +59,7 @@ class UserSharedCallAppearanceAddEndpointRequest14 extends ComplexType implement
      */
     public function getUserId()
     {
-        return $this->userId->getValue();
+        return ($this->userId) ? $this->userId->getValue() : null;
     }
 
     /**
@@ -68,8 +67,9 @@ class UserSharedCallAppearanceAddEndpointRequest14 extends ComplexType implement
      */
     public function setAccessDeviceEndpoint(AccessDeviceEndpointAdd $accessDeviceEndpoint = null)
     {
-        if (!$accessDeviceEndpoint) return $this;
-        $this->accessDeviceEndpoint = $accessDeviceEndpoint;
+        $this->accessDeviceEndpoint = ($accessDeviceEndpoint InstanceOf AccessDeviceEndpointAdd)
+             ? $accessDeviceEndpoint
+             : new AccessDeviceEndpointAdd($accessDeviceEndpoint);
         $this->accessDeviceEndpoint->setName('accessDeviceEndpoint');
         return $this;
     }

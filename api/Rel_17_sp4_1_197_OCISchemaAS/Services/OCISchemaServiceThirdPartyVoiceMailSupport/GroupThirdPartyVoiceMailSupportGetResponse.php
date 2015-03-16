@@ -20,9 +20,9 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupThirdPartyVoiceMailSupportGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name        = 'GroupThirdPartyVoiceMailSupportGetResponse';
-    protected $isActive    = null;
-    protected $groupServer = null;
+    public    $name = 'GroupThirdPartyVoiceMailSupportGetResponse';
+    protected $isActive;
+    protected $groupServer;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceThirdPartyVoiceMailSupport\GroupThirdPartyVoiceMailSupportGetResponse $response
@@ -37,7 +37,6 @@ class GroupThirdPartyVoiceMailSupportGetResponse extends ComplexType implements 
      */
     public function setIsActive($isActive = null)
     {
-        if (!$isActive) return $this;
         $this->isActive = new PrimitiveType($isActive);
         $this->isActive->setName('isActive');
         return $this;
@@ -49,7 +48,7 @@ class GroupThirdPartyVoiceMailSupportGetResponse extends ComplexType implements 
      */
     public function getIsActive()
     {
-        return $this->isActive->getValue();
+        return ($this->isActive) ? $this->isActive->getValue() : null;
     }
 
     /**
@@ -57,7 +56,6 @@ class GroupThirdPartyVoiceMailSupportGetResponse extends ComplexType implements 
      */
     public function setGroupServer($groupServer = null)
     {
-        if (!$groupServer) return $this;
         $this->groupServer = ($groupServer InstanceOf ThirdPartyVoiceMailSupportMailServer)
              ? $groupServer
              : new ThirdPartyVoiceMailSupportMailServer($groupServer);
@@ -71,6 +69,6 @@ class GroupThirdPartyVoiceMailSupportGetResponse extends ComplexType implements 
      */
     public function getGroupServer()
     {
-        return $this->groupServer->getValue();
+        return ($this->groupServer) ? $this->groupServer->getValue() : null;
     }
 }

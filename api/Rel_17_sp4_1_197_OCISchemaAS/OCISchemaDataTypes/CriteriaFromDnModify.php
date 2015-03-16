@@ -19,11 +19,11 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class CriteriaFromDnModify extends ComplexType implements ComplexInterface
 {
-    public    $name                      = 'CriteriaFromDnModify';
-    protected $fromDnCriteriaSelection   = null;
-    protected $includeAnonymousCallers   = null;
-    protected $includeUnavailableCallers = null;
-    protected $phoneNumberList           = null;
+    public    $name = 'CriteriaFromDnModify';
+    protected $fromDnCriteriaSelection;
+    protected $includeAnonymousCallers;
+    protected $includeUnavailableCallers;
+    protected $phoneNumberList;
 
     public function __construct(
          $fromDnCriteriaSelection = null,
@@ -50,7 +50,6 @@ class CriteriaFromDnModify extends ComplexType implements ComplexInterface
      */
     public function setFromDnCriteriaSelection($fromDnCriteriaSelection = null)
     {
-        if (!$fromDnCriteriaSelection) return $this;
         $this->fromDnCriteriaSelection = new SimpleContent($fromDnCriteriaSelection);
         $this->fromDnCriteriaSelection->setName('fromDnCriteriaSelection');
         return $this;
@@ -62,7 +61,7 @@ class CriteriaFromDnModify extends ComplexType implements ComplexInterface
      */
     public function getFromDnCriteriaSelection()
     {
-        return $this->fromDnCriteriaSelection->getValue();
+        return ($this->fromDnCriteriaSelection) ? $this->fromDnCriteriaSelection->getValue() : null;
     }
 
     /**
@@ -70,7 +69,6 @@ class CriteriaFromDnModify extends ComplexType implements ComplexInterface
      */
     public function setIncludeAnonymousCallers($includeAnonymousCallers = null)
     {
-        if (!$includeAnonymousCallers) return $this;
         $this->includeAnonymousCallers = new SimpleContent($includeAnonymousCallers);
         $this->includeAnonymousCallers->setName('includeAnonymousCallers');
         return $this;
@@ -82,7 +80,7 @@ class CriteriaFromDnModify extends ComplexType implements ComplexInterface
      */
     public function getIncludeAnonymousCallers()
     {
-        return $this->includeAnonymousCallers->getValue();
+        return ($this->includeAnonymousCallers) ? $this->includeAnonymousCallers->getValue() : null;
     }
 
     /**
@@ -90,7 +88,6 @@ class CriteriaFromDnModify extends ComplexType implements ComplexInterface
      */
     public function setIncludeUnavailableCallers($includeUnavailableCallers = null)
     {
-        if (!$includeUnavailableCallers) return $this;
         $this->includeUnavailableCallers = new SimpleContent($includeUnavailableCallers);
         $this->includeUnavailableCallers->setName('includeUnavailableCallers');
         return $this;
@@ -102,7 +99,7 @@ class CriteriaFromDnModify extends ComplexType implements ComplexInterface
      */
     public function getIncludeUnavailableCallers()
     {
-        return $this->includeUnavailableCallers->getValue();
+        return ($this->includeUnavailableCallers) ? $this->includeUnavailableCallers->getValue() : null;
     }
 
     /**
@@ -110,7 +107,6 @@ class CriteriaFromDnModify extends ComplexType implements ComplexInterface
      */
     public function setPhoneNumberList($phoneNumberList = null)
     {
-        if (!$phoneNumberList) return $this;
         $this->phoneNumberList = new SimpleContent($phoneNumberList);
         $this->phoneNumberList->setName('phoneNumberList');
         return $this;
@@ -122,6 +118,6 @@ class CriteriaFromDnModify extends ComplexType implements ComplexInterface
      */
     public function getPhoneNumberList()
     {
-        return $this->phoneNumberList->getValue();
+        return ($this->phoneNumberList) ? $this->phoneNumberList->getValue() : null;
     }
 }

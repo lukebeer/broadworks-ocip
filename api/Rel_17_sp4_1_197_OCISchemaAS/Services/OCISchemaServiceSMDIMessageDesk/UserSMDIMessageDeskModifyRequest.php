@@ -22,13 +22,13 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserSMDIMessageDeskModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name              = 'UserSMDIMessageDeskModifyRequest';
-    protected $userId            = null;
-    protected $isActive          = null;
-    protected $messageDeskNumber = null;
+    public    $name = 'UserSMDIMessageDeskModifyRequest';
+    protected $userId;
+    protected $isActive;
+    protected $messageDeskNumber;
 
     public function __construct(
-         $userId,
+         $userId = '',
          $isActive = null,
          $messageDeskNumber = null
     ) {
@@ -50,7 +50,6 @@ class UserSMDIMessageDeskModifyRequest extends ComplexType implements ComplexInt
      */
     public function setUserId($userId = null)
     {
-        if (!$userId) return $this;
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
@@ -64,7 +63,7 @@ class UserSMDIMessageDeskModifyRequest extends ComplexType implements ComplexInt
      */
     public function getUserId()
     {
-        return $this->userId->getValue();
+        return ($this->userId) ? $this->userId->getValue() : null;
     }
 
     /**
@@ -72,7 +71,6 @@ class UserSMDIMessageDeskModifyRequest extends ComplexType implements ComplexInt
      */
     public function setIsActive($isActive = null)
     {
-        if (!$isActive) return $this;
         $this->isActive = new PrimitiveType($isActive);
         $this->isActive->setName('isActive');
         return $this;
@@ -84,7 +82,7 @@ class UserSMDIMessageDeskModifyRequest extends ComplexType implements ComplexInt
      */
     public function getIsActive()
     {
-        return $this->isActive->getValue();
+        return ($this->isActive) ? $this->isActive->getValue() : null;
     }
 
     /**
@@ -92,7 +90,6 @@ class UserSMDIMessageDeskModifyRequest extends ComplexType implements ComplexInt
      */
     public function setMessageDeskNumber($messageDeskNumber = null)
     {
-        if (!$messageDeskNumber) return $this;
         $this->messageDeskNumber = ($messageDeskNumber InstanceOf SMDIMessageDeskNumber)
              ? $messageDeskNumber
              : new SMDIMessageDeskNumber($messageDeskNumber);
@@ -106,6 +103,6 @@ class UserSMDIMessageDeskModifyRequest extends ComplexType implements ComplexInt
      */
     public function getMessageDeskNumber()
     {
-        return $this->messageDeskNumber->getValue();
+        return ($this->messageDeskNumber) ? $this->messageDeskNumber->getValue() : null;
     }
 }

@@ -20,8 +20,8 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemEmergencyZonesModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name               = 'SystemEmergencyZonesModifyRequest';
-    protected $defaultFromAddress = null;
+    public    $name = 'SystemEmergencyZonesModifyRequest';
+    protected $defaultFromAddress;
 
     public function __construct(
          $defaultFromAddress = null
@@ -42,7 +42,6 @@ class SystemEmergencyZonesModifyRequest extends ComplexType implements ComplexIn
      */
     public function setDefaultFromAddress($defaultFromAddress = null)
     {
-        if (!$defaultFromAddress) return $this;
         $this->defaultFromAddress = ($defaultFromAddress InstanceOf EmailAddress)
              ? $defaultFromAddress
              : new EmailAddress($defaultFromAddress);
@@ -56,6 +55,6 @@ class SystemEmergencyZonesModifyRequest extends ComplexType implements ComplexIn
      */
     public function getDefaultFromAddress()
     {
-        return $this->defaultFromAddress->getValue();
+        return ($this->defaultFromAddress) ? $this->defaultFromAddress->getValue() : null;
     }
 }

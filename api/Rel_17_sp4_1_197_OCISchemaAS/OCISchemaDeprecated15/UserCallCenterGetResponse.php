@@ -23,9 +23,9 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserCallCenterGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name          = 'UserCallCenterGetResponse';
-    protected $agentACDState = null;
-    protected $userTable     = null;
+    public    $name = 'UserCallCenterGetResponse';
+    protected $agentACDState;
+    protected $userTable;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15\UserCallCenterGetResponse $response
@@ -40,7 +40,6 @@ class UserCallCenterGetResponse extends ComplexType implements ComplexInterface
      */
     public function setAgentACDState($agentACDState = null)
     {
-        if (!$agentACDState) return $this;
         $this->agentACDState = ($agentACDState InstanceOf AgentACDState)
              ? $agentACDState
              : new AgentACDState($agentACDState);
@@ -54,7 +53,7 @@ class UserCallCenterGetResponse extends ComplexType implements ComplexInterface
      */
     public function getAgentACDState()
     {
-        return $this->agentACDState->getValue();
+        return ($this->agentACDState) ? $this->agentACDState->getValue() : null;
     }
 
     /**
@@ -62,7 +61,6 @@ class UserCallCenterGetResponse extends ComplexType implements ComplexInterface
      */
     public function setUserTable(TableType $userTable = null)
     {
-        if (!$userTable) return $this;
         $this->userTable = $userTable;
         $this->userTable->setName('userTable');
         return $this;

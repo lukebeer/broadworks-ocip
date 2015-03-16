@@ -23,13 +23,13 @@ use Broadworks_OCIP\core\Client\Client;
 class ServiceProviderServicePackMigrationTaskGetRequest14sp4 extends ComplexType implements ComplexInterface
 {
     public    $responseType      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderServicePackMigrationTaskGetResponse14sp4';
-    public    $name              = 'ServiceProviderServicePackMigrationTaskGetRequest14sp4';
-    protected $serviceProviderId = null;
-    protected $taskName          = null;
+    public    $name = 'ServiceProviderServicePackMigrationTaskGetRequest14sp4';
+    protected $serviceProviderId;
+    protected $taskName;
 
     public function __construct(
-         $serviceProviderId,
-         $taskName
+         $serviceProviderId = '',
+         $taskName = ''
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setTaskName($taskName);
@@ -48,7 +48,6 @@ class ServiceProviderServicePackMigrationTaskGetRequest14sp4 extends ComplexType
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
-        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
@@ -62,7 +61,7 @@ class ServiceProviderServicePackMigrationTaskGetRequest14sp4 extends ComplexType
      */
     public function getServiceProviderId()
     {
-        return $this->serviceProviderId->getValue();
+        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
     }
 
     /**
@@ -70,7 +69,6 @@ class ServiceProviderServicePackMigrationTaskGetRequest14sp4 extends ComplexType
      */
     public function setTaskName($taskName = null)
     {
-        if (!$taskName) return $this;
         $this->taskName = ($taskName InstanceOf ServicePackMigrationTaskName)
              ? $taskName
              : new ServicePackMigrationTaskName($taskName);
@@ -84,6 +82,6 @@ class ServiceProviderServicePackMigrationTaskGetRequest14sp4 extends ComplexType
      */
     public function getTaskName()
     {
-        return $this->taskName->getValue();
+        return ($this->taskName) ? $this->taskName->getValue() : null;
     }
 }

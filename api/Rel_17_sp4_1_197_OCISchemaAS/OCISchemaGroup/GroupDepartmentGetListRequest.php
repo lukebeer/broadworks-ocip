@@ -26,15 +26,15 @@ use Broadworks_OCIP\core\Client\Client;
 class GroupDepartmentGetListRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType                 = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupDepartmentGetListResponse';
-    public    $name                         = 'GroupDepartmentGetListRequest';
-    protected $serviceProviderId            = null;
-    protected $groupId                      = null;
-    protected $includeEnterpriseDepartments = null;
+    public    $name = 'GroupDepartmentGetListRequest';
+    protected $serviceProviderId;
+    protected $groupId;
+    protected $includeEnterpriseDepartments;
 
     public function __construct(
-         $serviceProviderId,
-         $groupId,
-         $includeEnterpriseDepartments
+         $serviceProviderId = '',
+         $groupId = '',
+         $includeEnterpriseDepartments = ''
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setGroupId($groupId);
@@ -54,7 +54,6 @@ class GroupDepartmentGetListRequest extends ComplexType implements ComplexInterf
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
-        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
@@ -68,7 +67,7 @@ class GroupDepartmentGetListRequest extends ComplexType implements ComplexInterf
      */
     public function getServiceProviderId()
     {
-        return $this->serviceProviderId->getValue();
+        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
     }
 
     /**
@@ -76,7 +75,6 @@ class GroupDepartmentGetListRequest extends ComplexType implements ComplexInterf
      */
     public function setGroupId($groupId = null)
     {
-        if (!$groupId) return $this;
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
@@ -90,7 +88,7 @@ class GroupDepartmentGetListRequest extends ComplexType implements ComplexInterf
      */
     public function getGroupId()
     {
-        return $this->groupId->getValue();
+        return ($this->groupId) ? $this->groupId->getValue() : null;
     }
 
     /**
@@ -98,7 +96,6 @@ class GroupDepartmentGetListRequest extends ComplexType implements ComplexInterf
      */
     public function setIncludeEnterpriseDepartments($includeEnterpriseDepartments = null)
     {
-        if (!$includeEnterpriseDepartments) return $this;
         $this->includeEnterpriseDepartments = new PrimitiveType($includeEnterpriseDepartments);
         $this->includeEnterpriseDepartments->setName('includeEnterpriseDepartments');
         return $this;
@@ -110,6 +107,6 @@ class GroupDepartmentGetListRequest extends ComplexType implements ComplexInterf
      */
     public function getIncludeEnterpriseDepartments()
     {
-        return $this->includeEnterpriseDepartments->getValue();
+        return ($this->includeEnterpriseDepartments) ? $this->includeEnterpriseDepartments->getValue() : null;
     }
 }

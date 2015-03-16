@@ -22,11 +22,11 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemNetworkServerSyncParametersGetResponse17sp4 extends ComplexType implements ComplexInterface
 {
-    public    $name                     = 'SystemNetworkServerSyncParametersGetResponse17sp4';
-    protected $enableSync               = null;
-    protected $syncLinePorts            = null;
-    protected $syncDeviceManagementInfo = null;
-    protected $syncTrunkGroups          = null;
+    public    $name = 'SystemNetworkServerSyncParametersGetResponse17sp4';
+    protected $enableSync;
+    protected $syncLinePorts;
+    protected $syncDeviceManagementInfo;
+    protected $syncTrunkGroups;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemNetworkServerSyncParametersGetResponse17sp4 $response
@@ -41,7 +41,6 @@ class SystemNetworkServerSyncParametersGetResponse17sp4 extends ComplexType impl
      */
     public function setEnableSync($enableSync = null)
     {
-        if (!$enableSync) return $this;
         $this->enableSync = new PrimitiveType($enableSync);
         $this->enableSync->setName('enableSync');
         return $this;
@@ -53,7 +52,7 @@ class SystemNetworkServerSyncParametersGetResponse17sp4 extends ComplexType impl
      */
     public function getEnableSync()
     {
-        return $this->enableSync->getValue();
+        return ($this->enableSync) ? $this->enableSync->getValue() : null;
     }
 
     /**
@@ -61,7 +60,6 @@ class SystemNetworkServerSyncParametersGetResponse17sp4 extends ComplexType impl
      */
     public function setSyncLinePorts($syncLinePorts = null)
     {
-        if (!$syncLinePorts) return $this;
         $this->syncLinePorts = new PrimitiveType($syncLinePorts);
         $this->syncLinePorts->setName('syncLinePorts');
         return $this;
@@ -73,7 +71,7 @@ class SystemNetworkServerSyncParametersGetResponse17sp4 extends ComplexType impl
      */
     public function getSyncLinePorts()
     {
-        return $this->syncLinePorts->getValue();
+        return ($this->syncLinePorts) ? $this->syncLinePorts->getValue() : null;
     }
 
     /**
@@ -81,7 +79,6 @@ class SystemNetworkServerSyncParametersGetResponse17sp4 extends ComplexType impl
      */
     public function setSyncDeviceManagementInfo($syncDeviceManagementInfo = null)
     {
-        if (!$syncDeviceManagementInfo) return $this;
         $this->syncDeviceManagementInfo = new PrimitiveType($syncDeviceManagementInfo);
         $this->syncDeviceManagementInfo->setName('syncDeviceManagementInfo');
         return $this;
@@ -93,7 +90,7 @@ class SystemNetworkServerSyncParametersGetResponse17sp4 extends ComplexType impl
      */
     public function getSyncDeviceManagementInfo()
     {
-        return $this->syncDeviceManagementInfo->getValue();
+        return ($this->syncDeviceManagementInfo) ? $this->syncDeviceManagementInfo->getValue() : null;
     }
 
     /**
@@ -101,7 +98,6 @@ class SystemNetworkServerSyncParametersGetResponse17sp4 extends ComplexType impl
      */
     public function setSyncTrunkGroups($syncTrunkGroups = null)
     {
-        if (!$syncTrunkGroups) return $this;
         $this->syncTrunkGroups = new PrimitiveType($syncTrunkGroups);
         $this->syncTrunkGroups->setName('syncTrunkGroups');
         return $this;
@@ -113,6 +109,6 @@ class SystemNetworkServerSyncParametersGetResponse17sp4 extends ComplexType impl
      */
     public function getSyncTrunkGroups()
     {
-        return $this->syncTrunkGroups->getValue();
+        return ($this->syncTrunkGroups) ? $this->syncTrunkGroups->getValue() : null;
     }
 }

@@ -19,11 +19,11 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class InstantConferencingNonIntegratedDevice extends ComplexType implements ComplexInterface
 {
-    public    $name       = 'InstantConferencingNonIntegratedDevice';
-    protected $deviceType = null;
+    public    $name = 'InstantConferencingNonIntegratedDevice';
+    protected $deviceType;
 
     public function __construct(
-         $deviceType
+         $deviceType = ''
     ) {
         $this->setDeviceType($deviceType);
     }
@@ -41,7 +41,6 @@ class InstantConferencingNonIntegratedDevice extends ComplexType implements Comp
      */
     public function setDeviceType($deviceType = null)
     {
-        if (!$deviceType) return $this;
         $this->deviceType = new SimpleContent($deviceType);
         $this->deviceType->setName('deviceType');
         return $this;
@@ -53,6 +52,6 @@ class InstantConferencingNonIntegratedDevice extends ComplexType implements Comp
      */
     public function getDeviceType()
     {
-        return $this->deviceType->getValue();
+        return ($this->deviceType) ? $this->deviceType->getValue() : null;
     }
 }

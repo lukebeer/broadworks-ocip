@@ -22,15 +22,15 @@ use Broadworks_OCIP\core\Client\Client;
 class GroupCallCenterCallDispositionCodeGetRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\GroupCallCenterCallDispositionCodeGetResponse';
-    public    $name              = 'GroupCallCenterCallDispositionCodeGetRequest';
-    protected $serviceProviderId = null;
-    protected $groupId           = null;
-    protected $code              = null;
+    public    $name = 'GroupCallCenterCallDispositionCodeGetRequest';
+    protected $serviceProviderId;
+    protected $groupId;
+    protected $code;
 
     public function __construct(
-         $serviceProviderId,
-         $groupId,
-         $code
+         $serviceProviderId = '',
+         $groupId = '',
+         $code = ''
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setGroupId($groupId);
@@ -50,7 +50,6 @@ class GroupCallCenterCallDispositionCodeGetRequest extends ComplexType implement
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
-        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
@@ -64,7 +63,7 @@ class GroupCallCenterCallDispositionCodeGetRequest extends ComplexType implement
      */
     public function getServiceProviderId()
     {
-        return $this->serviceProviderId->getValue();
+        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
     }
 
     /**
@@ -72,7 +71,6 @@ class GroupCallCenterCallDispositionCodeGetRequest extends ComplexType implement
      */
     public function setGroupId($groupId = null)
     {
-        if (!$groupId) return $this;
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
@@ -86,7 +84,7 @@ class GroupCallCenterCallDispositionCodeGetRequest extends ComplexType implement
      */
     public function getGroupId()
     {
-        return $this->groupId->getValue();
+        return ($this->groupId) ? $this->groupId->getValue() : null;
     }
 
     /**
@@ -94,7 +92,6 @@ class GroupCallCenterCallDispositionCodeGetRequest extends ComplexType implement
      */
     public function setCode($code = null)
     {
-        if (!$code) return $this;
         $this->code = ($code InstanceOf CallDispositionCode)
              ? $code
              : new CallDispositionCode($code);
@@ -108,6 +105,6 @@ class GroupCallCenterCallDispositionCodeGetRequest extends ComplexType implement
      */
     public function getCode()
     {
-        return $this->code->getValue();
+        return ($this->code) ? $this->code->getValue() : null;
     }
 }

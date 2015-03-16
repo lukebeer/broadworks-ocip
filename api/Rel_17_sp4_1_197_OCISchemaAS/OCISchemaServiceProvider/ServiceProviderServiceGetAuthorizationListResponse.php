@@ -24,9 +24,9 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderServiceGetAuthorizationListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                            = 'ServiceProviderServiceGetAuthorizationListResponse';
-    protected $groupServicesAuthorizationTable = null;
-    protected $userServicesAuthorizationTable  = null;
+    public    $name = 'ServiceProviderServiceGetAuthorizationListResponse';
+    protected $groupServicesAuthorizationTable;
+    protected $userServicesAuthorizationTable;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderServiceGetAuthorizationListResponse $response
@@ -41,7 +41,6 @@ class ServiceProviderServiceGetAuthorizationListResponse extends ComplexType imp
      */
     public function setGroupServicesAuthorizationTable(TableType $groupServicesAuthorizationTable = null)
     {
-        if (!$groupServicesAuthorizationTable) return $this;
         $this->groupServicesAuthorizationTable = $groupServicesAuthorizationTable;
         $this->groupServicesAuthorizationTable->setName('groupServicesAuthorizationTable');
         return $this;
@@ -61,7 +60,6 @@ class ServiceProviderServiceGetAuthorizationListResponse extends ComplexType imp
      */
     public function setUserServicesAuthorizationTable(TableType $userServicesAuthorizationTable = null)
     {
-        if (!$userServicesAuthorizationTable) return $this;
         $this->userServicesAuthorizationTable = $userServicesAuthorizationTable;
         $this->userServicesAuthorizationTable->setName('userServicesAuthorizationTable');
         return $this;

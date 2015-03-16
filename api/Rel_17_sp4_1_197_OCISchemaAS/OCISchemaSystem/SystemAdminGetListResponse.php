@@ -21,8 +21,8 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemAdminGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name             = 'SystemAdminGetListResponse';
-    protected $systemAdminTable = null;
+    public    $name = 'SystemAdminGetListResponse';
+    protected $systemAdminTable;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemAdminGetListResponse $response
@@ -37,7 +37,6 @@ class SystemAdminGetListResponse extends ComplexType implements ComplexInterface
      */
     public function setSystemAdminTable(TableType $systemAdminTable = null)
     {
-        if (!$systemAdminTable) return $this;
         $this->systemAdminTable = $systemAdminTable;
         $this->systemAdminTable->setName('systemAdminTable');
         return $this;

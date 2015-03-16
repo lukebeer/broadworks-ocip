@@ -22,10 +22,10 @@ class SystemCallRecordingGetPlatformUsageRequest extends ComplexType implements 
 {
     public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallRecording\SystemCallRecordingGetPlatformUsageResponse';
     public    $name = 'SystemCallRecordingGetPlatformUsageRequest';
-    protected $name = null;
+    protected $name;
 
     public function __construct(
-         $name
+         $name = ''
     ) {
         $this->setName($name);
     }
@@ -43,7 +43,6 @@ class SystemCallRecordingGetPlatformUsageRequest extends ComplexType implements 
      */
     public function setName($name = null)
     {
-        if (!$name) return $this;
         $this->name = ($name InstanceOf CallRecordingPlatformName)
              ? $name
              : new CallRecordingPlatformName($name);
@@ -57,6 +56,6 @@ class SystemCallRecordingGetPlatformUsageRequest extends ComplexType implements 
      */
     public function getName()
     {
-        return $this->name->getValue();
+        return ($this->name) ? $this->name->getValue() : null;
     }
 }

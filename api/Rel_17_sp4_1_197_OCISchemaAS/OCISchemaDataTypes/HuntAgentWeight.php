@@ -19,13 +19,13 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class HuntAgentWeight extends ComplexType implements ComplexInterface
 {
-    public    $name        = 'HuntAgentWeight';
-    protected $agentUserId = null;
-    protected $weight      = null;
+    public    $name = 'HuntAgentWeight';
+    protected $agentUserId;
+    protected $weight;
 
     public function __construct(
-         $agentUserId,
-         $weight
+         $agentUserId = '',
+         $weight = ''
     ) {
         $this->setAgentUserId($agentUserId);
         $this->setWeight($weight);
@@ -44,7 +44,6 @@ class HuntAgentWeight extends ComplexType implements ComplexInterface
      */
     public function setAgentUserId($agentUserId = null)
     {
-        if (!$agentUserId) return $this;
         $this->agentUserId = new SimpleContent($agentUserId);
         $this->agentUserId->setName('agentUserId');
         return $this;
@@ -56,7 +55,7 @@ class HuntAgentWeight extends ComplexType implements ComplexInterface
      */
     public function getAgentUserId()
     {
-        return $this->agentUserId->getValue();
+        return ($this->agentUserId) ? $this->agentUserId->getValue() : null;
     }
 
     /**
@@ -64,7 +63,6 @@ class HuntAgentWeight extends ComplexType implements ComplexInterface
      */
     public function setWeight($weight = null)
     {
-        if (!$weight) return $this;
         $this->weight = new SimpleContent($weight);
         $this->weight->setName('weight');
         return $this;
@@ -76,6 +74,6 @@ class HuntAgentWeight extends ComplexType implements ComplexInterface
      */
     public function getWeight()
     {
-        return $this->weight->getValue();
+        return ($this->weight) ? $this->weight->getValue() : null;
     }
 }

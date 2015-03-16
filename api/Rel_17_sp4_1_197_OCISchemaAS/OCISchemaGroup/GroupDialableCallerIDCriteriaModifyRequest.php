@@ -27,28 +27,28 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupDialableCallerIDCriteriaModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                        = 'GroupDialableCallerIDCriteriaModifyRequest';
-    protected $serviceProviderId           = null;
-    protected $groupId                     = null;
-    protected $name                        = null;
-    protected $newName                     = null;
-    protected $description                 = null;
-    protected $prefixDigits                = null;
-    protected $matchCallType               = null;
-    protected $matchAlternateCallIndicator = null;
-    protected $matchLocalCategory          = null;
-    protected $matchNationalCategory       = null;
-    protected $matchInterlataCategory      = null;
-    protected $matchIntralataCategory      = null;
-    protected $matchInternationalCategory  = null;
-    protected $matchPrivateCategory        = null;
-    protected $matchEmergencyCategory      = null;
-    protected $matchOtherCategory          = null;
+    public    $name = 'GroupDialableCallerIDCriteriaModifyRequest';
+    protected $serviceProviderId;
+    protected $groupId;
+    protected $name;
+    protected $newName;
+    protected $description;
+    protected $prefixDigits;
+    protected $matchCallType;
+    protected $matchAlternateCallIndicator;
+    protected $matchLocalCategory;
+    protected $matchNationalCategory;
+    protected $matchInterlataCategory;
+    protected $matchIntralataCategory;
+    protected $matchInternationalCategory;
+    protected $matchPrivateCategory;
+    protected $matchEmergencyCategory;
+    protected $matchOtherCategory;
 
     public function __construct(
-         $serviceProviderId,
-         $groupId,
-         $name,
+         $serviceProviderId = '',
+         $groupId = '',
+         $name = '',
          $newName = null,
          $description = null,
          $prefixDigits = null,
@@ -94,7 +94,6 @@ class GroupDialableCallerIDCriteriaModifyRequest extends ComplexType implements 
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
-        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
@@ -108,7 +107,7 @@ class GroupDialableCallerIDCriteriaModifyRequest extends ComplexType implements 
      */
     public function getServiceProviderId()
     {
-        return $this->serviceProviderId->getValue();
+        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
     }
 
     /**
@@ -116,7 +115,6 @@ class GroupDialableCallerIDCriteriaModifyRequest extends ComplexType implements 
      */
     public function setGroupId($groupId = null)
     {
-        if (!$groupId) return $this;
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
@@ -130,7 +128,7 @@ class GroupDialableCallerIDCriteriaModifyRequest extends ComplexType implements 
      */
     public function getGroupId()
     {
-        return $this->groupId->getValue();
+        return ($this->groupId) ? $this->groupId->getValue() : null;
     }
 
     /**
@@ -138,7 +136,6 @@ class GroupDialableCallerIDCriteriaModifyRequest extends ComplexType implements 
      */
     public function setName($name = null)
     {
-        if (!$name) return $this;
         $this->name = ($name InstanceOf DialableCallerIDCriteriaName)
              ? $name
              : new DialableCallerIDCriteriaName($name);
@@ -152,7 +149,7 @@ class GroupDialableCallerIDCriteriaModifyRequest extends ComplexType implements 
      */
     public function getName()
     {
-        return $this->name->getValue();
+        return ($this->name) ? $this->name->getValue() : null;
     }
 
     /**
@@ -160,7 +157,6 @@ class GroupDialableCallerIDCriteriaModifyRequest extends ComplexType implements 
      */
     public function setNewName($newName = null)
     {
-        if (!$newName) return $this;
         $this->newName = ($newName InstanceOf DialableCallerIDCriteriaName)
              ? $newName
              : new DialableCallerIDCriteriaName($newName);
@@ -174,7 +170,7 @@ class GroupDialableCallerIDCriteriaModifyRequest extends ComplexType implements 
      */
     public function getNewName()
     {
-        return $this->newName->getValue();
+        return ($this->newName) ? $this->newName->getValue() : null;
     }
 
     /**
@@ -182,7 +178,6 @@ class GroupDialableCallerIDCriteriaModifyRequest extends ComplexType implements 
      */
     public function setDescription($description = null)
     {
-        if (!$description) return $this;
         $this->description = ($description InstanceOf DialableCallerIDCriteriaDescription)
              ? $description
              : new DialableCallerIDCriteriaDescription($description);
@@ -196,7 +191,7 @@ class GroupDialableCallerIDCriteriaModifyRequest extends ComplexType implements 
      */
     public function getDescription()
     {
-        return $this->description->getValue();
+        return ($this->description) ? $this->description->getValue() : null;
     }
 
     /**
@@ -204,7 +199,6 @@ class GroupDialableCallerIDCriteriaModifyRequest extends ComplexType implements 
      */
     public function setPrefixDigits($prefixDigits = null)
     {
-        if (!$prefixDigits) return $this;
         $this->prefixDigits = ($prefixDigits InstanceOf DialableCallerIDPrefixDigits)
              ? $prefixDigits
              : new DialableCallerIDPrefixDigits($prefixDigits);
@@ -218,7 +212,7 @@ class GroupDialableCallerIDCriteriaModifyRequest extends ComplexType implements 
      */
     public function getPrefixDigits()
     {
-        return $this->prefixDigits->getValue();
+        return ($this->prefixDigits) ? $this->prefixDigits->getValue() : null;
     }
 
     /**
@@ -226,8 +220,9 @@ class GroupDialableCallerIDCriteriaModifyRequest extends ComplexType implements 
      */
     public function setMatchCallType(ReplacementCommunicationBarringCallTypeList $matchCallType = null)
     {
-        if (!$matchCallType) return $this;
-        $this->matchCallType = $matchCallType;
+        $this->matchCallType = ($matchCallType InstanceOf ReplacementCommunicationBarringCallTypeList)
+             ? $matchCallType
+             : new ReplacementCommunicationBarringCallTypeList($matchCallType);
         $this->matchCallType->setName('matchCallType');
         return $this;
     }
@@ -246,8 +241,9 @@ class GroupDialableCallerIDCriteriaModifyRequest extends ComplexType implements 
      */
     public function setMatchAlternateCallIndicator(ReplacementCommunicationBarringAlternateCallIndicatorList $matchAlternateCallIndicator = null)
     {
-        if (!$matchAlternateCallIndicator) return $this;
-        $this->matchAlternateCallIndicator = $matchAlternateCallIndicator;
+        $this->matchAlternateCallIndicator = ($matchAlternateCallIndicator InstanceOf ReplacementCommunicationBarringAlternateCallIndicatorList)
+             ? $matchAlternateCallIndicator
+             : new ReplacementCommunicationBarringAlternateCallIndicatorList($matchAlternateCallIndicator);
         $this->matchAlternateCallIndicator->setName('matchAlternateCallIndicator');
         return $this;
     }
@@ -266,7 +262,6 @@ class GroupDialableCallerIDCriteriaModifyRequest extends ComplexType implements 
      */
     public function setMatchLocalCategory($matchLocalCategory = null)
     {
-        if (!$matchLocalCategory) return $this;
         $this->matchLocalCategory = new PrimitiveType($matchLocalCategory);
         $this->matchLocalCategory->setName('matchLocalCategory');
         return $this;
@@ -278,7 +273,7 @@ class GroupDialableCallerIDCriteriaModifyRequest extends ComplexType implements 
      */
     public function getMatchLocalCategory()
     {
-        return $this->matchLocalCategory->getValue();
+        return ($this->matchLocalCategory) ? $this->matchLocalCategory->getValue() : null;
     }
 
     /**
@@ -286,7 +281,6 @@ class GroupDialableCallerIDCriteriaModifyRequest extends ComplexType implements 
      */
     public function setMatchNationalCategory($matchNationalCategory = null)
     {
-        if (!$matchNationalCategory) return $this;
         $this->matchNationalCategory = new PrimitiveType($matchNationalCategory);
         $this->matchNationalCategory->setName('matchNationalCategory');
         return $this;
@@ -298,7 +292,7 @@ class GroupDialableCallerIDCriteriaModifyRequest extends ComplexType implements 
      */
     public function getMatchNationalCategory()
     {
-        return $this->matchNationalCategory->getValue();
+        return ($this->matchNationalCategory) ? $this->matchNationalCategory->getValue() : null;
     }
 
     /**
@@ -306,7 +300,6 @@ class GroupDialableCallerIDCriteriaModifyRequest extends ComplexType implements 
      */
     public function setMatchInterlataCategory($matchInterlataCategory = null)
     {
-        if (!$matchInterlataCategory) return $this;
         $this->matchInterlataCategory = new PrimitiveType($matchInterlataCategory);
         $this->matchInterlataCategory->setName('matchInterlataCategory');
         return $this;
@@ -318,7 +311,7 @@ class GroupDialableCallerIDCriteriaModifyRequest extends ComplexType implements 
      */
     public function getMatchInterlataCategory()
     {
-        return $this->matchInterlataCategory->getValue();
+        return ($this->matchInterlataCategory) ? $this->matchInterlataCategory->getValue() : null;
     }
 
     /**
@@ -326,7 +319,6 @@ class GroupDialableCallerIDCriteriaModifyRequest extends ComplexType implements 
      */
     public function setMatchIntralataCategory($matchIntralataCategory = null)
     {
-        if (!$matchIntralataCategory) return $this;
         $this->matchIntralataCategory = new PrimitiveType($matchIntralataCategory);
         $this->matchIntralataCategory->setName('matchIntralataCategory');
         return $this;
@@ -338,7 +330,7 @@ class GroupDialableCallerIDCriteriaModifyRequest extends ComplexType implements 
      */
     public function getMatchIntralataCategory()
     {
-        return $this->matchIntralataCategory->getValue();
+        return ($this->matchIntralataCategory) ? $this->matchIntralataCategory->getValue() : null;
     }
 
     /**
@@ -346,7 +338,6 @@ class GroupDialableCallerIDCriteriaModifyRequest extends ComplexType implements 
      */
     public function setMatchInternationalCategory($matchInternationalCategory = null)
     {
-        if (!$matchInternationalCategory) return $this;
         $this->matchInternationalCategory = new PrimitiveType($matchInternationalCategory);
         $this->matchInternationalCategory->setName('matchInternationalCategory');
         return $this;
@@ -358,7 +349,7 @@ class GroupDialableCallerIDCriteriaModifyRequest extends ComplexType implements 
      */
     public function getMatchInternationalCategory()
     {
-        return $this->matchInternationalCategory->getValue();
+        return ($this->matchInternationalCategory) ? $this->matchInternationalCategory->getValue() : null;
     }
 
     /**
@@ -366,7 +357,6 @@ class GroupDialableCallerIDCriteriaModifyRequest extends ComplexType implements 
      */
     public function setMatchPrivateCategory($matchPrivateCategory = null)
     {
-        if (!$matchPrivateCategory) return $this;
         $this->matchPrivateCategory = new PrimitiveType($matchPrivateCategory);
         $this->matchPrivateCategory->setName('matchPrivateCategory');
         return $this;
@@ -378,7 +368,7 @@ class GroupDialableCallerIDCriteriaModifyRequest extends ComplexType implements 
      */
     public function getMatchPrivateCategory()
     {
-        return $this->matchPrivateCategory->getValue();
+        return ($this->matchPrivateCategory) ? $this->matchPrivateCategory->getValue() : null;
     }
 
     /**
@@ -386,7 +376,6 @@ class GroupDialableCallerIDCriteriaModifyRequest extends ComplexType implements 
      */
     public function setMatchEmergencyCategory($matchEmergencyCategory = null)
     {
-        if (!$matchEmergencyCategory) return $this;
         $this->matchEmergencyCategory = new PrimitiveType($matchEmergencyCategory);
         $this->matchEmergencyCategory->setName('matchEmergencyCategory');
         return $this;
@@ -398,7 +387,7 @@ class GroupDialableCallerIDCriteriaModifyRequest extends ComplexType implements 
      */
     public function getMatchEmergencyCategory()
     {
-        return $this->matchEmergencyCategory->getValue();
+        return ($this->matchEmergencyCategory) ? $this->matchEmergencyCategory->getValue() : null;
     }
 
     /**
@@ -406,7 +395,6 @@ class GroupDialableCallerIDCriteriaModifyRequest extends ComplexType implements 
      */
     public function setMatchOtherCategory($matchOtherCategory = null)
     {
-        if (!$matchOtherCategory) return $this;
         $this->matchOtherCategory = new PrimitiveType($matchOtherCategory);
         $this->matchOtherCategory->setName('matchOtherCategory');
         return $this;
@@ -418,6 +406,6 @@ class GroupDialableCallerIDCriteriaModifyRequest extends ComplexType implements 
      */
     public function getMatchOtherCategory()
     {
-        return $this->matchOtherCategory->getValue();
+        return ($this->matchOtherCategory) ? $this->matchOtherCategory->getValue() : null;
     }
 }

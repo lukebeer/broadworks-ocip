@@ -21,12 +21,12 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemRoamingNetworkModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                    = 'SystemRoamingNetworkModifyRequest';
-    protected $mscAddress              = null;
-    protected $networkTranslationIndex = null;
+    public    $name = 'SystemRoamingNetworkModifyRequest';
+    protected $mscAddress;
+    protected $networkTranslationIndex;
 
     public function __construct(
-         $mscAddress,
+         $mscAddress = '',
          $networkTranslationIndex = null
     ) {
         $this->setMscAddress($mscAddress);
@@ -46,7 +46,6 @@ class SystemRoamingNetworkModifyRequest extends ComplexType implements ComplexIn
      */
     public function setMscAddress($mscAddress = null)
     {
-        if (!$mscAddress) return $this;
         $this->mscAddress = ($mscAddress InstanceOf DN)
              ? $mscAddress
              : new DN($mscAddress);
@@ -60,7 +59,7 @@ class SystemRoamingNetworkModifyRequest extends ComplexType implements ComplexIn
      */
     public function getMscAddress()
     {
-        return $this->mscAddress->getValue();
+        return ($this->mscAddress) ? $this->mscAddress->getValue() : null;
     }
 
     /**
@@ -68,7 +67,6 @@ class SystemRoamingNetworkModifyRequest extends ComplexType implements ComplexIn
      */
     public function setNetworkTranslationIndex($networkTranslationIndex = null)
     {
-        if (!$networkTranslationIndex) return $this;
         $this->networkTranslationIndex = ($networkTranslationIndex InstanceOf NetworkTranslationIndex)
              ? $networkTranslationIndex
              : new NetworkTranslationIndex($networkTranslationIndex);
@@ -82,6 +80,6 @@ class SystemRoamingNetworkModifyRequest extends ComplexType implements ComplexIn
      */
     public function getNetworkTranslationIndex()
     {
-        return $this->networkTranslationIndex->getValue();
+        return ($this->networkTranslationIndex) ? $this->networkTranslationIndex->getValue() : null;
     }
 }

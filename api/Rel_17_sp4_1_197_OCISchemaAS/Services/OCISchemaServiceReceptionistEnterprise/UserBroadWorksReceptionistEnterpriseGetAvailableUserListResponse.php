@@ -22,8 +22,8 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserBroadWorksReceptionistEnterpriseGetAvailableUserListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name      = 'UserBroadWorksReceptionistEnterpriseGetAvailableUserListResponse';
-    protected $userTable = null;
+    public    $name = 'UserBroadWorksReceptionistEnterpriseGetAvailableUserListResponse';
+    protected $userTable;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceReceptionistEnterprise\UserBroadWorksReceptionistEnterpriseGetAvailableUserListResponse $response
@@ -38,7 +38,6 @@ class UserBroadWorksReceptionistEnterpriseGetAvailableUserListResponse extends C
      */
     public function setUserTable(TableType $userTable = null)
     {
-        if (!$userTable) return $this;
         $this->userTable = $userTable;
         $this->userTable->setName('userTable');
         return $this;

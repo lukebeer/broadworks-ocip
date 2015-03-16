@@ -23,13 +23,13 @@ use Broadworks_OCIP\core\Client\Client;
 class ServiceProviderDialableCallerIDCriteriaGetRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderDialableCallerIDCriteriaGetResponse';
-    public    $name              = 'ServiceProviderDialableCallerIDCriteriaGetRequest';
-    protected $serviceProviderId = null;
-    protected $name              = null;
+    public    $name = 'ServiceProviderDialableCallerIDCriteriaGetRequest';
+    protected $serviceProviderId;
+    protected $name;
 
     public function __construct(
-         $serviceProviderId,
-         $name
+         $serviceProviderId = '',
+         $name = ''
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setName($name);
@@ -48,7 +48,6 @@ class ServiceProviderDialableCallerIDCriteriaGetRequest extends ComplexType impl
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
-        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
@@ -62,7 +61,7 @@ class ServiceProviderDialableCallerIDCriteriaGetRequest extends ComplexType impl
      */
     public function getServiceProviderId()
     {
-        return $this->serviceProviderId->getValue();
+        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
     }
 
     /**
@@ -70,7 +69,6 @@ class ServiceProviderDialableCallerIDCriteriaGetRequest extends ComplexType impl
      */
     public function setName($name = null)
     {
-        if (!$name) return $this;
         $this->name = ($name InstanceOf DialableCallerIDCriteriaName)
              ? $name
              : new DialableCallerIDCriteriaName($name);
@@ -84,6 +82,6 @@ class ServiceProviderDialableCallerIDCriteriaGetRequest extends ComplexType impl
      */
     public function getName()
     {
-        return $this->name->getValue();
+        return ($this->name) ? $this->name->getValue() : null;
     }
 }

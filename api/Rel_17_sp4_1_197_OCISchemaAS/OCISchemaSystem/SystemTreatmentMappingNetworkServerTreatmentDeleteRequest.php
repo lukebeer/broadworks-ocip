@@ -20,11 +20,11 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemTreatmentMappingNetworkServerTreatmentDeleteRequest extends ComplexType implements ComplexInterface
 {
-    public    $name        = 'SystemTreatmentMappingNetworkServerTreatmentDeleteRequest';
-    protected $nsTreatment = null;
+    public    $name = 'SystemTreatmentMappingNetworkServerTreatmentDeleteRequest';
+    protected $nsTreatment;
 
     public function __construct(
-         $nsTreatment
+         $nsTreatment = ''
     ) {
         $this->setNsTreatment($nsTreatment);
     }
@@ -42,7 +42,6 @@ class SystemTreatmentMappingNetworkServerTreatmentDeleteRequest extends ComplexT
      */
     public function setNsTreatment($nsTreatment = null)
     {
-        if (!$nsTreatment) return $this;
         $this->nsTreatment = ($nsTreatment InstanceOf NetworkServerTreatment)
              ? $nsTreatment
              : new NetworkServerTreatment($nsTreatment);
@@ -56,6 +55,6 @@ class SystemTreatmentMappingNetworkServerTreatmentDeleteRequest extends ComplexT
      */
     public function getNsTreatment()
     {
-        return $this->nsTreatment->getValue();
+        return ($this->nsTreatment) ? $this->nsTreatment->getValue() : null;
     }
 }

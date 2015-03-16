@@ -21,12 +21,12 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupGroupPagingModifyTargetListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name             = 'GroupGroupPagingModifyTargetListRequest';
-    protected $serviceUserId    = null;
-    protected $targetUserIdList = null;
+    public    $name = 'GroupGroupPagingModifyTargetListRequest';
+    protected $serviceUserId;
+    protected $targetUserIdList;
 
     public function __construct(
-         $serviceUserId,
+         $serviceUserId = '',
          ReplacementUserIdList $targetUserIdList = null
     ) {
         $this->setServiceUserId($serviceUserId);
@@ -46,7 +46,6 @@ class GroupGroupPagingModifyTargetListRequest extends ComplexType implements Com
      */
     public function setServiceUserId($serviceUserId = null)
     {
-        if (!$serviceUserId) return $this;
         $this->serviceUserId = ($serviceUserId InstanceOf UserId)
              ? $serviceUserId
              : new UserId($serviceUserId);
@@ -60,7 +59,7 @@ class GroupGroupPagingModifyTargetListRequest extends ComplexType implements Com
      */
     public function getServiceUserId()
     {
-        return $this->serviceUserId->getValue();
+        return ($this->serviceUserId) ? $this->serviceUserId->getValue() : null;
     }
 
     /**
@@ -68,8 +67,9 @@ class GroupGroupPagingModifyTargetListRequest extends ComplexType implements Com
      */
     public function setTargetUserIdList(ReplacementUserIdList $targetUserIdList = null)
     {
-        if (!$targetUserIdList) return $this;
-        $this->targetUserIdList = $targetUserIdList;
+        $this->targetUserIdList = ($targetUserIdList InstanceOf ReplacementUserIdList)
+             ? $targetUserIdList
+             : new ReplacementUserIdList($targetUserIdList);
         $this->targetUserIdList->setName('targetUserIdList');
         return $this;
     }

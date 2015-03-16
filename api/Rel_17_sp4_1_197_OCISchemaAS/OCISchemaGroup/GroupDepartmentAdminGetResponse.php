@@ -24,12 +24,12 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupDepartmentAdminGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name               = 'GroupDepartmentAdminGetResponse';
-    protected $departmentKey      = null;
-    protected $departmentFullPath = null;
-    protected $firstName          = null;
-    protected $lastName           = null;
-    protected $language           = null;
+    public    $name = 'GroupDepartmentAdminGetResponse';
+    protected $departmentKey;
+    protected $departmentFullPath;
+    protected $firstName;
+    protected $lastName;
+    protected $language;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupDepartmentAdminGetResponse $response
@@ -44,8 +44,9 @@ class GroupDepartmentAdminGetResponse extends ComplexType implements ComplexInte
      */
     public function setDepartmentKey(GroupDepartmentKey $departmentKey = null)
     {
-        if (!$departmentKey) return $this;
-        $this->departmentKey = $departmentKey;
+        $this->departmentKey = ($departmentKey InstanceOf GroupDepartmentKey)
+             ? $departmentKey
+             : new GroupDepartmentKey($departmentKey);
         $this->departmentKey->setName('departmentKey');
         return $this;
     }
@@ -64,7 +65,6 @@ class GroupDepartmentAdminGetResponse extends ComplexType implements ComplexInte
      */
     public function setDepartmentFullPath($departmentFullPath = null)
     {
-        if (!$departmentFullPath) return $this;
         $this->departmentFullPath = ($departmentFullPath InstanceOf DepartmentName)
              ? $departmentFullPath
              : new DepartmentName($departmentFullPath);
@@ -78,7 +78,7 @@ class GroupDepartmentAdminGetResponse extends ComplexType implements ComplexInte
      */
     public function getDepartmentFullPath()
     {
-        return $this->departmentFullPath->getValue();
+        return ($this->departmentFullPath) ? $this->departmentFullPath->getValue() : null;
     }
 
     /**
@@ -86,7 +86,6 @@ class GroupDepartmentAdminGetResponse extends ComplexType implements ComplexInte
      */
     public function setFirstName($firstName = null)
     {
-        if (!$firstName) return $this;
         $this->firstName = ($firstName InstanceOf FirstName)
              ? $firstName
              : new FirstName($firstName);
@@ -100,7 +99,7 @@ class GroupDepartmentAdminGetResponse extends ComplexType implements ComplexInte
      */
     public function getFirstName()
     {
-        return $this->firstName->getValue();
+        return ($this->firstName) ? $this->firstName->getValue() : null;
     }
 
     /**
@@ -108,7 +107,6 @@ class GroupDepartmentAdminGetResponse extends ComplexType implements ComplexInte
      */
     public function setLastName($lastName = null)
     {
-        if (!$lastName) return $this;
         $this->lastName = ($lastName InstanceOf LastName)
              ? $lastName
              : new LastName($lastName);
@@ -122,7 +120,7 @@ class GroupDepartmentAdminGetResponse extends ComplexType implements ComplexInte
      */
     public function getLastName()
     {
-        return $this->lastName->getValue();
+        return ($this->lastName) ? $this->lastName->getValue() : null;
     }
 
     /**
@@ -130,7 +128,6 @@ class GroupDepartmentAdminGetResponse extends ComplexType implements ComplexInte
      */
     public function setLanguage($language = null)
     {
-        if (!$language) return $this;
         $this->language = ($language InstanceOf Language)
              ? $language
              : new Language($language);
@@ -144,6 +141,6 @@ class GroupDepartmentAdminGetResponse extends ComplexType implements ComplexInte
      */
     public function getLanguage()
     {
-        return $this->language->getValue();
+        return ($this->language) ? $this->language->getValue() : null;
     }
 }

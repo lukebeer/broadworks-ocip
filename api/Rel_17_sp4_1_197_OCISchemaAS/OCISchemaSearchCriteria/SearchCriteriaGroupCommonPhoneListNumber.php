@@ -21,15 +21,15 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SearchCriteriaGroupCommonPhoneListNumber extends ComplexType implements ComplexInterface
 {
-    public    $name              = 'SearchCriteriaGroupCommonPhoneListNumber';
-    protected $mode              = null;
-    protected $value             = null;
-    protected $isCaseInsensitive = null;
+    public    $name = 'SearchCriteriaGroupCommonPhoneListNumber';
+    protected $mode;
+    protected $value;
+    protected $isCaseInsensitive;
 
     public function __construct(
-         $mode,
-         $value,
-         $isCaseInsensitive
+         $mode = '',
+         $value = '',
+         $isCaseInsensitive = ''
     ) {
         $this->setMode($mode);
         $this->setValue($value);
@@ -49,7 +49,6 @@ class SearchCriteriaGroupCommonPhoneListNumber extends ComplexType implements Co
      */
     public function setMode($mode = null)
     {
-        if (!$mode) return $this;
         $this->mode = ($mode InstanceOf SearchMode)
              ? $mode
              : new SearchMode($mode);
@@ -63,7 +62,7 @@ class SearchCriteriaGroupCommonPhoneListNumber extends ComplexType implements Co
      */
     public function getMode()
     {
-        return $this->mode->getValue();
+        return ($this->mode) ? $this->mode->getValue() : null;
     }
 
     /**
@@ -71,7 +70,6 @@ class SearchCriteriaGroupCommonPhoneListNumber extends ComplexType implements Co
      */
     public function setValue($value = null)
     {
-        if (!$value) return $this;
         $this->value = ($value InstanceOf OutgoingDN)
              ? $value
              : new OutgoingDN($value);
@@ -85,7 +83,7 @@ class SearchCriteriaGroupCommonPhoneListNumber extends ComplexType implements Co
      */
     public function getValue()
     {
-        return $this->value->getValue();
+        return ($this->value) ? $this->value->getValue() : null;
     }
 
     /**
@@ -93,7 +91,6 @@ class SearchCriteriaGroupCommonPhoneListNumber extends ComplexType implements Co
      */
     public function setIsCaseInsensitive($isCaseInsensitive = null)
     {
-        if (!$isCaseInsensitive) return $this;
         $this->isCaseInsensitive = new PrimitiveType($isCaseInsensitive);
         $this->isCaseInsensitive->setName('isCaseInsensitive');
         return $this;
@@ -105,6 +102,6 @@ class SearchCriteriaGroupCommonPhoneListNumber extends ComplexType implements Co
      */
     public function getIsCaseInsensitive()
     {
-        return $this->isCaseInsensitive->getValue();
+        return ($this->isCaseInsensitive) ? $this->isCaseInsensitive->getValue() : null;
     }
 }

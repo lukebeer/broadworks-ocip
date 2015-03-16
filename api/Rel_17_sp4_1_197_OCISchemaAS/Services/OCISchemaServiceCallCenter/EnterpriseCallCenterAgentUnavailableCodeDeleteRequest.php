@@ -20,13 +20,13 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class EnterpriseCallCenterAgentUnavailableCodeDeleteRequest extends ComplexType implements ComplexInterface
 {
-    public    $name              = 'EnterpriseCallCenterAgentUnavailableCodeDeleteRequest';
-    protected $serviceProviderId = null;
-    protected $code              = null;
+    public    $name = 'EnterpriseCallCenterAgentUnavailableCodeDeleteRequest';
+    protected $serviceProviderId;
+    protected $code;
 
     public function __construct(
-         $serviceProviderId,
-         $code
+         $serviceProviderId = '',
+         $code = ''
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setCode($code);
@@ -45,7 +45,6 @@ class EnterpriseCallCenterAgentUnavailableCodeDeleteRequest extends ComplexType 
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
-        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
@@ -59,7 +58,7 @@ class EnterpriseCallCenterAgentUnavailableCodeDeleteRequest extends ComplexType 
      */
     public function getServiceProviderId()
     {
-        return $this->serviceProviderId->getValue();
+        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
     }
 
     /**
@@ -67,7 +66,6 @@ class EnterpriseCallCenterAgentUnavailableCodeDeleteRequest extends ComplexType 
      */
     public function setCode($code = null)
     {
-        if (!$code) return $this;
         $this->code = ($code InstanceOf CallCenterAgentUnavailableCode)
              ? $code
              : new CallCenterAgentUnavailableCode($code);
@@ -81,6 +79,6 @@ class EnterpriseCallCenterAgentUnavailableCodeDeleteRequest extends ComplexType 
      */
     public function getCode()
     {
-        return $this->code->getValue();
+        return ($this->code) ? $this->code->getValue() : null;
     }
 }

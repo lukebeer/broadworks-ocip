@@ -23,13 +23,13 @@ use Broadworks_OCIP\core\Client\Client;
 class SystemZoneLocationBasedPhysicalLocationGetListRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType                   = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemZoneLocationBasedPhysicalLocationGetListResponse';
-    public    $name                           = 'SystemZoneLocationBasedPhysicalLocationGetListRequest';
-    protected $zoneName                       = null;
-    protected $responseSizeLimit              = null;
-    protected $searchCriteriaPhysicalLocation = null;
+    public    $name = 'SystemZoneLocationBasedPhysicalLocationGetListRequest';
+    protected $zoneName;
+    protected $responseSizeLimit;
+    protected $searchCriteriaPhysicalLocation;
 
     public function __construct(
-         $zoneName,
+         $zoneName = '',
          $responseSizeLimit = null,
          SearchCriteriaPhysicalLocation $searchCriteriaPhysicalLocation = null
     ) {
@@ -51,7 +51,6 @@ class SystemZoneLocationBasedPhysicalLocationGetListRequest extends ComplexType 
      */
     public function setZoneName($zoneName = null)
     {
-        if (!$zoneName) return $this;
         $this->zoneName = ($zoneName InstanceOf ZoneName)
              ? $zoneName
              : new ZoneName($zoneName);
@@ -65,7 +64,7 @@ class SystemZoneLocationBasedPhysicalLocationGetListRequest extends ComplexType 
      */
     public function getZoneName()
     {
-        return $this->zoneName->getValue();
+        return ($this->zoneName) ? $this->zoneName->getValue() : null;
     }
 
     /**
@@ -73,7 +72,6 @@ class SystemZoneLocationBasedPhysicalLocationGetListRequest extends ComplexType 
      */
     public function setResponseSizeLimit($responseSizeLimit = null)
     {
-        if (!$responseSizeLimit) return $this;
         $this->responseSizeLimit = ($responseSizeLimit InstanceOf ResponseSizeLimit)
              ? $responseSizeLimit
              : new ResponseSizeLimit($responseSizeLimit);
@@ -87,7 +85,7 @@ class SystemZoneLocationBasedPhysicalLocationGetListRequest extends ComplexType 
      */
     public function getResponseSizeLimit()
     {
-        return $this->responseSizeLimit->getValue();
+        return ($this->responseSizeLimit) ? $this->responseSizeLimit->getValue() : null;
     }
 
     /**
@@ -95,7 +93,6 @@ class SystemZoneLocationBasedPhysicalLocationGetListRequest extends ComplexType 
      */
     public function setSearchCriteriaPhysicalLocation(SearchCriteriaPhysicalLocation $searchCriteriaPhysicalLocation = null)
     {
-        if (!$searchCriteriaPhysicalLocation) return $this;
         $this->searchCriteriaPhysicalLocation = ($searchCriteriaPhysicalLocation InstanceOf SearchCriteriaPhysicalLocation)
              ? $searchCriteriaPhysicalLocation
              : new SearchCriteriaPhysicalLocation($searchCriteriaPhysicalLocation);

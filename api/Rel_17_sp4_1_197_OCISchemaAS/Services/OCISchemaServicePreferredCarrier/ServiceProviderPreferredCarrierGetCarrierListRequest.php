@@ -22,13 +22,13 @@ use Broadworks_OCIP\core\Client\Client;
 class ServiceProviderPreferredCarrierGetCarrierListRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServicePreferredCarrier\ServiceProviderPreferredCarrierGetCarrierListResponse';
-    public    $name              = 'ServiceProviderPreferredCarrierGetCarrierListRequest';
-    protected $serviceProviderId = null;
-    protected $countryCode       = null;
+    public    $name = 'ServiceProviderPreferredCarrierGetCarrierListRequest';
+    protected $serviceProviderId;
+    protected $countryCode;
 
     public function __construct(
-         $serviceProviderId,
-         $countryCode
+         $serviceProviderId = '',
+         $countryCode = ''
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setCountryCode($countryCode);
@@ -47,7 +47,6 @@ class ServiceProviderPreferredCarrierGetCarrierListRequest extends ComplexType i
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
-        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
@@ -61,7 +60,7 @@ class ServiceProviderPreferredCarrierGetCarrierListRequest extends ComplexType i
      */
     public function getServiceProviderId()
     {
-        return $this->serviceProviderId->getValue();
+        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
     }
 
     /**
@@ -69,7 +68,6 @@ class ServiceProviderPreferredCarrierGetCarrierListRequest extends ComplexType i
      */
     public function setCountryCode($countryCode = null)
     {
-        if (!$countryCode) return $this;
         $this->countryCode = ($countryCode InstanceOf CountryCode)
              ? $countryCode
              : new CountryCode($countryCode);
@@ -83,6 +81,6 @@ class ServiceProviderPreferredCarrierGetCarrierListRequest extends ComplexType i
      */
     public function getCountryCode()
     {
-        return $this->countryCode->getValue();
+        return ($this->countryCode) ? $this->countryCode->getValue() : null;
     }
 }

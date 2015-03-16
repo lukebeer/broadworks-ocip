@@ -20,9 +20,9 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserCallNotifyGetCriteriaResponse extends ComplexType implements ComplexInterface
 {
-    public    $name           = 'UserCallNotifyGetCriteriaResponse';
-    protected $timeSchedule   = null;
-    protected $fromDnCriteria = null;
+    public    $name = 'UserCallNotifyGetCriteriaResponse';
+    protected $timeSchedule;
+    protected $fromDnCriteria;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15\UserCallNotifyGetCriteriaResponse $response
@@ -37,8 +37,9 @@ class UserCallNotifyGetCriteriaResponse extends ComplexType implements ComplexIn
      */
     public function setTimeSchedule(TimeSchedule $timeSchedule = null)
     {
-        if (!$timeSchedule) return $this;
-        $this->timeSchedule = $timeSchedule;
+        $this->timeSchedule = ($timeSchedule InstanceOf TimeSchedule)
+             ? $timeSchedule
+             : new TimeSchedule($timeSchedule);
         $this->timeSchedule->setName('timeSchedule');
         return $this;
     }
@@ -57,8 +58,9 @@ class UserCallNotifyGetCriteriaResponse extends ComplexType implements ComplexIn
      */
     public function setFromDnCriteria(CriteriaFromDn $fromDnCriteria = null)
     {
-        if (!$fromDnCriteria) return $this;
-        $this->fromDnCriteria = $fromDnCriteria;
+        $this->fromDnCriteria = ($fromDnCriteria InstanceOf CriteriaFromDn)
+             ? $fromDnCriteria
+             : new CriteriaFromDn($fromDnCriteria);
         $this->fromDnCriteria->setName('fromDnCriteria');
         return $this;
     }

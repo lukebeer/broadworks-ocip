@@ -30,31 +30,31 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupAutoAttendantAddInstanceRequest14 extends ComplexType implements ComplexInterface
 {
-    public    $name                   = 'GroupAutoAttendantAddInstanceRequest14';
-    protected $serviceProviderId      = null;
-    protected $groupId                = null;
-    protected $serviceUserId          = null;
-    protected $serviceInstanceProfile = null;
-    protected $enableVideo            = null;
-    protected $businessHours          = null;
-    protected $holidayScheduleName    = null;
-    protected $extensionDialingScope  = null;
-    protected $nameDialingScope       = null;
-    protected $nameDialingEntries     = null;
-    protected $businessHoursMenu      = null;
-    protected $afterHoursMenu         = null;
+    public    $name = 'GroupAutoAttendantAddInstanceRequest14';
+    protected $serviceProviderId;
+    protected $groupId;
+    protected $serviceUserId;
+    protected $serviceInstanceProfile;
+    protected $enableVideo;
+    protected $businessHours;
+    protected $holidayScheduleName;
+    protected $extensionDialingScope;
+    protected $nameDialingScope;
+    protected $nameDialingEntries;
+    protected $businessHoursMenu;
+    protected $afterHoursMenu;
 
     public function __construct(
-         $serviceProviderId,
-         $groupId,
-         $serviceUserId,
-         ServiceInstanceAddProfile $serviceInstanceProfile,
-         $enableVideo,
+         $serviceProviderId = '',
+         $groupId = '',
+         $serviceUserId = '',
+         ServiceInstanceAddProfile $serviceInstanceProfile = '',
+         $enableVideo = '',
          $businessHours = null,
          $holidayScheduleName = null,
-         $extensionDialingScope,
-         $nameDialingScope,
-         $nameDialingEntries,
+         $extensionDialingScope = '',
+         $nameDialingScope = '',
+         $nameDialingEntries = '',
          AutoAttendantAddMenu $businessHoursMenu = null,
          AutoAttendantAddMenu $afterHoursMenu = null
     ) {
@@ -85,7 +85,6 @@ class GroupAutoAttendantAddInstanceRequest14 extends ComplexType implements Comp
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
-        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
@@ -99,7 +98,7 @@ class GroupAutoAttendantAddInstanceRequest14 extends ComplexType implements Comp
      */
     public function getServiceProviderId()
     {
-        return $this->serviceProviderId->getValue();
+        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
     }
 
     /**
@@ -107,7 +106,6 @@ class GroupAutoAttendantAddInstanceRequest14 extends ComplexType implements Comp
      */
     public function setGroupId($groupId = null)
     {
-        if (!$groupId) return $this;
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
@@ -121,7 +119,7 @@ class GroupAutoAttendantAddInstanceRequest14 extends ComplexType implements Comp
      */
     public function getGroupId()
     {
-        return $this->groupId->getValue();
+        return ($this->groupId) ? $this->groupId->getValue() : null;
     }
 
     /**
@@ -129,7 +127,6 @@ class GroupAutoAttendantAddInstanceRequest14 extends ComplexType implements Comp
      */
     public function setServiceUserId($serviceUserId = null)
     {
-        if (!$serviceUserId) return $this;
         $this->serviceUserId = ($serviceUserId InstanceOf UserId)
              ? $serviceUserId
              : new UserId($serviceUserId);
@@ -143,7 +140,7 @@ class GroupAutoAttendantAddInstanceRequest14 extends ComplexType implements Comp
      */
     public function getServiceUserId()
     {
-        return $this->serviceUserId->getValue();
+        return ($this->serviceUserId) ? $this->serviceUserId->getValue() : null;
     }
 
     /**
@@ -151,8 +148,9 @@ class GroupAutoAttendantAddInstanceRequest14 extends ComplexType implements Comp
      */
     public function setServiceInstanceProfile(ServiceInstanceAddProfile $serviceInstanceProfile = null)
     {
-        if (!$serviceInstanceProfile) return $this;
-        $this->serviceInstanceProfile = $serviceInstanceProfile;
+        $this->serviceInstanceProfile = ($serviceInstanceProfile InstanceOf ServiceInstanceAddProfile)
+             ? $serviceInstanceProfile
+             : new ServiceInstanceAddProfile($serviceInstanceProfile);
         $this->serviceInstanceProfile->setName('serviceInstanceProfile');
         return $this;
     }
@@ -171,7 +169,6 @@ class GroupAutoAttendantAddInstanceRequest14 extends ComplexType implements Comp
      */
     public function setEnableVideo($enableVideo = null)
     {
-        if (!$enableVideo) return $this;
         $this->enableVideo = new PrimitiveType($enableVideo);
         $this->enableVideo->setName('enableVideo');
         return $this;
@@ -183,7 +180,7 @@ class GroupAutoAttendantAddInstanceRequest14 extends ComplexType implements Comp
      */
     public function getEnableVideo()
     {
-        return $this->enableVideo->getValue();
+        return ($this->enableVideo) ? $this->enableVideo->getValue() : null;
     }
 
     /**
@@ -191,7 +188,6 @@ class GroupAutoAttendantAddInstanceRequest14 extends ComplexType implements Comp
      */
     public function setBusinessHours($businessHours = null)
     {
-        if (!$businessHours) return $this;
         $this->businessHours = ($businessHours InstanceOf ScheduleName)
              ? $businessHours
              : new ScheduleName($businessHours);
@@ -205,7 +201,7 @@ class GroupAutoAttendantAddInstanceRequest14 extends ComplexType implements Comp
      */
     public function getBusinessHours()
     {
-        return $this->businessHours->getValue();
+        return ($this->businessHours) ? $this->businessHours->getValue() : null;
     }
 
     /**
@@ -213,7 +209,6 @@ class GroupAutoAttendantAddInstanceRequest14 extends ComplexType implements Comp
      */
     public function setHolidayScheduleName($holidayScheduleName = null)
     {
-        if (!$holidayScheduleName) return $this;
         $this->holidayScheduleName = ($holidayScheduleName InstanceOf ScheduleName)
              ? $holidayScheduleName
              : new ScheduleName($holidayScheduleName);
@@ -227,7 +222,7 @@ class GroupAutoAttendantAddInstanceRequest14 extends ComplexType implements Comp
      */
     public function getHolidayScheduleName()
     {
-        return $this->holidayScheduleName->getValue();
+        return ($this->holidayScheduleName) ? $this->holidayScheduleName->getValue() : null;
     }
 
     /**
@@ -235,7 +230,6 @@ class GroupAutoAttendantAddInstanceRequest14 extends ComplexType implements Comp
      */
     public function setExtensionDialingScope($extensionDialingScope = null)
     {
-        if (!$extensionDialingScope) return $this;
         $this->extensionDialingScope = ($extensionDialingScope InstanceOf AutoAttendantDialingScope)
              ? $extensionDialingScope
              : new AutoAttendantDialingScope($extensionDialingScope);
@@ -249,7 +243,7 @@ class GroupAutoAttendantAddInstanceRequest14 extends ComplexType implements Comp
      */
     public function getExtensionDialingScope()
     {
-        return $this->extensionDialingScope->getValue();
+        return ($this->extensionDialingScope) ? $this->extensionDialingScope->getValue() : null;
     }
 
     /**
@@ -257,7 +251,6 @@ class GroupAutoAttendantAddInstanceRequest14 extends ComplexType implements Comp
      */
     public function setNameDialingScope($nameDialingScope = null)
     {
-        if (!$nameDialingScope) return $this;
         $this->nameDialingScope = ($nameDialingScope InstanceOf AutoAttendantDialingScope)
              ? $nameDialingScope
              : new AutoAttendantDialingScope($nameDialingScope);
@@ -271,7 +264,7 @@ class GroupAutoAttendantAddInstanceRequest14 extends ComplexType implements Comp
      */
     public function getNameDialingScope()
     {
-        return $this->nameDialingScope->getValue();
+        return ($this->nameDialingScope) ? $this->nameDialingScope->getValue() : null;
     }
 
     /**
@@ -279,7 +272,6 @@ class GroupAutoAttendantAddInstanceRequest14 extends ComplexType implements Comp
      */
     public function setNameDialingEntries($nameDialingEntries = null)
     {
-        if (!$nameDialingEntries) return $this;
         $this->nameDialingEntries = ($nameDialingEntries InstanceOf AutoAttendantNameDialingEntry)
              ? $nameDialingEntries
              : new AutoAttendantNameDialingEntry($nameDialingEntries);
@@ -293,7 +285,7 @@ class GroupAutoAttendantAddInstanceRequest14 extends ComplexType implements Comp
      */
     public function getNameDialingEntries()
     {
-        return $this->nameDialingEntries->getValue();
+        return ($this->nameDialingEntries) ? $this->nameDialingEntries->getValue() : null;
     }
 
     /**
@@ -301,8 +293,9 @@ class GroupAutoAttendantAddInstanceRequest14 extends ComplexType implements Comp
      */
     public function setBusinessHoursMenu(AutoAttendantAddMenu $businessHoursMenu = null)
     {
-        if (!$businessHoursMenu) return $this;
-        $this->businessHoursMenu = $businessHoursMenu;
+        $this->businessHoursMenu = ($businessHoursMenu InstanceOf AutoAttendantAddMenu)
+             ? $businessHoursMenu
+             : new AutoAttendantAddMenu($businessHoursMenu);
         $this->businessHoursMenu->setName('businessHoursMenu');
         return $this;
     }
@@ -321,8 +314,9 @@ class GroupAutoAttendantAddInstanceRequest14 extends ComplexType implements Comp
      */
     public function setAfterHoursMenu(AutoAttendantAddMenu $afterHoursMenu = null)
     {
-        if (!$afterHoursMenu) return $this;
-        $this->afterHoursMenu = $afterHoursMenu;
+        $this->afterHoursMenu = ($afterHoursMenu InstanceOf AutoAttendantAddMenu)
+             ? $afterHoursMenu
+             : new AutoAttendantAddMenu($afterHoursMenu);
         $this->afterHoursMenu->setName('afterHoursMenu');
         return $this;
     }

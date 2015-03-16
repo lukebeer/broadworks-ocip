@@ -22,15 +22,15 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupVirtualOnNetEnterpriseExtensionsDeleteUserRequest extends ComplexType implements ComplexInterface
 {
-    public    $name              = 'GroupVirtualOnNetEnterpriseExtensionsDeleteUserRequest';
-    protected $serviceProviderId = null;
-    protected $groupId           = null;
-    protected $phoneNumber       = null;
+    public    $name = 'GroupVirtualOnNetEnterpriseExtensionsDeleteUserRequest';
+    protected $serviceProviderId;
+    protected $groupId;
+    protected $phoneNumber;
 
     public function __construct(
-         $serviceProviderId,
-         $groupId,
-         $phoneNumber
+         $serviceProviderId = '',
+         $groupId = '',
+         $phoneNumber = ''
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setGroupId($groupId);
@@ -50,7 +50,6 @@ class GroupVirtualOnNetEnterpriseExtensionsDeleteUserRequest extends ComplexType
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
-        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
@@ -64,7 +63,7 @@ class GroupVirtualOnNetEnterpriseExtensionsDeleteUserRequest extends ComplexType
      */
     public function getServiceProviderId()
     {
-        return $this->serviceProviderId->getValue();
+        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
     }
 
     /**
@@ -72,7 +71,6 @@ class GroupVirtualOnNetEnterpriseExtensionsDeleteUserRequest extends ComplexType
      */
     public function setGroupId($groupId = null)
     {
-        if (!$groupId) return $this;
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
@@ -86,7 +84,7 @@ class GroupVirtualOnNetEnterpriseExtensionsDeleteUserRequest extends ComplexType
      */
     public function getGroupId()
     {
-        return $this->groupId->getValue();
+        return ($this->groupId) ? $this->groupId->getValue() : null;
     }
 
     /**
@@ -94,7 +92,6 @@ class GroupVirtualOnNetEnterpriseExtensionsDeleteUserRequest extends ComplexType
      */
     public function setPhoneNumber($phoneNumber = null)
     {
-        if (!$phoneNumber) return $this;
         $this->phoneNumber = ($phoneNumber InstanceOf DN)
              ? $phoneNumber
              : new DN($phoneNumber);
@@ -108,6 +105,6 @@ class GroupVirtualOnNetEnterpriseExtensionsDeleteUserRequest extends ComplexType
      */
     public function getPhoneNumber()
     {
-        return $this->phoneNumber->getValue();
+        return ($this->phoneNumber) ? $this->phoneNumber->getValue() : null;
     }
 }

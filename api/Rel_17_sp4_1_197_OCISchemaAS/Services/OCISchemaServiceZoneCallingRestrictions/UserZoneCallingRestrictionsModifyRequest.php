@@ -21,12 +21,12 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserZoneCallingRestrictionsModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name         = 'UserZoneCallingRestrictionsModifyRequest';
-    protected $userId       = null;
-    protected $homeZoneName = null;
+    public    $name = 'UserZoneCallingRestrictionsModifyRequest';
+    protected $userId;
+    protected $homeZoneName;
 
     public function __construct(
-         $userId,
+         $userId = '',
          $homeZoneName = null
     ) {
         $this->setUserId($userId);
@@ -46,7 +46,6 @@ class UserZoneCallingRestrictionsModifyRequest extends ComplexType implements Co
      */
     public function setUserId($userId = null)
     {
-        if (!$userId) return $this;
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
@@ -60,7 +59,7 @@ class UserZoneCallingRestrictionsModifyRequest extends ComplexType implements Co
      */
     public function getUserId()
     {
-        return $this->userId->getValue();
+        return ($this->userId) ? $this->userId->getValue() : null;
     }
 
     /**
@@ -68,7 +67,6 @@ class UserZoneCallingRestrictionsModifyRequest extends ComplexType implements Co
      */
     public function setHomeZoneName($homeZoneName = null)
     {
-        if (!$homeZoneName) return $this;
         $this->homeZoneName = ($homeZoneName InstanceOf ZoneName)
              ? $homeZoneName
              : new ZoneName($homeZoneName);
@@ -82,6 +80,6 @@ class UserZoneCallingRestrictionsModifyRequest extends ComplexType implements Co
      */
     public function getHomeZoneName()
     {
-        return $this->homeZoneName->getValue();
+        return ($this->homeZoneName) ? $this->homeZoneName->getValue() : null;
     }
 }

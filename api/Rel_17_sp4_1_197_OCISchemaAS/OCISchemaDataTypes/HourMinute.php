@@ -19,13 +19,13 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class HourMinute extends ComplexType implements ComplexInterface
 {
-    public    $name   = 'HourMinute';
-    protected $hour   = null;
-    protected $minute = null;
+    public    $name = 'HourMinute';
+    protected $hour;
+    protected $minute;
 
     public function __construct(
-         $hour,
-         $minute
+         $hour = '',
+         $minute = ''
     ) {
         $this->setHour($hour);
         $this->setMinute($minute);
@@ -44,7 +44,6 @@ class HourMinute extends ComplexType implements ComplexInterface
      */
     public function setHour($hour = null)
     {
-        if (!$hour) return $this;
         $this->hour = new SimpleContent($hour);
         $this->hour->setName('hour');
         return $this;
@@ -56,7 +55,7 @@ class HourMinute extends ComplexType implements ComplexInterface
      */
     public function getHour()
     {
-        return $this->hour->getValue();
+        return ($this->hour) ? $this->hour->getValue() : null;
     }
 
     /**
@@ -64,7 +63,6 @@ class HourMinute extends ComplexType implements ComplexInterface
      */
     public function setMinute($minute = null)
     {
-        if (!$minute) return $this;
         $this->minute = new SimpleContent($minute);
         $this->minute->setName('minute');
         return $this;
@@ -76,6 +74,6 @@ class HourMinute extends ComplexType implements ComplexInterface
      */
     public function getMinute()
     {
-        return $this->minute->getValue();
+        return ($this->minute) ? $this->minute->getValue() : null;
     }
 }

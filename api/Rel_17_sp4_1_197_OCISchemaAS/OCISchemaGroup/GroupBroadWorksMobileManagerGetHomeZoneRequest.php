@@ -23,15 +23,15 @@ use Broadworks_OCIP\core\Client\Client;
 class GroupBroadWorksMobileManagerGetHomeZoneRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupBroadWorksMobileManagerGetHomeZoneResponse';
-    public    $name              = 'GroupBroadWorksMobileManagerGetHomeZoneRequest';
-    protected $serviceProviderId = null;
-    protected $groupId           = null;
-    protected $homeZoneId        = null;
+    public    $name = 'GroupBroadWorksMobileManagerGetHomeZoneRequest';
+    protected $serviceProviderId;
+    protected $groupId;
+    protected $homeZoneId;
 
     public function __construct(
-         $serviceProviderId,
-         $groupId,
-         $homeZoneId
+         $serviceProviderId = '',
+         $groupId = '',
+         $homeZoneId = ''
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setGroupId($groupId);
@@ -51,7 +51,6 @@ class GroupBroadWorksMobileManagerGetHomeZoneRequest extends ComplexType impleme
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
-        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
@@ -65,7 +64,7 @@ class GroupBroadWorksMobileManagerGetHomeZoneRequest extends ComplexType impleme
      */
     public function getServiceProviderId()
     {
-        return $this->serviceProviderId->getValue();
+        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
     }
 
     /**
@@ -73,7 +72,6 @@ class GroupBroadWorksMobileManagerGetHomeZoneRequest extends ComplexType impleme
      */
     public function setGroupId($groupId = null)
     {
-        if (!$groupId) return $this;
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
@@ -87,7 +85,7 @@ class GroupBroadWorksMobileManagerGetHomeZoneRequest extends ComplexType impleme
      */
     public function getGroupId()
     {
-        return $this->groupId->getValue();
+        return ($this->groupId) ? $this->groupId->getValue() : null;
     }
 
     /**
@@ -95,7 +93,6 @@ class GroupBroadWorksMobileManagerGetHomeZoneRequest extends ComplexType impleme
      */
     public function setHomeZoneId($homeZoneId = null)
     {
-        if (!$homeZoneId) return $this;
         $this->homeZoneId = new PrimitiveType($homeZoneId);
         $this->homeZoneId->setName('homeZoneId');
         return $this;
@@ -107,6 +104,6 @@ class GroupBroadWorksMobileManagerGetHomeZoneRequest extends ComplexType impleme
      */
     public function getHomeZoneId()
     {
-        return $this->homeZoneId->getValue();
+        return ($this->homeZoneId) ? $this->homeZoneId->getValue() : null;
     }
 }

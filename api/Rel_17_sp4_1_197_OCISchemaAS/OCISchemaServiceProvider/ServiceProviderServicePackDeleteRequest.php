@@ -21,13 +21,13 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderServicePackDeleteRequest extends ComplexType implements ComplexInterface
 {
-    public    $name              = 'ServiceProviderServicePackDeleteRequest';
-    protected $serviceProviderId = null;
-    protected $servicePackName   = null;
+    public    $name = 'ServiceProviderServicePackDeleteRequest';
+    protected $serviceProviderId;
+    protected $servicePackName;
 
     public function __construct(
-         $serviceProviderId,
-         $servicePackName
+         $serviceProviderId = '',
+         $servicePackName = ''
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setServicePackName($servicePackName);
@@ -46,7 +46,6 @@ class ServiceProviderServicePackDeleteRequest extends ComplexType implements Com
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
-        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
@@ -60,7 +59,7 @@ class ServiceProviderServicePackDeleteRequest extends ComplexType implements Com
      */
     public function getServiceProviderId()
     {
-        return $this->serviceProviderId->getValue();
+        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
     }
 
     /**
@@ -68,7 +67,6 @@ class ServiceProviderServicePackDeleteRequest extends ComplexType implements Com
      */
     public function setServicePackName($servicePackName = null)
     {
-        if (!$servicePackName) return $this;
         $this->servicePackName = ($servicePackName InstanceOf ServicePackName)
              ? $servicePackName
              : new ServicePackName($servicePackName);
@@ -82,6 +80,6 @@ class ServiceProviderServicePackDeleteRequest extends ComplexType implements Com
      */
     public function getServicePackName()
     {
-        return $this->servicePackName->getValue();
+        return ($this->servicePackName) ? $this->servicePackName->getValue() : null;
     }
 }

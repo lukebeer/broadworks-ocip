@@ -23,11 +23,11 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupInstantGroupCallGetInstanceResponse17 extends ComplexType implements ComplexInterface
 {
-    public    $name                   = 'GroupInstantGroupCallGetInstanceResponse17';
-    protected $serviceInstanceProfile = null;
-    protected $destinationPhoneNumber = null;
-    protected $isAnswerTimeoutEnabled = null;
-    protected $answerTimeoutMinutes   = null;
+    public    $name = 'GroupInstantGroupCallGetInstanceResponse17';
+    protected $serviceInstanceProfile;
+    protected $destinationPhoneNumber;
+    protected $isAnswerTimeoutEnabled;
+    protected $answerTimeoutMinutes;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantGroupCall\GroupInstantGroupCallGetInstanceResponse17 $response
@@ -42,8 +42,9 @@ class GroupInstantGroupCallGetInstanceResponse17 extends ComplexType implements 
      */
     public function setServiceInstanceProfile(ServiceInstanceReadProfile17 $serviceInstanceProfile = null)
     {
-        if (!$serviceInstanceProfile) return $this;
-        $this->serviceInstanceProfile = $serviceInstanceProfile;
+        $this->serviceInstanceProfile = ($serviceInstanceProfile InstanceOf ServiceInstanceReadProfile17)
+             ? $serviceInstanceProfile
+             : new ServiceInstanceReadProfile17($serviceInstanceProfile);
         $this->serviceInstanceProfile->setName('serviceInstanceProfile');
         return $this;
     }
@@ -62,7 +63,6 @@ class GroupInstantGroupCallGetInstanceResponse17 extends ComplexType implements 
      */
     public function setDestinationPhoneNumber($destinationPhoneNumber = null)
     {
-        if (!$destinationPhoneNumber) return $this;
         $this->destinationPhoneNumber = ($destinationPhoneNumber InstanceOf OutgoingDNorSIPURI)
              ? $destinationPhoneNumber
              : new OutgoingDNorSIPURI($destinationPhoneNumber);
@@ -76,7 +76,7 @@ class GroupInstantGroupCallGetInstanceResponse17 extends ComplexType implements 
      */
     public function getDestinationPhoneNumber()
     {
-        return $this->destinationPhoneNumber->getValue();
+        return ($this->destinationPhoneNumber) ? $this->destinationPhoneNumber->getValue() : null;
     }
 
     /**
@@ -84,7 +84,6 @@ class GroupInstantGroupCallGetInstanceResponse17 extends ComplexType implements 
      */
     public function setIsAnswerTimeoutEnabled($isAnswerTimeoutEnabled = null)
     {
-        if (!$isAnswerTimeoutEnabled) return $this;
         $this->isAnswerTimeoutEnabled = new PrimitiveType($isAnswerTimeoutEnabled);
         $this->isAnswerTimeoutEnabled->setName('isAnswerTimeoutEnabled');
         return $this;
@@ -96,7 +95,7 @@ class GroupInstantGroupCallGetInstanceResponse17 extends ComplexType implements 
      */
     public function getIsAnswerTimeoutEnabled()
     {
-        return $this->isAnswerTimeoutEnabled->getValue();
+        return ($this->isAnswerTimeoutEnabled) ? $this->isAnswerTimeoutEnabled->getValue() : null;
     }
 
     /**
@@ -104,7 +103,6 @@ class GroupInstantGroupCallGetInstanceResponse17 extends ComplexType implements 
      */
     public function setAnswerTimeoutMinutes($answerTimeoutMinutes = null)
     {
-        if (!$answerTimeoutMinutes) return $this;
         $this->answerTimeoutMinutes = ($answerTimeoutMinutes InstanceOf InstantGroupCallAnswerTimeoutMinutes)
              ? $answerTimeoutMinutes
              : new InstantGroupCallAnswerTimeoutMinutes($answerTimeoutMinutes);
@@ -118,6 +116,6 @@ class GroupInstantGroupCallGetInstanceResponse17 extends ComplexType implements 
      */
     public function getAnswerTimeoutMinutes()
     {
-        return $this->answerTimeoutMinutes->getValue();
+        return ($this->answerTimeoutMinutes) ? $this->answerTimeoutMinutes->getValue() : null;
     }
 }

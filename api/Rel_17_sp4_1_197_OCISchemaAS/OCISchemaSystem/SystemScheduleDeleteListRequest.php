@@ -20,11 +20,11 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemScheduleDeleteListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name        = 'SystemScheduleDeleteListRequest';
-    protected $scheduleKey = null;
+    public    $name = 'SystemScheduleDeleteListRequest';
+    protected $scheduleKey;
 
     public function __construct(
-         ScheduleKey $scheduleKey
+         ScheduleKey $scheduleKey = ''
     ) {
         $this->setScheduleKey($scheduleKey);
     }
@@ -42,8 +42,9 @@ class SystemScheduleDeleteListRequest extends ComplexType implements ComplexInte
      */
     public function setScheduleKey(ScheduleKey $scheduleKey = null)
     {
-        if (!$scheduleKey) return $this;
-        $this->scheduleKey = $scheduleKey;
+        $this->scheduleKey = ($scheduleKey InstanceOf ScheduleKey)
+             ? $scheduleKey
+             : new ScheduleKey($scheduleKey);
         $this->scheduleKey->setName('scheduleKey');
         return $this;
     }

@@ -22,13 +22,13 @@ use Broadworks_OCIP\core\Client\Client;
 class SystemSIPDeviceTypeFileGetRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\SystemSIPDeviceTypeFileGetResponse';
-    public    $name       = 'SystemSIPDeviceTypeFileGetRequest';
-    protected $deviceType = null;
-    protected $fileType   = null;
+    public    $name = 'SystemSIPDeviceTypeFileGetRequest';
+    protected $deviceType;
+    protected $fileType;
 
     public function __construct(
-         $deviceType,
-         $fileType
+         $deviceType = '',
+         $fileType = ''
     ) {
         $this->setDeviceType($deviceType);
         $this->setFileType($fileType);
@@ -47,7 +47,6 @@ class SystemSIPDeviceTypeFileGetRequest extends ComplexType implements ComplexIn
      */
     public function setDeviceType($deviceType = null)
     {
-        if (!$deviceType) return $this;
         $this->deviceType = ($deviceType InstanceOf AccessDeviceType)
              ? $deviceType
              : new AccessDeviceType($deviceType);
@@ -61,7 +60,7 @@ class SystemSIPDeviceTypeFileGetRequest extends ComplexType implements ComplexIn
      */
     public function getDeviceType()
     {
-        return $this->deviceType->getValue();
+        return ($this->deviceType) ? $this->deviceType->getValue() : null;
     }
 
     /**
@@ -69,7 +68,6 @@ class SystemSIPDeviceTypeFileGetRequest extends ComplexType implements ComplexIn
      */
     public function setFileType($fileType = null)
     {
-        if (!$fileType) return $this;
         $this->fileType = ($fileType InstanceOf DeviceManagementFileType)
              ? $fileType
              : new DeviceManagementFileType($fileType);
@@ -83,6 +81,6 @@ class SystemSIPDeviceTypeFileGetRequest extends ComplexType implements ComplexIn
      */
     public function getFileType()
     {
-        return $this->fileType->getValue();
+        return ($this->fileType) ? $this->fileType->getValue() : null;
     }
 }

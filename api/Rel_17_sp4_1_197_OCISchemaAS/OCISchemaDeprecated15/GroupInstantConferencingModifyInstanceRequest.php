@@ -29,19 +29,19 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupInstantConferencingModifyInstanceRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                           = 'GroupInstantConferencingModifyInstanceRequest';
-    protected $serviceUserId                  = null;
-    protected $serviceInstanceProfile         = null;
-    protected $conferenceBridgeLinePort       = null;
-    protected $allocatedPorts                 = null;
-    protected $serviceProfileAppliedOnOutcall = null;
-    protected $allowOutdialInInvitation       = null;
-    protected $allowDocumentDownload          = null;
-    protected $bridgeAdministratorUserIdList  = null;
-    protected $networkClassOfService          = null;
+    public    $name = 'GroupInstantConferencingModifyInstanceRequest';
+    protected $serviceUserId;
+    protected $serviceInstanceProfile;
+    protected $conferenceBridgeLinePort;
+    protected $allocatedPorts;
+    protected $serviceProfileAppliedOnOutcall;
+    protected $allowOutdialInInvitation;
+    protected $allowDocumentDownload;
+    protected $bridgeAdministratorUserIdList;
+    protected $networkClassOfService;
 
     public function __construct(
-         $serviceUserId,
+         $serviceUserId = '',
          ServiceInstanceModifyProfile $serviceInstanceProfile = null,
          $conferenceBridgeLinePort = null,
          InstantConferencingAllocatedPorts $allocatedPorts = null,
@@ -75,7 +75,6 @@ class GroupInstantConferencingModifyInstanceRequest extends ComplexType implemen
      */
     public function setServiceUserId($serviceUserId = null)
     {
-        if (!$serviceUserId) return $this;
         $this->serviceUserId = ($serviceUserId InstanceOf UserId)
              ? $serviceUserId
              : new UserId($serviceUserId);
@@ -89,7 +88,7 @@ class GroupInstantConferencingModifyInstanceRequest extends ComplexType implemen
      */
     public function getServiceUserId()
     {
-        return $this->serviceUserId->getValue();
+        return ($this->serviceUserId) ? $this->serviceUserId->getValue() : null;
     }
 
     /**
@@ -97,8 +96,9 @@ class GroupInstantConferencingModifyInstanceRequest extends ComplexType implemen
      */
     public function setServiceInstanceProfile(ServiceInstanceModifyProfile $serviceInstanceProfile = null)
     {
-        if (!$serviceInstanceProfile) return $this;
-        $this->serviceInstanceProfile = $serviceInstanceProfile;
+        $this->serviceInstanceProfile = ($serviceInstanceProfile InstanceOf ServiceInstanceModifyProfile)
+             ? $serviceInstanceProfile
+             : new ServiceInstanceModifyProfile($serviceInstanceProfile);
         $this->serviceInstanceProfile->setName('serviceInstanceProfile');
         return $this;
     }
@@ -117,7 +117,6 @@ class GroupInstantConferencingModifyInstanceRequest extends ComplexType implemen
      */
     public function setConferenceBridgeLinePort($conferenceBridgeLinePort = null)
     {
-        if (!$conferenceBridgeLinePort) return $this;
         $this->conferenceBridgeLinePort = ($conferenceBridgeLinePort InstanceOf AccessDeviceEndpointLinePort)
              ? $conferenceBridgeLinePort
              : new AccessDeviceEndpointLinePort($conferenceBridgeLinePort);
@@ -131,7 +130,7 @@ class GroupInstantConferencingModifyInstanceRequest extends ComplexType implemen
      */
     public function getConferenceBridgeLinePort()
     {
-        return $this->conferenceBridgeLinePort->getValue();
+        return ($this->conferenceBridgeLinePort) ? $this->conferenceBridgeLinePort->getValue() : null;
     }
 
     /**
@@ -139,8 +138,9 @@ class GroupInstantConferencingModifyInstanceRequest extends ComplexType implemen
      */
     public function setAllocatedPorts(InstantConferencingAllocatedPorts $allocatedPorts = null)
     {
-        if (!$allocatedPorts) return $this;
-        $this->allocatedPorts = $allocatedPorts;
+        $this->allocatedPorts = ($allocatedPorts InstanceOf InstantConferencingAllocatedPorts)
+             ? $allocatedPorts
+             : new InstantConferencingAllocatedPorts($allocatedPorts);
         $this->allocatedPorts->setName('allocatedPorts');
         return $this;
     }
@@ -159,7 +159,6 @@ class GroupInstantConferencingModifyInstanceRequest extends ComplexType implemen
      */
     public function setServiceProfileAppliedOnOutcall($serviceProfileAppliedOnOutcall = null)
     {
-        if (!$serviceProfileAppliedOnOutcall) return $this;
         $this->serviceProfileAppliedOnOutcall = ($serviceProfileAppliedOnOutcall InstanceOf InstantConferencingOutcallProfile)
              ? $serviceProfileAppliedOnOutcall
              : new InstantConferencingOutcallProfile($serviceProfileAppliedOnOutcall);
@@ -173,7 +172,7 @@ class GroupInstantConferencingModifyInstanceRequest extends ComplexType implemen
      */
     public function getServiceProfileAppliedOnOutcall()
     {
-        return $this->serviceProfileAppliedOnOutcall->getValue();
+        return ($this->serviceProfileAppliedOnOutcall) ? $this->serviceProfileAppliedOnOutcall->getValue() : null;
     }
 
     /**
@@ -181,7 +180,6 @@ class GroupInstantConferencingModifyInstanceRequest extends ComplexType implemen
      */
     public function setAllowOutdialInInvitation($allowOutdialInInvitation = null)
     {
-        if (!$allowOutdialInInvitation) return $this;
         $this->allowOutdialInInvitation = new PrimitiveType($allowOutdialInInvitation);
         $this->allowOutdialInInvitation->setName('allowOutdialInInvitation');
         return $this;
@@ -193,7 +191,7 @@ class GroupInstantConferencingModifyInstanceRequest extends ComplexType implemen
      */
     public function getAllowOutdialInInvitation()
     {
-        return $this->allowOutdialInInvitation->getValue();
+        return ($this->allowOutdialInInvitation) ? $this->allowOutdialInInvitation->getValue() : null;
     }
 
     /**
@@ -201,7 +199,6 @@ class GroupInstantConferencingModifyInstanceRequest extends ComplexType implemen
      */
     public function setAllowDocumentDownload($allowDocumentDownload = null)
     {
-        if (!$allowDocumentDownload) return $this;
         $this->allowDocumentDownload = new PrimitiveType($allowDocumentDownload);
         $this->allowDocumentDownload->setName('allowDocumentDownload');
         return $this;
@@ -213,7 +210,7 @@ class GroupInstantConferencingModifyInstanceRequest extends ComplexType implemen
      */
     public function getAllowDocumentDownload()
     {
-        return $this->allowDocumentDownload->getValue();
+        return ($this->allowDocumentDownload) ? $this->allowDocumentDownload->getValue() : null;
     }
 
     /**
@@ -221,8 +218,9 @@ class GroupInstantConferencingModifyInstanceRequest extends ComplexType implemen
      */
     public function setBridgeAdministratorUserIdList(ReplacementUserIdList $bridgeAdministratorUserIdList = null)
     {
-        if (!$bridgeAdministratorUserIdList) return $this;
-        $this->bridgeAdministratorUserIdList = $bridgeAdministratorUserIdList;
+        $this->bridgeAdministratorUserIdList = ($bridgeAdministratorUserIdList InstanceOf ReplacementUserIdList)
+             ? $bridgeAdministratorUserIdList
+             : new ReplacementUserIdList($bridgeAdministratorUserIdList);
         $this->bridgeAdministratorUserIdList->setName('bridgeAdministratorUserIdList');
         return $this;
     }
@@ -241,7 +239,6 @@ class GroupInstantConferencingModifyInstanceRequest extends ComplexType implemen
      */
     public function setNetworkClassOfService($networkClassOfService = null)
     {
-        if (!$networkClassOfService) return $this;
         $this->networkClassOfService = ($networkClassOfService InstanceOf NetworkClassOfServiceName)
              ? $networkClassOfService
              : new NetworkClassOfServiceName($networkClassOfService);
@@ -255,6 +252,6 @@ class GroupInstantConferencingModifyInstanceRequest extends ComplexType implemen
      */
     public function getNetworkClassOfService()
     {
-        return $this->networkClassOfService->getValue();
+        return ($this->networkClassOfService) ? $this->networkClassOfService->getValue() : null;
     }
 }

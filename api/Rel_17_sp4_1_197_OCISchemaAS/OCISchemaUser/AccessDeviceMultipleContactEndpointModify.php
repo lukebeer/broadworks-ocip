@@ -20,10 +20,10 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class AccessDeviceMultipleContactEndpointModify extends ComplexType implements ComplexInterface
 {
-    public    $name         = 'AccessDeviceMultipleContactEndpointModify';
-    protected $accessDevice = null;
-    protected $linePort     = null;
-    protected $contactList  = null;
+    public    $name = 'AccessDeviceMultipleContactEndpointModify';
+    protected $accessDevice;
+    protected $linePort;
+    protected $contactList;
 
     public function __construct(
          $accessDevice = null,
@@ -48,7 +48,6 @@ class AccessDeviceMultipleContactEndpointModify extends ComplexType implements C
      */
     public function setAccessDevice($accessDevice = null)
     {
-        if (!$accessDevice) return $this;
         $this->accessDevice = new SimpleContent($accessDevice);
         $this->accessDevice->setName('accessDevice');
         return $this;
@@ -60,7 +59,7 @@ class AccessDeviceMultipleContactEndpointModify extends ComplexType implements C
      */
     public function getAccessDevice()
     {
-        return $this->accessDevice->getValue();
+        return ($this->accessDevice) ? $this->accessDevice->getValue() : null;
     }
 
     /**
@@ -68,7 +67,6 @@ class AccessDeviceMultipleContactEndpointModify extends ComplexType implements C
      */
     public function setLinePort($linePort = null)
     {
-        if (!$linePort) return $this;
         $this->linePort = new SimpleContent($linePort);
         $this->linePort->setName('linePort');
         return $this;
@@ -80,7 +78,7 @@ class AccessDeviceMultipleContactEndpointModify extends ComplexType implements C
      */
     public function getLinePort()
     {
-        return $this->linePort->getValue();
+        return ($this->linePort) ? $this->linePort->getValue() : null;
     }
 
     /**
@@ -88,7 +86,6 @@ class AccessDeviceMultipleContactEndpointModify extends ComplexType implements C
      */
     public function setContactList($contactList = null)
     {
-        if (!$contactList) return $this;
         $this->contactList = new SimpleContent($contactList);
         $this->contactList->setName('contactList');
         return $this;
@@ -100,6 +97,6 @@ class AccessDeviceMultipleContactEndpointModify extends ComplexType implements C
      */
     public function getContactList()
     {
-        return $this->contactList->getValue();
+        return ($this->contactList) ? $this->contactList->getValue() : null;
     }
 }

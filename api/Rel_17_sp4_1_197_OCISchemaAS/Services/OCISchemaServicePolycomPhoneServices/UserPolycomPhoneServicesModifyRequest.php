@@ -23,17 +23,17 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserPolycomPhoneServicesModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                                          = 'UserPolycomPhoneServicesModifyRequest';
-    protected $userId                                        = null;
-    protected $accessDevice                                  = null;
-    protected $integratePhoneDirectoryWithBroadWorks         = null;
-    protected $includeUserPersonalPhoneListInDirectory       = null;
-    protected $includeGroupCustomContactDirectoryInDirectory = null;
-    protected $groupCustomContactDirectory                   = null;
+    public    $name = 'UserPolycomPhoneServicesModifyRequest';
+    protected $userId;
+    protected $accessDevice;
+    protected $integratePhoneDirectoryWithBroadWorks;
+    protected $includeUserPersonalPhoneListInDirectory;
+    protected $includeGroupCustomContactDirectoryInDirectory;
+    protected $groupCustomContactDirectory;
 
     public function __construct(
-         $userId,
-         AccessDevice $accessDevice,
+         $userId = '',
+         AccessDevice $accessDevice = '',
          $integratePhoneDirectoryWithBroadWorks = null,
          $includeUserPersonalPhoneListInDirectory = null,
          $includeGroupCustomContactDirectoryInDirectory = null,
@@ -60,7 +60,6 @@ class UserPolycomPhoneServicesModifyRequest extends ComplexType implements Compl
      */
     public function setUserId($userId = null)
     {
-        if (!$userId) return $this;
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
@@ -74,7 +73,7 @@ class UserPolycomPhoneServicesModifyRequest extends ComplexType implements Compl
      */
     public function getUserId()
     {
-        return $this->userId->getValue();
+        return ($this->userId) ? $this->userId->getValue() : null;
     }
 
     /**
@@ -82,8 +81,9 @@ class UserPolycomPhoneServicesModifyRequest extends ComplexType implements Compl
      */
     public function setAccessDevice(AccessDevice $accessDevice = null)
     {
-        if (!$accessDevice) return $this;
-        $this->accessDevice = $accessDevice;
+        $this->accessDevice = ($accessDevice InstanceOf AccessDevice)
+             ? $accessDevice
+             : new AccessDevice($accessDevice);
         $this->accessDevice->setName('accessDevice');
         return $this;
     }
@@ -102,7 +102,6 @@ class UserPolycomPhoneServicesModifyRequest extends ComplexType implements Compl
      */
     public function setIntegratePhoneDirectoryWithBroadWorks($integratePhoneDirectoryWithBroadWorks = null)
     {
-        if (!$integratePhoneDirectoryWithBroadWorks) return $this;
         $this->integratePhoneDirectoryWithBroadWorks = new PrimitiveType($integratePhoneDirectoryWithBroadWorks);
         $this->integratePhoneDirectoryWithBroadWorks->setName('integratePhoneDirectoryWithBroadWorks');
         return $this;
@@ -114,7 +113,7 @@ class UserPolycomPhoneServicesModifyRequest extends ComplexType implements Compl
      */
     public function getIntegratePhoneDirectoryWithBroadWorks()
     {
-        return $this->integratePhoneDirectoryWithBroadWorks->getValue();
+        return ($this->integratePhoneDirectoryWithBroadWorks) ? $this->integratePhoneDirectoryWithBroadWorks->getValue() : null;
     }
 
     /**
@@ -122,7 +121,6 @@ class UserPolycomPhoneServicesModifyRequest extends ComplexType implements Compl
      */
     public function setIncludeUserPersonalPhoneListInDirectory($includeUserPersonalPhoneListInDirectory = null)
     {
-        if (!$includeUserPersonalPhoneListInDirectory) return $this;
         $this->includeUserPersonalPhoneListInDirectory = new PrimitiveType($includeUserPersonalPhoneListInDirectory);
         $this->includeUserPersonalPhoneListInDirectory->setName('includeUserPersonalPhoneListInDirectory');
         return $this;
@@ -134,7 +132,7 @@ class UserPolycomPhoneServicesModifyRequest extends ComplexType implements Compl
      */
     public function getIncludeUserPersonalPhoneListInDirectory()
     {
-        return $this->includeUserPersonalPhoneListInDirectory->getValue();
+        return ($this->includeUserPersonalPhoneListInDirectory) ? $this->includeUserPersonalPhoneListInDirectory->getValue() : null;
     }
 
     /**
@@ -142,7 +140,6 @@ class UserPolycomPhoneServicesModifyRequest extends ComplexType implements Compl
      */
     public function setIncludeGroupCustomContactDirectoryInDirectory($includeGroupCustomContactDirectoryInDirectory = null)
     {
-        if (!$includeGroupCustomContactDirectoryInDirectory) return $this;
         $this->includeGroupCustomContactDirectoryInDirectory = new PrimitiveType($includeGroupCustomContactDirectoryInDirectory);
         $this->includeGroupCustomContactDirectoryInDirectory->setName('includeGroupCustomContactDirectoryInDirectory');
         return $this;
@@ -154,7 +151,7 @@ class UserPolycomPhoneServicesModifyRequest extends ComplexType implements Compl
      */
     public function getIncludeGroupCustomContactDirectoryInDirectory()
     {
-        return $this->includeGroupCustomContactDirectoryInDirectory->getValue();
+        return ($this->includeGroupCustomContactDirectoryInDirectory) ? $this->includeGroupCustomContactDirectoryInDirectory->getValue() : null;
     }
 
     /**
@@ -162,7 +159,6 @@ class UserPolycomPhoneServicesModifyRequest extends ComplexType implements Compl
      */
     public function setGroupCustomContactDirectory($groupCustomContactDirectory = null)
     {
-        if (!$groupCustomContactDirectory) return $this;
         $this->groupCustomContactDirectory = ($groupCustomContactDirectory InstanceOf CustomContactDirectoryName)
              ? $groupCustomContactDirectory
              : new CustomContactDirectoryName($groupCustomContactDirectory);
@@ -176,6 +172,6 @@ class UserPolycomPhoneServicesModifyRequest extends ComplexType implements Compl
      */
     public function getGroupCustomContactDirectory()
     {
-        return $this->groupCustomContactDirectory->getValue();
+        return ($this->groupCustomContactDirectory) ? $this->groupCustomContactDirectory->getValue() : null;
     }
 }

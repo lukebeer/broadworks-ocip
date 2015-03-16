@@ -24,15 +24,15 @@ use Broadworks_OCIP\core\Client\Client;
 class ServiceProviderCommunicationBarringDigitPatternCriteriaGetPatternListRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType               = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderCommunicationBarringDigitPatternCriteriaGetPatternListResponse';
-    public    $name                       = 'ServiceProviderCommunicationBarringDigitPatternCriteriaGetPatternListRequest';
-    protected $serviceProviderId          = null;
-    protected $name                       = null;
-    protected $responseSizeLimit          = null;
-    protected $searchCriteriaDigitPattern = null;
+    public    $name = 'ServiceProviderCommunicationBarringDigitPatternCriteriaGetPatternListRequest';
+    protected $serviceProviderId;
+    protected $name;
+    protected $responseSizeLimit;
+    protected $searchCriteriaDigitPattern;
 
     public function __construct(
-         $serviceProviderId,
-         $name,
+         $serviceProviderId = '',
+         $name = '',
          $responseSizeLimit = null,
          SearchCriteriaDigitPattern $searchCriteriaDigitPattern = null
     ) {
@@ -55,7 +55,6 @@ class ServiceProviderCommunicationBarringDigitPatternCriteriaGetPatternListReque
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
-        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
@@ -69,7 +68,7 @@ class ServiceProviderCommunicationBarringDigitPatternCriteriaGetPatternListReque
      */
     public function getServiceProviderId()
     {
-        return $this->serviceProviderId->getValue();
+        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
     }
 
     /**
@@ -77,7 +76,6 @@ class ServiceProviderCommunicationBarringDigitPatternCriteriaGetPatternListReque
      */
     public function setName($name = null)
     {
-        if (!$name) return $this;
         $this->name = ($name InstanceOf DigitPatternCriteriaName)
              ? $name
              : new DigitPatternCriteriaName($name);
@@ -91,7 +89,7 @@ class ServiceProviderCommunicationBarringDigitPatternCriteriaGetPatternListReque
      */
     public function getName()
     {
-        return $this->name->getValue();
+        return ($this->name) ? $this->name->getValue() : null;
     }
 
     /**
@@ -99,7 +97,6 @@ class ServiceProviderCommunicationBarringDigitPatternCriteriaGetPatternListReque
      */
     public function setResponseSizeLimit($responseSizeLimit = null)
     {
-        if (!$responseSizeLimit) return $this;
         $this->responseSizeLimit = ($responseSizeLimit InstanceOf ResponseSizeLimit)
              ? $responseSizeLimit
              : new ResponseSizeLimit($responseSizeLimit);
@@ -113,7 +110,7 @@ class ServiceProviderCommunicationBarringDigitPatternCriteriaGetPatternListReque
      */
     public function getResponseSizeLimit()
     {
-        return $this->responseSizeLimit->getValue();
+        return ($this->responseSizeLimit) ? $this->responseSizeLimit->getValue() : null;
     }
 
     /**
@@ -121,7 +118,6 @@ class ServiceProviderCommunicationBarringDigitPatternCriteriaGetPatternListReque
      */
     public function setSearchCriteriaDigitPattern(SearchCriteriaDigitPattern $searchCriteriaDigitPattern = null)
     {
-        if (!$searchCriteriaDigitPattern) return $this;
         $this->searchCriteriaDigitPattern = ($searchCriteriaDigitPattern InstanceOf SearchCriteriaDigitPattern)
              ? $searchCriteriaDigitPattern
              : new SearchCriteriaDigitPattern($searchCriteriaDigitPattern);

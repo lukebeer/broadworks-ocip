@@ -19,11 +19,11 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class InstantConferencingRecurrenceScheduleMonthlyByDay extends ComplexType implements ComplexInterface
 {
-    public    $name       = 'InstantConferencingRecurrenceScheduleMonthlyByDay';
-    protected $dayOfMonth = null;
+    public    $name = 'InstantConferencingRecurrenceScheduleMonthlyByDay';
+    protected $dayOfMonth;
 
     public function __construct(
-         $dayOfMonth
+         $dayOfMonth = ''
     ) {
         $this->setDayOfMonth($dayOfMonth);
     }
@@ -41,7 +41,6 @@ class InstantConferencingRecurrenceScheduleMonthlyByDay extends ComplexType impl
      */
     public function setDayOfMonth($dayOfMonth = null)
     {
-        if (!$dayOfMonth) return $this;
         $this->dayOfMonth = ($dayOfMonth InstanceOf DayOfMonth)
              ? $dayOfMonth
              : new DayOfMonth($dayOfMonth);
@@ -55,6 +54,6 @@ class InstantConferencingRecurrenceScheduleMonthlyByDay extends ComplexType impl
      */
     public function getDayOfMonth()
     {
-        return $this->dayOfMonth->getValue();
+        return ($this->dayOfMonth) ? $this->dayOfMonth->getValue() : null;
     }
 }

@@ -19,8 +19,8 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserAccessDeviceFileGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name        = 'UserAccessDeviceFileGetResponse';
-    protected $templateUrl = null;
+    public    $name = 'UserAccessDeviceFileGetResponse';
+    protected $templateUrl;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser\UserAccessDeviceFileGetResponse $response
@@ -35,7 +35,6 @@ class UserAccessDeviceFileGetResponse extends ComplexType implements ComplexInte
      */
     public function setTemplateUrl($templateUrl = null)
     {
-        if (!$templateUrl) return $this;
         $this->templateUrl = ($templateUrl InstanceOf URL)
              ? $templateUrl
              : new URL($templateUrl);
@@ -49,6 +48,6 @@ class UserAccessDeviceFileGetResponse extends ComplexType implements ComplexInte
      */
     public function getTemplateUrl()
     {
-        return $this->templateUrl->getValue();
+        return ($this->templateUrl) ? $this->templateUrl->getValue() : null;
     }
 }

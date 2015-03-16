@@ -22,8 +22,8 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupInstantConferencingGetInstanceListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                     = 'GroupInstantConferencingGetInstanceListResponse';
-    protected $instantConferencingTable = null;
+    public    $name = 'GroupInstantConferencingGetInstanceListResponse';
+    protected $instantConferencingTable;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing\GroupInstantConferencingGetInstanceListResponse $response
@@ -38,7 +38,6 @@ class GroupInstantConferencingGetInstanceListResponse extends ComplexType implem
      */
     public function setInstantConferencingTable(TableType $instantConferencingTable = null)
     {
-        if (!$instantConferencingTable) return $this;
         $this->instantConferencingTable = $instantConferencingTable;
         $this->instantConferencingTable->setName('instantConferencingTable');
         return $this;

@@ -19,8 +19,8 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemInterceptUserGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                        = 'SystemInterceptUserGetResponse';
-    protected $emergencyAndRepairIntercept = null;
+    public    $name = 'SystemInterceptUserGetResponse';
+    protected $emergencyAndRepairIntercept;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceIntercept\SystemInterceptUserGetResponse $response
@@ -35,7 +35,6 @@ class SystemInterceptUserGetResponse extends ComplexType implements ComplexInter
      */
     public function setEmergencyAndRepairIntercept($emergencyAndRepairIntercept = null)
     {
-        if (!$emergencyAndRepairIntercept) return $this;
         $this->emergencyAndRepairIntercept = new PrimitiveType($emergencyAndRepairIntercept);
         $this->emergencyAndRepairIntercept->setName('emergencyAndRepairIntercept');
         return $this;
@@ -47,6 +46,6 @@ class SystemInterceptUserGetResponse extends ComplexType implements ComplexInter
      */
     public function getEmergencyAndRepairIntercept()
     {
-        return $this->emergencyAndRepairIntercept->getValue();
+        return ($this->emergencyAndRepairIntercept) ? $this->emergencyAndRepairIntercept->getValue() : null;
     }
 }

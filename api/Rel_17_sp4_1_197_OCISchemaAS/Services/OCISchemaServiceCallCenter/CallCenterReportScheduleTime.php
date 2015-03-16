@@ -19,15 +19,15 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class CallCenterReportScheduleTime extends ComplexType implements ComplexInterface
 {
-    public    $name         = 'CallCenterReportScheduleTime';
-    protected $timeZone     = null;
-    protected $scheduleDate = null;
-    protected $scheduleTime = null;
+    public    $name = 'CallCenterReportScheduleTime';
+    protected $timeZone;
+    protected $scheduleDate;
+    protected $scheduleTime;
 
     public function __construct(
-         $timeZone,
-         $scheduleDate,
-         $scheduleTime
+         $timeZone = '',
+         $scheduleDate = '',
+         $scheduleTime = ''
     ) {
         $this->setTimeZone($timeZone);
         $this->setScheduleDate($scheduleDate);
@@ -47,7 +47,6 @@ class CallCenterReportScheduleTime extends ComplexType implements ComplexInterfa
      */
     public function setTimeZone($timeZone = null)
     {
-        if (!$timeZone) return $this;
         $this->timeZone = new SimpleContent($timeZone);
         $this->timeZone->setName('timeZone');
         return $this;
@@ -59,7 +58,7 @@ class CallCenterReportScheduleTime extends ComplexType implements ComplexInterfa
      */
     public function getTimeZone()
     {
-        return $this->timeZone->getValue();
+        return ($this->timeZone) ? $this->timeZone->getValue() : null;
     }
 
     /**
@@ -67,7 +66,6 @@ class CallCenterReportScheduleTime extends ComplexType implements ComplexInterfa
      */
     public function setScheduleDate($scheduleDate = null)
     {
-        if (!$scheduleDate) return $this;
         $this->scheduleDate = new SimpleContent($scheduleDate);
         $this->scheduleDate->setName('scheduleDate');
         return $this;
@@ -79,7 +77,7 @@ class CallCenterReportScheduleTime extends ComplexType implements ComplexInterfa
      */
     public function getScheduleDate()
     {
-        return $this->scheduleDate->getValue();
+        return ($this->scheduleDate) ? $this->scheduleDate->getValue() : null;
     }
 
     /**
@@ -87,7 +85,6 @@ class CallCenterReportScheduleTime extends ComplexType implements ComplexInterfa
      */
     public function setScheduleTime($scheduleTime = null)
     {
-        if (!$scheduleTime) return $this;
         $this->scheduleTime = new SimpleContent($scheduleTime);
         $this->scheduleTime->setName('scheduleTime');
         return $this;
@@ -99,6 +96,6 @@ class CallCenterReportScheduleTime extends ComplexType implements ComplexInterfa
      */
     public function getScheduleTime()
     {
-        return $this->scheduleTime->getValue();
+        return ($this->scheduleTime) ? $this->scheduleTime->getValue() : null;
     }
 }

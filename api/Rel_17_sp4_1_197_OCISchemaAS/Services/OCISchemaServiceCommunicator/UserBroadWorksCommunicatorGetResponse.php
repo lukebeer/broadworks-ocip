@@ -19,8 +19,8 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserBroadWorksCommunicatorGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                   = 'UserBroadWorksCommunicatorGetResponse';
-    protected $configurationServerURL = null;
+    public    $name = 'UserBroadWorksCommunicatorGetResponse';
+    protected $configurationServerURL;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCommunicator\UserBroadWorksCommunicatorGetResponse $response
@@ -35,7 +35,6 @@ class UserBroadWorksCommunicatorGetResponse extends ComplexType implements Compl
      */
     public function setConfigurationServerURL($configurationServerURL = null)
     {
-        if (!$configurationServerURL) return $this;
         $this->configurationServerURL = ($configurationServerURL InstanceOf URL)
              ? $configurationServerURL
              : new URL($configurationServerURL);
@@ -49,6 +48,6 @@ class UserBroadWorksCommunicatorGetResponse extends ComplexType implements Compl
      */
     public function getConfigurationServerURL()
     {
-        return $this->configurationServerURL->getValue();
+        return ($this->configurationServerURL) ? $this->configurationServerURL->getValue() : null;
     }
 }

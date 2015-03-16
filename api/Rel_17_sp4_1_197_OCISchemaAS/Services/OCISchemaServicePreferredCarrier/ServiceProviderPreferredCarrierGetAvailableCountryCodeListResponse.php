@@ -20,9 +20,9 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderPreferredCarrierGetAvailableCountryCodeListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name               = 'ServiceProviderPreferredCarrierGetAvailableCountryCodeListResponse';
-    protected $defaultCountryCode = null;
-    protected $countryCode        = null;
+    public    $name = 'ServiceProviderPreferredCarrierGetAvailableCountryCodeListResponse';
+    protected $defaultCountryCode;
+    protected $countryCode;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServicePreferredCarrier\ServiceProviderPreferredCarrierGetAvailableCountryCodeListResponse $response
@@ -37,7 +37,6 @@ class ServiceProviderPreferredCarrierGetAvailableCountryCodeListResponse extends
      */
     public function setDefaultCountryCode($defaultCountryCode = null)
     {
-        if (!$defaultCountryCode) return $this;
         $this->defaultCountryCode = ($defaultCountryCode InstanceOf CountryCode)
              ? $defaultCountryCode
              : new CountryCode($defaultCountryCode);
@@ -51,7 +50,7 @@ class ServiceProviderPreferredCarrierGetAvailableCountryCodeListResponse extends
      */
     public function getDefaultCountryCode()
     {
-        return $this->defaultCountryCode->getValue();
+        return ($this->defaultCountryCode) ? $this->defaultCountryCode->getValue() : null;
     }
 
     /**
@@ -59,7 +58,6 @@ class ServiceProviderPreferredCarrierGetAvailableCountryCodeListResponse extends
      */
     public function setCountryCode($countryCode = null)
     {
-        if (!$countryCode) return $this;
         $this->countryCode = ($countryCode InstanceOf CountryCode)
              ? $countryCode
              : new CountryCode($countryCode);
@@ -73,6 +71,6 @@ class ServiceProviderPreferredCarrierGetAvailableCountryCodeListResponse extends
      */
     public function getCountryCode()
     {
-        return $this->countryCode->getValue();
+        return ($this->countryCode) ? $this->countryCode->getValue() : null;
     }
 }

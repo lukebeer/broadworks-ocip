@@ -19,8 +19,8 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemZoneGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name     = 'SystemZoneGetListResponse';
-    protected $zoneName = null;
+    public    $name = 'SystemZoneGetListResponse';
+    protected $zoneName;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemZoneGetListResponse $response
@@ -35,7 +35,6 @@ class SystemZoneGetListResponse extends ComplexType implements ComplexInterface
      */
     public function setZoneName($zoneName = null)
     {
-        if (!$zoneName) return $this;
         $this->zoneName = ($zoneName InstanceOf ZoneName)
              ? $zoneName
              : new ZoneName($zoneName);
@@ -49,6 +48,6 @@ class SystemZoneGetListResponse extends ComplexType implements ComplexInterface
      */
     public function getZoneName()
     {
-        return $this->zoneName->getValue();
+        return ($this->zoneName) ? $this->zoneName->getValue() : null;
     }
 }

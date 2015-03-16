@@ -20,11 +20,11 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemTimeScheduleDeleteRequest extends ComplexType implements ComplexInterface
 {
-    public    $name             = 'SystemTimeScheduleDeleteRequest';
-    protected $timeScheduleName = null;
+    public    $name = 'SystemTimeScheduleDeleteRequest';
+    protected $timeScheduleName;
 
     public function __construct(
-         $timeScheduleName
+         $timeScheduleName = ''
     ) {
         $this->setTimeScheduleName($timeScheduleName);
     }
@@ -42,7 +42,6 @@ class SystemTimeScheduleDeleteRequest extends ComplexType implements ComplexInte
      */
     public function setTimeScheduleName($timeScheduleName = null)
     {
-        if (!$timeScheduleName) return $this;
         $this->timeScheduleName = ($timeScheduleName InstanceOf ScheduleName)
              ? $timeScheduleName
              : new ScheduleName($timeScheduleName);
@@ -56,6 +55,6 @@ class SystemTimeScheduleDeleteRequest extends ComplexType implements ComplexInte
      */
     public function getTimeScheduleName()
     {
-        return $this->timeScheduleName->getValue();
+        return ($this->timeScheduleName) ? $this->timeScheduleName->getValue() : null;
     }
 }

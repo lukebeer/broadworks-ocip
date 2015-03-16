@@ -22,13 +22,13 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserDualModeVCCModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name               = 'UserDualModeVCCModifyRequest';
-    protected $userId             = null;
-    protected $subscriberUserName = null;
-    protected $subscriberPassword = null;
+    public    $name = 'UserDualModeVCCModifyRequest';
+    protected $userId;
+    protected $subscriberUserName;
+    protected $subscriberPassword;
 
     public function __construct(
-         $userId,
+         $userId = '',
          $subscriberUserName = null,
          $subscriberPassword = null
     ) {
@@ -50,7 +50,6 @@ class UserDualModeVCCModifyRequest extends ComplexType implements ComplexInterfa
      */
     public function setUserId($userId = null)
     {
-        if (!$userId) return $this;
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
@@ -64,7 +63,7 @@ class UserDualModeVCCModifyRequest extends ComplexType implements ComplexInterfa
      */
     public function getUserId()
     {
-        return $this->userId->getValue();
+        return ($this->userId) ? $this->userId->getValue() : null;
     }
 
     /**
@@ -72,7 +71,6 @@ class UserDualModeVCCModifyRequest extends ComplexType implements ComplexInterfa
      */
     public function setSubscriberUserName($subscriberUserName = null)
     {
-        if (!$subscriberUserName) return $this;
         $this->subscriberUserName = ($subscriberUserName InstanceOf DualModeVCCSubscriberUserName)
              ? $subscriberUserName
              : new DualModeVCCSubscriberUserName($subscriberUserName);
@@ -86,7 +84,7 @@ class UserDualModeVCCModifyRequest extends ComplexType implements ComplexInterfa
      */
     public function getSubscriberUserName()
     {
-        return $this->subscriberUserName->getValue();
+        return ($this->subscriberUserName) ? $this->subscriberUserName->getValue() : null;
     }
 
     /**
@@ -94,7 +92,6 @@ class UserDualModeVCCModifyRequest extends ComplexType implements ComplexInterfa
      */
     public function setSubscriberPassword($subscriberPassword = null)
     {
-        if (!$subscriberPassword) return $this;
         $this->subscriberPassword = ($subscriberPassword InstanceOf DualModeVCCSubscriberPassword)
              ? $subscriberPassword
              : new DualModeVCCSubscriberPassword($subscriberPassword);
@@ -108,6 +105,6 @@ class UserDualModeVCCModifyRequest extends ComplexType implements ComplexInterfa
      */
     public function getSubscriberPassword()
     {
-        return $this->subscriberPassword->getValue();
+        return ($this->subscriberPassword) ? $this->subscriberPassword->getValue() : null;
     }
 }

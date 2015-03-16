@@ -21,13 +21,13 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserCallCenterEnhancedReportingScheduledReportDeleteRequest extends ComplexType implements ComplexInterface
 {
-    public    $name             = 'UserCallCenterEnhancedReportingScheduledReportDeleteRequest';
-    protected $supervisorUserId = null;
-    protected $name             = null;
+    public    $name = 'UserCallCenterEnhancedReportingScheduledReportDeleteRequest';
+    protected $supervisorUserId;
+    protected $name;
 
     public function __construct(
-         $supervisorUserId,
-         $name
+         $supervisorUserId = '',
+         $name = ''
     ) {
         $this->setSupervisorUserId($supervisorUserId);
         $this->setName($name);
@@ -46,7 +46,6 @@ class UserCallCenterEnhancedReportingScheduledReportDeleteRequest extends Comple
      */
     public function setSupervisorUserId($supervisorUserId = null)
     {
-        if (!$supervisorUserId) return $this;
         $this->supervisorUserId = ($supervisorUserId InstanceOf UserId)
              ? $supervisorUserId
              : new UserId($supervisorUserId);
@@ -60,7 +59,7 @@ class UserCallCenterEnhancedReportingScheduledReportDeleteRequest extends Comple
      */
     public function getSupervisorUserId()
     {
-        return $this->supervisorUserId->getValue();
+        return ($this->supervisorUserId) ? $this->supervisorUserId->getValue() : null;
     }
 
     /**
@@ -68,7 +67,6 @@ class UserCallCenterEnhancedReportingScheduledReportDeleteRequest extends Comple
      */
     public function setName($name = null)
     {
-        if (!$name) return $this;
         $this->name = ($name InstanceOf CallCenterScheduledReportName)
              ? $name
              : new CallCenterScheduledReportName($name);
@@ -82,6 +80,6 @@ class UserCallCenterEnhancedReportingScheduledReportDeleteRequest extends Comple
      */
     public function getName()
     {
-        return $this->name->getValue();
+        return ($this->name) ? $this->name->getValue() : null;
     }
 }

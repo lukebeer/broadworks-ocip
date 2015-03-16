@@ -22,13 +22,13 @@ use Broadworks_OCIP\core\Client\Client;
 class GroupCallCenterGetInstanceStatisticsRequest14sp9 extends ComplexType implements ComplexInterface
 {
     public    $responseType    = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\GroupCallCenterGetInstanceStatisticsResponse14sp9';
-    public    $name            = 'GroupCallCenterGetInstanceStatisticsRequest14sp9';
-    protected $serviceUserId   = null;
-    protected $statisticsRange = null;
+    public    $name = 'GroupCallCenterGetInstanceStatisticsRequest14sp9';
+    protected $serviceUserId;
+    protected $statisticsRange;
 
     public function __construct(
-         $serviceUserId,
-         CallCenterStatisticsRange $statisticsRange
+         $serviceUserId = '',
+         CallCenterStatisticsRange $statisticsRange = ''
     ) {
         $this->setServiceUserId($serviceUserId);
         $this->setStatisticsRange($statisticsRange);
@@ -47,7 +47,6 @@ class GroupCallCenterGetInstanceStatisticsRequest14sp9 extends ComplexType imple
      */
     public function setServiceUserId($serviceUserId = null)
     {
-        if (!$serviceUserId) return $this;
         $this->serviceUserId = ($serviceUserId InstanceOf UserId)
              ? $serviceUserId
              : new UserId($serviceUserId);
@@ -61,7 +60,7 @@ class GroupCallCenterGetInstanceStatisticsRequest14sp9 extends ComplexType imple
      */
     public function getServiceUserId()
     {
-        return $this->serviceUserId->getValue();
+        return ($this->serviceUserId) ? $this->serviceUserId->getValue() : null;
     }
 
     /**
@@ -69,8 +68,9 @@ class GroupCallCenterGetInstanceStatisticsRequest14sp9 extends ComplexType imple
      */
     public function setStatisticsRange(CallCenterStatisticsRange $statisticsRange = null)
     {
-        if (!$statisticsRange) return $this;
-        $this->statisticsRange = $statisticsRange;
+        $this->statisticsRange = ($statisticsRange InstanceOf CallCenterStatisticsRange)
+             ? $statisticsRange
+             : new CallCenterStatisticsRange($statisticsRange);
         $this->statisticsRange->setName('statisticsRange');
         return $this;
     }

@@ -29,28 +29,28 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupLDAPIntegrationGetDirectoryResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                                 = 'GroupLDAPIntegrationGetDirectoryResponse';
-    protected $useLevel                             = null;
-    protected $serverNetAddress                     = null;
-    protected $serverPort                           = null;
-    protected $searchBase                           = null;
-    protected $useSSL                               = null;
-    protected $requireAuthentication                = null;
-    protected $authenticatedDN                      = null;
-    protected $authenticatedPassword                = null;
-    protected $isSortEnabled                        = null;
-    protected $isPagedResultEnabled                 = null;
-    protected $searchFilter                         = null;
-    protected $includeSearchAttributeInSearchFilter = null;
-    protected $column1AttributeName                 = null;
-    protected $column2AttributeName                 = null;
-    protected $column3AttributeName                 = null;
-    protected $column4AttributeName                 = null;
-    protected $column1Label                         = null;
-    protected $column2Label                         = null;
-    protected $column3Label                         = null;
-    protected $column4Label                         = null;
-    protected $searchColumn                         = null;
+    public    $name = 'GroupLDAPIntegrationGetDirectoryResponse';
+    protected $useLevel;
+    protected $serverNetAddress;
+    protected $serverPort;
+    protected $searchBase;
+    protected $useSSL;
+    protected $requireAuthentication;
+    protected $authenticatedDN;
+    protected $authenticatedPassword;
+    protected $isSortEnabled;
+    protected $isPagedResultEnabled;
+    protected $searchFilter;
+    protected $includeSearchAttributeInSearchFilter;
+    protected $column1AttributeName;
+    protected $column2AttributeName;
+    protected $column3AttributeName;
+    protected $column4AttributeName;
+    protected $column1Label;
+    protected $column2Label;
+    protected $column3Label;
+    protected $column4Label;
+    protected $searchColumn;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceLDAPIntegration\GroupLDAPIntegrationGetDirectoryResponse $response
@@ -65,7 +65,6 @@ class GroupLDAPIntegrationGetDirectoryResponse extends ComplexType implements Co
      */
     public function setUseLevel($useLevel = null)
     {
-        if (!$useLevel) return $this;
         $this->useLevel = ($useLevel InstanceOf GroupLDAPIntegrationLevel)
              ? $useLevel
              : new GroupLDAPIntegrationLevel($useLevel);
@@ -79,7 +78,7 @@ class GroupLDAPIntegrationGetDirectoryResponse extends ComplexType implements Co
      */
     public function getUseLevel()
     {
-        return $this->useLevel->getValue();
+        return ($this->useLevel) ? $this->useLevel->getValue() : null;
     }
 
     /**
@@ -87,7 +86,6 @@ class GroupLDAPIntegrationGetDirectoryResponse extends ComplexType implements Co
      */
     public function setServerNetAddress($serverNetAddress = null)
     {
-        if (!$serverNetAddress) return $this;
         $this->serverNetAddress = ($serverNetAddress InstanceOf NetAddress)
              ? $serverNetAddress
              : new NetAddress($serverNetAddress);
@@ -101,7 +99,7 @@ class GroupLDAPIntegrationGetDirectoryResponse extends ComplexType implements Co
      */
     public function getServerNetAddress()
     {
-        return $this->serverNetAddress->getValue();
+        return ($this->serverNetAddress) ? $this->serverNetAddress->getValue() : null;
     }
 
     /**
@@ -109,7 +107,6 @@ class GroupLDAPIntegrationGetDirectoryResponse extends ComplexType implements Co
      */
     public function setServerPort($serverPort = null)
     {
-        if (!$serverPort) return $this;
         $this->serverPort = ($serverPort InstanceOf Port)
              ? $serverPort
              : new Port($serverPort);
@@ -123,7 +120,7 @@ class GroupLDAPIntegrationGetDirectoryResponse extends ComplexType implements Co
      */
     public function getServerPort()
     {
-        return $this->serverPort->getValue();
+        return ($this->serverPort) ? $this->serverPort->getValue() : null;
     }
 
     /**
@@ -131,7 +128,6 @@ class GroupLDAPIntegrationGetDirectoryResponse extends ComplexType implements Co
      */
     public function setSearchBase($searchBase = null)
     {
-        if (!$searchBase) return $this;
         $this->searchBase = ($searchBase InstanceOf LDAPSearchBase)
              ? $searchBase
              : new LDAPSearchBase($searchBase);
@@ -145,7 +141,7 @@ class GroupLDAPIntegrationGetDirectoryResponse extends ComplexType implements Co
      */
     public function getSearchBase()
     {
-        return $this->searchBase->getValue();
+        return ($this->searchBase) ? $this->searchBase->getValue() : null;
     }
 
     /**
@@ -153,7 +149,6 @@ class GroupLDAPIntegrationGetDirectoryResponse extends ComplexType implements Co
      */
     public function setUseSSL($useSSL = null)
     {
-        if (!$useSSL) return $this;
         $this->useSSL = new PrimitiveType($useSSL);
         $this->useSSL->setName('useSSL');
         return $this;
@@ -165,7 +160,7 @@ class GroupLDAPIntegrationGetDirectoryResponse extends ComplexType implements Co
      */
     public function getUseSSL()
     {
-        return $this->useSSL->getValue();
+        return ($this->useSSL) ? $this->useSSL->getValue() : null;
     }
 
     /**
@@ -173,7 +168,6 @@ class GroupLDAPIntegrationGetDirectoryResponse extends ComplexType implements Co
      */
     public function setRequireAuthentication($requireAuthentication = null)
     {
-        if (!$requireAuthentication) return $this;
         $this->requireAuthentication = new PrimitiveType($requireAuthentication);
         $this->requireAuthentication->setName('requireAuthentication');
         return $this;
@@ -185,7 +179,7 @@ class GroupLDAPIntegrationGetDirectoryResponse extends ComplexType implements Co
      */
     public function getRequireAuthentication()
     {
-        return $this->requireAuthentication->getValue();
+        return ($this->requireAuthentication) ? $this->requireAuthentication->getValue() : null;
     }
 
     /**
@@ -193,7 +187,6 @@ class GroupLDAPIntegrationGetDirectoryResponse extends ComplexType implements Co
      */
     public function setAuthenticatedDN($authenticatedDN = null)
     {
-        if (!$authenticatedDN) return $this;
         $this->authenticatedDN = ($authenticatedDN InstanceOf LDAPAuthenticatedDN)
              ? $authenticatedDN
              : new LDAPAuthenticatedDN($authenticatedDN);
@@ -207,7 +200,7 @@ class GroupLDAPIntegrationGetDirectoryResponse extends ComplexType implements Co
      */
     public function getAuthenticatedDN()
     {
-        return $this->authenticatedDN->getValue();
+        return ($this->authenticatedDN) ? $this->authenticatedDN->getValue() : null;
     }
 
     /**
@@ -215,7 +208,6 @@ class GroupLDAPIntegrationGetDirectoryResponse extends ComplexType implements Co
      */
     public function setAuthenticatedPassword($authenticatedPassword = null)
     {
-        if (!$authenticatedPassword) return $this;
         $this->authenticatedPassword = ($authenticatedPassword InstanceOf LDAPAuthenticatedPassword)
              ? $authenticatedPassword
              : new LDAPAuthenticatedPassword($authenticatedPassword);
@@ -229,7 +221,7 @@ class GroupLDAPIntegrationGetDirectoryResponse extends ComplexType implements Co
      */
     public function getAuthenticatedPassword()
     {
-        return $this->authenticatedPassword->getValue();
+        return ($this->authenticatedPassword) ? $this->authenticatedPassword->getValue() : null;
     }
 
     /**
@@ -237,7 +229,6 @@ class GroupLDAPIntegrationGetDirectoryResponse extends ComplexType implements Co
      */
     public function setIsSortEnabled($isSortEnabled = null)
     {
-        if (!$isSortEnabled) return $this;
         $this->isSortEnabled = new PrimitiveType($isSortEnabled);
         $this->isSortEnabled->setName('isSortEnabled');
         return $this;
@@ -249,7 +240,7 @@ class GroupLDAPIntegrationGetDirectoryResponse extends ComplexType implements Co
      */
     public function getIsSortEnabled()
     {
-        return $this->isSortEnabled->getValue();
+        return ($this->isSortEnabled) ? $this->isSortEnabled->getValue() : null;
     }
 
     /**
@@ -257,7 +248,6 @@ class GroupLDAPIntegrationGetDirectoryResponse extends ComplexType implements Co
      */
     public function setIsPagedResultEnabled($isPagedResultEnabled = null)
     {
-        if (!$isPagedResultEnabled) return $this;
         $this->isPagedResultEnabled = new PrimitiveType($isPagedResultEnabled);
         $this->isPagedResultEnabled->setName('isPagedResultEnabled');
         return $this;
@@ -269,7 +259,7 @@ class GroupLDAPIntegrationGetDirectoryResponse extends ComplexType implements Co
      */
     public function getIsPagedResultEnabled()
     {
-        return $this->isPagedResultEnabled->getValue();
+        return ($this->isPagedResultEnabled) ? $this->isPagedResultEnabled->getValue() : null;
     }
 
     /**
@@ -277,7 +267,6 @@ class GroupLDAPIntegrationGetDirectoryResponse extends ComplexType implements Co
      */
     public function setSearchFilter($searchFilter = null)
     {
-        if (!$searchFilter) return $this;
         $this->searchFilter = ($searchFilter InstanceOf LDAPSearchFilter)
              ? $searchFilter
              : new LDAPSearchFilter($searchFilter);
@@ -291,7 +280,7 @@ class GroupLDAPIntegrationGetDirectoryResponse extends ComplexType implements Co
      */
     public function getSearchFilter()
     {
-        return $this->searchFilter->getValue();
+        return ($this->searchFilter) ? $this->searchFilter->getValue() : null;
     }
 
     /**
@@ -299,7 +288,6 @@ class GroupLDAPIntegrationGetDirectoryResponse extends ComplexType implements Co
      */
     public function setIncludeSearchAttributeInSearchFilter($includeSearchAttributeInSearchFilter = null)
     {
-        if (!$includeSearchAttributeInSearchFilter) return $this;
         $this->includeSearchAttributeInSearchFilter = new PrimitiveType($includeSearchAttributeInSearchFilter);
         $this->includeSearchAttributeInSearchFilter->setName('includeSearchAttributeInSearchFilter');
         return $this;
@@ -311,7 +299,7 @@ class GroupLDAPIntegrationGetDirectoryResponse extends ComplexType implements Co
      */
     public function getIncludeSearchAttributeInSearchFilter()
     {
-        return $this->includeSearchAttributeInSearchFilter->getValue();
+        return ($this->includeSearchAttributeInSearchFilter) ? $this->includeSearchAttributeInSearchFilter->getValue() : null;
     }
 
     /**
@@ -319,7 +307,6 @@ class GroupLDAPIntegrationGetDirectoryResponse extends ComplexType implements Co
      */
     public function setColumn1AttributeName($column1AttributeName = null)
     {
-        if (!$column1AttributeName) return $this;
         $this->column1AttributeName = ($column1AttributeName InstanceOf LDAPColumnAttributeName)
              ? $column1AttributeName
              : new LDAPColumnAttributeName($column1AttributeName);
@@ -333,7 +320,7 @@ class GroupLDAPIntegrationGetDirectoryResponse extends ComplexType implements Co
      */
     public function getColumn1AttributeName()
     {
-        return $this->column1AttributeName->getValue();
+        return ($this->column1AttributeName) ? $this->column1AttributeName->getValue() : null;
     }
 
     /**
@@ -341,7 +328,6 @@ class GroupLDAPIntegrationGetDirectoryResponse extends ComplexType implements Co
      */
     public function setColumn2AttributeName($column2AttributeName = null)
     {
-        if (!$column2AttributeName) return $this;
         $this->column2AttributeName = ($column2AttributeName InstanceOf LDAPColumnAttributeName)
              ? $column2AttributeName
              : new LDAPColumnAttributeName($column2AttributeName);
@@ -355,7 +341,7 @@ class GroupLDAPIntegrationGetDirectoryResponse extends ComplexType implements Co
      */
     public function getColumn2AttributeName()
     {
-        return $this->column2AttributeName->getValue();
+        return ($this->column2AttributeName) ? $this->column2AttributeName->getValue() : null;
     }
 
     /**
@@ -363,7 +349,6 @@ class GroupLDAPIntegrationGetDirectoryResponse extends ComplexType implements Co
      */
     public function setColumn3AttributeName($column3AttributeName = null)
     {
-        if (!$column3AttributeName) return $this;
         $this->column3AttributeName = ($column3AttributeName InstanceOf LDAPColumnAttributeName)
              ? $column3AttributeName
              : new LDAPColumnAttributeName($column3AttributeName);
@@ -377,7 +362,7 @@ class GroupLDAPIntegrationGetDirectoryResponse extends ComplexType implements Co
      */
     public function getColumn3AttributeName()
     {
-        return $this->column3AttributeName->getValue();
+        return ($this->column3AttributeName) ? $this->column3AttributeName->getValue() : null;
     }
 
     /**
@@ -385,7 +370,6 @@ class GroupLDAPIntegrationGetDirectoryResponse extends ComplexType implements Co
      */
     public function setColumn4AttributeName($column4AttributeName = null)
     {
-        if (!$column4AttributeName) return $this;
         $this->column4AttributeName = ($column4AttributeName InstanceOf LDAPColumnAttributeName)
              ? $column4AttributeName
              : new LDAPColumnAttributeName($column4AttributeName);
@@ -399,7 +383,7 @@ class GroupLDAPIntegrationGetDirectoryResponse extends ComplexType implements Co
      */
     public function getColumn4AttributeName()
     {
-        return $this->column4AttributeName->getValue();
+        return ($this->column4AttributeName) ? $this->column4AttributeName->getValue() : null;
     }
 
     /**
@@ -407,7 +391,6 @@ class GroupLDAPIntegrationGetDirectoryResponse extends ComplexType implements Co
      */
     public function setColumn1Label($column1Label = null)
     {
-        if (!$column1Label) return $this;
         $this->column1Label = ($column1Label InstanceOf LDAPColumnLabel)
              ? $column1Label
              : new LDAPColumnLabel($column1Label);
@@ -421,7 +404,7 @@ class GroupLDAPIntegrationGetDirectoryResponse extends ComplexType implements Co
      */
     public function getColumn1Label()
     {
-        return $this->column1Label->getValue();
+        return ($this->column1Label) ? $this->column1Label->getValue() : null;
     }
 
     /**
@@ -429,7 +412,6 @@ class GroupLDAPIntegrationGetDirectoryResponse extends ComplexType implements Co
      */
     public function setColumn2Label($column2Label = null)
     {
-        if (!$column2Label) return $this;
         $this->column2Label = ($column2Label InstanceOf LDAPColumnLabel)
              ? $column2Label
              : new LDAPColumnLabel($column2Label);
@@ -443,7 +425,7 @@ class GroupLDAPIntegrationGetDirectoryResponse extends ComplexType implements Co
      */
     public function getColumn2Label()
     {
-        return $this->column2Label->getValue();
+        return ($this->column2Label) ? $this->column2Label->getValue() : null;
     }
 
     /**
@@ -451,7 +433,6 @@ class GroupLDAPIntegrationGetDirectoryResponse extends ComplexType implements Co
      */
     public function setColumn3Label($column3Label = null)
     {
-        if (!$column3Label) return $this;
         $this->column3Label = ($column3Label InstanceOf LDAPColumnLabel)
              ? $column3Label
              : new LDAPColumnLabel($column3Label);
@@ -465,7 +446,7 @@ class GroupLDAPIntegrationGetDirectoryResponse extends ComplexType implements Co
      */
     public function getColumn3Label()
     {
-        return $this->column3Label->getValue();
+        return ($this->column3Label) ? $this->column3Label->getValue() : null;
     }
 
     /**
@@ -473,7 +454,6 @@ class GroupLDAPIntegrationGetDirectoryResponse extends ComplexType implements Co
      */
     public function setColumn4Label($column4Label = null)
     {
-        if (!$column4Label) return $this;
         $this->column4Label = ($column4Label InstanceOf LDAPColumnLabel)
              ? $column4Label
              : new LDAPColumnLabel($column4Label);
@@ -487,7 +467,7 @@ class GroupLDAPIntegrationGetDirectoryResponse extends ComplexType implements Co
      */
     public function getColumn4Label()
     {
-        return $this->column4Label->getValue();
+        return ($this->column4Label) ? $this->column4Label->getValue() : null;
     }
 
     /**
@@ -495,7 +475,6 @@ class GroupLDAPIntegrationGetDirectoryResponse extends ComplexType implements Co
      */
     public function setSearchColumn($searchColumn = null)
     {
-        if (!$searchColumn) return $this;
         $this->searchColumn = ($searchColumn InstanceOf LDAPSearchColumn)
              ? $searchColumn
              : new LDAPSearchColumn($searchColumn);
@@ -509,6 +488,6 @@ class GroupLDAPIntegrationGetDirectoryResponse extends ComplexType implements Co
      */
     public function getSearchColumn()
     {
-        return $this->searchColumn->getValue();
+        return ($this->searchColumn) ? $this->searchColumn->getValue() : null;
     }
 }

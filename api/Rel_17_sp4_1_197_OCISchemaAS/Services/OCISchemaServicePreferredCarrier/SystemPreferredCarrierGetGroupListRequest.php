@@ -26,15 +26,15 @@ use Broadworks_OCIP\core\Client\Client;
 class SystemPreferredCarrierGetGroupListRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType                       = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServicePreferredCarrier\SystemPreferredCarrierGetGroupListResponse';
-    public    $name                               = 'SystemPreferredCarrierGetGroupListRequest';
-    protected $carrier                            = null;
-    protected $responseSizeLimit                  = null;
-    protected $searchCriteriaGroupId              = null;
-    protected $searchCriteriaGroupName            = null;
-    protected $searchCriteriaExactServiceProvider = null;
+    public    $name = 'SystemPreferredCarrierGetGroupListRequest';
+    protected $carrier;
+    protected $responseSizeLimit;
+    protected $searchCriteriaGroupId;
+    protected $searchCriteriaGroupName;
+    protected $searchCriteriaExactServiceProvider;
 
     public function __construct(
-         $carrier,
+         $carrier = '',
          $responseSizeLimit = null,
          SearchCriteriaGroupId $searchCriteriaGroupId = null,
          SearchCriteriaGroupName $searchCriteriaGroupName = null,
@@ -60,7 +60,6 @@ class SystemPreferredCarrierGetGroupListRequest extends ComplexType implements C
      */
     public function setCarrier($carrier = null)
     {
-        if (!$carrier) return $this;
         $this->carrier = ($carrier InstanceOf PreferredCarrierName)
              ? $carrier
              : new PreferredCarrierName($carrier);
@@ -74,7 +73,7 @@ class SystemPreferredCarrierGetGroupListRequest extends ComplexType implements C
      */
     public function getCarrier()
     {
-        return $this->carrier->getValue();
+        return ($this->carrier) ? $this->carrier->getValue() : null;
     }
 
     /**
@@ -82,7 +81,6 @@ class SystemPreferredCarrierGetGroupListRequest extends ComplexType implements C
      */
     public function setResponseSizeLimit($responseSizeLimit = null)
     {
-        if (!$responseSizeLimit) return $this;
         $this->responseSizeLimit = ($responseSizeLimit InstanceOf ResponseSizeLimit)
              ? $responseSizeLimit
              : new ResponseSizeLimit($responseSizeLimit);
@@ -96,7 +94,7 @@ class SystemPreferredCarrierGetGroupListRequest extends ComplexType implements C
      */
     public function getResponseSizeLimit()
     {
-        return $this->responseSizeLimit->getValue();
+        return ($this->responseSizeLimit) ? $this->responseSizeLimit->getValue() : null;
     }
 
     /**
@@ -104,7 +102,6 @@ class SystemPreferredCarrierGetGroupListRequest extends ComplexType implements C
      */
     public function setSearchCriteriaGroupId(SearchCriteriaGroupId $searchCriteriaGroupId = null)
     {
-        if (!$searchCriteriaGroupId) return $this;
         $this->searchCriteriaGroupId = ($searchCriteriaGroupId InstanceOf SearchCriteriaGroupId)
              ? $searchCriteriaGroupId
              : new SearchCriteriaGroupId($searchCriteriaGroupId);
@@ -126,7 +123,6 @@ class SystemPreferredCarrierGetGroupListRequest extends ComplexType implements C
      */
     public function setSearchCriteriaGroupName(SearchCriteriaGroupName $searchCriteriaGroupName = null)
     {
-        if (!$searchCriteriaGroupName) return $this;
         $this->searchCriteriaGroupName = ($searchCriteriaGroupName InstanceOf SearchCriteriaGroupName)
              ? $searchCriteriaGroupName
              : new SearchCriteriaGroupName($searchCriteriaGroupName);
@@ -148,7 +144,6 @@ class SystemPreferredCarrierGetGroupListRequest extends ComplexType implements C
      */
     public function setSearchCriteriaExactServiceProvider(SearchCriteriaExactServiceProvider $searchCriteriaExactServiceProvider = null)
     {
-        if (!$searchCriteriaExactServiceProvider) return $this;
         $this->searchCriteriaExactServiceProvider = ($searchCriteriaExactServiceProvider InstanceOf SearchCriteriaExactServiceProvider)
              ? $searchCriteriaExactServiceProvider
              : new SearchCriteriaExactServiceProvider($searchCriteriaExactServiceProvider);

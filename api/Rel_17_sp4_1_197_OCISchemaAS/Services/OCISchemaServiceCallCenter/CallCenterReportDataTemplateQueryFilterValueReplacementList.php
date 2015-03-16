@@ -20,8 +20,8 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class CallCenterReportDataTemplateQueryFilterValueReplacementList extends ComplexType implements ComplexInterface
 {
-    public    $name        = 'CallCenterReportDataTemplateQueryFilterValueReplacementList';
-    protected $filterValue = null;
+    public    $name = 'CallCenterReportDataTemplateQueryFilterValueReplacementList';
+    protected $filterValue;
 
     public function __construct(
          $filterValue = null
@@ -42,7 +42,6 @@ class CallCenterReportDataTemplateQueryFilterValueReplacementList extends Comple
      */
     public function setFilterValue($filterValue = null)
     {
-        if (!$filterValue) return $this;
         $this->filterValue = new SimpleContent($filterValue);
         $this->filterValue->setName('filterValue');
         return $this;
@@ -54,6 +53,6 @@ class CallCenterReportDataTemplateQueryFilterValueReplacementList extends Comple
      */
     public function getFilterValue()
     {
-        return $this->filterValue->getValue();
+        return ($this->filterValue) ? $this->filterValue->getValue() : null;
     }
 }

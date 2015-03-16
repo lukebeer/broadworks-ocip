@@ -21,8 +21,8 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupRoutePointGetDNISAgentListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name       = 'GroupRoutePointGetDNISAgentListResponse';
-    protected $agentTable = null;
+    public    $name = 'GroupRoutePointGetDNISAgentListResponse';
+    protected $agentTable;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceRoutePoint\GroupRoutePointGetDNISAgentListResponse $response
@@ -37,7 +37,6 @@ class GroupRoutePointGetDNISAgentListResponse extends ComplexType implements Com
      */
     public function setAgentTable(TableType $agentTable = null)
     {
-        if (!$agentTable) return $this;
         $this->agentTable = $agentTable;
         $this->agentTable->setName('agentTable');
         return $this;

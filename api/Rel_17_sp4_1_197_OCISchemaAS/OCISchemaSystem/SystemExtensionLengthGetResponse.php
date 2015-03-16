@@ -19,9 +19,9 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemExtensionLengthGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name               = 'SystemExtensionLengthGetResponse';
-    protected $minExtensionLength = null;
-    protected $maxExtensionLength = null;
+    public    $name = 'SystemExtensionLengthGetResponse';
+    protected $minExtensionLength;
+    protected $maxExtensionLength;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemExtensionLengthGetResponse $response
@@ -36,7 +36,6 @@ class SystemExtensionLengthGetResponse extends ComplexType implements ComplexInt
      */
     public function setMinExtensionLength($minExtensionLength = null)
     {
-        if (!$minExtensionLength) return $this;
         $this->minExtensionLength = ($minExtensionLength InstanceOf ExtensionLength)
              ? $minExtensionLength
              : new ExtensionLength($minExtensionLength);
@@ -50,7 +49,7 @@ class SystemExtensionLengthGetResponse extends ComplexType implements ComplexInt
      */
     public function getMinExtensionLength()
     {
-        return $this->minExtensionLength->getValue();
+        return ($this->minExtensionLength) ? $this->minExtensionLength->getValue() : null;
     }
 
     /**
@@ -58,7 +57,6 @@ class SystemExtensionLengthGetResponse extends ComplexType implements ComplexInt
      */
     public function setMaxExtensionLength($maxExtensionLength = null)
     {
-        if (!$maxExtensionLength) return $this;
         $this->maxExtensionLength = ($maxExtensionLength InstanceOf ExtensionLength)
              ? $maxExtensionLength
              : new ExtensionLength($maxExtensionLength);
@@ -72,6 +70,6 @@ class SystemExtensionLengthGetResponse extends ComplexType implements ComplexInt
      */
     public function getMaxExtensionLength()
     {
-        return $this->maxExtensionLength->getValue();
+        return ($this->maxExtensionLength) ? $this->maxExtensionLength->getValue() : null;
     }
 }

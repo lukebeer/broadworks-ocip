@@ -22,12 +22,12 @@ use Broadworks_OCIP\core\Client\Client;
 class ServiceProviderScheduleGetListRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderScheduleGetListResponse';
-    public    $name              = 'ServiceProviderScheduleGetListRequest';
-    protected $serviceProviderId = null;
-    protected $scheduleType      = null;
+    public    $name = 'ServiceProviderScheduleGetListRequest';
+    protected $serviceProviderId;
+    protected $scheduleType;
 
     public function __construct(
-         $serviceProviderId,
+         $serviceProviderId = '',
          $scheduleType = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
@@ -47,7 +47,6 @@ class ServiceProviderScheduleGetListRequest extends ComplexType implements Compl
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
-        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
@@ -61,7 +60,7 @@ class ServiceProviderScheduleGetListRequest extends ComplexType implements Compl
      */
     public function getServiceProviderId()
     {
-        return $this->serviceProviderId->getValue();
+        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
     }
 
     /**
@@ -69,7 +68,6 @@ class ServiceProviderScheduleGetListRequest extends ComplexType implements Compl
      */
     public function setScheduleType($scheduleType = null)
     {
-        if (!$scheduleType) return $this;
         $this->scheduleType = ($scheduleType InstanceOf ScheduleType)
              ? $scheduleType
              : new ScheduleType($scheduleType);
@@ -83,6 +81,6 @@ class ServiceProviderScheduleGetListRequest extends ComplexType implements Compl
      */
     public function getScheduleType()
     {
-        return $this->scheduleType->getValue();
+        return ($this->scheduleType) ? $this->scheduleType->getValue() : null;
     }
 }

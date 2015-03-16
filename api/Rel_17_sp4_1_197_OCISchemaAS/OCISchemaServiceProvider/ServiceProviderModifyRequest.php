@@ -26,17 +26,17 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                        = 'ServiceProviderModifyRequest';
-    protected $serviceProviderId           = null;
-    protected $defaultDomain               = null;
-    protected $serviceProviderName         = null;
-    protected $supportEmail                = null;
-    protected $contact                     = null;
-    protected $address                     = null;
-    protected $useServiceProviderLanguages = null;
+    public    $name = 'ServiceProviderModifyRequest';
+    protected $serviceProviderId;
+    protected $defaultDomain;
+    protected $serviceProviderName;
+    protected $supportEmail;
+    protected $contact;
+    protected $address;
+    protected $useServiceProviderLanguages;
 
     public function __construct(
-         $serviceProviderId,
+         $serviceProviderId = '',
          $defaultDomain = null,
          $serviceProviderName = null,
          $supportEmail = null,
@@ -66,7 +66,6 @@ class ServiceProviderModifyRequest extends ComplexType implements ComplexInterfa
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
-        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
@@ -80,7 +79,7 @@ class ServiceProviderModifyRequest extends ComplexType implements ComplexInterfa
      */
     public function getServiceProviderId()
     {
-        return $this->serviceProviderId->getValue();
+        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
     }
 
     /**
@@ -88,7 +87,6 @@ class ServiceProviderModifyRequest extends ComplexType implements ComplexInterfa
      */
     public function setDefaultDomain($defaultDomain = null)
     {
-        if (!$defaultDomain) return $this;
         $this->defaultDomain = ($defaultDomain InstanceOf NetAddress)
              ? $defaultDomain
              : new NetAddress($defaultDomain);
@@ -102,7 +100,7 @@ class ServiceProviderModifyRequest extends ComplexType implements ComplexInterfa
      */
     public function getDefaultDomain()
     {
-        return $this->defaultDomain->getValue();
+        return ($this->defaultDomain) ? $this->defaultDomain->getValue() : null;
     }
 
     /**
@@ -110,7 +108,6 @@ class ServiceProviderModifyRequest extends ComplexType implements ComplexInterfa
      */
     public function setServiceProviderName($serviceProviderName = null)
     {
-        if (!$serviceProviderName) return $this;
         $this->serviceProviderName = ($serviceProviderName InstanceOf ServiceProviderName)
              ? $serviceProviderName
              : new ServiceProviderName($serviceProviderName);
@@ -124,7 +121,7 @@ class ServiceProviderModifyRequest extends ComplexType implements ComplexInterfa
      */
     public function getServiceProviderName()
     {
-        return $this->serviceProviderName->getValue();
+        return ($this->serviceProviderName) ? $this->serviceProviderName->getValue() : null;
     }
 
     /**
@@ -132,7 +129,6 @@ class ServiceProviderModifyRequest extends ComplexType implements ComplexInterfa
      */
     public function setSupportEmail($supportEmail = null)
     {
-        if (!$supportEmail) return $this;
         $this->supportEmail = ($supportEmail InstanceOf EmailAddress)
              ? $supportEmail
              : new EmailAddress($supportEmail);
@@ -146,7 +142,7 @@ class ServiceProviderModifyRequest extends ComplexType implements ComplexInterfa
      */
     public function getSupportEmail()
     {
-        return $this->supportEmail->getValue();
+        return ($this->supportEmail) ? $this->supportEmail->getValue() : null;
     }
 
     /**
@@ -154,8 +150,9 @@ class ServiceProviderModifyRequest extends ComplexType implements ComplexInterfa
      */
     public function setContact(Contact $contact = null)
     {
-        if (!$contact) return $this;
-        $this->contact = $contact;
+        $this->contact = ($contact InstanceOf Contact)
+             ? $contact
+             : new Contact($contact);
         $this->contact->setName('contact');
         return $this;
     }
@@ -174,8 +171,9 @@ class ServiceProviderModifyRequest extends ComplexType implements ComplexInterfa
      */
     public function setAddress(StreetAddress $address = null)
     {
-        if (!$address) return $this;
-        $this->address = $address;
+        $this->address = ($address InstanceOf StreetAddress)
+             ? $address
+             : new StreetAddress($address);
         $this->address->setName('address');
         return $this;
     }
@@ -194,7 +192,6 @@ class ServiceProviderModifyRequest extends ComplexType implements ComplexInterfa
      */
     public function setUseServiceProviderLanguages($useServiceProviderLanguages = null)
     {
-        if (!$useServiceProviderLanguages) return $this;
         $this->useServiceProviderLanguages = new PrimitiveType($useServiceProviderLanguages);
         $this->useServiceProviderLanguages->setName('useServiceProviderLanguages');
         return $this;
@@ -206,6 +203,6 @@ class ServiceProviderModifyRequest extends ComplexType implements ComplexInterfa
      */
     public function getUseServiceProviderLanguages()
     {
-        return $this->useServiceProviderLanguages->getValue();
+        return ($this->useServiceProviderLanguages) ? $this->useServiceProviderLanguages->getValue() : null;
     }
 }

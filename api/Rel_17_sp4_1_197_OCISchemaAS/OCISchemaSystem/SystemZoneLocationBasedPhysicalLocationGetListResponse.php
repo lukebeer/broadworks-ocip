@@ -19,8 +19,8 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemZoneLocationBasedPhysicalLocationGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name             = 'SystemZoneLocationBasedPhysicalLocationGetListResponse';
-    protected $physicalLocation = null;
+    public    $name = 'SystemZoneLocationBasedPhysicalLocationGetListResponse';
+    protected $physicalLocation;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemZoneLocationBasedPhysicalLocationGetListResponse $response
@@ -35,7 +35,6 @@ class SystemZoneLocationBasedPhysicalLocationGetListResponse extends ComplexType
      */
     public function setPhysicalLocation($physicalLocation = null)
     {
-        if (!$physicalLocation) return $this;
         $this->physicalLocation = ($physicalLocation InstanceOf PhysicalLocation)
              ? $physicalLocation
              : new PhysicalLocation($physicalLocation);
@@ -49,6 +48,6 @@ class SystemZoneLocationBasedPhysicalLocationGetListResponse extends ComplexType
      */
     public function getPhysicalLocation()
     {
-        return $this->physicalLocation->getValue();
+        return ($this->physicalLocation) ? $this->physicalLocation->getValue() : null;
     }
 }

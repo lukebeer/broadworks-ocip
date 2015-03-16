@@ -19,21 +19,21 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class TrunkGroupDeviceEndpointRead extends ComplexType implements ComplexInterface
 {
-    public    $name                      = 'TrunkGroupDeviceEndpointRead';
-    protected $serviceUserId             = null;
-    protected $name                      = null;
-    protected $linePort                  = null;
-    protected $contact                   = null;
-    protected $staticRegistrationCapable = null;
-    protected $useDomain                 = null;
+    public    $name = 'TrunkGroupDeviceEndpointRead';
+    protected $serviceUserId;
+    protected $name;
+    protected $linePort;
+    protected $contact;
+    protected $staticRegistrationCapable;
+    protected $useDomain;
 
     public function __construct(
-         $serviceUserId,
-         $name,
-         $linePort,
+         $serviceUserId = '',
+         $name = '',
+         $linePort = '',
          $contact = null,
-         $staticRegistrationCapable,
-         $useDomain
+         $staticRegistrationCapable = '',
+         $useDomain = ''
     ) {
         $this->setServiceUserId($serviceUserId);
         $this->setName($name);
@@ -56,7 +56,6 @@ class TrunkGroupDeviceEndpointRead extends ComplexType implements ComplexInterfa
      */
     public function setServiceUserId($serviceUserId = null)
     {
-        if (!$serviceUserId) return $this;
         $this->serviceUserId = new SimpleContent($serviceUserId);
         $this->serviceUserId->setName('serviceUserId');
         return $this;
@@ -68,7 +67,7 @@ class TrunkGroupDeviceEndpointRead extends ComplexType implements ComplexInterfa
      */
     public function getServiceUserId()
     {
-        return $this->serviceUserId->getValue();
+        return ($this->serviceUserId) ? $this->serviceUserId->getValue() : null;
     }
 
     /**
@@ -76,7 +75,6 @@ class TrunkGroupDeviceEndpointRead extends ComplexType implements ComplexInterfa
      */
     public function setName($name = null)
     {
-        if (!$name) return $this;
         $this->name = new SimpleContent($name);
         $this->name->setName('name');
         return $this;
@@ -88,7 +86,7 @@ class TrunkGroupDeviceEndpointRead extends ComplexType implements ComplexInterfa
      */
     public function getName()
     {
-        return $this->name->getValue();
+        return ($this->name) ? $this->name->getValue() : null;
     }
 
     /**
@@ -96,7 +94,6 @@ class TrunkGroupDeviceEndpointRead extends ComplexType implements ComplexInterfa
      */
     public function setLinePort($linePort = null)
     {
-        if (!$linePort) return $this;
         $this->linePort = new SimpleContent($linePort);
         $this->linePort->setName('linePort');
         return $this;
@@ -108,7 +105,7 @@ class TrunkGroupDeviceEndpointRead extends ComplexType implements ComplexInterfa
      */
     public function getLinePort()
     {
-        return $this->linePort->getValue();
+        return ($this->linePort) ? $this->linePort->getValue() : null;
     }
 
     /**
@@ -116,7 +113,6 @@ class TrunkGroupDeviceEndpointRead extends ComplexType implements ComplexInterfa
      */
     public function setContact($contact = null)
     {
-        if (!$contact) return $this;
         $this->contact = new SimpleContent($contact);
         $this->contact->setName('contact');
         return $this;
@@ -128,7 +124,7 @@ class TrunkGroupDeviceEndpointRead extends ComplexType implements ComplexInterfa
      */
     public function getContact()
     {
-        return $this->contact->getValue();
+        return ($this->contact) ? $this->contact->getValue() : null;
     }
 
     /**
@@ -136,7 +132,6 @@ class TrunkGroupDeviceEndpointRead extends ComplexType implements ComplexInterfa
      */
     public function setStaticRegistrationCapable($staticRegistrationCapable = null)
     {
-        if (!$staticRegistrationCapable) return $this;
         $this->staticRegistrationCapable = new SimpleContent($staticRegistrationCapable);
         $this->staticRegistrationCapable->setName('staticRegistrationCapable');
         return $this;
@@ -148,7 +143,7 @@ class TrunkGroupDeviceEndpointRead extends ComplexType implements ComplexInterfa
      */
     public function getStaticRegistrationCapable()
     {
-        return $this->staticRegistrationCapable->getValue();
+        return ($this->staticRegistrationCapable) ? $this->staticRegistrationCapable->getValue() : null;
     }
 
     /**
@@ -156,7 +151,6 @@ class TrunkGroupDeviceEndpointRead extends ComplexType implements ComplexInterfa
      */
     public function setUseDomain($useDomain = null)
     {
-        if (!$useDomain) return $this;
         $this->useDomain = new SimpleContent($useDomain);
         $this->useDomain->setName('useDomain');
         return $this;
@@ -168,6 +162,6 @@ class TrunkGroupDeviceEndpointRead extends ComplexType implements ComplexInterfa
      */
     public function getUseDomain()
     {
-        return $this->useDomain->getValue();
+        return ($this->useDomain) ? $this->useDomain->getValue() : null;
     }
 }

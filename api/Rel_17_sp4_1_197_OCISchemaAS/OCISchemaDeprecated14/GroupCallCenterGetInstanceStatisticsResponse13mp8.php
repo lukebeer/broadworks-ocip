@@ -24,15 +24,15 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupCallCenterGetInstanceStatisticsResponse13mp8 extends ComplexType implements ComplexInterface
 {
-    public    $name                     = 'GroupCallCenterGetInstanceStatisticsResponse13mp8';
-    protected $numberOfCallsQueuedNow   = null;
-    protected $generateDailyReport      = null;
-    protected $collectionPeriodMinutes  = null;
-    protected $reportingEmailAddress1   = null;
-    protected $reportingEmailAddress2   = null;
-    protected $queueStatisticsYesterday = null;
-    protected $queueStatisticsToday     = null;
-    protected $agentStatistics          = null;
+    public    $name = 'GroupCallCenterGetInstanceStatisticsResponse13mp8';
+    protected $numberOfCallsQueuedNow;
+    protected $generateDailyReport;
+    protected $collectionPeriodMinutes;
+    protected $reportingEmailAddress1;
+    protected $reportingEmailAddress2;
+    protected $queueStatisticsYesterday;
+    protected $queueStatisticsToday;
+    protected $agentStatistics;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\GroupCallCenterGetInstanceStatisticsResponse13mp8 $response
@@ -47,7 +47,6 @@ class GroupCallCenterGetInstanceStatisticsResponse13mp8 extends ComplexType impl
      */
     public function setNumberOfCallsQueuedNow($numberOfCallsQueuedNow = null)
     {
-        if (!$numberOfCallsQueuedNow) return $this;
         $this->numberOfCallsQueuedNow = new PrimitiveType($numberOfCallsQueuedNow);
         $this->numberOfCallsQueuedNow->setName('numberOfCallsQueuedNow');
         return $this;
@@ -59,7 +58,7 @@ class GroupCallCenterGetInstanceStatisticsResponse13mp8 extends ComplexType impl
      */
     public function getNumberOfCallsQueuedNow()
     {
-        return $this->numberOfCallsQueuedNow->getValue();
+        return ($this->numberOfCallsQueuedNow) ? $this->numberOfCallsQueuedNow->getValue() : null;
     }
 
     /**
@@ -67,7 +66,6 @@ class GroupCallCenterGetInstanceStatisticsResponse13mp8 extends ComplexType impl
      */
     public function setGenerateDailyReport($generateDailyReport = null)
     {
-        if (!$generateDailyReport) return $this;
         $this->generateDailyReport = new PrimitiveType($generateDailyReport);
         $this->generateDailyReport->setName('generateDailyReport');
         return $this;
@@ -79,7 +77,7 @@ class GroupCallCenterGetInstanceStatisticsResponse13mp8 extends ComplexType impl
      */
     public function getGenerateDailyReport()
     {
-        return $this->generateDailyReport->getValue();
+        return ($this->generateDailyReport) ? $this->generateDailyReport->getValue() : null;
     }
 
     /**
@@ -87,7 +85,6 @@ class GroupCallCenterGetInstanceStatisticsResponse13mp8 extends ComplexType impl
      */
     public function setCollectionPeriodMinutes($collectionPeriodMinutes = null)
     {
-        if (!$collectionPeriodMinutes) return $this;
         $this->collectionPeriodMinutes = ($collectionPeriodMinutes InstanceOf CallCenterStatisticsCollectionPeriodMinutes)
              ? $collectionPeriodMinutes
              : new CallCenterStatisticsCollectionPeriodMinutes($collectionPeriodMinutes);
@@ -101,7 +98,7 @@ class GroupCallCenterGetInstanceStatisticsResponse13mp8 extends ComplexType impl
      */
     public function getCollectionPeriodMinutes()
     {
-        return $this->collectionPeriodMinutes->getValue();
+        return ($this->collectionPeriodMinutes) ? $this->collectionPeriodMinutes->getValue() : null;
     }
 
     /**
@@ -109,7 +106,6 @@ class GroupCallCenterGetInstanceStatisticsResponse13mp8 extends ComplexType impl
      */
     public function setReportingEmailAddress1($reportingEmailAddress1 = null)
     {
-        if (!$reportingEmailAddress1) return $this;
         $this->reportingEmailAddress1 = ($reportingEmailAddress1 InstanceOf EmailAddress)
              ? $reportingEmailAddress1
              : new EmailAddress($reportingEmailAddress1);
@@ -123,7 +119,7 @@ class GroupCallCenterGetInstanceStatisticsResponse13mp8 extends ComplexType impl
      */
     public function getReportingEmailAddress1()
     {
-        return $this->reportingEmailAddress1->getValue();
+        return ($this->reportingEmailAddress1) ? $this->reportingEmailAddress1->getValue() : null;
     }
 
     /**
@@ -131,7 +127,6 @@ class GroupCallCenterGetInstanceStatisticsResponse13mp8 extends ComplexType impl
      */
     public function setReportingEmailAddress2($reportingEmailAddress2 = null)
     {
-        if (!$reportingEmailAddress2) return $this;
         $this->reportingEmailAddress2 = ($reportingEmailAddress2 InstanceOf EmailAddress)
              ? $reportingEmailAddress2
              : new EmailAddress($reportingEmailAddress2);
@@ -145,7 +140,7 @@ class GroupCallCenterGetInstanceStatisticsResponse13mp8 extends ComplexType impl
      */
     public function getReportingEmailAddress2()
     {
-        return $this->reportingEmailAddress2->getValue();
+        return ($this->reportingEmailAddress2) ? $this->reportingEmailAddress2->getValue() : null;
     }
 
     /**
@@ -153,8 +148,9 @@ class GroupCallCenterGetInstanceStatisticsResponse13mp8 extends ComplexType impl
      */
     public function setQueueStatisticsYesterday(CallCenterQueueStatistics13mp8 $queueStatisticsYesterday = null)
     {
-        if (!$queueStatisticsYesterday) return $this;
-        $this->queueStatisticsYesterday = $queueStatisticsYesterday;
+        $this->queueStatisticsYesterday = ($queueStatisticsYesterday InstanceOf CallCenterQueueStatistics13mp8)
+             ? $queueStatisticsYesterday
+             : new CallCenterQueueStatistics13mp8($queueStatisticsYesterday);
         $this->queueStatisticsYesterday->setName('queueStatisticsYesterday');
         return $this;
     }
@@ -173,8 +169,9 @@ class GroupCallCenterGetInstanceStatisticsResponse13mp8 extends ComplexType impl
      */
     public function setQueueStatisticsToday(CallCenterQueueStatistics13mp8 $queueStatisticsToday = null)
     {
-        if (!$queueStatisticsToday) return $this;
-        $this->queueStatisticsToday = $queueStatisticsToday;
+        $this->queueStatisticsToday = ($queueStatisticsToday InstanceOf CallCenterQueueStatistics13mp8)
+             ? $queueStatisticsToday
+             : new CallCenterQueueStatistics13mp8($queueStatisticsToday);
         $this->queueStatisticsToday->setName('queueStatisticsToday');
         return $this;
     }
@@ -193,8 +190,9 @@ class GroupCallCenterGetInstanceStatisticsResponse13mp8 extends ComplexType impl
      */
     public function setAgentStatistics(CallCenterAgentStatistics13mp8 $agentStatistics = null)
     {
-        if (!$agentStatistics) return $this;
-        $this->agentStatistics = $agentStatistics;
+        $this->agentStatistics = ($agentStatistics InstanceOf CallCenterAgentStatistics13mp8)
+             ? $agentStatistics
+             : new CallCenterAgentStatistics13mp8($agentStatistics);
         $this->agentStatistics->setName('agentStatistics');
         return $this;
     }

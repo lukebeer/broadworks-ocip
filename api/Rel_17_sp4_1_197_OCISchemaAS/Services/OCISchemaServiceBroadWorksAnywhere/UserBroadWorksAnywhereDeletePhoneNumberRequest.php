@@ -20,13 +20,13 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserBroadWorksAnywhereDeletePhoneNumberRequest extends ComplexType implements ComplexInterface
 {
-    public    $name        = 'UserBroadWorksAnywhereDeletePhoneNumberRequest';
-    protected $userId      = null;
-    protected $phoneNumber = null;
+    public    $name = 'UserBroadWorksAnywhereDeletePhoneNumberRequest';
+    protected $userId;
+    protected $phoneNumber;
 
     public function __construct(
-         $userId,
-         $phoneNumber
+         $userId = '',
+         $phoneNumber = ''
     ) {
         $this->setUserId($userId);
         $this->setPhoneNumber($phoneNumber);
@@ -45,7 +45,6 @@ class UserBroadWorksAnywhereDeletePhoneNumberRequest extends ComplexType impleme
      */
     public function setUserId($userId = null)
     {
-        if (!$userId) return $this;
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
@@ -59,7 +58,7 @@ class UserBroadWorksAnywhereDeletePhoneNumberRequest extends ComplexType impleme
      */
     public function getUserId()
     {
-        return $this->userId->getValue();
+        return ($this->userId) ? $this->userId->getValue() : null;
     }
 
     /**
@@ -67,7 +66,6 @@ class UserBroadWorksAnywhereDeletePhoneNumberRequest extends ComplexType impleme
      */
     public function setPhoneNumber($phoneNumber = null)
     {
-        if (!$phoneNumber) return $this;
         $this->phoneNumber = ($phoneNumber InstanceOf DN)
              ? $phoneNumber
              : new DN($phoneNumber);
@@ -81,6 +79,6 @@ class UserBroadWorksAnywhereDeletePhoneNumberRequest extends ComplexType impleme
      */
     public function getPhoneNumber()
     {
-        return $this->phoneNumber->getValue();
+        return ($this->phoneNumber) ? $this->phoneNumber->getValue() : null;
     }
 }

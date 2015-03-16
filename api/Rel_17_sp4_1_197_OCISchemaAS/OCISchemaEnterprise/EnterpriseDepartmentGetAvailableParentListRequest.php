@@ -24,13 +24,13 @@ use Broadworks_OCIP\core\Client\Client;
 class EnterpriseDepartmentGetAvailableParentListRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType   = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaEnterprise\EnterpriseDepartmentGetAvailableParentListResponse';
-    public    $name           = 'EnterpriseDepartmentGetAvailableParentListRequest';
-    protected $enterpriseId   = null;
-    protected $departmentName = null;
+    public    $name = 'EnterpriseDepartmentGetAvailableParentListRequest';
+    protected $enterpriseId;
+    protected $departmentName;
 
     public function __construct(
-         $enterpriseId,
-         $departmentName
+         $enterpriseId = '',
+         $departmentName = ''
     ) {
         $this->setEnterpriseId($enterpriseId);
         $this->setDepartmentName($departmentName);
@@ -49,7 +49,6 @@ class EnterpriseDepartmentGetAvailableParentListRequest extends ComplexType impl
      */
     public function setEnterpriseId($enterpriseId = null)
     {
-        if (!$enterpriseId) return $this;
         $this->enterpriseId = ($enterpriseId InstanceOf ServiceProviderId)
              ? $enterpriseId
              : new ServiceProviderId($enterpriseId);
@@ -63,7 +62,7 @@ class EnterpriseDepartmentGetAvailableParentListRequest extends ComplexType impl
      */
     public function getEnterpriseId()
     {
-        return $this->enterpriseId->getValue();
+        return ($this->enterpriseId) ? $this->enterpriseId->getValue() : null;
     }
 
     /**
@@ -71,7 +70,6 @@ class EnterpriseDepartmentGetAvailableParentListRequest extends ComplexType impl
      */
     public function setDepartmentName($departmentName = null)
     {
-        if (!$departmentName) return $this;
         $this->departmentName = ($departmentName InstanceOf DepartmentName)
              ? $departmentName
              : new DepartmentName($departmentName);
@@ -85,6 +83,6 @@ class EnterpriseDepartmentGetAvailableParentListRequest extends ComplexType impl
      */
     public function getDepartmentName()
     {
-        return $this->departmentName->getValue();
+        return ($this->departmentName) ? $this->departmentName->getValue() : null;
     }
 }

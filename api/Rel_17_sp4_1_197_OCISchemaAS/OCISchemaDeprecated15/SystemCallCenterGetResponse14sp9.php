@@ -20,9 +20,9 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemCallCenterGetResponse14sp9 extends ComplexType implements ComplexInterface
 {
-    public    $name                            = 'SystemCallCenterGetResponse14sp9';
-    protected $defaultFromAddress              = null;
-    protected $statisticsSamplingPeriodMinutes = null;
+    public    $name = 'SystemCallCenterGetResponse14sp9';
+    protected $defaultFromAddress;
+    protected $statisticsSamplingPeriodMinutes;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15\SystemCallCenterGetResponse14sp9 $response
@@ -37,7 +37,6 @@ class SystemCallCenterGetResponse14sp9 extends ComplexType implements ComplexInt
      */
     public function setDefaultFromAddress($defaultFromAddress = null)
     {
-        if (!$defaultFromAddress) return $this;
         $this->defaultFromAddress = ($defaultFromAddress InstanceOf EmailAddress)
              ? $defaultFromAddress
              : new EmailAddress($defaultFromAddress);
@@ -51,7 +50,7 @@ class SystemCallCenterGetResponse14sp9 extends ComplexType implements ComplexInt
      */
     public function getDefaultFromAddress()
     {
-        return $this->defaultFromAddress->getValue();
+        return ($this->defaultFromAddress) ? $this->defaultFromAddress->getValue() : null;
     }
 
     /**
@@ -59,7 +58,6 @@ class SystemCallCenterGetResponse14sp9 extends ComplexType implements ComplexInt
      */
     public function setStatisticsSamplingPeriodMinutes($statisticsSamplingPeriodMinutes = null)
     {
-        if (!$statisticsSamplingPeriodMinutes) return $this;
         $this->statisticsSamplingPeriodMinutes = ($statisticsSamplingPeriodMinutes InstanceOf CallCenterStatisticsSamplingPeriodMinutes)
              ? $statisticsSamplingPeriodMinutes
              : new CallCenterStatisticsSamplingPeriodMinutes($statisticsSamplingPeriodMinutes);
@@ -73,6 +71,6 @@ class SystemCallCenterGetResponse14sp9 extends ComplexType implements ComplexInt
      */
     public function getStatisticsSamplingPeriodMinutes()
     {
-        return $this->statisticsSamplingPeriodMinutes->getValue();
+        return ($this->statisticsSamplingPeriodMinutes) ? $this->statisticsSamplingPeriodMinutes->getValue() : null;
     }
 }

@@ -26,23 +26,23 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupTrunkGroupUserCreationTaskGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name               = 'GroupTrunkGroupUserCreationTaskGetResponse';
-    protected $userIdFormat       = null;
-    protected $userIdDomain       = null;
-    protected $populateExtension  = null;
-    protected $linePortFormat     = null;
-    protected $linePortDomain     = null;
-    protected $populateContact    = null;
-    protected $contactFormat      = null;
-    protected $contactDomain      = null;
-    protected $usersCreated       = null;
-    protected $totalUsersToCreate = null;
-    protected $errorCount         = null;
-    protected $servicePackName    = null;
-    protected $userServiceName    = null;
-    protected $status             = null;
-    protected $userCreationMode   = null;
-    protected $taskSummary        = null;
+    public    $name = 'GroupTrunkGroupUserCreationTaskGetResponse';
+    protected $userIdFormat;
+    protected $userIdDomain;
+    protected $populateExtension;
+    protected $linePortFormat;
+    protected $linePortDomain;
+    protected $populateContact;
+    protected $contactFormat;
+    protected $contactDomain;
+    protected $usersCreated;
+    protected $totalUsersToCreate;
+    protected $errorCount;
+    protected $servicePackName;
+    protected $userServiceName;
+    protected $status;
+    protected $userCreationMode;
+    protected $taskSummary;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\GroupTrunkGroupUserCreationTaskGetResponse $response
@@ -57,7 +57,6 @@ class GroupTrunkGroupUserCreationTaskGetResponse extends ComplexType implements 
      */
     public function setUserIdFormat($userIdFormat = null)
     {
-        if (!$userIdFormat) return $this;
         $this->userIdFormat = ($userIdFormat InstanceOf TrunkGroupUserCreationUserIdFormat)
              ? $userIdFormat
              : new TrunkGroupUserCreationUserIdFormat($userIdFormat);
@@ -71,7 +70,7 @@ class GroupTrunkGroupUserCreationTaskGetResponse extends ComplexType implements 
      */
     public function getUserIdFormat()
     {
-        return $this->userIdFormat->getValue();
+        return ($this->userIdFormat) ? $this->userIdFormat->getValue() : null;
     }
 
     /**
@@ -79,7 +78,6 @@ class GroupTrunkGroupUserCreationTaskGetResponse extends ComplexType implements 
      */
     public function setUserIdDomain($userIdDomain = null)
     {
-        if (!$userIdDomain) return $this;
         $this->userIdDomain = ($userIdDomain InstanceOf NetAddress)
              ? $userIdDomain
              : new NetAddress($userIdDomain);
@@ -93,7 +91,7 @@ class GroupTrunkGroupUserCreationTaskGetResponse extends ComplexType implements 
      */
     public function getUserIdDomain()
     {
-        return $this->userIdDomain->getValue();
+        return ($this->userIdDomain) ? $this->userIdDomain->getValue() : null;
     }
 
     /**
@@ -101,7 +99,6 @@ class GroupTrunkGroupUserCreationTaskGetResponse extends ComplexType implements 
      */
     public function setPopulateExtension($populateExtension = null)
     {
-        if (!$populateExtension) return $this;
         $this->populateExtension = new PrimitiveType($populateExtension);
         $this->populateExtension->setName('populateExtension');
         return $this;
@@ -113,7 +110,7 @@ class GroupTrunkGroupUserCreationTaskGetResponse extends ComplexType implements 
      */
     public function getPopulateExtension()
     {
-        return $this->populateExtension->getValue();
+        return ($this->populateExtension) ? $this->populateExtension->getValue() : null;
     }
 
     /**
@@ -121,7 +118,6 @@ class GroupTrunkGroupUserCreationTaskGetResponse extends ComplexType implements 
      */
     public function setLinePortFormat($linePortFormat = null)
     {
-        if (!$linePortFormat) return $this;
         $this->linePortFormat = ($linePortFormat InstanceOf TrunkGroupUserCreationSIPURIFormat)
              ? $linePortFormat
              : new TrunkGroupUserCreationSIPURIFormat($linePortFormat);
@@ -135,7 +131,7 @@ class GroupTrunkGroupUserCreationTaskGetResponse extends ComplexType implements 
      */
     public function getLinePortFormat()
     {
-        return $this->linePortFormat->getValue();
+        return ($this->linePortFormat) ? $this->linePortFormat->getValue() : null;
     }
 
     /**
@@ -143,7 +139,6 @@ class GroupTrunkGroupUserCreationTaskGetResponse extends ComplexType implements 
      */
     public function setLinePortDomain($linePortDomain = null)
     {
-        if (!$linePortDomain) return $this;
         $this->linePortDomain = ($linePortDomain InstanceOf NetAddress)
              ? $linePortDomain
              : new NetAddress($linePortDomain);
@@ -157,7 +152,7 @@ class GroupTrunkGroupUserCreationTaskGetResponse extends ComplexType implements 
      */
     public function getLinePortDomain()
     {
-        return $this->linePortDomain->getValue();
+        return ($this->linePortDomain) ? $this->linePortDomain->getValue() : null;
     }
 
     /**
@@ -165,7 +160,6 @@ class GroupTrunkGroupUserCreationTaskGetResponse extends ComplexType implements 
      */
     public function setPopulateContact($populateContact = null)
     {
-        if (!$populateContact) return $this;
         $this->populateContact = new PrimitiveType($populateContact);
         $this->populateContact->setName('populateContact');
         return $this;
@@ -177,7 +171,7 @@ class GroupTrunkGroupUserCreationTaskGetResponse extends ComplexType implements 
      */
     public function getPopulateContact()
     {
-        return $this->populateContact->getValue();
+        return ($this->populateContact) ? $this->populateContact->getValue() : null;
     }
 
     /**
@@ -185,7 +179,6 @@ class GroupTrunkGroupUserCreationTaskGetResponse extends ComplexType implements 
      */
     public function setContactFormat($contactFormat = null)
     {
-        if (!$contactFormat) return $this;
         $this->contactFormat = ($contactFormat InstanceOf TrunkGroupUserCreationSIPURIFormat)
              ? $contactFormat
              : new TrunkGroupUserCreationSIPURIFormat($contactFormat);
@@ -199,7 +192,7 @@ class GroupTrunkGroupUserCreationTaskGetResponse extends ComplexType implements 
      */
     public function getContactFormat()
     {
-        return $this->contactFormat->getValue();
+        return ($this->contactFormat) ? $this->contactFormat->getValue() : null;
     }
 
     /**
@@ -207,7 +200,6 @@ class GroupTrunkGroupUserCreationTaskGetResponse extends ComplexType implements 
      */
     public function setContactDomain($contactDomain = null)
     {
-        if (!$contactDomain) return $this;
         $this->contactDomain = ($contactDomain InstanceOf NetAddress)
              ? $contactDomain
              : new NetAddress($contactDomain);
@@ -221,7 +213,7 @@ class GroupTrunkGroupUserCreationTaskGetResponse extends ComplexType implements 
      */
     public function getContactDomain()
     {
-        return $this->contactDomain->getValue();
+        return ($this->contactDomain) ? $this->contactDomain->getValue() : null;
     }
 
     /**
@@ -229,7 +221,6 @@ class GroupTrunkGroupUserCreationTaskGetResponse extends ComplexType implements 
      */
     public function setUsersCreated($usersCreated = null)
     {
-        if (!$usersCreated) return $this;
         $this->usersCreated = new PrimitiveType($usersCreated);
         $this->usersCreated->setName('usersCreated');
         return $this;
@@ -241,7 +232,7 @@ class GroupTrunkGroupUserCreationTaskGetResponse extends ComplexType implements 
      */
     public function getUsersCreated()
     {
-        return $this->usersCreated->getValue();
+        return ($this->usersCreated) ? $this->usersCreated->getValue() : null;
     }
 
     /**
@@ -249,7 +240,6 @@ class GroupTrunkGroupUserCreationTaskGetResponse extends ComplexType implements 
      */
     public function setTotalUsersToCreate($totalUsersToCreate = null)
     {
-        if (!$totalUsersToCreate) return $this;
         $this->totalUsersToCreate = new PrimitiveType($totalUsersToCreate);
         $this->totalUsersToCreate->setName('totalUsersToCreate');
         return $this;
@@ -261,7 +251,7 @@ class GroupTrunkGroupUserCreationTaskGetResponse extends ComplexType implements 
      */
     public function getTotalUsersToCreate()
     {
-        return $this->totalUsersToCreate->getValue();
+        return ($this->totalUsersToCreate) ? $this->totalUsersToCreate->getValue() : null;
     }
 
     /**
@@ -269,7 +259,6 @@ class GroupTrunkGroupUserCreationTaskGetResponse extends ComplexType implements 
      */
     public function setErrorCount($errorCount = null)
     {
-        if (!$errorCount) return $this;
         $this->errorCount = new PrimitiveType($errorCount);
         $this->errorCount->setName('errorCount');
         return $this;
@@ -281,7 +270,7 @@ class GroupTrunkGroupUserCreationTaskGetResponse extends ComplexType implements 
      */
     public function getErrorCount()
     {
-        return $this->errorCount->getValue();
+        return ($this->errorCount) ? $this->errorCount->getValue() : null;
     }
 
     /**
@@ -289,7 +278,6 @@ class GroupTrunkGroupUserCreationTaskGetResponse extends ComplexType implements 
      */
     public function setServicePackName($servicePackName = null)
     {
-        if (!$servicePackName) return $this;
         $this->servicePackName = ($servicePackName InstanceOf ServicePackName)
              ? $servicePackName
              : new ServicePackName($servicePackName);
@@ -303,7 +291,7 @@ class GroupTrunkGroupUserCreationTaskGetResponse extends ComplexType implements 
      */
     public function getServicePackName()
     {
-        return $this->servicePackName->getValue();
+        return ($this->servicePackName) ? $this->servicePackName->getValue() : null;
     }
 
     /**
@@ -311,7 +299,6 @@ class GroupTrunkGroupUserCreationTaskGetResponse extends ComplexType implements 
      */
     public function setUserServiceName($userServiceName = null)
     {
-        if (!$userServiceName) return $this;
         $this->userServiceName = ($userServiceName InstanceOf UserService)
              ? $userServiceName
              : new UserService($userServiceName);
@@ -325,7 +312,7 @@ class GroupTrunkGroupUserCreationTaskGetResponse extends ComplexType implements 
      */
     public function getUserServiceName()
     {
-        return $this->userServiceName->getValue();
+        return ($this->userServiceName) ? $this->userServiceName->getValue() : null;
     }
 
     /**
@@ -333,7 +320,6 @@ class GroupTrunkGroupUserCreationTaskGetResponse extends ComplexType implements 
      */
     public function setStatus($status = null)
     {
-        if (!$status) return $this;
         $this->status = ($status InstanceOf TrunkGroupUserCreationTaskStatus)
              ? $status
              : new TrunkGroupUserCreationTaskStatus($status);
@@ -347,7 +333,7 @@ class GroupTrunkGroupUserCreationTaskGetResponse extends ComplexType implements 
      */
     public function getStatus()
     {
-        return $this->status->getValue();
+        return ($this->status) ? $this->status->getValue() : null;
     }
 
     /**
@@ -355,7 +341,6 @@ class GroupTrunkGroupUserCreationTaskGetResponse extends ComplexType implements 
      */
     public function setUserCreationMode($userCreationMode = null)
     {
-        if (!$userCreationMode) return $this;
         $this->userCreationMode = ($userCreationMode InstanceOf TrunkGroupUserCreationMode)
              ? $userCreationMode
              : new TrunkGroupUserCreationMode($userCreationMode);
@@ -369,7 +354,7 @@ class GroupTrunkGroupUserCreationTaskGetResponse extends ComplexType implements 
      */
     public function getUserCreationMode()
     {
-        return $this->userCreationMode->getValue();
+        return ($this->userCreationMode) ? $this->userCreationMode->getValue() : null;
     }
 
     /**
@@ -377,7 +362,6 @@ class GroupTrunkGroupUserCreationTaskGetResponse extends ComplexType implements 
      */
     public function setTaskSummary($taskSummary = null)
     {
-        if (!$taskSummary) return $this;
         $this->taskSummary = new PrimitiveType($taskSummary);
         $this->taskSummary->setName('taskSummary');
         return $this;
@@ -389,6 +373,6 @@ class GroupTrunkGroupUserCreationTaskGetResponse extends ComplexType implements 
      */
     public function getTaskSummary()
     {
-        return $this->taskSummary->getValue();
+        return ($this->taskSummary) ? $this->taskSummary->getValue() : null;
     }
 }

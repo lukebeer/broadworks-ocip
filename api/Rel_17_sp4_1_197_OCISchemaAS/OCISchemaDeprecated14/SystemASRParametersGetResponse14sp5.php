@@ -23,11 +23,11 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemASRParametersGetResponse14sp5 extends ComplexType implements ComplexInterface
 {
-    public    $name                            = 'SystemASRParametersGetResponse14sp5';
-    protected $maxTransmissions                = null;
-    protected $retransmissionDelayMilliSeconds = null;
-    protected $listeningPort                   = null;
-    protected $sourceAddress                   = null;
+    public    $name = 'SystemASRParametersGetResponse14sp5';
+    protected $maxTransmissions;
+    protected $retransmissionDelayMilliSeconds;
+    protected $listeningPort;
+    protected $sourceAddress;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\SystemASRParametersGetResponse14sp5 $response
@@ -42,7 +42,6 @@ class SystemASRParametersGetResponse14sp5 extends ComplexType implements Complex
      */
     public function setMaxTransmissions($maxTransmissions = null)
     {
-        if (!$maxTransmissions) return $this;
         $this->maxTransmissions = ($maxTransmissions InstanceOf ASRMaxTransmissions)
              ? $maxTransmissions
              : new ASRMaxTransmissions($maxTransmissions);
@@ -56,7 +55,7 @@ class SystemASRParametersGetResponse14sp5 extends ComplexType implements Complex
      */
     public function getMaxTransmissions()
     {
-        return $this->maxTransmissions->getValue();
+        return ($this->maxTransmissions) ? $this->maxTransmissions->getValue() : null;
     }
 
     /**
@@ -64,7 +63,6 @@ class SystemASRParametersGetResponse14sp5 extends ComplexType implements Complex
      */
     public function setRetransmissionDelayMilliSeconds($retransmissionDelayMilliSeconds = null)
     {
-        if (!$retransmissionDelayMilliSeconds) return $this;
         $this->retransmissionDelayMilliSeconds = ($retransmissionDelayMilliSeconds InstanceOf ASRRetransmissionDelayMilliSeconds)
              ? $retransmissionDelayMilliSeconds
              : new ASRRetransmissionDelayMilliSeconds($retransmissionDelayMilliSeconds);
@@ -78,7 +76,7 @@ class SystemASRParametersGetResponse14sp5 extends ComplexType implements Complex
      */
     public function getRetransmissionDelayMilliSeconds()
     {
-        return $this->retransmissionDelayMilliSeconds->getValue();
+        return ($this->retransmissionDelayMilliSeconds) ? $this->retransmissionDelayMilliSeconds->getValue() : null;
     }
 
     /**
@@ -86,7 +84,6 @@ class SystemASRParametersGetResponse14sp5 extends ComplexType implements Complex
      */
     public function setListeningPort($listeningPort = null)
     {
-        if (!$listeningPort) return $this;
         $this->listeningPort = ($listeningPort InstanceOf Port1025)
              ? $listeningPort
              : new Port1025($listeningPort);
@@ -100,7 +97,7 @@ class SystemASRParametersGetResponse14sp5 extends ComplexType implements Complex
      */
     public function getListeningPort()
     {
-        return $this->listeningPort->getValue();
+        return ($this->listeningPort) ? $this->listeningPort->getValue() : null;
     }
 
     /**
@@ -108,7 +105,6 @@ class SystemASRParametersGetResponse14sp5 extends ComplexType implements Complex
      */
     public function setSourceAddress($sourceAddress = null)
     {
-        if (!$sourceAddress) return $this;
         $this->sourceAddress = ($sourceAddress InstanceOf NetAddress)
              ? $sourceAddress
              : new NetAddress($sourceAddress);
@@ -122,6 +118,6 @@ class SystemASRParametersGetResponse14sp5 extends ComplexType implements Complex
      */
     public function getSourceAddress()
     {
-        return $this->sourceAddress->getValue();
+        return ($this->sourceAddress) ? $this->sourceAddress->getValue() : null;
     }
 }

@@ -21,12 +21,12 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderCommunicationBarringCriteriaUnassignListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name              = 'ServiceProviderCommunicationBarringCriteriaUnassignListRequest';
-    protected $serviceProviderId = null;
-    protected $criteriaName      = null;
+    public    $name = 'ServiceProviderCommunicationBarringCriteriaUnassignListRequest';
+    protected $serviceProviderId;
+    protected $criteriaName;
 
     public function __construct(
-         $serviceProviderId,
+         $serviceProviderId = '',
          $criteriaName = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
@@ -46,7 +46,6 @@ class ServiceProviderCommunicationBarringCriteriaUnassignListRequest extends Com
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
-        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
@@ -60,7 +59,7 @@ class ServiceProviderCommunicationBarringCriteriaUnassignListRequest extends Com
      */
     public function getServiceProviderId()
     {
-        return $this->serviceProviderId->getValue();
+        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
     }
 
     /**
@@ -68,7 +67,6 @@ class ServiceProviderCommunicationBarringCriteriaUnassignListRequest extends Com
      */
     public function setCriteriaName($criteriaName = null)
     {
-        if (!$criteriaName) return $this;
         $this->criteriaName = ($criteriaName InstanceOf CommunicationBarringCriteriaName)
              ? $criteriaName
              : new CommunicationBarringCriteriaName($criteriaName);
@@ -82,6 +80,6 @@ class ServiceProviderCommunicationBarringCriteriaUnassignListRequest extends Com
      */
     public function getCriteriaName()
     {
-        return $this->criteriaName->getValue();
+        return ($this->criteriaName) ? $this->criteriaName->getValue() : null;
     }
 }

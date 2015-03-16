@@ -22,15 +22,15 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderScheduleAddRequest extends ComplexType implements ComplexInterface
 {
-    public    $name              = 'ServiceProviderScheduleAddRequest';
-    protected $serviceProviderId = null;
-    protected $scheduleName      = null;
-    protected $scheduleType      = null;
+    public    $name = 'ServiceProviderScheduleAddRequest';
+    protected $serviceProviderId;
+    protected $scheduleName;
+    protected $scheduleType;
 
     public function __construct(
-         $serviceProviderId,
-         $scheduleName,
-         $scheduleType
+         $serviceProviderId = '',
+         $scheduleName = '',
+         $scheduleType = ''
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setScheduleName($scheduleName);
@@ -50,7 +50,6 @@ class ServiceProviderScheduleAddRequest extends ComplexType implements ComplexIn
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
-        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
@@ -64,7 +63,7 @@ class ServiceProviderScheduleAddRequest extends ComplexType implements ComplexIn
      */
     public function getServiceProviderId()
     {
-        return $this->serviceProviderId->getValue();
+        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
     }
 
     /**
@@ -72,7 +71,6 @@ class ServiceProviderScheduleAddRequest extends ComplexType implements ComplexIn
      */
     public function setScheduleName($scheduleName = null)
     {
-        if (!$scheduleName) return $this;
         $this->scheduleName = ($scheduleName InstanceOf ScheduleName)
              ? $scheduleName
              : new ScheduleName($scheduleName);
@@ -86,7 +84,7 @@ class ServiceProviderScheduleAddRequest extends ComplexType implements ComplexIn
      */
     public function getScheduleName()
     {
-        return $this->scheduleName->getValue();
+        return ($this->scheduleName) ? $this->scheduleName->getValue() : null;
     }
 
     /**
@@ -94,7 +92,6 @@ class ServiceProviderScheduleAddRequest extends ComplexType implements ComplexIn
      */
     public function setScheduleType($scheduleType = null)
     {
-        if (!$scheduleType) return $this;
         $this->scheduleType = ($scheduleType InstanceOf ScheduleType)
              ? $scheduleType
              : new ScheduleType($scheduleType);
@@ -108,6 +105,6 @@ class ServiceProviderScheduleAddRequest extends ComplexType implements ComplexIn
      */
     public function getScheduleType()
     {
-        return $this->scheduleType->getValue();
+        return ($this->scheduleType) ? $this->scheduleType->getValue() : null;
     }
 }

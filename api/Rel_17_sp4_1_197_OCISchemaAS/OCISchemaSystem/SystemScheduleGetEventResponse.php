@@ -20,10 +20,10 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemScheduleGetEventResponse extends ComplexType implements ComplexInterface
 {
-    public    $name       = 'SystemScheduleGetEventResponse';
-    protected $startDate  = null;
-    protected $endDate    = null;
-    protected $recurrence = null;
+    public    $name = 'SystemScheduleGetEventResponse';
+    protected $startDate;
+    protected $endDate;
+    protected $recurrence;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemScheduleGetEventResponse $response
@@ -38,7 +38,6 @@ class SystemScheduleGetEventResponse extends ComplexType implements ComplexInter
      */
     public function setStartDate(xs:date $startDate = null)
     {
-        if (!$startDate) return $this;
         $this->startDate->setName('startDate');
         return $this;
     }
@@ -49,7 +48,7 @@ class SystemScheduleGetEventResponse extends ComplexType implements ComplexInter
      */
     public function getStartDate()
     {
-        return $this->startDate->getValue();
+        return ($this->startDate) ? $this->startDate->getValue() : null;
     }
 
     /**
@@ -57,7 +56,6 @@ class SystemScheduleGetEventResponse extends ComplexType implements ComplexInter
      */
     public function setEndDate(xs:date $endDate = null)
     {
-        if (!$endDate) return $this;
         $this->endDate->setName('endDate');
         return $this;
     }
@@ -68,7 +66,7 @@ class SystemScheduleGetEventResponse extends ComplexType implements ComplexInter
      */
     public function getEndDate()
     {
-        return $this->endDate->getValue();
+        return ($this->endDate) ? $this->endDate->getValue() : null;
     }
 
     /**
@@ -76,8 +74,9 @@ class SystemScheduleGetEventResponse extends ComplexType implements ComplexInter
      */
     public function setRecurrence(Recurrence $recurrence = null)
     {
-        if (!$recurrence) return $this;
-        $this->recurrence = $recurrence;
+        $this->recurrence = ($recurrence InstanceOf Recurrence)
+             ? $recurrence
+             : new Recurrence($recurrence);
         $this->recurrence->setName('recurrence');
         return $this;
     }

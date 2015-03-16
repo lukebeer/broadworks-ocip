@@ -19,19 +19,19 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class AccessDeviceMultipleContactEndpointRead extends ComplexType implements ComplexInterface
 {
-    public    $name                      = 'AccessDeviceMultipleContactEndpointRead';
-    protected $accessDevice              = null;
-    protected $linePort                  = null;
-    protected $contact                   = null;
-    protected $staticRegistrationCapable = null;
-    protected $useDomain                 = null;
+    public    $name = 'AccessDeviceMultipleContactEndpointRead';
+    protected $accessDevice;
+    protected $linePort;
+    protected $contact;
+    protected $staticRegistrationCapable;
+    protected $useDomain;
 
     public function __construct(
-         $accessDevice,
-         $linePort,
+         $accessDevice = '',
+         $linePort = '',
          $contact = null,
-         $staticRegistrationCapable,
-         $useDomain
+         $staticRegistrationCapable = '',
+         $useDomain = ''
     ) {
         $this->setAccessDevice($accessDevice);
         $this->setLinePort($linePort);
@@ -53,7 +53,6 @@ class AccessDeviceMultipleContactEndpointRead extends ComplexType implements Com
      */
     public function setAccessDevice($accessDevice = null)
     {
-        if (!$accessDevice) return $this;
         $this->accessDevice = new SimpleContent($accessDevice);
         $this->accessDevice->setName('accessDevice');
         return $this;
@@ -65,7 +64,7 @@ class AccessDeviceMultipleContactEndpointRead extends ComplexType implements Com
      */
     public function getAccessDevice()
     {
-        return $this->accessDevice->getValue();
+        return ($this->accessDevice) ? $this->accessDevice->getValue() : null;
     }
 
     /**
@@ -73,7 +72,6 @@ class AccessDeviceMultipleContactEndpointRead extends ComplexType implements Com
      */
     public function setLinePort($linePort = null)
     {
-        if (!$linePort) return $this;
         $this->linePort = new SimpleContent($linePort);
         $this->linePort->setName('linePort');
         return $this;
@@ -85,7 +83,7 @@ class AccessDeviceMultipleContactEndpointRead extends ComplexType implements Com
      */
     public function getLinePort()
     {
-        return $this->linePort->getValue();
+        return ($this->linePort) ? $this->linePort->getValue() : null;
     }
 
     /**
@@ -93,7 +91,6 @@ class AccessDeviceMultipleContactEndpointRead extends ComplexType implements Com
      */
     public function setContact($contact = null)
     {
-        if (!$contact) return $this;
         $this->contact = new SimpleContent($contact);
         $this->contact->setName('contact');
         return $this;
@@ -105,7 +102,7 @@ class AccessDeviceMultipleContactEndpointRead extends ComplexType implements Com
      */
     public function getContact()
     {
-        return $this->contact->getValue();
+        return ($this->contact) ? $this->contact->getValue() : null;
     }
 
     /**
@@ -113,7 +110,6 @@ class AccessDeviceMultipleContactEndpointRead extends ComplexType implements Com
      */
     public function setStaticRegistrationCapable($staticRegistrationCapable = null)
     {
-        if (!$staticRegistrationCapable) return $this;
         $this->staticRegistrationCapable = new SimpleContent($staticRegistrationCapable);
         $this->staticRegistrationCapable->setName('staticRegistrationCapable');
         return $this;
@@ -125,7 +121,7 @@ class AccessDeviceMultipleContactEndpointRead extends ComplexType implements Com
      */
     public function getStaticRegistrationCapable()
     {
-        return $this->staticRegistrationCapable->getValue();
+        return ($this->staticRegistrationCapable) ? $this->staticRegistrationCapable->getValue() : null;
     }
 
     /**
@@ -133,7 +129,6 @@ class AccessDeviceMultipleContactEndpointRead extends ComplexType implements Com
      */
     public function setUseDomain($useDomain = null)
     {
-        if (!$useDomain) return $this;
         $this->useDomain = new SimpleContent($useDomain);
         $this->useDomain->setName('useDomain');
         return $this;
@@ -145,6 +140,6 @@ class AccessDeviceMultipleContactEndpointRead extends ComplexType implements Com
      */
     public function getUseDomain()
     {
-        return $this->useDomain->getValue();
+        return ($this->useDomain) ? $this->useDomain->getValue() : null;
     }
 }

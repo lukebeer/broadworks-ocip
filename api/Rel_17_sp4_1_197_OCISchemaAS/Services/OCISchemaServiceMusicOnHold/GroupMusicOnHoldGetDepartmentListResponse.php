@@ -20,10 +20,10 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupMusicOnHoldGetDepartmentListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name               = 'GroupMusicOnHoldGetDepartmentListResponse';
-    protected $hasDepartment      = null;
-    protected $department         = null;
-    protected $departmentFullPath = null;
+    public    $name = 'GroupMusicOnHoldGetDepartmentListResponse';
+    protected $hasDepartment;
+    protected $department;
+    protected $departmentFullPath;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceMusicOnHold\GroupMusicOnHoldGetDepartmentListResponse $response
@@ -38,7 +38,6 @@ class GroupMusicOnHoldGetDepartmentListResponse extends ComplexType implements C
      */
     public function setHasDepartment($hasDepartment = null)
     {
-        if (!$hasDepartment) return $this;
         $this->hasDepartment = new PrimitiveType($hasDepartment);
         $this->hasDepartment->setName('hasDepartment');
         return $this;
@@ -50,7 +49,7 @@ class GroupMusicOnHoldGetDepartmentListResponse extends ComplexType implements C
      */
     public function getHasDepartment()
     {
-        return $this->hasDepartment->getValue();
+        return ($this->hasDepartment) ? $this->hasDepartment->getValue() : null;
     }
 
     /**
@@ -58,8 +57,9 @@ class GroupMusicOnHoldGetDepartmentListResponse extends ComplexType implements C
      */
     public function setDepartment(DepartmentKey $department = null)
     {
-        if (!$department) return $this;
-        $this->department = $department;
+        $this->department = ($department InstanceOf DepartmentKey)
+             ? $department
+             : new DepartmentKey($department);
         $this->department->setName('department');
         return $this;
     }
@@ -78,7 +78,6 @@ class GroupMusicOnHoldGetDepartmentListResponse extends ComplexType implements C
      */
     public function setDepartmentFullPath($departmentFullPath = null)
     {
-        if (!$departmentFullPath) return $this;
         $this->departmentFullPath = ($departmentFullPath InstanceOf DepartmentFullPathName)
              ? $departmentFullPath
              : new DepartmentFullPathName($departmentFullPath);
@@ -92,6 +91,6 @@ class GroupMusicOnHoldGetDepartmentListResponse extends ComplexType implements C
      */
     public function getDepartmentFullPath()
     {
-        return $this->departmentFullPath->getValue();
+        return ($this->departmentFullPath) ? $this->departmentFullPath->getValue() : null;
     }
 }

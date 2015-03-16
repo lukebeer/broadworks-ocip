@@ -23,14 +23,14 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemNetworkSynchingServerModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name            = 'SystemNetworkSynchingServerModifyRequest';
-    protected $netAddress      = null;
-    protected $port            = null;
-    protected $description     = null;
-    protected $becomePreferred = null;
+    public    $name = 'SystemNetworkSynchingServerModifyRequest';
+    protected $netAddress;
+    protected $port;
+    protected $description;
+    protected $becomePreferred;
 
     public function __construct(
-         $netAddress,
+         $netAddress = '',
          $port = null,
          $description = null,
          $becomePreferred = null
@@ -54,7 +54,6 @@ class SystemNetworkSynchingServerModifyRequest extends ComplexType implements Co
      */
     public function setNetAddress($netAddress = null)
     {
-        if (!$netAddress) return $this;
         $this->netAddress = ($netAddress InstanceOf NetAddress)
              ? $netAddress
              : new NetAddress($netAddress);
@@ -68,7 +67,7 @@ class SystemNetworkSynchingServerModifyRequest extends ComplexType implements Co
      */
     public function getNetAddress()
     {
-        return $this->netAddress->getValue();
+        return ($this->netAddress) ? $this->netAddress->getValue() : null;
     }
 
     /**
@@ -76,7 +75,6 @@ class SystemNetworkSynchingServerModifyRequest extends ComplexType implements Co
      */
     public function setPort($port = null)
     {
-        if (!$port) return $this;
         $this->port = ($port InstanceOf Port1025)
              ? $port
              : new Port1025($port);
@@ -90,7 +88,7 @@ class SystemNetworkSynchingServerModifyRequest extends ComplexType implements Co
      */
     public function getPort()
     {
-        return $this->port->getValue();
+        return ($this->port) ? $this->port->getValue() : null;
     }
 
     /**
@@ -98,7 +96,6 @@ class SystemNetworkSynchingServerModifyRequest extends ComplexType implements Co
      */
     public function setDescription($description = null)
     {
-        if (!$description) return $this;
         $this->description = ($description InstanceOf NetworkServerDescription)
              ? $description
              : new NetworkServerDescription($description);
@@ -112,7 +109,7 @@ class SystemNetworkSynchingServerModifyRequest extends ComplexType implements Co
      */
     public function getDescription()
     {
-        return $this->description->getValue();
+        return ($this->description) ? $this->description->getValue() : null;
     }
 
     /**
@@ -120,7 +117,6 @@ class SystemNetworkSynchingServerModifyRequest extends ComplexType implements Co
      */
     public function setBecomePreferred($becomePreferred = null)
     {
-        if (!$becomePreferred) return $this;
         $this->becomePreferred = new PrimitiveType($becomePreferred);
         $this->becomePreferred->setName('becomePreferred');
         return $this;
@@ -132,6 +128,6 @@ class SystemNetworkSynchingServerModifyRequest extends ComplexType implements Co
      */
     public function getBecomePreferred()
     {
-        return $this->becomePreferred->getValue();
+        return ($this->becomePreferred) ? $this->becomePreferred->getValue() : null;
     }
 }

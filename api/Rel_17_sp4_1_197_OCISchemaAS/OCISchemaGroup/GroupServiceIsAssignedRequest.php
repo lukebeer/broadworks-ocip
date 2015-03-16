@@ -22,15 +22,15 @@ use Broadworks_OCIP\core\Client\Client;
 class GroupServiceIsAssignedRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupServiceIsAssignedResponse';
-    public    $name              = 'GroupServiceIsAssignedRequest';
-    protected $serviceProviderId = null;
-    protected $groupId           = null;
-    protected $serviceName       = null;
+    public    $name = 'GroupServiceIsAssignedRequest';
+    protected $serviceProviderId;
+    protected $groupId;
+    protected $serviceName;
 
     public function __construct(
-         $serviceProviderId,
-         $groupId,
-         $serviceName
+         $serviceProviderId = '',
+         $groupId = '',
+         $serviceName = ''
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setGroupId($groupId);
@@ -50,7 +50,6 @@ class GroupServiceIsAssignedRequest extends ComplexType implements ComplexInterf
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
-        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
@@ -64,7 +63,7 @@ class GroupServiceIsAssignedRequest extends ComplexType implements ComplexInterf
      */
     public function getServiceProviderId()
     {
-        return $this->serviceProviderId->getValue();
+        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
     }
 
     /**
@@ -72,7 +71,6 @@ class GroupServiceIsAssignedRequest extends ComplexType implements ComplexInterf
      */
     public function setGroupId($groupId = null)
     {
-        if (!$groupId) return $this;
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
@@ -86,7 +84,7 @@ class GroupServiceIsAssignedRequest extends ComplexType implements ComplexInterf
      */
     public function getGroupId()
     {
-        return $this->groupId->getValue();
+        return ($this->groupId) ? $this->groupId->getValue() : null;
     }
 
     /**
@@ -94,7 +92,6 @@ class GroupServiceIsAssignedRequest extends ComplexType implements ComplexInterf
      */
     public function setServiceName($serviceName = null)
     {
-        if (!$serviceName) return $this;
         $this->serviceName = ($serviceName InstanceOf GroupService)
              ? $serviceName
              : new GroupService($serviceName);
@@ -108,6 +105,6 @@ class GroupServiceIsAssignedRequest extends ComplexType implements ComplexInterf
      */
     public function getServiceName()
     {
-        return $this->serviceName->getValue();
+        return ($this->serviceName) ? $this->serviceName->getValue() : null;
     }
 }

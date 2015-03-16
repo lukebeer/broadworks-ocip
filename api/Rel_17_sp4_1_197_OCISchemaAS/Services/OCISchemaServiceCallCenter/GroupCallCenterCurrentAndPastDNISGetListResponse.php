@@ -19,9 +19,9 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupCallCenterCurrentAndPastDNISGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name        = 'GroupCallCenterCurrentAndPastDNISGetListResponse';
-    protected $name        = null;
-    protected $deletedName = null;
+    public    $name = 'GroupCallCenterCurrentAndPastDNISGetListResponse';
+    protected $name;
+    protected $deletedName;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\GroupCallCenterCurrentAndPastDNISGetListResponse $response
@@ -36,7 +36,6 @@ class GroupCallCenterCurrentAndPastDNISGetListResponse extends ComplexType imple
      */
     public function setName($name = null)
     {
-        if (!$name) return $this;
         $this->name = ($name InstanceOf DNISName)
              ? $name
              : new DNISName($name);
@@ -50,7 +49,7 @@ class GroupCallCenterCurrentAndPastDNISGetListResponse extends ComplexType imple
      */
     public function getName()
     {
-        return $this->name->getValue();
+        return ($this->name) ? $this->name->getValue() : null;
     }
 
     /**
@@ -58,7 +57,6 @@ class GroupCallCenterCurrentAndPastDNISGetListResponse extends ComplexType imple
      */
     public function setDeletedName($deletedName = null)
     {
-        if (!$deletedName) return $this;
         $this->deletedName = ($deletedName InstanceOf DNISName)
              ? $deletedName
              : new DNISName($deletedName);
@@ -72,6 +70,6 @@ class GroupCallCenterCurrentAndPastDNISGetListResponse extends ComplexType imple
      */
     public function getDeletedName()
     {
-        return $this->deletedName->getValue();
+        return ($this->deletedName) ? $this->deletedName->getValue() : null;
     }
 }

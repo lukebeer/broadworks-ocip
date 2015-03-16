@@ -24,17 +24,17 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderAccessDeviceFileModifyRequest14sp8 extends ComplexType implements ComplexInterface
 {
-    public    $name              = 'ServiceProviderAccessDeviceFileModifyRequest14sp8';
-    protected $serviceProviderId = null;
-    protected $deviceName        = null;
-    protected $fileFormat        = null;
-    protected $fileSource        = null;
-    protected $uploadFile        = null;
+    public    $name = 'ServiceProviderAccessDeviceFileModifyRequest14sp8';
+    protected $serviceProviderId;
+    protected $deviceName;
+    protected $fileFormat;
+    protected $fileSource;
+    protected $uploadFile;
 
     public function __construct(
-         $serviceProviderId,
-         $deviceName,
-         $fileFormat,
+         $serviceProviderId = '',
+         $deviceName = '',
+         $fileFormat = '',
          $fileSource = null,
          FileResource $uploadFile = null
     ) {
@@ -58,7 +58,6 @@ class ServiceProviderAccessDeviceFileModifyRequest14sp8 extends ComplexType impl
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
-        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
@@ -72,7 +71,7 @@ class ServiceProviderAccessDeviceFileModifyRequest14sp8 extends ComplexType impl
      */
     public function getServiceProviderId()
     {
-        return $this->serviceProviderId->getValue();
+        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
     }
 
     /**
@@ -80,7 +79,6 @@ class ServiceProviderAccessDeviceFileModifyRequest14sp8 extends ComplexType impl
      */
     public function setDeviceName($deviceName = null)
     {
-        if (!$deviceName) return $this;
         $this->deviceName = ($deviceName InstanceOf AccessDeviceName)
              ? $deviceName
              : new AccessDeviceName($deviceName);
@@ -94,7 +92,7 @@ class ServiceProviderAccessDeviceFileModifyRequest14sp8 extends ComplexType impl
      */
     public function getDeviceName()
     {
-        return $this->deviceName->getValue();
+        return ($this->deviceName) ? $this->deviceName->getValue() : null;
     }
 
     /**
@@ -102,7 +100,6 @@ class ServiceProviderAccessDeviceFileModifyRequest14sp8 extends ComplexType impl
      */
     public function setFileFormat($fileFormat = null)
     {
-        if (!$fileFormat) return $this;
         $this->fileFormat = ($fileFormat InstanceOf DeviceManagementFileFormat)
              ? $fileFormat
              : new DeviceManagementFileFormat($fileFormat);
@@ -116,7 +113,7 @@ class ServiceProviderAccessDeviceFileModifyRequest14sp8 extends ComplexType impl
      */
     public function getFileFormat()
     {
-        return $this->fileFormat->getValue();
+        return ($this->fileFormat) ? $this->fileFormat->getValue() : null;
     }
 
     /**
@@ -124,7 +121,6 @@ class ServiceProviderAccessDeviceFileModifyRequest14sp8 extends ComplexType impl
      */
     public function setFileSource($fileSource = null)
     {
-        if (!$fileSource) return $this;
         $this->fileSource = ($fileSource InstanceOf AccessDeviceEnhancedConfigurationMode)
              ? $fileSource
              : new AccessDeviceEnhancedConfigurationMode($fileSource);
@@ -138,7 +134,7 @@ class ServiceProviderAccessDeviceFileModifyRequest14sp8 extends ComplexType impl
      */
     public function getFileSource()
     {
-        return $this->fileSource->getValue();
+        return ($this->fileSource) ? $this->fileSource->getValue() : null;
     }
 
     /**
@@ -146,8 +142,9 @@ class ServiceProviderAccessDeviceFileModifyRequest14sp8 extends ComplexType impl
      */
     public function setUploadFile(FileResource $uploadFile = null)
     {
-        if (!$uploadFile) return $this;
-        $this->uploadFile = $uploadFile;
+        $this->uploadFile = ($uploadFile InstanceOf FileResource)
+             ? $uploadFile
+             : new FileResource($uploadFile);
         $this->uploadFile->setName('uploadFile');
         return $this;
     }

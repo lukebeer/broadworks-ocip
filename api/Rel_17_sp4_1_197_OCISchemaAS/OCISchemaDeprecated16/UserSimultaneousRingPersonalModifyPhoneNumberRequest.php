@@ -21,14 +21,14 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserSimultaneousRingPersonalModifyPhoneNumberRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                       = 'UserSimultaneousRingPersonalModifyPhoneNumberRequest';
-    protected $userId                     = null;
-    protected $phoneNumber                = null;
-    protected $answerConfirmationRequired = null;
+    public    $name = 'UserSimultaneousRingPersonalModifyPhoneNumberRequest';
+    protected $userId;
+    protected $phoneNumber;
+    protected $answerConfirmationRequired;
 
     public function __construct(
-         $userId,
-         $phoneNumber,
+         $userId = '',
+         $phoneNumber = '',
          $answerConfirmationRequired = null
     ) {
         $this->setUserId($userId);
@@ -49,7 +49,6 @@ class UserSimultaneousRingPersonalModifyPhoneNumberRequest extends ComplexType i
      */
     public function setUserId($userId = null)
     {
-        if (!$userId) return $this;
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
@@ -63,7 +62,7 @@ class UserSimultaneousRingPersonalModifyPhoneNumberRequest extends ComplexType i
      */
     public function getUserId()
     {
-        return $this->userId->getValue();
+        return ($this->userId) ? $this->userId->getValue() : null;
     }
 
     /**
@@ -71,7 +70,6 @@ class UserSimultaneousRingPersonalModifyPhoneNumberRequest extends ComplexType i
      */
     public function setPhoneNumber($phoneNumber = null)
     {
-        if (!$phoneNumber) return $this;
         $this->phoneNumber = ($phoneNumber InstanceOf OutgoingDNorSIPURI)
              ? $phoneNumber
              : new OutgoingDNorSIPURI($phoneNumber);
@@ -85,7 +83,7 @@ class UserSimultaneousRingPersonalModifyPhoneNumberRequest extends ComplexType i
      */
     public function getPhoneNumber()
     {
-        return $this->phoneNumber->getValue();
+        return ($this->phoneNumber) ? $this->phoneNumber->getValue() : null;
     }
 
     /**
@@ -93,7 +91,6 @@ class UserSimultaneousRingPersonalModifyPhoneNumberRequest extends ComplexType i
      */
     public function setAnswerConfirmationRequired($answerConfirmationRequired = null)
     {
-        if (!$answerConfirmationRequired) return $this;
         $this->answerConfirmationRequired = new PrimitiveType($answerConfirmationRequired);
         $this->answerConfirmationRequired->setName('answerConfirmationRequired');
         return $this;
@@ -105,6 +102,6 @@ class UserSimultaneousRingPersonalModifyPhoneNumberRequest extends ComplexType i
      */
     public function getAnswerConfirmationRequired()
     {
-        return $this->answerConfirmationRequired->getValue();
+        return ($this->answerConfirmationRequired) ? $this->answerConfirmationRequired->getValue() : null;
     }
 }

@@ -22,8 +22,8 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupAutoAttendantGetInstanceListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name               = 'GroupAutoAttendantGetInstanceListResponse';
-    protected $autoAttendantTable = null;
+    public    $name = 'GroupAutoAttendantGetInstanceListResponse';
+    protected $autoAttendantTable;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceAutoAttendant\GroupAutoAttendantGetInstanceListResponse $response
@@ -38,7 +38,6 @@ class GroupAutoAttendantGetInstanceListResponse extends ComplexType implements C
      */
     public function setAutoAttendantTable(TableType $autoAttendantTable = null)
     {
-        if (!$autoAttendantTable) return $this;
         $this->autoAttendantTable = $autoAttendantTable;
         $this->autoAttendantTable->setName('autoAttendantTable');
         return $this;

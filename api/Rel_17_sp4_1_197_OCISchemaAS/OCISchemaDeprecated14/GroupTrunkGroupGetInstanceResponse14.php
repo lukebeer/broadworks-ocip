@@ -27,14 +27,14 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupTrunkGroupGetInstanceResponse14 extends ComplexType implements ComplexInterface
 {
-    public    $name                      = 'GroupTrunkGroupGetInstanceResponse14';
-    protected $serviceInstanceProfile    = null;
-    protected $accessDeviceEndpoint      = null;
-    protected $maxActiveCalls            = null;
-    protected $maxIncomingCalls          = null;
-    protected $maxOutgoingCalls          = null;
-    protected $requireAuthentication     = null;
-    protected $sipAuthenticationUserName = null;
+    public    $name = 'GroupTrunkGroupGetInstanceResponse14';
+    protected $serviceInstanceProfile;
+    protected $accessDeviceEndpoint;
+    protected $maxActiveCalls;
+    protected $maxIncomingCalls;
+    protected $maxOutgoingCalls;
+    protected $requireAuthentication;
+    protected $sipAuthenticationUserName;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\GroupTrunkGroupGetInstanceResponse14 $response
@@ -49,8 +49,9 @@ class GroupTrunkGroupGetInstanceResponse14 extends ComplexType implements Comple
      */
     public function setServiceInstanceProfile(ServiceInstanceReadProfile $serviceInstanceProfile = null)
     {
-        if (!$serviceInstanceProfile) return $this;
-        $this->serviceInstanceProfile = $serviceInstanceProfile;
+        $this->serviceInstanceProfile = ($serviceInstanceProfile InstanceOf ServiceInstanceReadProfile)
+             ? $serviceInstanceProfile
+             : new ServiceInstanceReadProfile($serviceInstanceProfile);
         $this->serviceInstanceProfile->setName('serviceInstanceProfile');
         return $this;
     }
@@ -69,8 +70,9 @@ class GroupTrunkGroupGetInstanceResponse14 extends ComplexType implements Comple
      */
     public function setAccessDeviceEndpoint(AccessDeviceEndpointRead14 $accessDeviceEndpoint = null)
     {
-        if (!$accessDeviceEndpoint) return $this;
-        $this->accessDeviceEndpoint = $accessDeviceEndpoint;
+        $this->accessDeviceEndpoint = ($accessDeviceEndpoint InstanceOf AccessDeviceEndpointRead14)
+             ? $accessDeviceEndpoint
+             : new AccessDeviceEndpointRead14($accessDeviceEndpoint);
         $this->accessDeviceEndpoint->setName('accessDeviceEndpoint');
         return $this;
     }
@@ -89,7 +91,6 @@ class GroupTrunkGroupGetInstanceResponse14 extends ComplexType implements Comple
      */
     public function setMaxActiveCalls($maxActiveCalls = null)
     {
-        if (!$maxActiveCalls) return $this;
         $this->maxActiveCalls = ($maxActiveCalls InstanceOf MaxActiveCalls)
              ? $maxActiveCalls
              : new MaxActiveCalls($maxActiveCalls);
@@ -103,7 +104,7 @@ class GroupTrunkGroupGetInstanceResponse14 extends ComplexType implements Comple
      */
     public function getMaxActiveCalls()
     {
-        return $this->maxActiveCalls->getValue();
+        return ($this->maxActiveCalls) ? $this->maxActiveCalls->getValue() : null;
     }
 
     /**
@@ -111,7 +112,6 @@ class GroupTrunkGroupGetInstanceResponse14 extends ComplexType implements Comple
      */
     public function setMaxIncomingCalls($maxIncomingCalls = null)
     {
-        if (!$maxIncomingCalls) return $this;
         $this->maxIncomingCalls = ($maxIncomingCalls InstanceOf MaxIncomingCalls)
              ? $maxIncomingCalls
              : new MaxIncomingCalls($maxIncomingCalls);
@@ -125,7 +125,7 @@ class GroupTrunkGroupGetInstanceResponse14 extends ComplexType implements Comple
      */
     public function getMaxIncomingCalls()
     {
-        return $this->maxIncomingCalls->getValue();
+        return ($this->maxIncomingCalls) ? $this->maxIncomingCalls->getValue() : null;
     }
 
     /**
@@ -133,7 +133,6 @@ class GroupTrunkGroupGetInstanceResponse14 extends ComplexType implements Comple
      */
     public function setMaxOutgoingCalls($maxOutgoingCalls = null)
     {
-        if (!$maxOutgoingCalls) return $this;
         $this->maxOutgoingCalls = ($maxOutgoingCalls InstanceOf MaxOutgoingCalls)
              ? $maxOutgoingCalls
              : new MaxOutgoingCalls($maxOutgoingCalls);
@@ -147,7 +146,7 @@ class GroupTrunkGroupGetInstanceResponse14 extends ComplexType implements Comple
      */
     public function getMaxOutgoingCalls()
     {
-        return $this->maxOutgoingCalls->getValue();
+        return ($this->maxOutgoingCalls) ? $this->maxOutgoingCalls->getValue() : null;
     }
 
     /**
@@ -155,7 +154,6 @@ class GroupTrunkGroupGetInstanceResponse14 extends ComplexType implements Comple
      */
     public function setRequireAuthentication($requireAuthentication = null)
     {
-        if (!$requireAuthentication) return $this;
         $this->requireAuthentication = new PrimitiveType($requireAuthentication);
         $this->requireAuthentication->setName('requireAuthentication');
         return $this;
@@ -167,7 +165,7 @@ class GroupTrunkGroupGetInstanceResponse14 extends ComplexType implements Comple
      */
     public function getRequireAuthentication()
     {
-        return $this->requireAuthentication->getValue();
+        return ($this->requireAuthentication) ? $this->requireAuthentication->getValue() : null;
     }
 
     /**
@@ -175,7 +173,6 @@ class GroupTrunkGroupGetInstanceResponse14 extends ComplexType implements Comple
      */
     public function setSipAuthenticationUserName($sipAuthenticationUserName = null)
     {
-        if (!$sipAuthenticationUserName) return $this;
         $this->sipAuthenticationUserName = ($sipAuthenticationUserName InstanceOf SIPAuthenticationUserName)
              ? $sipAuthenticationUserName
              : new SIPAuthenticationUserName($sipAuthenticationUserName);
@@ -189,6 +186,6 @@ class GroupTrunkGroupGetInstanceResponse14 extends ComplexType implements Comple
      */
     public function getSipAuthenticationUserName()
     {
-        return $this->sipAuthenticationUserName->getValue();
+        return ($this->sipAuthenticationUserName) ? $this->sipAuthenticationUserName->getValue() : null;
     }
 }

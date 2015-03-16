@@ -22,15 +22,15 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupCallCenterModifyRoutingPolicyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                 = 'GroupCallCenterModifyRoutingPolicyRequest';
-    protected $serviceProviderId    = null;
-    protected $groupId              = null;
-    protected $routingPolicy        = null;
-    protected $routingPriorityOrder = null;
+    public    $name = 'GroupCallCenterModifyRoutingPolicyRequest';
+    protected $serviceProviderId;
+    protected $groupId;
+    protected $routingPolicy;
+    protected $routingPriorityOrder;
 
     public function __construct(
-         $serviceProviderId,
-         $groupId,
+         $serviceProviderId = '',
+         $groupId = '',
          $routingPolicy = null,
          CallCenterRoutingPriorityOrder $routingPriorityOrder = null
     ) {
@@ -53,7 +53,6 @@ class GroupCallCenterModifyRoutingPolicyRequest extends ComplexType implements C
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
-        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
@@ -67,7 +66,7 @@ class GroupCallCenterModifyRoutingPolicyRequest extends ComplexType implements C
      */
     public function getServiceProviderId()
     {
-        return $this->serviceProviderId->getValue();
+        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
     }
 
     /**
@@ -75,7 +74,6 @@ class GroupCallCenterModifyRoutingPolicyRequest extends ComplexType implements C
      */
     public function setGroupId($groupId = null)
     {
-        if (!$groupId) return $this;
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
@@ -89,7 +87,7 @@ class GroupCallCenterModifyRoutingPolicyRequest extends ComplexType implements C
      */
     public function getGroupId()
     {
-        return $this->groupId->getValue();
+        return ($this->groupId) ? $this->groupId->getValue() : null;
     }
 
     /**
@@ -97,7 +95,6 @@ class GroupCallCenterModifyRoutingPolicyRequest extends ComplexType implements C
      */
     public function setRoutingPolicy($routingPolicy = null)
     {
-        if (!$routingPolicy) return $this;
         $this->routingPolicy = ($routingPolicy InstanceOf CallCenterRoutingPolicy)
              ? $routingPolicy
              : new CallCenterRoutingPolicy($routingPolicy);
@@ -111,7 +108,7 @@ class GroupCallCenterModifyRoutingPolicyRequest extends ComplexType implements C
      */
     public function getRoutingPolicy()
     {
-        return $this->routingPolicy->getValue();
+        return ($this->routingPolicy) ? $this->routingPolicy->getValue() : null;
     }
 
     /**
@@ -119,8 +116,9 @@ class GroupCallCenterModifyRoutingPolicyRequest extends ComplexType implements C
      */
     public function setRoutingPriorityOrder(CallCenterRoutingPriorityOrder $routingPriorityOrder = null)
     {
-        if (!$routingPriorityOrder) return $this;
-        $this->routingPriorityOrder = $routingPriorityOrder;
+        $this->routingPriorityOrder = ($routingPriorityOrder InstanceOf CallCenterRoutingPriorityOrder)
+             ? $routingPriorityOrder
+             : new CallCenterRoutingPriorityOrder($routingPriorityOrder);
         $this->routingPriorityOrder->setName('routingPriorityOrder');
         return $this;
     }

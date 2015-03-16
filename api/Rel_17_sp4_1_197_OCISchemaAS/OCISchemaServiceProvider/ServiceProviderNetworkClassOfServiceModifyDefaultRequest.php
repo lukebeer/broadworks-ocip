@@ -20,13 +20,13 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderNetworkClassOfServiceModifyDefaultRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                  = 'ServiceProviderNetworkClassOfServiceModifyDefaultRequest';
-    protected $serviceProviderId     = null;
-    protected $networkClassOfService = null;
+    public    $name = 'ServiceProviderNetworkClassOfServiceModifyDefaultRequest';
+    protected $serviceProviderId;
+    protected $networkClassOfService;
 
     public function __construct(
-         $serviceProviderId,
-         $networkClassOfService
+         $serviceProviderId = '',
+         $networkClassOfService = ''
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setNetworkClassOfService($networkClassOfService);
@@ -45,7 +45,6 @@ class ServiceProviderNetworkClassOfServiceModifyDefaultRequest extends ComplexTy
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
-        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
@@ -59,7 +58,7 @@ class ServiceProviderNetworkClassOfServiceModifyDefaultRequest extends ComplexTy
      */
     public function getServiceProviderId()
     {
-        return $this->serviceProviderId->getValue();
+        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
     }
 
     /**
@@ -67,7 +66,6 @@ class ServiceProviderNetworkClassOfServiceModifyDefaultRequest extends ComplexTy
      */
     public function setNetworkClassOfService($networkClassOfService = null)
     {
-        if (!$networkClassOfService) return $this;
         $this->networkClassOfService = ($networkClassOfService InstanceOf NetworkClassOfServiceName)
              ? $networkClassOfService
              : new NetworkClassOfServiceName($networkClassOfService);
@@ -81,6 +79,6 @@ class ServiceProviderNetworkClassOfServiceModifyDefaultRequest extends ComplexTy
      */
     public function getNetworkClassOfService()
     {
-        return $this->networkClassOfService->getValue();
+        return ($this->networkClassOfService) ? $this->networkClassOfService->getValue() : null;
     }
 }

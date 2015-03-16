@@ -24,12 +24,12 @@ use Broadworks_OCIP\core\Client\Client;
 class UserInstantConferencingGetConferenceRecordingListRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType  = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing\UserInstantConferencingGetConferenceRecordingListResponse';
-    public    $name          = 'UserInstantConferencingGetConferenceRecordingListRequest';
-    protected $userId        = null;
-    protected $conferenceKey = null;
+    public    $name = 'UserInstantConferencingGetConferenceRecordingListRequest';
+    protected $userId;
+    protected $conferenceKey;
 
     public function __construct(
-         $userId,
+         $userId = '',
          InstantConferencingConferenceKey $conferenceKey = null
     ) {
         $this->setUserId($userId);
@@ -49,7 +49,6 @@ class UserInstantConferencingGetConferenceRecordingListRequest extends ComplexTy
      */
     public function setUserId($userId = null)
     {
-        if (!$userId) return $this;
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
@@ -63,7 +62,7 @@ class UserInstantConferencingGetConferenceRecordingListRequest extends ComplexTy
      */
     public function getUserId()
     {
-        return $this->userId->getValue();
+        return ($this->userId) ? $this->userId->getValue() : null;
     }
 
     /**
@@ -71,8 +70,9 @@ class UserInstantConferencingGetConferenceRecordingListRequest extends ComplexTy
      */
     public function setConferenceKey(InstantConferencingConferenceKey $conferenceKey = null)
     {
-        if (!$conferenceKey) return $this;
-        $this->conferenceKey = $conferenceKey;
+        $this->conferenceKey = ($conferenceKey InstanceOf InstantConferencingConferenceKey)
+             ? $conferenceKey
+             : new InstantConferencingConferenceKey($conferenceKey);
         $this->conferenceKey->setName('conferenceKey');
         return $this;
     }

@@ -23,8 +23,8 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class EnterpriseBroadWorksMobileManagerGetHomeZoneListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name           = 'EnterpriseBroadWorksMobileManagerGetHomeZoneListResponse';
-    protected $homeZonesTable = null;
+    public    $name = 'EnterpriseBroadWorksMobileManagerGetHomeZoneListResponse';
+    protected $homeZonesTable;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaEnterprise\EnterpriseBroadWorksMobileManagerGetHomeZoneListResponse $response
@@ -39,7 +39,6 @@ class EnterpriseBroadWorksMobileManagerGetHomeZoneListResponse extends ComplexTy
      */
     public function setHomeZonesTable(TableType $homeZonesTable = null)
     {
-        if (!$homeZonesTable) return $this;
         $this->homeZonesTable = $homeZonesTable;
         $this->homeZonesTable->setName('homeZonesTable');
         return $this;

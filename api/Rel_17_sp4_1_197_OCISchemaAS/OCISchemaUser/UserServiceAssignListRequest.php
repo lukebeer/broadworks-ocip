@@ -22,13 +22,13 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserServiceAssignListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name            = 'UserServiceAssignListRequest';
-    protected $userId          = null;
-    protected $serviceName     = null;
-    protected $servicePackName = null;
+    public    $name = 'UserServiceAssignListRequest';
+    protected $userId;
+    protected $serviceName;
+    protected $servicePackName;
 
     public function __construct(
-         $userId,
+         $userId = '',
          $serviceName = null,
          $servicePackName = null
     ) {
@@ -50,7 +50,6 @@ class UserServiceAssignListRequest extends ComplexType implements ComplexInterfa
      */
     public function setUserId($userId = null)
     {
-        if (!$userId) return $this;
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
@@ -64,7 +63,7 @@ class UserServiceAssignListRequest extends ComplexType implements ComplexInterfa
      */
     public function getUserId()
     {
-        return $this->userId->getValue();
+        return ($this->userId) ? $this->userId->getValue() : null;
     }
 
     /**
@@ -72,7 +71,6 @@ class UserServiceAssignListRequest extends ComplexType implements ComplexInterfa
      */
     public function setServiceName($serviceName = null)
     {
-        if (!$serviceName) return $this;
         $this->serviceName = ($serviceName InstanceOf UserService)
              ? $serviceName
              : new UserService($serviceName);
@@ -86,7 +84,7 @@ class UserServiceAssignListRequest extends ComplexType implements ComplexInterfa
      */
     public function getServiceName()
     {
-        return $this->serviceName->getValue();
+        return ($this->serviceName) ? $this->serviceName->getValue() : null;
     }
 
     /**
@@ -94,7 +92,6 @@ class UserServiceAssignListRequest extends ComplexType implements ComplexInterfa
      */
     public function setServicePackName($servicePackName = null)
     {
-        if (!$servicePackName) return $this;
         $this->servicePackName = ($servicePackName InstanceOf ServicePackName)
              ? $servicePackName
              : new ServicePackName($servicePackName);
@@ -108,6 +105,6 @@ class UserServiceAssignListRequest extends ComplexType implements ComplexInterfa
      */
     public function getServicePackName()
     {
-        return $this->servicePackName->getValue();
+        return ($this->servicePackName) ? $this->servicePackName->getValue() : null;
     }
 }

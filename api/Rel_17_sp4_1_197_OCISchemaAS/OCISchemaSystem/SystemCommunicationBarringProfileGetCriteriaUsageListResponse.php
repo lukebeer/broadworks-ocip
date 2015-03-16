@@ -22,8 +22,8 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemCommunicationBarringProfileGetCriteriaUsageListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name         = 'SystemCommunicationBarringProfileGetCriteriaUsageListResponse';
-    protected $profileTable = null;
+    public    $name = 'SystemCommunicationBarringProfileGetCriteriaUsageListResponse';
+    protected $profileTable;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemCommunicationBarringProfileGetCriteriaUsageListResponse $response
@@ -38,7 +38,6 @@ class SystemCommunicationBarringProfileGetCriteriaUsageListResponse extends Comp
      */
     public function setProfileTable(TableType $profileTable = null)
     {
-        if (!$profileTable) return $this;
         $this->profileTable = $profileTable;
         $this->profileTable->setName('profileTable');
         return $this;

@@ -21,12 +21,12 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemExpensiveCallTypeAddRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                   = 'SystemExpensiveCallTypeAddRequest';
-    protected $alternateCallIndicator = null;
-    protected $treatmentAudioFile     = null;
+    public    $name = 'SystemExpensiveCallTypeAddRequest';
+    protected $alternateCallIndicator;
+    protected $treatmentAudioFile;
 
     public function __construct(
-         $alternateCallIndicator,
+         $alternateCallIndicator = '',
          $treatmentAudioFile = null
     ) {
         $this->setAlternateCallIndicator($alternateCallIndicator);
@@ -46,7 +46,6 @@ class SystemExpensiveCallTypeAddRequest extends ComplexType implements ComplexIn
      */
     public function setAlternateCallIndicator($alternateCallIndicator = null)
     {
-        if (!$alternateCallIndicator) return $this;
         $this->alternateCallIndicator = ($alternateCallIndicator InstanceOf NetworkServerAlternateCallIndicator)
              ? $alternateCallIndicator
              : new NetworkServerAlternateCallIndicator($alternateCallIndicator);
@@ -60,7 +59,7 @@ class SystemExpensiveCallTypeAddRequest extends ComplexType implements ComplexIn
      */
     public function getAlternateCallIndicator()
     {
-        return $this->alternateCallIndicator->getValue();
+        return ($this->alternateCallIndicator) ? $this->alternateCallIndicator->getValue() : null;
     }
 
     /**
@@ -68,7 +67,6 @@ class SystemExpensiveCallTypeAddRequest extends ComplexType implements ComplexIn
      */
     public function setTreatmentAudioFile($treatmentAudioFile = null)
     {
-        if (!$treatmentAudioFile) return $this;
         $this->treatmentAudioFile = ($treatmentAudioFile InstanceOf MediaTreatmentFileName)
              ? $treatmentAudioFile
              : new MediaTreatmentFileName($treatmentAudioFile);
@@ -82,6 +80,6 @@ class SystemExpensiveCallTypeAddRequest extends ComplexType implements ComplexIn
      */
     public function getTreatmentAudioFile()
     {
-        return $this->treatmentAudioFile->getValue();
+        return ($this->treatmentAudioFile) ? $this->treatmentAudioFile->getValue() : null;
     }
 }

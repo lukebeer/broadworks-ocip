@@ -20,13 +20,13 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemPerformanceMeasurementReportingGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                             = 'SystemPerformanceMeasurementReportingGetResponse';
-    protected $isActive                         = null;
-    protected $reportingInterval                = null;
-    protected $resetMeasurementsAfterEachReport = null;
-    protected $reportEnterprise                 = null;
-    protected $reportServiceProvider            = null;
-    protected $reportDevice                     = null;
+    public    $name = 'SystemPerformanceMeasurementReportingGetResponse';
+    protected $isActive;
+    protected $reportingInterval;
+    protected $resetMeasurementsAfterEachReport;
+    protected $reportEnterprise;
+    protected $reportServiceProvider;
+    protected $reportDevice;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemPerformanceMeasurementReportingGetResponse $response
@@ -41,7 +41,6 @@ class SystemPerformanceMeasurementReportingGetResponse extends ComplexType imple
      */
     public function setIsActive($isActive = null)
     {
-        if (!$isActive) return $this;
         $this->isActive = new PrimitiveType($isActive);
         $this->isActive->setName('isActive');
         return $this;
@@ -53,7 +52,7 @@ class SystemPerformanceMeasurementReportingGetResponse extends ComplexType imple
      */
     public function getIsActive()
     {
-        return $this->isActive->getValue();
+        return ($this->isActive) ? $this->isActive->getValue() : null;
     }
 
     /**
@@ -61,7 +60,6 @@ class SystemPerformanceMeasurementReportingGetResponse extends ComplexType imple
      */
     public function setReportingInterval($reportingInterval = null)
     {
-        if (!$reportingInterval) return $this;
         $this->reportingInterval = ($reportingInterval InstanceOf PerformanceMeasurementReportingIntervalMinutes)
              ? $reportingInterval
              : new PerformanceMeasurementReportingIntervalMinutes($reportingInterval);
@@ -75,7 +73,7 @@ class SystemPerformanceMeasurementReportingGetResponse extends ComplexType imple
      */
     public function getReportingInterval()
     {
-        return $this->reportingInterval->getValue();
+        return ($this->reportingInterval) ? $this->reportingInterval->getValue() : null;
     }
 
     /**
@@ -83,7 +81,6 @@ class SystemPerformanceMeasurementReportingGetResponse extends ComplexType imple
      */
     public function setResetMeasurementsAfterEachReport($resetMeasurementsAfterEachReport = null)
     {
-        if (!$resetMeasurementsAfterEachReport) return $this;
         $this->resetMeasurementsAfterEachReport = new PrimitiveType($resetMeasurementsAfterEachReport);
         $this->resetMeasurementsAfterEachReport->setName('resetMeasurementsAfterEachReport');
         return $this;
@@ -95,7 +92,7 @@ class SystemPerformanceMeasurementReportingGetResponse extends ComplexType imple
      */
     public function getResetMeasurementsAfterEachReport()
     {
-        return $this->resetMeasurementsAfterEachReport->getValue();
+        return ($this->resetMeasurementsAfterEachReport) ? $this->resetMeasurementsAfterEachReport->getValue() : null;
     }
 
     /**
@@ -103,7 +100,6 @@ class SystemPerformanceMeasurementReportingGetResponse extends ComplexType imple
      */
     public function setReportEnterprise($reportEnterprise = null)
     {
-        if (!$reportEnterprise) return $this;
         $this->reportEnterprise = new PrimitiveType($reportEnterprise);
         $this->reportEnterprise->setName('reportEnterprise');
         return $this;
@@ -115,7 +111,7 @@ class SystemPerformanceMeasurementReportingGetResponse extends ComplexType imple
      */
     public function getReportEnterprise()
     {
-        return $this->reportEnterprise->getValue();
+        return ($this->reportEnterprise) ? $this->reportEnterprise->getValue() : null;
     }
 
     /**
@@ -123,7 +119,6 @@ class SystemPerformanceMeasurementReportingGetResponse extends ComplexType imple
      */
     public function setReportServiceProvider($reportServiceProvider = null)
     {
-        if (!$reportServiceProvider) return $this;
         $this->reportServiceProvider = new PrimitiveType($reportServiceProvider);
         $this->reportServiceProvider->setName('reportServiceProvider');
         return $this;
@@ -135,7 +130,7 @@ class SystemPerformanceMeasurementReportingGetResponse extends ComplexType imple
      */
     public function getReportServiceProvider()
     {
-        return $this->reportServiceProvider->getValue();
+        return ($this->reportServiceProvider) ? $this->reportServiceProvider->getValue() : null;
     }
 
     /**
@@ -143,7 +138,6 @@ class SystemPerformanceMeasurementReportingGetResponse extends ComplexType imple
      */
     public function setReportDevice($reportDevice = null)
     {
-        if (!$reportDevice) return $this;
         $this->reportDevice = new PrimitiveType($reportDevice);
         $this->reportDevice->setName('reportDevice');
         return $this;
@@ -155,6 +149,6 @@ class SystemPerformanceMeasurementReportingGetResponse extends ComplexType imple
      */
     public function getReportDevice()
     {
-        return $this->reportDevice->getValue();
+        return ($this->reportDevice) ? $this->reportDevice->getValue() : null;
     }
 }

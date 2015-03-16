@@ -20,11 +20,11 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemTreatmentMappingCallBlockingServiceDeleteRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                = 'SystemTreatmentMappingCallBlockingServiceDeleteRequest';
-    protected $callBlockingService = null;
+    public    $name = 'SystemTreatmentMappingCallBlockingServiceDeleteRequest';
+    protected $callBlockingService;
 
     public function __construct(
-         $callBlockingService
+         $callBlockingService = ''
     ) {
         $this->setCallBlockingService($callBlockingService);
     }
@@ -42,7 +42,6 @@ class SystemTreatmentMappingCallBlockingServiceDeleteRequest extends ComplexType
      */
     public function setCallBlockingService($callBlockingService = null)
     {
-        if (!$callBlockingService) return $this;
         $this->callBlockingService = ($callBlockingService InstanceOf CallBlockingService)
              ? $callBlockingService
              : new CallBlockingService($callBlockingService);
@@ -56,6 +55,6 @@ class SystemTreatmentMappingCallBlockingServiceDeleteRequest extends ComplexType
      */
     public function getCallBlockingService()
     {
-        return $this->callBlockingService->getValue();
+        return ($this->callBlockingService) ? $this->callBlockingService->getValue() : null;
     }
 }

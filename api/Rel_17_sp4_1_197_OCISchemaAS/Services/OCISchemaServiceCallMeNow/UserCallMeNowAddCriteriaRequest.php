@@ -25,21 +25,21 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserCallMeNowAddCriteriaRequest extends ComplexType implements ComplexInterface
 {
-    public    $name            = 'UserCallMeNowAddCriteriaRequest';
-    protected $userId          = null;
-    protected $criteriaName    = null;
-    protected $timeSchedule    = null;
-    protected $holidaySchedule = null;
-    protected $rejectCall      = null;
-    protected $toDnCriteria    = null;
+    public    $name = 'UserCallMeNowAddCriteriaRequest';
+    protected $userId;
+    protected $criteriaName;
+    protected $timeSchedule;
+    protected $holidaySchedule;
+    protected $rejectCall;
+    protected $toDnCriteria;
 
     public function __construct(
-         $userId,
-         $criteriaName,
+         $userId = '',
+         $criteriaName = '',
          TimeSchedule $timeSchedule = null,
          HolidaySchedule $holidaySchedule = null,
-         $rejectCall,
-         CallMeNowToDnCriteria $toDnCriteria
+         $rejectCall = '',
+         CallMeNowToDnCriteria $toDnCriteria = ''
     ) {
         $this->setUserId($userId);
         $this->setCriteriaName($criteriaName);
@@ -62,7 +62,6 @@ class UserCallMeNowAddCriteriaRequest extends ComplexType implements ComplexInte
      */
     public function setUserId($userId = null)
     {
-        if (!$userId) return $this;
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
@@ -76,7 +75,7 @@ class UserCallMeNowAddCriteriaRequest extends ComplexType implements ComplexInte
      */
     public function getUserId()
     {
-        return $this->userId->getValue();
+        return ($this->userId) ? $this->userId->getValue() : null;
     }
 
     /**
@@ -84,7 +83,6 @@ class UserCallMeNowAddCriteriaRequest extends ComplexType implements ComplexInte
      */
     public function setCriteriaName($criteriaName = null)
     {
-        if (!$criteriaName) return $this;
         $this->criteriaName = ($criteriaName InstanceOf CriteriaName)
              ? $criteriaName
              : new CriteriaName($criteriaName);
@@ -98,7 +96,7 @@ class UserCallMeNowAddCriteriaRequest extends ComplexType implements ComplexInte
      */
     public function getCriteriaName()
     {
-        return $this->criteriaName->getValue();
+        return ($this->criteriaName) ? $this->criteriaName->getValue() : null;
     }
 
     /**
@@ -106,8 +104,9 @@ class UserCallMeNowAddCriteriaRequest extends ComplexType implements ComplexInte
      */
     public function setTimeSchedule(TimeSchedule $timeSchedule = null)
     {
-        if (!$timeSchedule) return $this;
-        $this->timeSchedule = $timeSchedule;
+        $this->timeSchedule = ($timeSchedule InstanceOf TimeSchedule)
+             ? $timeSchedule
+             : new TimeSchedule($timeSchedule);
         $this->timeSchedule->setName('timeSchedule');
         return $this;
     }
@@ -126,8 +125,9 @@ class UserCallMeNowAddCriteriaRequest extends ComplexType implements ComplexInte
      */
     public function setHolidaySchedule(HolidaySchedule $holidaySchedule = null)
     {
-        if (!$holidaySchedule) return $this;
-        $this->holidaySchedule = $holidaySchedule;
+        $this->holidaySchedule = ($holidaySchedule InstanceOf HolidaySchedule)
+             ? $holidaySchedule
+             : new HolidaySchedule($holidaySchedule);
         $this->holidaySchedule->setName('holidaySchedule');
         return $this;
     }
@@ -146,7 +146,6 @@ class UserCallMeNowAddCriteriaRequest extends ComplexType implements ComplexInte
      */
     public function setRejectCall($rejectCall = null)
     {
-        if (!$rejectCall) return $this;
         $this->rejectCall = new PrimitiveType($rejectCall);
         $this->rejectCall->setName('rejectCall');
         return $this;
@@ -158,7 +157,7 @@ class UserCallMeNowAddCriteriaRequest extends ComplexType implements ComplexInte
      */
     public function getRejectCall()
     {
-        return $this->rejectCall->getValue();
+        return ($this->rejectCall) ? $this->rejectCall->getValue() : null;
     }
 
     /**
@@ -166,8 +165,9 @@ class UserCallMeNowAddCriteriaRequest extends ComplexType implements ComplexInte
      */
     public function setToDnCriteria(CallMeNowToDnCriteria $toDnCriteria = null)
     {
-        if (!$toDnCriteria) return $this;
-        $this->toDnCriteria = $toDnCriteria;
+        $this->toDnCriteria = ($toDnCriteria InstanceOf CallMeNowToDnCriteria)
+             ? $toDnCriteria
+             : new CallMeNowToDnCriteria($toDnCriteria);
         $this->toDnCriteria->setName('toDnCriteria');
         return $this;
     }

@@ -21,11 +21,11 @@ use Broadworks_OCIP\core\Client\Client;
 class SystemScheduleGetEventListRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemScheduleGetEventListResponse';
-    public    $name        = 'SystemScheduleGetEventListRequest';
-    protected $scheduleKey = null;
+    public    $name = 'SystemScheduleGetEventListRequest';
+    protected $scheduleKey;
 
     public function __construct(
-         ScheduleKey $scheduleKey
+         ScheduleKey $scheduleKey = ''
     ) {
         $this->setScheduleKey($scheduleKey);
     }
@@ -43,8 +43,9 @@ class SystemScheduleGetEventListRequest extends ComplexType implements ComplexIn
      */
     public function setScheduleKey(ScheduleKey $scheduleKey = null)
     {
-        if (!$scheduleKey) return $this;
-        $this->scheduleKey = $scheduleKey;
+        $this->scheduleKey = ($scheduleKey InstanceOf ScheduleKey)
+             ? $scheduleKey
+             : new ScheduleKey($scheduleKey);
         $this->scheduleKey->setName('scheduleKey');
         return $this;
     }

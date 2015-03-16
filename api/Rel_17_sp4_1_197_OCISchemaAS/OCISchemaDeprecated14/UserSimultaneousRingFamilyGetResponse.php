@@ -22,10 +22,10 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserSimultaneousRingFamilyGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name               = 'UserSimultaneousRingFamilyGetResponse';
-    protected $isActive           = null;
-    protected $incomingCalls      = null;
-    protected $simRingPhoneNumber = null;
+    public    $name = 'UserSimultaneousRingFamilyGetResponse';
+    protected $isActive;
+    protected $incomingCalls;
+    protected $simRingPhoneNumber;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\UserSimultaneousRingFamilyGetResponse $response
@@ -40,7 +40,6 @@ class UserSimultaneousRingFamilyGetResponse extends ComplexType implements Compl
      */
     public function setIsActive($isActive = null)
     {
-        if (!$isActive) return $this;
         $this->isActive = new PrimitiveType($isActive);
         $this->isActive->setName('isActive');
         return $this;
@@ -52,7 +51,7 @@ class UserSimultaneousRingFamilyGetResponse extends ComplexType implements Compl
      */
     public function getIsActive()
     {
-        return $this->isActive->getValue();
+        return ($this->isActive) ? $this->isActive->getValue() : null;
     }
 
     /**
@@ -60,7 +59,6 @@ class UserSimultaneousRingFamilyGetResponse extends ComplexType implements Compl
      */
     public function setIncomingCalls($incomingCalls = null)
     {
-        if (!$incomingCalls) return $this;
         $this->incomingCalls = ($incomingCalls InstanceOf SimultaneousRingSelection)
              ? $incomingCalls
              : new SimultaneousRingSelection($incomingCalls);
@@ -74,7 +72,7 @@ class UserSimultaneousRingFamilyGetResponse extends ComplexType implements Compl
      */
     public function getIncomingCalls()
     {
-        return $this->incomingCalls->getValue();
+        return ($this->incomingCalls) ? $this->incomingCalls->getValue() : null;
     }
 
     /**
@@ -82,7 +80,6 @@ class UserSimultaneousRingFamilyGetResponse extends ComplexType implements Compl
      */
     public function setSimRingPhoneNumber($simRingPhoneNumber = null)
     {
-        if (!$simRingPhoneNumber) return $this;
         $this->simRingPhoneNumber = ($simRingPhoneNumber InstanceOf OutgoingDNorSIPURI)
              ? $simRingPhoneNumber
              : new OutgoingDNorSIPURI($simRingPhoneNumber);
@@ -96,6 +93,6 @@ class UserSimultaneousRingFamilyGetResponse extends ComplexType implements Compl
      */
     public function getSimRingPhoneNumber()
     {
-        return $this->simRingPhoneNumber->getValue();
+        return ($this->simRingPhoneNumber) ? $this->simRingPhoneNumber->getValue() : null;
     }
 }

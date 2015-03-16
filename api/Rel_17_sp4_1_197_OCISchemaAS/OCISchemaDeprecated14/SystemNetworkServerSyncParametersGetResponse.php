@@ -20,8 +20,8 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemNetworkServerSyncParametersGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name       = 'SystemNetworkServerSyncParametersGetResponse';
-    protected $enableSync = null;
+    public    $name = 'SystemNetworkServerSyncParametersGetResponse';
+    protected $enableSync;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\SystemNetworkServerSyncParametersGetResponse $response
@@ -36,7 +36,6 @@ class SystemNetworkServerSyncParametersGetResponse extends ComplexType implement
      */
     public function setEnableSync($enableSync = null)
     {
-        if (!$enableSync) return $this;
         $this->enableSync = new PrimitiveType($enableSync);
         $this->enableSync->setName('enableSync');
         return $this;
@@ -48,6 +47,6 @@ class SystemNetworkServerSyncParametersGetResponse extends ComplexType implement
      */
     public function getEnableSync()
     {
-        return $this->enableSync->getValue();
+        return ($this->enableSync) ? $this->enableSync->getValue() : null;
     }
 }

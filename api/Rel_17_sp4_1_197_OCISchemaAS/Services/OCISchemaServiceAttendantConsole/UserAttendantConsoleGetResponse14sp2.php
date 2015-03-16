@@ -23,12 +23,12 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserAttendantConsoleGetResponse14sp2 extends ComplexType implements ComplexInterface
 {
-    public    $name                       = 'UserAttendantConsoleGetResponse14sp2';
-    protected $launchOnLogin              = null;
-    protected $allowUserConfigCallDetails = null;
-    protected $allowUserViewCallDetails   = null;
-    protected $displayColumn              = null;
-    protected $monitoredUserTable         = null;
+    public    $name = 'UserAttendantConsoleGetResponse14sp2';
+    protected $launchOnLogin;
+    protected $allowUserConfigCallDetails;
+    protected $allowUserViewCallDetails;
+    protected $displayColumn;
+    protected $monitoredUserTable;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceAttendantConsole\UserAttendantConsoleGetResponse14sp2 $response
@@ -43,7 +43,6 @@ class UserAttendantConsoleGetResponse14sp2 extends ComplexType implements Comple
      */
     public function setLaunchOnLogin($launchOnLogin = null)
     {
-        if (!$launchOnLogin) return $this;
         $this->launchOnLogin = new PrimitiveType($launchOnLogin);
         $this->launchOnLogin->setName('launchOnLogin');
         return $this;
@@ -55,7 +54,7 @@ class UserAttendantConsoleGetResponse14sp2 extends ComplexType implements Comple
      */
     public function getLaunchOnLogin()
     {
-        return $this->launchOnLogin->getValue();
+        return ($this->launchOnLogin) ? $this->launchOnLogin->getValue() : null;
     }
 
     /**
@@ -63,7 +62,6 @@ class UserAttendantConsoleGetResponse14sp2 extends ComplexType implements Comple
      */
     public function setAllowUserConfigCallDetails($allowUserConfigCallDetails = null)
     {
-        if (!$allowUserConfigCallDetails) return $this;
         $this->allowUserConfigCallDetails = new PrimitiveType($allowUserConfigCallDetails);
         $this->allowUserConfigCallDetails->setName('allowUserConfigCallDetails');
         return $this;
@@ -75,7 +73,7 @@ class UserAttendantConsoleGetResponse14sp2 extends ComplexType implements Comple
      */
     public function getAllowUserConfigCallDetails()
     {
-        return $this->allowUserConfigCallDetails->getValue();
+        return ($this->allowUserConfigCallDetails) ? $this->allowUserConfigCallDetails->getValue() : null;
     }
 
     /**
@@ -83,7 +81,6 @@ class UserAttendantConsoleGetResponse14sp2 extends ComplexType implements Comple
      */
     public function setAllowUserViewCallDetails($allowUserViewCallDetails = null)
     {
-        if (!$allowUserViewCallDetails) return $this;
         $this->allowUserViewCallDetails = new PrimitiveType($allowUserViewCallDetails);
         $this->allowUserViewCallDetails->setName('allowUserViewCallDetails');
         return $this;
@@ -95,7 +92,7 @@ class UserAttendantConsoleGetResponse14sp2 extends ComplexType implements Comple
      */
     public function getAllowUserViewCallDetails()
     {
-        return $this->allowUserViewCallDetails->getValue();
+        return ($this->allowUserViewCallDetails) ? $this->allowUserViewCallDetails->getValue() : null;
     }
 
     /**
@@ -103,7 +100,6 @@ class UserAttendantConsoleGetResponse14sp2 extends ComplexType implements Comple
      */
     public function setDisplayColumn($displayColumn = null)
     {
-        if (!$displayColumn) return $this;
         $this->displayColumn = ($displayColumn InstanceOf AttendantConsoleDisplayColumn)
              ? $displayColumn
              : new AttendantConsoleDisplayColumn($displayColumn);
@@ -117,7 +113,7 @@ class UserAttendantConsoleGetResponse14sp2 extends ComplexType implements Comple
      */
     public function getDisplayColumn()
     {
-        return $this->displayColumn->getValue();
+        return ($this->displayColumn) ? $this->displayColumn->getValue() : null;
     }
 
     /**
@@ -125,7 +121,6 @@ class UserAttendantConsoleGetResponse14sp2 extends ComplexType implements Comple
      */
     public function setMonitoredUserTable(TableType $monitoredUserTable = null)
     {
-        if (!$monitoredUserTable) return $this;
         $this->monitoredUserTable = $monitoredUserTable;
         $this->monitoredUserTable->setName('monitoredUserTable');
         return $this;

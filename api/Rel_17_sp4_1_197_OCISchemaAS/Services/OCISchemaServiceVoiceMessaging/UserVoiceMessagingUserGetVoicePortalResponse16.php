@@ -21,11 +21,11 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserVoiceMessagingUserGetVoicePortalResponse16 extends ComplexType implements ComplexInterface
 {
-    public    $name                                 = 'UserVoiceMessagingUserGetVoicePortalResponse16';
-    protected $usePersonalizedName                  = null;
-    protected $voicePortalAutoLogin                 = null;
-    protected $personalizedNameAudioFileDescription = null;
-    protected $personalizedNameMediaType            = null;
+    public    $name = 'UserVoiceMessagingUserGetVoicePortalResponse16';
+    protected $usePersonalizedName;
+    protected $voicePortalAutoLogin;
+    protected $personalizedNameAudioFileDescription;
+    protected $personalizedNameMediaType;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceVoiceMessaging\UserVoiceMessagingUserGetVoicePortalResponse16 $response
@@ -40,7 +40,6 @@ class UserVoiceMessagingUserGetVoicePortalResponse16 extends ComplexType impleme
      */
     public function setUsePersonalizedName($usePersonalizedName = null)
     {
-        if (!$usePersonalizedName) return $this;
         $this->usePersonalizedName = new PrimitiveType($usePersonalizedName);
         $this->usePersonalizedName->setName('usePersonalizedName');
         return $this;
@@ -52,7 +51,7 @@ class UserVoiceMessagingUserGetVoicePortalResponse16 extends ComplexType impleme
      */
     public function getUsePersonalizedName()
     {
-        return $this->usePersonalizedName->getValue();
+        return ($this->usePersonalizedName) ? $this->usePersonalizedName->getValue() : null;
     }
 
     /**
@@ -60,7 +59,6 @@ class UserVoiceMessagingUserGetVoicePortalResponse16 extends ComplexType impleme
      */
     public function setVoicePortalAutoLogin($voicePortalAutoLogin = null)
     {
-        if (!$voicePortalAutoLogin) return $this;
         $this->voicePortalAutoLogin = new PrimitiveType($voicePortalAutoLogin);
         $this->voicePortalAutoLogin->setName('voicePortalAutoLogin');
         return $this;
@@ -72,7 +70,7 @@ class UserVoiceMessagingUserGetVoicePortalResponse16 extends ComplexType impleme
      */
     public function getVoicePortalAutoLogin()
     {
-        return $this->voicePortalAutoLogin->getValue();
+        return ($this->voicePortalAutoLogin) ? $this->voicePortalAutoLogin->getValue() : null;
     }
 
     /**
@@ -80,7 +78,6 @@ class UserVoiceMessagingUserGetVoicePortalResponse16 extends ComplexType impleme
      */
     public function setPersonalizedNameAudioFileDescription($personalizedNameAudioFileDescription = null)
     {
-        if (!$personalizedNameAudioFileDescription) return $this;
         $this->personalizedNameAudioFileDescription = ($personalizedNameAudioFileDescription InstanceOf FileDescription)
              ? $personalizedNameAudioFileDescription
              : new FileDescription($personalizedNameAudioFileDescription);
@@ -94,7 +91,7 @@ class UserVoiceMessagingUserGetVoicePortalResponse16 extends ComplexType impleme
      */
     public function getPersonalizedNameAudioFileDescription()
     {
-        return $this->personalizedNameAudioFileDescription->getValue();
+        return ($this->personalizedNameAudioFileDescription) ? $this->personalizedNameAudioFileDescription->getValue() : null;
     }
 
     /**
@@ -102,7 +99,6 @@ class UserVoiceMessagingUserGetVoicePortalResponse16 extends ComplexType impleme
      */
     public function setPersonalizedNameMediaType($personalizedNameMediaType = null)
     {
-        if (!$personalizedNameMediaType) return $this;
         $this->personalizedNameMediaType = ($personalizedNameMediaType InstanceOf MediaFileType)
              ? $personalizedNameMediaType
              : new MediaFileType($personalizedNameMediaType);
@@ -116,6 +112,6 @@ class UserVoiceMessagingUserGetVoicePortalResponse16 extends ComplexType impleme
      */
     public function getPersonalizedNameMediaType()
     {
-        return $this->personalizedNameMediaType->getValue();
+        return ($this->personalizedNameMediaType) ? $this->personalizedNameMediaType->getValue() : null;
     }
 }

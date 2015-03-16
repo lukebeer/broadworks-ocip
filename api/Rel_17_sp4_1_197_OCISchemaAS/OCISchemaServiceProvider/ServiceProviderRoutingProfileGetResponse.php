@@ -19,8 +19,8 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderRoutingProfileGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name           = 'ServiceProviderRoutingProfileGetResponse';
-    protected $routingProfile = null;
+    public    $name = 'ServiceProviderRoutingProfileGetResponse';
+    protected $routingProfile;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderRoutingProfileGetResponse $response
@@ -35,7 +35,6 @@ class ServiceProviderRoutingProfileGetResponse extends ComplexType implements Co
      */
     public function setRoutingProfile($routingProfile = null)
     {
-        if (!$routingProfile) return $this;
         $this->routingProfile = ($routingProfile InstanceOf RoutingProfile)
              ? $routingProfile
              : new RoutingProfile($routingProfile);
@@ -49,6 +48,6 @@ class ServiceProviderRoutingProfileGetResponse extends ComplexType implements Co
      */
     public function getRoutingProfile()
     {
-        return $this->routingProfile->getValue();
+        return ($this->routingProfile) ? $this->routingProfile->getValue() : null;
     }
 }

@@ -20,9 +20,9 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserOutlookIntegrationGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                      = 'UserOutlookIntegrationGetResponse';
-    protected $isActive                  = null;
-    protected $contactRetrievalSelection = null;
+    public    $name = 'UserOutlookIntegrationGetResponse';
+    protected $isActive;
+    protected $contactRetrievalSelection;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceOutlookIntegration\UserOutlookIntegrationGetResponse $response
@@ -37,7 +37,6 @@ class UserOutlookIntegrationGetResponse extends ComplexType implements ComplexIn
      */
     public function setIsActive($isActive = null)
     {
-        if (!$isActive) return $this;
         $this->isActive = new PrimitiveType($isActive);
         $this->isActive->setName('isActive');
         return $this;
@@ -49,7 +48,7 @@ class UserOutlookIntegrationGetResponse extends ComplexType implements ComplexIn
      */
     public function getIsActive()
     {
-        return $this->isActive->getValue();
+        return ($this->isActive) ? $this->isActive->getValue() : null;
     }
 
     /**
@@ -57,7 +56,6 @@ class UserOutlookIntegrationGetResponse extends ComplexType implements ComplexIn
      */
     public function setContactRetrievalSelection($contactRetrievalSelection = null)
     {
-        if (!$contactRetrievalSelection) return $this;
         $this->contactRetrievalSelection = ($contactRetrievalSelection InstanceOf OutlookIntegrationContactRetrievalSelection)
              ? $contactRetrievalSelection
              : new OutlookIntegrationContactRetrievalSelection($contactRetrievalSelection);
@@ -71,6 +69,6 @@ class UserOutlookIntegrationGetResponse extends ComplexType implements ComplexIn
      */
     public function getContactRetrievalSelection()
     {
-        return $this->contactRetrievalSelection->getValue();
+        return ($this->contactRetrievalSelection) ? $this->contactRetrievalSelection->getValue() : null;
     }
 }

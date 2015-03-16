@@ -22,11 +22,11 @@ use Broadworks_OCIP\core\Client\Client;
 class ServiceProviderNetworkClassOfServiceGetAssignedListRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderNetworkClassOfServiceGetAssignedListResponse';
-    public    $name              = 'ServiceProviderNetworkClassOfServiceGetAssignedListRequest';
-    protected $serviceProviderId = null;
+    public    $name = 'ServiceProviderNetworkClassOfServiceGetAssignedListRequest';
+    protected $serviceProviderId;
 
     public function __construct(
-         $serviceProviderId
+         $serviceProviderId = ''
     ) {
         $this->setServiceProviderId($serviceProviderId);
     }
@@ -44,7 +44,6 @@ class ServiceProviderNetworkClassOfServiceGetAssignedListRequest extends Complex
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
-        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
@@ -58,6 +57,6 @@ class ServiceProviderNetworkClassOfServiceGetAssignedListRequest extends Complex
      */
     public function getServiceProviderId()
     {
-        return $this->serviceProviderId->getValue();
+        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
     }
 }

@@ -20,9 +20,9 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserRemoteOfficeGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                    = 'UserRemoteOfficeGetResponse';
-    protected $isActive                = null;
-    protected $remoteOfficePhoneNumber = null;
+    public    $name = 'UserRemoteOfficeGetResponse';
+    protected $isActive;
+    protected $remoteOfficePhoneNumber;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceRemoteOffice\UserRemoteOfficeGetResponse $response
@@ -37,7 +37,6 @@ class UserRemoteOfficeGetResponse extends ComplexType implements ComplexInterfac
      */
     public function setIsActive($isActive = null)
     {
-        if (!$isActive) return $this;
         $this->isActive = new PrimitiveType($isActive);
         $this->isActive->setName('isActive');
         return $this;
@@ -49,7 +48,7 @@ class UserRemoteOfficeGetResponse extends ComplexType implements ComplexInterfac
      */
     public function getIsActive()
     {
-        return $this->isActive->getValue();
+        return ($this->isActive) ? $this->isActive->getValue() : null;
     }
 
     /**
@@ -57,7 +56,6 @@ class UserRemoteOfficeGetResponse extends ComplexType implements ComplexInterfac
      */
     public function setRemoteOfficePhoneNumber($remoteOfficePhoneNumber = null)
     {
-        if (!$remoteOfficePhoneNumber) return $this;
         $this->remoteOfficePhoneNumber = ($remoteOfficePhoneNumber InstanceOf OutgoingDNorSIPURI)
              ? $remoteOfficePhoneNumber
              : new OutgoingDNorSIPURI($remoteOfficePhoneNumber);
@@ -71,6 +69,6 @@ class UserRemoteOfficeGetResponse extends ComplexType implements ComplexInterfac
      */
     public function getRemoteOfficePhoneNumber()
     {
-        return $this->remoteOfficePhoneNumber->getValue();
+        return ($this->remoteOfficePhoneNumber) ? $this->remoteOfficePhoneNumber->getValue() : null;
     }
 }

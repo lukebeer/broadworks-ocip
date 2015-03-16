@@ -20,11 +20,11 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemTreatmentMappingAccessSIPStatusDeleteRequest extends ComplexType implements ComplexInterface
 {
-    public    $name          = 'SystemTreatmentMappingAccessSIPStatusDeleteRequest';
-    protected $sipStatusCode = null;
+    public    $name = 'SystemTreatmentMappingAccessSIPStatusDeleteRequest';
+    protected $sipStatusCode;
 
     public function __construct(
-         $sipStatusCode
+         $sipStatusCode = ''
     ) {
         $this->setSipStatusCode($sipStatusCode);
     }
@@ -42,7 +42,6 @@ class SystemTreatmentMappingAccessSIPStatusDeleteRequest extends ComplexType imp
      */
     public function setSipStatusCode($sipStatusCode = null)
     {
-        if (!$sipStatusCode) return $this;
         $this->sipStatusCode = ($sipStatusCode InstanceOf SIPFailureStatusCode)
              ? $sipStatusCode
              : new SIPFailureStatusCode($sipStatusCode);
@@ -56,6 +55,6 @@ class SystemTreatmentMappingAccessSIPStatusDeleteRequest extends ComplexType imp
      */
     public function getSipStatusCode()
     {
-        return $this->sipStatusCode->getValue();
+        return ($this->sipStatusCode) ? $this->sipStatusCode->getValue() : null;
     }
 }

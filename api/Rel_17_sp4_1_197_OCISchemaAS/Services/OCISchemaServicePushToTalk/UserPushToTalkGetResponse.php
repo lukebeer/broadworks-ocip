@@ -24,11 +24,11 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserPushToTalkGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                        = 'UserPushToTalkGetResponse';
-    protected $allowAutoAnswer             = null;
-    protected $outgoingConnectionSelection = null;
-    protected $accessListSelection         = null;
-    protected $selectedUserTable           = null;
+    public    $name = 'UserPushToTalkGetResponse';
+    protected $allowAutoAnswer;
+    protected $outgoingConnectionSelection;
+    protected $accessListSelection;
+    protected $selectedUserTable;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServicePushToTalk\UserPushToTalkGetResponse $response
@@ -43,7 +43,6 @@ class UserPushToTalkGetResponse extends ComplexType implements ComplexInterface
      */
     public function setAllowAutoAnswer($allowAutoAnswer = null)
     {
-        if (!$allowAutoAnswer) return $this;
         $this->allowAutoAnswer = new PrimitiveType($allowAutoAnswer);
         $this->allowAutoAnswer->setName('allowAutoAnswer');
         return $this;
@@ -55,7 +54,7 @@ class UserPushToTalkGetResponse extends ComplexType implements ComplexInterface
      */
     public function getAllowAutoAnswer()
     {
-        return $this->allowAutoAnswer->getValue();
+        return ($this->allowAutoAnswer) ? $this->allowAutoAnswer->getValue() : null;
     }
 
     /**
@@ -63,7 +62,6 @@ class UserPushToTalkGetResponse extends ComplexType implements ComplexInterface
      */
     public function setOutgoingConnectionSelection($outgoingConnectionSelection = null)
     {
-        if (!$outgoingConnectionSelection) return $this;
         $this->outgoingConnectionSelection = ($outgoingConnectionSelection InstanceOf PushToTalkOutgoingConnectionSelection)
              ? $outgoingConnectionSelection
              : new PushToTalkOutgoingConnectionSelection($outgoingConnectionSelection);
@@ -77,7 +75,7 @@ class UserPushToTalkGetResponse extends ComplexType implements ComplexInterface
      */
     public function getOutgoingConnectionSelection()
     {
-        return $this->outgoingConnectionSelection->getValue();
+        return ($this->outgoingConnectionSelection) ? $this->outgoingConnectionSelection->getValue() : null;
     }
 
     /**
@@ -85,7 +83,6 @@ class UserPushToTalkGetResponse extends ComplexType implements ComplexInterface
      */
     public function setAccessListSelection($accessListSelection = null)
     {
-        if (!$accessListSelection) return $this;
         $this->accessListSelection = ($accessListSelection InstanceOf PushToTalkAccessListSelection)
              ? $accessListSelection
              : new PushToTalkAccessListSelection($accessListSelection);
@@ -99,7 +96,7 @@ class UserPushToTalkGetResponse extends ComplexType implements ComplexInterface
      */
     public function getAccessListSelection()
     {
-        return $this->accessListSelection->getValue();
+        return ($this->accessListSelection) ? $this->accessListSelection->getValue() : null;
     }
 
     /**
@@ -107,7 +104,6 @@ class UserPushToTalkGetResponse extends ComplexType implements ComplexInterface
      */
     public function setSelectedUserTable(TableType $selectedUserTable = null)
     {
-        if (!$selectedUserTable) return $this;
         $this->selectedUserTable = $selectedUserTable;
         $this->selectedUserTable->setName('selectedUserTable');
         return $this;

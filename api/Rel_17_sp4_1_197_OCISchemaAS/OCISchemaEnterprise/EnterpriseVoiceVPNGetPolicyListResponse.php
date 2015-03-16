@@ -21,8 +21,8 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class EnterpriseVoiceVPNGetPolicyListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name         = 'EnterpriseVoiceVPNGetPolicyListResponse';
-    protected $locationList = null;
+    public    $name = 'EnterpriseVoiceVPNGetPolicyListResponse';
+    protected $locationList;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaEnterprise\EnterpriseVoiceVPNGetPolicyListResponse $response
@@ -37,7 +37,6 @@ class EnterpriseVoiceVPNGetPolicyListResponse extends ComplexType implements Com
      */
     public function setLocationList(TableType $locationList = null)
     {
-        if (!$locationList) return $this;
         $this->locationList = $locationList;
         $this->locationList->setName('locationList');
         return $this;
@@ -49,6 +48,6 @@ class EnterpriseVoiceVPNGetPolicyListResponse extends ComplexType implements Com
      */
     public function getLocationList()
     {
-        return $this->locationList->getValue();
+        return ($this->locationList) ? $this->locationList->getValue() : null;
     }
 }

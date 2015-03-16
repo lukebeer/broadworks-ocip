@@ -21,13 +21,13 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemFileRepositoryDeviceUserDeleteRequest extends ComplexType implements ComplexInterface
 {
-    public    $name               = 'SystemFileRepositoryDeviceUserDeleteRequest';
-    protected $fileRepositoryName = null;
-    protected $userName           = null;
+    public    $name = 'SystemFileRepositoryDeviceUserDeleteRequest';
+    protected $fileRepositoryName;
+    protected $userName;
 
     public function __construct(
-         $fileRepositoryName,
-         $userName
+         $fileRepositoryName = '',
+         $userName = ''
     ) {
         $this->setFileRepositoryName($fileRepositoryName);
         $this->setUserName($userName);
@@ -46,7 +46,6 @@ class SystemFileRepositoryDeviceUserDeleteRequest extends ComplexType implements
      */
     public function setFileRepositoryName($fileRepositoryName = null)
     {
-        if (!$fileRepositoryName) return $this;
         $this->fileRepositoryName = ($fileRepositoryName InstanceOf FileRepositoryName)
              ? $fileRepositoryName
              : new FileRepositoryName($fileRepositoryName);
@@ -60,7 +59,7 @@ class SystemFileRepositoryDeviceUserDeleteRequest extends ComplexType implements
      */
     public function getFileRepositoryName()
     {
-        return $this->fileRepositoryName->getValue();
+        return ($this->fileRepositoryName) ? $this->fileRepositoryName->getValue() : null;
     }
 
     /**
@@ -68,7 +67,6 @@ class SystemFileRepositoryDeviceUserDeleteRequest extends ComplexType implements
      */
     public function setUserName($userName = null)
     {
-        if (!$userName) return $this;
         $this->userName = ($userName InstanceOf FileRepositoryUserName)
              ? $userName
              : new FileRepositoryUserName($userName);
@@ -82,6 +80,6 @@ class SystemFileRepositoryDeviceUserDeleteRequest extends ComplexType implements
      */
     public function getUserName()
     {
-        return $this->userName->getValue();
+        return ($this->userName) ? $this->userName->getValue() : null;
     }
 }

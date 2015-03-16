@@ -23,13 +23,13 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserCallForwardingBusyModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                 = 'UserCallForwardingBusyModifyRequest';
-    protected $userId               = null;
-    protected $isActive             = null;
-    protected $forwardToPhoneNumber = null;
+    public    $name = 'UserCallForwardingBusyModifyRequest';
+    protected $userId;
+    protected $isActive;
+    protected $forwardToPhoneNumber;
 
     public function __construct(
-         $userId,
+         $userId = '',
          $isActive = null,
          $forwardToPhoneNumber = null
     ) {
@@ -51,7 +51,6 @@ class UserCallForwardingBusyModifyRequest extends ComplexType implements Complex
      */
     public function setUserId($userId = null)
     {
-        if (!$userId) return $this;
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
@@ -65,7 +64,7 @@ class UserCallForwardingBusyModifyRequest extends ComplexType implements Complex
      */
     public function getUserId()
     {
-        return $this->userId->getValue();
+        return ($this->userId) ? $this->userId->getValue() : null;
     }
 
     /**
@@ -73,7 +72,6 @@ class UserCallForwardingBusyModifyRequest extends ComplexType implements Complex
      */
     public function setIsActive($isActive = null)
     {
-        if (!$isActive) return $this;
         $this->isActive = new PrimitiveType($isActive);
         $this->isActive->setName('isActive');
         return $this;
@@ -85,7 +83,7 @@ class UserCallForwardingBusyModifyRequest extends ComplexType implements Complex
      */
     public function getIsActive()
     {
-        return $this->isActive->getValue();
+        return ($this->isActive) ? $this->isActive->getValue() : null;
     }
 
     /**
@@ -93,7 +91,6 @@ class UserCallForwardingBusyModifyRequest extends ComplexType implements Complex
      */
     public function setForwardToPhoneNumber($forwardToPhoneNumber = null)
     {
-        if (!$forwardToPhoneNumber) return $this;
         $this->forwardToPhoneNumber = ($forwardToPhoneNumber InstanceOf OutgoingDNorSIPURI)
              ? $forwardToPhoneNumber
              : new OutgoingDNorSIPURI($forwardToPhoneNumber);
@@ -107,6 +104,6 @@ class UserCallForwardingBusyModifyRequest extends ComplexType implements Complex
      */
     public function getForwardToPhoneNumber()
     {
-        return $this->forwardToPhoneNumber->getValue();
+        return ($this->forwardToPhoneNumber) ? $this->forwardToPhoneNumber->getValue() : null;
     }
 }

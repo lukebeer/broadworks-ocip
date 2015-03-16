@@ -20,15 +20,15 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class VoiceMessagingAlternateNoAnswerGreetingRead16 extends ComplexType implements ComplexInterface
 {
-    public    $name           = 'VoiceMessagingAlternateNoAnswerGreetingRead16';
-    protected $name           = null;
-    protected $audioFile      = null;
-    protected $audioMediaType = null;
-    protected $videoFile      = null;
-    protected $videoMediaType = null;
+    public    $name = 'VoiceMessagingAlternateNoAnswerGreetingRead16';
+    protected $name;
+    protected $audioFile;
+    protected $audioMediaType;
+    protected $videoFile;
+    protected $videoMediaType;
 
     public function __construct(
-         $name,
+         $name = '',
          $audioFile = null,
          $audioMediaType = null,
          $videoFile = null,
@@ -54,7 +54,6 @@ class VoiceMessagingAlternateNoAnswerGreetingRead16 extends ComplexType implemen
      */
     public function setName($name = null)
     {
-        if (!$name) return $this;
         $this->name = new SimpleContent($name);
         $this->name->setName('name');
         return $this;
@@ -66,7 +65,7 @@ class VoiceMessagingAlternateNoAnswerGreetingRead16 extends ComplexType implemen
      */
     public function getName()
     {
-        return $this->name->getValue();
+        return ($this->name) ? $this->name->getValue() : null;
     }
 
     /**
@@ -74,7 +73,6 @@ class VoiceMessagingAlternateNoAnswerGreetingRead16 extends ComplexType implemen
      */
     public function setAudioFile($audioFile = null)
     {
-        if (!$audioFile) return $this;
         $this->audioFile = new SimpleContent($audioFile);
         $this->audioFile->setName('audioFile');
         return $this;
@@ -86,7 +84,7 @@ class VoiceMessagingAlternateNoAnswerGreetingRead16 extends ComplexType implemen
      */
     public function getAudioFile()
     {
-        return $this->audioFile->getValue();
+        return ($this->audioFile) ? $this->audioFile->getValue() : null;
     }
 
     /**
@@ -94,7 +92,6 @@ class VoiceMessagingAlternateNoAnswerGreetingRead16 extends ComplexType implemen
      */
     public function setAudioMediaType($audioMediaType = null)
     {
-        if (!$audioMediaType) return $this;
         $this->audioMediaType = new SimpleContent($audioMediaType);
         $this->audioMediaType->setName('audioMediaType');
         return $this;
@@ -106,7 +103,7 @@ class VoiceMessagingAlternateNoAnswerGreetingRead16 extends ComplexType implemen
      */
     public function getAudioMediaType()
     {
-        return $this->audioMediaType->getValue();
+        return ($this->audioMediaType) ? $this->audioMediaType->getValue() : null;
     }
 
     /**
@@ -114,7 +111,6 @@ class VoiceMessagingAlternateNoAnswerGreetingRead16 extends ComplexType implemen
      */
     public function setVideoFile($videoFile = null)
     {
-        if (!$videoFile) return $this;
         $this->videoFile = new SimpleContent($videoFile);
         $this->videoFile->setName('videoFile');
         return $this;
@@ -126,7 +122,7 @@ class VoiceMessagingAlternateNoAnswerGreetingRead16 extends ComplexType implemen
      */
     public function getVideoFile()
     {
-        return $this->videoFile->getValue();
+        return ($this->videoFile) ? $this->videoFile->getValue() : null;
     }
 
     /**
@@ -134,7 +130,6 @@ class VoiceMessagingAlternateNoAnswerGreetingRead16 extends ComplexType implemen
      */
     public function setVideoMediaType($videoMediaType = null)
     {
-        if (!$videoMediaType) return $this;
         $this->videoMediaType = new SimpleContent($videoMediaType);
         $this->videoMediaType->setName('videoMediaType');
         return $this;
@@ -146,6 +141,6 @@ class VoiceMessagingAlternateNoAnswerGreetingRead16 extends ComplexType implemen
      */
     public function getVideoMediaType()
     {
-        return $this->videoMediaType->getValue();
+        return ($this->videoMediaType) ? $this->videoMediaType->getValue() : null;
     }
 }

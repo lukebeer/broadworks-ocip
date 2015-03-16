@@ -32,25 +32,25 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class EnterpriseCallCenterEnhancedReportingScheduledReportGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                            = 'EnterpriseCallCenterEnhancedReportingScheduledReportGetResponse';
-    protected $description                     = null;
-    protected $reportTemplate                  = null;
-    protected $schedule                        = null;
-    protected $samplingPeriod                  = null;
-    protected $startDayOfWeek                  = null;
-    protected $reportTimeZone                  = null;
-    protected $reportDateFormat                = null;
-    protected $reportTimeFormat                = null;
-    protected $reportInterval                  = null;
-    protected $reportFormat                    = null;
-    protected $agent                           = null;
-    protected $callCompletionThresholdSeconds  = null;
-    protected $shortDurationThresholdSeconds   = null;
-    protected $serviceLevelThresholdSeconds    = null;
-    protected $serviceLevelInclusions          = null;
-    protected $serviceLevelObjectivePercentage = null;
-    protected $abandonedCallThresholdSeconds   = null;
-    protected $emailAddress                    = null;
+    public    $name = 'EnterpriseCallCenterEnhancedReportingScheduledReportGetResponse';
+    protected $description;
+    protected $reportTemplate;
+    protected $schedule;
+    protected $samplingPeriod;
+    protected $startDayOfWeek;
+    protected $reportTimeZone;
+    protected $reportDateFormat;
+    protected $reportTimeFormat;
+    protected $reportInterval;
+    protected $reportFormat;
+    protected $agent;
+    protected $callCompletionThresholdSeconds;
+    protected $shortDurationThresholdSeconds;
+    protected $serviceLevelThresholdSeconds;
+    protected $serviceLevelInclusions;
+    protected $serviceLevelObjectivePercentage;
+    protected $abandonedCallThresholdSeconds;
+    protected $emailAddress;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\EnterpriseCallCenterEnhancedReportingScheduledReportGetResponse $response
@@ -65,7 +65,6 @@ class EnterpriseCallCenterEnhancedReportingScheduledReportGetResponse extends Co
      */
     public function setDescription($description = null)
     {
-        if (!$description) return $this;
         $this->description = ($description InstanceOf CallCenterScheduledReportDescription)
              ? $description
              : new CallCenterScheduledReportDescription($description);
@@ -79,7 +78,7 @@ class EnterpriseCallCenterEnhancedReportingScheduledReportGetResponse extends Co
      */
     public function getDescription()
     {
-        return $this->description->getValue();
+        return ($this->description) ? $this->description->getValue() : null;
     }
 
     /**
@@ -87,8 +86,9 @@ class EnterpriseCallCenterEnhancedReportingScheduledReportGetResponse extends Co
      */
     public function setReportTemplate(CallCenterReportTemplateKey $reportTemplate = null)
     {
-        if (!$reportTemplate) return $this;
-        $this->reportTemplate = $reportTemplate;
+        $this->reportTemplate = ($reportTemplate InstanceOf CallCenterReportTemplateKey)
+             ? $reportTemplate
+             : new CallCenterReportTemplateKey($reportTemplate);
         $this->reportTemplate->setName('reportTemplate');
         return $this;
     }
@@ -107,8 +107,9 @@ class EnterpriseCallCenterEnhancedReportingScheduledReportGetResponse extends Co
      */
     public function setSchedule(CallCenterReportSchedule $schedule = null)
     {
-        if (!$schedule) return $this;
-        $this->schedule = $schedule;
+        $this->schedule = ($schedule InstanceOf CallCenterReportSchedule)
+             ? $schedule
+             : new CallCenterReportSchedule($schedule);
         $this->schedule->setName('schedule');
         return $this;
     }
@@ -127,7 +128,6 @@ class EnterpriseCallCenterEnhancedReportingScheduledReportGetResponse extends Co
      */
     public function setSamplingPeriod($samplingPeriod = null)
     {
-        if (!$samplingPeriod) return $this;
         $this->samplingPeriod = ($samplingPeriod InstanceOf CallCenterReportSamplingPeriod)
              ? $samplingPeriod
              : new CallCenterReportSamplingPeriod($samplingPeriod);
@@ -141,7 +141,7 @@ class EnterpriseCallCenterEnhancedReportingScheduledReportGetResponse extends Co
      */
     public function getSamplingPeriod()
     {
-        return $this->samplingPeriod->getValue();
+        return ($this->samplingPeriod) ? $this->samplingPeriod->getValue() : null;
     }
 
     /**
@@ -149,7 +149,6 @@ class EnterpriseCallCenterEnhancedReportingScheduledReportGetResponse extends Co
      */
     public function setStartDayOfWeek($startDayOfWeek = null)
     {
-        if (!$startDayOfWeek) return $this;
         $this->startDayOfWeek = ($startDayOfWeek InstanceOf DayOfWeek)
              ? $startDayOfWeek
              : new DayOfWeek($startDayOfWeek);
@@ -163,7 +162,7 @@ class EnterpriseCallCenterEnhancedReportingScheduledReportGetResponse extends Co
      */
     public function getStartDayOfWeek()
     {
-        return $this->startDayOfWeek->getValue();
+        return ($this->startDayOfWeek) ? $this->startDayOfWeek->getValue() : null;
     }
 
     /**
@@ -171,7 +170,6 @@ class EnterpriseCallCenterEnhancedReportingScheduledReportGetResponse extends Co
      */
     public function setReportTimeZone($reportTimeZone = null)
     {
-        if (!$reportTimeZone) return $this;
         $this->reportTimeZone = ($reportTimeZone InstanceOf TimeZone)
              ? $reportTimeZone
              : new TimeZone($reportTimeZone);
@@ -185,7 +183,7 @@ class EnterpriseCallCenterEnhancedReportingScheduledReportGetResponse extends Co
      */
     public function getReportTimeZone()
     {
-        return $this->reportTimeZone->getValue();
+        return ($this->reportTimeZone) ? $this->reportTimeZone->getValue() : null;
     }
 
     /**
@@ -193,7 +191,6 @@ class EnterpriseCallCenterEnhancedReportingScheduledReportGetResponse extends Co
      */
     public function setReportDateFormat($reportDateFormat = null)
     {
-        if (!$reportDateFormat) return $this;
         $this->reportDateFormat = ($reportDateFormat InstanceOf CallCenterReportDateFormat)
              ? $reportDateFormat
              : new CallCenterReportDateFormat($reportDateFormat);
@@ -207,7 +204,7 @@ class EnterpriseCallCenterEnhancedReportingScheduledReportGetResponse extends Co
      */
     public function getReportDateFormat()
     {
-        return $this->reportDateFormat->getValue();
+        return ($this->reportDateFormat) ? $this->reportDateFormat->getValue() : null;
     }
 
     /**
@@ -215,7 +212,6 @@ class EnterpriseCallCenterEnhancedReportingScheduledReportGetResponse extends Co
      */
     public function setReportTimeFormat($reportTimeFormat = null)
     {
-        if (!$reportTimeFormat) return $this;
         $this->reportTimeFormat = ($reportTimeFormat InstanceOf CallCenterReportTimeFormat)
              ? $reportTimeFormat
              : new CallCenterReportTimeFormat($reportTimeFormat);
@@ -229,7 +225,7 @@ class EnterpriseCallCenterEnhancedReportingScheduledReportGetResponse extends Co
      */
     public function getReportTimeFormat()
     {
-        return $this->reportTimeFormat->getValue();
+        return ($this->reportTimeFormat) ? $this->reportTimeFormat->getValue() : null;
     }
 
     /**
@@ -237,8 +233,9 @@ class EnterpriseCallCenterEnhancedReportingScheduledReportGetResponse extends Co
      */
     public function setReportInterval(CallCenterReportInterval $reportInterval = null)
     {
-        if (!$reportInterval) return $this;
-        $this->reportInterval = $reportInterval;
+        $this->reportInterval = ($reportInterval InstanceOf CallCenterReportInterval)
+             ? $reportInterval
+             : new CallCenterReportInterval($reportInterval);
         $this->reportInterval->setName('reportInterval');
         return $this;
     }
@@ -257,7 +254,6 @@ class EnterpriseCallCenterEnhancedReportingScheduledReportGetResponse extends Co
      */
     public function setReportFormat($reportFormat = null)
     {
-        if (!$reportFormat) return $this;
         $this->reportFormat = ($reportFormat InstanceOf CallCenterReportFileFormat)
              ? $reportFormat
              : new CallCenterReportFileFormat($reportFormat);
@@ -271,7 +267,7 @@ class EnterpriseCallCenterEnhancedReportingScheduledReportGetResponse extends Co
      */
     public function getReportFormat()
     {
-        return $this->reportFormat->getValue();
+        return ($this->reportFormat) ? $this->reportFormat->getValue() : null;
     }
 
     /**
@@ -279,8 +275,9 @@ class EnterpriseCallCenterEnhancedReportingScheduledReportGetResponse extends Co
      */
     public function setAgent(CallCenterScheduledReportAgentSelectionAdminRead $agent = null)
     {
-        if (!$agent) return $this;
-        $this->agent = $agent;
+        $this->agent = ($agent InstanceOf CallCenterScheduledReportAgentSelectionAdminRead)
+             ? $agent
+             : new CallCenterScheduledReportAgentSelectionAdminRead($agent);
         $this->agent->setName('agent');
         return $this;
     }
@@ -299,7 +296,6 @@ class EnterpriseCallCenterEnhancedReportingScheduledReportGetResponse extends Co
      */
     public function setCallCompletionThresholdSeconds($callCompletionThresholdSeconds = null)
     {
-        if (!$callCompletionThresholdSeconds) return $this;
         $this->callCompletionThresholdSeconds = ($callCompletionThresholdSeconds InstanceOf CallCenterReportThresholdSeconds)
              ? $callCompletionThresholdSeconds
              : new CallCenterReportThresholdSeconds($callCompletionThresholdSeconds);
@@ -313,7 +309,7 @@ class EnterpriseCallCenterEnhancedReportingScheduledReportGetResponse extends Co
      */
     public function getCallCompletionThresholdSeconds()
     {
-        return $this->callCompletionThresholdSeconds->getValue();
+        return ($this->callCompletionThresholdSeconds) ? $this->callCompletionThresholdSeconds->getValue() : null;
     }
 
     /**
@@ -321,7 +317,6 @@ class EnterpriseCallCenterEnhancedReportingScheduledReportGetResponse extends Co
      */
     public function setShortDurationThresholdSeconds($shortDurationThresholdSeconds = null)
     {
-        if (!$shortDurationThresholdSeconds) return $this;
         $this->shortDurationThresholdSeconds = ($shortDurationThresholdSeconds InstanceOf CallCenterReportThresholdSeconds)
              ? $shortDurationThresholdSeconds
              : new CallCenterReportThresholdSeconds($shortDurationThresholdSeconds);
@@ -335,7 +330,7 @@ class EnterpriseCallCenterEnhancedReportingScheduledReportGetResponse extends Co
      */
     public function getShortDurationThresholdSeconds()
     {
-        return $this->shortDurationThresholdSeconds->getValue();
+        return ($this->shortDurationThresholdSeconds) ? $this->shortDurationThresholdSeconds->getValue() : null;
     }
 
     /**
@@ -343,7 +338,6 @@ class EnterpriseCallCenterEnhancedReportingScheduledReportGetResponse extends Co
      */
     public function setServiceLevelThresholdSeconds($serviceLevelThresholdSeconds = null)
     {
-        if (!$serviceLevelThresholdSeconds) return $this;
         $this->serviceLevelThresholdSeconds = ($serviceLevelThresholdSeconds InstanceOf CallCenterReportThresholdSeconds)
              ? $serviceLevelThresholdSeconds
              : new CallCenterReportThresholdSeconds($serviceLevelThresholdSeconds);
@@ -357,7 +351,7 @@ class EnterpriseCallCenterEnhancedReportingScheduledReportGetResponse extends Co
      */
     public function getServiceLevelThresholdSeconds()
     {
-        return $this->serviceLevelThresholdSeconds->getValue();
+        return ($this->serviceLevelThresholdSeconds) ? $this->serviceLevelThresholdSeconds->getValue() : null;
     }
 
     /**
@@ -365,8 +359,9 @@ class EnterpriseCallCenterEnhancedReportingScheduledReportGetResponse extends Co
      */
     public function setServiceLevelInclusions(CallCenterScheduledReportServiceLevelInclusions $serviceLevelInclusions = null)
     {
-        if (!$serviceLevelInclusions) return $this;
-        $this->serviceLevelInclusions = $serviceLevelInclusions;
+        $this->serviceLevelInclusions = ($serviceLevelInclusions InstanceOf CallCenterScheduledReportServiceLevelInclusions)
+             ? $serviceLevelInclusions
+             : new CallCenterScheduledReportServiceLevelInclusions($serviceLevelInclusions);
         $this->serviceLevelInclusions->setName('serviceLevelInclusions');
         return $this;
     }
@@ -385,7 +380,6 @@ class EnterpriseCallCenterEnhancedReportingScheduledReportGetResponse extends Co
      */
     public function setServiceLevelObjectivePercentage($serviceLevelObjectivePercentage = null)
     {
-        if (!$serviceLevelObjectivePercentage) return $this;
         $this->serviceLevelObjectivePercentage = ($serviceLevelObjectivePercentage InstanceOf CallCenterReportServiceLevelObjective)
              ? $serviceLevelObjectivePercentage
              : new CallCenterReportServiceLevelObjective($serviceLevelObjectivePercentage);
@@ -399,7 +393,7 @@ class EnterpriseCallCenterEnhancedReportingScheduledReportGetResponse extends Co
      */
     public function getServiceLevelObjectivePercentage()
     {
-        return $this->serviceLevelObjectivePercentage->getValue();
+        return ($this->serviceLevelObjectivePercentage) ? $this->serviceLevelObjectivePercentage->getValue() : null;
     }
 
     /**
@@ -407,7 +401,6 @@ class EnterpriseCallCenterEnhancedReportingScheduledReportGetResponse extends Co
      */
     public function setAbandonedCallThresholdSeconds($abandonedCallThresholdSeconds = null)
     {
-        if (!$abandonedCallThresholdSeconds) return $this;
         $this->abandonedCallThresholdSeconds = ($abandonedCallThresholdSeconds InstanceOf CallCenterReportThresholdSeconds)
              ? $abandonedCallThresholdSeconds
              : new CallCenterReportThresholdSeconds($abandonedCallThresholdSeconds);
@@ -421,7 +414,7 @@ class EnterpriseCallCenterEnhancedReportingScheduledReportGetResponse extends Co
      */
     public function getAbandonedCallThresholdSeconds()
     {
-        return $this->abandonedCallThresholdSeconds->getValue();
+        return ($this->abandonedCallThresholdSeconds) ? $this->abandonedCallThresholdSeconds->getValue() : null;
     }
 
     /**
@@ -429,7 +422,6 @@ class EnterpriseCallCenterEnhancedReportingScheduledReportGetResponse extends Co
      */
     public function setEmailAddress($emailAddress = null)
     {
-        if (!$emailAddress) return $this;
         $this->emailAddress = ($emailAddress InstanceOf EmailAddress)
              ? $emailAddress
              : new EmailAddress($emailAddress);
@@ -443,6 +435,6 @@ class EnterpriseCallCenterEnhancedReportingScheduledReportGetResponse extends Co
      */
     public function getEmailAddress()
     {
-        return $this->emailAddress->getValue();
+        return ($this->emailAddress) ? $this->emailAddress->getValue() : null;
     }
 }

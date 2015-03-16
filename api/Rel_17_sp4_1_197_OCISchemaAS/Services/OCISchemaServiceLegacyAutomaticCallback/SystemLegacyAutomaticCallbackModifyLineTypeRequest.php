@@ -20,13 +20,13 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemLegacyAutomaticCallbackModifyLineTypeRequest extends ComplexType implements ComplexInterface
 {
-    public    $name          = 'SystemLegacyAutomaticCallbackModifyLineTypeRequest';
-    protected $lineType      = null;
-    protected $matchAction   = null;
-    protected $noMatchAction = null;
+    public    $name = 'SystemLegacyAutomaticCallbackModifyLineTypeRequest';
+    protected $lineType;
+    protected $matchAction;
+    protected $noMatchAction;
 
     public function __construct(
-         $lineType,
+         $lineType = '',
          $matchAction = null,
          $noMatchAction = null
     ) {
@@ -48,7 +48,6 @@ class SystemLegacyAutomaticCallbackModifyLineTypeRequest extends ComplexType imp
      */
     public function setLineType($lineType = null)
     {
-        if (!$lineType) return $this;
         $this->lineType = ($lineType InstanceOf LegacyAutomaticCallbackLineType)
              ? $lineType
              : new LegacyAutomaticCallbackLineType($lineType);
@@ -62,7 +61,7 @@ class SystemLegacyAutomaticCallbackModifyLineTypeRequest extends ComplexType imp
      */
     public function getLineType()
     {
-        return $this->lineType->getValue();
+        return ($this->lineType) ? $this->lineType->getValue() : null;
     }
 
     /**
@@ -70,7 +69,6 @@ class SystemLegacyAutomaticCallbackModifyLineTypeRequest extends ComplexType imp
      */
     public function setMatchAction($matchAction = null)
     {
-        if (!$matchAction) return $this;
         $this->matchAction = ($matchAction InstanceOf LegacyAutomaticCallbackLineMatchAction)
              ? $matchAction
              : new LegacyAutomaticCallbackLineMatchAction($matchAction);
@@ -84,7 +82,7 @@ class SystemLegacyAutomaticCallbackModifyLineTypeRequest extends ComplexType imp
      */
     public function getMatchAction()
     {
-        return $this->matchAction->getValue();
+        return ($this->matchAction) ? $this->matchAction->getValue() : null;
     }
 
     /**
@@ -92,7 +90,6 @@ class SystemLegacyAutomaticCallbackModifyLineTypeRequest extends ComplexType imp
      */
     public function setNoMatchAction($noMatchAction = null)
     {
-        if (!$noMatchAction) return $this;
         $this->noMatchAction = ($noMatchAction InstanceOf LegacyAutomaticCallbackLineMatchAction)
              ? $noMatchAction
              : new LegacyAutomaticCallbackLineMatchAction($noMatchAction);
@@ -106,6 +103,6 @@ class SystemLegacyAutomaticCallbackModifyLineTypeRequest extends ComplexType imp
      */
     public function getNoMatchAction()
     {
-        return $this->noMatchAction->getValue();
+        return ($this->noMatchAction) ? $this->noMatchAction->getValue() : null;
     }
 }

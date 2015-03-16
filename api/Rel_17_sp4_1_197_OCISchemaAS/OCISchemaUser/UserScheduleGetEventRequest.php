@@ -23,15 +23,15 @@ use Broadworks_OCIP\core\Client\Client;
 class UserScheduleGetEventRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser\UserScheduleGetEventResponse';
-    public    $name        = 'UserScheduleGetEventRequest';
-    protected $userId      = null;
-    protected $scheduleKey = null;
-    protected $eventName   = null;
+    public    $name = 'UserScheduleGetEventRequest';
+    protected $userId;
+    protected $scheduleKey;
+    protected $eventName;
 
     public function __construct(
-         $userId,
-         ScheduleKey $scheduleKey,
-         $eventName
+         $userId = '',
+         ScheduleKey $scheduleKey = '',
+         $eventName = ''
     ) {
         $this->setUserId($userId);
         $this->setScheduleKey($scheduleKey);
@@ -51,7 +51,6 @@ class UserScheduleGetEventRequest extends ComplexType implements ComplexInterfac
      */
     public function setUserId($userId = null)
     {
-        if (!$userId) return $this;
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
@@ -65,7 +64,7 @@ class UserScheduleGetEventRequest extends ComplexType implements ComplexInterfac
      */
     public function getUserId()
     {
-        return $this->userId->getValue();
+        return ($this->userId) ? $this->userId->getValue() : null;
     }
 
     /**
@@ -73,8 +72,9 @@ class UserScheduleGetEventRequest extends ComplexType implements ComplexInterfac
      */
     public function setScheduleKey(ScheduleKey $scheduleKey = null)
     {
-        if (!$scheduleKey) return $this;
-        $this->scheduleKey = $scheduleKey;
+        $this->scheduleKey = ($scheduleKey InstanceOf ScheduleKey)
+             ? $scheduleKey
+             : new ScheduleKey($scheduleKey);
         $this->scheduleKey->setName('scheduleKey');
         return $this;
     }
@@ -93,7 +93,6 @@ class UserScheduleGetEventRequest extends ComplexType implements ComplexInterfac
      */
     public function setEventName($eventName = null)
     {
-        if (!$eventName) return $this;
         $this->eventName = ($eventName InstanceOf EventName)
              ? $eventName
              : new EventName($eventName);
@@ -107,6 +106,6 @@ class UserScheduleGetEventRequest extends ComplexType implements ComplexInterfac
      */
     public function getEventName()
     {
-        return $this->eventName->getValue();
+        return ($this->eventName) ? $this->eventName->getValue() : null;
     }
 }

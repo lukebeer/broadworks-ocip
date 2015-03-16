@@ -20,8 +20,8 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderPreferredCarrierGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                        = 'ServiceProviderPreferredCarrierGetListResponse';
-    protected $serviceProviderCarrierTable = null;
+    public    $name = 'ServiceProviderPreferredCarrierGetListResponse';
+    protected $serviceProviderCarrierTable;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServicePreferredCarrier\ServiceProviderPreferredCarrierGetListResponse $response
@@ -36,7 +36,6 @@ class ServiceProviderPreferredCarrierGetListResponse extends ComplexType impleme
      */
     public function setServiceProviderCarrierTable(TableType $serviceProviderCarrierTable = null)
     {
-        if (!$serviceProviderCarrierTable) return $this;
         $this->serviceProviderCarrierTable = $serviceProviderCarrierTable;
         $this->serviceProviderCarrierTable->setName('serviceProviderCarrierTable');
         return $this;

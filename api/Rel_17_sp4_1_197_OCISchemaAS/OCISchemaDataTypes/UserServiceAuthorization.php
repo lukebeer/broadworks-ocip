@@ -19,11 +19,11 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserServiceAuthorization extends ComplexType implements ComplexInterface
 {
-    public    $name        = 'UserServiceAuthorization';
-    protected $serviceName = null;
+    public    $name = 'UserServiceAuthorization';
+    protected $serviceName;
 
     public function __construct(
-         $serviceName
+         $serviceName = ''
     ) {
         $this->setServiceName($serviceName);
     }
@@ -41,7 +41,6 @@ class UserServiceAuthorization extends ComplexType implements ComplexInterface
      */
     public function setServiceName($serviceName = null)
     {
-        if (!$serviceName) return $this;
         $this->serviceName = new SimpleContent($serviceName);
         $this->serviceName->setName('serviceName');
         return $this;
@@ -53,6 +52,6 @@ class UserServiceAuthorization extends ComplexType implements ComplexInterface
      */
     public function getServiceName()
     {
-        return $this->serviceName->getValue();
+        return ($this->serviceName) ? $this->serviceName->getValue() : null;
     }
 }

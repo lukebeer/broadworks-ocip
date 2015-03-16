@@ -22,9 +22,9 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserBroadWorksAnywhereGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                                 = 'UserBroadWorksAnywhereGetResponse';
-    protected $alertAllLocationsForClickToDialCalls = null;
-    protected $phoneNumberTable                     = null;
+    public    $name = 'UserBroadWorksAnywhereGetResponse';
+    protected $alertAllLocationsForClickToDialCalls;
+    protected $phoneNumberTable;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\UserBroadWorksAnywhereGetResponse $response
@@ -39,7 +39,6 @@ class UserBroadWorksAnywhereGetResponse extends ComplexType implements ComplexIn
      */
     public function setAlertAllLocationsForClickToDialCalls($alertAllLocationsForClickToDialCalls = null)
     {
-        if (!$alertAllLocationsForClickToDialCalls) return $this;
         $this->alertAllLocationsForClickToDialCalls = new PrimitiveType($alertAllLocationsForClickToDialCalls);
         $this->alertAllLocationsForClickToDialCalls->setName('alertAllLocationsForClickToDialCalls');
         return $this;
@@ -51,7 +50,7 @@ class UserBroadWorksAnywhereGetResponse extends ComplexType implements ComplexIn
      */
     public function getAlertAllLocationsForClickToDialCalls()
     {
-        return $this->alertAllLocationsForClickToDialCalls->getValue();
+        return ($this->alertAllLocationsForClickToDialCalls) ? $this->alertAllLocationsForClickToDialCalls->getValue() : null;
     }
 
     /**
@@ -59,7 +58,6 @@ class UserBroadWorksAnywhereGetResponse extends ComplexType implements ComplexIn
      */
     public function setPhoneNumberTable(TableType $phoneNumberTable = null)
     {
-        if (!$phoneNumberTable) return $this;
         $this->phoneNumberTable = $phoneNumberTable;
         $this->phoneNumberTable->setName('phoneNumberTable');
         return $this;

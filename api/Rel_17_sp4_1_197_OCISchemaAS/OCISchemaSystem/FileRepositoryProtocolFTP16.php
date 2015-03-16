@@ -19,15 +19,15 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class FileRepositoryProtocolFTP16 extends ComplexType implements ComplexInterface
 {
-    public    $name                  = 'FileRepositoryProtocolFTP16';
-    protected $ftpPassive            = null;
-    protected $netAddress            = null;
-    protected $ftpRemoteVerification = null;
+    public    $name = 'FileRepositoryProtocolFTP16';
+    protected $ftpPassive;
+    protected $netAddress;
+    protected $ftpRemoteVerification;
 
     public function __construct(
-         $ftpPassive,
-         $netAddress,
-         $ftpRemoteVerification
+         $ftpPassive = '',
+         $netAddress = '',
+         $ftpRemoteVerification = ''
     ) {
         $this->setFtpPassive($ftpPassive);
         $this->setNetAddress($netAddress);
@@ -47,7 +47,6 @@ class FileRepositoryProtocolFTP16 extends ComplexType implements ComplexInterfac
      */
     public function setFtpPassive($ftpPassive = null)
     {
-        if (!$ftpPassive) return $this;
         $this->ftpPassive = new SimpleContent($ftpPassive);
         $this->ftpPassive->setName('ftpPassive');
         return $this;
@@ -59,7 +58,7 @@ class FileRepositoryProtocolFTP16 extends ComplexType implements ComplexInterfac
      */
     public function getFtpPassive()
     {
-        return $this->ftpPassive->getValue();
+        return ($this->ftpPassive) ? $this->ftpPassive->getValue() : null;
     }
 
     /**
@@ -67,7 +66,6 @@ class FileRepositoryProtocolFTP16 extends ComplexType implements ComplexInterfac
      */
     public function setNetAddress($netAddress = null)
     {
-        if (!$netAddress) return $this;
         $this->netAddress = new SimpleContent($netAddress);
         $this->netAddress->setName('netAddress');
         return $this;
@@ -79,7 +77,7 @@ class FileRepositoryProtocolFTP16 extends ComplexType implements ComplexInterfac
      */
     public function getNetAddress()
     {
-        return $this->netAddress->getValue();
+        return ($this->netAddress) ? $this->netAddress->getValue() : null;
     }
 
     /**
@@ -87,7 +85,6 @@ class FileRepositoryProtocolFTP16 extends ComplexType implements ComplexInterfac
      */
     public function setFtpRemoteVerification($ftpRemoteVerification = null)
     {
-        if (!$ftpRemoteVerification) return $this;
         $this->ftpRemoteVerification = new SimpleContent($ftpRemoteVerification);
         $this->ftpRemoteVerification->setName('ftpRemoteVerification');
         return $this;
@@ -99,6 +96,6 @@ class FileRepositoryProtocolFTP16 extends ComplexType implements ComplexInterfac
      */
     public function getFtpRemoteVerification()
     {
-        return $this->ftpRemoteVerification->getValue();
+        return ($this->ftpRemoteVerification) ? $this->ftpRemoteVerification->getValue() : null;
     }
 }

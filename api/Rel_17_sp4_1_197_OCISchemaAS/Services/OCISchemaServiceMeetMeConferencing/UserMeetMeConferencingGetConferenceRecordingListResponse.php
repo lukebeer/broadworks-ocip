@@ -21,8 +21,8 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserMeetMeConferencingGetConferenceRecordingListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                     = 'UserMeetMeConferencingGetConferenceRecordingListResponse';
-    protected $conferenceRecordingTable = null;
+    public    $name = 'UserMeetMeConferencingGetConferenceRecordingListResponse';
+    protected $conferenceRecordingTable;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceMeetMeConferencing\UserMeetMeConferencingGetConferenceRecordingListResponse $response
@@ -37,7 +37,6 @@ class UserMeetMeConferencingGetConferenceRecordingListResponse extends ComplexTy
      */
     public function setConferenceRecordingTable(TableType $conferenceRecordingTable = null)
     {
-        if (!$conferenceRecordingTable) return $this;
         $this->conferenceRecordingTable = $conferenceRecordingTable;
         $this->conferenceRecordingTable->setName('conferenceRecordingTable');
         return $this;

@@ -21,13 +21,13 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderTrunkGroupModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                   = 'ServiceProviderTrunkGroupModifyRequest';
-    protected $serviceProviderId      = null;
-    protected $maxActiveCalls         = null;
-    protected $burstingMaxActiveCalls = null;
+    public    $name = 'ServiceProviderTrunkGroupModifyRequest';
+    protected $serviceProviderId;
+    protected $maxActiveCalls;
+    protected $burstingMaxActiveCalls;
 
     public function __construct(
-         $serviceProviderId,
+         $serviceProviderId = '',
          UnboundedNonNegativeInt $maxActiveCalls = null,
          UnboundedNonNegativeInt $burstingMaxActiveCalls = null
     ) {
@@ -49,7 +49,6 @@ class ServiceProviderTrunkGroupModifyRequest extends ComplexType implements Comp
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
-        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
@@ -63,7 +62,7 @@ class ServiceProviderTrunkGroupModifyRequest extends ComplexType implements Comp
      */
     public function getServiceProviderId()
     {
-        return $this->serviceProviderId->getValue();
+        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
     }
 
     /**
@@ -71,8 +70,9 @@ class ServiceProviderTrunkGroupModifyRequest extends ComplexType implements Comp
      */
     public function setMaxActiveCalls(UnboundedNonNegativeInt $maxActiveCalls = null)
     {
-        if (!$maxActiveCalls) return $this;
-        $this->maxActiveCalls = $maxActiveCalls;
+        $this->maxActiveCalls = ($maxActiveCalls InstanceOf UnboundedNonNegativeInt)
+             ? $maxActiveCalls
+             : new UnboundedNonNegativeInt($maxActiveCalls);
         $this->maxActiveCalls->setName('maxActiveCalls');
         return $this;
     }
@@ -91,8 +91,9 @@ class ServiceProviderTrunkGroupModifyRequest extends ComplexType implements Comp
      */
     public function setBurstingMaxActiveCalls(UnboundedNonNegativeInt $burstingMaxActiveCalls = null)
     {
-        if (!$burstingMaxActiveCalls) return $this;
-        $this->burstingMaxActiveCalls = $burstingMaxActiveCalls;
+        $this->burstingMaxActiveCalls = ($burstingMaxActiveCalls InstanceOf UnboundedNonNegativeInt)
+             ? $burstingMaxActiveCalls
+             : new UnboundedNonNegativeInt($burstingMaxActiveCalls);
         $this->burstingMaxActiveCalls->setName('burstingMaxActiveCalls');
         return $this;
     }

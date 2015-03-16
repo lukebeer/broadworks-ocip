@@ -24,18 +24,18 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemNetworkRoutingServerAddRequest extends ComplexType implements ComplexInterface
 {
-    public    $name              = 'SystemNetworkRoutingServerAddRequest';
-    protected $netAddress        = null;
-    protected $port              = null;
-    protected $transportProtocol = null;
-    protected $poll              = null;
-    protected $description       = null;
+    public    $name = 'SystemNetworkRoutingServerAddRequest';
+    protected $netAddress;
+    protected $port;
+    protected $transportProtocol;
+    protected $poll;
+    protected $description;
 
     public function __construct(
-         $netAddress,
+         $netAddress = '',
          $port = null,
-         $transportProtocol,
-         $poll,
+         $transportProtocol = '',
+         $poll = '',
          $description = null
     ) {
         $this->setNetAddress($netAddress);
@@ -58,7 +58,6 @@ class SystemNetworkRoutingServerAddRequest extends ComplexType implements Comple
      */
     public function setNetAddress($netAddress = null)
     {
-        if (!$netAddress) return $this;
         $this->netAddress = ($netAddress InstanceOf NetAddress)
              ? $netAddress
              : new NetAddress($netAddress);
@@ -72,7 +71,7 @@ class SystemNetworkRoutingServerAddRequest extends ComplexType implements Comple
      */
     public function getNetAddress()
     {
-        return $this->netAddress->getValue();
+        return ($this->netAddress) ? $this->netAddress->getValue() : null;
     }
 
     /**
@@ -80,7 +79,6 @@ class SystemNetworkRoutingServerAddRequest extends ComplexType implements Comple
      */
     public function setPort($port = null)
     {
-        if (!$port) return $this;
         $this->port = ($port InstanceOf Port1025)
              ? $port
              : new Port1025($port);
@@ -94,7 +92,7 @@ class SystemNetworkRoutingServerAddRequest extends ComplexType implements Comple
      */
     public function getPort()
     {
-        return $this->port->getValue();
+        return ($this->port) ? $this->port->getValue() : null;
     }
 
     /**
@@ -102,7 +100,6 @@ class SystemNetworkRoutingServerAddRequest extends ComplexType implements Comple
      */
     public function setTransportProtocol($transportProtocol = null)
     {
-        if (!$transportProtocol) return $this;
         $this->transportProtocol = ($transportProtocol InstanceOf TransportProtocol)
              ? $transportProtocol
              : new TransportProtocol($transportProtocol);
@@ -116,7 +113,7 @@ class SystemNetworkRoutingServerAddRequest extends ComplexType implements Comple
      */
     public function getTransportProtocol()
     {
-        return $this->transportProtocol->getValue();
+        return ($this->transportProtocol) ? $this->transportProtocol->getValue() : null;
     }
 
     /**
@@ -124,7 +121,6 @@ class SystemNetworkRoutingServerAddRequest extends ComplexType implements Comple
      */
     public function setPoll($poll = null)
     {
-        if (!$poll) return $this;
         $this->poll = new PrimitiveType($poll);
         $this->poll->setName('poll');
         return $this;
@@ -136,7 +132,7 @@ class SystemNetworkRoutingServerAddRequest extends ComplexType implements Comple
      */
     public function getPoll()
     {
-        return $this->poll->getValue();
+        return ($this->poll) ? $this->poll->getValue() : null;
     }
 
     /**
@@ -144,7 +140,6 @@ class SystemNetworkRoutingServerAddRequest extends ComplexType implements Comple
      */
     public function setDescription($description = null)
     {
-        if (!$description) return $this;
         $this->description = ($description InstanceOf NetworkServerDescription)
              ? $description
              : new NetworkServerDescription($description);
@@ -158,6 +153,6 @@ class SystemNetworkRoutingServerAddRequest extends ComplexType implements Comple
      */
     public function getDescription()
     {
-        return $this->description->getValue();
+        return ($this->description) ? $this->description->getValue() : null;
     }
 }

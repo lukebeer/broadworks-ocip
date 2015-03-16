@@ -23,13 +23,13 @@ use Broadworks_OCIP\core\Client\Client;
 class SystemAccessDeviceFileGetRequest14sp8 extends ComplexType implements ComplexInterface
 {
     public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\SystemAccessDeviceFileGetResponse14sp8';
-    public    $name       = 'SystemAccessDeviceFileGetRequest14sp8';
-    protected $deviceName = null;
-    protected $fileFormat = null;
+    public    $name = 'SystemAccessDeviceFileGetRequest14sp8';
+    protected $deviceName;
+    protected $fileFormat;
 
     public function __construct(
-         $deviceName,
-         $fileFormat
+         $deviceName = '',
+         $fileFormat = ''
     ) {
         $this->setDeviceName($deviceName);
         $this->setFileFormat($fileFormat);
@@ -48,7 +48,6 @@ class SystemAccessDeviceFileGetRequest14sp8 extends ComplexType implements Compl
      */
     public function setDeviceName($deviceName = null)
     {
-        if (!$deviceName) return $this;
         $this->deviceName = ($deviceName InstanceOf AccessDeviceName)
              ? $deviceName
              : new AccessDeviceName($deviceName);
@@ -62,7 +61,7 @@ class SystemAccessDeviceFileGetRequest14sp8 extends ComplexType implements Compl
      */
     public function getDeviceName()
     {
-        return $this->deviceName->getValue();
+        return ($this->deviceName) ? $this->deviceName->getValue() : null;
     }
 
     /**
@@ -70,7 +69,6 @@ class SystemAccessDeviceFileGetRequest14sp8 extends ComplexType implements Compl
      */
     public function setFileFormat($fileFormat = null)
     {
-        if (!$fileFormat) return $this;
         $this->fileFormat = ($fileFormat InstanceOf DeviceManagementFileFormat)
              ? $fileFormat
              : new DeviceManagementFileFormat($fileFormat);
@@ -84,6 +82,6 @@ class SystemAccessDeviceFileGetRequest14sp8 extends ComplexType implements Compl
      */
     public function getFileFormat()
     {
-        return $this->fileFormat->getValue();
+        return ($this->fileFormat) ? $this->fileFormat->getValue() : null;
     }
 }

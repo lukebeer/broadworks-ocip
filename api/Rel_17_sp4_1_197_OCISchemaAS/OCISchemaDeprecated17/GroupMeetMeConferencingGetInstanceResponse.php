@@ -26,13 +26,13 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupMeetMeConferencingGetInstanceResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                    = 'GroupMeetMeConferencingGetInstanceResponse';
-    protected $serviceInstanceProfile  = null;
-    protected $allocatedPorts          = null;
-    protected $networkClassOfService   = null;
-    protected $allowIndividualOutDial  = null;
-    protected $operatorNumber          = null;
-    protected $conferenceHostUserTable = null;
+    public    $name = 'GroupMeetMeConferencingGetInstanceResponse';
+    protected $serviceInstanceProfile;
+    protected $allocatedPorts;
+    protected $networkClassOfService;
+    protected $allowIndividualOutDial;
+    protected $operatorNumber;
+    protected $conferenceHostUserTable;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated17\GroupMeetMeConferencingGetInstanceResponse $response
@@ -47,8 +47,9 @@ class GroupMeetMeConferencingGetInstanceResponse extends ComplexType implements 
      */
     public function setServiceInstanceProfile(ServiceInstanceReadProfile $serviceInstanceProfile = null)
     {
-        if (!$serviceInstanceProfile) return $this;
-        $this->serviceInstanceProfile = $serviceInstanceProfile;
+        $this->serviceInstanceProfile = ($serviceInstanceProfile InstanceOf ServiceInstanceReadProfile)
+             ? $serviceInstanceProfile
+             : new ServiceInstanceReadProfile($serviceInstanceProfile);
         $this->serviceInstanceProfile->setName('serviceInstanceProfile');
         return $this;
     }
@@ -67,8 +68,9 @@ class GroupMeetMeConferencingGetInstanceResponse extends ComplexType implements 
      */
     public function setAllocatedPorts(MeetMeConferencingConferencePorts $allocatedPorts = null)
     {
-        if (!$allocatedPorts) return $this;
-        $this->allocatedPorts = $allocatedPorts;
+        $this->allocatedPorts = ($allocatedPorts InstanceOf MeetMeConferencingConferencePorts)
+             ? $allocatedPorts
+             : new MeetMeConferencingConferencePorts($allocatedPorts);
         $this->allocatedPorts->setName('allocatedPorts');
         return $this;
     }
@@ -87,7 +89,6 @@ class GroupMeetMeConferencingGetInstanceResponse extends ComplexType implements 
      */
     public function setNetworkClassOfService($networkClassOfService = null)
     {
-        if (!$networkClassOfService) return $this;
         $this->networkClassOfService = ($networkClassOfService InstanceOf NetworkClassOfServiceName)
              ? $networkClassOfService
              : new NetworkClassOfServiceName($networkClassOfService);
@@ -101,7 +102,7 @@ class GroupMeetMeConferencingGetInstanceResponse extends ComplexType implements 
      */
     public function getNetworkClassOfService()
     {
-        return $this->networkClassOfService->getValue();
+        return ($this->networkClassOfService) ? $this->networkClassOfService->getValue() : null;
     }
 
     /**
@@ -109,7 +110,6 @@ class GroupMeetMeConferencingGetInstanceResponse extends ComplexType implements 
      */
     public function setAllowIndividualOutDial($allowIndividualOutDial = null)
     {
-        if (!$allowIndividualOutDial) return $this;
         $this->allowIndividualOutDial = new PrimitiveType($allowIndividualOutDial);
         $this->allowIndividualOutDial->setName('allowIndividualOutDial');
         return $this;
@@ -121,7 +121,7 @@ class GroupMeetMeConferencingGetInstanceResponse extends ComplexType implements 
      */
     public function getAllowIndividualOutDial()
     {
-        return $this->allowIndividualOutDial->getValue();
+        return ($this->allowIndividualOutDial) ? $this->allowIndividualOutDial->getValue() : null;
     }
 
     /**
@@ -129,7 +129,6 @@ class GroupMeetMeConferencingGetInstanceResponse extends ComplexType implements 
      */
     public function setOperatorNumber($operatorNumber = null)
     {
-        if (!$operatorNumber) return $this;
         $this->operatorNumber = ($operatorNumber InstanceOf OutgoingDNorSIPURI)
              ? $operatorNumber
              : new OutgoingDNorSIPURI($operatorNumber);
@@ -143,7 +142,7 @@ class GroupMeetMeConferencingGetInstanceResponse extends ComplexType implements 
      */
     public function getOperatorNumber()
     {
-        return $this->operatorNumber->getValue();
+        return ($this->operatorNumber) ? $this->operatorNumber->getValue() : null;
     }
 
     /**
@@ -151,7 +150,6 @@ class GroupMeetMeConferencingGetInstanceResponse extends ComplexType implements 
      */
     public function setConferenceHostUserTable(TableType $conferenceHostUserTable = null)
     {
-        if (!$conferenceHostUserTable) return $this;
         $this->conferenceHostUserTable = $conferenceHostUserTable;
         $this->conferenceHostUserTable->setName('conferenceHostUserTable');
         return $this;

@@ -21,12 +21,12 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupRoutePointModifyAnnouncementRequest extends ComplexType implements ComplexInterface
 {
-    public    $name              = 'GroupRoutePointModifyAnnouncementRequest';
-    protected $serviceUserId     = null;
-    protected $mediaOnHoldSource = null;
+    public    $name = 'GroupRoutePointModifyAnnouncementRequest';
+    protected $serviceUserId;
+    protected $mediaOnHoldSource;
 
     public function __construct(
-         $serviceUserId,
+         $serviceUserId = '',
          CallCenterMediaOnHoldSourceModify17 $mediaOnHoldSource = null
     ) {
         $this->setServiceUserId($serviceUserId);
@@ -46,7 +46,6 @@ class GroupRoutePointModifyAnnouncementRequest extends ComplexType implements Co
      */
     public function setServiceUserId($serviceUserId = null)
     {
-        if (!$serviceUserId) return $this;
         $this->serviceUserId = ($serviceUserId InstanceOf UserId)
              ? $serviceUserId
              : new UserId($serviceUserId);
@@ -60,7 +59,7 @@ class GroupRoutePointModifyAnnouncementRequest extends ComplexType implements Co
      */
     public function getServiceUserId()
     {
-        return $this->serviceUserId->getValue();
+        return ($this->serviceUserId) ? $this->serviceUserId->getValue() : null;
     }
 
     /**
@@ -68,8 +67,9 @@ class GroupRoutePointModifyAnnouncementRequest extends ComplexType implements Co
      */
     public function setMediaOnHoldSource(CallCenterMediaOnHoldSourceModify17 $mediaOnHoldSource = null)
     {
-        if (!$mediaOnHoldSource) return $this;
-        $this->mediaOnHoldSource = $mediaOnHoldSource;
+        $this->mediaOnHoldSource = ($mediaOnHoldSource InstanceOf CallCenterMediaOnHoldSourceModify17)
+             ? $mediaOnHoldSource
+             : new CallCenterMediaOnHoldSourceModify17($mediaOnHoldSource);
         $this->mediaOnHoldSource->setName('mediaOnHoldSource');
         return $this;
     }

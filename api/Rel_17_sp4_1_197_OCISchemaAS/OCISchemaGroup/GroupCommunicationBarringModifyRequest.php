@@ -23,15 +23,15 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupCommunicationBarringModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                             = 'GroupCommunicationBarringModifyRequest';
-    protected $serviceProviderId                = null;
-    protected $groupId                          = null;
-    protected $useDefaultServiceProviderProfile = null;
-    protected $profile                          = null;
+    public    $name = 'GroupCommunicationBarringModifyRequest';
+    protected $serviceProviderId;
+    protected $groupId;
+    protected $useDefaultServiceProviderProfile;
+    protected $profile;
 
     public function __construct(
-         $serviceProviderId,
-         $groupId,
+         $serviceProviderId = '',
+         $groupId = '',
          $useDefaultServiceProviderProfile = null,
          $profile = null
     ) {
@@ -54,7 +54,6 @@ class GroupCommunicationBarringModifyRequest extends ComplexType implements Comp
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
-        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
@@ -68,7 +67,7 @@ class GroupCommunicationBarringModifyRequest extends ComplexType implements Comp
      */
     public function getServiceProviderId()
     {
-        return $this->serviceProviderId->getValue();
+        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
     }
 
     /**
@@ -76,7 +75,6 @@ class GroupCommunicationBarringModifyRequest extends ComplexType implements Comp
      */
     public function setGroupId($groupId = null)
     {
-        if (!$groupId) return $this;
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
@@ -90,7 +88,7 @@ class GroupCommunicationBarringModifyRequest extends ComplexType implements Comp
      */
     public function getGroupId()
     {
-        return $this->groupId->getValue();
+        return ($this->groupId) ? $this->groupId->getValue() : null;
     }
 
     /**
@@ -98,7 +96,6 @@ class GroupCommunicationBarringModifyRequest extends ComplexType implements Comp
      */
     public function setUseDefaultServiceProviderProfile($useDefaultServiceProviderProfile = null)
     {
-        if (!$useDefaultServiceProviderProfile) return $this;
         $this->useDefaultServiceProviderProfile = new PrimitiveType($useDefaultServiceProviderProfile);
         $this->useDefaultServiceProviderProfile->setName('useDefaultServiceProviderProfile');
         return $this;
@@ -110,7 +107,7 @@ class GroupCommunicationBarringModifyRequest extends ComplexType implements Comp
      */
     public function getUseDefaultServiceProviderProfile()
     {
-        return $this->useDefaultServiceProviderProfile->getValue();
+        return ($this->useDefaultServiceProviderProfile) ? $this->useDefaultServiceProviderProfile->getValue() : null;
     }
 
     /**
@@ -118,7 +115,6 @@ class GroupCommunicationBarringModifyRequest extends ComplexType implements Comp
      */
     public function setProfile($profile = null)
     {
-        if (!$profile) return $this;
         $this->profile = ($profile InstanceOf CommunicationBarringProfileName)
              ? $profile
              : new CommunicationBarringProfileName($profile);
@@ -132,6 +128,6 @@ class GroupCommunicationBarringModifyRequest extends ComplexType implements Comp
      */
     public function getProfile()
     {
-        return $this->profile->getValue();
+        return ($this->profile) ? $this->profile->getValue() : null;
     }
 }

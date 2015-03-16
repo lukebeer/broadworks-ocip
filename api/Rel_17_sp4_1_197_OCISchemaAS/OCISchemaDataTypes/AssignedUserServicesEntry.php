@@ -20,12 +20,12 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class AssignedUserServicesEntry extends ComplexType implements ComplexInterface
 {
-    public    $name        = 'AssignedUserServicesEntry';
-    protected $serviceName = null;
-    protected $isActive    = null;
+    public    $name = 'AssignedUserServicesEntry';
+    protected $serviceName;
+    protected $isActive;
 
     public function __construct(
-         $serviceName,
+         $serviceName = '',
          $isActive = null
     ) {
         $this->setServiceName($serviceName);
@@ -45,7 +45,6 @@ class AssignedUserServicesEntry extends ComplexType implements ComplexInterface
      */
     public function setServiceName($serviceName = null)
     {
-        if (!$serviceName) return $this;
         $this->serviceName = new SimpleContent($serviceName);
         $this->serviceName->setName('serviceName');
         return $this;
@@ -57,7 +56,7 @@ class AssignedUserServicesEntry extends ComplexType implements ComplexInterface
      */
     public function getServiceName()
     {
-        return $this->serviceName->getValue();
+        return ($this->serviceName) ? $this->serviceName->getValue() : null;
     }
 
     /**
@@ -65,7 +64,6 @@ class AssignedUserServicesEntry extends ComplexType implements ComplexInterface
      */
     public function setIsActive($isActive = null)
     {
-        if (!$isActive) return $this;
         $this->isActive = new SimpleContent($isActive);
         $this->isActive->setName('isActive');
         return $this;
@@ -77,6 +75,6 @@ class AssignedUserServicesEntry extends ComplexType implements ComplexInterface
      */
     public function getIsActive()
     {
-        return $this->isActive->getValue();
+        return ($this->isActive) ? $this->isActive->getValue() : null;
     }
 }

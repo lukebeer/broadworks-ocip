@@ -22,13 +22,13 @@ use Broadworks_OCIP\core\Client\Client;
 class UserHolidayScheduleGetRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType        = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\UserHolidayScheduleGetResponse';
-    public    $name                = 'UserHolidayScheduleGetRequest';
-    protected $userId              = null;
-    protected $holidayScheduleName = null;
+    public    $name = 'UserHolidayScheduleGetRequest';
+    protected $userId;
+    protected $holidayScheduleName;
 
     public function __construct(
-         $userId,
-         $holidayScheduleName
+         $userId = '',
+         $holidayScheduleName = ''
     ) {
         $this->setUserId($userId);
         $this->setHolidayScheduleName($holidayScheduleName);
@@ -47,7 +47,6 @@ class UserHolidayScheduleGetRequest extends ComplexType implements ComplexInterf
      */
     public function setUserId($userId = null)
     {
-        if (!$userId) return $this;
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
@@ -61,7 +60,7 @@ class UserHolidayScheduleGetRequest extends ComplexType implements ComplexInterf
      */
     public function getUserId()
     {
-        return $this->userId->getValue();
+        return ($this->userId) ? $this->userId->getValue() : null;
     }
 
     /**
@@ -69,7 +68,6 @@ class UserHolidayScheduleGetRequest extends ComplexType implements ComplexInterf
      */
     public function setHolidayScheduleName($holidayScheduleName = null)
     {
-        if (!$holidayScheduleName) return $this;
         $this->holidayScheduleName = ($holidayScheduleName InstanceOf ScheduleName)
              ? $holidayScheduleName
              : new ScheduleName($holidayScheduleName);
@@ -83,6 +81,6 @@ class UserHolidayScheduleGetRequest extends ComplexType implements ComplexInterf
      */
     public function getHolidayScheduleName()
     {
-        return $this->holidayScheduleName->getValue();
+        return ($this->holidayScheduleName) ? $this->holidayScheduleName->getValue() : null;
     }
 }

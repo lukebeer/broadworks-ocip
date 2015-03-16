@@ -24,19 +24,19 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemInstantConferencingAddDeviceRequest14 extends ComplexType implements ComplexInterface
 {
-    public    $name              = 'SystemInstantConferencingAddDeviceRequest14';
-    protected $deviceName        = null;
-    protected $clusterNetAddress = null;
-    protected $signalingPort     = null;
-    protected $description       = null;
-    protected $transportProtocol = null;
+    public    $name = 'SystemInstantConferencingAddDeviceRequest14';
+    protected $deviceName;
+    protected $clusterNetAddress;
+    protected $signalingPort;
+    protected $description;
+    protected $transportProtocol;
 
     public function __construct(
-         $deviceName,
+         $deviceName = '',
          $clusterNetAddress = null,
          $signalingPort = null,
          $description = null,
-         $transportProtocol
+         $transportProtocol = ''
     ) {
         $this->setDeviceName($deviceName);
         $this->setClusterNetAddress($clusterNetAddress);
@@ -58,7 +58,6 @@ class SystemInstantConferencingAddDeviceRequest14 extends ComplexType implements
      */
     public function setDeviceName($deviceName = null)
     {
-        if (!$deviceName) return $this;
         $this->deviceName = ($deviceName InstanceOf AccessDeviceName)
              ? $deviceName
              : new AccessDeviceName($deviceName);
@@ -72,7 +71,7 @@ class SystemInstantConferencingAddDeviceRequest14 extends ComplexType implements
      */
     public function getDeviceName()
     {
-        return $this->deviceName->getValue();
+        return ($this->deviceName) ? $this->deviceName->getValue() : null;
     }
 
     /**
@@ -80,7 +79,6 @@ class SystemInstantConferencingAddDeviceRequest14 extends ComplexType implements
      */
     public function setClusterNetAddress($clusterNetAddress = null)
     {
-        if (!$clusterNetAddress) return $this;
         $this->clusterNetAddress = ($clusterNetAddress InstanceOf NetAddress)
              ? $clusterNetAddress
              : new NetAddress($clusterNetAddress);
@@ -94,7 +92,7 @@ class SystemInstantConferencingAddDeviceRequest14 extends ComplexType implements
      */
     public function getClusterNetAddress()
     {
-        return $this->clusterNetAddress->getValue();
+        return ($this->clusterNetAddress) ? $this->clusterNetAddress->getValue() : null;
     }
 
     /**
@@ -102,7 +100,6 @@ class SystemInstantConferencingAddDeviceRequest14 extends ComplexType implements
      */
     public function setSignalingPort($signalingPort = null)
     {
-        if (!$signalingPort) return $this;
         $this->signalingPort = ($signalingPort InstanceOf Port1025)
              ? $signalingPort
              : new Port1025($signalingPort);
@@ -116,7 +113,7 @@ class SystemInstantConferencingAddDeviceRequest14 extends ComplexType implements
      */
     public function getSignalingPort()
     {
-        return $this->signalingPort->getValue();
+        return ($this->signalingPort) ? $this->signalingPort->getValue() : null;
     }
 
     /**
@@ -124,7 +121,6 @@ class SystemInstantConferencingAddDeviceRequest14 extends ComplexType implements
      */
     public function setDescription($description = null)
     {
-        if (!$description) return $this;
         $this->description = ($description InstanceOf InstantConferencingDeviceDescription)
              ? $description
              : new InstantConferencingDeviceDescription($description);
@@ -138,7 +134,7 @@ class SystemInstantConferencingAddDeviceRequest14 extends ComplexType implements
      */
     public function getDescription()
     {
-        return $this->description->getValue();
+        return ($this->description) ? $this->description->getValue() : null;
     }
 
     /**
@@ -146,7 +142,6 @@ class SystemInstantConferencingAddDeviceRequest14 extends ComplexType implements
      */
     public function setTransportProtocol($transportProtocol = null)
     {
-        if (!$transportProtocol) return $this;
         $this->transportProtocol = ($transportProtocol InstanceOf TransportProtocol)
              ? $transportProtocol
              : new TransportProtocol($transportProtocol);
@@ -160,6 +155,6 @@ class SystemInstantConferencingAddDeviceRequest14 extends ComplexType implements
      */
     public function getTransportProtocol()
     {
-        return $this->transportProtocol->getValue();
+        return ($this->transportProtocol) ? $this->transportProtocol->getValue() : null;
     }
 }

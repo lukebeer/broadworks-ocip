@@ -19,13 +19,13 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class OutgoingCallingPlanDigitPatternCallMeNowPermission extends ComplexType implements ComplexInterface
 {
-    public    $name             = 'OutgoingCallingPlanDigitPatternCallMeNowPermission';
-    protected $digitPatternName = null;
-    protected $permission       = null;
+    public    $name = 'OutgoingCallingPlanDigitPatternCallMeNowPermission';
+    protected $digitPatternName;
+    protected $permission;
 
     public function __construct(
-         $digitPatternName,
-         $permission
+         $digitPatternName = '',
+         $permission = ''
     ) {
         $this->setDigitPatternName($digitPatternName);
         $this->setPermission($permission);
@@ -44,7 +44,6 @@ class OutgoingCallingPlanDigitPatternCallMeNowPermission extends ComplexType imp
      */
     public function setDigitPatternName($digitPatternName = null)
     {
-        if (!$digitPatternName) return $this;
         $this->digitPatternName = new SimpleContent($digitPatternName);
         $this->digitPatternName->setName('digitPatternName');
         return $this;
@@ -56,7 +55,7 @@ class OutgoingCallingPlanDigitPatternCallMeNowPermission extends ComplexType imp
      */
     public function getDigitPatternName()
     {
-        return $this->digitPatternName->getValue();
+        return ($this->digitPatternName) ? $this->digitPatternName->getValue() : null;
     }
 
     /**
@@ -64,7 +63,6 @@ class OutgoingCallingPlanDigitPatternCallMeNowPermission extends ComplexType imp
      */
     public function setPermission($permission = null)
     {
-        if (!$permission) return $this;
         $this->permission = new SimpleContent($permission);
         $this->permission->setName('permission');
         return $this;
@@ -76,6 +74,6 @@ class OutgoingCallingPlanDigitPatternCallMeNowPermission extends ComplexType imp
      */
     public function getPermission()
     {
-        return $this->permission->getValue();
+        return ($this->permission) ? $this->permission->getValue() : null;
     }
 }

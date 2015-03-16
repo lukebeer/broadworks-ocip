@@ -24,22 +24,22 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserBroadWorksMobilityModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                      = 'UserBroadWorksMobilityModifyRequest';
-    protected $userId                    = null;
-    protected $isActive                  = null;
-    protected $phonesToRing              = null;
-    protected $mobilePhoneNumber         = null;
-    protected $alertClickToDialCalls     = null;
-    protected $alertGroupPagingCalls     = null;
-    protected $enableDiversionInhibitor  = null;
-    protected $requireAnswerConfirmation = null;
-    protected $broadworksCallControl     = null;
-    protected $useSettingLevel           = null;
-    protected $denyCallOriginations      = null;
-    protected $denyCallTerminations      = null;
+    public    $name = 'UserBroadWorksMobilityModifyRequest';
+    protected $userId;
+    protected $isActive;
+    protected $phonesToRing;
+    protected $mobilePhoneNumber;
+    protected $alertClickToDialCalls;
+    protected $alertGroupPagingCalls;
+    protected $enableDiversionInhibitor;
+    protected $requireAnswerConfirmation;
+    protected $broadworksCallControl;
+    protected $useSettingLevel;
+    protected $denyCallOriginations;
+    protected $denyCallTerminations;
 
     public function __construct(
-         $userId,
+         $userId = '',
          $isActive = null,
          $phonesToRing = null,
          $mobilePhoneNumber = null,
@@ -79,7 +79,6 @@ class UserBroadWorksMobilityModifyRequest extends ComplexType implements Complex
      */
     public function setUserId($userId = null)
     {
-        if (!$userId) return $this;
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
@@ -93,7 +92,7 @@ class UserBroadWorksMobilityModifyRequest extends ComplexType implements Complex
      */
     public function getUserId()
     {
-        return $this->userId->getValue();
+        return ($this->userId) ? $this->userId->getValue() : null;
     }
 
     /**
@@ -101,7 +100,6 @@ class UserBroadWorksMobilityModifyRequest extends ComplexType implements Complex
      */
     public function setIsActive($isActive = null)
     {
-        if (!$isActive) return $this;
         $this->isActive = new PrimitiveType($isActive);
         $this->isActive->setName('isActive');
         return $this;
@@ -113,7 +111,7 @@ class UserBroadWorksMobilityModifyRequest extends ComplexType implements Complex
      */
     public function getIsActive()
     {
-        return $this->isActive->getValue();
+        return ($this->isActive) ? $this->isActive->getValue() : null;
     }
 
     /**
@@ -121,7 +119,6 @@ class UserBroadWorksMobilityModifyRequest extends ComplexType implements Complex
      */
     public function setPhonesToRing($phonesToRing = null)
     {
-        if (!$phonesToRing) return $this;
         $this->phonesToRing = ($phonesToRing InstanceOf BroadWorksMobilityPhoneToRing)
              ? $phonesToRing
              : new BroadWorksMobilityPhoneToRing($phonesToRing);
@@ -135,7 +132,7 @@ class UserBroadWorksMobilityModifyRequest extends ComplexType implements Complex
      */
     public function getPhonesToRing()
     {
-        return $this->phonesToRing->getValue();
+        return ($this->phonesToRing) ? $this->phonesToRing->getValue() : null;
     }
 
     /**
@@ -143,7 +140,6 @@ class UserBroadWorksMobilityModifyRequest extends ComplexType implements Complex
      */
     public function setMobilePhoneNumber($mobilePhoneNumber = null)
     {
-        if (!$mobilePhoneNumber) return $this;
         $this->mobilePhoneNumber = ($mobilePhoneNumber InstanceOf DN)
              ? $mobilePhoneNumber
              : new DN($mobilePhoneNumber);
@@ -157,7 +153,7 @@ class UserBroadWorksMobilityModifyRequest extends ComplexType implements Complex
      */
     public function getMobilePhoneNumber()
     {
-        return $this->mobilePhoneNumber->getValue();
+        return ($this->mobilePhoneNumber) ? $this->mobilePhoneNumber->getValue() : null;
     }
 
     /**
@@ -165,7 +161,6 @@ class UserBroadWorksMobilityModifyRequest extends ComplexType implements Complex
      */
     public function setAlertClickToDialCalls($alertClickToDialCalls = null)
     {
-        if (!$alertClickToDialCalls) return $this;
         $this->alertClickToDialCalls = new PrimitiveType($alertClickToDialCalls);
         $this->alertClickToDialCalls->setName('alertClickToDialCalls');
         return $this;
@@ -177,7 +172,7 @@ class UserBroadWorksMobilityModifyRequest extends ComplexType implements Complex
      */
     public function getAlertClickToDialCalls()
     {
-        return $this->alertClickToDialCalls->getValue();
+        return ($this->alertClickToDialCalls) ? $this->alertClickToDialCalls->getValue() : null;
     }
 
     /**
@@ -185,7 +180,6 @@ class UserBroadWorksMobilityModifyRequest extends ComplexType implements Complex
      */
     public function setAlertGroupPagingCalls($alertGroupPagingCalls = null)
     {
-        if (!$alertGroupPagingCalls) return $this;
         $this->alertGroupPagingCalls = new PrimitiveType($alertGroupPagingCalls);
         $this->alertGroupPagingCalls->setName('alertGroupPagingCalls');
         return $this;
@@ -197,7 +191,7 @@ class UserBroadWorksMobilityModifyRequest extends ComplexType implements Complex
      */
     public function getAlertGroupPagingCalls()
     {
-        return $this->alertGroupPagingCalls->getValue();
+        return ($this->alertGroupPagingCalls) ? $this->alertGroupPagingCalls->getValue() : null;
     }
 
     /**
@@ -205,7 +199,6 @@ class UserBroadWorksMobilityModifyRequest extends ComplexType implements Complex
      */
     public function setEnableDiversionInhibitor($enableDiversionInhibitor = null)
     {
-        if (!$enableDiversionInhibitor) return $this;
         $this->enableDiversionInhibitor = new PrimitiveType($enableDiversionInhibitor);
         $this->enableDiversionInhibitor->setName('enableDiversionInhibitor');
         return $this;
@@ -217,7 +210,7 @@ class UserBroadWorksMobilityModifyRequest extends ComplexType implements Complex
      */
     public function getEnableDiversionInhibitor()
     {
-        return $this->enableDiversionInhibitor->getValue();
+        return ($this->enableDiversionInhibitor) ? $this->enableDiversionInhibitor->getValue() : null;
     }
 
     /**
@@ -225,7 +218,6 @@ class UserBroadWorksMobilityModifyRequest extends ComplexType implements Complex
      */
     public function setRequireAnswerConfirmation($requireAnswerConfirmation = null)
     {
-        if (!$requireAnswerConfirmation) return $this;
         $this->requireAnswerConfirmation = new PrimitiveType($requireAnswerConfirmation);
         $this->requireAnswerConfirmation->setName('requireAnswerConfirmation');
         return $this;
@@ -237,7 +229,7 @@ class UserBroadWorksMobilityModifyRequest extends ComplexType implements Complex
      */
     public function getRequireAnswerConfirmation()
     {
-        return $this->requireAnswerConfirmation->getValue();
+        return ($this->requireAnswerConfirmation) ? $this->requireAnswerConfirmation->getValue() : null;
     }
 
     /**
@@ -245,7 +237,6 @@ class UserBroadWorksMobilityModifyRequest extends ComplexType implements Complex
      */
     public function setBroadworksCallControl($broadworksCallControl = null)
     {
-        if (!$broadworksCallControl) return $this;
         $this->broadworksCallControl = new PrimitiveType($broadworksCallControl);
         $this->broadworksCallControl->setName('broadworksCallControl');
         return $this;
@@ -257,7 +248,7 @@ class UserBroadWorksMobilityModifyRequest extends ComplexType implements Complex
      */
     public function getBroadworksCallControl()
     {
-        return $this->broadworksCallControl->getValue();
+        return ($this->broadworksCallControl) ? $this->broadworksCallControl->getValue() : null;
     }
 
     /**
@@ -265,7 +256,6 @@ class UserBroadWorksMobilityModifyRequest extends ComplexType implements Complex
      */
     public function setUseSettingLevel($useSettingLevel = null)
     {
-        if (!$useSettingLevel) return $this;
         $this->useSettingLevel = ($useSettingLevel InstanceOf BroadWorksMobilityUserSettingLevel)
              ? $useSettingLevel
              : new BroadWorksMobilityUserSettingLevel($useSettingLevel);
@@ -279,7 +269,7 @@ class UserBroadWorksMobilityModifyRequest extends ComplexType implements Complex
      */
     public function getUseSettingLevel()
     {
-        return $this->useSettingLevel->getValue();
+        return ($this->useSettingLevel) ? $this->useSettingLevel->getValue() : null;
     }
 
     /**
@@ -287,7 +277,6 @@ class UserBroadWorksMobilityModifyRequest extends ComplexType implements Complex
      */
     public function setDenyCallOriginations($denyCallOriginations = null)
     {
-        if (!$denyCallOriginations) return $this;
         $this->denyCallOriginations = new PrimitiveType($denyCallOriginations);
         $this->denyCallOriginations->setName('denyCallOriginations');
         return $this;
@@ -299,7 +288,7 @@ class UserBroadWorksMobilityModifyRequest extends ComplexType implements Complex
      */
     public function getDenyCallOriginations()
     {
-        return $this->denyCallOriginations->getValue();
+        return ($this->denyCallOriginations) ? $this->denyCallOriginations->getValue() : null;
     }
 
     /**
@@ -307,7 +296,6 @@ class UserBroadWorksMobilityModifyRequest extends ComplexType implements Complex
      */
     public function setDenyCallTerminations($denyCallTerminations = null)
     {
-        if (!$denyCallTerminations) return $this;
         $this->denyCallTerminations = new PrimitiveType($denyCallTerminations);
         $this->denyCallTerminations->setName('denyCallTerminations');
         return $this;
@@ -319,6 +307,6 @@ class UserBroadWorksMobilityModifyRequest extends ComplexType implements Complex
      */
     public function getDenyCallTerminations()
     {
-        return $this->denyCallTerminations->getValue();
+        return ($this->denyCallTerminations) ? $this->denyCallTerminations->getValue() : null;
     }
 }

@@ -21,32 +21,32 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemTimeScheduleModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                = 'SystemTimeScheduleModifyRequest';
-    protected $timeScheduleName    = null;
-    protected $newTimeScheduleName = null;
-    protected $timeInterval01      = null;
-    protected $timeInterval02      = null;
-    protected $timeInterval03      = null;
-    protected $timeInterval04      = null;
-    protected $timeInterval05      = null;
-    protected $timeInterval06      = null;
-    protected $timeInterval07      = null;
-    protected $timeInterval08      = null;
-    protected $timeInterval09      = null;
-    protected $timeInterval10      = null;
-    protected $timeInterval11      = null;
-    protected $timeInterval12      = null;
-    protected $timeInterval13      = null;
-    protected $timeInterval14      = null;
-    protected $timeInterval15      = null;
-    protected $timeInterval16      = null;
-    protected $timeInterval17      = null;
-    protected $timeInterval18      = null;
-    protected $timeInterval19      = null;
-    protected $timeInterval20      = null;
+    public    $name = 'SystemTimeScheduleModifyRequest';
+    protected $timeScheduleName;
+    protected $newTimeScheduleName;
+    protected $timeInterval01;
+    protected $timeInterval02;
+    protected $timeInterval03;
+    protected $timeInterval04;
+    protected $timeInterval05;
+    protected $timeInterval06;
+    protected $timeInterval07;
+    protected $timeInterval08;
+    protected $timeInterval09;
+    protected $timeInterval10;
+    protected $timeInterval11;
+    protected $timeInterval12;
+    protected $timeInterval13;
+    protected $timeInterval14;
+    protected $timeInterval15;
+    protected $timeInterval16;
+    protected $timeInterval17;
+    protected $timeInterval18;
+    protected $timeInterval19;
+    protected $timeInterval20;
 
     public function __construct(
-         $timeScheduleName,
+         $timeScheduleName = '',
          $newTimeScheduleName = null,
          TimeInterval $timeInterval01 = null,
          TimeInterval $timeInterval02 = null,
@@ -106,7 +106,6 @@ class SystemTimeScheduleModifyRequest extends ComplexType implements ComplexInte
      */
     public function setTimeScheduleName($timeScheduleName = null)
     {
-        if (!$timeScheduleName) return $this;
         $this->timeScheduleName = ($timeScheduleName InstanceOf ScheduleName)
              ? $timeScheduleName
              : new ScheduleName($timeScheduleName);
@@ -120,7 +119,7 @@ class SystemTimeScheduleModifyRequest extends ComplexType implements ComplexInte
      */
     public function getTimeScheduleName()
     {
-        return $this->timeScheduleName->getValue();
+        return ($this->timeScheduleName) ? $this->timeScheduleName->getValue() : null;
     }
 
     /**
@@ -128,7 +127,6 @@ class SystemTimeScheduleModifyRequest extends ComplexType implements ComplexInte
      */
     public function setNewTimeScheduleName($newTimeScheduleName = null)
     {
-        if (!$newTimeScheduleName) return $this;
         $this->newTimeScheduleName = ($newTimeScheduleName InstanceOf ScheduleName)
              ? $newTimeScheduleName
              : new ScheduleName($newTimeScheduleName);
@@ -142,7 +140,7 @@ class SystemTimeScheduleModifyRequest extends ComplexType implements ComplexInte
      */
     public function getNewTimeScheduleName()
     {
-        return $this->newTimeScheduleName->getValue();
+        return ($this->newTimeScheduleName) ? $this->newTimeScheduleName->getValue() : null;
     }
 
     /**
@@ -150,8 +148,9 @@ class SystemTimeScheduleModifyRequest extends ComplexType implements ComplexInte
      */
     public function setTimeInterval01(TimeInterval $timeInterval01 = null)
     {
-        if (!$timeInterval01) return $this;
-        $this->timeInterval01 = $timeInterval01;
+        $this->timeInterval01 = ($timeInterval01 InstanceOf TimeInterval)
+             ? $timeInterval01
+             : new TimeInterval($timeInterval01);
         $this->timeInterval01->setName('timeInterval01');
         return $this;
     }
@@ -170,8 +169,9 @@ class SystemTimeScheduleModifyRequest extends ComplexType implements ComplexInte
      */
     public function setTimeInterval02(TimeInterval $timeInterval02 = null)
     {
-        if (!$timeInterval02) return $this;
-        $this->timeInterval02 = $timeInterval02;
+        $this->timeInterval02 = ($timeInterval02 InstanceOf TimeInterval)
+             ? $timeInterval02
+             : new TimeInterval($timeInterval02);
         $this->timeInterval02->setName('timeInterval02');
         return $this;
     }
@@ -190,8 +190,9 @@ class SystemTimeScheduleModifyRequest extends ComplexType implements ComplexInte
      */
     public function setTimeInterval03(TimeInterval $timeInterval03 = null)
     {
-        if (!$timeInterval03) return $this;
-        $this->timeInterval03 = $timeInterval03;
+        $this->timeInterval03 = ($timeInterval03 InstanceOf TimeInterval)
+             ? $timeInterval03
+             : new TimeInterval($timeInterval03);
         $this->timeInterval03->setName('timeInterval03');
         return $this;
     }
@@ -210,8 +211,9 @@ class SystemTimeScheduleModifyRequest extends ComplexType implements ComplexInte
      */
     public function setTimeInterval04(TimeInterval $timeInterval04 = null)
     {
-        if (!$timeInterval04) return $this;
-        $this->timeInterval04 = $timeInterval04;
+        $this->timeInterval04 = ($timeInterval04 InstanceOf TimeInterval)
+             ? $timeInterval04
+             : new TimeInterval($timeInterval04);
         $this->timeInterval04->setName('timeInterval04');
         return $this;
     }
@@ -230,8 +232,9 @@ class SystemTimeScheduleModifyRequest extends ComplexType implements ComplexInte
      */
     public function setTimeInterval05(TimeInterval $timeInterval05 = null)
     {
-        if (!$timeInterval05) return $this;
-        $this->timeInterval05 = $timeInterval05;
+        $this->timeInterval05 = ($timeInterval05 InstanceOf TimeInterval)
+             ? $timeInterval05
+             : new TimeInterval($timeInterval05);
         $this->timeInterval05->setName('timeInterval05');
         return $this;
     }
@@ -250,8 +253,9 @@ class SystemTimeScheduleModifyRequest extends ComplexType implements ComplexInte
      */
     public function setTimeInterval06(TimeInterval $timeInterval06 = null)
     {
-        if (!$timeInterval06) return $this;
-        $this->timeInterval06 = $timeInterval06;
+        $this->timeInterval06 = ($timeInterval06 InstanceOf TimeInterval)
+             ? $timeInterval06
+             : new TimeInterval($timeInterval06);
         $this->timeInterval06->setName('timeInterval06');
         return $this;
     }
@@ -270,8 +274,9 @@ class SystemTimeScheduleModifyRequest extends ComplexType implements ComplexInte
      */
     public function setTimeInterval07(TimeInterval $timeInterval07 = null)
     {
-        if (!$timeInterval07) return $this;
-        $this->timeInterval07 = $timeInterval07;
+        $this->timeInterval07 = ($timeInterval07 InstanceOf TimeInterval)
+             ? $timeInterval07
+             : new TimeInterval($timeInterval07);
         $this->timeInterval07->setName('timeInterval07');
         return $this;
     }
@@ -290,8 +295,9 @@ class SystemTimeScheduleModifyRequest extends ComplexType implements ComplexInte
      */
     public function setTimeInterval08(TimeInterval $timeInterval08 = null)
     {
-        if (!$timeInterval08) return $this;
-        $this->timeInterval08 = $timeInterval08;
+        $this->timeInterval08 = ($timeInterval08 InstanceOf TimeInterval)
+             ? $timeInterval08
+             : new TimeInterval($timeInterval08);
         $this->timeInterval08->setName('timeInterval08');
         return $this;
     }
@@ -310,8 +316,9 @@ class SystemTimeScheduleModifyRequest extends ComplexType implements ComplexInte
      */
     public function setTimeInterval09(TimeInterval $timeInterval09 = null)
     {
-        if (!$timeInterval09) return $this;
-        $this->timeInterval09 = $timeInterval09;
+        $this->timeInterval09 = ($timeInterval09 InstanceOf TimeInterval)
+             ? $timeInterval09
+             : new TimeInterval($timeInterval09);
         $this->timeInterval09->setName('timeInterval09');
         return $this;
     }
@@ -330,8 +337,9 @@ class SystemTimeScheduleModifyRequest extends ComplexType implements ComplexInte
      */
     public function setTimeInterval10(TimeInterval $timeInterval10 = null)
     {
-        if (!$timeInterval10) return $this;
-        $this->timeInterval10 = $timeInterval10;
+        $this->timeInterval10 = ($timeInterval10 InstanceOf TimeInterval)
+             ? $timeInterval10
+             : new TimeInterval($timeInterval10);
         $this->timeInterval10->setName('timeInterval10');
         return $this;
     }
@@ -350,8 +358,9 @@ class SystemTimeScheduleModifyRequest extends ComplexType implements ComplexInte
      */
     public function setTimeInterval11(TimeInterval $timeInterval11 = null)
     {
-        if (!$timeInterval11) return $this;
-        $this->timeInterval11 = $timeInterval11;
+        $this->timeInterval11 = ($timeInterval11 InstanceOf TimeInterval)
+             ? $timeInterval11
+             : new TimeInterval($timeInterval11);
         $this->timeInterval11->setName('timeInterval11');
         return $this;
     }
@@ -370,8 +379,9 @@ class SystemTimeScheduleModifyRequest extends ComplexType implements ComplexInte
      */
     public function setTimeInterval12(TimeInterval $timeInterval12 = null)
     {
-        if (!$timeInterval12) return $this;
-        $this->timeInterval12 = $timeInterval12;
+        $this->timeInterval12 = ($timeInterval12 InstanceOf TimeInterval)
+             ? $timeInterval12
+             : new TimeInterval($timeInterval12);
         $this->timeInterval12->setName('timeInterval12');
         return $this;
     }
@@ -390,8 +400,9 @@ class SystemTimeScheduleModifyRequest extends ComplexType implements ComplexInte
      */
     public function setTimeInterval13(TimeInterval $timeInterval13 = null)
     {
-        if (!$timeInterval13) return $this;
-        $this->timeInterval13 = $timeInterval13;
+        $this->timeInterval13 = ($timeInterval13 InstanceOf TimeInterval)
+             ? $timeInterval13
+             : new TimeInterval($timeInterval13);
         $this->timeInterval13->setName('timeInterval13');
         return $this;
     }
@@ -410,8 +421,9 @@ class SystemTimeScheduleModifyRequest extends ComplexType implements ComplexInte
      */
     public function setTimeInterval14(TimeInterval $timeInterval14 = null)
     {
-        if (!$timeInterval14) return $this;
-        $this->timeInterval14 = $timeInterval14;
+        $this->timeInterval14 = ($timeInterval14 InstanceOf TimeInterval)
+             ? $timeInterval14
+             : new TimeInterval($timeInterval14);
         $this->timeInterval14->setName('timeInterval14');
         return $this;
     }
@@ -430,8 +442,9 @@ class SystemTimeScheduleModifyRequest extends ComplexType implements ComplexInte
      */
     public function setTimeInterval15(TimeInterval $timeInterval15 = null)
     {
-        if (!$timeInterval15) return $this;
-        $this->timeInterval15 = $timeInterval15;
+        $this->timeInterval15 = ($timeInterval15 InstanceOf TimeInterval)
+             ? $timeInterval15
+             : new TimeInterval($timeInterval15);
         $this->timeInterval15->setName('timeInterval15');
         return $this;
     }
@@ -450,8 +463,9 @@ class SystemTimeScheduleModifyRequest extends ComplexType implements ComplexInte
      */
     public function setTimeInterval16(TimeInterval $timeInterval16 = null)
     {
-        if (!$timeInterval16) return $this;
-        $this->timeInterval16 = $timeInterval16;
+        $this->timeInterval16 = ($timeInterval16 InstanceOf TimeInterval)
+             ? $timeInterval16
+             : new TimeInterval($timeInterval16);
         $this->timeInterval16->setName('timeInterval16');
         return $this;
     }
@@ -470,8 +484,9 @@ class SystemTimeScheduleModifyRequest extends ComplexType implements ComplexInte
      */
     public function setTimeInterval17(TimeInterval $timeInterval17 = null)
     {
-        if (!$timeInterval17) return $this;
-        $this->timeInterval17 = $timeInterval17;
+        $this->timeInterval17 = ($timeInterval17 InstanceOf TimeInterval)
+             ? $timeInterval17
+             : new TimeInterval($timeInterval17);
         $this->timeInterval17->setName('timeInterval17');
         return $this;
     }
@@ -490,8 +505,9 @@ class SystemTimeScheduleModifyRequest extends ComplexType implements ComplexInte
      */
     public function setTimeInterval18(TimeInterval $timeInterval18 = null)
     {
-        if (!$timeInterval18) return $this;
-        $this->timeInterval18 = $timeInterval18;
+        $this->timeInterval18 = ($timeInterval18 InstanceOf TimeInterval)
+             ? $timeInterval18
+             : new TimeInterval($timeInterval18);
         $this->timeInterval18->setName('timeInterval18');
         return $this;
     }
@@ -510,8 +526,9 @@ class SystemTimeScheduleModifyRequest extends ComplexType implements ComplexInte
      */
     public function setTimeInterval19(TimeInterval $timeInterval19 = null)
     {
-        if (!$timeInterval19) return $this;
-        $this->timeInterval19 = $timeInterval19;
+        $this->timeInterval19 = ($timeInterval19 InstanceOf TimeInterval)
+             ? $timeInterval19
+             : new TimeInterval($timeInterval19);
         $this->timeInterval19->setName('timeInterval19');
         return $this;
     }
@@ -530,8 +547,9 @@ class SystemTimeScheduleModifyRequest extends ComplexType implements ComplexInte
      */
     public function setTimeInterval20(TimeInterval $timeInterval20 = null)
     {
-        if (!$timeInterval20) return $this;
-        $this->timeInterval20 = $timeInterval20;
+        $this->timeInterval20 = ($timeInterval20 InstanceOf TimeInterval)
+             ? $timeInterval20
+             : new TimeInterval($timeInterval20);
         $this->timeInterval20->setName('timeInterval20');
         return $this;
     }

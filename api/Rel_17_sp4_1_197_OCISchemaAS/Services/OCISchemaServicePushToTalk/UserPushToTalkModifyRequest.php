@@ -24,15 +24,15 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserPushToTalkModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                        = 'UserPushToTalkModifyRequest';
-    protected $userId                      = null;
-    protected $allowAutoAnswer             = null;
-    protected $outgoingConnectionSelection = null;
-    protected $accessListSelection         = null;
-    protected $selectedUserIdList          = null;
+    public    $name = 'UserPushToTalkModifyRequest';
+    protected $userId;
+    protected $allowAutoAnswer;
+    protected $outgoingConnectionSelection;
+    protected $accessListSelection;
+    protected $selectedUserIdList;
 
     public function __construct(
-         $userId,
+         $userId = '',
          $allowAutoAnswer = null,
          $outgoingConnectionSelection = null,
          $accessListSelection = null,
@@ -58,7 +58,6 @@ class UserPushToTalkModifyRequest extends ComplexType implements ComplexInterfac
      */
     public function setUserId($userId = null)
     {
-        if (!$userId) return $this;
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
@@ -72,7 +71,7 @@ class UserPushToTalkModifyRequest extends ComplexType implements ComplexInterfac
      */
     public function getUserId()
     {
-        return $this->userId->getValue();
+        return ($this->userId) ? $this->userId->getValue() : null;
     }
 
     /**
@@ -80,7 +79,6 @@ class UserPushToTalkModifyRequest extends ComplexType implements ComplexInterfac
      */
     public function setAllowAutoAnswer($allowAutoAnswer = null)
     {
-        if (!$allowAutoAnswer) return $this;
         $this->allowAutoAnswer = new PrimitiveType($allowAutoAnswer);
         $this->allowAutoAnswer->setName('allowAutoAnswer');
         return $this;
@@ -92,7 +90,7 @@ class UserPushToTalkModifyRequest extends ComplexType implements ComplexInterfac
      */
     public function getAllowAutoAnswer()
     {
-        return $this->allowAutoAnswer->getValue();
+        return ($this->allowAutoAnswer) ? $this->allowAutoAnswer->getValue() : null;
     }
 
     /**
@@ -100,7 +98,6 @@ class UserPushToTalkModifyRequest extends ComplexType implements ComplexInterfac
      */
     public function setOutgoingConnectionSelection($outgoingConnectionSelection = null)
     {
-        if (!$outgoingConnectionSelection) return $this;
         $this->outgoingConnectionSelection = ($outgoingConnectionSelection InstanceOf PushToTalkOutgoingConnectionSelection)
              ? $outgoingConnectionSelection
              : new PushToTalkOutgoingConnectionSelection($outgoingConnectionSelection);
@@ -114,7 +111,7 @@ class UserPushToTalkModifyRequest extends ComplexType implements ComplexInterfac
      */
     public function getOutgoingConnectionSelection()
     {
-        return $this->outgoingConnectionSelection->getValue();
+        return ($this->outgoingConnectionSelection) ? $this->outgoingConnectionSelection->getValue() : null;
     }
 
     /**
@@ -122,7 +119,6 @@ class UserPushToTalkModifyRequest extends ComplexType implements ComplexInterfac
      */
     public function setAccessListSelection($accessListSelection = null)
     {
-        if (!$accessListSelection) return $this;
         $this->accessListSelection = ($accessListSelection InstanceOf PushToTalkAccessListSelection)
              ? $accessListSelection
              : new PushToTalkAccessListSelection($accessListSelection);
@@ -136,7 +132,7 @@ class UserPushToTalkModifyRequest extends ComplexType implements ComplexInterfac
      */
     public function getAccessListSelection()
     {
-        return $this->accessListSelection->getValue();
+        return ($this->accessListSelection) ? $this->accessListSelection->getValue() : null;
     }
 
     /**
@@ -144,8 +140,9 @@ class UserPushToTalkModifyRequest extends ComplexType implements ComplexInterfac
      */
     public function setSelectedUserIdList(ReplacementUserIdList $selectedUserIdList = null)
     {
-        if (!$selectedUserIdList) return $this;
-        $this->selectedUserIdList = $selectedUserIdList;
+        $this->selectedUserIdList = ($selectedUserIdList InstanceOf ReplacementUserIdList)
+             ? $selectedUserIdList
+             : new ReplacementUserIdList($selectedUserIdList);
         $this->selectedUserIdList->setName('selectedUserIdList');
         return $this;
     }

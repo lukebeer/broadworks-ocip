@@ -22,14 +22,14 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class EnterpriseDepartmentAddRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                = 'EnterpriseDepartmentAddRequest';
-    protected $enterpriseId        = null;
-    protected $departmentName      = null;
-    protected $parentDepartmentKey = null;
+    public    $name = 'EnterpriseDepartmentAddRequest';
+    protected $enterpriseId;
+    protected $departmentName;
+    protected $parentDepartmentKey;
 
     public function __construct(
-         $enterpriseId,
-         $departmentName,
+         $enterpriseId = '',
+         $departmentName = '',
          EnterpriseDepartmentKey $parentDepartmentKey = null
     ) {
         $this->setEnterpriseId($enterpriseId);
@@ -50,7 +50,6 @@ class EnterpriseDepartmentAddRequest extends ComplexType implements ComplexInter
      */
     public function setEnterpriseId($enterpriseId = null)
     {
-        if (!$enterpriseId) return $this;
         $this->enterpriseId = ($enterpriseId InstanceOf ServiceProviderId)
              ? $enterpriseId
              : new ServiceProviderId($enterpriseId);
@@ -64,7 +63,7 @@ class EnterpriseDepartmentAddRequest extends ComplexType implements ComplexInter
      */
     public function getEnterpriseId()
     {
-        return $this->enterpriseId->getValue();
+        return ($this->enterpriseId) ? $this->enterpriseId->getValue() : null;
     }
 
     /**
@@ -72,7 +71,6 @@ class EnterpriseDepartmentAddRequest extends ComplexType implements ComplexInter
      */
     public function setDepartmentName($departmentName = null)
     {
-        if (!$departmentName) return $this;
         $this->departmentName = ($departmentName InstanceOf DepartmentName)
              ? $departmentName
              : new DepartmentName($departmentName);
@@ -86,7 +84,7 @@ class EnterpriseDepartmentAddRequest extends ComplexType implements ComplexInter
      */
     public function getDepartmentName()
     {
-        return $this->departmentName->getValue();
+        return ($this->departmentName) ? $this->departmentName->getValue() : null;
     }
 
     /**
@@ -94,8 +92,9 @@ class EnterpriseDepartmentAddRequest extends ComplexType implements ComplexInter
      */
     public function setParentDepartmentKey(EnterpriseDepartmentKey $parentDepartmentKey = null)
     {
-        if (!$parentDepartmentKey) return $this;
-        $this->parentDepartmentKey = $parentDepartmentKey;
+        $this->parentDepartmentKey = ($parentDepartmentKey InstanceOf EnterpriseDepartmentKey)
+             ? $parentDepartmentKey
+             : new EnterpriseDepartmentKey($parentDepartmentKey);
         $this->parentDepartmentKey->setName('parentDepartmentKey');
         return $this;
     }

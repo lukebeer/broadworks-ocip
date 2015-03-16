@@ -23,17 +23,17 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupCallPickupModifyInstanceRequest extends ComplexType implements ComplexInterface
 {
-    public    $name              = 'GroupCallPickupModifyInstanceRequest';
-    protected $serviceProviderId = null;
-    protected $groupId           = null;
-    protected $name              = null;
-    protected $newName           = null;
-    protected $userIdList        = null;
+    public    $name = 'GroupCallPickupModifyInstanceRequest';
+    protected $serviceProviderId;
+    protected $groupId;
+    protected $name;
+    protected $newName;
+    protected $userIdList;
 
     public function __construct(
-         $serviceProviderId,
-         $groupId,
-         $name,
+         $serviceProviderId = '',
+         $groupId = '',
+         $name = '',
          $newName = null,
          ReplacementUserIdList $userIdList = null
     ) {
@@ -57,7 +57,6 @@ class GroupCallPickupModifyInstanceRequest extends ComplexType implements Comple
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
-        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
@@ -71,7 +70,7 @@ class GroupCallPickupModifyInstanceRequest extends ComplexType implements Comple
      */
     public function getServiceProviderId()
     {
-        return $this->serviceProviderId->getValue();
+        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
     }
 
     /**
@@ -79,7 +78,6 @@ class GroupCallPickupModifyInstanceRequest extends ComplexType implements Comple
      */
     public function setGroupId($groupId = null)
     {
-        if (!$groupId) return $this;
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
@@ -93,7 +91,7 @@ class GroupCallPickupModifyInstanceRequest extends ComplexType implements Comple
      */
     public function getGroupId()
     {
-        return $this->groupId->getValue();
+        return ($this->groupId) ? $this->groupId->getValue() : null;
     }
 
     /**
@@ -101,7 +99,6 @@ class GroupCallPickupModifyInstanceRequest extends ComplexType implements Comple
      */
     public function setName($name = null)
     {
-        if (!$name) return $this;
         $this->name = ($name InstanceOf ServiceInstanceName)
              ? $name
              : new ServiceInstanceName($name);
@@ -115,7 +112,7 @@ class GroupCallPickupModifyInstanceRequest extends ComplexType implements Comple
      */
     public function getName()
     {
-        return $this->name->getValue();
+        return ($this->name) ? $this->name->getValue() : null;
     }
 
     /**
@@ -123,7 +120,6 @@ class GroupCallPickupModifyInstanceRequest extends ComplexType implements Comple
      */
     public function setNewName($newName = null)
     {
-        if (!$newName) return $this;
         $this->newName = ($newName InstanceOf ServiceInstanceName)
              ? $newName
              : new ServiceInstanceName($newName);
@@ -137,7 +133,7 @@ class GroupCallPickupModifyInstanceRequest extends ComplexType implements Comple
      */
     public function getNewName()
     {
-        return $this->newName->getValue();
+        return ($this->newName) ? $this->newName->getValue() : null;
     }
 
     /**
@@ -145,8 +141,9 @@ class GroupCallPickupModifyInstanceRequest extends ComplexType implements Comple
      */
     public function setUserIdList(ReplacementUserIdList $userIdList = null)
     {
-        if (!$userIdList) return $this;
-        $this->userIdList = $userIdList;
+        $this->userIdList = ($userIdList InstanceOf ReplacementUserIdList)
+             ? $userIdList
+             : new ReplacementUserIdList($userIdList);
         $this->userIdList->setName('userIdList');
         return $this;
     }

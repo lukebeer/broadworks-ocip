@@ -24,14 +24,14 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemBroadWorksMobileManagerGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name               = 'SystemBroadWorksMobileManagerGetResponse';
-    protected $scfApiNetAddress1  = null;
-    protected $scfApiNetAddress2  = null;
-    protected $userName           = null;
-    protected $emailFromAddress   = null;
-    protected $scfIMSOnly         = null;
-    protected $signalingIPAddress = null;
-    protected $signalingPort      = null;
+    public    $name = 'SystemBroadWorksMobileManagerGetResponse';
+    protected $scfApiNetAddress1;
+    protected $scfApiNetAddress2;
+    protected $userName;
+    protected $emailFromAddress;
+    protected $scfIMSOnly;
+    protected $signalingIPAddress;
+    protected $signalingPort;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemBroadWorksMobileManagerGetResponse $response
@@ -46,7 +46,6 @@ class SystemBroadWorksMobileManagerGetResponse extends ComplexType implements Co
      */
     public function setScfApiNetAddress1($scfApiNetAddress1 = null)
     {
-        if (!$scfApiNetAddress1) return $this;
         $this->scfApiNetAddress1 = ($scfApiNetAddress1 InstanceOf NetAddress)
              ? $scfApiNetAddress1
              : new NetAddress($scfApiNetAddress1);
@@ -60,7 +59,7 @@ class SystemBroadWorksMobileManagerGetResponse extends ComplexType implements Co
      */
     public function getScfApiNetAddress1()
     {
-        return $this->scfApiNetAddress1->getValue();
+        return ($this->scfApiNetAddress1) ? $this->scfApiNetAddress1->getValue() : null;
     }
 
     /**
@@ -68,7 +67,6 @@ class SystemBroadWorksMobileManagerGetResponse extends ComplexType implements Co
      */
     public function setScfApiNetAddress2($scfApiNetAddress2 = null)
     {
-        if (!$scfApiNetAddress2) return $this;
         $this->scfApiNetAddress2 = ($scfApiNetAddress2 InstanceOf NetAddress)
              ? $scfApiNetAddress2
              : new NetAddress($scfApiNetAddress2);
@@ -82,7 +80,7 @@ class SystemBroadWorksMobileManagerGetResponse extends ComplexType implements Co
      */
     public function getScfApiNetAddress2()
     {
-        return $this->scfApiNetAddress2->getValue();
+        return ($this->scfApiNetAddress2) ? $this->scfApiNetAddress2->getValue() : null;
     }
 
     /**
@@ -90,7 +88,6 @@ class SystemBroadWorksMobileManagerGetResponse extends ComplexType implements Co
      */
     public function setUserName($userName = null)
     {
-        if (!$userName) return $this;
         $this->userName = ($userName InstanceOf BroadWorksMobileManagerUserName)
              ? $userName
              : new BroadWorksMobileManagerUserName($userName);
@@ -104,7 +101,7 @@ class SystemBroadWorksMobileManagerGetResponse extends ComplexType implements Co
      */
     public function getUserName()
     {
-        return $this->userName->getValue();
+        return ($this->userName) ? $this->userName->getValue() : null;
     }
 
     /**
@@ -112,7 +109,6 @@ class SystemBroadWorksMobileManagerGetResponse extends ComplexType implements Co
      */
     public function setEmailFromAddress($emailFromAddress = null)
     {
-        if (!$emailFromAddress) return $this;
         $this->emailFromAddress = ($emailFromAddress InstanceOf EmailAddress)
              ? $emailFromAddress
              : new EmailAddress($emailFromAddress);
@@ -126,7 +122,7 @@ class SystemBroadWorksMobileManagerGetResponse extends ComplexType implements Co
      */
     public function getEmailFromAddress()
     {
-        return $this->emailFromAddress->getValue();
+        return ($this->emailFromAddress) ? $this->emailFromAddress->getValue() : null;
     }
 
     /**
@@ -134,7 +130,6 @@ class SystemBroadWorksMobileManagerGetResponse extends ComplexType implements Co
      */
     public function setScfIMSOnly($scfIMSOnly = null)
     {
-        if (!$scfIMSOnly) return $this;
         $this->scfIMSOnly = new PrimitiveType($scfIMSOnly);
         $this->scfIMSOnly->setName('scfIMSOnly');
         return $this;
@@ -146,7 +141,7 @@ class SystemBroadWorksMobileManagerGetResponse extends ComplexType implements Co
      */
     public function getScfIMSOnly()
     {
-        return $this->scfIMSOnly->getValue();
+        return ($this->scfIMSOnly) ? $this->scfIMSOnly->getValue() : null;
     }
 
     /**
@@ -154,7 +149,6 @@ class SystemBroadWorksMobileManagerGetResponse extends ComplexType implements Co
      */
     public function setSignalingIPAddress($signalingIPAddress = null)
     {
-        if (!$signalingIPAddress) return $this;
         $this->signalingIPAddress = ($signalingIPAddress InstanceOf IPAddress)
              ? $signalingIPAddress
              : new IPAddress($signalingIPAddress);
@@ -168,7 +162,7 @@ class SystemBroadWorksMobileManagerGetResponse extends ComplexType implements Co
      */
     public function getSignalingIPAddress()
     {
-        return $this->signalingIPAddress->getValue();
+        return ($this->signalingIPAddress) ? $this->signalingIPAddress->getValue() : null;
     }
 
     /**
@@ -176,7 +170,6 @@ class SystemBroadWorksMobileManagerGetResponse extends ComplexType implements Co
      */
     public function setSignalingPort($signalingPort = null)
     {
-        if (!$signalingPort) return $this;
         $this->signalingPort = ($signalingPort InstanceOf Port)
              ? $signalingPort
              : new Port($signalingPort);
@@ -190,6 +183,6 @@ class SystemBroadWorksMobileManagerGetResponse extends ComplexType implements Co
      */
     public function getSignalingPort()
     {
-        return $this->signalingPort->getValue();
+        return ($this->signalingPort) ? $this->signalingPort->getValue() : null;
     }
 }

@@ -21,10 +21,10 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class AuthenticationResponse extends ComplexType implements ComplexInterface
 {
-    public    $name              = 'AuthenticationResponse';
-    protected $userId            = null;
-    protected $nonce             = null;
-    protected $passwordAlgorithm = null;
+    public    $name = 'AuthenticationResponse';
+    protected $userId;
+    protected $nonce;
+    protected $passwordAlgorithm;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaLogin\AuthenticationResponse $response
@@ -39,7 +39,6 @@ class AuthenticationResponse extends ComplexType implements ComplexInterface
      */
     public function setUserId($userId = null)
     {
-        if (!$userId) return $this;
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
@@ -53,7 +52,7 @@ class AuthenticationResponse extends ComplexType implements ComplexInterface
      */
     public function getUserId()
     {
-        return $this->userId->getValue();
+        return ($this->userId) ? $this->userId->getValue() : null;
     }
 
     /**
@@ -61,7 +60,6 @@ class AuthenticationResponse extends ComplexType implements ComplexInterface
      */
     public function setNonce($nonce = null)
     {
-        if (!$nonce) return $this;
         $this->nonce = new PrimitiveType($nonce);
         $this->nonce->setName('nonce');
         return $this;
@@ -73,7 +71,7 @@ class AuthenticationResponse extends ComplexType implements ComplexInterface
      */
     public function getNonce()
     {
-        return $this->nonce->getValue();
+        return ($this->nonce) ? $this->nonce->getValue() : null;
     }
 
     /**
@@ -81,7 +79,6 @@ class AuthenticationResponse extends ComplexType implements ComplexInterface
      */
     public function setPasswordAlgorithm($passwordAlgorithm = null)
     {
-        if (!$passwordAlgorithm) return $this;
         $this->passwordAlgorithm = ($passwordAlgorithm InstanceOf DigitalSignatureAlgorithm)
              ? $passwordAlgorithm
              : new DigitalSignatureAlgorithm($passwordAlgorithm);
@@ -95,6 +92,6 @@ class AuthenticationResponse extends ComplexType implements ComplexInterface
      */
     public function getPasswordAlgorithm()
     {
-        return $this->passwordAlgorithm->getValue();
+        return ($this->passwordAlgorithm) ? $this->passwordAlgorithm->getValue() : null;
     }
 }

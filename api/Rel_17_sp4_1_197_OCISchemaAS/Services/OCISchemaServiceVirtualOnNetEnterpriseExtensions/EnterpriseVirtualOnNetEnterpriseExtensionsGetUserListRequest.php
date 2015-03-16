@@ -31,18 +31,18 @@ use Broadworks_OCIP\core\Client\Client;
 class EnterpriseVirtualOnNetEnterpriseExtensionsGetUserListRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType                                = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceVirtualOnNetEnterpriseExtensions\EnterpriseVirtualOnNetEnterpriseExtensionsGetUserListResponse';
-    public    $name                                        = 'EnterpriseVirtualOnNetEnterpriseExtensionsGetUserListRequest';
-    protected $serviceProviderId                           = null;
-    protected $responseSizeLimit                           = null;
-    protected $searchCriteriaUserLastName                  = null;
-    protected $searchCriteriaUserFirstName                 = null;
-    protected $searchCriteriaDn                            = null;
-    protected $searchCriteriaGroupLocationCode             = null;
-    protected $searchCriteriaExtension                     = null;
-    protected $searchCriteriaExactVirtualOnNetCallTypeName = null;
+    public    $name = 'EnterpriseVirtualOnNetEnterpriseExtensionsGetUserListRequest';
+    protected $serviceProviderId;
+    protected $responseSizeLimit;
+    protected $searchCriteriaUserLastName;
+    protected $searchCriteriaUserFirstName;
+    protected $searchCriteriaDn;
+    protected $searchCriteriaGroupLocationCode;
+    protected $searchCriteriaExtension;
+    protected $searchCriteriaExactVirtualOnNetCallTypeName;
 
     public function __construct(
-         $serviceProviderId,
+         $serviceProviderId = '',
          $responseSizeLimit = null,
          SearchCriteriaUserLastName $searchCriteriaUserLastName = null,
          SearchCriteriaUserFirstName $searchCriteriaUserFirstName = null,
@@ -74,7 +74,6 @@ class EnterpriseVirtualOnNetEnterpriseExtensionsGetUserListRequest extends Compl
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
-        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
@@ -88,7 +87,7 @@ class EnterpriseVirtualOnNetEnterpriseExtensionsGetUserListRequest extends Compl
      */
     public function getServiceProviderId()
     {
-        return $this->serviceProviderId->getValue();
+        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
     }
 
     /**
@@ -96,7 +95,6 @@ class EnterpriseVirtualOnNetEnterpriseExtensionsGetUserListRequest extends Compl
      */
     public function setResponseSizeLimit($responseSizeLimit = null)
     {
-        if (!$responseSizeLimit) return $this;
         $this->responseSizeLimit = ($responseSizeLimit InstanceOf ResponseSizeLimit)
              ? $responseSizeLimit
              : new ResponseSizeLimit($responseSizeLimit);
@@ -110,7 +108,7 @@ class EnterpriseVirtualOnNetEnterpriseExtensionsGetUserListRequest extends Compl
      */
     public function getResponseSizeLimit()
     {
-        return $this->responseSizeLimit->getValue();
+        return ($this->responseSizeLimit) ? $this->responseSizeLimit->getValue() : null;
     }
 
     /**
@@ -118,7 +116,6 @@ class EnterpriseVirtualOnNetEnterpriseExtensionsGetUserListRequest extends Compl
      */
     public function setSearchCriteriaUserLastName(SearchCriteriaUserLastName $searchCriteriaUserLastName = null)
     {
-        if (!$searchCriteriaUserLastName) return $this;
         $this->searchCriteriaUserLastName = ($searchCriteriaUserLastName InstanceOf SearchCriteriaUserLastName)
              ? $searchCriteriaUserLastName
              : new SearchCriteriaUserLastName($searchCriteriaUserLastName);
@@ -140,7 +137,6 @@ class EnterpriseVirtualOnNetEnterpriseExtensionsGetUserListRequest extends Compl
      */
     public function setSearchCriteriaUserFirstName(SearchCriteriaUserFirstName $searchCriteriaUserFirstName = null)
     {
-        if (!$searchCriteriaUserFirstName) return $this;
         $this->searchCriteriaUserFirstName = ($searchCriteriaUserFirstName InstanceOf SearchCriteriaUserFirstName)
              ? $searchCriteriaUserFirstName
              : new SearchCriteriaUserFirstName($searchCriteriaUserFirstName);
@@ -162,7 +158,6 @@ class EnterpriseVirtualOnNetEnterpriseExtensionsGetUserListRequest extends Compl
      */
     public function setSearchCriteriaDn(SearchCriteriaDn $searchCriteriaDn = null)
     {
-        if (!$searchCriteriaDn) return $this;
         $this->searchCriteriaDn = ($searchCriteriaDn InstanceOf SearchCriteriaDn)
              ? $searchCriteriaDn
              : new SearchCriteriaDn($searchCriteriaDn);
@@ -184,7 +179,6 @@ class EnterpriseVirtualOnNetEnterpriseExtensionsGetUserListRequest extends Compl
      */
     public function setSearchCriteriaGroupLocationCode(SearchCriteriaGroupLocationCode $searchCriteriaGroupLocationCode = null)
     {
-        if (!$searchCriteriaGroupLocationCode) return $this;
         $this->searchCriteriaGroupLocationCode = ($searchCriteriaGroupLocationCode InstanceOf SearchCriteriaGroupLocationCode)
              ? $searchCriteriaGroupLocationCode
              : new SearchCriteriaGroupLocationCode($searchCriteriaGroupLocationCode);
@@ -206,7 +200,6 @@ class EnterpriseVirtualOnNetEnterpriseExtensionsGetUserListRequest extends Compl
      */
     public function setSearchCriteriaExtension(SearchCriteriaExtension $searchCriteriaExtension = null)
     {
-        if (!$searchCriteriaExtension) return $this;
         $this->searchCriteriaExtension = ($searchCriteriaExtension InstanceOf SearchCriteriaExtension)
              ? $searchCriteriaExtension
              : new SearchCriteriaExtension($searchCriteriaExtension);
@@ -228,7 +221,6 @@ class EnterpriseVirtualOnNetEnterpriseExtensionsGetUserListRequest extends Compl
      */
     public function setSearchCriteriaExactVirtualOnNetCallTypeName(SearchCriteriaExactVirtualOnNetCallTypeName $searchCriteriaExactVirtualOnNetCallTypeName = null)
     {
-        if (!$searchCriteriaExactVirtualOnNetCallTypeName) return $this;
         $this->searchCriteriaExactVirtualOnNetCallTypeName = ($searchCriteriaExactVirtualOnNetCallTypeName InstanceOf SearchCriteriaExactVirtualOnNetCallTypeName)
              ? $searchCriteriaExactVirtualOnNetCallTypeName
              : new SearchCriteriaExactVirtualOnNetCallTypeName($searchCriteriaExactVirtualOnNetCallTypeName);

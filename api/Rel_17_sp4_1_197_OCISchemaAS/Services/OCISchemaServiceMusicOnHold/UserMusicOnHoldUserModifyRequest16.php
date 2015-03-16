@@ -23,14 +23,14 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserMusicOnHoldUserModifyRequest16 extends ComplexType implements ComplexInterface
 {
-    public    $name                               = 'UserMusicOnHoldUserModifyRequest16';
-    protected $userId                             = null;
-    protected $source                             = null;
-    protected $useAlternateSourceForInternalCalls = null;
-    protected $internalSource                     = null;
+    public    $name = 'UserMusicOnHoldUserModifyRequest16';
+    protected $userId;
+    protected $source;
+    protected $useAlternateSourceForInternalCalls;
+    protected $internalSource;
 
     public function __construct(
-         $userId,
+         $userId = '',
          MusicOnHoldUserSourceModify16 $source = null,
          $useAlternateSourceForInternalCalls = null,
          MusicOnHoldUserSourceModify16 $internalSource = null
@@ -54,7 +54,6 @@ class UserMusicOnHoldUserModifyRequest16 extends ComplexType implements ComplexI
      */
     public function setUserId($userId = null)
     {
-        if (!$userId) return $this;
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
@@ -68,7 +67,7 @@ class UserMusicOnHoldUserModifyRequest16 extends ComplexType implements ComplexI
      */
     public function getUserId()
     {
-        return $this->userId->getValue();
+        return ($this->userId) ? $this->userId->getValue() : null;
     }
 
     /**
@@ -76,8 +75,9 @@ class UserMusicOnHoldUserModifyRequest16 extends ComplexType implements ComplexI
      */
     public function setSource(MusicOnHoldUserSourceModify16 $source = null)
     {
-        if (!$source) return $this;
-        $this->source = $source;
+        $this->source = ($source InstanceOf MusicOnHoldUserSourceModify16)
+             ? $source
+             : new MusicOnHoldUserSourceModify16($source);
         $this->source->setName('source');
         return $this;
     }
@@ -96,7 +96,6 @@ class UserMusicOnHoldUserModifyRequest16 extends ComplexType implements ComplexI
      */
     public function setUseAlternateSourceForInternalCalls($useAlternateSourceForInternalCalls = null)
     {
-        if (!$useAlternateSourceForInternalCalls) return $this;
         $this->useAlternateSourceForInternalCalls = new PrimitiveType($useAlternateSourceForInternalCalls);
         $this->useAlternateSourceForInternalCalls->setName('useAlternateSourceForInternalCalls');
         return $this;
@@ -108,7 +107,7 @@ class UserMusicOnHoldUserModifyRequest16 extends ComplexType implements ComplexI
      */
     public function getUseAlternateSourceForInternalCalls()
     {
-        return $this->useAlternateSourceForInternalCalls->getValue();
+        return ($this->useAlternateSourceForInternalCalls) ? $this->useAlternateSourceForInternalCalls->getValue() : null;
     }
 
     /**
@@ -116,8 +115,9 @@ class UserMusicOnHoldUserModifyRequest16 extends ComplexType implements ComplexI
      */
     public function setInternalSource(MusicOnHoldUserSourceModify16 $internalSource = null)
     {
-        if (!$internalSource) return $this;
-        $this->internalSource = $internalSource;
+        $this->internalSource = ($internalSource InstanceOf MusicOnHoldUserSourceModify16)
+             ? $internalSource
+             : new MusicOnHoldUserSourceModify16($internalSource);
         $this->internalSource->setName('internalSource');
         return $this;
     }

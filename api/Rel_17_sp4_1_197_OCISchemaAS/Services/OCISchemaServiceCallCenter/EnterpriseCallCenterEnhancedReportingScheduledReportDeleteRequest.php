@@ -21,13 +21,13 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class EnterpriseCallCenterEnhancedReportingScheduledReportDeleteRequest extends ComplexType implements ComplexInterface
 {
-    public    $name              = 'EnterpriseCallCenterEnhancedReportingScheduledReportDeleteRequest';
-    protected $serviceProviderId = null;
-    protected $name              = null;
+    public    $name = 'EnterpriseCallCenterEnhancedReportingScheduledReportDeleteRequest';
+    protected $serviceProviderId;
+    protected $name;
 
     public function __construct(
-         $serviceProviderId,
-         $name
+         $serviceProviderId = '',
+         $name = ''
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setName($name);
@@ -46,7 +46,6 @@ class EnterpriseCallCenterEnhancedReportingScheduledReportDeleteRequest extends 
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
-        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
@@ -60,7 +59,7 @@ class EnterpriseCallCenterEnhancedReportingScheduledReportDeleteRequest extends 
      */
     public function getServiceProviderId()
     {
-        return $this->serviceProviderId->getValue();
+        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
     }
 
     /**
@@ -68,7 +67,6 @@ class EnterpriseCallCenterEnhancedReportingScheduledReportDeleteRequest extends 
      */
     public function setName($name = null)
     {
-        if (!$name) return $this;
         $this->name = ($name InstanceOf CallCenterScheduledReportName)
              ? $name
              : new CallCenterScheduledReportName($name);
@@ -82,6 +80,6 @@ class EnterpriseCallCenterEnhancedReportingScheduledReportDeleteRequest extends 
      */
     public function getName()
     {
-        return $this->name->getValue();
+        return ($this->name) ? $this->name->getValue() : null;
     }
 }

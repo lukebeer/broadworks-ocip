@@ -26,35 +26,35 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemCommunicationBarringCriteriaGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                        = 'SystemCommunicationBarringCriteriaGetResponse';
-    protected $description                 = null;
-    protected $matchCallType               = null;
-    protected $matchAlternateCallIndicator = null;
-    protected $matchPublicNetwork          = null;
-    protected $matchPrivateNetwork         = null;
-    protected $matchLocalCategory          = null;
-    protected $matchNationalCategory       = null;
-    protected $matchInterlataCategory      = null;
-    protected $matchIntralataCategory      = null;
-    protected $matchInternationalCategory  = null;
-    protected $matchPrivateCategory        = null;
-    protected $matchEmergencyCategory      = null;
-    protected $matchOtherCategory          = null;
-    protected $matchInterNetwork           = null;
-    protected $matchInterHostingNE         = null;
-    protected $matchInterAS                = null;
-    protected $matchIntraAS                = null;
-    protected $matchChargeCalls            = null;
-    protected $matchNoChargeCalls          = null;
-    protected $matchGroupCalls             = null;
-    protected $matchEnterpriseCalls        = null;
-    protected $matchNetworkCalls           = null;
-    protected $matchNetworkURLCalls        = null;
-    protected $matchRepairCalls            = null;
-    protected $matchEmergencyCalls         = null;
-    protected $matchInternalCalls          = null;
-    protected $timeSchedule                = null;
-    protected $holidaySchedule             = null;
+    public    $name = 'SystemCommunicationBarringCriteriaGetResponse';
+    protected $description;
+    protected $matchCallType;
+    protected $matchAlternateCallIndicator;
+    protected $matchPublicNetwork;
+    protected $matchPrivateNetwork;
+    protected $matchLocalCategory;
+    protected $matchNationalCategory;
+    protected $matchInterlataCategory;
+    protected $matchIntralataCategory;
+    protected $matchInternationalCategory;
+    protected $matchPrivateCategory;
+    protected $matchEmergencyCategory;
+    protected $matchOtherCategory;
+    protected $matchInterNetwork;
+    protected $matchInterHostingNE;
+    protected $matchInterAS;
+    protected $matchIntraAS;
+    protected $matchChargeCalls;
+    protected $matchNoChargeCalls;
+    protected $matchGroupCalls;
+    protected $matchEnterpriseCalls;
+    protected $matchNetworkCalls;
+    protected $matchNetworkURLCalls;
+    protected $matchRepairCalls;
+    protected $matchEmergencyCalls;
+    protected $matchInternalCalls;
+    protected $timeSchedule;
+    protected $holidaySchedule;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\SystemCommunicationBarringCriteriaGetResponse $response
@@ -69,7 +69,6 @@ class SystemCommunicationBarringCriteriaGetResponse extends ComplexType implemen
      */
     public function setDescription($description = null)
     {
-        if (!$description) return $this;
         $this->description = ($description InstanceOf CommunicationBarringCriteriaDescription)
              ? $description
              : new CommunicationBarringCriteriaDescription($description);
@@ -83,7 +82,7 @@ class SystemCommunicationBarringCriteriaGetResponse extends ComplexType implemen
      */
     public function getDescription()
     {
-        return $this->description->getValue();
+        return ($this->description) ? $this->description->getValue() : null;
     }
 
     /**
@@ -91,7 +90,6 @@ class SystemCommunicationBarringCriteriaGetResponse extends ComplexType implemen
      */
     public function setMatchCallType($matchCallType = null)
     {
-        if (!$matchCallType) return $this;
         $this->matchCallType = ($matchCallType InstanceOf CommunicationBarringCallType)
              ? $matchCallType
              : new CommunicationBarringCallType($matchCallType);
@@ -105,7 +103,7 @@ class SystemCommunicationBarringCriteriaGetResponse extends ComplexType implemen
      */
     public function getMatchCallType()
     {
-        return $this->matchCallType->getValue();
+        return ($this->matchCallType) ? $this->matchCallType->getValue() : null;
     }
 
     /**
@@ -113,7 +111,6 @@ class SystemCommunicationBarringCriteriaGetResponse extends ComplexType implemen
      */
     public function setMatchAlternateCallIndicator($matchAlternateCallIndicator = null)
     {
-        if (!$matchAlternateCallIndicator) return $this;
         $this->matchAlternateCallIndicator = ($matchAlternateCallIndicator InstanceOf CommunicationBarringAlternateCallIndicator)
              ? $matchAlternateCallIndicator
              : new CommunicationBarringAlternateCallIndicator($matchAlternateCallIndicator);
@@ -127,7 +124,7 @@ class SystemCommunicationBarringCriteriaGetResponse extends ComplexType implemen
      */
     public function getMatchAlternateCallIndicator()
     {
-        return $this->matchAlternateCallIndicator->getValue();
+        return ($this->matchAlternateCallIndicator) ? $this->matchAlternateCallIndicator->getValue() : null;
     }
 
     /**
@@ -135,7 +132,6 @@ class SystemCommunicationBarringCriteriaGetResponse extends ComplexType implemen
      */
     public function setMatchPublicNetwork($matchPublicNetwork = null)
     {
-        if (!$matchPublicNetwork) return $this;
         $this->matchPublicNetwork = new PrimitiveType($matchPublicNetwork);
         $this->matchPublicNetwork->setName('matchPublicNetwork');
         return $this;
@@ -147,7 +143,7 @@ class SystemCommunicationBarringCriteriaGetResponse extends ComplexType implemen
      */
     public function getMatchPublicNetwork()
     {
-        return $this->matchPublicNetwork->getValue();
+        return ($this->matchPublicNetwork) ? $this->matchPublicNetwork->getValue() : null;
     }
 
     /**
@@ -155,7 +151,6 @@ class SystemCommunicationBarringCriteriaGetResponse extends ComplexType implemen
      */
     public function setMatchPrivateNetwork($matchPrivateNetwork = null)
     {
-        if (!$matchPrivateNetwork) return $this;
         $this->matchPrivateNetwork = new PrimitiveType($matchPrivateNetwork);
         $this->matchPrivateNetwork->setName('matchPrivateNetwork');
         return $this;
@@ -167,7 +162,7 @@ class SystemCommunicationBarringCriteriaGetResponse extends ComplexType implemen
      */
     public function getMatchPrivateNetwork()
     {
-        return $this->matchPrivateNetwork->getValue();
+        return ($this->matchPrivateNetwork) ? $this->matchPrivateNetwork->getValue() : null;
     }
 
     /**
@@ -175,7 +170,6 @@ class SystemCommunicationBarringCriteriaGetResponse extends ComplexType implemen
      */
     public function setMatchLocalCategory($matchLocalCategory = null)
     {
-        if (!$matchLocalCategory) return $this;
         $this->matchLocalCategory = new PrimitiveType($matchLocalCategory);
         $this->matchLocalCategory->setName('matchLocalCategory');
         return $this;
@@ -187,7 +181,7 @@ class SystemCommunicationBarringCriteriaGetResponse extends ComplexType implemen
      */
     public function getMatchLocalCategory()
     {
-        return $this->matchLocalCategory->getValue();
+        return ($this->matchLocalCategory) ? $this->matchLocalCategory->getValue() : null;
     }
 
     /**
@@ -195,7 +189,6 @@ class SystemCommunicationBarringCriteriaGetResponse extends ComplexType implemen
      */
     public function setMatchNationalCategory($matchNationalCategory = null)
     {
-        if (!$matchNationalCategory) return $this;
         $this->matchNationalCategory = new PrimitiveType($matchNationalCategory);
         $this->matchNationalCategory->setName('matchNationalCategory');
         return $this;
@@ -207,7 +200,7 @@ class SystemCommunicationBarringCriteriaGetResponse extends ComplexType implemen
      */
     public function getMatchNationalCategory()
     {
-        return $this->matchNationalCategory->getValue();
+        return ($this->matchNationalCategory) ? $this->matchNationalCategory->getValue() : null;
     }
 
     /**
@@ -215,7 +208,6 @@ class SystemCommunicationBarringCriteriaGetResponse extends ComplexType implemen
      */
     public function setMatchInterlataCategory($matchInterlataCategory = null)
     {
-        if (!$matchInterlataCategory) return $this;
         $this->matchInterlataCategory = new PrimitiveType($matchInterlataCategory);
         $this->matchInterlataCategory->setName('matchInterlataCategory');
         return $this;
@@ -227,7 +219,7 @@ class SystemCommunicationBarringCriteriaGetResponse extends ComplexType implemen
      */
     public function getMatchInterlataCategory()
     {
-        return $this->matchInterlataCategory->getValue();
+        return ($this->matchInterlataCategory) ? $this->matchInterlataCategory->getValue() : null;
     }
 
     /**
@@ -235,7 +227,6 @@ class SystemCommunicationBarringCriteriaGetResponse extends ComplexType implemen
      */
     public function setMatchIntralataCategory($matchIntralataCategory = null)
     {
-        if (!$matchIntralataCategory) return $this;
         $this->matchIntralataCategory = new PrimitiveType($matchIntralataCategory);
         $this->matchIntralataCategory->setName('matchIntralataCategory');
         return $this;
@@ -247,7 +238,7 @@ class SystemCommunicationBarringCriteriaGetResponse extends ComplexType implemen
      */
     public function getMatchIntralataCategory()
     {
-        return $this->matchIntralataCategory->getValue();
+        return ($this->matchIntralataCategory) ? $this->matchIntralataCategory->getValue() : null;
     }
 
     /**
@@ -255,7 +246,6 @@ class SystemCommunicationBarringCriteriaGetResponse extends ComplexType implemen
      */
     public function setMatchInternationalCategory($matchInternationalCategory = null)
     {
-        if (!$matchInternationalCategory) return $this;
         $this->matchInternationalCategory = new PrimitiveType($matchInternationalCategory);
         $this->matchInternationalCategory->setName('matchInternationalCategory');
         return $this;
@@ -267,7 +257,7 @@ class SystemCommunicationBarringCriteriaGetResponse extends ComplexType implemen
      */
     public function getMatchInternationalCategory()
     {
-        return $this->matchInternationalCategory->getValue();
+        return ($this->matchInternationalCategory) ? $this->matchInternationalCategory->getValue() : null;
     }
 
     /**
@@ -275,7 +265,6 @@ class SystemCommunicationBarringCriteriaGetResponse extends ComplexType implemen
      */
     public function setMatchPrivateCategory($matchPrivateCategory = null)
     {
-        if (!$matchPrivateCategory) return $this;
         $this->matchPrivateCategory = new PrimitiveType($matchPrivateCategory);
         $this->matchPrivateCategory->setName('matchPrivateCategory');
         return $this;
@@ -287,7 +276,7 @@ class SystemCommunicationBarringCriteriaGetResponse extends ComplexType implemen
      */
     public function getMatchPrivateCategory()
     {
-        return $this->matchPrivateCategory->getValue();
+        return ($this->matchPrivateCategory) ? $this->matchPrivateCategory->getValue() : null;
     }
 
     /**
@@ -295,7 +284,6 @@ class SystemCommunicationBarringCriteriaGetResponse extends ComplexType implemen
      */
     public function setMatchEmergencyCategory($matchEmergencyCategory = null)
     {
-        if (!$matchEmergencyCategory) return $this;
         $this->matchEmergencyCategory = new PrimitiveType($matchEmergencyCategory);
         $this->matchEmergencyCategory->setName('matchEmergencyCategory');
         return $this;
@@ -307,7 +295,7 @@ class SystemCommunicationBarringCriteriaGetResponse extends ComplexType implemen
      */
     public function getMatchEmergencyCategory()
     {
-        return $this->matchEmergencyCategory->getValue();
+        return ($this->matchEmergencyCategory) ? $this->matchEmergencyCategory->getValue() : null;
     }
 
     /**
@@ -315,7 +303,6 @@ class SystemCommunicationBarringCriteriaGetResponse extends ComplexType implemen
      */
     public function setMatchOtherCategory($matchOtherCategory = null)
     {
-        if (!$matchOtherCategory) return $this;
         $this->matchOtherCategory = new PrimitiveType($matchOtherCategory);
         $this->matchOtherCategory->setName('matchOtherCategory');
         return $this;
@@ -327,7 +314,7 @@ class SystemCommunicationBarringCriteriaGetResponse extends ComplexType implemen
      */
     public function getMatchOtherCategory()
     {
-        return $this->matchOtherCategory->getValue();
+        return ($this->matchOtherCategory) ? $this->matchOtherCategory->getValue() : null;
     }
 
     /**
@@ -335,7 +322,6 @@ class SystemCommunicationBarringCriteriaGetResponse extends ComplexType implemen
      */
     public function setMatchInterNetwork($matchInterNetwork = null)
     {
-        if (!$matchInterNetwork) return $this;
         $this->matchInterNetwork = new PrimitiveType($matchInterNetwork);
         $this->matchInterNetwork->setName('matchInterNetwork');
         return $this;
@@ -347,7 +333,7 @@ class SystemCommunicationBarringCriteriaGetResponse extends ComplexType implemen
      */
     public function getMatchInterNetwork()
     {
-        return $this->matchInterNetwork->getValue();
+        return ($this->matchInterNetwork) ? $this->matchInterNetwork->getValue() : null;
     }
 
     /**
@@ -355,7 +341,6 @@ class SystemCommunicationBarringCriteriaGetResponse extends ComplexType implemen
      */
     public function setMatchInterHostingNE($matchInterHostingNE = null)
     {
-        if (!$matchInterHostingNE) return $this;
         $this->matchInterHostingNE = new PrimitiveType($matchInterHostingNE);
         $this->matchInterHostingNE->setName('matchInterHostingNE');
         return $this;
@@ -367,7 +352,7 @@ class SystemCommunicationBarringCriteriaGetResponse extends ComplexType implemen
      */
     public function getMatchInterHostingNE()
     {
-        return $this->matchInterHostingNE->getValue();
+        return ($this->matchInterHostingNE) ? $this->matchInterHostingNE->getValue() : null;
     }
 
     /**
@@ -375,7 +360,6 @@ class SystemCommunicationBarringCriteriaGetResponse extends ComplexType implemen
      */
     public function setMatchInterAS($matchInterAS = null)
     {
-        if (!$matchInterAS) return $this;
         $this->matchInterAS = new PrimitiveType($matchInterAS);
         $this->matchInterAS->setName('matchInterAS');
         return $this;
@@ -387,7 +371,7 @@ class SystemCommunicationBarringCriteriaGetResponse extends ComplexType implemen
      */
     public function getMatchInterAS()
     {
-        return $this->matchInterAS->getValue();
+        return ($this->matchInterAS) ? $this->matchInterAS->getValue() : null;
     }
 
     /**
@@ -395,7 +379,6 @@ class SystemCommunicationBarringCriteriaGetResponse extends ComplexType implemen
      */
     public function setMatchIntraAS($matchIntraAS = null)
     {
-        if (!$matchIntraAS) return $this;
         $this->matchIntraAS = new PrimitiveType($matchIntraAS);
         $this->matchIntraAS->setName('matchIntraAS');
         return $this;
@@ -407,7 +390,7 @@ class SystemCommunicationBarringCriteriaGetResponse extends ComplexType implemen
      */
     public function getMatchIntraAS()
     {
-        return $this->matchIntraAS->getValue();
+        return ($this->matchIntraAS) ? $this->matchIntraAS->getValue() : null;
     }
 
     /**
@@ -415,7 +398,6 @@ class SystemCommunicationBarringCriteriaGetResponse extends ComplexType implemen
      */
     public function setMatchChargeCalls($matchChargeCalls = null)
     {
-        if (!$matchChargeCalls) return $this;
         $this->matchChargeCalls = new PrimitiveType($matchChargeCalls);
         $this->matchChargeCalls->setName('matchChargeCalls');
         return $this;
@@ -427,7 +409,7 @@ class SystemCommunicationBarringCriteriaGetResponse extends ComplexType implemen
      */
     public function getMatchChargeCalls()
     {
-        return $this->matchChargeCalls->getValue();
+        return ($this->matchChargeCalls) ? $this->matchChargeCalls->getValue() : null;
     }
 
     /**
@@ -435,7 +417,6 @@ class SystemCommunicationBarringCriteriaGetResponse extends ComplexType implemen
      */
     public function setMatchNoChargeCalls($matchNoChargeCalls = null)
     {
-        if (!$matchNoChargeCalls) return $this;
         $this->matchNoChargeCalls = new PrimitiveType($matchNoChargeCalls);
         $this->matchNoChargeCalls->setName('matchNoChargeCalls');
         return $this;
@@ -447,7 +428,7 @@ class SystemCommunicationBarringCriteriaGetResponse extends ComplexType implemen
      */
     public function getMatchNoChargeCalls()
     {
-        return $this->matchNoChargeCalls->getValue();
+        return ($this->matchNoChargeCalls) ? $this->matchNoChargeCalls->getValue() : null;
     }
 
     /**
@@ -455,7 +436,6 @@ class SystemCommunicationBarringCriteriaGetResponse extends ComplexType implemen
      */
     public function setMatchGroupCalls($matchGroupCalls = null)
     {
-        if (!$matchGroupCalls) return $this;
         $this->matchGroupCalls = new PrimitiveType($matchGroupCalls);
         $this->matchGroupCalls->setName('matchGroupCalls');
         return $this;
@@ -467,7 +447,7 @@ class SystemCommunicationBarringCriteriaGetResponse extends ComplexType implemen
      */
     public function getMatchGroupCalls()
     {
-        return $this->matchGroupCalls->getValue();
+        return ($this->matchGroupCalls) ? $this->matchGroupCalls->getValue() : null;
     }
 
     /**
@@ -475,7 +455,6 @@ class SystemCommunicationBarringCriteriaGetResponse extends ComplexType implemen
      */
     public function setMatchEnterpriseCalls($matchEnterpriseCalls = null)
     {
-        if (!$matchEnterpriseCalls) return $this;
         $this->matchEnterpriseCalls = new PrimitiveType($matchEnterpriseCalls);
         $this->matchEnterpriseCalls->setName('matchEnterpriseCalls');
         return $this;
@@ -487,7 +466,7 @@ class SystemCommunicationBarringCriteriaGetResponse extends ComplexType implemen
      */
     public function getMatchEnterpriseCalls()
     {
-        return $this->matchEnterpriseCalls->getValue();
+        return ($this->matchEnterpriseCalls) ? $this->matchEnterpriseCalls->getValue() : null;
     }
 
     /**
@@ -495,7 +474,6 @@ class SystemCommunicationBarringCriteriaGetResponse extends ComplexType implemen
      */
     public function setMatchNetworkCalls($matchNetworkCalls = null)
     {
-        if (!$matchNetworkCalls) return $this;
         $this->matchNetworkCalls = new PrimitiveType($matchNetworkCalls);
         $this->matchNetworkCalls->setName('matchNetworkCalls');
         return $this;
@@ -507,7 +485,7 @@ class SystemCommunicationBarringCriteriaGetResponse extends ComplexType implemen
      */
     public function getMatchNetworkCalls()
     {
-        return $this->matchNetworkCalls->getValue();
+        return ($this->matchNetworkCalls) ? $this->matchNetworkCalls->getValue() : null;
     }
 
     /**
@@ -515,7 +493,6 @@ class SystemCommunicationBarringCriteriaGetResponse extends ComplexType implemen
      */
     public function setMatchNetworkURLCalls($matchNetworkURLCalls = null)
     {
-        if (!$matchNetworkURLCalls) return $this;
         $this->matchNetworkURLCalls = new PrimitiveType($matchNetworkURLCalls);
         $this->matchNetworkURLCalls->setName('matchNetworkURLCalls');
         return $this;
@@ -527,7 +504,7 @@ class SystemCommunicationBarringCriteriaGetResponse extends ComplexType implemen
      */
     public function getMatchNetworkURLCalls()
     {
-        return $this->matchNetworkURLCalls->getValue();
+        return ($this->matchNetworkURLCalls) ? $this->matchNetworkURLCalls->getValue() : null;
     }
 
     /**
@@ -535,7 +512,6 @@ class SystemCommunicationBarringCriteriaGetResponse extends ComplexType implemen
      */
     public function setMatchRepairCalls($matchRepairCalls = null)
     {
-        if (!$matchRepairCalls) return $this;
         $this->matchRepairCalls = new PrimitiveType($matchRepairCalls);
         $this->matchRepairCalls->setName('matchRepairCalls');
         return $this;
@@ -547,7 +523,7 @@ class SystemCommunicationBarringCriteriaGetResponse extends ComplexType implemen
      */
     public function getMatchRepairCalls()
     {
-        return $this->matchRepairCalls->getValue();
+        return ($this->matchRepairCalls) ? $this->matchRepairCalls->getValue() : null;
     }
 
     /**
@@ -555,7 +531,6 @@ class SystemCommunicationBarringCriteriaGetResponse extends ComplexType implemen
      */
     public function setMatchEmergencyCalls($matchEmergencyCalls = null)
     {
-        if (!$matchEmergencyCalls) return $this;
         $this->matchEmergencyCalls = new PrimitiveType($matchEmergencyCalls);
         $this->matchEmergencyCalls->setName('matchEmergencyCalls');
         return $this;
@@ -567,7 +542,7 @@ class SystemCommunicationBarringCriteriaGetResponse extends ComplexType implemen
      */
     public function getMatchEmergencyCalls()
     {
-        return $this->matchEmergencyCalls->getValue();
+        return ($this->matchEmergencyCalls) ? $this->matchEmergencyCalls->getValue() : null;
     }
 
     /**
@@ -575,7 +550,6 @@ class SystemCommunicationBarringCriteriaGetResponse extends ComplexType implemen
      */
     public function setMatchInternalCalls($matchInternalCalls = null)
     {
-        if (!$matchInternalCalls) return $this;
         $this->matchInternalCalls = new PrimitiveType($matchInternalCalls);
         $this->matchInternalCalls->setName('matchInternalCalls');
         return $this;
@@ -587,7 +561,7 @@ class SystemCommunicationBarringCriteriaGetResponse extends ComplexType implemen
      */
     public function getMatchInternalCalls()
     {
-        return $this->matchInternalCalls->getValue();
+        return ($this->matchInternalCalls) ? $this->matchInternalCalls->getValue() : null;
     }
 
     /**
@@ -595,7 +569,6 @@ class SystemCommunicationBarringCriteriaGetResponse extends ComplexType implemen
      */
     public function setTimeSchedule($timeSchedule = null)
     {
-        if (!$timeSchedule) return $this;
         $this->timeSchedule = ($timeSchedule InstanceOf ScheduleName)
              ? $timeSchedule
              : new ScheduleName($timeSchedule);
@@ -609,7 +582,7 @@ class SystemCommunicationBarringCriteriaGetResponse extends ComplexType implemen
      */
     public function getTimeSchedule()
     {
-        return $this->timeSchedule->getValue();
+        return ($this->timeSchedule) ? $this->timeSchedule->getValue() : null;
     }
 
     /**
@@ -617,7 +590,6 @@ class SystemCommunicationBarringCriteriaGetResponse extends ComplexType implemen
      */
     public function setHolidaySchedule($holidaySchedule = null)
     {
-        if (!$holidaySchedule) return $this;
         $this->holidaySchedule = ($holidaySchedule InstanceOf ScheduleName)
              ? $holidaySchedule
              : new ScheduleName($holidaySchedule);
@@ -631,6 +603,6 @@ class SystemCommunicationBarringCriteriaGetResponse extends ComplexType implemen
      */
     public function getHolidaySchedule()
     {
-        return $this->holidaySchedule->getValue();
+        return ($this->holidaySchedule) ? $this->holidaySchedule->getValue() : null;
     }
 }

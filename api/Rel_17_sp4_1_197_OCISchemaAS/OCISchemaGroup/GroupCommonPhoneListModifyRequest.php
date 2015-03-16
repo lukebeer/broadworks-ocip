@@ -23,17 +23,17 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupCommonPhoneListModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name              = 'GroupCommonPhoneListModifyRequest';
-    protected $serviceProviderId = null;
-    protected $groupId           = null;
-    protected $entryName         = null;
-    protected $newEntryName      = null;
-    protected $phoneNumber       = null;
+    public    $name = 'GroupCommonPhoneListModifyRequest';
+    protected $serviceProviderId;
+    protected $groupId;
+    protected $entryName;
+    protected $newEntryName;
+    protected $phoneNumber;
 
     public function __construct(
-         $serviceProviderId,
-         $groupId,
-         $entryName,
+         $serviceProviderId = '',
+         $groupId = '',
+         $entryName = '',
          $newEntryName = null,
          $phoneNumber = null
     ) {
@@ -57,7 +57,6 @@ class GroupCommonPhoneListModifyRequest extends ComplexType implements ComplexIn
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
-        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
@@ -71,7 +70,7 @@ class GroupCommonPhoneListModifyRequest extends ComplexType implements ComplexIn
      */
     public function getServiceProviderId()
     {
-        return $this->serviceProviderId->getValue();
+        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
     }
 
     /**
@@ -79,7 +78,6 @@ class GroupCommonPhoneListModifyRequest extends ComplexType implements ComplexIn
      */
     public function setGroupId($groupId = null)
     {
-        if (!$groupId) return $this;
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
@@ -93,7 +91,7 @@ class GroupCommonPhoneListModifyRequest extends ComplexType implements ComplexIn
      */
     public function getGroupId()
     {
-        return $this->groupId->getValue();
+        return ($this->groupId) ? $this->groupId->getValue() : null;
     }
 
     /**
@@ -101,7 +99,6 @@ class GroupCommonPhoneListModifyRequest extends ComplexType implements ComplexIn
      */
     public function setEntryName($entryName = null)
     {
-        if (!$entryName) return $this;
         $this->entryName = ($entryName InstanceOf PhoneListEntryName)
              ? $entryName
              : new PhoneListEntryName($entryName);
@@ -115,7 +112,7 @@ class GroupCommonPhoneListModifyRequest extends ComplexType implements ComplexIn
      */
     public function getEntryName()
     {
-        return $this->entryName->getValue();
+        return ($this->entryName) ? $this->entryName->getValue() : null;
     }
 
     /**
@@ -123,7 +120,6 @@ class GroupCommonPhoneListModifyRequest extends ComplexType implements ComplexIn
      */
     public function setNewEntryName($newEntryName = null)
     {
-        if (!$newEntryName) return $this;
         $this->newEntryName = ($newEntryName InstanceOf PhoneListEntryName)
              ? $newEntryName
              : new PhoneListEntryName($newEntryName);
@@ -137,7 +133,7 @@ class GroupCommonPhoneListModifyRequest extends ComplexType implements ComplexIn
      */
     public function getNewEntryName()
     {
-        return $this->newEntryName->getValue();
+        return ($this->newEntryName) ? $this->newEntryName->getValue() : null;
     }
 
     /**
@@ -145,7 +141,6 @@ class GroupCommonPhoneListModifyRequest extends ComplexType implements ComplexIn
      */
     public function setPhoneNumber($phoneNumber = null)
     {
-        if (!$phoneNumber) return $this;
         $this->phoneNumber = ($phoneNumber InstanceOf OutgoingDN)
              ? $phoneNumber
              : new OutgoingDN($phoneNumber);
@@ -159,6 +154,6 @@ class GroupCommonPhoneListModifyRequest extends ComplexType implements ComplexIn
      */
     public function getPhoneNumber()
     {
-        return $this->phoneNumber->getValue();
+        return ($this->phoneNumber) ? $this->phoneNumber->getValue() : null;
     }
 }

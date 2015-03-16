@@ -19,10 +19,10 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserPreferredCarrierUserGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                 = 'UserPreferredCarrierUserGetResponse';
-    protected $intraLataCarrier     = null;
-    protected $interLataCarrier     = null;
-    protected $internationalCarrier = null;
+    public    $name = 'UserPreferredCarrierUserGetResponse';
+    protected $intraLataCarrier;
+    protected $interLataCarrier;
+    protected $internationalCarrier;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServicePreferredCarrier\UserPreferredCarrierUserGetResponse $response
@@ -37,8 +37,9 @@ class UserPreferredCarrierUserGetResponse extends ComplexType implements Complex
      */
     public function setIntraLataCarrier(UserPreferredCarrierName $intraLataCarrier = null)
     {
-        if (!$intraLataCarrier) return $this;
-        $this->intraLataCarrier = $intraLataCarrier;
+        $this->intraLataCarrier = ($intraLataCarrier InstanceOf UserPreferredCarrierName)
+             ? $intraLataCarrier
+             : new UserPreferredCarrierName($intraLataCarrier);
         $this->intraLataCarrier->setName('intraLataCarrier');
         return $this;
     }
@@ -57,8 +58,9 @@ class UserPreferredCarrierUserGetResponse extends ComplexType implements Complex
      */
     public function setInterLataCarrier(UserPreferredCarrierName $interLataCarrier = null)
     {
-        if (!$interLataCarrier) return $this;
-        $this->interLataCarrier = $interLataCarrier;
+        $this->interLataCarrier = ($interLataCarrier InstanceOf UserPreferredCarrierName)
+             ? $interLataCarrier
+             : new UserPreferredCarrierName($interLataCarrier);
         $this->interLataCarrier->setName('interLataCarrier');
         return $this;
     }
@@ -77,8 +79,9 @@ class UserPreferredCarrierUserGetResponse extends ComplexType implements Complex
      */
     public function setInternationalCarrier(UserPreferredCarrierName $internationalCarrier = null)
     {
-        if (!$internationalCarrier) return $this;
-        $this->internationalCarrier = $internationalCarrier;
+        $this->internationalCarrier = ($internationalCarrier InstanceOf UserPreferredCarrierName)
+             ? $internationalCarrier
+             : new UserPreferredCarrierName($internationalCarrier);
         $this->internationalCarrier->setName('internationalCarrier');
         return $this;
     }

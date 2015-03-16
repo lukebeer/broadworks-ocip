@@ -21,11 +21,11 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemLocationBasedCallingRestrictionsModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                         = 'SystemLocationBasedCallingRestrictionsModifyRequest';
-    protected $physicalLocationIndicator    = null;
-    protected $enforceMscValidation         = null;
-    protected $enableOfficeZoneAnnouncement = null;
-    protected $enhanceOfficeZone            = null;
+    public    $name = 'SystemLocationBasedCallingRestrictionsModifyRequest';
+    protected $physicalLocationIndicator;
+    protected $enforceMscValidation;
+    protected $enableOfficeZoneAnnouncement;
+    protected $enhanceOfficeZone;
 
     public function __construct(
          $physicalLocationIndicator = null,
@@ -52,7 +52,6 @@ class SystemLocationBasedCallingRestrictionsModifyRequest extends ComplexType im
      */
     public function setPhysicalLocationIndicator($physicalLocationIndicator = null)
     {
-        if (!$physicalLocationIndicator) return $this;
         $this->physicalLocationIndicator = ($physicalLocationIndicator InstanceOf PhysicalLocationIndicator)
              ? $physicalLocationIndicator
              : new PhysicalLocationIndicator($physicalLocationIndicator);
@@ -66,7 +65,7 @@ class SystemLocationBasedCallingRestrictionsModifyRequest extends ComplexType im
      */
     public function getPhysicalLocationIndicator()
     {
-        return $this->physicalLocationIndicator->getValue();
+        return ($this->physicalLocationIndicator) ? $this->physicalLocationIndicator->getValue() : null;
     }
 
     /**
@@ -74,7 +73,6 @@ class SystemLocationBasedCallingRestrictionsModifyRequest extends ComplexType im
      */
     public function setEnforceMscValidation($enforceMscValidation = null)
     {
-        if (!$enforceMscValidation) return $this;
         $this->enforceMscValidation = new PrimitiveType($enforceMscValidation);
         $this->enforceMscValidation->setName('enforceMscValidation');
         return $this;
@@ -86,7 +84,7 @@ class SystemLocationBasedCallingRestrictionsModifyRequest extends ComplexType im
      */
     public function getEnforceMscValidation()
     {
-        return $this->enforceMscValidation->getValue();
+        return ($this->enforceMscValidation) ? $this->enforceMscValidation->getValue() : null;
     }
 
     /**
@@ -94,7 +92,6 @@ class SystemLocationBasedCallingRestrictionsModifyRequest extends ComplexType im
      */
     public function setEnableOfficeZoneAnnouncement($enableOfficeZoneAnnouncement = null)
     {
-        if (!$enableOfficeZoneAnnouncement) return $this;
         $this->enableOfficeZoneAnnouncement = new PrimitiveType($enableOfficeZoneAnnouncement);
         $this->enableOfficeZoneAnnouncement->setName('enableOfficeZoneAnnouncement');
         return $this;
@@ -106,7 +103,7 @@ class SystemLocationBasedCallingRestrictionsModifyRequest extends ComplexType im
      */
     public function getEnableOfficeZoneAnnouncement()
     {
-        return $this->enableOfficeZoneAnnouncement->getValue();
+        return ($this->enableOfficeZoneAnnouncement) ? $this->enableOfficeZoneAnnouncement->getValue() : null;
     }
 
     /**
@@ -114,7 +111,6 @@ class SystemLocationBasedCallingRestrictionsModifyRequest extends ComplexType im
      */
     public function setEnhanceOfficeZone($enhanceOfficeZone = null)
     {
-        if (!$enhanceOfficeZone) return $this;
         $this->enhanceOfficeZone = new PrimitiveType($enhanceOfficeZone);
         $this->enhanceOfficeZone->setName('enhanceOfficeZone');
         return $this;
@@ -126,6 +122,6 @@ class SystemLocationBasedCallingRestrictionsModifyRequest extends ComplexType im
      */
     public function getEnhanceOfficeZone()
     {
-        return $this->enhanceOfficeZone->getValue();
+        return ($this->enhanceOfficeZone) ? $this->enhanceOfficeZone->getValue() : null;
     }
 }

@@ -21,12 +21,12 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemInterceptUserModifyDnRequest extends ComplexType implements ComplexInterface
 {
-    public    $name        = 'SystemInterceptUserModifyDnRequest';
-    protected $phoneNumber = null;
-    protected $description = null;
+    public    $name = 'SystemInterceptUserModifyDnRequest';
+    protected $phoneNumber;
+    protected $description;
 
     public function __construct(
-         $phoneNumber,
+         $phoneNumber = '',
          $description = null
     ) {
         $this->setPhoneNumber($phoneNumber);
@@ -46,7 +46,6 @@ class SystemInterceptUserModifyDnRequest extends ComplexType implements ComplexI
      */
     public function setPhoneNumber($phoneNumber = null)
     {
-        if (!$phoneNumber) return $this;
         $this->phoneNumber = ($phoneNumber InstanceOf DN)
              ? $phoneNumber
              : new DN($phoneNumber);
@@ -60,7 +59,7 @@ class SystemInterceptUserModifyDnRequest extends ComplexType implements ComplexI
      */
     public function getPhoneNumber()
     {
-        return $this->phoneNumber->getValue();
+        return ($this->phoneNumber) ? $this->phoneNumber->getValue() : null;
     }
 
     /**
@@ -68,7 +67,6 @@ class SystemInterceptUserModifyDnRequest extends ComplexType implements ComplexI
      */
     public function setDescription($description = null)
     {
-        if (!$description) return $this;
         $this->description = ($description InstanceOf InterceptPhoneNumberDescription)
              ? $description
              : new InterceptPhoneNumberDescription($description);
@@ -82,6 +80,6 @@ class SystemInterceptUserModifyDnRequest extends ComplexType implements ComplexI
      */
     public function getDescription()
     {
-        return $this->description->getValue();
+        return ($this->description) ? $this->description->getValue() : null;
     }
 }

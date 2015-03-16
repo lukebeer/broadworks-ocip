@@ -20,11 +20,11 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemAccessDeviceResetRequest extends ComplexType implements ComplexInterface
 {
-    public    $name       = 'SystemAccessDeviceResetRequest';
-    protected $deviceName = null;
+    public    $name = 'SystemAccessDeviceResetRequest';
+    protected $deviceName;
 
     public function __construct(
-         $deviceName
+         $deviceName = ''
     ) {
         $this->setDeviceName($deviceName);
     }
@@ -42,7 +42,6 @@ class SystemAccessDeviceResetRequest extends ComplexType implements ComplexInter
      */
     public function setDeviceName($deviceName = null)
     {
-        if (!$deviceName) return $this;
         $this->deviceName = ($deviceName InstanceOf AccessDeviceName)
              ? $deviceName
              : new AccessDeviceName($deviceName);
@@ -56,6 +55,6 @@ class SystemAccessDeviceResetRequest extends ComplexType implements ComplexInter
      */
     public function getDeviceName()
     {
-        return $this->deviceName->getValue();
+        return ($this->deviceName) ? $this->deviceName->getValue() : null;
     }
 }

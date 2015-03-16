@@ -21,11 +21,11 @@ use Broadworks_OCIP\core\Client\Client;
 class SystemOCICallControlApplicationGetACLListRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType  = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemOCICallControlApplicationGetACLListResponse';
-    public    $name          = 'SystemOCICallControlApplicationGetACLListRequest';
-    protected $applicationId = null;
+    public    $name = 'SystemOCICallControlApplicationGetACLListRequest';
+    protected $applicationId;
 
     public function __construct(
-         $applicationId
+         $applicationId = ''
     ) {
         $this->setApplicationId($applicationId);
     }
@@ -43,7 +43,6 @@ class SystemOCICallControlApplicationGetACLListRequest extends ComplexType imple
      */
     public function setApplicationId($applicationId = null)
     {
-        if (!$applicationId) return $this;
         $this->applicationId = ($applicationId InstanceOf OCICallControlApplicationId)
              ? $applicationId
              : new OCICallControlApplicationId($applicationId);
@@ -57,6 +56,6 @@ class SystemOCICallControlApplicationGetACLListRequest extends ComplexType imple
      */
     public function getApplicationId()
     {
-        return $this->applicationId->getValue();
+        return ($this->applicationId) ? $this->applicationId->getValue() : null;
     }
 }

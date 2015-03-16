@@ -21,14 +21,14 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupCommunicationBarringAuthorizationCodeDeleteListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name              = 'GroupCommunicationBarringAuthorizationCodeDeleteListRequest';
-    protected $serviceProviderId = null;
-    protected $groupId           = null;
-    protected $code              = null;
+    public    $name = 'GroupCommunicationBarringAuthorizationCodeDeleteListRequest';
+    protected $serviceProviderId;
+    protected $groupId;
+    protected $code;
 
     public function __construct(
-         $serviceProviderId,
-         $groupId,
+         $serviceProviderId = '',
+         $groupId = '',
          $code = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
@@ -49,7 +49,6 @@ class GroupCommunicationBarringAuthorizationCodeDeleteListRequest extends Comple
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
-        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
@@ -63,7 +62,7 @@ class GroupCommunicationBarringAuthorizationCodeDeleteListRequest extends Comple
      */
     public function getServiceProviderId()
     {
-        return $this->serviceProviderId->getValue();
+        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
     }
 
     /**
@@ -71,7 +70,6 @@ class GroupCommunicationBarringAuthorizationCodeDeleteListRequest extends Comple
      */
     public function setGroupId($groupId = null)
     {
-        if (!$groupId) return $this;
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
@@ -85,7 +83,7 @@ class GroupCommunicationBarringAuthorizationCodeDeleteListRequest extends Comple
      */
     public function getGroupId()
     {
-        return $this->groupId->getValue();
+        return ($this->groupId) ? $this->groupId->getValue() : null;
     }
 
     /**
@@ -93,7 +91,6 @@ class GroupCommunicationBarringAuthorizationCodeDeleteListRequest extends Comple
      */
     public function setCode($code = null)
     {
-        if (!$code) return $this;
         $this->code = ($code InstanceOf CommunicationBarringAuthorizationCode)
              ? $code
              : new CommunicationBarringAuthorizationCode($code);
@@ -107,6 +104,6 @@ class GroupCommunicationBarringAuthorizationCodeDeleteListRequest extends Comple
      */
     public function getCode()
     {
-        return $this->code->getValue();
+        return ($this->code) ? $this->code->getValue() : null;
     }
 }

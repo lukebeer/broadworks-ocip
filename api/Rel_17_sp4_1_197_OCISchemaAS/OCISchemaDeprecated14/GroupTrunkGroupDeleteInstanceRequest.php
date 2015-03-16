@@ -22,15 +22,15 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupTrunkGroupDeleteInstanceRequest extends ComplexType implements ComplexInterface
 {
-    public    $name              = 'GroupTrunkGroupDeleteInstanceRequest';
-    protected $serviceProviderId = null;
-    protected $groupId           = null;
-    protected $serviceUserId     = null;
+    public    $name = 'GroupTrunkGroupDeleteInstanceRequest';
+    protected $serviceProviderId;
+    protected $groupId;
+    protected $serviceUserId;
 
     public function __construct(
-         $serviceProviderId,
-         $groupId,
-         $serviceUserId
+         $serviceProviderId = '',
+         $groupId = '',
+         $serviceUserId = ''
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setGroupId($groupId);
@@ -50,7 +50,6 @@ class GroupTrunkGroupDeleteInstanceRequest extends ComplexType implements Comple
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
-        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
@@ -64,7 +63,7 @@ class GroupTrunkGroupDeleteInstanceRequest extends ComplexType implements Comple
      */
     public function getServiceProviderId()
     {
-        return $this->serviceProviderId->getValue();
+        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
     }
 
     /**
@@ -72,7 +71,6 @@ class GroupTrunkGroupDeleteInstanceRequest extends ComplexType implements Comple
      */
     public function setGroupId($groupId = null)
     {
-        if (!$groupId) return $this;
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
@@ -86,7 +84,7 @@ class GroupTrunkGroupDeleteInstanceRequest extends ComplexType implements Comple
      */
     public function getGroupId()
     {
-        return $this->groupId->getValue();
+        return ($this->groupId) ? $this->groupId->getValue() : null;
     }
 
     /**
@@ -94,7 +92,6 @@ class GroupTrunkGroupDeleteInstanceRequest extends ComplexType implements Comple
      */
     public function setServiceUserId($serviceUserId = null)
     {
-        if (!$serviceUserId) return $this;
         $this->serviceUserId = ($serviceUserId InstanceOf UserId)
              ? $serviceUserId
              : new UserId($serviceUserId);
@@ -108,6 +105,6 @@ class GroupTrunkGroupDeleteInstanceRequest extends ComplexType implements Comple
      */
     public function getServiceUserId()
     {
-        return $this->serviceUserId->getValue();
+        return ($this->serviceUserId) ? $this->serviceUserId->getValue() : null;
     }
 }

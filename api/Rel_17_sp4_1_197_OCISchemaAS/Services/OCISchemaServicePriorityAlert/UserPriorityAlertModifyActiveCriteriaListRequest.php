@@ -21,12 +21,12 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserPriorityAlertModifyActiveCriteriaListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name               = 'UserPriorityAlertModifyActiveCriteriaListRequest';
-    protected $userId             = null;
-    protected $criteriaActivation = null;
+    public    $name = 'UserPriorityAlertModifyActiveCriteriaListRequest';
+    protected $userId;
+    protected $criteriaActivation;
 
     public function __construct(
-         $userId,
+         $userId = '',
          CriteriaActivation $criteriaActivation = null
     ) {
         $this->setUserId($userId);
@@ -46,7 +46,6 @@ class UserPriorityAlertModifyActiveCriteriaListRequest extends ComplexType imple
      */
     public function setUserId($userId = null)
     {
-        if (!$userId) return $this;
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
@@ -60,7 +59,7 @@ class UserPriorityAlertModifyActiveCriteriaListRequest extends ComplexType imple
      */
     public function getUserId()
     {
-        return $this->userId->getValue();
+        return ($this->userId) ? $this->userId->getValue() : null;
     }
 
     /**
@@ -68,8 +67,9 @@ class UserPriorityAlertModifyActiveCriteriaListRequest extends ComplexType imple
      */
     public function setCriteriaActivation(CriteriaActivation $criteriaActivation = null)
     {
-        if (!$criteriaActivation) return $this;
-        $this->criteriaActivation = $criteriaActivation;
+        $this->criteriaActivation = ($criteriaActivation InstanceOf CriteriaActivation)
+             ? $criteriaActivation
+             : new CriteriaActivation($criteriaActivation);
         $this->criteriaActivation->setName('criteriaActivation');
         return $this;
     }

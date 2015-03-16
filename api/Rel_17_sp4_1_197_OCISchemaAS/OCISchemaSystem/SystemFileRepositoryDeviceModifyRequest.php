@@ -25,18 +25,18 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemFileRepositoryDeviceModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                  = 'SystemFileRepositoryDeviceModifyRequest';
-    protected $name                  = null;
-    protected $rootDirectory         = null;
-    protected $secure                = null;
-    protected $netAddress            = null;
-    protected $ftpPassive            = null;
-    protected $protocol              = null;
-    protected $port                  = null;
-    protected $ftpRemoteVerification = null;
+    public    $name = 'SystemFileRepositoryDeviceModifyRequest';
+    protected $name;
+    protected $rootDirectory;
+    protected $secure;
+    protected $netAddress;
+    protected $ftpPassive;
+    protected $protocol;
+    protected $port;
+    protected $ftpRemoteVerification;
 
     public function __construct(
-         $name,
+         $name = '',
          $rootDirectory = null,
          $secure = null,
          $netAddress = null,
@@ -68,7 +68,6 @@ class SystemFileRepositoryDeviceModifyRequest extends ComplexType implements Com
      */
     public function setName($name = null)
     {
-        if (!$name) return $this;
         $this->name = ($name InstanceOf FileRepositoryName)
              ? $name
              : new FileRepositoryName($name);
@@ -82,7 +81,7 @@ class SystemFileRepositoryDeviceModifyRequest extends ComplexType implements Com
      */
     public function getName()
     {
-        return $this->name->getValue();
+        return ($this->name) ? $this->name->getValue() : null;
     }
 
     /**
@@ -90,7 +89,6 @@ class SystemFileRepositoryDeviceModifyRequest extends ComplexType implements Com
      */
     public function setRootDirectory($rootDirectory = null)
     {
-        if (!$rootDirectory) return $this;
         $this->rootDirectory = ($rootDirectory InstanceOf CPEFileDirectory)
              ? $rootDirectory
              : new CPEFileDirectory($rootDirectory);
@@ -104,7 +102,7 @@ class SystemFileRepositoryDeviceModifyRequest extends ComplexType implements Com
      */
     public function getRootDirectory()
     {
-        return $this->rootDirectory->getValue();
+        return ($this->rootDirectory) ? $this->rootDirectory->getValue() : null;
     }
 
     /**
@@ -112,7 +110,6 @@ class SystemFileRepositoryDeviceModifyRequest extends ComplexType implements Com
      */
     public function setSecure($secure = null)
     {
-        if (!$secure) return $this;
         $this->secure = new PrimitiveType($secure);
         $this->secure->setName('secure');
         return $this;
@@ -124,7 +121,7 @@ class SystemFileRepositoryDeviceModifyRequest extends ComplexType implements Com
      */
     public function getSecure()
     {
-        return $this->secure->getValue();
+        return ($this->secure) ? $this->secure->getValue() : null;
     }
 
     /**
@@ -132,7 +129,6 @@ class SystemFileRepositoryDeviceModifyRequest extends ComplexType implements Com
      */
     public function setNetAddress($netAddress = null)
     {
-        if (!$netAddress) return $this;
         $this->netAddress = ($netAddress InstanceOf NetAddress)
              ? $netAddress
              : new NetAddress($netAddress);
@@ -146,7 +142,7 @@ class SystemFileRepositoryDeviceModifyRequest extends ComplexType implements Com
      */
     public function getNetAddress()
     {
-        return $this->netAddress->getValue();
+        return ($this->netAddress) ? $this->netAddress->getValue() : null;
     }
 
     /**
@@ -154,7 +150,6 @@ class SystemFileRepositoryDeviceModifyRequest extends ComplexType implements Com
      */
     public function setFtpPassive($ftpPassive = null)
     {
-        if (!$ftpPassive) return $this;
         $this->ftpPassive = new PrimitiveType($ftpPassive);
         $this->ftpPassive->setName('ftpPassive');
         return $this;
@@ -166,7 +161,7 @@ class SystemFileRepositoryDeviceModifyRequest extends ComplexType implements Com
      */
     public function getFtpPassive()
     {
-        return $this->ftpPassive->getValue();
+        return ($this->ftpPassive) ? $this->ftpPassive->getValue() : null;
     }
 
     /**
@@ -174,7 +169,6 @@ class SystemFileRepositoryDeviceModifyRequest extends ComplexType implements Com
      */
     public function setProtocol($protocol = null)
     {
-        if (!$protocol) return $this;
         $this->protocol = ($protocol InstanceOf FileRepositoryProtocol)
              ? $protocol
              : new FileRepositoryProtocol($protocol);
@@ -188,7 +182,7 @@ class SystemFileRepositoryDeviceModifyRequest extends ComplexType implements Com
      */
     public function getProtocol()
     {
-        return $this->protocol->getValue();
+        return ($this->protocol) ? $this->protocol->getValue() : null;
     }
 
     /**
@@ -196,7 +190,6 @@ class SystemFileRepositoryDeviceModifyRequest extends ComplexType implements Com
      */
     public function setPort($port = null)
     {
-        if (!$port) return $this;
         $this->port = ($port InstanceOf Port)
              ? $port
              : new Port($port);
@@ -210,7 +203,7 @@ class SystemFileRepositoryDeviceModifyRequest extends ComplexType implements Com
      */
     public function getPort()
     {
-        return $this->port->getValue();
+        return ($this->port) ? $this->port->getValue() : null;
     }
 
     /**
@@ -218,7 +211,6 @@ class SystemFileRepositoryDeviceModifyRequest extends ComplexType implements Com
      */
     public function setFtpRemoteVerification($ftpRemoteVerification = null)
     {
-        if (!$ftpRemoteVerification) return $this;
         $this->ftpRemoteVerification = new PrimitiveType($ftpRemoteVerification);
         $this->ftpRemoteVerification->setName('ftpRemoteVerification');
         return $this;
@@ -230,6 +222,6 @@ class SystemFileRepositoryDeviceModifyRequest extends ComplexType implements Com
      */
     public function getFtpRemoteVerification()
     {
-        return $this->ftpRemoteVerification->getValue();
+        return ($this->ftpRemoteVerification) ? $this->ftpRemoteVerification->getValue() : null;
     }
 }

@@ -23,8 +23,8 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserInstantConferencingGetConferenceBridgeReportResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                  = 'UserInstantConferencingGetConferenceBridgeReportResponse';
-    protected $conferenceReportTable = null;
+    public    $name = 'UserInstantConferencingGetConferenceBridgeReportResponse';
+    protected $conferenceReportTable;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing\UserInstantConferencingGetConferenceBridgeReportResponse $response
@@ -39,7 +39,6 @@ class UserInstantConferencingGetConferenceBridgeReportResponse extends ComplexTy
      */
     public function setConferenceReportTable(TableType $conferenceReportTable = null)
     {
-        if (!$conferenceReportTable) return $this;
         $this->conferenceReportTable = $conferenceReportTable;
         $this->conferenceReportTable->setName('conferenceReportTable');
         return $this;

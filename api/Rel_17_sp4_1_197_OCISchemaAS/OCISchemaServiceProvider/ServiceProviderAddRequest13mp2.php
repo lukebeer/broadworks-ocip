@@ -25,17 +25,17 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderAddRequest13mp2 extends ComplexType implements ComplexInterface
 {
-    public    $name                = 'ServiceProviderAddRequest13mp2';
-    protected $serviceProviderId   = null;
-    protected $defaultDomain       = null;
-    protected $serviceProviderName = null;
-    protected $supportEmail        = null;
-    protected $contact             = null;
-    protected $address             = null;
+    public    $name = 'ServiceProviderAddRequest13mp2';
+    protected $serviceProviderId;
+    protected $defaultDomain;
+    protected $serviceProviderName;
+    protected $supportEmail;
+    protected $contact;
+    protected $address;
 
     public function __construct(
-         $serviceProviderId,
-         $defaultDomain,
+         $serviceProviderId = '',
+         $defaultDomain = '',
          $serviceProviderName = null,
          $supportEmail = null,
          Contact $contact = null,
@@ -62,7 +62,6 @@ class ServiceProviderAddRequest13mp2 extends ComplexType implements ComplexInter
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
-        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
@@ -76,7 +75,7 @@ class ServiceProviderAddRequest13mp2 extends ComplexType implements ComplexInter
      */
     public function getServiceProviderId()
     {
-        return $this->serviceProviderId->getValue();
+        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
     }
 
     /**
@@ -84,7 +83,6 @@ class ServiceProviderAddRequest13mp2 extends ComplexType implements ComplexInter
      */
     public function setDefaultDomain($defaultDomain = null)
     {
-        if (!$defaultDomain) return $this;
         $this->defaultDomain = ($defaultDomain InstanceOf NetAddress)
              ? $defaultDomain
              : new NetAddress($defaultDomain);
@@ -98,7 +96,7 @@ class ServiceProviderAddRequest13mp2 extends ComplexType implements ComplexInter
      */
     public function getDefaultDomain()
     {
-        return $this->defaultDomain->getValue();
+        return ($this->defaultDomain) ? $this->defaultDomain->getValue() : null;
     }
 
     /**
@@ -106,7 +104,6 @@ class ServiceProviderAddRequest13mp2 extends ComplexType implements ComplexInter
      */
     public function setServiceProviderName($serviceProviderName = null)
     {
-        if (!$serviceProviderName) return $this;
         $this->serviceProviderName = ($serviceProviderName InstanceOf ServiceProviderName)
              ? $serviceProviderName
              : new ServiceProviderName($serviceProviderName);
@@ -120,7 +117,7 @@ class ServiceProviderAddRequest13mp2 extends ComplexType implements ComplexInter
      */
     public function getServiceProviderName()
     {
-        return $this->serviceProviderName->getValue();
+        return ($this->serviceProviderName) ? $this->serviceProviderName->getValue() : null;
     }
 
     /**
@@ -128,7 +125,6 @@ class ServiceProviderAddRequest13mp2 extends ComplexType implements ComplexInter
      */
     public function setSupportEmail($supportEmail = null)
     {
-        if (!$supportEmail) return $this;
         $this->supportEmail = ($supportEmail InstanceOf EmailAddress)
              ? $supportEmail
              : new EmailAddress($supportEmail);
@@ -142,7 +138,7 @@ class ServiceProviderAddRequest13mp2 extends ComplexType implements ComplexInter
      */
     public function getSupportEmail()
     {
-        return $this->supportEmail->getValue();
+        return ($this->supportEmail) ? $this->supportEmail->getValue() : null;
     }
 
     /**
@@ -150,8 +146,9 @@ class ServiceProviderAddRequest13mp2 extends ComplexType implements ComplexInter
      */
     public function setContact(Contact $contact = null)
     {
-        if (!$contact) return $this;
-        $this->contact = $contact;
+        $this->contact = ($contact InstanceOf Contact)
+             ? $contact
+             : new Contact($contact);
         $this->contact->setName('contact');
         return $this;
     }
@@ -170,8 +167,9 @@ class ServiceProviderAddRequest13mp2 extends ComplexType implements ComplexInter
      */
     public function setAddress(StreetAddress $address = null)
     {
-        if (!$address) return $this;
-        $this->address = $address;
+        $this->address = ($address InstanceOf StreetAddress)
+             ? $address
+             : new StreetAddress($address);
         $this->address->setName('address');
         return $this;
     }

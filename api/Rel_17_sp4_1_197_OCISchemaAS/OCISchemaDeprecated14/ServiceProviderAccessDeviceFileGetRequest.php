@@ -24,15 +24,15 @@ use Broadworks_OCIP\core\Client\Client;
 class ServiceProviderAccessDeviceFileGetRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\ServiceProviderAccessDeviceFileGetResponse';
-    public    $name              = 'ServiceProviderAccessDeviceFileGetRequest';
-    protected $serviceProviderId = null;
-    protected $deviceName        = null;
-    protected $fileType          = null;
+    public    $name = 'ServiceProviderAccessDeviceFileGetRequest';
+    protected $serviceProviderId;
+    protected $deviceName;
+    protected $fileType;
 
     public function __construct(
-         $serviceProviderId,
-         $deviceName,
-         $fileType
+         $serviceProviderId = '',
+         $deviceName = '',
+         $fileType = ''
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setDeviceName($deviceName);
@@ -52,7 +52,6 @@ class ServiceProviderAccessDeviceFileGetRequest extends ComplexType implements C
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
-        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
@@ -66,7 +65,7 @@ class ServiceProviderAccessDeviceFileGetRequest extends ComplexType implements C
      */
     public function getServiceProviderId()
     {
-        return $this->serviceProviderId->getValue();
+        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
     }
 
     /**
@@ -74,7 +73,6 @@ class ServiceProviderAccessDeviceFileGetRequest extends ComplexType implements C
      */
     public function setDeviceName($deviceName = null)
     {
-        if (!$deviceName) return $this;
         $this->deviceName = ($deviceName InstanceOf AccessDeviceName)
              ? $deviceName
              : new AccessDeviceName($deviceName);
@@ -88,7 +86,7 @@ class ServiceProviderAccessDeviceFileGetRequest extends ComplexType implements C
      */
     public function getDeviceName()
     {
-        return $this->deviceName->getValue();
+        return ($this->deviceName) ? $this->deviceName->getValue() : null;
     }
 
     /**
@@ -96,7 +94,6 @@ class ServiceProviderAccessDeviceFileGetRequest extends ComplexType implements C
      */
     public function setFileType($fileType = null)
     {
-        if (!$fileType) return $this;
         $this->fileType = ($fileType InstanceOf DeviceManagementFileType)
              ? $fileType
              : new DeviceManagementFileType($fileType);
@@ -110,6 +107,6 @@ class ServiceProviderAccessDeviceFileGetRequest extends ComplexType implements C
      */
     public function getFileType()
     {
-        return $this->fileType->getValue();
+        return ($this->fileType) ? $this->fileType->getValue() : null;
     }
 }

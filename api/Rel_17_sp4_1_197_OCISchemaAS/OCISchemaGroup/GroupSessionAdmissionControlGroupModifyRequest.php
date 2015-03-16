@@ -25,25 +25,25 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupSessionAdmissionControlGroupModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                            = 'GroupSessionAdmissionControlGroupModifyRequest';
-    protected $serviceProviderId               = null;
-    protected $groupId                         = null;
-    protected $name                            = null;
-    protected $newName                         = null;
-    protected $maxSession                      = null;
-    protected $maxUserOriginatingSessions      = null;
-    protected $maxUserTerminatingSessions      = null;
-    protected $reservedSession                 = null;
-    protected $reservedUserOriginatingSessions = null;
-    protected $reservedUserTerminatingSessions = null;
-    protected $becomeDefaultGroup              = null;
-    protected $countIntraSACGroupSessions      = null;
-    protected $deviceList                      = null;
+    public    $name = 'GroupSessionAdmissionControlGroupModifyRequest';
+    protected $serviceProviderId;
+    protected $groupId;
+    protected $name;
+    protected $newName;
+    protected $maxSession;
+    protected $maxUserOriginatingSessions;
+    protected $maxUserTerminatingSessions;
+    protected $reservedSession;
+    protected $reservedUserOriginatingSessions;
+    protected $reservedUserTerminatingSessions;
+    protected $becomeDefaultGroup;
+    protected $countIntraSACGroupSessions;
+    protected $deviceList;
 
     public function __construct(
-         $serviceProviderId,
-         $groupId,
-         $name,
+         $serviceProviderId = '',
+         $groupId = '',
+         $name = '',
          $newName = null,
          $maxSession = null,
          $maxUserOriginatingSessions = null,
@@ -83,7 +83,6 @@ class GroupSessionAdmissionControlGroupModifyRequest extends ComplexType impleme
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
-        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
@@ -97,7 +96,7 @@ class GroupSessionAdmissionControlGroupModifyRequest extends ComplexType impleme
      */
     public function getServiceProviderId()
     {
-        return $this->serviceProviderId->getValue();
+        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
     }
 
     /**
@@ -105,7 +104,6 @@ class GroupSessionAdmissionControlGroupModifyRequest extends ComplexType impleme
      */
     public function setGroupId($groupId = null)
     {
-        if (!$groupId) return $this;
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
@@ -119,7 +117,7 @@ class GroupSessionAdmissionControlGroupModifyRequest extends ComplexType impleme
      */
     public function getGroupId()
     {
-        return $this->groupId->getValue();
+        return ($this->groupId) ? $this->groupId->getValue() : null;
     }
 
     /**
@@ -127,7 +125,6 @@ class GroupSessionAdmissionControlGroupModifyRequest extends ComplexType impleme
      */
     public function setName($name = null)
     {
-        if (!$name) return $this;
         $this->name = ($name InstanceOf SessionAdmissionControlGroupName)
              ? $name
              : new SessionAdmissionControlGroupName($name);
@@ -141,7 +138,7 @@ class GroupSessionAdmissionControlGroupModifyRequest extends ComplexType impleme
      */
     public function getName()
     {
-        return $this->name->getValue();
+        return ($this->name) ? $this->name->getValue() : null;
     }
 
     /**
@@ -149,7 +146,6 @@ class GroupSessionAdmissionControlGroupModifyRequest extends ComplexType impleme
      */
     public function setNewName($newName = null)
     {
-        if (!$newName) return $this;
         $this->newName = ($newName InstanceOf SessionAdmissionControlGroupName)
              ? $newName
              : new SessionAdmissionControlGroupName($newName);
@@ -163,7 +159,7 @@ class GroupSessionAdmissionControlGroupModifyRequest extends ComplexType impleme
      */
     public function getNewName()
     {
-        return $this->newName->getValue();
+        return ($this->newName) ? $this->newName->getValue() : null;
     }
 
     /**
@@ -171,7 +167,6 @@ class GroupSessionAdmissionControlGroupModifyRequest extends ComplexType impleme
      */
     public function setMaxSession($maxSession = null)
     {
-        if (!$maxSession) return $this;
         $this->maxSession = ($maxSession InstanceOf NonNegativeInt)
              ? $maxSession
              : new NonNegativeInt($maxSession);
@@ -185,7 +180,7 @@ class GroupSessionAdmissionControlGroupModifyRequest extends ComplexType impleme
      */
     public function getMaxSession()
     {
-        return $this->maxSession->getValue();
+        return ($this->maxSession) ? $this->maxSession->getValue() : null;
     }
 
     /**
@@ -193,7 +188,6 @@ class GroupSessionAdmissionControlGroupModifyRequest extends ComplexType impleme
      */
     public function setMaxUserOriginatingSessions($maxUserOriginatingSessions = null)
     {
-        if (!$maxUserOriginatingSessions) return $this;
         $this->maxUserOriginatingSessions = ($maxUserOriginatingSessions InstanceOf NonNegativeInt)
              ? $maxUserOriginatingSessions
              : new NonNegativeInt($maxUserOriginatingSessions);
@@ -207,7 +201,7 @@ class GroupSessionAdmissionControlGroupModifyRequest extends ComplexType impleme
      */
     public function getMaxUserOriginatingSessions()
     {
-        return $this->maxUserOriginatingSessions->getValue();
+        return ($this->maxUserOriginatingSessions) ? $this->maxUserOriginatingSessions->getValue() : null;
     }
 
     /**
@@ -215,7 +209,6 @@ class GroupSessionAdmissionControlGroupModifyRequest extends ComplexType impleme
      */
     public function setMaxUserTerminatingSessions($maxUserTerminatingSessions = null)
     {
-        if (!$maxUserTerminatingSessions) return $this;
         $this->maxUserTerminatingSessions = ($maxUserTerminatingSessions InstanceOf NonNegativeInt)
              ? $maxUserTerminatingSessions
              : new NonNegativeInt($maxUserTerminatingSessions);
@@ -229,7 +222,7 @@ class GroupSessionAdmissionControlGroupModifyRequest extends ComplexType impleme
      */
     public function getMaxUserTerminatingSessions()
     {
-        return $this->maxUserTerminatingSessions->getValue();
+        return ($this->maxUserTerminatingSessions) ? $this->maxUserTerminatingSessions->getValue() : null;
     }
 
     /**
@@ -237,7 +230,6 @@ class GroupSessionAdmissionControlGroupModifyRequest extends ComplexType impleme
      */
     public function setReservedSession($reservedSession = null)
     {
-        if (!$reservedSession) return $this;
         $this->reservedSession = ($reservedSession InstanceOf NonNegativeInt)
              ? $reservedSession
              : new NonNegativeInt($reservedSession);
@@ -251,7 +243,7 @@ class GroupSessionAdmissionControlGroupModifyRequest extends ComplexType impleme
      */
     public function getReservedSession()
     {
-        return $this->reservedSession->getValue();
+        return ($this->reservedSession) ? $this->reservedSession->getValue() : null;
     }
 
     /**
@@ -259,7 +251,6 @@ class GroupSessionAdmissionControlGroupModifyRequest extends ComplexType impleme
      */
     public function setReservedUserOriginatingSessions($reservedUserOriginatingSessions = null)
     {
-        if (!$reservedUserOriginatingSessions) return $this;
         $this->reservedUserOriginatingSessions = ($reservedUserOriginatingSessions InstanceOf NonNegativeInt)
              ? $reservedUserOriginatingSessions
              : new NonNegativeInt($reservedUserOriginatingSessions);
@@ -273,7 +264,7 @@ class GroupSessionAdmissionControlGroupModifyRequest extends ComplexType impleme
      */
     public function getReservedUserOriginatingSessions()
     {
-        return $this->reservedUserOriginatingSessions->getValue();
+        return ($this->reservedUserOriginatingSessions) ? $this->reservedUserOriginatingSessions->getValue() : null;
     }
 
     /**
@@ -281,7 +272,6 @@ class GroupSessionAdmissionControlGroupModifyRequest extends ComplexType impleme
      */
     public function setReservedUserTerminatingSessions($reservedUserTerminatingSessions = null)
     {
-        if (!$reservedUserTerminatingSessions) return $this;
         $this->reservedUserTerminatingSessions = ($reservedUserTerminatingSessions InstanceOf NonNegativeInt)
              ? $reservedUserTerminatingSessions
              : new NonNegativeInt($reservedUserTerminatingSessions);
@@ -295,7 +285,7 @@ class GroupSessionAdmissionControlGroupModifyRequest extends ComplexType impleme
      */
     public function getReservedUserTerminatingSessions()
     {
-        return $this->reservedUserTerminatingSessions->getValue();
+        return ($this->reservedUserTerminatingSessions) ? $this->reservedUserTerminatingSessions->getValue() : null;
     }
 
     /**
@@ -303,7 +293,6 @@ class GroupSessionAdmissionControlGroupModifyRequest extends ComplexType impleme
      */
     public function setBecomeDefaultGroup($becomeDefaultGroup = null)
     {
-        if (!$becomeDefaultGroup) return $this;
         $this->becomeDefaultGroup = new PrimitiveType($becomeDefaultGroup);
         $this->becomeDefaultGroup->setName('becomeDefaultGroup');
         return $this;
@@ -315,7 +304,7 @@ class GroupSessionAdmissionControlGroupModifyRequest extends ComplexType impleme
      */
     public function getBecomeDefaultGroup()
     {
-        return $this->becomeDefaultGroup->getValue();
+        return ($this->becomeDefaultGroup) ? $this->becomeDefaultGroup->getValue() : null;
     }
 
     /**
@@ -323,7 +312,6 @@ class GroupSessionAdmissionControlGroupModifyRequest extends ComplexType impleme
      */
     public function setCountIntraSACGroupSessions($countIntraSACGroupSessions = null)
     {
-        if (!$countIntraSACGroupSessions) return $this;
         $this->countIntraSACGroupSessions = new PrimitiveType($countIntraSACGroupSessions);
         $this->countIntraSACGroupSessions->setName('countIntraSACGroupSessions');
         return $this;
@@ -335,7 +323,7 @@ class GroupSessionAdmissionControlGroupModifyRequest extends ComplexType impleme
      */
     public function getCountIntraSACGroupSessions()
     {
-        return $this->countIntraSACGroupSessions->getValue();
+        return ($this->countIntraSACGroupSessions) ? $this->countIntraSACGroupSessions->getValue() : null;
     }
 
     /**
@@ -343,8 +331,9 @@ class GroupSessionAdmissionControlGroupModifyRequest extends ComplexType impleme
      */
     public function setDeviceList(ReplacementDeviceList $deviceList = null)
     {
-        if (!$deviceList) return $this;
-        $this->deviceList = $deviceList;
+        $this->deviceList = ($deviceList InstanceOf ReplacementDeviceList)
+             ? $deviceList
+             : new ReplacementDeviceList($deviceList);
         $this->deviceList->setName('deviceList');
         return $this;
     }

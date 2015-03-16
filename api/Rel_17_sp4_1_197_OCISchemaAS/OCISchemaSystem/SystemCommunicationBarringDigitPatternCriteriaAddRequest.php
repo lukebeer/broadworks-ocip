@@ -22,13 +22,13 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemCommunicationBarringDigitPatternCriteriaAddRequest extends ComplexType implements ComplexInterface
 {
-    public    $name              = 'SystemCommunicationBarringDigitPatternCriteriaAddRequest';
-    protected $name              = null;
-    protected $description       = null;
-    protected $matchDigitPattern = null;
+    public    $name = 'SystemCommunicationBarringDigitPatternCriteriaAddRequest';
+    protected $name;
+    protected $description;
+    protected $matchDigitPattern;
 
     public function __construct(
-         $name,
+         $name = '',
          $description = null,
          $matchDigitPattern = null
     ) {
@@ -50,7 +50,6 @@ class SystemCommunicationBarringDigitPatternCriteriaAddRequest extends ComplexTy
      */
     public function setName($name = null)
     {
-        if (!$name) return $this;
         $this->name = ($name InstanceOf DigitPatternCriteriaName)
              ? $name
              : new DigitPatternCriteriaName($name);
@@ -64,7 +63,7 @@ class SystemCommunicationBarringDigitPatternCriteriaAddRequest extends ComplexTy
      */
     public function getName()
     {
-        return $this->name->getValue();
+        return ($this->name) ? $this->name->getValue() : null;
     }
 
     /**
@@ -72,7 +71,6 @@ class SystemCommunicationBarringDigitPatternCriteriaAddRequest extends ComplexTy
      */
     public function setDescription($description = null)
     {
-        if (!$description) return $this;
         $this->description = ($description InstanceOf DigitPatternCriteriaDescription)
              ? $description
              : new DigitPatternCriteriaDescription($description);
@@ -86,7 +84,7 @@ class SystemCommunicationBarringDigitPatternCriteriaAddRequest extends ComplexTy
      */
     public function getDescription()
     {
-        return $this->description->getValue();
+        return ($this->description) ? $this->description->getValue() : null;
     }
 
     /**
@@ -94,7 +92,6 @@ class SystemCommunicationBarringDigitPatternCriteriaAddRequest extends ComplexTy
      */
     public function setMatchDigitPattern($matchDigitPattern = null)
     {
-        if (!$matchDigitPattern) return $this;
         $this->matchDigitPattern = ($matchDigitPattern InstanceOf DigitPattern)
              ? $matchDigitPattern
              : new DigitPattern($matchDigitPattern);
@@ -108,6 +105,6 @@ class SystemCommunicationBarringDigitPatternCriteriaAddRequest extends ComplexTy
      */
     public function getMatchDigitPattern()
     {
-        return $this->matchDigitPattern->getValue();
+        return ($this->matchDigitPattern) ? $this->matchDigitPattern->getValue() : null;
     }
 }

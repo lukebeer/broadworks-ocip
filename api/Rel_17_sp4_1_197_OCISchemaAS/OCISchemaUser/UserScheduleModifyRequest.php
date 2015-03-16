@@ -22,14 +22,14 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserScheduleModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name            = 'UserScheduleModifyRequest';
-    protected $userId          = null;
-    protected $scheduleKey     = null;
-    protected $newScheduleName = null;
+    public    $name = 'UserScheduleModifyRequest';
+    protected $userId;
+    protected $scheduleKey;
+    protected $newScheduleName;
 
     public function __construct(
-         $userId,
-         ScheduleKey $scheduleKey,
+         $userId = '',
+         ScheduleKey $scheduleKey = '',
          $newScheduleName = null
     ) {
         $this->setUserId($userId);
@@ -50,7 +50,6 @@ class UserScheduleModifyRequest extends ComplexType implements ComplexInterface
      */
     public function setUserId($userId = null)
     {
-        if (!$userId) return $this;
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
@@ -64,7 +63,7 @@ class UserScheduleModifyRequest extends ComplexType implements ComplexInterface
      */
     public function getUserId()
     {
-        return $this->userId->getValue();
+        return ($this->userId) ? $this->userId->getValue() : null;
     }
 
     /**
@@ -72,8 +71,9 @@ class UserScheduleModifyRequest extends ComplexType implements ComplexInterface
      */
     public function setScheduleKey(ScheduleKey $scheduleKey = null)
     {
-        if (!$scheduleKey) return $this;
-        $this->scheduleKey = $scheduleKey;
+        $this->scheduleKey = ($scheduleKey InstanceOf ScheduleKey)
+             ? $scheduleKey
+             : new ScheduleKey($scheduleKey);
         $this->scheduleKey->setName('scheduleKey');
         return $this;
     }
@@ -92,7 +92,6 @@ class UserScheduleModifyRequest extends ComplexType implements ComplexInterface
      */
     public function setNewScheduleName($newScheduleName = null)
     {
-        if (!$newScheduleName) return $this;
         $this->newScheduleName = ($newScheduleName InstanceOf ScheduleName)
              ? $newScheduleName
              : new ScheduleName($newScheduleName);
@@ -106,6 +105,6 @@ class UserScheduleModifyRequest extends ComplexType implements ComplexInterface
      */
     public function getNewScheduleName()
     {
-        return $this->newScheduleName->getValue();
+        return ($this->newScheduleName) ? $this->newScheduleName->getValue() : null;
     }
 }

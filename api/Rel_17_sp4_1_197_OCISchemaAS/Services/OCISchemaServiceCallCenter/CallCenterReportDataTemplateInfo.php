@@ -19,35 +19,35 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class CallCenterReportDataTemplateInfo extends ComplexType implements ComplexInterface
 {
-    public    $name                                          = 'CallCenterReportDataTemplateInfo';
-    protected $dataTemplate                                  = null;
-    protected $reportType                                    = null;
-    protected $isRealtimeReport                              = null;
-    protected $isAgentParamRequired                          = null;
-    protected $isCallCenterParamRequired                     = null;
-    protected $isCallCenterDnisParamRequired                 = null;
-    protected $isSamplingPeriodParamRequired                 = null;
-    protected $isCallCompletionThresholdParamRequired        = null;
-    protected $isShortDurationThresholdParamRequired         = null;
-    protected $isServiceLevelThresholdParamRequired          = null;
-    protected $isServiceLevelInclusionsParamRequired         = null;
-    protected $isServiceLevelObjectiveThresholdParamRequired = null;
-    protected $isAbandonedCallThresholdParamRequired         = null;
+    public    $name = 'CallCenterReportDataTemplateInfo';
+    protected $dataTemplate;
+    protected $reportType;
+    protected $isRealtimeReport;
+    protected $isAgentParamRequired;
+    protected $isCallCenterParamRequired;
+    protected $isCallCenterDnisParamRequired;
+    protected $isSamplingPeriodParamRequired;
+    protected $isCallCompletionThresholdParamRequired;
+    protected $isShortDurationThresholdParamRequired;
+    protected $isServiceLevelThresholdParamRequired;
+    protected $isServiceLevelInclusionsParamRequired;
+    protected $isServiceLevelObjectiveThresholdParamRequired;
+    protected $isAbandonedCallThresholdParamRequired;
 
     public function __construct(
-         $dataTemplate,
-         $reportType,
-         $isRealtimeReport,
-         $isAgentParamRequired,
-         $isCallCenterParamRequired,
-         $isCallCenterDnisParamRequired,
-         $isSamplingPeriodParamRequired,
-         $isCallCompletionThresholdParamRequired,
-         $isShortDurationThresholdParamRequired,
-         $isServiceLevelThresholdParamRequired,
-         $isServiceLevelInclusionsParamRequired,
-         $isServiceLevelObjectiveThresholdParamRequired,
-         $isAbandonedCallThresholdParamRequired
+         $dataTemplate = '',
+         $reportType = '',
+         $isRealtimeReport = '',
+         $isAgentParamRequired = '',
+         $isCallCenterParamRequired = '',
+         $isCallCenterDnisParamRequired = '',
+         $isSamplingPeriodParamRequired = '',
+         $isCallCompletionThresholdParamRequired = '',
+         $isShortDurationThresholdParamRequired = '',
+         $isServiceLevelThresholdParamRequired = '',
+         $isServiceLevelInclusionsParamRequired = '',
+         $isServiceLevelObjectiveThresholdParamRequired = '',
+         $isAbandonedCallThresholdParamRequired = ''
     ) {
         $this->setDataTemplate($dataTemplate);
         $this->setReportType($reportType);
@@ -77,7 +77,6 @@ class CallCenterReportDataTemplateInfo extends ComplexType implements ComplexInt
      */
     public function setDataTemplate($dataTemplate = null)
     {
-        if (!$dataTemplate) return $this;
         $this->dataTemplate = new SimpleContent($dataTemplate);
         $this->dataTemplate->setName('dataTemplate');
         return $this;
@@ -89,7 +88,7 @@ class CallCenterReportDataTemplateInfo extends ComplexType implements ComplexInt
      */
     public function getDataTemplate()
     {
-        return $this->dataTemplate->getValue();
+        return ($this->dataTemplate) ? $this->dataTemplate->getValue() : null;
     }
 
     /**
@@ -97,7 +96,6 @@ class CallCenterReportDataTemplateInfo extends ComplexType implements ComplexInt
      */
     public function setReportType($reportType = null)
     {
-        if (!$reportType) return $this;
         $this->reportType = new SimpleContent($reportType);
         $this->reportType->setName('reportType');
         return $this;
@@ -109,7 +107,7 @@ class CallCenterReportDataTemplateInfo extends ComplexType implements ComplexInt
      */
     public function getReportType()
     {
-        return $this->reportType->getValue();
+        return ($this->reportType) ? $this->reportType->getValue() : null;
     }
 
     /**
@@ -117,7 +115,6 @@ class CallCenterReportDataTemplateInfo extends ComplexType implements ComplexInt
      */
     public function setIsRealtimeReport($isRealtimeReport = null)
     {
-        if (!$isRealtimeReport) return $this;
         $this->isRealtimeReport = new SimpleContent($isRealtimeReport);
         $this->isRealtimeReport->setName('isRealtimeReport');
         return $this;
@@ -129,7 +126,7 @@ class CallCenterReportDataTemplateInfo extends ComplexType implements ComplexInt
      */
     public function getIsRealtimeReport()
     {
-        return $this->isRealtimeReport->getValue();
+        return ($this->isRealtimeReport) ? $this->isRealtimeReport->getValue() : null;
     }
 
     /**
@@ -137,7 +134,6 @@ class CallCenterReportDataTemplateInfo extends ComplexType implements ComplexInt
      */
     public function setIsAgentParamRequired($isAgentParamRequired = null)
     {
-        if (!$isAgentParamRequired) return $this;
         $this->isAgentParamRequired = new SimpleContent($isAgentParamRequired);
         $this->isAgentParamRequired->setName('isAgentParamRequired');
         return $this;
@@ -149,7 +145,7 @@ class CallCenterReportDataTemplateInfo extends ComplexType implements ComplexInt
      */
     public function getIsAgentParamRequired()
     {
-        return $this->isAgentParamRequired->getValue();
+        return ($this->isAgentParamRequired) ? $this->isAgentParamRequired->getValue() : null;
     }
 
     /**
@@ -157,7 +153,6 @@ class CallCenterReportDataTemplateInfo extends ComplexType implements ComplexInt
      */
     public function setIsCallCenterParamRequired($isCallCenterParamRequired = null)
     {
-        if (!$isCallCenterParamRequired) return $this;
         $this->isCallCenterParamRequired = new SimpleContent($isCallCenterParamRequired);
         $this->isCallCenterParamRequired->setName('isCallCenterParamRequired');
         return $this;
@@ -169,7 +164,7 @@ class CallCenterReportDataTemplateInfo extends ComplexType implements ComplexInt
      */
     public function getIsCallCenterParamRequired()
     {
-        return $this->isCallCenterParamRequired->getValue();
+        return ($this->isCallCenterParamRequired) ? $this->isCallCenterParamRequired->getValue() : null;
     }
 
     /**
@@ -177,7 +172,6 @@ class CallCenterReportDataTemplateInfo extends ComplexType implements ComplexInt
      */
     public function setIsCallCenterDnisParamRequired($isCallCenterDnisParamRequired = null)
     {
-        if (!$isCallCenterDnisParamRequired) return $this;
         $this->isCallCenterDnisParamRequired = new SimpleContent($isCallCenterDnisParamRequired);
         $this->isCallCenterDnisParamRequired->setName('isCallCenterDnisParamRequired');
         return $this;
@@ -189,7 +183,7 @@ class CallCenterReportDataTemplateInfo extends ComplexType implements ComplexInt
      */
     public function getIsCallCenterDnisParamRequired()
     {
-        return $this->isCallCenterDnisParamRequired->getValue();
+        return ($this->isCallCenterDnisParamRequired) ? $this->isCallCenterDnisParamRequired->getValue() : null;
     }
 
     /**
@@ -197,7 +191,6 @@ class CallCenterReportDataTemplateInfo extends ComplexType implements ComplexInt
      */
     public function setIsSamplingPeriodParamRequired($isSamplingPeriodParamRequired = null)
     {
-        if (!$isSamplingPeriodParamRequired) return $this;
         $this->isSamplingPeriodParamRequired = new SimpleContent($isSamplingPeriodParamRequired);
         $this->isSamplingPeriodParamRequired->setName('isSamplingPeriodParamRequired');
         return $this;
@@ -209,7 +202,7 @@ class CallCenterReportDataTemplateInfo extends ComplexType implements ComplexInt
      */
     public function getIsSamplingPeriodParamRequired()
     {
-        return $this->isSamplingPeriodParamRequired->getValue();
+        return ($this->isSamplingPeriodParamRequired) ? $this->isSamplingPeriodParamRequired->getValue() : null;
     }
 
     /**
@@ -217,7 +210,6 @@ class CallCenterReportDataTemplateInfo extends ComplexType implements ComplexInt
      */
     public function setIsCallCompletionThresholdParamRequired($isCallCompletionThresholdParamRequired = null)
     {
-        if (!$isCallCompletionThresholdParamRequired) return $this;
         $this->isCallCompletionThresholdParamRequired = new SimpleContent($isCallCompletionThresholdParamRequired);
         $this->isCallCompletionThresholdParamRequired->setName('isCallCompletionThresholdParamRequired');
         return $this;
@@ -229,7 +221,7 @@ class CallCenterReportDataTemplateInfo extends ComplexType implements ComplexInt
      */
     public function getIsCallCompletionThresholdParamRequired()
     {
-        return $this->isCallCompletionThresholdParamRequired->getValue();
+        return ($this->isCallCompletionThresholdParamRequired) ? $this->isCallCompletionThresholdParamRequired->getValue() : null;
     }
 
     /**
@@ -237,7 +229,6 @@ class CallCenterReportDataTemplateInfo extends ComplexType implements ComplexInt
      */
     public function setIsShortDurationThresholdParamRequired($isShortDurationThresholdParamRequired = null)
     {
-        if (!$isShortDurationThresholdParamRequired) return $this;
         $this->isShortDurationThresholdParamRequired = new SimpleContent($isShortDurationThresholdParamRequired);
         $this->isShortDurationThresholdParamRequired->setName('isShortDurationThresholdParamRequired');
         return $this;
@@ -249,7 +240,7 @@ class CallCenterReportDataTemplateInfo extends ComplexType implements ComplexInt
      */
     public function getIsShortDurationThresholdParamRequired()
     {
-        return $this->isShortDurationThresholdParamRequired->getValue();
+        return ($this->isShortDurationThresholdParamRequired) ? $this->isShortDurationThresholdParamRequired->getValue() : null;
     }
 
     /**
@@ -257,7 +248,6 @@ class CallCenterReportDataTemplateInfo extends ComplexType implements ComplexInt
      */
     public function setIsServiceLevelThresholdParamRequired($isServiceLevelThresholdParamRequired = null)
     {
-        if (!$isServiceLevelThresholdParamRequired) return $this;
         $this->isServiceLevelThresholdParamRequired = new SimpleContent($isServiceLevelThresholdParamRequired);
         $this->isServiceLevelThresholdParamRequired->setName('isServiceLevelThresholdParamRequired');
         return $this;
@@ -269,7 +259,7 @@ class CallCenterReportDataTemplateInfo extends ComplexType implements ComplexInt
      */
     public function getIsServiceLevelThresholdParamRequired()
     {
-        return $this->isServiceLevelThresholdParamRequired->getValue();
+        return ($this->isServiceLevelThresholdParamRequired) ? $this->isServiceLevelThresholdParamRequired->getValue() : null;
     }
 
     /**
@@ -277,7 +267,6 @@ class CallCenterReportDataTemplateInfo extends ComplexType implements ComplexInt
      */
     public function setIsServiceLevelInclusionsParamRequired($isServiceLevelInclusionsParamRequired = null)
     {
-        if (!$isServiceLevelInclusionsParamRequired) return $this;
         $this->isServiceLevelInclusionsParamRequired = new SimpleContent($isServiceLevelInclusionsParamRequired);
         $this->isServiceLevelInclusionsParamRequired->setName('isServiceLevelInclusionsParamRequired');
         return $this;
@@ -289,7 +278,7 @@ class CallCenterReportDataTemplateInfo extends ComplexType implements ComplexInt
      */
     public function getIsServiceLevelInclusionsParamRequired()
     {
-        return $this->isServiceLevelInclusionsParamRequired->getValue();
+        return ($this->isServiceLevelInclusionsParamRequired) ? $this->isServiceLevelInclusionsParamRequired->getValue() : null;
     }
 
     /**
@@ -297,7 +286,6 @@ class CallCenterReportDataTemplateInfo extends ComplexType implements ComplexInt
      */
     public function setIsServiceLevelObjectiveThresholdParamRequired($isServiceLevelObjectiveThresholdParamRequired = null)
     {
-        if (!$isServiceLevelObjectiveThresholdParamRequired) return $this;
         $this->isServiceLevelObjectiveThresholdParamRequired = new SimpleContent($isServiceLevelObjectiveThresholdParamRequired);
         $this->isServiceLevelObjectiveThresholdParamRequired->setName('isServiceLevelObjectiveThresholdParamRequired');
         return $this;
@@ -309,7 +297,7 @@ class CallCenterReportDataTemplateInfo extends ComplexType implements ComplexInt
      */
     public function getIsServiceLevelObjectiveThresholdParamRequired()
     {
-        return $this->isServiceLevelObjectiveThresholdParamRequired->getValue();
+        return ($this->isServiceLevelObjectiveThresholdParamRequired) ? $this->isServiceLevelObjectiveThresholdParamRequired->getValue() : null;
     }
 
     /**
@@ -317,7 +305,6 @@ class CallCenterReportDataTemplateInfo extends ComplexType implements ComplexInt
      */
     public function setIsAbandonedCallThresholdParamRequired($isAbandonedCallThresholdParamRequired = null)
     {
-        if (!$isAbandonedCallThresholdParamRequired) return $this;
         $this->isAbandonedCallThresholdParamRequired = new SimpleContent($isAbandonedCallThresholdParamRequired);
         $this->isAbandonedCallThresholdParamRequired->setName('isAbandonedCallThresholdParamRequired');
         return $this;
@@ -329,6 +316,6 @@ class CallCenterReportDataTemplateInfo extends ComplexType implements ComplexInt
      */
     public function getIsAbandonedCallThresholdParamRequired()
     {
-        return $this->isAbandonedCallThresholdParamRequired->getValue();
+        return ($this->isAbandonedCallThresholdParamRequired) ? $this->isAbandonedCallThresholdParamRequired->getValue() : null;
     }
 }

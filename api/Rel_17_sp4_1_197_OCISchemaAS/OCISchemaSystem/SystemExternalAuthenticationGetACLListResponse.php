@@ -20,8 +20,8 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemExternalAuthenticationGetACLListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name     = 'SystemExternalAuthenticationGetACLListResponse';
-    protected $aclTable = null;
+    public    $name = 'SystemExternalAuthenticationGetACLListResponse';
+    protected $aclTable;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemExternalAuthenticationGetACLListResponse $response
@@ -36,7 +36,6 @@ class SystemExternalAuthenticationGetACLListResponse extends ComplexType impleme
      */
     public function setAclTable(TableType $aclTable = null)
     {
-        if (!$aclTable) return $this;
         $this->aclTable = $aclTable;
         $this->aclTable->setName('aclTable');
         return $this;

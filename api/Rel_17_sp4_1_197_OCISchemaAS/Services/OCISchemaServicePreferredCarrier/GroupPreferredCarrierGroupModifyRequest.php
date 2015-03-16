@@ -22,16 +22,16 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupPreferredCarrierGroupModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                 = 'GroupPreferredCarrierGroupModifyRequest';
-    protected $serviceProviderId    = null;
-    protected $groupId              = null;
-    protected $intraLataCarrier     = null;
-    protected $interLataCarrier     = null;
-    protected $internationalCarrier = null;
+    public    $name = 'GroupPreferredCarrierGroupModifyRequest';
+    protected $serviceProviderId;
+    protected $groupId;
+    protected $intraLataCarrier;
+    protected $interLataCarrier;
+    protected $internationalCarrier;
 
     public function __construct(
-         $serviceProviderId,
-         $groupId,
+         $serviceProviderId = '',
+         $groupId = '',
          GroupPreferredCarrierNameModify $intraLataCarrier = null,
          GroupPreferredCarrierNameModify $interLataCarrier = null,
          GroupPreferredCarrierNameModify $internationalCarrier = null
@@ -56,7 +56,6 @@ class GroupPreferredCarrierGroupModifyRequest extends ComplexType implements Com
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
-        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
@@ -70,7 +69,7 @@ class GroupPreferredCarrierGroupModifyRequest extends ComplexType implements Com
      */
     public function getServiceProviderId()
     {
-        return $this->serviceProviderId->getValue();
+        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
     }
 
     /**
@@ -78,7 +77,6 @@ class GroupPreferredCarrierGroupModifyRequest extends ComplexType implements Com
      */
     public function setGroupId($groupId = null)
     {
-        if (!$groupId) return $this;
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
@@ -92,7 +90,7 @@ class GroupPreferredCarrierGroupModifyRequest extends ComplexType implements Com
      */
     public function getGroupId()
     {
-        return $this->groupId->getValue();
+        return ($this->groupId) ? $this->groupId->getValue() : null;
     }
 
     /**
@@ -100,8 +98,9 @@ class GroupPreferredCarrierGroupModifyRequest extends ComplexType implements Com
      */
     public function setIntraLataCarrier(GroupPreferredCarrierNameModify $intraLataCarrier = null)
     {
-        if (!$intraLataCarrier) return $this;
-        $this->intraLataCarrier = $intraLataCarrier;
+        $this->intraLataCarrier = ($intraLataCarrier InstanceOf GroupPreferredCarrierNameModify)
+             ? $intraLataCarrier
+             : new GroupPreferredCarrierNameModify($intraLataCarrier);
         $this->intraLataCarrier->setName('intraLataCarrier');
         return $this;
     }
@@ -120,8 +119,9 @@ class GroupPreferredCarrierGroupModifyRequest extends ComplexType implements Com
      */
     public function setInterLataCarrier(GroupPreferredCarrierNameModify $interLataCarrier = null)
     {
-        if (!$interLataCarrier) return $this;
-        $this->interLataCarrier = $interLataCarrier;
+        $this->interLataCarrier = ($interLataCarrier InstanceOf GroupPreferredCarrierNameModify)
+             ? $interLataCarrier
+             : new GroupPreferredCarrierNameModify($interLataCarrier);
         $this->interLataCarrier->setName('interLataCarrier');
         return $this;
     }
@@ -140,8 +140,9 @@ class GroupPreferredCarrierGroupModifyRequest extends ComplexType implements Com
      */
     public function setInternationalCarrier(GroupPreferredCarrierNameModify $internationalCarrier = null)
     {
-        if (!$internationalCarrier) return $this;
-        $this->internationalCarrier = $internationalCarrier;
+        $this->internationalCarrier = ($internationalCarrier InstanceOf GroupPreferredCarrierNameModify)
+             ? $internationalCarrier
+             : new GroupPreferredCarrierNameModify($internationalCarrier);
         $this->internationalCarrier->setName('internationalCarrier');
         return $this;
     }

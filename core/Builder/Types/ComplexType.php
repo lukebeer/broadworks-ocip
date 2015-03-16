@@ -20,7 +20,6 @@ use Broadworks_OCIP\core\Response\ResponseOutput;
  */
 abstract class ComplexType
 {
-    public $name = __CLASS__;
     protected $elements = [];
     protected $responseType;
     protected $errors;
@@ -74,21 +73,5 @@ abstract class ComplexType
     public function getResponseType()
     {
         return $this->responseType;
-    }
-
-    /**
-     * @return string
-     */
-    public function getName()
-    {
-        return implode('', array_slice(explode('\\', get_class($this)), -1));
-    }
-
-    /**
-     * @param $name
-     */
-    public function setName($name)
-    {
-        $this->name = $name;
     }
 }

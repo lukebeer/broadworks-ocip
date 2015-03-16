@@ -19,9 +19,9 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupCallCenterCurrentAndPastCallCenterGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                 = 'GroupCallCenterCurrentAndPastCallCenterGetListResponse';
-    protected $serviceUserId        = null;
-    protected $deletedServiceUserId = null;
+    public    $name = 'GroupCallCenterCurrentAndPastCallCenterGetListResponse';
+    protected $serviceUserId;
+    protected $deletedServiceUserId;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\GroupCallCenterCurrentAndPastCallCenterGetListResponse $response
@@ -36,7 +36,6 @@ class GroupCallCenterCurrentAndPastCallCenterGetListResponse extends ComplexType
      */
     public function setServiceUserId($serviceUserId = null)
     {
-        if (!$serviceUserId) return $this;
         $this->serviceUserId = ($serviceUserId InstanceOf UserId)
              ? $serviceUserId
              : new UserId($serviceUserId);
@@ -50,7 +49,7 @@ class GroupCallCenterCurrentAndPastCallCenterGetListResponse extends ComplexType
      */
     public function getServiceUserId()
     {
-        return $this->serviceUserId->getValue();
+        return ($this->serviceUserId) ? $this->serviceUserId->getValue() : null;
     }
 
     /**
@@ -58,7 +57,6 @@ class GroupCallCenterCurrentAndPastCallCenterGetListResponse extends ComplexType
      */
     public function setDeletedServiceUserId($deletedServiceUserId = null)
     {
-        if (!$deletedServiceUserId) return $this;
         $this->deletedServiceUserId = ($deletedServiceUserId InstanceOf UserId)
              ? $deletedServiceUserId
              : new UserId($deletedServiceUserId);
@@ -72,6 +70,6 @@ class GroupCallCenterCurrentAndPastCallCenterGetListResponse extends ComplexType
      */
     public function getDeletedServiceUserId()
     {
-        return $this->deletedServiceUserId->getValue();
+        return ($this->deletedServiceUserId) ? $this->deletedServiceUserId->getValue() : null;
     }
 }

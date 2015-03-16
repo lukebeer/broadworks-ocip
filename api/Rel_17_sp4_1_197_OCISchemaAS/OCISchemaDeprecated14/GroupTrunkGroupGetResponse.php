@@ -20,9 +20,9 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupTrunkGroupGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                    = 'GroupTrunkGroupGetResponse';
-    protected $maxActiveCalls          = null;
-    protected $maxAvailableActiveCalls = null;
+    public    $name = 'GroupTrunkGroupGetResponse';
+    protected $maxActiveCalls;
+    protected $maxAvailableActiveCalls;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\GroupTrunkGroupGetResponse $response
@@ -37,8 +37,9 @@ class GroupTrunkGroupGetResponse extends ComplexType implements ComplexInterface
      */
     public function setMaxActiveCalls(UnboundedNonNegativeInt $maxActiveCalls = null)
     {
-        if (!$maxActiveCalls) return $this;
-        $this->maxActiveCalls = $maxActiveCalls;
+        $this->maxActiveCalls = ($maxActiveCalls InstanceOf UnboundedNonNegativeInt)
+             ? $maxActiveCalls
+             : new UnboundedNonNegativeInt($maxActiveCalls);
         $this->maxActiveCalls->setName('maxActiveCalls');
         return $this;
     }
@@ -57,8 +58,9 @@ class GroupTrunkGroupGetResponse extends ComplexType implements ComplexInterface
      */
     public function setMaxAvailableActiveCalls(UnboundedNonNegativeInt $maxAvailableActiveCalls = null)
     {
-        if (!$maxAvailableActiveCalls) return $this;
-        $this->maxAvailableActiveCalls = $maxAvailableActiveCalls;
+        $this->maxAvailableActiveCalls = ($maxAvailableActiveCalls InstanceOf UnboundedNonNegativeInt)
+             ? $maxAvailableActiveCalls
+             : new UnboundedNonNegativeInt($maxAvailableActiveCalls);
         $this->maxAvailableActiveCalls->setName('maxAvailableActiveCalls');
         return $this;
     }

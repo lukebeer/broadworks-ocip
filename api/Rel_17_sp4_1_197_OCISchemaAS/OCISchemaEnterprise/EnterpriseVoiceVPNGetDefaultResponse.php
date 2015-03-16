@@ -22,11 +22,11 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class EnterpriseVoiceVPNGetDefaultResponse extends ComplexType implements ComplexInterface
 {
-    public    $name                       = 'EnterpriseVoiceVPNGetDefaultResponse';
-    protected $policySelection            = null;
-    protected $digitManipulationOperation = null;
-    protected $routeGroupId               = null;
-    protected $treatment                  = null;
+    public    $name = 'EnterpriseVoiceVPNGetDefaultResponse';
+    protected $policySelection;
+    protected $digitManipulationOperation;
+    protected $routeGroupId;
+    protected $treatment;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaEnterprise\EnterpriseVoiceVPNGetDefaultResponse $response
@@ -41,7 +41,6 @@ class EnterpriseVoiceVPNGetDefaultResponse extends ComplexType implements Comple
      */
     public function setPolicySelection($policySelection = null)
     {
-        if (!$policySelection) return $this;
         $this->policySelection = ($policySelection InstanceOf EnterpriseVoiceVPNPolicySelection)
              ? $policySelection
              : new EnterpriseVoiceVPNPolicySelection($policySelection);
@@ -55,7 +54,7 @@ class EnterpriseVoiceVPNGetDefaultResponse extends ComplexType implements Comple
      */
     public function getPolicySelection()
     {
-        return $this->policySelection->getValue();
+        return ($this->policySelection) ? $this->policySelection->getValue() : null;
     }
 
     /**
@@ -63,7 +62,6 @@ class EnterpriseVoiceVPNGetDefaultResponse extends ComplexType implements Comple
      */
     public function setDigitManipulationOperation($digitManipulationOperation = null)
     {
-        if (!$digitManipulationOperation) return $this;
         $this->digitManipulationOperation = ($digitManipulationOperation InstanceOf EnterpriseVoiceVPNDigitManipulationOperation)
              ? $digitManipulationOperation
              : new EnterpriseVoiceVPNDigitManipulationOperation($digitManipulationOperation);
@@ -77,7 +75,7 @@ class EnterpriseVoiceVPNGetDefaultResponse extends ComplexType implements Comple
      */
     public function getDigitManipulationOperation()
     {
-        return $this->digitManipulationOperation->getValue();
+        return ($this->digitManipulationOperation) ? $this->digitManipulationOperation->getValue() : null;
     }
 
     /**
@@ -85,7 +83,6 @@ class EnterpriseVoiceVPNGetDefaultResponse extends ComplexType implements Comple
      */
     public function setRouteGroupId($routeGroupId = null)
     {
-        if (!$routeGroupId) return $this;
         $this->routeGroupId = ($routeGroupId InstanceOf GroupId)
              ? $routeGroupId
              : new GroupId($routeGroupId);
@@ -99,7 +96,7 @@ class EnterpriseVoiceVPNGetDefaultResponse extends ComplexType implements Comple
      */
     public function getRouteGroupId()
     {
-        return $this->routeGroupId->getValue();
+        return ($this->routeGroupId) ? $this->routeGroupId->getValue() : null;
     }
 
     /**
@@ -107,8 +104,9 @@ class EnterpriseVoiceVPNGetDefaultResponse extends ComplexType implements Comple
      */
     public function setTreatment(EnterpriseVoiceVPNTreatmentEntry $treatment = null)
     {
-        if (!$treatment) return $this;
-        $this->treatment = $treatment;
+        $this->treatment = ($treatment InstanceOf EnterpriseVoiceVPNTreatmentEntry)
+             ? $treatment
+             : new EnterpriseVoiceVPNTreatmentEntry($treatment);
         $this->treatment->setName('treatment');
         return $this;
     }

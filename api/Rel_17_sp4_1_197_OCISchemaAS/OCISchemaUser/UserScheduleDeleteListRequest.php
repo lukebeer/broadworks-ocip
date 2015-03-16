@@ -21,13 +21,13 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserScheduleDeleteListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name        = 'UserScheduleDeleteListRequest';
-    protected $userId      = null;
-    protected $scheduleKey = null;
+    public    $name = 'UserScheduleDeleteListRequest';
+    protected $userId;
+    protected $scheduleKey;
 
     public function __construct(
-         $userId,
-         ScheduleKey $scheduleKey
+         $userId = '',
+         ScheduleKey $scheduleKey = ''
     ) {
         $this->setUserId($userId);
         $this->setScheduleKey($scheduleKey);
@@ -46,7 +46,6 @@ class UserScheduleDeleteListRequest extends ComplexType implements ComplexInterf
      */
     public function setUserId($userId = null)
     {
-        if (!$userId) return $this;
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
@@ -60,7 +59,7 @@ class UserScheduleDeleteListRequest extends ComplexType implements ComplexInterf
      */
     public function getUserId()
     {
-        return $this->userId->getValue();
+        return ($this->userId) ? $this->userId->getValue() : null;
     }
 
     /**
@@ -68,8 +67,9 @@ class UserScheduleDeleteListRequest extends ComplexType implements ComplexInterf
      */
     public function setScheduleKey(ScheduleKey $scheduleKey = null)
     {
-        if (!$scheduleKey) return $this;
-        $this->scheduleKey = $scheduleKey;
+        $this->scheduleKey = ($scheduleKey InstanceOf ScheduleKey)
+             ? $scheduleKey
+             : new ScheduleKey($scheduleKey);
         $this->scheduleKey->setName('scheduleKey');
         return $this;
     }

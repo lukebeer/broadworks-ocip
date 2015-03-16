@@ -19,8 +19,8 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupOutgoingCallingPlanDepartmentAuthorizationCodeGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name      = 'GroupOutgoingCallingPlanDepartmentAuthorizationCodeGetListResponse';
-    protected $codeEntry = null;
+    public    $name = 'GroupOutgoingCallingPlanDepartmentAuthorizationCodeGetListResponse';
+    protected $codeEntry;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceOutgoingCallingPlan\GroupOutgoingCallingPlanDepartmentAuthorizationCodeGetListResponse $response
@@ -35,8 +35,9 @@ class GroupOutgoingCallingPlanDepartmentAuthorizationCodeGetListResponse extends
      */
     public function setCodeEntry(OutgoingCallingPlanAuthorizationCodeEntry $codeEntry = null)
     {
-        if (!$codeEntry) return $this;
-        $this->codeEntry = $codeEntry;
+        $this->codeEntry = ($codeEntry InstanceOf OutgoingCallingPlanAuthorizationCodeEntry)
+             ? $codeEntry
+             : new OutgoingCallingPlanAuthorizationCodeEntry($codeEntry);
         $this->codeEntry->setName('codeEntry');
         return $this;
     }

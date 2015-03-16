@@ -31,18 +31,18 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderAdminGetPolicyResponse14 extends ComplexType implements ComplexInterface
 {
-    public    $name                       = 'ServiceProviderAdminGetPolicyResponse14';
-    protected $profileAccess              = null;
-    protected $groupAccess                = null;
-    protected $userAccess                 = null;
-    protected $adminAccess                = null;
-    protected $departmentAccess           = null;
-    protected $accessDeviceAccess         = null;
-    protected $phoneNumberExtensionAccess = null;
-    protected $serviceAccess              = null;
-    protected $servicePackAccess          = null;
-    protected $webBrandingAccess          = null;
-    protected $networkPolicyAccess        = null;
+    public    $name = 'ServiceProviderAdminGetPolicyResponse14';
+    protected $profileAccess;
+    protected $groupAccess;
+    protected $userAccess;
+    protected $adminAccess;
+    protected $departmentAccess;
+    protected $accessDeviceAccess;
+    protected $phoneNumberExtensionAccess;
+    protected $serviceAccess;
+    protected $servicePackAccess;
+    protected $webBrandingAccess;
+    protected $networkPolicyAccess;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\ServiceProviderAdminGetPolicyResponse14 $response
@@ -57,7 +57,6 @@ class ServiceProviderAdminGetPolicyResponse14 extends ComplexType implements Com
      */
     public function setProfileAccess($profileAccess = null)
     {
-        if (!$profileAccess) return $this;
         $this->profileAccess = ($profileAccess InstanceOf ServiceProviderAdminProfileAccess)
              ? $profileAccess
              : new ServiceProviderAdminProfileAccess($profileAccess);
@@ -71,7 +70,7 @@ class ServiceProviderAdminGetPolicyResponse14 extends ComplexType implements Com
      */
     public function getProfileAccess()
     {
-        return $this->profileAccess->getValue();
+        return ($this->profileAccess) ? $this->profileAccess->getValue() : null;
     }
 
     /**
@@ -79,7 +78,6 @@ class ServiceProviderAdminGetPolicyResponse14 extends ComplexType implements Com
      */
     public function setGroupAccess($groupAccess = null)
     {
-        if (!$groupAccess) return $this;
         $this->groupAccess = ($groupAccess InstanceOf ServiceProviderAdminGroupAccess)
              ? $groupAccess
              : new ServiceProviderAdminGroupAccess($groupAccess);
@@ -93,7 +91,7 @@ class ServiceProviderAdminGetPolicyResponse14 extends ComplexType implements Com
      */
     public function getGroupAccess()
     {
-        return $this->groupAccess->getValue();
+        return ($this->groupAccess) ? $this->groupAccess->getValue() : null;
     }
 
     /**
@@ -101,7 +99,6 @@ class ServiceProviderAdminGetPolicyResponse14 extends ComplexType implements Com
      */
     public function setUserAccess($userAccess = null)
     {
-        if (!$userAccess) return $this;
         $this->userAccess = ($userAccess InstanceOf ServiceProviderAdminUserAccess)
              ? $userAccess
              : new ServiceProviderAdminUserAccess($userAccess);
@@ -115,7 +112,7 @@ class ServiceProviderAdminGetPolicyResponse14 extends ComplexType implements Com
      */
     public function getUserAccess()
     {
-        return $this->userAccess->getValue();
+        return ($this->userAccess) ? $this->userAccess->getValue() : null;
     }
 
     /**
@@ -123,7 +120,6 @@ class ServiceProviderAdminGetPolicyResponse14 extends ComplexType implements Com
      */
     public function setAdminAccess($adminAccess = null)
     {
-        if (!$adminAccess) return $this;
         $this->adminAccess = ($adminAccess InstanceOf ServiceProviderAdminAdminAccess)
              ? $adminAccess
              : new ServiceProviderAdminAdminAccess($adminAccess);
@@ -137,7 +133,7 @@ class ServiceProviderAdminGetPolicyResponse14 extends ComplexType implements Com
      */
     public function getAdminAccess()
     {
-        return $this->adminAccess->getValue();
+        return ($this->adminAccess) ? $this->adminAccess->getValue() : null;
     }
 
     /**
@@ -145,7 +141,6 @@ class ServiceProviderAdminGetPolicyResponse14 extends ComplexType implements Com
      */
     public function setDepartmentAccess($departmentAccess = null)
     {
-        if (!$departmentAccess) return $this;
         $this->departmentAccess = ($departmentAccess InstanceOf ServiceProviderAdminDepartmentAccess)
              ? $departmentAccess
              : new ServiceProviderAdminDepartmentAccess($departmentAccess);
@@ -159,7 +154,7 @@ class ServiceProviderAdminGetPolicyResponse14 extends ComplexType implements Com
      */
     public function getDepartmentAccess()
     {
-        return $this->departmentAccess->getValue();
+        return ($this->departmentAccess) ? $this->departmentAccess->getValue() : null;
     }
 
     /**
@@ -167,7 +162,6 @@ class ServiceProviderAdminGetPolicyResponse14 extends ComplexType implements Com
      */
     public function setAccessDeviceAccess($accessDeviceAccess = null)
     {
-        if (!$accessDeviceAccess) return $this;
         $this->accessDeviceAccess = ($accessDeviceAccess InstanceOf ServiceProviderAdminAccessDeviceAccess)
              ? $accessDeviceAccess
              : new ServiceProviderAdminAccessDeviceAccess($accessDeviceAccess);
@@ -181,7 +175,7 @@ class ServiceProviderAdminGetPolicyResponse14 extends ComplexType implements Com
      */
     public function getAccessDeviceAccess()
     {
-        return $this->accessDeviceAccess->getValue();
+        return ($this->accessDeviceAccess) ? $this->accessDeviceAccess->getValue() : null;
     }
 
     /**
@@ -189,7 +183,6 @@ class ServiceProviderAdminGetPolicyResponse14 extends ComplexType implements Com
      */
     public function setPhoneNumberExtensionAccess($phoneNumberExtensionAccess = null)
     {
-        if (!$phoneNumberExtensionAccess) return $this;
         $this->phoneNumberExtensionAccess = ($phoneNumberExtensionAccess InstanceOf ServiceProviderAdminPhoneNumberExtensionAccess)
              ? $phoneNumberExtensionAccess
              : new ServiceProviderAdminPhoneNumberExtensionAccess($phoneNumberExtensionAccess);
@@ -203,7 +196,7 @@ class ServiceProviderAdminGetPolicyResponse14 extends ComplexType implements Com
      */
     public function getPhoneNumberExtensionAccess()
     {
-        return $this->phoneNumberExtensionAccess->getValue();
+        return ($this->phoneNumberExtensionAccess) ? $this->phoneNumberExtensionAccess->getValue() : null;
     }
 
     /**
@@ -211,7 +204,6 @@ class ServiceProviderAdminGetPolicyResponse14 extends ComplexType implements Com
      */
     public function setServiceAccess($serviceAccess = null)
     {
-        if (!$serviceAccess) return $this;
         $this->serviceAccess = ($serviceAccess InstanceOf ServiceProviderAdminServiceAccess)
              ? $serviceAccess
              : new ServiceProviderAdminServiceAccess($serviceAccess);
@@ -225,7 +217,7 @@ class ServiceProviderAdminGetPolicyResponse14 extends ComplexType implements Com
      */
     public function getServiceAccess()
     {
-        return $this->serviceAccess->getValue();
+        return ($this->serviceAccess) ? $this->serviceAccess->getValue() : null;
     }
 
     /**
@@ -233,7 +225,6 @@ class ServiceProviderAdminGetPolicyResponse14 extends ComplexType implements Com
      */
     public function setServicePackAccess($servicePackAccess = null)
     {
-        if (!$servicePackAccess) return $this;
         $this->servicePackAccess = ($servicePackAccess InstanceOf ServiceProviderAdminServicePackAccess)
              ? $servicePackAccess
              : new ServiceProviderAdminServicePackAccess($servicePackAccess);
@@ -247,7 +238,7 @@ class ServiceProviderAdminGetPolicyResponse14 extends ComplexType implements Com
      */
     public function getServicePackAccess()
     {
-        return $this->servicePackAccess->getValue();
+        return ($this->servicePackAccess) ? $this->servicePackAccess->getValue() : null;
     }
 
     /**
@@ -255,7 +246,6 @@ class ServiceProviderAdminGetPolicyResponse14 extends ComplexType implements Com
      */
     public function setWebBrandingAccess($webBrandingAccess = null)
     {
-        if (!$webBrandingAccess) return $this;
         $this->webBrandingAccess = ($webBrandingAccess InstanceOf ServiceProviderAdminWebBrandingAccess)
              ? $webBrandingAccess
              : new ServiceProviderAdminWebBrandingAccess($webBrandingAccess);
@@ -269,7 +259,7 @@ class ServiceProviderAdminGetPolicyResponse14 extends ComplexType implements Com
      */
     public function getWebBrandingAccess()
     {
-        return $this->webBrandingAccess->getValue();
+        return ($this->webBrandingAccess) ? $this->webBrandingAccess->getValue() : null;
     }
 
     /**
@@ -277,7 +267,6 @@ class ServiceProviderAdminGetPolicyResponse14 extends ComplexType implements Com
      */
     public function setNetworkPolicyAccess($networkPolicyAccess = null)
     {
-        if (!$networkPolicyAccess) return $this;
         $this->networkPolicyAccess = ($networkPolicyAccess InstanceOf EnterpriseAdminNetworkPolicyAccess)
              ? $networkPolicyAccess
              : new EnterpriseAdminNetworkPolicyAccess($networkPolicyAccess);
@@ -291,6 +280,6 @@ class ServiceProviderAdminGetPolicyResponse14 extends ComplexType implements Com
      */
     public function getNetworkPolicyAccess()
     {
-        return $this->networkPolicyAccess->getValue();
+        return ($this->networkPolicyAccess) ? $this->networkPolicyAccess->getValue() : null;
     }
 }

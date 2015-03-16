@@ -22,11 +22,11 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserFaxMessagingGetResponse17sp1 extends ComplexType implements ComplexInterface
 {
-    public    $name        = 'UserFaxMessagingGetResponse17sp1';
-    protected $isActive    = null;
-    protected $phoneNumber = null;
-    protected $extension   = null;
-    protected $alias       = null;
+    public    $name = 'UserFaxMessagingGetResponse17sp1';
+    protected $isActive;
+    protected $phoneNumber;
+    protected $extension;
+    protected $alias;
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceFaxMessaging\UserFaxMessagingGetResponse17sp1 $response
@@ -41,7 +41,6 @@ class UserFaxMessagingGetResponse17sp1 extends ComplexType implements ComplexInt
      */
     public function setIsActive($isActive = null)
     {
-        if (!$isActive) return $this;
         $this->isActive = new PrimitiveType($isActive);
         $this->isActive->setName('isActive');
         return $this;
@@ -53,7 +52,7 @@ class UserFaxMessagingGetResponse17sp1 extends ComplexType implements ComplexInt
      */
     public function getIsActive()
     {
-        return $this->isActive->getValue();
+        return ($this->isActive) ? $this->isActive->getValue() : null;
     }
 
     /**
@@ -61,7 +60,6 @@ class UserFaxMessagingGetResponse17sp1 extends ComplexType implements ComplexInt
      */
     public function setPhoneNumber($phoneNumber = null)
     {
-        if (!$phoneNumber) return $this;
         $this->phoneNumber = ($phoneNumber InstanceOf DN)
              ? $phoneNumber
              : new DN($phoneNumber);
@@ -75,7 +73,7 @@ class UserFaxMessagingGetResponse17sp1 extends ComplexType implements ComplexInt
      */
     public function getPhoneNumber()
     {
-        return $this->phoneNumber->getValue();
+        return ($this->phoneNumber) ? $this->phoneNumber->getValue() : null;
     }
 
     /**
@@ -83,7 +81,6 @@ class UserFaxMessagingGetResponse17sp1 extends ComplexType implements ComplexInt
      */
     public function setExtension($extension = null)
     {
-        if (!$extension) return $this;
         $this->extension = ($extension InstanceOf Extension17)
              ? $extension
              : new Extension17($extension);
@@ -97,7 +94,7 @@ class UserFaxMessagingGetResponse17sp1 extends ComplexType implements ComplexInt
      */
     public function getExtension()
     {
-        return $this->extension->getValue();
+        return ($this->extension) ? $this->extension->getValue() : null;
     }
 
     /**
@@ -105,7 +102,6 @@ class UserFaxMessagingGetResponse17sp1 extends ComplexType implements ComplexInt
      */
     public function setAlias($alias = null)
     {
-        if (!$alias) return $this;
         $this->alias = ($alias InstanceOf SIPURI)
              ? $alias
              : new SIPURI($alias);
@@ -119,6 +115,6 @@ class UserFaxMessagingGetResponse17sp1 extends ComplexType implements ComplexInt
      */
     public function getAlias()
     {
-        return $this->alias->getValue();
+        return ($this->alias) ? $this->alias->getValue() : null;
     }
 }

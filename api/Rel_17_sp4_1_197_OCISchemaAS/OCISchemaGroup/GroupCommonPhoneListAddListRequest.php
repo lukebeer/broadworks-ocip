@@ -22,15 +22,15 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupCommonPhoneListAddListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name              = 'GroupCommonPhoneListAddListRequest';
-    protected $serviceProviderId = null;
-    protected $groupId           = null;
-    protected $entry             = null;
+    public    $name = 'GroupCommonPhoneListAddListRequest';
+    protected $serviceProviderId;
+    protected $groupId;
+    protected $entry;
 
     public function __construct(
-         $serviceProviderId,
-         $groupId,
-         PhoneListEntry $entry
+         $serviceProviderId = '',
+         $groupId = '',
+         PhoneListEntry $entry = ''
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setGroupId($groupId);
@@ -50,7 +50,6 @@ class GroupCommonPhoneListAddListRequest extends ComplexType implements ComplexI
      */
     public function setServiceProviderId($serviceProviderId = null)
     {
-        if (!$serviceProviderId) return $this;
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
@@ -64,7 +63,7 @@ class GroupCommonPhoneListAddListRequest extends ComplexType implements ComplexI
      */
     public function getServiceProviderId()
     {
-        return $this->serviceProviderId->getValue();
+        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
     }
 
     /**
@@ -72,7 +71,6 @@ class GroupCommonPhoneListAddListRequest extends ComplexType implements ComplexI
      */
     public function setGroupId($groupId = null)
     {
-        if (!$groupId) return $this;
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
@@ -86,7 +84,7 @@ class GroupCommonPhoneListAddListRequest extends ComplexType implements ComplexI
      */
     public function getGroupId()
     {
-        return $this->groupId->getValue();
+        return ($this->groupId) ? $this->groupId->getValue() : null;
     }
 
     /**
@@ -94,8 +92,9 @@ class GroupCommonPhoneListAddListRequest extends ComplexType implements ComplexI
      */
     public function setEntry(PhoneListEntry $entry = null)
     {
-        if (!$entry) return $this;
-        $this->entry = $entry;
+        $this->entry = ($entry InstanceOf PhoneListEntry)
+             ? $entry
+             : new PhoneListEntry($entry);
         $this->entry->setName('entry');
         return $this;
     }

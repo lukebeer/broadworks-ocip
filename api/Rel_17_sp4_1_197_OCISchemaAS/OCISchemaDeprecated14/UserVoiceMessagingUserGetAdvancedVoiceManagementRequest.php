@@ -22,11 +22,11 @@ use Broadworks_OCIP\core\Client\Client;
 class UserVoiceMessagingUserGetAdvancedVoiceManagementRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\UserVoiceMessagingUserGetAdvancedVoiceManagementResponse';
-    public    $name   = 'UserVoiceMessagingUserGetAdvancedVoiceManagementRequest';
-    protected $userId = null;
+    public    $name = 'UserVoiceMessagingUserGetAdvancedVoiceManagementRequest';
+    protected $userId;
 
     public function __construct(
-         $userId
+         $userId = ''
     ) {
         $this->setUserId($userId);
     }
@@ -44,7 +44,6 @@ class UserVoiceMessagingUserGetAdvancedVoiceManagementRequest extends ComplexTyp
      */
     public function setUserId($userId = null)
     {
-        if (!$userId) return $this;
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
@@ -58,6 +57,6 @@ class UserVoiceMessagingUserGetAdvancedVoiceManagementRequest extends ComplexTyp
      */
     public function getUserId()
     {
-        return $this->userId->getValue();
+        return ($this->userId) ? $this->userId->getValue() : null;
     }
 }

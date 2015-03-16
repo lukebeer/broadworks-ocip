@@ -27,21 +27,21 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupRoutePointHolidayServiceModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name                         = 'GroupRoutePointHolidayServiceModifyRequest';
-    protected $serviceUserId                = null;
-    protected $action                       = null;
-    protected $holidaySchedule              = null;
-    protected $transferPhoneNumber          = null;
-    protected $playAnnouncementBeforeAction = null;
-    protected $audioMessageSelection        = null;
-    protected $audioUrlList                 = null;
-    protected $audioFileList                = null;
-    protected $videoMessageSelection        = null;
-    protected $videoUrlList                 = null;
-    protected $videoFileList                = null;
+    public    $name = 'GroupRoutePointHolidayServiceModifyRequest';
+    protected $serviceUserId;
+    protected $action;
+    protected $holidaySchedule;
+    protected $transferPhoneNumber;
+    protected $playAnnouncementBeforeAction;
+    protected $audioMessageSelection;
+    protected $audioUrlList;
+    protected $audioFileList;
+    protected $videoMessageSelection;
+    protected $videoUrlList;
+    protected $videoFileList;
 
     public function __construct(
-         $serviceUserId,
+         $serviceUserId = '',
          $action = null,
          $holidaySchedule = null,
          $transferPhoneNumber = null,
@@ -79,7 +79,6 @@ class GroupRoutePointHolidayServiceModifyRequest extends ComplexType implements 
      */
     public function setServiceUserId($serviceUserId = null)
     {
-        if (!$serviceUserId) return $this;
         $this->serviceUserId = ($serviceUserId InstanceOf UserId)
              ? $serviceUserId
              : new UserId($serviceUserId);
@@ -93,7 +92,7 @@ class GroupRoutePointHolidayServiceModifyRequest extends ComplexType implements 
      */
     public function getServiceUserId()
     {
-        return $this->serviceUserId->getValue();
+        return ($this->serviceUserId) ? $this->serviceUserId->getValue() : null;
     }
 
     /**
@@ -101,7 +100,6 @@ class GroupRoutePointHolidayServiceModifyRequest extends ComplexType implements 
      */
     public function setAction($action = null)
     {
-        if (!$action) return $this;
         $this->action = ($action InstanceOf CallCenterScheduledServiceAction)
              ? $action
              : new CallCenterScheduledServiceAction($action);
@@ -115,7 +113,7 @@ class GroupRoutePointHolidayServiceModifyRequest extends ComplexType implements 
      */
     public function getAction()
     {
-        return $this->action->getValue();
+        return ($this->action) ? $this->action->getValue() : null;
     }
 
     /**
@@ -123,7 +121,6 @@ class GroupRoutePointHolidayServiceModifyRequest extends ComplexType implements 
      */
     public function setHolidaySchedule($holidaySchedule = null)
     {
-        if (!$holidaySchedule) return $this;
         $this->holidaySchedule = ($holidaySchedule InstanceOf ScheduleName)
              ? $holidaySchedule
              : new ScheduleName($holidaySchedule);
@@ -137,7 +134,7 @@ class GroupRoutePointHolidayServiceModifyRequest extends ComplexType implements 
      */
     public function getHolidaySchedule()
     {
-        return $this->holidaySchedule->getValue();
+        return ($this->holidaySchedule) ? $this->holidaySchedule->getValue() : null;
     }
 
     /**
@@ -145,7 +142,6 @@ class GroupRoutePointHolidayServiceModifyRequest extends ComplexType implements 
      */
     public function setTransferPhoneNumber($transferPhoneNumber = null)
     {
-        if (!$transferPhoneNumber) return $this;
         $this->transferPhoneNumber = ($transferPhoneNumber InstanceOf OutgoingDNorSIPURI)
              ? $transferPhoneNumber
              : new OutgoingDNorSIPURI($transferPhoneNumber);
@@ -159,7 +155,7 @@ class GroupRoutePointHolidayServiceModifyRequest extends ComplexType implements 
      */
     public function getTransferPhoneNumber()
     {
-        return $this->transferPhoneNumber->getValue();
+        return ($this->transferPhoneNumber) ? $this->transferPhoneNumber->getValue() : null;
     }
 
     /**
@@ -167,7 +163,6 @@ class GroupRoutePointHolidayServiceModifyRequest extends ComplexType implements 
      */
     public function setPlayAnnouncementBeforeAction($playAnnouncementBeforeAction = null)
     {
-        if (!$playAnnouncementBeforeAction) return $this;
         $this->playAnnouncementBeforeAction = new PrimitiveType($playAnnouncementBeforeAction);
         $this->playAnnouncementBeforeAction->setName('playAnnouncementBeforeAction');
         return $this;
@@ -179,7 +174,7 @@ class GroupRoutePointHolidayServiceModifyRequest extends ComplexType implements 
      */
     public function getPlayAnnouncementBeforeAction()
     {
-        return $this->playAnnouncementBeforeAction->getValue();
+        return ($this->playAnnouncementBeforeAction) ? $this->playAnnouncementBeforeAction->getValue() : null;
     }
 
     /**
@@ -187,7 +182,6 @@ class GroupRoutePointHolidayServiceModifyRequest extends ComplexType implements 
      */
     public function setAudioMessageSelection($audioMessageSelection = null)
     {
-        if (!$audioMessageSelection) return $this;
         $this->audioMessageSelection = ($audioMessageSelection InstanceOf ExtendedFileResourceSelection)
              ? $audioMessageSelection
              : new ExtendedFileResourceSelection($audioMessageSelection);
@@ -201,7 +195,7 @@ class GroupRoutePointHolidayServiceModifyRequest extends ComplexType implements 
      */
     public function getAudioMessageSelection()
     {
-        return $this->audioMessageSelection->getValue();
+        return ($this->audioMessageSelection) ? $this->audioMessageSelection->getValue() : null;
     }
 
     /**
@@ -209,8 +203,9 @@ class GroupRoutePointHolidayServiceModifyRequest extends ComplexType implements 
      */
     public function setAudioUrlList(CallCenterAnnouncementURLListModify $audioUrlList = null)
     {
-        if (!$audioUrlList) return $this;
-        $this->audioUrlList = $audioUrlList;
+        $this->audioUrlList = ($audioUrlList InstanceOf CallCenterAnnouncementURLListModify)
+             ? $audioUrlList
+             : new CallCenterAnnouncementURLListModify($audioUrlList);
         $this->audioUrlList->setName('audioUrlList');
         return $this;
     }
@@ -229,8 +224,9 @@ class GroupRoutePointHolidayServiceModifyRequest extends ComplexType implements 
      */
     public function setAudioFileList(CallCenterAnnouncementFileListModify $audioFileList = null)
     {
-        if (!$audioFileList) return $this;
-        $this->audioFileList = $audioFileList;
+        $this->audioFileList = ($audioFileList InstanceOf CallCenterAnnouncementFileListModify)
+             ? $audioFileList
+             : new CallCenterAnnouncementFileListModify($audioFileList);
         $this->audioFileList->setName('audioFileList');
         return $this;
     }
@@ -249,7 +245,6 @@ class GroupRoutePointHolidayServiceModifyRequest extends ComplexType implements 
      */
     public function setVideoMessageSelection($videoMessageSelection = null)
     {
-        if (!$videoMessageSelection) return $this;
         $this->videoMessageSelection = ($videoMessageSelection InstanceOf ExtendedFileResourceSelection)
              ? $videoMessageSelection
              : new ExtendedFileResourceSelection($videoMessageSelection);
@@ -263,7 +258,7 @@ class GroupRoutePointHolidayServiceModifyRequest extends ComplexType implements 
      */
     public function getVideoMessageSelection()
     {
-        return $this->videoMessageSelection->getValue();
+        return ($this->videoMessageSelection) ? $this->videoMessageSelection->getValue() : null;
     }
 
     /**
@@ -271,8 +266,9 @@ class GroupRoutePointHolidayServiceModifyRequest extends ComplexType implements 
      */
     public function setVideoUrlList(CallCenterAnnouncementURLListModify $videoUrlList = null)
     {
-        if (!$videoUrlList) return $this;
-        $this->videoUrlList = $videoUrlList;
+        $this->videoUrlList = ($videoUrlList InstanceOf CallCenterAnnouncementURLListModify)
+             ? $videoUrlList
+             : new CallCenterAnnouncementURLListModify($videoUrlList);
         $this->videoUrlList->setName('videoUrlList');
         return $this;
     }
@@ -291,8 +287,9 @@ class GroupRoutePointHolidayServiceModifyRequest extends ComplexType implements 
      */
     public function setVideoFileList(CallCenterAnnouncementFileListModify $videoFileList = null)
     {
-        if (!$videoFileList) return $this;
-        $this->videoFileList = $videoFileList;
+        $this->videoFileList = ($videoFileList InstanceOf CallCenterAnnouncementFileListModify)
+             ? $videoFileList
+             : new CallCenterAnnouncementFileListModify($videoFileList);
         $this->videoFileList->setName('videoFileList');
         return $this;
     }

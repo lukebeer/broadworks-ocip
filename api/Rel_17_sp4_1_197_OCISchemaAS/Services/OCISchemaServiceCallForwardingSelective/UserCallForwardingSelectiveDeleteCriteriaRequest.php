@@ -21,13 +21,13 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserCallForwardingSelectiveDeleteCriteriaRequest extends ComplexType implements ComplexInterface
 {
-    public    $name         = 'UserCallForwardingSelectiveDeleteCriteriaRequest';
-    protected $userId       = null;
-    protected $criteriaName = null;
+    public    $name = 'UserCallForwardingSelectiveDeleteCriteriaRequest';
+    protected $userId;
+    protected $criteriaName;
 
     public function __construct(
-         $userId,
-         $criteriaName
+         $userId = '',
+         $criteriaName = ''
     ) {
         $this->setUserId($userId);
         $this->setCriteriaName($criteriaName);
@@ -46,7 +46,6 @@ class UserCallForwardingSelectiveDeleteCriteriaRequest extends ComplexType imple
      */
     public function setUserId($userId = null)
     {
-        if (!$userId) return $this;
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
@@ -60,7 +59,7 @@ class UserCallForwardingSelectiveDeleteCriteriaRequest extends ComplexType imple
      */
     public function getUserId()
     {
-        return $this->userId->getValue();
+        return ($this->userId) ? $this->userId->getValue() : null;
     }
 
     /**
@@ -68,7 +67,6 @@ class UserCallForwardingSelectiveDeleteCriteriaRequest extends ComplexType imple
      */
     public function setCriteriaName($criteriaName = null)
     {
-        if (!$criteriaName) return $this;
         $this->criteriaName = ($criteriaName InstanceOf CriteriaName)
              ? $criteriaName
              : new CriteriaName($criteriaName);
@@ -82,6 +80,6 @@ class UserCallForwardingSelectiveDeleteCriteriaRequest extends ComplexType imple
      */
     public function getCriteriaName()
     {
-        return $this->criteriaName->getValue();
+        return ($this->criteriaName) ? $this->criteriaName->getValue() : null;
     }
 }

@@ -21,11 +21,11 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemCodecAddRequest extends ComplexType implements ComplexInterface
 {
-    public    $name  = 'SystemCodecAddRequest';
-    protected $codec = null;
+    public    $name = 'SystemCodecAddRequest';
+    protected $codec;
 
     public function __construct(
-         $codec
+         $codec = ''
     ) {
         $this->setCodec($codec);
     }
@@ -43,7 +43,6 @@ class SystemCodecAddRequest extends ComplexType implements ComplexInterface
      */
     public function setCodec($codec = null)
     {
-        if (!$codec) return $this;
         $this->codec = ($codec InstanceOf Codec)
              ? $codec
              : new Codec($codec);
@@ -57,6 +56,6 @@ class SystemCodecAddRequest extends ComplexType implements ComplexInterface
      */
     public function getCodec()
     {
-        return $this->codec->getValue();
+        return ($this->codec) ? $this->codec->getValue() : null;
     }
 }

@@ -24,16 +24,16 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserInstantConferencingDeleteConferenceDocumentListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name             = 'UserInstantConferencingDeleteConferenceDocumentListRequest';
-    protected $userId           = null;
-    protected $conferenceKey    = null;
-    protected $conferenceCallId = null;
-    protected $documentId       = null;
+    public    $name = 'UserInstantConferencingDeleteConferenceDocumentListRequest';
+    protected $userId;
+    protected $conferenceKey;
+    protected $conferenceCallId;
+    protected $documentId;
 
     public function __construct(
-         $userId,
-         InstantConferencingConferenceKey $conferenceKey,
-         $conferenceCallId,
+         $userId = '',
+         InstantConferencingConferenceKey $conferenceKey = '',
+         $conferenceCallId = '',
          $documentId = null
     ) {
         $this->setUserId($userId);
@@ -55,7 +55,6 @@ class UserInstantConferencingDeleteConferenceDocumentListRequest extends Complex
      */
     public function setUserId($userId = null)
     {
-        if (!$userId) return $this;
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
@@ -69,7 +68,7 @@ class UserInstantConferencingDeleteConferenceDocumentListRequest extends Complex
      */
     public function getUserId()
     {
-        return $this->userId->getValue();
+        return ($this->userId) ? $this->userId->getValue() : null;
     }
 
     /**
@@ -77,8 +76,9 @@ class UserInstantConferencingDeleteConferenceDocumentListRequest extends Complex
      */
     public function setConferenceKey(InstantConferencingConferenceKey $conferenceKey = null)
     {
-        if (!$conferenceKey) return $this;
-        $this->conferenceKey = $conferenceKey;
+        $this->conferenceKey = ($conferenceKey InstanceOf InstantConferencingConferenceKey)
+             ? $conferenceKey
+             : new InstantConferencingConferenceKey($conferenceKey);
         $this->conferenceKey->setName('conferenceKey');
         return $this;
     }
@@ -97,7 +97,6 @@ class UserInstantConferencingDeleteConferenceDocumentListRequest extends Complex
      */
     public function setConferenceCallId($conferenceCallId = null)
     {
-        if (!$conferenceCallId) return $this;
         $this->conferenceCallId = ($conferenceCallId InstanceOf InstantConferencingCallId)
              ? $conferenceCallId
              : new InstantConferencingCallId($conferenceCallId);
@@ -111,7 +110,7 @@ class UserInstantConferencingDeleteConferenceDocumentListRequest extends Complex
      */
     public function getConferenceCallId()
     {
-        return $this->conferenceCallId->getValue();
+        return ($this->conferenceCallId) ? $this->conferenceCallId->getValue() : null;
     }
 
     /**
@@ -119,7 +118,6 @@ class UserInstantConferencingDeleteConferenceDocumentListRequest extends Complex
      */
     public function setDocumentId($documentId = null)
     {
-        if (!$documentId) return $this;
         $this->documentId = ($documentId InstanceOf InstantConferencingDocumentId)
              ? $documentId
              : new InstantConferencingDocumentId($documentId);
@@ -133,6 +131,6 @@ class UserInstantConferencingDeleteConferenceDocumentListRequest extends Complex
      */
     public function getDocumentId()
     {
-        return $this->documentId->getValue();
+        return ($this->documentId) ? $this->documentId->getValue() : null;
     }
 }

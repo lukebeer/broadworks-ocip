@@ -21,13 +21,13 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemSMDIMessageDeskAddServerRouteRequest extends ComplexType implements ComplexInterface
 {
-    public    $name             = 'SystemSMDIMessageDeskAddServerRouteRequest';
-    protected $routeDestination = null;
-    protected $deviceName       = null;
+    public    $name = 'SystemSMDIMessageDeskAddServerRouteRequest';
+    protected $routeDestination;
+    protected $deviceName;
 
     public function __construct(
-         $routeDestination,
-         $deviceName
+         $routeDestination = '',
+         $deviceName = ''
     ) {
         $this->setRouteDestination($routeDestination);
         $this->setDeviceName($deviceName);
@@ -46,7 +46,6 @@ class SystemSMDIMessageDeskAddServerRouteRequest extends ComplexType implements 
      */
     public function setRouteDestination($routeDestination = null)
     {
-        if (!$routeDestination) return $this;
         $this->routeDestination = ($routeDestination InstanceOf SMDIServerRouteDestination)
              ? $routeDestination
              : new SMDIServerRouteDestination($routeDestination);
@@ -60,7 +59,7 @@ class SystemSMDIMessageDeskAddServerRouteRequest extends ComplexType implements 
      */
     public function getRouteDestination()
     {
-        return $this->routeDestination->getValue();
+        return ($this->routeDestination) ? $this->routeDestination->getValue() : null;
     }
 
     /**
@@ -68,7 +67,6 @@ class SystemSMDIMessageDeskAddServerRouteRequest extends ComplexType implements 
      */
     public function setDeviceName($deviceName = null)
     {
-        if (!$deviceName) return $this;
         $this->deviceName = ($deviceName InstanceOf SMDIDeviceName)
              ? $deviceName
              : new SMDIDeviceName($deviceName);
@@ -82,6 +80,6 @@ class SystemSMDIMessageDeskAddServerRouteRequest extends ComplexType implements 
      */
     public function getDeviceName()
     {
-        return $this->deviceName->getValue();
+        return ($this->deviceName) ? $this->deviceName->getValue() : null;
     }
 }

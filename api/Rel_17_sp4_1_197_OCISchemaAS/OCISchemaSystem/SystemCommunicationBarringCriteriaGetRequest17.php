@@ -23,10 +23,10 @@ class SystemCommunicationBarringCriteriaGetRequest17 extends ComplexType impleme
 {
     public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemCommunicationBarringCriteriaGetResponse17';
     public    $name = 'SystemCommunicationBarringCriteriaGetRequest17';
-    protected $name = null;
+    protected $name;
 
     public function __construct(
-         $name
+         $name = ''
     ) {
         $this->setName($name);
     }
@@ -44,7 +44,6 @@ class SystemCommunicationBarringCriteriaGetRequest17 extends ComplexType impleme
      */
     public function setName($name = null)
     {
-        if (!$name) return $this;
         $this->name = ($name InstanceOf CommunicationBarringCriteriaName)
              ? $name
              : new CommunicationBarringCriteriaName($name);
@@ -58,6 +57,6 @@ class SystemCommunicationBarringCriteriaGetRequest17 extends ComplexType impleme
      */
     public function getName()
     {
-        return $this->name->getValue();
+        return ($this->name) ? $this->name->getValue() : null;
     }
 }
