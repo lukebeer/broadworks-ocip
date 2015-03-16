@@ -21,7 +21,6 @@ use Broadworks_OCIP\core\Output\OutputInterface;
 use Broadworks_OCIP\core\Response\ResponseOutput;
 use Broadworks_OCIP\CoreFactory;
 
-require_once 'HTTP/Request2.php';
 
 /**
  * Class Client - Main controller for the whole framework exposing methods for requests and responses.

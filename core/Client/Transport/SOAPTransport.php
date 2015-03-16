@@ -15,6 +15,9 @@ use Broadworks_OCIP\core\Response\ResponseOutput;
 use Broadworks_OCIP\core\Session\Session;
 use Broadworks_OCIP\CoreFactory;
 
+require_once 'HTTP/Request2.php';
+
+
 /**
  * Class SOAPTransport - Communicates with Broadworks via http(s), this is the slowest but most robust transport type.
  *
