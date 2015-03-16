@@ -23,7 +23,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupDeviceTypeCustomTagAddRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'GroupDeviceTypeCustomTagAddRequest';
+    public    $elementName = 'GroupDeviceTypeCustomTagAddRequest';
     protected $serviceProviderId;
     protected $groupId;
     protected $deviceType;
@@ -60,7 +60,7 @@ class GroupDeviceTypeCustomTagAddRequest extends ComplexType implements ComplexI
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
-        $this->serviceProviderId->setName('serviceProviderId');
+        $this->serviceProviderId->setElementName('serviceProviderId');
         return $this;
     }
 
@@ -70,7 +70,9 @@ class GroupDeviceTypeCustomTagAddRequest extends ComplexType implements ComplexI
      */
     public function getServiceProviderId()
     {
-        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
+        return ($this->serviceProviderId)
+            ? $this->serviceProviderId->getElementValue()
+            : null;
     }
 
     /**
@@ -81,7 +83,7 @@ class GroupDeviceTypeCustomTagAddRequest extends ComplexType implements ComplexI
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
-        $this->groupId->setName('groupId');
+        $this->groupId->setElementName('groupId');
         return $this;
     }
 
@@ -91,7 +93,9 @@ class GroupDeviceTypeCustomTagAddRequest extends ComplexType implements ComplexI
      */
     public function getGroupId()
     {
-        return ($this->groupId) ? $this->groupId->getValue() : null;
+        return ($this->groupId)
+            ? $this->groupId->getElementValue()
+            : null;
     }
 
     /**
@@ -102,7 +106,7 @@ class GroupDeviceTypeCustomTagAddRequest extends ComplexType implements ComplexI
         $this->deviceType = ($deviceType InstanceOf AccessDeviceType)
              ? $deviceType
              : new AccessDeviceType($deviceType);
-        $this->deviceType->setName('deviceType');
+        $this->deviceType->setElementName('deviceType');
         return $this;
     }
 
@@ -112,7 +116,9 @@ class GroupDeviceTypeCustomTagAddRequest extends ComplexType implements ComplexI
      */
     public function getDeviceType()
     {
-        return ($this->deviceType) ? $this->deviceType->getValue() : null;
+        return ($this->deviceType)
+            ? $this->deviceType->getElementValue()
+            : null;
     }
 
     /**
@@ -123,7 +129,7 @@ class GroupDeviceTypeCustomTagAddRequest extends ComplexType implements ComplexI
         $this->tagName = ($tagName InstanceOf DeviceManagementTagName)
              ? $tagName
              : new DeviceManagementTagName($tagName);
-        $this->tagName->setName('tagName');
+        $this->tagName->setElementName('tagName');
         return $this;
     }
 
@@ -133,7 +139,9 @@ class GroupDeviceTypeCustomTagAddRequest extends ComplexType implements ComplexI
      */
     public function getTagName()
     {
-        return ($this->tagName) ? $this->tagName->getValue() : null;
+        return ($this->tagName)
+            ? $this->tagName->getElementValue()
+            : null;
     }
 
     /**
@@ -144,7 +152,7 @@ class GroupDeviceTypeCustomTagAddRequest extends ComplexType implements ComplexI
         $this->tagValue = ($tagValue InstanceOf DeviceManagementTagValue)
              ? $tagValue
              : new DeviceManagementTagValue($tagValue);
-        $this->tagValue->setName('tagValue');
+        $this->tagValue->setElementName('tagValue');
         return $this;
     }
 
@@ -154,6 +162,8 @@ class GroupDeviceTypeCustomTagAddRequest extends ComplexType implements ComplexI
      */
     public function getTagValue()
     {
-        return ($this->tagValue) ? $this->tagValue->getValue() : null;
+        return ($this->tagValue)
+            ? $this->tagValue->getElementValue()
+            : null;
     }
 }

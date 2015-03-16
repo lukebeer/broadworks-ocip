@@ -24,7 +24,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemBwDiameterRoutingPeerAddRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemBwDiameterRoutingPeerAddRequest';
+    public    $elementName = 'SystemBwDiameterRoutingPeerAddRequest';
     protected $instance;
     protected $realm;
     protected $applicationId;
@@ -64,7 +64,7 @@ class SystemBwDiameterRoutingPeerAddRequest extends ComplexType implements Compl
         $this->instance = ($instance InstanceOf BwDiameterPeerInstance)
              ? $instance
              : new BwDiameterPeerInstance($instance);
-        $this->instance->setName('instance');
+        $this->instance->setElementName('instance');
         return $this;
     }
 
@@ -74,7 +74,9 @@ class SystemBwDiameterRoutingPeerAddRequest extends ComplexType implements Compl
      */
     public function getInstance()
     {
-        return ($this->instance) ? $this->instance->getValue() : null;
+        return ($this->instance)
+            ? $this->instance->getElementValue()
+            : null;
     }
 
     /**
@@ -85,7 +87,7 @@ class SystemBwDiameterRoutingPeerAddRequest extends ComplexType implements Compl
         $this->realm = ($realm InstanceOf DomainName)
              ? $realm
              : new DomainName($realm);
-        $this->realm->setName('realm');
+        $this->realm->setElementName('realm');
         return $this;
     }
 
@@ -95,7 +97,9 @@ class SystemBwDiameterRoutingPeerAddRequest extends ComplexType implements Compl
      */
     public function getRealm()
     {
-        return ($this->realm) ? $this->realm->getValue() : null;
+        return ($this->realm)
+            ? $this->realm->getElementValue()
+            : null;
     }
 
     /**
@@ -106,7 +110,7 @@ class SystemBwDiameterRoutingPeerAddRequest extends ComplexType implements Compl
         $this->applicationId = ($applicationId InstanceOf BwDiameterApplicationId)
              ? $applicationId
              : new BwDiameterApplicationId($applicationId);
-        $this->applicationId->setName('applicationId');
+        $this->applicationId->setElementName('applicationId');
         return $this;
     }
 
@@ -116,7 +120,9 @@ class SystemBwDiameterRoutingPeerAddRequest extends ComplexType implements Compl
      */
     public function getApplicationId()
     {
-        return ($this->applicationId) ? $this->applicationId->getValue() : null;
+        return ($this->applicationId)
+            ? $this->applicationId->getElementValue()
+            : null;
     }
 
     /**
@@ -127,7 +133,7 @@ class SystemBwDiameterRoutingPeerAddRequest extends ComplexType implements Compl
         $this->identity = ($identity InstanceOf DomainName)
              ? $identity
              : new DomainName($identity);
-        $this->identity->setName('identity');
+        $this->identity->setElementName('identity');
         return $this;
     }
 
@@ -137,7 +143,9 @@ class SystemBwDiameterRoutingPeerAddRequest extends ComplexType implements Compl
      */
     public function getIdentity()
     {
-        return ($this->identity) ? $this->identity->getValue() : null;
+        return ($this->identity)
+            ? $this->identity->getElementValue()
+            : null;
     }
 
     /**
@@ -148,7 +156,7 @@ class SystemBwDiameterRoutingPeerAddRequest extends ComplexType implements Compl
         $this->priority = ($priority InstanceOf BwDiameterPriority)
              ? $priority
              : new BwDiameterPriority($priority);
-        $this->priority->setName('priority');
+        $this->priority->setElementName('priority');
         return $this;
     }
 
@@ -158,7 +166,9 @@ class SystemBwDiameterRoutingPeerAddRequest extends ComplexType implements Compl
      */
     public function getPriority()
     {
-        return ($this->priority) ? $this->priority->getValue() : null;
+        return ($this->priority)
+            ? $this->priority->getElementValue()
+            : null;
     }
 
     /**
@@ -169,7 +179,7 @@ class SystemBwDiameterRoutingPeerAddRequest extends ComplexType implements Compl
         $this->weight = ($weight InstanceOf BwDiameterWeight)
              ? $weight
              : new BwDiameterWeight($weight);
-        $this->weight->setName('weight');
+        $this->weight->setElementName('weight');
         return $this;
     }
 
@@ -179,6 +189,8 @@ class SystemBwDiameterRoutingPeerAddRequest extends ComplexType implements Compl
      */
     public function getWeight()
     {
-        return ($this->weight) ? $this->weight->getValue() : null;
+        return ($this->weight)
+            ? $this->weight->getElementValue()
+            : null;
     }
 }

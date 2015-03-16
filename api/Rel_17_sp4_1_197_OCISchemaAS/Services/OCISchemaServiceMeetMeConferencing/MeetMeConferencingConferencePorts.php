@@ -19,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class MeetMeConferencingConferencePorts extends ComplexType implements ComplexInterface
 {
-    public    $name = 'MeetMeConferencingConferencePorts';
+    public    $elementName = 'MeetMeConferencingConferencePorts';
 
     public function __construct(    ) {
     }

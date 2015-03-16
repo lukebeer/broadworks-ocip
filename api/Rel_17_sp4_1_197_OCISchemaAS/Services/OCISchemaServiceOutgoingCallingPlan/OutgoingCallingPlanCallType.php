@@ -16,12 +16,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\Enumeration;
  */
 class OutgoingCallingPlanCallType extends SimpleType
 {
-    public $name = "OutgoingCallingPlanCallType";
-    protected $value;
-
+    public $elementName = "OutgoingCallingPlanCallType";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new Enumeration([
             'Casual Calls',
             'Chargeable Directory Assistance',

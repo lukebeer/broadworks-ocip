@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemSMDIMessageDeskGetServerRouteListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemSMDIMessageDeskGetServerRouteListResponse';
+    public    $elementName = 'SystemSMDIMessageDeskGetServerRouteListResponse';
     protected $smdiServerRouteTable;
 
     /**
@@ -37,7 +37,7 @@ class SystemSMDIMessageDeskGetServerRouteListResponse extends ComplexType implem
     public function setSmdiServerRouteTable(TableType $smdiServerRouteTable = null)
     {
         $this->smdiServerRouteTable = $smdiServerRouteTable;
-        $this->smdiServerRouteTable->setName('smdiServerRouteTable');
+        $this->smdiServerRouteTable->setElementName('smdiServerRouteTable');
         return $this;
     }
 

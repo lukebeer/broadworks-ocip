@@ -16,12 +16,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\Enumeration;
  */
 class CallCategory extends SimpleType
 {
-    public $name = "CallCategory";
-    protected $value;
-
+    public $elementName = "CallCategory";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new Enumeration([
             'Local',
             'National',

@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemTreatmentMappingNetworkServerTreatmentGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemTreatmentMappingNetworkServerTreatmentGetListResponse';
+    public    $elementName = 'SystemTreatmentMappingNetworkServerTreatmentGetListResponse';
     protected $treatmentMappingTable;
 
     /**
@@ -37,7 +37,7 @@ class SystemTreatmentMappingNetworkServerTreatmentGetListResponse extends Comple
     public function setTreatmentMappingTable(TableType $treatmentMappingTable = null)
     {
         $this->treatmentMappingTable = $treatmentMappingTable;
-        $this->treatmentMappingTable->setName('treatmentMappingTable');
+        $this->treatmentMappingTable->setElementName('treatmentMappingTable');
         return $this;
     }
 

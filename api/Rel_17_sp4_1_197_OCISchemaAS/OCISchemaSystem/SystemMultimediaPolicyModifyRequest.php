@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemMultimediaPolicyModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemMultimediaPolicyModifyRequest';
+    public    $elementName = 'SystemMultimediaPolicyModifyRequest';
     protected $restrictNonAudioVideoMediaTypes;
 
     public function __construct(
@@ -43,7 +43,7 @@ class SystemMultimediaPolicyModifyRequest extends ComplexType implements Complex
     public function setRestrictNonAudioVideoMediaTypes($restrictNonAudioVideoMediaTypes = null)
     {
         $this->restrictNonAudioVideoMediaTypes = new PrimitiveType($restrictNonAudioVideoMediaTypes);
-        $this->restrictNonAudioVideoMediaTypes->setName('restrictNonAudioVideoMediaTypes');
+        $this->restrictNonAudioVideoMediaTypes->setElementName('restrictNonAudioVideoMediaTypes');
         return $this;
     }
 
@@ -53,6 +53,8 @@ class SystemMultimediaPolicyModifyRequest extends ComplexType implements Complex
      */
     public function getRestrictNonAudioVideoMediaTypes()
     {
-        return ($this->restrictNonAudioVideoMediaTypes) ? $this->restrictNonAudioVideoMediaTypes->getValue() : null;
+        return ($this->restrictNonAudioVideoMediaTypes)
+            ? $this->restrictNonAudioVideoMediaTypes->getElementValue()
+            : null;
     }
 }

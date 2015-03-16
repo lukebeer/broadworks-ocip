@@ -30,7 +30,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserPhoneDirectoryGetPagedListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'UserPhoneDirectoryGetPagedListResponse';
+    public    $elementName = 'UserPhoneDirectoryGetPagedListResponse';
     protected $totalNumberOfRows;
     protected $directoryTable;
 
@@ -48,7 +48,7 @@ class UserPhoneDirectoryGetPagedListResponse extends ComplexType implements Comp
     public function setTotalNumberOfRows($totalNumberOfRows = null)
     {
         $this->totalNumberOfRows = new PrimitiveType($totalNumberOfRows);
-        $this->totalNumberOfRows->setName('totalNumberOfRows');
+        $this->totalNumberOfRows->setElementName('totalNumberOfRows');
         return $this;
     }
 
@@ -58,7 +58,9 @@ class UserPhoneDirectoryGetPagedListResponse extends ComplexType implements Comp
      */
     public function getTotalNumberOfRows()
     {
-        return ($this->totalNumberOfRows) ? $this->totalNumberOfRows->getValue() : null;
+        return ($this->totalNumberOfRows)
+            ? $this->totalNumberOfRows->getElementValue()
+            : null;
     }
 
     /**
@@ -67,7 +69,7 @@ class UserPhoneDirectoryGetPagedListResponse extends ComplexType implements Comp
     public function setDirectoryTable(TableType $directoryTable = null)
     {
         $this->directoryTable = $directoryTable;
-        $this->directoryTable->setName('directoryTable');
+        $this->directoryTable->setElementName('directoryTable');
         return $this;
     }
 

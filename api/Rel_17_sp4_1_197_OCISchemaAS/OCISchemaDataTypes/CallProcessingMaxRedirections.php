@@ -17,12 +17,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\MaxInclusive;
  */
 class CallProcessingMaxRedirections extends SimpleType
 {
-    public $name = "CallProcessingMaxRedirections";
-    protected $value;
-
+    public $elementName = "CallProcessingMaxRedirections";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new MinInclusive("1"));
         $this->addRestriction(new MaxInclusive("15"));
     }

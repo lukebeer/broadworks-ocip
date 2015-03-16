@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderBroadWorksMobilityModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'ServiceProviderBroadWorksMobilityModifyRequest';
+    public    $elementName = 'ServiceProviderBroadWorksMobilityModifyRequest';
     protected $serviceProviderId;
     protected $useSettingLevel;
     protected $enableLocationServices;
@@ -65,7 +65,7 @@ class ServiceProviderBroadWorksMobilityModifyRequest extends ComplexType impleme
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
-        $this->serviceProviderId->setName('serviceProviderId');
+        $this->serviceProviderId->setElementName('serviceProviderId');
         return $this;
     }
 
@@ -75,7 +75,9 @@ class ServiceProviderBroadWorksMobilityModifyRequest extends ComplexType impleme
      */
     public function getServiceProviderId()
     {
-        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
+        return ($this->serviceProviderId)
+            ? $this->serviceProviderId->getElementValue()
+            : null;
     }
 
     /**
@@ -86,7 +88,7 @@ class ServiceProviderBroadWorksMobilityModifyRequest extends ComplexType impleme
         $this->useSettingLevel = ($useSettingLevel InstanceOf BroadWorksMobilityServiceProviderSettingLevel)
              ? $useSettingLevel
              : new BroadWorksMobilityServiceProviderSettingLevel($useSettingLevel);
-        $this->useSettingLevel->setName('useSettingLevel');
+        $this->useSettingLevel->setElementName('useSettingLevel');
         return $this;
     }
 
@@ -96,7 +98,9 @@ class ServiceProviderBroadWorksMobilityModifyRequest extends ComplexType impleme
      */
     public function getUseSettingLevel()
     {
-        return ($this->useSettingLevel) ? $this->useSettingLevel->getValue() : null;
+        return ($this->useSettingLevel)
+            ? $this->useSettingLevel->getElementValue()
+            : null;
     }
 
     /**
@@ -105,7 +109,7 @@ class ServiceProviderBroadWorksMobilityModifyRequest extends ComplexType impleme
     public function setEnableLocationServices($enableLocationServices = null)
     {
         $this->enableLocationServices = new PrimitiveType($enableLocationServices);
-        $this->enableLocationServices->setName('enableLocationServices');
+        $this->enableLocationServices->setElementName('enableLocationServices');
         return $this;
     }
 
@@ -115,7 +119,9 @@ class ServiceProviderBroadWorksMobilityModifyRequest extends ComplexType impleme
      */
     public function getEnableLocationServices()
     {
-        return ($this->enableLocationServices) ? $this->enableLocationServices->getValue() : null;
+        return ($this->enableLocationServices)
+            ? $this->enableLocationServices->getElementValue()
+            : null;
     }
 
     /**
@@ -124,7 +130,7 @@ class ServiceProviderBroadWorksMobilityModifyRequest extends ComplexType impleme
     public function setEnableMSRNLookup($enableMSRNLookup = null)
     {
         $this->enableMSRNLookup = new PrimitiveType($enableMSRNLookup);
-        $this->enableMSRNLookup->setName('enableMSRNLookup');
+        $this->enableMSRNLookup->setElementName('enableMSRNLookup');
         return $this;
     }
 
@@ -134,7 +140,9 @@ class ServiceProviderBroadWorksMobilityModifyRequest extends ComplexType impleme
      */
     public function getEnableMSRNLookup()
     {
-        return ($this->enableMSRNLookup) ? $this->enableMSRNLookup->getValue() : null;
+        return ($this->enableMSRNLookup)
+            ? $this->enableMSRNLookup->getElementValue()
+            : null;
     }
 
     /**
@@ -143,7 +151,7 @@ class ServiceProviderBroadWorksMobilityModifyRequest extends ComplexType impleme
     public function setEnableMobileStateChecking($enableMobileStateChecking = null)
     {
         $this->enableMobileStateChecking = new PrimitiveType($enableMobileStateChecking);
-        $this->enableMobileStateChecking->setName('enableMobileStateChecking');
+        $this->enableMobileStateChecking->setElementName('enableMobileStateChecking');
         return $this;
     }
 
@@ -153,7 +161,9 @@ class ServiceProviderBroadWorksMobilityModifyRequest extends ComplexType impleme
      */
     public function getEnableMobileStateChecking()
     {
-        return ($this->enableMobileStateChecking) ? $this->enableMobileStateChecking->getValue() : null;
+        return ($this->enableMobileStateChecking)
+            ? $this->enableMobileStateChecking->getElementValue()
+            : null;
     }
 
     /**
@@ -162,7 +172,7 @@ class ServiceProviderBroadWorksMobilityModifyRequest extends ComplexType impleme
     public function setDenyCallOriginations($denyCallOriginations = null)
     {
         $this->denyCallOriginations = new PrimitiveType($denyCallOriginations);
-        $this->denyCallOriginations->setName('denyCallOriginations');
+        $this->denyCallOriginations->setElementName('denyCallOriginations');
         return $this;
     }
 
@@ -172,7 +182,9 @@ class ServiceProviderBroadWorksMobilityModifyRequest extends ComplexType impleme
      */
     public function getDenyCallOriginations()
     {
-        return ($this->denyCallOriginations) ? $this->denyCallOriginations->getValue() : null;
+        return ($this->denyCallOriginations)
+            ? $this->denyCallOriginations->getElementValue()
+            : null;
     }
 
     /**
@@ -181,7 +193,7 @@ class ServiceProviderBroadWorksMobilityModifyRequest extends ComplexType impleme
     public function setDenyCallTerminations($denyCallTerminations = null)
     {
         $this->denyCallTerminations = new PrimitiveType($denyCallTerminations);
-        $this->denyCallTerminations->setName('denyCallTerminations');
+        $this->denyCallTerminations->setElementName('denyCallTerminations');
         return $this;
     }
 
@@ -191,6 +203,8 @@ class ServiceProviderBroadWorksMobilityModifyRequest extends ComplexType impleme
      */
     public function getDenyCallTerminations()
     {
-        return ($this->denyCallTerminations) ? $this->denyCallTerminations->getValue() : null;
+        return ($this->denyCallTerminations)
+            ? $this->denyCallTerminations->getElementValue()
+            : null;
     }
 }

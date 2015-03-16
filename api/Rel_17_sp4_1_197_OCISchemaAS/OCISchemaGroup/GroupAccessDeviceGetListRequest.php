@@ -27,7 +27,7 @@ use Broadworks_OCIP\core\Client\Client;
 class GroupAccessDeviceGetListRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType                   = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupAccessDeviceGetListResponse';
-    public    $name = 'GroupAccessDeviceGetListRequest';
+    public    $elementName = 'GroupAccessDeviceGetListRequest';
     protected $serviceProviderId;
     protected $groupId;
     protected $responseSizeLimit;
@@ -70,7 +70,7 @@ class GroupAccessDeviceGetListRequest extends ComplexType implements ComplexInte
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
-        $this->serviceProviderId->setName('serviceProviderId');
+        $this->serviceProviderId->setElementName('serviceProviderId');
         return $this;
     }
 
@@ -80,7 +80,9 @@ class GroupAccessDeviceGetListRequest extends ComplexType implements ComplexInte
      */
     public function getServiceProviderId()
     {
-        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
+        return ($this->serviceProviderId)
+            ? $this->serviceProviderId->getElementValue()
+            : null;
     }
 
     /**
@@ -91,7 +93,7 @@ class GroupAccessDeviceGetListRequest extends ComplexType implements ComplexInte
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
-        $this->groupId->setName('groupId');
+        $this->groupId->setElementName('groupId');
         return $this;
     }
 
@@ -101,7 +103,9 @@ class GroupAccessDeviceGetListRequest extends ComplexType implements ComplexInte
      */
     public function getGroupId()
     {
-        return ($this->groupId) ? $this->groupId->getValue() : null;
+        return ($this->groupId)
+            ? $this->groupId->getElementValue()
+            : null;
     }
 
     /**
@@ -112,7 +116,7 @@ class GroupAccessDeviceGetListRequest extends ComplexType implements ComplexInte
         $this->responseSizeLimit = ($responseSizeLimit InstanceOf ResponseSizeLimit)
              ? $responseSizeLimit
              : new ResponseSizeLimit($responseSizeLimit);
-        $this->responseSizeLimit->setName('responseSizeLimit');
+        $this->responseSizeLimit->setElementName('responseSizeLimit');
         return $this;
     }
 
@@ -122,7 +126,9 @@ class GroupAccessDeviceGetListRequest extends ComplexType implements ComplexInte
      */
     public function getResponseSizeLimit()
     {
-        return ($this->responseSizeLimit) ? $this->responseSizeLimit->getValue() : null;
+        return ($this->responseSizeLimit)
+            ? $this->responseSizeLimit->getElementValue()
+            : null;
     }
 
     /**
@@ -133,7 +139,7 @@ class GroupAccessDeviceGetListRequest extends ComplexType implements ComplexInte
         $this->searchCriteriaDeviceName = ($searchCriteriaDeviceName InstanceOf SearchCriteriaDeviceName)
              ? $searchCriteriaDeviceName
              : new SearchCriteriaDeviceName($searchCriteriaDeviceName);
-        $this->searchCriteriaDeviceName->setName('searchCriteriaDeviceName');
+        $this->searchCriteriaDeviceName->setElementName('searchCriteriaDeviceName');
         return $this;
     }
 
@@ -154,7 +160,7 @@ class GroupAccessDeviceGetListRequest extends ComplexType implements ComplexInte
         $this->searchCriteriaDeviceMACAddress = ($searchCriteriaDeviceMACAddress InstanceOf SearchCriteriaDeviceMACAddress)
              ? $searchCriteriaDeviceMACAddress
              : new SearchCriteriaDeviceMACAddress($searchCriteriaDeviceMACAddress);
-        $this->searchCriteriaDeviceMACAddress->setName('searchCriteriaDeviceMACAddress');
+        $this->searchCriteriaDeviceMACAddress->setElementName('searchCriteriaDeviceMACAddress');
         return $this;
     }
 
@@ -175,7 +181,7 @@ class GroupAccessDeviceGetListRequest extends ComplexType implements ComplexInte
         $this->searchCriteriaDeviceNetAddress = ($searchCriteriaDeviceNetAddress InstanceOf SearchCriteriaDeviceNetAddress)
              ? $searchCriteriaDeviceNetAddress
              : new SearchCriteriaDeviceNetAddress($searchCriteriaDeviceNetAddress);
-        $this->searchCriteriaDeviceNetAddress->setName('searchCriteriaDeviceNetAddress');
+        $this->searchCriteriaDeviceNetAddress->setElementName('searchCriteriaDeviceNetAddress');
         return $this;
     }
 
@@ -196,7 +202,7 @@ class GroupAccessDeviceGetListRequest extends ComplexType implements ComplexInte
         $this->searchCriteriaExactDeviceType = ($searchCriteriaExactDeviceType InstanceOf SearchCriteriaExactDeviceType)
              ? $searchCriteriaExactDeviceType
              : new SearchCriteriaExactDeviceType($searchCriteriaExactDeviceType);
-        $this->searchCriteriaExactDeviceType->setName('searchCriteriaExactDeviceType');
+        $this->searchCriteriaExactDeviceType->setElementName('searchCriteriaExactDeviceType');
         return $this;
     }
 

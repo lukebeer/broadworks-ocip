@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemConfigurableFileSystemGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemConfigurableFileSystemGetResponse';
+    public    $elementName = 'SystemConfigurableFileSystemGetResponse';
     protected $mediaDirectory;
 
     /**
@@ -39,7 +39,7 @@ class SystemConfigurableFileSystemGetResponse extends ComplexType implements Com
         $this->mediaDirectory = ($mediaDirectory InstanceOf ConfigurableFileSystemDirectory)
              ? $mediaDirectory
              : new ConfigurableFileSystemDirectory($mediaDirectory);
-        $this->mediaDirectory->setName('mediaDirectory');
+        $this->mediaDirectory->setElementName('mediaDirectory');
         return $this;
     }
 
@@ -49,6 +49,8 @@ class SystemConfigurableFileSystemGetResponse extends ComplexType implements Com
      */
     public function getMediaDirectory()
     {
-        return ($this->mediaDirectory) ? $this->mediaDirectory->getValue() : null;
+        return ($this->mediaDirectory)
+            ? $this->mediaDirectory->getElementValue()
+            : null;
     }
 }

@@ -27,7 +27,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupVoiceMessagingGroupModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'GroupVoiceMessagingGroupModifyRequest';
+    public    $elementName = 'GroupVoiceMessagingGroupModifyRequest';
     protected $serviceProviderId;
     protected $groupId;
     protected $useMailServerSetting;
@@ -85,7 +85,7 @@ class GroupVoiceMessagingGroupModifyRequest extends ComplexType implements Compl
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
-        $this->serviceProviderId->setName('serviceProviderId');
+        $this->serviceProviderId->setElementName('serviceProviderId');
         return $this;
     }
 
@@ -95,7 +95,9 @@ class GroupVoiceMessagingGroupModifyRequest extends ComplexType implements Compl
      */
     public function getServiceProviderId()
     {
-        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
+        return ($this->serviceProviderId)
+            ? $this->serviceProviderId->getElementValue()
+            : null;
     }
 
     /**
@@ -106,7 +108,7 @@ class GroupVoiceMessagingGroupModifyRequest extends ComplexType implements Compl
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
-        $this->groupId->setName('groupId');
+        $this->groupId->setElementName('groupId');
         return $this;
     }
 
@@ -116,7 +118,9 @@ class GroupVoiceMessagingGroupModifyRequest extends ComplexType implements Compl
      */
     public function getGroupId()
     {
-        return ($this->groupId) ? $this->groupId->getValue() : null;
+        return ($this->groupId)
+            ? $this->groupId->getElementValue()
+            : null;
     }
 
     /**
@@ -127,7 +131,7 @@ class GroupVoiceMessagingGroupModifyRequest extends ComplexType implements Compl
         $this->useMailServerSetting = ($useMailServerSetting InstanceOf VoiceMessagingGroupMailServerChoices)
              ? $useMailServerSetting
              : new VoiceMessagingGroupMailServerChoices($useMailServerSetting);
-        $this->useMailServerSetting->setName('useMailServerSetting');
+        $this->useMailServerSetting->setElementName('useMailServerSetting');
         return $this;
     }
 
@@ -137,7 +141,9 @@ class GroupVoiceMessagingGroupModifyRequest extends ComplexType implements Compl
      */
     public function getUseMailServerSetting()
     {
-        return ($this->useMailServerSetting) ? $this->useMailServerSetting->getValue() : null;
+        return ($this->useMailServerSetting)
+            ? $this->useMailServerSetting->getElementValue()
+            : null;
     }
 
     /**
@@ -146,7 +152,7 @@ class GroupVoiceMessagingGroupModifyRequest extends ComplexType implements Compl
     public function setWarnCallerBeforeRecordingVoiceMessage($warnCallerBeforeRecordingVoiceMessage = null)
     {
         $this->warnCallerBeforeRecordingVoiceMessage = new PrimitiveType($warnCallerBeforeRecordingVoiceMessage);
-        $this->warnCallerBeforeRecordingVoiceMessage->setName('warnCallerBeforeRecordingVoiceMessage');
+        $this->warnCallerBeforeRecordingVoiceMessage->setElementName('warnCallerBeforeRecordingVoiceMessage');
         return $this;
     }
 
@@ -156,7 +162,9 @@ class GroupVoiceMessagingGroupModifyRequest extends ComplexType implements Compl
      */
     public function getWarnCallerBeforeRecordingVoiceMessage()
     {
-        return ($this->warnCallerBeforeRecordingVoiceMessage) ? $this->warnCallerBeforeRecordingVoiceMessage->getValue() : null;
+        return ($this->warnCallerBeforeRecordingVoiceMessage)
+            ? $this->warnCallerBeforeRecordingVoiceMessage->getElementValue()
+            : null;
     }
 
     /**
@@ -165,7 +173,7 @@ class GroupVoiceMessagingGroupModifyRequest extends ComplexType implements Compl
     public function setAllowUsersConfiguringAdvancedSettings($allowUsersConfiguringAdvancedSettings = null)
     {
         $this->allowUsersConfiguringAdvancedSettings = new PrimitiveType($allowUsersConfiguringAdvancedSettings);
-        $this->allowUsersConfiguringAdvancedSettings->setName('allowUsersConfiguringAdvancedSettings');
+        $this->allowUsersConfiguringAdvancedSettings->setElementName('allowUsersConfiguringAdvancedSettings');
         return $this;
     }
 
@@ -175,7 +183,9 @@ class GroupVoiceMessagingGroupModifyRequest extends ComplexType implements Compl
      */
     public function getAllowUsersConfiguringAdvancedSettings()
     {
-        return ($this->allowUsersConfiguringAdvancedSettings) ? $this->allowUsersConfiguringAdvancedSettings->getValue() : null;
+        return ($this->allowUsersConfiguringAdvancedSettings)
+            ? $this->allowUsersConfiguringAdvancedSettings->getElementValue()
+            : null;
     }
 
     /**
@@ -184,7 +194,7 @@ class GroupVoiceMessagingGroupModifyRequest extends ComplexType implements Compl
     public function setAllowComposeOrForwardMessageToEntireGroup($allowComposeOrForwardMessageToEntireGroup = null)
     {
         $this->allowComposeOrForwardMessageToEntireGroup = new PrimitiveType($allowComposeOrForwardMessageToEntireGroup);
-        $this->allowComposeOrForwardMessageToEntireGroup->setName('allowComposeOrForwardMessageToEntireGroup');
+        $this->allowComposeOrForwardMessageToEntireGroup->setElementName('allowComposeOrForwardMessageToEntireGroup');
         return $this;
     }
 
@@ -194,7 +204,9 @@ class GroupVoiceMessagingGroupModifyRequest extends ComplexType implements Compl
      */
     public function getAllowComposeOrForwardMessageToEntireGroup()
     {
-        return ($this->allowComposeOrForwardMessageToEntireGroup) ? $this->allowComposeOrForwardMessageToEntireGroup->getValue() : null;
+        return ($this->allowComposeOrForwardMessageToEntireGroup)
+            ? $this->allowComposeOrForwardMessageToEntireGroup->getElementValue()
+            : null;
     }
 
     /**
@@ -205,7 +217,7 @@ class GroupVoiceMessagingGroupModifyRequest extends ComplexType implements Compl
         $this->mailServerNetAddress = ($mailServerNetAddress InstanceOf NetAddress)
              ? $mailServerNetAddress
              : new NetAddress($mailServerNetAddress);
-        $this->mailServerNetAddress->setName('mailServerNetAddress');
+        $this->mailServerNetAddress->setElementName('mailServerNetAddress');
         return $this;
     }
 
@@ -215,7 +227,9 @@ class GroupVoiceMessagingGroupModifyRequest extends ComplexType implements Compl
      */
     public function getMailServerNetAddress()
     {
-        return ($this->mailServerNetAddress) ? $this->mailServerNetAddress->getValue() : null;
+        return ($this->mailServerNetAddress)
+            ? $this->mailServerNetAddress->getElementValue()
+            : null;
     }
 
     /**
@@ -226,7 +240,7 @@ class GroupVoiceMessagingGroupModifyRequest extends ComplexType implements Compl
         $this->mailServerProtocol = ($mailServerProtocol InstanceOf VoiceMessagingMailServerProtocol)
              ? $mailServerProtocol
              : new VoiceMessagingMailServerProtocol($mailServerProtocol);
-        $this->mailServerProtocol->setName('mailServerProtocol');
+        $this->mailServerProtocol->setElementName('mailServerProtocol');
         return $this;
     }
 
@@ -236,7 +250,9 @@ class GroupVoiceMessagingGroupModifyRequest extends ComplexType implements Compl
      */
     public function getMailServerProtocol()
     {
-        return ($this->mailServerProtocol) ? $this->mailServerProtocol->getValue() : null;
+        return ($this->mailServerProtocol)
+            ? $this->mailServerProtocol->getElementValue()
+            : null;
     }
 
     /**
@@ -245,7 +261,7 @@ class GroupVoiceMessagingGroupModifyRequest extends ComplexType implements Compl
     public function setRealDeleteForImap($realDeleteForImap = null)
     {
         $this->realDeleteForImap = new PrimitiveType($realDeleteForImap);
-        $this->realDeleteForImap->setName('realDeleteForImap');
+        $this->realDeleteForImap->setElementName('realDeleteForImap');
         return $this;
     }
 
@@ -255,7 +271,9 @@ class GroupVoiceMessagingGroupModifyRequest extends ComplexType implements Compl
      */
     public function getRealDeleteForImap()
     {
-        return ($this->realDeleteForImap) ? $this->realDeleteForImap->getValue() : null;
+        return ($this->realDeleteForImap)
+            ? $this->realDeleteForImap->getElementValue()
+            : null;
     }
 
     /**
@@ -266,7 +284,7 @@ class GroupVoiceMessagingGroupModifyRequest extends ComplexType implements Compl
         $this->maxMailboxLengthMinutes = ($maxMailboxLengthMinutes InstanceOf VoiceMessagingMailboxLengthMinutes)
              ? $maxMailboxLengthMinutes
              : new VoiceMessagingMailboxLengthMinutes($maxMailboxLengthMinutes);
-        $this->maxMailboxLengthMinutes->setName('maxMailboxLengthMinutes');
+        $this->maxMailboxLengthMinutes->setElementName('maxMailboxLengthMinutes');
         return $this;
     }
 
@@ -276,7 +294,9 @@ class GroupVoiceMessagingGroupModifyRequest extends ComplexType implements Compl
      */
     public function getMaxMailboxLengthMinutes()
     {
-        return ($this->maxMailboxLengthMinutes) ? $this->maxMailboxLengthMinutes->getValue() : null;
+        return ($this->maxMailboxLengthMinutes)
+            ? $this->maxMailboxLengthMinutes->getElementValue()
+            : null;
     }
 
     /**
@@ -285,7 +305,7 @@ class GroupVoiceMessagingGroupModifyRequest extends ComplexType implements Compl
     public function setDoesMessageAge($doesMessageAge = null)
     {
         $this->doesMessageAge = new PrimitiveType($doesMessageAge);
-        $this->doesMessageAge->setName('doesMessageAge');
+        $this->doesMessageAge->setElementName('doesMessageAge');
         return $this;
     }
 
@@ -295,7 +315,9 @@ class GroupVoiceMessagingGroupModifyRequest extends ComplexType implements Compl
      */
     public function getDoesMessageAge()
     {
-        return ($this->doesMessageAge) ? $this->doesMessageAge->getValue() : null;
+        return ($this->doesMessageAge)
+            ? $this->doesMessageAge->getElementValue()
+            : null;
     }
 
     /**
@@ -306,7 +328,7 @@ class GroupVoiceMessagingGroupModifyRequest extends ComplexType implements Compl
         $this->holdPeriodDays = ($holdPeriodDays InstanceOf VoiceMessagingHoldPeriodDays)
              ? $holdPeriodDays
              : new VoiceMessagingHoldPeriodDays($holdPeriodDays);
-        $this->holdPeriodDays->setName('holdPeriodDays');
+        $this->holdPeriodDays->setElementName('holdPeriodDays');
         return $this;
     }
 
@@ -316,6 +338,8 @@ class GroupVoiceMessagingGroupModifyRequest extends ComplexType implements Compl
      */
     public function getHoldPeriodDays()
     {
-        return ($this->holdPeriodDays) ? $this->holdPeriodDays->getValue() : null;
+        return ($this->holdPeriodDays)
+            ? $this->holdPeriodDays->getElementValue()
+            : null;
     }
 }

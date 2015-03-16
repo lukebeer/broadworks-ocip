@@ -20,10 +20,10 @@ class SimpleContent extends SimpleType
 {
 
     /**
-     * @param mixed $value
+     * @param mixed $elementValue
      */
-    public function __construct($value = null)
+    public function __construct($elementValue = null)
     {
-        $this->value = $value;
+        $this->setElementValue($elementValue);
     }
 }

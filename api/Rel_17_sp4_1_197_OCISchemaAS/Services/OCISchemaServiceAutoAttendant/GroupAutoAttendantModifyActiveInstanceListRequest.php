@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupAutoAttendantModifyActiveInstanceListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'GroupAutoAttendantModifyActiveInstanceListRequest';
+    public    $elementName = 'GroupAutoAttendantModifyActiveInstanceListRequest';
     protected $serviceActivation;
 
     public function __construct(
@@ -45,7 +45,7 @@ class GroupAutoAttendantModifyActiveInstanceListRequest extends ComplexType impl
         $this->serviceActivation = ($serviceActivation InstanceOf ServiceActivation)
              ? $serviceActivation
              : new ServiceActivation($serviceActivation);
-        $this->serviceActivation->setName('serviceActivation');
+        $this->serviceActivation->setElementName('serviceActivation');
         return $this;
     }
 

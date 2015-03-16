@@ -19,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class CallCenterReportTemplateKey extends ComplexType implements ComplexInterface
 {
-    public    $name = 'CallCenterReportTemplateKey';
+    public    $elementName = 'CallCenterReportTemplateKey';
     protected $templateLevel;
     protected $templateName;
 
@@ -45,7 +45,7 @@ class CallCenterReportTemplateKey extends ComplexType implements ComplexInterfac
     public function setTemplateLevel($templateLevel = null)
     {
         $this->templateLevel = new SimpleContent($templateLevel);
-        $this->templateLevel->setName('templateLevel');
+        $this->templateLevel->setElementName('templateLevel');
         return $this;
     }
 
@@ -55,7 +55,9 @@ class CallCenterReportTemplateKey extends ComplexType implements ComplexInterfac
      */
     public function getTemplateLevel()
     {
-        return ($this->templateLevel) ? $this->templateLevel->getValue() : null;
+        return ($this->templateLevel)
+            ? $this->templateLevel->getElementValue()
+            : null;
     }
 
     /**
@@ -64,7 +66,7 @@ class CallCenterReportTemplateKey extends ComplexType implements ComplexInterfac
     public function setTemplateName($templateName = null)
     {
         $this->templateName = new SimpleContent($templateName);
-        $this->templateName->setName('templateName');
+        $this->templateName->setElementName('templateName');
         return $this;
     }
 
@@ -74,6 +76,8 @@ class CallCenterReportTemplateKey extends ComplexType implements ComplexInterfac
      */
     public function getTemplateName()
     {
-        return ($this->templateName) ? $this->templateName->getValue() : null;
+        return ($this->templateName)
+            ? $this->templateName->getElementValue()
+            : null;
     }
 }

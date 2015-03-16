@@ -19,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class AccessDeviceEndpointAdd extends ComplexType implements ComplexInterface
 {
-    public    $name = 'AccessDeviceEndpointAdd';
+    public    $elementName = 'AccessDeviceEndpointAdd';
     protected $accessDevice;
     protected $linePort;
     protected $contact;
@@ -48,7 +48,7 @@ class AccessDeviceEndpointAdd extends ComplexType implements ComplexInterface
     public function setAccessDevice($accessDevice = null)
     {
         $this->accessDevice = new SimpleContent($accessDevice);
-        $this->accessDevice->setName('accessDevice');
+        $this->accessDevice->setElementName('accessDevice');
         return $this;
     }
 
@@ -58,7 +58,9 @@ class AccessDeviceEndpointAdd extends ComplexType implements ComplexInterface
      */
     public function getAccessDevice()
     {
-        return ($this->accessDevice) ? $this->accessDevice->getValue() : null;
+        return ($this->accessDevice)
+            ? $this->accessDevice->getElementValue()
+            : null;
     }
 
     /**
@@ -67,7 +69,7 @@ class AccessDeviceEndpointAdd extends ComplexType implements ComplexInterface
     public function setLinePort($linePort = null)
     {
         $this->linePort = new SimpleContent($linePort);
-        $this->linePort->setName('linePort');
+        $this->linePort->setElementName('linePort');
         return $this;
     }
 
@@ -77,7 +79,9 @@ class AccessDeviceEndpointAdd extends ComplexType implements ComplexInterface
      */
     public function getLinePort()
     {
-        return ($this->linePort) ? $this->linePort->getValue() : null;
+        return ($this->linePort)
+            ? $this->linePort->getElementValue()
+            : null;
     }
 
     /**
@@ -86,7 +90,7 @@ class AccessDeviceEndpointAdd extends ComplexType implements ComplexInterface
     public function setContact($contact = null)
     {
         $this->contact = new SimpleContent($contact);
-        $this->contact->setName('contact');
+        $this->contact->setElementName('contact');
         return $this;
     }
 
@@ -96,6 +100,8 @@ class AccessDeviceEndpointAdd extends ComplexType implements ComplexInterface
      */
     public function getContact()
     {
-        return ($this->contact) ? $this->contact->getValue() : null;
+        return ($this->contact)
+            ? $this->contact->getElementValue()
+            : null;
     }
 }

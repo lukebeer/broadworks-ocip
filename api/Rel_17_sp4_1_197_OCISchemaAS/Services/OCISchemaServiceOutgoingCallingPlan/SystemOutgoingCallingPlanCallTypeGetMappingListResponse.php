@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemOutgoingCallingPlanCallTypeGetMappingListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemOutgoingCallingPlanCallTypeGetMappingListResponse';
+    public    $elementName = 'SystemOutgoingCallingPlanCallTypeGetMappingListResponse';
     protected $callTypeMapping;
 
     /**
@@ -37,7 +37,7 @@ class SystemOutgoingCallingPlanCallTypeGetMappingListResponse extends ComplexTyp
     public function setCallTypeMapping(TableType $callTypeMapping = null)
     {
         $this->callTypeMapping = $callTypeMapping;
-        $this->callTypeMapping->setName('callTypeMapping');
+        $this->callTypeMapping->setElementName('callTypeMapping');
         return $this;
     }
 
@@ -47,6 +47,8 @@ class SystemOutgoingCallingPlanCallTypeGetMappingListResponse extends ComplexTyp
      */
     public function getCallTypeMapping()
     {
-        return ($this->callTypeMapping) ? $this->callTypeMapping->getValue() : null;
+        return ($this->callTypeMapping)
+            ? $this->callTypeMapping->getElementValue()
+            : null;
     }
 }

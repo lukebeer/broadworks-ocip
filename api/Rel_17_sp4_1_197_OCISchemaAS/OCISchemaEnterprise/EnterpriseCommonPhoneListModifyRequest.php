@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class EnterpriseCommonPhoneListModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'EnterpriseCommonPhoneListModifyRequest';
+    public    $elementName = 'EnterpriseCommonPhoneListModifyRequest';
     protected $serviceProviderId;
     protected $entryName;
     protected $newEntryName;
@@ -56,7 +56,7 @@ class EnterpriseCommonPhoneListModifyRequest extends ComplexType implements Comp
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
-        $this->serviceProviderId->setName('serviceProviderId');
+        $this->serviceProviderId->setElementName('serviceProviderId');
         return $this;
     }
 
@@ -66,7 +66,9 @@ class EnterpriseCommonPhoneListModifyRequest extends ComplexType implements Comp
      */
     public function getServiceProviderId()
     {
-        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
+        return ($this->serviceProviderId)
+            ? $this->serviceProviderId->getElementValue()
+            : null;
     }
 
     /**
@@ -77,7 +79,7 @@ class EnterpriseCommonPhoneListModifyRequest extends ComplexType implements Comp
         $this->entryName = ($entryName InstanceOf PhoneListEntryName)
              ? $entryName
              : new PhoneListEntryName($entryName);
-        $this->entryName->setName('entryName');
+        $this->entryName->setElementName('entryName');
         return $this;
     }
 
@@ -87,7 +89,9 @@ class EnterpriseCommonPhoneListModifyRequest extends ComplexType implements Comp
      */
     public function getEntryName()
     {
-        return ($this->entryName) ? $this->entryName->getValue() : null;
+        return ($this->entryName)
+            ? $this->entryName->getElementValue()
+            : null;
     }
 
     /**
@@ -98,7 +102,7 @@ class EnterpriseCommonPhoneListModifyRequest extends ComplexType implements Comp
         $this->newEntryName = ($newEntryName InstanceOf PhoneListEntryName)
              ? $newEntryName
              : new PhoneListEntryName($newEntryName);
-        $this->newEntryName->setName('newEntryName');
+        $this->newEntryName->setElementName('newEntryName');
         return $this;
     }
 
@@ -108,7 +112,9 @@ class EnterpriseCommonPhoneListModifyRequest extends ComplexType implements Comp
      */
     public function getNewEntryName()
     {
-        return ($this->newEntryName) ? $this->newEntryName->getValue() : null;
+        return ($this->newEntryName)
+            ? $this->newEntryName->getElementValue()
+            : null;
     }
 
     /**
@@ -119,7 +125,7 @@ class EnterpriseCommonPhoneListModifyRequest extends ComplexType implements Comp
         $this->phoneNumber = ($phoneNumber InstanceOf OutgoingDN)
              ? $phoneNumber
              : new OutgoingDN($phoneNumber);
-        $this->phoneNumber->setName('phoneNumber');
+        $this->phoneNumber->setElementName('phoneNumber');
         return $this;
     }
 
@@ -129,6 +135,8 @@ class EnterpriseCommonPhoneListModifyRequest extends ComplexType implements Comp
      */
     public function getPhoneNumber()
     {
-        return ($this->phoneNumber) ? $this->phoneNumber->getValue() : null;
+        return ($this->phoneNumber)
+            ? $this->phoneNumber->getElementValue()
+            : null;
     }
 }

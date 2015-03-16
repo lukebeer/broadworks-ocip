@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupDirectoryNumberHuntingModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'GroupDirectoryNumberHuntingModifyRequest';
+    public    $elementName = 'GroupDirectoryNumberHuntingModifyRequest';
     protected $serviceUserId;
     protected $agentUserIdList;
 
@@ -49,7 +49,7 @@ class GroupDirectoryNumberHuntingModifyRequest extends ComplexType implements Co
         $this->serviceUserId = ($serviceUserId InstanceOf UserId)
              ? $serviceUserId
              : new UserId($serviceUserId);
-        $this->serviceUserId->setName('serviceUserId');
+        $this->serviceUserId->setElementName('serviceUserId');
         return $this;
     }
 
@@ -59,7 +59,9 @@ class GroupDirectoryNumberHuntingModifyRequest extends ComplexType implements Co
      */
     public function getServiceUserId()
     {
-        return ($this->serviceUserId) ? $this->serviceUserId->getValue() : null;
+        return ($this->serviceUserId)
+            ? $this->serviceUserId->getElementValue()
+            : null;
     }
 
     /**
@@ -70,7 +72,7 @@ class GroupDirectoryNumberHuntingModifyRequest extends ComplexType implements Co
         $this->agentUserIdList = ($agentUserIdList InstanceOf ReplacementUserIdList)
              ? $agentUserIdList
              : new ReplacementUserIdList($agentUserIdList);
-        $this->agentUserIdList->setName('agentUserIdList');
+        $this->agentUserIdList->setElementName('agentUserIdList');
         return $this;
     }
 

@@ -25,12 +25,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\Enumeration;
  */
 class CallBlockingService extends SimpleType
 {
-    public $name = "CallBlockingService";
-    protected $value;
-
+    public $elementName = "CallBlockingService";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new Enumeration([
             'OCP',
             'EOCP',

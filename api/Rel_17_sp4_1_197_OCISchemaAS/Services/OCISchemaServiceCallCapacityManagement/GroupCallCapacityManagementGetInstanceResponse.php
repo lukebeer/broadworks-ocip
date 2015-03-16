@@ -23,7 +23,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupCallCapacityManagementGetInstanceResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'GroupCallCapacityManagementGetInstanceResponse';
+    public    $elementName = 'GroupCallCapacityManagementGetInstanceResponse';
     protected $name;
     protected $maxActiveCallsAllowed;
     protected $maxIncomingActiveCallsAllowed;
@@ -47,7 +47,7 @@ class GroupCallCapacityManagementGetInstanceResponse extends ComplexType impleme
         $this->name = ($name InstanceOf ServiceInstanceName)
              ? $name
              : new ServiceInstanceName($name);
-        $this->name->setName('name');
+        $this->name->setElementName('name');
         return $this;
     }
 
@@ -57,7 +57,9 @@ class GroupCallCapacityManagementGetInstanceResponse extends ComplexType impleme
      */
     public function getName()
     {
-        return ($this->name) ? $this->name->getValue() : null;
+        return ($this->name)
+            ? $this->name->getElementValue()
+            : null;
     }
 
     /**
@@ -68,7 +70,7 @@ class GroupCallCapacityManagementGetInstanceResponse extends ComplexType impleme
         $this->maxActiveCallsAllowed = ($maxActiveCallsAllowed InstanceOf CallCapacityCallLimit)
              ? $maxActiveCallsAllowed
              : new CallCapacityCallLimit($maxActiveCallsAllowed);
-        $this->maxActiveCallsAllowed->setName('maxActiveCallsAllowed');
+        $this->maxActiveCallsAllowed->setElementName('maxActiveCallsAllowed');
         return $this;
     }
 
@@ -78,7 +80,9 @@ class GroupCallCapacityManagementGetInstanceResponse extends ComplexType impleme
      */
     public function getMaxActiveCallsAllowed()
     {
-        return ($this->maxActiveCallsAllowed) ? $this->maxActiveCallsAllowed->getValue() : null;
+        return ($this->maxActiveCallsAllowed)
+            ? $this->maxActiveCallsAllowed->getElementValue()
+            : null;
     }
 
     /**
@@ -89,7 +93,7 @@ class GroupCallCapacityManagementGetInstanceResponse extends ComplexType impleme
         $this->maxIncomingActiveCallsAllowed = ($maxIncomingActiveCallsAllowed InstanceOf CallCapacityCallLimit)
              ? $maxIncomingActiveCallsAllowed
              : new CallCapacityCallLimit($maxIncomingActiveCallsAllowed);
-        $this->maxIncomingActiveCallsAllowed->setName('maxIncomingActiveCallsAllowed');
+        $this->maxIncomingActiveCallsAllowed->setElementName('maxIncomingActiveCallsAllowed');
         return $this;
     }
 
@@ -99,7 +103,9 @@ class GroupCallCapacityManagementGetInstanceResponse extends ComplexType impleme
      */
     public function getMaxIncomingActiveCallsAllowed()
     {
-        return ($this->maxIncomingActiveCallsAllowed) ? $this->maxIncomingActiveCallsAllowed->getValue() : null;
+        return ($this->maxIncomingActiveCallsAllowed)
+            ? $this->maxIncomingActiveCallsAllowed->getElementValue()
+            : null;
     }
 
     /**
@@ -110,7 +116,7 @@ class GroupCallCapacityManagementGetInstanceResponse extends ComplexType impleme
         $this->maxOutgoingActiveCallsAllowed = ($maxOutgoingActiveCallsAllowed InstanceOf CallCapacityCallLimit)
              ? $maxOutgoingActiveCallsAllowed
              : new CallCapacityCallLimit($maxOutgoingActiveCallsAllowed);
-        $this->maxOutgoingActiveCallsAllowed->setName('maxOutgoingActiveCallsAllowed');
+        $this->maxOutgoingActiveCallsAllowed->setElementName('maxOutgoingActiveCallsAllowed');
         return $this;
     }
 
@@ -120,7 +126,9 @@ class GroupCallCapacityManagementGetInstanceResponse extends ComplexType impleme
      */
     public function getMaxOutgoingActiveCallsAllowed()
     {
-        return ($this->maxOutgoingActiveCallsAllowed) ? $this->maxOutgoingActiveCallsAllowed->getValue() : null;
+        return ($this->maxOutgoingActiveCallsAllowed)
+            ? $this->maxOutgoingActiveCallsAllowed->getElementValue()
+            : null;
     }
 
     /**
@@ -129,7 +137,7 @@ class GroupCallCapacityManagementGetInstanceResponse extends ComplexType impleme
     public function setDefaultGroupForNewUsers($defaultGroupForNewUsers = null)
     {
         $this->defaultGroupForNewUsers = new PrimitiveType($defaultGroupForNewUsers);
-        $this->defaultGroupForNewUsers->setName('defaultGroupForNewUsers');
+        $this->defaultGroupForNewUsers->setElementName('defaultGroupForNewUsers');
         return $this;
     }
 
@@ -139,7 +147,9 @@ class GroupCallCapacityManagementGetInstanceResponse extends ComplexType impleme
      */
     public function getDefaultGroupForNewUsers()
     {
-        return ($this->defaultGroupForNewUsers) ? $this->defaultGroupForNewUsers->getValue() : null;
+        return ($this->defaultGroupForNewUsers)
+            ? $this->defaultGroupForNewUsers->getElementValue()
+            : null;
     }
 
     /**
@@ -148,7 +158,7 @@ class GroupCallCapacityManagementGetInstanceResponse extends ComplexType impleme
     public function setUserTable(TableType $userTable = null)
     {
         $this->userTable = $userTable;
-        $this->userTable->setName('userTable');
+        $this->userTable->setElementName('userTable');
         return $this;
     }
 

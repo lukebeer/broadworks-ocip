@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupScheduleGetEventListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'GroupScheduleGetEventListResponse';
+    public    $elementName = 'GroupScheduleGetEventListResponse';
     protected $eventName;
 
     /**
@@ -39,7 +39,7 @@ class GroupScheduleGetEventListResponse extends ComplexType implements ComplexIn
         $this->eventName = ($eventName InstanceOf EventName)
              ? $eventName
              : new EventName($eventName);
-        $this->eventName->setName('eventName');
+        $this->eventName->setElementName('eventName');
         return $this;
     }
 
@@ -49,6 +49,8 @@ class GroupScheduleGetEventListResponse extends ComplexType implements ComplexIn
      */
     public function getEventName()
     {
-        return ($this->eventName) ? $this->eventName->getValue() : null;
+        return ($this->eventName)
+            ? $this->eventName->getElementValue()
+            : null;
     }
 }

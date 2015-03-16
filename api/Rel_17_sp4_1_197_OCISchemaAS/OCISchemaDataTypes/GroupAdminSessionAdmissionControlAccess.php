@@ -17,12 +17,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\Enumeration;
  */
 class GroupAdminSessionAdmissionControlAccess extends SimpleType
 {
-    public $name = "GroupAdminSessionAdmissionControlAccess";
-    protected $value;
-
+    public $elementName = "GroupAdminSessionAdmissionControlAccess";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new Enumeration([
             'Full',
             'Read-Only',

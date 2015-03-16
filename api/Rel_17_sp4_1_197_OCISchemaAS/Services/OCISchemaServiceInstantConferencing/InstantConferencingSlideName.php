@@ -16,12 +16,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\MinLength;
  */
 class InstantConferencingSlideName extends SimpleType
 {
-    public $name = "InstantConferencingSlideName";
-    protected $value;
-
+    public $elementName = "InstantConferencingSlideName";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new MinLength("1"));
     }
 }

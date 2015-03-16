@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserOutgoingCallingPlanAuthorizationCodeDeleteListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'UserOutgoingCallingPlanAuthorizationCodeDeleteListRequest';
+    public    $elementName = 'UserOutgoingCallingPlanAuthorizationCodeDeleteListRequest';
     protected $userId;
     protected $code;
 
@@ -48,7 +48,7 @@ class UserOutgoingCallingPlanAuthorizationCodeDeleteListRequest extends ComplexT
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
-        $this->userId->setName('userId');
+        $this->userId->setElementName('userId');
         return $this;
     }
 
@@ -58,7 +58,9 @@ class UserOutgoingCallingPlanAuthorizationCodeDeleteListRequest extends ComplexT
      */
     public function getUserId()
     {
-        return ($this->userId) ? $this->userId->getValue() : null;
+        return ($this->userId)
+            ? $this->userId->getElementValue()
+            : null;
     }
 
     /**
@@ -69,7 +71,7 @@ class UserOutgoingCallingPlanAuthorizationCodeDeleteListRequest extends ComplexT
         $this->code = ($code InstanceOf OutgoingCallingPlanAuthorizationCode)
              ? $code
              : new OutgoingCallingPlanAuthorizationCode($code);
-        $this->code->setName('code');
+        $this->code->setElementName('code');
         return $this;
     }
 
@@ -79,6 +81,8 @@ class UserOutgoingCallingPlanAuthorizationCodeDeleteListRequest extends ComplexT
      */
     public function getCode()
     {
-        return ($this->code) ? $this->code->getValue() : null;
+        return ($this->code)
+            ? $this->code->getElementValue()
+            : null;
     }
 }

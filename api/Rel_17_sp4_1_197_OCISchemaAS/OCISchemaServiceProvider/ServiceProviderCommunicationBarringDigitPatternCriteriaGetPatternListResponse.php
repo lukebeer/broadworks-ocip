@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderCommunicationBarringDigitPatternCriteriaGetPatternListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'ServiceProviderCommunicationBarringDigitPatternCriteriaGetPatternListResponse';
+    public    $elementName = 'ServiceProviderCommunicationBarringDigitPatternCriteriaGetPatternListResponse';
     protected $matchDigitPattern;
 
     /**
@@ -39,7 +39,7 @@ class ServiceProviderCommunicationBarringDigitPatternCriteriaGetPatternListRespo
         $this->matchDigitPattern = ($matchDigitPattern InstanceOf DigitPattern)
              ? $matchDigitPattern
              : new DigitPattern($matchDigitPattern);
-        $this->matchDigitPattern->setName('matchDigitPattern');
+        $this->matchDigitPattern->setElementName('matchDigitPattern');
         return $this;
     }
 
@@ -49,6 +49,8 @@ class ServiceProviderCommunicationBarringDigitPatternCriteriaGetPatternListRespo
      */
     public function getMatchDigitPattern()
     {
-        return ($this->matchDigitPattern) ? $this->matchDigitPattern->getValue() : null;
+        return ($this->matchDigitPattern)
+            ? $this->matchDigitPattern->getElementValue()
+            : null;
     }
 }

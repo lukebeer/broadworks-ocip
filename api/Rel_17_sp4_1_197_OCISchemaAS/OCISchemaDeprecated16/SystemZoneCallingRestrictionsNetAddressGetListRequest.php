@@ -24,7 +24,7 @@ use Broadworks_OCIP\core\Client\Client;
 class SystemZoneCallingRestrictionsNetAddressGetListRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType                = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\SystemZoneCallingRestrictionsNetAddressGetListResponse';
-    public    $name = 'SystemZoneCallingRestrictionsNetAddressGetListRequest';
+    public    $elementName = 'SystemZoneCallingRestrictionsNetAddressGetListRequest';
     protected $zoneName;
     protected $responseSizeLimit;
     protected $searchCriteriaZoneIPAddress;
@@ -55,7 +55,7 @@ class SystemZoneCallingRestrictionsNetAddressGetListRequest extends ComplexType 
         $this->zoneName = ($zoneName InstanceOf ZoneName)
              ? $zoneName
              : new ZoneName($zoneName);
-        $this->zoneName->setName('zoneName');
+        $this->zoneName->setElementName('zoneName');
         return $this;
     }
 
@@ -65,7 +65,9 @@ class SystemZoneCallingRestrictionsNetAddressGetListRequest extends ComplexType 
      */
     public function getZoneName()
     {
-        return ($this->zoneName) ? $this->zoneName->getValue() : null;
+        return ($this->zoneName)
+            ? $this->zoneName->getElementValue()
+            : null;
     }
 
     /**
@@ -76,7 +78,7 @@ class SystemZoneCallingRestrictionsNetAddressGetListRequest extends ComplexType 
         $this->responseSizeLimit = ($responseSizeLimit InstanceOf ResponseSizeLimit)
              ? $responseSizeLimit
              : new ResponseSizeLimit($responseSizeLimit);
-        $this->responseSizeLimit->setName('responseSizeLimit');
+        $this->responseSizeLimit->setElementName('responseSizeLimit');
         return $this;
     }
 
@@ -86,7 +88,9 @@ class SystemZoneCallingRestrictionsNetAddressGetListRequest extends ComplexType 
      */
     public function getResponseSizeLimit()
     {
-        return ($this->responseSizeLimit) ? $this->responseSizeLimit->getValue() : null;
+        return ($this->responseSizeLimit)
+            ? $this->responseSizeLimit->getElementValue()
+            : null;
     }
 
     /**
@@ -97,7 +101,7 @@ class SystemZoneCallingRestrictionsNetAddressGetListRequest extends ComplexType 
         $this->searchCriteriaZoneIPAddress = ($searchCriteriaZoneIPAddress InstanceOf SearchCriteriaZoneIPAddress)
              ? $searchCriteriaZoneIPAddress
              : new SearchCriteriaZoneIPAddress($searchCriteriaZoneIPAddress);
-        $this->searchCriteriaZoneIPAddress->setName('searchCriteriaZoneIPAddress');
+        $this->searchCriteriaZoneIPAddress->setElementName('searchCriteriaZoneIPAddress');
         return $this;
     }
 

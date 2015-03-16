@@ -19,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserDirectedCallPickupWithBargeInGetResponse14sp7 extends ComplexType implements ComplexInterface
 {
-    public    $name = 'UserDirectedCallPickupWithBargeInGetResponse14sp7';
+    public    $elementName = 'UserDirectedCallPickupWithBargeInGetResponse14sp7';
     protected $enableBargeInWarningTone;
     protected $enableAutomaticTargetSelection;
 
@@ -37,7 +37,7 @@ class UserDirectedCallPickupWithBargeInGetResponse14sp7 extends ComplexType impl
     public function setEnableBargeInWarningTone($enableBargeInWarningTone = null)
     {
         $this->enableBargeInWarningTone = new PrimitiveType($enableBargeInWarningTone);
-        $this->enableBargeInWarningTone->setName('enableBargeInWarningTone');
+        $this->enableBargeInWarningTone->setElementName('enableBargeInWarningTone');
         return $this;
     }
 
@@ -47,7 +47,9 @@ class UserDirectedCallPickupWithBargeInGetResponse14sp7 extends ComplexType impl
      */
     public function getEnableBargeInWarningTone()
     {
-        return ($this->enableBargeInWarningTone) ? $this->enableBargeInWarningTone->getValue() : null;
+        return ($this->enableBargeInWarningTone)
+            ? $this->enableBargeInWarningTone->getElementValue()
+            : null;
     }
 
     /**
@@ -56,7 +58,7 @@ class UserDirectedCallPickupWithBargeInGetResponse14sp7 extends ComplexType impl
     public function setEnableAutomaticTargetSelection($enableAutomaticTargetSelection = null)
     {
         $this->enableAutomaticTargetSelection = new PrimitiveType($enableAutomaticTargetSelection);
-        $this->enableAutomaticTargetSelection->setName('enableAutomaticTargetSelection');
+        $this->enableAutomaticTargetSelection->setElementName('enableAutomaticTargetSelection');
         return $this;
     }
 
@@ -66,6 +68,8 @@ class UserDirectedCallPickupWithBargeInGetResponse14sp7 extends ComplexType impl
      */
     public function getEnableAutomaticTargetSelection()
     {
-        return ($this->enableAutomaticTargetSelection) ? $this->enableAutomaticTargetSelection->getValue() : null;
+        return ($this->enableAutomaticTargetSelection)
+            ? $this->enableAutomaticTargetSelection->getElementValue()
+            : null;
     }
 }

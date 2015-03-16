@@ -23,7 +23,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemOCICallControlApplicationAddRequest14sp9 extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemOCICallControlApplicationAddRequest14sp9';
+    public    $elementName = 'SystemOCICallControlApplicationAddRequest14sp9';
     protected $applicationId;
     protected $enableSystemWide;
     protected $notificationTimeoutSeconds;
@@ -57,7 +57,7 @@ class SystemOCICallControlApplicationAddRequest14sp9 extends ComplexType impleme
         $this->applicationId = ($applicationId InstanceOf OCICallControlApplicationId)
              ? $applicationId
              : new OCICallControlApplicationId($applicationId);
-        $this->applicationId->setName('applicationId');
+        $this->applicationId->setElementName('applicationId');
         return $this;
     }
 
@@ -67,7 +67,9 @@ class SystemOCICallControlApplicationAddRequest14sp9 extends ComplexType impleme
      */
     public function getApplicationId()
     {
-        return ($this->applicationId) ? $this->applicationId->getValue() : null;
+        return ($this->applicationId)
+            ? $this->applicationId->getElementValue()
+            : null;
     }
 
     /**
@@ -76,7 +78,7 @@ class SystemOCICallControlApplicationAddRequest14sp9 extends ComplexType impleme
     public function setEnableSystemWide($enableSystemWide = null)
     {
         $this->enableSystemWide = new PrimitiveType($enableSystemWide);
-        $this->enableSystemWide->setName('enableSystemWide');
+        $this->enableSystemWide->setElementName('enableSystemWide');
         return $this;
     }
 
@@ -86,7 +88,9 @@ class SystemOCICallControlApplicationAddRequest14sp9 extends ComplexType impleme
      */
     public function getEnableSystemWide()
     {
-        return ($this->enableSystemWide) ? $this->enableSystemWide->getValue() : null;
+        return ($this->enableSystemWide)
+            ? $this->enableSystemWide->getElementValue()
+            : null;
     }
 
     /**
@@ -97,7 +101,7 @@ class SystemOCICallControlApplicationAddRequest14sp9 extends ComplexType impleme
         $this->notificationTimeoutSeconds = ($notificationTimeoutSeconds InstanceOf OCICallApplicationNotificationTimeOutSeconds)
              ? $notificationTimeoutSeconds
              : new OCICallApplicationNotificationTimeOutSeconds($notificationTimeoutSeconds);
-        $this->notificationTimeoutSeconds->setName('notificationTimeoutSeconds');
+        $this->notificationTimeoutSeconds->setElementName('notificationTimeoutSeconds');
         return $this;
     }
 
@@ -107,7 +111,9 @@ class SystemOCICallControlApplicationAddRequest14sp9 extends ComplexType impleme
      */
     public function getNotificationTimeoutSeconds()
     {
-        return ($this->notificationTimeoutSeconds) ? $this->notificationTimeoutSeconds->getValue() : null;
+        return ($this->notificationTimeoutSeconds)
+            ? $this->notificationTimeoutSeconds->getElementValue()
+            : null;
     }
 
     /**
@@ -118,7 +124,7 @@ class SystemOCICallControlApplicationAddRequest14sp9 extends ComplexType impleme
         $this->description = ($description InstanceOf OCICallControlApplicationDescription)
              ? $description
              : new OCICallControlApplicationDescription($description);
-        $this->description->setName('description');
+        $this->description->setElementName('description');
         return $this;
     }
 
@@ -128,6 +134,8 @@ class SystemOCICallControlApplicationAddRequest14sp9 extends ComplexType impleme
      */
     public function getDescription()
     {
-        return ($this->description) ? $this->description->getValue() : null;
+        return ($this->description)
+            ? $this->description->getElementValue()
+            : null;
     }
 }

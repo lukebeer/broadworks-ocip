@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemDialPlanPolicyModifyAccessCodeRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemDialPlanPolicyModifyAccessCodeRequest';
+    public    $elementName = 'SystemDialPlanPolicyModifyAccessCodeRequest';
     protected $accessCode;
     protected $includeCodeForNetworkTranslationsAndRouting;
     protected $includeCodeForScreeningServices;
@@ -58,7 +58,7 @@ class SystemDialPlanPolicyModifyAccessCodeRequest extends ComplexType implements
         $this->accessCode = ($accessCode InstanceOf DialPlanAccessCode)
              ? $accessCode
              : new DialPlanAccessCode($accessCode);
-        $this->accessCode->setName('accessCode');
+        $this->accessCode->setElementName('accessCode');
         return $this;
     }
 
@@ -68,7 +68,9 @@ class SystemDialPlanPolicyModifyAccessCodeRequest extends ComplexType implements
      */
     public function getAccessCode()
     {
-        return ($this->accessCode) ? $this->accessCode->getValue() : null;
+        return ($this->accessCode)
+            ? $this->accessCode->getElementValue()
+            : null;
     }
 
     /**
@@ -77,7 +79,7 @@ class SystemDialPlanPolicyModifyAccessCodeRequest extends ComplexType implements
     public function setIncludeCodeForNetworkTranslationsAndRouting($includeCodeForNetworkTranslationsAndRouting = null)
     {
         $this->includeCodeForNetworkTranslationsAndRouting = new PrimitiveType($includeCodeForNetworkTranslationsAndRouting);
-        $this->includeCodeForNetworkTranslationsAndRouting->setName('includeCodeForNetworkTranslationsAndRouting');
+        $this->includeCodeForNetworkTranslationsAndRouting->setElementName('includeCodeForNetworkTranslationsAndRouting');
         return $this;
     }
 
@@ -87,7 +89,9 @@ class SystemDialPlanPolicyModifyAccessCodeRequest extends ComplexType implements
      */
     public function getIncludeCodeForNetworkTranslationsAndRouting()
     {
-        return ($this->includeCodeForNetworkTranslationsAndRouting) ? $this->includeCodeForNetworkTranslationsAndRouting->getValue() : null;
+        return ($this->includeCodeForNetworkTranslationsAndRouting)
+            ? $this->includeCodeForNetworkTranslationsAndRouting->getElementValue()
+            : null;
     }
 
     /**
@@ -96,7 +100,7 @@ class SystemDialPlanPolicyModifyAccessCodeRequest extends ComplexType implements
     public function setIncludeCodeForScreeningServices($includeCodeForScreeningServices = null)
     {
         $this->includeCodeForScreeningServices = new PrimitiveType($includeCodeForScreeningServices);
-        $this->includeCodeForScreeningServices->setName('includeCodeForScreeningServices');
+        $this->includeCodeForScreeningServices->setElementName('includeCodeForScreeningServices');
         return $this;
     }
 
@@ -106,7 +110,9 @@ class SystemDialPlanPolicyModifyAccessCodeRequest extends ComplexType implements
      */
     public function getIncludeCodeForScreeningServices()
     {
-        return ($this->includeCodeForScreeningServices) ? $this->includeCodeForScreeningServices->getValue() : null;
+        return ($this->includeCodeForScreeningServices)
+            ? $this->includeCodeForScreeningServices->getElementValue()
+            : null;
     }
 
     /**
@@ -115,7 +121,7 @@ class SystemDialPlanPolicyModifyAccessCodeRequest extends ComplexType implements
     public function setEnableSecondaryDialTone($enableSecondaryDialTone = null)
     {
         $this->enableSecondaryDialTone = new PrimitiveType($enableSecondaryDialTone);
-        $this->enableSecondaryDialTone->setName('enableSecondaryDialTone');
+        $this->enableSecondaryDialTone->setElementName('enableSecondaryDialTone');
         return $this;
     }
 
@@ -125,7 +131,9 @@ class SystemDialPlanPolicyModifyAccessCodeRequest extends ComplexType implements
      */
     public function getEnableSecondaryDialTone()
     {
-        return ($this->enableSecondaryDialTone) ? $this->enableSecondaryDialTone->getValue() : null;
+        return ($this->enableSecondaryDialTone)
+            ? $this->enableSecondaryDialTone->getElementValue()
+            : null;
     }
 
     /**
@@ -136,7 +144,7 @@ class SystemDialPlanPolicyModifyAccessCodeRequest extends ComplexType implements
         $this->description = ($description InstanceOf DialPlanAccessCodeDescription)
              ? $description
              : new DialPlanAccessCodeDescription($description);
-        $this->description->setName('description');
+        $this->description->setElementName('description');
         return $this;
     }
 
@@ -146,6 +154,8 @@ class SystemDialPlanPolicyModifyAccessCodeRequest extends ComplexType implements
      */
     public function getDescription()
     {
-        return ($this->description) ? $this->description->getValue() : null;
+        return ($this->description)
+            ? $this->description->getElementValue()
+            : null;
     }
 }

@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
 class ServiceProviderAdminGetPolicyRequest17 extends ComplexType implements ComplexInterface
 {
     public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated17\ServiceProviderAdminGetPolicyResponse17';
-    public    $name = 'ServiceProviderAdminGetPolicyRequest17';
+    public    $elementName = 'ServiceProviderAdminGetPolicyRequest17';
     protected $userId;
 
     public function __construct(
@@ -46,7 +46,7 @@ class ServiceProviderAdminGetPolicyRequest17 extends ComplexType implements Comp
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
-        $this->userId->setName('userId');
+        $this->userId->setElementName('userId');
         return $this;
     }
 
@@ -56,6 +56,8 @@ class ServiceProviderAdminGetPolicyRequest17 extends ComplexType implements Comp
      */
     public function getUserId()
     {
-        return ($this->userId) ? $this->userId->getValue() : null;
+        return ($this->userId)
+            ? $this->userId->getElementValue()
+            : null;
     }
 }

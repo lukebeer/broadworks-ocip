@@ -17,12 +17,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\MaxInclusive;
  */
 class CommunicationBarringUserControlNumberOfAttempts extends SimpleType
 {
-    public $name = "CommunicationBarringUserControlNumberOfAttempts";
-    protected $value;
-
+    public $elementName = "CommunicationBarringUserControlNumberOfAttempts";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new MinInclusive("1"));
         $this->addRestriction(new MaxInclusive("10"));
     }

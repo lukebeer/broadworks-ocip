@@ -24,7 +24,7 @@ use Broadworks_OCIP\core\Client\Client;
 class SystemSIPDeviceTypeGetListRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType                            = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemSIPDeviceTypeGetListResponse';
-    public    $name = 'SystemSIPDeviceTypeGetListRequest';
+    public    $elementName = 'SystemSIPDeviceTypeGetListRequest';
     protected $responseSizeLimit;
     protected $searchCriteriaDeviceType;
     protected $searchCriteriaExactSignalingAddressType;
@@ -55,7 +55,7 @@ class SystemSIPDeviceTypeGetListRequest extends ComplexType implements ComplexIn
         $this->responseSizeLimit = ($responseSizeLimit InstanceOf ResponseSizeLimit)
              ? $responseSizeLimit
              : new ResponseSizeLimit($responseSizeLimit);
-        $this->responseSizeLimit->setName('responseSizeLimit');
+        $this->responseSizeLimit->setElementName('responseSizeLimit');
         return $this;
     }
 
@@ -65,7 +65,9 @@ class SystemSIPDeviceTypeGetListRequest extends ComplexType implements ComplexIn
      */
     public function getResponseSizeLimit()
     {
-        return ($this->responseSizeLimit) ? $this->responseSizeLimit->getValue() : null;
+        return ($this->responseSizeLimit)
+            ? $this->responseSizeLimit->getElementValue()
+            : null;
     }
 
     /**
@@ -76,7 +78,7 @@ class SystemSIPDeviceTypeGetListRequest extends ComplexType implements ComplexIn
         $this->searchCriteriaDeviceType = ($searchCriteriaDeviceType InstanceOf SearchCriteriaDeviceType)
              ? $searchCriteriaDeviceType
              : new SearchCriteriaDeviceType($searchCriteriaDeviceType);
-        $this->searchCriteriaDeviceType->setName('searchCriteriaDeviceType');
+        $this->searchCriteriaDeviceType->setElementName('searchCriteriaDeviceType');
         return $this;
     }
 
@@ -97,7 +99,7 @@ class SystemSIPDeviceTypeGetListRequest extends ComplexType implements ComplexIn
         $this->searchCriteriaExactSignalingAddressType = ($searchCriteriaExactSignalingAddressType InstanceOf SearchCriteriaExactSignalingAddressType)
              ? $searchCriteriaExactSignalingAddressType
              : new SearchCriteriaExactSignalingAddressType($searchCriteriaExactSignalingAddressType);
-        $this->searchCriteriaExactSignalingAddressType->setName('searchCriteriaExactSignalingAddressType');
+        $this->searchCriteriaExactSignalingAddressType->setElementName('searchCriteriaExactSignalingAddressType');
         return $this;
     }
 

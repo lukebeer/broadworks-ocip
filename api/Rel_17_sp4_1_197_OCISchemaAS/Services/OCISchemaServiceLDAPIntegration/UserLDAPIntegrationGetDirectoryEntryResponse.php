@@ -19,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserLDAPIntegrationGetDirectoryEntryResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'UserLDAPIntegrationGetDirectoryEntryResponse';
+    public    $elementName = 'UserLDAPIntegrationGetDirectoryEntryResponse';
     protected $data;
 
     /**
@@ -38,7 +38,7 @@ class UserLDAPIntegrationGetDirectoryEntryResponse extends ComplexType implement
         $this->data = ($data InstanceOf LDAPEntryField)
              ? $data
              : new LDAPEntryField($data);
-        $this->data->setName('data');
+        $this->data->setElementName('data');
         return $this;
     }
 

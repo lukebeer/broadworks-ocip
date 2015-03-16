@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupSeriesCompletionGetInstanceResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'GroupSeriesCompletionGetInstanceResponse';
+    public    $elementName = 'GroupSeriesCompletionGetInstanceResponse';
     protected $userTable;
 
     /**
@@ -37,7 +37,7 @@ class GroupSeriesCompletionGetInstanceResponse extends ComplexType implements Co
     public function setUserTable(TableType $userTable = null)
     {
         $this->userTable = $userTable;
-        $this->userTable->setName('userTable');
+        $this->userTable->setElementName('userTable');
         return $this;
     }
 

@@ -28,7 +28,7 @@ use Broadworks_OCIP\core\Client\Client;
 class UserPhoneDirectoryGetSearchedListRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType     = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser\UserPhoneDirectoryGetSearchedListResponse';
-    public    $name = 'UserPhoneDirectoryGetSearchedListRequest';
+    public    $elementName = 'UserPhoneDirectoryGetSearchedListRequest';
     protected $userId;
     protected $nameSearchString;
 
@@ -56,7 +56,7 @@ class UserPhoneDirectoryGetSearchedListRequest extends ComplexType implements Co
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
-        $this->userId->setName('userId');
+        $this->userId->setElementName('userId');
         return $this;
     }
 
@@ -66,7 +66,9 @@ class UserPhoneDirectoryGetSearchedListRequest extends ComplexType implements Co
      */
     public function getUserId()
     {
-        return ($this->userId) ? $this->userId->getValue() : null;
+        return ($this->userId)
+            ? $this->userId->getElementValue()
+            : null;
     }
 
     /**
@@ -77,7 +79,7 @@ class UserPhoneDirectoryGetSearchedListRequest extends ComplexType implements Co
         $this->nameSearchString = ($nameSearchString InstanceOf PhoneDirectoryNameSearchString)
              ? $nameSearchString
              : new PhoneDirectoryNameSearchString($nameSearchString);
-        $this->nameSearchString->setName('nameSearchString');
+        $this->nameSearchString->setElementName('nameSearchString');
         return $this;
     }
 
@@ -87,6 +89,8 @@ class UserPhoneDirectoryGetSearchedListRequest extends ComplexType implements Co
      */
     public function getNameSearchString()
     {
-        return ($this->nameSearchString) ? $this->nameSearchString->getValue() : null;
+        return ($this->nameSearchString)
+            ? $this->nameSearchString->getElementValue()
+            : null;
     }
 }

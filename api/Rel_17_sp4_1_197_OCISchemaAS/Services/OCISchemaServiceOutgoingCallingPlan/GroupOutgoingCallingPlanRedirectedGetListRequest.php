@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
 class GroupOutgoingCallingPlanRedirectedGetListRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceOutgoingCallingPlan\GroupOutgoingCallingPlanRedirectedGetListResponse';
-    public    $name = 'GroupOutgoingCallingPlanRedirectedGetListRequest';
+    public    $elementName = 'GroupOutgoingCallingPlanRedirectedGetListRequest';
     protected $serviceProviderId;
     protected $groupId;
 
@@ -50,7 +50,7 @@ class GroupOutgoingCallingPlanRedirectedGetListRequest extends ComplexType imple
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
-        $this->serviceProviderId->setName('serviceProviderId');
+        $this->serviceProviderId->setElementName('serviceProviderId');
         return $this;
     }
 
@@ -60,7 +60,9 @@ class GroupOutgoingCallingPlanRedirectedGetListRequest extends ComplexType imple
      */
     public function getServiceProviderId()
     {
-        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
+        return ($this->serviceProviderId)
+            ? $this->serviceProviderId->getElementValue()
+            : null;
     }
 
     /**
@@ -71,7 +73,7 @@ class GroupOutgoingCallingPlanRedirectedGetListRequest extends ComplexType imple
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
-        $this->groupId->setName('groupId');
+        $this->groupId->setElementName('groupId');
         return $this;
     }
 
@@ -81,6 +83,8 @@ class GroupOutgoingCallingPlanRedirectedGetListRequest extends ComplexType imple
      */
     public function getGroupId()
     {
-        return ($this->groupId) ? $this->groupId->getValue() : null;
+        return ($this->groupId)
+            ? $this->groupId->getElementValue()
+            : null;
     }
 }

@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
 class UserBroadWorksAnywhereGetRequest16sp2 extends ComplexType implements ComplexInterface
 {
     public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceBroadWorksAnywhere\UserBroadWorksAnywhereGetResponse16sp2';
-    public    $name = 'UserBroadWorksAnywhereGetRequest16sp2';
+    public    $elementName = 'UserBroadWorksAnywhereGetRequest16sp2';
     protected $userId;
 
     public function __construct(
@@ -46,7 +46,7 @@ class UserBroadWorksAnywhereGetRequest16sp2 extends ComplexType implements Compl
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
-        $this->userId->setName('userId');
+        $this->userId->setElementName('userId');
         return $this;
     }
 
@@ -56,6 +56,8 @@ class UserBroadWorksAnywhereGetRequest16sp2 extends ComplexType implements Compl
      */
     public function getUserId()
     {
-        return ($this->userId) ? $this->userId->getValue() : null;
+        return ($this->userId)
+            ? $this->userId->getElementValue()
+            : null;
     }
 }

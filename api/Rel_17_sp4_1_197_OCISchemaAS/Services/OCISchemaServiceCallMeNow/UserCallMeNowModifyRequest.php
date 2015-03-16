@@ -23,7 +23,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserCallMeNowModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'UserCallMeNowModifyRequest';
+    public    $elementName = 'UserCallMeNowModifyRequest';
     protected $userId;
     protected $isActive;
     protected $answerConfirmation;
@@ -57,7 +57,7 @@ class UserCallMeNowModifyRequest extends ComplexType implements ComplexInterface
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
-        $this->userId->setName('userId');
+        $this->userId->setElementName('userId');
         return $this;
     }
 
@@ -67,7 +67,9 @@ class UserCallMeNowModifyRequest extends ComplexType implements ComplexInterface
      */
     public function getUserId()
     {
-        return ($this->userId) ? $this->userId->getValue() : null;
+        return ($this->userId)
+            ? $this->userId->getElementValue()
+            : null;
     }
 
     /**
@@ -76,7 +78,7 @@ class UserCallMeNowModifyRequest extends ComplexType implements ComplexInterface
     public function setIsActive($isActive = null)
     {
         $this->isActive = new PrimitiveType($isActive);
-        $this->isActive->setName('isActive');
+        $this->isActive->setElementName('isActive');
         return $this;
     }
 
@@ -86,7 +88,9 @@ class UserCallMeNowModifyRequest extends ComplexType implements ComplexInterface
      */
     public function getIsActive()
     {
-        return ($this->isActive) ? $this->isActive->getValue() : null;
+        return ($this->isActive)
+            ? $this->isActive->getElementValue()
+            : null;
     }
 
     /**
@@ -97,7 +101,7 @@ class UserCallMeNowModifyRequest extends ComplexType implements ComplexInterface
         $this->answerConfirmation = ($answerConfirmation InstanceOf CallMeNowAnswerConfirmation)
              ? $answerConfirmation
              : new CallMeNowAnswerConfirmation($answerConfirmation);
-        $this->answerConfirmation->setName('answerConfirmation');
+        $this->answerConfirmation->setElementName('answerConfirmation');
         return $this;
     }
 
@@ -107,7 +111,9 @@ class UserCallMeNowModifyRequest extends ComplexType implements ComplexInterface
      */
     public function getAnswerConfirmation()
     {
-        return ($this->answerConfirmation) ? $this->answerConfirmation->getValue() : null;
+        return ($this->answerConfirmation)
+            ? $this->answerConfirmation->getElementValue()
+            : null;
     }
 
     /**
@@ -118,7 +124,7 @@ class UserCallMeNowModifyRequest extends ComplexType implements ComplexInterface
         $this->criteriaActivation = ($criteriaActivation InstanceOf CriteriaActivation)
              ? $criteriaActivation
              : new CriteriaActivation($criteriaActivation);
-        $this->criteriaActivation->setName('criteriaActivation');
+        $this->criteriaActivation->setElementName('criteriaActivation');
         return $this;
     }
 

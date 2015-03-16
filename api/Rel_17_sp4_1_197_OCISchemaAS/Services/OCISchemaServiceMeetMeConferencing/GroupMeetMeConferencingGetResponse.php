@@ -19,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupMeetMeConferencingGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'GroupMeetMeConferencingGetResponse';
+    public    $elementName = 'GroupMeetMeConferencingGetResponse';
     protected $availablePorts;
     protected $allocatedPorts;
 
@@ -39,7 +39,7 @@ class GroupMeetMeConferencingGetResponse extends ComplexType implements ComplexI
         $this->availablePorts = ($availablePorts InstanceOf MeetMeConferencingConferencePorts)
              ? $availablePorts
              : new MeetMeConferencingConferencePorts($availablePorts);
-        $this->availablePorts->setName('availablePorts');
+        $this->availablePorts->setElementName('availablePorts');
         return $this;
     }
 
@@ -60,7 +60,7 @@ class GroupMeetMeConferencingGetResponse extends ComplexType implements ComplexI
         $this->allocatedPorts = ($allocatedPorts InstanceOf MeetMeConferencingConferencePorts)
              ? $allocatedPorts
              : new MeetMeConferencingConferencePorts($allocatedPorts);
-        $this->allocatedPorts->setName('allocatedPorts');
+        $this->allocatedPorts->setElementName('allocatedPorts');
         return $this;
     }
 

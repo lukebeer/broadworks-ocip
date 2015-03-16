@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
 class SystemCAPGetACLListRequest14 extends ComplexType implements ComplexInterface
 {
     public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemCAPGetACLListResponse14';
-    public    $name = 'SystemCAPGetACLListRequest14';
+    public    $elementName = 'SystemCAPGetACLListRequest14';
 
     public function __construct(    ) {
     }

@@ -25,7 +25,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemInstantConferencingModifyDeviceRequest14 extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemInstantConferencingModifyDeviceRequest14';
+    public    $elementName = 'SystemInstantConferencingModifyDeviceRequest14';
     protected $deviceName;
     protected $clusterNetAddress;
     protected $signalingPort;
@@ -65,7 +65,7 @@ class SystemInstantConferencingModifyDeviceRequest14 extends ComplexType impleme
         $this->deviceName = ($deviceName InstanceOf AccessDeviceName)
              ? $deviceName
              : new AccessDeviceName($deviceName);
-        $this->deviceName->setName('deviceName');
+        $this->deviceName->setElementName('deviceName');
         return $this;
     }
 
@@ -75,7 +75,9 @@ class SystemInstantConferencingModifyDeviceRequest14 extends ComplexType impleme
      */
     public function getDeviceName()
     {
-        return ($this->deviceName) ? $this->deviceName->getValue() : null;
+        return ($this->deviceName)
+            ? $this->deviceName->getElementValue()
+            : null;
     }
 
     /**
@@ -86,7 +88,7 @@ class SystemInstantConferencingModifyDeviceRequest14 extends ComplexType impleme
         $this->clusterNetAddress = ($clusterNetAddress InstanceOf NetAddress)
              ? $clusterNetAddress
              : new NetAddress($clusterNetAddress);
-        $this->clusterNetAddress->setName('clusterNetAddress');
+        $this->clusterNetAddress->setElementName('clusterNetAddress');
         return $this;
     }
 
@@ -96,7 +98,9 @@ class SystemInstantConferencingModifyDeviceRequest14 extends ComplexType impleme
      */
     public function getClusterNetAddress()
     {
-        return ($this->clusterNetAddress) ? $this->clusterNetAddress->getValue() : null;
+        return ($this->clusterNetAddress)
+            ? $this->clusterNetAddress->getElementValue()
+            : null;
     }
 
     /**
@@ -107,7 +111,7 @@ class SystemInstantConferencingModifyDeviceRequest14 extends ComplexType impleme
         $this->signalingPort = ($signalingPort InstanceOf Port1025)
              ? $signalingPort
              : new Port1025($signalingPort);
-        $this->signalingPort->setName('signalingPort');
+        $this->signalingPort->setElementName('signalingPort');
         return $this;
     }
 
@@ -117,7 +121,9 @@ class SystemInstantConferencingModifyDeviceRequest14 extends ComplexType impleme
      */
     public function getSignalingPort()
     {
-        return ($this->signalingPort) ? $this->signalingPort->getValue() : null;
+        return ($this->signalingPort)
+            ? $this->signalingPort->getElementValue()
+            : null;
     }
 
     /**
@@ -128,7 +134,7 @@ class SystemInstantConferencingModifyDeviceRequest14 extends ComplexType impleme
         $this->description = ($description InstanceOf InstantConferencingDeviceDescription)
              ? $description
              : new InstantConferencingDeviceDescription($description);
-        $this->description->setName('description');
+        $this->description->setElementName('description');
         return $this;
     }
 
@@ -138,7 +144,9 @@ class SystemInstantConferencingModifyDeviceRequest14 extends ComplexType impleme
      */
     public function getDescription()
     {
-        return ($this->description) ? $this->description->getValue() : null;
+        return ($this->description)
+            ? $this->description->getElementValue()
+            : null;
     }
 
     /**
@@ -149,7 +157,7 @@ class SystemInstantConferencingModifyDeviceRequest14 extends ComplexType impleme
         $this->integrated = ($integrated InstanceOf InstantConferencingIntegratedDeviceModify)
              ? $integrated
              : new InstantConferencingIntegratedDeviceModify($integrated);
-        $this->integrated->setName('integrated');
+        $this->integrated->setElementName('integrated');
         return $this;
     }
 
@@ -170,7 +178,7 @@ class SystemInstantConferencingModifyDeviceRequest14 extends ComplexType impleme
         $this->transportProtocol = ($transportProtocol InstanceOf TransportProtocol)
              ? $transportProtocol
              : new TransportProtocol($transportProtocol);
-        $this->transportProtocol->setName('transportProtocol');
+        $this->transportProtocol->setElementName('transportProtocol');
         return $this;
     }
 
@@ -180,6 +188,8 @@ class SystemInstantConferencingModifyDeviceRequest14 extends ComplexType impleme
      */
     public function getTransportProtocol()
     {
-        return ($this->transportProtocol) ? $this->transportProtocol->getValue() : null;
+        return ($this->transportProtocol)
+            ? $this->transportProtocol->getElementValue()
+            : null;
     }
 }

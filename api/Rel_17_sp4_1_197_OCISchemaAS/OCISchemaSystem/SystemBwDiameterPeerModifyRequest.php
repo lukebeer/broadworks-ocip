@@ -24,7 +24,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemBwDiameterPeerModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemBwDiameterPeerModifyRequest';
+    public    $elementName = 'SystemBwDiameterPeerModifyRequest';
     protected $instance;
     protected $identity;
     protected $ipAddress;
@@ -61,7 +61,7 @@ class SystemBwDiameterPeerModifyRequest extends ComplexType implements ComplexIn
         $this->instance = ($instance InstanceOf BwDiameterPeerInstance)
              ? $instance
              : new BwDiameterPeerInstance($instance);
-        $this->instance->setName('instance');
+        $this->instance->setElementName('instance');
         return $this;
     }
 
@@ -71,7 +71,9 @@ class SystemBwDiameterPeerModifyRequest extends ComplexType implements ComplexIn
      */
     public function getInstance()
     {
-        return ($this->instance) ? $this->instance->getValue() : null;
+        return ($this->instance)
+            ? $this->instance->getElementValue()
+            : null;
     }
 
     /**
@@ -82,7 +84,7 @@ class SystemBwDiameterPeerModifyRequest extends ComplexType implements ComplexIn
         $this->identity = ($identity InstanceOf DomainName)
              ? $identity
              : new DomainName($identity);
-        $this->identity->setName('identity');
+        $this->identity->setElementName('identity');
         return $this;
     }
 
@@ -92,7 +94,9 @@ class SystemBwDiameterPeerModifyRequest extends ComplexType implements ComplexIn
      */
     public function getIdentity()
     {
-        return ($this->identity) ? $this->identity->getValue() : null;
+        return ($this->identity)
+            ? $this->identity->getElementValue()
+            : null;
     }
 
     /**
@@ -103,7 +107,7 @@ class SystemBwDiameterPeerModifyRequest extends ComplexType implements ComplexIn
         $this->ipAddress = ($ipAddress InstanceOf IPAddress)
              ? $ipAddress
              : new IPAddress($ipAddress);
-        $this->ipAddress->setName('ipAddress');
+        $this->ipAddress->setElementName('ipAddress');
         return $this;
     }
 
@@ -113,7 +117,9 @@ class SystemBwDiameterPeerModifyRequest extends ComplexType implements ComplexIn
      */
     public function getIpAddress()
     {
-        return ($this->ipAddress) ? $this->ipAddress->getValue() : null;
+        return ($this->ipAddress)
+            ? $this->ipAddress->getElementValue()
+            : null;
     }
 
     /**
@@ -124,7 +130,7 @@ class SystemBwDiameterPeerModifyRequest extends ComplexType implements ComplexIn
         $this->port = ($port InstanceOf Port1025)
              ? $port
              : new Port1025($port);
-        $this->port->setName('port');
+        $this->port->setElementName('port');
         return $this;
     }
 
@@ -134,7 +140,9 @@ class SystemBwDiameterPeerModifyRequest extends ComplexType implements ComplexIn
      */
     public function getPort()
     {
-        return ($this->port) ? $this->port->getValue() : null;
+        return ($this->port)
+            ? $this->port->getElementValue()
+            : null;
     }
 
     /**
@@ -143,7 +151,7 @@ class SystemBwDiameterPeerModifyRequest extends ComplexType implements ComplexIn
     public function setEnabled($enabled = null)
     {
         $this->enabled = new PrimitiveType($enabled);
-        $this->enabled->setName('enabled');
+        $this->enabled->setElementName('enabled');
         return $this;
     }
 
@@ -153,6 +161,8 @@ class SystemBwDiameterPeerModifyRequest extends ComplexType implements ComplexIn
      */
     public function getEnabled()
     {
-        return ($this->enabled) ? $this->enabled->getValue() : null;
+        return ($this->enabled)
+            ? $this->enabled->getElementValue()
+            : null;
     }
 }

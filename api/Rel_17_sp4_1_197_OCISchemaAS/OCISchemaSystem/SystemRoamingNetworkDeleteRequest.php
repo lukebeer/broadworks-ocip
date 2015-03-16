@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemRoamingNetworkDeleteRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemRoamingNetworkDeleteRequest';
+    public    $elementName = 'SystemRoamingNetworkDeleteRequest';
     protected $mscAddress;
 
     public function __construct(
@@ -45,7 +45,7 @@ class SystemRoamingNetworkDeleteRequest extends ComplexType implements ComplexIn
         $this->mscAddress = ($mscAddress InstanceOf DN)
              ? $mscAddress
              : new DN($mscAddress);
-        $this->mscAddress->setName('mscAddress');
+        $this->mscAddress->setElementName('mscAddress');
         return $this;
     }
 
@@ -55,6 +55,8 @@ class SystemRoamingNetworkDeleteRequest extends ComplexType implements ComplexIn
      */
     public function getMscAddress()
     {
-        return ($this->mscAddress) ? $this->mscAddress->getValue() : null;
+        return ($this->mscAddress)
+            ? $this->mscAddress->getElementValue()
+            : null;
     }
 }

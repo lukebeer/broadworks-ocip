@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserSpeedDial100DeleteListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'UserSpeedDial100DeleteListRequest';
+    public    $elementName = 'UserSpeedDial100DeleteListRequest';
     protected $userId;
     protected $speedCode;
 
@@ -49,7 +49,7 @@ class UserSpeedDial100DeleteListRequest extends ComplexType implements ComplexIn
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
-        $this->userId->setName('userId');
+        $this->userId->setElementName('userId');
         return $this;
     }
 
@@ -59,7 +59,9 @@ class UserSpeedDial100DeleteListRequest extends ComplexType implements ComplexIn
      */
     public function getUserId()
     {
-        return ($this->userId) ? $this->userId->getValue() : null;
+        return ($this->userId)
+            ? $this->userId->getElementValue()
+            : null;
     }
 
     /**
@@ -70,7 +72,7 @@ class UserSpeedDial100DeleteListRequest extends ComplexType implements ComplexIn
         $this->speedCode = ($speedCode InstanceOf SpeedDial100Code)
              ? $speedCode
              : new SpeedDial100Code($speedCode);
-        $this->speedCode->setName('speedCode');
+        $this->speedCode->setElementName('speedCode');
         return $this;
     }
 
@@ -80,6 +82,8 @@ class UserSpeedDial100DeleteListRequest extends ComplexType implements ComplexIn
      */
     public function getSpeedCode()
     {
-        return ($this->speedCode) ? $this->speedCode->getValue() : null;
+        return ($this->speedCode)
+            ? $this->speedCode->getElementValue()
+            : null;
     }
 }

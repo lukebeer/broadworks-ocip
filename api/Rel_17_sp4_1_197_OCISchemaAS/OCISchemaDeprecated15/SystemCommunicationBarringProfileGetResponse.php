@@ -27,7 +27,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemCommunicationBarringProfileGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemCommunicationBarringProfileGetResponse';
+    public    $elementName = 'SystemCommunicationBarringProfileGetResponse';
     protected $description;
     protected $originatingDefaultAction;
     protected $originatingDefaultTreatmentId;
@@ -52,7 +52,7 @@ class SystemCommunicationBarringProfileGetResponse extends ComplexType implement
         $this->description = ($description InstanceOf CommunicationBarringProfileDescription)
              ? $description
              : new CommunicationBarringProfileDescription($description);
-        $this->description->setName('description');
+        $this->description->setElementName('description');
         return $this;
     }
 
@@ -62,7 +62,9 @@ class SystemCommunicationBarringProfileGetResponse extends ComplexType implement
      */
     public function getDescription()
     {
-        return ($this->description) ? $this->description->getValue() : null;
+        return ($this->description)
+            ? $this->description->getElementValue()
+            : null;
     }
 
     /**
@@ -73,7 +75,7 @@ class SystemCommunicationBarringProfileGetResponse extends ComplexType implement
         $this->originatingDefaultAction = ($originatingDefaultAction InstanceOf CommunicationBarringOriginatingAction15sp2)
              ? $originatingDefaultAction
              : new CommunicationBarringOriginatingAction15sp2($originatingDefaultAction);
-        $this->originatingDefaultAction->setName('originatingDefaultAction');
+        $this->originatingDefaultAction->setElementName('originatingDefaultAction');
         return $this;
     }
 
@@ -83,7 +85,9 @@ class SystemCommunicationBarringProfileGetResponse extends ComplexType implement
      */
     public function getOriginatingDefaultAction()
     {
-        return ($this->originatingDefaultAction) ? $this->originatingDefaultAction->getValue() : null;
+        return ($this->originatingDefaultAction)
+            ? $this->originatingDefaultAction->getElementValue()
+            : null;
     }
 
     /**
@@ -94,7 +98,7 @@ class SystemCommunicationBarringProfileGetResponse extends ComplexType implement
         $this->originatingDefaultTreatmentId = ($originatingDefaultTreatmentId InstanceOf TreatmentId)
              ? $originatingDefaultTreatmentId
              : new TreatmentId($originatingDefaultTreatmentId);
-        $this->originatingDefaultTreatmentId->setName('originatingDefaultTreatmentId');
+        $this->originatingDefaultTreatmentId->setElementName('originatingDefaultTreatmentId');
         return $this;
     }
 
@@ -104,7 +108,9 @@ class SystemCommunicationBarringProfileGetResponse extends ComplexType implement
      */
     public function getOriginatingDefaultTreatmentId()
     {
-        return ($this->originatingDefaultTreatmentId) ? $this->originatingDefaultTreatmentId->getValue() : null;
+        return ($this->originatingDefaultTreatmentId)
+            ? $this->originatingDefaultTreatmentId->getElementValue()
+            : null;
     }
 
     /**
@@ -115,7 +121,7 @@ class SystemCommunicationBarringProfileGetResponse extends ComplexType implement
         $this->originatingDefaultTransferNumber = ($originatingDefaultTransferNumber InstanceOf OutgoingDN)
              ? $originatingDefaultTransferNumber
              : new OutgoingDN($originatingDefaultTransferNumber);
-        $this->originatingDefaultTransferNumber->setName('originatingDefaultTransferNumber');
+        $this->originatingDefaultTransferNumber->setElementName('originatingDefaultTransferNumber');
         return $this;
     }
 
@@ -125,7 +131,9 @@ class SystemCommunicationBarringProfileGetResponse extends ComplexType implement
      */
     public function getOriginatingDefaultTransferNumber()
     {
-        return ($this->originatingDefaultTransferNumber) ? $this->originatingDefaultTransferNumber->getValue() : null;
+        return ($this->originatingDefaultTransferNumber)
+            ? $this->originatingDefaultTransferNumber->getElementValue()
+            : null;
     }
 
     /**
@@ -136,7 +144,7 @@ class SystemCommunicationBarringProfileGetResponse extends ComplexType implement
         $this->originatingRule = ($originatingRule InstanceOf CommunicationBarringOriginatingRule15sp2)
              ? $originatingRule
              : new CommunicationBarringOriginatingRule15sp2($originatingRule);
-        $this->originatingRule->setName('originatingRule');
+        $this->originatingRule->setElementName('originatingRule');
         return $this;
     }
 
@@ -157,7 +165,7 @@ class SystemCommunicationBarringProfileGetResponse extends ComplexType implement
         $this->redirectingDefaultAction = ($redirectingDefaultAction InstanceOf CommunicationBarringRedirectingAction15sp2)
              ? $redirectingDefaultAction
              : new CommunicationBarringRedirectingAction15sp2($redirectingDefaultAction);
-        $this->redirectingDefaultAction->setName('redirectingDefaultAction');
+        $this->redirectingDefaultAction->setElementName('redirectingDefaultAction');
         return $this;
     }
 
@@ -167,7 +175,9 @@ class SystemCommunicationBarringProfileGetResponse extends ComplexType implement
      */
     public function getRedirectingDefaultAction()
     {
-        return ($this->redirectingDefaultAction) ? $this->redirectingDefaultAction->getValue() : null;
+        return ($this->redirectingDefaultAction)
+            ? $this->redirectingDefaultAction->getElementValue()
+            : null;
     }
 
     /**
@@ -178,7 +188,7 @@ class SystemCommunicationBarringProfileGetResponse extends ComplexType implement
         $this->redirectingRule = ($redirectingRule InstanceOf CommunicationBarringRedirectingRule15sp2)
              ? $redirectingRule
              : new CommunicationBarringRedirectingRule15sp2($redirectingRule);
-        $this->redirectingRule->setName('redirectingRule');
+        $this->redirectingRule->setElementName('redirectingRule');
         return $this;
     }
 

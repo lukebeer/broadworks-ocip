@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserMeetMeConferencingDeleteConferenceRecordingListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'UserMeetMeConferencingDeleteConferenceRecordingListRequest';
+    public    $elementName = 'UserMeetMeConferencingDeleteConferenceRecordingListRequest';
     protected $userId;
     protected $recordingKey;
 
@@ -49,7 +49,7 @@ class UserMeetMeConferencingDeleteConferenceRecordingListRequest extends Complex
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
-        $this->userId->setName('userId');
+        $this->userId->setElementName('userId');
         return $this;
     }
 
@@ -59,7 +59,9 @@ class UserMeetMeConferencingDeleteConferenceRecordingListRequest extends Complex
      */
     public function getUserId()
     {
-        return ($this->userId) ? $this->userId->getValue() : null;
+        return ($this->userId)
+            ? $this->userId->getElementValue()
+            : null;
     }
 
     /**
@@ -70,7 +72,7 @@ class UserMeetMeConferencingDeleteConferenceRecordingListRequest extends Complex
         $this->recordingKey = ($recordingKey InstanceOf MeetMeConferencingConferenceRecordingKey)
              ? $recordingKey
              : new MeetMeConferencingConferenceRecordingKey($recordingKey);
-        $this->recordingKey->setName('recordingKey');
+        $this->recordingKey->setElementName('recordingKey');
         return $this;
     }
 

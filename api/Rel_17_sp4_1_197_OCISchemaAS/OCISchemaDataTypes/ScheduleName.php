@@ -17,12 +17,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\MaxLength;
  */
 class ScheduleName extends SimpleType
 {
-    public $name = "ScheduleName";
-    protected $value;
-
+    public $elementName = "ScheduleName";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new MinLength("1"));
         $this->addRestriction(new MaxLength("40"));
     }

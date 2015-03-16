@@ -25,7 +25,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserShInterfaceGetPublicIdDataResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'UserShInterfaceGetPublicIdDataResponse';
+    public    $elementName = 'UserShInterfaceGetPublicIdDataResponse';
     protected $userId;
     protected $userType;
     protected $endpointType;
@@ -48,7 +48,7 @@ class UserShInterfaceGetPublicIdDataResponse extends ComplexType implements Comp
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
-        $this->userId->setName('userId');
+        $this->userId->setElementName('userId');
         return $this;
     }
 
@@ -58,7 +58,9 @@ class UserShInterfaceGetPublicIdDataResponse extends ComplexType implements Comp
      */
     public function getUserId()
     {
-        return ($this->userId) ? $this->userId->getValue() : null;
+        return ($this->userId)
+            ? $this->userId->getElementValue()
+            : null;
     }
 
     /**
@@ -69,7 +71,7 @@ class UserShInterfaceGetPublicIdDataResponse extends ComplexType implements Comp
         $this->userType = ($userType InstanceOf UserType)
              ? $userType
              : new UserType($userType);
-        $this->userType->setName('userType');
+        $this->userType->setElementName('userType');
         return $this;
     }
 
@@ -79,7 +81,9 @@ class UserShInterfaceGetPublicIdDataResponse extends ComplexType implements Comp
      */
     public function getUserType()
     {
-        return ($this->userType) ? $this->userType->getValue() : null;
+        return ($this->userType)
+            ? $this->userType->getElementValue()
+            : null;
     }
 
     /**
@@ -90,7 +94,7 @@ class UserShInterfaceGetPublicIdDataResponse extends ComplexType implements Comp
         $this->endpointType = ($endpointType InstanceOf EndpointType)
              ? $endpointType
              : new EndpointType($endpointType);
-        $this->endpointType->setName('endpointType');
+        $this->endpointType->setElementName('endpointType');
         return $this;
     }
 
@@ -100,7 +104,9 @@ class UserShInterfaceGetPublicIdDataResponse extends ComplexType implements Comp
      */
     public function getEndpointType()
     {
-        return ($this->endpointType) ? $this->endpointType->getValue() : null;
+        return ($this->endpointType)
+            ? $this->endpointType->getElementValue()
+            : null;
     }
 
     /**
@@ -111,7 +117,7 @@ class UserShInterfaceGetPublicIdDataResponse extends ComplexType implements Comp
         $this->SCSCFName = ($SCSCFName InstanceOf SIPURI)
              ? $SCSCFName
              : new SIPURI($SCSCFName);
-        $this->SCSCFName->setName('SCSCFName');
+        $this->SCSCFName->setElementName('SCSCFName');
         return $this;
     }
 
@@ -121,7 +127,9 @@ class UserShInterfaceGetPublicIdDataResponse extends ComplexType implements Comp
      */
     public function getSCSCFName()
     {
-        return ($this->SCSCFName) ? $this->SCSCFName->getValue() : null;
+        return ($this->SCSCFName)
+            ? $this->SCSCFName->getElementValue()
+            : null;
     }
 
     /**
@@ -132,7 +140,7 @@ class UserShInterfaceGetPublicIdDataResponse extends ComplexType implements Comp
         $this->IMSUserState = ($IMSUserState InstanceOf IMSUserState)
              ? $IMSUserState
              : new IMSUserState($IMSUserState);
-        $this->IMSUserState->setName('IMSUserState');
+        $this->IMSUserState->setElementName('IMSUserState');
         return $this;
     }
 
@@ -142,6 +150,8 @@ class UserShInterfaceGetPublicIdDataResponse extends ComplexType implements Comp
      */
     public function getIMSUserState()
     {
-        return ($this->IMSUserState) ? $this->IMSUserState->getValue() : null;
+        return ($this->IMSUserState)
+            ? $this->IMSUserState->getElementValue()
+            : null;
     }
 }

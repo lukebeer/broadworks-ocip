@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
 class SystemInstantConferencingGetDeviceListRequest14 extends ComplexType implements ComplexInterface
 {
     public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing\SystemInstantConferencingGetDeviceListResponse14';
-    public    $name = 'SystemInstantConferencingGetDeviceListRequest14';
+    public    $elementName = 'SystemInstantConferencingGetDeviceListRequest14';
 
     public function __construct(    ) {
     }

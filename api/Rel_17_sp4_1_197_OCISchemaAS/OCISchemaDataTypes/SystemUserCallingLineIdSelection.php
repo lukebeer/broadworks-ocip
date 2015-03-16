@@ -16,12 +16,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\Enumeration;
  */
 class SystemUserCallingLineIdSelection extends SimpleType
 {
-    public $name = "SystemUserCallingLineIdSelection";
-    protected $value;
-
+    public $elementName = "SystemUserCallingLineIdSelection";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new Enumeration([
             'Disable All',
             'Enable All',

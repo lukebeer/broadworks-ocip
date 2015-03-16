@@ -17,12 +17,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\MaxInclusive;
  */
 class ClientSessionTimeoutMinutes extends SimpleType
 {
-    public $name = "ClientSessionTimeoutMinutes";
-    protected $value;
-
+    public $elementName = "ClientSessionTimeoutMinutes";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new MinInclusive("10"));
         $this->addRestriction(new MaxInclusive("360"));
     }

@@ -25,7 +25,7 @@ use Broadworks_OCIP\core\Client\Client;
 class EnterpriseEnterpriseTrunkGetAvailableTrunkGroupListRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType                 = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceTrunkGroup\EnterpriseEnterpriseTrunkGetAvailableTrunkGroupListResponse';
-    public    $name = 'EnterpriseEnterpriseTrunkGetAvailableTrunkGroupListRequest';
+    public    $elementName = 'EnterpriseEnterpriseTrunkGetAvailableTrunkGroupListRequest';
     protected $serviceProviderId;
     protected $responseSizeLimit;
     protected $searchCriteriaTrunkGroupName;
@@ -59,7 +59,7 @@ class EnterpriseEnterpriseTrunkGetAvailableTrunkGroupListRequest extends Complex
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
-        $this->serviceProviderId->setName('serviceProviderId');
+        $this->serviceProviderId->setElementName('serviceProviderId');
         return $this;
     }
 
@@ -69,7 +69,9 @@ class EnterpriseEnterpriseTrunkGetAvailableTrunkGroupListRequest extends Complex
      */
     public function getServiceProviderId()
     {
-        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
+        return ($this->serviceProviderId)
+            ? $this->serviceProviderId->getElementValue()
+            : null;
     }
 
     /**
@@ -80,7 +82,7 @@ class EnterpriseEnterpriseTrunkGetAvailableTrunkGroupListRequest extends Complex
         $this->responseSizeLimit = ($responseSizeLimit InstanceOf ResponseSizeLimit)
              ? $responseSizeLimit
              : new ResponseSizeLimit($responseSizeLimit);
-        $this->responseSizeLimit->setName('responseSizeLimit');
+        $this->responseSizeLimit->setElementName('responseSizeLimit');
         return $this;
     }
 
@@ -90,7 +92,9 @@ class EnterpriseEnterpriseTrunkGetAvailableTrunkGroupListRequest extends Complex
      */
     public function getResponseSizeLimit()
     {
-        return ($this->responseSizeLimit) ? $this->responseSizeLimit->getValue() : null;
+        return ($this->responseSizeLimit)
+            ? $this->responseSizeLimit->getElementValue()
+            : null;
     }
 
     /**
@@ -101,7 +105,7 @@ class EnterpriseEnterpriseTrunkGetAvailableTrunkGroupListRequest extends Complex
         $this->searchCriteriaTrunkGroupName = ($searchCriteriaTrunkGroupName InstanceOf SearchCriteriaTrunkGroupName)
              ? $searchCriteriaTrunkGroupName
              : new SearchCriteriaTrunkGroupName($searchCriteriaTrunkGroupName);
-        $this->searchCriteriaTrunkGroupName->setName('searchCriteriaTrunkGroupName');
+        $this->searchCriteriaTrunkGroupName->setElementName('searchCriteriaTrunkGroupName');
         return $this;
     }
 
@@ -122,7 +126,7 @@ class EnterpriseEnterpriseTrunkGetAvailableTrunkGroupListRequest extends Complex
         $this->searchCriteriaGroupId = ($searchCriteriaGroupId InstanceOf SearchCriteriaGroupId)
              ? $searchCriteriaGroupId
              : new SearchCriteriaGroupId($searchCriteriaGroupId);
-        $this->searchCriteriaGroupId->setName('searchCriteriaGroupId');
+        $this->searchCriteriaGroupId->setElementName('searchCriteriaGroupId');
         return $this;
     }
 

@@ -19,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class MixedCallLogsEntry extends ComplexType implements ComplexInterface
 {
-    public    $name = 'MixedCallLogsEntry';
+    public    $elementName = 'MixedCallLogsEntry';
     protected $callLogType;
     protected $countryCode;
     protected $callLogId;
@@ -57,7 +57,7 @@ class MixedCallLogsEntry extends ComplexType implements ComplexInterface
     public function setCallLogType($callLogType = null)
     {
         $this->callLogType = new SimpleContent($callLogType);
-        $this->callLogType->setName('callLogType');
+        $this->callLogType->setElementName('callLogType');
         return $this;
     }
 
@@ -67,7 +67,9 @@ class MixedCallLogsEntry extends ComplexType implements ComplexInterface
      */
     public function getCallLogType()
     {
-        return ($this->callLogType) ? $this->callLogType->getValue() : null;
+        return ($this->callLogType)
+            ? $this->callLogType->getElementValue()
+            : null;
     }
 
     /**
@@ -76,7 +78,7 @@ class MixedCallLogsEntry extends ComplexType implements ComplexInterface
     public function setCountryCode($countryCode = null)
     {
         $this->countryCode = new SimpleContent($countryCode);
-        $this->countryCode->setName('countryCode');
+        $this->countryCode->setElementName('countryCode');
         return $this;
     }
 
@@ -86,7 +88,9 @@ class MixedCallLogsEntry extends ComplexType implements ComplexInterface
      */
     public function getCountryCode()
     {
-        return ($this->countryCode) ? $this->countryCode->getValue() : null;
+        return ($this->countryCode)
+            ? $this->countryCode->getElementValue()
+            : null;
     }
 
     /**
@@ -95,7 +99,7 @@ class MixedCallLogsEntry extends ComplexType implements ComplexInterface
     public function setCallLogId($callLogId = null)
     {
         $this->callLogId = new SimpleContent($callLogId);
-        $this->callLogId->setName('callLogId');
+        $this->callLogId->setElementName('callLogId');
         return $this;
     }
 
@@ -105,7 +109,9 @@ class MixedCallLogsEntry extends ComplexType implements ComplexInterface
      */
     public function getCallLogId()
     {
-        return ($this->callLogId) ? $this->callLogId->getValue() : null;
+        return ($this->callLogId)
+            ? $this->callLogId->getElementValue()
+            : null;
     }
 
     /**
@@ -114,7 +120,7 @@ class MixedCallLogsEntry extends ComplexType implements ComplexInterface
     public function setPhoneNumber($phoneNumber = null)
     {
         $this->phoneNumber = new SimpleContent($phoneNumber);
-        $this->phoneNumber->setName('phoneNumber');
+        $this->phoneNumber->setElementName('phoneNumber');
         return $this;
     }
 
@@ -124,7 +130,9 @@ class MixedCallLogsEntry extends ComplexType implements ComplexInterface
      */
     public function getPhoneNumber()
     {
-        return ($this->phoneNumber) ? $this->phoneNumber->getValue() : null;
+        return ($this->phoneNumber)
+            ? $this->phoneNumber->getElementValue()
+            : null;
     }
 
     /**
@@ -133,7 +141,7 @@ class MixedCallLogsEntry extends ComplexType implements ComplexInterface
     public function setName($name = null)
     {
         $this->name = new SimpleContent($name);
-        $this->name->setName('name');
+        $this->name->setElementName('name');
         return $this;
     }
 
@@ -143,7 +151,9 @@ class MixedCallLogsEntry extends ComplexType implements ComplexInterface
      */
     public function getName()
     {
-        return ($this->name) ? $this->name->getValue() : null;
+        return ($this->name)
+            ? $this->name->getElementValue()
+            : null;
     }
 
     /**
@@ -152,7 +162,7 @@ class MixedCallLogsEntry extends ComplexType implements ComplexInterface
     public function setTime($time = null)
     {
         $this->time = new SimpleContent($time);
-        $this->time->setName('time');
+        $this->time->setElementName('time');
         return $this;
     }
 
@@ -162,6 +172,8 @@ class MixedCallLogsEntry extends ComplexType implements ComplexInterface
      */
     public function getTime()
     {
-        return ($this->time) ? $this->time->getValue() : null;
+        return ($this->time)
+            ? $this->time->getElementValue()
+            : null;
     }
 }

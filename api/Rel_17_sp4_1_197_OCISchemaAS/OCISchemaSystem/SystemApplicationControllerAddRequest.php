@@ -23,7 +23,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemApplicationControllerAddRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemApplicationControllerAddRequest';
+    public    $elementName = 'SystemApplicationControllerAddRequest';
     protected $name;
     protected $subscriberId;
     protected $channelSetId;
@@ -54,7 +54,7 @@ class SystemApplicationControllerAddRequest extends ComplexType implements Compl
         $this->name = ($name InstanceOf ApplicationControllerName)
              ? $name
              : new ApplicationControllerName($name);
-        $this->name->setName('name');
+        $this->name->setElementName('name');
         return $this;
     }
 
@@ -64,7 +64,9 @@ class SystemApplicationControllerAddRequest extends ComplexType implements Compl
      */
     public function getName()
     {
-        return ($this->name) ? $this->name->getValue() : null;
+        return ($this->name)
+            ? $this->name->getElementValue()
+            : null;
     }
 
     /**
@@ -75,7 +77,7 @@ class SystemApplicationControllerAddRequest extends ComplexType implements Compl
         $this->subscriberId = ($subscriberId InstanceOf UserId)
              ? $subscriberId
              : new UserId($subscriberId);
-        $this->subscriberId->setName('subscriberId');
+        $this->subscriberId->setElementName('subscriberId');
         return $this;
     }
 
@@ -85,7 +87,9 @@ class SystemApplicationControllerAddRequest extends ComplexType implements Compl
      */
     public function getSubscriberId()
     {
-        return ($this->subscriberId) ? $this->subscriberId->getValue() : null;
+        return ($this->subscriberId)
+            ? $this->subscriberId->getElementValue()
+            : null;
     }
 
     /**
@@ -96,7 +100,7 @@ class SystemApplicationControllerAddRequest extends ComplexType implements Compl
         $this->channelSetId = ($channelSetId InstanceOf ChannelSetId)
              ? $channelSetId
              : new ChannelSetId($channelSetId);
-        $this->channelSetId->setName('channelSetId');
+        $this->channelSetId->setElementName('channelSetId');
         return $this;
     }
 
@@ -106,6 +110,8 @@ class SystemApplicationControllerAddRequest extends ComplexType implements Compl
      */
     public function getChannelSetId()
     {
-        return ($this->channelSetId) ? $this->channelSetId->getValue() : null;
+        return ($this->channelSetId)
+            ? $this->channelSetId->getElementValue()
+            : null;
     }
 }

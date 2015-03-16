@@ -25,7 +25,7 @@ use Broadworks_OCIP\core\Client\Client;
 class EnterpriseDepartmentGetListRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType            = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaEnterprise\EnterpriseDepartmentGetListResponse';
-    public    $name = 'EnterpriseDepartmentGetListRequest';
+    public    $elementName = 'EnterpriseDepartmentGetListRequest';
     protected $enterpriseId;
     protected $includeGroupDepartments;
 
@@ -53,7 +53,7 @@ class EnterpriseDepartmentGetListRequest extends ComplexType implements ComplexI
         $this->enterpriseId = ($enterpriseId InstanceOf ServiceProviderId)
              ? $enterpriseId
              : new ServiceProviderId($enterpriseId);
-        $this->enterpriseId->setName('enterpriseId');
+        $this->enterpriseId->setElementName('enterpriseId');
         return $this;
     }
 
@@ -63,7 +63,9 @@ class EnterpriseDepartmentGetListRequest extends ComplexType implements ComplexI
      */
     public function getEnterpriseId()
     {
-        return ($this->enterpriseId) ? $this->enterpriseId->getValue() : null;
+        return ($this->enterpriseId)
+            ? $this->enterpriseId->getElementValue()
+            : null;
     }
 
     /**
@@ -72,7 +74,7 @@ class EnterpriseDepartmentGetListRequest extends ComplexType implements ComplexI
     public function setIncludeGroupDepartments($includeGroupDepartments = null)
     {
         $this->includeGroupDepartments = new PrimitiveType($includeGroupDepartments);
-        $this->includeGroupDepartments->setName('includeGroupDepartments');
+        $this->includeGroupDepartments->setElementName('includeGroupDepartments');
         return $this;
     }
 
@@ -82,6 +84,8 @@ class EnterpriseDepartmentGetListRequest extends ComplexType implements ComplexI
      */
     public function getIncludeGroupDepartments()
     {
-        return ($this->includeGroupDepartments) ? $this->includeGroupDepartments->getValue() : null;
+        return ($this->includeGroupDepartments)
+            ? $this->includeGroupDepartments->getElementValue()
+            : null;
     }
 }

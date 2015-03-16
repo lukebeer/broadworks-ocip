@@ -16,12 +16,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\Enumeration;
  */
 class CallCenterOverflowProcessingAction extends SimpleType
 {
-    public $name = "CallCenterOverflowProcessingAction";
-    protected $value;
-
+    public $elementName = "CallCenterOverflowProcessingAction";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new Enumeration([
             'Busy',
             'Transfer',

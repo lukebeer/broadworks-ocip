@@ -17,12 +17,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\MaxInclusive;
  */
 class CallProcessingMaxConcurrentFindMeFollowMeInvocations extends SimpleType
 {
-    public $name = "CallProcessingMaxConcurrentFindMeFollowMeInvocations";
-    protected $value;
-
+    public $elementName = "CallProcessingMaxConcurrentFindMeFollowMeInvocations";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new MinInclusive("1"));
         $this->addRestriction(new MaxInclusive("32"));
     }

@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupApplicationServerSetModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'GroupApplicationServerSetModifyRequest';
+    public    $elementName = 'GroupApplicationServerSetModifyRequest';
     protected $applicationServerSetName;
     protected $groupId;
     protected $serviceProviderId;
@@ -53,7 +53,7 @@ class GroupApplicationServerSetModifyRequest extends ComplexType implements Comp
         $this->applicationServerSetName = ($applicationServerSetName InstanceOf ApplicationServerSetName)
              ? $applicationServerSetName
              : new ApplicationServerSetName($applicationServerSetName);
-        $this->applicationServerSetName->setName('applicationServerSetName');
+        $this->applicationServerSetName->setElementName('applicationServerSetName');
         return $this;
     }
 
@@ -63,7 +63,9 @@ class GroupApplicationServerSetModifyRequest extends ComplexType implements Comp
      */
     public function getApplicationServerSetName()
     {
-        return ($this->applicationServerSetName) ? $this->applicationServerSetName->getValue() : null;
+        return ($this->applicationServerSetName)
+            ? $this->applicationServerSetName->getElementValue()
+            : null;
     }
 
     /**
@@ -74,7 +76,7 @@ class GroupApplicationServerSetModifyRequest extends ComplexType implements Comp
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
-        $this->groupId->setName('groupId');
+        $this->groupId->setElementName('groupId');
         return $this;
     }
 
@@ -84,7 +86,9 @@ class GroupApplicationServerSetModifyRequest extends ComplexType implements Comp
      */
     public function getGroupId()
     {
-        return ($this->groupId) ? $this->groupId->getValue() : null;
+        return ($this->groupId)
+            ? $this->groupId->getElementValue()
+            : null;
     }
 
     /**
@@ -95,7 +99,7 @@ class GroupApplicationServerSetModifyRequest extends ComplexType implements Comp
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
-        $this->serviceProviderId->setName('serviceProviderId');
+        $this->serviceProviderId->setElementName('serviceProviderId');
         return $this;
     }
 
@@ -105,6 +109,8 @@ class GroupApplicationServerSetModifyRequest extends ComplexType implements Comp
      */
     public function getServiceProviderId()
     {
-        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
+        return ($this->serviceProviderId)
+            ? $this->serviceProviderId->getElementValue()
+            : null;
     }
 }

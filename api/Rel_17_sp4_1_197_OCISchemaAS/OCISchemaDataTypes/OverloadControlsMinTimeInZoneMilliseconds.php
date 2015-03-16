@@ -17,12 +17,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\MaxInclusive;
  */
 class OverloadControlsMinTimeInZoneMilliseconds extends SimpleType
 {
-    public $name = "OverloadControlsMinTimeInZoneMilliseconds";
-    protected $value;
-
+    public $elementName = "OverloadControlsMinTimeInZoneMilliseconds";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new MinInclusive("1000"));
         $this->addRestriction(new MaxInclusive("600000"));
     }

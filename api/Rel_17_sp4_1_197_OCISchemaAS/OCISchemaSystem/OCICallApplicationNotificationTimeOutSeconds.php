@@ -17,12 +17,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\MaxInclusive;
  */
 class OCICallApplicationNotificationTimeOutSeconds extends SimpleType
 {
-    public $name = "OCICallApplicationNotificationTimeOutSeconds";
-    protected $value;
-
+    public $elementName = "OCICallApplicationNotificationTimeOutSeconds";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new MinInclusive("2"));
         $this->addRestriction(new MaxInclusive("30"));
     }

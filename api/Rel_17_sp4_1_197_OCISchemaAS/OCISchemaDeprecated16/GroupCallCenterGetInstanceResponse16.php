@@ -28,7 +28,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupCallCenterGetInstanceResponse16 extends ComplexType implements ComplexInterface
 {
-    public    $name = 'GroupCallCenterGetInstanceResponse16';
+    public    $elementName = 'GroupCallCenterGetInstanceResponse16';
     protected $serviceInstanceProfile;
     protected $type;
     protected $policy;
@@ -65,7 +65,7 @@ class GroupCallCenterGetInstanceResponse16 extends ComplexType implements Comple
         $this->serviceInstanceProfile = ($serviceInstanceProfile InstanceOf ServiceInstanceReadProfile)
              ? $serviceInstanceProfile
              : new ServiceInstanceReadProfile($serviceInstanceProfile);
-        $this->serviceInstanceProfile->setName('serviceInstanceProfile');
+        $this->serviceInstanceProfile->setElementName('serviceInstanceProfile');
         return $this;
     }
 
@@ -86,7 +86,7 @@ class GroupCallCenterGetInstanceResponse16 extends ComplexType implements Comple
         $this->type = ($type InstanceOf CallCenterType)
              ? $type
              : new CallCenterType($type);
-        $this->type->setName('type');
+        $this->type->setElementName('type');
         return $this;
     }
 
@@ -96,7 +96,9 @@ class GroupCallCenterGetInstanceResponse16 extends ComplexType implements Comple
      */
     public function getType()
     {
-        return ($this->type) ? $this->type->getValue() : null;
+        return ($this->type)
+            ? $this->type->getElementValue()
+            : null;
     }
 
     /**
@@ -107,7 +109,7 @@ class GroupCallCenterGetInstanceResponse16 extends ComplexType implements Comple
         $this->policy = ($policy InstanceOf HuntPolicy)
              ? $policy
              : new HuntPolicy($policy);
-        $this->policy->setName('policy');
+        $this->policy->setElementName('policy');
         return $this;
     }
 
@@ -117,7 +119,9 @@ class GroupCallCenterGetInstanceResponse16 extends ComplexType implements Comple
      */
     public function getPolicy()
     {
-        return ($this->policy) ? $this->policy->getValue() : null;
+        return ($this->policy)
+            ? $this->policy->getElementValue()
+            : null;
     }
 
     /**
@@ -126,7 +130,7 @@ class GroupCallCenterGetInstanceResponse16 extends ComplexType implements Comple
     public function setEnableVideo($enableVideo = null)
     {
         $this->enableVideo = new PrimitiveType($enableVideo);
-        $this->enableVideo->setName('enableVideo');
+        $this->enableVideo->setElementName('enableVideo');
         return $this;
     }
 
@@ -136,7 +140,9 @@ class GroupCallCenterGetInstanceResponse16 extends ComplexType implements Comple
      */
     public function getEnableVideo()
     {
-        return ($this->enableVideo) ? $this->enableVideo->getValue() : null;
+        return ($this->enableVideo)
+            ? $this->enableVideo->getElementValue()
+            : null;
     }
 
     /**
@@ -147,7 +153,7 @@ class GroupCallCenterGetInstanceResponse16 extends ComplexType implements Comple
         $this->queueLength = ($queueLength InstanceOf CallCenterQueueLength16)
              ? $queueLength
              : new CallCenterQueueLength16($queueLength);
-        $this->queueLength->setName('queueLength');
+        $this->queueLength->setElementName('queueLength');
         return $this;
     }
 
@@ -157,7 +163,9 @@ class GroupCallCenterGetInstanceResponse16 extends ComplexType implements Comple
      */
     public function getQueueLength()
     {
-        return ($this->queueLength) ? $this->queueLength->getValue() : null;
+        return ($this->queueLength)
+            ? $this->queueLength->getElementValue()
+            : null;
     }
 
     /**
@@ -168,7 +176,7 @@ class GroupCallCenterGetInstanceResponse16 extends ComplexType implements Comple
         $this->reportingServerName = ($reportingServerName InstanceOf CallCenterReportingServerName)
              ? $reportingServerName
              : new CallCenterReportingServerName($reportingServerName);
-        $this->reportingServerName->setName('reportingServerName');
+        $this->reportingServerName->setElementName('reportingServerName');
         return $this;
     }
 
@@ -178,7 +186,9 @@ class GroupCallCenterGetInstanceResponse16 extends ComplexType implements Comple
      */
     public function getReportingServerName()
     {
-        return ($this->reportingServerName) ? $this->reportingServerName->getValue() : null;
+        return ($this->reportingServerName)
+            ? $this->reportingServerName->getElementValue()
+            : null;
     }
 
     /**
@@ -187,7 +197,7 @@ class GroupCallCenterGetInstanceResponse16 extends ComplexType implements Comple
     public function setAllowCallerToDialEscapeDigit($allowCallerToDialEscapeDigit = null)
     {
         $this->allowCallerToDialEscapeDigit = new PrimitiveType($allowCallerToDialEscapeDigit);
-        $this->allowCallerToDialEscapeDigit->setName('allowCallerToDialEscapeDigit');
+        $this->allowCallerToDialEscapeDigit->setElementName('allowCallerToDialEscapeDigit');
         return $this;
     }
 
@@ -197,7 +207,9 @@ class GroupCallCenterGetInstanceResponse16 extends ComplexType implements Comple
      */
     public function getAllowCallerToDialEscapeDigit()
     {
-        return ($this->allowCallerToDialEscapeDigit) ? $this->allowCallerToDialEscapeDigit->getValue() : null;
+        return ($this->allowCallerToDialEscapeDigit)
+            ? $this->allowCallerToDialEscapeDigit->getElementValue()
+            : null;
     }
 
     /**
@@ -208,7 +220,7 @@ class GroupCallCenterGetInstanceResponse16 extends ComplexType implements Comple
         $this->escapeDigit = ($escapeDigit InstanceOf DtmfDigit)
              ? $escapeDigit
              : new DtmfDigit($escapeDigit);
-        $this->escapeDigit->setName('escapeDigit');
+        $this->escapeDigit->setElementName('escapeDigit');
         return $this;
     }
 
@@ -218,7 +230,9 @@ class GroupCallCenterGetInstanceResponse16 extends ComplexType implements Comple
      */
     public function getEscapeDigit()
     {
-        return ($this->escapeDigit) ? $this->escapeDigit->getValue() : null;
+        return ($this->escapeDigit)
+            ? $this->escapeDigit->getElementValue()
+            : null;
     }
 
     /**
@@ -227,7 +241,7 @@ class GroupCallCenterGetInstanceResponse16 extends ComplexType implements Comple
     public function setResetCallStatisticsUponEntryInQueue($resetCallStatisticsUponEntryInQueue = null)
     {
         $this->resetCallStatisticsUponEntryInQueue = new PrimitiveType($resetCallStatisticsUponEntryInQueue);
-        $this->resetCallStatisticsUponEntryInQueue->setName('resetCallStatisticsUponEntryInQueue');
+        $this->resetCallStatisticsUponEntryInQueue->setElementName('resetCallStatisticsUponEntryInQueue');
         return $this;
     }
 
@@ -237,7 +251,9 @@ class GroupCallCenterGetInstanceResponse16 extends ComplexType implements Comple
      */
     public function getResetCallStatisticsUponEntryInQueue()
     {
-        return ($this->resetCallStatisticsUponEntryInQueue) ? $this->resetCallStatisticsUponEntryInQueue->getValue() : null;
+        return ($this->resetCallStatisticsUponEntryInQueue)
+            ? $this->resetCallStatisticsUponEntryInQueue->getElementValue()
+            : null;
     }
 
     /**
@@ -246,7 +262,7 @@ class GroupCallCenterGetInstanceResponse16 extends ComplexType implements Comple
     public function setAllowAgentLogoff($allowAgentLogoff = null)
     {
         $this->allowAgentLogoff = new PrimitiveType($allowAgentLogoff);
-        $this->allowAgentLogoff->setName('allowAgentLogoff');
+        $this->allowAgentLogoff->setElementName('allowAgentLogoff');
         return $this;
     }
 
@@ -256,7 +272,9 @@ class GroupCallCenterGetInstanceResponse16 extends ComplexType implements Comple
      */
     public function getAllowAgentLogoff()
     {
-        return ($this->allowAgentLogoff) ? $this->allowAgentLogoff->getValue() : null;
+        return ($this->allowAgentLogoff)
+            ? $this->allowAgentLogoff->getElementValue()
+            : null;
     }
 
     /**
@@ -265,7 +283,7 @@ class GroupCallCenterGetInstanceResponse16 extends ComplexType implements Comple
     public function setAllowCallWaitingForAgents($allowCallWaitingForAgents = null)
     {
         $this->allowCallWaitingForAgents = new PrimitiveType($allowCallWaitingForAgents);
-        $this->allowCallWaitingForAgents->setName('allowCallWaitingForAgents');
+        $this->allowCallWaitingForAgents->setElementName('allowCallWaitingForAgents');
         return $this;
     }
 
@@ -275,7 +293,9 @@ class GroupCallCenterGetInstanceResponse16 extends ComplexType implements Comple
      */
     public function getAllowCallWaitingForAgents()
     {
-        return ($this->allowCallWaitingForAgents) ? $this->allowCallWaitingForAgents->getValue() : null;
+        return ($this->allowCallWaitingForAgents)
+            ? $this->allowCallWaitingForAgents->getElementValue()
+            : null;
     }
 
     /**
@@ -284,7 +304,7 @@ class GroupCallCenterGetInstanceResponse16 extends ComplexType implements Comple
     public function setAllowCallsToAgentsInWrapUp($allowCallsToAgentsInWrapUp = null)
     {
         $this->allowCallsToAgentsInWrapUp = new PrimitiveType($allowCallsToAgentsInWrapUp);
-        $this->allowCallsToAgentsInWrapUp->setName('allowCallsToAgentsInWrapUp');
+        $this->allowCallsToAgentsInWrapUp->setElementName('allowCallsToAgentsInWrapUp');
         return $this;
     }
 
@@ -294,7 +314,9 @@ class GroupCallCenterGetInstanceResponse16 extends ComplexType implements Comple
      */
     public function getAllowCallsToAgentsInWrapUp()
     {
-        return ($this->allowCallsToAgentsInWrapUp) ? $this->allowCallsToAgentsInWrapUp->getValue() : null;
+        return ($this->allowCallsToAgentsInWrapUp)
+            ? $this->allowCallsToAgentsInWrapUp->getElementValue()
+            : null;
     }
 
     /**
@@ -303,7 +325,7 @@ class GroupCallCenterGetInstanceResponse16 extends ComplexType implements Comple
     public function setOverrideAgentWrapUpTime($overrideAgentWrapUpTime = null)
     {
         $this->overrideAgentWrapUpTime = new PrimitiveType($overrideAgentWrapUpTime);
-        $this->overrideAgentWrapUpTime->setName('overrideAgentWrapUpTime');
+        $this->overrideAgentWrapUpTime->setElementName('overrideAgentWrapUpTime');
         return $this;
     }
 
@@ -313,7 +335,9 @@ class GroupCallCenterGetInstanceResponse16 extends ComplexType implements Comple
      */
     public function getOverrideAgentWrapUpTime()
     {
-        return ($this->overrideAgentWrapUpTime) ? $this->overrideAgentWrapUpTime->getValue() : null;
+        return ($this->overrideAgentWrapUpTime)
+            ? $this->overrideAgentWrapUpTime->getElementValue()
+            : null;
     }
 
     /**
@@ -324,7 +348,7 @@ class GroupCallCenterGetInstanceResponse16 extends ComplexType implements Comple
         $this->wrapUpSeconds = ($wrapUpSeconds InstanceOf CallCenterWrapUpSeconds)
              ? $wrapUpSeconds
              : new CallCenterWrapUpSeconds($wrapUpSeconds);
-        $this->wrapUpSeconds->setName('wrapUpSeconds');
+        $this->wrapUpSeconds->setElementName('wrapUpSeconds');
         return $this;
     }
 
@@ -334,7 +358,9 @@ class GroupCallCenterGetInstanceResponse16 extends ComplexType implements Comple
      */
     public function getWrapUpSeconds()
     {
-        return ($this->wrapUpSeconds) ? $this->wrapUpSeconds->getValue() : null;
+        return ($this->wrapUpSeconds)
+            ? $this->wrapUpSeconds->getElementValue()
+            : null;
     }
 
     /**
@@ -343,7 +369,7 @@ class GroupCallCenterGetInstanceResponse16 extends ComplexType implements Comple
     public function setForceDeliveryOfCalls($forceDeliveryOfCalls = null)
     {
         $this->forceDeliveryOfCalls = new PrimitiveType($forceDeliveryOfCalls);
-        $this->forceDeliveryOfCalls->setName('forceDeliveryOfCalls');
+        $this->forceDeliveryOfCalls->setElementName('forceDeliveryOfCalls');
         return $this;
     }
 
@@ -353,7 +379,9 @@ class GroupCallCenterGetInstanceResponse16 extends ComplexType implements Comple
      */
     public function getForceDeliveryOfCalls()
     {
-        return ($this->forceDeliveryOfCalls) ? $this->forceDeliveryOfCalls->getValue() : null;
+        return ($this->forceDeliveryOfCalls)
+            ? $this->forceDeliveryOfCalls->getElementValue()
+            : null;
     }
 
     /**
@@ -364,7 +392,7 @@ class GroupCallCenterGetInstanceResponse16 extends ComplexType implements Comple
         $this->forceDeliveryWaitTimeSeconds = ($forceDeliveryWaitTimeSeconds InstanceOf CallCenterForceDeliveryWaitTimeSeconds)
              ? $forceDeliveryWaitTimeSeconds
              : new CallCenterForceDeliveryWaitTimeSeconds($forceDeliveryWaitTimeSeconds);
-        $this->forceDeliveryWaitTimeSeconds->setName('forceDeliveryWaitTimeSeconds');
+        $this->forceDeliveryWaitTimeSeconds->setElementName('forceDeliveryWaitTimeSeconds');
         return $this;
     }
 
@@ -374,7 +402,9 @@ class GroupCallCenterGetInstanceResponse16 extends ComplexType implements Comple
      */
     public function getForceDeliveryWaitTimeSeconds()
     {
-        return ($this->forceDeliveryWaitTimeSeconds) ? $this->forceDeliveryWaitTimeSeconds->getValue() : null;
+        return ($this->forceDeliveryWaitTimeSeconds)
+            ? $this->forceDeliveryWaitTimeSeconds->getElementValue()
+            : null;
     }
 
     /**
@@ -385,7 +415,7 @@ class GroupCallCenterGetInstanceResponse16 extends ComplexType implements Comple
         $this->externalPreferredAudioCodec = ($externalPreferredAudioCodec InstanceOf AudioFileCodec)
              ? $externalPreferredAudioCodec
              : new AudioFileCodec($externalPreferredAudioCodec);
-        $this->externalPreferredAudioCodec->setName('externalPreferredAudioCodec');
+        $this->externalPreferredAudioCodec->setElementName('externalPreferredAudioCodec');
         return $this;
     }
 
@@ -395,7 +425,9 @@ class GroupCallCenterGetInstanceResponse16 extends ComplexType implements Comple
      */
     public function getExternalPreferredAudioCodec()
     {
-        return ($this->externalPreferredAudioCodec) ? $this->externalPreferredAudioCodec->getValue() : null;
+        return ($this->externalPreferredAudioCodec)
+            ? $this->externalPreferredAudioCodec->getElementValue()
+            : null;
     }
 
     /**
@@ -406,7 +438,7 @@ class GroupCallCenterGetInstanceResponse16 extends ComplexType implements Comple
         $this->internalPreferredAudioCodec = ($internalPreferredAudioCodec InstanceOf AudioFileCodec)
              ? $internalPreferredAudioCodec
              : new AudioFileCodec($internalPreferredAudioCodec);
-        $this->internalPreferredAudioCodec->setName('internalPreferredAudioCodec');
+        $this->internalPreferredAudioCodec->setElementName('internalPreferredAudioCodec');
         return $this;
     }
 
@@ -416,7 +448,9 @@ class GroupCallCenterGetInstanceResponse16 extends ComplexType implements Comple
      */
     public function getInternalPreferredAudioCodec()
     {
-        return ($this->internalPreferredAudioCodec) ? $this->internalPreferredAudioCodec->getValue() : null;
+        return ($this->internalPreferredAudioCodec)
+            ? $this->internalPreferredAudioCodec->getElementValue()
+            : null;
     }
 
     /**
@@ -425,7 +459,7 @@ class GroupCallCenterGetInstanceResponse16 extends ComplexType implements Comple
     public function setPlayRingingWhenOfferingCall($playRingingWhenOfferingCall = null)
     {
         $this->playRingingWhenOfferingCall = new PrimitiveType($playRingingWhenOfferingCall);
-        $this->playRingingWhenOfferingCall->setName('playRingingWhenOfferingCall');
+        $this->playRingingWhenOfferingCall->setElementName('playRingingWhenOfferingCall');
         return $this;
     }
 
@@ -435,6 +469,8 @@ class GroupCallCenterGetInstanceResponse16 extends ComplexType implements Comple
      */
     public function getPlayRingingWhenOfferingCall()
     {
-        return ($this->playRingingWhenOfferingCall) ? $this->playRingingWhenOfferingCall->getValue() : null;
+        return ($this->playRingingWhenOfferingCall)
+            ? $this->playRingingWhenOfferingCall->getElementValue()
+            : null;
     }
 }

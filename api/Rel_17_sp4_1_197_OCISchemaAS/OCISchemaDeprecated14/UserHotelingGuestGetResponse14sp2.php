@@ -24,7 +24,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserHotelingGuestGetResponse14sp2 extends ComplexType implements ComplexInterface
 {
-    public    $name = 'UserHotelingGuestGetResponse14sp2';
+    public    $elementName = 'UserHotelingGuestGetResponse14sp2';
     protected $isActive;
     protected $associationLimitHours;
     protected $hostUserId;
@@ -47,7 +47,7 @@ class UserHotelingGuestGetResponse14sp2 extends ComplexType implements ComplexIn
     public function setIsActive($isActive = null)
     {
         $this->isActive = new PrimitiveType($isActive);
-        $this->isActive->setName('isActive');
+        $this->isActive->setElementName('isActive');
         return $this;
     }
 
@@ -57,7 +57,9 @@ class UserHotelingGuestGetResponse14sp2 extends ComplexType implements ComplexIn
      */
     public function getIsActive()
     {
-        return ($this->isActive) ? $this->isActive->getValue() : null;
+        return ($this->isActive)
+            ? $this->isActive->getElementValue()
+            : null;
     }
 
     /**
@@ -68,7 +70,7 @@ class UserHotelingGuestGetResponse14sp2 extends ComplexType implements ComplexIn
         $this->associationLimitHours = ($associationLimitHours InstanceOf HotelingAssociationLimitHours)
              ? $associationLimitHours
              : new HotelingAssociationLimitHours($associationLimitHours);
-        $this->associationLimitHours->setName('associationLimitHours');
+        $this->associationLimitHours->setElementName('associationLimitHours');
         return $this;
     }
 
@@ -78,7 +80,9 @@ class UserHotelingGuestGetResponse14sp2 extends ComplexType implements ComplexIn
      */
     public function getAssociationLimitHours()
     {
-        return ($this->associationLimitHours) ? $this->associationLimitHours->getValue() : null;
+        return ($this->associationLimitHours)
+            ? $this->associationLimitHours->getElementValue()
+            : null;
     }
 
     /**
@@ -89,7 +93,7 @@ class UserHotelingGuestGetResponse14sp2 extends ComplexType implements ComplexIn
         $this->hostUserId = ($hostUserId InstanceOf UserId)
              ? $hostUserId
              : new UserId($hostUserId);
-        $this->hostUserId->setName('hostUserId');
+        $this->hostUserId->setElementName('hostUserId');
         return $this;
     }
 
@@ -99,7 +103,9 @@ class UserHotelingGuestGetResponse14sp2 extends ComplexType implements ComplexIn
      */
     public function getHostUserId()
     {
-        return ($this->hostUserId) ? $this->hostUserId->getValue() : null;
+        return ($this->hostUserId)
+            ? $this->hostUserId->getElementValue()
+            : null;
     }
 
     /**
@@ -110,7 +116,7 @@ class UserHotelingGuestGetResponse14sp2 extends ComplexType implements ComplexIn
         $this->hostLastName = ($hostLastName InstanceOf LastName)
              ? $hostLastName
              : new LastName($hostLastName);
-        $this->hostLastName->setName('hostLastName');
+        $this->hostLastName->setElementName('hostLastName');
         return $this;
     }
 
@@ -120,7 +126,9 @@ class UserHotelingGuestGetResponse14sp2 extends ComplexType implements ComplexIn
      */
     public function getHostLastName()
     {
-        return ($this->hostLastName) ? $this->hostLastName->getValue() : null;
+        return ($this->hostLastName)
+            ? $this->hostLastName->getElementValue()
+            : null;
     }
 
     /**
@@ -131,7 +139,7 @@ class UserHotelingGuestGetResponse14sp2 extends ComplexType implements ComplexIn
         $this->hostFirstName = ($hostFirstName InstanceOf FirstName)
              ? $hostFirstName
              : new FirstName($hostFirstName);
-        $this->hostFirstName->setName('hostFirstName');
+        $this->hostFirstName->setElementName('hostFirstName');
         return $this;
     }
 
@@ -141,7 +149,9 @@ class UserHotelingGuestGetResponse14sp2 extends ComplexType implements ComplexIn
      */
     public function getHostFirstName()
     {
-        return ($this->hostFirstName) ? $this->hostFirstName->getValue() : null;
+        return ($this->hostFirstName)
+            ? $this->hostFirstName->getElementValue()
+            : null;
     }
 
     /**
@@ -149,7 +159,7 @@ class UserHotelingGuestGetResponse14sp2 extends ComplexType implements ComplexIn
      */
     public function setHostAssociationDateTime(xs:dateTime $hostAssociationDateTime = null)
     {
-        $this->hostAssociationDateTime->setName('hostAssociationDateTime');
+        $this->hostAssociationDateTime->setElementName('hostAssociationDateTime');
         return $this;
     }
 
@@ -159,7 +169,9 @@ class UserHotelingGuestGetResponse14sp2 extends ComplexType implements ComplexIn
      */
     public function getHostAssociationDateTime()
     {
-        return ($this->hostAssociationDateTime) ? $this->hostAssociationDateTime->getValue() : null;
+        return ($this->hostAssociationDateTime)
+            ? $this->hostAssociationDateTime->getElementValue()
+            : null;
     }
 
     /**
@@ -170,7 +182,7 @@ class UserHotelingGuestGetResponse14sp2 extends ComplexType implements ComplexIn
         $this->hostAssociationLimitHours = ($hostAssociationLimitHours InstanceOf HotelingAssociationLimitHours)
              ? $hostAssociationLimitHours
              : new HotelingAssociationLimitHours($hostAssociationLimitHours);
-        $this->hostAssociationLimitHours->setName('hostAssociationLimitHours');
+        $this->hostAssociationLimitHours->setElementName('hostAssociationLimitHours');
         return $this;
     }
 
@@ -180,6 +192,8 @@ class UserHotelingGuestGetResponse14sp2 extends ComplexType implements ComplexIn
      */
     public function getHostAssociationLimitHours()
     {
-        return ($this->hostAssociationLimitHours) ? $this->hostAssociationLimitHours->getValue() : null;
+        return ($this->hostAssociationLimitHours)
+            ? $this->hostAssociationLimitHours->getElementValue()
+            : null;
     }
 }

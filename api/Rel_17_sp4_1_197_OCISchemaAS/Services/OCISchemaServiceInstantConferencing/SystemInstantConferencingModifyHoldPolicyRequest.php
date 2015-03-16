@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemInstantConferencingModifyHoldPolicyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemInstantConferencingModifyHoldPolicyRequest';
+    public    $elementName = 'SystemInstantConferencingModifyHoldPolicyRequest';
     protected $deleteExpiredConferences;
     protected $expiredConferenceHoldPeriodDays;
     protected $deleteRecordedConferences;
@@ -54,7 +54,7 @@ class SystemInstantConferencingModifyHoldPolicyRequest extends ComplexType imple
     public function setDeleteExpiredConferences($deleteExpiredConferences = null)
     {
         $this->deleteExpiredConferences = new PrimitiveType($deleteExpiredConferences);
-        $this->deleteExpiredConferences->setName('deleteExpiredConferences');
+        $this->deleteExpiredConferences->setElementName('deleteExpiredConferences');
         return $this;
     }
 
@@ -64,7 +64,9 @@ class SystemInstantConferencingModifyHoldPolicyRequest extends ComplexType imple
      */
     public function getDeleteExpiredConferences()
     {
-        return ($this->deleteExpiredConferences) ? $this->deleteExpiredConferences->getValue() : null;
+        return ($this->deleteExpiredConferences)
+            ? $this->deleteExpiredConferences->getElementValue()
+            : null;
     }
 
     /**
@@ -75,7 +77,7 @@ class SystemInstantConferencingModifyHoldPolicyRequest extends ComplexType imple
         $this->expiredConferenceHoldPeriodDays = ($expiredConferenceHoldPeriodDays InstanceOf InstantConferencingExpiredConferenceHoldPeriodDays)
              ? $expiredConferenceHoldPeriodDays
              : new InstantConferencingExpiredConferenceHoldPeriodDays($expiredConferenceHoldPeriodDays);
-        $this->expiredConferenceHoldPeriodDays->setName('expiredConferenceHoldPeriodDays');
+        $this->expiredConferenceHoldPeriodDays->setElementName('expiredConferenceHoldPeriodDays');
         return $this;
     }
 
@@ -85,7 +87,9 @@ class SystemInstantConferencingModifyHoldPolicyRequest extends ComplexType imple
      */
     public function getExpiredConferenceHoldPeriodDays()
     {
-        return ($this->expiredConferenceHoldPeriodDays) ? $this->expiredConferenceHoldPeriodDays->getValue() : null;
+        return ($this->expiredConferenceHoldPeriodDays)
+            ? $this->expiredConferenceHoldPeriodDays->getElementValue()
+            : null;
     }
 
     /**
@@ -94,7 +98,7 @@ class SystemInstantConferencingModifyHoldPolicyRequest extends ComplexType imple
     public function setDeleteRecordedConferences($deleteRecordedConferences = null)
     {
         $this->deleteRecordedConferences = new PrimitiveType($deleteRecordedConferences);
-        $this->deleteRecordedConferences->setName('deleteRecordedConferences');
+        $this->deleteRecordedConferences->setElementName('deleteRecordedConferences');
         return $this;
     }
 
@@ -104,7 +108,9 @@ class SystemInstantConferencingModifyHoldPolicyRequest extends ComplexType imple
      */
     public function getDeleteRecordedConferences()
     {
-        return ($this->deleteRecordedConferences) ? $this->deleteRecordedConferences->getValue() : null;
+        return ($this->deleteRecordedConferences)
+            ? $this->deleteRecordedConferences->getElementValue()
+            : null;
     }
 
     /**
@@ -115,7 +121,7 @@ class SystemInstantConferencingModifyHoldPolicyRequest extends ComplexType imple
         $this->recordedConferenceHoldPeriodDays = ($recordedConferenceHoldPeriodDays InstanceOf InstantConferencingRecordedConferenceHoldPeriodDays)
              ? $recordedConferenceHoldPeriodDays
              : new InstantConferencingRecordedConferenceHoldPeriodDays($recordedConferenceHoldPeriodDays);
-        $this->recordedConferenceHoldPeriodDays->setName('recordedConferenceHoldPeriodDays');
+        $this->recordedConferenceHoldPeriodDays->setElementName('recordedConferenceHoldPeriodDays');
         return $this;
     }
 
@@ -125,6 +131,8 @@ class SystemInstantConferencingModifyHoldPolicyRequest extends ComplexType imple
      */
     public function getRecordedConferenceHoldPeriodDays()
     {
-        return ($this->recordedConferenceHoldPeriodDays) ? $this->recordedConferenceHoldPeriodDays->getValue() : null;
+        return ($this->recordedConferenceHoldPeriodDays)
+            ? $this->recordedConferenceHoldPeriodDays->getElementValue()
+            : null;
     }
 }

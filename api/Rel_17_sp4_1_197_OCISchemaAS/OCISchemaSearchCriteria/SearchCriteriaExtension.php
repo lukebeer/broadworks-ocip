@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SearchCriteriaExtension extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SearchCriteriaExtension';
+    public    $elementName = 'SearchCriteriaExtension';
     protected $mode;
     protected $value;
     protected $isCaseInsensitive;
@@ -51,7 +51,7 @@ class SearchCriteriaExtension extends ComplexType implements ComplexInterface
         $this->mode = ($mode InstanceOf SearchMode)
              ? $mode
              : new SearchMode($mode);
-        $this->mode->setName('mode');
+        $this->mode->setElementName('mode');
         return $this;
     }
 
@@ -61,7 +61,9 @@ class SearchCriteriaExtension extends ComplexType implements ComplexInterface
      */
     public function getMode()
     {
-        return ($this->mode) ? $this->mode->getValue() : null;
+        return ($this->mode)
+            ? $this->mode->getElementValue()
+            : null;
     }
 
     /**
@@ -69,7 +71,7 @@ class SearchCriteriaExtension extends ComplexType implements ComplexInterface
      */
     public function setValue($value = null)
     {
-        $this->value->setName('value');
+        $this->value->setElementName('value');
         return $this;
     }
 
@@ -79,7 +81,9 @@ class SearchCriteriaExtension extends ComplexType implements ComplexInterface
      */
     public function getValue()
     {
-        return ($this->value) ? $this->value->getValue() : null;
+        return ($this->value)
+            ? $this->value->getElementValue()
+            : null;
     }
 
     /**
@@ -88,7 +92,7 @@ class SearchCriteriaExtension extends ComplexType implements ComplexInterface
     public function setIsCaseInsensitive($isCaseInsensitive = null)
     {
         $this->isCaseInsensitive = new PrimitiveType($isCaseInsensitive);
-        $this->isCaseInsensitive->setName('isCaseInsensitive');
+        $this->isCaseInsensitive->setElementName('isCaseInsensitive');
         return $this;
     }
 
@@ -98,6 +102,8 @@ class SearchCriteriaExtension extends ComplexType implements ComplexInterface
      */
     public function getIsCaseInsensitive()
     {
-        return ($this->isCaseInsensitive) ? $this->isCaseInsensitive->getValue() : null;
+        return ($this->isCaseInsensitive)
+            ? $this->isCaseInsensitive->getElementValue()
+            : null;
     }
 }

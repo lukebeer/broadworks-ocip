@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserSimultaneousRingFamilyModifyRequest14sp4 extends ComplexType implements ComplexInterface
 {
-    public    $name = 'UserSimultaneousRingFamilyModifyRequest14sp4';
+    public    $elementName = 'UserSimultaneousRingFamilyModifyRequest14sp4';
     protected $userId;
     protected $isActive;
     protected $incomingCalls;
@@ -53,7 +53,7 @@ class UserSimultaneousRingFamilyModifyRequest14sp4 extends ComplexType implement
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
-        $this->userId->setName('userId');
+        $this->userId->setElementName('userId');
         return $this;
     }
 
@@ -63,7 +63,9 @@ class UserSimultaneousRingFamilyModifyRequest14sp4 extends ComplexType implement
      */
     public function getUserId()
     {
-        return ($this->userId) ? $this->userId->getValue() : null;
+        return ($this->userId)
+            ? $this->userId->getElementValue()
+            : null;
     }
 
     /**
@@ -72,7 +74,7 @@ class UserSimultaneousRingFamilyModifyRequest14sp4 extends ComplexType implement
     public function setIsActive($isActive = null)
     {
         $this->isActive = new PrimitiveType($isActive);
-        $this->isActive->setName('isActive');
+        $this->isActive->setElementName('isActive');
         return $this;
     }
 
@@ -82,7 +84,9 @@ class UserSimultaneousRingFamilyModifyRequest14sp4 extends ComplexType implement
      */
     public function getIsActive()
     {
-        return ($this->isActive) ? $this->isActive->getValue() : null;
+        return ($this->isActive)
+            ? $this->isActive->getElementValue()
+            : null;
     }
 
     /**
@@ -93,7 +97,7 @@ class UserSimultaneousRingFamilyModifyRequest14sp4 extends ComplexType implement
         $this->incomingCalls = ($incomingCalls InstanceOf SimultaneousRingSelection)
              ? $incomingCalls
              : new SimultaneousRingSelection($incomingCalls);
-        $this->incomingCalls->setName('incomingCalls');
+        $this->incomingCalls->setElementName('incomingCalls');
         return $this;
     }
 
@@ -103,6 +107,8 @@ class UserSimultaneousRingFamilyModifyRequest14sp4 extends ComplexType implement
      */
     public function getIncomingCalls()
     {
-        return ($this->incomingCalls) ? $this->incomingCalls->getValue() : null;
+        return ($this->incomingCalls)
+            ? $this->incomingCalls->getElementValue()
+            : null;
     }
 }

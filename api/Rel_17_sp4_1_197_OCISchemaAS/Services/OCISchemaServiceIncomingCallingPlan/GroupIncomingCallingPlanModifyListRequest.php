@@ -23,7 +23,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupIncomingCallingPlanModifyListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'GroupIncomingCallingPlanModifyListRequest';
+    public    $elementName = 'GroupIncomingCallingPlanModifyListRequest';
     protected $serviceProviderId;
     protected $groupId;
     protected $groupPermissions;
@@ -57,7 +57,7 @@ class GroupIncomingCallingPlanModifyListRequest extends ComplexType implements C
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
-        $this->serviceProviderId->setName('serviceProviderId');
+        $this->serviceProviderId->setElementName('serviceProviderId');
         return $this;
     }
 
@@ -67,7 +67,9 @@ class GroupIncomingCallingPlanModifyListRequest extends ComplexType implements C
      */
     public function getServiceProviderId()
     {
-        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
+        return ($this->serviceProviderId)
+            ? $this->serviceProviderId->getElementValue()
+            : null;
     }
 
     /**
@@ -78,7 +80,7 @@ class GroupIncomingCallingPlanModifyListRequest extends ComplexType implements C
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
-        $this->groupId->setName('groupId');
+        $this->groupId->setElementName('groupId');
         return $this;
     }
 
@@ -88,7 +90,9 @@ class GroupIncomingCallingPlanModifyListRequest extends ComplexType implements C
      */
     public function getGroupId()
     {
-        return ($this->groupId) ? $this->groupId->getValue() : null;
+        return ($this->groupId)
+            ? $this->groupId->getElementValue()
+            : null;
     }
 
     /**
@@ -99,7 +103,7 @@ class GroupIncomingCallingPlanModifyListRequest extends ComplexType implements C
         $this->groupPermissions = ($groupPermissions InstanceOf IncomingCallingPlanPermissionsModify)
              ? $groupPermissions
              : new IncomingCallingPlanPermissionsModify($groupPermissions);
-        $this->groupPermissions->setName('groupPermissions');
+        $this->groupPermissions->setElementName('groupPermissions');
         return $this;
     }
 
@@ -120,7 +124,7 @@ class GroupIncomingCallingPlanModifyListRequest extends ComplexType implements C
         $this->departmentPermissions = ($departmentPermissions InstanceOf IncomingCallingPlanDepartmentPermissionsModify)
              ? $departmentPermissions
              : new IncomingCallingPlanDepartmentPermissionsModify($departmentPermissions);
-        $this->departmentPermissions->setName('departmentPermissions');
+        $this->departmentPermissions->setElementName('departmentPermissions');
         return $this;
     }
 

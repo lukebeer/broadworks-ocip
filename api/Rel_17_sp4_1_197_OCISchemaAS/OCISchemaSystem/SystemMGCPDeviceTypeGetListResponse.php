@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemMGCPDeviceTypeGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemMGCPDeviceTypeGetListResponse';
+    public    $elementName = 'SystemMGCPDeviceTypeGetListResponse';
     protected $deviceTypeTable;
 
     /**
@@ -38,7 +38,7 @@ class SystemMGCPDeviceTypeGetListResponse extends ComplexType implements Complex
     public function setDeviceTypeTable(TableType $deviceTypeTable = null)
     {
         $this->deviceTypeTable = $deviceTypeTable;
-        $this->deviceTypeTable->setName('deviceTypeTable');
+        $this->deviceTypeTable->setElementName('deviceTypeTable');
         return $this;
     }
 

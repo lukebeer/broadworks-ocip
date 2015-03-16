@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupRoutePointDistinctiveRingingGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'GroupRoutePointDistinctiveRingingGetResponse';
+    public    $elementName = 'GroupRoutePointDistinctiveRingingGetResponse';
     protected $enableDistinctiveRinging;
     protected $distinctiveRingingRingPattern;
     protected $distinctiveRingingForceDeliveryRingPattern;
@@ -39,7 +39,7 @@ class GroupRoutePointDistinctiveRingingGetResponse extends ComplexType implement
     public function setEnableDistinctiveRinging($enableDistinctiveRinging = null)
     {
         $this->enableDistinctiveRinging = new PrimitiveType($enableDistinctiveRinging);
-        $this->enableDistinctiveRinging->setName('enableDistinctiveRinging');
+        $this->enableDistinctiveRinging->setElementName('enableDistinctiveRinging');
         return $this;
     }
 
@@ -49,7 +49,9 @@ class GroupRoutePointDistinctiveRingingGetResponse extends ComplexType implement
      */
     public function getEnableDistinctiveRinging()
     {
-        return ($this->enableDistinctiveRinging) ? $this->enableDistinctiveRinging->getValue() : null;
+        return ($this->enableDistinctiveRinging)
+            ? $this->enableDistinctiveRinging->getElementValue()
+            : null;
     }
 
     /**
@@ -60,7 +62,7 @@ class GroupRoutePointDistinctiveRingingGetResponse extends ComplexType implement
         $this->distinctiveRingingRingPattern = ($distinctiveRingingRingPattern InstanceOf RingPattern)
              ? $distinctiveRingingRingPattern
              : new RingPattern($distinctiveRingingRingPattern);
-        $this->distinctiveRingingRingPattern->setName('distinctiveRingingRingPattern');
+        $this->distinctiveRingingRingPattern->setElementName('distinctiveRingingRingPattern');
         return $this;
     }
 
@@ -70,7 +72,9 @@ class GroupRoutePointDistinctiveRingingGetResponse extends ComplexType implement
      */
     public function getDistinctiveRingingRingPattern()
     {
-        return ($this->distinctiveRingingRingPattern) ? $this->distinctiveRingingRingPattern->getValue() : null;
+        return ($this->distinctiveRingingRingPattern)
+            ? $this->distinctiveRingingRingPattern->getElementValue()
+            : null;
     }
 
     /**
@@ -81,7 +85,7 @@ class GroupRoutePointDistinctiveRingingGetResponse extends ComplexType implement
         $this->distinctiveRingingForceDeliveryRingPattern = ($distinctiveRingingForceDeliveryRingPattern InstanceOf RingPattern)
              ? $distinctiveRingingForceDeliveryRingPattern
              : new RingPattern($distinctiveRingingForceDeliveryRingPattern);
-        $this->distinctiveRingingForceDeliveryRingPattern->setName('distinctiveRingingForceDeliveryRingPattern');
+        $this->distinctiveRingingForceDeliveryRingPattern->setElementName('distinctiveRingingForceDeliveryRingPattern');
         return $this;
     }
 
@@ -91,6 +95,8 @@ class GroupRoutePointDistinctiveRingingGetResponse extends ComplexType implement
      */
     public function getDistinctiveRingingForceDeliveryRingPattern()
     {
-        return ($this->distinctiveRingingForceDeliveryRingPattern) ? $this->distinctiveRingingForceDeliveryRingPattern->getValue() : null;
+        return ($this->distinctiveRingingForceDeliveryRingPattern)
+            ? $this->distinctiveRingingForceDeliveryRingPattern->getElementValue()
+            : null;
     }
 }

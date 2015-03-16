@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
 class EnterpriseCallCenterGetRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\EnterpriseCallCenterGetResponse';
-    public    $name = 'EnterpriseCallCenterGetRequest';
+    public    $elementName = 'EnterpriseCallCenterGetRequest';
     protected $serviceProviderId;
 
     public function __construct(
@@ -47,7 +47,7 @@ class EnterpriseCallCenterGetRequest extends ComplexType implements ComplexInter
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
-        $this->serviceProviderId->setName('serviceProviderId');
+        $this->serviceProviderId->setElementName('serviceProviderId');
         return $this;
     }
 
@@ -57,6 +57,8 @@ class EnterpriseCallCenterGetRequest extends ComplexType implements ComplexInter
      */
     public function getServiceProviderId()
     {
-        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
+        return ($this->serviceProviderId)
+            ? $this->serviceProviderId->getElementValue()
+            : null;
     }
 }

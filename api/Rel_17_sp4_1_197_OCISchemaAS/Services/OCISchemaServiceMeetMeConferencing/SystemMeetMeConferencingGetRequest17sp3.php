@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
 class SystemMeetMeConferencingGetRequest17sp3 extends ComplexType implements ComplexInterface
 {
     public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceMeetMeConferencing\SystemMeetMeConferencingGetResponse17sp3';
-    public    $name = 'SystemMeetMeConferencingGetRequest17sp3';
+    public    $elementName = 'SystemMeetMeConferencingGetRequest17sp3';
 
     public function __construct(    ) {
     }

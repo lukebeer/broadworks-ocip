@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserCallRecordingModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'UserCallRecordingModifyRequest';
+    public    $elementName = 'UserCallRecordingModifyRequest';
     protected $userId;
     protected $recordingOption;
 
@@ -49,7 +49,7 @@ class UserCallRecordingModifyRequest extends ComplexType implements ComplexInter
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
-        $this->userId->setName('userId');
+        $this->userId->setElementName('userId');
         return $this;
     }
 
@@ -59,7 +59,9 @@ class UserCallRecordingModifyRequest extends ComplexType implements ComplexInter
      */
     public function getUserId()
     {
-        return ($this->userId) ? $this->userId->getValue() : null;
+        return ($this->userId)
+            ? $this->userId->getElementValue()
+            : null;
     }
 
     /**
@@ -70,7 +72,7 @@ class UserCallRecordingModifyRequest extends ComplexType implements ComplexInter
         $this->recordingOption = ($recordingOption InstanceOf RecordingOption)
              ? $recordingOption
              : new RecordingOption($recordingOption);
-        $this->recordingOption->setName('recordingOption');
+        $this->recordingOption->setElementName('recordingOption');
         return $this;
     }
 
@@ -80,6 +82,8 @@ class UserCallRecordingModifyRequest extends ComplexType implements ComplexInter
      */
     public function getRecordingOption()
     {
-        return ($this->recordingOption) ? $this->recordingOption->getValue() : null;
+        return ($this->recordingOption)
+            ? $this->recordingOption->getElementValue()
+            : null;
     }
 }

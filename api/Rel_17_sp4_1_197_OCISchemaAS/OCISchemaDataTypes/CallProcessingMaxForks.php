@@ -17,12 +17,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\MaxInclusive;
  */
 class CallProcessingMaxForks extends SimpleType
 {
-    public $name = "CallProcessingMaxForks";
-    protected $value;
-
+    public $elementName = "CallProcessingMaxForks";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new MinInclusive("1"));
         $this->addRestriction(new MaxInclusive("10"));
     }

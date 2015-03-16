@@ -19,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupRoutingProfileGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'GroupRoutingProfileGetResponse';
+    public    $elementName = 'GroupRoutingProfileGetResponse';
     protected $routingProfile;
 
     /**
@@ -38,7 +38,7 @@ class GroupRoutingProfileGetResponse extends ComplexType implements ComplexInter
         $this->routingProfile = ($routingProfile InstanceOf RoutingProfile)
              ? $routingProfile
              : new RoutingProfile($routingProfile);
-        $this->routingProfile->setName('routingProfile');
+        $this->routingProfile->setElementName('routingProfile');
         return $this;
     }
 
@@ -48,6 +48,8 @@ class GroupRoutingProfileGetResponse extends ComplexType implements ComplexInter
      */
     public function getRoutingProfile()
     {
-        return ($this->routingProfile) ? $this->routingProfile->getValue() : null;
+        return ($this->routingProfile)
+            ? $this->routingProfile->getElementValue()
+            : null;
     }
 }

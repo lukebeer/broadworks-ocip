@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserScheduleModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'UserScheduleModifyRequest';
+    public    $elementName = 'UserScheduleModifyRequest';
     protected $userId;
     protected $scheduleKey;
     protected $newScheduleName;
@@ -53,7 +53,7 @@ class UserScheduleModifyRequest extends ComplexType implements ComplexInterface
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
-        $this->userId->setName('userId');
+        $this->userId->setElementName('userId');
         return $this;
     }
 
@@ -63,7 +63,9 @@ class UserScheduleModifyRequest extends ComplexType implements ComplexInterface
      */
     public function getUserId()
     {
-        return ($this->userId) ? $this->userId->getValue() : null;
+        return ($this->userId)
+            ? $this->userId->getElementValue()
+            : null;
     }
 
     /**
@@ -74,7 +76,7 @@ class UserScheduleModifyRequest extends ComplexType implements ComplexInterface
         $this->scheduleKey = ($scheduleKey InstanceOf ScheduleKey)
              ? $scheduleKey
              : new ScheduleKey($scheduleKey);
-        $this->scheduleKey->setName('scheduleKey');
+        $this->scheduleKey->setElementName('scheduleKey');
         return $this;
     }
 
@@ -95,7 +97,7 @@ class UserScheduleModifyRequest extends ComplexType implements ComplexInterface
         $this->newScheduleName = ($newScheduleName InstanceOf ScheduleName)
              ? $newScheduleName
              : new ScheduleName($newScheduleName);
-        $this->newScheduleName->setName('newScheduleName');
+        $this->newScheduleName->setElementName('newScheduleName');
         return $this;
     }
 
@@ -105,6 +107,8 @@ class UserScheduleModifyRequest extends ComplexType implements ComplexInterface
      */
     public function getNewScheduleName()
     {
-        return ($this->newScheduleName) ? $this->newScheduleName->getValue() : null;
+        return ($this->newScheduleName)
+            ? $this->newScheduleName->getElementValue()
+            : null;
     }
 }

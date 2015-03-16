@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemZoneNetAddressDeleteListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemZoneNetAddressDeleteListRequest';
+    public    $elementName = 'SystemZoneNetAddressDeleteListRequest';
     protected $zoneName;
     protected $netAddress;
     protected $netAddressRange;
@@ -52,7 +52,7 @@ class SystemZoneNetAddressDeleteListRequest extends ComplexType implements Compl
         $this->zoneName = ($zoneName InstanceOf ZoneName)
              ? $zoneName
              : new ZoneName($zoneName);
-        $this->zoneName->setName('zoneName');
+        $this->zoneName->setElementName('zoneName');
         return $this;
     }
 
@@ -62,7 +62,9 @@ class SystemZoneNetAddressDeleteListRequest extends ComplexType implements Compl
      */
     public function getZoneName()
     {
-        return ($this->zoneName) ? $this->zoneName->getValue() : null;
+        return ($this->zoneName)
+            ? $this->zoneName->getElementValue()
+            : null;
     }
 
     /**
@@ -73,7 +75,7 @@ class SystemZoneNetAddressDeleteListRequest extends ComplexType implements Compl
         $this->netAddress = ($netAddress InstanceOf IPAddress)
              ? $netAddress
              : new IPAddress($netAddress);
-        $this->netAddress->setName('netAddress');
+        $this->netAddress->setElementName('netAddress');
         return $this;
     }
 
@@ -83,7 +85,9 @@ class SystemZoneNetAddressDeleteListRequest extends ComplexType implements Compl
      */
     public function getNetAddress()
     {
-        return ($this->netAddress) ? $this->netAddress->getValue() : null;
+        return ($this->netAddress)
+            ? $this->netAddress->getElementValue()
+            : null;
     }
 
     /**
@@ -94,7 +98,7 @@ class SystemZoneNetAddressDeleteListRequest extends ComplexType implements Compl
         $this->netAddressRange = ($netAddressRange InstanceOf IPAddressRange)
              ? $netAddressRange
              : new IPAddressRange($netAddressRange);
-        $this->netAddressRange->setName('netAddressRange');
+        $this->netAddressRange->setElementName('netAddressRange');
         return $this;
     }
 

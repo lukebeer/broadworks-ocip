@@ -16,12 +16,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\Enumeration;
  */
 class CallBeingForwardedResponseCallType extends SimpleType
 {
-    public $name = "CallBeingForwardedResponseCallType";
-    protected $value;
-
+    public $elementName = "CallBeingForwardedResponseCallType";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new Enumeration([
             'Never',
             'Internal Calls',

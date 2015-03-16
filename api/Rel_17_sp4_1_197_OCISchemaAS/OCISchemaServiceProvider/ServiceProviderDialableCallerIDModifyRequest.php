@@ -23,7 +23,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderDialableCallerIDModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'ServiceProviderDialableCallerIDModifyRequest';
+    public    $elementName = 'ServiceProviderDialableCallerIDModifyRequest';
     protected $serviceProviderId;
     protected $useServiceProviderCriteria;
     protected $nsScreeningFailurePolicy;
@@ -57,7 +57,7 @@ class ServiceProviderDialableCallerIDModifyRequest extends ComplexType implement
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
-        $this->serviceProviderId->setName('serviceProviderId');
+        $this->serviceProviderId->setElementName('serviceProviderId');
         return $this;
     }
 
@@ -67,7 +67,9 @@ class ServiceProviderDialableCallerIDModifyRequest extends ComplexType implement
      */
     public function getServiceProviderId()
     {
-        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
+        return ($this->serviceProviderId)
+            ? $this->serviceProviderId->getElementValue()
+            : null;
     }
 
     /**
@@ -76,7 +78,7 @@ class ServiceProviderDialableCallerIDModifyRequest extends ComplexType implement
     public function setUseServiceProviderCriteria($useServiceProviderCriteria = null)
     {
         $this->useServiceProviderCriteria = new PrimitiveType($useServiceProviderCriteria);
-        $this->useServiceProviderCriteria->setName('useServiceProviderCriteria');
+        $this->useServiceProviderCriteria->setElementName('useServiceProviderCriteria');
         return $this;
     }
 
@@ -86,7 +88,9 @@ class ServiceProviderDialableCallerIDModifyRequest extends ComplexType implement
      */
     public function getUseServiceProviderCriteria()
     {
-        return ($this->useServiceProviderCriteria) ? $this->useServiceProviderCriteria->getValue() : null;
+        return ($this->useServiceProviderCriteria)
+            ? $this->useServiceProviderCriteria->getElementValue()
+            : null;
     }
 
     /**
@@ -97,7 +101,7 @@ class ServiceProviderDialableCallerIDModifyRequest extends ComplexType implement
         $this->nsScreeningFailurePolicy = ($nsScreeningFailurePolicy InstanceOf NsScreeningFailurePolicy)
              ? $nsScreeningFailurePolicy
              : new NsScreeningFailurePolicy($nsScreeningFailurePolicy);
-        $this->nsScreeningFailurePolicy->setName('nsScreeningFailurePolicy');
+        $this->nsScreeningFailurePolicy->setElementName('nsScreeningFailurePolicy');
         return $this;
     }
 
@@ -107,7 +111,9 @@ class ServiceProviderDialableCallerIDModifyRequest extends ComplexType implement
      */
     public function getNsScreeningFailurePolicy()
     {
-        return ($this->nsScreeningFailurePolicy) ? $this->nsScreeningFailurePolicy->getValue() : null;
+        return ($this->nsScreeningFailurePolicy)
+            ? $this->nsScreeningFailurePolicy->getElementValue()
+            : null;
     }
 
     /**
@@ -118,7 +124,7 @@ class ServiceProviderDialableCallerIDModifyRequest extends ComplexType implement
         $this->criteriaPriorityOrder = ($criteriaPriorityOrder InstanceOf DialableCallerIDCriteriaPriorityOrder)
              ? $criteriaPriorityOrder
              : new DialableCallerIDCriteriaPriorityOrder($criteriaPriorityOrder);
-        $this->criteriaPriorityOrder->setName('criteriaPriorityOrder');
+        $this->criteriaPriorityOrder->setElementName('criteriaPriorityOrder');
         return $this;
     }
 

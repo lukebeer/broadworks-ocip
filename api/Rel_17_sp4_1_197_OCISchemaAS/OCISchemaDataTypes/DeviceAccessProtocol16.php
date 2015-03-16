@@ -16,12 +16,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\Enumeration;
  */
 class DeviceAccessProtocol16 extends SimpleType
 {
-    public $name = "DeviceAccessProtocol16";
-    protected $value;
-
+    public $elementName = "DeviceAccessProtocol16";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new Enumeration([
             'Http',
             'Https',

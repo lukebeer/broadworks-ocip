@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupDnGetActivationListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'GroupDnGetActivationListResponse';
+    public    $elementName = 'GroupDnGetActivationListResponse';
     protected $dnTable;
 
     /**
@@ -39,7 +39,7 @@ class GroupDnGetActivationListResponse extends ComplexType implements ComplexInt
     public function setDnTable(TableType $dnTable = null)
     {
         $this->dnTable = $dnTable;
-        $this->dnTable->setName('dnTable');
+        $this->dnTable->setElementName('dnTable');
         return $this;
     }
 

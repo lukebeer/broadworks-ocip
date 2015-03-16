@@ -25,7 +25,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserCallForwardingSelectiveAddCriteriaRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'UserCallForwardingSelectiveAddCriteriaRequest';
+    public    $elementName = 'UserCallForwardingSelectiveAddCriteriaRequest';
     protected $userId;
     protected $criteriaName;
     protected $timeSchedule;
@@ -65,7 +65,7 @@ class UserCallForwardingSelectiveAddCriteriaRequest extends ComplexType implemen
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
-        $this->userId->setName('userId');
+        $this->userId->setElementName('userId');
         return $this;
     }
 
@@ -75,7 +75,9 @@ class UserCallForwardingSelectiveAddCriteriaRequest extends ComplexType implemen
      */
     public function getUserId()
     {
-        return ($this->userId) ? $this->userId->getValue() : null;
+        return ($this->userId)
+            ? $this->userId->getElementValue()
+            : null;
     }
 
     /**
@@ -86,7 +88,7 @@ class UserCallForwardingSelectiveAddCriteriaRequest extends ComplexType implemen
         $this->criteriaName = ($criteriaName InstanceOf CriteriaName)
              ? $criteriaName
              : new CriteriaName($criteriaName);
-        $this->criteriaName->setName('criteriaName');
+        $this->criteriaName->setElementName('criteriaName');
         return $this;
     }
 
@@ -96,7 +98,9 @@ class UserCallForwardingSelectiveAddCriteriaRequest extends ComplexType implemen
      */
     public function getCriteriaName()
     {
-        return ($this->criteriaName) ? $this->criteriaName->getValue() : null;
+        return ($this->criteriaName)
+            ? $this->criteriaName->getElementValue()
+            : null;
     }
 
     /**
@@ -107,7 +111,7 @@ class UserCallForwardingSelectiveAddCriteriaRequest extends ComplexType implemen
         $this->timeSchedule = ($timeSchedule InstanceOf TimeSchedule)
              ? $timeSchedule
              : new TimeSchedule($timeSchedule);
-        $this->timeSchedule->setName('timeSchedule');
+        $this->timeSchedule->setElementName('timeSchedule');
         return $this;
     }
 
@@ -128,7 +132,7 @@ class UserCallForwardingSelectiveAddCriteriaRequest extends ComplexType implemen
         $this->forwardToNumberSelection = ($forwardToNumberSelection InstanceOf CallForwardingSelectiveNumberSelection)
              ? $forwardToNumberSelection
              : new CallForwardingSelectiveNumberSelection($forwardToNumberSelection);
-        $this->forwardToNumberSelection->setName('forwardToNumberSelection');
+        $this->forwardToNumberSelection->setElementName('forwardToNumberSelection');
         return $this;
     }
 
@@ -138,7 +142,9 @@ class UserCallForwardingSelectiveAddCriteriaRequest extends ComplexType implemen
      */
     public function getForwardToNumberSelection()
     {
-        return ($this->forwardToNumberSelection) ? $this->forwardToNumberSelection->getValue() : null;
+        return ($this->forwardToNumberSelection)
+            ? $this->forwardToNumberSelection->getElementValue()
+            : null;
     }
 
     /**
@@ -149,7 +155,7 @@ class UserCallForwardingSelectiveAddCriteriaRequest extends ComplexType implemen
         $this->forwardToPhoneNumber = ($forwardToPhoneNumber InstanceOf OutgoingDNorSIPURI)
              ? $forwardToPhoneNumber
              : new OutgoingDNorSIPURI($forwardToPhoneNumber);
-        $this->forwardToPhoneNumber->setName('forwardToPhoneNumber');
+        $this->forwardToPhoneNumber->setElementName('forwardToPhoneNumber');
         return $this;
     }
 
@@ -159,7 +165,9 @@ class UserCallForwardingSelectiveAddCriteriaRequest extends ComplexType implemen
      */
     public function getForwardToPhoneNumber()
     {
-        return ($this->forwardToPhoneNumber) ? $this->forwardToPhoneNumber->getValue() : null;
+        return ($this->forwardToPhoneNumber)
+            ? $this->forwardToPhoneNumber->getElementValue()
+            : null;
     }
 
     /**
@@ -170,7 +178,7 @@ class UserCallForwardingSelectiveAddCriteriaRequest extends ComplexType implemen
         $this->fromDnCriteria = ($fromDnCriteria InstanceOf CriteriaFromDn)
              ? $fromDnCriteria
              : new CriteriaFromDn($fromDnCriteria);
-        $this->fromDnCriteria->setName('fromDnCriteria');
+        $this->fromDnCriteria->setElementName('fromDnCriteria');
         return $this;
     }
 

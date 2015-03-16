@@ -24,7 +24,7 @@ use Broadworks_OCIP\core\Client\Client;
 class UserInstantConferencingGetStandAloneConferenceDocumentListRequest14 extends ComplexType implements ComplexInterface
 {
     public    $responseType          = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing\UserInstantConferencingGetStandAloneConferenceDocumentListResponse14';
-    public    $name = 'UserInstantConferencingGetStandAloneConferenceDocumentListRequest14';
+    public    $elementName = 'UserInstantConferencingGetStandAloneConferenceDocumentListRequest14';
     protected $conferenceOwnerUserId;
     protected $conferenceKey;
     protected $isWebServerCollocated;
@@ -55,7 +55,7 @@ class UserInstantConferencingGetStandAloneConferenceDocumentListRequest14 extend
         $this->conferenceOwnerUserId = ($conferenceOwnerUserId InstanceOf UserId)
              ? $conferenceOwnerUserId
              : new UserId($conferenceOwnerUserId);
-        $this->conferenceOwnerUserId->setName('conferenceOwnerUserId');
+        $this->conferenceOwnerUserId->setElementName('conferenceOwnerUserId');
         return $this;
     }
 
@@ -65,7 +65,9 @@ class UserInstantConferencingGetStandAloneConferenceDocumentListRequest14 extend
      */
     public function getConferenceOwnerUserId()
     {
-        return ($this->conferenceOwnerUserId) ? $this->conferenceOwnerUserId->getValue() : null;
+        return ($this->conferenceOwnerUserId)
+            ? $this->conferenceOwnerUserId->getElementValue()
+            : null;
     }
 
     /**
@@ -76,7 +78,7 @@ class UserInstantConferencingGetStandAloneConferenceDocumentListRequest14 extend
         $this->conferenceKey = ($conferenceKey InstanceOf InstantConferencingConferenceKey)
              ? $conferenceKey
              : new InstantConferencingConferenceKey($conferenceKey);
-        $this->conferenceKey->setName('conferenceKey');
+        $this->conferenceKey->setElementName('conferenceKey');
         return $this;
     }
 
@@ -95,7 +97,7 @@ class UserInstantConferencingGetStandAloneConferenceDocumentListRequest14 extend
     public function setIsWebServerCollocated($isWebServerCollocated = null)
     {
         $this->isWebServerCollocated = new PrimitiveType($isWebServerCollocated);
-        $this->isWebServerCollocated->setName('isWebServerCollocated');
+        $this->isWebServerCollocated->setElementName('isWebServerCollocated');
         return $this;
     }
 
@@ -105,6 +107,8 @@ class UserInstantConferencingGetStandAloneConferenceDocumentListRequest14 extend
      */
     public function getIsWebServerCollocated()
     {
-        return ($this->isWebServerCollocated) ? $this->isWebServerCollocated->getValue() : null;
+        return ($this->isWebServerCollocated)
+            ? $this->isWebServerCollocated->getElementValue()
+            : null;
     }
 }

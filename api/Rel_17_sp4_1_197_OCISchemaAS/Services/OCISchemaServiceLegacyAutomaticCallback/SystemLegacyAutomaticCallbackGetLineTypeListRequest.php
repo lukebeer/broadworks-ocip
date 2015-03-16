@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
 class SystemLegacyAutomaticCallbackGetLineTypeListRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceLegacyAutomaticCallback\SystemLegacyAutomaticCallbackGetLineTypeListResponse';
-    public    $name = 'SystemLegacyAutomaticCallbackGetLineTypeListRequest';
+    public    $elementName = 'SystemLegacyAutomaticCallbackGetLineTypeListRequest';
 
     public function __construct(    ) {
     }

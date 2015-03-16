@@ -19,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class CommunicationBarringRedirectingRule15sp2 extends ComplexType implements ComplexInterface
 {
-    public    $name = 'CommunicationBarringRedirectingRule15sp2';
+    public    $elementName = 'CommunicationBarringRedirectingRule15sp2';
     protected $criteria;
     protected $action;
 
@@ -45,7 +45,7 @@ class CommunicationBarringRedirectingRule15sp2 extends ComplexType implements Co
     public function setCriteria($criteria = null)
     {
         $this->criteria = new SimpleContent($criteria);
-        $this->criteria->setName('criteria');
+        $this->criteria->setElementName('criteria');
         return $this;
     }
 
@@ -55,7 +55,9 @@ class CommunicationBarringRedirectingRule15sp2 extends ComplexType implements Co
      */
     public function getCriteria()
     {
-        return ($this->criteria) ? $this->criteria->getValue() : null;
+        return ($this->criteria)
+            ? $this->criteria->getElementValue()
+            : null;
     }
 
     /**
@@ -64,7 +66,7 @@ class CommunicationBarringRedirectingRule15sp2 extends ComplexType implements Co
     public function setAction($action = null)
     {
         $this->action = new SimpleContent($action);
-        $this->action->setName('action');
+        $this->action->setElementName('action');
         return $this;
     }
 
@@ -74,6 +76,8 @@ class CommunicationBarringRedirectingRule15sp2 extends ComplexType implements Co
      */
     public function getAction()
     {
-        return ($this->action) ? $this->action->getValue() : null;
+        return ($this->action)
+            ? $this->action->getElementValue()
+            : null;
     }
 }

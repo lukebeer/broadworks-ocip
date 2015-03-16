@@ -17,12 +17,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\MaxLength;
  */
 class AccountAuthorizationCode extends SimpleType
 {
-    public $name = "AccountAuthorizationCode";
-    protected $value;
-
+    public $elementName = "AccountAuthorizationCode";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new MinLength("2"));
         $this->addRestriction(new MaxLength("14"));
     }

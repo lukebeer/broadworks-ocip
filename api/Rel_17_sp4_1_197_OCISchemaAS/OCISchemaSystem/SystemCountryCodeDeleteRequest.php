@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemCountryCodeDeleteRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemCountryCodeDeleteRequest';
+    public    $elementName = 'SystemCountryCodeDeleteRequest';
     protected $countryCode;
 
     public function __construct(
@@ -47,7 +47,7 @@ class SystemCountryCodeDeleteRequest extends ComplexType implements ComplexInter
         $this->countryCode = ($countryCode InstanceOf CountryCode)
              ? $countryCode
              : new CountryCode($countryCode);
-        $this->countryCode->setName('countryCode');
+        $this->countryCode->setElementName('countryCode');
         return $this;
     }
 
@@ -57,6 +57,8 @@ class SystemCountryCodeDeleteRequest extends ComplexType implements ComplexInter
      */
     public function getCountryCode()
     {
-        return ($this->countryCode) ? $this->countryCode->getValue() : null;
+        return ($this->countryCode)
+            ? $this->countryCode->getElementValue()
+            : null;
     }
 }

@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserCallForwardingSelectiveGetCriteriaResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'UserCallForwardingSelectiveGetCriteriaResponse';
+    public    $elementName = 'UserCallForwardingSelectiveGetCriteriaResponse';
     protected $timeSchedule;
     protected $forwardToNumberSelection;
     protected $forwardToPhoneNumber;
@@ -44,7 +44,7 @@ class UserCallForwardingSelectiveGetCriteriaResponse extends ComplexType impleme
         $this->timeSchedule = ($timeSchedule InstanceOf TimeSchedule)
              ? $timeSchedule
              : new TimeSchedule($timeSchedule);
-        $this->timeSchedule->setName('timeSchedule');
+        $this->timeSchedule->setElementName('timeSchedule');
         return $this;
     }
 
@@ -65,7 +65,7 @@ class UserCallForwardingSelectiveGetCriteriaResponse extends ComplexType impleme
         $this->forwardToNumberSelection = ($forwardToNumberSelection InstanceOf CallForwardingSelectiveNumberSelection)
              ? $forwardToNumberSelection
              : new CallForwardingSelectiveNumberSelection($forwardToNumberSelection);
-        $this->forwardToNumberSelection->setName('forwardToNumberSelection');
+        $this->forwardToNumberSelection->setElementName('forwardToNumberSelection');
         return $this;
     }
 
@@ -75,7 +75,9 @@ class UserCallForwardingSelectiveGetCriteriaResponse extends ComplexType impleme
      */
     public function getForwardToNumberSelection()
     {
-        return ($this->forwardToNumberSelection) ? $this->forwardToNumberSelection->getValue() : null;
+        return ($this->forwardToNumberSelection)
+            ? $this->forwardToNumberSelection->getElementValue()
+            : null;
     }
 
     /**
@@ -86,7 +88,7 @@ class UserCallForwardingSelectiveGetCriteriaResponse extends ComplexType impleme
         $this->forwardToPhoneNumber = ($forwardToPhoneNumber InstanceOf OutgoingDNorSIPURI)
              ? $forwardToPhoneNumber
              : new OutgoingDNorSIPURI($forwardToPhoneNumber);
-        $this->forwardToPhoneNumber->setName('forwardToPhoneNumber');
+        $this->forwardToPhoneNumber->setElementName('forwardToPhoneNumber');
         return $this;
     }
 
@@ -96,7 +98,9 @@ class UserCallForwardingSelectiveGetCriteriaResponse extends ComplexType impleme
      */
     public function getForwardToPhoneNumber()
     {
-        return ($this->forwardToPhoneNumber) ? $this->forwardToPhoneNumber->getValue() : null;
+        return ($this->forwardToPhoneNumber)
+            ? $this->forwardToPhoneNumber->getElementValue()
+            : null;
     }
 
     /**
@@ -107,7 +111,7 @@ class UserCallForwardingSelectiveGetCriteriaResponse extends ComplexType impleme
         $this->fromDnCriteria = ($fromDnCriteria InstanceOf CriteriaFromDn)
              ? $fromDnCriteria
              : new CriteriaFromDn($fromDnCriteria);
-        $this->fromDnCriteria->setName('fromDnCriteria');
+        $this->fromDnCriteria->setElementName('fromDnCriteria');
         return $this;
     }
 

@@ -23,7 +23,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupMusicOnHoldGetInstanceResponse14sp4 extends ComplexType implements ComplexInterface
 {
-    public    $name = 'GroupMusicOnHoldGetInstanceResponse14sp4';
+    public    $elementName = 'GroupMusicOnHoldGetInstanceResponse14sp4';
     protected $serviceUserId;
     protected $isActiveDuringCallHold;
     protected $isActiveDuringCallPark;
@@ -50,7 +50,7 @@ class GroupMusicOnHoldGetInstanceResponse14sp4 extends ComplexType implements Co
         $this->serviceUserId = ($serviceUserId InstanceOf UserId)
              ? $serviceUserId
              : new UserId($serviceUserId);
-        $this->serviceUserId->setName('serviceUserId');
+        $this->serviceUserId->setElementName('serviceUserId');
         return $this;
     }
 
@@ -60,7 +60,9 @@ class GroupMusicOnHoldGetInstanceResponse14sp4 extends ComplexType implements Co
      */
     public function getServiceUserId()
     {
-        return ($this->serviceUserId) ? $this->serviceUserId->getValue() : null;
+        return ($this->serviceUserId)
+            ? $this->serviceUserId->getElementValue()
+            : null;
     }
 
     /**
@@ -69,7 +71,7 @@ class GroupMusicOnHoldGetInstanceResponse14sp4 extends ComplexType implements Co
     public function setIsActiveDuringCallHold($isActiveDuringCallHold = null)
     {
         $this->isActiveDuringCallHold = new PrimitiveType($isActiveDuringCallHold);
-        $this->isActiveDuringCallHold->setName('isActiveDuringCallHold');
+        $this->isActiveDuringCallHold->setElementName('isActiveDuringCallHold');
         return $this;
     }
 
@@ -79,7 +81,9 @@ class GroupMusicOnHoldGetInstanceResponse14sp4 extends ComplexType implements Co
      */
     public function getIsActiveDuringCallHold()
     {
-        return ($this->isActiveDuringCallHold) ? $this->isActiveDuringCallHold->getValue() : null;
+        return ($this->isActiveDuringCallHold)
+            ? $this->isActiveDuringCallHold->getElementValue()
+            : null;
     }
 
     /**
@@ -88,7 +92,7 @@ class GroupMusicOnHoldGetInstanceResponse14sp4 extends ComplexType implements Co
     public function setIsActiveDuringCallPark($isActiveDuringCallPark = null)
     {
         $this->isActiveDuringCallPark = new PrimitiveType($isActiveDuringCallPark);
-        $this->isActiveDuringCallPark->setName('isActiveDuringCallPark');
+        $this->isActiveDuringCallPark->setElementName('isActiveDuringCallPark');
         return $this;
     }
 
@@ -98,7 +102,9 @@ class GroupMusicOnHoldGetInstanceResponse14sp4 extends ComplexType implements Co
      */
     public function getIsActiveDuringCallPark()
     {
-        return ($this->isActiveDuringCallPark) ? $this->isActiveDuringCallPark->getValue() : null;
+        return ($this->isActiveDuringCallPark)
+            ? $this->isActiveDuringCallPark->getElementValue()
+            : null;
     }
 
     /**
@@ -107,7 +113,7 @@ class GroupMusicOnHoldGetInstanceResponse14sp4 extends ComplexType implements Co
     public function setIsActiveDuringBusyCampOn($isActiveDuringBusyCampOn = null)
     {
         $this->isActiveDuringBusyCampOn = new PrimitiveType($isActiveDuringBusyCampOn);
-        $this->isActiveDuringBusyCampOn->setName('isActiveDuringBusyCampOn');
+        $this->isActiveDuringBusyCampOn->setElementName('isActiveDuringBusyCampOn');
         return $this;
     }
 
@@ -117,7 +123,9 @@ class GroupMusicOnHoldGetInstanceResponse14sp4 extends ComplexType implements Co
      */
     public function getIsActiveDuringBusyCampOn()
     {
-        return ($this->isActiveDuringBusyCampOn) ? $this->isActiveDuringBusyCampOn->getValue() : null;
+        return ($this->isActiveDuringBusyCampOn)
+            ? $this->isActiveDuringBusyCampOn->getElementValue()
+            : null;
     }
 
     /**
@@ -128,7 +136,7 @@ class GroupMusicOnHoldGetInstanceResponse14sp4 extends ComplexType implements Co
         $this->messageSelection = ($messageSelection InstanceOf MusicOnHoldMessageSelection)
              ? $messageSelection
              : new MusicOnHoldMessageSelection($messageSelection);
-        $this->messageSelection->setName('messageSelection');
+        $this->messageSelection->setElementName('messageSelection');
         return $this;
     }
 
@@ -138,7 +146,9 @@ class GroupMusicOnHoldGetInstanceResponse14sp4 extends ComplexType implements Co
      */
     public function getMessageSelection()
     {
-        return ($this->messageSelection) ? $this->messageSelection->getValue() : null;
+        return ($this->messageSelection)
+            ? $this->messageSelection->getElementValue()
+            : null;
     }
 
     /**
@@ -149,7 +159,7 @@ class GroupMusicOnHoldGetInstanceResponse14sp4 extends ComplexType implements Co
         $this->accessDeviceEndpoint = ($accessDeviceEndpoint InstanceOf AccessDeviceEndpointRead14)
              ? $accessDeviceEndpoint
              : new AccessDeviceEndpointRead14($accessDeviceEndpoint);
-        $this->accessDeviceEndpoint->setName('accessDeviceEndpoint');
+        $this->accessDeviceEndpoint->setElementName('accessDeviceEndpoint');
         return $this;
     }
 
@@ -168,7 +178,7 @@ class GroupMusicOnHoldGetInstanceResponse14sp4 extends ComplexType implements Co
     public function setEnableVideo($enableVideo = null)
     {
         $this->enableVideo = new PrimitiveType($enableVideo);
-        $this->enableVideo->setName('enableVideo');
+        $this->enableVideo->setElementName('enableVideo');
         return $this;
     }
 
@@ -178,7 +188,9 @@ class GroupMusicOnHoldGetInstanceResponse14sp4 extends ComplexType implements Co
      */
     public function getEnableVideo()
     {
-        return ($this->enableVideo) ? $this->enableVideo->getValue() : null;
+        return ($this->enableVideo)
+            ? $this->enableVideo->getElementValue()
+            : null;
     }
 
     /**
@@ -189,7 +201,7 @@ class GroupMusicOnHoldGetInstanceResponse14sp4 extends ComplexType implements Co
         $this->audioFileDescription = ($audioFileDescription InstanceOf FileDescription)
              ? $audioFileDescription
              : new FileDescription($audioFileDescription);
-        $this->audioFileDescription->setName('audioFileDescription');
+        $this->audioFileDescription->setElementName('audioFileDescription');
         return $this;
     }
 
@@ -199,7 +211,9 @@ class GroupMusicOnHoldGetInstanceResponse14sp4 extends ComplexType implements Co
      */
     public function getAudioFileDescription()
     {
-        return ($this->audioFileDescription) ? $this->audioFileDescription->getValue() : null;
+        return ($this->audioFileDescription)
+            ? $this->audioFileDescription->getElementValue()
+            : null;
     }
 
     /**
@@ -210,7 +224,7 @@ class GroupMusicOnHoldGetInstanceResponse14sp4 extends ComplexType implements Co
         $this->videoFileDescription = ($videoFileDescription InstanceOf FileDescription)
              ? $videoFileDescription
              : new FileDescription($videoFileDescription);
-        $this->videoFileDescription->setName('videoFileDescription');
+        $this->videoFileDescription->setElementName('videoFileDescription');
         return $this;
     }
 
@@ -220,6 +234,8 @@ class GroupMusicOnHoldGetInstanceResponse14sp4 extends ComplexType implements Co
      */
     public function getVideoFileDescription()
     {
-        return ($this->videoFileDescription) ? $this->videoFileDescription->getValue() : null;
+        return ($this->videoFileDescription)
+            ? $this->videoFileDescription->getElementValue()
+            : null;
     }
 }

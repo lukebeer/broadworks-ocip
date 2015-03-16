@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemOCICallControlDeleteACLEntryRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemOCICallControlDeleteACLEntryRequest';
+    public    $elementName = 'SystemOCICallControlDeleteACLEntryRequest';
     protected $netAddress;
 
     public function __construct(
@@ -45,7 +45,7 @@ class SystemOCICallControlDeleteACLEntryRequest extends ComplexType implements C
         $this->netAddress = ($netAddress InstanceOf IPAddress)
              ? $netAddress
              : new IPAddress($netAddress);
-        $this->netAddress->setName('netAddress');
+        $this->netAddress->setElementName('netAddress');
         return $this;
     }
 
@@ -55,6 +55,8 @@ class SystemOCICallControlDeleteACLEntryRequest extends ComplexType implements C
      */
     public function getNetAddress()
     {
-        return ($this->netAddress) ? $this->netAddress->getValue() : null;
+        return ($this->netAddress)
+            ? $this->netAddress->getElementValue()
+            : null;
     }
 }

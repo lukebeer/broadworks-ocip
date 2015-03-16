@@ -27,7 +27,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupTrunkGroupGetInstanceResponse14 extends ComplexType implements ComplexInterface
 {
-    public    $name = 'GroupTrunkGroupGetInstanceResponse14';
+    public    $elementName = 'GroupTrunkGroupGetInstanceResponse14';
     protected $serviceInstanceProfile;
     protected $accessDeviceEndpoint;
     protected $maxActiveCalls;
@@ -52,7 +52,7 @@ class GroupTrunkGroupGetInstanceResponse14 extends ComplexType implements Comple
         $this->serviceInstanceProfile = ($serviceInstanceProfile InstanceOf ServiceInstanceReadProfile)
              ? $serviceInstanceProfile
              : new ServiceInstanceReadProfile($serviceInstanceProfile);
-        $this->serviceInstanceProfile->setName('serviceInstanceProfile');
+        $this->serviceInstanceProfile->setElementName('serviceInstanceProfile');
         return $this;
     }
 
@@ -73,7 +73,7 @@ class GroupTrunkGroupGetInstanceResponse14 extends ComplexType implements Comple
         $this->accessDeviceEndpoint = ($accessDeviceEndpoint InstanceOf AccessDeviceEndpointRead14)
              ? $accessDeviceEndpoint
              : new AccessDeviceEndpointRead14($accessDeviceEndpoint);
-        $this->accessDeviceEndpoint->setName('accessDeviceEndpoint');
+        $this->accessDeviceEndpoint->setElementName('accessDeviceEndpoint');
         return $this;
     }
 
@@ -94,7 +94,7 @@ class GroupTrunkGroupGetInstanceResponse14 extends ComplexType implements Comple
         $this->maxActiveCalls = ($maxActiveCalls InstanceOf MaxActiveCalls)
              ? $maxActiveCalls
              : new MaxActiveCalls($maxActiveCalls);
-        $this->maxActiveCalls->setName('maxActiveCalls');
+        $this->maxActiveCalls->setElementName('maxActiveCalls');
         return $this;
     }
 
@@ -104,7 +104,9 @@ class GroupTrunkGroupGetInstanceResponse14 extends ComplexType implements Comple
      */
     public function getMaxActiveCalls()
     {
-        return ($this->maxActiveCalls) ? $this->maxActiveCalls->getValue() : null;
+        return ($this->maxActiveCalls)
+            ? $this->maxActiveCalls->getElementValue()
+            : null;
     }
 
     /**
@@ -115,7 +117,7 @@ class GroupTrunkGroupGetInstanceResponse14 extends ComplexType implements Comple
         $this->maxIncomingCalls = ($maxIncomingCalls InstanceOf MaxIncomingCalls)
              ? $maxIncomingCalls
              : new MaxIncomingCalls($maxIncomingCalls);
-        $this->maxIncomingCalls->setName('maxIncomingCalls');
+        $this->maxIncomingCalls->setElementName('maxIncomingCalls');
         return $this;
     }
 
@@ -125,7 +127,9 @@ class GroupTrunkGroupGetInstanceResponse14 extends ComplexType implements Comple
      */
     public function getMaxIncomingCalls()
     {
-        return ($this->maxIncomingCalls) ? $this->maxIncomingCalls->getValue() : null;
+        return ($this->maxIncomingCalls)
+            ? $this->maxIncomingCalls->getElementValue()
+            : null;
     }
 
     /**
@@ -136,7 +140,7 @@ class GroupTrunkGroupGetInstanceResponse14 extends ComplexType implements Comple
         $this->maxOutgoingCalls = ($maxOutgoingCalls InstanceOf MaxOutgoingCalls)
              ? $maxOutgoingCalls
              : new MaxOutgoingCalls($maxOutgoingCalls);
-        $this->maxOutgoingCalls->setName('maxOutgoingCalls');
+        $this->maxOutgoingCalls->setElementName('maxOutgoingCalls');
         return $this;
     }
 
@@ -146,7 +150,9 @@ class GroupTrunkGroupGetInstanceResponse14 extends ComplexType implements Comple
      */
     public function getMaxOutgoingCalls()
     {
-        return ($this->maxOutgoingCalls) ? $this->maxOutgoingCalls->getValue() : null;
+        return ($this->maxOutgoingCalls)
+            ? $this->maxOutgoingCalls->getElementValue()
+            : null;
     }
 
     /**
@@ -155,7 +161,7 @@ class GroupTrunkGroupGetInstanceResponse14 extends ComplexType implements Comple
     public function setRequireAuthentication($requireAuthentication = null)
     {
         $this->requireAuthentication = new PrimitiveType($requireAuthentication);
-        $this->requireAuthentication->setName('requireAuthentication');
+        $this->requireAuthentication->setElementName('requireAuthentication');
         return $this;
     }
 
@@ -165,7 +171,9 @@ class GroupTrunkGroupGetInstanceResponse14 extends ComplexType implements Comple
      */
     public function getRequireAuthentication()
     {
-        return ($this->requireAuthentication) ? $this->requireAuthentication->getValue() : null;
+        return ($this->requireAuthentication)
+            ? $this->requireAuthentication->getElementValue()
+            : null;
     }
 
     /**
@@ -176,7 +184,7 @@ class GroupTrunkGroupGetInstanceResponse14 extends ComplexType implements Comple
         $this->sipAuthenticationUserName = ($sipAuthenticationUserName InstanceOf SIPAuthenticationUserName)
              ? $sipAuthenticationUserName
              : new SIPAuthenticationUserName($sipAuthenticationUserName);
-        $this->sipAuthenticationUserName->setName('sipAuthenticationUserName');
+        $this->sipAuthenticationUserName->setElementName('sipAuthenticationUserName');
         return $this;
     }
 
@@ -186,6 +194,8 @@ class GroupTrunkGroupGetInstanceResponse14 extends ComplexType implements Comple
      */
     public function getSipAuthenticationUserName()
     {
-        return ($this->sipAuthenticationUserName) ? $this->sipAuthenticationUserName->getValue() : null;
+        return ($this->sipAuthenticationUserName)
+            ? $this->sipAuthenticationUserName->getElementValue()
+            : null;
     }
 }

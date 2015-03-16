@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
 class SystemDnGetUtilizationRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\SystemDnGetUtilizationResponse';
-    public    $name = 'SystemDnGetUtilizationRequest';
+    public    $elementName = 'SystemDnGetUtilizationRequest';
     protected $phoneNumber;
 
     public function __construct(
@@ -47,7 +47,7 @@ class SystemDnGetUtilizationRequest extends ComplexType implements ComplexInterf
         $this->phoneNumber = ($phoneNumber InstanceOf DN)
              ? $phoneNumber
              : new DN($phoneNumber);
-        $this->phoneNumber->setName('phoneNumber');
+        $this->phoneNumber->setElementName('phoneNumber');
         return $this;
     }
 
@@ -57,6 +57,8 @@ class SystemDnGetUtilizationRequest extends ComplexType implements ComplexInterf
      */
     public function getPhoneNumber()
     {
-        return ($this->phoneNumber) ? $this->phoneNumber->getValue() : null;
+        return ($this->phoneNumber)
+            ? $this->phoneNumber->getElementValue()
+            : null;
     }
 }

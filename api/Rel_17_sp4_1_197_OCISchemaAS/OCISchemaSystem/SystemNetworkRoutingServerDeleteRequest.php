@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemNetworkRoutingServerDeleteRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemNetworkRoutingServerDeleteRequest';
+    public    $elementName = 'SystemNetworkRoutingServerDeleteRequest';
     protected $netAddress;
 
     public function __construct(
@@ -45,7 +45,7 @@ class SystemNetworkRoutingServerDeleteRequest extends ComplexType implements Com
         $this->netAddress = ($netAddress InstanceOf NetAddress)
              ? $netAddress
              : new NetAddress($netAddress);
-        $this->netAddress->setName('netAddress');
+        $this->netAddress->setElementName('netAddress');
         return $this;
     }
 
@@ -55,6 +55,8 @@ class SystemNetworkRoutingServerDeleteRequest extends ComplexType implements Com
      */
     public function getNetAddress()
     {
-        return ($this->netAddress) ? $this->netAddress->getValue() : null;
+        return ($this->netAddress)
+            ? $this->netAddress->getElementValue()
+            : null;
     }
 }

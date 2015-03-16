@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserHotelingGuestGetAvailableUserListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'UserHotelingGuestGetAvailableUserListResponse';
+    public    $elementName = 'UserHotelingGuestGetAvailableUserListResponse';
     protected $hostUserTable;
 
     /**
@@ -37,7 +37,7 @@ class UserHotelingGuestGetAvailableUserListResponse extends ComplexType implemen
     public function setHostUserTable(TableType $hostUserTable = null)
     {
         $this->hostUserTable = $hostUserTable;
-        $this->hostUserTable->setName('hostUserTable');
+        $this->hostUserTable->setElementName('hostUserTable');
         return $this;
     }
 

@@ -19,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemEmergencyZonesGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemEmergencyZonesGetResponse';
+    public    $elementName = 'SystemEmergencyZonesGetResponse';
     protected $defaultFromAddress;
 
     /**
@@ -38,7 +38,7 @@ class SystemEmergencyZonesGetResponse extends ComplexType implements ComplexInte
         $this->defaultFromAddress = ($defaultFromAddress InstanceOf EmailAddress)
              ? $defaultFromAddress
              : new EmailAddress($defaultFromAddress);
-        $this->defaultFromAddress->setName('defaultFromAddress');
+        $this->defaultFromAddress->setElementName('defaultFromAddress');
         return $this;
     }
 
@@ -48,6 +48,8 @@ class SystemEmergencyZonesGetResponse extends ComplexType implements ComplexInte
      */
     public function getDefaultFromAddress()
     {
-        return ($this->defaultFromAddress) ? $this->defaultFromAddress->getValue() : null;
+        return ($this->defaultFromAddress)
+            ? $this->defaultFromAddress->getElementValue()
+            : null;
     }
 }

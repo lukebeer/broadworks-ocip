@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemInterceptUserDeleteDnListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemInterceptUserDeleteDnListRequest';
+    public    $elementName = 'SystemInterceptUserDeleteDnListRequest';
     protected $phoneNumbers;
 
     public function __construct(
@@ -45,7 +45,7 @@ class SystemInterceptUserDeleteDnListRequest extends ComplexType implements Comp
         $this->phoneNumbers = ($phoneNumbers InstanceOf DN)
              ? $phoneNumbers
              : new DN($phoneNumbers);
-        $this->phoneNumbers->setName('phoneNumbers');
+        $this->phoneNumbers->setElementName('phoneNumbers');
         return $this;
     }
 
@@ -55,6 +55,8 @@ class SystemInterceptUserDeleteDnListRequest extends ComplexType implements Comp
      */
     public function getPhoneNumbers()
     {
-        return ($this->phoneNumbers) ? $this->phoneNumbers->getValue() : null;
+        return ($this->phoneNumbers)
+            ? $this->phoneNumbers->getElementValue()
+            : null;
     }
 }

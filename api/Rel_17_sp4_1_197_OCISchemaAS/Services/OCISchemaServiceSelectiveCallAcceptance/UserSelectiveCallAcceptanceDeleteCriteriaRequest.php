@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserSelectiveCallAcceptanceDeleteCriteriaRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'UserSelectiveCallAcceptanceDeleteCriteriaRequest';
+    public    $elementName = 'UserSelectiveCallAcceptanceDeleteCriteriaRequest';
     protected $userId;
     protected $criteriaName;
 
@@ -49,7 +49,7 @@ class UserSelectiveCallAcceptanceDeleteCriteriaRequest extends ComplexType imple
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
-        $this->userId->setName('userId');
+        $this->userId->setElementName('userId');
         return $this;
     }
 
@@ -59,7 +59,9 @@ class UserSelectiveCallAcceptanceDeleteCriteriaRequest extends ComplexType imple
      */
     public function getUserId()
     {
-        return ($this->userId) ? $this->userId->getValue() : null;
+        return ($this->userId)
+            ? $this->userId->getElementValue()
+            : null;
     }
 
     /**
@@ -70,7 +72,7 @@ class UserSelectiveCallAcceptanceDeleteCriteriaRequest extends ComplexType imple
         $this->criteriaName = ($criteriaName InstanceOf CriteriaName)
              ? $criteriaName
              : new CriteriaName($criteriaName);
-        $this->criteriaName->setName('criteriaName');
+        $this->criteriaName->setElementName('criteriaName');
         return $this;
     }
 
@@ -80,6 +82,8 @@ class UserSelectiveCallAcceptanceDeleteCriteriaRequest extends ComplexType imple
      */
     public function getCriteriaName()
     {
-        return ($this->criteriaName) ? $this->criteriaName->getValue() : null;
+        return ($this->criteriaName)
+            ? $this->criteriaName->getElementValue()
+            : null;
     }
 }

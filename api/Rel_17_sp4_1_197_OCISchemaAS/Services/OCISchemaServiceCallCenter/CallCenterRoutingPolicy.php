@@ -16,12 +16,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\Enumeration;
  */
 class CallCenterRoutingPolicy extends SimpleType
 {
-    public $name = "CallCenterRoutingPolicy";
-    protected $value;
-
+    public $elementName = "CallCenterRoutingPolicy";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new Enumeration([
             'Longest Wait Time',
             'Priority'

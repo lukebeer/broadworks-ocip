@@ -24,7 +24,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemDeviceTypeGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemDeviceTypeGetResponse';
+    public    $elementName = 'SystemDeviceTypeGetResponse';
     protected $isObsolete;
     protected $profile;
     protected $webBasedConfigURL;
@@ -48,7 +48,7 @@ class SystemDeviceTypeGetResponse extends ComplexType implements ComplexInterfac
     public function setIsObsolete($isObsolete = null)
     {
         $this->isObsolete = new PrimitiveType($isObsolete);
-        $this->isObsolete->setName('isObsolete');
+        $this->isObsolete->setElementName('isObsolete');
         return $this;
     }
 
@@ -58,7 +58,9 @@ class SystemDeviceTypeGetResponse extends ComplexType implements ComplexInterfac
      */
     public function getIsObsolete()
     {
-        return ($this->isObsolete) ? $this->isObsolete->getValue() : null;
+        return ($this->isObsolete)
+            ? $this->isObsolete->getElementValue()
+            : null;
     }
 
     /**
@@ -69,7 +71,7 @@ class SystemDeviceTypeGetResponse extends ComplexType implements ComplexInterfac
         $this->profile = ($profile InstanceOf SignalingAddressType)
              ? $profile
              : new SignalingAddressType($profile);
-        $this->profile->setName('profile');
+        $this->profile->setElementName('profile');
         return $this;
     }
 
@@ -79,7 +81,9 @@ class SystemDeviceTypeGetResponse extends ComplexType implements ComplexInterfac
      */
     public function getProfile()
     {
-        return ($this->profile) ? $this->profile->getValue() : null;
+        return ($this->profile)
+            ? $this->profile->getElementValue()
+            : null;
     }
 
     /**
@@ -90,7 +94,7 @@ class SystemDeviceTypeGetResponse extends ComplexType implements ComplexInterfac
         $this->webBasedConfigURL = ($webBasedConfigURL InstanceOf WebBasedConfigURL)
              ? $webBasedConfigURL
              : new WebBasedConfigURL($webBasedConfigURL);
-        $this->webBasedConfigURL->setName('webBasedConfigURL');
+        $this->webBasedConfigURL->setElementName('webBasedConfigURL');
         return $this;
     }
 
@@ -100,7 +104,9 @@ class SystemDeviceTypeGetResponse extends ComplexType implements ComplexInterfac
      */
     public function getWebBasedConfigURL()
     {
-        return ($this->webBasedConfigURL) ? $this->webBasedConfigURL->getValue() : null;
+        return ($this->webBasedConfigURL)
+            ? $this->webBasedConfigURL->getElementValue()
+            : null;
     }
 
     /**
@@ -109,7 +115,7 @@ class SystemDeviceTypeGetResponse extends ComplexType implements ComplexInterfac
     public function setStaticRegistrationCapable($staticRegistrationCapable = null)
     {
         $this->staticRegistrationCapable = new PrimitiveType($staticRegistrationCapable);
-        $this->staticRegistrationCapable->setName('staticRegistrationCapable');
+        $this->staticRegistrationCapable->setElementName('staticRegistrationCapable');
         return $this;
     }
 
@@ -119,7 +125,9 @@ class SystemDeviceTypeGetResponse extends ComplexType implements ComplexInterfac
      */
     public function getStaticRegistrationCapable()
     {
-        return ($this->staticRegistrationCapable) ? $this->staticRegistrationCapable->getValue() : null;
+        return ($this->staticRegistrationCapable)
+            ? $this->staticRegistrationCapable->getElementValue()
+            : null;
     }
 
     /**
@@ -130,7 +138,7 @@ class SystemDeviceTypeGetResponse extends ComplexType implements ComplexInterfac
         $this->cpeDeviceOptions = ($cpeDeviceOptions InstanceOf CPEDeviceOptions)
              ? $cpeDeviceOptions
              : new CPEDeviceOptions($cpeDeviceOptions);
-        $this->cpeDeviceOptions->setName('cpeDeviceOptions');
+        $this->cpeDeviceOptions->setElementName('cpeDeviceOptions');
         return $this;
     }
 
@@ -151,7 +159,7 @@ class SystemDeviceTypeGetResponse extends ComplexType implements ComplexInterfac
         $this->protocolChoice = ($protocolChoice InstanceOf AccessDeviceProtocol)
              ? $protocolChoice
              : new AccessDeviceProtocol($protocolChoice);
-        $this->protocolChoice->setName('protocolChoice');
+        $this->protocolChoice->setElementName('protocolChoice');
         return $this;
     }
 
@@ -161,7 +169,9 @@ class SystemDeviceTypeGetResponse extends ComplexType implements ComplexInterfac
      */
     public function getProtocolChoice()
     {
-        return ($this->protocolChoice) ? $this->protocolChoice->getValue() : null;
+        return ($this->protocolChoice)
+            ? $this->protocolChoice->getElementValue()
+            : null;
     }
 
     /**
@@ -170,7 +180,7 @@ class SystemDeviceTypeGetResponse extends ComplexType implements ComplexInterfac
     public function setIsIpAddressOptional($isIpAddressOptional = null)
     {
         $this->isIpAddressOptional = new PrimitiveType($isIpAddressOptional);
-        $this->isIpAddressOptional->setName('isIpAddressOptional');
+        $this->isIpAddressOptional->setElementName('isIpAddressOptional');
         return $this;
     }
 
@@ -180,7 +190,9 @@ class SystemDeviceTypeGetResponse extends ComplexType implements ComplexInterfac
      */
     public function getIsIpAddressOptional()
     {
-        return ($this->isIpAddressOptional) ? $this->isIpAddressOptional->getValue() : null;
+        return ($this->isIpAddressOptional)
+            ? $this->isIpAddressOptional->getElementValue()
+            : null;
     }
 
     /**
@@ -189,7 +201,7 @@ class SystemDeviceTypeGetResponse extends ComplexType implements ComplexInterfac
     public function setUseDomain($useDomain = null)
     {
         $this->useDomain = new PrimitiveType($useDomain);
-        $this->useDomain->setName('useDomain');
+        $this->useDomain->setElementName('useDomain');
         return $this;
     }
 
@@ -199,6 +211,8 @@ class SystemDeviceTypeGetResponse extends ComplexType implements ComplexInterfac
      */
     public function getUseDomain()
     {
-        return ($this->useDomain) ? $this->useDomain->getValue() : null;
+        return ($this->useDomain)
+            ? $this->useDomain->getElementValue()
+            : null;
     }
 }

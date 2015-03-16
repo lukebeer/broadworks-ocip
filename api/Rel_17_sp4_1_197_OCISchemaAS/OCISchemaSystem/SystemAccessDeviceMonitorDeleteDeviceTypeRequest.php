@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemAccessDeviceMonitorDeleteDeviceTypeRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemAccessDeviceMonitorDeleteDeviceTypeRequest';
+    public    $elementName = 'SystemAccessDeviceMonitorDeleteDeviceTypeRequest';
 
     public function __construct(    ) {
     }

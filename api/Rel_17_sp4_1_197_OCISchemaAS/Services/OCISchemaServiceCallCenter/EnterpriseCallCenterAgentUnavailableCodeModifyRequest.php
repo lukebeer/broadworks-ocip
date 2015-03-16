@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class EnterpriseCallCenterAgentUnavailableCodeModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'EnterpriseCallCenterAgentUnavailableCodeModifyRequest';
+    public    $elementName = 'EnterpriseCallCenterAgentUnavailableCodeModifyRequest';
     protected $serviceProviderId;
     protected $code;
     protected $isActive;
@@ -56,7 +56,7 @@ class EnterpriseCallCenterAgentUnavailableCodeModifyRequest extends ComplexType 
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
-        $this->serviceProviderId->setName('serviceProviderId');
+        $this->serviceProviderId->setElementName('serviceProviderId');
         return $this;
     }
 
@@ -66,7 +66,9 @@ class EnterpriseCallCenterAgentUnavailableCodeModifyRequest extends ComplexType 
      */
     public function getServiceProviderId()
     {
-        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
+        return ($this->serviceProviderId)
+            ? $this->serviceProviderId->getElementValue()
+            : null;
     }
 
     /**
@@ -77,7 +79,7 @@ class EnterpriseCallCenterAgentUnavailableCodeModifyRequest extends ComplexType 
         $this->code = ($code InstanceOf CallCenterAgentUnavailableCode)
              ? $code
              : new CallCenterAgentUnavailableCode($code);
-        $this->code->setName('code');
+        $this->code->setElementName('code');
         return $this;
     }
 
@@ -87,7 +89,9 @@ class EnterpriseCallCenterAgentUnavailableCodeModifyRequest extends ComplexType 
      */
     public function getCode()
     {
-        return ($this->code) ? $this->code->getValue() : null;
+        return ($this->code)
+            ? $this->code->getElementValue()
+            : null;
     }
 
     /**
@@ -96,7 +100,7 @@ class EnterpriseCallCenterAgentUnavailableCodeModifyRequest extends ComplexType 
     public function setIsActive($isActive = null)
     {
         $this->isActive = new PrimitiveType($isActive);
-        $this->isActive->setName('isActive');
+        $this->isActive->setElementName('isActive');
         return $this;
     }
 
@@ -106,7 +110,9 @@ class EnterpriseCallCenterAgentUnavailableCodeModifyRequest extends ComplexType 
      */
     public function getIsActive()
     {
-        return ($this->isActive) ? $this->isActive->getValue() : null;
+        return ($this->isActive)
+            ? $this->isActive->getElementValue()
+            : null;
     }
 
     /**
@@ -117,7 +123,7 @@ class EnterpriseCallCenterAgentUnavailableCodeModifyRequest extends ComplexType 
         $this->description = ($description InstanceOf CallCenterAgentUnavailableCodeDescription)
              ? $description
              : new CallCenterAgentUnavailableCodeDescription($description);
-        $this->description->setName('description');
+        $this->description->setElementName('description');
         return $this;
     }
 
@@ -127,6 +133,8 @@ class EnterpriseCallCenterAgentUnavailableCodeModifyRequest extends ComplexType 
      */
     public function getDescription()
     {
-        return ($this->description) ? $this->description->getValue() : null;
+        return ($this->description)
+            ? $this->description->getElementValue()
+            : null;
     }
 }

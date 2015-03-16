@@ -16,12 +16,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\Enumeration;
  */
 class InstantConferencingRecordedConferenceHoldPeriodDays extends SimpleType
 {
-    public $name = "InstantConferencingRecordedConferenceHoldPeriodDays";
-    protected $value;
-
+    public $elementName = "InstantConferencingRecordedConferenceHoldPeriodDays";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new Enumeration([
             '1',
             '2',

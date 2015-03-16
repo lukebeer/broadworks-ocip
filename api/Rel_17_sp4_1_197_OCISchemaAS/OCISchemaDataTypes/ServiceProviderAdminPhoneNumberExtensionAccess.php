@@ -17,12 +17,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\Enumeration;
  */
 class ServiceProviderAdminPhoneNumberExtensionAccess extends SimpleType
 {
-    public $name = "ServiceProviderAdminPhoneNumberExtensionAccess";
-    protected $value;
-
+    public $elementName = "ServiceProviderAdminPhoneNumberExtensionAccess";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new Enumeration([
             'Full',
             'Assign To Services and Users',

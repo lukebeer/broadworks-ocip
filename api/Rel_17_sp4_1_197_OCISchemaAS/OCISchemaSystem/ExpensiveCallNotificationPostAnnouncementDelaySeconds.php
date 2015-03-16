@@ -17,12 +17,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\MaxInclusive;
  */
 class ExpensiveCallNotificationPostAnnouncementDelaySeconds extends SimpleType
 {
-    public $name = "ExpensiveCallNotificationPostAnnouncementDelaySeconds";
-    protected $value;
-
+    public $elementName = "ExpensiveCallNotificationPostAnnouncementDelaySeconds";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new MinInclusive("0"));
         $this->addRestriction(new MaxInclusive("20"));
     }

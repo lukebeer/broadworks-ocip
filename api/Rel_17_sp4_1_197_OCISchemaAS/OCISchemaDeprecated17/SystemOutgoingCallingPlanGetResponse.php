@@ -19,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemOutgoingCallingPlanGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemOutgoingCallingPlanGetResponse';
+    public    $elementName = 'SystemOutgoingCallingPlanGetResponse';
     protected $directTransferScreening;
 
     /**
@@ -36,7 +36,7 @@ class SystemOutgoingCallingPlanGetResponse extends ComplexType implements Comple
     public function setDirectTransferScreening($directTransferScreening = null)
     {
         $this->directTransferScreening = new PrimitiveType($directTransferScreening);
-        $this->directTransferScreening->setName('directTransferScreening');
+        $this->directTransferScreening->setElementName('directTransferScreening');
         return $this;
     }
 
@@ -46,6 +46,8 @@ class SystemOutgoingCallingPlanGetResponse extends ComplexType implements Comple
      */
     public function getDirectTransferScreening()
     {
-        return ($this->directTransferScreening) ? $this->directTransferScreening->getValue() : null;
+        return ($this->directTransferScreening)
+            ? $this->directTransferScreening->getElementValue()
+            : null;
     }
 }

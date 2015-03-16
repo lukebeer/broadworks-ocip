@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
 class UserInstantConferencingLoginStandAloneRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType          = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing\UserInstantConferencingLoginStandAloneResponse';
-    public    $name = 'UserInstantConferencingLoginStandAloneRequest';
+    public    $elementName = 'UserInstantConferencingLoginStandAloneRequest';
     protected $bridgeServiceUserId;
     protected $conferenceOwnerUserId;
 
@@ -49,7 +49,7 @@ class UserInstantConferencingLoginStandAloneRequest extends ComplexType implemen
         $this->bridgeServiceUserId = ($bridgeServiceUserId InstanceOf UserId)
              ? $bridgeServiceUserId
              : new UserId($bridgeServiceUserId);
-        $this->bridgeServiceUserId->setName('bridgeServiceUserId');
+        $this->bridgeServiceUserId->setElementName('bridgeServiceUserId');
         return $this;
     }
 
@@ -59,7 +59,9 @@ class UserInstantConferencingLoginStandAloneRequest extends ComplexType implemen
      */
     public function getBridgeServiceUserId()
     {
-        return ($this->bridgeServiceUserId) ? $this->bridgeServiceUserId->getValue() : null;
+        return ($this->bridgeServiceUserId)
+            ? $this->bridgeServiceUserId->getElementValue()
+            : null;
     }
 
     /**
@@ -70,7 +72,7 @@ class UserInstantConferencingLoginStandAloneRequest extends ComplexType implemen
         $this->conferenceOwnerUserId = ($conferenceOwnerUserId InstanceOf UserId)
              ? $conferenceOwnerUserId
              : new UserId($conferenceOwnerUserId);
-        $this->conferenceOwnerUserId->setName('conferenceOwnerUserId');
+        $this->conferenceOwnerUserId->setElementName('conferenceOwnerUserId');
         return $this;
     }
 
@@ -80,6 +82,8 @@ class UserInstantConferencingLoginStandAloneRequest extends ComplexType implemen
      */
     public function getConferenceOwnerUserId()
     {
-        return ($this->conferenceOwnerUserId) ? $this->conferenceOwnerUserId->getValue() : null;
+        return ($this->conferenceOwnerUserId)
+            ? $this->conferenceOwnerUserId->getElementValue()
+            : null;
     }
 }

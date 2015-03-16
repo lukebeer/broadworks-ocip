@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ReplacementContactList extends ComplexType implements ComplexInterface
 {
-    public    $name = 'ReplacementContactList';
+    public    $elementName = 'ReplacementContactList';
     protected $contact;
 
     public function __construct(
@@ -43,7 +43,7 @@ class ReplacementContactList extends ComplexType implements ComplexInterface
     public function setContact($contact = null)
     {
         $this->contact = new SimpleContent($contact);
-        $this->contact->setName('contact');
+        $this->contact->setElementName('contact');
         return $this;
     }
 
@@ -53,6 +53,8 @@ class ReplacementContactList extends ComplexType implements ComplexInterface
      */
     public function getContact()
     {
-        return ($this->contact) ? $this->contact->getValue() : null;
+        return ($this->contact)
+            ? $this->contact->getElementValue()
+            : null;
     }
 }

@@ -16,12 +16,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\Enumeration;
  */
 class SignalingAddressType extends SimpleType
 {
-    public $name = "SignalingAddressType";
-    protected $value;
-
+    public $elementName = "SignalingAddressType";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new Enumeration([
             'Non-intelligent Device Addressing',
             'Non-intelligent Proxy Addressing',

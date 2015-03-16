@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupFeatureAccessCodeGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'GroupFeatureAccessCodeGetListResponse';
+    public    $elementName = 'GroupFeatureAccessCodeGetListResponse';
     protected $featureAccessCode;
 
     /**
@@ -39,7 +39,7 @@ class GroupFeatureAccessCodeGetListResponse extends ComplexType implements Compl
         $this->featureAccessCode = ($featureAccessCode InstanceOf FeatureAccessCodeEntry)
              ? $featureAccessCode
              : new FeatureAccessCodeEntry($featureAccessCode);
-        $this->featureAccessCode->setName('featureAccessCode');
+        $this->featureAccessCode->setElementName('featureAccessCode');
         return $this;
     }
 

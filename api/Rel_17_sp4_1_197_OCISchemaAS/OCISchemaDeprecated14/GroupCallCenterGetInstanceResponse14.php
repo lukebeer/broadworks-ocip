@@ -32,7 +32,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupCallCenterGetInstanceResponse14 extends ComplexType implements ComplexInterface
 {
-    public    $name = 'GroupCallCenterGetInstanceResponse14';
+    public    $elementName = 'GroupCallCenterGetInstanceResponse14';
     protected $serviceInstanceProfile;
     protected $policy;
     protected $huntAfterNoAnswer;
@@ -67,7 +67,7 @@ class GroupCallCenterGetInstanceResponse14 extends ComplexType implements Comple
         $this->serviceInstanceProfile = ($serviceInstanceProfile InstanceOf ServiceInstanceReadProfile)
              ? $serviceInstanceProfile
              : new ServiceInstanceReadProfile($serviceInstanceProfile);
-        $this->serviceInstanceProfile->setName('serviceInstanceProfile');
+        $this->serviceInstanceProfile->setElementName('serviceInstanceProfile');
         return $this;
     }
 
@@ -88,7 +88,7 @@ class GroupCallCenterGetInstanceResponse14 extends ComplexType implements Comple
         $this->policy = ($policy InstanceOf HuntPolicy)
              ? $policy
              : new HuntPolicy($policy);
-        $this->policy->setName('policy');
+        $this->policy->setElementName('policy');
         return $this;
     }
 
@@ -98,7 +98,9 @@ class GroupCallCenterGetInstanceResponse14 extends ComplexType implements Comple
      */
     public function getPolicy()
     {
-        return ($this->policy) ? $this->policy->getValue() : null;
+        return ($this->policy)
+            ? $this->policy->getElementValue()
+            : null;
     }
 
     /**
@@ -107,7 +109,7 @@ class GroupCallCenterGetInstanceResponse14 extends ComplexType implements Comple
     public function setHuntAfterNoAnswer($huntAfterNoAnswer = null)
     {
         $this->huntAfterNoAnswer = new PrimitiveType($huntAfterNoAnswer);
-        $this->huntAfterNoAnswer->setName('huntAfterNoAnswer');
+        $this->huntAfterNoAnswer->setElementName('huntAfterNoAnswer');
         return $this;
     }
 
@@ -117,7 +119,9 @@ class GroupCallCenterGetInstanceResponse14 extends ComplexType implements Comple
      */
     public function getHuntAfterNoAnswer()
     {
-        return ($this->huntAfterNoAnswer) ? $this->huntAfterNoAnswer->getValue() : null;
+        return ($this->huntAfterNoAnswer)
+            ? $this->huntAfterNoAnswer->getElementValue()
+            : null;
     }
 
     /**
@@ -128,7 +132,7 @@ class GroupCallCenterGetInstanceResponse14 extends ComplexType implements Comple
         $this->noAnswerNumberOfRings = ($noAnswerNumberOfRings InstanceOf HuntNoAnswerRings)
              ? $noAnswerNumberOfRings
              : new HuntNoAnswerRings($noAnswerNumberOfRings);
-        $this->noAnswerNumberOfRings->setName('noAnswerNumberOfRings');
+        $this->noAnswerNumberOfRings->setElementName('noAnswerNumberOfRings');
         return $this;
     }
 
@@ -138,7 +142,9 @@ class GroupCallCenterGetInstanceResponse14 extends ComplexType implements Comple
      */
     public function getNoAnswerNumberOfRings()
     {
-        return ($this->noAnswerNumberOfRings) ? $this->noAnswerNumberOfRings->getValue() : null;
+        return ($this->noAnswerNumberOfRings)
+            ? $this->noAnswerNumberOfRings->getElementValue()
+            : null;
     }
 
     /**
@@ -147,7 +153,7 @@ class GroupCallCenterGetInstanceResponse14 extends ComplexType implements Comple
     public function setForwardAfterTimeout($forwardAfterTimeout = null)
     {
         $this->forwardAfterTimeout = new PrimitiveType($forwardAfterTimeout);
-        $this->forwardAfterTimeout->setName('forwardAfterTimeout');
+        $this->forwardAfterTimeout->setElementName('forwardAfterTimeout');
         return $this;
     }
 
@@ -157,7 +163,9 @@ class GroupCallCenterGetInstanceResponse14 extends ComplexType implements Comple
      */
     public function getForwardAfterTimeout()
     {
-        return ($this->forwardAfterTimeout) ? $this->forwardAfterTimeout->getValue() : null;
+        return ($this->forwardAfterTimeout)
+            ? $this->forwardAfterTimeout->getElementValue()
+            : null;
     }
 
     /**
@@ -168,7 +176,7 @@ class GroupCallCenterGetInstanceResponse14 extends ComplexType implements Comple
         $this->forwardTimeoutSeconds = ($forwardTimeoutSeconds InstanceOf HuntForwardTimeoutSeconds)
              ? $forwardTimeoutSeconds
              : new HuntForwardTimeoutSeconds($forwardTimeoutSeconds);
-        $this->forwardTimeoutSeconds->setName('forwardTimeoutSeconds');
+        $this->forwardTimeoutSeconds->setElementName('forwardTimeoutSeconds');
         return $this;
     }
 
@@ -178,7 +186,9 @@ class GroupCallCenterGetInstanceResponse14 extends ComplexType implements Comple
      */
     public function getForwardTimeoutSeconds()
     {
-        return ($this->forwardTimeoutSeconds) ? $this->forwardTimeoutSeconds->getValue() : null;
+        return ($this->forwardTimeoutSeconds)
+            ? $this->forwardTimeoutSeconds->getElementValue()
+            : null;
     }
 
     /**
@@ -189,7 +199,7 @@ class GroupCallCenterGetInstanceResponse14 extends ComplexType implements Comple
         $this->forwardToPhoneNumber = ($forwardToPhoneNumber InstanceOf OutgoingDN)
              ? $forwardToPhoneNumber
              : new OutgoingDN($forwardToPhoneNumber);
-        $this->forwardToPhoneNumber->setName('forwardToPhoneNumber');
+        $this->forwardToPhoneNumber->setElementName('forwardToPhoneNumber');
         return $this;
     }
 
@@ -199,7 +209,9 @@ class GroupCallCenterGetInstanceResponse14 extends ComplexType implements Comple
      */
     public function getForwardToPhoneNumber()
     {
-        return ($this->forwardToPhoneNumber) ? $this->forwardToPhoneNumber->getValue() : null;
+        return ($this->forwardToPhoneNumber)
+            ? $this->forwardToPhoneNumber->getElementValue()
+            : null;
     }
 
     /**
@@ -208,7 +220,7 @@ class GroupCallCenterGetInstanceResponse14 extends ComplexType implements Comple
     public function setEnableVideo($enableVideo = null)
     {
         $this->enableVideo = new PrimitiveType($enableVideo);
-        $this->enableVideo->setName('enableVideo');
+        $this->enableVideo->setElementName('enableVideo');
         return $this;
     }
 
@@ -218,7 +230,9 @@ class GroupCallCenterGetInstanceResponse14 extends ComplexType implements Comple
      */
     public function getEnableVideo()
     {
-        return ($this->enableVideo) ? $this->enableVideo->getValue() : null;
+        return ($this->enableVideo)
+            ? $this->enableVideo->getElementValue()
+            : null;
     }
 
     /**
@@ -229,7 +243,7 @@ class GroupCallCenterGetInstanceResponse14 extends ComplexType implements Comple
         $this->queueLength = ($queueLength InstanceOf CallCenterQueueLength)
              ? $queueLength
              : new CallCenterQueueLength($queueLength);
-        $this->queueLength->setName('queueLength');
+        $this->queueLength->setElementName('queueLength');
         return $this;
     }
 
@@ -239,7 +253,9 @@ class GroupCallCenterGetInstanceResponse14 extends ComplexType implements Comple
      */
     public function getQueueLength()
     {
-        return ($this->queueLength) ? $this->queueLength->getValue() : null;
+        return ($this->queueLength)
+            ? $this->queueLength->getElementValue()
+            : null;
     }
 
     /**
@@ -248,7 +264,7 @@ class GroupCallCenterGetInstanceResponse14 extends ComplexType implements Comple
     public function setAllowAgentLogoff($allowAgentLogoff = null)
     {
         $this->allowAgentLogoff = new PrimitiveType($allowAgentLogoff);
-        $this->allowAgentLogoff->setName('allowAgentLogoff');
+        $this->allowAgentLogoff->setElementName('allowAgentLogoff');
         return $this;
     }
 
@@ -258,7 +274,9 @@ class GroupCallCenterGetInstanceResponse14 extends ComplexType implements Comple
      */
     public function getAllowAgentLogoff()
     {
-        return ($this->allowAgentLogoff) ? $this->allowAgentLogoff->getValue() : null;
+        return ($this->allowAgentLogoff)
+            ? $this->allowAgentLogoff->getElementValue()
+            : null;
     }
 
     /**
@@ -267,7 +285,7 @@ class GroupCallCenterGetInstanceResponse14 extends ComplexType implements Comple
     public function setPlayMusicOnHold($playMusicOnHold = null)
     {
         $this->playMusicOnHold = new PrimitiveType($playMusicOnHold);
-        $this->playMusicOnHold->setName('playMusicOnHold');
+        $this->playMusicOnHold->setElementName('playMusicOnHold');
         return $this;
     }
 
@@ -277,7 +295,9 @@ class GroupCallCenterGetInstanceResponse14 extends ComplexType implements Comple
      */
     public function getPlayMusicOnHold()
     {
-        return ($this->playMusicOnHold) ? $this->playMusicOnHold->getValue() : null;
+        return ($this->playMusicOnHold)
+            ? $this->playMusicOnHold->getElementValue()
+            : null;
     }
 
     /**
@@ -286,7 +306,7 @@ class GroupCallCenterGetInstanceResponse14 extends ComplexType implements Comple
     public function setPlayComfortMessage($playComfortMessage = null)
     {
         $this->playComfortMessage = new PrimitiveType($playComfortMessage);
-        $this->playComfortMessage->setName('playComfortMessage');
+        $this->playComfortMessage->setElementName('playComfortMessage');
         return $this;
     }
 
@@ -296,7 +316,9 @@ class GroupCallCenterGetInstanceResponse14 extends ComplexType implements Comple
      */
     public function getPlayComfortMessage()
     {
-        return ($this->playComfortMessage) ? $this->playComfortMessage->getValue() : null;
+        return ($this->playComfortMessage)
+            ? $this->playComfortMessage->getElementValue()
+            : null;
     }
 
     /**
@@ -307,7 +329,7 @@ class GroupCallCenterGetInstanceResponse14 extends ComplexType implements Comple
         $this->timeBetweenComfortMessagesSeconds = ($timeBetweenComfortMessagesSeconds InstanceOf CallCenterTimeBetweenComfortMessagesSeconds)
              ? $timeBetweenComfortMessagesSeconds
              : new CallCenterTimeBetweenComfortMessagesSeconds($timeBetweenComfortMessagesSeconds);
-        $this->timeBetweenComfortMessagesSeconds->setName('timeBetweenComfortMessagesSeconds');
+        $this->timeBetweenComfortMessagesSeconds->setElementName('timeBetweenComfortMessagesSeconds');
         return $this;
     }
 
@@ -317,7 +339,9 @@ class GroupCallCenterGetInstanceResponse14 extends ComplexType implements Comple
      */
     public function getTimeBetweenComfortMessagesSeconds()
     {
-        return ($this->timeBetweenComfortMessagesSeconds) ? $this->timeBetweenComfortMessagesSeconds->getValue() : null;
+        return ($this->timeBetweenComfortMessagesSeconds)
+            ? $this->timeBetweenComfortMessagesSeconds->getElementValue()
+            : null;
     }
 
     /**
@@ -326,7 +350,7 @@ class GroupCallCenterGetInstanceResponse14 extends ComplexType implements Comple
     public function setEnableGuardTimer($enableGuardTimer = null)
     {
         $this->enableGuardTimer = new PrimitiveType($enableGuardTimer);
-        $this->enableGuardTimer->setName('enableGuardTimer');
+        $this->enableGuardTimer->setElementName('enableGuardTimer');
         return $this;
     }
 
@@ -336,7 +360,9 @@ class GroupCallCenterGetInstanceResponse14 extends ComplexType implements Comple
      */
     public function getEnableGuardTimer()
     {
-        return ($this->enableGuardTimer) ? $this->enableGuardTimer->getValue() : null;
+        return ($this->enableGuardTimer)
+            ? $this->enableGuardTimer->getElementValue()
+            : null;
     }
 
     /**
@@ -347,7 +373,7 @@ class GroupCallCenterGetInstanceResponse14 extends ComplexType implements Comple
         $this->guardTimerSeconds = ($guardTimerSeconds InstanceOf CallCenterGuardTimerSeconds)
              ? $guardTimerSeconds
              : new CallCenterGuardTimerSeconds($guardTimerSeconds);
-        $this->guardTimerSeconds->setName('guardTimerSeconds');
+        $this->guardTimerSeconds->setElementName('guardTimerSeconds');
         return $this;
     }
 
@@ -357,7 +383,9 @@ class GroupCallCenterGetInstanceResponse14 extends ComplexType implements Comple
      */
     public function getGuardTimerSeconds()
     {
-        return ($this->guardTimerSeconds) ? $this->guardTimerSeconds->getValue() : null;
+        return ($this->guardTimerSeconds)
+            ? $this->guardTimerSeconds->getElementValue()
+            : null;
     }
 
     /**
@@ -366,7 +394,7 @@ class GroupCallCenterGetInstanceResponse14 extends ComplexType implements Comple
     public function setAgentUserTable(TableType $agentUserTable = null)
     {
         $this->agentUserTable = $agentUserTable;
-        $this->agentUserTable->setName('agentUserTable');
+        $this->agentUserTable->setElementName('agentUserTable');
         return $this;
     }
 
@@ -385,7 +413,7 @@ class GroupCallCenterGetInstanceResponse14 extends ComplexType implements Comple
     public function setAllowCallWaitingForAgents($allowCallWaitingForAgents = null)
     {
         $this->allowCallWaitingForAgents = new PrimitiveType($allowCallWaitingForAgents);
-        $this->allowCallWaitingForAgents->setName('allowCallWaitingForAgents');
+        $this->allowCallWaitingForAgents->setElementName('allowCallWaitingForAgents');
         return $this;
     }
 
@@ -395,6 +423,8 @@ class GroupCallCenterGetInstanceResponse14 extends ComplexType implements Comple
      */
     public function getAllowCallWaitingForAgents()
     {
-        return ($this->allowCallWaitingForAgents) ? $this->allowCallWaitingForAgents->getValue() : null;
+        return ($this->allowCallWaitingForAgents)
+            ? $this->allowCallWaitingForAgents->getElementValue()
+            : null;
     }
 }

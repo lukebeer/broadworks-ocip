@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemCommunicationBarringCriteriaGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemCommunicationBarringCriteriaGetListResponse';
+    public    $elementName = 'SystemCommunicationBarringCriteriaGetListResponse';
     protected $criteriaTable;
 
     /**
@@ -38,7 +38,7 @@ class SystemCommunicationBarringCriteriaGetListResponse extends ComplexType impl
     public function setCriteriaTable(TableType $criteriaTable = null)
     {
         $this->criteriaTable = $criteriaTable;
-        $this->criteriaTable->setName('criteriaTable');
+        $this->criteriaTable->setElementName('criteriaTable');
         return $this;
     }
 

@@ -24,7 +24,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class EnterpriseSessionAdmissionControlGroupAddRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'EnterpriseSessionAdmissionControlGroupAddRequest';
+    public    $elementName = 'EnterpriseSessionAdmissionControlGroupAddRequest';
     protected $serviceProviderId;
     protected $name;
     protected $maxSession;
@@ -79,7 +79,7 @@ class EnterpriseSessionAdmissionControlGroupAddRequest extends ComplexType imple
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
-        $this->serviceProviderId->setName('serviceProviderId');
+        $this->serviceProviderId->setElementName('serviceProviderId');
         return $this;
     }
 
@@ -89,7 +89,9 @@ class EnterpriseSessionAdmissionControlGroupAddRequest extends ComplexType imple
      */
     public function getServiceProviderId()
     {
-        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
+        return ($this->serviceProviderId)
+            ? $this->serviceProviderId->getElementValue()
+            : null;
     }
 
     /**
@@ -100,7 +102,7 @@ class EnterpriseSessionAdmissionControlGroupAddRequest extends ComplexType imple
         $this->name = ($name InstanceOf SessionAdmissionControlGroupName)
              ? $name
              : new SessionAdmissionControlGroupName($name);
-        $this->name->setName('name');
+        $this->name->setElementName('name');
         return $this;
     }
 
@@ -110,7 +112,9 @@ class EnterpriseSessionAdmissionControlGroupAddRequest extends ComplexType imple
      */
     public function getName()
     {
-        return ($this->name) ? $this->name->getValue() : null;
+        return ($this->name)
+            ? $this->name->getElementValue()
+            : null;
     }
 
     /**
@@ -121,7 +125,7 @@ class EnterpriseSessionAdmissionControlGroupAddRequest extends ComplexType imple
         $this->maxSession = ($maxSession InstanceOf NonNegativeInt)
              ? $maxSession
              : new NonNegativeInt($maxSession);
-        $this->maxSession->setName('maxSession');
+        $this->maxSession->setElementName('maxSession');
         return $this;
     }
 
@@ -131,7 +135,9 @@ class EnterpriseSessionAdmissionControlGroupAddRequest extends ComplexType imple
      */
     public function getMaxSession()
     {
-        return ($this->maxSession) ? $this->maxSession->getValue() : null;
+        return ($this->maxSession)
+            ? $this->maxSession->getElementValue()
+            : null;
     }
 
     /**
@@ -142,7 +148,7 @@ class EnterpriseSessionAdmissionControlGroupAddRequest extends ComplexType imple
         $this->maxUserOriginatingSessions = ($maxUserOriginatingSessions InstanceOf NonNegativeInt)
              ? $maxUserOriginatingSessions
              : new NonNegativeInt($maxUserOriginatingSessions);
-        $this->maxUserOriginatingSessions->setName('maxUserOriginatingSessions');
+        $this->maxUserOriginatingSessions->setElementName('maxUserOriginatingSessions');
         return $this;
     }
 
@@ -152,7 +158,9 @@ class EnterpriseSessionAdmissionControlGroupAddRequest extends ComplexType imple
      */
     public function getMaxUserOriginatingSessions()
     {
-        return ($this->maxUserOriginatingSessions) ? $this->maxUserOriginatingSessions->getValue() : null;
+        return ($this->maxUserOriginatingSessions)
+            ? $this->maxUserOriginatingSessions->getElementValue()
+            : null;
     }
 
     /**
@@ -163,7 +171,7 @@ class EnterpriseSessionAdmissionControlGroupAddRequest extends ComplexType imple
         $this->maxUserTerminatingSessions = ($maxUserTerminatingSessions InstanceOf NonNegativeInt)
              ? $maxUserTerminatingSessions
              : new NonNegativeInt($maxUserTerminatingSessions);
-        $this->maxUserTerminatingSessions->setName('maxUserTerminatingSessions');
+        $this->maxUserTerminatingSessions->setElementName('maxUserTerminatingSessions');
         return $this;
     }
 
@@ -173,7 +181,9 @@ class EnterpriseSessionAdmissionControlGroupAddRequest extends ComplexType imple
      */
     public function getMaxUserTerminatingSessions()
     {
-        return ($this->maxUserTerminatingSessions) ? $this->maxUserTerminatingSessions->getValue() : null;
+        return ($this->maxUserTerminatingSessions)
+            ? $this->maxUserTerminatingSessions->getElementValue()
+            : null;
     }
 
     /**
@@ -184,7 +194,7 @@ class EnterpriseSessionAdmissionControlGroupAddRequest extends ComplexType imple
         $this->reservedSession = ($reservedSession InstanceOf NonNegativeInt)
              ? $reservedSession
              : new NonNegativeInt($reservedSession);
-        $this->reservedSession->setName('reservedSession');
+        $this->reservedSession->setElementName('reservedSession');
         return $this;
     }
 
@@ -194,7 +204,9 @@ class EnterpriseSessionAdmissionControlGroupAddRequest extends ComplexType imple
      */
     public function getReservedSession()
     {
-        return ($this->reservedSession) ? $this->reservedSession->getValue() : null;
+        return ($this->reservedSession)
+            ? $this->reservedSession->getElementValue()
+            : null;
     }
 
     /**
@@ -205,7 +217,7 @@ class EnterpriseSessionAdmissionControlGroupAddRequest extends ComplexType imple
         $this->reservedUserOriginatingSessions = ($reservedUserOriginatingSessions InstanceOf NonNegativeInt)
              ? $reservedUserOriginatingSessions
              : new NonNegativeInt($reservedUserOriginatingSessions);
-        $this->reservedUserOriginatingSessions->setName('reservedUserOriginatingSessions');
+        $this->reservedUserOriginatingSessions->setElementName('reservedUserOriginatingSessions');
         return $this;
     }
 
@@ -215,7 +227,9 @@ class EnterpriseSessionAdmissionControlGroupAddRequest extends ComplexType imple
      */
     public function getReservedUserOriginatingSessions()
     {
-        return ($this->reservedUserOriginatingSessions) ? $this->reservedUserOriginatingSessions->getValue() : null;
+        return ($this->reservedUserOriginatingSessions)
+            ? $this->reservedUserOriginatingSessions->getElementValue()
+            : null;
     }
 
     /**
@@ -226,7 +240,7 @@ class EnterpriseSessionAdmissionControlGroupAddRequest extends ComplexType imple
         $this->reservedUserTerminatingSessions = ($reservedUserTerminatingSessions InstanceOf NonNegativeInt)
              ? $reservedUserTerminatingSessions
              : new NonNegativeInt($reservedUserTerminatingSessions);
-        $this->reservedUserTerminatingSessions->setName('reservedUserTerminatingSessions');
+        $this->reservedUserTerminatingSessions->setElementName('reservedUserTerminatingSessions');
         return $this;
     }
 
@@ -236,7 +250,9 @@ class EnterpriseSessionAdmissionControlGroupAddRequest extends ComplexType imple
      */
     public function getReservedUserTerminatingSessions()
     {
-        return ($this->reservedUserTerminatingSessions) ? $this->reservedUserTerminatingSessions->getValue() : null;
+        return ($this->reservedUserTerminatingSessions)
+            ? $this->reservedUserTerminatingSessions->getElementValue()
+            : null;
     }
 
     /**
@@ -245,7 +261,7 @@ class EnterpriseSessionAdmissionControlGroupAddRequest extends ComplexType imple
     public function setBecomeDefaultGroup($becomeDefaultGroup = null)
     {
         $this->becomeDefaultGroup = new PrimitiveType($becomeDefaultGroup);
-        $this->becomeDefaultGroup->setName('becomeDefaultGroup');
+        $this->becomeDefaultGroup->setElementName('becomeDefaultGroup');
         return $this;
     }
 
@@ -255,7 +271,9 @@ class EnterpriseSessionAdmissionControlGroupAddRequest extends ComplexType imple
      */
     public function getBecomeDefaultGroup()
     {
-        return ($this->becomeDefaultGroup) ? $this->becomeDefaultGroup->getValue() : null;
+        return ($this->becomeDefaultGroup)
+            ? $this->becomeDefaultGroup->getElementValue()
+            : null;
     }
 
     /**
@@ -264,7 +282,7 @@ class EnterpriseSessionAdmissionControlGroupAddRequest extends ComplexType imple
     public function setCountIntraSACGroupSessions($countIntraSACGroupSessions = null)
     {
         $this->countIntraSACGroupSessions = new PrimitiveType($countIntraSACGroupSessions);
-        $this->countIntraSACGroupSessions->setName('countIntraSACGroupSessions');
+        $this->countIntraSACGroupSessions->setElementName('countIntraSACGroupSessions');
         return $this;
     }
 
@@ -274,7 +292,9 @@ class EnterpriseSessionAdmissionControlGroupAddRequest extends ComplexType imple
      */
     public function getCountIntraSACGroupSessions()
     {
-        return ($this->countIntraSACGroupSessions) ? $this->countIntraSACGroupSessions->getValue() : null;
+        return ($this->countIntraSACGroupSessions)
+            ? $this->countIntraSACGroupSessions->getElementValue()
+            : null;
     }
 
     /**
@@ -285,7 +305,7 @@ class EnterpriseSessionAdmissionControlGroupAddRequest extends ComplexType imple
         $this->devices = ($devices InstanceOf EnterpriseAccessDevice)
              ? $devices
              : new EnterpriseAccessDevice($devices);
-        $this->devices->setName('devices');
+        $this->devices->setElementName('devices');
         return $this;
     }
 

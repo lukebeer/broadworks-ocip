@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserServiceUnassignListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'UserServiceUnassignListRequest';
+    public    $elementName = 'UserServiceUnassignListRequest';
     protected $userId;
     protected $serviceName;
     protected $servicePackName;
@@ -53,7 +53,7 @@ class UserServiceUnassignListRequest extends ComplexType implements ComplexInter
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
-        $this->userId->setName('userId');
+        $this->userId->setElementName('userId');
         return $this;
     }
 
@@ -63,7 +63,9 @@ class UserServiceUnassignListRequest extends ComplexType implements ComplexInter
      */
     public function getUserId()
     {
-        return ($this->userId) ? $this->userId->getValue() : null;
+        return ($this->userId)
+            ? $this->userId->getElementValue()
+            : null;
     }
 
     /**
@@ -74,7 +76,7 @@ class UserServiceUnassignListRequest extends ComplexType implements ComplexInter
         $this->serviceName = ($serviceName InstanceOf UserService)
              ? $serviceName
              : new UserService($serviceName);
-        $this->serviceName->setName('serviceName');
+        $this->serviceName->setElementName('serviceName');
         return $this;
     }
 
@@ -84,7 +86,9 @@ class UserServiceUnassignListRequest extends ComplexType implements ComplexInter
      */
     public function getServiceName()
     {
-        return ($this->serviceName) ? $this->serviceName->getValue() : null;
+        return ($this->serviceName)
+            ? $this->serviceName->getElementValue()
+            : null;
     }
 
     /**
@@ -95,7 +99,7 @@ class UserServiceUnassignListRequest extends ComplexType implements ComplexInter
         $this->servicePackName = ($servicePackName InstanceOf ServicePackName)
              ? $servicePackName
              : new ServicePackName($servicePackName);
-        $this->servicePackName->setName('servicePackName');
+        $this->servicePackName->setElementName('servicePackName');
         return $this;
     }
 
@@ -105,6 +109,8 @@ class UserServiceUnassignListRequest extends ComplexType implements ComplexInter
      */
     public function getServicePackName()
     {
-        return ($this->servicePackName) ? $this->servicePackName->getValue() : null;
+        return ($this->servicePackName)
+            ? $this->servicePackName->getElementValue()
+            : null;
     }
 }

@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemVirtualOnNetCallTypeGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemVirtualOnNetCallTypeGetListResponse';
+    public    $elementName = 'SystemVirtualOnNetCallTypeGetListResponse';
     protected $virtualOnNetCallTypeTable;
 
     /**
@@ -39,7 +39,7 @@ class SystemVirtualOnNetCallTypeGetListResponse extends ComplexType implements C
     public function setVirtualOnNetCallTypeTable(TableType $virtualOnNetCallTypeTable = null)
     {
         $this->virtualOnNetCallTypeTable = $virtualOnNetCallTypeTable;
-        $this->virtualOnNetCallTypeTable->setName('virtualOnNetCallTypeTable');
+        $this->virtualOnNetCallTypeTable->setElementName('virtualOnNetCallTypeTable');
         return $this;
     }
 

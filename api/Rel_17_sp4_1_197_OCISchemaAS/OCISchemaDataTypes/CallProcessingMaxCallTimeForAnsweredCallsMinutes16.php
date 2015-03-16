@@ -17,12 +17,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\MaxInclusive;
  */
 class CallProcessingMaxCallTimeForAnsweredCallsMinutes16 extends SimpleType
 {
-    public $name = "CallProcessingMaxCallTimeForAnsweredCallsMinutes16";
-    protected $value;
-
+    public $elementName = "CallProcessingMaxCallTimeForAnsweredCallsMinutes16";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new MinInclusive("3"));
         $this->addRestriction(new MaxInclusive("2880"));
     }

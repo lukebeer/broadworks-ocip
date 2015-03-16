@@ -16,12 +16,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\Enumeration;
  */
 class TrunkGroupUserCreationUserIdFormat extends SimpleType
 {
-    public $name = "TrunkGroupUserCreationUserIdFormat";
-    protected $value;
-
+    public $elementName = "TrunkGroupUserCreationUserIdFormat";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new Enumeration([
             'Extension',
             'National DN',

@@ -24,7 +24,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupAccountAuthorizationCodesGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'GroupAccountAuthorizationCodesGetResponse';
+    public    $elementName = 'GroupAccountAuthorizationCodesGetResponse';
     protected $type;
     protected $numberOfDigits;
     protected $allowLocalAndTollFreeCalls;
@@ -47,7 +47,7 @@ class GroupAccountAuthorizationCodesGetResponse extends ComplexType implements C
         $this->type = ($type InstanceOf AccountAuthorizationCodeType)
              ? $type
              : new AccountAuthorizationCodeType($type);
-        $this->type->setName('type');
+        $this->type->setElementName('type');
         return $this;
     }
 
@@ -57,7 +57,9 @@ class GroupAccountAuthorizationCodesGetResponse extends ComplexType implements C
      */
     public function getType()
     {
-        return ($this->type) ? $this->type->getValue() : null;
+        return ($this->type)
+            ? $this->type->getElementValue()
+            : null;
     }
 
     /**
@@ -68,7 +70,7 @@ class GroupAccountAuthorizationCodesGetResponse extends ComplexType implements C
         $this->numberOfDigits = ($numberOfDigits InstanceOf AccountAuthorizationCodeNumberOfDigits)
              ? $numberOfDigits
              : new AccountAuthorizationCodeNumberOfDigits($numberOfDigits);
-        $this->numberOfDigits->setName('numberOfDigits');
+        $this->numberOfDigits->setElementName('numberOfDigits');
         return $this;
     }
 
@@ -78,7 +80,9 @@ class GroupAccountAuthorizationCodesGetResponse extends ComplexType implements C
      */
     public function getNumberOfDigits()
     {
-        return ($this->numberOfDigits) ? $this->numberOfDigits->getValue() : null;
+        return ($this->numberOfDigits)
+            ? $this->numberOfDigits->getElementValue()
+            : null;
     }
 
     /**
@@ -87,7 +91,7 @@ class GroupAccountAuthorizationCodesGetResponse extends ComplexType implements C
     public function setAllowLocalAndTollFreeCalls($allowLocalAndTollFreeCalls = null)
     {
         $this->allowLocalAndTollFreeCalls = new PrimitiveType($allowLocalAndTollFreeCalls);
-        $this->allowLocalAndTollFreeCalls->setName('allowLocalAndTollFreeCalls');
+        $this->allowLocalAndTollFreeCalls->setElementName('allowLocalAndTollFreeCalls');
         return $this;
     }
 
@@ -97,7 +101,9 @@ class GroupAccountAuthorizationCodesGetResponse extends ComplexType implements C
      */
     public function getAllowLocalAndTollFreeCalls()
     {
-        return ($this->allowLocalAndTollFreeCalls) ? $this->allowLocalAndTollFreeCalls->getValue() : null;
+        return ($this->allowLocalAndTollFreeCalls)
+            ? $this->allowLocalAndTollFreeCalls->getElementValue()
+            : null;
     }
 
     /**
@@ -106,7 +112,7 @@ class GroupAccountAuthorizationCodesGetResponse extends ComplexType implements C
     public function setMandatoryUsageUserTable(TableType $mandatoryUsageUserTable = null)
     {
         $this->mandatoryUsageUserTable = $mandatoryUsageUserTable;
-        $this->mandatoryUsageUserTable->setName('mandatoryUsageUserTable');
+        $this->mandatoryUsageUserTable->setElementName('mandatoryUsageUserTable');
         return $this;
     }
 
@@ -125,7 +131,7 @@ class GroupAccountAuthorizationCodesGetResponse extends ComplexType implements C
     public function setOptionalUsageUserTable(TableType $optionalUsageUserTable = null)
     {
         $this->optionalUsageUserTable = $optionalUsageUserTable;
-        $this->optionalUsageUserTable->setName('optionalUsageUserTable');
+        $this->optionalUsageUserTable->setElementName('optionalUsageUserTable');
         return $this;
     }
 

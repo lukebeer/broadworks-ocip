@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserMWIDeliveryToMobileEndpointModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'UserMWIDeliveryToMobileEndpointModifyRequest';
+    public    $elementName = 'UserMWIDeliveryToMobileEndpointModifyRequest';
     protected $userId;
     protected $isActive;
     protected $mobilePhoneNumber;
@@ -53,7 +53,7 @@ class UserMWIDeliveryToMobileEndpointModifyRequest extends ComplexType implement
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
-        $this->userId->setName('userId');
+        $this->userId->setElementName('userId');
         return $this;
     }
 
@@ -63,7 +63,9 @@ class UserMWIDeliveryToMobileEndpointModifyRequest extends ComplexType implement
      */
     public function getUserId()
     {
-        return ($this->userId) ? $this->userId->getValue() : null;
+        return ($this->userId)
+            ? $this->userId->getElementValue()
+            : null;
     }
 
     /**
@@ -72,7 +74,7 @@ class UserMWIDeliveryToMobileEndpointModifyRequest extends ComplexType implement
     public function setIsActive($isActive = null)
     {
         $this->isActive = new PrimitiveType($isActive);
-        $this->isActive->setName('isActive');
+        $this->isActive->setElementName('isActive');
         return $this;
     }
 
@@ -82,7 +84,9 @@ class UserMWIDeliveryToMobileEndpointModifyRequest extends ComplexType implement
      */
     public function getIsActive()
     {
-        return ($this->isActive) ? $this->isActive->getValue() : null;
+        return ($this->isActive)
+            ? $this->isActive->getElementValue()
+            : null;
     }
 
     /**
@@ -93,7 +97,7 @@ class UserMWIDeliveryToMobileEndpointModifyRequest extends ComplexType implement
         $this->mobilePhoneNumber = ($mobilePhoneNumber InstanceOf DN)
              ? $mobilePhoneNumber
              : new DN($mobilePhoneNumber);
-        $this->mobilePhoneNumber->setName('mobilePhoneNumber');
+        $this->mobilePhoneNumber->setElementName('mobilePhoneNumber');
         return $this;
     }
 
@@ -103,6 +107,8 @@ class UserMWIDeliveryToMobileEndpointModifyRequest extends ComplexType implement
      */
     public function getMobilePhoneNumber()
     {
-        return ($this->mobilePhoneNumber) ? $this->mobilePhoneNumber->getValue() : null;
+        return ($this->mobilePhoneNumber)
+            ? $this->mobilePhoneNumber->getElementValue()
+            : null;
     }
 }

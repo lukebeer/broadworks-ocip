@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
 class UserAccessDeviceTagsGetRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser\UserAccessDeviceTagsGetResponse';
-    public    $name = 'UserAccessDeviceTagsGetRequest';
+    public    $elementName = 'UserAccessDeviceTagsGetRequest';
     protected $userId;
     protected $accessDevice;
 
@@ -49,7 +49,7 @@ class UserAccessDeviceTagsGetRequest extends ComplexType implements ComplexInter
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
-        $this->userId->setName('userId');
+        $this->userId->setElementName('userId');
         return $this;
     }
 
@@ -59,7 +59,9 @@ class UserAccessDeviceTagsGetRequest extends ComplexType implements ComplexInter
      */
     public function getUserId()
     {
-        return ($this->userId) ? $this->userId->getValue() : null;
+        return ($this->userId)
+            ? $this->userId->getElementValue()
+            : null;
     }
 
     /**
@@ -70,7 +72,7 @@ class UserAccessDeviceTagsGetRequest extends ComplexType implements ComplexInter
         $this->accessDevice = ($accessDevice InstanceOf AccessDevice)
              ? $accessDevice
              : new AccessDevice($accessDevice);
-        $this->accessDevice->setName('accessDevice');
+        $this->accessDevice->setElementName('accessDevice');
         return $this;
     }
 

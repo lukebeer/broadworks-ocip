@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemHuntGroupGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemHuntGroupGetResponse';
+    public    $elementName = 'SystemHuntGroupGetResponse';
     protected $anonymousInsteadOfPrivateCLID;
     protected $removeHuntGroupNameFromCLID;
 
@@ -38,7 +38,7 @@ class SystemHuntGroupGetResponse extends ComplexType implements ComplexInterface
     public function setAnonymousInsteadOfPrivateCLID($anonymousInsteadOfPrivateCLID = null)
     {
         $this->anonymousInsteadOfPrivateCLID = new PrimitiveType($anonymousInsteadOfPrivateCLID);
-        $this->anonymousInsteadOfPrivateCLID->setName('anonymousInsteadOfPrivateCLID');
+        $this->anonymousInsteadOfPrivateCLID->setElementName('anonymousInsteadOfPrivateCLID');
         return $this;
     }
 
@@ -48,7 +48,9 @@ class SystemHuntGroupGetResponse extends ComplexType implements ComplexInterface
      */
     public function getAnonymousInsteadOfPrivateCLID()
     {
-        return ($this->anonymousInsteadOfPrivateCLID) ? $this->anonymousInsteadOfPrivateCLID->getValue() : null;
+        return ($this->anonymousInsteadOfPrivateCLID)
+            ? $this->anonymousInsteadOfPrivateCLID->getElementValue()
+            : null;
     }
 
     /**
@@ -57,7 +59,7 @@ class SystemHuntGroupGetResponse extends ComplexType implements ComplexInterface
     public function setRemoveHuntGroupNameFromCLID($removeHuntGroupNameFromCLID = null)
     {
         $this->removeHuntGroupNameFromCLID = new PrimitiveType($removeHuntGroupNameFromCLID);
-        $this->removeHuntGroupNameFromCLID->setName('removeHuntGroupNameFromCLID');
+        $this->removeHuntGroupNameFromCLID->setElementName('removeHuntGroupNameFromCLID');
         return $this;
     }
 
@@ -67,6 +69,8 @@ class SystemHuntGroupGetResponse extends ComplexType implements ComplexInterface
      */
     public function getRemoveHuntGroupNameFromCLID()
     {
-        return ($this->removeHuntGroupNameFromCLID) ? $this->removeHuntGroupNameFromCLID->getValue() : null;
+        return ($this->removeHuntGroupNameFromCLID)
+            ? $this->removeHuntGroupNameFromCLID->getElementValue()
+            : null;
     }
 }

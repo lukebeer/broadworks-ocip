@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class VoiceMessagingAlternateNoAnswerGreetingModify extends ComplexType implements ComplexInterface
 {
-    public    $name = 'VoiceMessagingAlternateNoAnswerGreetingModify';
+    public    $elementName = 'VoiceMessagingAlternateNoAnswerGreetingModify';
     protected $name;
     protected $audioFile;
     protected $videoFile;
@@ -49,7 +49,7 @@ class VoiceMessagingAlternateNoAnswerGreetingModify extends ComplexType implemen
     public function setName($name = null)
     {
         $this->name = new SimpleContent($name);
-        $this->name->setName('name');
+        $this->name->setElementName('name');
         return $this;
     }
 
@@ -59,7 +59,9 @@ class VoiceMessagingAlternateNoAnswerGreetingModify extends ComplexType implemen
      */
     public function getName()
     {
-        return ($this->name) ? $this->name->getValue() : null;
+        return ($this->name)
+            ? $this->name->getElementValue()
+            : null;
     }
 
     /**
@@ -68,7 +70,7 @@ class VoiceMessagingAlternateNoAnswerGreetingModify extends ComplexType implemen
     public function setAudioFile($audioFile = null)
     {
         $this->audioFile = new SimpleContent($audioFile);
-        $this->audioFile->setName('audioFile');
+        $this->audioFile->setElementName('audioFile');
         return $this;
     }
 
@@ -78,7 +80,9 @@ class VoiceMessagingAlternateNoAnswerGreetingModify extends ComplexType implemen
      */
     public function getAudioFile()
     {
-        return ($this->audioFile) ? $this->audioFile->getValue() : null;
+        return ($this->audioFile)
+            ? $this->audioFile->getElementValue()
+            : null;
     }
 
     /**
@@ -87,7 +91,7 @@ class VoiceMessagingAlternateNoAnswerGreetingModify extends ComplexType implemen
     public function setVideoFile($videoFile = null)
     {
         $this->videoFile = new SimpleContent($videoFile);
-        $this->videoFile->setName('videoFile');
+        $this->videoFile->setElementName('videoFile');
         return $this;
     }
 
@@ -97,6 +101,8 @@ class VoiceMessagingAlternateNoAnswerGreetingModify extends ComplexType implemen
      */
     public function getVideoFile()
     {
-        return ($this->videoFile) ? $this->videoFile->getValue() : null;
+        return ($this->videoFile)
+            ? $this->videoFile->getElementValue()
+            : null;
     }
 }

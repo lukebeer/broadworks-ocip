@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
 class SystemRedundancyParametersGetRequest16sp2 extends ComplexType implements ComplexInterface
 {
     public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemRedundancyParametersGetResponse16sp2';
-    public    $name = 'SystemRedundancyParametersGetRequest16sp2';
+    public    $elementName = 'SystemRedundancyParametersGetRequest16sp2';
 
     public function __construct(    ) {
     }

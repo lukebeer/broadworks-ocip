@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupRoutePointBouncedCallGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'GroupRoutePointBouncedCallGetResponse';
+    public    $elementName = 'GroupRoutePointBouncedCallGetResponse';
     protected $isActive;
     protected $numberOfRingsBeforeBouncingCall;
     protected $enableTransfer;
@@ -42,7 +42,7 @@ class GroupRoutePointBouncedCallGetResponse extends ComplexType implements Compl
     public function setIsActive($isActive = null)
     {
         $this->isActive = new PrimitiveType($isActive);
-        $this->isActive->setName('isActive');
+        $this->isActive->setElementName('isActive');
         return $this;
     }
 
@@ -52,7 +52,9 @@ class GroupRoutePointBouncedCallGetResponse extends ComplexType implements Compl
      */
     public function getIsActive()
     {
-        return ($this->isActive) ? $this->isActive->getValue() : null;
+        return ($this->isActive)
+            ? $this->isActive->getElementValue()
+            : null;
     }
 
     /**
@@ -63,7 +65,7 @@ class GroupRoutePointBouncedCallGetResponse extends ComplexType implements Compl
         $this->numberOfRingsBeforeBouncingCall = ($numberOfRingsBeforeBouncingCall InstanceOf HuntNoAnswerRings)
              ? $numberOfRingsBeforeBouncingCall
              : new HuntNoAnswerRings($numberOfRingsBeforeBouncingCall);
-        $this->numberOfRingsBeforeBouncingCall->setName('numberOfRingsBeforeBouncingCall');
+        $this->numberOfRingsBeforeBouncingCall->setElementName('numberOfRingsBeforeBouncingCall');
         return $this;
     }
 
@@ -73,7 +75,9 @@ class GroupRoutePointBouncedCallGetResponse extends ComplexType implements Compl
      */
     public function getNumberOfRingsBeforeBouncingCall()
     {
-        return ($this->numberOfRingsBeforeBouncingCall) ? $this->numberOfRingsBeforeBouncingCall->getValue() : null;
+        return ($this->numberOfRingsBeforeBouncingCall)
+            ? $this->numberOfRingsBeforeBouncingCall->getElementValue()
+            : null;
     }
 
     /**
@@ -82,7 +86,7 @@ class GroupRoutePointBouncedCallGetResponse extends ComplexType implements Compl
     public function setEnableTransfer($enableTransfer = null)
     {
         $this->enableTransfer = new PrimitiveType($enableTransfer);
-        $this->enableTransfer->setName('enableTransfer');
+        $this->enableTransfer->setElementName('enableTransfer');
         return $this;
     }
 
@@ -92,7 +96,9 @@ class GroupRoutePointBouncedCallGetResponse extends ComplexType implements Compl
      */
     public function getEnableTransfer()
     {
-        return ($this->enableTransfer) ? $this->enableTransfer->getValue() : null;
+        return ($this->enableTransfer)
+            ? $this->enableTransfer->getElementValue()
+            : null;
     }
 
     /**
@@ -103,7 +109,7 @@ class GroupRoutePointBouncedCallGetResponse extends ComplexType implements Compl
         $this->transferPhoneNumber = ($transferPhoneNumber InstanceOf OutgoingDNorSIPURI)
              ? $transferPhoneNumber
              : new OutgoingDNorSIPURI($transferPhoneNumber);
-        $this->transferPhoneNumber->setName('transferPhoneNumber');
+        $this->transferPhoneNumber->setElementName('transferPhoneNumber');
         return $this;
     }
 
@@ -113,7 +119,9 @@ class GroupRoutePointBouncedCallGetResponse extends ComplexType implements Compl
      */
     public function getTransferPhoneNumber()
     {
-        return ($this->transferPhoneNumber) ? $this->transferPhoneNumber->getValue() : null;
+        return ($this->transferPhoneNumber)
+            ? $this->transferPhoneNumber->getElementValue()
+            : null;
     }
 
     /**
@@ -122,7 +130,7 @@ class GroupRoutePointBouncedCallGetResponse extends ComplexType implements Compl
     public function setBounceCallWhenAgentUnavailable($bounceCallWhenAgentUnavailable = null)
     {
         $this->bounceCallWhenAgentUnavailable = new PrimitiveType($bounceCallWhenAgentUnavailable);
-        $this->bounceCallWhenAgentUnavailable->setName('bounceCallWhenAgentUnavailable');
+        $this->bounceCallWhenAgentUnavailable->setElementName('bounceCallWhenAgentUnavailable');
         return $this;
     }
 
@@ -132,6 +140,8 @@ class GroupRoutePointBouncedCallGetResponse extends ComplexType implements Compl
      */
     public function getBounceCallWhenAgentUnavailable()
     {
-        return ($this->bounceCallWhenAgentUnavailable) ? $this->bounceCallWhenAgentUnavailable->getValue() : null;
+        return ($this->bounceCallWhenAgentUnavailable)
+            ? $this->bounceCallWhenAgentUnavailable->getElementValue()
+            : null;
     }
 }

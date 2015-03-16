@@ -19,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupSpeedDial100GetResponse17sp1 extends ComplexType implements ComplexInterface
 {
-    public    $name = 'GroupSpeedDial100GetResponse17sp1';
+    public    $elementName = 'GroupSpeedDial100GetResponse17sp1';
     protected $prefix;
 
     /**
@@ -38,7 +38,7 @@ class GroupSpeedDial100GetResponse17sp1 extends ComplexType implements ComplexIn
         $this->prefix = ($prefix InstanceOf SpeedDialPrefix)
              ? $prefix
              : new SpeedDialPrefix($prefix);
-        $this->prefix->setName('prefix');
+        $this->prefix->setElementName('prefix');
         return $this;
     }
 
@@ -48,6 +48,8 @@ class GroupSpeedDial100GetResponse17sp1 extends ComplexType implements ComplexIn
      */
     public function getPrefix()
     {
-        return ($this->prefix) ? $this->prefix->getValue() : null;
+        return ($this->prefix)
+            ? $this->prefix->getElementValue()
+            : null;
     }
 }

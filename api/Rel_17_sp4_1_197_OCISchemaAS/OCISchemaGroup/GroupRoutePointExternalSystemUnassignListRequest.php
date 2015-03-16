@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupRoutePointExternalSystemUnassignListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'GroupRoutePointExternalSystemUnassignListRequest';
+    public    $elementName = 'GroupRoutePointExternalSystemUnassignListRequest';
     protected $serviceProviderId;
     protected $groupId;
     protected $routePointExternalSystem;
@@ -52,7 +52,7 @@ class GroupRoutePointExternalSystemUnassignListRequest extends ComplexType imple
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
-        $this->serviceProviderId->setName('serviceProviderId');
+        $this->serviceProviderId->setElementName('serviceProviderId');
         return $this;
     }
 
@@ -62,7 +62,9 @@ class GroupRoutePointExternalSystemUnassignListRequest extends ComplexType imple
      */
     public function getServiceProviderId()
     {
-        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
+        return ($this->serviceProviderId)
+            ? $this->serviceProviderId->getElementValue()
+            : null;
     }
 
     /**
@@ -73,7 +75,7 @@ class GroupRoutePointExternalSystemUnassignListRequest extends ComplexType imple
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
-        $this->groupId->setName('groupId');
+        $this->groupId->setElementName('groupId');
         return $this;
     }
 
@@ -83,7 +85,9 @@ class GroupRoutePointExternalSystemUnassignListRequest extends ComplexType imple
      */
     public function getGroupId()
     {
-        return ($this->groupId) ? $this->groupId->getValue() : null;
+        return ($this->groupId)
+            ? $this->groupId->getElementValue()
+            : null;
     }
 
     /**
@@ -94,7 +98,7 @@ class GroupRoutePointExternalSystemUnassignListRequest extends ComplexType imple
         $this->routePointExternalSystem = ($routePointExternalSystem InstanceOf RoutePointExternalSystem)
              ? $routePointExternalSystem
              : new RoutePointExternalSystem($routePointExternalSystem);
-        $this->routePointExternalSystem->setName('routePointExternalSystem');
+        $this->routePointExternalSystem->setElementName('routePointExternalSystem');
         return $this;
     }
 
@@ -104,6 +108,8 @@ class GroupRoutePointExternalSystemUnassignListRequest extends ComplexType imple
      */
     public function getRoutePointExternalSystem()
     {
-        return ($this->routePointExternalSystem) ? $this->routePointExternalSystem->getValue() : null;
+        return ($this->routePointExternalSystem)
+            ? $this->routePointExternalSystem->getElementValue()
+            : null;
     }
 }

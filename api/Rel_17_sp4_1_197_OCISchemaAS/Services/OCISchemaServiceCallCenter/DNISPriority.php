@@ -16,12 +16,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\Enumeration;
  */
 class DNISPriority extends SimpleType
 {
-    public $name = "DNISPriority";
-    protected $value;
-
+    public $elementName = "DNISPriority";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new Enumeration([
             '0 - Highest',
             '1 - High',

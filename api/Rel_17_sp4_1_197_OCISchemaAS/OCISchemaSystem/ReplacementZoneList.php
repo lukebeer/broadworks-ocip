@@ -19,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ReplacementZoneList extends ComplexType implements ComplexInterface
 {
-    public    $name = 'ReplacementZoneList';
+    public    $elementName = 'ReplacementZoneList';
     protected $zoneName;
 
     public function __construct(
@@ -42,7 +42,7 @@ class ReplacementZoneList extends ComplexType implements ComplexInterface
     public function setZoneName($zoneName = null)
     {
         $this->zoneName = new SimpleContent($zoneName);
-        $this->zoneName->setName('zoneName');
+        $this->zoneName->setElementName('zoneName');
         return $this;
     }
 
@@ -52,6 +52,8 @@ class ReplacementZoneList extends ComplexType implements ComplexInterface
      */
     public function getZoneName()
     {
-        return ($this->zoneName) ? $this->zoneName->getValue() : null;
+        return ($this->zoneName)
+            ? $this->zoneName->getElementValue()
+            : null;
     }
 }

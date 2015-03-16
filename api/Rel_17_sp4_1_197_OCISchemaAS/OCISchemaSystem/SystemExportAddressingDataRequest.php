@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemExportAddressingDataRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemExportAddressingDataRequest';
+    public    $elementName = 'SystemExportAddressingDataRequest';
     protected $fileName;
 
     public function __construct(
@@ -46,7 +46,7 @@ class SystemExportAddressingDataRequest extends ComplexType implements ComplexIn
         $this->fileName = ($fileName InstanceOf FileName)
              ? $fileName
              : new FileName($fileName);
-        $this->fileName->setName('fileName');
+        $this->fileName->setElementName('fileName');
         return $this;
     }
 
@@ -56,6 +56,8 @@ class SystemExportAddressingDataRequest extends ComplexType implements ComplexIn
      */
     public function getFileName()
     {
-        return ($this->fileName) ? $this->fileName->getValue() : null;
+        return ($this->fileName)
+            ? $this->fileName->getElementValue()
+            : null;
     }
 }

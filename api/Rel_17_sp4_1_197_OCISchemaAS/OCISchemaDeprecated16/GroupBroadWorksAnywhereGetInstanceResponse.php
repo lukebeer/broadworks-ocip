@@ -23,7 +23,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupBroadWorksAnywhereGetInstanceResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'GroupBroadWorksAnywhereGetInstanceResponse';
+    public    $elementName = 'GroupBroadWorksAnywhereGetInstanceResponse';
     protected $serviceInstanceProfile;
     protected $broadWorksAnywhereScope;
     protected $promptForCLID;
@@ -46,7 +46,7 @@ class GroupBroadWorksAnywhereGetInstanceResponse extends ComplexType implements 
         $this->serviceInstanceProfile = ($serviceInstanceProfile InstanceOf ServiceInstanceReadProfile)
              ? $serviceInstanceProfile
              : new ServiceInstanceReadProfile($serviceInstanceProfile);
-        $this->serviceInstanceProfile->setName('serviceInstanceProfile');
+        $this->serviceInstanceProfile->setElementName('serviceInstanceProfile');
         return $this;
     }
 
@@ -67,7 +67,7 @@ class GroupBroadWorksAnywhereGetInstanceResponse extends ComplexType implements 
         $this->broadWorksAnywhereScope = ($broadWorksAnywhereScope InstanceOf BroadWorksAnywhereScope)
              ? $broadWorksAnywhereScope
              : new BroadWorksAnywhereScope($broadWorksAnywhereScope);
-        $this->broadWorksAnywhereScope->setName('broadWorksAnywhereScope');
+        $this->broadWorksAnywhereScope->setElementName('broadWorksAnywhereScope');
         return $this;
     }
 
@@ -77,7 +77,9 @@ class GroupBroadWorksAnywhereGetInstanceResponse extends ComplexType implements 
      */
     public function getBroadWorksAnywhereScope()
     {
-        return ($this->broadWorksAnywhereScope) ? $this->broadWorksAnywhereScope->getValue() : null;
+        return ($this->broadWorksAnywhereScope)
+            ? $this->broadWorksAnywhereScope->getElementValue()
+            : null;
     }
 
     /**
@@ -88,7 +90,7 @@ class GroupBroadWorksAnywhereGetInstanceResponse extends ComplexType implements 
         $this->promptForCLID = ($promptForCLID InstanceOf BroadWorksAnywhereCLIDPrompt)
              ? $promptForCLID
              : new BroadWorksAnywhereCLIDPrompt($promptForCLID);
-        $this->promptForCLID->setName('promptForCLID');
+        $this->promptForCLID->setElementName('promptForCLID');
         return $this;
     }
 
@@ -98,7 +100,9 @@ class GroupBroadWorksAnywhereGetInstanceResponse extends ComplexType implements 
      */
     public function getPromptForCLID()
     {
-        return ($this->promptForCLID) ? $this->promptForCLID->getValue() : null;
+        return ($this->promptForCLID)
+            ? $this->promptForCLID->getElementValue()
+            : null;
     }
 
     /**
@@ -107,7 +111,7 @@ class GroupBroadWorksAnywhereGetInstanceResponse extends ComplexType implements 
     public function setSilentPromptMode($silentPromptMode = null)
     {
         $this->silentPromptMode = new PrimitiveType($silentPromptMode);
-        $this->silentPromptMode->setName('silentPromptMode');
+        $this->silentPromptMode->setElementName('silentPromptMode');
         return $this;
     }
 
@@ -117,7 +121,9 @@ class GroupBroadWorksAnywhereGetInstanceResponse extends ComplexType implements 
      */
     public function getSilentPromptMode()
     {
-        return ($this->silentPromptMode) ? $this->silentPromptMode->getValue() : null;
+        return ($this->silentPromptMode)
+            ? $this->silentPromptMode->getElementValue()
+            : null;
     }
 
     /**
@@ -126,7 +132,7 @@ class GroupBroadWorksAnywhereGetInstanceResponse extends ComplexType implements 
     public function setPromptForPasscode($promptForPasscode = null)
     {
         $this->promptForPasscode = new PrimitiveType($promptForPasscode);
-        $this->promptForPasscode->setName('promptForPasscode');
+        $this->promptForPasscode->setElementName('promptForPasscode');
         return $this;
     }
 
@@ -136,6 +142,8 @@ class GroupBroadWorksAnywhereGetInstanceResponse extends ComplexType implements 
      */
     public function getPromptForPasscode()
     {
-        return ($this->promptForPasscode) ? $this->promptForPasscode->getValue() : null;
+        return ($this->promptForPasscode)
+            ? $this->promptForPasscode->getElementValue()
+            : null;
     }
 }

@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemOCICallControlApplicationGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemOCICallControlApplicationGetListResponse';
+    public    $elementName = 'SystemOCICallControlApplicationGetListResponse';
     protected $appTable;
 
     /**
@@ -37,7 +37,7 @@ class SystemOCICallControlApplicationGetListResponse extends ComplexType impleme
     public function setAppTable(TableType $appTable = null)
     {
         $this->appTable = $appTable;
-        $this->appTable->setName('appTable');
+        $this->appTable->setElementName('appTable');
         return $this;
     }
 

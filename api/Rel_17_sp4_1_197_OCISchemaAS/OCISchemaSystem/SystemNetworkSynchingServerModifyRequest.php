@@ -23,7 +23,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemNetworkSynchingServerModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemNetworkSynchingServerModifyRequest';
+    public    $elementName = 'SystemNetworkSynchingServerModifyRequest';
     protected $netAddress;
     protected $port;
     protected $description;
@@ -57,7 +57,7 @@ class SystemNetworkSynchingServerModifyRequest extends ComplexType implements Co
         $this->netAddress = ($netAddress InstanceOf NetAddress)
              ? $netAddress
              : new NetAddress($netAddress);
-        $this->netAddress->setName('netAddress');
+        $this->netAddress->setElementName('netAddress');
         return $this;
     }
 
@@ -67,7 +67,9 @@ class SystemNetworkSynchingServerModifyRequest extends ComplexType implements Co
      */
     public function getNetAddress()
     {
-        return ($this->netAddress) ? $this->netAddress->getValue() : null;
+        return ($this->netAddress)
+            ? $this->netAddress->getElementValue()
+            : null;
     }
 
     /**
@@ -78,7 +80,7 @@ class SystemNetworkSynchingServerModifyRequest extends ComplexType implements Co
         $this->port = ($port InstanceOf Port1025)
              ? $port
              : new Port1025($port);
-        $this->port->setName('port');
+        $this->port->setElementName('port');
         return $this;
     }
 
@@ -88,7 +90,9 @@ class SystemNetworkSynchingServerModifyRequest extends ComplexType implements Co
      */
     public function getPort()
     {
-        return ($this->port) ? $this->port->getValue() : null;
+        return ($this->port)
+            ? $this->port->getElementValue()
+            : null;
     }
 
     /**
@@ -99,7 +103,7 @@ class SystemNetworkSynchingServerModifyRequest extends ComplexType implements Co
         $this->description = ($description InstanceOf NetworkServerDescription)
              ? $description
              : new NetworkServerDescription($description);
-        $this->description->setName('description');
+        $this->description->setElementName('description');
         return $this;
     }
 
@@ -109,7 +113,9 @@ class SystemNetworkSynchingServerModifyRequest extends ComplexType implements Co
      */
     public function getDescription()
     {
-        return ($this->description) ? $this->description->getValue() : null;
+        return ($this->description)
+            ? $this->description->getElementValue()
+            : null;
     }
 
     /**
@@ -118,7 +124,7 @@ class SystemNetworkSynchingServerModifyRequest extends ComplexType implements Co
     public function setBecomePreferred($becomePreferred = null)
     {
         $this->becomePreferred = new PrimitiveType($becomePreferred);
-        $this->becomePreferred->setName('becomePreferred');
+        $this->becomePreferred->setElementName('becomePreferred');
         return $this;
     }
 
@@ -128,6 +134,8 @@ class SystemNetworkSynchingServerModifyRequest extends ComplexType implements Co
      */
     public function getBecomePreferred()
     {
-        return ($this->becomePreferred) ? $this->becomePreferred->getValue() : null;
+        return ($this->becomePreferred)
+            ? $this->becomePreferred->getElementValue()
+            : null;
     }
 }

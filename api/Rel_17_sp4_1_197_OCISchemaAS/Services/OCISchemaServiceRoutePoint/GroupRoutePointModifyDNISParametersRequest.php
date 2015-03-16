@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupRoutePointModifyDNISParametersRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'GroupRoutePointModifyDNISParametersRequest';
+    public    $elementName = 'GroupRoutePointModifyDNISParametersRequest';
     protected $serviceUserId;
     protected $displayDNISNumber;
     protected $displayDNISName;
@@ -52,7 +52,7 @@ class GroupRoutePointModifyDNISParametersRequest extends ComplexType implements 
         $this->serviceUserId = ($serviceUserId InstanceOf UserId)
              ? $serviceUserId
              : new UserId($serviceUserId);
-        $this->serviceUserId->setName('serviceUserId');
+        $this->serviceUserId->setElementName('serviceUserId');
         return $this;
     }
 
@@ -62,7 +62,9 @@ class GroupRoutePointModifyDNISParametersRequest extends ComplexType implements 
      */
     public function getServiceUserId()
     {
-        return ($this->serviceUserId) ? $this->serviceUserId->getValue() : null;
+        return ($this->serviceUserId)
+            ? $this->serviceUserId->getElementValue()
+            : null;
     }
 
     /**
@@ -71,7 +73,7 @@ class GroupRoutePointModifyDNISParametersRequest extends ComplexType implements 
     public function setDisplayDNISNumber($displayDNISNumber = null)
     {
         $this->displayDNISNumber = new PrimitiveType($displayDNISNumber);
-        $this->displayDNISNumber->setName('displayDNISNumber');
+        $this->displayDNISNumber->setElementName('displayDNISNumber');
         return $this;
     }
 
@@ -81,7 +83,9 @@ class GroupRoutePointModifyDNISParametersRequest extends ComplexType implements 
      */
     public function getDisplayDNISNumber()
     {
-        return ($this->displayDNISNumber) ? $this->displayDNISNumber->getValue() : null;
+        return ($this->displayDNISNumber)
+            ? $this->displayDNISNumber->getElementValue()
+            : null;
     }
 
     /**
@@ -90,7 +94,7 @@ class GroupRoutePointModifyDNISParametersRequest extends ComplexType implements 
     public function setDisplayDNISName($displayDNISName = null)
     {
         $this->displayDNISName = new PrimitiveType($displayDNISName);
-        $this->displayDNISName->setName('displayDNISName');
+        $this->displayDNISName->setElementName('displayDNISName');
         return $this;
     }
 
@@ -100,6 +104,8 @@ class GroupRoutePointModifyDNISParametersRequest extends ComplexType implements 
      */
     public function getDisplayDNISName()
     {
-        return ($this->displayDNISName) ? $this->displayDNISName->getValue() : null;
+        return ($this->displayDNISName)
+            ? $this->displayDNISName->getElementValue()
+            : null;
     }
 }

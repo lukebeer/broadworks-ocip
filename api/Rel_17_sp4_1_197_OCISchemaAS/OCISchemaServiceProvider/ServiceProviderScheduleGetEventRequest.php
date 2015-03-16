@@ -23,7 +23,7 @@ use Broadworks_OCIP\core\Client\Client;
 class ServiceProviderScheduleGetEventRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderScheduleGetEventResponse';
-    public    $name = 'ServiceProviderScheduleGetEventRequest';
+    public    $elementName = 'ServiceProviderScheduleGetEventRequest';
     protected $serviceProviderId;
     protected $scheduleKey;
     protected $eventName;
@@ -54,7 +54,7 @@ class ServiceProviderScheduleGetEventRequest extends ComplexType implements Comp
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
-        $this->serviceProviderId->setName('serviceProviderId');
+        $this->serviceProviderId->setElementName('serviceProviderId');
         return $this;
     }
 
@@ -64,7 +64,9 @@ class ServiceProviderScheduleGetEventRequest extends ComplexType implements Comp
      */
     public function getServiceProviderId()
     {
-        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
+        return ($this->serviceProviderId)
+            ? $this->serviceProviderId->getElementValue()
+            : null;
     }
 
     /**
@@ -75,7 +77,7 @@ class ServiceProviderScheduleGetEventRequest extends ComplexType implements Comp
         $this->scheduleKey = ($scheduleKey InstanceOf ScheduleKey)
              ? $scheduleKey
              : new ScheduleKey($scheduleKey);
-        $this->scheduleKey->setName('scheduleKey');
+        $this->scheduleKey->setElementName('scheduleKey');
         return $this;
     }
 
@@ -96,7 +98,7 @@ class ServiceProviderScheduleGetEventRequest extends ComplexType implements Comp
         $this->eventName = ($eventName InstanceOf EventName)
              ? $eventName
              : new EventName($eventName);
-        $this->eventName->setName('eventName');
+        $this->eventName->setElementName('eventName');
         return $this;
     }
 
@@ -106,6 +108,8 @@ class ServiceProviderScheduleGetEventRequest extends ComplexType implements Comp
      */
     public function getEventName()
     {
-        return ($this->eventName) ? $this->eventName->getValue() : null;
+        return ($this->eventName)
+            ? $this->eventName->getElementValue()
+            : null;
     }
 }

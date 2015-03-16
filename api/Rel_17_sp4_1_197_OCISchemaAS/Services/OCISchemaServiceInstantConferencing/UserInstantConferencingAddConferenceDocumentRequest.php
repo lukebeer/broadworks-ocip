@@ -23,7 +23,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserInstantConferencingAddConferenceDocumentRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'UserInstantConferencingAddConferenceDocumentRequest';
+    public    $elementName = 'UserInstantConferencingAddConferenceDocumentRequest';
     protected $userId;
     protected $conferenceKey;
     protected $documentFile;
@@ -57,7 +57,7 @@ class UserInstantConferencingAddConferenceDocumentRequest extends ComplexType im
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
-        $this->userId->setName('userId');
+        $this->userId->setElementName('userId');
         return $this;
     }
 
@@ -67,7 +67,9 @@ class UserInstantConferencingAddConferenceDocumentRequest extends ComplexType im
      */
     public function getUserId()
     {
-        return ($this->userId) ? $this->userId->getValue() : null;
+        return ($this->userId)
+            ? $this->userId->getElementValue()
+            : null;
     }
 
     /**
@@ -78,7 +80,7 @@ class UserInstantConferencingAddConferenceDocumentRequest extends ComplexType im
         $this->conferenceKey = ($conferenceKey InstanceOf InstantConferencingConferenceKey)
              ? $conferenceKey
              : new InstantConferencingConferenceKey($conferenceKey);
-        $this->conferenceKey->setName('conferenceKey');
+        $this->conferenceKey->setElementName('conferenceKey');
         return $this;
     }
 
@@ -99,7 +101,7 @@ class UserInstantConferencingAddConferenceDocumentRequest extends ComplexType im
         $this->documentFile = ($documentFile InstanceOf LabeledFileResource)
              ? $documentFile
              : new LabeledFileResource($documentFile);
-        $this->documentFile->setName('documentFile');
+        $this->documentFile->setElementName('documentFile');
         return $this;
     }
 
@@ -120,7 +122,7 @@ class UserInstantConferencingAddConferenceDocumentRequest extends ComplexType im
         $this->encryptionPassword = ($encryptionPassword InstanceOf Password)
              ? $encryptionPassword
              : new Password($encryptionPassword);
-        $this->encryptionPassword->setName('encryptionPassword');
+        $this->encryptionPassword->setElementName('encryptionPassword');
         return $this;
     }
 
@@ -130,6 +132,8 @@ class UserInstantConferencingAddConferenceDocumentRequest extends ComplexType im
      */
     public function getEncryptionPassword()
     {
-        return ($this->encryptionPassword) ? $this->encryptionPassword->getValue() : null;
+        return ($this->encryptionPassword)
+            ? $this->encryptionPassword->getElementValue()
+            : null;
     }
 }

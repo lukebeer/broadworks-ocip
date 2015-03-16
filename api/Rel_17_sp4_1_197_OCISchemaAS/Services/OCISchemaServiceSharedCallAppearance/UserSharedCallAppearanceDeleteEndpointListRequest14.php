@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserSharedCallAppearanceDeleteEndpointListRequest14 extends ComplexType implements ComplexInterface
 {
-    public    $name = 'UserSharedCallAppearanceDeleteEndpointListRequest14';
+    public    $elementName = 'UserSharedCallAppearanceDeleteEndpointListRequest14';
     protected $userId;
     protected $accessDeviceEndpoint;
 
@@ -49,7 +49,7 @@ class UserSharedCallAppearanceDeleteEndpointListRequest14 extends ComplexType im
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
-        $this->userId->setName('userId');
+        $this->userId->setElementName('userId');
         return $this;
     }
 
@@ -59,7 +59,9 @@ class UserSharedCallAppearanceDeleteEndpointListRequest14 extends ComplexType im
      */
     public function getUserId()
     {
-        return ($this->userId) ? $this->userId->getValue() : null;
+        return ($this->userId)
+            ? $this->userId->getElementValue()
+            : null;
     }
 
     /**
@@ -70,7 +72,7 @@ class UserSharedCallAppearanceDeleteEndpointListRequest14 extends ComplexType im
         $this->accessDeviceEndpoint = ($accessDeviceEndpoint InstanceOf AccessDeviceEndpointKey)
              ? $accessDeviceEndpoint
              : new AccessDeviceEndpointKey($accessDeviceEndpoint);
-        $this->accessDeviceEndpoint->setName('accessDeviceEndpoint');
+        $this->accessDeviceEndpoint->setElementName('accessDeviceEndpoint');
         return $this;
     }
 

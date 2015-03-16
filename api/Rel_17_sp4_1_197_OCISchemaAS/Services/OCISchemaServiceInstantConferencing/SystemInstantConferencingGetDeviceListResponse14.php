@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemInstantConferencingGetDeviceListResponse14 extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemInstantConferencingGetDeviceListResponse14';
+    public    $elementName = 'SystemInstantConferencingGetDeviceListResponse14';
     protected $instantConferencingDeviceTable;
 
     /**
@@ -37,7 +37,7 @@ class SystemInstantConferencingGetDeviceListResponse14 extends ComplexType imple
     public function setInstantConferencingDeviceTable(TableType $instantConferencingDeviceTable = null)
     {
         $this->instantConferencingDeviceTable = $instantConferencingDeviceTable;
-        $this->instantConferencingDeviceTable->setName('instantConferencingDeviceTable');
+        $this->instantConferencingDeviceTable->setElementName('instantConferencingDeviceTable');
         return $this;
     }
 

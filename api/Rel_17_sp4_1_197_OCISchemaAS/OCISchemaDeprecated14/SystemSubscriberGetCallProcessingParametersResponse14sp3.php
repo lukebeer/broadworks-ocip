@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemSubscriberGetCallProcessingParametersResponse14sp3 extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemSubscriberGetCallProcessingParametersResponse14sp3';
+    public    $elementName = 'SystemSubscriberGetCallProcessingParametersResponse14sp3';
     protected $userCallingLineIdSelection;
     protected $isExtendedCallingLineIdActive;
     protected $isRingTimeOutActive;
@@ -44,7 +44,7 @@ class SystemSubscriberGetCallProcessingParametersResponse14sp3 extends ComplexTy
         $this->userCallingLineIdSelection = ($userCallingLineIdSelection InstanceOf SystemUserCallingLineIdSelection)
              ? $userCallingLineIdSelection
              : new SystemUserCallingLineIdSelection($userCallingLineIdSelection);
-        $this->userCallingLineIdSelection->setName('userCallingLineIdSelection');
+        $this->userCallingLineIdSelection->setElementName('userCallingLineIdSelection');
         return $this;
     }
 
@@ -54,7 +54,9 @@ class SystemSubscriberGetCallProcessingParametersResponse14sp3 extends ComplexTy
      */
     public function getUserCallingLineIdSelection()
     {
-        return ($this->userCallingLineIdSelection) ? $this->userCallingLineIdSelection->getValue() : null;
+        return ($this->userCallingLineIdSelection)
+            ? $this->userCallingLineIdSelection->getElementValue()
+            : null;
     }
 
     /**
@@ -63,7 +65,7 @@ class SystemSubscriberGetCallProcessingParametersResponse14sp3 extends ComplexTy
     public function setIsExtendedCallingLineIdActive($isExtendedCallingLineIdActive = null)
     {
         $this->isExtendedCallingLineIdActive = new PrimitiveType($isExtendedCallingLineIdActive);
-        $this->isExtendedCallingLineIdActive->setName('isExtendedCallingLineIdActive');
+        $this->isExtendedCallingLineIdActive->setElementName('isExtendedCallingLineIdActive');
         return $this;
     }
 
@@ -73,7 +75,9 @@ class SystemSubscriberGetCallProcessingParametersResponse14sp3 extends ComplexTy
      */
     public function getIsExtendedCallingLineIdActive()
     {
-        return ($this->isExtendedCallingLineIdActive) ? $this->isExtendedCallingLineIdActive->getValue() : null;
+        return ($this->isExtendedCallingLineIdActive)
+            ? $this->isExtendedCallingLineIdActive->getElementValue()
+            : null;
     }
 
     /**
@@ -82,7 +86,7 @@ class SystemSubscriberGetCallProcessingParametersResponse14sp3 extends ComplexTy
     public function setIsRingTimeOutActive($isRingTimeOutActive = null)
     {
         $this->isRingTimeOutActive = new PrimitiveType($isRingTimeOutActive);
-        $this->isRingTimeOutActive->setName('isRingTimeOutActive');
+        $this->isRingTimeOutActive->setElementName('isRingTimeOutActive');
         return $this;
     }
 
@@ -92,7 +96,9 @@ class SystemSubscriberGetCallProcessingParametersResponse14sp3 extends ComplexTy
      */
     public function getIsRingTimeOutActive()
     {
-        return ($this->isRingTimeOutActive) ? $this->isRingTimeOutActive->getValue() : null;
+        return ($this->isRingTimeOutActive)
+            ? $this->isRingTimeOutActive->getElementValue()
+            : null;
     }
 
     /**
@@ -103,7 +109,7 @@ class SystemSubscriberGetCallProcessingParametersResponse14sp3 extends ComplexTy
         $this->ringTimeoutSeconds = ($ringTimeoutSeconds InstanceOf SystemUserRingTimeoutSeconds)
              ? $ringTimeoutSeconds
              : new SystemUserRingTimeoutSeconds($ringTimeoutSeconds);
-        $this->ringTimeoutSeconds->setName('ringTimeoutSeconds');
+        $this->ringTimeoutSeconds->setElementName('ringTimeoutSeconds');
         return $this;
     }
 
@@ -113,7 +119,9 @@ class SystemSubscriberGetCallProcessingParametersResponse14sp3 extends ComplexTy
      */
     public function getRingTimeoutSeconds()
     {
-        return ($this->ringTimeoutSeconds) ? $this->ringTimeoutSeconds->getValue() : null;
+        return ($this->ringTimeoutSeconds)
+            ? $this->ringTimeoutSeconds->getElementValue()
+            : null;
     }
 
     /**
@@ -122,7 +130,7 @@ class SystemSubscriberGetCallProcessingParametersResponse14sp3 extends ComplexTy
     public function setAllowEmergencyRemoteOfficeOriginations($allowEmergencyRemoteOfficeOriginations = null)
     {
         $this->allowEmergencyRemoteOfficeOriginations = new PrimitiveType($allowEmergencyRemoteOfficeOriginations);
-        $this->allowEmergencyRemoteOfficeOriginations->setName('allowEmergencyRemoteOfficeOriginations');
+        $this->allowEmergencyRemoteOfficeOriginations->setElementName('allowEmergencyRemoteOfficeOriginations');
         return $this;
     }
 
@@ -132,6 +140,8 @@ class SystemSubscriberGetCallProcessingParametersResponse14sp3 extends ComplexTy
      */
     public function getAllowEmergencyRemoteOfficeOriginations()
     {
-        return ($this->allowEmergencyRemoteOfficeOriginations) ? $this->allowEmergencyRemoteOfficeOriginations->getValue() : null;
+        return ($this->allowEmergencyRemoteOfficeOriginations)
+            ? $this->allowEmergencyRemoteOfficeOriginations->getElementValue()
+            : null;
     }
 }

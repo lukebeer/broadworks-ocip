@@ -16,8 +16,8 @@ namespace Broadworks_OCIP\core\Builder\Types;
  */
 trait TypeTrait
 {
-    protected $value;
-    protected $name;
+    protected $elementValue;
+    protected $elementName;
 
     /**
      * @return string
@@ -30,24 +30,34 @@ trait TypeTrait
     /**
      * @return mixed
      */
-    public function getValue()
+    public function getElementValue()
     {
-        return $this->value;
+        return $this->elementValue;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function setElementValue($elementValue = null)
+    {
+        $this->elementValue = $elementValue;
+        return $this;
     }
 
     /**
      * @return string
      */
-    public function getName()
+    public function getElementName()
     {
-        return $this->name;
+        return $this->elementName;
     }
 
     /**
      * @param $name
      */
-    public function setName($name)
+    public function setElementName($elementName = null)
     {
-        $this->name = $name;
+        $this->elementName = $elementName;
+        return $this;
     }
 }

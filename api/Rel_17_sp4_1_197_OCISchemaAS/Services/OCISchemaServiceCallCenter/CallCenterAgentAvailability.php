@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class CallCenterAgentAvailability extends ComplexType implements ComplexInterface
 {
-    public    $name = 'CallCenterAgentAvailability';
+    public    $elementName = 'CallCenterAgentAvailability';
     protected $serviceUserId;
     protected $available;
 
@@ -48,7 +48,7 @@ class CallCenterAgentAvailability extends ComplexType implements ComplexInterfac
         $this->serviceUserId = ($serviceUserId InstanceOf UserId)
              ? $serviceUserId
              : new UserId($serviceUserId);
-        $this->serviceUserId->setName('serviceUserId');
+        $this->serviceUserId->setElementName('serviceUserId');
         return $this;
     }
 
@@ -58,7 +58,9 @@ class CallCenterAgentAvailability extends ComplexType implements ComplexInterfac
      */
     public function getServiceUserId()
     {
-        return ($this->serviceUserId) ? $this->serviceUserId->getValue() : null;
+        return ($this->serviceUserId)
+            ? $this->serviceUserId->getElementValue()
+            : null;
     }
 
     /**
@@ -67,7 +69,7 @@ class CallCenterAgentAvailability extends ComplexType implements ComplexInterfac
     public function setAvailable($available = null)
     {
         $this->available = new PrimitiveType($available);
-        $this->available->setName('available');
+        $this->available->setElementName('available');
         return $this;
     }
 
@@ -77,6 +79,8 @@ class CallCenterAgentAvailability extends ComplexType implements ComplexInterfac
      */
     public function getAvailable()
     {
-        return ($this->available) ? $this->available->getValue() : null;
+        return ($this->available)
+            ? $this->available->getElementValue()
+            : null;
     }
 }

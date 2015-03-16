@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
 class SystemAccessDeviceTypeGetListRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemAccessDeviceTypeGetListResponse';
-    public    $name = 'SystemAccessDeviceTypeGetListRequest';
+    public    $elementName = 'SystemAccessDeviceTypeGetListRequest';
 
     public function __construct(    ) {
     }

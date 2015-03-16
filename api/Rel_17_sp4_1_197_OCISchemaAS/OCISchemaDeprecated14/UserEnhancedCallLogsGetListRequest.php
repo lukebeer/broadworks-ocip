@@ -27,7 +27,7 @@ use Broadworks_OCIP\core\Client\Client;
 class UserEnhancedCallLogsGetListRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType   = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\UserEnhancedCallLogsGetListResponse';
-    public    $name = 'UserEnhancedCallLogsGetListRequest';
+    public    $elementName = 'UserEnhancedCallLogsGetListRequest';
     protected $userId;
     protected $callLogType;
     protected $startingOffset;
@@ -61,7 +61,7 @@ class UserEnhancedCallLogsGetListRequest extends ComplexType implements ComplexI
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
-        $this->userId->setName('userId');
+        $this->userId->setElementName('userId');
         return $this;
     }
 
@@ -71,7 +71,9 @@ class UserEnhancedCallLogsGetListRequest extends ComplexType implements ComplexI
      */
     public function getUserId()
     {
-        return ($this->userId) ? $this->userId->getValue() : null;
+        return ($this->userId)
+            ? $this->userId->getElementValue()
+            : null;
     }
 
     /**
@@ -82,7 +84,7 @@ class UserEnhancedCallLogsGetListRequest extends ComplexType implements ComplexI
         $this->callLogType = ($callLogType InstanceOf EnhancedCallLogsType)
              ? $callLogType
              : new EnhancedCallLogsType($callLogType);
-        $this->callLogType->setName('callLogType');
+        $this->callLogType->setElementName('callLogType');
         return $this;
     }
 
@@ -92,7 +94,9 @@ class UserEnhancedCallLogsGetListRequest extends ComplexType implements ComplexI
      */
     public function getCallLogType()
     {
-        return ($this->callLogType) ? $this->callLogType->getValue() : null;
+        return ($this->callLogType)
+            ? $this->callLogType->getElementValue()
+            : null;
     }
 
     /**
@@ -103,7 +107,7 @@ class UserEnhancedCallLogsGetListRequest extends ComplexType implements ComplexI
         $this->startingOffset = ($startingOffset InstanceOf EnhancedCallLogsOffset)
              ? $startingOffset
              : new EnhancedCallLogsOffset($startingOffset);
-        $this->startingOffset->setName('startingOffset');
+        $this->startingOffset->setElementName('startingOffset');
         return $this;
     }
 
@@ -113,7 +117,9 @@ class UserEnhancedCallLogsGetListRequest extends ComplexType implements ComplexI
      */
     public function getStartingOffset()
     {
-        return ($this->startingOffset) ? $this->startingOffset->getValue() : null;
+        return ($this->startingOffset)
+            ? $this->startingOffset->getElementValue()
+            : null;
     }
 
     /**
@@ -124,7 +130,7 @@ class UserEnhancedCallLogsGetListRequest extends ComplexType implements ComplexI
         $this->numCalls = ($numCalls InstanceOf EnhancedCallLogsMaxLoggedCalls)
              ? $numCalls
              : new EnhancedCallLogsMaxLoggedCalls($numCalls);
-        $this->numCalls->setName('numCalls');
+        $this->numCalls->setElementName('numCalls');
         return $this;
     }
 
@@ -134,6 +140,8 @@ class UserEnhancedCallLogsGetListRequest extends ComplexType implements ComplexI
      */
     public function getNumCalls()
     {
-        return ($this->numCalls) ? $this->numCalls->getValue() : null;
+        return ($this->numCalls)
+            ? $this->numCalls->getElementValue()
+            : null;
     }
 }

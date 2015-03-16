@@ -17,12 +17,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\MaxInclusive;
  */
 class RecurDailyInterval extends SimpleType
 {
-    public $name = "RecurDailyInterval";
-    protected $value;
-
+    public $elementName = "RecurDailyInterval";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new MinInclusive("1"));
         $this->addRestriction(new MaxInclusive("999"));
     }

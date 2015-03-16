@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserSpeedDial100GetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'UserSpeedDial100GetResponse';
+    public    $elementName = 'UserSpeedDial100GetResponse';
     protected $phoneNumber;
     protected $description;
 
@@ -40,7 +40,7 @@ class UserSpeedDial100GetResponse extends ComplexType implements ComplexInterfac
         $this->phoneNumber = ($phoneNumber InstanceOf OutgoingDNorSIPURI)
              ? $phoneNumber
              : new OutgoingDNorSIPURI($phoneNumber);
-        $this->phoneNumber->setName('phoneNumber');
+        $this->phoneNumber->setElementName('phoneNumber');
         return $this;
     }
 
@@ -50,7 +50,9 @@ class UserSpeedDial100GetResponse extends ComplexType implements ComplexInterfac
      */
     public function getPhoneNumber()
     {
-        return ($this->phoneNumber) ? $this->phoneNumber->getValue() : null;
+        return ($this->phoneNumber)
+            ? $this->phoneNumber->getElementValue()
+            : null;
     }
 
     /**
@@ -61,7 +63,7 @@ class UserSpeedDial100GetResponse extends ComplexType implements ComplexInterfac
         $this->description = ($description InstanceOf SpeedDialDescription)
              ? $description
              : new SpeedDialDescription($description);
-        $this->description->setName('description');
+        $this->description->setElementName('description');
         return $this;
     }
 
@@ -71,6 +73,8 @@ class UserSpeedDial100GetResponse extends ComplexType implements ComplexInterfac
      */
     public function getDescription()
     {
-        return ($this->description) ? $this->description->getValue() : null;
+        return ($this->description)
+            ? $this->description->getElementValue()
+            : null;
     }
 }

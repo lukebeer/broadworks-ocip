@@ -23,7 +23,7 @@ use Broadworks_OCIP\core\Client\Client;
 class ServiceProviderAccessDeviceFileGetListRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\ServiceProviderAccessDeviceFileGetListResponse';
-    public    $name = 'ServiceProviderAccessDeviceFileGetListRequest';
+    public    $elementName = 'ServiceProviderAccessDeviceFileGetListRequest';
     protected $serviceProviderId;
     protected $deviceName;
 
@@ -51,7 +51,7 @@ class ServiceProviderAccessDeviceFileGetListRequest extends ComplexType implemen
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
-        $this->serviceProviderId->setName('serviceProviderId');
+        $this->serviceProviderId->setElementName('serviceProviderId');
         return $this;
     }
 
@@ -61,7 +61,9 @@ class ServiceProviderAccessDeviceFileGetListRequest extends ComplexType implemen
      */
     public function getServiceProviderId()
     {
-        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
+        return ($this->serviceProviderId)
+            ? $this->serviceProviderId->getElementValue()
+            : null;
     }
 
     /**
@@ -72,7 +74,7 @@ class ServiceProviderAccessDeviceFileGetListRequest extends ComplexType implemen
         $this->deviceName = ($deviceName InstanceOf AccessDeviceName)
              ? $deviceName
              : new AccessDeviceName($deviceName);
-        $this->deviceName->setName('deviceName');
+        $this->deviceName->setElementName('deviceName');
         return $this;
     }
 
@@ -82,6 +84,8 @@ class ServiceProviderAccessDeviceFileGetListRequest extends ComplexType implemen
      */
     public function getDeviceName()
     {
-        return ($this->deviceName) ? $this->deviceName->getValue() : null;
+        return ($this->deviceName)
+            ? $this->deviceName->getElementValue()
+            : null;
     }
 }

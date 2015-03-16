@@ -17,12 +17,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\MaxInclusive;
  */
 class PerformanceMeasurementReportingIntervalMinutes extends SimpleType
 {
-    public $name = "PerformanceMeasurementReportingIntervalMinutes";
-    protected $value;
-
+    public $elementName = "PerformanceMeasurementReportingIntervalMinutes";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new MinInclusive("5"));
         $this->addRestriction(new MaxInclusive("45000"));
     }

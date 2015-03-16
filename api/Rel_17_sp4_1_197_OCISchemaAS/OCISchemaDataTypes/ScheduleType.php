@@ -16,12 +16,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\Enumeration;
  */
 class ScheduleType extends SimpleType
 {
-    public $name = "ScheduleType";
-    protected $value;
-
+    public $elementName = "ScheduleType";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new Enumeration([
             'Holiday',
             'Time'

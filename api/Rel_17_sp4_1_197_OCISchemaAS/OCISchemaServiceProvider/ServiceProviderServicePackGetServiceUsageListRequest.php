@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
 class ServiceProviderServicePackGetServiceUsageListRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderServicePackGetServiceUsageListResponse';
-    public    $name = 'ServiceProviderServicePackGetServiceUsageListRequest';
+    public    $elementName = 'ServiceProviderServicePackGetServiceUsageListRequest';
     protected $serviceProviderId;
     protected $serviceName;
 
@@ -50,7 +50,7 @@ class ServiceProviderServicePackGetServiceUsageListRequest extends ComplexType i
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
-        $this->serviceProviderId->setName('serviceProviderId');
+        $this->serviceProviderId->setElementName('serviceProviderId');
         return $this;
     }
 
@@ -60,7 +60,9 @@ class ServiceProviderServicePackGetServiceUsageListRequest extends ComplexType i
      */
     public function getServiceProviderId()
     {
-        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
+        return ($this->serviceProviderId)
+            ? $this->serviceProviderId->getElementValue()
+            : null;
     }
 
     /**
@@ -71,7 +73,7 @@ class ServiceProviderServicePackGetServiceUsageListRequest extends ComplexType i
         $this->serviceName = ($serviceName InstanceOf UserService)
              ? $serviceName
              : new UserService($serviceName);
-        $this->serviceName->setName('serviceName');
+        $this->serviceName->setElementName('serviceName');
         return $this;
     }
 
@@ -81,6 +83,8 @@ class ServiceProviderServicePackGetServiceUsageListRequest extends ComplexType i
      */
     public function getServiceName()
     {
-        return ($this->serviceName) ? $this->serviceName->getValue() : null;
+        return ($this->serviceName)
+            ? $this->serviceName->getElementValue()
+            : null;
     }
 }

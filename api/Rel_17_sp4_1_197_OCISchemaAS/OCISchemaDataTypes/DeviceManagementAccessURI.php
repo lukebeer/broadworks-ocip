@@ -17,12 +17,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\MaxLength;
  */
 class DeviceManagementAccessURI extends SimpleType
 {
-    public $name = "DeviceManagementAccessURI";
-    protected $value;
-
+    public $elementName = "DeviceManagementAccessURI";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new MinLength("1"));
         $this->addRestriction(new MaxLength("256"));
     }

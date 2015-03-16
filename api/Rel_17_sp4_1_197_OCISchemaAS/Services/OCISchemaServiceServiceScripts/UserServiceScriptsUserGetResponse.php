@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserServiceScriptsUserGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'UserServiceScriptsUserGetResponse';
+    public    $elementName = 'UserServiceScriptsUserGetResponse';
     protected $isActive;
     protected $scriptName;
     protected $scriptContent;
@@ -39,7 +39,7 @@ class UserServiceScriptsUserGetResponse extends ComplexType implements ComplexIn
     public function setIsActive($isActive = null)
     {
         $this->isActive = new PrimitiveType($isActive);
-        $this->isActive->setName('isActive');
+        $this->isActive->setElementName('isActive');
         return $this;
     }
 
@@ -49,7 +49,9 @@ class UserServiceScriptsUserGetResponse extends ComplexType implements ComplexIn
      */
     public function getIsActive()
     {
-        return ($this->isActive) ? $this->isActive->getValue() : null;
+        return ($this->isActive)
+            ? $this->isActive->getElementValue()
+            : null;
     }
 
     /**
@@ -60,7 +62,7 @@ class UserServiceScriptsUserGetResponse extends ComplexType implements ComplexIn
         $this->scriptName = ($scriptName InstanceOf ServiceScriptsName)
              ? $scriptName
              : new ServiceScriptsName($scriptName);
-        $this->scriptName->setName('scriptName');
+        $this->scriptName->setElementName('scriptName');
         return $this;
     }
 
@@ -70,7 +72,9 @@ class UserServiceScriptsUserGetResponse extends ComplexType implements ComplexIn
      */
     public function getScriptName()
     {
-        return ($this->scriptName) ? $this->scriptName->getValue() : null;
+        return ($this->scriptName)
+            ? $this->scriptName->getElementValue()
+            : null;
     }
 
     /**
@@ -78,7 +82,7 @@ class UserServiceScriptsUserGetResponse extends ComplexType implements ComplexIn
      */
     public function setScriptContent(xs:base64Binary $scriptContent = null)
     {
-        $this->scriptContent->setName('scriptContent');
+        $this->scriptContent->setElementName('scriptContent');
         return $this;
     }
 
@@ -88,6 +92,8 @@ class UserServiceScriptsUserGetResponse extends ComplexType implements ComplexIn
      */
     public function getScriptContent()
     {
-        return ($this->scriptContent) ? $this->scriptContent->getValue() : null;
+        return ($this->scriptContent)
+            ? $this->scriptContent->getElementValue()
+            : null;
     }
 }

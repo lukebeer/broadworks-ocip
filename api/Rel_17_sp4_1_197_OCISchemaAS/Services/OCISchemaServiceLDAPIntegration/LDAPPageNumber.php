@@ -16,12 +16,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\MinInclusive;
  */
 class LDAPPageNumber extends SimpleType
 {
-    public $name = "LDAPPageNumber";
-    protected $value;
-
+    public $elementName = "LDAPPageNumber";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new MinInclusive("1"));
     }
 }

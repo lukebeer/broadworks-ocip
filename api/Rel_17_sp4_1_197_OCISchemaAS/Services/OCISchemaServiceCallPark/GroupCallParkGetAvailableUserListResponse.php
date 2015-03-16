@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupCallParkGetAvailableUserListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'GroupCallParkGetAvailableUserListResponse';
+    public    $elementName = 'GroupCallParkGetAvailableUserListResponse';
     protected $userTable;
 
     /**
@@ -38,7 +38,7 @@ class GroupCallParkGetAvailableUserListResponse extends ComplexType implements C
     public function setUserTable(TableType $userTable = null)
     {
         $this->userTable = $userTable;
-        $this->userTable->setName('userTable');
+        $this->userTable->setElementName('userTable');
         return $this;
     }
 

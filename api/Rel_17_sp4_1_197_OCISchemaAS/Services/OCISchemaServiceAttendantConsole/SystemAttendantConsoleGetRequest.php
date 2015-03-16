@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
 class SystemAttendantConsoleGetRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceAttendantConsole\SystemAttendantConsoleGetResponse';
-    public    $name = 'SystemAttendantConsoleGetRequest';
+    public    $elementName = 'SystemAttendantConsoleGetRequest';
 
     public function __construct(    ) {
     }

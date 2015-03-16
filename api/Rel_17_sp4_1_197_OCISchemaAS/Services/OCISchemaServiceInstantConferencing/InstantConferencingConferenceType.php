@@ -16,12 +16,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\Enumeration;
  */
 class InstantConferencingConferenceType extends SimpleType
 {
-    public $name = "InstantConferencingConferenceType";
-    protected $value;
-
+    public $elementName = "InstantConferencingConferenceType";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new Enumeration([
             'One Time',
             'Recurring',

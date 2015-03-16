@@ -24,7 +24,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserMusicOnHoldUserModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'UserMusicOnHoldUserModifyRequest';
+    public    $elementName = 'UserMusicOnHoldUserModifyRequest';
     protected $userId;
     protected $source;
     protected $useAlternateSourceForInternalCalls;
@@ -58,7 +58,7 @@ class UserMusicOnHoldUserModifyRequest extends ComplexType implements ComplexInt
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
-        $this->userId->setName('userId');
+        $this->userId->setElementName('userId');
         return $this;
     }
 
@@ -68,7 +68,9 @@ class UserMusicOnHoldUserModifyRequest extends ComplexType implements ComplexInt
      */
     public function getUserId()
     {
-        return ($this->userId) ? $this->userId->getValue() : null;
+        return ($this->userId)
+            ? $this->userId->getElementValue()
+            : null;
     }
 
     /**
@@ -79,7 +81,7 @@ class UserMusicOnHoldUserModifyRequest extends ComplexType implements ComplexInt
         $this->source = ($source InstanceOf MusicOnHoldUserSourceModify)
              ? $source
              : new MusicOnHoldUserSourceModify($source);
-        $this->source->setName('source');
+        $this->source->setElementName('source');
         return $this;
     }
 
@@ -98,7 +100,7 @@ class UserMusicOnHoldUserModifyRequest extends ComplexType implements ComplexInt
     public function setUseAlternateSourceForInternalCalls($useAlternateSourceForInternalCalls = null)
     {
         $this->useAlternateSourceForInternalCalls = new PrimitiveType($useAlternateSourceForInternalCalls);
-        $this->useAlternateSourceForInternalCalls->setName('useAlternateSourceForInternalCalls');
+        $this->useAlternateSourceForInternalCalls->setElementName('useAlternateSourceForInternalCalls');
         return $this;
     }
 
@@ -108,7 +110,9 @@ class UserMusicOnHoldUserModifyRequest extends ComplexType implements ComplexInt
      */
     public function getUseAlternateSourceForInternalCalls()
     {
-        return ($this->useAlternateSourceForInternalCalls) ? $this->useAlternateSourceForInternalCalls->getValue() : null;
+        return ($this->useAlternateSourceForInternalCalls)
+            ? $this->useAlternateSourceForInternalCalls->getElementValue()
+            : null;
     }
 
     /**
@@ -119,7 +123,7 @@ class UserMusicOnHoldUserModifyRequest extends ComplexType implements ComplexInt
         $this->internalSource = ($internalSource InstanceOf MusicOnHoldUserSourceModify)
              ? $internalSource
              : new MusicOnHoldUserSourceModify($internalSource);
-        $this->internalSource->setName('internalSource');
+        $this->internalSource->setElementName('internalSource');
         return $this;
     }
 

@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
 class EnterpriseCallCenterCallDispositionCodeGetRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\EnterpriseCallCenterCallDispositionCodeGetResponse';
-    public    $name = 'EnterpriseCallCenterCallDispositionCodeGetRequest';
+    public    $elementName = 'EnterpriseCallCenterCallDispositionCodeGetRequest';
     protected $serviceProviderId;
     protected $code;
 
@@ -49,7 +49,7 @@ class EnterpriseCallCenterCallDispositionCodeGetRequest extends ComplexType impl
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
-        $this->serviceProviderId->setName('serviceProviderId');
+        $this->serviceProviderId->setElementName('serviceProviderId');
         return $this;
     }
 
@@ -59,7 +59,9 @@ class EnterpriseCallCenterCallDispositionCodeGetRequest extends ComplexType impl
      */
     public function getServiceProviderId()
     {
-        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
+        return ($this->serviceProviderId)
+            ? $this->serviceProviderId->getElementValue()
+            : null;
     }
 
     /**
@@ -70,7 +72,7 @@ class EnterpriseCallCenterCallDispositionCodeGetRequest extends ComplexType impl
         $this->code = ($code InstanceOf CallDispositionCode)
              ? $code
              : new CallDispositionCode($code);
-        $this->code->setName('code');
+        $this->code->setElementName('code');
         return $this;
     }
 
@@ -80,6 +82,8 @@ class EnterpriseCallCenterCallDispositionCodeGetRequest extends ComplexType impl
      */
     public function getCode()
     {
-        return ($this->code) ? $this->code->getValue() : null;
+        return ($this->code)
+            ? $this->code->getElementValue()
+            : null;
     }
 }

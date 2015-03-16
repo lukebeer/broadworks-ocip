@@ -26,7 +26,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserCommPilotExpressModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'UserCommPilotExpressModifyRequest';
+    public    $elementName = 'UserCommPilotExpressModifyRequest';
     protected $userId;
     protected $profile;
     protected $availableInOffice;
@@ -66,7 +66,7 @@ class UserCommPilotExpressModifyRequest extends ComplexType implements ComplexIn
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
-        $this->userId->setName('userId');
+        $this->userId->setElementName('userId');
         return $this;
     }
 
@@ -76,7 +76,9 @@ class UserCommPilotExpressModifyRequest extends ComplexType implements ComplexIn
      */
     public function getUserId()
     {
-        return ($this->userId) ? $this->userId->getValue() : null;
+        return ($this->userId)
+            ? $this->userId->getElementValue()
+            : null;
     }
 
     /**
@@ -87,7 +89,7 @@ class UserCommPilotExpressModifyRequest extends ComplexType implements ComplexIn
         $this->profile = ($profile InstanceOf CommPilotExpressProfile)
              ? $profile
              : new CommPilotExpressProfile($profile);
-        $this->profile->setName('profile');
+        $this->profile->setElementName('profile');
         return $this;
     }
 
@@ -97,7 +99,9 @@ class UserCommPilotExpressModifyRequest extends ComplexType implements ComplexIn
      */
     public function getProfile()
     {
-        return ($this->profile) ? $this->profile->getValue() : null;
+        return ($this->profile)
+            ? $this->profile->getElementValue()
+            : null;
     }
 
     /**
@@ -108,7 +112,7 @@ class UserCommPilotExpressModifyRequest extends ComplexType implements ComplexIn
         $this->availableInOffice = ($availableInOffice InstanceOf CommPilotExpressAvailableInOfficeModify)
              ? $availableInOffice
              : new CommPilotExpressAvailableInOfficeModify($availableInOffice);
-        $this->availableInOffice->setName('availableInOffice');
+        $this->availableInOffice->setElementName('availableInOffice');
         return $this;
     }
 
@@ -129,7 +133,7 @@ class UserCommPilotExpressModifyRequest extends ComplexType implements ComplexIn
         $this->availableOutOfOffice = ($availableOutOfOffice InstanceOf CommPilotExpressAvailableOutOfOfficeModify)
              ? $availableOutOfOffice
              : new CommPilotExpressAvailableOutOfOfficeModify($availableOutOfOffice);
-        $this->availableOutOfOffice->setName('availableOutOfOffice');
+        $this->availableOutOfOffice->setElementName('availableOutOfOffice');
         return $this;
     }
 
@@ -150,7 +154,7 @@ class UserCommPilotExpressModifyRequest extends ComplexType implements ComplexIn
         $this->busy = ($busy InstanceOf CommPilotExpressBusyModify)
              ? $busy
              : new CommPilotExpressBusyModify($busy);
-        $this->busy->setName('busy');
+        $this->busy->setElementName('busy');
         return $this;
     }
 
@@ -171,7 +175,7 @@ class UserCommPilotExpressModifyRequest extends ComplexType implements ComplexIn
         $this->unavailable = ($unavailable InstanceOf CommPilotExpressUnavailableModify)
              ? $unavailable
              : new CommPilotExpressUnavailableModify($unavailable);
-        $this->unavailable->setName('unavailable');
+        $this->unavailable->setElementName('unavailable');
         return $this;
     }
 

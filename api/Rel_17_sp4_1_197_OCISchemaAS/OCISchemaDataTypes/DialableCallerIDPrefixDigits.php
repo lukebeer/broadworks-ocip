@@ -18,12 +18,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\MaxLength;
  */
 class DialableCallerIDPrefixDigits extends SimpleType
 {
-    public $name = "DialableCallerIDPrefixDigits";
-    protected $value;
-
+    public $elementName = "DialableCallerIDPrefixDigits";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new MinLength("1"));
         $this->addRestriction(new MaxLength("10"));
     }

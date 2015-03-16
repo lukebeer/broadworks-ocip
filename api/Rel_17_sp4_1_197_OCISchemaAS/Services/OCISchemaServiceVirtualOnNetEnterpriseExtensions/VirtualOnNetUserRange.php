@@ -19,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class VirtualOnNetUserRange extends ComplexType implements ComplexInterface
 {
-    public    $name = 'VirtualOnNetUserRange';
+    public    $elementName = 'VirtualOnNetUserRange';
     protected $dnRange;
     protected $extensionRange;
     protected $firstName;
@@ -60,7 +60,7 @@ class VirtualOnNetUserRange extends ComplexType implements ComplexInterface
     public function setDnRange($dnRange = null)
     {
         $this->dnRange = new SimpleContent($dnRange);
-        $this->dnRange->setName('dnRange');
+        $this->dnRange->setElementName('dnRange');
         return $this;
     }
 
@@ -70,7 +70,9 @@ class VirtualOnNetUserRange extends ComplexType implements ComplexInterface
      */
     public function getDnRange()
     {
-        return ($this->dnRange) ? $this->dnRange->getValue() : null;
+        return ($this->dnRange)
+            ? $this->dnRange->getElementValue()
+            : null;
     }
 
     /**
@@ -79,7 +81,7 @@ class VirtualOnNetUserRange extends ComplexType implements ComplexInterface
     public function setExtensionRange($extensionRange = null)
     {
         $this->extensionRange = new SimpleContent($extensionRange);
-        $this->extensionRange->setName('extensionRange');
+        $this->extensionRange->setElementName('extensionRange');
         return $this;
     }
 
@@ -89,7 +91,9 @@ class VirtualOnNetUserRange extends ComplexType implements ComplexInterface
      */
     public function getExtensionRange()
     {
-        return ($this->extensionRange) ? $this->extensionRange->getValue() : null;
+        return ($this->extensionRange)
+            ? $this->extensionRange->getElementValue()
+            : null;
     }
 
     /**
@@ -98,7 +102,7 @@ class VirtualOnNetUserRange extends ComplexType implements ComplexInterface
     public function setFirstName($firstName = null)
     {
         $this->firstName = new SimpleContent($firstName);
-        $this->firstName->setName('firstName');
+        $this->firstName->setElementName('firstName');
         return $this;
     }
 
@@ -108,7 +112,9 @@ class VirtualOnNetUserRange extends ComplexType implements ComplexInterface
      */
     public function getFirstName()
     {
-        return ($this->firstName) ? $this->firstName->getValue() : null;
+        return ($this->firstName)
+            ? $this->firstName->getElementValue()
+            : null;
     }
 
     /**
@@ -117,7 +123,7 @@ class VirtualOnNetUserRange extends ComplexType implements ComplexInterface
     public function setLastName($lastName = null)
     {
         $this->lastName = new SimpleContent($lastName);
-        $this->lastName->setName('lastName');
+        $this->lastName->setElementName('lastName');
         return $this;
     }
 
@@ -127,7 +133,9 @@ class VirtualOnNetUserRange extends ComplexType implements ComplexInterface
      */
     public function getLastName()
     {
-        return ($this->lastName) ? $this->lastName->getValue() : null;
+        return ($this->lastName)
+            ? $this->lastName->getElementValue()
+            : null;
     }
 
     /**
@@ -136,7 +144,7 @@ class VirtualOnNetUserRange extends ComplexType implements ComplexInterface
     public function setCallingLineIdFirstName($callingLineIdFirstName = null)
     {
         $this->callingLineIdFirstName = new SimpleContent($callingLineIdFirstName);
-        $this->callingLineIdFirstName->setName('callingLineIdFirstName');
+        $this->callingLineIdFirstName->setElementName('callingLineIdFirstName');
         return $this;
     }
 
@@ -146,7 +154,9 @@ class VirtualOnNetUserRange extends ComplexType implements ComplexInterface
      */
     public function getCallingLineIdFirstName()
     {
-        return ($this->callingLineIdFirstName) ? $this->callingLineIdFirstName->getValue() : null;
+        return ($this->callingLineIdFirstName)
+            ? $this->callingLineIdFirstName->getElementValue()
+            : null;
     }
 
     /**
@@ -155,7 +165,7 @@ class VirtualOnNetUserRange extends ComplexType implements ComplexInterface
     public function setCallingLineIdLastName($callingLineIdLastName = null)
     {
         $this->callingLineIdLastName = new SimpleContent($callingLineIdLastName);
-        $this->callingLineIdLastName->setName('callingLineIdLastName');
+        $this->callingLineIdLastName->setElementName('callingLineIdLastName');
         return $this;
     }
 
@@ -165,7 +175,9 @@ class VirtualOnNetUserRange extends ComplexType implements ComplexInterface
      */
     public function getCallingLineIdLastName()
     {
-        return ($this->callingLineIdLastName) ? $this->callingLineIdLastName->getValue() : null;
+        return ($this->callingLineIdLastName)
+            ? $this->callingLineIdLastName->getElementValue()
+            : null;
     }
 
     /**
@@ -174,7 +186,7 @@ class VirtualOnNetUserRange extends ComplexType implements ComplexInterface
     public function setVirtualOnNetCallTypeName($virtualOnNetCallTypeName = null)
     {
         $this->virtualOnNetCallTypeName = new SimpleContent($virtualOnNetCallTypeName);
-        $this->virtualOnNetCallTypeName->setName('virtualOnNetCallTypeName');
+        $this->virtualOnNetCallTypeName->setElementName('virtualOnNetCallTypeName');
         return $this;
     }
 
@@ -184,6 +196,8 @@ class VirtualOnNetUserRange extends ComplexType implements ComplexInterface
      */
     public function getVirtualOnNetCallTypeName()
     {
-        return ($this->virtualOnNetCallTypeName) ? $this->virtualOnNetCallTypeName->getValue() : null;
+        return ($this->virtualOnNetCallTypeName)
+            ? $this->virtualOnNetCallTypeName->getElementValue()
+            : null;
     }
 }

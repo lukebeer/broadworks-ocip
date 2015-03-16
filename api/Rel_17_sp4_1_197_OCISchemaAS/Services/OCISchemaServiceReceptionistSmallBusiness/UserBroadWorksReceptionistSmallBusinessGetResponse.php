@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserBroadWorksReceptionistSmallBusinessGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'UserBroadWorksReceptionistSmallBusinessGetResponse';
+    public    $elementName = 'UserBroadWorksReceptionistSmallBusinessGetResponse';
     protected $monitoredUserTable;
 
     /**
@@ -39,7 +39,7 @@ class UserBroadWorksReceptionistSmallBusinessGetResponse extends ComplexType imp
     public function setMonitoredUserTable(TableType $monitoredUserTable = null)
     {
         $this->monitoredUserTable = $monitoredUserTable;
-        $this->monitoredUserTable->setName('monitoredUserTable');
+        $this->monitoredUserTable->setElementName('monitoredUserTable');
         return $this;
     }
 

@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupEnterpriseTrunkGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'GroupEnterpriseTrunkGetResponse';
+    public    $elementName = 'GroupEnterpriseTrunkGetResponse';
     protected $maximumRerouteAttempts;
     protected $routeExhaustionAction;
     protected $routeExhaustionForwardAddress;
@@ -42,7 +42,7 @@ class GroupEnterpriseTrunkGetResponse extends ComplexType implements ComplexInte
         $this->maximumRerouteAttempts = ($maximumRerouteAttempts InstanceOf EnterpriseTrunkMaximumRerouteAttempts)
              ? $maximumRerouteAttempts
              : new EnterpriseTrunkMaximumRerouteAttempts($maximumRerouteAttempts);
-        $this->maximumRerouteAttempts->setName('maximumRerouteAttempts');
+        $this->maximumRerouteAttempts->setElementName('maximumRerouteAttempts');
         return $this;
     }
 
@@ -52,7 +52,9 @@ class GroupEnterpriseTrunkGetResponse extends ComplexType implements ComplexInte
      */
     public function getMaximumRerouteAttempts()
     {
-        return ($this->maximumRerouteAttempts) ? $this->maximumRerouteAttempts->getValue() : null;
+        return ($this->maximumRerouteAttempts)
+            ? $this->maximumRerouteAttempts->getElementValue()
+            : null;
     }
 
     /**
@@ -63,7 +65,7 @@ class GroupEnterpriseTrunkGetResponse extends ComplexType implements ComplexInte
         $this->routeExhaustionAction = ($routeExhaustionAction InstanceOf EnterpriseTrunkRouteExhaustionAction)
              ? $routeExhaustionAction
              : new EnterpriseTrunkRouteExhaustionAction($routeExhaustionAction);
-        $this->routeExhaustionAction->setName('routeExhaustionAction');
+        $this->routeExhaustionAction->setElementName('routeExhaustionAction');
         return $this;
     }
 
@@ -73,7 +75,9 @@ class GroupEnterpriseTrunkGetResponse extends ComplexType implements ComplexInte
      */
     public function getRouteExhaustionAction()
     {
-        return ($this->routeExhaustionAction) ? $this->routeExhaustionAction->getValue() : null;
+        return ($this->routeExhaustionAction)
+            ? $this->routeExhaustionAction->getElementValue()
+            : null;
     }
 
     /**
@@ -84,7 +88,7 @@ class GroupEnterpriseTrunkGetResponse extends ComplexType implements ComplexInte
         $this->routeExhaustionForwardAddress = ($routeExhaustionForwardAddress InstanceOf OutgoingDNorSIPURI)
              ? $routeExhaustionForwardAddress
              : new OutgoingDNorSIPURI($routeExhaustionForwardAddress);
-        $this->routeExhaustionForwardAddress->setName('routeExhaustionForwardAddress');
+        $this->routeExhaustionForwardAddress->setElementName('routeExhaustionForwardAddress');
         return $this;
     }
 
@@ -94,6 +98,8 @@ class GroupEnterpriseTrunkGetResponse extends ComplexType implements ComplexInte
      */
     public function getRouteExhaustionForwardAddress()
     {
-        return ($this->routeExhaustionForwardAddress) ? $this->routeExhaustionForwardAddress->getValue() : null;
+        return ($this->routeExhaustionForwardAddress)
+            ? $this->routeExhaustionForwardAddress->getElementValue()
+            : null;
     }
 }

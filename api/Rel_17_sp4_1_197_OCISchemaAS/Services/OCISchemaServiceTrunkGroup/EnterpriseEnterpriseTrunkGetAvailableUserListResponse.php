@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class EnterpriseEnterpriseTrunkGetAvailableUserListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'EnterpriseEnterpriseTrunkGetAvailableUserListResponse';
+    public    $elementName = 'EnterpriseEnterpriseTrunkGetAvailableUserListResponse';
     protected $userTable;
 
     /**
@@ -37,7 +37,7 @@ class EnterpriseEnterpriseTrunkGetAvailableUserListResponse extends ComplexType 
     public function setUserTable(TableType $userTable = null)
     {
         $this->userTable = $userTable;
-        $this->userTable->setName('userTable');
+        $this->userTable->setElementName('userTable');
         return $this;
     }
 

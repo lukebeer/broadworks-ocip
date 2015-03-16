@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupCallCenterGetInstanceStatisticsResponse14sp9 extends ComplexType implements ComplexInterface
 {
-    public    $name = 'GroupCallCenterGetInstanceStatisticsResponse14sp9';
+    public    $elementName = 'GroupCallCenterGetInstanceStatisticsResponse14sp9';
     protected $statisticsRange;
     protected $queueStatistics;
     protected $agentStatistics;
@@ -42,7 +42,7 @@ class GroupCallCenterGetInstanceStatisticsResponse14sp9 extends ComplexType impl
         $this->statisticsRange = ($statisticsRange InstanceOf CallCenterStatisticsRange)
              ? $statisticsRange
              : new CallCenterStatisticsRange($statisticsRange);
-        $this->statisticsRange->setName('statisticsRange');
+        $this->statisticsRange->setElementName('statisticsRange');
         return $this;
     }
 
@@ -63,7 +63,7 @@ class GroupCallCenterGetInstanceStatisticsResponse14sp9 extends ComplexType impl
         $this->queueStatistics = ($queueStatistics InstanceOf CallCenterQueueStatistics14sp9)
              ? $queueStatistics
              : new CallCenterQueueStatistics14sp9($queueStatistics);
-        $this->queueStatistics->setName('queueStatistics');
+        $this->queueStatistics->setElementName('queueStatistics');
         return $this;
     }
 
@@ -84,7 +84,7 @@ class GroupCallCenterGetInstanceStatisticsResponse14sp9 extends ComplexType impl
         $this->agentStatistics = ($agentStatistics InstanceOf CallCenterAgentStatistics14sp9)
              ? $agentStatistics
              : new CallCenterAgentStatistics14sp9($agentStatistics);
-        $this->agentStatistics->setName('agentStatistics');
+        $this->agentStatistics->setElementName('agentStatistics');
         return $this;
     }
 

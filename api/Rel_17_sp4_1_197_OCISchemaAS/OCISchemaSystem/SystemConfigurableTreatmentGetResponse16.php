@@ -29,7 +29,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemConfigurableTreatmentGetResponse16 extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemConfigurableTreatmentGetResponse16';
+    public    $elementName = 'SystemConfigurableTreatmentGetResponse16';
     protected $description;
     protected $chargeIndicator;
     protected $accessSIPStatusCode;
@@ -64,7 +64,7 @@ class SystemConfigurableTreatmentGetResponse16 extends ComplexType implements Co
         $this->description = ($description InstanceOf ConfigurableTreatmentDescription)
              ? $description
              : new ConfigurableTreatmentDescription($description);
-        $this->description->setName('description');
+        $this->description->setElementName('description');
         return $this;
     }
 
@@ -74,7 +74,9 @@ class SystemConfigurableTreatmentGetResponse16 extends ComplexType implements Co
      */
     public function getDescription()
     {
-        return ($this->description) ? $this->description->getValue() : null;
+        return ($this->description)
+            ? $this->description->getElementValue()
+            : null;
     }
 
     /**
@@ -85,7 +87,7 @@ class SystemConfigurableTreatmentGetResponse16 extends ComplexType implements Co
         $this->chargeIndicator = ($chargeIndicator InstanceOf ChargeIndicator)
              ? $chargeIndicator
              : new ChargeIndicator($chargeIndicator);
-        $this->chargeIndicator->setName('chargeIndicator');
+        $this->chargeIndicator->setElementName('chargeIndicator');
         return $this;
     }
 
@@ -95,7 +97,9 @@ class SystemConfigurableTreatmentGetResponse16 extends ComplexType implements Co
      */
     public function getChargeIndicator()
     {
-        return ($this->chargeIndicator) ? $this->chargeIndicator->getValue() : null;
+        return ($this->chargeIndicator)
+            ? $this->chargeIndicator->getElementValue()
+            : null;
     }
 
     /**
@@ -106,7 +110,7 @@ class SystemConfigurableTreatmentGetResponse16 extends ComplexType implements Co
         $this->accessSIPStatusCode = ($accessSIPStatusCode InstanceOf SIPFailureStatusCode)
              ? $accessSIPStatusCode
              : new SIPFailureStatusCode($accessSIPStatusCode);
-        $this->accessSIPStatusCode->setName('accessSIPStatusCode');
+        $this->accessSIPStatusCode->setElementName('accessSIPStatusCode');
         return $this;
     }
 
@@ -116,7 +120,9 @@ class SystemConfigurableTreatmentGetResponse16 extends ComplexType implements Co
      */
     public function getAccessSIPStatusCode()
     {
-        return ($this->accessSIPStatusCode) ? $this->accessSIPStatusCode->getValue() : null;
+        return ($this->accessSIPStatusCode)
+            ? $this->accessSIPStatusCode->getElementValue()
+            : null;
     }
 
     /**
@@ -127,7 +133,7 @@ class SystemConfigurableTreatmentGetResponse16 extends ComplexType implements Co
         $this->accessSIPStatusMessage = ($accessSIPStatusMessage InstanceOf SIPStatusMessage)
              ? $accessSIPStatusMessage
              : new SIPStatusMessage($accessSIPStatusMessage);
-        $this->accessSIPStatusMessage->setName('accessSIPStatusMessage');
+        $this->accessSIPStatusMessage->setElementName('accessSIPStatusMessage');
         return $this;
     }
 
@@ -137,7 +143,9 @@ class SystemConfigurableTreatmentGetResponse16 extends ComplexType implements Co
      */
     public function getAccessSIPStatusMessage()
     {
-        return ($this->accessSIPStatusMessage) ? $this->accessSIPStatusMessage->getValue() : null;
+        return ($this->accessSIPStatusMessage)
+            ? $this->accessSIPStatusMessage->getElementValue()
+            : null;
     }
 
     /**
@@ -148,7 +156,7 @@ class SystemConfigurableTreatmentGetResponse16 extends ComplexType implements Co
         $this->networkSIPStatusCode = ($networkSIPStatusCode InstanceOf SIPFailureStatusCode)
              ? $networkSIPStatusCode
              : new SIPFailureStatusCode($networkSIPStatusCode);
-        $this->networkSIPStatusCode->setName('networkSIPStatusCode');
+        $this->networkSIPStatusCode->setElementName('networkSIPStatusCode');
         return $this;
     }
 
@@ -158,7 +166,9 @@ class SystemConfigurableTreatmentGetResponse16 extends ComplexType implements Co
      */
     public function getNetworkSIPStatusCode()
     {
-        return ($this->networkSIPStatusCode) ? $this->networkSIPStatusCode->getValue() : null;
+        return ($this->networkSIPStatusCode)
+            ? $this->networkSIPStatusCode->getElementValue()
+            : null;
     }
 
     /**
@@ -169,7 +179,7 @@ class SystemConfigurableTreatmentGetResponse16 extends ComplexType implements Co
         $this->networkSIPStatusMessage = ($networkSIPStatusMessage InstanceOf SIPStatusMessage)
              ? $networkSIPStatusMessage
              : new SIPStatusMessage($networkSIPStatusMessage);
-        $this->networkSIPStatusMessage->setName('networkSIPStatusMessage');
+        $this->networkSIPStatusMessage->setElementName('networkSIPStatusMessage');
         return $this;
     }
 
@@ -179,7 +189,9 @@ class SystemConfigurableTreatmentGetResponse16 extends ComplexType implements Co
      */
     public function getNetworkSIPStatusMessage()
     {
-        return ($this->networkSIPStatusMessage) ? $this->networkSIPStatusMessage->getValue() : null;
+        return ($this->networkSIPStatusMessage)
+            ? $this->networkSIPStatusMessage->getElementValue()
+            : null;
     }
 
     /**
@@ -190,7 +202,7 @@ class SystemConfigurableTreatmentGetResponse16 extends ComplexType implements Co
         $this->q850CauseValue = ($q850CauseValue InstanceOf Q850CauseValue)
              ? $q850CauseValue
              : new Q850CauseValue($q850CauseValue);
-        $this->q850CauseValue->setName('q850CauseValue');
+        $this->q850CauseValue->setElementName('q850CauseValue');
         return $this;
     }
 
@@ -200,7 +212,9 @@ class SystemConfigurableTreatmentGetResponse16 extends ComplexType implements Co
      */
     public function getQ850CauseValue()
     {
-        return ($this->q850CauseValue) ? $this->q850CauseValue->getValue() : null;
+        return ($this->q850CauseValue)
+            ? $this->q850CauseValue->getElementValue()
+            : null;
     }
 
     /**
@@ -211,7 +225,7 @@ class SystemConfigurableTreatmentGetResponse16 extends ComplexType implements Co
         $this->q850Text = ($q850Text InstanceOf Q850Text)
              ? $q850Text
              : new Q850Text($q850Text);
-        $this->q850Text->setName('q850Text');
+        $this->q850Text->setElementName('q850Text');
         return $this;
     }
 
@@ -221,7 +235,9 @@ class SystemConfigurableTreatmentGetResponse16 extends ComplexType implements Co
      */
     public function getQ850Text()
     {
-        return ($this->q850Text) ? $this->q850Text->getValue() : null;
+        return ($this->q850Text)
+            ? $this->q850Text->getElementValue()
+            : null;
     }
 
     /**
@@ -232,7 +248,7 @@ class SystemConfigurableTreatmentGetResponse16 extends ComplexType implements Co
         $this->accessTreatmentAudioFile = ($accessTreatmentAudioFile InstanceOf MediaTreatmentFileName)
              ? $accessTreatmentAudioFile
              : new MediaTreatmentFileName($accessTreatmentAudioFile);
-        $this->accessTreatmentAudioFile->setName('accessTreatmentAudioFile');
+        $this->accessTreatmentAudioFile->setElementName('accessTreatmentAudioFile');
         return $this;
     }
 
@@ -242,7 +258,9 @@ class SystemConfigurableTreatmentGetResponse16 extends ComplexType implements Co
      */
     public function getAccessTreatmentAudioFile()
     {
-        return ($this->accessTreatmentAudioFile) ? $this->accessTreatmentAudioFile->getValue() : null;
+        return ($this->accessTreatmentAudioFile)
+            ? $this->accessTreatmentAudioFile->getElementValue()
+            : null;
     }
 
     /**
@@ -253,7 +271,7 @@ class SystemConfigurableTreatmentGetResponse16 extends ComplexType implements Co
         $this->accessTreatmentVideoFile = ($accessTreatmentVideoFile InstanceOf MediaTreatmentFileName)
              ? $accessTreatmentVideoFile
              : new MediaTreatmentFileName($accessTreatmentVideoFile);
-        $this->accessTreatmentVideoFile->setName('accessTreatmentVideoFile');
+        $this->accessTreatmentVideoFile->setElementName('accessTreatmentVideoFile');
         return $this;
     }
 
@@ -263,7 +281,9 @@ class SystemConfigurableTreatmentGetResponse16 extends ComplexType implements Co
      */
     public function getAccessTreatmentVideoFile()
     {
-        return ($this->accessTreatmentVideoFile) ? $this->accessTreatmentVideoFile->getValue() : null;
+        return ($this->accessTreatmentVideoFile)
+            ? $this->accessTreatmentVideoFile->getElementValue()
+            : null;
     }
 
     /**
@@ -274,7 +294,7 @@ class SystemConfigurableTreatmentGetResponse16 extends ComplexType implements Co
         $this->networkTreatmentAudioFile = ($networkTreatmentAudioFile InstanceOf MediaTreatmentFileName)
              ? $networkTreatmentAudioFile
              : new MediaTreatmentFileName($networkTreatmentAudioFile);
-        $this->networkTreatmentAudioFile->setName('networkTreatmentAudioFile');
+        $this->networkTreatmentAudioFile->setElementName('networkTreatmentAudioFile');
         return $this;
     }
 
@@ -284,7 +304,9 @@ class SystemConfigurableTreatmentGetResponse16 extends ComplexType implements Co
      */
     public function getNetworkTreatmentAudioFile()
     {
-        return ($this->networkTreatmentAudioFile) ? $this->networkTreatmentAudioFile->getValue() : null;
+        return ($this->networkTreatmentAudioFile)
+            ? $this->networkTreatmentAudioFile->getElementValue()
+            : null;
     }
 
     /**
@@ -295,7 +317,7 @@ class SystemConfigurableTreatmentGetResponse16 extends ComplexType implements Co
         $this->networkTreatmentVideoFile = ($networkTreatmentVideoFile InstanceOf MediaTreatmentFileName)
              ? $networkTreatmentVideoFile
              : new MediaTreatmentFileName($networkTreatmentVideoFile);
-        $this->networkTreatmentVideoFile->setName('networkTreatmentVideoFile');
+        $this->networkTreatmentVideoFile->setElementName('networkTreatmentVideoFile');
         return $this;
     }
 
@@ -305,7 +327,9 @@ class SystemConfigurableTreatmentGetResponse16 extends ComplexType implements Co
      */
     public function getNetworkTreatmentVideoFile()
     {
-        return ($this->networkTreatmentVideoFile) ? $this->networkTreatmentVideoFile->getValue() : null;
+        return ($this->networkTreatmentVideoFile)
+            ? $this->networkTreatmentVideoFile->getElementValue()
+            : null;
     }
 
     /**
@@ -316,7 +340,7 @@ class SystemConfigurableTreatmentGetResponse16 extends ComplexType implements Co
         $this->cdrTerminationCause = ($cdrTerminationCause InstanceOf CDRTerminationCause)
              ? $cdrTerminationCause
              : new CDRTerminationCause($cdrTerminationCause);
-        $this->cdrTerminationCause->setName('cdrTerminationCause');
+        $this->cdrTerminationCause->setElementName('cdrTerminationCause');
         return $this;
     }
 
@@ -326,7 +350,9 @@ class SystemConfigurableTreatmentGetResponse16 extends ComplexType implements Co
      */
     public function getCdrTerminationCause()
     {
-        return ($this->cdrTerminationCause) ? $this->cdrTerminationCause->getValue() : null;
+        return ($this->cdrTerminationCause)
+            ? $this->cdrTerminationCause->getElementValue()
+            : null;
     }
 
     /**
@@ -335,7 +361,7 @@ class SystemConfigurableTreatmentGetResponse16 extends ComplexType implements Co
     public function setRouteAdvance($routeAdvance = null)
     {
         $this->routeAdvance = new PrimitiveType($routeAdvance);
-        $this->routeAdvance->setName('routeAdvance');
+        $this->routeAdvance->setElementName('routeAdvance');
         return $this;
     }
 
@@ -345,7 +371,9 @@ class SystemConfigurableTreatmentGetResponse16 extends ComplexType implements Co
      */
     public function getRouteAdvance()
     {
-        return ($this->routeAdvance) ? $this->routeAdvance->getValue() : null;
+        return ($this->routeAdvance)
+            ? $this->routeAdvance->getElementValue()
+            : null;
     }
 
     /**
@@ -356,7 +384,7 @@ class SystemConfigurableTreatmentGetResponse16 extends ComplexType implements Co
         $this->internalReleaseCause = ($internalReleaseCause InstanceOf InternalReleaseCause16)
              ? $internalReleaseCause
              : new InternalReleaseCause16($internalReleaseCause);
-        $this->internalReleaseCause->setName('internalReleaseCause');
+        $this->internalReleaseCause->setElementName('internalReleaseCause');
         return $this;
     }
 
@@ -366,7 +394,9 @@ class SystemConfigurableTreatmentGetResponse16 extends ComplexType implements Co
      */
     public function getInternalReleaseCause()
     {
-        return ($this->internalReleaseCause) ? $this->internalReleaseCause->getValue() : null;
+        return ($this->internalReleaseCause)
+            ? $this->internalReleaseCause->getElementValue()
+            : null;
     }
 
     /**
@@ -375,7 +405,7 @@ class SystemConfigurableTreatmentGetResponse16 extends ComplexType implements Co
     public function setAccessSendReasonHeader($accessSendReasonHeader = null)
     {
         $this->accessSendReasonHeader = new PrimitiveType($accessSendReasonHeader);
-        $this->accessSendReasonHeader->setName('accessSendReasonHeader');
+        $this->accessSendReasonHeader->setElementName('accessSendReasonHeader');
         return $this;
     }
 
@@ -385,7 +415,9 @@ class SystemConfigurableTreatmentGetResponse16 extends ComplexType implements Co
      */
     public function getAccessSendReasonHeader()
     {
-        return ($this->accessSendReasonHeader) ? $this->accessSendReasonHeader->getValue() : null;
+        return ($this->accessSendReasonHeader)
+            ? $this->accessSendReasonHeader->getElementValue()
+            : null;
     }
 
     /**
@@ -394,7 +426,7 @@ class SystemConfigurableTreatmentGetResponse16 extends ComplexType implements Co
     public function setNetworkSendReasonHeader($networkSendReasonHeader = null)
     {
         $this->networkSendReasonHeader = new PrimitiveType($networkSendReasonHeader);
-        $this->networkSendReasonHeader->setName('networkSendReasonHeader');
+        $this->networkSendReasonHeader->setElementName('networkSendReasonHeader');
         return $this;
     }
 
@@ -404,6 +436,8 @@ class SystemConfigurableTreatmentGetResponse16 extends ComplexType implements Co
      */
     public function getNetworkSendReasonHeader()
     {
-        return ($this->networkSendReasonHeader) ? $this->networkSendReasonHeader->getValue() : null;
+        return ($this->networkSendReasonHeader)
+            ? $this->networkSendReasonHeader->getElementValue()
+            : null;
     }
 }

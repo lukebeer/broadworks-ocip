@@ -16,12 +16,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\Enumeration;
  */
 class CallingNameRetrievalSourceIdentity extends SimpleType
 {
-    public $name = "CallingNameRetrievalSourceIdentity";
-    protected $value;
-
+    public $elementName = "CallingNameRetrievalSourceIdentity";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new Enumeration([
             'Presentation Identity',
             'Asserted Identity'

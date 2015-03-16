@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemMediaSetModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemMediaSetModifyRequest';
+    public    $elementName = 'SystemMediaSetModifyRequest';
     protected $setName;
     protected $mediaNameList;
 
@@ -49,7 +49,7 @@ class SystemMediaSetModifyRequest extends ComplexType implements ComplexInterfac
         $this->setName = ($setName InstanceOf MediaSetName)
              ? $setName
              : new MediaSetName($setName);
-        $this->setName->setName('setName');
+        $this->setName->setElementName('setName');
         return $this;
     }
 
@@ -59,7 +59,9 @@ class SystemMediaSetModifyRequest extends ComplexType implements ComplexInterfac
      */
     public function getSetName()
     {
-        return ($this->setName) ? $this->setName->getValue() : null;
+        return ($this->setName)
+            ? $this->setName->getElementValue()
+            : null;
     }
 
     /**
@@ -70,7 +72,7 @@ class SystemMediaSetModifyRequest extends ComplexType implements ComplexInterfac
         $this->mediaNameList = ($mediaNameList InstanceOf ReplacementMediaNameList)
              ? $mediaNameList
              : new ReplacementMediaNameList($mediaNameList);
-        $this->mediaNameList->setName('mediaNameList');
+        $this->mediaNameList->setElementName('mediaNameList');
         return $this;
     }
 

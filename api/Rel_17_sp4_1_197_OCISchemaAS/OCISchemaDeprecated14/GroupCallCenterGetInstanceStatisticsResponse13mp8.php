@@ -24,7 +24,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupCallCenterGetInstanceStatisticsResponse13mp8 extends ComplexType implements ComplexInterface
 {
-    public    $name = 'GroupCallCenterGetInstanceStatisticsResponse13mp8';
+    public    $elementName = 'GroupCallCenterGetInstanceStatisticsResponse13mp8';
     protected $numberOfCallsQueuedNow;
     protected $generateDailyReport;
     protected $collectionPeriodMinutes;
@@ -48,7 +48,7 @@ class GroupCallCenterGetInstanceStatisticsResponse13mp8 extends ComplexType impl
     public function setNumberOfCallsQueuedNow($numberOfCallsQueuedNow = null)
     {
         $this->numberOfCallsQueuedNow = new PrimitiveType($numberOfCallsQueuedNow);
-        $this->numberOfCallsQueuedNow->setName('numberOfCallsQueuedNow');
+        $this->numberOfCallsQueuedNow->setElementName('numberOfCallsQueuedNow');
         return $this;
     }
 
@@ -58,7 +58,9 @@ class GroupCallCenterGetInstanceStatisticsResponse13mp8 extends ComplexType impl
      */
     public function getNumberOfCallsQueuedNow()
     {
-        return ($this->numberOfCallsQueuedNow) ? $this->numberOfCallsQueuedNow->getValue() : null;
+        return ($this->numberOfCallsQueuedNow)
+            ? $this->numberOfCallsQueuedNow->getElementValue()
+            : null;
     }
 
     /**
@@ -67,7 +69,7 @@ class GroupCallCenterGetInstanceStatisticsResponse13mp8 extends ComplexType impl
     public function setGenerateDailyReport($generateDailyReport = null)
     {
         $this->generateDailyReport = new PrimitiveType($generateDailyReport);
-        $this->generateDailyReport->setName('generateDailyReport');
+        $this->generateDailyReport->setElementName('generateDailyReport');
         return $this;
     }
 
@@ -77,7 +79,9 @@ class GroupCallCenterGetInstanceStatisticsResponse13mp8 extends ComplexType impl
      */
     public function getGenerateDailyReport()
     {
-        return ($this->generateDailyReport) ? $this->generateDailyReport->getValue() : null;
+        return ($this->generateDailyReport)
+            ? $this->generateDailyReport->getElementValue()
+            : null;
     }
 
     /**
@@ -88,7 +92,7 @@ class GroupCallCenterGetInstanceStatisticsResponse13mp8 extends ComplexType impl
         $this->collectionPeriodMinutes = ($collectionPeriodMinutes InstanceOf CallCenterStatisticsCollectionPeriodMinutes)
              ? $collectionPeriodMinutes
              : new CallCenterStatisticsCollectionPeriodMinutes($collectionPeriodMinutes);
-        $this->collectionPeriodMinutes->setName('collectionPeriodMinutes');
+        $this->collectionPeriodMinutes->setElementName('collectionPeriodMinutes');
         return $this;
     }
 
@@ -98,7 +102,9 @@ class GroupCallCenterGetInstanceStatisticsResponse13mp8 extends ComplexType impl
      */
     public function getCollectionPeriodMinutes()
     {
-        return ($this->collectionPeriodMinutes) ? $this->collectionPeriodMinutes->getValue() : null;
+        return ($this->collectionPeriodMinutes)
+            ? $this->collectionPeriodMinutes->getElementValue()
+            : null;
     }
 
     /**
@@ -109,7 +115,7 @@ class GroupCallCenterGetInstanceStatisticsResponse13mp8 extends ComplexType impl
         $this->reportingEmailAddress1 = ($reportingEmailAddress1 InstanceOf EmailAddress)
              ? $reportingEmailAddress1
              : new EmailAddress($reportingEmailAddress1);
-        $this->reportingEmailAddress1->setName('reportingEmailAddress1');
+        $this->reportingEmailAddress1->setElementName('reportingEmailAddress1');
         return $this;
     }
 
@@ -119,7 +125,9 @@ class GroupCallCenterGetInstanceStatisticsResponse13mp8 extends ComplexType impl
      */
     public function getReportingEmailAddress1()
     {
-        return ($this->reportingEmailAddress1) ? $this->reportingEmailAddress1->getValue() : null;
+        return ($this->reportingEmailAddress1)
+            ? $this->reportingEmailAddress1->getElementValue()
+            : null;
     }
 
     /**
@@ -130,7 +138,7 @@ class GroupCallCenterGetInstanceStatisticsResponse13mp8 extends ComplexType impl
         $this->reportingEmailAddress2 = ($reportingEmailAddress2 InstanceOf EmailAddress)
              ? $reportingEmailAddress2
              : new EmailAddress($reportingEmailAddress2);
-        $this->reportingEmailAddress2->setName('reportingEmailAddress2');
+        $this->reportingEmailAddress2->setElementName('reportingEmailAddress2');
         return $this;
     }
 
@@ -140,7 +148,9 @@ class GroupCallCenterGetInstanceStatisticsResponse13mp8 extends ComplexType impl
      */
     public function getReportingEmailAddress2()
     {
-        return ($this->reportingEmailAddress2) ? $this->reportingEmailAddress2->getValue() : null;
+        return ($this->reportingEmailAddress2)
+            ? $this->reportingEmailAddress2->getElementValue()
+            : null;
     }
 
     /**
@@ -151,7 +161,7 @@ class GroupCallCenterGetInstanceStatisticsResponse13mp8 extends ComplexType impl
         $this->queueStatisticsYesterday = ($queueStatisticsYesterday InstanceOf CallCenterQueueStatistics13mp8)
              ? $queueStatisticsYesterday
              : new CallCenterQueueStatistics13mp8($queueStatisticsYesterday);
-        $this->queueStatisticsYesterday->setName('queueStatisticsYesterday');
+        $this->queueStatisticsYesterday->setElementName('queueStatisticsYesterday');
         return $this;
     }
 
@@ -172,7 +182,7 @@ class GroupCallCenterGetInstanceStatisticsResponse13mp8 extends ComplexType impl
         $this->queueStatisticsToday = ($queueStatisticsToday InstanceOf CallCenterQueueStatistics13mp8)
              ? $queueStatisticsToday
              : new CallCenterQueueStatistics13mp8($queueStatisticsToday);
-        $this->queueStatisticsToday->setName('queueStatisticsToday');
+        $this->queueStatisticsToday->setElementName('queueStatisticsToday');
         return $this;
     }
 
@@ -193,7 +203,7 @@ class GroupCallCenterGetInstanceStatisticsResponse13mp8 extends ComplexType impl
         $this->agentStatistics = ($agentStatistics InstanceOf CallCenterAgentStatistics13mp8)
              ? $agentStatistics
              : new CallCenterAgentStatistics13mp8($agentStatistics);
-        $this->agentStatistics->setName('agentStatistics');
+        $this->agentStatistics->setElementName('agentStatistics');
         return $this;
     }
 

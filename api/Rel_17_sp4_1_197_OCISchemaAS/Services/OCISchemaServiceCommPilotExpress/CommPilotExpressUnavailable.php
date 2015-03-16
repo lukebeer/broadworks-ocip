@@ -19,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class CommPilotExpressUnavailable extends ComplexType implements ComplexInterface
 {
-    public    $name = 'CommPilotExpressUnavailable';
+    public    $elementName = 'CommPilotExpressUnavailable';
     protected $incomingCalls;
     protected $voiceMailGreeting;
 
@@ -45,7 +45,7 @@ class CommPilotExpressUnavailable extends ComplexType implements ComplexInterfac
     public function setIncomingCalls($incomingCalls = null)
     {
         $this->incomingCalls = new SimpleContent($incomingCalls);
-        $this->incomingCalls->setName('incomingCalls');
+        $this->incomingCalls->setElementName('incomingCalls');
         return $this;
     }
 
@@ -55,7 +55,9 @@ class CommPilotExpressUnavailable extends ComplexType implements ComplexInterfac
      */
     public function getIncomingCalls()
     {
-        return ($this->incomingCalls) ? $this->incomingCalls->getValue() : null;
+        return ($this->incomingCalls)
+            ? $this->incomingCalls->getElementValue()
+            : null;
     }
 
     /**
@@ -64,7 +66,7 @@ class CommPilotExpressUnavailable extends ComplexType implements ComplexInterfac
     public function setVoiceMailGreeting($voiceMailGreeting = null)
     {
         $this->voiceMailGreeting = new SimpleContent($voiceMailGreeting);
-        $this->voiceMailGreeting->setName('voiceMailGreeting');
+        $this->voiceMailGreeting->setElementName('voiceMailGreeting');
         return $this;
     }
 
@@ -74,6 +76,8 @@ class CommPilotExpressUnavailable extends ComplexType implements ComplexInterfac
      */
     public function getVoiceMailGreeting()
     {
-        return ($this->voiceMailGreeting) ? $this->voiceMailGreeting->getValue() : null;
+        return ($this->voiceMailGreeting)
+            ? $this->voiceMailGreeting->getElementValue()
+            : null;
     }
 }

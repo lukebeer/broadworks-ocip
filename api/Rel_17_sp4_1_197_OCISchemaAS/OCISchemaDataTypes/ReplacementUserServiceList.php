@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ReplacementUserServiceList extends ComplexType implements ComplexInterface
 {
-    public    $name = 'ReplacementUserServiceList';
+    public    $elementName = 'ReplacementUserServiceList';
     protected $serviceName;
 
     public function __construct(
@@ -43,7 +43,7 @@ class ReplacementUserServiceList extends ComplexType implements ComplexInterface
     public function setServiceName($serviceName = null)
     {
         $this->serviceName = new SimpleContent($serviceName);
-        $this->serviceName->setName('serviceName');
+        $this->serviceName->setElementName('serviceName');
         return $this;
     }
 
@@ -53,6 +53,8 @@ class ReplacementUserServiceList extends ComplexType implements ComplexInterface
      */
     public function getServiceName()
     {
-        return ($this->serviceName) ? $this->serviceName->getValue() : null;
+        return ($this->serviceName)
+            ? $this->serviceName->getElementValue()
+            : null;
     }
 }

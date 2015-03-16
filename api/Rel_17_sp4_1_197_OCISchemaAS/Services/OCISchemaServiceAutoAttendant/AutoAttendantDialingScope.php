@@ -16,12 +16,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\Enumeration;
  */
 class AutoAttendantDialingScope extends SimpleType
 {
-    public $name = "AutoAttendantDialingScope";
-    protected $value;
-
+    public $elementName = "AutoAttendantDialingScope";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new Enumeration([
             'Enterprise',
             'Group',

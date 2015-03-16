@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
 class SystemOCICallControlGetACLListRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemOCICallControlGetACLListResponse';
-    public    $name = 'SystemOCICallControlGetACLListRequest';
+    public    $elementName = 'SystemOCICallControlGetACLListRequest';
 
     public function __construct(    ) {
     }

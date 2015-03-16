@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
 class SystemAutomaticCallbackGetRequest17 extends ComplexType implements ComplexInterface
 {
     public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceAutomaticCallback\SystemAutomaticCallbackGetResponse17';
-    public    $name = 'SystemAutomaticCallbackGetRequest17';
+    public    $elementName = 'SystemAutomaticCallbackGetRequest17';
 
     public function __construct(    ) {
     }

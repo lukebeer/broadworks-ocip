@@ -17,12 +17,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\MaxInclusive;
  */
 class Port1026 extends SimpleType
 {
-    public $name = "Port1026";
-    protected $value;
-
+    public $elementName = "Port1026";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new MinInclusive("1026"));
         $this->addRestriction(new MaxInclusive("65534"));
     }

@@ -25,7 +25,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserCallMeNowModifyCriteriaRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'UserCallMeNowModifyCriteriaRequest';
+    public    $elementName = 'UserCallMeNowModifyCriteriaRequest';
     protected $userId;
     protected $criteriaName;
     protected $newCriteriaName;
@@ -68,7 +68,7 @@ class UserCallMeNowModifyCriteriaRequest extends ComplexType implements ComplexI
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
-        $this->userId->setName('userId');
+        $this->userId->setElementName('userId');
         return $this;
     }
 
@@ -78,7 +78,9 @@ class UserCallMeNowModifyCriteriaRequest extends ComplexType implements ComplexI
      */
     public function getUserId()
     {
-        return ($this->userId) ? $this->userId->getValue() : null;
+        return ($this->userId)
+            ? $this->userId->getElementValue()
+            : null;
     }
 
     /**
@@ -89,7 +91,7 @@ class UserCallMeNowModifyCriteriaRequest extends ComplexType implements ComplexI
         $this->criteriaName = ($criteriaName InstanceOf CriteriaName)
              ? $criteriaName
              : new CriteriaName($criteriaName);
-        $this->criteriaName->setName('criteriaName');
+        $this->criteriaName->setElementName('criteriaName');
         return $this;
     }
 
@@ -99,7 +101,9 @@ class UserCallMeNowModifyCriteriaRequest extends ComplexType implements ComplexI
      */
     public function getCriteriaName()
     {
-        return ($this->criteriaName) ? $this->criteriaName->getValue() : null;
+        return ($this->criteriaName)
+            ? $this->criteriaName->getElementValue()
+            : null;
     }
 
     /**
@@ -110,7 +114,7 @@ class UserCallMeNowModifyCriteriaRequest extends ComplexType implements ComplexI
         $this->newCriteriaName = ($newCriteriaName InstanceOf CriteriaName)
              ? $newCriteriaName
              : new CriteriaName($newCriteriaName);
-        $this->newCriteriaName->setName('newCriteriaName');
+        $this->newCriteriaName->setElementName('newCriteriaName');
         return $this;
     }
 
@@ -120,7 +124,9 @@ class UserCallMeNowModifyCriteriaRequest extends ComplexType implements ComplexI
      */
     public function getNewCriteriaName()
     {
-        return ($this->newCriteriaName) ? $this->newCriteriaName->getValue() : null;
+        return ($this->newCriteriaName)
+            ? $this->newCriteriaName->getElementValue()
+            : null;
     }
 
     /**
@@ -131,7 +137,7 @@ class UserCallMeNowModifyCriteriaRequest extends ComplexType implements ComplexI
         $this->timeSchedule = ($timeSchedule InstanceOf TimeSchedule)
              ? $timeSchedule
              : new TimeSchedule($timeSchedule);
-        $this->timeSchedule->setName('timeSchedule');
+        $this->timeSchedule->setElementName('timeSchedule');
         return $this;
     }
 
@@ -152,7 +158,7 @@ class UserCallMeNowModifyCriteriaRequest extends ComplexType implements ComplexI
         $this->holidaySchedule = ($holidaySchedule InstanceOf HolidaySchedule)
              ? $holidaySchedule
              : new HolidaySchedule($holidaySchedule);
-        $this->holidaySchedule->setName('holidaySchedule');
+        $this->holidaySchedule->setElementName('holidaySchedule');
         return $this;
     }
 
@@ -171,7 +177,7 @@ class UserCallMeNowModifyCriteriaRequest extends ComplexType implements ComplexI
     public function setRejectCall($rejectCall = null)
     {
         $this->rejectCall = new PrimitiveType($rejectCall);
-        $this->rejectCall->setName('rejectCall');
+        $this->rejectCall->setElementName('rejectCall');
         return $this;
     }
 
@@ -181,7 +187,9 @@ class UserCallMeNowModifyCriteriaRequest extends ComplexType implements ComplexI
      */
     public function getRejectCall()
     {
-        return ($this->rejectCall) ? $this->rejectCall->getValue() : null;
+        return ($this->rejectCall)
+            ? $this->rejectCall->getElementValue()
+            : null;
     }
 
     /**
@@ -192,7 +200,7 @@ class UserCallMeNowModifyCriteriaRequest extends ComplexType implements ComplexI
         $this->toDnCriteria = ($toDnCriteria InstanceOf CallMeNowToDnCriteriaModify)
              ? $toDnCriteria
              : new CallMeNowToDnCriteriaModify($toDnCriteria);
-        $this->toDnCriteria->setName('toDnCriteria');
+        $this->toDnCriteria->setElementName('toDnCriteria');
         return $this;
     }
 

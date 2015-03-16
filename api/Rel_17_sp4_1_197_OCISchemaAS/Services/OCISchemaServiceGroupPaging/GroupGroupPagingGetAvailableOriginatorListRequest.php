@@ -28,7 +28,7 @@ use Broadworks_OCIP\core\Client\Client;
 class GroupGroupPagingGetAvailableOriginatorListRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType                      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceGroupPaging\GroupGroupPagingGetAvailableOriginatorListResponse';
-    public    $name = 'GroupGroupPagingGetAvailableOriginatorListRequest';
+    public    $elementName = 'GroupGroupPagingGetAvailableOriginatorListRequest';
     protected $serviceProviderId;
     protected $groupId;
     protected $responseSizeLimit;
@@ -71,7 +71,7 @@ class GroupGroupPagingGetAvailableOriginatorListRequest extends ComplexType impl
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
-        $this->serviceProviderId->setName('serviceProviderId');
+        $this->serviceProviderId->setElementName('serviceProviderId');
         return $this;
     }
 
@@ -81,7 +81,9 @@ class GroupGroupPagingGetAvailableOriginatorListRequest extends ComplexType impl
      */
     public function getServiceProviderId()
     {
-        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
+        return ($this->serviceProviderId)
+            ? $this->serviceProviderId->getElementValue()
+            : null;
     }
 
     /**
@@ -92,7 +94,7 @@ class GroupGroupPagingGetAvailableOriginatorListRequest extends ComplexType impl
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
-        $this->groupId->setName('groupId');
+        $this->groupId->setElementName('groupId');
         return $this;
     }
 
@@ -102,7 +104,9 @@ class GroupGroupPagingGetAvailableOriginatorListRequest extends ComplexType impl
      */
     public function getGroupId()
     {
-        return ($this->groupId) ? $this->groupId->getValue() : null;
+        return ($this->groupId)
+            ? $this->groupId->getElementValue()
+            : null;
     }
 
     /**
@@ -113,7 +117,7 @@ class GroupGroupPagingGetAvailableOriginatorListRequest extends ComplexType impl
         $this->responseSizeLimit = ($responseSizeLimit InstanceOf ResponseSizeLimit)
              ? $responseSizeLimit
              : new ResponseSizeLimit($responseSizeLimit);
-        $this->responseSizeLimit->setName('responseSizeLimit');
+        $this->responseSizeLimit->setElementName('responseSizeLimit');
         return $this;
     }
 
@@ -123,7 +127,9 @@ class GroupGroupPagingGetAvailableOriginatorListRequest extends ComplexType impl
      */
     public function getResponseSizeLimit()
     {
-        return ($this->responseSizeLimit) ? $this->responseSizeLimit->getValue() : null;
+        return ($this->responseSizeLimit)
+            ? $this->responseSizeLimit->getElementValue()
+            : null;
     }
 
     /**
@@ -134,7 +140,7 @@ class GroupGroupPagingGetAvailableOriginatorListRequest extends ComplexType impl
         $this->searchCriteriaUserLastName = ($searchCriteriaUserLastName InstanceOf SearchCriteriaUserLastName)
              ? $searchCriteriaUserLastName
              : new SearchCriteriaUserLastName($searchCriteriaUserLastName);
-        $this->searchCriteriaUserLastName->setName('searchCriteriaUserLastName');
+        $this->searchCriteriaUserLastName->setElementName('searchCriteriaUserLastName');
         return $this;
     }
 
@@ -155,7 +161,7 @@ class GroupGroupPagingGetAvailableOriginatorListRequest extends ComplexType impl
         $this->searchCriteriaUserFirstName = ($searchCriteriaUserFirstName InstanceOf SearchCriteriaUserFirstName)
              ? $searchCriteriaUserFirstName
              : new SearchCriteriaUserFirstName($searchCriteriaUserFirstName);
-        $this->searchCriteriaUserFirstName->setName('searchCriteriaUserFirstName');
+        $this->searchCriteriaUserFirstName->setElementName('searchCriteriaUserFirstName');
         return $this;
     }
 
@@ -176,7 +182,7 @@ class GroupGroupPagingGetAvailableOriginatorListRequest extends ComplexType impl
         $this->searchCriteriaExactUserDepartment = ($searchCriteriaExactUserDepartment InstanceOf SearchCriteriaExactUserDepartment)
              ? $searchCriteriaExactUserDepartment
              : new SearchCriteriaExactUserDepartment($searchCriteriaExactUserDepartment);
-        $this->searchCriteriaExactUserDepartment->setName('searchCriteriaExactUserDepartment');
+        $this->searchCriteriaExactUserDepartment->setElementName('searchCriteriaExactUserDepartment');
         return $this;
     }
 
@@ -197,7 +203,7 @@ class GroupGroupPagingGetAvailableOriginatorListRequest extends ComplexType impl
         $this->searchCriteriaExactUserGroup = ($searchCriteriaExactUserGroup InstanceOf SearchCriteriaExactUserGroup)
              ? $searchCriteriaExactUserGroup
              : new SearchCriteriaExactUserGroup($searchCriteriaExactUserGroup);
-        $this->searchCriteriaExactUserGroup->setName('searchCriteriaExactUserGroup');
+        $this->searchCriteriaExactUserGroup->setElementName('searchCriteriaExactUserGroup');
         return $this;
     }
 

@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemOCIReportingAddMessageNameListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemOCIReportingAddMessageNameListRequest';
+    public    $elementName = 'SystemOCIReportingAddMessageNameListRequest';
     protected $netAddress;
     protected $messageNameStartsWith;
 
@@ -50,7 +50,7 @@ class SystemOCIReportingAddMessageNameListRequest extends ComplexType implements
         $this->netAddress = ($netAddress InstanceOf NetAddress)
              ? $netAddress
              : new NetAddress($netAddress);
-        $this->netAddress->setName('netAddress');
+        $this->netAddress->setElementName('netAddress');
         return $this;
     }
 
@@ -60,7 +60,9 @@ class SystemOCIReportingAddMessageNameListRequest extends ComplexType implements
      */
     public function getNetAddress()
     {
-        return ($this->netAddress) ? $this->netAddress->getValue() : null;
+        return ($this->netAddress)
+            ? $this->netAddress->getElementValue()
+            : null;
     }
 
     /**
@@ -71,7 +73,7 @@ class SystemOCIReportingAddMessageNameListRequest extends ComplexType implements
         $this->messageNameStartsWith = ($messageNameStartsWith InstanceOf OCIReportingMessageName)
              ? $messageNameStartsWith
              : new OCIReportingMessageName($messageNameStartsWith);
-        $this->messageNameStartsWith->setName('messageNameStartsWith');
+        $this->messageNameStartsWith->setElementName('messageNameStartsWith');
         return $this;
     }
 
@@ -81,6 +83,8 @@ class SystemOCIReportingAddMessageNameListRequest extends ComplexType implements
      */
     public function getMessageNameStartsWith()
     {
-        return ($this->messageNameStartsWith) ? $this->messageNameStartsWith->getValue() : null;
+        return ($this->messageNameStartsWith)
+            ? $this->messageNameStartsWith->getElementValue()
+            : null;
     }
 }

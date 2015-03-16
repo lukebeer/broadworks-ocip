@@ -29,7 +29,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupVirtualOnNetEnterpriseExtensionsModifyUserRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'GroupVirtualOnNetEnterpriseExtensionsModifyUserRequest';
+    public    $elementName = 'GroupVirtualOnNetEnterpriseExtensionsModifyUserRequest';
     protected $serviceProviderId;
     protected $groupId;
     protected $phoneNumber;
@@ -78,7 +78,7 @@ class GroupVirtualOnNetEnterpriseExtensionsModifyUserRequest extends ComplexType
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
-        $this->serviceProviderId->setName('serviceProviderId');
+        $this->serviceProviderId->setElementName('serviceProviderId');
         return $this;
     }
 
@@ -88,7 +88,9 @@ class GroupVirtualOnNetEnterpriseExtensionsModifyUserRequest extends ComplexType
      */
     public function getServiceProviderId()
     {
-        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
+        return ($this->serviceProviderId)
+            ? $this->serviceProviderId->getElementValue()
+            : null;
     }
 
     /**
@@ -99,7 +101,7 @@ class GroupVirtualOnNetEnterpriseExtensionsModifyUserRequest extends ComplexType
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
-        $this->groupId->setName('groupId');
+        $this->groupId->setElementName('groupId');
         return $this;
     }
 
@@ -109,7 +111,9 @@ class GroupVirtualOnNetEnterpriseExtensionsModifyUserRequest extends ComplexType
      */
     public function getGroupId()
     {
-        return ($this->groupId) ? $this->groupId->getValue() : null;
+        return ($this->groupId)
+            ? $this->groupId->getElementValue()
+            : null;
     }
 
     /**
@@ -120,7 +124,7 @@ class GroupVirtualOnNetEnterpriseExtensionsModifyUserRequest extends ComplexType
         $this->phoneNumber = ($phoneNumber InstanceOf DN)
              ? $phoneNumber
              : new DN($phoneNumber);
-        $this->phoneNumber->setName('phoneNumber');
+        $this->phoneNumber->setElementName('phoneNumber');
         return $this;
     }
 
@@ -130,7 +134,9 @@ class GroupVirtualOnNetEnterpriseExtensionsModifyUserRequest extends ComplexType
      */
     public function getPhoneNumber()
     {
-        return ($this->phoneNumber) ? $this->phoneNumber->getValue() : null;
+        return ($this->phoneNumber)
+            ? $this->phoneNumber->getElementValue()
+            : null;
     }
 
     /**
@@ -141,7 +147,7 @@ class GroupVirtualOnNetEnterpriseExtensionsModifyUserRequest extends ComplexType
         $this->extension = ($extension InstanceOf Extension17)
              ? $extension
              : new Extension17($extension);
-        $this->extension->setName('extension');
+        $this->extension->setElementName('extension');
         return $this;
     }
 
@@ -151,7 +157,9 @@ class GroupVirtualOnNetEnterpriseExtensionsModifyUserRequest extends ComplexType
      */
     public function getExtension()
     {
-        return ($this->extension) ? $this->extension->getValue() : null;
+        return ($this->extension)
+            ? $this->extension->getElementValue()
+            : null;
     }
 
     /**
@@ -162,7 +170,7 @@ class GroupVirtualOnNetEnterpriseExtensionsModifyUserRequest extends ComplexType
         $this->firstName = ($firstName InstanceOf FirstName)
              ? $firstName
              : new FirstName($firstName);
-        $this->firstName->setName('firstName');
+        $this->firstName->setElementName('firstName');
         return $this;
     }
 
@@ -172,7 +180,9 @@ class GroupVirtualOnNetEnterpriseExtensionsModifyUserRequest extends ComplexType
      */
     public function getFirstName()
     {
-        return ($this->firstName) ? $this->firstName->getValue() : null;
+        return ($this->firstName)
+            ? $this->firstName->getElementValue()
+            : null;
     }
 
     /**
@@ -183,7 +193,7 @@ class GroupVirtualOnNetEnterpriseExtensionsModifyUserRequest extends ComplexType
         $this->lastName = ($lastName InstanceOf LastName)
              ? $lastName
              : new LastName($lastName);
-        $this->lastName->setName('lastName');
+        $this->lastName->setElementName('lastName');
         return $this;
     }
 
@@ -193,7 +203,9 @@ class GroupVirtualOnNetEnterpriseExtensionsModifyUserRequest extends ComplexType
      */
     public function getLastName()
     {
-        return ($this->lastName) ? $this->lastName->getValue() : null;
+        return ($this->lastName)
+            ? $this->lastName->getElementValue()
+            : null;
     }
 
     /**
@@ -204,7 +216,7 @@ class GroupVirtualOnNetEnterpriseExtensionsModifyUserRequest extends ComplexType
         $this->callingLineIdFirstName = ($callingLineIdFirstName InstanceOf CallingLineIdFirstName)
              ? $callingLineIdFirstName
              : new CallingLineIdFirstName($callingLineIdFirstName);
-        $this->callingLineIdFirstName->setName('callingLineIdFirstName');
+        $this->callingLineIdFirstName->setElementName('callingLineIdFirstName');
         return $this;
     }
 
@@ -214,7 +226,9 @@ class GroupVirtualOnNetEnterpriseExtensionsModifyUserRequest extends ComplexType
      */
     public function getCallingLineIdFirstName()
     {
-        return ($this->callingLineIdFirstName) ? $this->callingLineIdFirstName->getValue() : null;
+        return ($this->callingLineIdFirstName)
+            ? $this->callingLineIdFirstName->getElementValue()
+            : null;
     }
 
     /**
@@ -225,7 +239,7 @@ class GroupVirtualOnNetEnterpriseExtensionsModifyUserRequest extends ComplexType
         $this->callingLineIdLastName = ($callingLineIdLastName InstanceOf CallingLineIdLastName)
              ? $callingLineIdLastName
              : new CallingLineIdLastName($callingLineIdLastName);
-        $this->callingLineIdLastName->setName('callingLineIdLastName');
+        $this->callingLineIdLastName->setElementName('callingLineIdLastName');
         return $this;
     }
 
@@ -235,7 +249,9 @@ class GroupVirtualOnNetEnterpriseExtensionsModifyUserRequest extends ComplexType
      */
     public function getCallingLineIdLastName()
     {
-        return ($this->callingLineIdLastName) ? $this->callingLineIdLastName->getValue() : null;
+        return ($this->callingLineIdLastName)
+            ? $this->callingLineIdLastName->getElementValue()
+            : null;
     }
 
     /**
@@ -246,7 +262,7 @@ class GroupVirtualOnNetEnterpriseExtensionsModifyUserRequest extends ComplexType
         $this->virtualOnNetCallTypeName = ($virtualOnNetCallTypeName InstanceOf VirtualOnNetCallTypeName)
              ? $virtualOnNetCallTypeName
              : new VirtualOnNetCallTypeName($virtualOnNetCallTypeName);
-        $this->virtualOnNetCallTypeName->setName('virtualOnNetCallTypeName');
+        $this->virtualOnNetCallTypeName->setElementName('virtualOnNetCallTypeName');
         return $this;
     }
 
@@ -256,6 +272,8 @@ class GroupVirtualOnNetEnterpriseExtensionsModifyUserRequest extends ComplexType
      */
     public function getVirtualOnNetCallTypeName()
     {
-        return ($this->virtualOnNetCallTypeName) ? $this->virtualOnNetCallTypeName->getValue() : null;
+        return ($this->virtualOnNetCallTypeName)
+            ? $this->virtualOnNetCallTypeName->getElementValue()
+            : null;
     }
 }

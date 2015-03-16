@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class EnterpriseDepartmentKey extends ComplexType implements ComplexInterface
 {
-    public    $name = 'EnterpriseDepartmentKey';
+    public    $elementName = 'EnterpriseDepartmentKey';
     protected $serviceProviderId;
     protected $name;
 
@@ -50,7 +50,7 @@ class EnterpriseDepartmentKey extends ComplexType implements ComplexInterface
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
-        $this->serviceProviderId->setName('serviceProviderId');
+        $this->serviceProviderId->setElementName('serviceProviderId');
         return $this;
     }
 
@@ -60,7 +60,9 @@ class EnterpriseDepartmentKey extends ComplexType implements ComplexInterface
      */
     public function getServiceProviderId()
     {
-        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
+        return ($this->serviceProviderId)
+            ? $this->serviceProviderId->getElementValue()
+            : null;
     }
 
     /**
@@ -71,7 +73,7 @@ class EnterpriseDepartmentKey extends ComplexType implements ComplexInterface
         $this->name = ($name InstanceOf DepartmentName)
              ? $name
              : new DepartmentName($name);
-        $this->name->setName('name');
+        $this->name->setElementName('name');
         return $this;
     }
 
@@ -81,6 +83,8 @@ class EnterpriseDepartmentKey extends ComplexType implements ComplexInterface
      */
     public function getName()
     {
-        return ($this->name) ? $this->name->getValue() : null;
+        return ($this->name)
+            ? $this->name->getElementValue()
+            : null;
     }
 }

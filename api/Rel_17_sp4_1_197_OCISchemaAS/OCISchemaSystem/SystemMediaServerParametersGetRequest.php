@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
 class SystemMediaServerParametersGetRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemMediaServerParametersGetResponse';
-    public    $name = 'SystemMediaServerParametersGetRequest';
+    public    $elementName = 'SystemMediaServerParametersGetRequest';
 
     public function __construct(    ) {
     }

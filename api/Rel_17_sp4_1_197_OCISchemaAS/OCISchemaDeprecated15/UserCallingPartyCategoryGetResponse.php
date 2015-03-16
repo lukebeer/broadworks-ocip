@@ -19,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserCallingPartyCategoryGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'UserCallingPartyCategoryGetResponse';
+    public    $elementName = 'UserCallingPartyCategoryGetResponse';
     protected $category;
 
     /**
@@ -38,7 +38,7 @@ class UserCallingPartyCategoryGetResponse extends ComplexType implements Complex
         $this->category = ($category InstanceOf CallingPartyCategorySelection)
              ? $category
              : new CallingPartyCategorySelection($category);
-        $this->category->setName('category');
+        $this->category->setElementName('category');
         return $this;
     }
 
@@ -48,6 +48,8 @@ class UserCallingPartyCategoryGetResponse extends ComplexType implements Complex
      */
     public function getCategory()
     {
-        return ($this->category) ? $this->category->getValue() : null;
+        return ($this->category)
+            ? $this->category->getElementValue()
+            : null;
     }
 }

@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemPerformanceMeasurementReportingModifyFileServerRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemPerformanceMeasurementReportingModifyFileServerRequest';
+    public    $elementName = 'SystemPerformanceMeasurementReportingModifyFileServerRequest';
     protected $ftpHostNetAddress;
     protected $passiveFTP;
 
@@ -49,7 +49,7 @@ class SystemPerformanceMeasurementReportingModifyFileServerRequest extends Compl
         $this->ftpHostNetAddress = ($ftpHostNetAddress InstanceOf NetAddress)
              ? $ftpHostNetAddress
              : new NetAddress($ftpHostNetAddress);
-        $this->ftpHostNetAddress->setName('ftpHostNetAddress');
+        $this->ftpHostNetAddress->setElementName('ftpHostNetAddress');
         return $this;
     }
 
@@ -59,7 +59,9 @@ class SystemPerformanceMeasurementReportingModifyFileServerRequest extends Compl
      */
     public function getFtpHostNetAddress()
     {
-        return ($this->ftpHostNetAddress) ? $this->ftpHostNetAddress->getValue() : null;
+        return ($this->ftpHostNetAddress)
+            ? $this->ftpHostNetAddress->getElementValue()
+            : null;
     }
 
     /**
@@ -68,7 +70,7 @@ class SystemPerformanceMeasurementReportingModifyFileServerRequest extends Compl
     public function setPassiveFTP($passiveFTP = null)
     {
         $this->passiveFTP = new PrimitiveType($passiveFTP);
-        $this->passiveFTP->setName('passiveFTP');
+        $this->passiveFTP->setElementName('passiveFTP');
         return $this;
     }
 
@@ -78,6 +80,8 @@ class SystemPerformanceMeasurementReportingModifyFileServerRequest extends Compl
      */
     public function getPassiveFTP()
     {
-        return ($this->passiveFTP) ? $this->passiveFTP->getValue() : null;
+        return ($this->passiveFTP)
+            ? $this->passiveFTP->getElementValue()
+            : null;
     }
 }

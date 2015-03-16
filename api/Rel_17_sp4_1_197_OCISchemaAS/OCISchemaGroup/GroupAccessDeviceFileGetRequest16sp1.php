@@ -24,7 +24,7 @@ use Broadworks_OCIP\core\Client\Client;
 class GroupAccessDeviceFileGetRequest16sp1 extends ComplexType implements ComplexInterface
 {
     public    $responseType      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupAccessDeviceFileGetResponse16sp1';
-    public    $name = 'GroupAccessDeviceFileGetRequest16sp1';
+    public    $elementName = 'GroupAccessDeviceFileGetRequest16sp1';
     protected $serviceProviderId;
     protected $groupId;
     protected $deviceName;
@@ -58,7 +58,7 @@ class GroupAccessDeviceFileGetRequest16sp1 extends ComplexType implements Comple
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
-        $this->serviceProviderId->setName('serviceProviderId');
+        $this->serviceProviderId->setElementName('serviceProviderId');
         return $this;
     }
 
@@ -68,7 +68,9 @@ class GroupAccessDeviceFileGetRequest16sp1 extends ComplexType implements Comple
      */
     public function getServiceProviderId()
     {
-        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
+        return ($this->serviceProviderId)
+            ? $this->serviceProviderId->getElementValue()
+            : null;
     }
 
     /**
@@ -79,7 +81,7 @@ class GroupAccessDeviceFileGetRequest16sp1 extends ComplexType implements Comple
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
-        $this->groupId->setName('groupId');
+        $this->groupId->setElementName('groupId');
         return $this;
     }
 
@@ -89,7 +91,9 @@ class GroupAccessDeviceFileGetRequest16sp1 extends ComplexType implements Comple
      */
     public function getGroupId()
     {
-        return ($this->groupId) ? $this->groupId->getValue() : null;
+        return ($this->groupId)
+            ? $this->groupId->getElementValue()
+            : null;
     }
 
     /**
@@ -100,7 +104,7 @@ class GroupAccessDeviceFileGetRequest16sp1 extends ComplexType implements Comple
         $this->deviceName = ($deviceName InstanceOf AccessDeviceName)
              ? $deviceName
              : new AccessDeviceName($deviceName);
-        $this->deviceName->setName('deviceName');
+        $this->deviceName->setElementName('deviceName');
         return $this;
     }
 
@@ -110,7 +114,9 @@ class GroupAccessDeviceFileGetRequest16sp1 extends ComplexType implements Comple
      */
     public function getDeviceName()
     {
-        return ($this->deviceName) ? $this->deviceName->getValue() : null;
+        return ($this->deviceName)
+            ? $this->deviceName->getElementValue()
+            : null;
     }
 
     /**
@@ -121,7 +127,7 @@ class GroupAccessDeviceFileGetRequest16sp1 extends ComplexType implements Comple
         $this->fileFormat = ($fileFormat InstanceOf DeviceManagementFileFormat)
              ? $fileFormat
              : new DeviceManagementFileFormat($fileFormat);
-        $this->fileFormat->setName('fileFormat');
+        $this->fileFormat->setElementName('fileFormat');
         return $this;
     }
 
@@ -131,6 +137,8 @@ class GroupAccessDeviceFileGetRequest16sp1 extends ComplexType implements Comple
      */
     public function getFileFormat()
     {
-        return ($this->fileFormat) ? $this->fileFormat->getValue() : null;
+        return ($this->fileFormat)
+            ? $this->fileFormat->getElementValue()
+            : null;
     }
 }

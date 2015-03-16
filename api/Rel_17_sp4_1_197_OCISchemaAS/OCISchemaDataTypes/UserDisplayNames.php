@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserDisplayNames extends ComplexType implements ComplexInterface
 {
-    public    $name = 'UserDisplayNames';
+    public    $elementName = 'UserDisplayNames';
     protected $lastName;
     protected $firstName;
     protected $hiraganaLastName;
@@ -52,7 +52,7 @@ class UserDisplayNames extends ComplexType implements ComplexInterface
     public function setLastName($lastName = null)
     {
         $this->lastName = new SimpleContent($lastName);
-        $this->lastName->setName('lastName');
+        $this->lastName->setElementName('lastName');
         return $this;
     }
 
@@ -62,7 +62,9 @@ class UserDisplayNames extends ComplexType implements ComplexInterface
      */
     public function getLastName()
     {
-        return ($this->lastName) ? $this->lastName->getValue() : null;
+        return ($this->lastName)
+            ? $this->lastName->getElementValue()
+            : null;
     }
 
     /**
@@ -71,7 +73,7 @@ class UserDisplayNames extends ComplexType implements ComplexInterface
     public function setFirstName($firstName = null)
     {
         $this->firstName = new SimpleContent($firstName);
-        $this->firstName->setName('firstName');
+        $this->firstName->setElementName('firstName');
         return $this;
     }
 
@@ -81,7 +83,9 @@ class UserDisplayNames extends ComplexType implements ComplexInterface
      */
     public function getFirstName()
     {
-        return ($this->firstName) ? $this->firstName->getValue() : null;
+        return ($this->firstName)
+            ? $this->firstName->getElementValue()
+            : null;
     }
 
     /**
@@ -90,7 +94,7 @@ class UserDisplayNames extends ComplexType implements ComplexInterface
     public function setHiraganaLastName($hiraganaLastName = null)
     {
         $this->hiraganaLastName = new SimpleContent($hiraganaLastName);
-        $this->hiraganaLastName->setName('hiraganaLastName');
+        $this->hiraganaLastName->setElementName('hiraganaLastName');
         return $this;
     }
 
@@ -100,7 +104,9 @@ class UserDisplayNames extends ComplexType implements ComplexInterface
      */
     public function getHiraganaLastName()
     {
-        return ($this->hiraganaLastName) ? $this->hiraganaLastName->getValue() : null;
+        return ($this->hiraganaLastName)
+            ? $this->hiraganaLastName->getElementValue()
+            : null;
     }
 
     /**
@@ -109,7 +115,7 @@ class UserDisplayNames extends ComplexType implements ComplexInterface
     public function setHiraganaFirstName($hiraganaFirstName = null)
     {
         $this->hiraganaFirstName = new SimpleContent($hiraganaFirstName);
-        $this->hiraganaFirstName->setName('hiraganaFirstName');
+        $this->hiraganaFirstName->setElementName('hiraganaFirstName');
         return $this;
     }
 
@@ -119,6 +125,8 @@ class UserDisplayNames extends ComplexType implements ComplexInterface
      */
     public function getHiraganaFirstName()
     {
-        return ($this->hiraganaFirstName) ? $this->hiraganaFirstName->getValue() : null;
+        return ($this->hiraganaFirstName)
+            ? $this->hiraganaFirstName->getElementValue()
+            : null;
     }
 }

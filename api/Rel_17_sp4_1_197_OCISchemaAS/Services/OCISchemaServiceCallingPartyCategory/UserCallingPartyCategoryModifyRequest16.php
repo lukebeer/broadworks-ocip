@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserCallingPartyCategoryModifyRequest16 extends ComplexType implements ComplexInterface
 {
-    public    $name = 'UserCallingPartyCategoryModifyRequest16';
+    public    $elementName = 'UserCallingPartyCategoryModifyRequest16';
     protected $userId;
     protected $category;
 
@@ -48,7 +48,7 @@ class UserCallingPartyCategoryModifyRequest16 extends ComplexType implements Com
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
-        $this->userId->setName('userId');
+        $this->userId->setElementName('userId');
         return $this;
     }
 
@@ -58,7 +58,9 @@ class UserCallingPartyCategoryModifyRequest16 extends ComplexType implements Com
      */
     public function getUserId()
     {
-        return ($this->userId) ? $this->userId->getValue() : null;
+        return ($this->userId)
+            ? $this->userId->getElementValue()
+            : null;
     }
 
     /**
@@ -69,7 +71,7 @@ class UserCallingPartyCategoryModifyRequest16 extends ComplexType implements Com
         $this->category = ($category InstanceOf CallingPartyCategoryName)
              ? $category
              : new CallingPartyCategoryName($category);
-        $this->category->setName('category');
+        $this->category->setElementName('category');
         return $this;
     }
 
@@ -79,6 +81,8 @@ class UserCallingPartyCategoryModifyRequest16 extends ComplexType implements Com
      */
     public function getCategory()
     {
-        return ($this->category) ? $this->category->getValue() : null;
+        return ($this->category)
+            ? $this->category->getElementValue()
+            : null;
     }
 }

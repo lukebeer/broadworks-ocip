@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupCallCenterQueueCallDispositionCodeGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'GroupCallCenterQueueCallDispositionCodeGetListResponse';
+    public    $elementName = 'GroupCallCenterQueueCallDispositionCodeGetListResponse';
     protected $dispositionCodesTable;
 
     /**
@@ -38,7 +38,7 @@ class GroupCallCenterQueueCallDispositionCodeGetListResponse extends ComplexType
     public function setDispositionCodesTable(TableType $dispositionCodesTable = null)
     {
         $this->dispositionCodesTable = $dispositionCodesTable;
-        $this->dispositionCodesTable->setName('dispositionCodesTable');
+        $this->dispositionCodesTable->setElementName('dispositionCodesTable');
         return $this;
     }
 

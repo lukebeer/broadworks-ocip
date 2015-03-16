@@ -24,7 +24,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupScheduleAddEventRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'GroupScheduleAddEventRequest';
+    public    $elementName = 'GroupScheduleAddEventRequest';
     protected $serviceProviderId;
     protected $groupId;
     protected $scheduleKey;
@@ -67,7 +67,7 @@ class GroupScheduleAddEventRequest extends ComplexType implements ComplexInterfa
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
-        $this->serviceProviderId->setName('serviceProviderId');
+        $this->serviceProviderId->setElementName('serviceProviderId');
         return $this;
     }
 
@@ -77,7 +77,9 @@ class GroupScheduleAddEventRequest extends ComplexType implements ComplexInterfa
      */
     public function getServiceProviderId()
     {
-        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
+        return ($this->serviceProviderId)
+            ? $this->serviceProviderId->getElementValue()
+            : null;
     }
 
     /**
@@ -88,7 +90,7 @@ class GroupScheduleAddEventRequest extends ComplexType implements ComplexInterfa
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
-        $this->groupId->setName('groupId');
+        $this->groupId->setElementName('groupId');
         return $this;
     }
 
@@ -98,7 +100,9 @@ class GroupScheduleAddEventRequest extends ComplexType implements ComplexInterfa
      */
     public function getGroupId()
     {
-        return ($this->groupId) ? $this->groupId->getValue() : null;
+        return ($this->groupId)
+            ? $this->groupId->getElementValue()
+            : null;
     }
 
     /**
@@ -109,7 +113,7 @@ class GroupScheduleAddEventRequest extends ComplexType implements ComplexInterfa
         $this->scheduleKey = ($scheduleKey InstanceOf ScheduleKey)
              ? $scheduleKey
              : new ScheduleKey($scheduleKey);
-        $this->scheduleKey->setName('scheduleKey');
+        $this->scheduleKey->setElementName('scheduleKey');
         return $this;
     }
 
@@ -130,7 +134,7 @@ class GroupScheduleAddEventRequest extends ComplexType implements ComplexInterfa
         $this->eventName = ($eventName InstanceOf EventName)
              ? $eventName
              : new EventName($eventName);
-        $this->eventName->setName('eventName');
+        $this->eventName->setElementName('eventName');
         return $this;
     }
 
@@ -140,7 +144,9 @@ class GroupScheduleAddEventRequest extends ComplexType implements ComplexInterfa
      */
     public function getEventName()
     {
-        return ($this->eventName) ? $this->eventName->getValue() : null;
+        return ($this->eventName)
+            ? $this->eventName->getElementValue()
+            : null;
     }
 
     /**
@@ -148,7 +154,7 @@ class GroupScheduleAddEventRequest extends ComplexType implements ComplexInterfa
      */
     public function setStartDate(xs:date $startDate = null)
     {
-        $this->startDate->setName('startDate');
+        $this->startDate->setElementName('startDate');
         return $this;
     }
 
@@ -158,7 +164,9 @@ class GroupScheduleAddEventRequest extends ComplexType implements ComplexInterfa
      */
     public function getStartDate()
     {
-        return ($this->startDate) ? $this->startDate->getValue() : null;
+        return ($this->startDate)
+            ? $this->startDate->getElementValue()
+            : null;
     }
 
     /**
@@ -166,7 +174,7 @@ class GroupScheduleAddEventRequest extends ComplexType implements ComplexInterfa
      */
     public function setEndDate(xs:date $endDate = null)
     {
-        $this->endDate->setName('endDate');
+        $this->endDate->setElementName('endDate');
         return $this;
     }
 
@@ -176,7 +184,9 @@ class GroupScheduleAddEventRequest extends ComplexType implements ComplexInterfa
      */
     public function getEndDate()
     {
-        return ($this->endDate) ? $this->endDate->getValue() : null;
+        return ($this->endDate)
+            ? $this->endDate->getElementValue()
+            : null;
     }
 
     /**
@@ -187,7 +197,7 @@ class GroupScheduleAddEventRequest extends ComplexType implements ComplexInterfa
         $this->recurrence = ($recurrence InstanceOf Recurrence)
              ? $recurrence
              : new Recurrence($recurrence);
-        $this->recurrence->setName('recurrence');
+        $this->recurrence->setElementName('recurrence');
         return $this;
     }
 

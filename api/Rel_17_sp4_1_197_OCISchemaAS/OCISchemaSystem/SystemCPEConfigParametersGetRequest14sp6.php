@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
 class SystemCPEConfigParametersGetRequest14sp6 extends ComplexType implements ComplexInterface
 {
     public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemCPEConfigParametersGetResponse14sp6';
-    public    $name = 'SystemCPEConfigParametersGetRequest14sp6';
+    public    $elementName = 'SystemCPEConfigParametersGetRequest14sp6';
 
     public function __construct(    ) {
     }

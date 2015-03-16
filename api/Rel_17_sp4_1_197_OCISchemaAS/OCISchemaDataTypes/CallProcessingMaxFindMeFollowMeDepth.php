@@ -17,12 +17,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\MaxInclusive;
  */
 class CallProcessingMaxFindMeFollowMeDepth extends SimpleType
 {
-    public $name = "CallProcessingMaxFindMeFollowMeDepth";
-    protected $value;
-
+    public $elementName = "CallProcessingMaxFindMeFollowMeDepth";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new MinInclusive("1"));
         $this->addRestriction(new MaxInclusive("10"));
     }

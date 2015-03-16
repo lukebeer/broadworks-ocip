@@ -23,7 +23,7 @@ use Broadworks_OCIP\core\Client\Client;
 class UserPrivacyGetRequest13mp17 extends ComplexType implements ComplexInterface
 {
     public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServicePrivacy\UserPrivacyGetResponse13mp17';
-    public    $name = 'UserPrivacyGetRequest13mp17';
+    public    $elementName = 'UserPrivacyGetRequest13mp17';
     protected $userId;
 
     public function __construct(
@@ -48,7 +48,7 @@ class UserPrivacyGetRequest13mp17 extends ComplexType implements ComplexInterfac
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
-        $this->userId->setName('userId');
+        $this->userId->setElementName('userId');
         return $this;
     }
 
@@ -58,6 +58,8 @@ class UserPrivacyGetRequest13mp17 extends ComplexType implements ComplexInterfac
      */
     public function getUserId()
     {
-        return ($this->userId) ? $this->userId->getValue() : null;
+        return ($this->userId)
+            ? $this->userId->getElementValue()
+            : null;
     }
 }

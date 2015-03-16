@@ -19,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderCommunicationBarringHierarchicalCallMeNowRule extends ComplexType implements ComplexInterface
 {
-    public    $name = 'ServiceProviderCommunicationBarringHierarchicalCallMeNowRule';
+    public    $elementName = 'ServiceProviderCommunicationBarringHierarchicalCallMeNowRule';
     protected $action;
     protected $callTimeoutSeconds;
     protected $timeSchedule;
@@ -54,7 +54,7 @@ class ServiceProviderCommunicationBarringHierarchicalCallMeNowRule extends Compl
     public function setAction($action = null)
     {
         $this->action = new SimpleContent($action);
-        $this->action->setName('action');
+        $this->action->setElementName('action');
         return $this;
     }
 
@@ -64,7 +64,9 @@ class ServiceProviderCommunicationBarringHierarchicalCallMeNowRule extends Compl
      */
     public function getAction()
     {
-        return ($this->action) ? $this->action->getValue() : null;
+        return ($this->action)
+            ? $this->action->getElementValue()
+            : null;
     }
 
     /**
@@ -73,7 +75,7 @@ class ServiceProviderCommunicationBarringHierarchicalCallMeNowRule extends Compl
     public function setCallTimeoutSeconds($callTimeoutSeconds = null)
     {
         $this->callTimeoutSeconds = new SimpleContent($callTimeoutSeconds);
-        $this->callTimeoutSeconds->setName('callTimeoutSeconds');
+        $this->callTimeoutSeconds->setElementName('callTimeoutSeconds');
         return $this;
     }
 
@@ -83,7 +85,9 @@ class ServiceProviderCommunicationBarringHierarchicalCallMeNowRule extends Compl
      */
     public function getCallTimeoutSeconds()
     {
-        return ($this->callTimeoutSeconds) ? $this->callTimeoutSeconds->getValue() : null;
+        return ($this->callTimeoutSeconds)
+            ? $this->callTimeoutSeconds->getElementValue()
+            : null;
     }
 
     /**
@@ -92,7 +96,7 @@ class ServiceProviderCommunicationBarringHierarchicalCallMeNowRule extends Compl
     public function setTimeSchedule($timeSchedule = null)
     {
         $this->timeSchedule = new SimpleContent($timeSchedule);
-        $this->timeSchedule->setName('timeSchedule');
+        $this->timeSchedule->setElementName('timeSchedule');
         return $this;
     }
 
@@ -102,7 +106,9 @@ class ServiceProviderCommunicationBarringHierarchicalCallMeNowRule extends Compl
      */
     public function getTimeSchedule()
     {
-        return ($this->timeSchedule) ? $this->timeSchedule->getValue() : null;
+        return ($this->timeSchedule)
+            ? $this->timeSchedule->getElementValue()
+            : null;
     }
 
     /**
@@ -111,7 +117,7 @@ class ServiceProviderCommunicationBarringHierarchicalCallMeNowRule extends Compl
     public function setHolidaySchedule($holidaySchedule = null)
     {
         $this->holidaySchedule = new SimpleContent($holidaySchedule);
-        $this->holidaySchedule->setName('holidaySchedule');
+        $this->holidaySchedule->setElementName('holidaySchedule');
         return $this;
     }
 
@@ -121,7 +127,9 @@ class ServiceProviderCommunicationBarringHierarchicalCallMeNowRule extends Compl
      */
     public function getHolidaySchedule()
     {
-        return ($this->holidaySchedule) ? $this->holidaySchedule->getValue() : null;
+        return ($this->holidaySchedule)
+            ? $this->holidaySchedule->getElementValue()
+            : null;
     }
 
     /**
@@ -130,7 +138,7 @@ class ServiceProviderCommunicationBarringHierarchicalCallMeNowRule extends Compl
     public function setPriority($priority = null)
     {
         $this->priority = new SimpleContent($priority);
-        $this->priority->setName('priority');
+        $this->priority->setElementName('priority');
         return $this;
     }
 
@@ -140,6 +148,8 @@ class ServiceProviderCommunicationBarringHierarchicalCallMeNowRule extends Compl
      */
     public function getPriority()
     {
-        return ($this->priority) ? $this->priority->getValue() : null;
+        return ($this->priority)
+            ? $this->priority->getElementValue()
+            : null;
     }
 }

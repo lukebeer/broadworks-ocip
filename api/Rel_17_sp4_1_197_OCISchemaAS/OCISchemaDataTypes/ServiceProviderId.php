@@ -18,12 +18,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\MaxLength;
  */
 class ServiceProviderId extends SimpleType
 {
-    public $name = "ServiceProviderId";
-    protected $value;
-
+    public $elementName = "ServiceProviderId";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new MinLength("1"));
         $this->addRestriction(new MaxLength("30"));
     }

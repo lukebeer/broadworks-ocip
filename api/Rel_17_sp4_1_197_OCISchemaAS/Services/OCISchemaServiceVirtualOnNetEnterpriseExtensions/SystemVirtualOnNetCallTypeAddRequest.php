@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemVirtualOnNetCallTypeAddRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemVirtualOnNetCallTypeAddRequest';
+    public    $elementName = 'SystemVirtualOnNetCallTypeAddRequest';
     protected $virtualOnNetCallTypeName;
     protected $virtualOnNetCallTypeCdrValue;
 
@@ -49,7 +49,7 @@ class SystemVirtualOnNetCallTypeAddRequest extends ComplexType implements Comple
         $this->virtualOnNetCallTypeName = ($virtualOnNetCallTypeName InstanceOf VirtualOnNetCallTypeName)
              ? $virtualOnNetCallTypeName
              : new VirtualOnNetCallTypeName($virtualOnNetCallTypeName);
-        $this->virtualOnNetCallTypeName->setName('virtualOnNetCallTypeName');
+        $this->virtualOnNetCallTypeName->setElementName('virtualOnNetCallTypeName');
         return $this;
     }
 
@@ -59,7 +59,9 @@ class SystemVirtualOnNetCallTypeAddRequest extends ComplexType implements Comple
      */
     public function getVirtualOnNetCallTypeName()
     {
-        return ($this->virtualOnNetCallTypeName) ? $this->virtualOnNetCallTypeName->getValue() : null;
+        return ($this->virtualOnNetCallTypeName)
+            ? $this->virtualOnNetCallTypeName->getElementValue()
+            : null;
     }
 
     /**
@@ -70,7 +72,7 @@ class SystemVirtualOnNetCallTypeAddRequest extends ComplexType implements Comple
         $this->virtualOnNetCallTypeCdrValue = ($virtualOnNetCallTypeCdrValue InstanceOf VirtualOnNetCallTypeCdrValue)
              ? $virtualOnNetCallTypeCdrValue
              : new VirtualOnNetCallTypeCdrValue($virtualOnNetCallTypeCdrValue);
-        $this->virtualOnNetCallTypeCdrValue->setName('virtualOnNetCallTypeCdrValue');
+        $this->virtualOnNetCallTypeCdrValue->setElementName('virtualOnNetCallTypeCdrValue');
         return $this;
     }
 
@@ -80,6 +82,8 @@ class SystemVirtualOnNetCallTypeAddRequest extends ComplexType implements Comple
      */
     public function getVirtualOnNetCallTypeCdrValue()
     {
-        return ($this->virtualOnNetCallTypeCdrValue) ? $this->virtualOnNetCallTypeCdrValue->getValue() : null;
+        return ($this->virtualOnNetCallTypeCdrValue)
+            ? $this->virtualOnNetCallTypeCdrValue->getElementValue()
+            : null;
     }
 }

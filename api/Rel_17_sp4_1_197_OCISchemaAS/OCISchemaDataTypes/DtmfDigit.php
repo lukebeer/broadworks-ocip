@@ -16,12 +16,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\Length;
  */
 class DtmfDigit extends SimpleType
 {
-    public $name = "DtmfDigit";
-    protected $value;
-
+    public $elementName = "DtmfDigit";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new Length("1"));
     }
 }

@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderEnhancedCallLogsGetResponse17sp4 extends ComplexType implements ComplexInterface
 {
-    public    $name = 'ServiceProviderEnhancedCallLogsGetResponse17sp4';
+    public    $elementName = 'ServiceProviderEnhancedCallLogsGetResponse17sp4';
     protected $maxLoggedCalls;
     protected $callExpirationDays;
 
@@ -40,7 +40,7 @@ class ServiceProviderEnhancedCallLogsGetResponse17sp4 extends ComplexType implem
         $this->maxLoggedCalls = ($maxLoggedCalls InstanceOf EnhancedCallLogsMaxLoggedCalls17sp4)
              ? $maxLoggedCalls
              : new EnhancedCallLogsMaxLoggedCalls17sp4($maxLoggedCalls);
-        $this->maxLoggedCalls->setName('maxLoggedCalls');
+        $this->maxLoggedCalls->setElementName('maxLoggedCalls');
         return $this;
     }
 
@@ -50,7 +50,9 @@ class ServiceProviderEnhancedCallLogsGetResponse17sp4 extends ComplexType implem
      */
     public function getMaxLoggedCalls()
     {
-        return ($this->maxLoggedCalls) ? $this->maxLoggedCalls->getValue() : null;
+        return ($this->maxLoggedCalls)
+            ? $this->maxLoggedCalls->getElementValue()
+            : null;
     }
 
     /**
@@ -61,7 +63,7 @@ class ServiceProviderEnhancedCallLogsGetResponse17sp4 extends ComplexType implem
         $this->callExpirationDays = ($callExpirationDays InstanceOf EnhancedCallLogsCallExpirationDays)
              ? $callExpirationDays
              : new EnhancedCallLogsCallExpirationDays($callExpirationDays);
-        $this->callExpirationDays->setName('callExpirationDays');
+        $this->callExpirationDays->setElementName('callExpirationDays');
         return $this;
     }
 
@@ -71,6 +73,8 @@ class ServiceProviderEnhancedCallLogsGetResponse17sp4 extends ComplexType implem
      */
     public function getCallExpirationDays()
     {
-        return ($this->callExpirationDays) ? $this->callExpirationDays->getValue() : null;
+        return ($this->callExpirationDays)
+            ? $this->callExpirationDays->getElementValue()
+            : null;
     }
 }

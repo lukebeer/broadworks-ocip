@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserServiceScriptsUserClearLogRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'UserServiceScriptsUserClearLogRequest';
+    public    $elementName = 'UserServiceScriptsUserClearLogRequest';
     protected $userId;
 
     public function __construct(
@@ -45,7 +45,7 @@ class UserServiceScriptsUserClearLogRequest extends ComplexType implements Compl
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
-        $this->userId->setName('userId');
+        $this->userId->setElementName('userId');
         return $this;
     }
 
@@ -55,6 +55,8 @@ class UserServiceScriptsUserClearLogRequest extends ComplexType implements Compl
      */
     public function getUserId()
     {
-        return ($this->userId) ? $this->userId->getValue() : null;
+        return ($this->userId)
+            ? $this->userId->getElementValue()
+            : null;
     }
 }

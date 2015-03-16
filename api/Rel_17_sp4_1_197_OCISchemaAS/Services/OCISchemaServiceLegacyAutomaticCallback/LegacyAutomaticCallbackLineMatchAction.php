@@ -16,12 +16,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\Enumeration;
  */
 class LegacyAutomaticCallbackLineMatchAction extends SimpleType
 {
-    public $name = "LegacyAutomaticCallbackLineMatchAction";
-    protected $value;
-
+    public $elementName = "LegacyAutomaticCallbackLineMatchAction";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new Enumeration([
             'Accept',
             'Deny'

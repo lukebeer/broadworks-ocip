@@ -18,10 +18,11 @@ namespace Broadworks_OCIP\core\Builder\Types;
  */
 class TableType
 {
-    public $name = __CLASS__;
     protected $colHeadings;
     protected $responseType;
     protected $rows = [];
+
+    use TypeTrait;
 
     /**
      * Generates table from simpleXMLElement object.
@@ -31,7 +32,7 @@ class TableType
      */
     public function __construct($name, \SimpleXMLElement $simpleXmlElement = null)
     {
-        $this->setName($name);
+        $this->setElementName($name);
         if ($simpleXmlElement) {
             $this->setColHeadings((array)$simpleXmlElement->children()->colHeading);
             foreach ($simpleXmlElement->children()->row as $row) {
@@ -104,26 +105,6 @@ class TableType
             }
         }
         return false;
-    }
-
-    /**
-     * Return table name.
-     */
-    public function getName()
-    {
-        $this->name;
-    }
-
-    /**
-     * Set name.
-     *
-     * @param $name
-     * @return TableType $this
-     */
-    public function setName($name)
-    {
-        $this->name = $name;
-        return $this;
     }
 
     /**

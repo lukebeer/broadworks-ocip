@@ -16,12 +16,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\MinLength;
  */
 class LDAPColumnAttributeValue extends SimpleType
 {
-    public $name = "LDAPColumnAttributeValue";
-    protected $value;
-
+    public $elementName = "LDAPColumnAttributeValue";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new MinLength("1"));
     }
 }

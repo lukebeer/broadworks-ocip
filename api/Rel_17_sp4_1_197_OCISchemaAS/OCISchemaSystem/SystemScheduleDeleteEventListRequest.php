@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemScheduleDeleteEventListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemScheduleDeleteEventListRequest';
+    public    $elementName = 'SystemScheduleDeleteEventListRequest';
     protected $scheduleKey;
     protected $eventName;
 
@@ -49,7 +49,7 @@ class SystemScheduleDeleteEventListRequest extends ComplexType implements Comple
         $this->scheduleKey = ($scheduleKey InstanceOf ScheduleKey)
              ? $scheduleKey
              : new ScheduleKey($scheduleKey);
-        $this->scheduleKey->setName('scheduleKey');
+        $this->scheduleKey->setElementName('scheduleKey');
         return $this;
     }
 
@@ -70,7 +70,7 @@ class SystemScheduleDeleteEventListRequest extends ComplexType implements Comple
         $this->eventName = ($eventName InstanceOf EventName)
              ? $eventName
              : new EventName($eventName);
-        $this->eventName->setName('eventName');
+        $this->eventName->setElementName('eventName');
         return $this;
     }
 
@@ -80,6 +80,8 @@ class SystemScheduleDeleteEventListRequest extends ComplexType implements Comple
      */
     public function getEventName()
     {
-        return ($this->eventName) ? $this->eventName->getValue() : null;
+        return ($this->eventName)
+            ? $this->eventName->getElementValue()
+            : null;
     }
 }

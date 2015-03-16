@@ -19,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class AgentStatistics extends ComplexType implements ComplexInterface
 {
-    public    $name = 'AgentStatistics';
+    public    $elementName = 'AgentStatistics';
     protected $numberOfCallsHandled;
     protected $numberOfCallsUnanswered;
     protected $averageCallSeconds;
@@ -54,7 +54,7 @@ class AgentStatistics extends ComplexType implements ComplexInterface
     public function setNumberOfCallsHandled($numberOfCallsHandled = null)
     {
         $this->numberOfCallsHandled = new SimpleContent($numberOfCallsHandled);
-        $this->numberOfCallsHandled->setName('numberOfCallsHandled');
+        $this->numberOfCallsHandled->setElementName('numberOfCallsHandled');
         return $this;
     }
 
@@ -64,7 +64,9 @@ class AgentStatistics extends ComplexType implements ComplexInterface
      */
     public function getNumberOfCallsHandled()
     {
-        return ($this->numberOfCallsHandled) ? $this->numberOfCallsHandled->getValue() : null;
+        return ($this->numberOfCallsHandled)
+            ? $this->numberOfCallsHandled->getElementValue()
+            : null;
     }
 
     /**
@@ -73,7 +75,7 @@ class AgentStatistics extends ComplexType implements ComplexInterface
     public function setNumberOfCallsUnanswered($numberOfCallsUnanswered = null)
     {
         $this->numberOfCallsUnanswered = new SimpleContent($numberOfCallsUnanswered);
-        $this->numberOfCallsUnanswered->setName('numberOfCallsUnanswered');
+        $this->numberOfCallsUnanswered->setElementName('numberOfCallsUnanswered');
         return $this;
     }
 
@@ -83,7 +85,9 @@ class AgentStatistics extends ComplexType implements ComplexInterface
      */
     public function getNumberOfCallsUnanswered()
     {
-        return ($this->numberOfCallsUnanswered) ? $this->numberOfCallsUnanswered->getValue() : null;
+        return ($this->numberOfCallsUnanswered)
+            ? $this->numberOfCallsUnanswered->getElementValue()
+            : null;
     }
 
     /**
@@ -92,7 +96,7 @@ class AgentStatistics extends ComplexType implements ComplexInterface
     public function setAverageCallSeconds($averageCallSeconds = null)
     {
         $this->averageCallSeconds = new SimpleContent($averageCallSeconds);
-        $this->averageCallSeconds->setName('averageCallSeconds');
+        $this->averageCallSeconds->setElementName('averageCallSeconds');
         return $this;
     }
 
@@ -102,7 +106,9 @@ class AgentStatistics extends ComplexType implements ComplexInterface
      */
     public function getAverageCallSeconds()
     {
-        return ($this->averageCallSeconds) ? $this->averageCallSeconds->getValue() : null;
+        return ($this->averageCallSeconds)
+            ? $this->averageCallSeconds->getElementValue()
+            : null;
     }
 
     /**
@@ -111,7 +117,7 @@ class AgentStatistics extends ComplexType implements ComplexInterface
     public function setTotalTalkSeconds($totalTalkSeconds = null)
     {
         $this->totalTalkSeconds = new SimpleContent($totalTalkSeconds);
-        $this->totalTalkSeconds->setName('totalTalkSeconds');
+        $this->totalTalkSeconds->setElementName('totalTalkSeconds');
         return $this;
     }
 
@@ -121,7 +127,9 @@ class AgentStatistics extends ComplexType implements ComplexInterface
      */
     public function getTotalTalkSeconds()
     {
-        return ($this->totalTalkSeconds) ? $this->totalTalkSeconds->getValue() : null;
+        return ($this->totalTalkSeconds)
+            ? $this->totalTalkSeconds->getElementValue()
+            : null;
     }
 
     /**
@@ -130,7 +138,7 @@ class AgentStatistics extends ComplexType implements ComplexInterface
     public function setTotalStaffedSeconds($totalStaffedSeconds = null)
     {
         $this->totalStaffedSeconds = new SimpleContent($totalStaffedSeconds);
-        $this->totalStaffedSeconds->setName('totalStaffedSeconds');
+        $this->totalStaffedSeconds->setElementName('totalStaffedSeconds');
         return $this;
     }
 
@@ -140,6 +148,8 @@ class AgentStatistics extends ComplexType implements ComplexInterface
      */
     public function getTotalStaffedSeconds()
     {
-        return ($this->totalStaffedSeconds) ? $this->totalStaffedSeconds->getValue() : null;
+        return ($this->totalStaffedSeconds)
+            ? $this->totalStaffedSeconds->getElementValue()
+            : null;
     }
 }

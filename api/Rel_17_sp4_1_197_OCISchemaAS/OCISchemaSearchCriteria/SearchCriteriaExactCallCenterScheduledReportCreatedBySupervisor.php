@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SearchCriteriaExactCallCenterScheduledReportCreatedBySupervisor extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SearchCriteriaExactCallCenterScheduledReportCreatedBySupervisor';
+    public    $elementName = 'SearchCriteriaExactCallCenterScheduledReportCreatedBySupervisor';
     protected $createdBySupervisor;
 
     public function __construct(
@@ -43,7 +43,7 @@ class SearchCriteriaExactCallCenterScheduledReportCreatedBySupervisor extends Co
     public function setCreatedBySupervisor($createdBySupervisor = null)
     {
         $this->createdBySupervisor = new PrimitiveType($createdBySupervisor);
-        $this->createdBySupervisor->setName('createdBySupervisor');
+        $this->createdBySupervisor->setElementName('createdBySupervisor');
         return $this;
     }
 
@@ -53,6 +53,8 @@ class SearchCriteriaExactCallCenterScheduledReportCreatedBySupervisor extends Co
      */
     public function getCreatedBySupervisor()
     {
-        return ($this->createdBySupervisor) ? $this->createdBySupervisor->getValue() : null;
+        return ($this->createdBySupervisor)
+            ? $this->createdBySupervisor->getElementValue()
+            : null;
     }
 }

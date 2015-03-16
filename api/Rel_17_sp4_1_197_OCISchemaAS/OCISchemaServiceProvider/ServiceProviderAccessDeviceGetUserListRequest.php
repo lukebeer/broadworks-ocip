@@ -32,7 +32,7 @@ use Broadworks_OCIP\core\Client\Client;
 class ServiceProviderAccessDeviceGetUserListRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType                    = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderAccessDeviceGetUserListResponse';
-    public    $name = 'ServiceProviderAccessDeviceGetUserListRequest';
+    public    $elementName = 'ServiceProviderAccessDeviceGetUserListRequest';
     protected $serviceProviderId;
     protected $deviceName;
     protected $responseSizeLimit;
@@ -90,7 +90,7 @@ class ServiceProviderAccessDeviceGetUserListRequest extends ComplexType implemen
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
-        $this->serviceProviderId->setName('serviceProviderId');
+        $this->serviceProviderId->setElementName('serviceProviderId');
         return $this;
     }
 
@@ -100,7 +100,9 @@ class ServiceProviderAccessDeviceGetUserListRequest extends ComplexType implemen
      */
     public function getServiceProviderId()
     {
-        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
+        return ($this->serviceProviderId)
+            ? $this->serviceProviderId->getElementValue()
+            : null;
     }
 
     /**
@@ -111,7 +113,7 @@ class ServiceProviderAccessDeviceGetUserListRequest extends ComplexType implemen
         $this->deviceName = ($deviceName InstanceOf AccessDeviceName)
              ? $deviceName
              : new AccessDeviceName($deviceName);
-        $this->deviceName->setName('deviceName');
+        $this->deviceName->setElementName('deviceName');
         return $this;
     }
 
@@ -121,7 +123,9 @@ class ServiceProviderAccessDeviceGetUserListRequest extends ComplexType implemen
      */
     public function getDeviceName()
     {
-        return ($this->deviceName) ? $this->deviceName->getValue() : null;
+        return ($this->deviceName)
+            ? $this->deviceName->getElementValue()
+            : null;
     }
 
     /**
@@ -132,7 +136,7 @@ class ServiceProviderAccessDeviceGetUserListRequest extends ComplexType implemen
         $this->responseSizeLimit = ($responseSizeLimit InstanceOf ResponseSizeLimit)
              ? $responseSizeLimit
              : new ResponseSizeLimit($responseSizeLimit);
-        $this->responseSizeLimit->setName('responseSizeLimit');
+        $this->responseSizeLimit->setElementName('responseSizeLimit');
         return $this;
     }
 
@@ -142,7 +146,9 @@ class ServiceProviderAccessDeviceGetUserListRequest extends ComplexType implemen
      */
     public function getResponseSizeLimit()
     {
-        return ($this->responseSizeLimit) ? $this->responseSizeLimit->getValue() : null;
+        return ($this->responseSizeLimit)
+            ? $this->responseSizeLimit->getElementValue()
+            : null;
     }
 
     /**
@@ -153,7 +159,7 @@ class ServiceProviderAccessDeviceGetUserListRequest extends ComplexType implemen
         $this->searchCriteriaLinePortUserPart = ($searchCriteriaLinePortUserPart InstanceOf SearchCriteriaLinePortUserPart)
              ? $searchCriteriaLinePortUserPart
              : new SearchCriteriaLinePortUserPart($searchCriteriaLinePortUserPart);
-        $this->searchCriteriaLinePortUserPart->setName('searchCriteriaLinePortUserPart');
+        $this->searchCriteriaLinePortUserPart->setElementName('searchCriteriaLinePortUserPart');
         return $this;
     }
 
@@ -174,7 +180,7 @@ class ServiceProviderAccessDeviceGetUserListRequest extends ComplexType implemen
         $this->searchCriteriaLinePortDomain = ($searchCriteriaLinePortDomain InstanceOf SearchCriteriaLinePortDomain)
              ? $searchCriteriaLinePortDomain
              : new SearchCriteriaLinePortDomain($searchCriteriaLinePortDomain);
-        $this->searchCriteriaLinePortDomain->setName('searchCriteriaLinePortDomain');
+        $this->searchCriteriaLinePortDomain->setElementName('searchCriteriaLinePortDomain');
         return $this;
     }
 
@@ -195,7 +201,7 @@ class ServiceProviderAccessDeviceGetUserListRequest extends ComplexType implemen
         $this->searchCriteriaUserLastName = ($searchCriteriaUserLastName InstanceOf SearchCriteriaUserLastName)
              ? $searchCriteriaUserLastName
              : new SearchCriteriaUserLastName($searchCriteriaUserLastName);
-        $this->searchCriteriaUserLastName->setName('searchCriteriaUserLastName');
+        $this->searchCriteriaUserLastName->setElementName('searchCriteriaUserLastName');
         return $this;
     }
 
@@ -216,7 +222,7 @@ class ServiceProviderAccessDeviceGetUserListRequest extends ComplexType implemen
         $this->searchCriteriaUserFirstName = ($searchCriteriaUserFirstName InstanceOf SearchCriteriaUserFirstName)
              ? $searchCriteriaUserFirstName
              : new SearchCriteriaUserFirstName($searchCriteriaUserFirstName);
-        $this->searchCriteriaUserFirstName->setName('searchCriteriaUserFirstName');
+        $this->searchCriteriaUserFirstName->setElementName('searchCriteriaUserFirstName');
         return $this;
     }
 
@@ -237,7 +243,7 @@ class ServiceProviderAccessDeviceGetUserListRequest extends ComplexType implemen
         $this->searchCriteriaDn = ($searchCriteriaDn InstanceOf SearchCriteriaDn)
              ? $searchCriteriaDn
              : new SearchCriteriaDn($searchCriteriaDn);
-        $this->searchCriteriaDn->setName('searchCriteriaDn');
+        $this->searchCriteriaDn->setElementName('searchCriteriaDn');
         return $this;
     }
 
@@ -258,7 +264,7 @@ class ServiceProviderAccessDeviceGetUserListRequest extends ComplexType implemen
         $this->searchCriteriaUserId = ($searchCriteriaUserId InstanceOf SearchCriteriaUserId)
              ? $searchCriteriaUserId
              : new SearchCriteriaUserId($searchCriteriaUserId);
-        $this->searchCriteriaUserId->setName('searchCriteriaUserId');
+        $this->searchCriteriaUserId->setElementName('searchCriteriaUserId');
         return $this;
     }
 
@@ -279,7 +285,7 @@ class ServiceProviderAccessDeviceGetUserListRequest extends ComplexType implemen
         $this->searchCriteriaGroupId = ($searchCriteriaGroupId InstanceOf SearchCriteriaGroupId)
              ? $searchCriteriaGroupId
              : new SearchCriteriaGroupId($searchCriteriaGroupId);
-        $this->searchCriteriaGroupId->setName('searchCriteriaGroupId');
+        $this->searchCriteriaGroupId->setElementName('searchCriteriaGroupId');
         return $this;
     }
 
@@ -300,7 +306,7 @@ class ServiceProviderAccessDeviceGetUserListRequest extends ComplexType implemen
         $this->searchCriteriaExactEndpointType = ($searchCriteriaExactEndpointType InstanceOf SearchCriteriaExactEndpointType)
              ? $searchCriteriaExactEndpointType
              : new SearchCriteriaExactEndpointType($searchCriteriaExactEndpointType);
-        $this->searchCriteriaExactEndpointType->setName('searchCriteriaExactEndpointType');
+        $this->searchCriteriaExactEndpointType->setElementName('searchCriteriaExactEndpointType');
         return $this;
     }
 
@@ -321,7 +327,7 @@ class ServiceProviderAccessDeviceGetUserListRequest extends ComplexType implemen
         $this->searchCriteriaExactUserType = ($searchCriteriaExactUserType InstanceOf SearchCriteriaExactUserType)
              ? $searchCriteriaExactUserType
              : new SearchCriteriaExactUserType($searchCriteriaExactUserType);
-        $this->searchCriteriaExactUserType->setName('searchCriteriaExactUserType');
+        $this->searchCriteriaExactUserType->setElementName('searchCriteriaExactUserType');
         return $this;
     }
 

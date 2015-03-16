@@ -23,7 +23,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserVoiceMessagingUserModifyVoicePortalRequest16 extends ComplexType implements ComplexInterface
 {
-    public    $name = 'UserVoiceMessagingUserModifyVoicePortalRequest16';
+    public    $elementName = 'UserVoiceMessagingUserModifyVoicePortalRequest16';
     protected $userId;
     protected $usePersonalizedName;
     protected $voicePortalAutoLogin;
@@ -57,7 +57,7 @@ class UserVoiceMessagingUserModifyVoicePortalRequest16 extends ComplexType imple
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
-        $this->userId->setName('userId');
+        $this->userId->setElementName('userId');
         return $this;
     }
 
@@ -67,7 +67,9 @@ class UserVoiceMessagingUserModifyVoicePortalRequest16 extends ComplexType imple
      */
     public function getUserId()
     {
-        return ($this->userId) ? $this->userId->getValue() : null;
+        return ($this->userId)
+            ? $this->userId->getElementValue()
+            : null;
     }
 
     /**
@@ -76,7 +78,7 @@ class UserVoiceMessagingUserModifyVoicePortalRequest16 extends ComplexType imple
     public function setUsePersonalizedName($usePersonalizedName = null)
     {
         $this->usePersonalizedName = new PrimitiveType($usePersonalizedName);
-        $this->usePersonalizedName->setName('usePersonalizedName');
+        $this->usePersonalizedName->setElementName('usePersonalizedName');
         return $this;
     }
 
@@ -86,7 +88,9 @@ class UserVoiceMessagingUserModifyVoicePortalRequest16 extends ComplexType imple
      */
     public function getUsePersonalizedName()
     {
-        return ($this->usePersonalizedName) ? $this->usePersonalizedName->getValue() : null;
+        return ($this->usePersonalizedName)
+            ? $this->usePersonalizedName->getElementValue()
+            : null;
     }
 
     /**
@@ -95,7 +99,7 @@ class UserVoiceMessagingUserModifyVoicePortalRequest16 extends ComplexType imple
     public function setVoicePortalAutoLogin($voicePortalAutoLogin = null)
     {
         $this->voicePortalAutoLogin = new PrimitiveType($voicePortalAutoLogin);
-        $this->voicePortalAutoLogin->setName('voicePortalAutoLogin');
+        $this->voicePortalAutoLogin->setElementName('voicePortalAutoLogin');
         return $this;
     }
 
@@ -105,7 +109,9 @@ class UserVoiceMessagingUserModifyVoicePortalRequest16 extends ComplexType imple
      */
     public function getVoicePortalAutoLogin()
     {
-        return ($this->voicePortalAutoLogin) ? $this->voicePortalAutoLogin->getValue() : null;
+        return ($this->voicePortalAutoLogin)
+            ? $this->voicePortalAutoLogin->getElementValue()
+            : null;
     }
 
     /**
@@ -116,7 +122,7 @@ class UserVoiceMessagingUserModifyVoicePortalRequest16 extends ComplexType imple
         $this->personalizedNameAudioFile = ($personalizedNameAudioFile InstanceOf LabeledMediaFileResource)
              ? $personalizedNameAudioFile
              : new LabeledMediaFileResource($personalizedNameAudioFile);
-        $this->personalizedNameAudioFile->setName('personalizedNameAudioFile');
+        $this->personalizedNameAudioFile->setElementName('personalizedNameAudioFile');
         return $this;
     }
 

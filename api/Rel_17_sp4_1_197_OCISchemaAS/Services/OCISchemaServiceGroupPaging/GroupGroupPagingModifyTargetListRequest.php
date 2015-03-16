@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupGroupPagingModifyTargetListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'GroupGroupPagingModifyTargetListRequest';
+    public    $elementName = 'GroupGroupPagingModifyTargetListRequest';
     protected $serviceUserId;
     protected $targetUserIdList;
 
@@ -49,7 +49,7 @@ class GroupGroupPagingModifyTargetListRequest extends ComplexType implements Com
         $this->serviceUserId = ($serviceUserId InstanceOf UserId)
              ? $serviceUserId
              : new UserId($serviceUserId);
-        $this->serviceUserId->setName('serviceUserId');
+        $this->serviceUserId->setElementName('serviceUserId');
         return $this;
     }
 
@@ -59,7 +59,9 @@ class GroupGroupPagingModifyTargetListRequest extends ComplexType implements Com
      */
     public function getServiceUserId()
     {
-        return ($this->serviceUserId) ? $this->serviceUserId->getValue() : null;
+        return ($this->serviceUserId)
+            ? $this->serviceUserId->getElementValue()
+            : null;
     }
 
     /**
@@ -70,7 +72,7 @@ class GroupGroupPagingModifyTargetListRequest extends ComplexType implements Com
         $this->targetUserIdList = ($targetUserIdList InstanceOf ReplacementUserIdList)
              ? $targetUserIdList
              : new ReplacementUserIdList($targetUserIdList);
-        $this->targetUserIdList->setName('targetUserIdList');
+        $this->targetUserIdList->setElementName('targetUserIdList');
         return $this;
     }
 

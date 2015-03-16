@@ -17,12 +17,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\MaxLength;
  */
 class SpeedDialPrefix extends SimpleType
 {
-    public $name = "SpeedDialPrefix";
-    protected $value;
-
+    public $elementName = "SpeedDialPrefix";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new MinLength("1"));
         $this->addRestriction(new MaxLength("2"));
     }

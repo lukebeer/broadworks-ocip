@@ -16,12 +16,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\Enumeration;
  */
 class VoiceMessagingNumberOfRings extends SimpleType
 {
-    public $name = "VoiceMessagingNumberOfRings";
-    protected $value;
-
+    public $elementName = "VoiceMessagingNumberOfRings";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new Enumeration([
             '0',
             '2',

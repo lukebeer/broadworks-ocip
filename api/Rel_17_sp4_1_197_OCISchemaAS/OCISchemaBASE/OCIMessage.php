@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class OCIMessage extends ComplexType implements ComplexInterface
 {
-    public    $name = 'OCIMessage';
+    public    $elementName = 'OCIMessage';
     protected $command;
 
     public function __construct(
@@ -43,7 +43,7 @@ class OCIMessage extends ComplexType implements ComplexInterface
     public function setCommand($command = null)
     {
         $this->command = new SimpleContent($command);
-        $this->command->setName('command');
+        $this->command->setElementName('command');
         return $this;
     }
 
@@ -53,6 +53,8 @@ class OCIMessage extends ComplexType implements ComplexInterface
      */
     public function getCommand()
     {
-        return ($this->command) ? $this->command->getValue() : null;
+        return ($this->command)
+            ? $this->command->getElementValue()
+            : null;
     }
 }

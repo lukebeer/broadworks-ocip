@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderScheduleGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'ServiceProviderScheduleGetListResponse';
+    public    $elementName = 'ServiceProviderScheduleGetListResponse';
     protected $scheduleKey;
 
     /**
@@ -39,7 +39,7 @@ class ServiceProviderScheduleGetListResponse extends ComplexType implements Comp
         $this->scheduleKey = ($scheduleKey InstanceOf ScheduleKey)
              ? $scheduleKey
              : new ScheduleKey($scheduleKey);
-        $this->scheduleKey->setName('scheduleKey');
+        $this->scheduleKey->setElementName('scheduleKey');
         return $this;
     }
 

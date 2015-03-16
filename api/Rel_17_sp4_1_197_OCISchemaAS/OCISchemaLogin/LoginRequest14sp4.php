@@ -23,7 +23,7 @@ use Broadworks_OCIP\core\Client\Client;
 class LoginRequest14sp4 extends ComplexType implements ComplexInterface
 {
     public    $responseType      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaLogin\LoginResponse14sp4';
-    public    $name = 'LoginRequest14sp4';
+    public    $elementName = 'LoginRequest14sp4';
     protected $userId;
     protected $signedPassword;
     protected $plainTextPassword;
@@ -54,7 +54,7 @@ class LoginRequest14sp4 extends ComplexType implements ComplexInterface
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
-        $this->userId->setName('userId');
+        $this->userId->setElementName('userId');
         return $this;
     }
 
@@ -64,7 +64,9 @@ class LoginRequest14sp4 extends ComplexType implements ComplexInterface
      */
     public function getUserId()
     {
-        return ($this->userId) ? $this->userId->getValue() : null;
+        return ($this->userId)
+            ? $this->userId->getElementValue()
+            : null;
     }
 
     /**
@@ -75,7 +77,7 @@ class LoginRequest14sp4 extends ComplexType implements ComplexInterface
         $this->signedPassword = ($signedPassword InstanceOf SignedPassword)
              ? $signedPassword
              : new SignedPassword($signedPassword);
-        $this->signedPassword->setName('signedPassword');
+        $this->signedPassword->setElementName('signedPassword');
         return $this;
     }
 
@@ -85,7 +87,9 @@ class LoginRequest14sp4 extends ComplexType implements ComplexInterface
      */
     public function getSignedPassword()
     {
-        return ($this->signedPassword) ? $this->signedPassword->getValue() : null;
+        return ($this->signedPassword)
+            ? $this->signedPassword->getElementValue()
+            : null;
     }
 
     /**
@@ -96,7 +100,7 @@ class LoginRequest14sp4 extends ComplexType implements ComplexInterface
         $this->plainTextPassword = ($plainTextPassword InstanceOf Password)
              ? $plainTextPassword
              : new Password($plainTextPassword);
-        $this->plainTextPassword->setName('plainTextPassword');
+        $this->plainTextPassword->setElementName('plainTextPassword');
         return $this;
     }
 
@@ -106,6 +110,8 @@ class LoginRequest14sp4 extends ComplexType implements ComplexInterface
      */
     public function getPlainTextPassword()
     {
-        return ($this->plainTextPassword) ? $this->plainTextPassword->getValue() : null;
+        return ($this->plainTextPassword)
+            ? $this->plainTextPassword->getElementValue()
+            : null;
     }
 }

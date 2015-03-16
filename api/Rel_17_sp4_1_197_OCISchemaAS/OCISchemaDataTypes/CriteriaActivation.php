@@ -19,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class CriteriaActivation extends ComplexType implements ComplexInterface
 {
-    public    $name = 'CriteriaActivation';
+    public    $elementName = 'CriteriaActivation';
     protected $criteriaName;
     protected $isActive;
 
@@ -45,7 +45,7 @@ class CriteriaActivation extends ComplexType implements ComplexInterface
     public function setCriteriaName($criteriaName = null)
     {
         $this->criteriaName = new SimpleContent($criteriaName);
-        $this->criteriaName->setName('criteriaName');
+        $this->criteriaName->setElementName('criteriaName');
         return $this;
     }
 
@@ -55,7 +55,9 @@ class CriteriaActivation extends ComplexType implements ComplexInterface
      */
     public function getCriteriaName()
     {
-        return ($this->criteriaName) ? $this->criteriaName->getValue() : null;
+        return ($this->criteriaName)
+            ? $this->criteriaName->getElementValue()
+            : null;
     }
 
     /**
@@ -64,7 +66,7 @@ class CriteriaActivation extends ComplexType implements ComplexInterface
     public function setIsActive($isActive = null)
     {
         $this->isActive = new SimpleContent($isActive);
-        $this->isActive->setName('isActive');
+        $this->isActive->setElementName('isActive');
         return $this;
     }
 
@@ -74,6 +76,8 @@ class CriteriaActivation extends ComplexType implements ComplexInterface
      */
     public function getIsActive()
     {
-        return ($this->isActive) ? $this->isActive->getValue() : null;
+        return ($this->isActive)
+            ? $this->isActive->getElementValue()
+            : null;
     }
 }

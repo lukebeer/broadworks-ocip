@@ -16,12 +16,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\Enumeration;
  */
 class ThirdPartyVoiceMailSupportServerSelection extends SimpleType
 {
-    public $name = "ThirdPartyVoiceMailSupportServerSelection";
-    protected $value;
-
+    public $elementName = "ThirdPartyVoiceMailSupportServerSelection";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new Enumeration([
             'Group Mail Server',
             'User Specific Mail Server'

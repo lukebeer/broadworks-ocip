@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemSIPDeviceTypeServiceModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemSIPDeviceTypeServiceModifyRequest';
+    public    $elementName = 'SystemSIPDeviceTypeServiceModifyRequest';
     protected $deviceType;
     protected $supportsPolycomPhoneServices;
 
@@ -48,7 +48,7 @@ class SystemSIPDeviceTypeServiceModifyRequest extends ComplexType implements Com
         $this->deviceType = ($deviceType InstanceOf AccessDeviceType)
              ? $deviceType
              : new AccessDeviceType($deviceType);
-        $this->deviceType->setName('deviceType');
+        $this->deviceType->setElementName('deviceType');
         return $this;
     }
 
@@ -58,7 +58,9 @@ class SystemSIPDeviceTypeServiceModifyRequest extends ComplexType implements Com
      */
     public function getDeviceType()
     {
-        return ($this->deviceType) ? $this->deviceType->getValue() : null;
+        return ($this->deviceType)
+            ? $this->deviceType->getElementValue()
+            : null;
     }
 
     /**
@@ -67,7 +69,7 @@ class SystemSIPDeviceTypeServiceModifyRequest extends ComplexType implements Com
     public function setSupportsPolycomPhoneServices($supportsPolycomPhoneServices = null)
     {
         $this->supportsPolycomPhoneServices = new PrimitiveType($supportsPolycomPhoneServices);
-        $this->supportsPolycomPhoneServices->setName('supportsPolycomPhoneServices');
+        $this->supportsPolycomPhoneServices->setElementName('supportsPolycomPhoneServices');
         return $this;
     }
 
@@ -77,6 +79,8 @@ class SystemSIPDeviceTypeServiceModifyRequest extends ComplexType implements Com
      */
     public function getSupportsPolycomPhoneServices()
     {
-        return ($this->supportsPolycomPhoneServices) ? $this->supportsPolycomPhoneServices->getValue() : null;
+        return ($this->supportsPolycomPhoneServices)
+            ? $this->supportsPolycomPhoneServices->getElementValue()
+            : null;
     }
 }

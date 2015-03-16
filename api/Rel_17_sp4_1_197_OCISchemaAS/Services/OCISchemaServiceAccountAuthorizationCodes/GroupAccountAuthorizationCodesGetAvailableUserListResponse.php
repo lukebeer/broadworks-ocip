@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupAccountAuthorizationCodesGetAvailableUserListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'GroupAccountAuthorizationCodesGetAvailableUserListResponse';
+    public    $elementName = 'GroupAccountAuthorizationCodesGetAvailableUserListResponse';
     protected $userTable;
 
     /**
@@ -38,7 +38,7 @@ class GroupAccountAuthorizationCodesGetAvailableUserListResponse extends Complex
     public function setUserTable(TableType $userTable = null)
     {
         $this->userTable = $userTable;
-        $this->userTable->setName('userTable');
+        $this->userTable->setElementName('userTable');
         return $this;
     }
 

@@ -31,7 +31,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ExtendedMixedCallLogsEntry extends ComplexType implements ComplexInterface
 {
-    public    $name = 'ExtendedMixedCallLogsEntry';
+    public    $elementName = 'ExtendedMixedCallLogsEntry';
     protected $callLogType;
     protected $countryCode;
     protected $callLogId;
@@ -213,7 +213,7 @@ class ExtendedMixedCallLogsEntry extends ComplexType implements ComplexInterface
     public function setCallLogType($callLogType = null)
     {
         $this->callLogType = new SimpleContent($callLogType);
-        $this->callLogType->setName('callLogType');
+        $this->callLogType->setElementName('callLogType');
         return $this;
     }
 
@@ -223,7 +223,9 @@ class ExtendedMixedCallLogsEntry extends ComplexType implements ComplexInterface
      */
     public function getCallLogType()
     {
-        return ($this->callLogType) ? $this->callLogType->getValue() : null;
+        return ($this->callLogType)
+            ? $this->callLogType->getElementValue()
+            : null;
     }
 
     /**
@@ -232,7 +234,7 @@ class ExtendedMixedCallLogsEntry extends ComplexType implements ComplexInterface
     public function setCountryCode($countryCode = null)
     {
         $this->countryCode = new SimpleContent($countryCode);
-        $this->countryCode->setName('countryCode');
+        $this->countryCode->setElementName('countryCode');
         return $this;
     }
 
@@ -242,7 +244,9 @@ class ExtendedMixedCallLogsEntry extends ComplexType implements ComplexInterface
      */
     public function getCountryCode()
     {
-        return ($this->countryCode) ? $this->countryCode->getValue() : null;
+        return ($this->countryCode)
+            ? $this->countryCode->getElementValue()
+            : null;
     }
 
     /**
@@ -251,7 +255,7 @@ class ExtendedMixedCallLogsEntry extends ComplexType implements ComplexInterface
     public function setCallLogId($callLogId = null)
     {
         $this->callLogId = new SimpleContent($callLogId);
-        $this->callLogId->setName('callLogId');
+        $this->callLogId->setElementName('callLogId');
         return $this;
     }
 
@@ -261,7 +265,9 @@ class ExtendedMixedCallLogsEntry extends ComplexType implements ComplexInterface
      */
     public function getCallLogId()
     {
-        return ($this->callLogId) ? $this->callLogId->getValue() : null;
+        return ($this->callLogId)
+            ? $this->callLogId->getElementValue()
+            : null;
     }
 
     /**
@@ -270,7 +276,7 @@ class ExtendedMixedCallLogsEntry extends ComplexType implements ComplexInterface
     public function setCallId($callId = null)
     {
         $this->callId = new SimpleContent($callId);
-        $this->callId->setName('callId');
+        $this->callId->setElementName('callId');
         return $this;
     }
 
@@ -280,7 +286,9 @@ class ExtendedMixedCallLogsEntry extends ComplexType implements ComplexInterface
      */
     public function getCallId()
     {
-        return ($this->callId) ? $this->callId->getValue() : null;
+        return ($this->callId)
+            ? $this->callId->getElementValue()
+            : null;
     }
 
     /**
@@ -289,7 +297,7 @@ class ExtendedMixedCallLogsEntry extends ComplexType implements ComplexInterface
     public function setSubscriberType($subscriberType = null)
     {
         $this->subscriberType = new SimpleContent($subscriberType);
-        $this->subscriberType->setName('subscriberType');
+        $this->subscriberType->setElementName('subscriberType');
         return $this;
     }
 
@@ -299,7 +307,9 @@ class ExtendedMixedCallLogsEntry extends ComplexType implements ComplexInterface
      */
     public function getSubscriberType()
     {
-        return ($this->subscriberType) ? $this->subscriberType->getValue() : null;
+        return ($this->subscriberType)
+            ? $this->subscriberType->getElementValue()
+            : null;
     }
 
     /**
@@ -308,7 +318,7 @@ class ExtendedMixedCallLogsEntry extends ComplexType implements ComplexInterface
     public function setDialedNumber($dialedNumber = null)
     {
         $this->dialedNumber = new SimpleContent($dialedNumber);
-        $this->dialedNumber->setName('dialedNumber');
+        $this->dialedNumber->setElementName('dialedNumber');
         return $this;
     }
 
@@ -318,7 +328,9 @@ class ExtendedMixedCallLogsEntry extends ComplexType implements ComplexInterface
      */
     public function getDialedNumber()
     {
-        return ($this->dialedNumber) ? $this->dialedNumber->getValue() : null;
+        return ($this->dialedNumber)
+            ? $this->dialedNumber->getElementValue()
+            : null;
     }
 
     /**
@@ -327,7 +339,7 @@ class ExtendedMixedCallLogsEntry extends ComplexType implements ComplexInterface
     public function setCalledNumber($calledNumber = null)
     {
         $this->calledNumber = new SimpleContent($calledNumber);
-        $this->calledNumber->setName('calledNumber');
+        $this->calledNumber->setElementName('calledNumber');
         return $this;
     }
 
@@ -337,7 +349,9 @@ class ExtendedMixedCallLogsEntry extends ComplexType implements ComplexInterface
      */
     public function getCalledNumber()
     {
-        return ($this->calledNumber) ? $this->calledNumber->getValue() : null;
+        return ($this->calledNumber)
+            ? $this->calledNumber->getElementValue()
+            : null;
     }
 
     /**
@@ -346,7 +360,7 @@ class ExtendedMixedCallLogsEntry extends ComplexType implements ComplexInterface
     public function setNetworkTranslatedAddress($networkTranslatedAddress = null)
     {
         $this->networkTranslatedAddress = new SimpleContent($networkTranslatedAddress);
-        $this->networkTranslatedAddress->setName('networkTranslatedAddress');
+        $this->networkTranslatedAddress->setElementName('networkTranslatedAddress');
         return $this;
     }
 
@@ -356,7 +370,9 @@ class ExtendedMixedCallLogsEntry extends ComplexType implements ComplexInterface
      */
     public function getNetworkTranslatedAddress()
     {
-        return ($this->networkTranslatedAddress) ? $this->networkTranslatedAddress->getValue() : null;
+        return ($this->networkTranslatedAddress)
+            ? $this->networkTranslatedAddress->getElementValue()
+            : null;
     }
 
     /**
@@ -365,7 +381,7 @@ class ExtendedMixedCallLogsEntry extends ComplexType implements ComplexInterface
     public function setCallingAssertedNumber($callingAssertedNumber = null)
     {
         $this->callingAssertedNumber = new SimpleContent($callingAssertedNumber);
-        $this->callingAssertedNumber->setName('callingAssertedNumber');
+        $this->callingAssertedNumber->setElementName('callingAssertedNumber');
         return $this;
     }
 
@@ -375,7 +391,9 @@ class ExtendedMixedCallLogsEntry extends ComplexType implements ComplexInterface
      */
     public function getCallingAssertedNumber()
     {
-        return ($this->callingAssertedNumber) ? $this->callingAssertedNumber->getValue() : null;
+        return ($this->callingAssertedNumber)
+            ? $this->callingAssertedNumber->getElementValue()
+            : null;
     }
 
     /**
@@ -384,7 +402,7 @@ class ExtendedMixedCallLogsEntry extends ComplexType implements ComplexInterface
     public function setCallingPresentationNumber($callingPresentationNumber = null)
     {
         $this->callingPresentationNumber = new SimpleContent($callingPresentationNumber);
-        $this->callingPresentationNumber->setName('callingPresentationNumber');
+        $this->callingPresentationNumber->setElementName('callingPresentationNumber');
         return $this;
     }
 
@@ -394,7 +412,9 @@ class ExtendedMixedCallLogsEntry extends ComplexType implements ComplexInterface
      */
     public function getCallingPresentationNumber()
     {
-        return ($this->callingPresentationNumber) ? $this->callingPresentationNumber->getValue() : null;
+        return ($this->callingPresentationNumber)
+            ? $this->callingPresentationNumber->getElementValue()
+            : null;
     }
 
     /**
@@ -403,7 +423,7 @@ class ExtendedMixedCallLogsEntry extends ComplexType implements ComplexInterface
     public function setCallingPresentationNumberSource($callingPresentationNumberSource = null)
     {
         $this->callingPresentationNumberSource = new SimpleContent($callingPresentationNumberSource);
-        $this->callingPresentationNumberSource->setName('callingPresentationNumberSource');
+        $this->callingPresentationNumberSource->setElementName('callingPresentationNumberSource');
         return $this;
     }
 
@@ -413,7 +433,9 @@ class ExtendedMixedCallLogsEntry extends ComplexType implements ComplexInterface
      */
     public function getCallingPresentationNumberSource()
     {
-        return ($this->callingPresentationNumberSource) ? $this->callingPresentationNumberSource->getValue() : null;
+        return ($this->callingPresentationNumberSource)
+            ? $this->callingPresentationNumberSource->getElementValue()
+            : null;
     }
 
     /**
@@ -422,7 +444,7 @@ class ExtendedMixedCallLogsEntry extends ComplexType implements ComplexInterface
     public function setCallingPresentationName($callingPresentationName = null)
     {
         $this->callingPresentationName = new SimpleContent($callingPresentationName);
-        $this->callingPresentationName->setName('callingPresentationName');
+        $this->callingPresentationName->setElementName('callingPresentationName');
         return $this;
     }
 
@@ -432,7 +454,9 @@ class ExtendedMixedCallLogsEntry extends ComplexType implements ComplexInterface
      */
     public function getCallingPresentationName()
     {
-        return ($this->callingPresentationName) ? $this->callingPresentationName->getValue() : null;
+        return ($this->callingPresentationName)
+            ? $this->callingPresentationName->getElementValue()
+            : null;
     }
 
     /**
@@ -441,7 +465,7 @@ class ExtendedMixedCallLogsEntry extends ComplexType implements ComplexInterface
     public function setCallingPresentationIndicator($callingPresentationIndicator = null)
     {
         $this->callingPresentationIndicator = new SimpleContent($callingPresentationIndicator);
-        $this->callingPresentationIndicator->setName('callingPresentationIndicator');
+        $this->callingPresentationIndicator->setElementName('callingPresentationIndicator');
         return $this;
     }
 
@@ -451,7 +475,9 @@ class ExtendedMixedCallLogsEntry extends ComplexType implements ComplexInterface
      */
     public function getCallingPresentationIndicator()
     {
-        return ($this->callingPresentationIndicator) ? $this->callingPresentationIndicator->getValue() : null;
+        return ($this->callingPresentationIndicator)
+            ? $this->callingPresentationIndicator->getElementValue()
+            : null;
     }
 
     /**
@@ -460,7 +486,7 @@ class ExtendedMixedCallLogsEntry extends ComplexType implements ComplexInterface
     public function setCallingGroupId($callingGroupId = null)
     {
         $this->callingGroupId = new SimpleContent($callingGroupId);
-        $this->callingGroupId->setName('callingGroupId');
+        $this->callingGroupId->setElementName('callingGroupId');
         return $this;
     }
 
@@ -470,7 +496,9 @@ class ExtendedMixedCallLogsEntry extends ComplexType implements ComplexInterface
      */
     public function getCallingGroupId()
     {
-        return ($this->callingGroupId) ? $this->callingGroupId->getValue() : null;
+        return ($this->callingGroupId)
+            ? $this->callingGroupId->getElementValue()
+            : null;
     }
 
     /**
@@ -479,7 +507,7 @@ class ExtendedMixedCallLogsEntry extends ComplexType implements ComplexInterface
     public function setCalledDirectoryName($calledDirectoryName = null)
     {
         $this->calledDirectoryName = new SimpleContent($calledDirectoryName);
-        $this->calledDirectoryName->setName('calledDirectoryName');
+        $this->calledDirectoryName->setElementName('calledDirectoryName');
         return $this;
     }
 
@@ -489,7 +517,9 @@ class ExtendedMixedCallLogsEntry extends ComplexType implements ComplexInterface
      */
     public function getCalledDirectoryName()
     {
-        return ($this->calledDirectoryName) ? $this->calledDirectoryName->getValue() : null;
+        return ($this->calledDirectoryName)
+            ? $this->calledDirectoryName->getElementValue()
+            : null;
     }
 
     /**
@@ -498,7 +528,7 @@ class ExtendedMixedCallLogsEntry extends ComplexType implements ComplexInterface
     public function setCalledGroupId($calledGroupId = null)
     {
         $this->calledGroupId = new SimpleContent($calledGroupId);
-        $this->calledGroupId->setName('calledGroupId');
+        $this->calledGroupId->setElementName('calledGroupId');
         return $this;
     }
 
@@ -508,7 +538,9 @@ class ExtendedMixedCallLogsEntry extends ComplexType implements ComplexInterface
      */
     public function getCalledGroupId()
     {
-        return ($this->calledGroupId) ? $this->calledGroupId->getValue() : null;
+        return ($this->calledGroupId)
+            ? $this->calledGroupId->getElementValue()
+            : null;
     }
 
     /**
@@ -517,7 +549,7 @@ class ExtendedMixedCallLogsEntry extends ComplexType implements ComplexInterface
     public function setConnectedNumber($connectedNumber = null)
     {
         $this->connectedNumber = new SimpleContent($connectedNumber);
-        $this->connectedNumber->setName('connectedNumber');
+        $this->connectedNumber->setElementName('connectedNumber');
         return $this;
     }
 
@@ -527,7 +559,9 @@ class ExtendedMixedCallLogsEntry extends ComplexType implements ComplexInterface
      */
     public function getConnectedNumber()
     {
-        return ($this->connectedNumber) ? $this->connectedNumber->getValue() : null;
+        return ($this->connectedNumber)
+            ? $this->connectedNumber->getElementValue()
+            : null;
     }
 
     /**
@@ -536,7 +570,7 @@ class ExtendedMixedCallLogsEntry extends ComplexType implements ComplexInterface
     public function setConnectedNumberSource($connectedNumberSource = null)
     {
         $this->connectedNumberSource = new SimpleContent($connectedNumberSource);
-        $this->connectedNumberSource->setName('connectedNumberSource');
+        $this->connectedNumberSource->setElementName('connectedNumberSource');
         return $this;
     }
 
@@ -546,7 +580,9 @@ class ExtendedMixedCallLogsEntry extends ComplexType implements ComplexInterface
      */
     public function getConnectedNumberSource()
     {
-        return ($this->connectedNumberSource) ? $this->connectedNumberSource->getValue() : null;
+        return ($this->connectedNumberSource)
+            ? $this->connectedNumberSource->getElementValue()
+            : null;
     }
 
     /**
@@ -555,7 +591,7 @@ class ExtendedMixedCallLogsEntry extends ComplexType implements ComplexInterface
     public function setConnectedName($connectedName = null)
     {
         $this->connectedName = new SimpleContent($connectedName);
-        $this->connectedName->setName('connectedName');
+        $this->connectedName->setElementName('connectedName');
         return $this;
     }
 
@@ -565,7 +601,9 @@ class ExtendedMixedCallLogsEntry extends ComplexType implements ComplexInterface
      */
     public function getConnectedName()
     {
-        return ($this->connectedName) ? $this->connectedName->getValue() : null;
+        return ($this->connectedName)
+            ? $this->connectedName->getElementValue()
+            : null;
     }
 
     /**
@@ -574,7 +612,7 @@ class ExtendedMixedCallLogsEntry extends ComplexType implements ComplexInterface
     public function setConnectedPresentationIndicator($connectedPresentationIndicator = null)
     {
         $this->connectedPresentationIndicator = new SimpleContent($connectedPresentationIndicator);
-        $this->connectedPresentationIndicator->setName('connectedPresentationIndicator');
+        $this->connectedPresentationIndicator->setElementName('connectedPresentationIndicator');
         return $this;
     }
 
@@ -584,7 +622,9 @@ class ExtendedMixedCallLogsEntry extends ComplexType implements ComplexInterface
      */
     public function getConnectedPresentationIndicator()
     {
-        return ($this->connectedPresentationIndicator) ? $this->connectedPresentationIndicator->getValue() : null;
+        return ($this->connectedPresentationIndicator)
+            ? $this->connectedPresentationIndicator->getElementValue()
+            : null;
     }
 
     /**
@@ -593,7 +633,7 @@ class ExtendedMixedCallLogsEntry extends ComplexType implements ComplexInterface
     public function setTypeOfNetwork($typeOfNetwork = null)
     {
         $this->typeOfNetwork = new SimpleContent($typeOfNetwork);
-        $this->typeOfNetwork->setName('typeOfNetwork');
+        $this->typeOfNetwork->setElementName('typeOfNetwork');
         return $this;
     }
 
@@ -603,7 +643,9 @@ class ExtendedMixedCallLogsEntry extends ComplexType implements ComplexInterface
      */
     public function getTypeOfNetwork()
     {
-        return ($this->typeOfNetwork) ? $this->typeOfNetwork->getValue() : null;
+        return ($this->typeOfNetwork)
+            ? $this->typeOfNetwork->getElementValue()
+            : null;
     }
 
     /**
@@ -612,7 +654,7 @@ class ExtendedMixedCallLogsEntry extends ComplexType implements ComplexInterface
     public function setCallCategory($callCategory = null)
     {
         $this->callCategory = new SimpleContent($callCategory);
-        $this->callCategory->setName('callCategory');
+        $this->callCategory->setElementName('callCategory');
         return $this;
     }
 
@@ -622,7 +664,9 @@ class ExtendedMixedCallLogsEntry extends ComplexType implements ComplexInterface
      */
     public function getCallCategory()
     {
-        return ($this->callCategory) ? $this->callCategory->getValue() : null;
+        return ($this->callCategory)
+            ? $this->callCategory->getElementValue()
+            : null;
     }
 
     /**
@@ -631,7 +675,7 @@ class ExtendedMixedCallLogsEntry extends ComplexType implements ComplexInterface
     public function setBasicCallType($basicCallType = null)
     {
         $this->basicCallType = new SimpleContent($basicCallType);
-        $this->basicCallType->setName('basicCallType');
+        $this->basicCallType->setElementName('basicCallType');
         return $this;
     }
 
@@ -641,7 +685,9 @@ class ExtendedMixedCallLogsEntry extends ComplexType implements ComplexInterface
      */
     public function getBasicCallType()
     {
-        return ($this->basicCallType) ? $this->basicCallType->getValue() : null;
+        return ($this->basicCallType)
+            ? $this->basicCallType->getElementValue()
+            : null;
     }
 
     /**
@@ -650,7 +696,7 @@ class ExtendedMixedCallLogsEntry extends ComplexType implements ComplexInterface
     public function setConfigurableCallType($configurableCallType = null)
     {
         $this->configurableCallType = new SimpleContent($configurableCallType);
-        $this->configurableCallType->setName('configurableCallType');
+        $this->configurableCallType->setElementName('configurableCallType');
         return $this;
     }
 
@@ -660,7 +706,9 @@ class ExtendedMixedCallLogsEntry extends ComplexType implements ComplexInterface
      */
     public function getConfigurableCallType()
     {
-        return ($this->configurableCallType) ? $this->configurableCallType->getValue() : null;
+        return ($this->configurableCallType)
+            ? $this->configurableCallType->getElementValue()
+            : null;
     }
 
     /**
@@ -669,7 +717,7 @@ class ExtendedMixedCallLogsEntry extends ComplexType implements ComplexInterface
     public function setAlternateCallIndicator($alternateCallIndicator = null)
     {
         $this->alternateCallIndicator = new SimpleContent($alternateCallIndicator);
-        $this->alternateCallIndicator->setName('alternateCallIndicator');
+        $this->alternateCallIndicator->setElementName('alternateCallIndicator');
         return $this;
     }
 
@@ -679,7 +727,9 @@ class ExtendedMixedCallLogsEntry extends ComplexType implements ComplexInterface
      */
     public function getAlternateCallIndicator()
     {
-        return ($this->alternateCallIndicator) ? $this->alternateCallIndicator->getValue() : null;
+        return ($this->alternateCallIndicator)
+            ? $this->alternateCallIndicator->getElementValue()
+            : null;
     }
 
     /**
@@ -688,7 +738,7 @@ class ExtendedMixedCallLogsEntry extends ComplexType implements ComplexInterface
     public function setVirtualOnNetCallType($virtualOnNetCallType = null)
     {
         $this->virtualOnNetCallType = new SimpleContent($virtualOnNetCallType);
-        $this->virtualOnNetCallType->setName('virtualOnNetCallType');
+        $this->virtualOnNetCallType->setElementName('virtualOnNetCallType');
         return $this;
     }
 
@@ -698,7 +748,9 @@ class ExtendedMixedCallLogsEntry extends ComplexType implements ComplexInterface
      */
     public function getVirtualOnNetCallType()
     {
-        return ($this->virtualOnNetCallType) ? $this->virtualOnNetCallType->getValue() : null;
+        return ($this->virtualOnNetCallType)
+            ? $this->virtualOnNetCallType->getElementValue()
+            : null;
     }
 
     /**
@@ -707,7 +759,7 @@ class ExtendedMixedCallLogsEntry extends ComplexType implements ComplexInterface
     public function setTime($time = null)
     {
         $this->time = new SimpleContent($time);
-        $this->time->setName('time');
+        $this->time->setElementName('time');
         return $this;
     }
 
@@ -717,7 +769,9 @@ class ExtendedMixedCallLogsEntry extends ComplexType implements ComplexInterface
      */
     public function getTime()
     {
-        return ($this->time) ? $this->time->getValue() : null;
+        return ($this->time)
+            ? $this->time->getElementValue()
+            : null;
     }
 
     /**
@@ -726,7 +780,7 @@ class ExtendedMixedCallLogsEntry extends ComplexType implements ComplexInterface
     public function setStartTime($startTime = null)
     {
         $this->startTime = new SimpleContent($startTime);
-        $this->startTime->setName('startTime');
+        $this->startTime->setElementName('startTime');
         return $this;
     }
 
@@ -736,7 +790,9 @@ class ExtendedMixedCallLogsEntry extends ComplexType implements ComplexInterface
      */
     public function getStartTime()
     {
-        return ($this->startTime) ? $this->startTime->getValue() : null;
+        return ($this->startTime)
+            ? $this->startTime->getElementValue()
+            : null;
     }
 
     /**
@@ -745,7 +801,7 @@ class ExtendedMixedCallLogsEntry extends ComplexType implements ComplexInterface
     public function setAnswerTime($answerTime = null)
     {
         $this->answerTime = new SimpleContent($answerTime);
-        $this->answerTime->setName('answerTime');
+        $this->answerTime->setElementName('answerTime');
         return $this;
     }
 
@@ -755,7 +811,9 @@ class ExtendedMixedCallLogsEntry extends ComplexType implements ComplexInterface
      */
     public function getAnswerTime()
     {
-        return ($this->answerTime) ? $this->answerTime->getValue() : null;
+        return ($this->answerTime)
+            ? $this->answerTime->getElementValue()
+            : null;
     }
 
     /**
@@ -764,7 +822,7 @@ class ExtendedMixedCallLogsEntry extends ComplexType implements ComplexInterface
     public function setReleaseTime($releaseTime = null)
     {
         $this->releaseTime = new SimpleContent($releaseTime);
-        $this->releaseTime->setName('releaseTime');
+        $this->releaseTime->setElementName('releaseTime');
         return $this;
     }
 
@@ -774,7 +832,9 @@ class ExtendedMixedCallLogsEntry extends ComplexType implements ComplexInterface
      */
     public function getReleaseTime()
     {
-        return ($this->releaseTime) ? $this->releaseTime->getValue() : null;
+        return ($this->releaseTime)
+            ? $this->releaseTime->getElementValue()
+            : null;
     }
 
     /**
@@ -783,7 +843,7 @@ class ExtendedMixedCallLogsEntry extends ComplexType implements ComplexInterface
     public function setDetachedTime($detachedTime = null)
     {
         $this->detachedTime = new SimpleContent($detachedTime);
-        $this->detachedTime->setName('detachedTime');
+        $this->detachedTime->setElementName('detachedTime');
         return $this;
     }
 
@@ -793,7 +853,9 @@ class ExtendedMixedCallLogsEntry extends ComplexType implements ComplexInterface
      */
     public function getDetachedTime()
     {
-        return ($this->detachedTime) ? $this->detachedTime->getValue() : null;
+        return ($this->detachedTime)
+            ? $this->detachedTime->getElementValue()
+            : null;
     }
 
     /**
@@ -802,7 +864,7 @@ class ExtendedMixedCallLogsEntry extends ComplexType implements ComplexInterface
     public function setDetachedAnswerTime($detachedAnswerTime = null)
     {
         $this->detachedAnswerTime = new SimpleContent($detachedAnswerTime);
-        $this->detachedAnswerTime->setName('detachedAnswerTime');
+        $this->detachedAnswerTime->setElementName('detachedAnswerTime');
         return $this;
     }
 
@@ -812,7 +874,9 @@ class ExtendedMixedCallLogsEntry extends ComplexType implements ComplexInterface
      */
     public function getDetachedAnswerTime()
     {
-        return ($this->detachedAnswerTime) ? $this->detachedAnswerTime->getValue() : null;
+        return ($this->detachedAnswerTime)
+            ? $this->detachedAnswerTime->getElementValue()
+            : null;
     }
 
     /**
@@ -821,7 +885,7 @@ class ExtendedMixedCallLogsEntry extends ComplexType implements ComplexInterface
     public function setOutgoingDnis($outgoingDnis = null)
     {
         $this->outgoingDnis = new SimpleContent($outgoingDnis);
-        $this->outgoingDnis->setName('outgoingDnis');
+        $this->outgoingDnis->setElementName('outgoingDnis');
         return $this;
     }
 
@@ -831,7 +895,9 @@ class ExtendedMixedCallLogsEntry extends ComplexType implements ComplexInterface
      */
     public function getOutgoingDnis()
     {
-        return ($this->outgoingDnis) ? $this->outgoingDnis->getValue() : null;
+        return ($this->outgoingDnis)
+            ? $this->outgoingDnis->getElementValue()
+            : null;
     }
 
     /**
@@ -840,7 +906,7 @@ class ExtendedMixedCallLogsEntry extends ComplexType implements ComplexInterface
     public function setServiceInvocationDisposition($serviceInvocationDisposition = null)
     {
         $this->serviceInvocationDisposition = new SimpleContent($serviceInvocationDisposition);
-        $this->serviceInvocationDisposition->setName('serviceInvocationDisposition');
+        $this->serviceInvocationDisposition->setElementName('serviceInvocationDisposition');
         return $this;
     }
 
@@ -850,7 +916,9 @@ class ExtendedMixedCallLogsEntry extends ComplexType implements ComplexInterface
      */
     public function getServiceInvocationDisposition()
     {
-        return ($this->serviceInvocationDisposition) ? $this->serviceInvocationDisposition->getValue() : null;
+        return ($this->serviceInvocationDisposition)
+            ? $this->serviceInvocationDisposition->getElementValue()
+            : null;
     }
 
     /**
@@ -859,7 +927,7 @@ class ExtendedMixedCallLogsEntry extends ComplexType implements ComplexInterface
     public function setServiceInvocationDialedNumber($serviceInvocationDialedNumber = null)
     {
         $this->serviceInvocationDialedNumber = new SimpleContent($serviceInvocationDialedNumber);
-        $this->serviceInvocationDialedNumber->setName('serviceInvocationDialedNumber');
+        $this->serviceInvocationDialedNumber->setElementName('serviceInvocationDialedNumber');
         return $this;
     }
 
@@ -869,7 +937,9 @@ class ExtendedMixedCallLogsEntry extends ComplexType implements ComplexInterface
      */
     public function getServiceInvocationDialedNumber()
     {
-        return ($this->serviceInvocationDialedNumber) ? $this->serviceInvocationDialedNumber->getValue() : null;
+        return ($this->serviceInvocationDialedNumber)
+            ? $this->serviceInvocationDialedNumber->getElementValue()
+            : null;
     }
 
     /**
@@ -878,7 +948,7 @@ class ExtendedMixedCallLogsEntry extends ComplexType implements ComplexInterface
     public function setServiceInvocationCalledNumber($serviceInvocationCalledNumber = null)
     {
         $this->serviceInvocationCalledNumber = new SimpleContent($serviceInvocationCalledNumber);
-        $this->serviceInvocationCalledNumber->setName('serviceInvocationCalledNumber');
+        $this->serviceInvocationCalledNumber->setElementName('serviceInvocationCalledNumber');
         return $this;
     }
 
@@ -888,7 +958,9 @@ class ExtendedMixedCallLogsEntry extends ComplexType implements ComplexInterface
      */
     public function getServiceInvocationCalledNumber()
     {
-        return ($this->serviceInvocationCalledNumber) ? $this->serviceInvocationCalledNumber->getValue() : null;
+        return ($this->serviceInvocationCalledNumber)
+            ? $this->serviceInvocationCalledNumber->getElementValue()
+            : null;
     }
 
     /**
@@ -897,7 +969,7 @@ class ExtendedMixedCallLogsEntry extends ComplexType implements ComplexInterface
     public function setServiceInvocationNetworkTranslatedAddress($serviceInvocationNetworkTranslatedAddress = null)
     {
         $this->serviceInvocationNetworkTranslatedAddress = new SimpleContent($serviceInvocationNetworkTranslatedAddress);
-        $this->serviceInvocationNetworkTranslatedAddress->setName('serviceInvocationNetworkTranslatedAddress');
+        $this->serviceInvocationNetworkTranslatedAddress->setElementName('serviceInvocationNetworkTranslatedAddress');
         return $this;
     }
 
@@ -907,7 +979,9 @@ class ExtendedMixedCallLogsEntry extends ComplexType implements ComplexInterface
      */
     public function getServiceInvocationNetworkTranslatedAddress()
     {
-        return ($this->serviceInvocationNetworkTranslatedAddress) ? $this->serviceInvocationNetworkTranslatedAddress->getValue() : null;
+        return ($this->serviceInvocationNetworkTranslatedAddress)
+            ? $this->serviceInvocationNetworkTranslatedAddress->getElementValue()
+            : null;
     }
 
     /**
@@ -916,7 +990,7 @@ class ExtendedMixedCallLogsEntry extends ComplexType implements ComplexInterface
     public function setServiceInvocationTypeOfNetwork($serviceInvocationTypeOfNetwork = null)
     {
         $this->serviceInvocationTypeOfNetwork = new SimpleContent($serviceInvocationTypeOfNetwork);
-        $this->serviceInvocationTypeOfNetwork->setName('serviceInvocationTypeOfNetwork');
+        $this->serviceInvocationTypeOfNetwork->setElementName('serviceInvocationTypeOfNetwork');
         return $this;
     }
 
@@ -926,7 +1000,9 @@ class ExtendedMixedCallLogsEntry extends ComplexType implements ComplexInterface
      */
     public function getServiceInvocationTypeOfNetwork()
     {
-        return ($this->serviceInvocationTypeOfNetwork) ? $this->serviceInvocationTypeOfNetwork->getValue() : null;
+        return ($this->serviceInvocationTypeOfNetwork)
+            ? $this->serviceInvocationTypeOfNetwork->getElementValue()
+            : null;
     }
 
     /**
@@ -935,7 +1011,7 @@ class ExtendedMixedCallLogsEntry extends ComplexType implements ComplexInterface
     public function setServiceInvocationCallCategory($serviceInvocationCallCategory = null)
     {
         $this->serviceInvocationCallCategory = new SimpleContent($serviceInvocationCallCategory);
-        $this->serviceInvocationCallCategory->setName('serviceInvocationCallCategory');
+        $this->serviceInvocationCallCategory->setElementName('serviceInvocationCallCategory');
         return $this;
     }
 
@@ -945,7 +1021,9 @@ class ExtendedMixedCallLogsEntry extends ComplexType implements ComplexInterface
      */
     public function getServiceInvocationCallCategory()
     {
-        return ($this->serviceInvocationCallCategory) ? $this->serviceInvocationCallCategory->getValue() : null;
+        return ($this->serviceInvocationCallCategory)
+            ? $this->serviceInvocationCallCategory->getElementValue()
+            : null;
     }
 
     /**
@@ -954,7 +1032,7 @@ class ExtendedMixedCallLogsEntry extends ComplexType implements ComplexInterface
     public function setServiceInvocationBasicCallType($serviceInvocationBasicCallType = null)
     {
         $this->serviceInvocationBasicCallType = new SimpleContent($serviceInvocationBasicCallType);
-        $this->serviceInvocationBasicCallType->setName('serviceInvocationBasicCallType');
+        $this->serviceInvocationBasicCallType->setElementName('serviceInvocationBasicCallType');
         return $this;
     }
 
@@ -964,7 +1042,9 @@ class ExtendedMixedCallLogsEntry extends ComplexType implements ComplexInterface
      */
     public function getServiceInvocationBasicCallType()
     {
-        return ($this->serviceInvocationBasicCallType) ? $this->serviceInvocationBasicCallType->getValue() : null;
+        return ($this->serviceInvocationBasicCallType)
+            ? $this->serviceInvocationBasicCallType->getElementValue()
+            : null;
     }
 
     /**
@@ -973,7 +1053,7 @@ class ExtendedMixedCallLogsEntry extends ComplexType implements ComplexInterface
     public function setServiceInvocationConfigurableCallType($serviceInvocationConfigurableCallType = null)
     {
         $this->serviceInvocationConfigurableCallType = new SimpleContent($serviceInvocationConfigurableCallType);
-        $this->serviceInvocationConfigurableCallType->setName('serviceInvocationConfigurableCallType');
+        $this->serviceInvocationConfigurableCallType->setElementName('serviceInvocationConfigurableCallType');
         return $this;
     }
 
@@ -983,7 +1063,9 @@ class ExtendedMixedCallLogsEntry extends ComplexType implements ComplexInterface
      */
     public function getServiceInvocationConfigurableCallType()
     {
-        return ($this->serviceInvocationConfigurableCallType) ? $this->serviceInvocationConfigurableCallType->getValue() : null;
+        return ($this->serviceInvocationConfigurableCallType)
+            ? $this->serviceInvocationConfigurableCallType->getElementValue()
+            : null;
     }
 
     /**
@@ -992,7 +1074,7 @@ class ExtendedMixedCallLogsEntry extends ComplexType implements ComplexInterface
     public function setServiceInvocationAlternateCallIndicator($serviceInvocationAlternateCallIndicator = null)
     {
         $this->serviceInvocationAlternateCallIndicator = new SimpleContent($serviceInvocationAlternateCallIndicator);
-        $this->serviceInvocationAlternateCallIndicator->setName('serviceInvocationAlternateCallIndicator');
+        $this->serviceInvocationAlternateCallIndicator->setElementName('serviceInvocationAlternateCallIndicator');
         return $this;
     }
 
@@ -1002,7 +1084,9 @@ class ExtendedMixedCallLogsEntry extends ComplexType implements ComplexInterface
      */
     public function getServiceInvocationAlternateCallIndicator()
     {
-        return ($this->serviceInvocationAlternateCallIndicator) ? $this->serviceInvocationAlternateCallIndicator->getValue() : null;
+        return ($this->serviceInvocationAlternateCallIndicator)
+            ? $this->serviceInvocationAlternateCallIndicator->getElementValue()
+            : null;
     }
 
     /**
@@ -1011,7 +1095,7 @@ class ExtendedMixedCallLogsEntry extends ComplexType implements ComplexInterface
     public function setServiceInvocationVirtualOnNetCallType($serviceInvocationVirtualOnNetCallType = null)
     {
         $this->serviceInvocationVirtualOnNetCallType = new SimpleContent($serviceInvocationVirtualOnNetCallType);
-        $this->serviceInvocationVirtualOnNetCallType->setName('serviceInvocationVirtualOnNetCallType');
+        $this->serviceInvocationVirtualOnNetCallType->setElementName('serviceInvocationVirtualOnNetCallType');
         return $this;
     }
 
@@ -1021,7 +1105,9 @@ class ExtendedMixedCallLogsEntry extends ComplexType implements ComplexInterface
      */
     public function getServiceInvocationVirtualOnNetCallType()
     {
-        return ($this->serviceInvocationVirtualOnNetCallType) ? $this->serviceInvocationVirtualOnNetCallType->getValue() : null;
+        return ($this->serviceInvocationVirtualOnNetCallType)
+            ? $this->serviceInvocationVirtualOnNetCallType->getElementValue()
+            : null;
     }
 
     /**
@@ -1030,7 +1116,7 @@ class ExtendedMixedCallLogsEntry extends ComplexType implements ComplexInterface
     public function setServiceInvocationCalledDirectoryName($serviceInvocationCalledDirectoryName = null)
     {
         $this->serviceInvocationCalledDirectoryName = new SimpleContent($serviceInvocationCalledDirectoryName);
-        $this->serviceInvocationCalledDirectoryName->setName('serviceInvocationCalledDirectoryName');
+        $this->serviceInvocationCalledDirectoryName->setElementName('serviceInvocationCalledDirectoryName');
         return $this;
     }
 
@@ -1040,7 +1126,9 @@ class ExtendedMixedCallLogsEntry extends ComplexType implements ComplexInterface
      */
     public function getServiceInvocationCalledDirectoryName()
     {
-        return ($this->serviceInvocationCalledDirectoryName) ? $this->serviceInvocationCalledDirectoryName->getValue() : null;
+        return ($this->serviceInvocationCalledDirectoryName)
+            ? $this->serviceInvocationCalledDirectoryName->getElementValue()
+            : null;
     }
 
     /**
@@ -1049,7 +1137,7 @@ class ExtendedMixedCallLogsEntry extends ComplexType implements ComplexInterface
     public function setServiceInvocationCalledGroupId($serviceInvocationCalledGroupId = null)
     {
         $this->serviceInvocationCalledGroupId = new SimpleContent($serviceInvocationCalledGroupId);
-        $this->serviceInvocationCalledGroupId->setName('serviceInvocationCalledGroupId');
+        $this->serviceInvocationCalledGroupId->setElementName('serviceInvocationCalledGroupId');
         return $this;
     }
 
@@ -1059,7 +1147,9 @@ class ExtendedMixedCallLogsEntry extends ComplexType implements ComplexInterface
      */
     public function getServiceInvocationCalledGroupId()
     {
-        return ($this->serviceInvocationCalledGroupId) ? $this->serviceInvocationCalledGroupId->getValue() : null;
+        return ($this->serviceInvocationCalledGroupId)
+            ? $this->serviceInvocationCalledGroupId->getElementValue()
+            : null;
     }
 
     /**
@@ -1068,7 +1158,7 @@ class ExtendedMixedCallLogsEntry extends ComplexType implements ComplexInterface
     public function setRedirectingNumber($redirectingNumber = null)
     {
         $this->redirectingNumber = new SimpleContent($redirectingNumber);
-        $this->redirectingNumber->setName('redirectingNumber');
+        $this->redirectingNumber->setElementName('redirectingNumber');
         return $this;
     }
 
@@ -1078,7 +1168,9 @@ class ExtendedMixedCallLogsEntry extends ComplexType implements ComplexInterface
      */
     public function getRedirectingNumber()
     {
-        return ($this->redirectingNumber) ? $this->redirectingNumber->getValue() : null;
+        return ($this->redirectingNumber)
+            ? $this->redirectingNumber->getElementValue()
+            : null;
     }
 
     /**
@@ -1087,7 +1179,7 @@ class ExtendedMixedCallLogsEntry extends ComplexType implements ComplexInterface
     public function setRedirectingName($redirectingName = null)
     {
         $this->redirectingName = new SimpleContent($redirectingName);
-        $this->redirectingName->setName('redirectingName');
+        $this->redirectingName->setElementName('redirectingName');
         return $this;
     }
 
@@ -1097,7 +1189,9 @@ class ExtendedMixedCallLogsEntry extends ComplexType implements ComplexInterface
      */
     public function getRedirectingName()
     {
-        return ($this->redirectingName) ? $this->redirectingName->getValue() : null;
+        return ($this->redirectingName)
+            ? $this->redirectingName->getElementValue()
+            : null;
     }
 
     /**
@@ -1106,7 +1200,7 @@ class ExtendedMixedCallLogsEntry extends ComplexType implements ComplexInterface
     public function setRedirectingPresentationIndicator($redirectingPresentationIndicator = null)
     {
         $this->redirectingPresentationIndicator = new SimpleContent($redirectingPresentationIndicator);
-        $this->redirectingPresentationIndicator->setName('redirectingPresentationIndicator');
+        $this->redirectingPresentationIndicator->setElementName('redirectingPresentationIndicator');
         return $this;
     }
 
@@ -1116,7 +1210,9 @@ class ExtendedMixedCallLogsEntry extends ComplexType implements ComplexInterface
      */
     public function getRedirectingPresentationIndicator()
     {
-        return ($this->redirectingPresentationIndicator) ? $this->redirectingPresentationIndicator->getValue() : null;
+        return ($this->redirectingPresentationIndicator)
+            ? $this->redirectingPresentationIndicator->getElementValue()
+            : null;
     }
 
     /**
@@ -1125,7 +1221,7 @@ class ExtendedMixedCallLogsEntry extends ComplexType implements ComplexInterface
     public function setRedirectingReason($RedirectingReason = null)
     {
         $this->RedirectingReason = new SimpleContent($RedirectingReason);
-        $this->RedirectingReason->setName('RedirectingReason');
+        $this->RedirectingReason->setElementName('RedirectingReason');
         return $this;
     }
 
@@ -1135,7 +1231,9 @@ class ExtendedMixedCallLogsEntry extends ComplexType implements ComplexInterface
      */
     public function getRedirectingReason()
     {
-        return ($this->RedirectingReason) ? $this->RedirectingReason->getValue() : null;
+        return ($this->RedirectingReason)
+            ? $this->RedirectingReason->getElementValue()
+            : null;
     }
 
     /**
@@ -1144,7 +1242,7 @@ class ExtendedMixedCallLogsEntry extends ComplexType implements ComplexInterface
     public function setAccountAuthorizationCode($accountAuthorizationCode = null)
     {
         $this->accountAuthorizationCode = new SimpleContent($accountAuthorizationCode);
-        $this->accountAuthorizationCode->setName('accountAuthorizationCode');
+        $this->accountAuthorizationCode->setElementName('accountAuthorizationCode');
         return $this;
     }
 
@@ -1154,7 +1252,9 @@ class ExtendedMixedCallLogsEntry extends ComplexType implements ComplexInterface
      */
     public function getAccountAuthorizationCode()
     {
-        return ($this->accountAuthorizationCode) ? $this->accountAuthorizationCode->getValue() : null;
+        return ($this->accountAuthorizationCode)
+            ? $this->accountAuthorizationCode->getElementValue()
+            : null;
     }
 
     /**
@@ -1163,7 +1263,7 @@ class ExtendedMixedCallLogsEntry extends ComplexType implements ComplexInterface
     public function setUserGroupId($userGroupId = null)
     {
         $this->userGroupId = new SimpleContent($userGroupId);
-        $this->userGroupId->setName('userGroupId');
+        $this->userGroupId->setElementName('userGroupId');
         return $this;
     }
 
@@ -1173,7 +1273,9 @@ class ExtendedMixedCallLogsEntry extends ComplexType implements ComplexInterface
      */
     public function getUserGroupId()
     {
-        return ($this->userGroupId) ? $this->userGroupId->getValue() : null;
+        return ($this->userGroupId)
+            ? $this->userGroupId->getElementValue()
+            : null;
     }
 
     /**
@@ -1182,7 +1284,7 @@ class ExtendedMixedCallLogsEntry extends ComplexType implements ComplexInterface
     public function setUserId($userId = null)
     {
         $this->userId = new SimpleContent($userId);
-        $this->userId->setName('userId');
+        $this->userId->setElementName('userId');
         return $this;
     }
 
@@ -1192,7 +1294,9 @@ class ExtendedMixedCallLogsEntry extends ComplexType implements ComplexInterface
      */
     public function getUserId()
     {
-        return ($this->userId) ? $this->userId->getValue() : null;
+        return ($this->userId)
+            ? $this->userId->getElementValue()
+            : null;
     }
 
     /**
@@ -1201,7 +1305,7 @@ class ExtendedMixedCallLogsEntry extends ComplexType implements ComplexInterface
     public function setUserPrimaryDn($userPrimaryDn = null)
     {
         $this->userPrimaryDn = new SimpleContent($userPrimaryDn);
-        $this->userPrimaryDn->setName('userPrimaryDn');
+        $this->userPrimaryDn->setElementName('userPrimaryDn');
         return $this;
     }
 
@@ -1211,7 +1315,9 @@ class ExtendedMixedCallLogsEntry extends ComplexType implements ComplexInterface
      */
     public function getUserPrimaryDn()
     {
-        return ($this->userPrimaryDn) ? $this->userPrimaryDn->getValue() : null;
+        return ($this->userPrimaryDn)
+            ? $this->userPrimaryDn->getElementValue()
+            : null;
     }
 
     /**
@@ -1220,7 +1326,7 @@ class ExtendedMixedCallLogsEntry extends ComplexType implements ComplexInterface
     public function setUserPrimaryExtension($userPrimaryExtension = null)
     {
         $this->userPrimaryExtension = new SimpleContent($userPrimaryExtension);
-        $this->userPrimaryExtension->setName('userPrimaryExtension');
+        $this->userPrimaryExtension->setElementName('userPrimaryExtension');
         return $this;
     }
 
@@ -1230,6 +1336,8 @@ class ExtendedMixedCallLogsEntry extends ComplexType implements ComplexInterface
      */
     public function getUserPrimaryExtension()
     {
-        return ($this->userPrimaryExtension) ? $this->userPrimaryExtension->getValue() : null;
+        return ($this->userPrimaryExtension)
+            ? $this->userPrimaryExtension->getElementValue()
+            : null;
     }
 }

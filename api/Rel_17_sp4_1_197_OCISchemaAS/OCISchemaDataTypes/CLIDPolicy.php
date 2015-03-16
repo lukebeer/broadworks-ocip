@@ -16,12 +16,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\Enumeration;
  */
 class CLIDPolicy extends SimpleType
 {
-    public $name = "CLIDPolicy";
-    protected $value;
-
+    public $elementName = "CLIDPolicy";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new Enumeration([
             'Use DN',
             'Use Configurable CLID'

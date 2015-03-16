@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderVoiceMessagingGroupModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'ServiceProviderVoiceMessagingGroupModifyRequest';
+    public    $elementName = 'ServiceProviderVoiceMessagingGroupModifyRequest';
     protected $serviceProviderId;
     protected $deliveryFromAddress;
     protected $notificationFromAddress;
@@ -65,7 +65,7 @@ class ServiceProviderVoiceMessagingGroupModifyRequest extends ComplexType implem
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
-        $this->serviceProviderId->setName('serviceProviderId');
+        $this->serviceProviderId->setElementName('serviceProviderId');
         return $this;
     }
 
@@ -75,7 +75,9 @@ class ServiceProviderVoiceMessagingGroupModifyRequest extends ComplexType implem
      */
     public function getServiceProviderId()
     {
-        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
+        return ($this->serviceProviderId)
+            ? $this->serviceProviderId->getElementValue()
+            : null;
     }
 
     /**
@@ -86,7 +88,7 @@ class ServiceProviderVoiceMessagingGroupModifyRequest extends ComplexType implem
         $this->deliveryFromAddress = ($deliveryFromAddress InstanceOf EmailAddress)
              ? $deliveryFromAddress
              : new EmailAddress($deliveryFromAddress);
-        $this->deliveryFromAddress->setName('deliveryFromAddress');
+        $this->deliveryFromAddress->setElementName('deliveryFromAddress');
         return $this;
     }
 
@@ -96,7 +98,9 @@ class ServiceProviderVoiceMessagingGroupModifyRequest extends ComplexType implem
      */
     public function getDeliveryFromAddress()
     {
-        return ($this->deliveryFromAddress) ? $this->deliveryFromAddress->getValue() : null;
+        return ($this->deliveryFromAddress)
+            ? $this->deliveryFromAddress->getElementValue()
+            : null;
     }
 
     /**
@@ -107,7 +111,7 @@ class ServiceProviderVoiceMessagingGroupModifyRequest extends ComplexType implem
         $this->notificationFromAddress = ($notificationFromAddress InstanceOf EmailAddress)
              ? $notificationFromAddress
              : new EmailAddress($notificationFromAddress);
-        $this->notificationFromAddress->setName('notificationFromAddress');
+        $this->notificationFromAddress->setElementName('notificationFromAddress');
         return $this;
     }
 
@@ -117,7 +121,9 @@ class ServiceProviderVoiceMessagingGroupModifyRequest extends ComplexType implem
      */
     public function getNotificationFromAddress()
     {
-        return ($this->notificationFromAddress) ? $this->notificationFromAddress->getValue() : null;
+        return ($this->notificationFromAddress)
+            ? $this->notificationFromAddress->getElementValue()
+            : null;
     }
 
     /**
@@ -128,7 +134,7 @@ class ServiceProviderVoiceMessagingGroupModifyRequest extends ComplexType implem
         $this->voicePortalLockoutFromAddress = ($voicePortalLockoutFromAddress InstanceOf EmailAddress)
              ? $voicePortalLockoutFromAddress
              : new EmailAddress($voicePortalLockoutFromAddress);
-        $this->voicePortalLockoutFromAddress->setName('voicePortalLockoutFromAddress');
+        $this->voicePortalLockoutFromAddress->setElementName('voicePortalLockoutFromAddress');
         return $this;
     }
 
@@ -138,7 +144,9 @@ class ServiceProviderVoiceMessagingGroupModifyRequest extends ComplexType implem
      */
     public function getVoicePortalLockoutFromAddress()
     {
-        return ($this->voicePortalLockoutFromAddress) ? $this->voicePortalLockoutFromAddress->getValue() : null;
+        return ($this->voicePortalLockoutFromAddress)
+            ? $this->voicePortalLockoutFromAddress->getElementValue()
+            : null;
     }
 
     /**
@@ -147,7 +155,7 @@ class ServiceProviderVoiceMessagingGroupModifyRequest extends ComplexType implem
     public function setUseSystemDefaultDeliveryFromAddress($useSystemDefaultDeliveryFromAddress = null)
     {
         $this->useSystemDefaultDeliveryFromAddress = new PrimitiveType($useSystemDefaultDeliveryFromAddress);
-        $this->useSystemDefaultDeliveryFromAddress->setName('useSystemDefaultDeliveryFromAddress');
+        $this->useSystemDefaultDeliveryFromAddress->setElementName('useSystemDefaultDeliveryFromAddress');
         return $this;
     }
 
@@ -157,7 +165,9 @@ class ServiceProviderVoiceMessagingGroupModifyRequest extends ComplexType implem
      */
     public function getUseSystemDefaultDeliveryFromAddress()
     {
-        return ($this->useSystemDefaultDeliveryFromAddress) ? $this->useSystemDefaultDeliveryFromAddress->getValue() : null;
+        return ($this->useSystemDefaultDeliveryFromAddress)
+            ? $this->useSystemDefaultDeliveryFromAddress->getElementValue()
+            : null;
     }
 
     /**
@@ -166,7 +176,7 @@ class ServiceProviderVoiceMessagingGroupModifyRequest extends ComplexType implem
     public function setUseSystemDefaultNotificationFromAddress($useSystemDefaultNotificationFromAddress = null)
     {
         $this->useSystemDefaultNotificationFromAddress = new PrimitiveType($useSystemDefaultNotificationFromAddress);
-        $this->useSystemDefaultNotificationFromAddress->setName('useSystemDefaultNotificationFromAddress');
+        $this->useSystemDefaultNotificationFromAddress->setElementName('useSystemDefaultNotificationFromAddress');
         return $this;
     }
 
@@ -176,7 +186,9 @@ class ServiceProviderVoiceMessagingGroupModifyRequest extends ComplexType implem
      */
     public function getUseSystemDefaultNotificationFromAddress()
     {
-        return ($this->useSystemDefaultNotificationFromAddress) ? $this->useSystemDefaultNotificationFromAddress->getValue() : null;
+        return ($this->useSystemDefaultNotificationFromAddress)
+            ? $this->useSystemDefaultNotificationFromAddress->getElementValue()
+            : null;
     }
 
     /**
@@ -185,7 +197,7 @@ class ServiceProviderVoiceMessagingGroupModifyRequest extends ComplexType implem
     public function setUseSystemDefaultVoicePortalLockoutFromAddress($useSystemDefaultVoicePortalLockoutFromAddress = null)
     {
         $this->useSystemDefaultVoicePortalLockoutFromAddress = new PrimitiveType($useSystemDefaultVoicePortalLockoutFromAddress);
-        $this->useSystemDefaultVoicePortalLockoutFromAddress->setName('useSystemDefaultVoicePortalLockoutFromAddress');
+        $this->useSystemDefaultVoicePortalLockoutFromAddress->setElementName('useSystemDefaultVoicePortalLockoutFromAddress');
         return $this;
     }
 
@@ -195,6 +207,8 @@ class ServiceProviderVoiceMessagingGroupModifyRequest extends ComplexType implem
      */
     public function getUseSystemDefaultVoicePortalLockoutFromAddress()
     {
-        return ($this->useSystemDefaultVoicePortalLockoutFromAddress) ? $this->useSystemDefaultVoicePortalLockoutFromAddress->getValue() : null;
+        return ($this->useSystemDefaultVoicePortalLockoutFromAddress)
+            ? $this->useSystemDefaultVoicePortalLockoutFromAddress->getElementValue()
+            : null;
     }
 }

@@ -23,7 +23,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserInstantConferencingGetConferenceRecordingListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'UserInstantConferencingGetConferenceRecordingListResponse';
+    public    $elementName = 'UserInstantConferencingGetConferenceRecordingListResponse';
     protected $conferenceRecordingTable;
 
     /**
@@ -40,7 +40,7 @@ class UserInstantConferencingGetConferenceRecordingListResponse extends ComplexT
     public function setConferenceRecordingTable(TableType $conferenceRecordingTable = null)
     {
         $this->conferenceRecordingTable = $conferenceRecordingTable;
-        $this->conferenceRecordingTable->setName('conferenceRecordingTable');
+        $this->conferenceRecordingTable->setElementName('conferenceRecordingTable');
         return $this;
     }
 

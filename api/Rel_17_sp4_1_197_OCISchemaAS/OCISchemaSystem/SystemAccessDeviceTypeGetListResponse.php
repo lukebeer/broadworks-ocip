@@ -19,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemAccessDeviceTypeGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemAccessDeviceTypeGetListResponse';
+    public    $elementName = 'SystemAccessDeviceTypeGetListResponse';
     protected $deviceType;
 
     /**
@@ -38,7 +38,7 @@ class SystemAccessDeviceTypeGetListResponse extends ComplexType implements Compl
         $this->deviceType = ($deviceType InstanceOf AccessDeviceType)
              ? $deviceType
              : new AccessDeviceType($deviceType);
-        $this->deviceType->setName('deviceType');
+        $this->deviceType->setElementName('deviceType');
         return $this;
     }
 
@@ -48,6 +48,8 @@ class SystemAccessDeviceTypeGetListResponse extends ComplexType implements Compl
      */
     public function getDeviceType()
     {
-        return ($this->deviceType) ? $this->deviceType->getValue() : null;
+        return ($this->deviceType)
+            ? $this->deviceType->getElementValue()
+            : null;
     }
 }

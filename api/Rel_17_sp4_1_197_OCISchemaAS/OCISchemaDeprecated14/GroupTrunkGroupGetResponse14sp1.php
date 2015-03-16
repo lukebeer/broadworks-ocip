@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupTrunkGroupGetResponse14sp1 extends ComplexType implements ComplexInterface
 {
-    public    $name = 'GroupTrunkGroupGetResponse14sp1';
+    public    $elementName = 'GroupTrunkGroupGetResponse14sp1';
     protected $maxActiveCalls;
     protected $maxAvailableActiveCalls;
     protected $burstingMaxActiveCalls;
@@ -42,7 +42,7 @@ class GroupTrunkGroupGetResponse14sp1 extends ComplexType implements ComplexInte
         $this->maxActiveCalls = ($maxActiveCalls InstanceOf UnboundedNonNegativeInt)
              ? $maxActiveCalls
              : new UnboundedNonNegativeInt($maxActiveCalls);
-        $this->maxActiveCalls->setName('maxActiveCalls');
+        $this->maxActiveCalls->setElementName('maxActiveCalls');
         return $this;
     }
 
@@ -63,7 +63,7 @@ class GroupTrunkGroupGetResponse14sp1 extends ComplexType implements ComplexInte
         $this->maxAvailableActiveCalls = ($maxAvailableActiveCalls InstanceOf UnboundedNonNegativeInt)
              ? $maxAvailableActiveCalls
              : new UnboundedNonNegativeInt($maxAvailableActiveCalls);
-        $this->maxAvailableActiveCalls->setName('maxAvailableActiveCalls');
+        $this->maxAvailableActiveCalls->setElementName('maxAvailableActiveCalls');
         return $this;
     }
 
@@ -84,7 +84,7 @@ class GroupTrunkGroupGetResponse14sp1 extends ComplexType implements ComplexInte
         $this->burstingMaxActiveCalls = ($burstingMaxActiveCalls InstanceOf UnboundedNonNegativeInt)
              ? $burstingMaxActiveCalls
              : new UnboundedNonNegativeInt($burstingMaxActiveCalls);
-        $this->burstingMaxActiveCalls->setName('burstingMaxActiveCalls');
+        $this->burstingMaxActiveCalls->setElementName('burstingMaxActiveCalls');
         return $this;
     }
 
@@ -105,7 +105,7 @@ class GroupTrunkGroupGetResponse14sp1 extends ComplexType implements ComplexInte
         $this->burstingMaxAvailableActiveCalls = ($burstingMaxAvailableActiveCalls InstanceOf UnboundedNonNegativeInt)
              ? $burstingMaxAvailableActiveCalls
              : new UnboundedNonNegativeInt($burstingMaxAvailableActiveCalls);
-        $this->burstingMaxAvailableActiveCalls->setName('burstingMaxAvailableActiveCalls');
+        $this->burstingMaxAvailableActiveCalls->setElementName('burstingMaxAvailableActiveCalls');
         return $this;
     }
 

@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemExternalAuthenticationAddACLEntryRequest14sp2 extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemExternalAuthenticationAddACLEntryRequest14sp2';
+    public    $elementName = 'SystemExternalAuthenticationAddACLEntryRequest14sp2';
     protected $netAddress;
     protected $description;
 
@@ -49,7 +49,7 @@ class SystemExternalAuthenticationAddACLEntryRequest14sp2 extends ComplexType im
         $this->netAddress = ($netAddress InstanceOf IPAddress)
              ? $netAddress
              : new IPAddress($netAddress);
-        $this->netAddress->setName('netAddress');
+        $this->netAddress->setElementName('netAddress');
         return $this;
     }
 
@@ -59,7 +59,9 @@ class SystemExternalAuthenticationAddACLEntryRequest14sp2 extends ComplexType im
      */
     public function getNetAddress()
     {
-        return ($this->netAddress) ? $this->netAddress->getValue() : null;
+        return ($this->netAddress)
+            ? $this->netAddress->getElementValue()
+            : null;
     }
 
     /**
@@ -70,7 +72,7 @@ class SystemExternalAuthenticationAddACLEntryRequest14sp2 extends ComplexType im
         $this->description = ($description InstanceOf NetworkACLEntryDescription)
              ? $description
              : new NetworkACLEntryDescription($description);
-        $this->description->setName('description');
+        $this->description->setElementName('description');
         return $this;
     }
 
@@ -80,6 +82,8 @@ class SystemExternalAuthenticationAddACLEntryRequest14sp2 extends ComplexType im
      */
     public function getDescription()
     {
-        return ($this->description) ? $this->description->getValue() : null;
+        return ($this->description)
+            ? $this->description->getElementValue()
+            : null;
     }
 }

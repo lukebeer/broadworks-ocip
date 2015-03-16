@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupCallCenterDeleteDNISRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'GroupCallCenterDeleteDNISRequest';
+    public    $elementName = 'GroupCallCenterDeleteDNISRequest';
     protected $dnisKey;
 
     public function __construct(
@@ -45,7 +45,7 @@ class GroupCallCenterDeleteDNISRequest extends ComplexType implements ComplexInt
         $this->dnisKey = ($dnisKey InstanceOf DNISKey)
              ? $dnisKey
              : new DNISKey($dnisKey);
-        $this->dnisKey->setName('dnisKey');
+        $this->dnisKey->setElementName('dnisKey');
         return $this;
     }
 

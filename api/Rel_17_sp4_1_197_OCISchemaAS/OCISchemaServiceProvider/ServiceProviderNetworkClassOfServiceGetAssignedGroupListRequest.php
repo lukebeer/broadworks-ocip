@@ -26,7 +26,7 @@ use Broadworks_OCIP\core\Client\Client;
 class ServiceProviderNetworkClassOfServiceGetAssignedGroupListRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType            = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderNetworkClassOfServiceGetAssignedGroupListResponse';
-    public    $name = 'ServiceProviderNetworkClassOfServiceGetAssignedGroupListRequest';
+    public    $elementName = 'ServiceProviderNetworkClassOfServiceGetAssignedGroupListRequest';
     protected $serviceProviderId;
     protected $networkClassOfService;
     protected $responseSizeLimit;
@@ -63,7 +63,7 @@ class ServiceProviderNetworkClassOfServiceGetAssignedGroupListRequest extends Co
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
-        $this->serviceProviderId->setName('serviceProviderId');
+        $this->serviceProviderId->setElementName('serviceProviderId');
         return $this;
     }
 
@@ -73,7 +73,9 @@ class ServiceProviderNetworkClassOfServiceGetAssignedGroupListRequest extends Co
      */
     public function getServiceProviderId()
     {
-        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
+        return ($this->serviceProviderId)
+            ? $this->serviceProviderId->getElementValue()
+            : null;
     }
 
     /**
@@ -84,7 +86,7 @@ class ServiceProviderNetworkClassOfServiceGetAssignedGroupListRequest extends Co
         $this->networkClassOfService = ($networkClassOfService InstanceOf NetworkClassOfServiceName)
              ? $networkClassOfService
              : new NetworkClassOfServiceName($networkClassOfService);
-        $this->networkClassOfService->setName('networkClassOfService');
+        $this->networkClassOfService->setElementName('networkClassOfService');
         return $this;
     }
 
@@ -94,7 +96,9 @@ class ServiceProviderNetworkClassOfServiceGetAssignedGroupListRequest extends Co
      */
     public function getNetworkClassOfService()
     {
-        return ($this->networkClassOfService) ? $this->networkClassOfService->getValue() : null;
+        return ($this->networkClassOfService)
+            ? $this->networkClassOfService->getElementValue()
+            : null;
     }
 
     /**
@@ -105,7 +109,7 @@ class ServiceProviderNetworkClassOfServiceGetAssignedGroupListRequest extends Co
         $this->responseSizeLimit = ($responseSizeLimit InstanceOf ResponseSizeLimit)
              ? $responseSizeLimit
              : new ResponseSizeLimit($responseSizeLimit);
-        $this->responseSizeLimit->setName('responseSizeLimit');
+        $this->responseSizeLimit->setElementName('responseSizeLimit');
         return $this;
     }
 
@@ -115,7 +119,9 @@ class ServiceProviderNetworkClassOfServiceGetAssignedGroupListRequest extends Co
      */
     public function getResponseSizeLimit()
     {
-        return ($this->responseSizeLimit) ? $this->responseSizeLimit->getValue() : null;
+        return ($this->responseSizeLimit)
+            ? $this->responseSizeLimit->getElementValue()
+            : null;
     }
 
     /**
@@ -126,7 +132,7 @@ class ServiceProviderNetworkClassOfServiceGetAssignedGroupListRequest extends Co
         $this->searchCriteriaGroupId = ($searchCriteriaGroupId InstanceOf SearchCriteriaGroupId)
              ? $searchCriteriaGroupId
              : new SearchCriteriaGroupId($searchCriteriaGroupId);
-        $this->searchCriteriaGroupId->setName('searchCriteriaGroupId');
+        $this->searchCriteriaGroupId->setElementName('searchCriteriaGroupId');
         return $this;
     }
 
@@ -147,7 +153,7 @@ class ServiceProviderNetworkClassOfServiceGetAssignedGroupListRequest extends Co
         $this->searchCriteriaGroupName = ($searchCriteriaGroupName InstanceOf SearchCriteriaGroupName)
              ? $searchCriteriaGroupName
              : new SearchCriteriaGroupName($searchCriteriaGroupName);
-        $this->searchCriteriaGroupName->setName('searchCriteriaGroupName');
+        $this->searchCriteriaGroupName->setElementName('searchCriteriaGroupName');
         return $this;
     }
 

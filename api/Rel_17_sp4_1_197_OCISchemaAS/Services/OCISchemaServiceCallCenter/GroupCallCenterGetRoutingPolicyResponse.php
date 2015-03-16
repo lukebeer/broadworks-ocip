@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupCallCenterGetRoutingPolicyResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'GroupCallCenterGetRoutingPolicyResponse';
+    public    $elementName = 'GroupCallCenterGetRoutingPolicyResponse';
     protected $routingPolicy;
     protected $callCenterTable;
 
@@ -41,7 +41,7 @@ class GroupCallCenterGetRoutingPolicyResponse extends ComplexType implements Com
         $this->routingPolicy = ($routingPolicy InstanceOf CallCenterRoutingPolicy)
              ? $routingPolicy
              : new CallCenterRoutingPolicy($routingPolicy);
-        $this->routingPolicy->setName('routingPolicy');
+        $this->routingPolicy->setElementName('routingPolicy');
         return $this;
     }
 
@@ -51,7 +51,9 @@ class GroupCallCenterGetRoutingPolicyResponse extends ComplexType implements Com
      */
     public function getRoutingPolicy()
     {
-        return ($this->routingPolicy) ? $this->routingPolicy->getValue() : null;
+        return ($this->routingPolicy)
+            ? $this->routingPolicy->getElementValue()
+            : null;
     }
 
     /**
@@ -60,7 +62,7 @@ class GroupCallCenterGetRoutingPolicyResponse extends ComplexType implements Com
     public function setCallCenterTable(TableType $callCenterTable = null)
     {
         $this->callCenterTable = $callCenterTable;
-        $this->callCenterTable->setName('callCenterTable');
+        $this->callCenterTable->setElementName('callCenterTable');
         return $this;
     }
 

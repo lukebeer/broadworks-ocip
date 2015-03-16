@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderAccessDeviceFileGetListResponse14sp8 extends ComplexType implements ComplexInterface
 {
-    public    $name = 'ServiceProviderAccessDeviceFileGetListResponse14sp8';
+    public    $elementName = 'ServiceProviderAccessDeviceFileGetListResponse14sp8';
     protected $deviceFilesTable;
 
     /**
@@ -38,7 +38,7 @@ class ServiceProviderAccessDeviceFileGetListResponse14sp8 extends ComplexType im
     public function setDeviceFilesTable(TableType $deviceFilesTable = null)
     {
         $this->deviceFilesTable = $deviceFilesTable;
-        $this->deviceFilesTable->setName('deviceFilesTable');
+        $this->deviceFilesTable->setElementName('deviceFilesTable');
         return $this;
     }
 

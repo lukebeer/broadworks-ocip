@@ -17,12 +17,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\MaxInclusive;
  */
 class CallHandlingSamplingPeriodMinutes extends SimpleType
 {
-    public $name = "CallHandlingSamplingPeriodMinutes";
-    protected $value;
-
+    public $elementName = "CallHandlingSamplingPeriodMinutes";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new MinInclusive("5"));
         $this->addRestriction(new MaxInclusive("30"));
     }

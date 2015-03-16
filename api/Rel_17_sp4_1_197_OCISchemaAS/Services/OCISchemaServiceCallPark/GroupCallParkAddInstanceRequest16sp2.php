@@ -28,7 +28,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupCallParkAddInstanceRequest16sp2 extends ComplexType implements ComplexInterface
 {
-    public    $name = 'GroupCallParkAddInstanceRequest16sp2';
+    public    $elementName = 'GroupCallParkAddInstanceRequest16sp2';
     protected $serviceProviderId;
     protected $groupId;
     protected $name;
@@ -68,7 +68,7 @@ class GroupCallParkAddInstanceRequest16sp2 extends ComplexType implements Comple
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
-        $this->serviceProviderId->setName('serviceProviderId');
+        $this->serviceProviderId->setElementName('serviceProviderId');
         return $this;
     }
 
@@ -78,7 +78,9 @@ class GroupCallParkAddInstanceRequest16sp2 extends ComplexType implements Comple
      */
     public function getServiceProviderId()
     {
-        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
+        return ($this->serviceProviderId)
+            ? $this->serviceProviderId->getElementValue()
+            : null;
     }
 
     /**
@@ -89,7 +91,7 @@ class GroupCallParkAddInstanceRequest16sp2 extends ComplexType implements Comple
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
-        $this->groupId->setName('groupId');
+        $this->groupId->setElementName('groupId');
         return $this;
     }
 
@@ -99,7 +101,9 @@ class GroupCallParkAddInstanceRequest16sp2 extends ComplexType implements Comple
      */
     public function getGroupId()
     {
-        return ($this->groupId) ? $this->groupId->getValue() : null;
+        return ($this->groupId)
+            ? $this->groupId->getElementValue()
+            : null;
     }
 
     /**
@@ -110,7 +114,7 @@ class GroupCallParkAddInstanceRequest16sp2 extends ComplexType implements Comple
         $this->name = ($name InstanceOf ServiceInstanceName)
              ? $name
              : new ServiceInstanceName($name);
-        $this->name->setName('name');
+        $this->name->setElementName('name');
         return $this;
     }
 
@@ -120,7 +124,9 @@ class GroupCallParkAddInstanceRequest16sp2 extends ComplexType implements Comple
      */
     public function getName()
     {
-        return ($this->name) ? $this->name->getValue() : null;
+        return ($this->name)
+            ? $this->name->getElementValue()
+            : null;
     }
 
     /**
@@ -131,7 +137,7 @@ class GroupCallParkAddInstanceRequest16sp2 extends ComplexType implements Comple
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
-        $this->userId->setName('userId');
+        $this->userId->setElementName('userId');
         return $this;
     }
 
@@ -141,7 +147,9 @@ class GroupCallParkAddInstanceRequest16sp2 extends ComplexType implements Comple
      */
     public function getUserId()
     {
-        return ($this->userId) ? $this->userId->getValue() : null;
+        return ($this->userId)
+            ? $this->userId->getElementValue()
+            : null;
     }
 
     /**
@@ -152,7 +160,7 @@ class GroupCallParkAddInstanceRequest16sp2 extends ComplexType implements Comple
         $this->recallAlternateUserId = ($recallAlternateUserId InstanceOf UserId)
              ? $recallAlternateUserId
              : new UserId($recallAlternateUserId);
-        $this->recallAlternateUserId->setName('recallAlternateUserId');
+        $this->recallAlternateUserId->setElementName('recallAlternateUserId');
         return $this;
     }
 
@@ -162,7 +170,9 @@ class GroupCallParkAddInstanceRequest16sp2 extends ComplexType implements Comple
      */
     public function getRecallAlternateUserId()
     {
-        return ($this->recallAlternateUserId) ? $this->recallAlternateUserId->getValue() : null;
+        return ($this->recallAlternateUserId)
+            ? $this->recallAlternateUserId->getElementValue()
+            : null;
     }
 
     /**
@@ -173,7 +183,7 @@ class GroupCallParkAddInstanceRequest16sp2 extends ComplexType implements Comple
         $this->recallTo = ($recallTo InstanceOf CallParkRecallTo)
              ? $recallTo
              : new CallParkRecallTo($recallTo);
-        $this->recallTo->setName('recallTo');
+        $this->recallTo->setElementName('recallTo');
         return $this;
     }
 
@@ -183,6 +193,8 @@ class GroupCallParkAddInstanceRequest16sp2 extends ComplexType implements Comple
      */
     public function getRecallTo()
     {
-        return ($this->recallTo) ? $this->recallTo->getValue() : null;
+        return ($this->recallTo)
+            ? $this->recallTo->getElementValue()
+            : null;
     }
 }

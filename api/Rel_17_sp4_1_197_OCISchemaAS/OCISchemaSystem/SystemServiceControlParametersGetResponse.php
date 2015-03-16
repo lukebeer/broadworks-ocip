@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemServiceControlParametersGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemServiceControlParametersGetResponse';
+    public    $elementName = 'SystemServiceControlParametersGetResponse';
     protected $serverPort;
     protected $maxClientConnections;
 
@@ -41,7 +41,7 @@ class SystemServiceControlParametersGetResponse extends ComplexType implements C
         $this->serverPort = ($serverPort InstanceOf Port1025)
              ? $serverPort
              : new Port1025($serverPort);
-        $this->serverPort->setName('serverPort');
+        $this->serverPort->setElementName('serverPort');
         return $this;
     }
 
@@ -51,7 +51,9 @@ class SystemServiceControlParametersGetResponse extends ComplexType implements C
      */
     public function getServerPort()
     {
-        return ($this->serverPort) ? $this->serverPort->getValue() : null;
+        return ($this->serverPort)
+            ? $this->serverPort->getElementValue()
+            : null;
     }
 
     /**
@@ -62,7 +64,7 @@ class SystemServiceControlParametersGetResponse extends ComplexType implements C
         $this->maxClientConnections = ($maxClientConnections InstanceOf ServiceControlMaxClientConnections)
              ? $maxClientConnections
              : new ServiceControlMaxClientConnections($maxClientConnections);
-        $this->maxClientConnections->setName('maxClientConnections');
+        $this->maxClientConnections->setElementName('maxClientConnections');
         return $this;
     }
 
@@ -72,6 +74,8 @@ class SystemServiceControlParametersGetResponse extends ComplexType implements C
      */
     public function getMaxClientConnections()
     {
-        return ($this->maxClientConnections) ? $this->maxClientConnections->getValue() : null;
+        return ($this->maxClientConnections)
+            ? $this->maxClientConnections->getElementValue()
+            : null;
     }
 }

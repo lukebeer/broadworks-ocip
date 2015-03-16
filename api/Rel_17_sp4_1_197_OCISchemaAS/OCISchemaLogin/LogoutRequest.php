@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class LogoutRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'LogoutRequest';
+    public    $elementName = 'LogoutRequest';
     protected $userId;
     protected $reason;
 
@@ -50,7 +50,7 @@ class LogoutRequest extends ComplexType implements ComplexInterface
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
-        $this->userId->setName('userId');
+        $this->userId->setElementName('userId');
         return $this;
     }
 
@@ -60,7 +60,9 @@ class LogoutRequest extends ComplexType implements ComplexInterface
      */
     public function getUserId()
     {
-        return ($this->userId) ? $this->userId->getValue() : null;
+        return ($this->userId)
+            ? $this->userId->getElementValue()
+            : null;
     }
 
     /**
@@ -71,7 +73,7 @@ class LogoutRequest extends ComplexType implements ComplexInterface
         $this->reason = ($reason InstanceOf LogoutRequestReason)
              ? $reason
              : new LogoutRequestReason($reason);
-        $this->reason->setName('reason');
+        $this->reason->setElementName('reason');
         return $this;
     }
 
@@ -81,6 +83,8 @@ class LogoutRequest extends ComplexType implements ComplexInterface
      */
     public function getReason()
     {
-        return ($this->reason) ? $this->reason->getValue() : null;
+        return ($this->reason)
+            ? $this->reason->getElementValue()
+            : null;
     }
 }

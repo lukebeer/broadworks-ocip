@@ -23,7 +23,7 @@ use Broadworks_OCIP\core\Client\Client;
 class ServiceProviderServicePackMigrationTaskGetRequest14sp4 extends ComplexType implements ComplexInterface
 {
     public    $responseType      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderServicePackMigrationTaskGetResponse14sp4';
-    public    $name = 'ServiceProviderServicePackMigrationTaskGetRequest14sp4';
+    public    $elementName = 'ServiceProviderServicePackMigrationTaskGetRequest14sp4';
     protected $serviceProviderId;
     protected $taskName;
 
@@ -51,7 +51,7 @@ class ServiceProviderServicePackMigrationTaskGetRequest14sp4 extends ComplexType
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
-        $this->serviceProviderId->setName('serviceProviderId');
+        $this->serviceProviderId->setElementName('serviceProviderId');
         return $this;
     }
 
@@ -61,7 +61,9 @@ class ServiceProviderServicePackMigrationTaskGetRequest14sp4 extends ComplexType
      */
     public function getServiceProviderId()
     {
-        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
+        return ($this->serviceProviderId)
+            ? $this->serviceProviderId->getElementValue()
+            : null;
     }
 
     /**
@@ -72,7 +74,7 @@ class ServiceProviderServicePackMigrationTaskGetRequest14sp4 extends ComplexType
         $this->taskName = ($taskName InstanceOf ServicePackMigrationTaskName)
              ? $taskName
              : new ServicePackMigrationTaskName($taskName);
-        $this->taskName->setName('taskName');
+        $this->taskName->setElementName('taskName');
         return $this;
     }
 
@@ -82,6 +84,8 @@ class ServiceProviderServicePackMigrationTaskGetRequest14sp4 extends ComplexType
      */
     public function getTaskName()
     {
-        return ($this->taskName) ? $this->taskName->getValue() : null;
+        return ($this->taskName)
+            ? $this->taskName->getElementValue()
+            : null;
     }
 }

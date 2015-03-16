@@ -17,12 +17,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\MaxLength;
  */
 class CallCenterAgentUnavailableCodeDescription extends SimpleType
 {
-    public $name = "CallCenterAgentUnavailableCodeDescription";
-    protected $value;
-
+    public $elementName = "CallCenterAgentUnavailableCodeDescription";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new MinLength("1"));
         $this->addRestriction(new MaxLength("40"));
     }

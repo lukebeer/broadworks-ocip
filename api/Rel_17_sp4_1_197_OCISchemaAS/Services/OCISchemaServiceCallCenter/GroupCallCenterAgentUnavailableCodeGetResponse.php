@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupCallCenterAgentUnavailableCodeGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'GroupCallCenterAgentUnavailableCodeGetResponse';
+    public    $elementName = 'GroupCallCenterAgentUnavailableCodeGetResponse';
     protected $isActive;
     protected $description;
 
@@ -38,7 +38,7 @@ class GroupCallCenterAgentUnavailableCodeGetResponse extends ComplexType impleme
     public function setIsActive($isActive = null)
     {
         $this->isActive = new PrimitiveType($isActive);
-        $this->isActive->setName('isActive');
+        $this->isActive->setElementName('isActive');
         return $this;
     }
 
@@ -48,7 +48,9 @@ class GroupCallCenterAgentUnavailableCodeGetResponse extends ComplexType impleme
      */
     public function getIsActive()
     {
-        return ($this->isActive) ? $this->isActive->getValue() : null;
+        return ($this->isActive)
+            ? $this->isActive->getElementValue()
+            : null;
     }
 
     /**
@@ -59,7 +61,7 @@ class GroupCallCenterAgentUnavailableCodeGetResponse extends ComplexType impleme
         $this->description = ($description InstanceOf CallCenterAgentUnavailableCodeDescription)
              ? $description
              : new CallCenterAgentUnavailableCodeDescription($description);
-        $this->description->setName('description');
+        $this->description->setElementName('description');
         return $this;
     }
 
@@ -69,6 +71,8 @@ class GroupCallCenterAgentUnavailableCodeGetResponse extends ComplexType impleme
      */
     public function getDescription()
     {
-        return ($this->description) ? $this->description->getValue() : null;
+        return ($this->description)
+            ? $this->description->getElementValue()
+            : null;
     }
 }

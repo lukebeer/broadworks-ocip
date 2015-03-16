@@ -24,7 +24,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderAdminGetResponse14 extends ComplexType implements ComplexInterface
 {
-    public    $name = 'ServiceProviderAdminGetResponse14';
+    public    $elementName = 'ServiceProviderAdminGetResponse14';
     protected $serviceProviderId;
     protected $firstName;
     protected $lastName;
@@ -47,7 +47,7 @@ class ServiceProviderAdminGetResponse14 extends ComplexType implements ComplexIn
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
-        $this->serviceProviderId->setName('serviceProviderId');
+        $this->serviceProviderId->setElementName('serviceProviderId');
         return $this;
     }
 
@@ -57,7 +57,9 @@ class ServiceProviderAdminGetResponse14 extends ComplexType implements ComplexIn
      */
     public function getServiceProviderId()
     {
-        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
+        return ($this->serviceProviderId)
+            ? $this->serviceProviderId->getElementValue()
+            : null;
     }
 
     /**
@@ -68,7 +70,7 @@ class ServiceProviderAdminGetResponse14 extends ComplexType implements ComplexIn
         $this->firstName = ($firstName InstanceOf FirstName)
              ? $firstName
              : new FirstName($firstName);
-        $this->firstName->setName('firstName');
+        $this->firstName->setElementName('firstName');
         return $this;
     }
 
@@ -78,7 +80,9 @@ class ServiceProviderAdminGetResponse14 extends ComplexType implements ComplexIn
      */
     public function getFirstName()
     {
-        return ($this->firstName) ? $this->firstName->getValue() : null;
+        return ($this->firstName)
+            ? $this->firstName->getElementValue()
+            : null;
     }
 
     /**
@@ -89,7 +93,7 @@ class ServiceProviderAdminGetResponse14 extends ComplexType implements ComplexIn
         $this->lastName = ($lastName InstanceOf LastName)
              ? $lastName
              : new LastName($lastName);
-        $this->lastName->setName('lastName');
+        $this->lastName->setElementName('lastName');
         return $this;
     }
 
@@ -99,7 +103,9 @@ class ServiceProviderAdminGetResponse14 extends ComplexType implements ComplexIn
      */
     public function getLastName()
     {
-        return ($this->lastName) ? $this->lastName->getValue() : null;
+        return ($this->lastName)
+            ? $this->lastName->getElementValue()
+            : null;
     }
 
     /**
@@ -110,7 +116,7 @@ class ServiceProviderAdminGetResponse14 extends ComplexType implements ComplexIn
         $this->language = ($language InstanceOf Language)
              ? $language
              : new Language($language);
-        $this->language->setName('language');
+        $this->language->setElementName('language');
         return $this;
     }
 
@@ -120,7 +126,9 @@ class ServiceProviderAdminGetResponse14 extends ComplexType implements ComplexIn
      */
     public function getLanguage()
     {
-        return ($this->language) ? $this->language->getValue() : null;
+        return ($this->language)
+            ? $this->language->getElementValue()
+            : null;
     }
 
     /**
@@ -131,7 +139,7 @@ class ServiceProviderAdminGetResponse14 extends ComplexType implements ComplexIn
         $this->administratorType = ($administratorType InstanceOf ServiceProviderAdminType)
              ? $administratorType
              : new ServiceProviderAdminType($administratorType);
-        $this->administratorType->setName('administratorType');
+        $this->administratorType->setElementName('administratorType');
         return $this;
     }
 
@@ -141,6 +149,8 @@ class ServiceProviderAdminGetResponse14 extends ComplexType implements ComplexIn
      */
     public function getAdministratorType()
     {
-        return ($this->administratorType) ? $this->administratorType->getValue() : null;
+        return ($this->administratorType)
+            ? $this->administratorType->getElementValue()
+            : null;
     }
 }

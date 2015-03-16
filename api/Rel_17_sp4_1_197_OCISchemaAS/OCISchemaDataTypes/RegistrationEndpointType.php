@@ -16,12 +16,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\Enumeration;
  */
 class RegistrationEndpointType extends SimpleType
 {
-    public $name = "RegistrationEndpointType";
-    protected $value;
-
+    public $elementName = "RegistrationEndpointType";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new Enumeration([
             'Primary',
             'Shared Call Appearance',

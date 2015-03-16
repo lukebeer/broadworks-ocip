@@ -26,7 +26,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupPhoneDirectoryGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'GroupPhoneDirectoryGetListResponse';
+    public    $elementName = 'GroupPhoneDirectoryGetListResponse';
     protected $directoryTable;
 
     /**
@@ -43,7 +43,7 @@ class GroupPhoneDirectoryGetListResponse extends ComplexType implements ComplexI
     public function setDirectoryTable(TableType $directoryTable = null)
     {
         $this->directoryTable = $directoryTable;
-        $this->directoryTable->setName('directoryTable');
+        $this->directoryTable->setElementName('directoryTable');
         return $this;
     }
 

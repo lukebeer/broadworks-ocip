@@ -32,7 +32,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class EnterpriseCallCenterEnhancedReportingGetAvailableReportTemplateListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'EnterpriseCallCenterEnhancedReportingGetAvailableReportTemplateListResponse';
+    public    $elementName = 'EnterpriseCallCenterEnhancedReportingGetAvailableReportTemplateListResponse';
     protected $reportTemplateTable;
 
     /**
@@ -49,7 +49,7 @@ class EnterpriseCallCenterEnhancedReportingGetAvailableReportTemplateListRespons
     public function setReportTemplateTable(TableType $reportTemplateTable = null)
     {
         $this->reportTemplateTable = $reportTemplateTable;
-        $this->reportTemplateTable->setName('reportTemplateTable');
+        $this->reportTemplateTable->setElementName('reportTemplateTable');
         return $this;
     }
 

@@ -17,12 +17,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\Enumeration;
  */
 class OutlookIntegrationContactRetrievalSelection extends SimpleType
 {
-    public $name = "OutlookIntegrationContactRetrievalSelection";
-    protected $value;
-
+    public $elementName = "OutlookIntegrationContactRetrievalSelection";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new Enumeration([
             'Retrieve Default Contact Folder Only',
             'Retrieve All Contacts'

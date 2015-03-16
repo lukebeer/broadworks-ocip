@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupPolycomPhoneServicesGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'GroupPolycomPhoneServicesGetResponse';
+    public    $elementName = 'GroupPolycomPhoneServicesGetResponse';
     protected $includeGroupCommonPhoneListInDirectory;
     protected $includeGroupCustomContactDirectoryInDirectory;
     protected $groupCustomContactDirectory;
@@ -39,7 +39,7 @@ class GroupPolycomPhoneServicesGetResponse extends ComplexType implements Comple
     public function setIncludeGroupCommonPhoneListInDirectory($includeGroupCommonPhoneListInDirectory = null)
     {
         $this->includeGroupCommonPhoneListInDirectory = new PrimitiveType($includeGroupCommonPhoneListInDirectory);
-        $this->includeGroupCommonPhoneListInDirectory->setName('includeGroupCommonPhoneListInDirectory');
+        $this->includeGroupCommonPhoneListInDirectory->setElementName('includeGroupCommonPhoneListInDirectory');
         return $this;
     }
 
@@ -49,7 +49,9 @@ class GroupPolycomPhoneServicesGetResponse extends ComplexType implements Comple
      */
     public function getIncludeGroupCommonPhoneListInDirectory()
     {
-        return ($this->includeGroupCommonPhoneListInDirectory) ? $this->includeGroupCommonPhoneListInDirectory->getValue() : null;
+        return ($this->includeGroupCommonPhoneListInDirectory)
+            ? $this->includeGroupCommonPhoneListInDirectory->getElementValue()
+            : null;
     }
 
     /**
@@ -58,7 +60,7 @@ class GroupPolycomPhoneServicesGetResponse extends ComplexType implements Comple
     public function setIncludeGroupCustomContactDirectoryInDirectory($includeGroupCustomContactDirectoryInDirectory = null)
     {
         $this->includeGroupCustomContactDirectoryInDirectory = new PrimitiveType($includeGroupCustomContactDirectoryInDirectory);
-        $this->includeGroupCustomContactDirectoryInDirectory->setName('includeGroupCustomContactDirectoryInDirectory');
+        $this->includeGroupCustomContactDirectoryInDirectory->setElementName('includeGroupCustomContactDirectoryInDirectory');
         return $this;
     }
 
@@ -68,7 +70,9 @@ class GroupPolycomPhoneServicesGetResponse extends ComplexType implements Comple
      */
     public function getIncludeGroupCustomContactDirectoryInDirectory()
     {
-        return ($this->includeGroupCustomContactDirectoryInDirectory) ? $this->includeGroupCustomContactDirectoryInDirectory->getValue() : null;
+        return ($this->includeGroupCustomContactDirectoryInDirectory)
+            ? $this->includeGroupCustomContactDirectoryInDirectory->getElementValue()
+            : null;
     }
 
     /**
@@ -79,7 +83,7 @@ class GroupPolycomPhoneServicesGetResponse extends ComplexType implements Comple
         $this->groupCustomContactDirectory = ($groupCustomContactDirectory InstanceOf CustomContactDirectoryName)
              ? $groupCustomContactDirectory
              : new CustomContactDirectoryName($groupCustomContactDirectory);
-        $this->groupCustomContactDirectory->setName('groupCustomContactDirectory');
+        $this->groupCustomContactDirectory->setElementName('groupCustomContactDirectory');
         return $this;
     }
 
@@ -89,6 +93,8 @@ class GroupPolycomPhoneServicesGetResponse extends ComplexType implements Comple
      */
     public function getGroupCustomContactDirectory()
     {
-        return ($this->groupCustomContactDirectory) ? $this->groupCustomContactDirectory->getValue() : null;
+        return ($this->groupCustomContactDirectory)
+            ? $this->groupCustomContactDirectory->getElementValue()
+            : null;
     }
 }

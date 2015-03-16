@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class EnterpriseSessionAdmissionControlGroupDeleteDeviceListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'EnterpriseSessionAdmissionControlGroupDeleteDeviceListRequest';
+    public    $elementName = 'EnterpriseSessionAdmissionControlGroupDeleteDeviceListRequest';
     protected $serviceProviderId;
     protected $name;
     protected $devices;
@@ -53,7 +53,7 @@ class EnterpriseSessionAdmissionControlGroupDeleteDeviceListRequest extends Comp
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
-        $this->serviceProviderId->setName('serviceProviderId');
+        $this->serviceProviderId->setElementName('serviceProviderId');
         return $this;
     }
 
@@ -63,7 +63,9 @@ class EnterpriseSessionAdmissionControlGroupDeleteDeviceListRequest extends Comp
      */
     public function getServiceProviderId()
     {
-        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
+        return ($this->serviceProviderId)
+            ? $this->serviceProviderId->getElementValue()
+            : null;
     }
 
     /**
@@ -74,7 +76,7 @@ class EnterpriseSessionAdmissionControlGroupDeleteDeviceListRequest extends Comp
         $this->name = ($name InstanceOf SessionAdmissionControlGroupName)
              ? $name
              : new SessionAdmissionControlGroupName($name);
-        $this->name->setName('name');
+        $this->name->setElementName('name');
         return $this;
     }
 
@@ -84,7 +86,9 @@ class EnterpriseSessionAdmissionControlGroupDeleteDeviceListRequest extends Comp
      */
     public function getName()
     {
-        return ($this->name) ? $this->name->getValue() : null;
+        return ($this->name)
+            ? $this->name->getElementValue()
+            : null;
     }
 
     /**
@@ -95,7 +99,7 @@ class EnterpriseSessionAdmissionControlGroupDeleteDeviceListRequest extends Comp
         $this->devices = ($devices InstanceOf EnterpriseAccessDevice)
              ? $devices
              : new EnterpriseAccessDevice($devices);
-        $this->devices->setName('devices');
+        $this->devices->setElementName('devices');
         return $this;
     }
 

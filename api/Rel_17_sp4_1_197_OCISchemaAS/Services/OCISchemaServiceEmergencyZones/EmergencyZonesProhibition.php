@@ -17,12 +17,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\Enumeration;
  */
 class EmergencyZonesProhibition extends SimpleType
 {
-    public $name = "EmergencyZonesProhibition";
-    protected $value;
-
+    public $elementName = "EmergencyZonesProhibition";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new Enumeration([
             'Prohibit all registrations and call originations',
             'Prohibit emergency call originations'

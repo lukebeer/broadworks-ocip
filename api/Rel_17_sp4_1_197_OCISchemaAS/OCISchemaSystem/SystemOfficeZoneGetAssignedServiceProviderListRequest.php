@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
 class SystemOfficeZoneGetAssignedServiceProviderListRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType   = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemOfficeZoneGetAssignedServiceProviderListResponse';
-    public    $name = 'SystemOfficeZoneGetAssignedServiceProviderListRequest';
+    public    $elementName = 'SystemOfficeZoneGetAssignedServiceProviderListRequest';
     protected $officeZoneName;
 
     public function __construct(
@@ -45,7 +45,7 @@ class SystemOfficeZoneGetAssignedServiceProviderListRequest extends ComplexType 
         $this->officeZoneName = ($officeZoneName InstanceOf OfficeZoneName)
              ? $officeZoneName
              : new OfficeZoneName($officeZoneName);
-        $this->officeZoneName->setName('officeZoneName');
+        $this->officeZoneName->setElementName('officeZoneName');
         return $this;
     }
 
@@ -55,6 +55,8 @@ class SystemOfficeZoneGetAssignedServiceProviderListRequest extends ComplexType 
      */
     public function getOfficeZoneName()
     {
-        return ($this->officeZoneName) ? $this->officeZoneName->getValue() : null;
+        return ($this->officeZoneName)
+            ? $this->officeZoneName->getElementValue()
+            : null;
     }
 }

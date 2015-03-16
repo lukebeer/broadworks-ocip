@@ -24,7 +24,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemOCICallControlApplicationAddRequest17 extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemOCICallControlApplicationAddRequest17';
+    public    $elementName = 'SystemOCICallControlApplicationAddRequest17';
     protected $applicationId;
     protected $enableSystemWide;
     protected $notificationTimeoutSeconds;
@@ -61,7 +61,7 @@ class SystemOCICallControlApplicationAddRequest17 extends ComplexType implements
         $this->applicationId = ($applicationId InstanceOf OCICallControlApplicationId)
              ? $applicationId
              : new OCICallControlApplicationId($applicationId);
-        $this->applicationId->setName('applicationId');
+        $this->applicationId->setElementName('applicationId');
         return $this;
     }
 
@@ -71,7 +71,9 @@ class SystemOCICallControlApplicationAddRequest17 extends ComplexType implements
      */
     public function getApplicationId()
     {
-        return ($this->applicationId) ? $this->applicationId->getValue() : null;
+        return ($this->applicationId)
+            ? $this->applicationId->getElementValue()
+            : null;
     }
 
     /**
@@ -80,7 +82,7 @@ class SystemOCICallControlApplicationAddRequest17 extends ComplexType implements
     public function setEnableSystemWide($enableSystemWide = null)
     {
         $this->enableSystemWide = new PrimitiveType($enableSystemWide);
-        $this->enableSystemWide->setName('enableSystemWide');
+        $this->enableSystemWide->setElementName('enableSystemWide');
         return $this;
     }
 
@@ -90,7 +92,9 @@ class SystemOCICallControlApplicationAddRequest17 extends ComplexType implements
      */
     public function getEnableSystemWide()
     {
-        return ($this->enableSystemWide) ? $this->enableSystemWide->getValue() : null;
+        return ($this->enableSystemWide)
+            ? $this->enableSystemWide->getElementValue()
+            : null;
     }
 
     /**
@@ -101,7 +105,7 @@ class SystemOCICallControlApplicationAddRequest17 extends ComplexType implements
         $this->notificationTimeoutSeconds = ($notificationTimeoutSeconds InstanceOf OCICallApplicationNotificationTimeOutSeconds)
              ? $notificationTimeoutSeconds
              : new OCICallApplicationNotificationTimeOutSeconds($notificationTimeoutSeconds);
-        $this->notificationTimeoutSeconds->setName('notificationTimeoutSeconds');
+        $this->notificationTimeoutSeconds->setElementName('notificationTimeoutSeconds');
         return $this;
     }
 
@@ -111,7 +115,9 @@ class SystemOCICallControlApplicationAddRequest17 extends ComplexType implements
      */
     public function getNotificationTimeoutSeconds()
     {
-        return ($this->notificationTimeoutSeconds) ? $this->notificationTimeoutSeconds->getValue() : null;
+        return ($this->notificationTimeoutSeconds)
+            ? $this->notificationTimeoutSeconds->getElementValue()
+            : null;
     }
 
     /**
@@ -122,7 +128,7 @@ class SystemOCICallControlApplicationAddRequest17 extends ComplexType implements
         $this->description = ($description InstanceOf OCICallControlApplicationDescription)
              ? $description
              : new OCICallControlApplicationDescription($description);
-        $this->description->setName('description');
+        $this->description->setElementName('description');
         return $this;
     }
 
@@ -132,7 +138,9 @@ class SystemOCICallControlApplicationAddRequest17 extends ComplexType implements
      */
     public function getDescription()
     {
-        return ($this->description) ? $this->description->getValue() : null;
+        return ($this->description)
+            ? $this->description->getElementValue()
+            : null;
     }
 
     /**
@@ -143,7 +151,7 @@ class SystemOCICallControlApplicationAddRequest17 extends ComplexType implements
         $this->maxEventChannelsPerSet = ($maxEventChannelsPerSet InstanceOf EventNotificationChannelsPerSet)
              ? $maxEventChannelsPerSet
              : new EventNotificationChannelsPerSet($maxEventChannelsPerSet);
-        $this->maxEventChannelsPerSet->setName('maxEventChannelsPerSet');
+        $this->maxEventChannelsPerSet->setElementName('maxEventChannelsPerSet');
         return $this;
     }
 
@@ -153,6 +161,8 @@ class SystemOCICallControlApplicationAddRequest17 extends ComplexType implements
      */
     public function getMaxEventChannelsPerSet()
     {
-        return ($this->maxEventChannelsPerSet) ? $this->maxEventChannelsPerSet->getValue() : null;
+        return ($this->maxEventChannelsPerSet)
+            ? $this->maxEventChannelsPerSet->getElementValue()
+            : null;
     }
 }

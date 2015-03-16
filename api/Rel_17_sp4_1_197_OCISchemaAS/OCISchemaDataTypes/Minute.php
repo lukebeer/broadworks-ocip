@@ -17,12 +17,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\MaxInclusive;
  */
 class Minute extends SimpleType
 {
-    public $name = "Minute";
-    protected $value;
-
+    public $elementName = "Minute";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new MinInclusive("0"));
         $this->addRestriction(new MaxInclusive("59"));
     }

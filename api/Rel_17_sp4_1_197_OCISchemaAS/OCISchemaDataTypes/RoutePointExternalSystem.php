@@ -17,12 +17,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\MaxLength;
  */
 class RoutePointExternalSystem extends SimpleType
 {
-    public $name = "RoutePointExternalSystem";
-    protected $value;
-
+    public $elementName = "RoutePointExternalSystem";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new MinLength("1"));
         $this->addRestriction(new MaxLength("40"));
     }

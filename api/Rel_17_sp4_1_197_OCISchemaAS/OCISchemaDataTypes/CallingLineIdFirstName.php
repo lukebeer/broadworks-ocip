@@ -17,12 +17,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\MaxLength;
  */
 class CallingLineIdFirstName extends SimpleType
 {
-    public $name = "CallingLineIdFirstName";
-    protected $value;
-
+    public $elementName = "CallingLineIdFirstName";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new MinLength("1"));
         $this->addRestriction(new MaxLength("30"));
     }

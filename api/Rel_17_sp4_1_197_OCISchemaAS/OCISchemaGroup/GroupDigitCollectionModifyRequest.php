@@ -24,7 +24,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupDigitCollectionModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'GroupDigitCollectionModifyRequest';
+    public    $elementName = 'GroupDigitCollectionModifyRequest';
     protected $serviceProviderId;
     protected $groupId;
     protected $useSetting;
@@ -64,7 +64,7 @@ class GroupDigitCollectionModifyRequest extends ComplexType implements ComplexIn
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
-        $this->serviceProviderId->setName('serviceProviderId');
+        $this->serviceProviderId->setElementName('serviceProviderId');
         return $this;
     }
 
@@ -74,7 +74,9 @@ class GroupDigitCollectionModifyRequest extends ComplexType implements ComplexIn
      */
     public function getServiceProviderId()
     {
-        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
+        return ($this->serviceProviderId)
+            ? $this->serviceProviderId->getElementValue()
+            : null;
     }
 
     /**
@@ -85,7 +87,7 @@ class GroupDigitCollectionModifyRequest extends ComplexType implements ComplexIn
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
-        $this->groupId->setName('groupId');
+        $this->groupId->setElementName('groupId');
         return $this;
     }
 
@@ -95,7 +97,9 @@ class GroupDigitCollectionModifyRequest extends ComplexType implements ComplexIn
      */
     public function getGroupId()
     {
-        return ($this->groupId) ? $this->groupId->getValue() : null;
+        return ($this->groupId)
+            ? $this->groupId->getElementValue()
+            : null;
     }
 
     /**
@@ -106,7 +110,7 @@ class GroupDigitCollectionModifyRequest extends ComplexType implements ComplexIn
         $this->useSetting = ($useSetting InstanceOf GroupDigitCollectionSettingLevel)
              ? $useSetting
              : new GroupDigitCollectionSettingLevel($useSetting);
-        $this->useSetting->setName('useSetting');
+        $this->useSetting->setElementName('useSetting');
         return $this;
     }
 
@@ -116,7 +120,9 @@ class GroupDigitCollectionModifyRequest extends ComplexType implements ComplexIn
      */
     public function getUseSetting()
     {
-        return ($this->useSetting) ? $this->useSetting->getValue() : null;
+        return ($this->useSetting)
+            ? $this->useSetting->getElementValue()
+            : null;
     }
 
     /**
@@ -127,7 +133,7 @@ class GroupDigitCollectionModifyRequest extends ComplexType implements ComplexIn
         $this->accessCode = ($accessCode InstanceOf AccessCode)
              ? $accessCode
              : new AccessCode($accessCode);
-        $this->accessCode->setName('accessCode');
+        $this->accessCode->setElementName('accessCode');
         return $this;
     }
 
@@ -137,7 +143,9 @@ class GroupDigitCollectionModifyRequest extends ComplexType implements ComplexIn
      */
     public function getAccessCode()
     {
-        return ($this->accessCode) ? $this->accessCode->getValue() : null;
+        return ($this->accessCode)
+            ? $this->accessCode->getElementValue()
+            : null;
     }
 
     /**
@@ -148,7 +156,7 @@ class GroupDigitCollectionModifyRequest extends ComplexType implements ComplexIn
         $this->publicDigitMap = ($publicDigitMap InstanceOf DigitMap)
              ? $publicDigitMap
              : new DigitMap($publicDigitMap);
-        $this->publicDigitMap->setName('publicDigitMap');
+        $this->publicDigitMap->setElementName('publicDigitMap');
         return $this;
     }
 
@@ -158,7 +166,9 @@ class GroupDigitCollectionModifyRequest extends ComplexType implements ComplexIn
      */
     public function getPublicDigitMap()
     {
-        return ($this->publicDigitMap) ? $this->publicDigitMap->getValue() : null;
+        return ($this->publicDigitMap)
+            ? $this->publicDigitMap->getElementValue()
+            : null;
     }
 
     /**
@@ -169,7 +179,7 @@ class GroupDigitCollectionModifyRequest extends ComplexType implements ComplexIn
         $this->privateDigitMap = ($privateDigitMap InstanceOf DigitMap)
              ? $privateDigitMap
              : new DigitMap($privateDigitMap);
-        $this->privateDigitMap->setName('privateDigitMap');
+        $this->privateDigitMap->setElementName('privateDigitMap');
         return $this;
     }
 
@@ -179,6 +189,8 @@ class GroupDigitCollectionModifyRequest extends ComplexType implements ComplexIn
      */
     public function getPrivateDigitMap()
     {
-        return ($this->privateDigitMap) ? $this->privateDigitMap->getValue() : null;
+        return ($this->privateDigitMap)
+            ? $this->privateDigitMap->getElementValue()
+            : null;
     }
 }

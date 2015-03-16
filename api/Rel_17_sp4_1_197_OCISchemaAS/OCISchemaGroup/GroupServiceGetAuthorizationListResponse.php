@@ -27,7 +27,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupServiceGetAuthorizationListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'GroupServiceGetAuthorizationListResponse';
+    public    $elementName = 'GroupServiceGetAuthorizationListResponse';
     protected $servicePacksAuthorizationTable;
     protected $groupServicesAuthorizationTable;
     protected $userServicesAuthorizationTable;
@@ -46,7 +46,7 @@ class GroupServiceGetAuthorizationListResponse extends ComplexType implements Co
     public function setServicePacksAuthorizationTable(TableType $servicePacksAuthorizationTable = null)
     {
         $this->servicePacksAuthorizationTable = $servicePacksAuthorizationTable;
-        $this->servicePacksAuthorizationTable->setName('servicePacksAuthorizationTable');
+        $this->servicePacksAuthorizationTable->setElementName('servicePacksAuthorizationTable');
         return $this;
     }
 
@@ -65,7 +65,7 @@ class GroupServiceGetAuthorizationListResponse extends ComplexType implements Co
     public function setGroupServicesAuthorizationTable(TableType $groupServicesAuthorizationTable = null)
     {
         $this->groupServicesAuthorizationTable = $groupServicesAuthorizationTable;
-        $this->groupServicesAuthorizationTable->setName('groupServicesAuthorizationTable');
+        $this->groupServicesAuthorizationTable->setElementName('groupServicesAuthorizationTable');
         return $this;
     }
 
@@ -84,7 +84,7 @@ class GroupServiceGetAuthorizationListResponse extends ComplexType implements Co
     public function setUserServicesAuthorizationTable(TableType $userServicesAuthorizationTable = null)
     {
         $this->userServicesAuthorizationTable = $userServicesAuthorizationTable;
-        $this->userServicesAuthorizationTable->setName('userServicesAuthorizationTable');
+        $this->userServicesAuthorizationTable->setElementName('userServicesAuthorizationTable');
         return $this;
     }
 

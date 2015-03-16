@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserCallForwardingAlwaysGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'UserCallForwardingAlwaysGetResponse';
+    public    $elementName = 'UserCallForwardingAlwaysGetResponse';
     protected $isActive;
     protected $forwardToPhoneNumber;
     protected $isRingSplashActive;
@@ -39,7 +39,7 @@ class UserCallForwardingAlwaysGetResponse extends ComplexType implements Complex
     public function setIsActive($isActive = null)
     {
         $this->isActive = new PrimitiveType($isActive);
-        $this->isActive->setName('isActive');
+        $this->isActive->setElementName('isActive');
         return $this;
     }
 
@@ -49,7 +49,9 @@ class UserCallForwardingAlwaysGetResponse extends ComplexType implements Complex
      */
     public function getIsActive()
     {
-        return ($this->isActive) ? $this->isActive->getValue() : null;
+        return ($this->isActive)
+            ? $this->isActive->getElementValue()
+            : null;
     }
 
     /**
@@ -60,7 +62,7 @@ class UserCallForwardingAlwaysGetResponse extends ComplexType implements Complex
         $this->forwardToPhoneNumber = ($forwardToPhoneNumber InstanceOf OutgoingDNorSIPURI)
              ? $forwardToPhoneNumber
              : new OutgoingDNorSIPURI($forwardToPhoneNumber);
-        $this->forwardToPhoneNumber->setName('forwardToPhoneNumber');
+        $this->forwardToPhoneNumber->setElementName('forwardToPhoneNumber');
         return $this;
     }
 
@@ -70,7 +72,9 @@ class UserCallForwardingAlwaysGetResponse extends ComplexType implements Complex
      */
     public function getForwardToPhoneNumber()
     {
-        return ($this->forwardToPhoneNumber) ? $this->forwardToPhoneNumber->getValue() : null;
+        return ($this->forwardToPhoneNumber)
+            ? $this->forwardToPhoneNumber->getElementValue()
+            : null;
     }
 
     /**
@@ -79,7 +83,7 @@ class UserCallForwardingAlwaysGetResponse extends ComplexType implements Complex
     public function setIsRingSplashActive($isRingSplashActive = null)
     {
         $this->isRingSplashActive = new PrimitiveType($isRingSplashActive);
-        $this->isRingSplashActive->setName('isRingSplashActive');
+        $this->isRingSplashActive->setElementName('isRingSplashActive');
         return $this;
     }
 
@@ -89,6 +93,8 @@ class UserCallForwardingAlwaysGetResponse extends ComplexType implements Complex
      */
     public function getIsRingSplashActive()
     {
-        return ($this->isRingSplashActive) ? $this->isRingSplashActive->getValue() : null;
+        return ($this->isRingSplashActive)
+            ? $this->isRingSplashActive->getElementValue()
+            : null;
     }
 }

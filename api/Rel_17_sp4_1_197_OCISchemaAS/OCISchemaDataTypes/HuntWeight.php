@@ -17,12 +17,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\MaxInclusive;
  */
 class HuntWeight extends SimpleType
 {
-    public $name = "HuntWeight";
-    protected $value;
-
+    public $elementName = "HuntWeight";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new MinInclusive("0"));
         $this->addRestriction(new MaxInclusive("100"));
     }

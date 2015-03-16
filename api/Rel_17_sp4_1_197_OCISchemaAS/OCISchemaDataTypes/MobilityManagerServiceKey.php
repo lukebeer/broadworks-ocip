@@ -17,12 +17,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\MaxInclusive;
  */
 class MobilityManagerServiceKey extends SimpleType
 {
-    public $name = "MobilityManagerServiceKey";
-    protected $value;
-
+    public $elementName = "MobilityManagerServiceKey";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new MinInclusive("0"));
         $this->addRestriction(new MaxInclusive("999"));
     }

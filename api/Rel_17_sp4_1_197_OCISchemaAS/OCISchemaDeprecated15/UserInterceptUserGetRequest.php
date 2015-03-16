@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
 class UserInterceptUserGetRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15\UserInterceptUserGetResponse';
-    public    $name = 'UserInterceptUserGetRequest';
+    public    $elementName = 'UserInterceptUserGetRequest';
     protected $userId;
 
     public function __construct(
@@ -47,7 +47,7 @@ class UserInterceptUserGetRequest extends ComplexType implements ComplexInterfac
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
-        $this->userId->setName('userId');
+        $this->userId->setElementName('userId');
         return $this;
     }
 
@@ -57,6 +57,8 @@ class UserInterceptUserGetRequest extends ComplexType implements ComplexInterfac
      */
     public function getUserId()
     {
-        return ($this->userId) ? $this->userId->getValue() : null;
+        return ($this->userId)
+            ? $this->userId->getElementValue()
+            : null;
     }
 }

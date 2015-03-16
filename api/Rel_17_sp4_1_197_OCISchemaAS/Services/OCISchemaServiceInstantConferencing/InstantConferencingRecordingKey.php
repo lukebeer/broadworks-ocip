@@ -19,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class InstantConferencingRecordingKey extends ComplexType implements ComplexInterface
 {
-    public    $name = 'InstantConferencingRecordingKey';
+    public    $elementName = 'InstantConferencingRecordingKey';
     protected $bridgeServiceUserId;
     protected $recordingId;
 
@@ -45,7 +45,7 @@ class InstantConferencingRecordingKey extends ComplexType implements ComplexInte
     public function setBridgeServiceUserId($bridgeServiceUserId = null)
     {
         $this->bridgeServiceUserId = new SimpleContent($bridgeServiceUserId);
-        $this->bridgeServiceUserId->setName('bridgeServiceUserId');
+        $this->bridgeServiceUserId->setElementName('bridgeServiceUserId');
         return $this;
     }
 
@@ -55,7 +55,9 @@ class InstantConferencingRecordingKey extends ComplexType implements ComplexInte
      */
     public function getBridgeServiceUserId()
     {
-        return ($this->bridgeServiceUserId) ? $this->bridgeServiceUserId->getValue() : null;
+        return ($this->bridgeServiceUserId)
+            ? $this->bridgeServiceUserId->getElementValue()
+            : null;
     }
 
     /**
@@ -64,7 +66,7 @@ class InstantConferencingRecordingKey extends ComplexType implements ComplexInte
     public function setRecordingId($recordingId = null)
     {
         $this->recordingId = new SimpleContent($recordingId);
-        $this->recordingId->setName('recordingId');
+        $this->recordingId->setElementName('recordingId');
         return $this;
     }
 
@@ -74,6 +76,8 @@ class InstantConferencingRecordingKey extends ComplexType implements ComplexInte
      */
     public function getRecordingId()
     {
-        return ($this->recordingId) ? $this->recordingId->getValue() : null;
+        return ($this->recordingId)
+            ? $this->recordingId->getElementValue()
+            : null;
     }
 }

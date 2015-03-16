@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserAccessDeviceFileModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'UserAccessDeviceFileModifyRequest';
+    public    $elementName = 'UserAccessDeviceFileModifyRequest';
     protected $userId;
     protected $accessDevice;
     protected $fileFormat;
@@ -56,7 +56,7 @@ class UserAccessDeviceFileModifyRequest extends ComplexType implements ComplexIn
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
-        $this->userId->setName('userId');
+        $this->userId->setElementName('userId');
         return $this;
     }
 
@@ -66,7 +66,9 @@ class UserAccessDeviceFileModifyRequest extends ComplexType implements ComplexIn
      */
     public function getUserId()
     {
-        return ($this->userId) ? $this->userId->getValue() : null;
+        return ($this->userId)
+            ? $this->userId->getElementValue()
+            : null;
     }
 
     /**
@@ -77,7 +79,7 @@ class UserAccessDeviceFileModifyRequest extends ComplexType implements ComplexIn
         $this->accessDevice = ($accessDevice InstanceOf AccessDevice)
              ? $accessDevice
              : new AccessDevice($accessDevice);
-        $this->accessDevice->setName('accessDevice');
+        $this->accessDevice->setElementName('accessDevice');
         return $this;
     }
 
@@ -98,7 +100,7 @@ class UserAccessDeviceFileModifyRequest extends ComplexType implements ComplexIn
         $this->fileFormat = ($fileFormat InstanceOf DeviceManagementFileFormat)
              ? $fileFormat
              : new DeviceManagementFileFormat($fileFormat);
-        $this->fileFormat->setName('fileFormat');
+        $this->fileFormat->setElementName('fileFormat');
         return $this;
     }
 
@@ -108,7 +110,9 @@ class UserAccessDeviceFileModifyRequest extends ComplexType implements ComplexIn
      */
     public function getFileFormat()
     {
-        return ($this->fileFormat) ? $this->fileFormat->getValue() : null;
+        return ($this->fileFormat)
+            ? $this->fileFormat->getElementValue()
+            : null;
     }
 
     /**
@@ -119,7 +123,7 @@ class UserAccessDeviceFileModifyRequest extends ComplexType implements ComplexIn
         $this->uploadFile = ($uploadFile InstanceOf FileResource)
              ? $uploadFile
              : new FileResource($uploadFile);
-        $this->uploadFile->setName('uploadFile');
+        $this->uploadFile->setElementName('uploadFile');
         return $this;
     }
 

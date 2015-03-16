@@ -16,12 +16,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\Enumeration;
  */
 class AutomaticCallbackMethod extends SimpleType
 {
-    public $name = "AutomaticCallbackMethod";
-    protected $value;
-
+    public $elementName = "AutomaticCallbackMethod";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new Enumeration([
             'Notify Only',
             'Notify If Possible And Polling Otherwise'

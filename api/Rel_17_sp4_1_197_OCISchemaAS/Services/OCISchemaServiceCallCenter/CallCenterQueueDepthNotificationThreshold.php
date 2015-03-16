@@ -17,12 +17,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\MaxInclusive;
  */
 class CallCenterQueueDepthNotificationThreshold extends SimpleType
 {
-    public $name = "CallCenterQueueDepthNotificationThreshold";
-    protected $value;
-
+    public $elementName = "CallCenterQueueDepthNotificationThreshold";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new MinInclusive("1"));
         $this->addRestriction(new MaxInclusive("525"));
     }

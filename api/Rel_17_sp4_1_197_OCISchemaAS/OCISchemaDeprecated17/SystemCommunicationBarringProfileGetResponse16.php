@@ -27,7 +27,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemCommunicationBarringProfileGetResponse16 extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemCommunicationBarringProfileGetResponse16';
+    public    $elementName = 'SystemCommunicationBarringProfileGetResponse16';
     protected $description;
     protected $originatingDefaultAction;
     protected $originatingDefaultTreatmentId;
@@ -54,7 +54,7 @@ class SystemCommunicationBarringProfileGetResponse16 extends ComplexType impleme
         $this->description = ($description InstanceOf CommunicationBarringProfileDescription)
              ? $description
              : new CommunicationBarringProfileDescription($description);
-        $this->description->setName('description');
+        $this->description->setElementName('description');
         return $this;
     }
 
@@ -64,7 +64,9 @@ class SystemCommunicationBarringProfileGetResponse16 extends ComplexType impleme
      */
     public function getDescription()
     {
-        return ($this->description) ? $this->description->getValue() : null;
+        return ($this->description)
+            ? $this->description->getElementValue()
+            : null;
     }
 
     /**
@@ -75,7 +77,7 @@ class SystemCommunicationBarringProfileGetResponse16 extends ComplexType impleme
         $this->originatingDefaultAction = ($originatingDefaultAction InstanceOf CommunicationBarringOriginatingAction)
              ? $originatingDefaultAction
              : new CommunicationBarringOriginatingAction($originatingDefaultAction);
-        $this->originatingDefaultAction->setName('originatingDefaultAction');
+        $this->originatingDefaultAction->setElementName('originatingDefaultAction');
         return $this;
     }
 
@@ -85,7 +87,9 @@ class SystemCommunicationBarringProfileGetResponse16 extends ComplexType impleme
      */
     public function getOriginatingDefaultAction()
     {
-        return ($this->originatingDefaultAction) ? $this->originatingDefaultAction->getValue() : null;
+        return ($this->originatingDefaultAction)
+            ? $this->originatingDefaultAction->getElementValue()
+            : null;
     }
 
     /**
@@ -96,7 +100,7 @@ class SystemCommunicationBarringProfileGetResponse16 extends ComplexType impleme
         $this->originatingDefaultTreatmentId = ($originatingDefaultTreatmentId InstanceOf TreatmentId)
              ? $originatingDefaultTreatmentId
              : new TreatmentId($originatingDefaultTreatmentId);
-        $this->originatingDefaultTreatmentId->setName('originatingDefaultTreatmentId');
+        $this->originatingDefaultTreatmentId->setElementName('originatingDefaultTreatmentId');
         return $this;
     }
 
@@ -106,7 +110,9 @@ class SystemCommunicationBarringProfileGetResponse16 extends ComplexType impleme
      */
     public function getOriginatingDefaultTreatmentId()
     {
-        return ($this->originatingDefaultTreatmentId) ? $this->originatingDefaultTreatmentId->getValue() : null;
+        return ($this->originatingDefaultTreatmentId)
+            ? $this->originatingDefaultTreatmentId->getElementValue()
+            : null;
     }
 
     /**
@@ -117,7 +123,7 @@ class SystemCommunicationBarringProfileGetResponse16 extends ComplexType impleme
         $this->originatingDefaultTransferNumber = ($originatingDefaultTransferNumber InstanceOf OutgoingDN)
              ? $originatingDefaultTransferNumber
              : new OutgoingDN($originatingDefaultTransferNumber);
-        $this->originatingDefaultTransferNumber->setName('originatingDefaultTransferNumber');
+        $this->originatingDefaultTransferNumber->setElementName('originatingDefaultTransferNumber');
         return $this;
     }
 
@@ -127,7 +133,9 @@ class SystemCommunicationBarringProfileGetResponse16 extends ComplexType impleme
      */
     public function getOriginatingDefaultTransferNumber()
     {
-        return ($this->originatingDefaultTransferNumber) ? $this->originatingDefaultTransferNumber->getValue() : null;
+        return ($this->originatingDefaultTransferNumber)
+            ? $this->originatingDefaultTransferNumber->getElementValue()
+            : null;
     }
 
     /**
@@ -138,7 +146,7 @@ class SystemCommunicationBarringProfileGetResponse16 extends ComplexType impleme
         $this->originatingDefaultCallTimeout = ($originatingDefaultCallTimeout InstanceOf CommunicationBarringTimeoutSeconds)
              ? $originatingDefaultCallTimeout
              : new CommunicationBarringTimeoutSeconds($originatingDefaultCallTimeout);
-        $this->originatingDefaultCallTimeout->setName('originatingDefaultCallTimeout');
+        $this->originatingDefaultCallTimeout->setElementName('originatingDefaultCallTimeout');
         return $this;
     }
 
@@ -148,7 +156,9 @@ class SystemCommunicationBarringProfileGetResponse16 extends ComplexType impleme
      */
     public function getOriginatingDefaultCallTimeout()
     {
-        return ($this->originatingDefaultCallTimeout) ? $this->originatingDefaultCallTimeout->getValue() : null;
+        return ($this->originatingDefaultCallTimeout)
+            ? $this->originatingDefaultCallTimeout->getElementValue()
+            : null;
     }
 
     /**
@@ -159,7 +169,7 @@ class SystemCommunicationBarringProfileGetResponse16 extends ComplexType impleme
         $this->originatingRule = ($originatingRule InstanceOf CommunicationBarringOriginatingRule)
              ? $originatingRule
              : new CommunicationBarringOriginatingRule($originatingRule);
-        $this->originatingRule->setName('originatingRule');
+        $this->originatingRule->setElementName('originatingRule');
         return $this;
     }
 
@@ -180,7 +190,7 @@ class SystemCommunicationBarringProfileGetResponse16 extends ComplexType impleme
         $this->redirectingDefaultAction = ($redirectingDefaultAction InstanceOf CommunicationBarringRedirectingAction)
              ? $redirectingDefaultAction
              : new CommunicationBarringRedirectingAction($redirectingDefaultAction);
-        $this->redirectingDefaultAction->setName('redirectingDefaultAction');
+        $this->redirectingDefaultAction->setElementName('redirectingDefaultAction');
         return $this;
     }
 
@@ -190,7 +200,9 @@ class SystemCommunicationBarringProfileGetResponse16 extends ComplexType impleme
      */
     public function getRedirectingDefaultAction()
     {
-        return ($this->redirectingDefaultAction) ? $this->redirectingDefaultAction->getValue() : null;
+        return ($this->redirectingDefaultAction)
+            ? $this->redirectingDefaultAction->getElementValue()
+            : null;
     }
 
     /**
@@ -201,7 +213,7 @@ class SystemCommunicationBarringProfileGetResponse16 extends ComplexType impleme
         $this->redirectingDefaultCallTimeout = ($redirectingDefaultCallTimeout InstanceOf CommunicationBarringTimeoutSeconds)
              ? $redirectingDefaultCallTimeout
              : new CommunicationBarringTimeoutSeconds($redirectingDefaultCallTimeout);
-        $this->redirectingDefaultCallTimeout->setName('redirectingDefaultCallTimeout');
+        $this->redirectingDefaultCallTimeout->setElementName('redirectingDefaultCallTimeout');
         return $this;
     }
 
@@ -211,7 +223,9 @@ class SystemCommunicationBarringProfileGetResponse16 extends ComplexType impleme
      */
     public function getRedirectingDefaultCallTimeout()
     {
-        return ($this->redirectingDefaultCallTimeout) ? $this->redirectingDefaultCallTimeout->getValue() : null;
+        return ($this->redirectingDefaultCallTimeout)
+            ? $this->redirectingDefaultCallTimeout->getElementValue()
+            : null;
     }
 
     /**
@@ -222,7 +236,7 @@ class SystemCommunicationBarringProfileGetResponse16 extends ComplexType impleme
         $this->redirectingRule = ($redirectingRule InstanceOf CommunicationBarringRedirectingRule)
              ? $redirectingRule
              : new CommunicationBarringRedirectingRule($redirectingRule);
-        $this->redirectingRule->setName('redirectingRule');
+        $this->redirectingRule->setElementName('redirectingRule');
         return $this;
     }
 

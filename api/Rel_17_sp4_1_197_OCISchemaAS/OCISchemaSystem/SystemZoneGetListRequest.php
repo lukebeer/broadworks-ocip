@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
 class SystemZoneGetListRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemZoneGetListResponse';
-    public    $name = 'SystemZoneGetListRequest';
+    public    $elementName = 'SystemZoneGetListRequest';
 
     public function __construct(    ) {
     }

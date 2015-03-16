@@ -16,12 +16,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\Enumeration;
  */
 class TrunkMode extends SimpleType
 {
-    public $name = "TrunkMode";
-    protected $value;
-
+    public $elementName = "TrunkMode";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new Enumeration([
             'Pilot',
             'Proxy',

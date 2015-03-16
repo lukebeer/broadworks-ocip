@@ -16,12 +16,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\MinLength;
  */
 class LDAPEntryName extends SimpleType
 {
-    public $name = "LDAPEntryName";
-    protected $value;
-
+    public $elementName = "LDAPEntryName";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new MinLength("1"));
     }
 }

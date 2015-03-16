@@ -24,7 +24,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemServerAddressesGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemServerAddressesGetResponse';
+    public    $elementName = 'SystemServerAddressesGetResponse';
     protected $webServerClusterPublicFQDN;
     protected $applicationServerClusterPrimaryPublicFQDN;
     protected $applicationServerClusterSecondaryPublicFQDN;
@@ -47,7 +47,7 @@ class SystemServerAddressesGetResponse extends ComplexType implements ComplexInt
         $this->webServerClusterPublicFQDN = ($webServerClusterPublicFQDN InstanceOf NetAddress)
              ? $webServerClusterPublicFQDN
              : new NetAddress($webServerClusterPublicFQDN);
-        $this->webServerClusterPublicFQDN->setName('webServerClusterPublicFQDN');
+        $this->webServerClusterPublicFQDN->setElementName('webServerClusterPublicFQDN');
         return $this;
     }
 
@@ -57,7 +57,9 @@ class SystemServerAddressesGetResponse extends ComplexType implements ComplexInt
      */
     public function getWebServerClusterPublicFQDN()
     {
-        return ($this->webServerClusterPublicFQDN) ? $this->webServerClusterPublicFQDN->getValue() : null;
+        return ($this->webServerClusterPublicFQDN)
+            ? $this->webServerClusterPublicFQDN->getElementValue()
+            : null;
     }
 
     /**
@@ -68,7 +70,7 @@ class SystemServerAddressesGetResponse extends ComplexType implements ComplexInt
         $this->applicationServerClusterPrimaryPublicFQDN = ($applicationServerClusterPrimaryPublicFQDN InstanceOf NetAddress)
              ? $applicationServerClusterPrimaryPublicFQDN
              : new NetAddress($applicationServerClusterPrimaryPublicFQDN);
-        $this->applicationServerClusterPrimaryPublicFQDN->setName('applicationServerClusterPrimaryPublicFQDN');
+        $this->applicationServerClusterPrimaryPublicFQDN->setElementName('applicationServerClusterPrimaryPublicFQDN');
         return $this;
     }
 
@@ -78,7 +80,9 @@ class SystemServerAddressesGetResponse extends ComplexType implements ComplexInt
      */
     public function getApplicationServerClusterPrimaryPublicFQDN()
     {
-        return ($this->applicationServerClusterPrimaryPublicFQDN) ? $this->applicationServerClusterPrimaryPublicFQDN->getValue() : null;
+        return ($this->applicationServerClusterPrimaryPublicFQDN)
+            ? $this->applicationServerClusterPrimaryPublicFQDN->getElementValue()
+            : null;
     }
 
     /**
@@ -89,7 +93,7 @@ class SystemServerAddressesGetResponse extends ComplexType implements ComplexInt
         $this->applicationServerClusterSecondaryPublicFQDN = ($applicationServerClusterSecondaryPublicFQDN InstanceOf NetAddress)
              ? $applicationServerClusterSecondaryPublicFQDN
              : new NetAddress($applicationServerClusterSecondaryPublicFQDN);
-        $this->applicationServerClusterSecondaryPublicFQDN->setName('applicationServerClusterSecondaryPublicFQDN');
+        $this->applicationServerClusterSecondaryPublicFQDN->setElementName('applicationServerClusterSecondaryPublicFQDN');
         return $this;
     }
 
@@ -99,7 +103,9 @@ class SystemServerAddressesGetResponse extends ComplexType implements ComplexInt
      */
     public function getApplicationServerClusterSecondaryPublicFQDN()
     {
-        return ($this->applicationServerClusterSecondaryPublicFQDN) ? $this->applicationServerClusterSecondaryPublicFQDN->getValue() : null;
+        return ($this->applicationServerClusterSecondaryPublicFQDN)
+            ? $this->applicationServerClusterSecondaryPublicFQDN->getElementValue()
+            : null;
     }
 
     /**
@@ -110,7 +116,7 @@ class SystemServerAddressesGetResponse extends ComplexType implements ComplexInt
         $this->applicationServerClusterPrimaryPrivateFQDN = ($applicationServerClusterPrimaryPrivateFQDN InstanceOf NetAddress)
              ? $applicationServerClusterPrimaryPrivateFQDN
              : new NetAddress($applicationServerClusterPrimaryPrivateFQDN);
-        $this->applicationServerClusterPrimaryPrivateFQDN->setName('applicationServerClusterPrimaryPrivateFQDN');
+        $this->applicationServerClusterPrimaryPrivateFQDN->setElementName('applicationServerClusterPrimaryPrivateFQDN');
         return $this;
     }
 
@@ -120,7 +126,9 @@ class SystemServerAddressesGetResponse extends ComplexType implements ComplexInt
      */
     public function getApplicationServerClusterPrimaryPrivateFQDN()
     {
-        return ($this->applicationServerClusterPrimaryPrivateFQDN) ? $this->applicationServerClusterPrimaryPrivateFQDN->getValue() : null;
+        return ($this->applicationServerClusterPrimaryPrivateFQDN)
+            ? $this->applicationServerClusterPrimaryPrivateFQDN->getElementValue()
+            : null;
     }
 
     /**
@@ -131,7 +139,7 @@ class SystemServerAddressesGetResponse extends ComplexType implements ComplexInt
         $this->applicationServerClusterSecondaryPrivateFQDN = ($applicationServerClusterSecondaryPrivateFQDN InstanceOf NetAddress)
              ? $applicationServerClusterSecondaryPrivateFQDN
              : new NetAddress($applicationServerClusterSecondaryPrivateFQDN);
-        $this->applicationServerClusterSecondaryPrivateFQDN->setName('applicationServerClusterSecondaryPrivateFQDN');
+        $this->applicationServerClusterSecondaryPrivateFQDN->setElementName('applicationServerClusterSecondaryPrivateFQDN');
         return $this;
     }
 
@@ -141,6 +149,8 @@ class SystemServerAddressesGetResponse extends ComplexType implements ComplexInt
      */
     public function getApplicationServerClusterSecondaryPrivateFQDN()
     {
-        return ($this->applicationServerClusterSecondaryPrivateFQDN) ? $this->applicationServerClusterSecondaryPrivateFQDN->getValue() : null;
+        return ($this->applicationServerClusterSecondaryPrivateFQDN)
+            ? $this->applicationServerClusterSecondaryPrivateFQDN->getElementValue()
+            : null;
     }
 }

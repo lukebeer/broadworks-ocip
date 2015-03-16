@@ -25,7 +25,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemCAPParametersModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemCAPParametersModifyRequest';
+    public    $elementName = 'SystemCAPParametersModifyRequest';
     protected $serverPort;
     protected $maxClientConnections;
     protected $enableConnectionPing;
@@ -71,7 +71,7 @@ class SystemCAPParametersModifyRequest extends ComplexType implements ComplexInt
         $this->serverPort = ($serverPort InstanceOf Port1025)
              ? $serverPort
              : new Port1025($serverPort);
-        $this->serverPort->setName('serverPort');
+        $this->serverPort->setElementName('serverPort');
         return $this;
     }
 
@@ -81,7 +81,9 @@ class SystemCAPParametersModifyRequest extends ComplexType implements ComplexInt
      */
     public function getServerPort()
     {
-        return ($this->serverPort) ? $this->serverPort->getValue() : null;
+        return ($this->serverPort)
+            ? $this->serverPort->getElementValue()
+            : null;
     }
 
     /**
@@ -92,7 +94,7 @@ class SystemCAPParametersModifyRequest extends ComplexType implements ComplexInt
         $this->maxClientConnections = ($maxClientConnections InstanceOf CAPMaxClientConnections)
              ? $maxClientConnections
              : new CAPMaxClientConnections($maxClientConnections);
-        $this->maxClientConnections->setName('maxClientConnections');
+        $this->maxClientConnections->setElementName('maxClientConnections');
         return $this;
     }
 
@@ -102,7 +104,9 @@ class SystemCAPParametersModifyRequest extends ComplexType implements ComplexInt
      */
     public function getMaxClientConnections()
     {
-        return ($this->maxClientConnections) ? $this->maxClientConnections->getValue() : null;
+        return ($this->maxClientConnections)
+            ? $this->maxClientConnections->getElementValue()
+            : null;
     }
 
     /**
@@ -111,7 +115,7 @@ class SystemCAPParametersModifyRequest extends ComplexType implements ComplexInt
     public function setEnableConnectionPing($enableConnectionPing = null)
     {
         $this->enableConnectionPing = new PrimitiveType($enableConnectionPing);
-        $this->enableConnectionPing->setName('enableConnectionPing');
+        $this->enableConnectionPing->setElementName('enableConnectionPing');
         return $this;
     }
 
@@ -121,7 +125,9 @@ class SystemCAPParametersModifyRequest extends ComplexType implements ComplexInt
      */
     public function getEnableConnectionPing()
     {
-        return ($this->enableConnectionPing) ? $this->enableConnectionPing->getValue() : null;
+        return ($this->enableConnectionPing)
+            ? $this->enableConnectionPing->getElementValue()
+            : null;
     }
 
     /**
@@ -132,7 +138,7 @@ class SystemCAPParametersModifyRequest extends ComplexType implements ComplexInt
         $this->connectionPingIntervalMinutes = ($connectionPingIntervalMinutes InstanceOf CAPConnectionPingIntervalMinutes)
              ? $connectionPingIntervalMinutes
              : new CAPConnectionPingIntervalMinutes($connectionPingIntervalMinutes);
-        $this->connectionPingIntervalMinutes->setName('connectionPingIntervalMinutes');
+        $this->connectionPingIntervalMinutes->setElementName('connectionPingIntervalMinutes');
         return $this;
     }
 
@@ -142,7 +148,9 @@ class SystemCAPParametersModifyRequest extends ComplexType implements ComplexInt
      */
     public function getConnectionPingIntervalMinutes()
     {
-        return ($this->connectionPingIntervalMinutes) ? $this->connectionPingIntervalMinutes->getValue() : null;
+        return ($this->connectionPingIntervalMinutes)
+            ? $this->connectionPingIntervalMinutes->getElementValue()
+            : null;
     }
 
     /**
@@ -153,7 +161,7 @@ class SystemCAPParametersModifyRequest extends ComplexType implements ComplexInt
         $this->CCC2ServerPort = ($CCC2ServerPort InstanceOf Port1025)
              ? $CCC2ServerPort
              : new Port1025($CCC2ServerPort);
-        $this->CCC2ServerPort->setName('CCC2ServerPort');
+        $this->CCC2ServerPort->setElementName('CCC2ServerPort');
         return $this;
     }
 
@@ -163,7 +171,9 @@ class SystemCAPParametersModifyRequest extends ComplexType implements ComplexInt
      */
     public function getCCC2ServerPort()
     {
-        return ($this->CCC2ServerPort) ? $this->CCC2ServerPort->getValue() : null;
+        return ($this->CCC2ServerPort)
+            ? $this->CCC2ServerPort->getElementValue()
+            : null;
     }
 
     /**
@@ -174,7 +184,7 @@ class SystemCAPParametersModifyRequest extends ComplexType implements ComplexInt
         $this->CCC2MaxClientConnections = ($CCC2MaxClientConnections InstanceOf CCC2MaxClientConnections)
              ? $CCC2MaxClientConnections
              : new CCC2MaxClientConnections($CCC2MaxClientConnections);
-        $this->CCC2MaxClientConnections->setName('CCC2MaxClientConnections');
+        $this->CCC2MaxClientConnections->setElementName('CCC2MaxClientConnections');
         return $this;
     }
 
@@ -184,7 +194,9 @@ class SystemCAPParametersModifyRequest extends ComplexType implements ComplexInt
      */
     public function getCCC2MaxClientConnections()
     {
-        return ($this->CCC2MaxClientConnections) ? $this->CCC2MaxClientConnections->getValue() : null;
+        return ($this->CCC2MaxClientConnections)
+            ? $this->CCC2MaxClientConnections->getElementValue()
+            : null;
     }
 
     /**
@@ -195,7 +207,7 @@ class SystemCAPParametersModifyRequest extends ComplexType implements ComplexInt
         $this->capServerCallCenterPort = ($capServerCallCenterPort InstanceOf Port1025)
              ? $capServerCallCenterPort
              : new Port1025($capServerCallCenterPort);
-        $this->capServerCallCenterPort->setName('capServerCallCenterPort');
+        $this->capServerCallCenterPort->setElementName('capServerCallCenterPort');
         return $this;
     }
 
@@ -205,7 +217,9 @@ class SystemCAPParametersModifyRequest extends ComplexType implements ComplexInt
      */
     public function getCapServerCallCenterPort()
     {
-        return ($this->capServerCallCenterPort) ? $this->capServerCallCenterPort->getValue() : null;
+        return ($this->capServerCallCenterPort)
+            ? $this->capServerCallCenterPort->getElementValue()
+            : null;
     }
 
     /**
@@ -216,7 +230,7 @@ class SystemCAPParametersModifyRequest extends ComplexType implements ComplexInt
         $this->capServerCallCenterMaxClientConnections = ($capServerCallCenterMaxClientConnections InstanceOf CAPServerCallCenterMaxClientConnections)
              ? $capServerCallCenterMaxClientConnections
              : new CAPServerCallCenterMaxClientConnections($capServerCallCenterMaxClientConnections);
-        $this->capServerCallCenterMaxClientConnections->setName('capServerCallCenterMaxClientConnections');
+        $this->capServerCallCenterMaxClientConnections->setElementName('capServerCallCenterMaxClientConnections');
         return $this;
     }
 
@@ -226,6 +240,8 @@ class SystemCAPParametersModifyRequest extends ComplexType implements ComplexInt
      */
     public function getCapServerCallCenterMaxClientConnections()
     {
-        return ($this->capServerCallCenterMaxClientConnections) ? $this->capServerCallCenterMaxClientConnections->getValue() : null;
+        return ($this->capServerCallCenterMaxClientConnections)
+            ? $this->capServerCallCenterMaxClientConnections->getElementValue()
+            : null;
     }
 }

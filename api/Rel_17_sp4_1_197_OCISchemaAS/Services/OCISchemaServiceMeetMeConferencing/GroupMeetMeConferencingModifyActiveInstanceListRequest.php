@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupMeetMeConferencingModifyActiveInstanceListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'GroupMeetMeConferencingModifyActiveInstanceListRequest';
+    public    $elementName = 'GroupMeetMeConferencingModifyActiveInstanceListRequest';
     protected $serviceActivation;
 
     public function __construct(
@@ -45,7 +45,7 @@ class GroupMeetMeConferencingModifyActiveInstanceListRequest extends ComplexType
         $this->serviceActivation = ($serviceActivation InstanceOf ServiceActivation)
              ? $serviceActivation
              : new ServiceActivation($serviceActivation);
-        $this->serviceActivation->setName('serviceActivation');
+        $this->serviceActivation->setElementName('serviceActivation');
         return $this;
     }
 

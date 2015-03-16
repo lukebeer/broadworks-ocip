@@ -16,12 +16,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\Enumeration;
  */
 class SessionTimerRefresher extends SimpleType
 {
-    public $name = "SessionTimerRefresher";
-    protected $value;
-
+    public $elementName = "SessionTimerRefresher";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new Enumeration([
             'Local',
             'Remote'

@@ -27,7 +27,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupGroupPagingAddInstanceRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'GroupGroupPagingAddInstanceRequest';
+    public    $elementName = 'GroupGroupPagingAddInstanceRequest';
     protected $serviceProviderId;
     protected $groupId;
     protected $serviceUserId;
@@ -70,7 +70,7 @@ class GroupGroupPagingAddInstanceRequest extends ComplexType implements ComplexI
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
-        $this->serviceProviderId->setName('serviceProviderId');
+        $this->serviceProviderId->setElementName('serviceProviderId');
         return $this;
     }
 
@@ -80,7 +80,9 @@ class GroupGroupPagingAddInstanceRequest extends ComplexType implements ComplexI
      */
     public function getServiceProviderId()
     {
-        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
+        return ($this->serviceProviderId)
+            ? $this->serviceProviderId->getElementValue()
+            : null;
     }
 
     /**
@@ -91,7 +93,7 @@ class GroupGroupPagingAddInstanceRequest extends ComplexType implements ComplexI
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
-        $this->groupId->setName('groupId');
+        $this->groupId->setElementName('groupId');
         return $this;
     }
 
@@ -101,7 +103,9 @@ class GroupGroupPagingAddInstanceRequest extends ComplexType implements ComplexI
      */
     public function getGroupId()
     {
-        return ($this->groupId) ? $this->groupId->getValue() : null;
+        return ($this->groupId)
+            ? $this->groupId->getElementValue()
+            : null;
     }
 
     /**
@@ -112,7 +116,7 @@ class GroupGroupPagingAddInstanceRequest extends ComplexType implements ComplexI
         $this->serviceUserId = ($serviceUserId InstanceOf UserId)
              ? $serviceUserId
              : new UserId($serviceUserId);
-        $this->serviceUserId->setName('serviceUserId');
+        $this->serviceUserId->setElementName('serviceUserId');
         return $this;
     }
 
@@ -122,7 +126,9 @@ class GroupGroupPagingAddInstanceRequest extends ComplexType implements ComplexI
      */
     public function getServiceUserId()
     {
-        return ($this->serviceUserId) ? $this->serviceUserId->getValue() : null;
+        return ($this->serviceUserId)
+            ? $this->serviceUserId->getElementValue()
+            : null;
     }
 
     /**
@@ -133,7 +139,7 @@ class GroupGroupPagingAddInstanceRequest extends ComplexType implements ComplexI
         $this->serviceInstanceProfile = ($serviceInstanceProfile InstanceOf ServiceInstanceAddProfile)
              ? $serviceInstanceProfile
              : new ServiceInstanceAddProfile($serviceInstanceProfile);
-        $this->serviceInstanceProfile->setName('serviceInstanceProfile');
+        $this->serviceInstanceProfile->setElementName('serviceInstanceProfile');
         return $this;
     }
 
@@ -154,7 +160,7 @@ class GroupGroupPagingAddInstanceRequest extends ComplexType implements ComplexI
         $this->confirmationToneTimeoutSeconds = ($confirmationToneTimeoutSeconds InstanceOf GroupPagingConfirmationToneTimeoutSeconds)
              ? $confirmationToneTimeoutSeconds
              : new GroupPagingConfirmationToneTimeoutSeconds($confirmationToneTimeoutSeconds);
-        $this->confirmationToneTimeoutSeconds->setName('confirmationToneTimeoutSeconds');
+        $this->confirmationToneTimeoutSeconds->setElementName('confirmationToneTimeoutSeconds');
         return $this;
     }
 
@@ -164,7 +170,9 @@ class GroupGroupPagingAddInstanceRequest extends ComplexType implements ComplexI
      */
     public function getConfirmationToneTimeoutSeconds()
     {
-        return ($this->confirmationToneTimeoutSeconds) ? $this->confirmationToneTimeoutSeconds->getValue() : null;
+        return ($this->confirmationToneTimeoutSeconds)
+            ? $this->confirmationToneTimeoutSeconds->getElementValue()
+            : null;
     }
 
     /**
@@ -173,7 +181,7 @@ class GroupGroupPagingAddInstanceRequest extends ComplexType implements ComplexI
     public function setDeliverOriginatorCLIDInstead($deliverOriginatorCLIDInstead = null)
     {
         $this->deliverOriginatorCLIDInstead = new PrimitiveType($deliverOriginatorCLIDInstead);
-        $this->deliverOriginatorCLIDInstead->setName('deliverOriginatorCLIDInstead');
+        $this->deliverOriginatorCLIDInstead->setElementName('deliverOriginatorCLIDInstead');
         return $this;
     }
 
@@ -183,7 +191,9 @@ class GroupGroupPagingAddInstanceRequest extends ComplexType implements ComplexI
      */
     public function getDeliverOriginatorCLIDInstead()
     {
-        return ($this->deliverOriginatorCLIDInstead) ? $this->deliverOriginatorCLIDInstead->getValue() : null;
+        return ($this->deliverOriginatorCLIDInstead)
+            ? $this->deliverOriginatorCLIDInstead->getElementValue()
+            : null;
     }
 
     /**
@@ -194,7 +204,7 @@ class GroupGroupPagingAddInstanceRequest extends ComplexType implements ComplexI
         $this->originatorCLIDPrefix = ($originatorCLIDPrefix InstanceOf GroupPagingOriginatorCLIDPrefix)
              ? $originatorCLIDPrefix
              : new GroupPagingOriginatorCLIDPrefix($originatorCLIDPrefix);
-        $this->originatorCLIDPrefix->setName('originatorCLIDPrefix');
+        $this->originatorCLIDPrefix->setElementName('originatorCLIDPrefix');
         return $this;
     }
 
@@ -204,6 +214,8 @@ class GroupGroupPagingAddInstanceRequest extends ComplexType implements ComplexI
      */
     public function getOriginatorCLIDPrefix()
     {
-        return ($this->originatorCLIDPrefix) ? $this->originatorCLIDPrefix->getValue() : null;
+        return ($this->originatorCLIDPrefix)
+            ? $this->originatorCLIDPrefix->getElementValue()
+            : null;
     }
 }

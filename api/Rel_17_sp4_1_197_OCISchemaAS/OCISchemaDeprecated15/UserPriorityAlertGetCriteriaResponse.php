@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserPriorityAlertGetCriteriaResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'UserPriorityAlertGetCriteriaResponse';
+    public    $elementName = 'UserPriorityAlertGetCriteriaResponse';
     protected $timeSchedule;
     protected $fromDnCriteria;
 
@@ -40,7 +40,7 @@ class UserPriorityAlertGetCriteriaResponse extends ComplexType implements Comple
         $this->timeSchedule = ($timeSchedule InstanceOf TimeSchedule)
              ? $timeSchedule
              : new TimeSchedule($timeSchedule);
-        $this->timeSchedule->setName('timeSchedule');
+        $this->timeSchedule->setElementName('timeSchedule');
         return $this;
     }
 
@@ -61,7 +61,7 @@ class UserPriorityAlertGetCriteriaResponse extends ComplexType implements Comple
         $this->fromDnCriteria = ($fromDnCriteria InstanceOf PriorityAlertCriteriaFromDn)
              ? $fromDnCriteria
              : new PriorityAlertCriteriaFromDn($fromDnCriteria);
-        $this->fromDnCriteria->setName('fromDnCriteria');
+        $this->fromDnCriteria->setElementName('fromDnCriteria');
         return $this;
     }
 

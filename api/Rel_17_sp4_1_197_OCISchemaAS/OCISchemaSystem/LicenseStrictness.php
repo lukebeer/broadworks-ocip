@@ -16,12 +16,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\Enumeration;
  */
 class LicenseStrictness extends SimpleType
 {
-    public $name = "LicenseStrictness";
-    protected $value;
-
+    public $elementName = "LicenseStrictness";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new Enumeration([
             'Hard',
             'Soft'

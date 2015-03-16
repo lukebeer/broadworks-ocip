@@ -17,12 +17,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\MaxInclusive;
  */
 class ASRRetransmissionDelayMilliSeconds extends SimpleType
 {
-    public $name = "ASRRetransmissionDelayMilliSeconds";
-    protected $value;
-
+    public $elementName = "ASRRetransmissionDelayMilliSeconds";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new MinInclusive("100"));
         $this->addRestriction(new MaxInclusive("2000"));
     }

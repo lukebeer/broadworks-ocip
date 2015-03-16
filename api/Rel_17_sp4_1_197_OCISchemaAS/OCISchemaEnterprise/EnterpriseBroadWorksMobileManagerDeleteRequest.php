@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class EnterpriseBroadWorksMobileManagerDeleteRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'EnterpriseBroadWorksMobileManagerDeleteRequest';
+    public    $elementName = 'EnterpriseBroadWorksMobileManagerDeleteRequest';
     protected $serviceProviderId;
 
     public function __construct(
@@ -45,7 +45,7 @@ class EnterpriseBroadWorksMobileManagerDeleteRequest extends ComplexType impleme
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
-        $this->serviceProviderId->setName('serviceProviderId');
+        $this->serviceProviderId->setElementName('serviceProviderId');
         return $this;
     }
 
@@ -55,6 +55,8 @@ class EnterpriseBroadWorksMobileManagerDeleteRequest extends ComplexType impleme
      */
     public function getServiceProviderId()
     {
-        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
+        return ($this->serviceProviderId)
+            ? $this->serviceProviderId->getElementValue()
+            : null;
     }
 }

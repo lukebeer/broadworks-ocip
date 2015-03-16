@@ -17,12 +17,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\MaxInclusive;
  */
 class TrunkGroupFailureThresholdWindowSeconds extends SimpleType
 {
-    public $name = "TrunkGroupFailureThresholdWindowSeconds";
-    protected $value;
-
+    public $elementName = "TrunkGroupFailureThresholdWindowSeconds";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new MinInclusive("30"));
         $this->addRestriction(new MaxInclusive("240"));
     }

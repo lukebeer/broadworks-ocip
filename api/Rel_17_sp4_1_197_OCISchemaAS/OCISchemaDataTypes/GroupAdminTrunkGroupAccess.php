@@ -24,12 +24,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\Enumeration;
  */
 class GroupAdminTrunkGroupAccess extends SimpleType
 {
-    public $name = "GroupAdminTrunkGroupAccess";
-    protected $value;
-
+    public $elementName = "GroupAdminTrunkGroupAccess";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new Enumeration([
             'Full',
             'Full Resources',

@@ -19,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class TutorialFlagGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'TutorialFlagGetResponse';
+    public    $elementName = 'TutorialFlagGetResponse';
     protected $enableTutorial;
 
     /**
@@ -36,7 +36,7 @@ class TutorialFlagGetResponse extends ComplexType implements ComplexInterface
     public function setEnableTutorial($enableTutorial = null)
     {
         $this->enableTutorial = new PrimitiveType($enableTutorial);
-        $this->enableTutorial->setName('enableTutorial');
+        $this->enableTutorial->setElementName('enableTutorial');
         return $this;
     }
 
@@ -46,6 +46,8 @@ class TutorialFlagGetResponse extends ComplexType implements ComplexInterface
      */
     public function getEnableTutorial()
     {
-        return ($this->enableTutorial) ? $this->enableTutorial->getValue() : null;
+        return ($this->enableTutorial)
+            ? $this->enableTutorial->getElementValue()
+            : null;
     }
 }

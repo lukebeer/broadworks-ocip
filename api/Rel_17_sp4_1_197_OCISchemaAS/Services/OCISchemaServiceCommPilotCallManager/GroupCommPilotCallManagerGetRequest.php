@@ -23,7 +23,7 @@ use Broadworks_OCIP\core\Client\Client;
 class GroupCommPilotCallManagerGetRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCommPilotCallManager\GroupCommPilotCallManagerGetResponse';
-    public    $name = 'GroupCommPilotCallManagerGetRequest';
+    public    $elementName = 'GroupCommPilotCallManagerGetRequest';
     protected $serviceProviderId;
     protected $groupId;
 
@@ -51,7 +51,7 @@ class GroupCommPilotCallManagerGetRequest extends ComplexType implements Complex
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
-        $this->serviceProviderId->setName('serviceProviderId');
+        $this->serviceProviderId->setElementName('serviceProviderId');
         return $this;
     }
 
@@ -61,7 +61,9 @@ class GroupCommPilotCallManagerGetRequest extends ComplexType implements Complex
      */
     public function getServiceProviderId()
     {
-        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
+        return ($this->serviceProviderId)
+            ? $this->serviceProviderId->getElementValue()
+            : null;
     }
 
     /**
@@ -72,7 +74,7 @@ class GroupCommPilotCallManagerGetRequest extends ComplexType implements Complex
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
-        $this->groupId->setName('groupId');
+        $this->groupId->setElementName('groupId');
         return $this;
     }
 
@@ -82,6 +84,8 @@ class GroupCommPilotCallManagerGetRequest extends ComplexType implements Complex
      */
     public function getGroupId()
     {
-        return ($this->groupId) ? $this->groupId->getValue() : null;
+        return ($this->groupId)
+            ? $this->groupId->getElementValue()
+            : null;
     }
 }

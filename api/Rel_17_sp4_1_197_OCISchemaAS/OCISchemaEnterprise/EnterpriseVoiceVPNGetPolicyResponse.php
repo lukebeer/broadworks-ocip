@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class EnterpriseVoiceVPNGetPolicyResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'EnterpriseVoiceVPNGetPolicyResponse';
+    public    $elementName = 'EnterpriseVoiceVPNGetPolicyResponse';
     protected $minExtensionLength;
     protected $maxExtensionLength;
     protected $description;
@@ -45,7 +45,7 @@ class EnterpriseVoiceVPNGetPolicyResponse extends ComplexType implements Complex
         $this->minExtensionLength = ($minExtensionLength InstanceOf EnterpriseVoiceVPNExtensionLength)
              ? $minExtensionLength
              : new EnterpriseVoiceVPNExtensionLength($minExtensionLength);
-        $this->minExtensionLength->setName('minExtensionLength');
+        $this->minExtensionLength->setElementName('minExtensionLength');
         return $this;
     }
 
@@ -55,7 +55,9 @@ class EnterpriseVoiceVPNGetPolicyResponse extends ComplexType implements Complex
      */
     public function getMinExtensionLength()
     {
-        return ($this->minExtensionLength) ? $this->minExtensionLength->getValue() : null;
+        return ($this->minExtensionLength)
+            ? $this->minExtensionLength->getElementValue()
+            : null;
     }
 
     /**
@@ -66,7 +68,7 @@ class EnterpriseVoiceVPNGetPolicyResponse extends ComplexType implements Complex
         $this->maxExtensionLength = ($maxExtensionLength InstanceOf EnterpriseVoiceVPNExtensionLength)
              ? $maxExtensionLength
              : new EnterpriseVoiceVPNExtensionLength($maxExtensionLength);
-        $this->maxExtensionLength->setName('maxExtensionLength');
+        $this->maxExtensionLength->setElementName('maxExtensionLength');
         return $this;
     }
 
@@ -76,7 +78,9 @@ class EnterpriseVoiceVPNGetPolicyResponse extends ComplexType implements Complex
      */
     public function getMaxExtensionLength()
     {
-        return ($this->maxExtensionLength) ? $this->maxExtensionLength->getValue() : null;
+        return ($this->maxExtensionLength)
+            ? $this->maxExtensionLength->getElementValue()
+            : null;
     }
 
     /**
@@ -87,7 +91,7 @@ class EnterpriseVoiceVPNGetPolicyResponse extends ComplexType implements Complex
         $this->description = ($description InstanceOf EnterpriseVoiceVPNDescription)
              ? $description
              : new EnterpriseVoiceVPNDescription($description);
-        $this->description->setName('description');
+        $this->description->setElementName('description');
         return $this;
     }
 
@@ -97,7 +101,9 @@ class EnterpriseVoiceVPNGetPolicyResponse extends ComplexType implements Complex
      */
     public function getDescription()
     {
-        return ($this->description) ? $this->description->getValue() : null;
+        return ($this->description)
+            ? $this->description->getElementValue()
+            : null;
     }
 
     /**
@@ -108,7 +114,7 @@ class EnterpriseVoiceVPNGetPolicyResponse extends ComplexType implements Complex
         $this->routeGroupId = ($routeGroupId InstanceOf GroupId)
              ? $routeGroupId
              : new GroupId($routeGroupId);
-        $this->routeGroupId->setName('routeGroupId');
+        $this->routeGroupId->setElementName('routeGroupId');
         return $this;
     }
 
@@ -118,7 +124,9 @@ class EnterpriseVoiceVPNGetPolicyResponse extends ComplexType implements Complex
      */
     public function getRouteGroupId()
     {
-        return ($this->routeGroupId) ? $this->routeGroupId->getValue() : null;
+        return ($this->routeGroupId)
+            ? $this->routeGroupId->getElementValue()
+            : null;
     }
 
     /**
@@ -129,7 +137,7 @@ class EnterpriseVoiceVPNGetPolicyResponse extends ComplexType implements Complex
         $this->policySelection = ($policySelection InstanceOf EnterpriseVoiceVPNPolicySelection)
              ? $policySelection
              : new EnterpriseVoiceVPNPolicySelection($policySelection);
-        $this->policySelection->setName('policySelection');
+        $this->policySelection->setElementName('policySelection');
         return $this;
     }
 
@@ -139,6 +147,8 @@ class EnterpriseVoiceVPNGetPolicyResponse extends ComplexType implements Complex
      */
     public function getPolicySelection()
     {
-        return ($this->policySelection) ? $this->policySelection->getValue() : null;
+        return ($this->policySelection)
+            ? $this->policySelection->getElementValue()
+            : null;
     }
 }

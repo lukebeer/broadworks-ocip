@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
 class GroupRoutePointQueueCallDispositionCodeGetRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType  = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceRoutePoint\GroupRoutePointQueueCallDispositionCodeGetResponse';
-    public    $name = 'GroupRoutePointQueueCallDispositionCodeGetRequest';
+    public    $elementName = 'GroupRoutePointQueueCallDispositionCodeGetRequest';
     protected $serviceUserId;
     protected $code;
 
@@ -49,7 +49,7 @@ class GroupRoutePointQueueCallDispositionCodeGetRequest extends ComplexType impl
         $this->serviceUserId = ($serviceUserId InstanceOf UserId)
              ? $serviceUserId
              : new UserId($serviceUserId);
-        $this->serviceUserId->setName('serviceUserId');
+        $this->serviceUserId->setElementName('serviceUserId');
         return $this;
     }
 
@@ -59,7 +59,9 @@ class GroupRoutePointQueueCallDispositionCodeGetRequest extends ComplexType impl
      */
     public function getServiceUserId()
     {
-        return ($this->serviceUserId) ? $this->serviceUserId->getValue() : null;
+        return ($this->serviceUserId)
+            ? $this->serviceUserId->getElementValue()
+            : null;
     }
 
     /**
@@ -70,7 +72,7 @@ class GroupRoutePointQueueCallDispositionCodeGetRequest extends ComplexType impl
         $this->code = ($code InstanceOf CallDispositionCode)
              ? $code
              : new CallDispositionCode($code);
-        $this->code->setName('code');
+        $this->code->setElementName('code');
         return $this;
     }
 
@@ -80,6 +82,8 @@ class GroupRoutePointQueueCallDispositionCodeGetRequest extends ComplexType impl
      */
     public function getCode()
     {
-        return ($this->code) ? $this->code->getValue() : null;
+        return ($this->code)
+            ? $this->code->getElementValue()
+            : null;
     }
 }

@@ -24,7 +24,7 @@ use Broadworks_OCIP\core\Client\Client;
 class EnterpriseDepartmentGetAvailableParentListRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType   = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaEnterprise\EnterpriseDepartmentGetAvailableParentListResponse';
-    public    $name = 'EnterpriseDepartmentGetAvailableParentListRequest';
+    public    $elementName = 'EnterpriseDepartmentGetAvailableParentListRequest';
     protected $enterpriseId;
     protected $departmentName;
 
@@ -52,7 +52,7 @@ class EnterpriseDepartmentGetAvailableParentListRequest extends ComplexType impl
         $this->enterpriseId = ($enterpriseId InstanceOf ServiceProviderId)
              ? $enterpriseId
              : new ServiceProviderId($enterpriseId);
-        $this->enterpriseId->setName('enterpriseId');
+        $this->enterpriseId->setElementName('enterpriseId');
         return $this;
     }
 
@@ -62,7 +62,9 @@ class EnterpriseDepartmentGetAvailableParentListRequest extends ComplexType impl
      */
     public function getEnterpriseId()
     {
-        return ($this->enterpriseId) ? $this->enterpriseId->getValue() : null;
+        return ($this->enterpriseId)
+            ? $this->enterpriseId->getElementValue()
+            : null;
     }
 
     /**
@@ -73,7 +75,7 @@ class EnterpriseDepartmentGetAvailableParentListRequest extends ComplexType impl
         $this->departmentName = ($departmentName InstanceOf DepartmentName)
              ? $departmentName
              : new DepartmentName($departmentName);
-        $this->departmentName->setName('departmentName');
+        $this->departmentName->setElementName('departmentName');
         return $this;
     }
 
@@ -83,6 +85,8 @@ class EnterpriseDepartmentGetAvailableParentListRequest extends ComplexType impl
      */
     public function getDepartmentName()
     {
-        return ($this->departmentName) ? $this->departmentName->getValue() : null;
+        return ($this->departmentName)
+            ? $this->departmentName->getElementValue()
+            : null;
     }
 }

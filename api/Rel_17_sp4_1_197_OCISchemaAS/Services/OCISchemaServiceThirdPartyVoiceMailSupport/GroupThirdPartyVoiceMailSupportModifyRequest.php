@@ -23,7 +23,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupThirdPartyVoiceMailSupportModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'GroupThirdPartyVoiceMailSupportModifyRequest';
+    public    $elementName = 'GroupThirdPartyVoiceMailSupportModifyRequest';
     protected $serviceProviderId;
     protected $groupId;
     protected $isActive;
@@ -57,7 +57,7 @@ class GroupThirdPartyVoiceMailSupportModifyRequest extends ComplexType implement
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
-        $this->serviceProviderId->setName('serviceProviderId');
+        $this->serviceProviderId->setElementName('serviceProviderId');
         return $this;
     }
 
@@ -67,7 +67,9 @@ class GroupThirdPartyVoiceMailSupportModifyRequest extends ComplexType implement
      */
     public function getServiceProviderId()
     {
-        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
+        return ($this->serviceProviderId)
+            ? $this->serviceProviderId->getElementValue()
+            : null;
     }
 
     /**
@@ -78,7 +80,7 @@ class GroupThirdPartyVoiceMailSupportModifyRequest extends ComplexType implement
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
-        $this->groupId->setName('groupId');
+        $this->groupId->setElementName('groupId');
         return $this;
     }
 
@@ -88,7 +90,9 @@ class GroupThirdPartyVoiceMailSupportModifyRequest extends ComplexType implement
      */
     public function getGroupId()
     {
-        return ($this->groupId) ? $this->groupId->getValue() : null;
+        return ($this->groupId)
+            ? $this->groupId->getElementValue()
+            : null;
     }
 
     /**
@@ -97,7 +101,7 @@ class GroupThirdPartyVoiceMailSupportModifyRequest extends ComplexType implement
     public function setIsActive($isActive = null)
     {
         $this->isActive = new PrimitiveType($isActive);
-        $this->isActive->setName('isActive');
+        $this->isActive->setElementName('isActive');
         return $this;
     }
 
@@ -107,7 +111,9 @@ class GroupThirdPartyVoiceMailSupportModifyRequest extends ComplexType implement
      */
     public function getIsActive()
     {
-        return ($this->isActive) ? $this->isActive->getValue() : null;
+        return ($this->isActive)
+            ? $this->isActive->getElementValue()
+            : null;
     }
 
     /**
@@ -118,7 +124,7 @@ class GroupThirdPartyVoiceMailSupportModifyRequest extends ComplexType implement
         $this->groupServer = ($groupServer InstanceOf ThirdPartyVoiceMailSupportMailServer)
              ? $groupServer
              : new ThirdPartyVoiceMailSupportMailServer($groupServer);
-        $this->groupServer->setName('groupServer');
+        $this->groupServer->setElementName('groupServer');
         return $this;
     }
 
@@ -128,6 +134,8 @@ class GroupThirdPartyVoiceMailSupportModifyRequest extends ComplexType implement
      */
     public function getGroupServer()
     {
-        return ($this->groupServer) ? $this->groupServer->getValue() : null;
+        return ($this->groupServer)
+            ? $this->groupServer->getElementValue()
+            : null;
     }
 }

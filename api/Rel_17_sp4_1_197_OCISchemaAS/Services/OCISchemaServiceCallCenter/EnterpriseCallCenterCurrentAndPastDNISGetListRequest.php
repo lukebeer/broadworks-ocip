@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
 class EnterpriseCallCenterCurrentAndPastDNISGetListRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\EnterpriseCallCenterCurrentAndPastDNISGetListResponse';
-    public    $name = 'EnterpriseCallCenterCurrentAndPastDNISGetListRequest';
+    public    $elementName = 'EnterpriseCallCenterCurrentAndPastDNISGetListRequest';
     protected $serviceProviderId;
     protected $serviceUserId;
 
@@ -50,7 +50,7 @@ class EnterpriseCallCenterCurrentAndPastDNISGetListRequest extends ComplexType i
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
-        $this->serviceProviderId->setName('serviceProviderId');
+        $this->serviceProviderId->setElementName('serviceProviderId');
         return $this;
     }
 
@@ -60,7 +60,9 @@ class EnterpriseCallCenterCurrentAndPastDNISGetListRequest extends ComplexType i
      */
     public function getServiceProviderId()
     {
-        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
+        return ($this->serviceProviderId)
+            ? $this->serviceProviderId->getElementValue()
+            : null;
     }
 
     /**
@@ -71,7 +73,7 @@ class EnterpriseCallCenterCurrentAndPastDNISGetListRequest extends ComplexType i
         $this->serviceUserId = ($serviceUserId InstanceOf UserId)
              ? $serviceUserId
              : new UserId($serviceUserId);
-        $this->serviceUserId->setName('serviceUserId');
+        $this->serviceUserId->setElementName('serviceUserId');
         return $this;
     }
 
@@ -81,6 +83,8 @@ class EnterpriseCallCenterCurrentAndPastDNISGetListRequest extends ComplexType i
      */
     public function getServiceUserId()
     {
-        return ($this->serviceUserId) ? $this->serviceUserId->getValue() : null;
+        return ($this->serviceUserId)
+            ? $this->serviceUserId->getElementValue()
+            : null;
     }
 }

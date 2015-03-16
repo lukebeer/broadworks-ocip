@@ -23,7 +23,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserSelectiveCallRejectionGetCriteriaResponse16 extends ComplexType implements ComplexInterface
 {
-    public    $name = 'UserSelectiveCallRejectionGetCriteriaResponse16';
+    public    $elementName = 'UserSelectiveCallRejectionGetCriteriaResponse16';
     protected $timeSchedule;
     protected $fromDnCriteria;
     protected $blacklisted;
@@ -45,7 +45,7 @@ class UserSelectiveCallRejectionGetCriteriaResponse16 extends ComplexType implem
         $this->timeSchedule = ($timeSchedule InstanceOf TimeSchedule)
              ? $timeSchedule
              : new TimeSchedule($timeSchedule);
-        $this->timeSchedule->setName('timeSchedule');
+        $this->timeSchedule->setElementName('timeSchedule');
         return $this;
     }
 
@@ -66,7 +66,7 @@ class UserSelectiveCallRejectionGetCriteriaResponse16 extends ComplexType implem
         $this->fromDnCriteria = ($fromDnCriteria InstanceOf SelectiveCallRejectionCriteriaCallType)
              ? $fromDnCriteria
              : new SelectiveCallRejectionCriteriaCallType($fromDnCriteria);
-        $this->fromDnCriteria->setName('fromDnCriteria');
+        $this->fromDnCriteria->setElementName('fromDnCriteria');
         return $this;
     }
 
@@ -85,7 +85,7 @@ class UserSelectiveCallRejectionGetCriteriaResponse16 extends ComplexType implem
     public function setBlacklisted($blacklisted = null)
     {
         $this->blacklisted = new PrimitiveType($blacklisted);
-        $this->blacklisted->setName('blacklisted');
+        $this->blacklisted->setElementName('blacklisted');
         return $this;
     }
 
@@ -95,7 +95,9 @@ class UserSelectiveCallRejectionGetCriteriaResponse16 extends ComplexType implem
      */
     public function getBlacklisted()
     {
-        return ($this->blacklisted) ? $this->blacklisted->getValue() : null;
+        return ($this->blacklisted)
+            ? $this->blacklisted->getElementValue()
+            : null;
     }
 
     /**
@@ -106,7 +108,7 @@ class UserSelectiveCallRejectionGetCriteriaResponse16 extends ComplexType implem
         $this->holidaySchedule = ($holidaySchedule InstanceOf HolidaySchedule)
              ? $holidaySchedule
              : new HolidaySchedule($holidaySchedule);
-        $this->holidaySchedule->setName('holidaySchedule');
+        $this->holidaySchedule->setElementName('holidaySchedule');
         return $this;
     }
 

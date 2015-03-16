@@ -16,12 +16,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\Enumeration;
  */
 class CommPilotExpressSRProfile extends SimpleType
 {
-    public $name = "CommPilotExpressSRProfile";
-    protected $value;
-
+    public $elementName = "CommPilotExpressSRProfile";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new Enumeration([
             'Available In Office',
             'Available Out Of Office',

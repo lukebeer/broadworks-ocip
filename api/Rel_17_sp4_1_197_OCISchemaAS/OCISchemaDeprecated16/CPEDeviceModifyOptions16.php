@@ -23,7 +23,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class CPEDeviceModifyOptions16 extends ComplexType implements ComplexInterface
 {
-    public    $name = 'CPEDeviceModifyOptions16';
+    public    $elementName = 'CPEDeviceModifyOptions16';
     protected $enableMonitoring;
     protected $resetEvent;
     protected $deviceManagementDeviceTypeOptions;
@@ -52,7 +52,7 @@ class CPEDeviceModifyOptions16 extends ComplexType implements ComplexInterface
     public function setEnableMonitoring($enableMonitoring = null)
     {
         $this->enableMonitoring = new SimpleContent($enableMonitoring);
-        $this->enableMonitoring->setName('enableMonitoring');
+        $this->enableMonitoring->setElementName('enableMonitoring');
         return $this;
     }
 
@@ -62,7 +62,9 @@ class CPEDeviceModifyOptions16 extends ComplexType implements ComplexInterface
      */
     public function getEnableMonitoring()
     {
-        return ($this->enableMonitoring) ? $this->enableMonitoring->getValue() : null;
+        return ($this->enableMonitoring)
+            ? $this->enableMonitoring->getElementValue()
+            : null;
     }
 
     /**
@@ -71,7 +73,7 @@ class CPEDeviceModifyOptions16 extends ComplexType implements ComplexInterface
     public function setResetEvent($resetEvent = null)
     {
         $this->resetEvent = new SimpleContent($resetEvent);
-        $this->resetEvent->setName('resetEvent');
+        $this->resetEvent->setElementName('resetEvent');
         return $this;
     }
 
@@ -81,7 +83,9 @@ class CPEDeviceModifyOptions16 extends ComplexType implements ComplexInterface
      */
     public function getResetEvent()
     {
-        return ($this->resetEvent) ? $this->resetEvent->getValue() : null;
+        return ($this->resetEvent)
+            ? $this->resetEvent->getElementValue()
+            : null;
     }
 
     /**
@@ -90,7 +94,7 @@ class CPEDeviceModifyOptions16 extends ComplexType implements ComplexInterface
     public function setDeviceManagementDeviceTypeOptions($deviceManagementDeviceTypeOptions = null)
     {
         $this->deviceManagementDeviceTypeOptions = new SimpleContent($deviceManagementDeviceTypeOptions);
-        $this->deviceManagementDeviceTypeOptions->setName('deviceManagementDeviceTypeOptions');
+        $this->deviceManagementDeviceTypeOptions->setElementName('deviceManagementDeviceTypeOptions');
         return $this;
     }
 
@@ -100,6 +104,8 @@ class CPEDeviceModifyOptions16 extends ComplexType implements ComplexInterface
      */
     public function getDeviceManagementDeviceTypeOptions()
     {
-        return ($this->deviceManagementDeviceTypeOptions) ? $this->deviceManagementDeviceTypeOptions->getValue() : null;
+        return ($this->deviceManagementDeviceTypeOptions)
+            ? $this->deviceManagementDeviceTypeOptions->getElementValue()
+            : null;
     }
 }

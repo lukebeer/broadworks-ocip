@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupExtensionLengthModifyRequest17 extends ComplexType implements ComplexInterface
 {
-    public    $name = 'GroupExtensionLengthModifyRequest17';
+    public    $elementName = 'GroupExtensionLengthModifyRequest17';
     protected $serviceProviderId;
     protected $groupId;
     protected $minExtensionLength;
@@ -59,7 +59,7 @@ class GroupExtensionLengthModifyRequest17 extends ComplexType implements Complex
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
-        $this->serviceProviderId->setName('serviceProviderId');
+        $this->serviceProviderId->setElementName('serviceProviderId');
         return $this;
     }
 
@@ -69,7 +69,9 @@ class GroupExtensionLengthModifyRequest17 extends ComplexType implements Complex
      */
     public function getServiceProviderId()
     {
-        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
+        return ($this->serviceProviderId)
+            ? $this->serviceProviderId->getElementValue()
+            : null;
     }
 
     /**
@@ -80,7 +82,7 @@ class GroupExtensionLengthModifyRequest17 extends ComplexType implements Complex
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
-        $this->groupId->setName('groupId');
+        $this->groupId->setElementName('groupId');
         return $this;
     }
 
@@ -90,7 +92,9 @@ class GroupExtensionLengthModifyRequest17 extends ComplexType implements Complex
      */
     public function getGroupId()
     {
-        return ($this->groupId) ? $this->groupId->getValue() : null;
+        return ($this->groupId)
+            ? $this->groupId->getElementValue()
+            : null;
     }
 
     /**
@@ -101,7 +105,7 @@ class GroupExtensionLengthModifyRequest17 extends ComplexType implements Complex
         $this->minExtensionLength = ($minExtensionLength InstanceOf ExtensionLength)
              ? $minExtensionLength
              : new ExtensionLength($minExtensionLength);
-        $this->minExtensionLength->setName('minExtensionLength');
+        $this->minExtensionLength->setElementName('minExtensionLength');
         return $this;
     }
 
@@ -111,7 +115,9 @@ class GroupExtensionLengthModifyRequest17 extends ComplexType implements Complex
      */
     public function getMinExtensionLength()
     {
-        return ($this->minExtensionLength) ? $this->minExtensionLength->getValue() : null;
+        return ($this->minExtensionLength)
+            ? $this->minExtensionLength->getElementValue()
+            : null;
     }
 
     /**
@@ -122,7 +128,7 @@ class GroupExtensionLengthModifyRequest17 extends ComplexType implements Complex
         $this->maxExtensionLength = ($maxExtensionLength InstanceOf ExtensionLength)
              ? $maxExtensionLength
              : new ExtensionLength($maxExtensionLength);
-        $this->maxExtensionLength->setName('maxExtensionLength');
+        $this->maxExtensionLength->setElementName('maxExtensionLength');
         return $this;
     }
 
@@ -132,7 +138,9 @@ class GroupExtensionLengthModifyRequest17 extends ComplexType implements Complex
      */
     public function getMaxExtensionLength()
     {
-        return ($this->maxExtensionLength) ? $this->maxExtensionLength->getValue() : null;
+        return ($this->maxExtensionLength)
+            ? $this->maxExtensionLength->getElementValue()
+            : null;
     }
 
     /**
@@ -143,7 +151,7 @@ class GroupExtensionLengthModifyRequest17 extends ComplexType implements Complex
         $this->defaultExtensionLength = ($defaultExtensionLength InstanceOf ExtensionLength)
              ? $defaultExtensionLength
              : new ExtensionLength($defaultExtensionLength);
-        $this->defaultExtensionLength->setName('defaultExtensionLength');
+        $this->defaultExtensionLength->setElementName('defaultExtensionLength');
         return $this;
     }
 
@@ -153,6 +161,8 @@ class GroupExtensionLengthModifyRequest17 extends ComplexType implements Complex
      */
     public function getDefaultExtensionLength()
     {
-        return ($this->defaultExtensionLength) ? $this->defaultExtensionLength->getValue() : null;
+        return ($this->defaultExtensionLength)
+            ? $this->defaultExtensionLength->getElementValue()
+            : null;
     }
 }

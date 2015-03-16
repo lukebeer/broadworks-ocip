@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemClassmarkGetUtilizationListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemClassmarkGetUtilizationListResponse';
+    public    $elementName = 'SystemClassmarkGetUtilizationListResponse';
     protected $classmarkUserTable;
 
     /**
@@ -38,7 +38,7 @@ class SystemClassmarkGetUtilizationListResponse extends ComplexType implements C
     public function setClassmarkUserTable(TableType $classmarkUserTable = null)
     {
         $this->classmarkUserTable = $classmarkUserTable;
-        $this->classmarkUserTable->setName('classmarkUserTable');
+        $this->classmarkUserTable->setElementName('classmarkUserTable');
         return $this;
     }
 

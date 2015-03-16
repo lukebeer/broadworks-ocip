@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemInstantConferencingResetUserPasswordsRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemInstantConferencingResetUserPasswordsRequest';
+    public    $elementName = 'SystemInstantConferencingResetUserPasswordsRequest';
     protected $deviceName;
 
     public function __construct(
@@ -46,7 +46,7 @@ class SystemInstantConferencingResetUserPasswordsRequest extends ComplexType imp
         $this->deviceName = ($deviceName InstanceOf AccessDeviceName)
              ? $deviceName
              : new AccessDeviceName($deviceName);
-        $this->deviceName->setName('deviceName');
+        $this->deviceName->setElementName('deviceName');
         return $this;
     }
 
@@ -56,6 +56,8 @@ class SystemInstantConferencingResetUserPasswordsRequest extends ComplexType imp
      */
     public function getDeviceName()
     {
-        return ($this->deviceName) ? $this->deviceName->getValue() : null;
+        return ($this->deviceName)
+            ? $this->deviceName->getElementValue()
+            : null;
     }
 }

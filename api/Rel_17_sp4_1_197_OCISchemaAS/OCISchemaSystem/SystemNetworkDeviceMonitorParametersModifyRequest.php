@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemNetworkDeviceMonitorParametersModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemNetworkDeviceMonitorParametersModifyRequest';
+    public    $elementName = 'SystemNetworkDeviceMonitorParametersModifyRequest';
     protected $pollingIntervalMinutes;
     protected $failedPollingIntervalMinutes;
 
@@ -49,7 +49,7 @@ class SystemNetworkDeviceMonitorParametersModifyRequest extends ComplexType impl
         $this->pollingIntervalMinutes = ($pollingIntervalMinutes InstanceOf NetworkDeviceMonitorPollingIntervalMinutes)
              ? $pollingIntervalMinutes
              : new NetworkDeviceMonitorPollingIntervalMinutes($pollingIntervalMinutes);
-        $this->pollingIntervalMinutes->setName('pollingIntervalMinutes');
+        $this->pollingIntervalMinutes->setElementName('pollingIntervalMinutes');
         return $this;
     }
 
@@ -59,7 +59,9 @@ class SystemNetworkDeviceMonitorParametersModifyRequest extends ComplexType impl
      */
     public function getPollingIntervalMinutes()
     {
-        return ($this->pollingIntervalMinutes) ? $this->pollingIntervalMinutes->getValue() : null;
+        return ($this->pollingIntervalMinutes)
+            ? $this->pollingIntervalMinutes->getElementValue()
+            : null;
     }
 
     /**
@@ -70,7 +72,7 @@ class SystemNetworkDeviceMonitorParametersModifyRequest extends ComplexType impl
         $this->failedPollingIntervalMinutes = ($failedPollingIntervalMinutes InstanceOf NetworkDeviceMonitorFailedPollingIntervalMinutes)
              ? $failedPollingIntervalMinutes
              : new NetworkDeviceMonitorFailedPollingIntervalMinutes($failedPollingIntervalMinutes);
-        $this->failedPollingIntervalMinutes->setName('failedPollingIntervalMinutes');
+        $this->failedPollingIntervalMinutes->setElementName('failedPollingIntervalMinutes');
         return $this;
     }
 
@@ -80,6 +82,8 @@ class SystemNetworkDeviceMonitorParametersModifyRequest extends ComplexType impl
      */
     public function getFailedPollingIntervalMinutes()
     {
-        return ($this->failedPollingIntervalMinutes) ? $this->failedPollingIntervalMinutes->getValue() : null;
+        return ($this->failedPollingIntervalMinutes)
+            ? $this->failedPollingIntervalMinutes->getElementValue()
+            : null;
     }
 }

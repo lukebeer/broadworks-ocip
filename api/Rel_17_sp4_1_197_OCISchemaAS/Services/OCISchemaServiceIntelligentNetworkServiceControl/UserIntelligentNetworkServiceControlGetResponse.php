@@ -19,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserIntelligentNetworkServiceControlGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'UserIntelligentNetworkServiceControlGetResponse';
+    public    $elementName = 'UserIntelligentNetworkServiceControlGetResponse';
     protected $preAnswerActionsEnabled;
 
     /**
@@ -36,7 +36,7 @@ class UserIntelligentNetworkServiceControlGetResponse extends ComplexType implem
     public function setPreAnswerActionsEnabled($preAnswerActionsEnabled = null)
     {
         $this->preAnswerActionsEnabled = new PrimitiveType($preAnswerActionsEnabled);
-        $this->preAnswerActionsEnabled->setName('preAnswerActionsEnabled');
+        $this->preAnswerActionsEnabled->setElementName('preAnswerActionsEnabled');
         return $this;
     }
 
@@ -46,6 +46,8 @@ class UserIntelligentNetworkServiceControlGetResponse extends ComplexType implem
      */
     public function getPreAnswerActionsEnabled()
     {
-        return ($this->preAnswerActionsEnabled) ? $this->preAnswerActionsEnabled->getValue() : null;
+        return ($this->preAnswerActionsEnabled)
+            ? $this->preAnswerActionsEnabled->getElementValue()
+            : null;
     }
 }

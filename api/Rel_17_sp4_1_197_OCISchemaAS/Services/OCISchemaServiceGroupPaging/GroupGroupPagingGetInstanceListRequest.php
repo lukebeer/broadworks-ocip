@@ -24,7 +24,7 @@ use Broadworks_OCIP\core\Client\Client;
 class GroupGroupPagingGetInstanceListRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType        = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceGroupPaging\GroupGroupPagingGetInstanceListResponse';
-    public    $name = 'GroupGroupPagingGetInstanceListRequest';
+    public    $elementName = 'GroupGroupPagingGetInstanceListRequest';
     protected $serviceProviderId;
     protected $groupId;
     protected $groupDepartmentName;
@@ -55,7 +55,7 @@ class GroupGroupPagingGetInstanceListRequest extends ComplexType implements Comp
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
-        $this->serviceProviderId->setName('serviceProviderId');
+        $this->serviceProviderId->setElementName('serviceProviderId');
         return $this;
     }
 
@@ -65,7 +65,9 @@ class GroupGroupPagingGetInstanceListRequest extends ComplexType implements Comp
      */
     public function getServiceProviderId()
     {
-        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
+        return ($this->serviceProviderId)
+            ? $this->serviceProviderId->getElementValue()
+            : null;
     }
 
     /**
@@ -76,7 +78,7 @@ class GroupGroupPagingGetInstanceListRequest extends ComplexType implements Comp
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
-        $this->groupId->setName('groupId');
+        $this->groupId->setElementName('groupId');
         return $this;
     }
 
@@ -86,7 +88,9 @@ class GroupGroupPagingGetInstanceListRequest extends ComplexType implements Comp
      */
     public function getGroupId()
     {
-        return ($this->groupId) ? $this->groupId->getValue() : null;
+        return ($this->groupId)
+            ? $this->groupId->getElementValue()
+            : null;
     }
 
     /**
@@ -97,7 +101,7 @@ class GroupGroupPagingGetInstanceListRequest extends ComplexType implements Comp
         $this->groupDepartmentName = ($groupDepartmentName InstanceOf DepartmentName)
              ? $groupDepartmentName
              : new DepartmentName($groupDepartmentName);
-        $this->groupDepartmentName->setName('groupDepartmentName');
+        $this->groupDepartmentName->setElementName('groupDepartmentName');
         return $this;
     }
 
@@ -107,6 +111,8 @@ class GroupGroupPagingGetInstanceListRequest extends ComplexType implements Comp
      */
     public function getGroupDepartmentName()
     {
-        return ($this->groupDepartmentName) ? $this->groupDepartmentName->getValue() : null;
+        return ($this->groupDepartmentName)
+            ? $this->groupDepartmentName->getElementValue()
+            : null;
     }
 }

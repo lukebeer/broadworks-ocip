@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserBroadWorksAnywhereDeleteSelectiveCriteriaRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'UserBroadWorksAnywhereDeleteSelectiveCriteriaRequest';
+    public    $elementName = 'UserBroadWorksAnywhereDeleteSelectiveCriteriaRequest';
     protected $userId;
     protected $phoneNumber;
     protected $criteriaName;
@@ -53,7 +53,7 @@ class UserBroadWorksAnywhereDeleteSelectiveCriteriaRequest extends ComplexType i
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
-        $this->userId->setName('userId');
+        $this->userId->setElementName('userId');
         return $this;
     }
 
@@ -63,7 +63,9 @@ class UserBroadWorksAnywhereDeleteSelectiveCriteriaRequest extends ComplexType i
      */
     public function getUserId()
     {
-        return ($this->userId) ? $this->userId->getValue() : null;
+        return ($this->userId)
+            ? $this->userId->getElementValue()
+            : null;
     }
 
     /**
@@ -74,7 +76,7 @@ class UserBroadWorksAnywhereDeleteSelectiveCriteriaRequest extends ComplexType i
         $this->phoneNumber = ($phoneNumber InstanceOf DN)
              ? $phoneNumber
              : new DN($phoneNumber);
-        $this->phoneNumber->setName('phoneNumber');
+        $this->phoneNumber->setElementName('phoneNumber');
         return $this;
     }
 
@@ -84,7 +86,9 @@ class UserBroadWorksAnywhereDeleteSelectiveCriteriaRequest extends ComplexType i
      */
     public function getPhoneNumber()
     {
-        return ($this->phoneNumber) ? $this->phoneNumber->getValue() : null;
+        return ($this->phoneNumber)
+            ? $this->phoneNumber->getElementValue()
+            : null;
     }
 
     /**
@@ -95,7 +99,7 @@ class UserBroadWorksAnywhereDeleteSelectiveCriteriaRequest extends ComplexType i
         $this->criteriaName = ($criteriaName InstanceOf CriteriaName)
              ? $criteriaName
              : new CriteriaName($criteriaName);
-        $this->criteriaName->setName('criteriaName');
+        $this->criteriaName->setElementName('criteriaName');
         return $this;
     }
 
@@ -105,6 +109,8 @@ class UserBroadWorksAnywhereDeleteSelectiveCriteriaRequest extends ComplexType i
      */
     public function getCriteriaName()
     {
-        return ($this->criteriaName) ? $this->criteriaName->getValue() : null;
+        return ($this->criteriaName)
+            ? $this->criteriaName->getElementValue()
+            : null;
     }
 }

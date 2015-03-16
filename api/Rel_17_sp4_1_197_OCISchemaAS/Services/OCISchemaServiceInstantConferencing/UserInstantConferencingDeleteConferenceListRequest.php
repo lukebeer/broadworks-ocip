@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserInstantConferencingDeleteConferenceListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'UserInstantConferencingDeleteConferenceListRequest';
+    public    $elementName = 'UserInstantConferencingDeleteConferenceListRequest';
     protected $userId;
     protected $conferenceKey;
 
@@ -49,7 +49,7 @@ class UserInstantConferencingDeleteConferenceListRequest extends ComplexType imp
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
-        $this->userId->setName('userId');
+        $this->userId->setElementName('userId');
         return $this;
     }
 
@@ -59,7 +59,9 @@ class UserInstantConferencingDeleteConferenceListRequest extends ComplexType imp
      */
     public function getUserId()
     {
-        return ($this->userId) ? $this->userId->getValue() : null;
+        return ($this->userId)
+            ? $this->userId->getElementValue()
+            : null;
     }
 
     /**
@@ -70,7 +72,7 @@ class UserInstantConferencingDeleteConferenceListRequest extends ComplexType imp
         $this->conferenceKey = ($conferenceKey InstanceOf InstantConferencingConferenceKey)
              ? $conferenceKey
              : new InstantConferencingConferenceKey($conferenceKey);
-        $this->conferenceKey->setName('conferenceKey');
+        $this->conferenceKey->setElementName('conferenceKey');
         return $this;
     }
 

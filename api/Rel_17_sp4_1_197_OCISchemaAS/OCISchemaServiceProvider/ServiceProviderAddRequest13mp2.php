@@ -25,7 +25,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderAddRequest13mp2 extends ComplexType implements ComplexInterface
 {
-    public    $name = 'ServiceProviderAddRequest13mp2';
+    public    $elementName = 'ServiceProviderAddRequest13mp2';
     protected $serviceProviderId;
     protected $defaultDomain;
     protected $serviceProviderName;
@@ -65,7 +65,7 @@ class ServiceProviderAddRequest13mp2 extends ComplexType implements ComplexInter
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
-        $this->serviceProviderId->setName('serviceProviderId');
+        $this->serviceProviderId->setElementName('serviceProviderId');
         return $this;
     }
 
@@ -75,7 +75,9 @@ class ServiceProviderAddRequest13mp2 extends ComplexType implements ComplexInter
      */
     public function getServiceProviderId()
     {
-        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
+        return ($this->serviceProviderId)
+            ? $this->serviceProviderId->getElementValue()
+            : null;
     }
 
     /**
@@ -86,7 +88,7 @@ class ServiceProviderAddRequest13mp2 extends ComplexType implements ComplexInter
         $this->defaultDomain = ($defaultDomain InstanceOf NetAddress)
              ? $defaultDomain
              : new NetAddress($defaultDomain);
-        $this->defaultDomain->setName('defaultDomain');
+        $this->defaultDomain->setElementName('defaultDomain');
         return $this;
     }
 
@@ -96,7 +98,9 @@ class ServiceProviderAddRequest13mp2 extends ComplexType implements ComplexInter
      */
     public function getDefaultDomain()
     {
-        return ($this->defaultDomain) ? $this->defaultDomain->getValue() : null;
+        return ($this->defaultDomain)
+            ? $this->defaultDomain->getElementValue()
+            : null;
     }
 
     /**
@@ -107,7 +111,7 @@ class ServiceProviderAddRequest13mp2 extends ComplexType implements ComplexInter
         $this->serviceProviderName = ($serviceProviderName InstanceOf ServiceProviderName)
              ? $serviceProviderName
              : new ServiceProviderName($serviceProviderName);
-        $this->serviceProviderName->setName('serviceProviderName');
+        $this->serviceProviderName->setElementName('serviceProviderName');
         return $this;
     }
 
@@ -117,7 +121,9 @@ class ServiceProviderAddRequest13mp2 extends ComplexType implements ComplexInter
      */
     public function getServiceProviderName()
     {
-        return ($this->serviceProviderName) ? $this->serviceProviderName->getValue() : null;
+        return ($this->serviceProviderName)
+            ? $this->serviceProviderName->getElementValue()
+            : null;
     }
 
     /**
@@ -128,7 +134,7 @@ class ServiceProviderAddRequest13mp2 extends ComplexType implements ComplexInter
         $this->supportEmail = ($supportEmail InstanceOf EmailAddress)
              ? $supportEmail
              : new EmailAddress($supportEmail);
-        $this->supportEmail->setName('supportEmail');
+        $this->supportEmail->setElementName('supportEmail');
         return $this;
     }
 
@@ -138,7 +144,9 @@ class ServiceProviderAddRequest13mp2 extends ComplexType implements ComplexInter
      */
     public function getSupportEmail()
     {
-        return ($this->supportEmail) ? $this->supportEmail->getValue() : null;
+        return ($this->supportEmail)
+            ? $this->supportEmail->getElementValue()
+            : null;
     }
 
     /**
@@ -149,7 +157,7 @@ class ServiceProviderAddRequest13mp2 extends ComplexType implements ComplexInter
         $this->contact = ($contact InstanceOf Contact)
              ? $contact
              : new Contact($contact);
-        $this->contact->setName('contact');
+        $this->contact->setElementName('contact');
         return $this;
     }
 
@@ -170,7 +178,7 @@ class ServiceProviderAddRequest13mp2 extends ComplexType implements ComplexInter
         $this->address = ($address InstanceOf StreetAddress)
              ? $address
              : new StreetAddress($address);
-        $this->address->setName('address');
+        $this->address->setElementName('address');
         return $this;
     }
 

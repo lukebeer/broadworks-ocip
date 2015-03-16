@@ -17,12 +17,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\MaxLength;
  */
 class DigitPatternCriteriaName extends SimpleType
 {
-    public $name = "DigitPatternCriteriaName";
-    protected $value;
-
+    public $elementName = "DigitPatternCriteriaName";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new MinLength("1"));
         $this->addRestriction(new MaxLength("40"));
     }

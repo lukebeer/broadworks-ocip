@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupMeetMeConferencingGetAvailableUserListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'GroupMeetMeConferencingGetAvailableUserListResponse';
+    public    $elementName = 'GroupMeetMeConferencingGetAvailableUserListResponse';
     protected $userTable;
 
     /**
@@ -37,7 +37,7 @@ class GroupMeetMeConferencingGetAvailableUserListResponse extends ComplexType im
     public function setUserTable(TableType $userTable = null)
     {
         $this->userTable = $userTable;
-        $this->userTable->setName('userTable');
+        $this->userTable->setElementName('userTable');
         return $this;
     }
 

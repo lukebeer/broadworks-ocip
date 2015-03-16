@@ -16,12 +16,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\Enumeration;
  */
 class BasicCallType extends SimpleType
 {
-    public $name = "BasicCallType";
-    protected $value;
-
+    public $elementName = "BasicCallType";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new Enumeration([
             'Group',
             'Enterprise',

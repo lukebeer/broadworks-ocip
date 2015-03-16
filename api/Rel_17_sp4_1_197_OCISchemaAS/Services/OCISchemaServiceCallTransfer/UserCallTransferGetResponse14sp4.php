@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserCallTransferGetResponse14sp4 extends ComplexType implements ComplexInterface
 {
-    public    $name = 'UserCallTransferGetResponse14sp4';
+    public    $elementName = 'UserCallTransferGetResponse14sp4';
     protected $isRecallActive;
     protected $recallNumberOfRings;
     protected $useDiversionInhibitorForBlindTransfer;
@@ -43,7 +43,7 @@ class UserCallTransferGetResponse14sp4 extends ComplexType implements ComplexInt
     public function setIsRecallActive($isRecallActive = null)
     {
         $this->isRecallActive = new PrimitiveType($isRecallActive);
-        $this->isRecallActive->setName('isRecallActive');
+        $this->isRecallActive->setElementName('isRecallActive');
         return $this;
     }
 
@@ -53,7 +53,9 @@ class UserCallTransferGetResponse14sp4 extends ComplexType implements ComplexInt
      */
     public function getIsRecallActive()
     {
-        return ($this->isRecallActive) ? $this->isRecallActive->getValue() : null;
+        return ($this->isRecallActive)
+            ? $this->isRecallActive->getElementValue()
+            : null;
     }
 
     /**
@@ -64,7 +66,7 @@ class UserCallTransferGetResponse14sp4 extends ComplexType implements ComplexInt
         $this->recallNumberOfRings = ($recallNumberOfRings InstanceOf CallTransferRecallNumberOfRings)
              ? $recallNumberOfRings
              : new CallTransferRecallNumberOfRings($recallNumberOfRings);
-        $this->recallNumberOfRings->setName('recallNumberOfRings');
+        $this->recallNumberOfRings->setElementName('recallNumberOfRings');
         return $this;
     }
 
@@ -74,7 +76,9 @@ class UserCallTransferGetResponse14sp4 extends ComplexType implements ComplexInt
      */
     public function getRecallNumberOfRings()
     {
-        return ($this->recallNumberOfRings) ? $this->recallNumberOfRings->getValue() : null;
+        return ($this->recallNumberOfRings)
+            ? $this->recallNumberOfRings->getElementValue()
+            : null;
     }
 
     /**
@@ -83,7 +87,7 @@ class UserCallTransferGetResponse14sp4 extends ComplexType implements ComplexInt
     public function setUseDiversionInhibitorForBlindTransfer($useDiversionInhibitorForBlindTransfer = null)
     {
         $this->useDiversionInhibitorForBlindTransfer = new PrimitiveType($useDiversionInhibitorForBlindTransfer);
-        $this->useDiversionInhibitorForBlindTransfer->setName('useDiversionInhibitorForBlindTransfer');
+        $this->useDiversionInhibitorForBlindTransfer->setElementName('useDiversionInhibitorForBlindTransfer');
         return $this;
     }
 
@@ -93,7 +97,9 @@ class UserCallTransferGetResponse14sp4 extends ComplexType implements ComplexInt
      */
     public function getUseDiversionInhibitorForBlindTransfer()
     {
-        return ($this->useDiversionInhibitorForBlindTransfer) ? $this->useDiversionInhibitorForBlindTransfer->getValue() : null;
+        return ($this->useDiversionInhibitorForBlindTransfer)
+            ? $this->useDiversionInhibitorForBlindTransfer->getElementValue()
+            : null;
     }
 
     /**
@@ -102,7 +108,7 @@ class UserCallTransferGetResponse14sp4 extends ComplexType implements ComplexInt
     public function setUseDiversionInhibitorForConsultativeCalls($useDiversionInhibitorForConsultativeCalls = null)
     {
         $this->useDiversionInhibitorForConsultativeCalls = new PrimitiveType($useDiversionInhibitorForConsultativeCalls);
-        $this->useDiversionInhibitorForConsultativeCalls->setName('useDiversionInhibitorForConsultativeCalls');
+        $this->useDiversionInhibitorForConsultativeCalls->setElementName('useDiversionInhibitorForConsultativeCalls');
         return $this;
     }
 
@@ -112,7 +118,9 @@ class UserCallTransferGetResponse14sp4 extends ComplexType implements ComplexInt
      */
     public function getUseDiversionInhibitorForConsultativeCalls()
     {
-        return ($this->useDiversionInhibitorForConsultativeCalls) ? $this->useDiversionInhibitorForConsultativeCalls->getValue() : null;
+        return ($this->useDiversionInhibitorForConsultativeCalls)
+            ? $this->useDiversionInhibitorForConsultativeCalls->getElementValue()
+            : null;
     }
 
     /**
@@ -121,7 +129,7 @@ class UserCallTransferGetResponse14sp4 extends ComplexType implements ComplexInt
     public function setEnableBusyCampOn($enableBusyCampOn = null)
     {
         $this->enableBusyCampOn = new PrimitiveType($enableBusyCampOn);
-        $this->enableBusyCampOn->setName('enableBusyCampOn');
+        $this->enableBusyCampOn->setElementName('enableBusyCampOn');
         return $this;
     }
 
@@ -131,7 +139,9 @@ class UserCallTransferGetResponse14sp4 extends ComplexType implements ComplexInt
      */
     public function getEnableBusyCampOn()
     {
-        return ($this->enableBusyCampOn) ? $this->enableBusyCampOn->getValue() : null;
+        return ($this->enableBusyCampOn)
+            ? $this->enableBusyCampOn->getElementValue()
+            : null;
     }
 
     /**
@@ -142,7 +152,7 @@ class UserCallTransferGetResponse14sp4 extends ComplexType implements ComplexInt
         $this->busyCampOnSeconds = ($busyCampOnSeconds InstanceOf CallTransferBusyCampOnSeconds)
              ? $busyCampOnSeconds
              : new CallTransferBusyCampOnSeconds($busyCampOnSeconds);
-        $this->busyCampOnSeconds->setName('busyCampOnSeconds');
+        $this->busyCampOnSeconds->setElementName('busyCampOnSeconds');
         return $this;
     }
 
@@ -152,6 +162,8 @@ class UserCallTransferGetResponse14sp4 extends ComplexType implements ComplexInt
      */
     public function getBusyCampOnSeconds()
     {
-        return ($this->busyCampOnSeconds) ? $this->busyCampOnSeconds->getValue() : null;
+        return ($this->busyCampOnSeconds)
+            ? $this->busyCampOnSeconds->getElementValue()
+            : null;
     }
 }

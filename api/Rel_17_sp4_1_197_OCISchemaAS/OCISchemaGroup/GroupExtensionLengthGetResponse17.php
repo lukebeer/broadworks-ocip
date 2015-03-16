@@ -19,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupExtensionLengthGetResponse17 extends ComplexType implements ComplexInterface
 {
-    public    $name = 'GroupExtensionLengthGetResponse17';
+    public    $elementName = 'GroupExtensionLengthGetResponse17';
     protected $minExtensionLength;
     protected $maxExtensionLength;
     protected $defaultExtensionLength;
@@ -40,7 +40,7 @@ class GroupExtensionLengthGetResponse17 extends ComplexType implements ComplexIn
         $this->minExtensionLength = ($minExtensionLength InstanceOf ExtensionLength)
              ? $minExtensionLength
              : new ExtensionLength($minExtensionLength);
-        $this->minExtensionLength->setName('minExtensionLength');
+        $this->minExtensionLength->setElementName('minExtensionLength');
         return $this;
     }
 
@@ -50,7 +50,9 @@ class GroupExtensionLengthGetResponse17 extends ComplexType implements ComplexIn
      */
     public function getMinExtensionLength()
     {
-        return ($this->minExtensionLength) ? $this->minExtensionLength->getValue() : null;
+        return ($this->minExtensionLength)
+            ? $this->minExtensionLength->getElementValue()
+            : null;
     }
 
     /**
@@ -61,7 +63,7 @@ class GroupExtensionLengthGetResponse17 extends ComplexType implements ComplexIn
         $this->maxExtensionLength = ($maxExtensionLength InstanceOf ExtensionLength)
              ? $maxExtensionLength
              : new ExtensionLength($maxExtensionLength);
-        $this->maxExtensionLength->setName('maxExtensionLength');
+        $this->maxExtensionLength->setElementName('maxExtensionLength');
         return $this;
     }
 
@@ -71,7 +73,9 @@ class GroupExtensionLengthGetResponse17 extends ComplexType implements ComplexIn
      */
     public function getMaxExtensionLength()
     {
-        return ($this->maxExtensionLength) ? $this->maxExtensionLength->getValue() : null;
+        return ($this->maxExtensionLength)
+            ? $this->maxExtensionLength->getElementValue()
+            : null;
     }
 
     /**
@@ -82,7 +86,7 @@ class GroupExtensionLengthGetResponse17 extends ComplexType implements ComplexIn
         $this->defaultExtensionLength = ($defaultExtensionLength InstanceOf ExtensionLength)
              ? $defaultExtensionLength
              : new ExtensionLength($defaultExtensionLength);
-        $this->defaultExtensionLength->setName('defaultExtensionLength');
+        $this->defaultExtensionLength->setElementName('defaultExtensionLength');
         return $this;
     }
 
@@ -92,6 +96,8 @@ class GroupExtensionLengthGetResponse17 extends ComplexType implements ComplexIn
      */
     public function getDefaultExtensionLength()
     {
-        return ($this->defaultExtensionLength) ? $this->defaultExtensionLength->getValue() : null;
+        return ($this->defaultExtensionLength)
+            ? $this->defaultExtensionLength->getElementValue()
+            : null;
     }
 }

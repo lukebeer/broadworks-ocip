@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
 class GroupHuntGroupGetInstanceRequest17sp3 extends ComplexType implements ComplexInterface
 {
     public    $responseType  = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated17\GroupHuntGroupGetInstanceResponse17sp3';
-    public    $name = 'GroupHuntGroupGetInstanceRequest17sp3';
+    public    $elementName = 'GroupHuntGroupGetInstanceRequest17sp3';
     protected $serviceUserId;
 
     public function __construct(
@@ -46,7 +46,7 @@ class GroupHuntGroupGetInstanceRequest17sp3 extends ComplexType implements Compl
         $this->serviceUserId = ($serviceUserId InstanceOf UserId)
              ? $serviceUserId
              : new UserId($serviceUserId);
-        $this->serviceUserId->setName('serviceUserId');
+        $this->serviceUserId->setElementName('serviceUserId');
         return $this;
     }
 
@@ -56,6 +56,8 @@ class GroupHuntGroupGetInstanceRequest17sp3 extends ComplexType implements Compl
      */
     public function getServiceUserId()
     {
-        return ($this->serviceUserId) ? $this->serviceUserId->getValue() : null;
+        return ($this->serviceUserId)
+            ? $this->serviceUserId->getElementValue()
+            : null;
     }
 }

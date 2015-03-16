@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserAdviceOfChargeModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'UserAdviceOfChargeModifyRequest';
+    public    $elementName = 'UserAdviceOfChargeModifyRequest';
     protected $userId;
     protected $isActive;
     protected $aocType;
@@ -53,7 +53,7 @@ class UserAdviceOfChargeModifyRequest extends ComplexType implements ComplexInte
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
-        $this->userId->setName('userId');
+        $this->userId->setElementName('userId');
         return $this;
     }
 
@@ -63,7 +63,9 @@ class UserAdviceOfChargeModifyRequest extends ComplexType implements ComplexInte
      */
     public function getUserId()
     {
-        return ($this->userId) ? $this->userId->getValue() : null;
+        return ($this->userId)
+            ? $this->userId->getElementValue()
+            : null;
     }
 
     /**
@@ -72,7 +74,7 @@ class UserAdviceOfChargeModifyRequest extends ComplexType implements ComplexInte
     public function setIsActive($isActive = null)
     {
         $this->isActive = new PrimitiveType($isActive);
-        $this->isActive->setName('isActive');
+        $this->isActive->setElementName('isActive');
         return $this;
     }
 
@@ -82,7 +84,9 @@ class UserAdviceOfChargeModifyRequest extends ComplexType implements ComplexInte
      */
     public function getIsActive()
     {
-        return ($this->isActive) ? $this->isActive->getValue() : null;
+        return ($this->isActive)
+            ? $this->isActive->getElementValue()
+            : null;
     }
 
     /**
@@ -93,7 +97,7 @@ class UserAdviceOfChargeModifyRequest extends ComplexType implements ComplexInte
         $this->aocType = ($aocType InstanceOf AdviceOfChargeType)
              ? $aocType
              : new AdviceOfChargeType($aocType);
-        $this->aocType->setName('aocType');
+        $this->aocType->setElementName('aocType');
         return $this;
     }
 
@@ -103,6 +107,8 @@ class UserAdviceOfChargeModifyRequest extends ComplexType implements ComplexInte
      */
     public function getAocType()
     {
-        return ($this->aocType) ? $this->aocType->getValue() : null;
+        return ($this->aocType)
+            ? $this->aocType->getElementValue()
+            : null;
     }
 }

@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class InstantConferencingRecurrenceScheduleMonthlyByWeek extends ComplexType implements ComplexInterface
 {
-    public    $name = 'InstantConferencingRecurrenceScheduleMonthlyByWeek';
+    public    $elementName = 'InstantConferencingRecurrenceScheduleMonthlyByWeek';
     protected $weekOfMonth;
     protected $dayOfWeek;
 
@@ -48,7 +48,7 @@ class InstantConferencingRecurrenceScheduleMonthlyByWeek extends ComplexType imp
         $this->weekOfMonth = ($weekOfMonth InstanceOf InstantConferencingWeekOfMonth)
              ? $weekOfMonth
              : new InstantConferencingWeekOfMonth($weekOfMonth);
-        $this->weekOfMonth->setName('weekOfMonth');
+        $this->weekOfMonth->setElementName('weekOfMonth');
         return $this;
     }
 
@@ -58,7 +58,9 @@ class InstantConferencingRecurrenceScheduleMonthlyByWeek extends ComplexType imp
      */
     public function getWeekOfMonth()
     {
-        return ($this->weekOfMonth) ? $this->weekOfMonth->getValue() : null;
+        return ($this->weekOfMonth)
+            ? $this->weekOfMonth->getElementValue()
+            : null;
     }
 
     /**
@@ -69,7 +71,7 @@ class InstantConferencingRecurrenceScheduleMonthlyByWeek extends ComplexType imp
         $this->dayOfWeek = ($dayOfWeek InstanceOf DayOfWeek)
              ? $dayOfWeek
              : new DayOfWeek($dayOfWeek);
-        $this->dayOfWeek->setName('dayOfWeek');
+        $this->dayOfWeek->setElementName('dayOfWeek');
         return $this;
     }
 
@@ -79,6 +81,8 @@ class InstantConferencingRecurrenceScheduleMonthlyByWeek extends ComplexType imp
      */
     public function getDayOfWeek()
     {
-        return ($this->dayOfWeek) ? $this->dayOfWeek->getValue() : null;
+        return ($this->dayOfWeek)
+            ? $this->dayOfWeek->getElementValue()
+            : null;
     }
 }

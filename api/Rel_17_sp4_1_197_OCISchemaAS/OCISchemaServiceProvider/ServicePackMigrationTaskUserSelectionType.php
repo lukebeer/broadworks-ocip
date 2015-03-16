@@ -16,12 +16,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\Enumeration;
  */
 class ServicePackMigrationTaskUserSelectionType extends SimpleType
 {
-    public $name = "ServicePackMigrationTaskUserSelectionType";
-    protected $value;
-
+    public $elementName = "ServicePackMigrationTaskUserSelectionType";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new Enumeration([
             'All',
             'Any',

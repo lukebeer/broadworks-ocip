@@ -16,12 +16,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\MinInclusive;
  */
 class TrapInitialThreshold extends SimpleType
 {
-    public $name = "TrapInitialThreshold";
-    protected $value;
-
+    public $elementName = "TrapInitialThreshold";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new MinInclusive("0"));
     }
 }

@@ -23,7 +23,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserInstantConferencingSetPresentationSlideNameRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'UserInstantConferencingSetPresentationSlideNameRequest';
+    public    $elementName = 'UserInstantConferencingSetPresentationSlideNameRequest';
     protected $userId;
     protected $bridgeServiceUserId;
     protected $documentId;
@@ -63,7 +63,7 @@ class UserInstantConferencingSetPresentationSlideNameRequest extends ComplexType
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
-        $this->userId->setName('userId');
+        $this->userId->setElementName('userId');
         return $this;
     }
 
@@ -73,7 +73,9 @@ class UserInstantConferencingSetPresentationSlideNameRequest extends ComplexType
      */
     public function getUserId()
     {
-        return ($this->userId) ? $this->userId->getValue() : null;
+        return ($this->userId)
+            ? $this->userId->getElementValue()
+            : null;
     }
 
     /**
@@ -84,7 +86,7 @@ class UserInstantConferencingSetPresentationSlideNameRequest extends ComplexType
         $this->bridgeServiceUserId = ($bridgeServiceUserId InstanceOf UserId)
              ? $bridgeServiceUserId
              : new UserId($bridgeServiceUserId);
-        $this->bridgeServiceUserId->setName('bridgeServiceUserId');
+        $this->bridgeServiceUserId->setElementName('bridgeServiceUserId');
         return $this;
     }
 
@@ -94,7 +96,9 @@ class UserInstantConferencingSetPresentationSlideNameRequest extends ComplexType
      */
     public function getBridgeServiceUserId()
     {
-        return ($this->bridgeServiceUserId) ? $this->bridgeServiceUserId->getValue() : null;
+        return ($this->bridgeServiceUserId)
+            ? $this->bridgeServiceUserId->getElementValue()
+            : null;
     }
 
     /**
@@ -105,7 +109,7 @@ class UserInstantConferencingSetPresentationSlideNameRequest extends ComplexType
         $this->documentId = ($documentId InstanceOf InstantConferencingDocumentId)
              ? $documentId
              : new InstantConferencingDocumentId($documentId);
-        $this->documentId->setName('documentId');
+        $this->documentId->setElementName('documentId');
         return $this;
     }
 
@@ -115,7 +119,9 @@ class UserInstantConferencingSetPresentationSlideNameRequest extends ComplexType
      */
     public function getDocumentId()
     {
-        return ($this->documentId) ? $this->documentId->getValue() : null;
+        return ($this->documentId)
+            ? $this->documentId->getElementValue()
+            : null;
     }
 
     /**
@@ -126,7 +132,7 @@ class UserInstantConferencingSetPresentationSlideNameRequest extends ComplexType
         $this->accessCode = ($accessCode InstanceOf InstantConferencingAccessCode)
              ? $accessCode
              : new InstantConferencingAccessCode($accessCode);
-        $this->accessCode->setName('accessCode');
+        $this->accessCode->setElementName('accessCode');
         return $this;
     }
 
@@ -136,7 +142,9 @@ class UserInstantConferencingSetPresentationSlideNameRequest extends ComplexType
      */
     public function getAccessCode()
     {
-        return ($this->accessCode) ? $this->accessCode->getValue() : null;
+        return ($this->accessCode)
+            ? $this->accessCode->getElementValue()
+            : null;
     }
 
     /**
@@ -147,7 +155,7 @@ class UserInstantConferencingSetPresentationSlideNameRequest extends ComplexType
         $this->previousSlideName = ($previousSlideName InstanceOf InstantConferencingSlideName)
              ? $previousSlideName
              : new InstantConferencingSlideName($previousSlideName);
-        $this->previousSlideName->setName('previousSlideName');
+        $this->previousSlideName->setElementName('previousSlideName');
         return $this;
     }
 
@@ -157,7 +165,9 @@ class UserInstantConferencingSetPresentationSlideNameRequest extends ComplexType
      */
     public function getPreviousSlideName()
     {
-        return ($this->previousSlideName) ? $this->previousSlideName->getValue() : null;
+        return ($this->previousSlideName)
+            ? $this->previousSlideName->getElementValue()
+            : null;
     }
 
     /**
@@ -168,7 +178,7 @@ class UserInstantConferencingSetPresentationSlideNameRequest extends ComplexType
         $this->newSlideName = ($newSlideName InstanceOf InstantConferencingSlideName)
              ? $newSlideName
              : new InstantConferencingSlideName($newSlideName);
-        $this->newSlideName->setName('newSlideName');
+        $this->newSlideName->setElementName('newSlideName');
         return $this;
     }
 
@@ -178,6 +188,8 @@ class UserInstantConferencingSetPresentationSlideNameRequest extends ComplexType
      */
     public function getNewSlideName()
     {
-        return ($this->newSlideName) ? $this->newSlideName->getValue() : null;
+        return ($this->newSlideName)
+            ? $this->newSlideName->getElementValue()
+            : null;
     }
 }

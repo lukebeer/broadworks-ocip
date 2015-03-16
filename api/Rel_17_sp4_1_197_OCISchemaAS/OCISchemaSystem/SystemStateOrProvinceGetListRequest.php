@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
 class SystemStateOrProvinceGetListRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemStateOrProvinceGetListResponse';
-    public    $name = 'SystemStateOrProvinceGetListRequest';
+    public    $elementName = 'SystemStateOrProvinceGetListRequest';
 
     public function __construct(    ) {
     }

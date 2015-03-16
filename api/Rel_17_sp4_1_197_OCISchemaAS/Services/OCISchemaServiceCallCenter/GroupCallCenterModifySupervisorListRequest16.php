@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupCallCenterModifySupervisorListRequest16 extends ComplexType implements ComplexInterface
 {
-    public    $name = 'GroupCallCenterModifySupervisorListRequest16';
+    public    $elementName = 'GroupCallCenterModifySupervisorListRequest16';
     protected $serviceUserId;
     protected $supervisorUserIdList;
 
@@ -49,7 +49,7 @@ class GroupCallCenterModifySupervisorListRequest16 extends ComplexType implement
         $this->serviceUserId = ($serviceUserId InstanceOf UserId)
              ? $serviceUserId
              : new UserId($serviceUserId);
-        $this->serviceUserId->setName('serviceUserId');
+        $this->serviceUserId->setElementName('serviceUserId');
         return $this;
     }
 
@@ -59,7 +59,9 @@ class GroupCallCenterModifySupervisorListRequest16 extends ComplexType implement
      */
     public function getServiceUserId()
     {
-        return ($this->serviceUserId) ? $this->serviceUserId->getValue() : null;
+        return ($this->serviceUserId)
+            ? $this->serviceUserId->getElementValue()
+            : null;
     }
 
     /**
@@ -70,7 +72,7 @@ class GroupCallCenterModifySupervisorListRequest16 extends ComplexType implement
         $this->supervisorUserIdList = ($supervisorUserIdList InstanceOf ReplacementUserIdList)
              ? $supervisorUserIdList
              : new ReplacementUserIdList($supervisorUserIdList);
-        $this->supervisorUserIdList->setName('supervisorUserIdList');
+        $this->supervisorUserIdList->setElementName('supervisorUserIdList');
         return $this;
     }
 

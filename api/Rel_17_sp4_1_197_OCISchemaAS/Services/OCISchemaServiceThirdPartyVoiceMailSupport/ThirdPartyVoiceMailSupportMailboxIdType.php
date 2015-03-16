@@ -16,12 +16,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\Enumeration;
  */
 class ThirdPartyVoiceMailSupportMailboxIdType extends SimpleType
 {
-    public $name = "ThirdPartyVoiceMailSupportMailboxIdType";
-    protected $value;
-
+    public $elementName = "ThirdPartyVoiceMailSupportMailboxIdType";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new Enumeration([
             'User Or Group Phone Number',
             'URL'

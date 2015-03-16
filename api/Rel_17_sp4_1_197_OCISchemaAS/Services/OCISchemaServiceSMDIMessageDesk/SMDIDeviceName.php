@@ -17,12 +17,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\MaxLength;
  */
 class SMDIDeviceName extends SimpleType
 {
-    public $name = "SMDIDeviceName";
-    protected $value;
-
+    public $elementName = "SMDIDeviceName";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new MinLength("1"));
         $this->addRestriction(new MaxLength("40"));
     }

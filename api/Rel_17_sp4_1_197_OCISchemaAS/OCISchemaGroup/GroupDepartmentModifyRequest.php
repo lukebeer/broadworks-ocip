@@ -23,7 +23,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupDepartmentModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'GroupDepartmentModifyRequest';
+    public    $elementName = 'GroupDepartmentModifyRequest';
     protected $serviceProviderId;
     protected $groupId;
     protected $departmentName;
@@ -60,7 +60,7 @@ class GroupDepartmentModifyRequest extends ComplexType implements ComplexInterfa
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
-        $this->serviceProviderId->setName('serviceProviderId');
+        $this->serviceProviderId->setElementName('serviceProviderId');
         return $this;
     }
 
@@ -70,7 +70,9 @@ class GroupDepartmentModifyRequest extends ComplexType implements ComplexInterfa
      */
     public function getServiceProviderId()
     {
-        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
+        return ($this->serviceProviderId)
+            ? $this->serviceProviderId->getElementValue()
+            : null;
     }
 
     /**
@@ -81,7 +83,7 @@ class GroupDepartmentModifyRequest extends ComplexType implements ComplexInterfa
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
-        $this->groupId->setName('groupId');
+        $this->groupId->setElementName('groupId');
         return $this;
     }
 
@@ -91,7 +93,9 @@ class GroupDepartmentModifyRequest extends ComplexType implements ComplexInterfa
      */
     public function getGroupId()
     {
-        return ($this->groupId) ? $this->groupId->getValue() : null;
+        return ($this->groupId)
+            ? $this->groupId->getElementValue()
+            : null;
     }
 
     /**
@@ -102,7 +106,7 @@ class GroupDepartmentModifyRequest extends ComplexType implements ComplexInterfa
         $this->departmentName = ($departmentName InstanceOf DepartmentName)
              ? $departmentName
              : new DepartmentName($departmentName);
-        $this->departmentName->setName('departmentName');
+        $this->departmentName->setElementName('departmentName');
         return $this;
     }
 
@@ -112,7 +116,9 @@ class GroupDepartmentModifyRequest extends ComplexType implements ComplexInterfa
      */
     public function getDepartmentName()
     {
-        return ($this->departmentName) ? $this->departmentName->getValue() : null;
+        return ($this->departmentName)
+            ? $this->departmentName->getElementValue()
+            : null;
     }
 
     /**
@@ -123,7 +129,7 @@ class GroupDepartmentModifyRequest extends ComplexType implements ComplexInterfa
         $this->newDepartmentName = ($newDepartmentName InstanceOf DepartmentName)
              ? $newDepartmentName
              : new DepartmentName($newDepartmentName);
-        $this->newDepartmentName->setName('newDepartmentName');
+        $this->newDepartmentName->setElementName('newDepartmentName');
         return $this;
     }
 
@@ -133,7 +139,9 @@ class GroupDepartmentModifyRequest extends ComplexType implements ComplexInterfa
      */
     public function getNewDepartmentName()
     {
-        return ($this->newDepartmentName) ? $this->newDepartmentName->getValue() : null;
+        return ($this->newDepartmentName)
+            ? $this->newDepartmentName->getElementValue()
+            : null;
     }
 
     /**
@@ -144,7 +152,7 @@ class GroupDepartmentModifyRequest extends ComplexType implements ComplexInterfa
         $this->newParentDepartmentKey = ($newParentDepartmentKey InstanceOf DepartmentKey)
              ? $newParentDepartmentKey
              : new DepartmentKey($newParentDepartmentKey);
-        $this->newParentDepartmentKey->setName('newParentDepartmentKey');
+        $this->newParentDepartmentKey->setElementName('newParentDepartmentKey');
         return $this;
     }
 

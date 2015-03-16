@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemCPEConfigModifyFileServerRequest14sp6 extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemCPEConfigModifyFileServerRequest14sp6';
+    public    $elementName = 'SystemCPEConfigModifyFileServerRequest14sp6';
     protected $deviceType;
     protected $fileRepositoryName;
     protected $cpeFileDirectory;
@@ -53,7 +53,7 @@ class SystemCPEConfigModifyFileServerRequest14sp6 extends ComplexType implements
         $this->deviceType = ($deviceType InstanceOf AccessDeviceType)
              ? $deviceType
              : new AccessDeviceType($deviceType);
-        $this->deviceType->setName('deviceType');
+        $this->deviceType->setElementName('deviceType');
         return $this;
     }
 
@@ -63,7 +63,9 @@ class SystemCPEConfigModifyFileServerRequest14sp6 extends ComplexType implements
      */
     public function getDeviceType()
     {
-        return ($this->deviceType) ? $this->deviceType->getValue() : null;
+        return ($this->deviceType)
+            ? $this->deviceType->getElementValue()
+            : null;
     }
 
     /**
@@ -74,7 +76,7 @@ class SystemCPEConfigModifyFileServerRequest14sp6 extends ComplexType implements
         $this->fileRepositoryName = ($fileRepositoryName InstanceOf FileRepositoryName)
              ? $fileRepositoryName
              : new FileRepositoryName($fileRepositoryName);
-        $this->fileRepositoryName->setName('fileRepositoryName');
+        $this->fileRepositoryName->setElementName('fileRepositoryName');
         return $this;
     }
 
@@ -84,7 +86,9 @@ class SystemCPEConfigModifyFileServerRequest14sp6 extends ComplexType implements
      */
     public function getFileRepositoryName()
     {
-        return ($this->fileRepositoryName) ? $this->fileRepositoryName->getValue() : null;
+        return ($this->fileRepositoryName)
+            ? $this->fileRepositoryName->getElementValue()
+            : null;
     }
 
     /**
@@ -95,7 +99,7 @@ class SystemCPEConfigModifyFileServerRequest14sp6 extends ComplexType implements
         $this->cpeFileDirectory = ($cpeFileDirectory InstanceOf CPEFileDirectory)
              ? $cpeFileDirectory
              : new CPEFileDirectory($cpeFileDirectory);
-        $this->cpeFileDirectory->setName('cpeFileDirectory');
+        $this->cpeFileDirectory->setElementName('cpeFileDirectory');
         return $this;
     }
 
@@ -105,6 +109,8 @@ class SystemCPEConfigModifyFileServerRequest14sp6 extends ComplexType implements
      */
     public function getCpeFileDirectory()
     {
-        return ($this->cpeFileDirectory) ? $this->cpeFileDirectory->getValue() : null;
+        return ($this->cpeFileDirectory)
+            ? $this->cpeFileDirectory->getElementValue()
+            : null;
     }
 }

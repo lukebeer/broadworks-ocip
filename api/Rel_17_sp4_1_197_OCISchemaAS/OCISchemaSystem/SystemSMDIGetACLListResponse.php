@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemSMDIGetACLListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemSMDIGetACLListResponse';
+    public    $elementName = 'SystemSMDIGetACLListResponse';
     protected $aclTable;
 
     /**
@@ -37,7 +37,7 @@ class SystemSMDIGetACLListResponse extends ComplexType implements ComplexInterfa
     public function setAclTable(TableType $aclTable = null)
     {
         $this->aclTable = $aclTable;
-        $this->aclTable->setName('aclTable');
+        $this->aclTable->setElementName('aclTable');
         return $this;
     }
 

@@ -17,12 +17,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\MaxLength;
  */
 class CallLogsEntryName extends SimpleType
 {
-    public $name = "CallLogsEntryName";
-    protected $value;
-
+    public $elementName = "CallLogsEntryName";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new MinLength("1"));
         $this->addRestriction(new MaxLength("62"));
     }

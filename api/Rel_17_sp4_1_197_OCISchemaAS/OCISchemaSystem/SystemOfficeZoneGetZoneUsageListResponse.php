@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemOfficeZoneGetZoneUsageListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemOfficeZoneGetZoneUsageListResponse';
+    public    $elementName = 'SystemOfficeZoneGetZoneUsageListResponse';
     protected $officeZoneTable;
 
     /**
@@ -39,7 +39,7 @@ class SystemOfficeZoneGetZoneUsageListResponse extends ComplexType implements Co
     public function setOfficeZoneTable(TableType $officeZoneTable = null)
     {
         $this->officeZoneTable = $officeZoneTable;
-        $this->officeZoneTable->setName('officeZoneTable');
+        $this->officeZoneTable->setElementName('officeZoneTable');
         return $this;
     }
 

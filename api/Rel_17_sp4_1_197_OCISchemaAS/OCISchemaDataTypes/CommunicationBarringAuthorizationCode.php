@@ -17,12 +17,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\MaxLength;
  */
 class CommunicationBarringAuthorizationCode extends SimpleType
 {
-    public $name = "CommunicationBarringAuthorizationCode";
-    protected $value;
-
+    public $elementName = "CommunicationBarringAuthorizationCode";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new MinLength("2"));
         $this->addRestriction(new MaxLength("14"));
     }

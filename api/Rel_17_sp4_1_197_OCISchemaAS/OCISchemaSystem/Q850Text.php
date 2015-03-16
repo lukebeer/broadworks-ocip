@@ -17,12 +17,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\MaxLength;
  */
 class Q850Text extends SimpleType
 {
-    public $name = "Q850Text";
-    protected $value;
-
+    public $elementName = "Q850Text";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new MinLength("1"));
         $this->addRestriction(new MaxLength("50"));
     }

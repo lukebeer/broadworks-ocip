@@ -27,7 +27,7 @@ use Broadworks_OCIP\core\Client\Client;
 class SystemAccessDeviceGetListRequest14 extends ComplexType implements ComplexInterface
 {
     public    $responseType                   = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemAccessDeviceGetListResponse14';
-    public    $name = 'SystemAccessDeviceGetListRequest14';
+    public    $elementName = 'SystemAccessDeviceGetListRequest14';
     protected $responseSizeLimit;
     protected $searchCriteriaDeviceName;
     protected $searchCriteriaDeviceMACAddress;
@@ -64,7 +64,7 @@ class SystemAccessDeviceGetListRequest14 extends ComplexType implements ComplexI
         $this->responseSizeLimit = ($responseSizeLimit InstanceOf ResponseSizeLimit)
              ? $responseSizeLimit
              : new ResponseSizeLimit($responseSizeLimit);
-        $this->responseSizeLimit->setName('responseSizeLimit');
+        $this->responseSizeLimit->setElementName('responseSizeLimit');
         return $this;
     }
 
@@ -74,7 +74,9 @@ class SystemAccessDeviceGetListRequest14 extends ComplexType implements ComplexI
      */
     public function getResponseSizeLimit()
     {
-        return ($this->responseSizeLimit) ? $this->responseSizeLimit->getValue() : null;
+        return ($this->responseSizeLimit)
+            ? $this->responseSizeLimit->getElementValue()
+            : null;
     }
 
     /**
@@ -85,7 +87,7 @@ class SystemAccessDeviceGetListRequest14 extends ComplexType implements ComplexI
         $this->searchCriteriaDeviceName = ($searchCriteriaDeviceName InstanceOf SearchCriteriaDeviceName)
              ? $searchCriteriaDeviceName
              : new SearchCriteriaDeviceName($searchCriteriaDeviceName);
-        $this->searchCriteriaDeviceName->setName('searchCriteriaDeviceName');
+        $this->searchCriteriaDeviceName->setElementName('searchCriteriaDeviceName');
         return $this;
     }
 
@@ -106,7 +108,7 @@ class SystemAccessDeviceGetListRequest14 extends ComplexType implements ComplexI
         $this->searchCriteriaDeviceMACAddress = ($searchCriteriaDeviceMACAddress InstanceOf SearchCriteriaDeviceMACAddress)
              ? $searchCriteriaDeviceMACAddress
              : new SearchCriteriaDeviceMACAddress($searchCriteriaDeviceMACAddress);
-        $this->searchCriteriaDeviceMACAddress->setName('searchCriteriaDeviceMACAddress');
+        $this->searchCriteriaDeviceMACAddress->setElementName('searchCriteriaDeviceMACAddress');
         return $this;
     }
 
@@ -127,7 +129,7 @@ class SystemAccessDeviceGetListRequest14 extends ComplexType implements ComplexI
         $this->searchCriteriaDeviceNetAddress = ($searchCriteriaDeviceNetAddress InstanceOf SearchCriteriaDeviceNetAddress)
              ? $searchCriteriaDeviceNetAddress
              : new SearchCriteriaDeviceNetAddress($searchCriteriaDeviceNetAddress);
-        $this->searchCriteriaDeviceNetAddress->setName('searchCriteriaDeviceNetAddress');
+        $this->searchCriteriaDeviceNetAddress->setElementName('searchCriteriaDeviceNetAddress');
         return $this;
     }
 
@@ -148,7 +150,7 @@ class SystemAccessDeviceGetListRequest14 extends ComplexType implements ComplexI
         $this->searchCriteriaExactDeviceType = ($searchCriteriaExactDeviceType InstanceOf SearchCriteriaExactDeviceType)
              ? $searchCriteriaExactDeviceType
              : new SearchCriteriaExactDeviceType($searchCriteriaExactDeviceType);
-        $this->searchCriteriaExactDeviceType->setName('searchCriteriaExactDeviceType');
+        $this->searchCriteriaExactDeviceType->setElementName('searchCriteriaExactDeviceType');
         return $this;
     }
 

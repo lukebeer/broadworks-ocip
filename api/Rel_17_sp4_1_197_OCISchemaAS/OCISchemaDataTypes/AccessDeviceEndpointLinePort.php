@@ -26,12 +26,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\MaxLength;
  */
 class AccessDeviceEndpointLinePort extends SimpleType
 {
-    public $name = "AccessDeviceEndpointLinePort";
-    protected $value;
-
+    public $elementName = "AccessDeviceEndpointLinePort";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new MinLength("1"));
         $this->addRestriction(new MaxLength("161"));
     }

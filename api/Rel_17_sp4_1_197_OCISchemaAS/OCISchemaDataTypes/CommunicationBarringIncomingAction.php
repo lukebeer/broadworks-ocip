@@ -16,12 +16,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\Enumeration;
  */
 class CommunicationBarringIncomingAction extends SimpleType
 {
-    public $name = "CommunicationBarringIncomingAction";
-    protected $value;
-
+    public $elementName = "CommunicationBarringIncomingAction";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new Enumeration([
             'Allow',
             'Allow Timed',

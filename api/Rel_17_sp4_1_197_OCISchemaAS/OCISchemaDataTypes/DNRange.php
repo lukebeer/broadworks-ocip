@@ -19,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class DNRange extends ComplexType implements ComplexInterface
 {
-    public    $name = 'DNRange';
+    public    $elementName = 'DNRange';
     protected $minPhoneNumber;
     protected $maxPhoneNumber;
 
@@ -45,7 +45,7 @@ class DNRange extends ComplexType implements ComplexInterface
     public function setMinPhoneNumber($minPhoneNumber = null)
     {
         $this->minPhoneNumber = new SimpleContent($minPhoneNumber);
-        $this->minPhoneNumber->setName('minPhoneNumber');
+        $this->minPhoneNumber->setElementName('minPhoneNumber');
         return $this;
     }
 
@@ -55,7 +55,9 @@ class DNRange extends ComplexType implements ComplexInterface
      */
     public function getMinPhoneNumber()
     {
-        return ($this->minPhoneNumber) ? $this->minPhoneNumber->getValue() : null;
+        return ($this->minPhoneNumber)
+            ? $this->minPhoneNumber->getElementValue()
+            : null;
     }
 
     /**
@@ -64,7 +66,7 @@ class DNRange extends ComplexType implements ComplexInterface
     public function setMaxPhoneNumber($maxPhoneNumber = null)
     {
         $this->maxPhoneNumber = new SimpleContent($maxPhoneNumber);
-        $this->maxPhoneNumber->setName('maxPhoneNumber');
+        $this->maxPhoneNumber->setElementName('maxPhoneNumber');
         return $this;
     }
 
@@ -74,6 +76,8 @@ class DNRange extends ComplexType implements ComplexInterface
      */
     public function getMaxPhoneNumber()
     {
-        return ($this->maxPhoneNumber) ? $this->maxPhoneNumber->getValue() : null;
+        return ($this->maxPhoneNumber)
+            ? $this->maxPhoneNumber->getElementValue()
+            : null;
     }
 }

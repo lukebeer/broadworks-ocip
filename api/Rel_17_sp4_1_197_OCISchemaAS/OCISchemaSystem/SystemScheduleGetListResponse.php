@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemScheduleGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemScheduleGetListResponse';
+    public    $elementName = 'SystemScheduleGetListResponse';
     protected $scheduleName;
     protected $scheduleType;
 
@@ -41,7 +41,7 @@ class SystemScheduleGetListResponse extends ComplexType implements ComplexInterf
         $this->scheduleName = ($scheduleName InstanceOf ScheduleName)
              ? $scheduleName
              : new ScheduleName($scheduleName);
-        $this->scheduleName->setName('scheduleName');
+        $this->scheduleName->setElementName('scheduleName');
         return $this;
     }
 
@@ -51,7 +51,9 @@ class SystemScheduleGetListResponse extends ComplexType implements ComplexInterf
      */
     public function getScheduleName()
     {
-        return ($this->scheduleName) ? $this->scheduleName->getValue() : null;
+        return ($this->scheduleName)
+            ? $this->scheduleName->getElementValue()
+            : null;
     }
 
     /**
@@ -62,7 +64,7 @@ class SystemScheduleGetListResponse extends ComplexType implements ComplexInterf
         $this->scheduleType = ($scheduleType InstanceOf ScheduleType)
              ? $scheduleType
              : new ScheduleType($scheduleType);
-        $this->scheduleType->setName('scheduleType');
+        $this->scheduleType->setElementName('scheduleType');
         return $this;
     }
 
@@ -72,6 +74,8 @@ class SystemScheduleGetListResponse extends ComplexType implements ComplexInterf
      */
     public function getScheduleType()
     {
-        return ($this->scheduleType) ? $this->scheduleType->getValue() : null;
+        return ($this->scheduleType)
+            ? $this->scheduleType->getElementValue()
+            : null;
     }
 }

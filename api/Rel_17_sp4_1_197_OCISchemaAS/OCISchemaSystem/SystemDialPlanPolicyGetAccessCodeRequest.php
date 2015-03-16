@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
 class SystemDialPlanPolicyGetAccessCodeRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemDialPlanPolicyGetAccessCodeResponse';
-    public    $name = 'SystemDialPlanPolicyGetAccessCodeRequest';
+    public    $elementName = 'SystemDialPlanPolicyGetAccessCodeRequest';
     protected $accessCode;
 
     public function __construct(
@@ -46,7 +46,7 @@ class SystemDialPlanPolicyGetAccessCodeRequest extends ComplexType implements Co
         $this->accessCode = ($accessCode InstanceOf DialPlanAccessCode)
              ? $accessCode
              : new DialPlanAccessCode($accessCode);
-        $this->accessCode->setName('accessCode');
+        $this->accessCode->setElementName('accessCode');
         return $this;
     }
 
@@ -56,6 +56,8 @@ class SystemDialPlanPolicyGetAccessCodeRequest extends ComplexType implements Co
      */
     public function getAccessCode()
     {
-        return ($this->accessCode) ? $this->accessCode->getValue() : null;
+        return ($this->accessCode)
+            ? $this->accessCode->getElementValue()
+            : null;
     }
 }

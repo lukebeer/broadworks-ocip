@@ -19,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class OCICommand extends ComplexType implements ComplexInterface
 {
-    public    $name = 'OCICommand';
+    public    $elementName = 'OCICommand';
 
     public function __construct(    ) {
     }

@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemRoamingNetworkModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemRoamingNetworkModifyRequest';
+    public    $elementName = 'SystemRoamingNetworkModifyRequest';
     protected $mscAddress;
     protected $networkTranslationIndex;
 
@@ -49,7 +49,7 @@ class SystemRoamingNetworkModifyRequest extends ComplexType implements ComplexIn
         $this->mscAddress = ($mscAddress InstanceOf DN)
              ? $mscAddress
              : new DN($mscAddress);
-        $this->mscAddress->setName('mscAddress');
+        $this->mscAddress->setElementName('mscAddress');
         return $this;
     }
 
@@ -59,7 +59,9 @@ class SystemRoamingNetworkModifyRequest extends ComplexType implements ComplexIn
      */
     public function getMscAddress()
     {
-        return ($this->mscAddress) ? $this->mscAddress->getValue() : null;
+        return ($this->mscAddress)
+            ? $this->mscAddress->getElementValue()
+            : null;
     }
 
     /**
@@ -70,7 +72,7 @@ class SystemRoamingNetworkModifyRequest extends ComplexType implements ComplexIn
         $this->networkTranslationIndex = ($networkTranslationIndex InstanceOf NetworkTranslationIndex)
              ? $networkTranslationIndex
              : new NetworkTranslationIndex($networkTranslationIndex);
-        $this->networkTranslationIndex->setName('networkTranslationIndex');
+        $this->networkTranslationIndex->setElementName('networkTranslationIndex');
         return $this;
     }
 
@@ -80,6 +82,8 @@ class SystemRoamingNetworkModifyRequest extends ComplexType implements ComplexIn
      */
     public function getNetworkTranslationIndex()
     {
-        return ($this->networkTranslationIndex) ? $this->networkTranslationIndex->getValue() : null;
+        return ($this->networkTranslationIndex)
+            ? $this->networkTranslationIndex->getElementValue()
+            : null;
     }
 }

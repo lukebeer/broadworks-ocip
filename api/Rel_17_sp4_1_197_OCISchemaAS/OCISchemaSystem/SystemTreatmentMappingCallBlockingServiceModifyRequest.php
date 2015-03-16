@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemTreatmentMappingCallBlockingServiceModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemTreatmentMappingCallBlockingServiceModifyRequest';
+    public    $elementName = 'SystemTreatmentMappingCallBlockingServiceModifyRequest';
     protected $callBlockingService;
     protected $treatmentId;
 
@@ -48,7 +48,7 @@ class SystemTreatmentMappingCallBlockingServiceModifyRequest extends ComplexType
         $this->callBlockingService = ($callBlockingService InstanceOf CallBlockingService)
              ? $callBlockingService
              : new CallBlockingService($callBlockingService);
-        $this->callBlockingService->setName('callBlockingService');
+        $this->callBlockingService->setElementName('callBlockingService');
         return $this;
     }
 
@@ -58,7 +58,9 @@ class SystemTreatmentMappingCallBlockingServiceModifyRequest extends ComplexType
      */
     public function getCallBlockingService()
     {
-        return ($this->callBlockingService) ? $this->callBlockingService->getValue() : null;
+        return ($this->callBlockingService)
+            ? $this->callBlockingService->getElementValue()
+            : null;
     }
 
     /**
@@ -69,7 +71,7 @@ class SystemTreatmentMappingCallBlockingServiceModifyRequest extends ComplexType
         $this->treatmentId = ($treatmentId InstanceOf TreatmentId)
              ? $treatmentId
              : new TreatmentId($treatmentId);
-        $this->treatmentId->setName('treatmentId');
+        $this->treatmentId->setElementName('treatmentId');
         return $this;
     }
 
@@ -79,6 +81,8 @@ class SystemTreatmentMappingCallBlockingServiceModifyRequest extends ComplexType
      */
     public function getTreatmentId()
     {
-        return ($this->treatmentId) ? $this->treatmentId->getValue() : null;
+        return ($this->treatmentId)
+            ? $this->treatmentId->getElementValue()
+            : null;
     }
 }

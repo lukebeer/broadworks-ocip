@@ -25,7 +25,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemDnGetUtilizationResponse14sp3 extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemDnGetUtilizationResponse14sp3';
+    public    $elementName = 'SystemDnGetUtilizationResponse14sp3';
     protected $serviceProviderId;
     protected $groupId;
     protected $userId;
@@ -49,7 +49,7 @@ class SystemDnGetUtilizationResponse14sp3 extends ComplexType implements Complex
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
-        $this->serviceProviderId->setName('serviceProviderId');
+        $this->serviceProviderId->setElementName('serviceProviderId');
         return $this;
     }
 
@@ -59,7 +59,9 @@ class SystemDnGetUtilizationResponse14sp3 extends ComplexType implements Complex
      */
     public function getServiceProviderId()
     {
-        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
+        return ($this->serviceProviderId)
+            ? $this->serviceProviderId->getElementValue()
+            : null;
     }
 
     /**
@@ -70,7 +72,7 @@ class SystemDnGetUtilizationResponse14sp3 extends ComplexType implements Complex
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
-        $this->groupId->setName('groupId');
+        $this->groupId->setElementName('groupId');
         return $this;
     }
 
@@ -80,7 +82,9 @@ class SystemDnGetUtilizationResponse14sp3 extends ComplexType implements Complex
      */
     public function getGroupId()
     {
-        return ($this->groupId) ? $this->groupId->getValue() : null;
+        return ($this->groupId)
+            ? $this->groupId->getElementValue()
+            : null;
     }
 
     /**
@@ -91,7 +95,7 @@ class SystemDnGetUtilizationResponse14sp3 extends ComplexType implements Complex
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
-        $this->userId->setName('userId');
+        $this->userId->setElementName('userId');
         return $this;
     }
 
@@ -101,7 +105,9 @@ class SystemDnGetUtilizationResponse14sp3 extends ComplexType implements Complex
      */
     public function getUserId()
     {
-        return ($this->userId) ? $this->userId->getValue() : null;
+        return ($this->userId)
+            ? $this->userId->getElementValue()
+            : null;
     }
 
     /**
@@ -112,7 +118,7 @@ class SystemDnGetUtilizationResponse14sp3 extends ComplexType implements Complex
         $this->userType = ($userType InstanceOf UserType)
              ? $userType
              : new UserType($userType);
-        $this->userType->setName('userType');
+        $this->userType->setElementName('userType');
         return $this;
     }
 
@@ -122,7 +128,9 @@ class SystemDnGetUtilizationResponse14sp3 extends ComplexType implements Complex
      */
     public function getUserType()
     {
-        return ($this->userType) ? $this->userType->getValue() : null;
+        return ($this->userType)
+            ? $this->userType->getElementValue()
+            : null;
     }
 
     /**
@@ -131,7 +139,7 @@ class SystemDnGetUtilizationResponse14sp3 extends ComplexType implements Complex
     public function setIsGroupCallingLineId($isGroupCallingLineId = null)
     {
         $this->isGroupCallingLineId = new PrimitiveType($isGroupCallingLineId);
-        $this->isGroupCallingLineId->setName('isGroupCallingLineId');
+        $this->isGroupCallingLineId->setElementName('isGroupCallingLineId');
         return $this;
     }
 
@@ -141,7 +149,9 @@ class SystemDnGetUtilizationResponse14sp3 extends ComplexType implements Complex
      */
     public function getIsGroupCallingLineId()
     {
-        return ($this->isGroupCallingLineId) ? $this->isGroupCallingLineId->getValue() : null;
+        return ($this->isGroupCallingLineId)
+            ? $this->isGroupCallingLineId->getElementValue()
+            : null;
     }
 
     /**
@@ -150,7 +160,7 @@ class SystemDnGetUtilizationResponse14sp3 extends ComplexType implements Complex
     public function setIsActivated($isActivated = null)
     {
         $this->isActivated = new PrimitiveType($isActivated);
-        $this->isActivated->setName('isActivated');
+        $this->isActivated->setElementName('isActivated');
         return $this;
     }
 
@@ -160,6 +170,8 @@ class SystemDnGetUtilizationResponse14sp3 extends ComplexType implements Complex
      */
     public function getIsActivated()
     {
-        return ($this->isActivated) ? $this->isActivated->getValue() : null;
+        return ($this->isActivated)
+            ? $this->isActivated->getElementValue()
+            : null;
     }
 }

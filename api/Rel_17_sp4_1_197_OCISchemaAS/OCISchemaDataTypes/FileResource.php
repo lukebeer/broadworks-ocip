@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class FileResource extends ComplexType implements ComplexInterface
 {
-    public    $name = 'FileResource';
+    public    $elementName = 'FileResource';
 
     public function __construct(    ) {
     }

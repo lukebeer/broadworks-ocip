@@ -19,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class EnterpriseEnterpriseTrunkPriorityWeightedTrunkGroup extends ComplexType implements ComplexInterface
 {
-    public    $name = 'EnterpriseEnterpriseTrunkPriorityWeightedTrunkGroup';
+    public    $elementName = 'EnterpriseEnterpriseTrunkPriorityWeightedTrunkGroup';
     protected $trunkGroup;
     protected $priority;
     protected $weight;
@@ -48,7 +48,7 @@ class EnterpriseEnterpriseTrunkPriorityWeightedTrunkGroup extends ComplexType im
     public function setTrunkGroup($trunkGroup = null)
     {
         $this->trunkGroup = new SimpleContent($trunkGroup);
-        $this->trunkGroup->setName('trunkGroup');
+        $this->trunkGroup->setElementName('trunkGroup');
         return $this;
     }
 
@@ -58,7 +58,9 @@ class EnterpriseEnterpriseTrunkPriorityWeightedTrunkGroup extends ComplexType im
      */
     public function getTrunkGroup()
     {
-        return ($this->trunkGroup) ? $this->trunkGroup->getValue() : null;
+        return ($this->trunkGroup)
+            ? $this->trunkGroup->getElementValue()
+            : null;
     }
 
     /**
@@ -67,7 +69,7 @@ class EnterpriseEnterpriseTrunkPriorityWeightedTrunkGroup extends ComplexType im
     public function setPriority($priority = null)
     {
         $this->priority = new SimpleContent($priority);
-        $this->priority->setName('priority');
+        $this->priority->setElementName('priority');
         return $this;
     }
 
@@ -77,7 +79,9 @@ class EnterpriseEnterpriseTrunkPriorityWeightedTrunkGroup extends ComplexType im
      */
     public function getPriority()
     {
-        return ($this->priority) ? $this->priority->getValue() : null;
+        return ($this->priority)
+            ? $this->priority->getElementValue()
+            : null;
     }
 
     /**
@@ -86,7 +90,7 @@ class EnterpriseEnterpriseTrunkPriorityWeightedTrunkGroup extends ComplexType im
     public function setWeight($weight = null)
     {
         $this->weight = new SimpleContent($weight);
-        $this->weight->setName('weight');
+        $this->weight->setElementName('weight');
         return $this;
     }
 
@@ -96,6 +100,8 @@ class EnterpriseEnterpriseTrunkPriorityWeightedTrunkGroup extends ComplexType im
      */
     public function getWeight()
     {
-        return ($this->weight) ? $this->weight->getValue() : null;
+        return ($this->weight)
+            ? $this->weight->getElementValue()
+            : null;
     }
 }

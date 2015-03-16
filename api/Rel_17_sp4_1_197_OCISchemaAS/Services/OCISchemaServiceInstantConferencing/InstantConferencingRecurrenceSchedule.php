@@ -23,7 +23,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class InstantConferencingRecurrenceSchedule extends ComplexType implements ComplexInterface
 {
-    public    $name = 'InstantConferencingRecurrenceSchedule';
+    public    $elementName = 'InstantConferencingRecurrenceSchedule';
 
     public function __construct(    ) {
     }

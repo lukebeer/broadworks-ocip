@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemIntelligentNetworkServiceControlGetResponse14 extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemIntelligentNetworkServiceControlGetResponse14';
+    public    $elementName = 'SystemIntelligentNetworkServiceControlGetResponse14';
     protected $preAnswerActionTimeoutSeconds;
     protected $msgRejectNoVoiceMail;
     protected $msgRejectVoiceMail;
@@ -48,7 +48,7 @@ class SystemIntelligentNetworkServiceControlGetResponse14 extends ComplexType im
         $this->preAnswerActionTimeoutSeconds = ($preAnswerActionTimeoutSeconds InstanceOf IntelligentNetworkServiceControlPreAnswerActionTimeoutSeconds)
              ? $preAnswerActionTimeoutSeconds
              : new IntelligentNetworkServiceControlPreAnswerActionTimeoutSeconds($preAnswerActionTimeoutSeconds);
-        $this->preAnswerActionTimeoutSeconds->setName('preAnswerActionTimeoutSeconds');
+        $this->preAnswerActionTimeoutSeconds->setElementName('preAnswerActionTimeoutSeconds');
         return $this;
     }
 
@@ -58,7 +58,9 @@ class SystemIntelligentNetworkServiceControlGetResponse14 extends ComplexType im
      */
     public function getPreAnswerActionTimeoutSeconds()
     {
-        return ($this->preAnswerActionTimeoutSeconds) ? $this->preAnswerActionTimeoutSeconds->getValue() : null;
+        return ($this->preAnswerActionTimeoutSeconds)
+            ? $this->preAnswerActionTimeoutSeconds->getElementValue()
+            : null;
     }
 
     /**
@@ -69,7 +71,7 @@ class SystemIntelligentNetworkServiceControlGetResponse14 extends ComplexType im
         $this->msgRejectNoVoiceMail = ($msgRejectNoVoiceMail InstanceOf Treatment)
              ? $msgRejectNoVoiceMail
              : new Treatment($msgRejectNoVoiceMail);
-        $this->msgRejectNoVoiceMail->setName('msgRejectNoVoiceMail');
+        $this->msgRejectNoVoiceMail->setElementName('msgRejectNoVoiceMail');
         return $this;
     }
 
@@ -79,7 +81,9 @@ class SystemIntelligentNetworkServiceControlGetResponse14 extends ComplexType im
      */
     public function getMsgRejectNoVoiceMail()
     {
-        return ($this->msgRejectNoVoiceMail) ? $this->msgRejectNoVoiceMail->getValue() : null;
+        return ($this->msgRejectNoVoiceMail)
+            ? $this->msgRejectNoVoiceMail->getElementValue()
+            : null;
     }
 
     /**
@@ -90,7 +94,7 @@ class SystemIntelligentNetworkServiceControlGetResponse14 extends ComplexType im
         $this->msgRejectVoiceMail = ($msgRejectVoiceMail InstanceOf Treatment)
              ? $msgRejectVoiceMail
              : new Treatment($msgRejectVoiceMail);
-        $this->msgRejectVoiceMail->setName('msgRejectVoiceMail');
+        $this->msgRejectVoiceMail->setElementName('msgRejectVoiceMail');
         return $this;
     }
 
@@ -100,7 +104,9 @@ class SystemIntelligentNetworkServiceControlGetResponse14 extends ComplexType im
      */
     public function getMsgRejectVoiceMail()
     {
-        return ($this->msgRejectVoiceMail) ? $this->msgRejectVoiceMail->getValue() : null;
+        return ($this->msgRejectVoiceMail)
+            ? $this->msgRejectVoiceMail->getElementValue()
+            : null;
     }
 
     /**
@@ -111,7 +117,7 @@ class SystemIntelligentNetworkServiceControlGetResponse14 extends ComplexType im
         $this->msgPreAnswerWait = ($msgPreAnswerWait InstanceOf Treatment)
              ? $msgPreAnswerWait
              : new Treatment($msgPreAnswerWait);
-        $this->msgPreAnswerWait->setName('msgPreAnswerWait');
+        $this->msgPreAnswerWait->setElementName('msgPreAnswerWait');
         return $this;
     }
 
@@ -121,7 +127,9 @@ class SystemIntelligentNetworkServiceControlGetResponse14 extends ComplexType im
      */
     public function getMsgPreAnswerWait()
     {
-        return ($this->msgPreAnswerWait) ? $this->msgPreAnswerWait->getValue() : null;
+        return ($this->msgPreAnswerWait)
+            ? $this->msgPreAnswerWait->getElementValue()
+            : null;
     }
 
     /**
@@ -132,7 +140,7 @@ class SystemIntelligentNetworkServiceControlGetResponse14 extends ComplexType im
         $this->msgBusy = ($msgBusy InstanceOf Treatment)
              ? $msgBusy
              : new Treatment($msgBusy);
-        $this->msgBusy->setName('msgBusy');
+        $this->msgBusy->setElementName('msgBusy');
         return $this;
     }
 
@@ -142,7 +150,9 @@ class SystemIntelligentNetworkServiceControlGetResponse14 extends ComplexType im
      */
     public function getMsgBusy()
     {
-        return ($this->msgBusy) ? $this->msgBusy->getValue() : null;
+        return ($this->msgBusy)
+            ? $this->msgBusy->getElementValue()
+            : null;
     }
 
     /**
@@ -153,7 +163,7 @@ class SystemIntelligentNetworkServiceControlGetResponse14 extends ComplexType im
         $this->msgRelease = ($msgRelease InstanceOf Treatment)
              ? $msgRelease
              : new Treatment($msgRelease);
-        $this->msgRelease->setName('msgRelease');
+        $this->msgRelease->setElementName('msgRelease');
         return $this;
     }
 
@@ -163,7 +173,9 @@ class SystemIntelligentNetworkServiceControlGetResponse14 extends ComplexType im
      */
     public function getMsgRelease()
     {
-        return ($this->msgRelease) ? $this->msgRelease->getValue() : null;
+        return ($this->msgRelease)
+            ? $this->msgRelease->getElementValue()
+            : null;
     }
 
     /**
@@ -174,7 +186,7 @@ class SystemIntelligentNetworkServiceControlGetResponse14 extends ComplexType im
         $this->msgNoAnswer = ($msgNoAnswer InstanceOf Treatment)
              ? $msgNoAnswer
              : new Treatment($msgNoAnswer);
-        $this->msgNoAnswer->setName('msgNoAnswer');
+        $this->msgNoAnswer->setElementName('msgNoAnswer');
         return $this;
     }
 
@@ -184,7 +196,9 @@ class SystemIntelligentNetworkServiceControlGetResponse14 extends ComplexType im
      */
     public function getMsgNoAnswer()
     {
-        return ($this->msgNoAnswer) ? $this->msgNoAnswer->getValue() : null;
+        return ($this->msgNoAnswer)
+            ? $this->msgNoAnswer->getElementValue()
+            : null;
     }
 
     /**
@@ -195,7 +209,7 @@ class SystemIntelligentNetworkServiceControlGetResponse14 extends ComplexType im
         $this->msgOCPReject = ($msgOCPReject InstanceOf Treatment)
              ? $msgOCPReject
              : new Treatment($msgOCPReject);
-        $this->msgOCPReject->setName('msgOCPReject');
+        $this->msgOCPReject->setElementName('msgOCPReject');
         return $this;
     }
 
@@ -205,7 +219,9 @@ class SystemIntelligentNetworkServiceControlGetResponse14 extends ComplexType im
      */
     public function getMsgOCPReject()
     {
-        return ($this->msgOCPReject) ? $this->msgOCPReject->getValue() : null;
+        return ($this->msgOCPReject)
+            ? $this->msgOCPReject->getElementValue()
+            : null;
     }
 
     /**
@@ -216,7 +232,7 @@ class SystemIntelligentNetworkServiceControlGetResponse14 extends ComplexType im
         $this->msgForwardLoop = ($msgForwardLoop InstanceOf Treatment)
              ? $msgForwardLoop
              : new Treatment($msgForwardLoop);
-        $this->msgForwardLoop->setName('msgForwardLoop');
+        $this->msgForwardLoop->setElementName('msgForwardLoop');
         return $this;
     }
 
@@ -226,7 +242,9 @@ class SystemIntelligentNetworkServiceControlGetResponse14 extends ComplexType im
      */
     public function getMsgForwardLoop()
     {
-        return ($this->msgForwardLoop) ? $this->msgForwardLoop->getValue() : null;
+        return ($this->msgForwardLoop)
+            ? $this->msgForwardLoop->getElementValue()
+            : null;
     }
 
     /**
@@ -237,7 +255,7 @@ class SystemIntelligentNetworkServiceControlGetResponse14 extends ComplexType im
         $this->msgTemporarilyUnavailable = ($msgTemporarilyUnavailable InstanceOf Treatment)
              ? $msgTemporarilyUnavailable
              : new Treatment($msgTemporarilyUnavailable);
-        $this->msgTemporarilyUnavailable->setName('msgTemporarilyUnavailable');
+        $this->msgTemporarilyUnavailable->setElementName('msgTemporarilyUnavailable');
         return $this;
     }
 
@@ -247,6 +265,8 @@ class SystemIntelligentNetworkServiceControlGetResponse14 extends ComplexType im
      */
     public function getMsgTemporarilyUnavailable()
     {
-        return ($this->msgTemporarilyUnavailable) ? $this->msgTemporarilyUnavailable->getValue() : null;
+        return ($this->msgTemporarilyUnavailable)
+            ? $this->msgTemporarilyUnavailable->getElementValue()
+            : null;
     }
 }

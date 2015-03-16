@@ -17,12 +17,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\MaxInclusive;
  */
 class CCC2MaxClientConnections extends SimpleType
 {
-    public $name = "CCC2MaxClientConnections";
-    protected $value;
-
+    public $elementName = "CCC2MaxClientConnections";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new MinInclusive("0"));
         $this->addRestriction(new MaxInclusive("10"));
     }

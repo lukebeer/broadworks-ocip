@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserVideoAddOnGetResponse14 extends ComplexType implements ComplexInterface
 {
-    public    $name = 'UserVideoAddOnGetResponse14';
+    public    $elementName = 'UserVideoAddOnGetResponse14';
     protected $isActive;
     protected $maxOriginatingCallDelaySeconds;
     protected $accessDeviceEndpoint;
@@ -40,7 +40,7 @@ class UserVideoAddOnGetResponse14 extends ComplexType implements ComplexInterfac
     public function setIsActive($isActive = null)
     {
         $this->isActive = new PrimitiveType($isActive);
-        $this->isActive->setName('isActive');
+        $this->isActive->setElementName('isActive');
         return $this;
     }
 
@@ -50,7 +50,9 @@ class UserVideoAddOnGetResponse14 extends ComplexType implements ComplexInterfac
      */
     public function getIsActive()
     {
-        return ($this->isActive) ? $this->isActive->getValue() : null;
+        return ($this->isActive)
+            ? $this->isActive->getElementValue()
+            : null;
     }
 
     /**
@@ -61,7 +63,7 @@ class UserVideoAddOnGetResponse14 extends ComplexType implements ComplexInterfac
         $this->maxOriginatingCallDelaySeconds = ($maxOriginatingCallDelaySeconds InstanceOf VideoAddOnMaxOriginatingCallDelaySeconds)
              ? $maxOriginatingCallDelaySeconds
              : new VideoAddOnMaxOriginatingCallDelaySeconds($maxOriginatingCallDelaySeconds);
-        $this->maxOriginatingCallDelaySeconds->setName('maxOriginatingCallDelaySeconds');
+        $this->maxOriginatingCallDelaySeconds->setElementName('maxOriginatingCallDelaySeconds');
         return $this;
     }
 
@@ -71,7 +73,9 @@ class UserVideoAddOnGetResponse14 extends ComplexType implements ComplexInterfac
      */
     public function getMaxOriginatingCallDelaySeconds()
     {
-        return ($this->maxOriginatingCallDelaySeconds) ? $this->maxOriginatingCallDelaySeconds->getValue() : null;
+        return ($this->maxOriginatingCallDelaySeconds)
+            ? $this->maxOriginatingCallDelaySeconds->getElementValue()
+            : null;
     }
 
     /**
@@ -82,7 +86,7 @@ class UserVideoAddOnGetResponse14 extends ComplexType implements ComplexInterfac
         $this->accessDeviceEndpoint = ($accessDeviceEndpoint InstanceOf AccessDeviceEndpointRead14)
              ? $accessDeviceEndpoint
              : new AccessDeviceEndpointRead14($accessDeviceEndpoint);
-        $this->accessDeviceEndpoint->setName('accessDeviceEndpoint');
+        $this->accessDeviceEndpoint->setElementName('accessDeviceEndpoint');
         return $this;
     }
 

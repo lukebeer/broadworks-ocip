@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderServicePackDeleteRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'ServiceProviderServicePackDeleteRequest';
+    public    $elementName = 'ServiceProviderServicePackDeleteRequest';
     protected $serviceProviderId;
     protected $servicePackName;
 
@@ -49,7 +49,7 @@ class ServiceProviderServicePackDeleteRequest extends ComplexType implements Com
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
-        $this->serviceProviderId->setName('serviceProviderId');
+        $this->serviceProviderId->setElementName('serviceProviderId');
         return $this;
     }
 
@@ -59,7 +59,9 @@ class ServiceProviderServicePackDeleteRequest extends ComplexType implements Com
      */
     public function getServiceProviderId()
     {
-        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
+        return ($this->serviceProviderId)
+            ? $this->serviceProviderId->getElementValue()
+            : null;
     }
 
     /**
@@ -70,7 +72,7 @@ class ServiceProviderServicePackDeleteRequest extends ComplexType implements Com
         $this->servicePackName = ($servicePackName InstanceOf ServicePackName)
              ? $servicePackName
              : new ServicePackName($servicePackName);
-        $this->servicePackName->setName('servicePackName');
+        $this->servicePackName->setElementName('servicePackName');
         return $this;
     }
 
@@ -80,6 +82,8 @@ class ServiceProviderServicePackDeleteRequest extends ComplexType implements Com
      */
     public function getServicePackName()
     {
-        return ($this->servicePackName) ? $this->servicePackName->getValue() : null;
+        return ($this->servicePackName)
+            ? $this->servicePackName->getElementValue()
+            : null;
     }
 }

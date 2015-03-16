@@ -17,12 +17,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\Enumeration;
  */
 class AgentACDAutomaticState extends SimpleType
 {
-    public $name = "AgentACDAutomaticState";
-    protected $value;
-
+    public $elementName = "AgentACDAutomaticState";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new Enumeration([
             'Available',
             'Unavailable',

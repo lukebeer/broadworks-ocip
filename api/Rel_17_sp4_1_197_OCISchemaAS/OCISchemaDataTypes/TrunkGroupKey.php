@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class TrunkGroupKey extends ComplexType implements ComplexInterface
 {
-    public    $name = 'TrunkGroupKey';
+    public    $elementName = 'TrunkGroupKey';
     protected $serviceProviderId;
     protected $groupId;
     protected $name;
@@ -49,7 +49,7 @@ class TrunkGroupKey extends ComplexType implements ComplexInterface
     public function setServiceProviderId($serviceProviderId = null)
     {
         $this->serviceProviderId = new SimpleContent($serviceProviderId);
-        $this->serviceProviderId->setName('serviceProviderId');
+        $this->serviceProviderId->setElementName('serviceProviderId');
         return $this;
     }
 
@@ -59,7 +59,9 @@ class TrunkGroupKey extends ComplexType implements ComplexInterface
      */
     public function getServiceProviderId()
     {
-        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
+        return ($this->serviceProviderId)
+            ? $this->serviceProviderId->getElementValue()
+            : null;
     }
 
     /**
@@ -68,7 +70,7 @@ class TrunkGroupKey extends ComplexType implements ComplexInterface
     public function setGroupId($groupId = null)
     {
         $this->groupId = new SimpleContent($groupId);
-        $this->groupId->setName('groupId');
+        $this->groupId->setElementName('groupId');
         return $this;
     }
 
@@ -78,7 +80,9 @@ class TrunkGroupKey extends ComplexType implements ComplexInterface
      */
     public function getGroupId()
     {
-        return ($this->groupId) ? $this->groupId->getValue() : null;
+        return ($this->groupId)
+            ? $this->groupId->getElementValue()
+            : null;
     }
 
     /**
@@ -87,7 +91,7 @@ class TrunkGroupKey extends ComplexType implements ComplexInterface
     public function setName($name = null)
     {
         $this->name = new SimpleContent($name);
-        $this->name->setName('name');
+        $this->name->setElementName('name');
         return $this;
     }
 
@@ -97,6 +101,8 @@ class TrunkGroupKey extends ComplexType implements ComplexInterface
      */
     public function getName()
     {
-        return ($this->name) ? $this->name->getValue() : null;
+        return ($this->name)
+            ? $this->name->getElementValue()
+            : null;
     }
 }

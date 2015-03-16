@@ -17,12 +17,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\MaxInclusive;
  */
 class AutomaticCallbackPollingIntervalSeconds extends SimpleType
 {
-    public $name = "AutomaticCallbackPollingIntervalSeconds";
-    protected $value;
-
+    public $elementName = "AutomaticCallbackPollingIntervalSeconds";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new MinInclusive("60"));
         $this->addRestriction(new MaxInclusive("900"));
     }

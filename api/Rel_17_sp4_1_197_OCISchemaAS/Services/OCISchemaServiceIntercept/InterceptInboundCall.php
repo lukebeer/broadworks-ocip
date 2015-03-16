@@ -16,12 +16,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\Enumeration;
  */
 class InterceptInboundCall extends SimpleType
 {
-    public $name = "InterceptInboundCall";
-    protected $value;
-
+    public $elementName = "InterceptInboundCall";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new Enumeration([
             'Intercept All',
             'Allow All',

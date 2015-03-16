@@ -24,7 +24,7 @@ use Broadworks_OCIP\core\Client\Client;
 class GroupDnGetDetailedAvailableListRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupDnGetDetailedAvailableListResponse';
-    public    $name = 'GroupDnGetDetailedAvailableListRequest';
+    public    $elementName = 'GroupDnGetDetailedAvailableListRequest';
     protected $serviceProviderId;
     protected $groupId;
 
@@ -52,7 +52,7 @@ class GroupDnGetDetailedAvailableListRequest extends ComplexType implements Comp
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
-        $this->serviceProviderId->setName('serviceProviderId');
+        $this->serviceProviderId->setElementName('serviceProviderId');
         return $this;
     }
 
@@ -62,7 +62,9 @@ class GroupDnGetDetailedAvailableListRequest extends ComplexType implements Comp
      */
     public function getServiceProviderId()
     {
-        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
+        return ($this->serviceProviderId)
+            ? $this->serviceProviderId->getElementValue()
+            : null;
     }
 
     /**
@@ -73,7 +75,7 @@ class GroupDnGetDetailedAvailableListRequest extends ComplexType implements Comp
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
-        $this->groupId->setName('groupId');
+        $this->groupId->setElementName('groupId');
         return $this;
     }
 
@@ -83,6 +85,8 @@ class GroupDnGetDetailedAvailableListRequest extends ComplexType implements Comp
      */
     public function getGroupId()
     {
-        return ($this->groupId) ? $this->groupId->getValue() : null;
+        return ($this->groupId)
+            ? $this->groupId->getElementValue()
+            : null;
     }
 }

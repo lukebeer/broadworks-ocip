@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserAttendantConsoleGetAvailableUserListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'UserAttendantConsoleGetAvailableUserListResponse';
+    public    $elementName = 'UserAttendantConsoleGetAvailableUserListResponse';
     protected $userTable;
 
     /**
@@ -38,7 +38,7 @@ class UserAttendantConsoleGetAvailableUserListResponse extends ComplexType imple
     public function setUserTable(TableType $userTable = null)
     {
         $this->userTable = $userTable;
-        $this->userTable->setName('userTable');
+        $this->userTable->setElementName('userTable');
         return $this;
     }
 

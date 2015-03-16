@@ -17,12 +17,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\MaxInclusive;
  */
 class SessionAuditTimeoutPeriodSeconds extends SimpleType
 {
-    public $name = "SessionAuditTimeoutPeriodSeconds";
-    protected $value;
-
+    public $elementName = "SessionAuditTimeoutPeriodSeconds";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new MinInclusive("60"));
         $this->addRestriction(new MaxInclusive("600"));
     }

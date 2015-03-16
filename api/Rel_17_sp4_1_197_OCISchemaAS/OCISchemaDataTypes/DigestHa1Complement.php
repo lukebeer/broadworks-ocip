@@ -17,12 +17,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\MaxLength;
  */
 class DigestHa1Complement extends SimpleType
 {
-    public $name = "DigestHa1Complement";
-    protected $value;
-
+    public $elementName = "DigestHa1Complement";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new MinLength("32"));
         $this->addRestriction(new MaxLength("256"));
     }

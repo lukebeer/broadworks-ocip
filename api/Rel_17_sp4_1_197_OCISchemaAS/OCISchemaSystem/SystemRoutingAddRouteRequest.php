@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemRoutingAddRouteRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemRoutingAddRouteRequest';
+    public    $elementName = 'SystemRoutingAddRouteRequest';
     protected $routeName;
 
     public function __construct(
@@ -45,7 +45,7 @@ class SystemRoutingAddRouteRequest extends ComplexType implements ComplexInterfa
         $this->routeName = ($routeName InstanceOf RouteName)
              ? $routeName
              : new RouteName($routeName);
-        $this->routeName->setName('routeName');
+        $this->routeName->setElementName('routeName');
         return $this;
     }
 
@@ -55,6 +55,8 @@ class SystemRoutingAddRouteRequest extends ComplexType implements ComplexInterfa
      */
     public function getRouteName()
     {
-        return ($this->routeName) ? $this->routeName->getValue() : null;
+        return ($this->routeName)
+            ? $this->routeName->getElementValue()
+            : null;
     }
 }

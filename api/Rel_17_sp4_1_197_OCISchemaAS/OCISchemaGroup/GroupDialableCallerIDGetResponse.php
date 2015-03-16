@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupDialableCallerIDGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'GroupDialableCallerIDGetResponse';
+    public    $elementName = 'GroupDialableCallerIDGetResponse';
     protected $useGroupCriteria;
     protected $nsScreeningFailurePolicy;
     protected $criteriaTable;
@@ -41,7 +41,7 @@ class GroupDialableCallerIDGetResponse extends ComplexType implements ComplexInt
     public function setUseGroupCriteria($useGroupCriteria = null)
     {
         $this->useGroupCriteria = new PrimitiveType($useGroupCriteria);
-        $this->useGroupCriteria->setName('useGroupCriteria');
+        $this->useGroupCriteria->setElementName('useGroupCriteria');
         return $this;
     }
 
@@ -51,7 +51,9 @@ class GroupDialableCallerIDGetResponse extends ComplexType implements ComplexInt
      */
     public function getUseGroupCriteria()
     {
-        return ($this->useGroupCriteria) ? $this->useGroupCriteria->getValue() : null;
+        return ($this->useGroupCriteria)
+            ? $this->useGroupCriteria->getElementValue()
+            : null;
     }
 
     /**
@@ -62,7 +64,7 @@ class GroupDialableCallerIDGetResponse extends ComplexType implements ComplexInt
         $this->nsScreeningFailurePolicy = ($nsScreeningFailurePolicy InstanceOf NsScreeningFailurePolicy)
              ? $nsScreeningFailurePolicy
              : new NsScreeningFailurePolicy($nsScreeningFailurePolicy);
-        $this->nsScreeningFailurePolicy->setName('nsScreeningFailurePolicy');
+        $this->nsScreeningFailurePolicy->setElementName('nsScreeningFailurePolicy');
         return $this;
     }
 
@@ -72,7 +74,9 @@ class GroupDialableCallerIDGetResponse extends ComplexType implements ComplexInt
      */
     public function getNsScreeningFailurePolicy()
     {
-        return ($this->nsScreeningFailurePolicy) ? $this->nsScreeningFailurePolicy->getValue() : null;
+        return ($this->nsScreeningFailurePolicy)
+            ? $this->nsScreeningFailurePolicy->getElementValue()
+            : null;
     }
 
     /**
@@ -81,7 +85,7 @@ class GroupDialableCallerIDGetResponse extends ComplexType implements ComplexInt
     public function setCriteriaTable(TableType $criteriaTable = null)
     {
         $this->criteriaTable = $criteriaTable;
-        $this->criteriaTable->setName('criteriaTable');
+        $this->criteriaTable->setElementName('criteriaTable');
         return $this;
     }
 

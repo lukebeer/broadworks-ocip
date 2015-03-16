@@ -28,7 +28,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemLicensingGetResponse14sp3 extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemLicensingGetResponse14sp3';
+    public    $elementName = 'SystemLicensingGetResponse14sp3';
     protected $licenseStrictness;
     protected $groupUserlimit;
     protected $expirationDate;
@@ -57,7 +57,7 @@ class SystemLicensingGetResponse14sp3 extends ComplexType implements ComplexInte
         $this->licenseStrictness = ($licenseStrictness InstanceOf LicenseStrictness)
              ? $licenseStrictness
              : new LicenseStrictness($licenseStrictness);
-        $this->licenseStrictness->setName('licenseStrictness');
+        $this->licenseStrictness->setElementName('licenseStrictness');
         return $this;
     }
 
@@ -67,7 +67,9 @@ class SystemLicensingGetResponse14sp3 extends ComplexType implements ComplexInte
      */
     public function getLicenseStrictness()
     {
-        return ($this->licenseStrictness) ? $this->licenseStrictness->getValue() : null;
+        return ($this->licenseStrictness)
+            ? $this->licenseStrictness->getElementValue()
+            : null;
     }
 
     /**
@@ -78,7 +80,7 @@ class SystemLicensingGetResponse14sp3 extends ComplexType implements ComplexInte
         $this->groupUserlimit = ($groupUserlimit InstanceOf GroupUserLicenseLimit)
              ? $groupUserlimit
              : new GroupUserLicenseLimit($groupUserlimit);
-        $this->groupUserlimit->setName('groupUserlimit');
+        $this->groupUserlimit->setElementName('groupUserlimit');
         return $this;
     }
 
@@ -88,7 +90,9 @@ class SystemLicensingGetResponse14sp3 extends ComplexType implements ComplexInte
      */
     public function getGroupUserlimit()
     {
-        return ($this->groupUserlimit) ? $this->groupUserlimit->getValue() : null;
+        return ($this->groupUserlimit)
+            ? $this->groupUserlimit->getElementValue()
+            : null;
     }
 
     /**
@@ -96,7 +100,7 @@ class SystemLicensingGetResponse14sp3 extends ComplexType implements ComplexInte
      */
     public function setExpirationDate(xs:dateTime $expirationDate = null)
     {
-        $this->expirationDate->setName('expirationDate');
+        $this->expirationDate->setElementName('expirationDate');
         return $this;
     }
 
@@ -106,7 +110,9 @@ class SystemLicensingGetResponse14sp3 extends ComplexType implements ComplexInte
      */
     public function getExpirationDate()
     {
-        return ($this->expirationDate) ? $this->expirationDate->getValue() : null;
+        return ($this->expirationDate)
+            ? $this->expirationDate->getElementValue()
+            : null;
     }
 
     /**
@@ -117,7 +123,7 @@ class SystemLicensingGetResponse14sp3 extends ComplexType implements ComplexInte
         $this->hostId = ($hostId InstanceOf ServerHostId)
              ? $hostId
              : new ServerHostId($hostId);
-        $this->hostId->setName('hostId');
+        $this->hostId->setElementName('hostId');
         return $this;
     }
 
@@ -127,7 +133,9 @@ class SystemLicensingGetResponse14sp3 extends ComplexType implements ComplexInte
      */
     public function getHostId()
     {
-        return ($this->hostId) ? $this->hostId->getValue() : null;
+        return ($this->hostId)
+            ? $this->hostId->getElementValue()
+            : null;
     }
 
     /**
@@ -138,7 +146,7 @@ class SystemLicensingGetResponse14sp3 extends ComplexType implements ComplexInte
         $this->licenseName = ($licenseName InstanceOf LicenseName)
              ? $licenseName
              : new LicenseName($licenseName);
-        $this->licenseName->setName('licenseName');
+        $this->licenseName->setElementName('licenseName');
         return $this;
     }
 
@@ -148,7 +156,9 @@ class SystemLicensingGetResponse14sp3 extends ComplexType implements ComplexInte
      */
     public function getLicenseName()
     {
-        return ($this->licenseName) ? $this->licenseName->getValue() : null;
+        return ($this->licenseName)
+            ? $this->licenseName->getElementValue()
+            : null;
     }
 
     /**
@@ -157,7 +167,7 @@ class SystemLicensingGetResponse14sp3 extends ComplexType implements ComplexInte
     public function setNumberOfTrunkUsers($numberOfTrunkUsers = null)
     {
         $this->numberOfTrunkUsers = new PrimitiveType($numberOfTrunkUsers);
-        $this->numberOfTrunkUsers->setName('numberOfTrunkUsers');
+        $this->numberOfTrunkUsers->setElementName('numberOfTrunkUsers');
         return $this;
     }
 
@@ -167,7 +177,9 @@ class SystemLicensingGetResponse14sp3 extends ComplexType implements ComplexInte
      */
     public function getNumberOfTrunkUsers()
     {
-        return ($this->numberOfTrunkUsers) ? $this->numberOfTrunkUsers->getValue() : null;
+        return ($this->numberOfTrunkUsers)
+            ? $this->numberOfTrunkUsers->getElementValue()
+            : null;
     }
 
     /**
@@ -176,7 +188,7 @@ class SystemLicensingGetResponse14sp3 extends ComplexType implements ComplexInte
     public function setSubscriberLicenseTable(TableType $subscriberLicenseTable = null)
     {
         $this->subscriberLicenseTable = $subscriberLicenseTable;
-        $this->subscriberLicenseTable->setName('subscriberLicenseTable');
+        $this->subscriberLicenseTable->setElementName('subscriberLicenseTable');
         return $this;
     }
 
@@ -195,7 +207,7 @@ class SystemLicensingGetResponse14sp3 extends ComplexType implements ComplexInte
     public function setGroupServiceLicenseTable(TableType $groupServiceLicenseTable = null)
     {
         $this->groupServiceLicenseTable = $groupServiceLicenseTable;
-        $this->groupServiceLicenseTable->setName('groupServiceLicenseTable');
+        $this->groupServiceLicenseTable->setElementName('groupServiceLicenseTable');
         return $this;
     }
 
@@ -214,7 +226,7 @@ class SystemLicensingGetResponse14sp3 extends ComplexType implements ComplexInte
     public function setVirtualServiceLicenseTable(TableType $virtualServiceLicenseTable = null)
     {
         $this->virtualServiceLicenseTable = $virtualServiceLicenseTable;
-        $this->virtualServiceLicenseTable->setName('virtualServiceLicenseTable');
+        $this->virtualServiceLicenseTable->setElementName('virtualServiceLicenseTable');
         return $this;
     }
 
@@ -233,7 +245,7 @@ class SystemLicensingGetResponse14sp3 extends ComplexType implements ComplexInte
     public function setUserServiceLicenseTable(TableType $userServiceLicenseTable = null)
     {
         $this->userServiceLicenseTable = $userServiceLicenseTable;
-        $this->userServiceLicenseTable->setName('userServiceLicenseTable');
+        $this->userServiceLicenseTable->setElementName('userServiceLicenseTable');
         return $this;
     }
 
@@ -252,7 +264,7 @@ class SystemLicensingGetResponse14sp3 extends ComplexType implements ComplexInte
     public function setSystemParamLicenseTable(TableType $systemParamLicenseTable = null)
     {
         $this->systemParamLicenseTable = $systemParamLicenseTable;
-        $this->systemParamLicenseTable->setName('systemParamLicenseTable');
+        $this->systemParamLicenseTable->setElementName('systemParamLicenseTable');
         return $this;
     }
 

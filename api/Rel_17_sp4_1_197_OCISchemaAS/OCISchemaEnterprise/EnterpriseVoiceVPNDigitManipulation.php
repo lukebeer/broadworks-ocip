@@ -19,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class EnterpriseVoiceVPNDigitManipulation extends ComplexType implements ComplexInterface
 {
-    public    $name = 'EnterpriseVoiceVPNDigitManipulation';
+    public    $elementName = 'EnterpriseVoiceVPNDigitManipulation';
 
     public function __construct(    ) {
     }

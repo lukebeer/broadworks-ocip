@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderMaliciousCallTraceGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'ServiceProviderMaliciousCallTraceGetResponse';
+    public    $elementName = 'ServiceProviderMaliciousCallTraceGetResponse';
     protected $useSystemPlayMCTWarningAnnouncement;
     protected $playMCTWarningAnnouncement;
 
@@ -39,7 +39,7 @@ class ServiceProviderMaliciousCallTraceGetResponse extends ComplexType implement
     public function setUseSystemPlayMCTWarningAnnouncement($useSystemPlayMCTWarningAnnouncement = null)
     {
         $this->useSystemPlayMCTWarningAnnouncement = new PrimitiveType($useSystemPlayMCTWarningAnnouncement);
-        $this->useSystemPlayMCTWarningAnnouncement->setName('useSystemPlayMCTWarningAnnouncement');
+        $this->useSystemPlayMCTWarningAnnouncement->setElementName('useSystemPlayMCTWarningAnnouncement');
         return $this;
     }
 
@@ -49,7 +49,9 @@ class ServiceProviderMaliciousCallTraceGetResponse extends ComplexType implement
      */
     public function getUseSystemPlayMCTWarningAnnouncement()
     {
-        return ($this->useSystemPlayMCTWarningAnnouncement) ? $this->useSystemPlayMCTWarningAnnouncement->getValue() : null;
+        return ($this->useSystemPlayMCTWarningAnnouncement)
+            ? $this->useSystemPlayMCTWarningAnnouncement->getElementValue()
+            : null;
     }
 
     /**
@@ -58,7 +60,7 @@ class ServiceProviderMaliciousCallTraceGetResponse extends ComplexType implement
     public function setPlayMCTWarningAnnouncement($playMCTWarningAnnouncement = null)
     {
         $this->playMCTWarningAnnouncement = new PrimitiveType($playMCTWarningAnnouncement);
-        $this->playMCTWarningAnnouncement->setName('playMCTWarningAnnouncement');
+        $this->playMCTWarningAnnouncement->setElementName('playMCTWarningAnnouncement');
         return $this;
     }
 
@@ -68,6 +70,8 @@ class ServiceProviderMaliciousCallTraceGetResponse extends ComplexType implement
      */
     public function getPlayMCTWarningAnnouncement()
     {
-        return ($this->playMCTWarningAnnouncement) ? $this->playMCTWarningAnnouncement->getValue() : null;
+        return ($this->playMCTWarningAnnouncement)
+            ? $this->playMCTWarningAnnouncement->getElementValue()
+            : null;
     }
 }

@@ -19,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class InstantConferencingSchedule extends ComplexType implements ComplexInterface
 {
-    public    $name = 'InstantConferencingSchedule';
+    public    $elementName = 'InstantConferencingSchedule';
     protected $startDate;
 
     public function __construct(
@@ -42,7 +42,7 @@ class InstantConferencingSchedule extends ComplexType implements ComplexInterfac
     public function setStartDate($startDate = null)
     {
         $this->startDate = new SimpleContent($startDate);
-        $this->startDate->setName('startDate');
+        $this->startDate->setElementName('startDate');
         return $this;
     }
 
@@ -52,6 +52,8 @@ class InstantConferencingSchedule extends ComplexType implements ComplexInterfac
      */
     public function getStartDate()
     {
-        return ($this->startDate) ? $this->startDate->getValue() : null;
+        return ($this->startDate)
+            ? $this->startDate->getElementValue()
+            : null;
     }
 }

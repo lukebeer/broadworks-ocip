@@ -24,7 +24,7 @@ use Broadworks_OCIP\core\Client\Client;
 class GroupScheduleGetEventRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupScheduleGetEventResponse';
-    public    $name = 'GroupScheduleGetEventRequest';
+    public    $elementName = 'GroupScheduleGetEventRequest';
     protected $serviceProviderId;
     protected $groupId;
     protected $scheduleKey;
@@ -58,7 +58,7 @@ class GroupScheduleGetEventRequest extends ComplexType implements ComplexInterfa
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
-        $this->serviceProviderId->setName('serviceProviderId');
+        $this->serviceProviderId->setElementName('serviceProviderId');
         return $this;
     }
 
@@ -68,7 +68,9 @@ class GroupScheduleGetEventRequest extends ComplexType implements ComplexInterfa
      */
     public function getServiceProviderId()
     {
-        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
+        return ($this->serviceProviderId)
+            ? $this->serviceProviderId->getElementValue()
+            : null;
     }
 
     /**
@@ -79,7 +81,7 @@ class GroupScheduleGetEventRequest extends ComplexType implements ComplexInterfa
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
-        $this->groupId->setName('groupId');
+        $this->groupId->setElementName('groupId');
         return $this;
     }
 
@@ -89,7 +91,9 @@ class GroupScheduleGetEventRequest extends ComplexType implements ComplexInterfa
      */
     public function getGroupId()
     {
-        return ($this->groupId) ? $this->groupId->getValue() : null;
+        return ($this->groupId)
+            ? $this->groupId->getElementValue()
+            : null;
     }
 
     /**
@@ -100,7 +104,7 @@ class GroupScheduleGetEventRequest extends ComplexType implements ComplexInterfa
         $this->scheduleKey = ($scheduleKey InstanceOf ScheduleKey)
              ? $scheduleKey
              : new ScheduleKey($scheduleKey);
-        $this->scheduleKey->setName('scheduleKey');
+        $this->scheduleKey->setElementName('scheduleKey');
         return $this;
     }
 
@@ -121,7 +125,7 @@ class GroupScheduleGetEventRequest extends ComplexType implements ComplexInterfa
         $this->eventName = ($eventName InstanceOf EventName)
              ? $eventName
              : new EventName($eventName);
-        $this->eventName->setName('eventName');
+        $this->eventName->setElementName('eventName');
         return $this;
     }
 
@@ -131,6 +135,8 @@ class GroupScheduleGetEventRequest extends ComplexType implements ComplexInterfa
      */
     public function getEventName()
     {
-        return ($this->eventName) ? $this->eventName->getValue() : null;
+        return ($this->eventName)
+            ? $this->eventName->getElementValue()
+            : null;
     }
 }

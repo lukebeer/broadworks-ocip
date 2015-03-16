@@ -23,7 +23,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderCommunicationBarringDigitPatternCriteriaModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'ServiceProviderCommunicationBarringDigitPatternCriteriaModifyRequest';
+    public    $elementName = 'ServiceProviderCommunicationBarringDigitPatternCriteriaModifyRequest';
     protected $serviceProviderId;
     protected $name;
     protected $newName;
@@ -63,7 +63,7 @@ class ServiceProviderCommunicationBarringDigitPatternCriteriaModifyRequest exten
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
-        $this->serviceProviderId->setName('serviceProviderId');
+        $this->serviceProviderId->setElementName('serviceProviderId');
         return $this;
     }
 
@@ -73,7 +73,9 @@ class ServiceProviderCommunicationBarringDigitPatternCriteriaModifyRequest exten
      */
     public function getServiceProviderId()
     {
-        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
+        return ($this->serviceProviderId)
+            ? $this->serviceProviderId->getElementValue()
+            : null;
     }
 
     /**
@@ -84,7 +86,7 @@ class ServiceProviderCommunicationBarringDigitPatternCriteriaModifyRequest exten
         $this->name = ($name InstanceOf DigitPatternCriteriaName)
              ? $name
              : new DigitPatternCriteriaName($name);
-        $this->name->setName('name');
+        $this->name->setElementName('name');
         return $this;
     }
 
@@ -94,7 +96,9 @@ class ServiceProviderCommunicationBarringDigitPatternCriteriaModifyRequest exten
      */
     public function getName()
     {
-        return ($this->name) ? $this->name->getValue() : null;
+        return ($this->name)
+            ? $this->name->getElementValue()
+            : null;
     }
 
     /**
@@ -105,7 +109,7 @@ class ServiceProviderCommunicationBarringDigitPatternCriteriaModifyRequest exten
         $this->newName = ($newName InstanceOf DigitPatternCriteriaName)
              ? $newName
              : new DigitPatternCriteriaName($newName);
-        $this->newName->setName('newName');
+        $this->newName->setElementName('newName');
         return $this;
     }
 
@@ -115,7 +119,9 @@ class ServiceProviderCommunicationBarringDigitPatternCriteriaModifyRequest exten
      */
     public function getNewName()
     {
-        return ($this->newName) ? $this->newName->getValue() : null;
+        return ($this->newName)
+            ? $this->newName->getElementValue()
+            : null;
     }
 
     /**
@@ -126,7 +132,7 @@ class ServiceProviderCommunicationBarringDigitPatternCriteriaModifyRequest exten
         $this->description = ($description InstanceOf DigitPatternCriteriaDescription)
              ? $description
              : new DigitPatternCriteriaDescription($description);
-        $this->description->setName('description');
+        $this->description->setElementName('description');
         return $this;
     }
 
@@ -136,7 +142,9 @@ class ServiceProviderCommunicationBarringDigitPatternCriteriaModifyRequest exten
      */
     public function getDescription()
     {
-        return ($this->description) ? $this->description->getValue() : null;
+        return ($this->description)
+            ? $this->description->getElementValue()
+            : null;
     }
 
     /**
@@ -147,7 +155,7 @@ class ServiceProviderCommunicationBarringDigitPatternCriteriaModifyRequest exten
         $this->addMatchDigitPattern = ($addMatchDigitPattern InstanceOf DigitPattern)
              ? $addMatchDigitPattern
              : new DigitPattern($addMatchDigitPattern);
-        $this->addMatchDigitPattern->setName('addMatchDigitPattern');
+        $this->addMatchDigitPattern->setElementName('addMatchDigitPattern');
         return $this;
     }
 
@@ -157,7 +165,9 @@ class ServiceProviderCommunicationBarringDigitPatternCriteriaModifyRequest exten
      */
     public function getAddMatchDigitPattern()
     {
-        return ($this->addMatchDigitPattern) ? $this->addMatchDigitPattern->getValue() : null;
+        return ($this->addMatchDigitPattern)
+            ? $this->addMatchDigitPattern->getElementValue()
+            : null;
     }
 
     /**
@@ -168,7 +178,7 @@ class ServiceProviderCommunicationBarringDigitPatternCriteriaModifyRequest exten
         $this->deleteMatchDigitPattern = ($deleteMatchDigitPattern InstanceOf DigitPattern)
              ? $deleteMatchDigitPattern
              : new DigitPattern($deleteMatchDigitPattern);
-        $this->deleteMatchDigitPattern->setName('deleteMatchDigitPattern');
+        $this->deleteMatchDigitPattern->setElementName('deleteMatchDigitPattern');
         return $this;
     }
 
@@ -178,6 +188,8 @@ class ServiceProviderCommunicationBarringDigitPatternCriteriaModifyRequest exten
      */
     public function getDeleteMatchDigitPattern()
     {
-        return ($this->deleteMatchDigitPattern) ? $this->deleteMatchDigitPattern->getValue() : null;
+        return ($this->deleteMatchDigitPattern)
+            ? $this->deleteMatchDigitPattern->getElementValue()
+            : null;
     }
 }

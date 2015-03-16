@@ -16,12 +16,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\Enumeration;
  */
 class MeetMeConferencingRecordingFileFormat extends SimpleType
 {
-    public $name = "MeetMeConferencingRecordingFileFormat";
-    protected $value;
-
+    public $elementName = "MeetMeConferencingRecordingFileFormat";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new Enumeration([
             'WAV',
             'MP3'

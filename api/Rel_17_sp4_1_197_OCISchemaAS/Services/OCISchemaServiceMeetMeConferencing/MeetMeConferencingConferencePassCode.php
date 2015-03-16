@@ -17,12 +17,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\MaxLength;
  */
 class MeetMeConferencingConferencePassCode extends SimpleType
 {
-    public $name = "MeetMeConferencingConferencePassCode";
-    protected $value;
-
+    public $elementName = "MeetMeConferencingConferencePassCode";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new MinLength("6"));
         $this->addRestriction(new MaxLength("12"));
     }

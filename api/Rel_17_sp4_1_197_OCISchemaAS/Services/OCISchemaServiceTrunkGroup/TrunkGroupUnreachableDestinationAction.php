@@ -16,12 +16,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\Enumeration;
  */
 class TrunkGroupUnreachableDestinationAction extends SimpleType
 {
-    public $name = "TrunkGroupUnreachableDestinationAction";
-    protected $value;
-
+    public $elementName = "TrunkGroupUnreachableDestinationAction";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new Enumeration([
             'Forward',
             'Reroute'

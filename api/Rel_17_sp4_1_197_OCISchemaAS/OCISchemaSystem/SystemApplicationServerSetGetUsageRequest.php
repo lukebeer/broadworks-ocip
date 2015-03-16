@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
 class SystemApplicationServerSetGetUsageRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemApplicationServerSetGetUsageResponse';
-    public    $name = 'SystemApplicationServerSetGetUsageRequest';
+    public    $elementName = 'SystemApplicationServerSetGetUsageRequest';
     protected $name;
 
     public function __construct(
@@ -46,7 +46,7 @@ class SystemApplicationServerSetGetUsageRequest extends ComplexType implements C
         $this->name = ($name InstanceOf ApplicationServerSetName)
              ? $name
              : new ApplicationServerSetName($name);
-        $this->name->setName('name');
+        $this->name->setElementName('name');
         return $this;
     }
 
@@ -56,6 +56,8 @@ class SystemApplicationServerSetGetUsageRequest extends ComplexType implements C
      */
     public function getName()
     {
-        return ($this->name) ? $this->name->getValue() : null;
+        return ($this->name)
+            ? $this->name->getElementValue()
+            : null;
     }
 }

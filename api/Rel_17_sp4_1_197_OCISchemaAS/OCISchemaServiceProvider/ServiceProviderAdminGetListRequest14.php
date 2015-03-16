@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
 class ServiceProviderAdminGetListRequest14 extends ComplexType implements ComplexInterface
 {
     public    $responseType      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderAdminGetListResponse14';
-    public    $name = 'ServiceProviderAdminGetListRequest14';
+    public    $elementName = 'ServiceProviderAdminGetListRequest14';
     protected $serviceProviderId;
 
     public function __construct(
@@ -46,7 +46,7 @@ class ServiceProviderAdminGetListRequest14 extends ComplexType implements Comple
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
-        $this->serviceProviderId->setName('serviceProviderId');
+        $this->serviceProviderId->setElementName('serviceProviderId');
         return $this;
     }
 
@@ -56,6 +56,8 @@ class ServiceProviderAdminGetListRequest14 extends ComplexType implements Comple
      */
     public function getServiceProviderId()
     {
-        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
+        return ($this->serviceProviderId)
+            ? $this->serviceProviderId->getElementValue()
+            : null;
     }
 }

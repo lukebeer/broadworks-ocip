@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserBroadWorksReceptionistEnterpriseAddUserListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'UserBroadWorksReceptionistEnterpriseAddUserListRequest';
+    public    $elementName = 'UserBroadWorksReceptionistEnterpriseAddUserListRequest';
     protected $userId;
     protected $monitoredUserId;
 
@@ -48,7 +48,7 @@ class UserBroadWorksReceptionistEnterpriseAddUserListRequest extends ComplexType
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
-        $this->userId->setName('userId');
+        $this->userId->setElementName('userId');
         return $this;
     }
 
@@ -58,7 +58,9 @@ class UserBroadWorksReceptionistEnterpriseAddUserListRequest extends ComplexType
      */
     public function getUserId()
     {
-        return ($this->userId) ? $this->userId->getValue() : null;
+        return ($this->userId)
+            ? $this->userId->getElementValue()
+            : null;
     }
 
     /**
@@ -69,7 +71,7 @@ class UserBroadWorksReceptionistEnterpriseAddUserListRequest extends ComplexType
         $this->monitoredUserId = ($monitoredUserId InstanceOf UserId)
              ? $monitoredUserId
              : new UserId($monitoredUserId);
-        $this->monitoredUserId->setName('monitoredUserId');
+        $this->monitoredUserId->setElementName('monitoredUserId');
         return $this;
     }
 
@@ -79,6 +81,8 @@ class UserBroadWorksReceptionistEnterpriseAddUserListRequest extends ComplexType
      */
     public function getMonitoredUserId()
     {
-        return ($this->monitoredUserId) ? $this->monitoredUserId->getValue() : null;
+        return ($this->monitoredUserId)
+            ? $this->monitoredUserId->getElementValue()
+            : null;
     }
 }

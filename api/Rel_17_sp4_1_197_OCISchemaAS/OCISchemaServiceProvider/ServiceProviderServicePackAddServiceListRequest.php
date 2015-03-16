@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderServicePackAddServiceListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'ServiceProviderServicePackAddServiceListRequest';
+    public    $elementName = 'ServiceProviderServicePackAddServiceListRequest';
     protected $serviceProviderId;
     protected $servicePackName;
     protected $serviceName;
@@ -53,7 +53,7 @@ class ServiceProviderServicePackAddServiceListRequest extends ComplexType implem
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
-        $this->serviceProviderId->setName('serviceProviderId');
+        $this->serviceProviderId->setElementName('serviceProviderId');
         return $this;
     }
 
@@ -63,7 +63,9 @@ class ServiceProviderServicePackAddServiceListRequest extends ComplexType implem
      */
     public function getServiceProviderId()
     {
-        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
+        return ($this->serviceProviderId)
+            ? $this->serviceProviderId->getElementValue()
+            : null;
     }
 
     /**
@@ -74,7 +76,7 @@ class ServiceProviderServicePackAddServiceListRequest extends ComplexType implem
         $this->servicePackName = ($servicePackName InstanceOf ServicePackName)
              ? $servicePackName
              : new ServicePackName($servicePackName);
-        $this->servicePackName->setName('servicePackName');
+        $this->servicePackName->setElementName('servicePackName');
         return $this;
     }
 
@@ -84,7 +86,9 @@ class ServiceProviderServicePackAddServiceListRequest extends ComplexType implem
      */
     public function getServicePackName()
     {
-        return ($this->servicePackName) ? $this->servicePackName->getValue() : null;
+        return ($this->servicePackName)
+            ? $this->servicePackName->getElementValue()
+            : null;
     }
 
     /**
@@ -95,7 +99,7 @@ class ServiceProviderServicePackAddServiceListRequest extends ComplexType implem
         $this->serviceName = ($serviceName InstanceOf UserService)
              ? $serviceName
              : new UserService($serviceName);
-        $this->serviceName->setName('serviceName');
+        $this->serviceName->setElementName('serviceName');
         return $this;
     }
 
@@ -105,6 +109,8 @@ class ServiceProviderServicePackAddServiceListRequest extends ComplexType implem
      */
     public function getServiceName()
     {
-        return ($this->serviceName) ? $this->serviceName->getValue() : null;
+        return ($this->serviceName)
+            ? $this->serviceName->getElementValue()
+            : null;
     }
 }

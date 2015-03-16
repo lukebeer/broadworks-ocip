@@ -19,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderCommunicationBarringProfileGetCriteriaUsageListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'ServiceProviderCommunicationBarringProfileGetCriteriaUsageListResponse';
+    public    $elementName = 'ServiceProviderCommunicationBarringProfileGetCriteriaUsageListResponse';
     protected $profileTable;
 
     /**
@@ -36,7 +36,7 @@ class ServiceProviderCommunicationBarringProfileGetCriteriaUsageListResponse ext
     public function setProfileTable(TableType $profileTable = null)
     {
         $this->profileTable = $profileTable;
-        $this->profileTable->setName('profileTable');
+        $this->profileTable->setElementName('profileTable');
         return $this;
     }
 

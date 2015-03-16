@@ -17,12 +17,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\MaxLength;
  */
 class Md5Hash extends SimpleType
 {
-    public $name = "Md5Hash";
-    protected $value;
-
+    public $elementName = "Md5Hash";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new MinLength("32"));
         $this->addRestriction(new MaxLength("32"));
     }

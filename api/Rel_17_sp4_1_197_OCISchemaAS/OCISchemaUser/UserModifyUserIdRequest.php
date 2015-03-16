@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserModifyUserIdRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'UserModifyUserIdRequest';
+    public    $elementName = 'UserModifyUserIdRequest';
     protected $userId;
     protected $newUserId;
 
@@ -48,7 +48,7 @@ class UserModifyUserIdRequest extends ComplexType implements ComplexInterface
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
-        $this->userId->setName('userId');
+        $this->userId->setElementName('userId');
         return $this;
     }
 
@@ -58,7 +58,9 @@ class UserModifyUserIdRequest extends ComplexType implements ComplexInterface
      */
     public function getUserId()
     {
-        return ($this->userId) ? $this->userId->getValue() : null;
+        return ($this->userId)
+            ? $this->userId->getElementValue()
+            : null;
     }
 
     /**
@@ -69,7 +71,7 @@ class UserModifyUserIdRequest extends ComplexType implements ComplexInterface
         $this->newUserId = ($newUserId InstanceOf UserId)
              ? $newUserId
              : new UserId($newUserId);
-        $this->newUserId->setName('newUserId');
+        $this->newUserId->setElementName('newUserId');
         return $this;
     }
 
@@ -79,6 +81,8 @@ class UserModifyUserIdRequest extends ComplexType implements ComplexInterface
      */
     public function getNewUserId()
     {
-        return ($this->newUserId) ? $this->newUserId->getValue() : null;
+        return ($this->newUserId)
+            ? $this->newUserId->getElementValue()
+            : null;
     }
 }

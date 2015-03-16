@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderServicePackGetUtilizationListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'ServiceProviderServicePackGetUtilizationListResponse';
+    public    $elementName = 'ServiceProviderServicePackGetUtilizationListResponse';
     protected $servicePackName;
     protected $serviceUtilizationTable;
 
@@ -42,7 +42,7 @@ class ServiceProviderServicePackGetUtilizationListResponse extends ComplexType i
         $this->servicePackName = ($servicePackName InstanceOf ServicePackName)
              ? $servicePackName
              : new ServicePackName($servicePackName);
-        $this->servicePackName->setName('servicePackName');
+        $this->servicePackName->setElementName('servicePackName');
         return $this;
     }
 
@@ -52,7 +52,9 @@ class ServiceProviderServicePackGetUtilizationListResponse extends ComplexType i
      */
     public function getServicePackName()
     {
-        return ($this->servicePackName) ? $this->servicePackName->getValue() : null;
+        return ($this->servicePackName)
+            ? $this->servicePackName->getElementValue()
+            : null;
     }
 
     /**
@@ -61,7 +63,7 @@ class ServiceProviderServicePackGetUtilizationListResponse extends ComplexType i
     public function setServiceUtilizationTable(TableType $serviceUtilizationTable = null)
     {
         $this->serviceUtilizationTable = $serviceUtilizationTable;
-        $this->serviceUtilizationTable->setName('serviceUtilizationTable');
+        $this->serviceUtilizationTable->setElementName('serviceUtilizationTable');
         return $this;
     }
 

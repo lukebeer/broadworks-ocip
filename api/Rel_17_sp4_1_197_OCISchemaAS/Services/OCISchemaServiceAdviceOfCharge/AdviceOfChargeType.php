@@ -16,12 +16,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\Enumeration;
  */
 class AdviceOfChargeType extends SimpleType
 {
-    public $name = "AdviceOfChargeType";
-    protected $value;
-
+    public $elementName = "AdviceOfChargeType";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new Enumeration([
             'During Call',
             'End Of Call'

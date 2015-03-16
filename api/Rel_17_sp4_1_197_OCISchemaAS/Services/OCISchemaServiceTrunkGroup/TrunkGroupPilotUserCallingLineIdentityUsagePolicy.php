@@ -16,12 +16,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\Enumeration;
  */
 class TrunkGroupPilotUserCallingLineIdentityUsagePolicy extends SimpleType
 {
-    public $name = "TrunkGroupPilotUserCallingLineIdentityUsagePolicy";
-    protected $value;
-
+    public $elementName = "TrunkGroupPilotUserCallingLineIdentityUsagePolicy";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new Enumeration([
             'All Originating Calls',
             'Unscreened Originating Calls',

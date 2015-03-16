@@ -25,7 +25,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupVirtualOnNetEnterpriseExtensionsAddUserRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'GroupVirtualOnNetEnterpriseExtensionsAddUserRequest';
+    public    $elementName = 'GroupVirtualOnNetEnterpriseExtensionsAddUserRequest';
     protected $serviceProviderId;
     protected $groupId;
     protected $virtualOnNetUser;
@@ -59,7 +59,7 @@ class GroupVirtualOnNetEnterpriseExtensionsAddUserRequest extends ComplexType im
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
-        $this->serviceProviderId->setName('serviceProviderId');
+        $this->serviceProviderId->setElementName('serviceProviderId');
         return $this;
     }
 
@@ -69,7 +69,9 @@ class GroupVirtualOnNetEnterpriseExtensionsAddUserRequest extends ComplexType im
      */
     public function getServiceProviderId()
     {
-        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
+        return ($this->serviceProviderId)
+            ? $this->serviceProviderId->getElementValue()
+            : null;
     }
 
     /**
@@ -80,7 +82,7 @@ class GroupVirtualOnNetEnterpriseExtensionsAddUserRequest extends ComplexType im
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
-        $this->groupId->setName('groupId');
+        $this->groupId->setElementName('groupId');
         return $this;
     }
 
@@ -90,7 +92,9 @@ class GroupVirtualOnNetEnterpriseExtensionsAddUserRequest extends ComplexType im
      */
     public function getGroupId()
     {
-        return ($this->groupId) ? $this->groupId->getValue() : null;
+        return ($this->groupId)
+            ? $this->groupId->getElementValue()
+            : null;
     }
 
     /**
@@ -101,7 +105,7 @@ class GroupVirtualOnNetEnterpriseExtensionsAddUserRequest extends ComplexType im
         $this->virtualOnNetUser = ($virtualOnNetUser InstanceOf VirtualOnNetUser)
              ? $virtualOnNetUser
              : new VirtualOnNetUser($virtualOnNetUser);
-        $this->virtualOnNetUser->setName('virtualOnNetUser');
+        $this->virtualOnNetUser->setElementName('virtualOnNetUser');
         return $this;
     }
 
@@ -122,7 +126,7 @@ class GroupVirtualOnNetEnterpriseExtensionsAddUserRequest extends ComplexType im
         $this->virtualOnNetUserRange = ($virtualOnNetUserRange InstanceOf VirtualOnNetUserRange)
              ? $virtualOnNetUserRange
              : new VirtualOnNetUserRange($virtualOnNetUserRange);
-        $this->virtualOnNetUserRange->setName('virtualOnNetUserRange');
+        $this->virtualOnNetUserRange->setElementName('virtualOnNetUserRange');
         return $this;
     }
 

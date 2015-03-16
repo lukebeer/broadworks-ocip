@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserAlternateNumbersGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'UserAlternateNumbersGetResponse';
+    public    $elementName = 'UserAlternateNumbersGetResponse';
     protected $distinctiveRing;
     protected $alternateEntry01;
     protected $alternateEntry02;
@@ -47,7 +47,7 @@ class UserAlternateNumbersGetResponse extends ComplexType implements ComplexInte
     public function setDistinctiveRing($distinctiveRing = null)
     {
         $this->distinctiveRing = new PrimitiveType($distinctiveRing);
-        $this->distinctiveRing->setName('distinctiveRing');
+        $this->distinctiveRing->setElementName('distinctiveRing');
         return $this;
     }
 
@@ -57,7 +57,9 @@ class UserAlternateNumbersGetResponse extends ComplexType implements ComplexInte
      */
     public function getDistinctiveRing()
     {
-        return ($this->distinctiveRing) ? $this->distinctiveRing->getValue() : null;
+        return ($this->distinctiveRing)
+            ? $this->distinctiveRing->getElementValue()
+            : null;
     }
 
     /**
@@ -68,7 +70,7 @@ class UserAlternateNumbersGetResponse extends ComplexType implements ComplexInte
         $this->alternateEntry01 = ($alternateEntry01 InstanceOf AlternateNumberEntry)
              ? $alternateEntry01
              : new AlternateNumberEntry($alternateEntry01);
-        $this->alternateEntry01->setName('alternateEntry01');
+        $this->alternateEntry01->setElementName('alternateEntry01');
         return $this;
     }
 
@@ -89,7 +91,7 @@ class UserAlternateNumbersGetResponse extends ComplexType implements ComplexInte
         $this->alternateEntry02 = ($alternateEntry02 InstanceOf AlternateNumberEntry)
              ? $alternateEntry02
              : new AlternateNumberEntry($alternateEntry02);
-        $this->alternateEntry02->setName('alternateEntry02');
+        $this->alternateEntry02->setElementName('alternateEntry02');
         return $this;
     }
 
@@ -110,7 +112,7 @@ class UserAlternateNumbersGetResponse extends ComplexType implements ComplexInte
         $this->alternateEntry03 = ($alternateEntry03 InstanceOf AlternateNumberEntry)
              ? $alternateEntry03
              : new AlternateNumberEntry($alternateEntry03);
-        $this->alternateEntry03->setName('alternateEntry03');
+        $this->alternateEntry03->setElementName('alternateEntry03');
         return $this;
     }
 
@@ -131,7 +133,7 @@ class UserAlternateNumbersGetResponse extends ComplexType implements ComplexInte
         $this->alternateEntry04 = ($alternateEntry04 InstanceOf AlternateNumberEntry)
              ? $alternateEntry04
              : new AlternateNumberEntry($alternateEntry04);
-        $this->alternateEntry04->setName('alternateEntry04');
+        $this->alternateEntry04->setElementName('alternateEntry04');
         return $this;
     }
 
@@ -152,7 +154,7 @@ class UserAlternateNumbersGetResponse extends ComplexType implements ComplexInte
         $this->alternateEntry05 = ($alternateEntry05 InstanceOf AlternateNumberEntry)
              ? $alternateEntry05
              : new AlternateNumberEntry($alternateEntry05);
-        $this->alternateEntry05->setName('alternateEntry05');
+        $this->alternateEntry05->setElementName('alternateEntry05');
         return $this;
     }
 
@@ -173,7 +175,7 @@ class UserAlternateNumbersGetResponse extends ComplexType implements ComplexInte
         $this->alternateEntry06 = ($alternateEntry06 InstanceOf AlternateNumberEntry)
              ? $alternateEntry06
              : new AlternateNumberEntry($alternateEntry06);
-        $this->alternateEntry06->setName('alternateEntry06');
+        $this->alternateEntry06->setElementName('alternateEntry06');
         return $this;
     }
 
@@ -194,7 +196,7 @@ class UserAlternateNumbersGetResponse extends ComplexType implements ComplexInte
         $this->alternateEntry07 = ($alternateEntry07 InstanceOf AlternateNumberEntry)
              ? $alternateEntry07
              : new AlternateNumberEntry($alternateEntry07);
-        $this->alternateEntry07->setName('alternateEntry07');
+        $this->alternateEntry07->setElementName('alternateEntry07');
         return $this;
     }
 
@@ -215,7 +217,7 @@ class UserAlternateNumbersGetResponse extends ComplexType implements ComplexInte
         $this->alternateEntry08 = ($alternateEntry08 InstanceOf AlternateNumberEntry)
              ? $alternateEntry08
              : new AlternateNumberEntry($alternateEntry08);
-        $this->alternateEntry08->setName('alternateEntry08');
+        $this->alternateEntry08->setElementName('alternateEntry08');
         return $this;
     }
 
@@ -236,7 +238,7 @@ class UserAlternateNumbersGetResponse extends ComplexType implements ComplexInte
         $this->alternateEntry09 = ($alternateEntry09 InstanceOf AlternateNumberEntry)
              ? $alternateEntry09
              : new AlternateNumberEntry($alternateEntry09);
-        $this->alternateEntry09->setName('alternateEntry09');
+        $this->alternateEntry09->setElementName('alternateEntry09');
         return $this;
     }
 
@@ -257,7 +259,7 @@ class UserAlternateNumbersGetResponse extends ComplexType implements ComplexInte
         $this->alternateEntry10 = ($alternateEntry10 InstanceOf AlternateNumberEntry)
              ? $alternateEntry10
              : new AlternateNumberEntry($alternateEntry10);
-        $this->alternateEntry10->setName('alternateEntry10');
+        $this->alternateEntry10->setElementName('alternateEntry10');
         return $this;
     }
 

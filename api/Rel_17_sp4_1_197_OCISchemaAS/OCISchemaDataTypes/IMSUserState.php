@@ -16,12 +16,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\Enumeration;
  */
 class IMSUserState extends SimpleType
 {
-    public $name = "IMSUserState";
-    protected $value;
-
+    public $elementName = "IMSUserState";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new Enumeration([
             'Not Registered',
             'Registered',

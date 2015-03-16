@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupRoutePointGetInstanceListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'GroupRoutePointGetInstanceListResponse';
+    public    $elementName = 'GroupRoutePointGetInstanceListResponse';
     protected $routePointTable;
 
     /**
@@ -39,7 +39,7 @@ class GroupRoutePointGetInstanceListResponse extends ComplexType implements Comp
     public function setRoutePointTable(TableType $routePointTable = null)
     {
         $this->routePointTable = $routePointTable;
-        $this->routePointTable->setName('routePointTable');
+        $this->routePointTable->setElementName('routePointTable');
         return $this;
     }
 

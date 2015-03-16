@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserAuthenticationModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'UserAuthenticationModifyRequest';
+    public    $elementName = 'UserAuthenticationModifyRequest';
     protected $userId;
     protected $userName;
 
@@ -49,7 +49,7 @@ class UserAuthenticationModifyRequest extends ComplexType implements ComplexInte
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
-        $this->userId->setName('userId');
+        $this->userId->setElementName('userId');
         return $this;
     }
 
@@ -59,7 +59,9 @@ class UserAuthenticationModifyRequest extends ComplexType implements ComplexInte
      */
     public function getUserId()
     {
-        return ($this->userId) ? $this->userId->getValue() : null;
+        return ($this->userId)
+            ? $this->userId->getElementValue()
+            : null;
     }
 
     /**
@@ -70,7 +72,7 @@ class UserAuthenticationModifyRequest extends ComplexType implements ComplexInte
         $this->userName = ($userName InstanceOf SIPAuthenticationUserName)
              ? $userName
              : new SIPAuthenticationUserName($userName);
-        $this->userName->setName('userName');
+        $this->userName->setElementName('userName');
         return $this;
     }
 
@@ -80,6 +82,8 @@ class UserAuthenticationModifyRequest extends ComplexType implements ComplexInte
      */
     public function getUserName()
     {
-        return ($this->userName) ? $this->userName->getValue() : null;
+        return ($this->userName)
+            ? $this->userName->getElementValue()
+            : null;
     }
 }

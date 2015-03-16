@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
 class GroupDeviceTypeFileGetListRequest14sp8 extends ComplexType implements ComplexInterface
 {
     public    $responseType      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupDeviceTypeFileGetListResponse14sp8';
-    public    $name = 'GroupDeviceTypeFileGetListRequest14sp8';
+    public    $elementName = 'GroupDeviceTypeFileGetListRequest14sp8';
     protected $serviceProviderId;
     protected $groupId;
     protected $deviceType;
@@ -53,7 +53,7 @@ class GroupDeviceTypeFileGetListRequest14sp8 extends ComplexType implements Comp
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
-        $this->serviceProviderId->setName('serviceProviderId');
+        $this->serviceProviderId->setElementName('serviceProviderId');
         return $this;
     }
 
@@ -63,7 +63,9 @@ class GroupDeviceTypeFileGetListRequest14sp8 extends ComplexType implements Comp
      */
     public function getServiceProviderId()
     {
-        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
+        return ($this->serviceProviderId)
+            ? $this->serviceProviderId->getElementValue()
+            : null;
     }
 
     /**
@@ -74,7 +76,7 @@ class GroupDeviceTypeFileGetListRequest14sp8 extends ComplexType implements Comp
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
-        $this->groupId->setName('groupId');
+        $this->groupId->setElementName('groupId');
         return $this;
     }
 
@@ -84,7 +86,9 @@ class GroupDeviceTypeFileGetListRequest14sp8 extends ComplexType implements Comp
      */
     public function getGroupId()
     {
-        return ($this->groupId) ? $this->groupId->getValue() : null;
+        return ($this->groupId)
+            ? $this->groupId->getElementValue()
+            : null;
     }
 
     /**
@@ -95,7 +99,7 @@ class GroupDeviceTypeFileGetListRequest14sp8 extends ComplexType implements Comp
         $this->deviceType = ($deviceType InstanceOf AccessDeviceType)
              ? $deviceType
              : new AccessDeviceType($deviceType);
-        $this->deviceType->setName('deviceType');
+        $this->deviceType->setElementName('deviceType');
         return $this;
     }
 
@@ -105,6 +109,8 @@ class GroupDeviceTypeFileGetListRequest14sp8 extends ComplexType implements Comp
      */
     public function getDeviceType()
     {
-        return ($this->deviceType) ? $this->deviceType->getValue() : null;
+        return ($this->deviceType)
+            ? $this->deviceType->getElementValue()
+            : null;
     }
 }

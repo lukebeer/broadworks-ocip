@@ -23,7 +23,7 @@ use Broadworks_OCIP\core\Client\Client;
 class GroupVoiceMessagingGroupGetVoicePortalBrandingRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15\GroupVoiceMessagingGroupGetVoicePortalBrandingResponse';
-    public    $name = 'GroupVoiceMessagingGroupGetVoicePortalBrandingRequest';
+    public    $elementName = 'GroupVoiceMessagingGroupGetVoicePortalBrandingRequest';
     protected $serviceProviderId;
     protected $groupId;
 
@@ -51,7 +51,7 @@ class GroupVoiceMessagingGroupGetVoicePortalBrandingRequest extends ComplexType 
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
-        $this->serviceProviderId->setName('serviceProviderId');
+        $this->serviceProviderId->setElementName('serviceProviderId');
         return $this;
     }
 
@@ -61,7 +61,9 @@ class GroupVoiceMessagingGroupGetVoicePortalBrandingRequest extends ComplexType 
      */
     public function getServiceProviderId()
     {
-        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
+        return ($this->serviceProviderId)
+            ? $this->serviceProviderId->getElementValue()
+            : null;
     }
 
     /**
@@ -72,7 +74,7 @@ class GroupVoiceMessagingGroupGetVoicePortalBrandingRequest extends ComplexType 
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
-        $this->groupId->setName('groupId');
+        $this->groupId->setElementName('groupId');
         return $this;
     }
 
@@ -82,6 +84,8 @@ class GroupVoiceMessagingGroupGetVoicePortalBrandingRequest extends ComplexType 
      */
     public function getGroupId()
     {
-        return ($this->groupId) ? $this->groupId->getValue() : null;
+        return ($this->groupId)
+            ? $this->groupId->getElementValue()
+            : null;
     }
 }

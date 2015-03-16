@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupCallCenterQueueCallDispositionCodeGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'GroupCallCenterQueueCallDispositionCodeGetResponse';
+    public    $elementName = 'GroupCallCenterQueueCallDispositionCodeGetResponse';
     protected $isActive;
     protected $description;
 
@@ -38,7 +38,7 @@ class GroupCallCenterQueueCallDispositionCodeGetResponse extends ComplexType imp
     public function setIsActive($isActive = null)
     {
         $this->isActive = new PrimitiveType($isActive);
-        $this->isActive->setName('isActive');
+        $this->isActive->setElementName('isActive');
         return $this;
     }
 
@@ -48,7 +48,9 @@ class GroupCallCenterQueueCallDispositionCodeGetResponse extends ComplexType imp
      */
     public function getIsActive()
     {
-        return ($this->isActive) ? $this->isActive->getValue() : null;
+        return ($this->isActive)
+            ? $this->isActive->getElementValue()
+            : null;
     }
 
     /**
@@ -59,7 +61,7 @@ class GroupCallCenterQueueCallDispositionCodeGetResponse extends ComplexType imp
         $this->description = ($description InstanceOf CallDispositionCodeDescription)
              ? $description
              : new CallDispositionCodeDescription($description);
-        $this->description->setName('description');
+        $this->description->setElementName('description');
         return $this;
     }
 
@@ -69,6 +71,8 @@ class GroupCallCenterQueueCallDispositionCodeGetResponse extends ComplexType imp
      */
     public function getDescription()
     {
-        return ($this->description) ? $this->description->getValue() : null;
+        return ($this->description)
+            ? $this->description->getElementValue()
+            : null;
     }
 }

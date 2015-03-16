@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupGroupPagingTargetsCapacityModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'GroupGroupPagingTargetsCapacityModifyRequest';
+    public    $elementName = 'GroupGroupPagingTargetsCapacityModifyRequest';
     protected $serviceProviderId;
     protected $groupId;
     protected $maximumTargetUsers;
@@ -53,7 +53,7 @@ class GroupGroupPagingTargetsCapacityModifyRequest extends ComplexType implement
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
-        $this->serviceProviderId->setName('serviceProviderId');
+        $this->serviceProviderId->setElementName('serviceProviderId');
         return $this;
     }
 
@@ -63,7 +63,9 @@ class GroupGroupPagingTargetsCapacityModifyRequest extends ComplexType implement
      */
     public function getServiceProviderId()
     {
-        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
+        return ($this->serviceProviderId)
+            ? $this->serviceProviderId->getElementValue()
+            : null;
     }
 
     /**
@@ -74,7 +76,7 @@ class GroupGroupPagingTargetsCapacityModifyRequest extends ComplexType implement
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
-        $this->groupId->setName('groupId');
+        $this->groupId->setElementName('groupId');
         return $this;
     }
 
@@ -84,7 +86,9 @@ class GroupGroupPagingTargetsCapacityModifyRequest extends ComplexType implement
      */
     public function getGroupId()
     {
-        return ($this->groupId) ? $this->groupId->getValue() : null;
+        return ($this->groupId)
+            ? $this->groupId->getElementValue()
+            : null;
     }
 
     /**
@@ -95,7 +99,7 @@ class GroupGroupPagingTargetsCapacityModifyRequest extends ComplexType implement
         $this->maximumTargetUsers = ($maximumTargetUsers InstanceOf GroupPagingMaxTargetCapacity)
              ? $maximumTargetUsers
              : new GroupPagingMaxTargetCapacity($maximumTargetUsers);
-        $this->maximumTargetUsers->setName('maximumTargetUsers');
+        $this->maximumTargetUsers->setElementName('maximumTargetUsers');
         return $this;
     }
 
@@ -105,6 +109,8 @@ class GroupGroupPagingTargetsCapacityModifyRequest extends ComplexType implement
      */
     public function getMaximumTargetUsers()
     {
-        return ($this->maximumTargetUsers) ? $this->maximumTargetUsers->getValue() : null;
+        return ($this->maximumTargetUsers)
+            ? $this->maximumTargetUsers->getElementValue()
+            : null;
     }
 }

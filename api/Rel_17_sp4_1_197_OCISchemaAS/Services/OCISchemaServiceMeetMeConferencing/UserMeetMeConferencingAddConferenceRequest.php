@@ -27,7 +27,7 @@ use Broadworks_OCIP\core\Client\Client;
 class UserMeetMeConferencingAddConferenceRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType                 = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceMeetMeConferencing\UserMeetMeConferencingAddConferenceResponse';
-    public    $name = 'UserMeetMeConferencingAddConferenceRequest';
+    public    $elementName = 'UserMeetMeConferencingAddConferenceRequest';
     protected $userId;
     protected $bridgeId;
     protected $title;
@@ -79,7 +79,7 @@ class UserMeetMeConferencingAddConferenceRequest extends ComplexType implements 
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
-        $this->userId->setName('userId');
+        $this->userId->setElementName('userId');
         return $this;
     }
 
@@ -89,7 +89,9 @@ class UserMeetMeConferencingAddConferenceRequest extends ComplexType implements 
      */
     public function getUserId()
     {
-        return ($this->userId) ? $this->userId->getValue() : null;
+        return ($this->userId)
+            ? $this->userId->getElementValue()
+            : null;
     }
 
     /**
@@ -100,7 +102,7 @@ class UserMeetMeConferencingAddConferenceRequest extends ComplexType implements 
         $this->bridgeId = ($bridgeId InstanceOf UserId)
              ? $bridgeId
              : new UserId($bridgeId);
-        $this->bridgeId->setName('bridgeId');
+        $this->bridgeId->setElementName('bridgeId');
         return $this;
     }
 
@@ -110,7 +112,9 @@ class UserMeetMeConferencingAddConferenceRequest extends ComplexType implements 
      */
     public function getBridgeId()
     {
-        return ($this->bridgeId) ? $this->bridgeId->getValue() : null;
+        return ($this->bridgeId)
+            ? $this->bridgeId->getElementValue()
+            : null;
     }
 
     /**
@@ -121,7 +125,7 @@ class UserMeetMeConferencingAddConferenceRequest extends ComplexType implements 
         $this->title = ($title InstanceOf MeetMeConferencingConferenceTitle)
              ? $title
              : new MeetMeConferencingConferenceTitle($title);
-        $this->title->setName('title');
+        $this->title->setElementName('title');
         return $this;
     }
 
@@ -131,7 +135,9 @@ class UserMeetMeConferencingAddConferenceRequest extends ComplexType implements 
      */
     public function getTitle()
     {
-        return ($this->title) ? $this->title->getValue() : null;
+        return ($this->title)
+            ? $this->title->getElementValue()
+            : null;
     }
 
     /**
@@ -142,7 +148,7 @@ class UserMeetMeConferencingAddConferenceRequest extends ComplexType implements 
         $this->estimatedParticipants = ($estimatedParticipants InstanceOf MeetMeConferencingNumberOfParticipants)
              ? $estimatedParticipants
              : new MeetMeConferencingNumberOfParticipants($estimatedParticipants);
-        $this->estimatedParticipants->setName('estimatedParticipants');
+        $this->estimatedParticipants->setElementName('estimatedParticipants');
         return $this;
     }
 
@@ -152,7 +158,9 @@ class UserMeetMeConferencingAddConferenceRequest extends ComplexType implements 
      */
     public function getEstimatedParticipants()
     {
-        return ($this->estimatedParticipants) ? $this->estimatedParticipants->getValue() : null;
+        return ($this->estimatedParticipants)
+            ? $this->estimatedParticipants->getElementValue()
+            : null;
     }
 
     /**
@@ -163,7 +171,7 @@ class UserMeetMeConferencingAddConferenceRequest extends ComplexType implements 
         $this->accountCode = ($accountCode InstanceOf MeetMeConferencingConferenceAccountCode)
              ? $accountCode
              : new MeetMeConferencingConferenceAccountCode($accountCode);
-        $this->accountCode->setName('accountCode');
+        $this->accountCode->setElementName('accountCode');
         return $this;
     }
 
@@ -173,7 +181,9 @@ class UserMeetMeConferencingAddConferenceRequest extends ComplexType implements 
      */
     public function getAccountCode()
     {
-        return ($this->accountCode) ? $this->accountCode->getValue() : null;
+        return ($this->accountCode)
+            ? $this->accountCode->getElementValue()
+            : null;
     }
 
     /**
@@ -182,7 +192,7 @@ class UserMeetMeConferencingAddConferenceRequest extends ComplexType implements 
     public function setMuteAllAttendeesOnEntry($muteAllAttendeesOnEntry = null)
     {
         $this->muteAllAttendeesOnEntry = new PrimitiveType($muteAllAttendeesOnEntry);
-        $this->muteAllAttendeesOnEntry->setName('muteAllAttendeesOnEntry');
+        $this->muteAllAttendeesOnEntry->setElementName('muteAllAttendeesOnEntry');
         return $this;
     }
 
@@ -192,7 +202,9 @@ class UserMeetMeConferencingAddConferenceRequest extends ComplexType implements 
      */
     public function getMuteAllAttendeesOnEntry()
     {
-        return ($this->muteAllAttendeesOnEntry) ? $this->muteAllAttendeesOnEntry->getValue() : null;
+        return ($this->muteAllAttendeesOnEntry)
+            ? $this->muteAllAttendeesOnEntry->getElementValue()
+            : null;
     }
 
     /**
@@ -201,7 +213,7 @@ class UserMeetMeConferencingAddConferenceRequest extends ComplexType implements 
     public function setEndConferenceOnModeratorExit($endConferenceOnModeratorExit = null)
     {
         $this->endConferenceOnModeratorExit = new PrimitiveType($endConferenceOnModeratorExit);
-        $this->endConferenceOnModeratorExit->setName('endConferenceOnModeratorExit');
+        $this->endConferenceOnModeratorExit->setElementName('endConferenceOnModeratorExit');
         return $this;
     }
 
@@ -211,7 +223,9 @@ class UserMeetMeConferencingAddConferenceRequest extends ComplexType implements 
      */
     public function getEndConferenceOnModeratorExit()
     {
-        return ($this->endConferenceOnModeratorExit) ? $this->endConferenceOnModeratorExit->getValue() : null;
+        return ($this->endConferenceOnModeratorExit)
+            ? $this->endConferenceOnModeratorExit->getElementValue()
+            : null;
     }
 
     /**
@@ -220,7 +234,7 @@ class UserMeetMeConferencingAddConferenceRequest extends ComplexType implements 
     public function setModeratorRequired($moderatorRequired = null)
     {
         $this->moderatorRequired = new PrimitiveType($moderatorRequired);
-        $this->moderatorRequired->setName('moderatorRequired');
+        $this->moderatorRequired->setElementName('moderatorRequired');
         return $this;
     }
 
@@ -230,7 +244,9 @@ class UserMeetMeConferencingAddConferenceRequest extends ComplexType implements 
      */
     public function getModeratorRequired()
     {
-        return ($this->moderatorRequired) ? $this->moderatorRequired->getValue() : null;
+        return ($this->moderatorRequired)
+            ? $this->moderatorRequired->getElementValue()
+            : null;
     }
 
     /**
@@ -241,7 +257,7 @@ class UserMeetMeConferencingAddConferenceRequest extends ComplexType implements 
         $this->attendeeNotification = ($attendeeNotification InstanceOf MeetMeConferencingConferenceAttendeeNotification)
              ? $attendeeNotification
              : new MeetMeConferencingConferenceAttendeeNotification($attendeeNotification);
-        $this->attendeeNotification->setName('attendeeNotification');
+        $this->attendeeNotification->setElementName('attendeeNotification');
         return $this;
     }
 
@@ -251,7 +267,9 @@ class UserMeetMeConferencingAddConferenceRequest extends ComplexType implements 
      */
     public function getAttendeeNotification()
     {
-        return ($this->attendeeNotification) ? $this->attendeeNotification->getValue() : null;
+        return ($this->attendeeNotification)
+            ? $this->attendeeNotification->getElementValue()
+            : null;
     }
 
     /**
@@ -262,7 +280,7 @@ class UserMeetMeConferencingAddConferenceRequest extends ComplexType implements 
         $this->conferenceSchedule = ($conferenceSchedule InstanceOf MeetMeConferencingConferenceSchedule)
              ? $conferenceSchedule
              : new MeetMeConferencingConferenceSchedule($conferenceSchedule);
-        $this->conferenceSchedule->setName('conferenceSchedule');
+        $this->conferenceSchedule->setElementName('conferenceSchedule');
         return $this;
     }
 

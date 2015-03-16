@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserVoiceMessagingUserGetOutgoingSMDIMWIResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'UserVoiceMessagingUserGetOutgoingSMDIMWIResponse';
+    public    $elementName = 'UserVoiceMessagingUserGetOutgoingSMDIMWIResponse';
     protected $isActive;
     protected $outgoingSMDIMWIPhoneNumber;
 
@@ -38,7 +38,7 @@ class UserVoiceMessagingUserGetOutgoingSMDIMWIResponse extends ComplexType imple
     public function setIsActive($isActive = null)
     {
         $this->isActive = new PrimitiveType($isActive);
-        $this->isActive->setName('isActive');
+        $this->isActive->setElementName('isActive');
         return $this;
     }
 
@@ -48,7 +48,9 @@ class UserVoiceMessagingUserGetOutgoingSMDIMWIResponse extends ComplexType imple
      */
     public function getIsActive()
     {
-        return ($this->isActive) ? $this->isActive->getValue() : null;
+        return ($this->isActive)
+            ? $this->isActive->getElementValue()
+            : null;
     }
 
     /**
@@ -59,7 +61,7 @@ class UserVoiceMessagingUserGetOutgoingSMDIMWIResponse extends ComplexType imple
         $this->outgoingSMDIMWIPhoneNumber = ($outgoingSMDIMWIPhoneNumber InstanceOf OutgoingDN)
              ? $outgoingSMDIMWIPhoneNumber
              : new OutgoingDN($outgoingSMDIMWIPhoneNumber);
-        $this->outgoingSMDIMWIPhoneNumber->setName('outgoingSMDIMWIPhoneNumber');
+        $this->outgoingSMDIMWIPhoneNumber->setElementName('outgoingSMDIMWIPhoneNumber');
         return $this;
     }
 
@@ -69,6 +71,8 @@ class UserVoiceMessagingUserGetOutgoingSMDIMWIResponse extends ComplexType imple
      */
     public function getOutgoingSMDIMWIPhoneNumber()
     {
-        return ($this->outgoingSMDIMWIPhoneNumber) ? $this->outgoingSMDIMWIPhoneNumber->getValue() : null;
+        return ($this->outgoingSMDIMWIPhoneNumber)
+            ? $this->outgoingSMDIMWIPhoneNumber->getElementValue()
+            : null;
     }
 }

@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class EnterpriseCallCenterModifyRoutingPolicyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'EnterpriseCallCenterModifyRoutingPolicyRequest';
+    public    $elementName = 'EnterpriseCallCenterModifyRoutingPolicyRequest';
     protected $serviceProviderId;
     protected $routingPolicy;
     protected $routingPriorityOrder;
@@ -52,7 +52,7 @@ class EnterpriseCallCenterModifyRoutingPolicyRequest extends ComplexType impleme
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
-        $this->serviceProviderId->setName('serviceProviderId');
+        $this->serviceProviderId->setElementName('serviceProviderId');
         return $this;
     }
 
@@ -62,7 +62,9 @@ class EnterpriseCallCenterModifyRoutingPolicyRequest extends ComplexType impleme
      */
     public function getServiceProviderId()
     {
-        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
+        return ($this->serviceProviderId)
+            ? $this->serviceProviderId->getElementValue()
+            : null;
     }
 
     /**
@@ -73,7 +75,7 @@ class EnterpriseCallCenterModifyRoutingPolicyRequest extends ComplexType impleme
         $this->routingPolicy = ($routingPolicy InstanceOf CallCenterRoutingPolicy)
              ? $routingPolicy
              : new CallCenterRoutingPolicy($routingPolicy);
-        $this->routingPolicy->setName('routingPolicy');
+        $this->routingPolicy->setElementName('routingPolicy');
         return $this;
     }
 
@@ -83,7 +85,9 @@ class EnterpriseCallCenterModifyRoutingPolicyRequest extends ComplexType impleme
      */
     public function getRoutingPolicy()
     {
-        return ($this->routingPolicy) ? $this->routingPolicy->getValue() : null;
+        return ($this->routingPolicy)
+            ? $this->routingPolicy->getElementValue()
+            : null;
     }
 
     /**
@@ -94,7 +98,7 @@ class EnterpriseCallCenterModifyRoutingPolicyRequest extends ComplexType impleme
         $this->routingPriorityOrder = ($routingPriorityOrder InstanceOf CallCenterRoutingPriorityOrder)
              ? $routingPriorityOrder
              : new CallCenterRoutingPriorityOrder($routingPriorityOrder);
-        $this->routingPriorityOrder->setName('routingPriorityOrder');
+        $this->routingPriorityOrder->setElementName('routingPriorityOrder');
         return $this;
     }
 

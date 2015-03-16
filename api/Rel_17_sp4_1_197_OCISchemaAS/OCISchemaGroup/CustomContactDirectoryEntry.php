@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class CustomContactDirectoryEntry extends ComplexType implements ComplexInterface
 {
-    public    $name = 'CustomContactDirectoryEntry';
+    public    $elementName = 'CustomContactDirectoryEntry';
 
     public function __construct(    ) {
     }

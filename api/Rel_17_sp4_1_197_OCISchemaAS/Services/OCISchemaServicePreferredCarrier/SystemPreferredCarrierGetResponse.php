@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemPreferredCarrierGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemPreferredCarrierGetResponse';
+    public    $elementName = 'SystemPreferredCarrierGetResponse';
     protected $cic;
     protected $countryCode;
     protected $isIntraLata;
@@ -45,7 +45,7 @@ class SystemPreferredCarrierGetResponse extends ComplexType implements ComplexIn
         $this->cic = ($cic InstanceOf PreferredCarrierIdCode)
              ? $cic
              : new PreferredCarrierIdCode($cic);
-        $this->cic->setName('cic');
+        $this->cic->setElementName('cic');
         return $this;
     }
 
@@ -55,7 +55,9 @@ class SystemPreferredCarrierGetResponse extends ComplexType implements ComplexIn
      */
     public function getCic()
     {
-        return ($this->cic) ? $this->cic->getValue() : null;
+        return ($this->cic)
+            ? $this->cic->getElementValue()
+            : null;
     }
 
     /**
@@ -66,7 +68,7 @@ class SystemPreferredCarrierGetResponse extends ComplexType implements ComplexIn
         $this->countryCode = ($countryCode InstanceOf CountryCode)
              ? $countryCode
              : new CountryCode($countryCode);
-        $this->countryCode->setName('countryCode');
+        $this->countryCode->setElementName('countryCode');
         return $this;
     }
 
@@ -76,7 +78,9 @@ class SystemPreferredCarrierGetResponse extends ComplexType implements ComplexIn
      */
     public function getCountryCode()
     {
-        return ($this->countryCode) ? $this->countryCode->getValue() : null;
+        return ($this->countryCode)
+            ? $this->countryCode->getElementValue()
+            : null;
     }
 
     /**
@@ -85,7 +89,7 @@ class SystemPreferredCarrierGetResponse extends ComplexType implements ComplexIn
     public function setIsIntraLata($isIntraLata = null)
     {
         $this->isIntraLata = new PrimitiveType($isIntraLata);
-        $this->isIntraLata->setName('isIntraLata');
+        $this->isIntraLata->setElementName('isIntraLata');
         return $this;
     }
 
@@ -95,7 +99,9 @@ class SystemPreferredCarrierGetResponse extends ComplexType implements ComplexIn
      */
     public function getIsIntraLata()
     {
-        return ($this->isIntraLata) ? $this->isIntraLata->getValue() : null;
+        return ($this->isIntraLata)
+            ? $this->isIntraLata->getElementValue()
+            : null;
     }
 
     /**
@@ -104,7 +110,7 @@ class SystemPreferredCarrierGetResponse extends ComplexType implements ComplexIn
     public function setIsInterLata($isInterLata = null)
     {
         $this->isInterLata = new PrimitiveType($isInterLata);
-        $this->isInterLata->setName('isInterLata');
+        $this->isInterLata->setElementName('isInterLata');
         return $this;
     }
 
@@ -114,7 +120,9 @@ class SystemPreferredCarrierGetResponse extends ComplexType implements ComplexIn
      */
     public function getIsInterLata()
     {
-        return ($this->isInterLata) ? $this->isInterLata->getValue() : null;
+        return ($this->isInterLata)
+            ? $this->isInterLata->getElementValue()
+            : null;
     }
 
     /**
@@ -123,7 +131,7 @@ class SystemPreferredCarrierGetResponse extends ComplexType implements ComplexIn
     public function setIsInternational($isInternational = null)
     {
         $this->isInternational = new PrimitiveType($isInternational);
-        $this->isInternational->setName('isInternational');
+        $this->isInternational->setElementName('isInternational');
         return $this;
     }
 
@@ -133,6 +141,8 @@ class SystemPreferredCarrierGetResponse extends ComplexType implements ComplexIn
      */
     public function getIsInternational()
     {
-        return ($this->isInternational) ? $this->isInternational->getValue() : null;
+        return ($this->isInternational)
+            ? $this->isInternational->getElementValue()
+            : null;
     }
 }

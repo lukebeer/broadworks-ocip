@@ -24,7 +24,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserSequentialRingGetResponse13mp16 extends ComplexType implements ComplexInterface
 {
-    public    $name = 'UserSequentialRingGetResponse13mp16';
+    public    $elementName = 'UserSequentialRingGetResponse13mp16';
     protected $ringBaseLocationFirst;
     protected $baseLocationNumberOfRings;
     protected $continueIfBaseLocationIsBusy;
@@ -50,7 +50,7 @@ class UserSequentialRingGetResponse13mp16 extends ComplexType implements Complex
     public function setRingBaseLocationFirst($ringBaseLocationFirst = null)
     {
         $this->ringBaseLocationFirst = new PrimitiveType($ringBaseLocationFirst);
-        $this->ringBaseLocationFirst->setName('ringBaseLocationFirst');
+        $this->ringBaseLocationFirst->setElementName('ringBaseLocationFirst');
         return $this;
     }
 
@@ -60,7 +60,9 @@ class UserSequentialRingGetResponse13mp16 extends ComplexType implements Complex
      */
     public function getRingBaseLocationFirst()
     {
-        return ($this->ringBaseLocationFirst) ? $this->ringBaseLocationFirst->getValue() : null;
+        return ($this->ringBaseLocationFirst)
+            ? $this->ringBaseLocationFirst->getElementValue()
+            : null;
     }
 
     /**
@@ -71,7 +73,7 @@ class UserSequentialRingGetResponse13mp16 extends ComplexType implements Complex
         $this->baseLocationNumberOfRings = ($baseLocationNumberOfRings InstanceOf SequentialRingNumberOfRings)
              ? $baseLocationNumberOfRings
              : new SequentialRingNumberOfRings($baseLocationNumberOfRings);
-        $this->baseLocationNumberOfRings->setName('baseLocationNumberOfRings');
+        $this->baseLocationNumberOfRings->setElementName('baseLocationNumberOfRings');
         return $this;
     }
 
@@ -81,7 +83,9 @@ class UserSequentialRingGetResponse13mp16 extends ComplexType implements Complex
      */
     public function getBaseLocationNumberOfRings()
     {
-        return ($this->baseLocationNumberOfRings) ? $this->baseLocationNumberOfRings->getValue() : null;
+        return ($this->baseLocationNumberOfRings)
+            ? $this->baseLocationNumberOfRings->getElementValue()
+            : null;
     }
 
     /**
@@ -90,7 +94,7 @@ class UserSequentialRingGetResponse13mp16 extends ComplexType implements Complex
     public function setContinueIfBaseLocationIsBusy($continueIfBaseLocationIsBusy = null)
     {
         $this->continueIfBaseLocationIsBusy = new PrimitiveType($continueIfBaseLocationIsBusy);
-        $this->continueIfBaseLocationIsBusy->setName('continueIfBaseLocationIsBusy');
+        $this->continueIfBaseLocationIsBusy->setElementName('continueIfBaseLocationIsBusy');
         return $this;
     }
 
@@ -100,7 +104,9 @@ class UserSequentialRingGetResponse13mp16 extends ComplexType implements Complex
      */
     public function getContinueIfBaseLocationIsBusy()
     {
-        return ($this->continueIfBaseLocationIsBusy) ? $this->continueIfBaseLocationIsBusy->getValue() : null;
+        return ($this->continueIfBaseLocationIsBusy)
+            ? $this->continueIfBaseLocationIsBusy->getElementValue()
+            : null;
     }
 
     /**
@@ -109,7 +115,7 @@ class UserSequentialRingGetResponse13mp16 extends ComplexType implements Complex
     public function setCallerMayStopSearch($callerMayStopSearch = null)
     {
         $this->callerMayStopSearch = new PrimitiveType($callerMayStopSearch);
-        $this->callerMayStopSearch->setName('callerMayStopSearch');
+        $this->callerMayStopSearch->setElementName('callerMayStopSearch');
         return $this;
     }
 
@@ -119,7 +125,9 @@ class UserSequentialRingGetResponse13mp16 extends ComplexType implements Complex
      */
     public function getCallerMayStopSearch()
     {
-        return ($this->callerMayStopSearch) ? $this->callerMayStopSearch->getValue() : null;
+        return ($this->callerMayStopSearch)
+            ? $this->callerMayStopSearch->getElementValue()
+            : null;
     }
 
     /**
@@ -130,7 +138,7 @@ class UserSequentialRingGetResponse13mp16 extends ComplexType implements Complex
         $this->Location01 = ($Location01 InstanceOf SequentialRingLocation)
              ? $Location01
              : new SequentialRingLocation($Location01);
-        $this->Location01->setName('Location01');
+        $this->Location01->setElementName('Location01');
         return $this;
     }
 
@@ -151,7 +159,7 @@ class UserSequentialRingGetResponse13mp16 extends ComplexType implements Complex
         $this->Location02 = ($Location02 InstanceOf SequentialRingLocation)
              ? $Location02
              : new SequentialRingLocation($Location02);
-        $this->Location02->setName('Location02');
+        $this->Location02->setElementName('Location02');
         return $this;
     }
 
@@ -172,7 +180,7 @@ class UserSequentialRingGetResponse13mp16 extends ComplexType implements Complex
         $this->Location03 = ($Location03 InstanceOf SequentialRingLocation)
              ? $Location03
              : new SequentialRingLocation($Location03);
-        $this->Location03->setName('Location03');
+        $this->Location03->setElementName('Location03');
         return $this;
     }
 
@@ -193,7 +201,7 @@ class UserSequentialRingGetResponse13mp16 extends ComplexType implements Complex
         $this->Location04 = ($Location04 InstanceOf SequentialRingLocation)
              ? $Location04
              : new SequentialRingLocation($Location04);
-        $this->Location04->setName('Location04');
+        $this->Location04->setElementName('Location04');
         return $this;
     }
 
@@ -214,7 +222,7 @@ class UserSequentialRingGetResponse13mp16 extends ComplexType implements Complex
         $this->Location05 = ($Location05 InstanceOf SequentialRingLocation)
              ? $Location05
              : new SequentialRingLocation($Location05);
-        $this->Location05->setName('Location05');
+        $this->Location05->setElementName('Location05');
         return $this;
     }
 
@@ -233,7 +241,7 @@ class UserSequentialRingGetResponse13mp16 extends ComplexType implements Complex
     public function setCriteriaTable(TableType $criteriaTable = null)
     {
         $this->criteriaTable = $criteriaTable;
-        $this->criteriaTable->setName('criteriaTable');
+        $this->criteriaTable->setElementName('criteriaTable');
         return $this;
     }
 

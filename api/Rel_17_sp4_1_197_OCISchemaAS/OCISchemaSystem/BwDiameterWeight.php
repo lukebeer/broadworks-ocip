@@ -17,12 +17,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\MaxInclusive;
  */
 class BwDiameterWeight extends SimpleType
 {
-    public $name = "BwDiameterWeight";
-    protected $value;
-
+    public $elementName = "BwDiameterWeight";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new MinInclusive("0"));
         $this->addRestriction(new MaxInclusive("65535"));
     }

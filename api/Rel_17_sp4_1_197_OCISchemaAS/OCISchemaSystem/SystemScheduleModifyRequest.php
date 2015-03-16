@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemScheduleModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemScheduleModifyRequest';
+    public    $elementName = 'SystemScheduleModifyRequest';
     protected $scheduleKey;
     protected $newScheduleName;
 
@@ -49,7 +49,7 @@ class SystemScheduleModifyRequest extends ComplexType implements ComplexInterfac
         $this->scheduleKey = ($scheduleKey InstanceOf ScheduleKey)
              ? $scheduleKey
              : new ScheduleKey($scheduleKey);
-        $this->scheduleKey->setName('scheduleKey');
+        $this->scheduleKey->setElementName('scheduleKey');
         return $this;
     }
 
@@ -70,7 +70,7 @@ class SystemScheduleModifyRequest extends ComplexType implements ComplexInterfac
         $this->newScheduleName = ($newScheduleName InstanceOf ScheduleName)
              ? $newScheduleName
              : new ScheduleName($newScheduleName);
-        $this->newScheduleName->setName('newScheduleName');
+        $this->newScheduleName->setElementName('newScheduleName');
         return $this;
     }
 
@@ -80,6 +80,8 @@ class SystemScheduleModifyRequest extends ComplexType implements ComplexInterfac
      */
     public function getNewScheduleName()
     {
-        return ($this->newScheduleName) ? $this->newScheduleName->getValue() : null;
+        return ($this->newScheduleName)
+            ? $this->newScheduleName->getElementValue()
+            : null;
     }
 }

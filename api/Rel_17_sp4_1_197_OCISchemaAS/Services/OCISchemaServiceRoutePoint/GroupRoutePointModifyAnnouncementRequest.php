@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupRoutePointModifyAnnouncementRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'GroupRoutePointModifyAnnouncementRequest';
+    public    $elementName = 'GroupRoutePointModifyAnnouncementRequest';
     protected $serviceUserId;
     protected $mediaOnHoldSource;
 
@@ -49,7 +49,7 @@ class GroupRoutePointModifyAnnouncementRequest extends ComplexType implements Co
         $this->serviceUserId = ($serviceUserId InstanceOf UserId)
              ? $serviceUserId
              : new UserId($serviceUserId);
-        $this->serviceUserId->setName('serviceUserId');
+        $this->serviceUserId->setElementName('serviceUserId');
         return $this;
     }
 
@@ -59,7 +59,9 @@ class GroupRoutePointModifyAnnouncementRequest extends ComplexType implements Co
      */
     public function getServiceUserId()
     {
-        return ($this->serviceUserId) ? $this->serviceUserId->getValue() : null;
+        return ($this->serviceUserId)
+            ? $this->serviceUserId->getElementValue()
+            : null;
     }
 
     /**
@@ -70,7 +72,7 @@ class GroupRoutePointModifyAnnouncementRequest extends ComplexType implements Co
         $this->mediaOnHoldSource = ($mediaOnHoldSource InstanceOf CallCenterMediaOnHoldSourceModify17)
              ? $mediaOnHoldSource
              : new CallCenterMediaOnHoldSourceModify17($mediaOnHoldSource);
-        $this->mediaOnHoldSource->setName('mediaOnHoldSource');
+        $this->mediaOnHoldSource->setElementName('mediaOnHoldSource');
         return $this;
     }
 

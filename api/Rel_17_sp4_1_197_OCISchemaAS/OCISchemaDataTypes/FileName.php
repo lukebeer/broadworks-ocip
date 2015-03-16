@@ -16,12 +16,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\MinLength;
  */
 class FileName extends SimpleType
 {
-    public $name = "FileName";
-    protected $value;
-
+    public $elementName = "FileName";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new MinLength("1"));
     }
 }

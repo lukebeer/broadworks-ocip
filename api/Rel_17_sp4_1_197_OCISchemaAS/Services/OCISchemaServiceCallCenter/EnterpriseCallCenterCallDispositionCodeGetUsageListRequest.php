@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
 class EnterpriseCallCenterCallDispositionCodeGetUsageListRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\EnterpriseCallCenterCallDispositionCodeGetUsageListResponse';
-    public    $name = 'EnterpriseCallCenterCallDispositionCodeGetUsageListRequest';
+    public    $elementName = 'EnterpriseCallCenterCallDispositionCodeGetUsageListRequest';
     protected $serviceProviderId;
     protected $code;
 
@@ -49,7 +49,7 @@ class EnterpriseCallCenterCallDispositionCodeGetUsageListRequest extends Complex
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
-        $this->serviceProviderId->setName('serviceProviderId');
+        $this->serviceProviderId->setElementName('serviceProviderId');
         return $this;
     }
 
@@ -59,7 +59,9 @@ class EnterpriseCallCenterCallDispositionCodeGetUsageListRequest extends Complex
      */
     public function getServiceProviderId()
     {
-        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
+        return ($this->serviceProviderId)
+            ? $this->serviceProviderId->getElementValue()
+            : null;
     }
 
     /**
@@ -70,7 +72,7 @@ class EnterpriseCallCenterCallDispositionCodeGetUsageListRequest extends Complex
         $this->code = ($code InstanceOf CallDispositionCode)
              ? $code
              : new CallDispositionCode($code);
-        $this->code->setName('code');
+        $this->code->setElementName('code');
         return $this;
     }
 
@@ -80,6 +82,8 @@ class EnterpriseCallCenterCallDispositionCodeGetUsageListRequest extends Complex
      */
     public function getCode()
     {
-        return ($this->code) ? $this->code->getValue() : null;
+        return ($this->code)
+            ? $this->code->getElementValue()
+            : null;
     }
 }

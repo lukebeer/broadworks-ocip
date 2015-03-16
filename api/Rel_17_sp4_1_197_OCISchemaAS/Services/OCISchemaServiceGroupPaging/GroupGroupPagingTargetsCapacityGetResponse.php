@@ -19,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupGroupPagingTargetsCapacityGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'GroupGroupPagingTargetsCapacityGetResponse';
+    public    $elementName = 'GroupGroupPagingTargetsCapacityGetResponse';
     protected $maximumTargetUsersFromServiceProvider;
     protected $maximumTargetUsers;
 
@@ -39,7 +39,7 @@ class GroupGroupPagingTargetsCapacityGetResponse extends ComplexType implements 
         $this->maximumTargetUsersFromServiceProvider = ($maximumTargetUsersFromServiceProvider InstanceOf GroupPagingMaxTargetCapacity)
              ? $maximumTargetUsersFromServiceProvider
              : new GroupPagingMaxTargetCapacity($maximumTargetUsersFromServiceProvider);
-        $this->maximumTargetUsersFromServiceProvider->setName('maximumTargetUsersFromServiceProvider');
+        $this->maximumTargetUsersFromServiceProvider->setElementName('maximumTargetUsersFromServiceProvider');
         return $this;
     }
 
@@ -49,7 +49,9 @@ class GroupGroupPagingTargetsCapacityGetResponse extends ComplexType implements 
      */
     public function getMaximumTargetUsersFromServiceProvider()
     {
-        return ($this->maximumTargetUsersFromServiceProvider) ? $this->maximumTargetUsersFromServiceProvider->getValue() : null;
+        return ($this->maximumTargetUsersFromServiceProvider)
+            ? $this->maximumTargetUsersFromServiceProvider->getElementValue()
+            : null;
     }
 
     /**
@@ -60,7 +62,7 @@ class GroupGroupPagingTargetsCapacityGetResponse extends ComplexType implements 
         $this->maximumTargetUsers = ($maximumTargetUsers InstanceOf GroupPagingMaxTargetCapacity)
              ? $maximumTargetUsers
              : new GroupPagingMaxTargetCapacity($maximumTargetUsers);
-        $this->maximumTargetUsers->setName('maximumTargetUsers');
+        $this->maximumTargetUsers->setElementName('maximumTargetUsers');
         return $this;
     }
 
@@ -70,6 +72,8 @@ class GroupGroupPagingTargetsCapacityGetResponse extends ComplexType implements 
      */
     public function getMaximumTargetUsers()
     {
-        return ($this->maximumTargetUsers) ? $this->maximumTargetUsers->getValue() : null;
+        return ($this->maximumTargetUsers)
+            ? $this->maximumTargetUsers->getElementValue()
+            : null;
     }
 }

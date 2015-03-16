@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
 class SystemBroadWorksMobileManagerGetRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemBroadWorksMobileManagerGetResponse';
-    public    $name = 'SystemBroadWorksMobileManagerGetRequest';
+    public    $elementName = 'SystemBroadWorksMobileManagerGetRequest';
 
     public function __construct(    ) {
     }

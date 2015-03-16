@@ -26,7 +26,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemMaliciousCallTraceGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemMaliciousCallTraceGetResponse';
+    public    $elementName = 'SystemMaliciousCallTraceGetResponse';
     protected $playMCTWarningAnnouncement;
     protected $userTable;
 
@@ -44,7 +44,7 @@ class SystemMaliciousCallTraceGetResponse extends ComplexType implements Complex
     public function setPlayMCTWarningAnnouncement($playMCTWarningAnnouncement = null)
     {
         $this->playMCTWarningAnnouncement = new PrimitiveType($playMCTWarningAnnouncement);
-        $this->playMCTWarningAnnouncement->setName('playMCTWarningAnnouncement');
+        $this->playMCTWarningAnnouncement->setElementName('playMCTWarningAnnouncement');
         return $this;
     }
 
@@ -54,7 +54,9 @@ class SystemMaliciousCallTraceGetResponse extends ComplexType implements Complex
      */
     public function getPlayMCTWarningAnnouncement()
     {
-        return ($this->playMCTWarningAnnouncement) ? $this->playMCTWarningAnnouncement->getValue() : null;
+        return ($this->playMCTWarningAnnouncement)
+            ? $this->playMCTWarningAnnouncement->getElementValue()
+            : null;
     }
 
     /**
@@ -63,7 +65,7 @@ class SystemMaliciousCallTraceGetResponse extends ComplexType implements Complex
     public function setUserTable(TableType $userTable = null)
     {
         $this->userTable = $userTable;
-        $this->userTable->setName('userTable');
+        $this->userTable->setElementName('userTable');
         return $this;
     }
 

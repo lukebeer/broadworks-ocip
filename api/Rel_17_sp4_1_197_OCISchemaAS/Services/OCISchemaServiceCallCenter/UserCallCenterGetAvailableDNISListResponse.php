@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserCallCenterGetAvailableDNISListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'UserCallCenterGetAvailableDNISListResponse';
+    public    $elementName = 'UserCallCenterGetAvailableDNISListResponse';
     protected $availableDNIS;
 
     /**
@@ -39,7 +39,7 @@ class UserCallCenterGetAvailableDNISListResponse extends ComplexType implements 
         $this->availableDNIS = ($availableDNIS InstanceOf DNISKey)
              ? $availableDNIS
              : new DNISKey($availableDNIS);
-        $this->availableDNIS->setName('availableDNIS');
+        $this->availableDNIS->setElementName('availableDNIS');
         return $this;
     }
 

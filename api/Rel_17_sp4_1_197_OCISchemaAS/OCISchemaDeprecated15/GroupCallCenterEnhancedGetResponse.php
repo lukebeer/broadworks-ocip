@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupCallCenterEnhancedGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'GroupCallCenterEnhancedGetResponse';
+    public    $elementName = 'GroupCallCenterEnhancedGetResponse';
     protected $overrideAgentWrapUpTime;
     protected $wrapUpSeconds;
 
@@ -38,7 +38,7 @@ class GroupCallCenterEnhancedGetResponse extends ComplexType implements ComplexI
     public function setOverrideAgentWrapUpTime($overrideAgentWrapUpTime = null)
     {
         $this->overrideAgentWrapUpTime = new PrimitiveType($overrideAgentWrapUpTime);
-        $this->overrideAgentWrapUpTime->setName('overrideAgentWrapUpTime');
+        $this->overrideAgentWrapUpTime->setElementName('overrideAgentWrapUpTime');
         return $this;
     }
 
@@ -48,7 +48,9 @@ class GroupCallCenterEnhancedGetResponse extends ComplexType implements ComplexI
      */
     public function getOverrideAgentWrapUpTime()
     {
-        return ($this->overrideAgentWrapUpTime) ? $this->overrideAgentWrapUpTime->getValue() : null;
+        return ($this->overrideAgentWrapUpTime)
+            ? $this->overrideAgentWrapUpTime->getElementValue()
+            : null;
     }
 
     /**
@@ -59,7 +61,7 @@ class GroupCallCenterEnhancedGetResponse extends ComplexType implements ComplexI
         $this->wrapUpSeconds = ($wrapUpSeconds InstanceOf CallCenterWrapUpSeconds)
              ? $wrapUpSeconds
              : new CallCenterWrapUpSeconds($wrapUpSeconds);
-        $this->wrapUpSeconds->setName('wrapUpSeconds');
+        $this->wrapUpSeconds->setElementName('wrapUpSeconds');
         return $this;
     }
 
@@ -69,6 +71,8 @@ class GroupCallCenterEnhancedGetResponse extends ComplexType implements ComplexI
      */
     public function getWrapUpSeconds()
     {
-        return ($this->wrapUpSeconds) ? $this->wrapUpSeconds->getValue() : null;
+        return ($this->wrapUpSeconds)
+            ? $this->wrapUpSeconds->getElementValue()
+            : null;
     }
 }

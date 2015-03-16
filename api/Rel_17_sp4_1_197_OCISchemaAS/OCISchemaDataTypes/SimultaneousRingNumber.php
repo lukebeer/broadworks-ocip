@@ -19,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SimultaneousRingNumber extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SimultaneousRingNumber';
+    public    $elementName = 'SimultaneousRingNumber';
     protected $phoneNumber;
     protected $answerConfirmationRequired;
 
@@ -45,7 +45,7 @@ class SimultaneousRingNumber extends ComplexType implements ComplexInterface
     public function setPhoneNumber($phoneNumber = null)
     {
         $this->phoneNumber = new SimpleContent($phoneNumber);
-        $this->phoneNumber->setName('phoneNumber');
+        $this->phoneNumber->setElementName('phoneNumber');
         return $this;
     }
 
@@ -55,7 +55,9 @@ class SimultaneousRingNumber extends ComplexType implements ComplexInterface
      */
     public function getPhoneNumber()
     {
-        return ($this->phoneNumber) ? $this->phoneNumber->getValue() : null;
+        return ($this->phoneNumber)
+            ? $this->phoneNumber->getElementValue()
+            : null;
     }
 
     /**
@@ -64,7 +66,7 @@ class SimultaneousRingNumber extends ComplexType implements ComplexInterface
     public function setAnswerConfirmationRequired($answerConfirmationRequired = null)
     {
         $this->answerConfirmationRequired = new SimpleContent($answerConfirmationRequired);
-        $this->answerConfirmationRequired->setName('answerConfirmationRequired');
+        $this->answerConfirmationRequired->setElementName('answerConfirmationRequired');
         return $this;
     }
 
@@ -74,6 +76,8 @@ class SimultaneousRingNumber extends ComplexType implements ComplexInterface
      */
     public function getAnswerConfirmationRequired()
     {
-        return ($this->answerConfirmationRequired) ? $this->answerConfirmationRequired->getValue() : null;
+        return ($this->answerConfirmationRequired)
+            ? $this->answerConfirmationRequired->getElementValue()
+            : null;
     }
 }

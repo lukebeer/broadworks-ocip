@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemOutgoingCallingPlanModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemOutgoingCallingPlanModifyRequest';
+    public    $elementName = 'SystemOutgoingCallingPlanModifyRequest';
     protected $directTransferScreening;
     protected $enableEnhancedTollCallTyping;
 
@@ -46,7 +46,7 @@ class SystemOutgoingCallingPlanModifyRequest extends ComplexType implements Comp
     public function setDirectTransferScreening($directTransferScreening = null)
     {
         $this->directTransferScreening = new PrimitiveType($directTransferScreening);
-        $this->directTransferScreening->setName('directTransferScreening');
+        $this->directTransferScreening->setElementName('directTransferScreening');
         return $this;
     }
 
@@ -56,7 +56,9 @@ class SystemOutgoingCallingPlanModifyRequest extends ComplexType implements Comp
      */
     public function getDirectTransferScreening()
     {
-        return ($this->directTransferScreening) ? $this->directTransferScreening->getValue() : null;
+        return ($this->directTransferScreening)
+            ? $this->directTransferScreening->getElementValue()
+            : null;
     }
 
     /**
@@ -65,7 +67,7 @@ class SystemOutgoingCallingPlanModifyRequest extends ComplexType implements Comp
     public function setEnableEnhancedTollCallTyping($enableEnhancedTollCallTyping = null)
     {
         $this->enableEnhancedTollCallTyping = new PrimitiveType($enableEnhancedTollCallTyping);
-        $this->enableEnhancedTollCallTyping->setName('enableEnhancedTollCallTyping');
+        $this->enableEnhancedTollCallTyping->setElementName('enableEnhancedTollCallTyping');
         return $this;
     }
 
@@ -75,6 +77,8 @@ class SystemOutgoingCallingPlanModifyRequest extends ComplexType implements Comp
      */
     public function getEnableEnhancedTollCallTyping()
     {
-        return ($this->enableEnhancedTollCallTyping) ? $this->enableEnhancedTollCallTyping->getValue() : null;
+        return ($this->enableEnhancedTollCallTyping)
+            ? $this->enableEnhancedTollCallTyping->getElementValue()
+            : null;
     }
 }

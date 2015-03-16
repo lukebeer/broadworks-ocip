@@ -17,12 +17,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\MaxInclusive;
  */
 class CallProcessingMaxConferenceParties extends SimpleType
 {
-    public $name = "CallProcessingMaxConferenceParties";
-    protected $value;
-
+    public $elementName = "CallProcessingMaxConferenceParties";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new MinInclusive("4"));
         $this->addRestriction(new MaxInclusive("15"));
     }

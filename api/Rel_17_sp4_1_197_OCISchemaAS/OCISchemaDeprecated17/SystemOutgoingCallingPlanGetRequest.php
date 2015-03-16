@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
 class SystemOutgoingCallingPlanGetRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated17\SystemOutgoingCallingPlanGetResponse';
-    public    $name = 'SystemOutgoingCallingPlanGetRequest';
+    public    $elementName = 'SystemOutgoingCallingPlanGetRequest';
 
     public function __construct(    ) {
     }

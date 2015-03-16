@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemVoiceMessageSummaryUpdateModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemVoiceMessageSummaryUpdateModifyRequest';
+    public    $elementName = 'SystemVoiceMessageSummaryUpdateModifyRequest';
     protected $sendSavedAndUrgentMWIOnNotification;
     protected $sendMessageSummaryUpdateOnRegister;
     protected $minTimeBetweenMWIOnRegister;
@@ -50,7 +50,7 @@ class SystemVoiceMessageSummaryUpdateModifyRequest extends ComplexType implement
     public function setSendSavedAndUrgentMWIOnNotification($sendSavedAndUrgentMWIOnNotification = null)
     {
         $this->sendSavedAndUrgentMWIOnNotification = new PrimitiveType($sendSavedAndUrgentMWIOnNotification);
-        $this->sendSavedAndUrgentMWIOnNotification->setName('sendSavedAndUrgentMWIOnNotification');
+        $this->sendSavedAndUrgentMWIOnNotification->setElementName('sendSavedAndUrgentMWIOnNotification');
         return $this;
     }
 
@@ -60,7 +60,9 @@ class SystemVoiceMessageSummaryUpdateModifyRequest extends ComplexType implement
      */
     public function getSendSavedAndUrgentMWIOnNotification()
     {
-        return ($this->sendSavedAndUrgentMWIOnNotification) ? $this->sendSavedAndUrgentMWIOnNotification->getValue() : null;
+        return ($this->sendSavedAndUrgentMWIOnNotification)
+            ? $this->sendSavedAndUrgentMWIOnNotification->getElementValue()
+            : null;
     }
 
     /**
@@ -69,7 +71,7 @@ class SystemVoiceMessageSummaryUpdateModifyRequest extends ComplexType implement
     public function setSendMessageSummaryUpdateOnRegister($sendMessageSummaryUpdateOnRegister = null)
     {
         $this->sendMessageSummaryUpdateOnRegister = new PrimitiveType($sendMessageSummaryUpdateOnRegister);
-        $this->sendMessageSummaryUpdateOnRegister->setName('sendMessageSummaryUpdateOnRegister');
+        $this->sendMessageSummaryUpdateOnRegister->setElementName('sendMessageSummaryUpdateOnRegister');
         return $this;
     }
 
@@ -79,7 +81,9 @@ class SystemVoiceMessageSummaryUpdateModifyRequest extends ComplexType implement
      */
     public function getSendMessageSummaryUpdateOnRegister()
     {
-        return ($this->sendMessageSummaryUpdateOnRegister) ? $this->sendMessageSummaryUpdateOnRegister->getValue() : null;
+        return ($this->sendMessageSummaryUpdateOnRegister)
+            ? $this->sendMessageSummaryUpdateOnRegister->getElementValue()
+            : null;
     }
 
     /**
@@ -90,7 +94,7 @@ class SystemVoiceMessageSummaryUpdateModifyRequest extends ComplexType implement
         $this->minTimeBetweenMWIOnRegister = ($minTimeBetweenMWIOnRegister InstanceOf VoiceMessageSummaryUpdateSeconds)
              ? $minTimeBetweenMWIOnRegister
              : new VoiceMessageSummaryUpdateSeconds($minTimeBetweenMWIOnRegister);
-        $this->minTimeBetweenMWIOnRegister->setName('minTimeBetweenMWIOnRegister');
+        $this->minTimeBetweenMWIOnRegister->setElementName('minTimeBetweenMWIOnRegister');
         return $this;
     }
 
@@ -100,6 +104,8 @@ class SystemVoiceMessageSummaryUpdateModifyRequest extends ComplexType implement
      */
     public function getMinTimeBetweenMWIOnRegister()
     {
-        return ($this->minTimeBetweenMWIOnRegister) ? $this->minTimeBetweenMWIOnRegister->getValue() : null;
+        return ($this->minTimeBetweenMWIOnRegister)
+            ? $this->minTimeBetweenMWIOnRegister->getElementValue()
+            : null;
     }
 }

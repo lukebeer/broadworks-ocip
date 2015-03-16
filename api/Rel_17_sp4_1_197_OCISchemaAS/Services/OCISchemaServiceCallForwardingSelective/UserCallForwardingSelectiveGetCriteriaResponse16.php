@@ -23,7 +23,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserCallForwardingSelectiveGetCriteriaResponse16 extends ComplexType implements ComplexInterface
 {
-    public    $name = 'UserCallForwardingSelectiveGetCriteriaResponse16';
+    public    $elementName = 'UserCallForwardingSelectiveGetCriteriaResponse16';
     protected $timeSchedule;
     protected $holidaySchedule;
     protected $forwardToNumberSelection;
@@ -46,7 +46,7 @@ class UserCallForwardingSelectiveGetCriteriaResponse16 extends ComplexType imple
         $this->timeSchedule = ($timeSchedule InstanceOf TimeSchedule)
              ? $timeSchedule
              : new TimeSchedule($timeSchedule);
-        $this->timeSchedule->setName('timeSchedule');
+        $this->timeSchedule->setElementName('timeSchedule');
         return $this;
     }
 
@@ -67,7 +67,7 @@ class UserCallForwardingSelectiveGetCriteriaResponse16 extends ComplexType imple
         $this->holidaySchedule = ($holidaySchedule InstanceOf HolidaySchedule)
              ? $holidaySchedule
              : new HolidaySchedule($holidaySchedule);
-        $this->holidaySchedule->setName('holidaySchedule');
+        $this->holidaySchedule->setElementName('holidaySchedule');
         return $this;
     }
 
@@ -88,7 +88,7 @@ class UserCallForwardingSelectiveGetCriteriaResponse16 extends ComplexType imple
         $this->forwardToNumberSelection = ($forwardToNumberSelection InstanceOf CallForwardingSelectiveNumberSelection16)
              ? $forwardToNumberSelection
              : new CallForwardingSelectiveNumberSelection16($forwardToNumberSelection);
-        $this->forwardToNumberSelection->setName('forwardToNumberSelection');
+        $this->forwardToNumberSelection->setElementName('forwardToNumberSelection');
         return $this;
     }
 
@@ -98,7 +98,9 @@ class UserCallForwardingSelectiveGetCriteriaResponse16 extends ComplexType imple
      */
     public function getForwardToNumberSelection()
     {
-        return ($this->forwardToNumberSelection) ? $this->forwardToNumberSelection->getValue() : null;
+        return ($this->forwardToNumberSelection)
+            ? $this->forwardToNumberSelection->getElementValue()
+            : null;
     }
 
     /**
@@ -109,7 +111,7 @@ class UserCallForwardingSelectiveGetCriteriaResponse16 extends ComplexType imple
         $this->forwardToPhoneNumber = ($forwardToPhoneNumber InstanceOf OutgoingDNorSIPURI)
              ? $forwardToPhoneNumber
              : new OutgoingDNorSIPURI($forwardToPhoneNumber);
-        $this->forwardToPhoneNumber->setName('forwardToPhoneNumber');
+        $this->forwardToPhoneNumber->setElementName('forwardToPhoneNumber');
         return $this;
     }
 
@@ -119,7 +121,9 @@ class UserCallForwardingSelectiveGetCriteriaResponse16 extends ComplexType imple
      */
     public function getForwardToPhoneNumber()
     {
-        return ($this->forwardToPhoneNumber) ? $this->forwardToPhoneNumber->getValue() : null;
+        return ($this->forwardToPhoneNumber)
+            ? $this->forwardToPhoneNumber->getElementValue()
+            : null;
     }
 
     /**
@@ -130,7 +134,7 @@ class UserCallForwardingSelectiveGetCriteriaResponse16 extends ComplexType imple
         $this->fromDnCriteria = ($fromDnCriteria InstanceOf CriteriaFromDn)
              ? $fromDnCriteria
              : new CriteriaFromDn($fromDnCriteria);
-        $this->fromDnCriteria->setName('fromDnCriteria');
+        $this->fromDnCriteria->setElementName('fromDnCriteria');
         return $this;
     }
 

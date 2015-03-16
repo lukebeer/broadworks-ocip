@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
 class UserPolycomPhoneServicesGetRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServicePolycomPhoneServices\UserPolycomPhoneServicesGetResponse';
-    public    $name = 'UserPolycomPhoneServicesGetRequest';
+    public    $elementName = 'UserPolycomPhoneServicesGetRequest';
     protected $userId;
     protected $accessDevice;
 
@@ -50,7 +50,7 @@ class UserPolycomPhoneServicesGetRequest extends ComplexType implements ComplexI
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
-        $this->userId->setName('userId');
+        $this->userId->setElementName('userId');
         return $this;
     }
 
@@ -60,7 +60,9 @@ class UserPolycomPhoneServicesGetRequest extends ComplexType implements ComplexI
      */
     public function getUserId()
     {
-        return ($this->userId) ? $this->userId->getValue() : null;
+        return ($this->userId)
+            ? $this->userId->getElementValue()
+            : null;
     }
 
     /**
@@ -71,7 +73,7 @@ class UserPolycomPhoneServicesGetRequest extends ComplexType implements ComplexI
         $this->accessDevice = ($accessDevice InstanceOf AccessDevice)
              ? $accessDevice
              : new AccessDevice($accessDevice);
-        $this->accessDevice->setName('accessDevice');
+        $this->accessDevice->setElementName('accessDevice');
         return $this;
     }
 

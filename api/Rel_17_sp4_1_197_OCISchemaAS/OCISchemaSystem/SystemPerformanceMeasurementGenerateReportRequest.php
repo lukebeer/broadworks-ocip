@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemPerformanceMeasurementGenerateReportRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemPerformanceMeasurementGenerateReportRequest';
+    public    $elementName = 'SystemPerformanceMeasurementGenerateReportRequest';
 
     public function __construct(    ) {
     }

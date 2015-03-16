@@ -16,12 +16,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\Enumeration;
  */
 class CallForwardingSelectiveNumberSelection extends SimpleType
 {
-    public $name = "CallForwardingSelectiveNumberSelection";
-    protected $value;
-
+    public $elementName = "CallForwardingSelectiveNumberSelection";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new Enumeration([
             'Forward To Default Number',
             'Forward To Specified Number'

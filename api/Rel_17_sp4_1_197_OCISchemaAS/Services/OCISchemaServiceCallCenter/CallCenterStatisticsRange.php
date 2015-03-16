@@ -19,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class CallCenterStatisticsRange extends ComplexType implements ComplexInterface
 {
-    public    $name = 'CallCenterStatisticsRange';
+    public    $elementName = 'CallCenterStatisticsRange';
     protected $start;
     protected $end;
 
@@ -45,7 +45,7 @@ class CallCenterStatisticsRange extends ComplexType implements ComplexInterface
     public function setStart($start = null)
     {
         $this->start = new SimpleContent($start);
-        $this->start->setName('start');
+        $this->start->setElementName('start');
         return $this;
     }
 
@@ -55,7 +55,9 @@ class CallCenterStatisticsRange extends ComplexType implements ComplexInterface
      */
     public function getStart()
     {
-        return ($this->start) ? $this->start->getValue() : null;
+        return ($this->start)
+            ? $this->start->getElementValue()
+            : null;
     }
 
     /**
@@ -64,7 +66,7 @@ class CallCenterStatisticsRange extends ComplexType implements ComplexInterface
     public function setEnd($end = null)
     {
         $this->end = new SimpleContent($end);
-        $this->end->setName('end');
+        $this->end->setElementName('end');
         return $this;
     }
 
@@ -74,6 +76,8 @@ class CallCenterStatisticsRange extends ComplexType implements ComplexInterface
      */
     public function getEnd()
     {
-        return ($this->end) ? $this->end->getValue() : null;
+        return ($this->end)
+            ? $this->end->getElementValue()
+            : null;
     }
 }

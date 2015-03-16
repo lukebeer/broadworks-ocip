@@ -24,7 +24,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderExternalCustomRingbackModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'ServiceProviderExternalCustomRingbackModifyRequest';
+    public    $elementName = 'ServiceProviderExternalCustomRingbackModifyRequest';
     protected $serviceProviderId;
     protected $prefixDigits;
     protected $serverNetAddress;
@@ -61,7 +61,7 @@ class ServiceProviderExternalCustomRingbackModifyRequest extends ComplexType imp
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
-        $this->serviceProviderId->setName('serviceProviderId');
+        $this->serviceProviderId->setElementName('serviceProviderId');
         return $this;
     }
 
@@ -71,7 +71,9 @@ class ServiceProviderExternalCustomRingbackModifyRequest extends ComplexType imp
      */
     public function getServiceProviderId()
     {
-        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
+        return ($this->serviceProviderId)
+            ? $this->serviceProviderId->getElementValue()
+            : null;
     }
 
     /**
@@ -82,7 +84,7 @@ class ServiceProviderExternalCustomRingbackModifyRequest extends ComplexType imp
         $this->prefixDigits = ($prefixDigits InstanceOf ExternalCustomRingbackPrefixDigits)
              ? $prefixDigits
              : new ExternalCustomRingbackPrefixDigits($prefixDigits);
-        $this->prefixDigits->setName('prefixDigits');
+        $this->prefixDigits->setElementName('prefixDigits');
         return $this;
     }
 
@@ -92,7 +94,9 @@ class ServiceProviderExternalCustomRingbackModifyRequest extends ComplexType imp
      */
     public function getPrefixDigits()
     {
-        return ($this->prefixDigits) ? $this->prefixDigits->getValue() : null;
+        return ($this->prefixDigits)
+            ? $this->prefixDigits->getElementValue()
+            : null;
     }
 
     /**
@@ -103,7 +107,7 @@ class ServiceProviderExternalCustomRingbackModifyRequest extends ComplexType imp
         $this->serverNetAddress = ($serverNetAddress InstanceOf NetAddress)
              ? $serverNetAddress
              : new NetAddress($serverNetAddress);
-        $this->serverNetAddress->setName('serverNetAddress');
+        $this->serverNetAddress->setElementName('serverNetAddress');
         return $this;
     }
 
@@ -113,7 +117,9 @@ class ServiceProviderExternalCustomRingbackModifyRequest extends ComplexType imp
      */
     public function getServerNetAddress()
     {
-        return ($this->serverNetAddress) ? $this->serverNetAddress->getValue() : null;
+        return ($this->serverNetAddress)
+            ? $this->serverNetAddress->getElementValue()
+            : null;
     }
 
     /**
@@ -124,7 +130,7 @@ class ServiceProviderExternalCustomRingbackModifyRequest extends ComplexType imp
         $this->serverPort = ($serverPort InstanceOf Port1025)
              ? $serverPort
              : new Port1025($serverPort);
-        $this->serverPort->setName('serverPort');
+        $this->serverPort->setElementName('serverPort');
         return $this;
     }
 
@@ -134,7 +140,9 @@ class ServiceProviderExternalCustomRingbackModifyRequest extends ComplexType imp
      */
     public function getServerPort()
     {
-        return ($this->serverPort) ? $this->serverPort->getValue() : null;
+        return ($this->serverPort)
+            ? $this->serverPort->getElementValue()
+            : null;
     }
 
     /**
@@ -145,7 +153,7 @@ class ServiceProviderExternalCustomRingbackModifyRequest extends ComplexType imp
         $this->timeoutSeconds = ($timeoutSeconds InstanceOf ExternalCustomRingbackTimeoutSeconds)
              ? $timeoutSeconds
              : new ExternalCustomRingbackTimeoutSeconds($timeoutSeconds);
-        $this->timeoutSeconds->setName('timeoutSeconds');
+        $this->timeoutSeconds->setElementName('timeoutSeconds');
         return $this;
     }
 
@@ -155,6 +163,8 @@ class ServiceProviderExternalCustomRingbackModifyRequest extends ComplexType imp
      */
     public function getTimeoutSeconds()
     {
-        return ($this->timeoutSeconds) ? $this->timeoutSeconds->getValue() : null;
+        return ($this->timeoutSeconds)
+            ? $this->timeoutSeconds->getElementValue()
+            : null;
     }
 }

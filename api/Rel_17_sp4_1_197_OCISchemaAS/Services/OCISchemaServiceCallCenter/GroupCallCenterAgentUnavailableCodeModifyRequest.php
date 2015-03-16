@@ -23,7 +23,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupCallCenterAgentUnavailableCodeModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'GroupCallCenterAgentUnavailableCodeModifyRequest';
+    public    $elementName = 'GroupCallCenterAgentUnavailableCodeModifyRequest';
     protected $serviceProviderId;
     protected $groupId;
     protected $code;
@@ -60,7 +60,7 @@ class GroupCallCenterAgentUnavailableCodeModifyRequest extends ComplexType imple
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
-        $this->serviceProviderId->setName('serviceProviderId');
+        $this->serviceProviderId->setElementName('serviceProviderId');
         return $this;
     }
 
@@ -70,7 +70,9 @@ class GroupCallCenterAgentUnavailableCodeModifyRequest extends ComplexType imple
      */
     public function getServiceProviderId()
     {
-        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
+        return ($this->serviceProviderId)
+            ? $this->serviceProviderId->getElementValue()
+            : null;
     }
 
     /**
@@ -81,7 +83,7 @@ class GroupCallCenterAgentUnavailableCodeModifyRequest extends ComplexType imple
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
-        $this->groupId->setName('groupId');
+        $this->groupId->setElementName('groupId');
         return $this;
     }
 
@@ -91,7 +93,9 @@ class GroupCallCenterAgentUnavailableCodeModifyRequest extends ComplexType imple
      */
     public function getGroupId()
     {
-        return ($this->groupId) ? $this->groupId->getValue() : null;
+        return ($this->groupId)
+            ? $this->groupId->getElementValue()
+            : null;
     }
 
     /**
@@ -102,7 +106,7 @@ class GroupCallCenterAgentUnavailableCodeModifyRequest extends ComplexType imple
         $this->code = ($code InstanceOf CallCenterAgentUnavailableCode)
              ? $code
              : new CallCenterAgentUnavailableCode($code);
-        $this->code->setName('code');
+        $this->code->setElementName('code');
         return $this;
     }
 
@@ -112,7 +116,9 @@ class GroupCallCenterAgentUnavailableCodeModifyRequest extends ComplexType imple
      */
     public function getCode()
     {
-        return ($this->code) ? $this->code->getValue() : null;
+        return ($this->code)
+            ? $this->code->getElementValue()
+            : null;
     }
 
     /**
@@ -121,7 +127,7 @@ class GroupCallCenterAgentUnavailableCodeModifyRequest extends ComplexType imple
     public function setIsActive($isActive = null)
     {
         $this->isActive = new PrimitiveType($isActive);
-        $this->isActive->setName('isActive');
+        $this->isActive->setElementName('isActive');
         return $this;
     }
 
@@ -131,7 +137,9 @@ class GroupCallCenterAgentUnavailableCodeModifyRequest extends ComplexType imple
      */
     public function getIsActive()
     {
-        return ($this->isActive) ? $this->isActive->getValue() : null;
+        return ($this->isActive)
+            ? $this->isActive->getElementValue()
+            : null;
     }
 
     /**
@@ -142,7 +150,7 @@ class GroupCallCenterAgentUnavailableCodeModifyRequest extends ComplexType imple
         $this->description = ($description InstanceOf CallCenterAgentUnavailableCodeDescription)
              ? $description
              : new CallCenterAgentUnavailableCodeDescription($description);
-        $this->description->setName('description');
+        $this->description->setElementName('description');
         return $this;
     }
 
@@ -152,6 +160,8 @@ class GroupCallCenterAgentUnavailableCodeModifyRequest extends ComplexType imple
      */
     public function getDescription()
     {
-        return ($this->description) ? $this->description->getValue() : null;
+        return ($this->description)
+            ? $this->description->getElementValue()
+            : null;
     }
 }

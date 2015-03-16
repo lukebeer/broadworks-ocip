@@ -17,12 +17,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\MaxLength;
  */
 class VirtualOnNetCallTypeCdrValue extends SimpleType
 {
-    public $name = "VirtualOnNetCallTypeCdrValue";
-    protected $value;
-
+    public $elementName = "VirtualOnNetCallTypeCdrValue";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new MinLength("1"));
         $this->addRestriction(new MaxLength("6"));
     }

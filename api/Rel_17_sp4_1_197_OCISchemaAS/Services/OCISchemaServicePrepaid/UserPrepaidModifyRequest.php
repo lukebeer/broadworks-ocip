@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserPrepaidModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'UserPrepaidModifyRequest';
+    public    $elementName = 'UserPrepaidModifyRequest';
     protected $userId;
     protected $isActive;
 
@@ -50,7 +50,7 @@ class UserPrepaidModifyRequest extends ComplexType implements ComplexInterface
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
-        $this->userId->setName('userId');
+        $this->userId->setElementName('userId');
         return $this;
     }
 
@@ -60,7 +60,9 @@ class UserPrepaidModifyRequest extends ComplexType implements ComplexInterface
      */
     public function getUserId()
     {
-        return ($this->userId) ? $this->userId->getValue() : null;
+        return ($this->userId)
+            ? $this->userId->getElementValue()
+            : null;
     }
 
     /**
@@ -69,7 +71,7 @@ class UserPrepaidModifyRequest extends ComplexType implements ComplexInterface
     public function setIsActive($isActive = null)
     {
         $this->isActive = new PrimitiveType($isActive);
-        $this->isActive->setName('isActive');
+        $this->isActive->setElementName('isActive');
         return $this;
     }
 
@@ -79,6 +81,8 @@ class UserPrepaidModifyRequest extends ComplexType implements ComplexInterface
      */
     public function getIsActive()
     {
-        return ($this->isActive) ? $this->isActive->getValue() : null;
+        return ($this->isActive)
+            ? $this->isActive->getElementValue()
+            : null;
     }
 }

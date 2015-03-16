@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserCallPickupGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'UserCallPickupGetResponse';
+    public    $elementName = 'UserCallPickupGetResponse';
     protected $name;
     protected $userTable;
 
@@ -42,7 +42,7 @@ class UserCallPickupGetResponse extends ComplexType implements ComplexInterface
         $this->name = ($name InstanceOf ServiceInstanceName)
              ? $name
              : new ServiceInstanceName($name);
-        $this->name->setName('name');
+        $this->name->setElementName('name');
         return $this;
     }
 
@@ -52,7 +52,9 @@ class UserCallPickupGetResponse extends ComplexType implements ComplexInterface
      */
     public function getName()
     {
-        return ($this->name) ? $this->name->getValue() : null;
+        return ($this->name)
+            ? $this->name->getElementValue()
+            : null;
     }
 
     /**
@@ -61,7 +63,7 @@ class UserCallPickupGetResponse extends ComplexType implements ComplexInterface
     public function setUserTable(TableType $userTable = null)
     {
         $this->userTable = $userTable;
-        $this->userTable->setName('userTable');
+        $this->userTable->setElementName('userTable');
         return $this;
     }
 

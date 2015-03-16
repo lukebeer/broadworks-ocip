@@ -35,7 +35,7 @@ use Broadworks_OCIP\core\Client\Client;
 class UserCallCenterGetSupervisedAgentListRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType                = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\UserCallCenterGetSupervisedAgentListResponse';
-    public    $name = 'UserCallCenterGetSupervisedAgentListRequest';
+    public    $elementName = 'UserCallCenterGetSupervisedAgentListRequest';
     protected $supervisorUserId;
     protected $serviceUserId;
     protected $responseSizeLimit;
@@ -81,7 +81,7 @@ class UserCallCenterGetSupervisedAgentListRequest extends ComplexType implements
         $this->supervisorUserId = ($supervisorUserId InstanceOf UserId)
              ? $supervisorUserId
              : new UserId($supervisorUserId);
-        $this->supervisorUserId->setName('supervisorUserId');
+        $this->supervisorUserId->setElementName('supervisorUserId');
         return $this;
     }
 
@@ -91,7 +91,9 @@ class UserCallCenterGetSupervisedAgentListRequest extends ComplexType implements
      */
     public function getSupervisorUserId()
     {
-        return ($this->supervisorUserId) ? $this->supervisorUserId->getValue() : null;
+        return ($this->supervisorUserId)
+            ? $this->supervisorUserId->getElementValue()
+            : null;
     }
 
     /**
@@ -102,7 +104,7 @@ class UserCallCenterGetSupervisedAgentListRequest extends ComplexType implements
         $this->serviceUserId = ($serviceUserId InstanceOf UserId)
              ? $serviceUserId
              : new UserId($serviceUserId);
-        $this->serviceUserId->setName('serviceUserId');
+        $this->serviceUserId->setElementName('serviceUserId');
         return $this;
     }
 
@@ -112,7 +114,9 @@ class UserCallCenterGetSupervisedAgentListRequest extends ComplexType implements
      */
     public function getServiceUserId()
     {
-        return ($this->serviceUserId) ? $this->serviceUserId->getValue() : null;
+        return ($this->serviceUserId)
+            ? $this->serviceUserId->getElementValue()
+            : null;
     }
 
     /**
@@ -123,7 +127,7 @@ class UserCallCenterGetSupervisedAgentListRequest extends ComplexType implements
         $this->responseSizeLimit = ($responseSizeLimit InstanceOf ResponseSizeLimit)
              ? $responseSizeLimit
              : new ResponseSizeLimit($responseSizeLimit);
-        $this->responseSizeLimit->setName('responseSizeLimit');
+        $this->responseSizeLimit->setElementName('responseSizeLimit');
         return $this;
     }
 
@@ -133,7 +137,9 @@ class UserCallCenterGetSupervisedAgentListRequest extends ComplexType implements
      */
     public function getResponseSizeLimit()
     {
-        return ($this->responseSizeLimit) ? $this->responseSizeLimit->getValue() : null;
+        return ($this->responseSizeLimit)
+            ? $this->responseSizeLimit->getElementValue()
+            : null;
     }
 
     /**
@@ -142,7 +148,7 @@ class UserCallCenterGetSupervisedAgentListRequest extends ComplexType implements
     public function setSearchCriteriaModeOr($searchCriteriaModeOr = null)
     {
         $this->searchCriteriaModeOr = new PrimitiveType($searchCriteriaModeOr);
-        $this->searchCriteriaModeOr->setName('searchCriteriaModeOr');
+        $this->searchCriteriaModeOr->setElementName('searchCriteriaModeOr');
         return $this;
     }
 
@@ -152,7 +158,9 @@ class UserCallCenterGetSupervisedAgentListRequest extends ComplexType implements
      */
     public function getSearchCriteriaModeOr()
     {
-        return ($this->searchCriteriaModeOr) ? $this->searchCriteriaModeOr->getValue() : null;
+        return ($this->searchCriteriaModeOr)
+            ? $this->searchCriteriaModeOr->getElementValue()
+            : null;
     }
 
     /**
@@ -163,7 +171,7 @@ class UserCallCenterGetSupervisedAgentListRequest extends ComplexType implements
         $this->searchCriteriaUserLastName = ($searchCriteriaUserLastName InstanceOf SearchCriteriaUserLastName)
              ? $searchCriteriaUserLastName
              : new SearchCriteriaUserLastName($searchCriteriaUserLastName);
-        $this->searchCriteriaUserLastName->setName('searchCriteriaUserLastName');
+        $this->searchCriteriaUserLastName->setElementName('searchCriteriaUserLastName');
         return $this;
     }
 
@@ -184,7 +192,7 @@ class UserCallCenterGetSupervisedAgentListRequest extends ComplexType implements
         $this->searchCriteriaUserFirstName = ($searchCriteriaUserFirstName InstanceOf SearchCriteriaUserFirstName)
              ? $searchCriteriaUserFirstName
              : new SearchCriteriaUserFirstName($searchCriteriaUserFirstName);
-        $this->searchCriteriaUserFirstName->setName('searchCriteriaUserFirstName');
+        $this->searchCriteriaUserFirstName->setElementName('searchCriteriaUserFirstName');
         return $this;
     }
 
@@ -205,7 +213,7 @@ class UserCallCenterGetSupervisedAgentListRequest extends ComplexType implements
         $this->searchCriteriaDn = ($searchCriteriaDn InstanceOf SearchCriteriaDn)
              ? $searchCriteriaDn
              : new SearchCriteriaDn($searchCriteriaDn);
-        $this->searchCriteriaDn->setName('searchCriteriaDn');
+        $this->searchCriteriaDn->setElementName('searchCriteriaDn');
         return $this;
     }
 
@@ -226,7 +234,7 @@ class UserCallCenterGetSupervisedAgentListRequest extends ComplexType implements
         $this->searchCriteriaExtension = ($searchCriteriaExtension InstanceOf SearchCriteriaExtension)
              ? $searchCriteriaExtension
              : new SearchCriteriaExtension($searchCriteriaExtension);
-        $this->searchCriteriaExtension->setName('searchCriteriaExtension');
+        $this->searchCriteriaExtension->setElementName('searchCriteriaExtension');
         return $this;
     }
 

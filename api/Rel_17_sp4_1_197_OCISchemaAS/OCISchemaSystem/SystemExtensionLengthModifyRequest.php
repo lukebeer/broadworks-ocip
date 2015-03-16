@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemExtensionLengthModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemExtensionLengthModifyRequest';
+    public    $elementName = 'SystemExtensionLengthModifyRequest';
     protected $minExtensionLength;
     protected $maxExtensionLength;
 
@@ -48,7 +48,7 @@ class SystemExtensionLengthModifyRequest extends ComplexType implements ComplexI
         $this->minExtensionLength = ($minExtensionLength InstanceOf ExtensionLength)
              ? $minExtensionLength
              : new ExtensionLength($minExtensionLength);
-        $this->minExtensionLength->setName('minExtensionLength');
+        $this->minExtensionLength->setElementName('minExtensionLength');
         return $this;
     }
 
@@ -58,7 +58,9 @@ class SystemExtensionLengthModifyRequest extends ComplexType implements ComplexI
      */
     public function getMinExtensionLength()
     {
-        return ($this->minExtensionLength) ? $this->minExtensionLength->getValue() : null;
+        return ($this->minExtensionLength)
+            ? $this->minExtensionLength->getElementValue()
+            : null;
     }
 
     /**
@@ -69,7 +71,7 @@ class SystemExtensionLengthModifyRequest extends ComplexType implements ComplexI
         $this->maxExtensionLength = ($maxExtensionLength InstanceOf ExtensionLength)
              ? $maxExtensionLength
              : new ExtensionLength($maxExtensionLength);
-        $this->maxExtensionLength->setName('maxExtensionLength');
+        $this->maxExtensionLength->setElementName('maxExtensionLength');
         return $this;
     }
 
@@ -79,6 +81,8 @@ class SystemExtensionLengthModifyRequest extends ComplexType implements ComplexI
      */
     public function getMaxExtensionLength()
     {
-        return ($this->maxExtensionLength) ? $this->maxExtensionLength->getValue() : null;
+        return ($this->maxExtensionLength)
+            ? $this->maxExtensionLength->getElementValue()
+            : null;
     }
 }

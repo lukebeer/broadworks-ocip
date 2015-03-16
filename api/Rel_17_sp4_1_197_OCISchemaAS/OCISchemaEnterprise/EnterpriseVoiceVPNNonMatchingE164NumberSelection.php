@@ -16,12 +16,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\Enumeration;
  */
 class EnterpriseVoiceVPNNonMatchingE164NumberSelection extends SimpleType
 {
-    public $name = "EnterpriseVoiceVPNNonMatchingE164NumberSelection";
-    protected $value;
-
+    public $elementName = "EnterpriseVoiceVPNNonMatchingE164NumberSelection";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new Enumeration([
             'Public',
             'Default'

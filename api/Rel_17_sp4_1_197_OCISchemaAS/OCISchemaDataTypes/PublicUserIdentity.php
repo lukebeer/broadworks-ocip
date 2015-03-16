@@ -19,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class PublicUserIdentity extends ComplexType implements ComplexInterface
 {
-    public    $name = 'PublicUserIdentity';
+    public    $elementName = 'PublicUserIdentity';
 
     public function __construct(    ) {
     }

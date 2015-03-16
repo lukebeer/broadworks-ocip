@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemAccountingGetRadiusServerListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemAccountingGetRadiusServerListResponse';
+    public    $elementName = 'SystemAccountingGetRadiusServerListResponse';
     protected $radiusServerTable;
 
     /**
@@ -37,7 +37,7 @@ class SystemAccountingGetRadiusServerListResponse extends ComplexType implements
     public function setRadiusServerTable(TableType $radiusServerTable = null)
     {
         $this->radiusServerTable = $radiusServerTable;
-        $this->radiusServerTable->setName('radiusServerTable');
+        $this->radiusServerTable->setElementName('radiusServerTable');
         return $this;
     }
 

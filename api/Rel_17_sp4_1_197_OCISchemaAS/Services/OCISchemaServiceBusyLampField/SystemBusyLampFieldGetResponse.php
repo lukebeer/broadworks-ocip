@@ -19,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemBusyLampFieldGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemBusyLampFieldGetResponse';
+    public    $elementName = 'SystemBusyLampFieldGetResponse';
     protected $displayLocalUserIdentityLastNameFirst;
 
     /**
@@ -36,7 +36,7 @@ class SystemBusyLampFieldGetResponse extends ComplexType implements ComplexInter
     public function setDisplayLocalUserIdentityLastNameFirst($displayLocalUserIdentityLastNameFirst = null)
     {
         $this->displayLocalUserIdentityLastNameFirst = new PrimitiveType($displayLocalUserIdentityLastNameFirst);
-        $this->displayLocalUserIdentityLastNameFirst->setName('displayLocalUserIdentityLastNameFirst');
+        $this->displayLocalUserIdentityLastNameFirst->setElementName('displayLocalUserIdentityLastNameFirst');
         return $this;
     }
 
@@ -46,6 +46,8 @@ class SystemBusyLampFieldGetResponse extends ComplexType implements ComplexInter
      */
     public function getDisplayLocalUserIdentityLastNameFirst()
     {
-        return ($this->displayLocalUserIdentityLastNameFirst) ? $this->displayLocalUserIdentityLastNameFirst->getValue() : null;
+        return ($this->displayLocalUserIdentityLastNameFirst)
+            ? $this->displayLocalUserIdentityLastNameFirst->getElementValue()
+            : null;
     }
 }

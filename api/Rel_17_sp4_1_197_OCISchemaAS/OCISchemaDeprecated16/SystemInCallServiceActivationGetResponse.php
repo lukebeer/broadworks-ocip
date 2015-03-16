@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemInCallServiceActivationGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemInCallServiceActivationGetResponse';
+    public    $elementName = 'SystemInCallServiceActivationGetResponse';
     protected $defaultActivationDigits;
 
     /**
@@ -40,7 +40,7 @@ class SystemInCallServiceActivationGetResponse extends ComplexType implements Co
         $this->defaultActivationDigits = ($defaultActivationDigits InstanceOf InCallServiceActivationDigits)
              ? $defaultActivationDigits
              : new InCallServiceActivationDigits($defaultActivationDigits);
-        $this->defaultActivationDigits->setName('defaultActivationDigits');
+        $this->defaultActivationDigits->setElementName('defaultActivationDigits');
         return $this;
     }
 
@@ -50,6 +50,8 @@ class SystemInCallServiceActivationGetResponse extends ComplexType implements Co
      */
     public function getDefaultActivationDigits()
     {
-        return ($this->defaultActivationDigits) ? $this->defaultActivationDigits->getValue() : null;
+        return ($this->defaultActivationDigits)
+            ? $this->defaultActivationDigits->getElementValue()
+            : null;
     }
 }

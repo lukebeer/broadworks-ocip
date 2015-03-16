@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemExpensiveCallTypeDeleteRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemExpensiveCallTypeDeleteRequest';
+    public    $elementName = 'SystemExpensiveCallTypeDeleteRequest';
     protected $alternateCallIndicator;
 
     public function __construct(
@@ -45,7 +45,7 @@ class SystemExpensiveCallTypeDeleteRequest extends ComplexType implements Comple
         $this->alternateCallIndicator = ($alternateCallIndicator InstanceOf NetworkServerAlternateCallIndicator)
              ? $alternateCallIndicator
              : new NetworkServerAlternateCallIndicator($alternateCallIndicator);
-        $this->alternateCallIndicator->setName('alternateCallIndicator');
+        $this->alternateCallIndicator->setElementName('alternateCallIndicator');
         return $this;
     }
 
@@ -55,6 +55,8 @@ class SystemExpensiveCallTypeDeleteRequest extends ComplexType implements Comple
      */
     public function getAlternateCallIndicator()
     {
-        return ($this->alternateCallIndicator) ? $this->alternateCallIndicator->getValue() : null;
+        return ($this->alternateCallIndicator)
+            ? $this->alternateCallIndicator->getElementValue()
+            : null;
     }
 }

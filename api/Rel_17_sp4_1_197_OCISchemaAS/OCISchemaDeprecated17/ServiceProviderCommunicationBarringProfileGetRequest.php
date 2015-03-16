@@ -23,7 +23,7 @@ use Broadworks_OCIP\core\Client\Client;
 class ServiceProviderCommunicationBarringProfileGetRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated17\ServiceProviderCommunicationBarringProfileGetResponse';
-    public    $name = 'ServiceProviderCommunicationBarringProfileGetRequest';
+    public    $elementName = 'ServiceProviderCommunicationBarringProfileGetRequest';
     protected $serviceProviderId;
     protected $name;
 
@@ -51,7 +51,7 @@ class ServiceProviderCommunicationBarringProfileGetRequest extends ComplexType i
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
-        $this->serviceProviderId->setName('serviceProviderId');
+        $this->serviceProviderId->setElementName('serviceProviderId');
         return $this;
     }
 
@@ -61,7 +61,9 @@ class ServiceProviderCommunicationBarringProfileGetRequest extends ComplexType i
      */
     public function getServiceProviderId()
     {
-        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
+        return ($this->serviceProviderId)
+            ? $this->serviceProviderId->getElementValue()
+            : null;
     }
 
     /**
@@ -72,7 +74,7 @@ class ServiceProviderCommunicationBarringProfileGetRequest extends ComplexType i
         $this->name = ($name InstanceOf CommunicationBarringProfileName)
              ? $name
              : new CommunicationBarringProfileName($name);
-        $this->name->setName('name');
+        $this->name->setElementName('name');
         return $this;
     }
 
@@ -82,6 +84,8 @@ class ServiceProviderCommunicationBarringProfileGetRequest extends ComplexType i
      */
     public function getName()
     {
-        return ($this->name) ? $this->name->getValue() : null;
+        return ($this->name)
+            ? $this->name->getElementValue()
+            : null;
     }
 }

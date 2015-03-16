@@ -23,7 +23,7 @@ use Broadworks_OCIP\core\Client\Client;
 class GroupCallCenterGetAnnouncementRequest14sp6 extends ComplexType implements ComplexInterface
 {
     public    $responseType  = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15\GroupCallCenterGetAnnouncementResponse14sp6';
-    public    $name = 'GroupCallCenterGetAnnouncementRequest14sp6';
+    public    $elementName = 'GroupCallCenterGetAnnouncementRequest14sp6';
     protected $serviceUserId;
 
     public function __construct(
@@ -48,7 +48,7 @@ class GroupCallCenterGetAnnouncementRequest14sp6 extends ComplexType implements 
         $this->serviceUserId = ($serviceUserId InstanceOf UserId)
              ? $serviceUserId
              : new UserId($serviceUserId);
-        $this->serviceUserId->setName('serviceUserId');
+        $this->serviceUserId->setElementName('serviceUserId');
         return $this;
     }
 
@@ -58,6 +58,8 @@ class GroupCallCenterGetAnnouncementRequest14sp6 extends ComplexType implements 
      */
     public function getServiceUserId()
     {
-        return ($this->serviceUserId) ? $this->serviceUserId->getValue() : null;
+        return ($this->serviceUserId)
+            ? $this->serviceUserId->getElementValue()
+            : null;
     }
 }

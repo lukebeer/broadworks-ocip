@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserBroadWorksAnywhereGetSelectiveCriteriaResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'UserBroadWorksAnywhereGetSelectiveCriteriaResponse';
+    public    $elementName = 'UserBroadWorksAnywhereGetSelectiveCriteriaResponse';
     protected $timeSchedule;
     protected $fromDnCriteria;
 
@@ -40,7 +40,7 @@ class UserBroadWorksAnywhereGetSelectiveCriteriaResponse extends ComplexType imp
         $this->timeSchedule = ($timeSchedule InstanceOf TimeSchedule)
              ? $timeSchedule
              : new TimeSchedule($timeSchedule);
-        $this->timeSchedule->setName('timeSchedule');
+        $this->timeSchedule->setElementName('timeSchedule');
         return $this;
     }
 
@@ -61,7 +61,7 @@ class UserBroadWorksAnywhereGetSelectiveCriteriaResponse extends ComplexType imp
         $this->fromDnCriteria = ($fromDnCriteria InstanceOf CriteriaFromDn)
              ? $fromDnCriteria
              : new CriteriaFromDn($fromDnCriteria);
-        $this->fromDnCriteria->setName('fromDnCriteria');
+        $this->fromDnCriteria->setElementName('fromDnCriteria');
         return $this;
     }
 

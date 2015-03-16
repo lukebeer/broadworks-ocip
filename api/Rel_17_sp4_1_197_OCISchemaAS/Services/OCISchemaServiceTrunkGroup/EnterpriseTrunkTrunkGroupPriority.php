@@ -18,12 +18,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\MaxInclusive;
  */
 class EnterpriseTrunkTrunkGroupPriority extends SimpleType
 {
-    public $name = "EnterpriseTrunkTrunkGroupPriority";
-    protected $value;
-
+    public $elementName = "EnterpriseTrunkTrunkGroupPriority";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new MinInclusive("1"));
         $this->addRestriction(new MaxInclusive("10"));
     }

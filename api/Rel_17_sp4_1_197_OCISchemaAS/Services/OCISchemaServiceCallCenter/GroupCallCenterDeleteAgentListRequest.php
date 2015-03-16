@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupCallCenterDeleteAgentListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'GroupCallCenterDeleteAgentListRequest';
+    public    $elementName = 'GroupCallCenterDeleteAgentListRequest';
     protected $serviceUserId;
     protected $agentUserId;
 
@@ -48,7 +48,7 @@ class GroupCallCenterDeleteAgentListRequest extends ComplexType implements Compl
         $this->serviceUserId = ($serviceUserId InstanceOf UserId)
              ? $serviceUserId
              : new UserId($serviceUserId);
-        $this->serviceUserId->setName('serviceUserId');
+        $this->serviceUserId->setElementName('serviceUserId');
         return $this;
     }
 
@@ -58,7 +58,9 @@ class GroupCallCenterDeleteAgentListRequest extends ComplexType implements Compl
      */
     public function getServiceUserId()
     {
-        return ($this->serviceUserId) ? $this->serviceUserId->getValue() : null;
+        return ($this->serviceUserId)
+            ? $this->serviceUserId->getElementValue()
+            : null;
     }
 
     /**
@@ -69,7 +71,7 @@ class GroupCallCenterDeleteAgentListRequest extends ComplexType implements Compl
         $this->agentUserId = ($agentUserId InstanceOf UserId)
              ? $agentUserId
              : new UserId($agentUserId);
-        $this->agentUserId->setName('agentUserId');
+        $this->agentUserId->setElementName('agentUserId');
         return $this;
     }
 
@@ -79,6 +81,8 @@ class GroupCallCenterDeleteAgentListRequest extends ComplexType implements Compl
      */
     public function getAgentUserId()
     {
-        return ($this->agentUserId) ? $this->agentUserId->getValue() : null;
+        return ($this->agentUserId)
+            ? $this->agentUserId->getElementValue()
+            : null;
     }
 }

@@ -19,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class OutgoingCallingPlanRedirectedPermissions extends ComplexType implements ComplexInterface
 {
-    public    $name = 'OutgoingCallingPlanRedirectedPermissions';
+    public    $elementName = 'OutgoingCallingPlanRedirectedPermissions';
     protected $outsideGroup;
 
     public function __construct(
@@ -42,7 +42,7 @@ class OutgoingCallingPlanRedirectedPermissions extends ComplexType implements Co
     public function setOutsideGroup($outsideGroup = null)
     {
         $this->outsideGroup = new SimpleContent($outsideGroup);
-        $this->outsideGroup->setName('outsideGroup');
+        $this->outsideGroup->setElementName('outsideGroup');
         return $this;
     }
 
@@ -52,6 +52,8 @@ class OutgoingCallingPlanRedirectedPermissions extends ComplexType implements Co
      */
     public function getOutsideGroup()
     {
-        return ($this->outsideGroup) ? $this->outsideGroup->getValue() : null;
+        return ($this->outsideGroup)
+            ? $this->outsideGroup->getElementValue()
+            : null;
     }
 }

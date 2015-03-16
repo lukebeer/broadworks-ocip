@@ -24,7 +24,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserBusyLampFieldGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'UserBusyLampFieldGetResponse';
+    public    $elementName = 'UserBusyLampFieldGetResponse';
     protected $listURI;
     protected $monitoredUserTable;
 
@@ -44,7 +44,7 @@ class UserBusyLampFieldGetResponse extends ComplexType implements ComplexInterfa
         $this->listURI = ($listURI InstanceOf SIPURI)
              ? $listURI
              : new SIPURI($listURI);
-        $this->listURI->setName('listURI');
+        $this->listURI->setElementName('listURI');
         return $this;
     }
 
@@ -54,7 +54,9 @@ class UserBusyLampFieldGetResponse extends ComplexType implements ComplexInterfa
      */
     public function getListURI()
     {
-        return ($this->listURI) ? $this->listURI->getValue() : null;
+        return ($this->listURI)
+            ? $this->listURI->getElementValue()
+            : null;
     }
 
     /**
@@ -63,7 +65,7 @@ class UserBusyLampFieldGetResponse extends ComplexType implements ComplexInterfa
     public function setMonitoredUserTable(TableType $monitoredUserTable = null)
     {
         $this->monitoredUserTable = $monitoredUserTable;
-        $this->monitoredUserTable->setName('monitoredUserTable');
+        $this->monitoredUserTable->setElementName('monitoredUserTable');
         return $this;
     }
 

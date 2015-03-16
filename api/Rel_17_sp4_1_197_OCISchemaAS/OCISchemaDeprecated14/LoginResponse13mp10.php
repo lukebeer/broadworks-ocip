@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class LoginResponse13mp10 extends ComplexType implements ComplexInterface
 {
-    public    $name = 'LoginResponse13mp10';
+    public    $elementName = 'LoginResponse13mp10';
     protected $loginType;
     protected $locale;
     protected $encoding;
@@ -42,7 +42,7 @@ class LoginResponse13mp10 extends ComplexType implements ComplexInterface
         $this->loginType = ($loginType InstanceOf LoginType)
              ? $loginType
              : new LoginType($loginType);
-        $this->loginType->setName('loginType');
+        $this->loginType->setElementName('loginType');
         return $this;
     }
 
@@ -52,7 +52,9 @@ class LoginResponse13mp10 extends ComplexType implements ComplexInterface
      */
     public function getLoginType()
     {
-        return ($this->loginType) ? $this->loginType->getValue() : null;
+        return ($this->loginType)
+            ? $this->loginType->getElementValue()
+            : null;
     }
 
     /**
@@ -63,7 +65,7 @@ class LoginResponse13mp10 extends ComplexType implements ComplexInterface
         $this->locale = ($locale InstanceOf OCILocale)
              ? $locale
              : new OCILocale($locale);
-        $this->locale->setName('locale');
+        $this->locale->setElementName('locale');
         return $this;
     }
 
@@ -73,7 +75,9 @@ class LoginResponse13mp10 extends ComplexType implements ComplexInterface
      */
     public function getLocale()
     {
-        return ($this->locale) ? $this->locale->getValue() : null;
+        return ($this->locale)
+            ? $this->locale->getElementValue()
+            : null;
     }
 
     /**
@@ -84,7 +88,7 @@ class LoginResponse13mp10 extends ComplexType implements ComplexInterface
         $this->encoding = ($encoding InstanceOf Encoding)
              ? $encoding
              : new Encoding($encoding);
-        $this->encoding->setName('encoding');
+        $this->encoding->setElementName('encoding');
         return $this;
     }
 
@@ -94,6 +98,8 @@ class LoginResponse13mp10 extends ComplexType implements ComplexInterface
      */
     public function getEncoding()
     {
-        return ($this->encoding) ? $this->encoding->getValue() : null;
+        return ($this->encoding)
+            ? $this->encoding->getElementValue()
+            : null;
     }
 }

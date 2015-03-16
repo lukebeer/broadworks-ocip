@@ -17,12 +17,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\MaxInclusive;
  */
 class VoiceMessagingDistributionListId extends SimpleType
 {
-    public $name = "VoiceMessagingDistributionListId";
-    protected $value;
-
+    public $elementName = "VoiceMessagingDistributionListId";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new MinInclusive("0"));
         $this->addRestriction(new MaxInclusive("14"));
     }

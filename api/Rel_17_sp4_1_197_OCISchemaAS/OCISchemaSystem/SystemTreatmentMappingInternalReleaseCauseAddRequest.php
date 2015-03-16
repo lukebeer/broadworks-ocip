@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemTreatmentMappingInternalReleaseCauseAddRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemTreatmentMappingInternalReleaseCauseAddRequest';
+    public    $elementName = 'SystemTreatmentMappingInternalReleaseCauseAddRequest';
     protected $internalReleaseCause;
     protected $treatmentId;
 
@@ -48,7 +48,7 @@ class SystemTreatmentMappingInternalReleaseCauseAddRequest extends ComplexType i
         $this->internalReleaseCause = ($internalReleaseCause InstanceOf InternalReleaseCause16)
              ? $internalReleaseCause
              : new InternalReleaseCause16($internalReleaseCause);
-        $this->internalReleaseCause->setName('internalReleaseCause');
+        $this->internalReleaseCause->setElementName('internalReleaseCause');
         return $this;
     }
 
@@ -58,7 +58,9 @@ class SystemTreatmentMappingInternalReleaseCauseAddRequest extends ComplexType i
      */
     public function getInternalReleaseCause()
     {
-        return ($this->internalReleaseCause) ? $this->internalReleaseCause->getValue() : null;
+        return ($this->internalReleaseCause)
+            ? $this->internalReleaseCause->getElementValue()
+            : null;
     }
 
     /**
@@ -69,7 +71,7 @@ class SystemTreatmentMappingInternalReleaseCauseAddRequest extends ComplexType i
         $this->treatmentId = ($treatmentId InstanceOf TreatmentId)
              ? $treatmentId
              : new TreatmentId($treatmentId);
-        $this->treatmentId->setName('treatmentId');
+        $this->treatmentId->setElementName('treatmentId');
         return $this;
     }
 
@@ -79,6 +81,8 @@ class SystemTreatmentMappingInternalReleaseCauseAddRequest extends ComplexType i
      */
     public function getTreatmentId()
     {
-        return ($this->treatmentId) ? $this->treatmentId->getValue() : null;
+        return ($this->treatmentId)
+            ? $this->treatmentId->getElementValue()
+            : null;
     }
 }

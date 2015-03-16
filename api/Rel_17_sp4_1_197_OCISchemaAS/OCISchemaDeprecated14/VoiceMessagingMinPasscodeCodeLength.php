@@ -17,12 +17,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\MaxInclusive;
  */
 class VoiceMessagingMinPasscodeCodeLength extends SimpleType
 {
-    public $name = "VoiceMessagingMinPasscodeCodeLength";
-    protected $value;
-
+    public $elementName = "VoiceMessagingMinPasscodeCodeLength";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new MinInclusive("2"));
         $this->addRestriction(new MaxInclusive("15"));
     }

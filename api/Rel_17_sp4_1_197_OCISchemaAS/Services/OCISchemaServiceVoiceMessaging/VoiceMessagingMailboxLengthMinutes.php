@@ -16,12 +16,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\Enumeration;
  */
 class VoiceMessagingMailboxLengthMinutes extends SimpleType
 {
-    public $name = "VoiceMessagingMailboxLengthMinutes";
-    protected $value;
-
+    public $elementName = "VoiceMessagingMailboxLengthMinutes";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new Enumeration([
             '10',
             '20',

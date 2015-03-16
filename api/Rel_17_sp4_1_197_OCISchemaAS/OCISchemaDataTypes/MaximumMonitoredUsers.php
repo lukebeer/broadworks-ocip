@@ -17,12 +17,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\MaxInclusive;
  */
 class MaximumMonitoredUsers extends SimpleType
 {
-    public $name = "MaximumMonitoredUsers";
-    protected $value;
-
+    public $elementName = "MaximumMonitoredUsers";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new MinInclusive("1"));
         $this->addRestriction(new MaxInclusive("1000"));
     }

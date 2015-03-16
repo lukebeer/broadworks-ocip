@@ -24,7 +24,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserCallWaitingModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'UserCallWaitingModifyRequest';
+    public    $elementName = 'UserCallWaitingModifyRequest';
     protected $userId;
     protected $isActive;
     protected $disableCallingLineIdDelivery;
@@ -55,7 +55,7 @@ class UserCallWaitingModifyRequest extends ComplexType implements ComplexInterfa
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
-        $this->userId->setName('userId');
+        $this->userId->setElementName('userId');
         return $this;
     }
 
@@ -65,7 +65,9 @@ class UserCallWaitingModifyRequest extends ComplexType implements ComplexInterfa
      */
     public function getUserId()
     {
-        return ($this->userId) ? $this->userId->getValue() : null;
+        return ($this->userId)
+            ? $this->userId->getElementValue()
+            : null;
     }
 
     /**
@@ -74,7 +76,7 @@ class UserCallWaitingModifyRequest extends ComplexType implements ComplexInterfa
     public function setIsActive($isActive = null)
     {
         $this->isActive = new PrimitiveType($isActive);
-        $this->isActive->setName('isActive');
+        $this->isActive->setElementName('isActive');
         return $this;
     }
 
@@ -84,7 +86,9 @@ class UserCallWaitingModifyRequest extends ComplexType implements ComplexInterfa
      */
     public function getIsActive()
     {
-        return ($this->isActive) ? $this->isActive->getValue() : null;
+        return ($this->isActive)
+            ? $this->isActive->getElementValue()
+            : null;
     }
 
     /**
@@ -93,7 +97,7 @@ class UserCallWaitingModifyRequest extends ComplexType implements ComplexInterfa
     public function setDisableCallingLineIdDelivery($disableCallingLineIdDelivery = null)
     {
         $this->disableCallingLineIdDelivery = new PrimitiveType($disableCallingLineIdDelivery);
-        $this->disableCallingLineIdDelivery->setName('disableCallingLineIdDelivery');
+        $this->disableCallingLineIdDelivery->setElementName('disableCallingLineIdDelivery');
         return $this;
     }
 
@@ -103,6 +107,8 @@ class UserCallWaitingModifyRequest extends ComplexType implements ComplexInterfa
      */
     public function getDisableCallingLineIdDelivery()
     {
-        return ($this->disableCallingLineIdDelivery) ? $this->disableCallingLineIdDelivery->getValue() : null;
+        return ($this->disableCallingLineIdDelivery)
+            ? $this->disableCallingLineIdDelivery->getElementValue()
+            : null;
     }
 }

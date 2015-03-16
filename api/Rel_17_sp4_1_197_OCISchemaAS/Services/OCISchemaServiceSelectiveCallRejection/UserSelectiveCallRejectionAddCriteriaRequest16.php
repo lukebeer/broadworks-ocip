@@ -25,7 +25,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserSelectiveCallRejectionAddCriteriaRequest16 extends ComplexType implements ComplexInterface
 {
-    public    $name = 'UserSelectiveCallRejectionAddCriteriaRequest16';
+    public    $elementName = 'UserSelectiveCallRejectionAddCriteriaRequest16';
     protected $userId;
     protected $criteriaName;
     protected $timeSchedule;
@@ -65,7 +65,7 @@ class UserSelectiveCallRejectionAddCriteriaRequest16 extends ComplexType impleme
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
-        $this->userId->setName('userId');
+        $this->userId->setElementName('userId');
         return $this;
     }
 
@@ -75,7 +75,9 @@ class UserSelectiveCallRejectionAddCriteriaRequest16 extends ComplexType impleme
      */
     public function getUserId()
     {
-        return ($this->userId) ? $this->userId->getValue() : null;
+        return ($this->userId)
+            ? $this->userId->getElementValue()
+            : null;
     }
 
     /**
@@ -86,7 +88,7 @@ class UserSelectiveCallRejectionAddCriteriaRequest16 extends ComplexType impleme
         $this->criteriaName = ($criteriaName InstanceOf CriteriaName)
              ? $criteriaName
              : new CriteriaName($criteriaName);
-        $this->criteriaName->setName('criteriaName');
+        $this->criteriaName->setElementName('criteriaName');
         return $this;
     }
 
@@ -96,7 +98,9 @@ class UserSelectiveCallRejectionAddCriteriaRequest16 extends ComplexType impleme
      */
     public function getCriteriaName()
     {
-        return ($this->criteriaName) ? $this->criteriaName->getValue() : null;
+        return ($this->criteriaName)
+            ? $this->criteriaName->getElementValue()
+            : null;
     }
 
     /**
@@ -107,7 +111,7 @@ class UserSelectiveCallRejectionAddCriteriaRequest16 extends ComplexType impleme
         $this->timeSchedule = ($timeSchedule InstanceOf TimeSchedule)
              ? $timeSchedule
              : new TimeSchedule($timeSchedule);
-        $this->timeSchedule->setName('timeSchedule');
+        $this->timeSchedule->setElementName('timeSchedule');
         return $this;
     }
 
@@ -128,7 +132,7 @@ class UserSelectiveCallRejectionAddCriteriaRequest16 extends ComplexType impleme
         $this->fromDnCriteria = ($fromDnCriteria InstanceOf SelectiveCallRejectionCriteriaCallType)
              ? $fromDnCriteria
              : new SelectiveCallRejectionCriteriaCallType($fromDnCriteria);
-        $this->fromDnCriteria->setName('fromDnCriteria');
+        $this->fromDnCriteria->setElementName('fromDnCriteria');
         return $this;
     }
 
@@ -149,7 +153,7 @@ class UserSelectiveCallRejectionAddCriteriaRequest16 extends ComplexType impleme
         $this->holidaySchedule = ($holidaySchedule InstanceOf HolidaySchedule)
              ? $holidaySchedule
              : new HolidaySchedule($holidaySchedule);
-        $this->holidaySchedule->setName('holidaySchedule');
+        $this->holidaySchedule->setElementName('holidaySchedule');
         return $this;
     }
 
@@ -168,7 +172,7 @@ class UserSelectiveCallRejectionAddCriteriaRequest16 extends ComplexType impleme
     public function setBlacklisted($blacklisted = null)
     {
         $this->blacklisted = new PrimitiveType($blacklisted);
-        $this->blacklisted->setName('blacklisted');
+        $this->blacklisted->setElementName('blacklisted');
         return $this;
     }
 
@@ -178,6 +182,8 @@ class UserSelectiveCallRejectionAddCriteriaRequest16 extends ComplexType impleme
      */
     public function getBlacklisted()
     {
-        return ($this->blacklisted) ? $this->blacklisted->getValue() : null;
+        return ($this->blacklisted)
+            ? $this->blacklisted->getElementValue()
+            : null;
     }
 }

@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemClassmarkGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemClassmarkGetListResponse';
+    public    $elementName = 'SystemClassmarkGetListResponse';
     protected $classmarkTable;
 
     /**
@@ -37,7 +37,7 @@ class SystemClassmarkGetListResponse extends ComplexType implements ComplexInter
     public function setClassmarkTable(TableType $classmarkTable = null)
     {
         $this->classmarkTable = $classmarkTable;
-        $this->classmarkTable->setName('classmarkTable');
+        $this->classmarkTable->setElementName('classmarkTable');
         return $this;
     }
 

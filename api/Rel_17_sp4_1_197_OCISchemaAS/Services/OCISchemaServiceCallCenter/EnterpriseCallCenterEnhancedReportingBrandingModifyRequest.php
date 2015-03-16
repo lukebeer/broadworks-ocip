@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class EnterpriseCallCenterEnhancedReportingBrandingModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'EnterpriseCallCenterEnhancedReportingBrandingModifyRequest';
+    public    $elementName = 'EnterpriseCallCenterEnhancedReportingBrandingModifyRequest';
     protected $serviceProviderId;
     protected $brandingChoice;
     protected $brandingFile;
@@ -53,7 +53,7 @@ class EnterpriseCallCenterEnhancedReportingBrandingModifyRequest extends Complex
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
-        $this->serviceProviderId->setName('serviceProviderId');
+        $this->serviceProviderId->setElementName('serviceProviderId');
         return $this;
     }
 
@@ -63,7 +63,9 @@ class EnterpriseCallCenterEnhancedReportingBrandingModifyRequest extends Complex
      */
     public function getServiceProviderId()
     {
-        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
+        return ($this->serviceProviderId)
+            ? $this->serviceProviderId->getElementValue()
+            : null;
     }
 
     /**
@@ -74,7 +76,7 @@ class EnterpriseCallCenterEnhancedReportingBrandingModifyRequest extends Complex
         $this->brandingChoice = ($brandingChoice InstanceOf CallCenterEnhancedReportingBrandingChoice)
              ? $brandingChoice
              : new CallCenterEnhancedReportingBrandingChoice($brandingChoice);
-        $this->brandingChoice->setName('brandingChoice');
+        $this->brandingChoice->setElementName('brandingChoice');
         return $this;
     }
 
@@ -84,7 +86,9 @@ class EnterpriseCallCenterEnhancedReportingBrandingModifyRequest extends Complex
      */
     public function getBrandingChoice()
     {
-        return ($this->brandingChoice) ? $this->brandingChoice->getValue() : null;
+        return ($this->brandingChoice)
+            ? $this->brandingChoice->getElementValue()
+            : null;
     }
 
     /**
@@ -95,7 +99,7 @@ class EnterpriseCallCenterEnhancedReportingBrandingModifyRequest extends Complex
         $this->brandingFile = ($brandingFile InstanceOf LabeledFileResource)
              ? $brandingFile
              : new LabeledFileResource($brandingFile);
-        $this->brandingFile->setName('brandingFile');
+        $this->brandingFile->setElementName('brandingFile');
         return $this;
     }
 

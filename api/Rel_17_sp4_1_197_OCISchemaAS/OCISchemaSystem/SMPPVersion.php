@@ -16,12 +16,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\Enumeration;
  */
 class SMPPVersion extends SimpleType
 {
-    public $name = "SMPPVersion";
-    protected $value;
-
+    public $elementName = "SMPPVersion";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new Enumeration([
             '3.3',
             '3.4',

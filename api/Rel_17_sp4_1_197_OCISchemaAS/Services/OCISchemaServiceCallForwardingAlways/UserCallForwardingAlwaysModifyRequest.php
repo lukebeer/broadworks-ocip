@@ -23,7 +23,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserCallForwardingAlwaysModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'UserCallForwardingAlwaysModifyRequest';
+    public    $elementName = 'UserCallForwardingAlwaysModifyRequest';
     protected $userId;
     protected $isActive;
     protected $forwardToPhoneNumber;
@@ -57,7 +57,7 @@ class UserCallForwardingAlwaysModifyRequest extends ComplexType implements Compl
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
-        $this->userId->setName('userId');
+        $this->userId->setElementName('userId');
         return $this;
     }
 
@@ -67,7 +67,9 @@ class UserCallForwardingAlwaysModifyRequest extends ComplexType implements Compl
      */
     public function getUserId()
     {
-        return ($this->userId) ? $this->userId->getValue() : null;
+        return ($this->userId)
+            ? $this->userId->getElementValue()
+            : null;
     }
 
     /**
@@ -76,7 +78,7 @@ class UserCallForwardingAlwaysModifyRequest extends ComplexType implements Compl
     public function setIsActive($isActive = null)
     {
         $this->isActive = new PrimitiveType($isActive);
-        $this->isActive->setName('isActive');
+        $this->isActive->setElementName('isActive');
         return $this;
     }
 
@@ -86,7 +88,9 @@ class UserCallForwardingAlwaysModifyRequest extends ComplexType implements Compl
      */
     public function getIsActive()
     {
-        return ($this->isActive) ? $this->isActive->getValue() : null;
+        return ($this->isActive)
+            ? $this->isActive->getElementValue()
+            : null;
     }
 
     /**
@@ -97,7 +101,7 @@ class UserCallForwardingAlwaysModifyRequest extends ComplexType implements Compl
         $this->forwardToPhoneNumber = ($forwardToPhoneNumber InstanceOf OutgoingDNorSIPURI)
              ? $forwardToPhoneNumber
              : new OutgoingDNorSIPURI($forwardToPhoneNumber);
-        $this->forwardToPhoneNumber->setName('forwardToPhoneNumber');
+        $this->forwardToPhoneNumber->setElementName('forwardToPhoneNumber');
         return $this;
     }
 
@@ -107,7 +111,9 @@ class UserCallForwardingAlwaysModifyRequest extends ComplexType implements Compl
      */
     public function getForwardToPhoneNumber()
     {
-        return ($this->forwardToPhoneNumber) ? $this->forwardToPhoneNumber->getValue() : null;
+        return ($this->forwardToPhoneNumber)
+            ? $this->forwardToPhoneNumber->getElementValue()
+            : null;
     }
 
     /**
@@ -116,7 +122,7 @@ class UserCallForwardingAlwaysModifyRequest extends ComplexType implements Compl
     public function setIsRingSplashActive($isRingSplashActive = null)
     {
         $this->isRingSplashActive = new PrimitiveType($isRingSplashActive);
-        $this->isRingSplashActive->setName('isRingSplashActive');
+        $this->isRingSplashActive->setElementName('isRingSplashActive');
         return $this;
     }
 
@@ -126,6 +132,8 @@ class UserCallForwardingAlwaysModifyRequest extends ComplexType implements Compl
      */
     public function getIsRingSplashActive()
     {
-        return ($this->isRingSplashActive) ? $this->isRingSplashActive->getValue() : null;
+        return ($this->isRingSplashActive)
+            ? $this->isRingSplashActive->getElementValue()
+            : null;
     }
 }

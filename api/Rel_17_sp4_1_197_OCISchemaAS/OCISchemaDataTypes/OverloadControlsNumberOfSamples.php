@@ -17,12 +17,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\MaxInclusive;
  */
 class OverloadControlsNumberOfSamples extends SimpleType
 {
-    public $name = "OverloadControlsNumberOfSamples";
-    protected $value;
-
+    public $elementName = "OverloadControlsNumberOfSamples";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new MinInclusive("10"));
         $this->addRestriction(new MaxInclusive("50000"));
     }

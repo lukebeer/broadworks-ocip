@@ -19,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemShInterfaceRefreshTaskGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemShInterfaceRefreshTaskGetResponse';
+    public    $elementName = 'SystemShInterfaceRefreshTaskGetResponse';
     protected $isRunning;
     protected $numberPublicIdentityRefreshesStarted;
     protected $numberPublicIdentities;
@@ -38,7 +38,7 @@ class SystemShInterfaceRefreshTaskGetResponse extends ComplexType implements Com
     public function setIsRunning($isRunning = null)
     {
         $this->isRunning = new PrimitiveType($isRunning);
-        $this->isRunning->setName('isRunning');
+        $this->isRunning->setElementName('isRunning');
         return $this;
     }
 
@@ -48,7 +48,9 @@ class SystemShInterfaceRefreshTaskGetResponse extends ComplexType implements Com
      */
     public function getIsRunning()
     {
-        return ($this->isRunning) ? $this->isRunning->getValue() : null;
+        return ($this->isRunning)
+            ? $this->isRunning->getElementValue()
+            : null;
     }
 
     /**
@@ -57,7 +59,7 @@ class SystemShInterfaceRefreshTaskGetResponse extends ComplexType implements Com
     public function setNumberPublicIdentityRefreshesStarted($numberPublicIdentityRefreshesStarted = null)
     {
         $this->numberPublicIdentityRefreshesStarted = new PrimitiveType($numberPublicIdentityRefreshesStarted);
-        $this->numberPublicIdentityRefreshesStarted->setName('numberPublicIdentityRefreshesStarted');
+        $this->numberPublicIdentityRefreshesStarted->setElementName('numberPublicIdentityRefreshesStarted');
         return $this;
     }
 
@@ -67,7 +69,9 @@ class SystemShInterfaceRefreshTaskGetResponse extends ComplexType implements Com
      */
     public function getNumberPublicIdentityRefreshesStarted()
     {
-        return ($this->numberPublicIdentityRefreshesStarted) ? $this->numberPublicIdentityRefreshesStarted->getValue() : null;
+        return ($this->numberPublicIdentityRefreshesStarted)
+            ? $this->numberPublicIdentityRefreshesStarted->getElementValue()
+            : null;
     }
 
     /**
@@ -76,7 +80,7 @@ class SystemShInterfaceRefreshTaskGetResponse extends ComplexType implements Com
     public function setNumberPublicIdentities($numberPublicIdentities = null)
     {
         $this->numberPublicIdentities = new PrimitiveType($numberPublicIdentities);
-        $this->numberPublicIdentities->setName('numberPublicIdentities');
+        $this->numberPublicIdentities->setElementName('numberPublicIdentities');
         return $this;
     }
 
@@ -86,6 +90,8 @@ class SystemShInterfaceRefreshTaskGetResponse extends ComplexType implements Com
      */
     public function getNumberPublicIdentities()
     {
-        return ($this->numberPublicIdentities) ? $this->numberPublicIdentities->getValue() : null;
+        return ($this->numberPublicIdentities)
+            ? $this->numberPublicIdentities->getElementValue()
+            : null;
     }
 }

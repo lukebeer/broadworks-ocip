@@ -24,7 +24,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class EnterpriseEnterpriseTrunkAddRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'EnterpriseEnterpriseTrunkAddRequest';
+    public    $elementName = 'EnterpriseEnterpriseTrunkAddRequest';
     protected $serviceProviderId;
     protected $enterpriseTrunkName;
     protected $maximumRerouteAttempts;
@@ -61,7 +61,7 @@ class EnterpriseEnterpriseTrunkAddRequest extends ComplexType implements Complex
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
-        $this->serviceProviderId->setName('serviceProviderId');
+        $this->serviceProviderId->setElementName('serviceProviderId');
         return $this;
     }
 
@@ -71,7 +71,9 @@ class EnterpriseEnterpriseTrunkAddRequest extends ComplexType implements Complex
      */
     public function getServiceProviderId()
     {
-        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
+        return ($this->serviceProviderId)
+            ? $this->serviceProviderId->getElementValue()
+            : null;
     }
 
     /**
@@ -82,7 +84,7 @@ class EnterpriseEnterpriseTrunkAddRequest extends ComplexType implements Complex
         $this->enterpriseTrunkName = ($enterpriseTrunkName InstanceOf EnterpriseTrunkName)
              ? $enterpriseTrunkName
              : new EnterpriseTrunkName($enterpriseTrunkName);
-        $this->enterpriseTrunkName->setName('enterpriseTrunkName');
+        $this->enterpriseTrunkName->setElementName('enterpriseTrunkName');
         return $this;
     }
 
@@ -92,7 +94,9 @@ class EnterpriseEnterpriseTrunkAddRequest extends ComplexType implements Complex
      */
     public function getEnterpriseTrunkName()
     {
-        return ($this->enterpriseTrunkName) ? $this->enterpriseTrunkName->getValue() : null;
+        return ($this->enterpriseTrunkName)
+            ? $this->enterpriseTrunkName->getElementValue()
+            : null;
     }
 
     /**
@@ -103,7 +107,7 @@ class EnterpriseEnterpriseTrunkAddRequest extends ComplexType implements Complex
         $this->maximumRerouteAttempts = ($maximumRerouteAttempts InstanceOf EnterpriseTrunkMaximumRerouteAttempts)
              ? $maximumRerouteAttempts
              : new EnterpriseTrunkMaximumRerouteAttempts($maximumRerouteAttempts);
-        $this->maximumRerouteAttempts->setName('maximumRerouteAttempts');
+        $this->maximumRerouteAttempts->setElementName('maximumRerouteAttempts');
         return $this;
     }
 
@@ -113,7 +117,9 @@ class EnterpriseEnterpriseTrunkAddRequest extends ComplexType implements Complex
      */
     public function getMaximumRerouteAttempts()
     {
-        return ($this->maximumRerouteAttempts) ? $this->maximumRerouteAttempts->getValue() : null;
+        return ($this->maximumRerouteAttempts)
+            ? $this->maximumRerouteAttempts->getElementValue()
+            : null;
     }
 
     /**
@@ -124,7 +130,7 @@ class EnterpriseEnterpriseTrunkAddRequest extends ComplexType implements Complex
         $this->routeExhaustionAction = ($routeExhaustionAction InstanceOf EnterpriseTrunkRouteExhaustionAction)
              ? $routeExhaustionAction
              : new EnterpriseTrunkRouteExhaustionAction($routeExhaustionAction);
-        $this->routeExhaustionAction->setName('routeExhaustionAction');
+        $this->routeExhaustionAction->setElementName('routeExhaustionAction');
         return $this;
     }
 
@@ -134,7 +140,9 @@ class EnterpriseEnterpriseTrunkAddRequest extends ComplexType implements Complex
      */
     public function getRouteExhaustionAction()
     {
-        return ($this->routeExhaustionAction) ? $this->routeExhaustionAction->getValue() : null;
+        return ($this->routeExhaustionAction)
+            ? $this->routeExhaustionAction->getElementValue()
+            : null;
     }
 
     /**
@@ -145,7 +153,7 @@ class EnterpriseEnterpriseTrunkAddRequest extends ComplexType implements Complex
         $this->routeExhaustionForwardAddress = ($routeExhaustionForwardAddress InstanceOf OutgoingDNorSIPURI)
              ? $routeExhaustionForwardAddress
              : new OutgoingDNorSIPURI($routeExhaustionForwardAddress);
-        $this->routeExhaustionForwardAddress->setName('routeExhaustionForwardAddress');
+        $this->routeExhaustionForwardAddress->setElementName('routeExhaustionForwardAddress');
         return $this;
     }
 
@@ -155,6 +163,8 @@ class EnterpriseEnterpriseTrunkAddRequest extends ComplexType implements Complex
      */
     public function getRouteExhaustionForwardAddress()
     {
-        return ($this->routeExhaustionForwardAddress) ? $this->routeExhaustionForwardAddress->getValue() : null;
+        return ($this->routeExhaustionForwardAddress)
+            ? $this->routeExhaustionForwardAddress->getElementValue()
+            : null;
     }
 }

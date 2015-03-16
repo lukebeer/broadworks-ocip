@@ -16,12 +16,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\Enumeration;
  */
 class BroadWorksMobilityPhoneToRing extends SimpleType
 {
-    public $name = "BroadWorksMobilityPhoneToRing";
-    protected $value;
-
+    public $elementName = "BroadWorksMobilityPhoneToRing";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new Enumeration([
             'Fixed',
             'Mobile',

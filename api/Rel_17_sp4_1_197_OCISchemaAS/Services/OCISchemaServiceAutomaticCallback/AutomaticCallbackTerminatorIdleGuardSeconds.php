@@ -17,12 +17,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\MaxInclusive;
  */
 class AutomaticCallbackTerminatorIdleGuardSeconds extends SimpleType
 {
-    public $name = "AutomaticCallbackTerminatorIdleGuardSeconds";
-    protected $value;
-
+    public $elementName = "AutomaticCallbackTerminatorIdleGuardSeconds";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new MinInclusive("5"));
         $this->addRestriction(new MaxInclusive("300"));
     }

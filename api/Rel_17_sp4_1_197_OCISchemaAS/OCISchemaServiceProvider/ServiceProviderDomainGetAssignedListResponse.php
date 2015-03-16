@@ -19,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderDomainGetAssignedListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'ServiceProviderDomainGetAssignedListResponse';
+    public    $elementName = 'ServiceProviderDomainGetAssignedListResponse';
     protected $serviceProviderDefaultDomain;
     protected $domain;
 
@@ -39,7 +39,7 @@ class ServiceProviderDomainGetAssignedListResponse extends ComplexType implement
         $this->serviceProviderDefaultDomain = ($serviceProviderDefaultDomain InstanceOf NetAddress)
              ? $serviceProviderDefaultDomain
              : new NetAddress($serviceProviderDefaultDomain);
-        $this->serviceProviderDefaultDomain->setName('serviceProviderDefaultDomain');
+        $this->serviceProviderDefaultDomain->setElementName('serviceProviderDefaultDomain');
         return $this;
     }
 
@@ -49,7 +49,9 @@ class ServiceProviderDomainGetAssignedListResponse extends ComplexType implement
      */
     public function getServiceProviderDefaultDomain()
     {
-        return ($this->serviceProviderDefaultDomain) ? $this->serviceProviderDefaultDomain->getValue() : null;
+        return ($this->serviceProviderDefaultDomain)
+            ? $this->serviceProviderDefaultDomain->getElementValue()
+            : null;
     }
 
     /**
@@ -60,7 +62,7 @@ class ServiceProviderDomainGetAssignedListResponse extends ComplexType implement
         $this->domain = ($domain InstanceOf NetAddress)
              ? $domain
              : new NetAddress($domain);
-        $this->domain->setName('domain');
+        $this->domain->setElementName('domain');
         return $this;
     }
 
@@ -70,6 +72,8 @@ class ServiceProviderDomainGetAssignedListResponse extends ComplexType implement
      */
     public function getDomain()
     {
-        return ($this->domain) ? $this->domain->getValue() : null;
+        return ($this->domain)
+            ? $this->domain->getElementValue()
+            : null;
     }
 }

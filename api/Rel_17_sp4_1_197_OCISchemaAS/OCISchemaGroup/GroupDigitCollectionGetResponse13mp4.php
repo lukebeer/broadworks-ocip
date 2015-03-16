@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupDigitCollectionGetResponse13mp4 extends ComplexType implements ComplexInterface
 {
-    public    $name = 'GroupDigitCollectionGetResponse13mp4';
+    public    $elementName = 'GroupDigitCollectionGetResponse13mp4';
     protected $useSetting;
     protected $accessCode;
     protected $publicDigitMap;
@@ -43,7 +43,7 @@ class GroupDigitCollectionGetResponse13mp4 extends ComplexType implements Comple
         $this->useSetting = ($useSetting InstanceOf GroupDigitCollectionSettingLevel)
              ? $useSetting
              : new GroupDigitCollectionSettingLevel($useSetting);
-        $this->useSetting->setName('useSetting');
+        $this->useSetting->setElementName('useSetting');
         return $this;
     }
 
@@ -53,7 +53,9 @@ class GroupDigitCollectionGetResponse13mp4 extends ComplexType implements Comple
      */
     public function getUseSetting()
     {
-        return ($this->useSetting) ? $this->useSetting->getValue() : null;
+        return ($this->useSetting)
+            ? $this->useSetting->getElementValue()
+            : null;
     }
 
     /**
@@ -64,7 +66,7 @@ class GroupDigitCollectionGetResponse13mp4 extends ComplexType implements Comple
         $this->accessCode = ($accessCode InstanceOf AccessCode)
              ? $accessCode
              : new AccessCode($accessCode);
-        $this->accessCode->setName('accessCode');
+        $this->accessCode->setElementName('accessCode');
         return $this;
     }
 
@@ -74,7 +76,9 @@ class GroupDigitCollectionGetResponse13mp4 extends ComplexType implements Comple
      */
     public function getAccessCode()
     {
-        return ($this->accessCode) ? $this->accessCode->getValue() : null;
+        return ($this->accessCode)
+            ? $this->accessCode->getElementValue()
+            : null;
     }
 
     /**
@@ -85,7 +89,7 @@ class GroupDigitCollectionGetResponse13mp4 extends ComplexType implements Comple
         $this->publicDigitMap = ($publicDigitMap InstanceOf DigitMap)
              ? $publicDigitMap
              : new DigitMap($publicDigitMap);
-        $this->publicDigitMap->setName('publicDigitMap');
+        $this->publicDigitMap->setElementName('publicDigitMap');
         return $this;
     }
 
@@ -95,7 +99,9 @@ class GroupDigitCollectionGetResponse13mp4 extends ComplexType implements Comple
      */
     public function getPublicDigitMap()
     {
-        return ($this->publicDigitMap) ? $this->publicDigitMap->getValue() : null;
+        return ($this->publicDigitMap)
+            ? $this->publicDigitMap->getElementValue()
+            : null;
     }
 
     /**
@@ -106,7 +112,7 @@ class GroupDigitCollectionGetResponse13mp4 extends ComplexType implements Comple
         $this->privateDigitMap = ($privateDigitMap InstanceOf DigitMap)
              ? $privateDigitMap
              : new DigitMap($privateDigitMap);
-        $this->privateDigitMap->setName('privateDigitMap');
+        $this->privateDigitMap->setElementName('privateDigitMap');
         return $this;
     }
 
@@ -116,6 +122,8 @@ class GroupDigitCollectionGetResponse13mp4 extends ComplexType implements Comple
      */
     public function getPrivateDigitMap()
     {
-        return ($this->privateDigitMap) ? $this->privateDigitMap->getValue() : null;
+        return ($this->privateDigitMap)
+            ? $this->privateDigitMap->getElementValue()
+            : null;
     }
 }

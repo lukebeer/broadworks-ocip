@@ -17,12 +17,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\MaxInclusive;
  */
 class SMDIMaxConnections extends SimpleType
 {
-    public $name = "SMDIMaxConnections";
-    protected $value;
-
+    public $elementName = "SMDIMaxConnections";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new MinInclusive("0"));
         $this->addRestriction(new MaxInclusive("64"));
     }

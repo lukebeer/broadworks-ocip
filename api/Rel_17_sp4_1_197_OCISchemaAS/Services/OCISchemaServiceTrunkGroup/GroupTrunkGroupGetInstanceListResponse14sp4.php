@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupTrunkGroupGetInstanceListResponse14sp4 extends ComplexType implements ComplexInterface
 {
-    public    $name = 'GroupTrunkGroupGetInstanceListResponse14sp4';
+    public    $elementName = 'GroupTrunkGroupGetInstanceListResponse14sp4';
     protected $trunkGroupTable;
 
     /**
@@ -39,7 +39,7 @@ class GroupTrunkGroupGetInstanceListResponse14sp4 extends ComplexType implements
     public function setTrunkGroupTable(TableType $trunkGroupTable = null)
     {
         $this->trunkGroupTable = $trunkGroupTable;
-        $this->trunkGroupTable->setName('trunkGroupTable');
+        $this->trunkGroupTable->setElementName('trunkGroupTable');
         return $this;
     }
 

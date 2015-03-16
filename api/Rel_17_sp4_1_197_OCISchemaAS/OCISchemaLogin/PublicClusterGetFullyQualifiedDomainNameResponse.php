@@ -19,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class PublicClusterGetFullyQualifiedDomainNameResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'PublicClusterGetFullyQualifiedDomainNameResponse';
+    public    $elementName = 'PublicClusterGetFullyQualifiedDomainNameResponse';
     protected $publicClusterFQDN;
 
     /**
@@ -38,7 +38,7 @@ class PublicClusterGetFullyQualifiedDomainNameResponse extends ComplexType imple
         $this->publicClusterFQDN = ($publicClusterFQDN InstanceOf DomainName)
              ? $publicClusterFQDN
              : new DomainName($publicClusterFQDN);
-        $this->publicClusterFQDN->setName('publicClusterFQDN');
+        $this->publicClusterFQDN->setElementName('publicClusterFQDN');
         return $this;
     }
 
@@ -48,6 +48,8 @@ class PublicClusterGetFullyQualifiedDomainNameResponse extends ComplexType imple
      */
     public function getPublicClusterFQDN()
     {
-        return ($this->publicClusterFQDN) ? $this->publicClusterFQDN->getValue() : null;
+        return ($this->publicClusterFQDN)
+            ? $this->publicClusterFQDN->getElementValue()
+            : null;
     }
 }

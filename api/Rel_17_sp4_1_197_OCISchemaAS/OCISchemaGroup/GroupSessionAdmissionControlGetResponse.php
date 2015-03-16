@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupSessionAdmissionControlGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'GroupSessionAdmissionControlGetResponse';
+    public    $elementName = 'GroupSessionAdmissionControlGetResponse';
     protected $restrictAggregateSessions;
     protected $maxSessions;
     protected $maxUserOriginatingSessions;
@@ -42,7 +42,7 @@ class GroupSessionAdmissionControlGetResponse extends ComplexType implements Com
     public function setRestrictAggregateSessions($restrictAggregateSessions = null)
     {
         $this->restrictAggregateSessions = new PrimitiveType($restrictAggregateSessions);
-        $this->restrictAggregateSessions->setName('restrictAggregateSessions');
+        $this->restrictAggregateSessions->setElementName('restrictAggregateSessions');
         return $this;
     }
 
@@ -52,7 +52,9 @@ class GroupSessionAdmissionControlGetResponse extends ComplexType implements Com
      */
     public function getRestrictAggregateSessions()
     {
-        return ($this->restrictAggregateSessions) ? $this->restrictAggregateSessions->getValue() : null;
+        return ($this->restrictAggregateSessions)
+            ? $this->restrictAggregateSessions->getElementValue()
+            : null;
     }
 
     /**
@@ -63,7 +65,7 @@ class GroupSessionAdmissionControlGetResponse extends ComplexType implements Com
         $this->maxSessions = ($maxSessions InstanceOf NonNegativeInt)
              ? $maxSessions
              : new NonNegativeInt($maxSessions);
-        $this->maxSessions->setName('maxSessions');
+        $this->maxSessions->setElementName('maxSessions');
         return $this;
     }
 
@@ -73,7 +75,9 @@ class GroupSessionAdmissionControlGetResponse extends ComplexType implements Com
      */
     public function getMaxSessions()
     {
-        return ($this->maxSessions) ? $this->maxSessions->getValue() : null;
+        return ($this->maxSessions)
+            ? $this->maxSessions->getElementValue()
+            : null;
     }
 
     /**
@@ -84,7 +88,7 @@ class GroupSessionAdmissionControlGetResponse extends ComplexType implements Com
         $this->maxUserOriginatingSessions = ($maxUserOriginatingSessions InstanceOf NonNegativeInt)
              ? $maxUserOriginatingSessions
              : new NonNegativeInt($maxUserOriginatingSessions);
-        $this->maxUserOriginatingSessions->setName('maxUserOriginatingSessions');
+        $this->maxUserOriginatingSessions->setElementName('maxUserOriginatingSessions');
         return $this;
     }
 
@@ -94,7 +98,9 @@ class GroupSessionAdmissionControlGetResponse extends ComplexType implements Com
      */
     public function getMaxUserOriginatingSessions()
     {
-        return ($this->maxUserOriginatingSessions) ? $this->maxUserOriginatingSessions->getValue() : null;
+        return ($this->maxUserOriginatingSessions)
+            ? $this->maxUserOriginatingSessions->getElementValue()
+            : null;
     }
 
     /**
@@ -105,7 +111,7 @@ class GroupSessionAdmissionControlGetResponse extends ComplexType implements Com
         $this->maxUserTerminatingSessions = ($maxUserTerminatingSessions InstanceOf NonNegativeInt)
              ? $maxUserTerminatingSessions
              : new NonNegativeInt($maxUserTerminatingSessions);
-        $this->maxUserTerminatingSessions->setName('maxUserTerminatingSessions');
+        $this->maxUserTerminatingSessions->setElementName('maxUserTerminatingSessions');
         return $this;
     }
 
@@ -115,7 +121,9 @@ class GroupSessionAdmissionControlGetResponse extends ComplexType implements Com
      */
     public function getMaxUserTerminatingSessions()
     {
-        return ($this->maxUserTerminatingSessions) ? $this->maxUserTerminatingSessions->getValue() : null;
+        return ($this->maxUserTerminatingSessions)
+            ? $this->maxUserTerminatingSessions->getElementValue()
+            : null;
     }
 
     /**
@@ -124,7 +132,7 @@ class GroupSessionAdmissionControlGetResponse extends ComplexType implements Com
     public function setCountIntraGroupSessions($countIntraGroupSessions = null)
     {
         $this->countIntraGroupSessions = new PrimitiveType($countIntraGroupSessions);
-        $this->countIntraGroupSessions->setName('countIntraGroupSessions');
+        $this->countIntraGroupSessions->setElementName('countIntraGroupSessions');
         return $this;
     }
 
@@ -134,6 +142,8 @@ class GroupSessionAdmissionControlGetResponse extends ComplexType implements Com
      */
     public function getCountIntraGroupSessions()
     {
-        return ($this->countIntraGroupSessions) ? $this->countIntraGroupSessions->getValue() : null;
+        return ($this->countIntraGroupSessions)
+            ? $this->countIntraGroupSessions->getElementValue()
+            : null;
     }
 }

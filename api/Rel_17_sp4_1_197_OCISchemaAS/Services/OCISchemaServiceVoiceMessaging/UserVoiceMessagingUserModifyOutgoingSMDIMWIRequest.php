@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserVoiceMessagingUserModifyOutgoingSMDIMWIRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'UserVoiceMessagingUserModifyOutgoingSMDIMWIRequest';
+    public    $elementName = 'UserVoiceMessagingUserModifyOutgoingSMDIMWIRequest';
     protected $userId;
     protected $isActive;
     protected $outgoingSMDIMWIPhoneNumberList;
@@ -53,7 +53,7 @@ class UserVoiceMessagingUserModifyOutgoingSMDIMWIRequest extends ComplexType imp
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
-        $this->userId->setName('userId');
+        $this->userId->setElementName('userId');
         return $this;
     }
 
@@ -63,7 +63,9 @@ class UserVoiceMessagingUserModifyOutgoingSMDIMWIRequest extends ComplexType imp
      */
     public function getUserId()
     {
-        return ($this->userId) ? $this->userId->getValue() : null;
+        return ($this->userId)
+            ? $this->userId->getElementValue()
+            : null;
     }
 
     /**
@@ -72,7 +74,7 @@ class UserVoiceMessagingUserModifyOutgoingSMDIMWIRequest extends ComplexType imp
     public function setIsActive($isActive = null)
     {
         $this->isActive = new PrimitiveType($isActive);
-        $this->isActive->setName('isActive');
+        $this->isActive->setElementName('isActive');
         return $this;
     }
 
@@ -82,7 +84,9 @@ class UserVoiceMessagingUserModifyOutgoingSMDIMWIRequest extends ComplexType imp
      */
     public function getIsActive()
     {
-        return ($this->isActive) ? $this->isActive->getValue() : null;
+        return ($this->isActive)
+            ? $this->isActive->getElementValue()
+            : null;
     }
 
     /**
@@ -93,7 +97,7 @@ class UserVoiceMessagingUserModifyOutgoingSMDIMWIRequest extends ComplexType imp
         $this->outgoingSMDIMWIPhoneNumberList = ($outgoingSMDIMWIPhoneNumberList InstanceOf ReplacementOutgoingDNList)
              ? $outgoingSMDIMWIPhoneNumberList
              : new ReplacementOutgoingDNList($outgoingSMDIMWIPhoneNumberList);
-        $this->outgoingSMDIMWIPhoneNumberList->setName('outgoingSMDIMWIPhoneNumberList');
+        $this->outgoingSMDIMWIPhoneNumberList->setElementName('outgoingSMDIMWIPhoneNumberList');
         return $this;
     }
 

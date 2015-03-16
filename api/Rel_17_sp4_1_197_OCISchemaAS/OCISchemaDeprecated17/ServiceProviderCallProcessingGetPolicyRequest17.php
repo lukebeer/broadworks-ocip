@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
 class ServiceProviderCallProcessingGetPolicyRequest17 extends ComplexType implements ComplexInterface
 {
     public    $responseType      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated17\ServiceProviderCallProcessingGetPolicyResponse17';
-    public    $name = 'ServiceProviderCallProcessingGetPolicyRequest17';
+    public    $elementName = 'ServiceProviderCallProcessingGetPolicyRequest17';
     protected $serviceProviderId;
 
     public function __construct(
@@ -47,7 +47,7 @@ class ServiceProviderCallProcessingGetPolicyRequest17 extends ComplexType implem
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
-        $this->serviceProviderId->setName('serviceProviderId');
+        $this->serviceProviderId->setElementName('serviceProviderId');
         return $this;
     }
 
@@ -57,6 +57,8 @@ class ServiceProviderCallProcessingGetPolicyRequest17 extends ComplexType implem
      */
     public function getServiceProviderId()
     {
-        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
+        return ($this->serviceProviderId)
+            ? $this->serviceProviderId->getElementValue()
+            : null;
     }
 }

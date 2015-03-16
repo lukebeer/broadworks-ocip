@@ -23,7 +23,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemPerformanceMeasurementReportingAddFileServerRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemPerformanceMeasurementReportingAddFileServerRequest';
+    public    $elementName = 'SystemPerformanceMeasurementReportingAddFileServerRequest';
     protected $ftpHostNetAddress;
     protected $ftpUserId;
     protected $ftpUserPassword;
@@ -57,7 +57,7 @@ class SystemPerformanceMeasurementReportingAddFileServerRequest extends ComplexT
         $this->ftpHostNetAddress = ($ftpHostNetAddress InstanceOf NetAddress)
              ? $ftpHostNetAddress
              : new NetAddress($ftpHostNetAddress);
-        $this->ftpHostNetAddress->setName('ftpHostNetAddress');
+        $this->ftpHostNetAddress->setElementName('ftpHostNetAddress');
         return $this;
     }
 
@@ -67,7 +67,9 @@ class SystemPerformanceMeasurementReportingAddFileServerRequest extends ComplexT
      */
     public function getFtpHostNetAddress()
     {
-        return ($this->ftpHostNetAddress) ? $this->ftpHostNetAddress->getValue() : null;
+        return ($this->ftpHostNetAddress)
+            ? $this->ftpHostNetAddress->getElementValue()
+            : null;
     }
 
     /**
@@ -78,7 +80,7 @@ class SystemPerformanceMeasurementReportingAddFileServerRequest extends ComplexT
         $this->ftpUserId = ($ftpUserId InstanceOf FTPUserId)
              ? $ftpUserId
              : new FTPUserId($ftpUserId);
-        $this->ftpUserId->setName('ftpUserId');
+        $this->ftpUserId->setElementName('ftpUserId');
         return $this;
     }
 
@@ -88,7 +90,9 @@ class SystemPerformanceMeasurementReportingAddFileServerRequest extends ComplexT
      */
     public function getFtpUserId()
     {
-        return ($this->ftpUserId) ? $this->ftpUserId->getValue() : null;
+        return ($this->ftpUserId)
+            ? $this->ftpUserId->getElementValue()
+            : null;
     }
 
     /**
@@ -99,7 +103,7 @@ class SystemPerformanceMeasurementReportingAddFileServerRequest extends ComplexT
         $this->ftpUserPassword = ($ftpUserPassword InstanceOf FTPUserPassword)
              ? $ftpUserPassword
              : new FTPUserPassword($ftpUserPassword);
-        $this->ftpUserPassword->setName('ftpUserPassword');
+        $this->ftpUserPassword->setElementName('ftpUserPassword');
         return $this;
     }
 
@@ -109,7 +113,9 @@ class SystemPerformanceMeasurementReportingAddFileServerRequest extends ComplexT
      */
     public function getFtpUserPassword()
     {
-        return ($this->ftpUserPassword) ? $this->ftpUserPassword->getValue() : null;
+        return ($this->ftpUserPassword)
+            ? $this->ftpUserPassword->getElementValue()
+            : null;
     }
 
     /**
@@ -118,7 +124,7 @@ class SystemPerformanceMeasurementReportingAddFileServerRequest extends ComplexT
     public function setPassiveFTP($passiveFTP = null)
     {
         $this->passiveFTP = new PrimitiveType($passiveFTP);
-        $this->passiveFTP->setName('passiveFTP');
+        $this->passiveFTP->setElementName('passiveFTP');
         return $this;
     }
 
@@ -128,6 +134,8 @@ class SystemPerformanceMeasurementReportingAddFileServerRequest extends ComplexT
      */
     public function getPassiveFTP()
     {
-        return ($this->passiveFTP) ? $this->passiveFTP->getValue() : null;
+        return ($this->passiveFTP)
+            ? $this->passiveFTP->getElementValue()
+            : null;
     }
 }

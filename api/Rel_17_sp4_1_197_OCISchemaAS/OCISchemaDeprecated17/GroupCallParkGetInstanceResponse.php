@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupCallParkGetInstanceResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'GroupCallParkGetInstanceResponse';
+    public    $elementName = 'GroupCallParkGetInstanceResponse';
     protected $userTable;
 
     /**
@@ -38,7 +38,7 @@ class GroupCallParkGetInstanceResponse extends ComplexType implements ComplexInt
     public function setUserTable(TableType $userTable = null)
     {
         $this->userTable = $userTable;
-        $this->userTable->setName('userTable');
+        $this->userTable->setElementName('userTable');
         return $this;
     }
 

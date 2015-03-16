@@ -23,7 +23,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderServicePackMigrationTaskGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'ServiceProviderServicePackMigrationTaskGetListResponse';
+    public    $elementName = 'ServiceProviderServicePackMigrationTaskGetListResponse';
     protected $taskTable;
 
     /**
@@ -40,7 +40,7 @@ class ServiceProviderServicePackMigrationTaskGetListResponse extends ComplexType
     public function setTaskTable(TableType $taskTable = null)
     {
         $this->taskTable = $taskTable;
-        $this->taskTable->setName('taskTable');
+        $this->taskTable->setElementName('taskTable');
         return $this;
     }
 

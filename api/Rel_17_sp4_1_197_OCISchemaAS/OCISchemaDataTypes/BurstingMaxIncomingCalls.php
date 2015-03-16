@@ -17,12 +17,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\MaxInclusive;
  */
 class BurstingMaxIncomingCalls extends SimpleType
 {
-    public $name = "BurstingMaxIncomingCalls";
-    protected $value;
-
+    public $elementName = "BurstingMaxIncomingCalls";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new MinInclusive("0"));
         $this->addRestriction(new MaxInclusive("999999"));
     }

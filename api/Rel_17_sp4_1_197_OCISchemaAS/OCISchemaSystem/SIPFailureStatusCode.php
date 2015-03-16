@@ -17,12 +17,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\MaxInclusive;
  */
 class SIPFailureStatusCode extends SimpleType
 {
-    public $name = "SIPFailureStatusCode";
-    protected $value;
-
+    public $elementName = "SIPFailureStatusCode";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new MinInclusive("400"));
         $this->addRestriction(new MaxInclusive("699"));
     }

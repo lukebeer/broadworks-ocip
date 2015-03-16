@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemLicensingReloadRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemLicensingReloadRequest';
+    public    $elementName = 'SystemLicensingReloadRequest';
 
     public function __construct(    ) {
     }

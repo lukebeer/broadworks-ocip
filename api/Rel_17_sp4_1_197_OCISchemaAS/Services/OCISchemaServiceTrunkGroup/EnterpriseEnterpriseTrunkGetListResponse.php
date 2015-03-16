@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class EnterpriseEnterpriseTrunkGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'EnterpriseEnterpriseTrunkGetListResponse';
+    public    $elementName = 'EnterpriseEnterpriseTrunkGetListResponse';
     protected $enterpriseTrunkTable;
 
     /**
@@ -38,7 +38,7 @@ class EnterpriseEnterpriseTrunkGetListResponse extends ComplexType implements Co
     public function setEnterpriseTrunkTable(TableType $enterpriseTrunkTable = null)
     {
         $this->enterpriseTrunkTable = $enterpriseTrunkTable;
-        $this->enterpriseTrunkTable->setName('enterpriseTrunkTable');
+        $this->enterpriseTrunkTable->setElementName('enterpriseTrunkTable');
         return $this;
     }
 

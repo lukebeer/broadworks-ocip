@@ -23,7 +23,7 @@ use Broadworks_OCIP\core\Client\Client;
 class UserCustomRingbackUserGetCriteriaRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15\UserCustomRingbackUserGetCriteriaResponse';
-    public    $name = 'UserCustomRingbackUserGetCriteriaRequest';
+    public    $elementName = 'UserCustomRingbackUserGetCriteriaRequest';
     protected $userId;
     protected $criteriaName;
 
@@ -51,7 +51,7 @@ class UserCustomRingbackUserGetCriteriaRequest extends ComplexType implements Co
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
-        $this->userId->setName('userId');
+        $this->userId->setElementName('userId');
         return $this;
     }
 
@@ -61,7 +61,9 @@ class UserCustomRingbackUserGetCriteriaRequest extends ComplexType implements Co
      */
     public function getUserId()
     {
-        return ($this->userId) ? $this->userId->getValue() : null;
+        return ($this->userId)
+            ? $this->userId->getElementValue()
+            : null;
     }
 
     /**
@@ -72,7 +74,7 @@ class UserCustomRingbackUserGetCriteriaRequest extends ComplexType implements Co
         $this->criteriaName = ($criteriaName InstanceOf CriteriaName)
              ? $criteriaName
              : new CriteriaName($criteriaName);
-        $this->criteriaName->setName('criteriaName');
+        $this->criteriaName->setElementName('criteriaName');
         return $this;
     }
 
@@ -82,6 +84,8 @@ class UserCustomRingbackUserGetCriteriaRequest extends ComplexType implements Co
      */
     public function getCriteriaName()
     {
-        return ($this->criteriaName) ? $this->criteriaName->getValue() : null;
+        return ($this->criteriaName)
+            ? $this->criteriaName->getElementValue()
+            : null;
     }
 }

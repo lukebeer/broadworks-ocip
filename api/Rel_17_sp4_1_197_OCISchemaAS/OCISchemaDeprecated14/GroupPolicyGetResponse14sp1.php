@@ -28,7 +28,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupPolicyGetResponse14sp1 extends ComplexType implements ComplexInterface
 {
-    public    $name = 'GroupPolicyGetResponse14sp1';
+    public    $elementName = 'GroupPolicyGetResponse14sp1';
     protected $callingPlanAccess;
     protected $extensionAccess;
     protected $ldapIntegrationAccess;
@@ -55,7 +55,7 @@ class GroupPolicyGetResponse14sp1 extends ComplexType implements ComplexInterfac
         $this->callingPlanAccess = ($callingPlanAccess InstanceOf GroupCallingPlanAccess)
              ? $callingPlanAccess
              : new GroupCallingPlanAccess($callingPlanAccess);
-        $this->callingPlanAccess->setName('callingPlanAccess');
+        $this->callingPlanAccess->setElementName('callingPlanAccess');
         return $this;
     }
 
@@ -65,7 +65,9 @@ class GroupPolicyGetResponse14sp1 extends ComplexType implements ComplexInterfac
      */
     public function getCallingPlanAccess()
     {
-        return ($this->callingPlanAccess) ? $this->callingPlanAccess->getValue() : null;
+        return ($this->callingPlanAccess)
+            ? $this->callingPlanAccess->getElementValue()
+            : null;
     }
 
     /**
@@ -76,7 +78,7 @@ class GroupPolicyGetResponse14sp1 extends ComplexType implements ComplexInterfac
         $this->extensionAccess = ($extensionAccess InstanceOf GroupExtensionAccess)
              ? $extensionAccess
              : new GroupExtensionAccess($extensionAccess);
-        $this->extensionAccess->setName('extensionAccess');
+        $this->extensionAccess->setElementName('extensionAccess');
         return $this;
     }
 
@@ -86,7 +88,9 @@ class GroupPolicyGetResponse14sp1 extends ComplexType implements ComplexInterfac
      */
     public function getExtensionAccess()
     {
-        return ($this->extensionAccess) ? $this->extensionAccess->getValue() : null;
+        return ($this->extensionAccess)
+            ? $this->extensionAccess->getElementValue()
+            : null;
     }
 
     /**
@@ -97,7 +101,7 @@ class GroupPolicyGetResponse14sp1 extends ComplexType implements ComplexInterfac
         $this->ldapIntegrationAccess = ($ldapIntegrationAccess InstanceOf GroupLDAPIntegrationAccess)
              ? $ldapIntegrationAccess
              : new GroupLDAPIntegrationAccess($ldapIntegrationAccess);
-        $this->ldapIntegrationAccess->setName('ldapIntegrationAccess');
+        $this->ldapIntegrationAccess->setElementName('ldapIntegrationAccess');
         return $this;
     }
 
@@ -107,7 +111,9 @@ class GroupPolicyGetResponse14sp1 extends ComplexType implements ComplexInterfac
      */
     public function getLdapIntegrationAccess()
     {
-        return ($this->ldapIntegrationAccess) ? $this->ldapIntegrationAccess->getValue() : null;
+        return ($this->ldapIntegrationAccess)
+            ? $this->ldapIntegrationAccess->getElementValue()
+            : null;
     }
 
     /**
@@ -118,7 +124,7 @@ class GroupPolicyGetResponse14sp1 extends ComplexType implements ComplexInterfac
         $this->voiceMessagingAccess = ($voiceMessagingAccess InstanceOf GroupVoiceMessagingAccess)
              ? $voiceMessagingAccess
              : new GroupVoiceMessagingAccess($voiceMessagingAccess);
-        $this->voiceMessagingAccess->setName('voiceMessagingAccess');
+        $this->voiceMessagingAccess->setElementName('voiceMessagingAccess');
         return $this;
     }
 
@@ -128,7 +134,9 @@ class GroupPolicyGetResponse14sp1 extends ComplexType implements ComplexInterfac
      */
     public function getVoiceMessagingAccess()
     {
-        return ($this->voiceMessagingAccess) ? $this->voiceMessagingAccess->getValue() : null;
+        return ($this->voiceMessagingAccess)
+            ? $this->voiceMessagingAccess->getElementValue()
+            : null;
     }
 
     /**
@@ -139,7 +147,7 @@ class GroupPolicyGetResponse14sp1 extends ComplexType implements ComplexInterfac
         $this->departmentAdminUserAccess = ($departmentAdminUserAccess InstanceOf GroupDepartmentAdminUserAccess)
              ? $departmentAdminUserAccess
              : new GroupDepartmentAdminUserAccess($departmentAdminUserAccess);
-        $this->departmentAdminUserAccess->setName('departmentAdminUserAccess');
+        $this->departmentAdminUserAccess->setElementName('departmentAdminUserAccess');
         return $this;
     }
 
@@ -149,7 +157,9 @@ class GroupPolicyGetResponse14sp1 extends ComplexType implements ComplexInterfac
      */
     public function getDepartmentAdminUserAccess()
     {
-        return ($this->departmentAdminUserAccess) ? $this->departmentAdminUserAccess->getValue() : null;
+        return ($this->departmentAdminUserAccess)
+            ? $this->departmentAdminUserAccess->getElementValue()
+            : null;
     }
 
     /**
@@ -160,7 +170,7 @@ class GroupPolicyGetResponse14sp1 extends ComplexType implements ComplexInterfac
         $this->departmentAdminTrunkGroupAccess = ($departmentAdminTrunkGroupAccess InstanceOf GroupDepartmentAdminTrunkGroupAccess)
              ? $departmentAdminTrunkGroupAccess
              : new GroupDepartmentAdminTrunkGroupAccess($departmentAdminTrunkGroupAccess);
-        $this->departmentAdminTrunkGroupAccess->setName('departmentAdminTrunkGroupAccess');
+        $this->departmentAdminTrunkGroupAccess->setElementName('departmentAdminTrunkGroupAccess');
         return $this;
     }
 
@@ -170,7 +180,9 @@ class GroupPolicyGetResponse14sp1 extends ComplexType implements ComplexInterfac
      */
     public function getDepartmentAdminTrunkGroupAccess()
     {
-        return ($this->departmentAdminTrunkGroupAccess) ? $this->departmentAdminTrunkGroupAccess->getValue() : null;
+        return ($this->departmentAdminTrunkGroupAccess)
+            ? $this->departmentAdminTrunkGroupAccess->getElementValue()
+            : null;
     }
 
     /**
@@ -181,7 +193,7 @@ class GroupPolicyGetResponse14sp1 extends ComplexType implements ComplexInterfac
         $this->userAuthenticationAccess = ($userAuthenticationAccess InstanceOf GroupUserAuthenticationAccess)
              ? $userAuthenticationAccess
              : new GroupUserAuthenticationAccess($userAuthenticationAccess);
-        $this->userAuthenticationAccess->setName('userAuthenticationAccess');
+        $this->userAuthenticationAccess->setElementName('userAuthenticationAccess');
         return $this;
     }
 
@@ -191,7 +203,9 @@ class GroupPolicyGetResponse14sp1 extends ComplexType implements ComplexInterfac
      */
     public function getUserAuthenticationAccess()
     {
-        return ($this->userAuthenticationAccess) ? $this->userAuthenticationAccess->getValue() : null;
+        return ($this->userAuthenticationAccess)
+            ? $this->userAuthenticationAccess->getElementValue()
+            : null;
     }
 
     /**
@@ -202,7 +216,7 @@ class GroupPolicyGetResponse14sp1 extends ComplexType implements ComplexInterfac
         $this->userGroupDirectoryAccess = ($userGroupDirectoryAccess InstanceOf GroupUserGroupDirectoryAccess)
              ? $userGroupDirectoryAccess
              : new GroupUserGroupDirectoryAccess($userGroupDirectoryAccess);
-        $this->userGroupDirectoryAccess->setName('userGroupDirectoryAccess');
+        $this->userGroupDirectoryAccess->setElementName('userGroupDirectoryAccess');
         return $this;
     }
 
@@ -212,7 +226,9 @@ class GroupPolicyGetResponse14sp1 extends ComplexType implements ComplexInterfac
      */
     public function getUserGroupDirectoryAccess()
     {
-        return ($this->userGroupDirectoryAccess) ? $this->userGroupDirectoryAccess->getValue() : null;
+        return ($this->userGroupDirectoryAccess)
+            ? $this->userGroupDirectoryAccess->getElementValue()
+            : null;
     }
 
     /**
@@ -223,7 +239,7 @@ class GroupPolicyGetResponse14sp1 extends ComplexType implements ComplexInterfac
         $this->userProfileAccess = ($userProfileAccess InstanceOf GroupUserProfileAccess)
              ? $userProfileAccess
              : new GroupUserProfileAccess($userProfileAccess);
-        $this->userProfileAccess->setName('userProfileAccess');
+        $this->userProfileAccess->setElementName('userProfileAccess');
         return $this;
     }
 
@@ -233,6 +249,8 @@ class GroupPolicyGetResponse14sp1 extends ComplexType implements ComplexInterfac
      */
     public function getUserProfileAccess()
     {
-        return ($this->userProfileAccess) ? $this->userProfileAccess->getValue() : null;
+        return ($this->userProfileAccess)
+            ? $this->userProfileAccess->getElementValue()
+            : null;
     }
 }

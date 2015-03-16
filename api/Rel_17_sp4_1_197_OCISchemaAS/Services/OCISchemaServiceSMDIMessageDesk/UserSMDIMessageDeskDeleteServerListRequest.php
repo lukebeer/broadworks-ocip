@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserSMDIMessageDeskDeleteServerListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'UserSMDIMessageDeskDeleteServerListRequest';
+    public    $elementName = 'UserSMDIMessageDeskDeleteServerListRequest';
     protected $userId;
     protected $deviceName;
 
@@ -49,7 +49,7 @@ class UserSMDIMessageDeskDeleteServerListRequest extends ComplexType implements 
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
-        $this->userId->setName('userId');
+        $this->userId->setElementName('userId');
         return $this;
     }
 
@@ -59,7 +59,9 @@ class UserSMDIMessageDeskDeleteServerListRequest extends ComplexType implements 
      */
     public function getUserId()
     {
-        return ($this->userId) ? $this->userId->getValue() : null;
+        return ($this->userId)
+            ? $this->userId->getElementValue()
+            : null;
     }
 
     /**
@@ -70,7 +72,7 @@ class UserSMDIMessageDeskDeleteServerListRequest extends ComplexType implements 
         $this->deviceName = ($deviceName InstanceOf SMDIDeviceName)
              ? $deviceName
              : new SMDIDeviceName($deviceName);
-        $this->deviceName->setName('deviceName');
+        $this->deviceName->setElementName('deviceName');
         return $this;
     }
 
@@ -80,6 +82,8 @@ class UserSMDIMessageDeskDeleteServerListRequest extends ComplexType implements 
      */
     public function getDeviceName()
     {
-        return ($this->deviceName) ? $this->deviceName->getValue() : null;
+        return ($this->deviceName)
+            ? $this->deviceName->getElementValue()
+            : null;
     }
 }

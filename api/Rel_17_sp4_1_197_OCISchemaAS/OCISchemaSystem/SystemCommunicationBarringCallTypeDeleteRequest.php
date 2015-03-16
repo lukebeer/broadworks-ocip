@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemCommunicationBarringCallTypeDeleteRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemCommunicationBarringCallTypeDeleteRequest';
+    public    $elementName = 'SystemCommunicationBarringCallTypeDeleteRequest';
     protected $callType;
 
     public function __construct(
@@ -45,7 +45,7 @@ class SystemCommunicationBarringCallTypeDeleteRequest extends ComplexType implem
         $this->callType = ($callType InstanceOf CommunicationBarringCallType)
              ? $callType
              : new CommunicationBarringCallType($callType);
-        $this->callType->setName('callType');
+        $this->callType->setElementName('callType');
         return $this;
     }
 
@@ -55,6 +55,8 @@ class SystemCommunicationBarringCallTypeDeleteRequest extends ComplexType implem
      */
     public function getCallType()
     {
-        return ($this->callType) ? $this->callType->getValue() : null;
+        return ($this->callType)
+            ? $this->callType->getElementValue()
+            : null;
     }
 }

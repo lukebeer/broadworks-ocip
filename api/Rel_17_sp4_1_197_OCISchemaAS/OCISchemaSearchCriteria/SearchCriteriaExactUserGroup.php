@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SearchCriteriaExactUserGroup extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SearchCriteriaExactUserGroup';
+    public    $elementName = 'SearchCriteriaExactUserGroup';
     protected $serviceProviderId;
     protected $groupId;
 
@@ -48,7 +48,7 @@ class SearchCriteriaExactUserGroup extends ComplexType implements ComplexInterfa
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
-        $this->serviceProviderId->setName('serviceProviderId');
+        $this->serviceProviderId->setElementName('serviceProviderId');
         return $this;
     }
 
@@ -58,7 +58,9 @@ class SearchCriteriaExactUserGroup extends ComplexType implements ComplexInterfa
      */
     public function getServiceProviderId()
     {
-        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
+        return ($this->serviceProviderId)
+            ? $this->serviceProviderId->getElementValue()
+            : null;
     }
 
     /**
@@ -69,7 +71,7 @@ class SearchCriteriaExactUserGroup extends ComplexType implements ComplexInterfa
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
-        $this->groupId->setName('groupId');
+        $this->groupId->setElementName('groupId');
         return $this;
     }
 
@@ -79,6 +81,8 @@ class SearchCriteriaExactUserGroup extends ComplexType implements ComplexInterfa
      */
     public function getGroupId()
     {
-        return ($this->groupId) ? $this->groupId->getValue() : null;
+        return ($this->groupId)
+            ? $this->groupId->getElementValue()
+            : null;
     }
 }

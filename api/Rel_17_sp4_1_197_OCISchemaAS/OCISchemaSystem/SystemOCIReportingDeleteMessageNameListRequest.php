@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemOCIReportingDeleteMessageNameListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemOCIReportingDeleteMessageNameListRequest';
+    public    $elementName = 'SystemOCIReportingDeleteMessageNameListRequest';
     protected $netAddress;
 
     public function __construct(
@@ -46,7 +46,7 @@ class SystemOCIReportingDeleteMessageNameListRequest extends ComplexType impleme
         $this->netAddress = ($netAddress InstanceOf NetAddress)
              ? $netAddress
              : new NetAddress($netAddress);
-        $this->netAddress->setName('netAddress');
+        $this->netAddress->setElementName('netAddress');
         return $this;
     }
 
@@ -56,6 +56,8 @@ class SystemOCIReportingDeleteMessageNameListRequest extends ComplexType impleme
      */
     public function getNetAddress()
     {
-        return ($this->netAddress) ? $this->netAddress->getValue() : null;
+        return ($this->netAddress)
+            ? $this->netAddress->getElementValue()
+            : null;
     }
 }

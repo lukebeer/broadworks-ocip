@@ -19,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserServiceIsAssignedResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'UserServiceIsAssignedResponse';
+    public    $elementName = 'UserServiceIsAssignedResponse';
     protected $isAssigned;
 
     /**
@@ -36,7 +36,7 @@ class UserServiceIsAssignedResponse extends ComplexType implements ComplexInterf
     public function setIsAssigned($isAssigned = null)
     {
         $this->isAssigned = new PrimitiveType($isAssigned);
-        $this->isAssigned->setName('isAssigned');
+        $this->isAssigned->setElementName('isAssigned');
         return $this;
     }
 
@@ -46,6 +46,8 @@ class UserServiceIsAssignedResponse extends ComplexType implements ComplexInterf
      */
     public function getIsAssigned()
     {
-        return ($this->isAssigned) ? $this->isAssigned->getValue() : null;
+        return ($this->isAssigned)
+            ? $this->isAssigned->getElementValue()
+            : null;
     }
 }

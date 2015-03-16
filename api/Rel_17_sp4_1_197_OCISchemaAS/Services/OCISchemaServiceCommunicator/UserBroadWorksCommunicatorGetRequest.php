@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
 class UserBroadWorksCommunicatorGetRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCommunicator\UserBroadWorksCommunicatorGetResponse';
-    public    $name = 'UserBroadWorksCommunicatorGetRequest';
+    public    $elementName = 'UserBroadWorksCommunicatorGetRequest';
     protected $userId;
 
     public function __construct(
@@ -46,7 +46,7 @@ class UserBroadWorksCommunicatorGetRequest extends ComplexType implements Comple
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
-        $this->userId->setName('userId');
+        $this->userId->setElementName('userId');
         return $this;
     }
 
@@ -56,6 +56,8 @@ class UserBroadWorksCommunicatorGetRequest extends ComplexType implements Comple
      */
     public function getUserId()
     {
-        return ($this->userId) ? $this->userId->getValue() : null;
+        return ($this->userId)
+            ? $this->userId->getElementValue()
+            : null;
     }
 }

@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemCommunicationBarringServiceProviderGetCriteriaUsageListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemCommunicationBarringServiceProviderGetCriteriaUsageListResponse';
+    public    $elementName = 'SystemCommunicationBarringServiceProviderGetCriteriaUsageListResponse';
     protected $serviceProviderTable;
 
     /**
@@ -37,7 +37,7 @@ class SystemCommunicationBarringServiceProviderGetCriteriaUsageListResponse exte
     public function setServiceProviderTable(TableType $serviceProviderTable = null)
     {
         $this->serviceProviderTable = $serviceProviderTable;
-        $this->serviceProviderTable->setName('serviceProviderTable');
+        $this->serviceProviderTable->setElementName('serviceProviderTable');
         return $this;
     }
 

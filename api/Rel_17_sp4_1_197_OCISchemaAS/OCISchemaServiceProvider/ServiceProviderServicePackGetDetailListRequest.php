@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
 class ServiceProviderServicePackGetDetailListRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderServicePackGetDetailListResponse';
-    public    $name = 'ServiceProviderServicePackGetDetailListRequest';
+    public    $elementName = 'ServiceProviderServicePackGetDetailListRequest';
     protected $serviceProviderId;
     protected $servicePackName;
 
@@ -50,7 +50,7 @@ class ServiceProviderServicePackGetDetailListRequest extends ComplexType impleme
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
-        $this->serviceProviderId->setName('serviceProviderId');
+        $this->serviceProviderId->setElementName('serviceProviderId');
         return $this;
     }
 
@@ -60,7 +60,9 @@ class ServiceProviderServicePackGetDetailListRequest extends ComplexType impleme
      */
     public function getServiceProviderId()
     {
-        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
+        return ($this->serviceProviderId)
+            ? $this->serviceProviderId->getElementValue()
+            : null;
     }
 
     /**
@@ -71,7 +73,7 @@ class ServiceProviderServicePackGetDetailListRequest extends ComplexType impleme
         $this->servicePackName = ($servicePackName InstanceOf ServicePackName)
              ? $servicePackName
              : new ServicePackName($servicePackName);
-        $this->servicePackName->setName('servicePackName');
+        $this->servicePackName->setElementName('servicePackName');
         return $this;
     }
 
@@ -81,6 +83,8 @@ class ServiceProviderServicePackGetDetailListRequest extends ComplexType impleme
      */
     public function getServicePackName()
     {
-        return ($this->servicePackName) ? $this->servicePackName->getValue() : null;
+        return ($this->servicePackName)
+            ? $this->servicePackName->getElementValue()
+            : null;
     }
 }

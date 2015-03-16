@@ -24,7 +24,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupGetListInSystemResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'GroupGetListInSystemResponse';
+    public    $elementName = 'GroupGetListInSystemResponse';
     protected $groupTable;
 
     /**
@@ -41,7 +41,7 @@ class GroupGetListInSystemResponse extends ComplexType implements ComplexInterfa
     public function setGroupTable(TableType $groupTable = null)
     {
         $this->groupTable = $groupTable;
-        $this->groupTable->setName('groupTable');
+        $this->groupTable->setElementName('groupTable');
         return $this;
     }
 

@@ -19,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class OutgoingCallingPlanDigitPatternCallMeNowDepartmentPermissionsModify extends ComplexType implements ComplexInterface
 {
-    public    $name = 'OutgoingCallingPlanDigitPatternCallMeNowDepartmentPermissionsModify';
+    public    $elementName = 'OutgoingCallingPlanDigitPatternCallMeNowDepartmentPermissionsModify';
     protected $departmentKey;
     protected $digitPatternPermissions;
 
@@ -45,7 +45,7 @@ class OutgoingCallingPlanDigitPatternCallMeNowDepartmentPermissionsModify extend
     public function setDepartmentKey($departmentKey = null)
     {
         $this->departmentKey = new SimpleContent($departmentKey);
-        $this->departmentKey->setName('departmentKey');
+        $this->departmentKey->setElementName('departmentKey');
         return $this;
     }
 
@@ -55,7 +55,9 @@ class OutgoingCallingPlanDigitPatternCallMeNowDepartmentPermissionsModify extend
      */
     public function getDepartmentKey()
     {
-        return ($this->departmentKey) ? $this->departmentKey->getValue() : null;
+        return ($this->departmentKey)
+            ? $this->departmentKey->getElementValue()
+            : null;
     }
 
     /**
@@ -64,7 +66,7 @@ class OutgoingCallingPlanDigitPatternCallMeNowDepartmentPermissionsModify extend
     public function setDigitPatternPermissions($digitPatternPermissions = null)
     {
         $this->digitPatternPermissions = new SimpleContent($digitPatternPermissions);
-        $this->digitPatternPermissions->setName('digitPatternPermissions');
+        $this->digitPatternPermissions->setElementName('digitPatternPermissions');
         return $this;
     }
 
@@ -74,6 +76,8 @@ class OutgoingCallingPlanDigitPatternCallMeNowDepartmentPermissionsModify extend
      */
     public function getDigitPatternPermissions()
     {
-        return ($this->digitPatternPermissions) ? $this->digitPatternPermissions->getValue() : null;
+        return ($this->digitPatternPermissions)
+            ? $this->digitPatternPermissions->getElementValue()
+            : null;
     }
 }

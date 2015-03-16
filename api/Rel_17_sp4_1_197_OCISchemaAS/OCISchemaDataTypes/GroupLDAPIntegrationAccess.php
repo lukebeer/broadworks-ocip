@@ -16,12 +16,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\Enumeration;
  */
 class GroupLDAPIntegrationAccess extends SimpleType
 {
-    public $name = "GroupLDAPIntegrationAccess";
-    protected $value;
-
+    public $elementName = "GroupLDAPIntegrationAccess";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new Enumeration([
             'Full',
             'Read-Only',

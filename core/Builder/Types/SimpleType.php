@@ -35,7 +35,7 @@ abstract class SimpleType
     {
         $valid = true;
         foreach ($this->restrictions as $restriction) {
-            if (!$restriction->validate($this->value)) {
+            if (!$restriction->validate($this->getElementValue())) {
                 $this->errors[] = $restriction->detail();
                 $valid = false;
             }

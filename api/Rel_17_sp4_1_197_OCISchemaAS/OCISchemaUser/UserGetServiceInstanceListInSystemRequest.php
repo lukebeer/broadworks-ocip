@@ -30,7 +30,7 @@ use Broadworks_OCIP\core\Client\Client;
 class UserGetServiceInstanceListInSystemRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType                       = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser\UserGetServiceInstanceListInSystemResponse';
-    public    $name = 'UserGetServiceInstanceListInSystemRequest';
+    public    $elementName = 'UserGetServiceInstanceListInSystemRequest';
     protected $responseSizeLimit;
     protected $searchCriteriaExactServiceType;
     protected $searchCriteriaUserId;
@@ -76,7 +76,7 @@ class UserGetServiceInstanceListInSystemRequest extends ComplexType implements C
         $this->responseSizeLimit = ($responseSizeLimit InstanceOf ResponseSizeLimit)
              ? $responseSizeLimit
              : new ResponseSizeLimit($responseSizeLimit);
-        $this->responseSizeLimit->setName('responseSizeLimit');
+        $this->responseSizeLimit->setElementName('responseSizeLimit');
         return $this;
     }
 
@@ -86,7 +86,9 @@ class UserGetServiceInstanceListInSystemRequest extends ComplexType implements C
      */
     public function getResponseSizeLimit()
     {
-        return ($this->responseSizeLimit) ? $this->responseSizeLimit->getValue() : null;
+        return ($this->responseSizeLimit)
+            ? $this->responseSizeLimit->getElementValue()
+            : null;
     }
 
     /**
@@ -97,7 +99,7 @@ class UserGetServiceInstanceListInSystemRequest extends ComplexType implements C
         $this->searchCriteriaExactServiceType = ($searchCriteriaExactServiceType InstanceOf SearchCriteriaExactServiceType)
              ? $searchCriteriaExactServiceType
              : new SearchCriteriaExactServiceType($searchCriteriaExactServiceType);
-        $this->searchCriteriaExactServiceType->setName('searchCriteriaExactServiceType');
+        $this->searchCriteriaExactServiceType->setElementName('searchCriteriaExactServiceType');
         return $this;
     }
 
@@ -118,7 +120,7 @@ class UserGetServiceInstanceListInSystemRequest extends ComplexType implements C
         $this->searchCriteriaUserId = ($searchCriteriaUserId InstanceOf SearchCriteriaUserId)
              ? $searchCriteriaUserId
              : new SearchCriteriaUserId($searchCriteriaUserId);
-        $this->searchCriteriaUserId->setName('searchCriteriaUserId');
+        $this->searchCriteriaUserId->setElementName('searchCriteriaUserId');
         return $this;
     }
 
@@ -139,7 +141,7 @@ class UserGetServiceInstanceListInSystemRequest extends ComplexType implements C
         $this->searchCriteriaUserLastName = ($searchCriteriaUserLastName InstanceOf SearchCriteriaUserLastName)
              ? $searchCriteriaUserLastName
              : new SearchCriteriaUserLastName($searchCriteriaUserLastName);
-        $this->searchCriteriaUserLastName->setName('searchCriteriaUserLastName');
+        $this->searchCriteriaUserLastName->setElementName('searchCriteriaUserLastName');
         return $this;
     }
 
@@ -160,7 +162,7 @@ class UserGetServiceInstanceListInSystemRequest extends ComplexType implements C
         $this->searchCriteriaDn = ($searchCriteriaDn InstanceOf SearchCriteriaDn)
              ? $searchCriteriaDn
              : new SearchCriteriaDn($searchCriteriaDn);
-        $this->searchCriteriaDn->setName('searchCriteriaDn');
+        $this->searchCriteriaDn->setElementName('searchCriteriaDn');
         return $this;
     }
 
@@ -181,7 +183,7 @@ class UserGetServiceInstanceListInSystemRequest extends ComplexType implements C
         $this->searchCriteriaExtension = ($searchCriteriaExtension InstanceOf SearchCriteriaExtension)
              ? $searchCriteriaExtension
              : new SearchCriteriaExtension($searchCriteriaExtension);
-        $this->searchCriteriaExtension->setName('searchCriteriaExtension');
+        $this->searchCriteriaExtension->setElementName('searchCriteriaExtension');
         return $this;
     }
 
@@ -202,7 +204,7 @@ class UserGetServiceInstanceListInSystemRequest extends ComplexType implements C
         $this->searchCriteriaGroupId = ($searchCriteriaGroupId InstanceOf SearchCriteriaGroupId)
              ? $searchCriteriaGroupId
              : new SearchCriteriaGroupId($searchCriteriaGroupId);
-        $this->searchCriteriaGroupId->setName('searchCriteriaGroupId');
+        $this->searchCriteriaGroupId->setElementName('searchCriteriaGroupId');
         return $this;
     }
 
@@ -223,7 +225,7 @@ class UserGetServiceInstanceListInSystemRequest extends ComplexType implements C
         $this->searchCriteriaExactServiceProvider = ($searchCriteriaExactServiceProvider InstanceOf SearchCriteriaExactServiceProvider)
              ? $searchCriteriaExactServiceProvider
              : new SearchCriteriaExactServiceProvider($searchCriteriaExactServiceProvider);
-        $this->searchCriteriaExactServiceProvider->setName('searchCriteriaExactServiceProvider');
+        $this->searchCriteriaExactServiceProvider->setElementName('searchCriteriaExactServiceProvider');
         return $this;
     }
 

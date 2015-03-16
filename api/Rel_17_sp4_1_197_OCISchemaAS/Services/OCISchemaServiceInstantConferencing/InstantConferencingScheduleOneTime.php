@@ -19,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class InstantConferencingScheduleOneTime extends ComplexType implements ComplexInterface
 {
-    public    $name = 'InstantConferencingScheduleOneTime';
+    public    $elementName = 'InstantConferencingScheduleOneTime';
     protected $startTime;
     protected $duration;
 
@@ -44,7 +44,7 @@ class InstantConferencingScheduleOneTime extends ComplexType implements ComplexI
      */
     public function setStartTime(xs:time $startTime = null)
     {
-        $this->startTime->setName('startTime');
+        $this->startTime->setElementName('startTime');
         return $this;
     }
 
@@ -54,7 +54,9 @@ class InstantConferencingScheduleOneTime extends ComplexType implements ComplexI
      */
     public function getStartTime()
     {
-        return ($this->startTime) ? $this->startTime->getValue() : null;
+        return ($this->startTime)
+            ? $this->startTime->getElementValue()
+            : null;
     }
 
     /**
@@ -62,7 +64,7 @@ class InstantConferencingScheduleOneTime extends ComplexType implements ComplexI
      */
     public function setDuration(xs:duration $duration = null)
     {
-        $this->duration->setName('duration');
+        $this->duration->setElementName('duration');
         return $this;
     }
 
@@ -72,6 +74,8 @@ class InstantConferencingScheduleOneTime extends ComplexType implements ComplexI
      */
     public function getDuration()
     {
-        return ($this->duration) ? $this->duration->getValue() : null;
+        return ($this->duration)
+            ? $this->duration->getElementValue()
+            : null;
     }
 }

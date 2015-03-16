@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
 class SystemPolicyGetDefaultRequest17sp1 extends ComplexType implements ComplexInterface
 {
     public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated17\SystemPolicyGetDefaultResponse17sp1';
-    public    $name = 'SystemPolicyGetDefaultRequest17sp1';
+    public    $elementName = 'SystemPolicyGetDefaultRequest17sp1';
 
     public function __construct(    ) {
     }

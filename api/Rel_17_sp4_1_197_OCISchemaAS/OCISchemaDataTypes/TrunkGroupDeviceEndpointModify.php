@@ -19,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class TrunkGroupDeviceEndpointModify extends ComplexType implements ComplexInterface
 {
-    public    $name = 'TrunkGroupDeviceEndpointModify';
+    public    $elementName = 'TrunkGroupDeviceEndpointModify';
     protected $name;
     protected $linePort;
     protected $contact;
@@ -48,7 +48,7 @@ class TrunkGroupDeviceEndpointModify extends ComplexType implements ComplexInter
     public function setName($name = null)
     {
         $this->name = new SimpleContent($name);
-        $this->name->setName('name');
+        $this->name->setElementName('name');
         return $this;
     }
 
@@ -58,7 +58,9 @@ class TrunkGroupDeviceEndpointModify extends ComplexType implements ComplexInter
      */
     public function getName()
     {
-        return ($this->name) ? $this->name->getValue() : null;
+        return ($this->name)
+            ? $this->name->getElementValue()
+            : null;
     }
 
     /**
@@ -67,7 +69,7 @@ class TrunkGroupDeviceEndpointModify extends ComplexType implements ComplexInter
     public function setLinePort($linePort = null)
     {
         $this->linePort = new SimpleContent($linePort);
-        $this->linePort->setName('linePort');
+        $this->linePort->setElementName('linePort');
         return $this;
     }
 
@@ -77,7 +79,9 @@ class TrunkGroupDeviceEndpointModify extends ComplexType implements ComplexInter
      */
     public function getLinePort()
     {
-        return ($this->linePort) ? $this->linePort->getValue() : null;
+        return ($this->linePort)
+            ? $this->linePort->getElementValue()
+            : null;
     }
 
     /**
@@ -86,7 +90,7 @@ class TrunkGroupDeviceEndpointModify extends ComplexType implements ComplexInter
     public function setContact($contact = null)
     {
         $this->contact = new SimpleContent($contact);
-        $this->contact->setName('contact');
+        $this->contact->setElementName('contact');
         return $this;
     }
 
@@ -96,6 +100,8 @@ class TrunkGroupDeviceEndpointModify extends ComplexType implements ComplexInter
      */
     public function getContact()
     {
-        return ($this->contact) ? $this->contact->getValue() : null;
+        return ($this->contact)
+            ? $this->contact->getElementValue()
+            : null;
     }
 }

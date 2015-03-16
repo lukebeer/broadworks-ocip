@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemTwoStageDialingAddDnRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemTwoStageDialingAddDnRequest';
+    public    $elementName = 'SystemTwoStageDialingAddDnRequest';
     protected $phoneNumber;
     protected $description;
 
@@ -49,7 +49,7 @@ class SystemTwoStageDialingAddDnRequest extends ComplexType implements ComplexIn
         $this->phoneNumber = ($phoneNumber InstanceOf DN)
              ? $phoneNumber
              : new DN($phoneNumber);
-        $this->phoneNumber->setName('phoneNumber');
+        $this->phoneNumber->setElementName('phoneNumber');
         return $this;
     }
 
@@ -59,7 +59,9 @@ class SystemTwoStageDialingAddDnRequest extends ComplexType implements ComplexIn
      */
     public function getPhoneNumber()
     {
-        return ($this->phoneNumber) ? $this->phoneNumber->getValue() : null;
+        return ($this->phoneNumber)
+            ? $this->phoneNumber->getElementValue()
+            : null;
     }
 
     /**
@@ -70,7 +72,7 @@ class SystemTwoStageDialingAddDnRequest extends ComplexType implements ComplexIn
         $this->description = ($description InstanceOf TwoStageDialingDescription)
              ? $description
              : new TwoStageDialingDescription($description);
-        $this->description->setName('description');
+        $this->description->setElementName('description');
         return $this;
     }
 
@@ -80,6 +82,8 @@ class SystemTwoStageDialingAddDnRequest extends ComplexType implements ComplexIn
      */
     public function getDescription()
     {
-        return ($this->description) ? $this->description->getValue() : null;
+        return ($this->description)
+            ? $this->description->getElementValue()
+            : null;
     }
 }

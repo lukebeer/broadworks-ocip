@@ -19,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupCallParkGetInstanceListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'GroupCallParkGetInstanceListResponse';
+    public    $elementName = 'GroupCallParkGetInstanceListResponse';
     protected $name;
 
     /**
@@ -38,7 +38,7 @@ class GroupCallParkGetInstanceListResponse extends ComplexType implements Comple
         $this->name = ($name InstanceOf ServiceInstanceName)
              ? $name
              : new ServiceInstanceName($name);
-        $this->name->setName('name');
+        $this->name->setElementName('name');
         return $this;
     }
 
@@ -48,6 +48,8 @@ class GroupCallParkGetInstanceListResponse extends ComplexType implements Comple
      */
     public function getName()
     {
-        return ($this->name) ? $this->name->getValue() : null;
+        return ($this->name)
+            ? $this->name->getElementValue()
+            : null;
     }
 }

@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
 class SystemMediaSetGetListRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemMediaSetGetListResponse';
-    public    $name = 'SystemMediaSetGetListRequest';
+    public    $elementName = 'SystemMediaSetGetListRequest';
 
     public function __construct(    ) {
     }

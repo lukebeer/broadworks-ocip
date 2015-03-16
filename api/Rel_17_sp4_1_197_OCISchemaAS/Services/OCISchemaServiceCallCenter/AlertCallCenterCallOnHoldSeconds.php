@@ -17,12 +17,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\MaxInclusive;
  */
 class AlertCallCenterCallOnHoldSeconds extends SimpleType
 {
-    public $name = "AlertCallCenterCallOnHoldSeconds";
-    protected $value;
-
+    public $elementName = "AlertCallCenterCallOnHoldSeconds";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new MinInclusive("30"));
         $this->addRestriction(new MaxInclusive("600"));
     }

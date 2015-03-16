@@ -26,7 +26,7 @@ use Broadworks_OCIP\core\Client\Client;
 class GroupTrunkGroupGetInstanceUserListRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType                      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\GroupTrunkGroupGetInstanceUserListResponse';
-    public    $name = 'GroupTrunkGroupGetInstanceUserListRequest';
+    public    $elementName = 'GroupTrunkGroupGetInstanceUserListRequest';
     protected $serviceUserId;
     protected $responseSizeLimit;
     protected $searchCriteriaUserLastName;
@@ -66,7 +66,7 @@ class GroupTrunkGroupGetInstanceUserListRequest extends ComplexType implements C
         $this->serviceUserId = ($serviceUserId InstanceOf UserId)
              ? $serviceUserId
              : new UserId($serviceUserId);
-        $this->serviceUserId->setName('serviceUserId');
+        $this->serviceUserId->setElementName('serviceUserId');
         return $this;
     }
 
@@ -76,7 +76,9 @@ class GroupTrunkGroupGetInstanceUserListRequest extends ComplexType implements C
      */
     public function getServiceUserId()
     {
-        return ($this->serviceUserId) ? $this->serviceUserId->getValue() : null;
+        return ($this->serviceUserId)
+            ? $this->serviceUserId->getElementValue()
+            : null;
     }
 
     /**
@@ -87,7 +89,7 @@ class GroupTrunkGroupGetInstanceUserListRequest extends ComplexType implements C
         $this->responseSizeLimit = ($responseSizeLimit InstanceOf ResponseSizeLimit)
              ? $responseSizeLimit
              : new ResponseSizeLimit($responseSizeLimit);
-        $this->responseSizeLimit->setName('responseSizeLimit');
+        $this->responseSizeLimit->setElementName('responseSizeLimit');
         return $this;
     }
 
@@ -97,7 +99,9 @@ class GroupTrunkGroupGetInstanceUserListRequest extends ComplexType implements C
      */
     public function getResponseSizeLimit()
     {
-        return ($this->responseSizeLimit) ? $this->responseSizeLimit->getValue() : null;
+        return ($this->responseSizeLimit)
+            ? $this->responseSizeLimit->getElementValue()
+            : null;
     }
 
     /**
@@ -108,7 +112,7 @@ class GroupTrunkGroupGetInstanceUserListRequest extends ComplexType implements C
         $this->searchCriteriaUserLastName = ($searchCriteriaUserLastName InstanceOf SearchCriteriaUserLastName)
              ? $searchCriteriaUserLastName
              : new SearchCriteriaUserLastName($searchCriteriaUserLastName);
-        $this->searchCriteriaUserLastName->setName('searchCriteriaUserLastName');
+        $this->searchCriteriaUserLastName->setElementName('searchCriteriaUserLastName');
         return $this;
     }
 
@@ -129,7 +133,7 @@ class GroupTrunkGroupGetInstanceUserListRequest extends ComplexType implements C
         $this->searchCriteriaUserFirstName = ($searchCriteriaUserFirstName InstanceOf SearchCriteriaUserFirstName)
              ? $searchCriteriaUserFirstName
              : new SearchCriteriaUserFirstName($searchCriteriaUserFirstName);
-        $this->searchCriteriaUserFirstName->setName('searchCriteriaUserFirstName');
+        $this->searchCriteriaUserFirstName->setElementName('searchCriteriaUserFirstName');
         return $this;
     }
 
@@ -150,7 +154,7 @@ class GroupTrunkGroupGetInstanceUserListRequest extends ComplexType implements C
         $this->searchCriteriaDn = ($searchCriteriaDn InstanceOf SearchCriteriaDn)
              ? $searchCriteriaDn
              : new SearchCriteriaDn($searchCriteriaDn);
-        $this->searchCriteriaDn->setName('searchCriteriaDn');
+        $this->searchCriteriaDn->setElementName('searchCriteriaDn');
         return $this;
     }
 
@@ -171,7 +175,7 @@ class GroupTrunkGroupGetInstanceUserListRequest extends ComplexType implements C
         $this->searchCriteriaExactUserDepartment = ($searchCriteriaExactUserDepartment InstanceOf SearchCriteriaExactUserDepartment)
              ? $searchCriteriaExactUserDepartment
              : new SearchCriteriaExactUserDepartment($searchCriteriaExactUserDepartment);
-        $this->searchCriteriaExactUserDepartment->setName('searchCriteriaExactUserDepartment');
+        $this->searchCriteriaExactUserDepartment->setElementName('searchCriteriaExactUserDepartment');
         return $this;
     }
 

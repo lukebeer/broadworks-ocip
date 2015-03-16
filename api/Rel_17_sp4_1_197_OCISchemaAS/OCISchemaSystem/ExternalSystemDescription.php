@@ -17,12 +17,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\MaxLength;
  */
 class ExternalSystemDescription extends SimpleType
 {
-    public $name = "ExternalSystemDescription";
-    protected $value;
-
+    public $elementName = "ExternalSystemDescription";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new MinLength("1"));
         $this->addRestriction(new MaxLength("80"));
     }

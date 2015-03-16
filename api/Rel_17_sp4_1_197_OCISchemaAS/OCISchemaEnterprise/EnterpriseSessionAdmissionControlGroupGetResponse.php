@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class EnterpriseSessionAdmissionControlGroupGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'EnterpriseSessionAdmissionControlGroupGetResponse';
+    public    $elementName = 'EnterpriseSessionAdmissionControlGroupGetResponse';
     protected $maxSession;
     protected $maxUserOriginatingSessions;
     protected $maxUserTerminatingSessions;
@@ -49,7 +49,7 @@ class EnterpriseSessionAdmissionControlGroupGetResponse extends ComplexType impl
         $this->maxSession = ($maxSession InstanceOf NonNegativeInt)
              ? $maxSession
              : new NonNegativeInt($maxSession);
-        $this->maxSession->setName('maxSession');
+        $this->maxSession->setElementName('maxSession');
         return $this;
     }
 
@@ -59,7 +59,9 @@ class EnterpriseSessionAdmissionControlGroupGetResponse extends ComplexType impl
      */
     public function getMaxSession()
     {
-        return ($this->maxSession) ? $this->maxSession->getValue() : null;
+        return ($this->maxSession)
+            ? $this->maxSession->getElementValue()
+            : null;
     }
 
     /**
@@ -70,7 +72,7 @@ class EnterpriseSessionAdmissionControlGroupGetResponse extends ComplexType impl
         $this->maxUserOriginatingSessions = ($maxUserOriginatingSessions InstanceOf NonNegativeInt)
              ? $maxUserOriginatingSessions
              : new NonNegativeInt($maxUserOriginatingSessions);
-        $this->maxUserOriginatingSessions->setName('maxUserOriginatingSessions');
+        $this->maxUserOriginatingSessions->setElementName('maxUserOriginatingSessions');
         return $this;
     }
 
@@ -80,7 +82,9 @@ class EnterpriseSessionAdmissionControlGroupGetResponse extends ComplexType impl
      */
     public function getMaxUserOriginatingSessions()
     {
-        return ($this->maxUserOriginatingSessions) ? $this->maxUserOriginatingSessions->getValue() : null;
+        return ($this->maxUserOriginatingSessions)
+            ? $this->maxUserOriginatingSessions->getElementValue()
+            : null;
     }
 
     /**
@@ -91,7 +95,7 @@ class EnterpriseSessionAdmissionControlGroupGetResponse extends ComplexType impl
         $this->maxUserTerminatingSessions = ($maxUserTerminatingSessions InstanceOf NonNegativeInt)
              ? $maxUserTerminatingSessions
              : new NonNegativeInt($maxUserTerminatingSessions);
-        $this->maxUserTerminatingSessions->setName('maxUserTerminatingSessions');
+        $this->maxUserTerminatingSessions->setElementName('maxUserTerminatingSessions');
         return $this;
     }
 
@@ -101,7 +105,9 @@ class EnterpriseSessionAdmissionControlGroupGetResponse extends ComplexType impl
      */
     public function getMaxUserTerminatingSessions()
     {
-        return ($this->maxUserTerminatingSessions) ? $this->maxUserTerminatingSessions->getValue() : null;
+        return ($this->maxUserTerminatingSessions)
+            ? $this->maxUserTerminatingSessions->getElementValue()
+            : null;
     }
 
     /**
@@ -112,7 +118,7 @@ class EnterpriseSessionAdmissionControlGroupGetResponse extends ComplexType impl
         $this->reservedSession = ($reservedSession InstanceOf NonNegativeInt)
              ? $reservedSession
              : new NonNegativeInt($reservedSession);
-        $this->reservedSession->setName('reservedSession');
+        $this->reservedSession->setElementName('reservedSession');
         return $this;
     }
 
@@ -122,7 +128,9 @@ class EnterpriseSessionAdmissionControlGroupGetResponse extends ComplexType impl
      */
     public function getReservedSession()
     {
-        return ($this->reservedSession) ? $this->reservedSession->getValue() : null;
+        return ($this->reservedSession)
+            ? $this->reservedSession->getElementValue()
+            : null;
     }
 
     /**
@@ -133,7 +141,7 @@ class EnterpriseSessionAdmissionControlGroupGetResponse extends ComplexType impl
         $this->reservedUserOriginatingSessions = ($reservedUserOriginatingSessions InstanceOf NonNegativeInt)
              ? $reservedUserOriginatingSessions
              : new NonNegativeInt($reservedUserOriginatingSessions);
-        $this->reservedUserOriginatingSessions->setName('reservedUserOriginatingSessions');
+        $this->reservedUserOriginatingSessions->setElementName('reservedUserOriginatingSessions');
         return $this;
     }
 
@@ -143,7 +151,9 @@ class EnterpriseSessionAdmissionControlGroupGetResponse extends ComplexType impl
      */
     public function getReservedUserOriginatingSessions()
     {
-        return ($this->reservedUserOriginatingSessions) ? $this->reservedUserOriginatingSessions->getValue() : null;
+        return ($this->reservedUserOriginatingSessions)
+            ? $this->reservedUserOriginatingSessions->getElementValue()
+            : null;
     }
 
     /**
@@ -154,7 +164,7 @@ class EnterpriseSessionAdmissionControlGroupGetResponse extends ComplexType impl
         $this->reservedUserTerminatingSessions = ($reservedUserTerminatingSessions InstanceOf NonNegativeInt)
              ? $reservedUserTerminatingSessions
              : new NonNegativeInt($reservedUserTerminatingSessions);
-        $this->reservedUserTerminatingSessions->setName('reservedUserTerminatingSessions');
+        $this->reservedUserTerminatingSessions->setElementName('reservedUserTerminatingSessions');
         return $this;
     }
 
@@ -164,7 +174,9 @@ class EnterpriseSessionAdmissionControlGroupGetResponse extends ComplexType impl
      */
     public function getReservedUserTerminatingSessions()
     {
-        return ($this->reservedUserTerminatingSessions) ? $this->reservedUserTerminatingSessions->getValue() : null;
+        return ($this->reservedUserTerminatingSessions)
+            ? $this->reservedUserTerminatingSessions->getElementValue()
+            : null;
     }
 
     /**
@@ -173,7 +185,7 @@ class EnterpriseSessionAdmissionControlGroupGetResponse extends ComplexType impl
     public function setDefaultGroup($defaultGroup = null)
     {
         $this->defaultGroup = new PrimitiveType($defaultGroup);
-        $this->defaultGroup->setName('defaultGroup');
+        $this->defaultGroup->setElementName('defaultGroup');
         return $this;
     }
 
@@ -183,7 +195,9 @@ class EnterpriseSessionAdmissionControlGroupGetResponse extends ComplexType impl
      */
     public function getDefaultGroup()
     {
-        return ($this->defaultGroup) ? $this->defaultGroup->getValue() : null;
+        return ($this->defaultGroup)
+            ? $this->defaultGroup->getElementValue()
+            : null;
     }
 
     /**
@@ -192,7 +206,7 @@ class EnterpriseSessionAdmissionControlGroupGetResponse extends ComplexType impl
     public function setCountIntraSACGroupSessions($countIntraSACGroupSessions = null)
     {
         $this->countIntraSACGroupSessions = new PrimitiveType($countIntraSACGroupSessions);
-        $this->countIntraSACGroupSessions->setName('countIntraSACGroupSessions');
+        $this->countIntraSACGroupSessions->setElementName('countIntraSACGroupSessions');
         return $this;
     }
 
@@ -202,7 +216,9 @@ class EnterpriseSessionAdmissionControlGroupGetResponse extends ComplexType impl
      */
     public function getCountIntraSACGroupSessions()
     {
-        return ($this->countIntraSACGroupSessions) ? $this->countIntraSACGroupSessions->getValue() : null;
+        return ($this->countIntraSACGroupSessions)
+            ? $this->countIntraSACGroupSessions->getElementValue()
+            : null;
     }
 
     /**
@@ -213,7 +229,7 @@ class EnterpriseSessionAdmissionControlGroupGetResponse extends ComplexType impl
         $this->devices = ($devices InstanceOf EnterpriseAccessDevice)
              ? $devices
              : new EnterpriseAccessDevice($devices);
-        $this->devices->setName('devices');
+        $this->devices->setElementName('devices');
         return $this;
     }
 

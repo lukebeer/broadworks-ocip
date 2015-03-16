@@ -28,7 +28,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupInstantConferencingModifyInstanceRequest16 extends ComplexType implements ComplexInterface
 {
-    public    $name = 'GroupInstantConferencingModifyInstanceRequest16';
+    public    $elementName = 'GroupInstantConferencingModifyInstanceRequest16';
     protected $serviceUserId;
     protected $serviceInstanceProfile;
     protected $conferenceBridgeLinePort;
@@ -77,7 +77,7 @@ class GroupInstantConferencingModifyInstanceRequest16 extends ComplexType implem
         $this->serviceUserId = ($serviceUserId InstanceOf UserId)
              ? $serviceUserId
              : new UserId($serviceUserId);
-        $this->serviceUserId->setName('serviceUserId');
+        $this->serviceUserId->setElementName('serviceUserId');
         return $this;
     }
 
@@ -87,7 +87,9 @@ class GroupInstantConferencingModifyInstanceRequest16 extends ComplexType implem
      */
     public function getServiceUserId()
     {
-        return ($this->serviceUserId) ? $this->serviceUserId->getValue() : null;
+        return ($this->serviceUserId)
+            ? $this->serviceUserId->getElementValue()
+            : null;
     }
 
     /**
@@ -98,7 +100,7 @@ class GroupInstantConferencingModifyInstanceRequest16 extends ComplexType implem
         $this->serviceInstanceProfile = ($serviceInstanceProfile InstanceOf ServiceInstanceModifyProfile)
              ? $serviceInstanceProfile
              : new ServiceInstanceModifyProfile($serviceInstanceProfile);
-        $this->serviceInstanceProfile->setName('serviceInstanceProfile');
+        $this->serviceInstanceProfile->setElementName('serviceInstanceProfile');
         return $this;
     }
 
@@ -119,7 +121,7 @@ class GroupInstantConferencingModifyInstanceRequest16 extends ComplexType implem
         $this->conferenceBridgeLinePort = ($conferenceBridgeLinePort InstanceOf AccessDeviceEndpointLinePort)
              ? $conferenceBridgeLinePort
              : new AccessDeviceEndpointLinePort($conferenceBridgeLinePort);
-        $this->conferenceBridgeLinePort->setName('conferenceBridgeLinePort');
+        $this->conferenceBridgeLinePort->setElementName('conferenceBridgeLinePort');
         return $this;
     }
 
@@ -129,7 +131,9 @@ class GroupInstantConferencingModifyInstanceRequest16 extends ComplexType implem
      */
     public function getConferenceBridgeLinePort()
     {
-        return ($this->conferenceBridgeLinePort) ? $this->conferenceBridgeLinePort->getValue() : null;
+        return ($this->conferenceBridgeLinePort)
+            ? $this->conferenceBridgeLinePort->getElementValue()
+            : null;
     }
 
     /**
@@ -140,7 +144,7 @@ class GroupInstantConferencingModifyInstanceRequest16 extends ComplexType implem
         $this->allocatedPorts = ($allocatedPorts InstanceOf InstantConferencingAllocatedPorts)
              ? $allocatedPorts
              : new InstantConferencingAllocatedPorts($allocatedPorts);
-        $this->allocatedPorts->setName('allocatedPorts');
+        $this->allocatedPorts->setElementName('allocatedPorts');
         return $this;
     }
 
@@ -161,7 +165,7 @@ class GroupInstantConferencingModifyInstanceRequest16 extends ComplexType implem
         $this->serviceProfileAppliedOnOutcall = ($serviceProfileAppliedOnOutcall InstanceOf InstantConferencingOutcallProfile)
              ? $serviceProfileAppliedOnOutcall
              : new InstantConferencingOutcallProfile($serviceProfileAppliedOnOutcall);
-        $this->serviceProfileAppliedOnOutcall->setName('serviceProfileAppliedOnOutcall');
+        $this->serviceProfileAppliedOnOutcall->setElementName('serviceProfileAppliedOnOutcall');
         return $this;
     }
 
@@ -171,7 +175,9 @@ class GroupInstantConferencingModifyInstanceRequest16 extends ComplexType implem
      */
     public function getServiceProfileAppliedOnOutcall()
     {
-        return ($this->serviceProfileAppliedOnOutcall) ? $this->serviceProfileAppliedOnOutcall->getValue() : null;
+        return ($this->serviceProfileAppliedOnOutcall)
+            ? $this->serviceProfileAppliedOnOutcall->getElementValue()
+            : null;
     }
 
     /**
@@ -180,7 +186,7 @@ class GroupInstantConferencingModifyInstanceRequest16 extends ComplexType implem
     public function setAllowOutdialInInvitation($allowOutdialInInvitation = null)
     {
         $this->allowOutdialInInvitation = new PrimitiveType($allowOutdialInInvitation);
-        $this->allowOutdialInInvitation->setName('allowOutdialInInvitation');
+        $this->allowOutdialInInvitation->setElementName('allowOutdialInInvitation');
         return $this;
     }
 
@@ -190,7 +196,9 @@ class GroupInstantConferencingModifyInstanceRequest16 extends ComplexType implem
      */
     public function getAllowOutdialInInvitation()
     {
-        return ($this->allowOutdialInInvitation) ? $this->allowOutdialInInvitation->getValue() : null;
+        return ($this->allowOutdialInInvitation)
+            ? $this->allowOutdialInInvitation->getElementValue()
+            : null;
     }
 
     /**
@@ -199,7 +207,7 @@ class GroupInstantConferencingModifyInstanceRequest16 extends ComplexType implem
     public function setAllowDocumentDownload($allowDocumentDownload = null)
     {
         $this->allowDocumentDownload = new PrimitiveType($allowDocumentDownload);
-        $this->allowDocumentDownload->setName('allowDocumentDownload');
+        $this->allowDocumentDownload->setElementName('allowDocumentDownload');
         return $this;
     }
 
@@ -209,7 +217,9 @@ class GroupInstantConferencingModifyInstanceRequest16 extends ComplexType implem
      */
     public function getAllowDocumentDownload()
     {
-        return ($this->allowDocumentDownload) ? $this->allowDocumentDownload->getValue() : null;
+        return ($this->allowDocumentDownload)
+            ? $this->allowDocumentDownload->getElementValue()
+            : null;
     }
 
     /**
@@ -220,7 +230,7 @@ class GroupInstantConferencingModifyInstanceRequest16 extends ComplexType implem
         $this->bridgeAdministratorUserIdList = ($bridgeAdministratorUserIdList InstanceOf ReplacementUserIdList)
              ? $bridgeAdministratorUserIdList
              : new ReplacementUserIdList($bridgeAdministratorUserIdList);
-        $this->bridgeAdministratorUserIdList->setName('bridgeAdministratorUserIdList');
+        $this->bridgeAdministratorUserIdList->setElementName('bridgeAdministratorUserIdList');
         return $this;
     }
 
@@ -241,7 +251,7 @@ class GroupInstantConferencingModifyInstanceRequest16 extends ComplexType implem
         $this->networkClassOfService = ($networkClassOfService InstanceOf NetworkClassOfServiceName)
              ? $networkClassOfService
              : new NetworkClassOfServiceName($networkClassOfService);
-        $this->networkClassOfService->setName('networkClassOfService');
+        $this->networkClassOfService->setElementName('networkClassOfService');
         return $this;
     }
 
@@ -251,6 +261,8 @@ class GroupInstantConferencingModifyInstanceRequest16 extends ComplexType implem
      */
     public function getNetworkClassOfService()
     {
-        return ($this->networkClassOfService) ? $this->networkClassOfService->getValue() : null;
+        return ($this->networkClassOfService)
+            ? $this->networkClassOfService->getElementValue()
+            : null;
     }
 }

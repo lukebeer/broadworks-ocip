@@ -17,12 +17,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\MaxInclusive;
  */
 class Q850CauseValue extends SimpleType
 {
-    public $name = "Q850CauseValue";
-    protected $value;
-
+    public $elementName = "Q850CauseValue";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new MinInclusive("1"));
         $this->addRestriction(new MaxInclusive("256"));
     }

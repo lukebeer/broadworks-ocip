@@ -19,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserCallingNumberDeliveryGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'UserCallingNumberDeliveryGetResponse';
+    public    $elementName = 'UserCallingNumberDeliveryGetResponse';
     protected $isActiveForExternalCalls;
     protected $isActiveForInternalCalls;
 
@@ -37,7 +37,7 @@ class UserCallingNumberDeliveryGetResponse extends ComplexType implements Comple
     public function setIsActiveForExternalCalls($isActiveForExternalCalls = null)
     {
         $this->isActiveForExternalCalls = new PrimitiveType($isActiveForExternalCalls);
-        $this->isActiveForExternalCalls->setName('isActiveForExternalCalls');
+        $this->isActiveForExternalCalls->setElementName('isActiveForExternalCalls');
         return $this;
     }
 
@@ -47,7 +47,9 @@ class UserCallingNumberDeliveryGetResponse extends ComplexType implements Comple
      */
     public function getIsActiveForExternalCalls()
     {
-        return ($this->isActiveForExternalCalls) ? $this->isActiveForExternalCalls->getValue() : null;
+        return ($this->isActiveForExternalCalls)
+            ? $this->isActiveForExternalCalls->getElementValue()
+            : null;
     }
 
     /**
@@ -56,7 +58,7 @@ class UserCallingNumberDeliveryGetResponse extends ComplexType implements Comple
     public function setIsActiveForInternalCalls($isActiveForInternalCalls = null)
     {
         $this->isActiveForInternalCalls = new PrimitiveType($isActiveForInternalCalls);
-        $this->isActiveForInternalCalls->setName('isActiveForInternalCalls');
+        $this->isActiveForInternalCalls->setElementName('isActiveForInternalCalls');
         return $this;
     }
 
@@ -66,6 +68,8 @@ class UserCallingNumberDeliveryGetResponse extends ComplexType implements Comple
      */
     public function getIsActiveForInternalCalls()
     {
-        return ($this->isActiveForInternalCalls) ? $this->isActiveForInternalCalls->getValue() : null;
+        return ($this->isActiveForInternalCalls)
+            ? $this->isActiveForInternalCalls->getElementValue()
+            : null;
     }
 }

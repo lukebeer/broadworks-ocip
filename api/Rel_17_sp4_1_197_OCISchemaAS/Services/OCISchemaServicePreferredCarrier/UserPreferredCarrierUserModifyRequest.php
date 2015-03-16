@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserPreferredCarrierUserModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'UserPreferredCarrierUserModifyRequest';
+    public    $elementName = 'UserPreferredCarrierUserModifyRequest';
     protected $userId;
     protected $intraLataCarrier;
     protected $interLataCarrier;
@@ -55,7 +55,7 @@ class UserPreferredCarrierUserModifyRequest extends ComplexType implements Compl
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
-        $this->userId->setName('userId');
+        $this->userId->setElementName('userId');
         return $this;
     }
 
@@ -65,7 +65,9 @@ class UserPreferredCarrierUserModifyRequest extends ComplexType implements Compl
      */
     public function getUserId()
     {
-        return ($this->userId) ? $this->userId->getValue() : null;
+        return ($this->userId)
+            ? $this->userId->getElementValue()
+            : null;
     }
 
     /**
@@ -76,7 +78,7 @@ class UserPreferredCarrierUserModifyRequest extends ComplexType implements Compl
         $this->intraLataCarrier = ($intraLataCarrier InstanceOf UserPreferredCarrierNameModify)
              ? $intraLataCarrier
              : new UserPreferredCarrierNameModify($intraLataCarrier);
-        $this->intraLataCarrier->setName('intraLataCarrier');
+        $this->intraLataCarrier->setElementName('intraLataCarrier');
         return $this;
     }
 
@@ -97,7 +99,7 @@ class UserPreferredCarrierUserModifyRequest extends ComplexType implements Compl
         $this->interLataCarrier = ($interLataCarrier InstanceOf UserPreferredCarrierNameModify)
              ? $interLataCarrier
              : new UserPreferredCarrierNameModify($interLataCarrier);
-        $this->interLataCarrier->setName('interLataCarrier');
+        $this->interLataCarrier->setElementName('interLataCarrier');
         return $this;
     }
 
@@ -118,7 +120,7 @@ class UserPreferredCarrierUserModifyRequest extends ComplexType implements Compl
         $this->internationalCarrier = ($internationalCarrier InstanceOf UserPreferredCarrierNameModify)
              ? $internationalCarrier
              : new UserPreferredCarrierNameModify($internationalCarrier);
-        $this->internationalCarrier->setName('internationalCarrier');
+        $this->internationalCarrier->setElementName('internationalCarrier');
         return $this;
     }
 

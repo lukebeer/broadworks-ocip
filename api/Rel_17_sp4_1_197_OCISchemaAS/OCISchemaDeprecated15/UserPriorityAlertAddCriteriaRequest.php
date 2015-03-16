@@ -23,7 +23,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserPriorityAlertAddCriteriaRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'UserPriorityAlertAddCriteriaRequest';
+    public    $elementName = 'UserPriorityAlertAddCriteriaRequest';
     protected $userId;
     protected $criteriaName;
     protected $timeSchedule;
@@ -57,7 +57,7 @@ class UserPriorityAlertAddCriteriaRequest extends ComplexType implements Complex
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
-        $this->userId->setName('userId');
+        $this->userId->setElementName('userId');
         return $this;
     }
 
@@ -67,7 +67,9 @@ class UserPriorityAlertAddCriteriaRequest extends ComplexType implements Complex
      */
     public function getUserId()
     {
-        return ($this->userId) ? $this->userId->getValue() : null;
+        return ($this->userId)
+            ? $this->userId->getElementValue()
+            : null;
     }
 
     /**
@@ -78,7 +80,7 @@ class UserPriorityAlertAddCriteriaRequest extends ComplexType implements Complex
         $this->criteriaName = ($criteriaName InstanceOf CriteriaName)
              ? $criteriaName
              : new CriteriaName($criteriaName);
-        $this->criteriaName->setName('criteriaName');
+        $this->criteriaName->setElementName('criteriaName');
         return $this;
     }
 
@@ -88,7 +90,9 @@ class UserPriorityAlertAddCriteriaRequest extends ComplexType implements Complex
      */
     public function getCriteriaName()
     {
-        return ($this->criteriaName) ? $this->criteriaName->getValue() : null;
+        return ($this->criteriaName)
+            ? $this->criteriaName->getElementValue()
+            : null;
     }
 
     /**
@@ -99,7 +103,7 @@ class UserPriorityAlertAddCriteriaRequest extends ComplexType implements Complex
         $this->timeSchedule = ($timeSchedule InstanceOf TimeSchedule)
              ? $timeSchedule
              : new TimeSchedule($timeSchedule);
-        $this->timeSchedule->setName('timeSchedule');
+        $this->timeSchedule->setElementName('timeSchedule');
         return $this;
     }
 
@@ -120,7 +124,7 @@ class UserPriorityAlertAddCriteriaRequest extends ComplexType implements Complex
         $this->fromDnCriteria = ($fromDnCriteria InstanceOf PriorityAlertCriteriaFromDn)
              ? $fromDnCriteria
              : new PriorityAlertCriteriaFromDn($fromDnCriteria);
-        $this->fromDnCriteria->setName('fromDnCriteria');
+        $this->fromDnCriteria->setElementName('fromDnCriteria');
         return $this;
     }
 

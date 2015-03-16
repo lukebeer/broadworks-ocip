@@ -19,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class CommPilotExpressSRBusyModify extends ComplexType implements ComplexInterface
 {
-    public    $name = 'CommPilotExpressSRBusyModify';
+    public    $elementName = 'CommPilotExpressSRBusyModify';
     protected $incomingCalls;
     protected $incomingCallNotify;
 
@@ -45,7 +45,7 @@ class CommPilotExpressSRBusyModify extends ComplexType implements ComplexInterfa
     public function setIncomingCalls($incomingCalls = null)
     {
         $this->incomingCalls = new SimpleContent($incomingCalls);
-        $this->incomingCalls->setName('incomingCalls');
+        $this->incomingCalls->setElementName('incomingCalls');
         return $this;
     }
 
@@ -55,7 +55,9 @@ class CommPilotExpressSRBusyModify extends ComplexType implements ComplexInterfa
      */
     public function getIncomingCalls()
     {
-        return ($this->incomingCalls) ? $this->incomingCalls->getValue() : null;
+        return ($this->incomingCalls)
+            ? $this->incomingCalls->getElementValue()
+            : null;
     }
 
     /**
@@ -64,7 +66,7 @@ class CommPilotExpressSRBusyModify extends ComplexType implements ComplexInterfa
     public function setIncomingCallNotify($incomingCallNotify = null)
     {
         $this->incomingCallNotify = new SimpleContent($incomingCallNotify);
-        $this->incomingCallNotify->setName('incomingCallNotify');
+        $this->incomingCallNotify->setElementName('incomingCallNotify');
         return $this;
     }
 
@@ -74,6 +76,8 @@ class CommPilotExpressSRBusyModify extends ComplexType implements ComplexInterfa
      */
     public function getIncomingCallNotify()
     {
-        return ($this->incomingCallNotify) ? $this->incomingCallNotify->getValue() : null;
+        return ($this->incomingCallNotify)
+            ? $this->incomingCallNotify->getElementValue()
+            : null;
     }
 }

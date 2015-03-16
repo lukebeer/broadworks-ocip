@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemCommunicationBarringDigitPatternCriteriaModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemCommunicationBarringDigitPatternCriteriaModifyRequest';
+    public    $elementName = 'SystemCommunicationBarringDigitPatternCriteriaModifyRequest';
     protected $name;
     protected $newName;
     protected $description;
@@ -59,7 +59,7 @@ class SystemCommunicationBarringDigitPatternCriteriaModifyRequest extends Comple
         $this->name = ($name InstanceOf DigitPatternCriteriaName)
              ? $name
              : new DigitPatternCriteriaName($name);
-        $this->name->setName('name');
+        $this->name->setElementName('name');
         return $this;
     }
 
@@ -69,7 +69,9 @@ class SystemCommunicationBarringDigitPatternCriteriaModifyRequest extends Comple
      */
     public function getName()
     {
-        return ($this->name) ? $this->name->getValue() : null;
+        return ($this->name)
+            ? $this->name->getElementValue()
+            : null;
     }
 
     /**
@@ -80,7 +82,7 @@ class SystemCommunicationBarringDigitPatternCriteriaModifyRequest extends Comple
         $this->newName = ($newName InstanceOf DigitPatternCriteriaName)
              ? $newName
              : new DigitPatternCriteriaName($newName);
-        $this->newName->setName('newName');
+        $this->newName->setElementName('newName');
         return $this;
     }
 
@@ -90,7 +92,9 @@ class SystemCommunicationBarringDigitPatternCriteriaModifyRequest extends Comple
      */
     public function getNewName()
     {
-        return ($this->newName) ? $this->newName->getValue() : null;
+        return ($this->newName)
+            ? $this->newName->getElementValue()
+            : null;
     }
 
     /**
@@ -101,7 +105,7 @@ class SystemCommunicationBarringDigitPatternCriteriaModifyRequest extends Comple
         $this->description = ($description InstanceOf DigitPatternCriteriaDescription)
              ? $description
              : new DigitPatternCriteriaDescription($description);
-        $this->description->setName('description');
+        $this->description->setElementName('description');
         return $this;
     }
 
@@ -111,7 +115,9 @@ class SystemCommunicationBarringDigitPatternCriteriaModifyRequest extends Comple
      */
     public function getDescription()
     {
-        return ($this->description) ? $this->description->getValue() : null;
+        return ($this->description)
+            ? $this->description->getElementValue()
+            : null;
     }
 
     /**
@@ -122,7 +128,7 @@ class SystemCommunicationBarringDigitPatternCriteriaModifyRequest extends Comple
         $this->addMatchDigitPattern = ($addMatchDigitPattern InstanceOf DigitPattern)
              ? $addMatchDigitPattern
              : new DigitPattern($addMatchDigitPattern);
-        $this->addMatchDigitPattern->setName('addMatchDigitPattern');
+        $this->addMatchDigitPattern->setElementName('addMatchDigitPattern');
         return $this;
     }
 
@@ -132,7 +138,9 @@ class SystemCommunicationBarringDigitPatternCriteriaModifyRequest extends Comple
      */
     public function getAddMatchDigitPattern()
     {
-        return ($this->addMatchDigitPattern) ? $this->addMatchDigitPattern->getValue() : null;
+        return ($this->addMatchDigitPattern)
+            ? $this->addMatchDigitPattern->getElementValue()
+            : null;
     }
 
     /**
@@ -143,7 +151,7 @@ class SystemCommunicationBarringDigitPatternCriteriaModifyRequest extends Comple
         $this->deleteMatchDigitPattern = ($deleteMatchDigitPattern InstanceOf DigitPattern)
              ? $deleteMatchDigitPattern
              : new DigitPattern($deleteMatchDigitPattern);
-        $this->deleteMatchDigitPattern->setName('deleteMatchDigitPattern');
+        $this->deleteMatchDigitPattern->setElementName('deleteMatchDigitPattern');
         return $this;
     }
 
@@ -153,6 +161,8 @@ class SystemCommunicationBarringDigitPatternCriteriaModifyRequest extends Comple
      */
     public function getDeleteMatchDigitPattern()
     {
-        return ($this->deleteMatchDigitPattern) ? $this->deleteMatchDigitPattern->getValue() : null;
+        return ($this->deleteMatchDigitPattern)
+            ? $this->deleteMatchDigitPattern->getElementValue()
+            : null;
     }
 }

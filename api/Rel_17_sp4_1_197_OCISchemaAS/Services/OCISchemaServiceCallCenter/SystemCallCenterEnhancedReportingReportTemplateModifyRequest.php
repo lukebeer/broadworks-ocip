@@ -26,7 +26,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemCallCenterEnhancedReportingReportTemplateModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemCallCenterEnhancedReportingReportTemplateModifyRequest';
+    public    $elementName = 'SystemCallCenterEnhancedReportingReportTemplateModifyRequest';
     protected $name;
     protected $newName;
     protected $description;
@@ -75,7 +75,7 @@ class SystemCallCenterEnhancedReportingReportTemplateModifyRequest extends Compl
         $this->name = ($name InstanceOf CallCenterReportTemplateName)
              ? $name
              : new CallCenterReportTemplateName($name);
-        $this->name->setName('name');
+        $this->name->setElementName('name');
         return $this;
     }
 
@@ -85,7 +85,9 @@ class SystemCallCenterEnhancedReportingReportTemplateModifyRequest extends Compl
      */
     public function getName()
     {
-        return ($this->name) ? $this->name->getValue() : null;
+        return ($this->name)
+            ? $this->name->getElementValue()
+            : null;
     }
 
     /**
@@ -96,7 +98,7 @@ class SystemCallCenterEnhancedReportingReportTemplateModifyRequest extends Compl
         $this->newName = ($newName InstanceOf CallCenterReportTemplateName)
              ? $newName
              : new CallCenterReportTemplateName($newName);
-        $this->newName->setName('newName');
+        $this->newName->setElementName('newName');
         return $this;
     }
 
@@ -106,7 +108,9 @@ class SystemCallCenterEnhancedReportingReportTemplateModifyRequest extends Compl
      */
     public function getNewName()
     {
-        return ($this->newName) ? $this->newName->getValue() : null;
+        return ($this->newName)
+            ? $this->newName->getElementValue()
+            : null;
     }
 
     /**
@@ -117,7 +121,7 @@ class SystemCallCenterEnhancedReportingReportTemplateModifyRequest extends Compl
         $this->description = ($description InstanceOf CallCenterReportTemplateDescription)
              ? $description
              : new CallCenterReportTemplateDescription($description);
-        $this->description->setName('description');
+        $this->description->setElementName('description');
         return $this;
     }
 
@@ -127,7 +131,9 @@ class SystemCallCenterEnhancedReportingReportTemplateModifyRequest extends Compl
      */
     public function getDescription()
     {
-        return ($this->description) ? $this->description->getValue() : null;
+        return ($this->description)
+            ? $this->description->getElementValue()
+            : null;
     }
 
     /**
@@ -138,7 +144,7 @@ class SystemCallCenterEnhancedReportingReportTemplateModifyRequest extends Compl
         $this->xsltTemplate = ($xsltTemplate InstanceOf LabeledFileResource)
              ? $xsltTemplate
              : new LabeledFileResource($xsltTemplate);
-        $this->xsltTemplate->setName('xsltTemplate');
+        $this->xsltTemplate->setElementName('xsltTemplate');
         return $this;
     }
 
@@ -159,7 +165,7 @@ class SystemCallCenterEnhancedReportingReportTemplateModifyRequest extends Compl
         $this->scope = ($scope InstanceOf CallCenterReportTemplateAccessOption)
              ? $scope
              : new CallCenterReportTemplateAccessOption($scope);
-        $this->scope->setName('scope');
+        $this->scope->setElementName('scope');
         return $this;
     }
 
@@ -169,7 +175,9 @@ class SystemCallCenterEnhancedReportingReportTemplateModifyRequest extends Compl
      */
     public function getScope()
     {
-        return ($this->scope) ? $this->scope->getValue() : null;
+        return ($this->scope)
+            ? $this->scope->getElementValue()
+            : null;
     }
 
     /**
@@ -178,7 +186,7 @@ class SystemCallCenterEnhancedReportingReportTemplateModifyRequest extends Compl
     public function setIsEnabled($isEnabled = null)
     {
         $this->isEnabled = new PrimitiveType($isEnabled);
-        $this->isEnabled->setName('isEnabled');
+        $this->isEnabled->setElementName('isEnabled');
         return $this;
     }
 
@@ -188,7 +196,9 @@ class SystemCallCenterEnhancedReportingReportTemplateModifyRequest extends Compl
      */
     public function getIsEnabled()
     {
-        return ($this->isEnabled) ? $this->isEnabled->getValue() : null;
+        return ($this->isEnabled)
+            ? $this->isEnabled->getElementValue()
+            : null;
     }
 
     /**
@@ -197,7 +207,7 @@ class SystemCallCenterEnhancedReportingReportTemplateModifyRequest extends Compl
     public function setIsRealtimeReport($isRealtimeReport = null)
     {
         $this->isRealtimeReport = new PrimitiveType($isRealtimeReport);
-        $this->isRealtimeReport->setName('isRealtimeReport');
+        $this->isRealtimeReport->setElementName('isRealtimeReport');
         return $this;
     }
 
@@ -207,7 +217,9 @@ class SystemCallCenterEnhancedReportingReportTemplateModifyRequest extends Compl
      */
     public function getIsRealtimeReport()
     {
-        return ($this->isRealtimeReport) ? $this->isRealtimeReport->getValue() : null;
+        return ($this->isRealtimeReport)
+            ? $this->isRealtimeReport->getElementValue()
+            : null;
     }
 
     /**
@@ -218,7 +230,7 @@ class SystemCallCenterEnhancedReportingReportTemplateModifyRequest extends Compl
         $this->filterNumber = ($filterNumber InstanceOf CallCenterReportDataTemplateFilterNumber)
              ? $filterNumber
              : new CallCenterReportDataTemplateFilterNumber($filterNumber);
-        $this->filterNumber->setName('filterNumber');
+        $this->filterNumber->setElementName('filterNumber');
         return $this;
     }
 
@@ -228,7 +240,9 @@ class SystemCallCenterEnhancedReportingReportTemplateModifyRequest extends Compl
      */
     public function getFilterNumber()
     {
-        return ($this->filterNumber) ? $this->filterNumber->getValue() : null;
+        return ($this->filterNumber)
+            ? $this->filterNumber->getElementValue()
+            : null;
     }
 
     /**
@@ -239,7 +253,7 @@ class SystemCallCenterEnhancedReportingReportTemplateModifyRequest extends Compl
         $this->filterValue = ($filterValue InstanceOf CallCenterReportDataTemplateQueryFilterValueReplacementList)
              ? $filterValue
              : new CallCenterReportDataTemplateQueryFilterValueReplacementList($filterValue);
-        $this->filterValue->setName('filterValue');
+        $this->filterValue->setElementName('filterValue');
         return $this;
     }
 

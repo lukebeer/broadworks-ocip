@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemAutomaticCallbackDeleteReleaseCauseListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemAutomaticCallbackDeleteReleaseCauseListRequest';
+    public    $elementName = 'SystemAutomaticCallbackDeleteReleaseCauseListRequest';
     protected $releaseCause;
 
     public function __construct(
@@ -45,7 +45,7 @@ class SystemAutomaticCallbackDeleteReleaseCauseListRequest extends ComplexType i
         $this->releaseCause = ($releaseCause InstanceOf AutomaticCallbackReleaseCause)
              ? $releaseCause
              : new AutomaticCallbackReleaseCause($releaseCause);
-        $this->releaseCause->setName('releaseCause');
+        $this->releaseCause->setElementName('releaseCause');
         return $this;
     }
 
@@ -55,6 +55,8 @@ class SystemAutomaticCallbackDeleteReleaseCauseListRequest extends ComplexType i
      */
     public function getReleaseCause()
     {
-        return ($this->releaseCause) ? $this->releaseCause->getValue() : null;
+        return ($this->releaseCause)
+            ? $this->releaseCause->getElementValue()
+            : null;
     }
 }

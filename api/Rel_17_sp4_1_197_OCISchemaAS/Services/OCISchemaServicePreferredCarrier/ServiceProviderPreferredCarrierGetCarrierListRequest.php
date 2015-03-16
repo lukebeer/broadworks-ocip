@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
 class ServiceProviderPreferredCarrierGetCarrierListRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServicePreferredCarrier\ServiceProviderPreferredCarrierGetCarrierListResponse';
-    public    $name = 'ServiceProviderPreferredCarrierGetCarrierListRequest';
+    public    $elementName = 'ServiceProviderPreferredCarrierGetCarrierListRequest';
     protected $serviceProviderId;
     protected $countryCode;
 
@@ -50,7 +50,7 @@ class ServiceProviderPreferredCarrierGetCarrierListRequest extends ComplexType i
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
-        $this->serviceProviderId->setName('serviceProviderId');
+        $this->serviceProviderId->setElementName('serviceProviderId');
         return $this;
     }
 
@@ -60,7 +60,9 @@ class ServiceProviderPreferredCarrierGetCarrierListRequest extends ComplexType i
      */
     public function getServiceProviderId()
     {
-        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
+        return ($this->serviceProviderId)
+            ? $this->serviceProviderId->getElementValue()
+            : null;
     }
 
     /**
@@ -71,7 +73,7 @@ class ServiceProviderPreferredCarrierGetCarrierListRequest extends ComplexType i
         $this->countryCode = ($countryCode InstanceOf CountryCode)
              ? $countryCode
              : new CountryCode($countryCode);
-        $this->countryCode->setName('countryCode');
+        $this->countryCode->setElementName('countryCode');
         return $this;
     }
 
@@ -81,6 +83,8 @@ class ServiceProviderPreferredCarrierGetCarrierListRequest extends ComplexType i
      */
     public function getCountryCode()
     {
-        return ($this->countryCode) ? $this->countryCode->getValue() : null;
+        return ($this->countryCode)
+            ? $this->countryCode->getElementValue()
+            : null;
     }
 }

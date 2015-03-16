@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class AvailabilityTestRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'AvailabilityTestRequest';
+    public    $elementName = 'AvailabilityTestRequest';
 
     public function __construct(    ) {
     }

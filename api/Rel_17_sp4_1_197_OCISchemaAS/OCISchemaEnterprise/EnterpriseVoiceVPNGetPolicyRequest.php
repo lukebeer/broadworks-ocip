@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
 class EnterpriseVoiceVPNGetPolicyRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType        = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaEnterprise\EnterpriseVoiceVPNGetPolicyResponse';
-    public    $name = 'EnterpriseVoiceVPNGetPolicyRequest';
+    public    $elementName = 'EnterpriseVoiceVPNGetPolicyRequest';
     protected $serviceProviderId;
     protected $locationDialingCode;
 
@@ -50,7 +50,7 @@ class EnterpriseVoiceVPNGetPolicyRequest extends ComplexType implements ComplexI
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
-        $this->serviceProviderId->setName('serviceProviderId');
+        $this->serviceProviderId->setElementName('serviceProviderId');
         return $this;
     }
 
@@ -60,7 +60,9 @@ class EnterpriseVoiceVPNGetPolicyRequest extends ComplexType implements ComplexI
      */
     public function getServiceProviderId()
     {
-        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
+        return ($this->serviceProviderId)
+            ? $this->serviceProviderId->getElementValue()
+            : null;
     }
 
     /**
@@ -71,7 +73,7 @@ class EnterpriseVoiceVPNGetPolicyRequest extends ComplexType implements ComplexI
         $this->locationDialingCode = ($locationDialingCode InstanceOf EnterpriseVoiceVPNLocationCode)
              ? $locationDialingCode
              : new EnterpriseVoiceVPNLocationCode($locationDialingCode);
-        $this->locationDialingCode->setName('locationDialingCode');
+        $this->locationDialingCode->setElementName('locationDialingCode');
         return $this;
     }
 
@@ -81,6 +83,8 @@ class EnterpriseVoiceVPNGetPolicyRequest extends ComplexType implements ComplexI
      */
     public function getLocationDialingCode()
     {
-        return ($this->locationDialingCode) ? $this->locationDialingCode->getValue() : null;
+        return ($this->locationDialingCode)
+            ? $this->locationDialingCode->getElementValue()
+            : null;
     }
 }

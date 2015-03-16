@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemMediaGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemMediaGetListResponse';
+    public    $elementName = 'SystemMediaGetListResponse';
     protected $mediaTable;
 
     /**
@@ -37,7 +37,7 @@ class SystemMediaGetListResponse extends ComplexType implements ComplexInterface
     public function setMediaTable(TableType $mediaTable = null)
     {
         $this->mediaTable = $mediaTable;
-        $this->mediaTable->setName('mediaTable');
+        $this->mediaTable->setElementName('mediaTable');
         return $this;
     }
 

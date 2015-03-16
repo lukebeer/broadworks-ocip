@@ -17,12 +17,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\MaxInclusive;
  */
 class CallCenterRoutingPriority extends SimpleType
 {
-    public $name = "CallCenterRoutingPriority";
-    protected $value;
-
+    public $elementName = "CallCenterRoutingPriority";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "xs:float";
+        $this->setElementValue($value);
         $this->addRestriction(new MinInclusive("0.0"));
         $this->addRestriction(new MaxInclusive("1000000.0"));
     }

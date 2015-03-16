@@ -19,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SearchCriteriaExactSignalingAddressType extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SearchCriteriaExactSignalingAddressType';
+    public    $elementName = 'SearchCriteriaExactSignalingAddressType';
     protected $profile;
 
     public function __construct(
@@ -44,7 +44,7 @@ class SearchCriteriaExactSignalingAddressType extends ComplexType implements Com
         $this->profile = ($profile InstanceOf SignalingAddressType)
              ? $profile
              : new SignalingAddressType($profile);
-        $this->profile->setName('profile');
+        $this->profile->setElementName('profile');
         return $this;
     }
 
@@ -54,6 +54,8 @@ class SearchCriteriaExactSignalingAddressType extends ComplexType implements Com
      */
     public function getProfile()
     {
-        return ($this->profile) ? $this->profile->getValue() : null;
+        return ($this->profile)
+            ? $this->profile->getElementValue()
+            : null;
     }
 }

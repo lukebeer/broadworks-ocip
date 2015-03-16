@@ -19,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderMeetMeConferencingGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'ServiceProviderMeetMeConferencingGetResponse';
+    public    $elementName = 'ServiceProviderMeetMeConferencingGetResponse';
     protected $allocatedPorts;
 
     /**
@@ -38,7 +38,7 @@ class ServiceProviderMeetMeConferencingGetResponse extends ComplexType implement
         $this->allocatedPorts = ($allocatedPorts InstanceOf MeetMeConferencingConferencePorts)
              ? $allocatedPorts
              : new MeetMeConferencingConferencePorts($allocatedPorts);
-        $this->allocatedPorts->setName('allocatedPorts');
+        $this->allocatedPorts->setElementName('allocatedPorts');
         return $this;
     }
 

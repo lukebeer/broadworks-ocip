@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
 class SystemNetworkSynchingServerGetListRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemNetworkSynchingServerGetListResponse';
-    public    $name = 'SystemNetworkSynchingServerGetListRequest';
+    public    $elementName = 'SystemNetworkSynchingServerGetListRequest';
 
     public function __construct(    ) {
     }

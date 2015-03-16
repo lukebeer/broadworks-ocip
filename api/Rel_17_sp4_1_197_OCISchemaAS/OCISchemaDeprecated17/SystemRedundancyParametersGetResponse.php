@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemRedundancyParametersGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemRedundancyParametersGetResponse';
+    public    $elementName = 'SystemRedundancyParametersGetResponse';
     protected $rollBackTimerMinutes;
 
     /**
@@ -41,7 +41,7 @@ class SystemRedundancyParametersGetResponse extends ComplexType implements Compl
         $this->rollBackTimerMinutes = ($rollBackTimerMinutes InstanceOf RedundancyRollBackTimerMinutes)
              ? $rollBackTimerMinutes
              : new RedundancyRollBackTimerMinutes($rollBackTimerMinutes);
-        $this->rollBackTimerMinutes->setName('rollBackTimerMinutes');
+        $this->rollBackTimerMinutes->setElementName('rollBackTimerMinutes');
         return $this;
     }
 
@@ -51,6 +51,8 @@ class SystemRedundancyParametersGetResponse extends ComplexType implements Compl
      */
     public function getRollBackTimerMinutes()
     {
-        return ($this->rollBackTimerMinutes) ? $this->rollBackTimerMinutes->getValue() : null;
+        return ($this->rollBackTimerMinutes)
+            ? $this->rollBackTimerMinutes->getElementValue()
+            : null;
     }
 }

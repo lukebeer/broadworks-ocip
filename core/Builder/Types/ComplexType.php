@@ -35,7 +35,7 @@ abstract class ComplexType
     {
         foreach ($this->params as $param) {
             if (!$param->validate()) {
-                $this->errors[$param->getName()] = $param->getErrors();
+                $this->errors[$param->getElementName()] = $param->getErrors();
             }
         }
     }
@@ -61,7 +61,7 @@ abstract class ComplexType
      * @param int $responseOutput
      * @return mixed
      */
-    public function send(Client $client, $responseOutput = ResponseOutput::STD)
+    protected function send(Client $client, $responseOutput = ResponseOutput::STD)
     {
         $client->send($this);
         return $client->getResponse($responseOutput);

@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderScheduleAddRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'ServiceProviderScheduleAddRequest';
+    public    $elementName = 'ServiceProviderScheduleAddRequest';
     protected $serviceProviderId;
     protected $scheduleName;
     protected $scheduleType;
@@ -53,7 +53,7 @@ class ServiceProviderScheduleAddRequest extends ComplexType implements ComplexIn
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
-        $this->serviceProviderId->setName('serviceProviderId');
+        $this->serviceProviderId->setElementName('serviceProviderId');
         return $this;
     }
 
@@ -63,7 +63,9 @@ class ServiceProviderScheduleAddRequest extends ComplexType implements ComplexIn
      */
     public function getServiceProviderId()
     {
-        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
+        return ($this->serviceProviderId)
+            ? $this->serviceProviderId->getElementValue()
+            : null;
     }
 
     /**
@@ -74,7 +76,7 @@ class ServiceProviderScheduleAddRequest extends ComplexType implements ComplexIn
         $this->scheduleName = ($scheduleName InstanceOf ScheduleName)
              ? $scheduleName
              : new ScheduleName($scheduleName);
-        $this->scheduleName->setName('scheduleName');
+        $this->scheduleName->setElementName('scheduleName');
         return $this;
     }
 
@@ -84,7 +86,9 @@ class ServiceProviderScheduleAddRequest extends ComplexType implements ComplexIn
      */
     public function getScheduleName()
     {
-        return ($this->scheduleName) ? $this->scheduleName->getValue() : null;
+        return ($this->scheduleName)
+            ? $this->scheduleName->getElementValue()
+            : null;
     }
 
     /**
@@ -95,7 +99,7 @@ class ServiceProviderScheduleAddRequest extends ComplexType implements ComplexIn
         $this->scheduleType = ($scheduleType InstanceOf ScheduleType)
              ? $scheduleType
              : new ScheduleType($scheduleType);
-        $this->scheduleType->setName('scheduleType');
+        $this->scheduleType->setElementName('scheduleType');
         return $this;
     }
 
@@ -105,6 +109,8 @@ class ServiceProviderScheduleAddRequest extends ComplexType implements ComplexIn
      */
     public function getScheduleType()
     {
-        return ($this->scheduleType) ? $this->scheduleType->getValue() : null;
+        return ($this->scheduleType)
+            ? $this->scheduleType->getElementValue()
+            : null;
     }
 }

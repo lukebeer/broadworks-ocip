@@ -16,12 +16,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\Enumeration;
  */
 class ChargeIndicator extends SimpleType
 {
-    public $name = "ChargeIndicator";
-    protected $value;
-
+    public $elementName = "ChargeIndicator";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new Enumeration([
             'Charge',
             'No Charge'

@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupGroupPagingGetInstanceListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'GroupGroupPagingGetInstanceListResponse';
+    public    $elementName = 'GroupGroupPagingGetInstanceListResponse';
     protected $pagingGroupTable;
 
     /**
@@ -39,7 +39,7 @@ class GroupGroupPagingGetInstanceListResponse extends ComplexType implements Com
     public function setPagingGroupTable(TableType $pagingGroupTable = null)
     {
         $this->pagingGroupTable = $pagingGroupTable;
-        $this->pagingGroupTable->setName('pagingGroupTable');
+        $this->pagingGroupTable->setElementName('pagingGroupTable');
         return $this;
     }
 

@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
 class SystemSMDIMessageDeskGetServerRouteListRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceSMDIMessageDesk\SystemSMDIMessageDeskGetServerRouteListResponse';
-    public    $name = 'SystemSMDIMessageDeskGetServerRouteListRequest';
+    public    $elementName = 'SystemSMDIMessageDeskGetServerRouteListRequest';
 
     public function __construct(    ) {
     }

@@ -19,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SearchCriteriaExactServiceType extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SearchCriteriaExactServiceType';
+    public    $elementName = 'SearchCriteriaExactServiceType';
     protected $serviceType;
 
     public function __construct(
@@ -44,7 +44,7 @@ class SearchCriteriaExactServiceType extends ComplexType implements ComplexInter
         $this->serviceType = ($serviceType InstanceOf ServiceType)
              ? $serviceType
              : new ServiceType($serviceType);
-        $this->serviceType->setName('serviceType');
+        $this->serviceType->setElementName('serviceType');
         return $this;
     }
 
@@ -54,6 +54,8 @@ class SearchCriteriaExactServiceType extends ComplexType implements ComplexInter
      */
     public function getServiceType()
     {
-        return ($this->serviceType) ? $this->serviceType->getValue() : null;
+        return ($this->serviceType)
+            ? $this->serviceType->getElementValue()
+            : null;
     }
 }

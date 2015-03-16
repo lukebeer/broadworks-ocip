@@ -16,12 +16,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\Enumeration;
  */
 class CPEDeviceConfigRebuildType extends SimpleType
 {
-    public $name = "CPEDeviceConfigRebuildType";
-    protected $value;
-
+    public $elementName = "CPEDeviceConfigRebuildType";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new Enumeration([
             'Device Type',
             'Device Profiles'

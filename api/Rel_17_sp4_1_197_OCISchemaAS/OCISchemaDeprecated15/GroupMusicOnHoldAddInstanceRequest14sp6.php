@@ -25,7 +25,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupMusicOnHoldAddInstanceRequest14sp6 extends ComplexType implements ComplexInterface
 {
-    public    $name = 'GroupMusicOnHoldAddInstanceRequest14sp6';
+    public    $elementName = 'GroupMusicOnHoldAddInstanceRequest14sp6';
     protected $serviceProviderId;
     protected $groupId;
     protected $department;
@@ -74,7 +74,7 @@ class GroupMusicOnHoldAddInstanceRequest14sp6 extends ComplexType implements Com
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
-        $this->serviceProviderId->setName('serviceProviderId');
+        $this->serviceProviderId->setElementName('serviceProviderId');
         return $this;
     }
 
@@ -84,7 +84,9 @@ class GroupMusicOnHoldAddInstanceRequest14sp6 extends ComplexType implements Com
      */
     public function getServiceProviderId()
     {
-        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
+        return ($this->serviceProviderId)
+            ? $this->serviceProviderId->getElementValue()
+            : null;
     }
 
     /**
@@ -95,7 +97,7 @@ class GroupMusicOnHoldAddInstanceRequest14sp6 extends ComplexType implements Com
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
-        $this->groupId->setName('groupId');
+        $this->groupId->setElementName('groupId');
         return $this;
     }
 
@@ -105,7 +107,9 @@ class GroupMusicOnHoldAddInstanceRequest14sp6 extends ComplexType implements Com
      */
     public function getGroupId()
     {
-        return ($this->groupId) ? $this->groupId->getValue() : null;
+        return ($this->groupId)
+            ? $this->groupId->getElementValue()
+            : null;
     }
 
     /**
@@ -116,7 +120,7 @@ class GroupMusicOnHoldAddInstanceRequest14sp6 extends ComplexType implements Com
         $this->department = ($department InstanceOf DepartmentKey)
              ? $department
              : new DepartmentKey($department);
-        $this->department->setName('department');
+        $this->department->setElementName('department');
         return $this;
     }
 
@@ -135,7 +139,7 @@ class GroupMusicOnHoldAddInstanceRequest14sp6 extends ComplexType implements Com
     public function setIsActiveDuringCallHold($isActiveDuringCallHold = null)
     {
         $this->isActiveDuringCallHold = new PrimitiveType($isActiveDuringCallHold);
-        $this->isActiveDuringCallHold->setName('isActiveDuringCallHold');
+        $this->isActiveDuringCallHold->setElementName('isActiveDuringCallHold');
         return $this;
     }
 
@@ -145,7 +149,9 @@ class GroupMusicOnHoldAddInstanceRequest14sp6 extends ComplexType implements Com
      */
     public function getIsActiveDuringCallHold()
     {
-        return ($this->isActiveDuringCallHold) ? $this->isActiveDuringCallHold->getValue() : null;
+        return ($this->isActiveDuringCallHold)
+            ? $this->isActiveDuringCallHold->getElementValue()
+            : null;
     }
 
     /**
@@ -154,7 +160,7 @@ class GroupMusicOnHoldAddInstanceRequest14sp6 extends ComplexType implements Com
     public function setIsActiveDuringCallPark($isActiveDuringCallPark = null)
     {
         $this->isActiveDuringCallPark = new PrimitiveType($isActiveDuringCallPark);
-        $this->isActiveDuringCallPark->setName('isActiveDuringCallPark');
+        $this->isActiveDuringCallPark->setElementName('isActiveDuringCallPark');
         return $this;
     }
 
@@ -164,7 +170,9 @@ class GroupMusicOnHoldAddInstanceRequest14sp6 extends ComplexType implements Com
      */
     public function getIsActiveDuringCallPark()
     {
-        return ($this->isActiveDuringCallPark) ? $this->isActiveDuringCallPark->getValue() : null;
+        return ($this->isActiveDuringCallPark)
+            ? $this->isActiveDuringCallPark->getElementValue()
+            : null;
     }
 
     /**
@@ -173,7 +181,7 @@ class GroupMusicOnHoldAddInstanceRequest14sp6 extends ComplexType implements Com
     public function setIsActiveDuringBusyCampOn($isActiveDuringBusyCampOn = null)
     {
         $this->isActiveDuringBusyCampOn = new PrimitiveType($isActiveDuringBusyCampOn);
-        $this->isActiveDuringBusyCampOn->setName('isActiveDuringBusyCampOn');
+        $this->isActiveDuringBusyCampOn->setElementName('isActiveDuringBusyCampOn');
         return $this;
     }
 
@@ -183,7 +191,9 @@ class GroupMusicOnHoldAddInstanceRequest14sp6 extends ComplexType implements Com
      */
     public function getIsActiveDuringBusyCampOn()
     {
-        return ($this->isActiveDuringBusyCampOn) ? $this->isActiveDuringBusyCampOn->getValue() : null;
+        return ($this->isActiveDuringBusyCampOn)
+            ? $this->isActiveDuringBusyCampOn->getElementValue()
+            : null;
     }
 
     /**
@@ -194,7 +204,7 @@ class GroupMusicOnHoldAddInstanceRequest14sp6 extends ComplexType implements Com
         $this->source = ($source InstanceOf MusicOnHoldSourceAdd)
              ? $source
              : new MusicOnHoldSourceAdd($source);
-        $this->source->setName('source');
+        $this->source->setElementName('source');
         return $this;
     }
 
@@ -213,7 +223,7 @@ class GroupMusicOnHoldAddInstanceRequest14sp6 extends ComplexType implements Com
     public function setUseAlternateSourceForInternalCalls($useAlternateSourceForInternalCalls = null)
     {
         $this->useAlternateSourceForInternalCalls = new PrimitiveType($useAlternateSourceForInternalCalls);
-        $this->useAlternateSourceForInternalCalls->setName('useAlternateSourceForInternalCalls');
+        $this->useAlternateSourceForInternalCalls->setElementName('useAlternateSourceForInternalCalls');
         return $this;
     }
 
@@ -223,7 +233,9 @@ class GroupMusicOnHoldAddInstanceRequest14sp6 extends ComplexType implements Com
      */
     public function getUseAlternateSourceForInternalCalls()
     {
-        return ($this->useAlternateSourceForInternalCalls) ? $this->useAlternateSourceForInternalCalls->getValue() : null;
+        return ($this->useAlternateSourceForInternalCalls)
+            ? $this->useAlternateSourceForInternalCalls->getElementValue()
+            : null;
     }
 
     /**
@@ -234,7 +246,7 @@ class GroupMusicOnHoldAddInstanceRequest14sp6 extends ComplexType implements Com
         $this->internalSource = ($internalSource InstanceOf MusicOnHoldSourceAdd)
              ? $internalSource
              : new MusicOnHoldSourceAdd($internalSource);
-        $this->internalSource->setName('internalSource');
+        $this->internalSource->setElementName('internalSource');
         return $this;
     }
 

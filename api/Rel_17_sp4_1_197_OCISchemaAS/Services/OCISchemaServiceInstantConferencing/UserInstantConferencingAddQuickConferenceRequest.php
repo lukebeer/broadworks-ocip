@@ -23,7 +23,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserInstantConferencingAddQuickConferenceRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'UserInstantConferencingAddQuickConferenceRequest';
+    public    $elementName = 'UserInstantConferencingAddQuickConferenceRequest';
     protected $userId;
     protected $bridgeServiceUserId;
     protected $leaderPhoneNumber;
@@ -66,7 +66,7 @@ class UserInstantConferencingAddQuickConferenceRequest extends ComplexType imple
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
-        $this->userId->setName('userId');
+        $this->userId->setElementName('userId');
         return $this;
     }
 
@@ -76,7 +76,9 @@ class UserInstantConferencingAddQuickConferenceRequest extends ComplexType imple
      */
     public function getUserId()
     {
-        return ($this->userId) ? $this->userId->getValue() : null;
+        return ($this->userId)
+            ? $this->userId->getElementValue()
+            : null;
     }
 
     /**
@@ -87,7 +89,7 @@ class UserInstantConferencingAddQuickConferenceRequest extends ComplexType imple
         $this->bridgeServiceUserId = ($bridgeServiceUserId InstanceOf UserId)
              ? $bridgeServiceUserId
              : new UserId($bridgeServiceUserId);
-        $this->bridgeServiceUserId->setName('bridgeServiceUserId');
+        $this->bridgeServiceUserId->setElementName('bridgeServiceUserId');
         return $this;
     }
 
@@ -97,7 +99,9 @@ class UserInstantConferencingAddQuickConferenceRequest extends ComplexType imple
      */
     public function getBridgeServiceUserId()
     {
-        return ($this->bridgeServiceUserId) ? $this->bridgeServiceUserId->getValue() : null;
+        return ($this->bridgeServiceUserId)
+            ? $this->bridgeServiceUserId->getElementValue()
+            : null;
     }
 
     /**
@@ -108,7 +112,7 @@ class UserInstantConferencingAddQuickConferenceRequest extends ComplexType imple
         $this->leaderPhoneNumber = ($leaderPhoneNumber InstanceOf OutgoingDNorSIPURI)
              ? $leaderPhoneNumber
              : new OutgoingDNorSIPURI($leaderPhoneNumber);
-        $this->leaderPhoneNumber->setName('leaderPhoneNumber');
+        $this->leaderPhoneNumber->setElementName('leaderPhoneNumber');
         return $this;
     }
 
@@ -118,7 +122,9 @@ class UserInstantConferencingAddQuickConferenceRequest extends ComplexType imple
      */
     public function getLeaderPhoneNumber()
     {
-        return ($this->leaderPhoneNumber) ? $this->leaderPhoneNumber->getValue() : null;
+        return ($this->leaderPhoneNumber)
+            ? $this->leaderPhoneNumber->getElementValue()
+            : null;
     }
 
     /**
@@ -129,7 +135,7 @@ class UserInstantConferencingAddQuickConferenceRequest extends ComplexType imple
         $this->leaderName = ($leaderName InstanceOf InstantConferencingParticipantName)
              ? $leaderName
              : new InstantConferencingParticipantName($leaderName);
-        $this->leaderName->setName('leaderName');
+        $this->leaderName->setElementName('leaderName');
         return $this;
     }
 
@@ -139,7 +145,9 @@ class UserInstantConferencingAddQuickConferenceRequest extends ComplexType imple
      */
     public function getLeaderName()
     {
-        return ($this->leaderName) ? $this->leaderName->getValue() : null;
+        return ($this->leaderName)
+            ? $this->leaderName->getElementValue()
+            : null;
     }
 
     /**
@@ -150,7 +158,7 @@ class UserInstantConferencingAddQuickConferenceRequest extends ComplexType imple
         $this->participantPhoneNumber = ($participantPhoneNumber InstanceOf OutgoingDNorSIPURI)
              ? $participantPhoneNumber
              : new OutgoingDNorSIPURI($participantPhoneNumber);
-        $this->participantPhoneNumber->setName('participantPhoneNumber');
+        $this->participantPhoneNumber->setElementName('participantPhoneNumber');
         return $this;
     }
 
@@ -160,7 +168,9 @@ class UserInstantConferencingAddQuickConferenceRequest extends ComplexType imple
      */
     public function getParticipantPhoneNumber()
     {
-        return ($this->participantPhoneNumber) ? $this->participantPhoneNumber->getValue() : null;
+        return ($this->participantPhoneNumber)
+            ? $this->participantPhoneNumber->getElementValue()
+            : null;
     }
 
     /**
@@ -171,7 +181,7 @@ class UserInstantConferencingAddQuickConferenceRequest extends ComplexType imple
         $this->participantName = ($participantName InstanceOf InstantConferencingParticipantName)
              ? $participantName
              : new InstantConferencingParticipantName($participantName);
-        $this->participantName->setName('participantName');
+        $this->participantName->setElementName('participantName');
         return $this;
     }
 
@@ -181,7 +191,9 @@ class UserInstantConferencingAddQuickConferenceRequest extends ComplexType imple
      */
     public function getParticipantName()
     {
-        return ($this->participantName) ? $this->participantName->getValue() : null;
+        return ($this->participantName)
+            ? $this->participantName->getElementValue()
+            : null;
     }
 
     /**
@@ -192,7 +204,7 @@ class UserInstantConferencingAddQuickConferenceRequest extends ComplexType imple
         $this->billingCode = ($billingCode InstanceOf InstantConferencingBillingCode)
              ? $billingCode
              : new InstantConferencingBillingCode($billingCode);
-        $this->billingCode->setName('billingCode');
+        $this->billingCode->setElementName('billingCode');
         return $this;
     }
 
@@ -202,6 +214,8 @@ class UserInstantConferencingAddQuickConferenceRequest extends ComplexType imple
      */
     public function getBillingCode()
     {
-        return ($this->billingCode) ? $this->billingCode->getValue() : null;
+        return ($this->billingCode)
+            ? $this->billingCode->getElementValue()
+            : null;
     }
 }

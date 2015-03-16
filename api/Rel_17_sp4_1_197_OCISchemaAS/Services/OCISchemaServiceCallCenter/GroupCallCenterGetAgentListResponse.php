@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupCallCenterGetAgentListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'GroupCallCenterGetAgentListResponse';
+    public    $elementName = 'GroupCallCenterGetAgentListResponse';
     protected $agentTable;
 
     /**
@@ -38,7 +38,7 @@ class GroupCallCenterGetAgentListResponse extends ComplexType implements Complex
     public function setAgentTable(TableType $agentTable = null)
     {
         $this->agentTable = $agentTable;
-        $this->agentTable->setName('agentTable');
+        $this->agentTable->setElementName('agentTable');
         return $this;
     }
 

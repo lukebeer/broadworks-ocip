@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
 class SystemOfficeZoneGetRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType   = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemOfficeZoneGetResponse';
-    public    $name = 'SystemOfficeZoneGetRequest';
+    public    $elementName = 'SystemOfficeZoneGetRequest';
     protected $officeZoneName;
 
     public function __construct(
@@ -47,7 +47,7 @@ class SystemOfficeZoneGetRequest extends ComplexType implements ComplexInterface
         $this->officeZoneName = ($officeZoneName InstanceOf OfficeZoneName)
              ? $officeZoneName
              : new OfficeZoneName($officeZoneName);
-        $this->officeZoneName->setName('officeZoneName');
+        $this->officeZoneName->setElementName('officeZoneName');
         return $this;
     }
 
@@ -57,6 +57,8 @@ class SystemOfficeZoneGetRequest extends ComplexType implements ComplexInterface
      */
     public function getOfficeZoneName()
     {
-        return ($this->officeZoneName) ? $this->officeZoneName->getValue() : null;
+        return ($this->officeZoneName)
+            ? $this->officeZoneName->getElementValue()
+            : null;
     }
 }

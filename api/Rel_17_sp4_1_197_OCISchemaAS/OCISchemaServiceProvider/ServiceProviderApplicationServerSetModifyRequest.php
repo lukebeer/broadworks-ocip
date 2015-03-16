@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderApplicationServerSetModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'ServiceProviderApplicationServerSetModifyRequest';
+    public    $elementName = 'ServiceProviderApplicationServerSetModifyRequest';
     protected $serviceProviderId;
     protected $applicationServerSetName;
 
@@ -49,7 +49,7 @@ class ServiceProviderApplicationServerSetModifyRequest extends ComplexType imple
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
-        $this->serviceProviderId->setName('serviceProviderId');
+        $this->serviceProviderId->setElementName('serviceProviderId');
         return $this;
     }
 
@@ -59,7 +59,9 @@ class ServiceProviderApplicationServerSetModifyRequest extends ComplexType imple
      */
     public function getServiceProviderId()
     {
-        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
+        return ($this->serviceProviderId)
+            ? $this->serviceProviderId->getElementValue()
+            : null;
     }
 
     /**
@@ -70,7 +72,7 @@ class ServiceProviderApplicationServerSetModifyRequest extends ComplexType imple
         $this->applicationServerSetName = ($applicationServerSetName InstanceOf ApplicationServerSetName)
              ? $applicationServerSetName
              : new ApplicationServerSetName($applicationServerSetName);
-        $this->applicationServerSetName->setName('applicationServerSetName');
+        $this->applicationServerSetName->setElementName('applicationServerSetName');
         return $this;
     }
 
@@ -80,6 +82,8 @@ class ServiceProviderApplicationServerSetModifyRequest extends ComplexType imple
      */
     public function getApplicationServerSetName()
     {
-        return ($this->applicationServerSetName) ? $this->applicationServerSetName->getValue() : null;
+        return ($this->applicationServerSetName)
+            ? $this->applicationServerSetName->getElementValue()
+            : null;
     }
 }

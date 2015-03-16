@@ -19,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class EnterpriseVoiceVPNDigitManipulationOptionalValue extends ComplexType implements ComplexInterface
 {
-    public    $name = 'EnterpriseVoiceVPNDigitManipulationOptionalValue';
+    public    $elementName = 'EnterpriseVoiceVPNDigitManipulationOptionalValue';
     protected $operation;
     protected $value;
 
@@ -47,7 +47,7 @@ class EnterpriseVoiceVPNDigitManipulationOptionalValue extends ComplexType imple
         $this->operation = ($operation InstanceOf EnterpriseVoiceVPNDigitManipulationOperationOptionalValue)
              ? $operation
              : new EnterpriseVoiceVPNDigitManipulationOperationOptionalValue($operation);
-        $this->operation->setName('operation');
+        $this->operation->setElementName('operation');
         return $this;
     }
 
@@ -57,7 +57,9 @@ class EnterpriseVoiceVPNDigitManipulationOptionalValue extends ComplexType imple
      */
     public function getOperation()
     {
-        return ($this->operation) ? $this->operation->getValue() : null;
+        return ($this->operation)
+            ? $this->operation->getElementValue()
+            : null;
     }
 
     /**
@@ -68,7 +70,7 @@ class EnterpriseVoiceVPNDigitManipulationOptionalValue extends ComplexType imple
         $this->value = ($value InstanceOf EnterpriseVoiceVPNDigitManipulationValue)
              ? $value
              : new EnterpriseVoiceVPNDigitManipulationValue($value);
-        $this->value->setName('value');
+        $this->value->setElementName('value');
         return $this;
     }
 
@@ -78,6 +80,8 @@ class EnterpriseVoiceVPNDigitManipulationOptionalValue extends ComplexType imple
      */
     public function getValue()
     {
-        return ($this->value) ? $this->value->getValue() : null;
+        return ($this->value)
+            ? $this->value->getElementValue()
+            : null;
     }
 }

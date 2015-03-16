@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
 class GroupCallCenterGetInstanceStatisticsRequest13mp8 extends ComplexType implements ComplexInterface
 {
     public    $responseType  = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\GroupCallCenterGetInstanceStatisticsResponse13mp8';
-    public    $name = 'GroupCallCenterGetInstanceStatisticsRequest13mp8';
+    public    $elementName = 'GroupCallCenterGetInstanceStatisticsRequest13mp8';
     protected $serviceUserId;
 
     public function __construct(
@@ -47,7 +47,7 @@ class GroupCallCenterGetInstanceStatisticsRequest13mp8 extends ComplexType imple
         $this->serviceUserId = ($serviceUserId InstanceOf UserId)
              ? $serviceUserId
              : new UserId($serviceUserId);
-        $this->serviceUserId->setName('serviceUserId');
+        $this->serviceUserId->setElementName('serviceUserId');
         return $this;
     }
 
@@ -57,6 +57,8 @@ class GroupCallCenterGetInstanceStatisticsRequest13mp8 extends ComplexType imple
      */
     public function getServiceUserId()
     {
-        return ($this->serviceUserId) ? $this->serviceUserId->getValue() : null;
+        return ($this->serviceUserId)
+            ? $this->serviceUserId->getElementValue()
+            : null;
     }
 }

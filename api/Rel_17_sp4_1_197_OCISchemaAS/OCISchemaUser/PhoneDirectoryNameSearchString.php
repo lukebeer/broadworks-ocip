@@ -16,12 +16,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\MinLength;
  */
 class PhoneDirectoryNameSearchString extends SimpleType
 {
-    public $name = "PhoneDirectoryNameSearchString";
-    protected $value;
-
+    public $elementName = "PhoneDirectoryNameSearchString";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new MinLength("1"));
     }
 }

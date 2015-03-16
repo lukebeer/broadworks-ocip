@@ -24,7 +24,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class EnterpriseCallCenterEnhancedReportingScheduledReportGetCompletedListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'EnterpriseCallCenterEnhancedReportingScheduledReportGetCompletedListResponse';
+    public    $elementName = 'EnterpriseCallCenterEnhancedReportingScheduledReportGetCompletedListResponse';
     protected $scheduledReportTable;
 
     /**
@@ -41,7 +41,7 @@ class EnterpriseCallCenterEnhancedReportingScheduledReportGetCompletedListRespon
     public function setScheduledReportTable(TableType $scheduledReportTable = null)
     {
         $this->scheduledReportTable = $scheduledReportTable;
-        $this->scheduledReportTable->setName('scheduledReportTable');
+        $this->scheduledReportTable->setElementName('scheduledReportTable');
         return $this;
     }
 

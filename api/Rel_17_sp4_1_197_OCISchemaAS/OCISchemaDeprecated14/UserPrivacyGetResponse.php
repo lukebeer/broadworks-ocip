@@ -19,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserPrivacyGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'UserPrivacyGetResponse';
+    public    $elementName = 'UserPrivacyGetResponse';
     protected $enableDirectoryPrivacy;
 
     /**
@@ -36,7 +36,7 @@ class UserPrivacyGetResponse extends ComplexType implements ComplexInterface
     public function setEnableDirectoryPrivacy($enableDirectoryPrivacy = null)
     {
         $this->enableDirectoryPrivacy = new PrimitiveType($enableDirectoryPrivacy);
-        $this->enableDirectoryPrivacy->setName('enableDirectoryPrivacy');
+        $this->enableDirectoryPrivacy->setElementName('enableDirectoryPrivacy');
         return $this;
     }
 
@@ -46,6 +46,8 @@ class UserPrivacyGetResponse extends ComplexType implements ComplexInterface
      */
     public function getEnableDirectoryPrivacy()
     {
-        return ($this->enableDirectoryPrivacy) ? $this->enableDirectoryPrivacy->getValue() : null;
+        return ($this->enableDirectoryPrivacy)
+            ? $this->enableDirectoryPrivacy->getElementValue()
+            : null;
     }
 }

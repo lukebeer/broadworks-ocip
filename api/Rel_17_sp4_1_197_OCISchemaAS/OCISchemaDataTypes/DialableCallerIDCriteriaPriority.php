@@ -17,12 +17,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\MaxInclusive;
  */
 class DialableCallerIDCriteriaPriority extends SimpleType
 {
-    public $name = "DialableCallerIDCriteriaPriority";
-    protected $value;
-
+    public $elementName = "DialableCallerIDCriteriaPriority";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "xs:float";
+        $this->setElementValue($value);
         $this->addRestriction(new MinInclusive("0.0"));
         $this->addRestriction(new MaxInclusive("1000000.0"));
     }

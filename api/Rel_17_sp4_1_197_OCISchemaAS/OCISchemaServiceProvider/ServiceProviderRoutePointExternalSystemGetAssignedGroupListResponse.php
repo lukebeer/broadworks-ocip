@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderRoutePointExternalSystemGetAssignedGroupListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'ServiceProviderRoutePointExternalSystemGetAssignedGroupListResponse';
+    public    $elementName = 'ServiceProviderRoutePointExternalSystemGetAssignedGroupListResponse';
     protected $groupTable;
 
     /**
@@ -38,7 +38,7 @@ class ServiceProviderRoutePointExternalSystemGetAssignedGroupListResponse extend
     public function setGroupTable(TableType $groupTable = null)
     {
         $this->groupTable = $groupTable;
-        $this->groupTable->setName('groupTable');
+        $this->groupTable->setElementName('groupTable');
         return $this;
     }
 

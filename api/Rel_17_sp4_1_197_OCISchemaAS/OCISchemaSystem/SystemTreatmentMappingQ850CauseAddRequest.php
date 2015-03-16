@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemTreatmentMappingQ850CauseAddRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemTreatmentMappingQ850CauseAddRequest';
+    public    $elementName = 'SystemTreatmentMappingQ850CauseAddRequest';
     protected $q850CauseValue;
     protected $treatmentId;
 
@@ -49,7 +49,7 @@ class SystemTreatmentMappingQ850CauseAddRequest extends ComplexType implements C
         $this->q850CauseValue = ($q850CauseValue InstanceOf Q850CauseValue)
              ? $q850CauseValue
              : new Q850CauseValue($q850CauseValue);
-        $this->q850CauseValue->setName('q850CauseValue');
+        $this->q850CauseValue->setElementName('q850CauseValue');
         return $this;
     }
 
@@ -59,7 +59,9 @@ class SystemTreatmentMappingQ850CauseAddRequest extends ComplexType implements C
      */
     public function getQ850CauseValue()
     {
-        return ($this->q850CauseValue) ? $this->q850CauseValue->getValue() : null;
+        return ($this->q850CauseValue)
+            ? $this->q850CauseValue->getElementValue()
+            : null;
     }
 
     /**
@@ -70,7 +72,7 @@ class SystemTreatmentMappingQ850CauseAddRequest extends ComplexType implements C
         $this->treatmentId = ($treatmentId InstanceOf TreatmentId)
              ? $treatmentId
              : new TreatmentId($treatmentId);
-        $this->treatmentId->setName('treatmentId');
+        $this->treatmentId->setElementName('treatmentId');
         return $this;
     }
 
@@ -80,6 +82,8 @@ class SystemTreatmentMappingQ850CauseAddRequest extends ComplexType implements C
      */
     public function getTreatmentId()
     {
-        return ($this->treatmentId) ? $this->treatmentId->getValue() : null;
+        return ($this->treatmentId)
+            ? $this->treatmentId->getElementValue()
+            : null;
     }
 }

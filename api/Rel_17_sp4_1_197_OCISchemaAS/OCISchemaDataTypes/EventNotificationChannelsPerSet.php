@@ -17,12 +17,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\MaxInclusive;
  */
 class EventNotificationChannelsPerSet extends SimpleType
 {
-    public $name = "EventNotificationChannelsPerSet";
-    protected $value;
-
+    public $elementName = "EventNotificationChannelsPerSet";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new MinInclusive("1"));
         $this->addRestriction(new MaxInclusive("100"));
     }

@@ -17,12 +17,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\MaxLength;
  */
 class FileRepositoryUserName extends SimpleType
 {
-    public $name = "FileRepositoryUserName";
-    protected $value;
-
+    public $elementName = "FileRepositoryUserName";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new MinLength("1"));
         $this->addRestriction(new MaxLength("30"));
     }

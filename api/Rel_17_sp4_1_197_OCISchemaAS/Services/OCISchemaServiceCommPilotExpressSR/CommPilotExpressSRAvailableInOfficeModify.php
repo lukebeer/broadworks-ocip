@@ -19,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class CommPilotExpressSRAvailableInOfficeModify extends ComplexType implements ComplexInterface
 {
-    public    $name = 'CommPilotExpressSRAvailableInOfficeModify';
+    public    $elementName = 'CommPilotExpressSRAvailableInOfficeModify';
     protected $busySetting;
     protected $noAnswerSetting;
     protected $incomingCallNotify;
@@ -48,7 +48,7 @@ class CommPilotExpressSRAvailableInOfficeModify extends ComplexType implements C
     public function setBusySetting($busySetting = null)
     {
         $this->busySetting = new SimpleContent($busySetting);
-        $this->busySetting->setName('busySetting');
+        $this->busySetting->setElementName('busySetting');
         return $this;
     }
 
@@ -58,7 +58,9 @@ class CommPilotExpressSRAvailableInOfficeModify extends ComplexType implements C
      */
     public function getBusySetting()
     {
-        return ($this->busySetting) ? $this->busySetting->getValue() : null;
+        return ($this->busySetting)
+            ? $this->busySetting->getElementValue()
+            : null;
     }
 
     /**
@@ -67,7 +69,7 @@ class CommPilotExpressSRAvailableInOfficeModify extends ComplexType implements C
     public function setNoAnswerSetting($noAnswerSetting = null)
     {
         $this->noAnswerSetting = new SimpleContent($noAnswerSetting);
-        $this->noAnswerSetting->setName('noAnswerSetting');
+        $this->noAnswerSetting->setElementName('noAnswerSetting');
         return $this;
     }
 
@@ -77,7 +79,9 @@ class CommPilotExpressSRAvailableInOfficeModify extends ComplexType implements C
      */
     public function getNoAnswerSetting()
     {
-        return ($this->noAnswerSetting) ? $this->noAnswerSetting->getValue() : null;
+        return ($this->noAnswerSetting)
+            ? $this->noAnswerSetting->getElementValue()
+            : null;
     }
 
     /**
@@ -86,7 +90,7 @@ class CommPilotExpressSRAvailableInOfficeModify extends ComplexType implements C
     public function setIncomingCallNotify($incomingCallNotify = null)
     {
         $this->incomingCallNotify = new SimpleContent($incomingCallNotify);
-        $this->incomingCallNotify->setName('incomingCallNotify');
+        $this->incomingCallNotify->setElementName('incomingCallNotify');
         return $this;
     }
 
@@ -96,6 +100,8 @@ class CommPilotExpressSRAvailableInOfficeModify extends ComplexType implements C
      */
     public function getIncomingCallNotify()
     {
-        return ($this->incomingCallNotify) ? $this->incomingCallNotify->getValue() : null;
+        return ($this->incomingCallNotify)
+            ? $this->incomingCallNotify->getElementValue()
+            : null;
     }
 }

@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserBroadWorksAnywhereGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'UserBroadWorksAnywhereGetResponse';
+    public    $elementName = 'UserBroadWorksAnywhereGetResponse';
     protected $alertAllLocationsForClickToDialCalls;
     protected $phoneNumberTable;
 
@@ -40,7 +40,7 @@ class UserBroadWorksAnywhereGetResponse extends ComplexType implements ComplexIn
     public function setAlertAllLocationsForClickToDialCalls($alertAllLocationsForClickToDialCalls = null)
     {
         $this->alertAllLocationsForClickToDialCalls = new PrimitiveType($alertAllLocationsForClickToDialCalls);
-        $this->alertAllLocationsForClickToDialCalls->setName('alertAllLocationsForClickToDialCalls');
+        $this->alertAllLocationsForClickToDialCalls->setElementName('alertAllLocationsForClickToDialCalls');
         return $this;
     }
 
@@ -50,7 +50,9 @@ class UserBroadWorksAnywhereGetResponse extends ComplexType implements ComplexIn
      */
     public function getAlertAllLocationsForClickToDialCalls()
     {
-        return ($this->alertAllLocationsForClickToDialCalls) ? $this->alertAllLocationsForClickToDialCalls->getValue() : null;
+        return ($this->alertAllLocationsForClickToDialCalls)
+            ? $this->alertAllLocationsForClickToDialCalls->getElementValue()
+            : null;
     }
 
     /**
@@ -59,7 +61,7 @@ class UserBroadWorksAnywhereGetResponse extends ComplexType implements ComplexIn
     public function setPhoneNumberTable(TableType $phoneNumberTable = null)
     {
         $this->phoneNumberTable = $phoneNumberTable;
-        $this->phoneNumberTable->setName('phoneNumberTable');
+        $this->phoneNumberTable->setElementName('phoneNumberTable');
         return $this;
     }
 

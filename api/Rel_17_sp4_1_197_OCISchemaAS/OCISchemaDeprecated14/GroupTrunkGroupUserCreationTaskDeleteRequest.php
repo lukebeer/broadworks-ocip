@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupTrunkGroupUserCreationTaskDeleteRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'GroupTrunkGroupUserCreationTaskDeleteRequest';
+    public    $elementName = 'GroupTrunkGroupUserCreationTaskDeleteRequest';
     protected $serviceUserId;
     protected $taskName;
 
@@ -49,7 +49,7 @@ class GroupTrunkGroupUserCreationTaskDeleteRequest extends ComplexType implement
         $this->serviceUserId = ($serviceUserId InstanceOf UserId)
              ? $serviceUserId
              : new UserId($serviceUserId);
-        $this->serviceUserId->setName('serviceUserId');
+        $this->serviceUserId->setElementName('serviceUserId');
         return $this;
     }
 
@@ -59,7 +59,9 @@ class GroupTrunkGroupUserCreationTaskDeleteRequest extends ComplexType implement
      */
     public function getServiceUserId()
     {
-        return ($this->serviceUserId) ? $this->serviceUserId->getValue() : null;
+        return ($this->serviceUserId)
+            ? $this->serviceUserId->getElementValue()
+            : null;
     }
 
     /**
@@ -70,7 +72,7 @@ class GroupTrunkGroupUserCreationTaskDeleteRequest extends ComplexType implement
         $this->taskName = ($taskName InstanceOf TrunkGroupUserCreationTaskName)
              ? $taskName
              : new TrunkGroupUserCreationTaskName($taskName);
-        $this->taskName->setName('taskName');
+        $this->taskName->setElementName('taskName');
         return $this;
     }
 
@@ -80,6 +82,8 @@ class GroupTrunkGroupUserCreationTaskDeleteRequest extends ComplexType implement
      */
     public function getTaskName()
     {
-        return ($this->taskName) ? $this->taskName->getValue() : null;
+        return ($this->taskName)
+            ? $this->taskName->getElementValue()
+            : null;
     }
 }

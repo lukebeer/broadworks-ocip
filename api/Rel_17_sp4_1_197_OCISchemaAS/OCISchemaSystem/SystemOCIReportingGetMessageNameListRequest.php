@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
 class SystemOCIReportingGetMessageNameListRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemOCIReportingGetMessageNameListResponse';
-    public    $name = 'SystemOCIReportingGetMessageNameListRequest';
+    public    $elementName = 'SystemOCIReportingGetMessageNameListRequest';
     protected $netAddress;
 
     public function __construct(
@@ -47,7 +47,7 @@ class SystemOCIReportingGetMessageNameListRequest extends ComplexType implements
         $this->netAddress = ($netAddress InstanceOf NetAddress)
              ? $netAddress
              : new NetAddress($netAddress);
-        $this->netAddress->setName('netAddress');
+        $this->netAddress->setElementName('netAddress');
         return $this;
     }
 
@@ -57,6 +57,8 @@ class SystemOCIReportingGetMessageNameListRequest extends ComplexType implements
      */
     public function getNetAddress()
     {
-        return ($this->netAddress) ? $this->netAddress->getValue() : null;
+        return ($this->netAddress)
+            ? $this->netAddress->getElementValue()
+            : null;
     }
 }

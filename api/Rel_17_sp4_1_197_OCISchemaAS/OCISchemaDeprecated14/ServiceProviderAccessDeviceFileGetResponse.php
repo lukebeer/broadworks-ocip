@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderAccessDeviceFileGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'ServiceProviderAccessDeviceFileGetResponse';
+    public    $elementName = 'ServiceProviderAccessDeviceFileGetResponse';
     protected $fileSource;
     protected $configurationFileName;
 
@@ -41,7 +41,7 @@ class ServiceProviderAccessDeviceFileGetResponse extends ComplexType implements 
         $this->fileSource = ($fileSource InstanceOf AccessDeviceEnhancedConfigurationMode)
              ? $fileSource
              : new AccessDeviceEnhancedConfigurationMode($fileSource);
-        $this->fileSource->setName('fileSource');
+        $this->fileSource->setElementName('fileSource');
         return $this;
     }
 
@@ -51,7 +51,9 @@ class ServiceProviderAccessDeviceFileGetResponse extends ComplexType implements 
      */
     public function getFileSource()
     {
-        return ($this->fileSource) ? $this->fileSource->getValue() : null;
+        return ($this->fileSource)
+            ? $this->fileSource->getElementValue()
+            : null;
     }
 
     /**
@@ -62,7 +64,7 @@ class ServiceProviderAccessDeviceFileGetResponse extends ComplexType implements 
         $this->configurationFileName = ($configurationFileName InstanceOf AccessDeviceEnhancedConfigurationFileName)
              ? $configurationFileName
              : new AccessDeviceEnhancedConfigurationFileName($configurationFileName);
-        $this->configurationFileName->setName('configurationFileName');
+        $this->configurationFileName->setElementName('configurationFileName');
         return $this;
     }
 
@@ -72,6 +74,8 @@ class ServiceProviderAccessDeviceFileGetResponse extends ComplexType implements 
      */
     public function getConfigurationFileName()
     {
-        return ($this->configurationFileName) ? $this->configurationFileName->getValue() : null;
+        return ($this->configurationFileName)
+            ? $this->configurationFileName->getElementValue()
+            : null;
     }
 }

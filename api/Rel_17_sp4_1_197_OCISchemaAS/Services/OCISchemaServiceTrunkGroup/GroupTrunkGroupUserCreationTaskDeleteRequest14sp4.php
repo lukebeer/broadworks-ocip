@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupTrunkGroupUserCreationTaskDeleteRequest14sp4 extends ComplexType implements ComplexInterface
 {
-    public    $name = 'GroupTrunkGroupUserCreationTaskDeleteRequest14sp4';
+    public    $elementName = 'GroupTrunkGroupUserCreationTaskDeleteRequest14sp4';
     protected $trunkGroupKey;
     protected $taskName;
 
@@ -49,7 +49,7 @@ class GroupTrunkGroupUserCreationTaskDeleteRequest14sp4 extends ComplexType impl
         $this->trunkGroupKey = ($trunkGroupKey InstanceOf TrunkGroupKey)
              ? $trunkGroupKey
              : new TrunkGroupKey($trunkGroupKey);
-        $this->trunkGroupKey->setName('trunkGroupKey');
+        $this->trunkGroupKey->setElementName('trunkGroupKey');
         return $this;
     }
 
@@ -70,7 +70,7 @@ class GroupTrunkGroupUserCreationTaskDeleteRequest14sp4 extends ComplexType impl
         $this->taskName = ($taskName InstanceOf TrunkGroupUserCreationTaskName)
              ? $taskName
              : new TrunkGroupUserCreationTaskName($taskName);
-        $this->taskName->setName('taskName');
+        $this->taskName->setElementName('taskName');
         return $this;
     }
 
@@ -80,6 +80,8 @@ class GroupTrunkGroupUserCreationTaskDeleteRequest14sp4 extends ComplexType impl
      */
     public function getTaskName()
     {
-        return ($this->taskName) ? $this->taskName->getValue() : null;
+        return ($this->taskName)
+            ? $this->taskName->getElementValue()
+            : null;
     }
 }

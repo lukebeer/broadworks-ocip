@@ -28,7 +28,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupRoutePointNightServiceModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'GroupRoutePointNightServiceModifyRequest';
+    public    $elementName = 'GroupRoutePointNightServiceModifyRequest';
     protected $serviceUserId;
     protected $action;
     protected $businessHours;
@@ -107,7 +107,7 @@ class GroupRoutePointNightServiceModifyRequest extends ComplexType implements Co
         $this->serviceUserId = ($serviceUserId InstanceOf UserId)
              ? $serviceUserId
              : new UserId($serviceUserId);
-        $this->serviceUserId->setName('serviceUserId');
+        $this->serviceUserId->setElementName('serviceUserId');
         return $this;
     }
 
@@ -117,7 +117,9 @@ class GroupRoutePointNightServiceModifyRequest extends ComplexType implements Co
      */
     public function getServiceUserId()
     {
-        return ($this->serviceUserId) ? $this->serviceUserId->getValue() : null;
+        return ($this->serviceUserId)
+            ? $this->serviceUserId->getElementValue()
+            : null;
     }
 
     /**
@@ -128,7 +130,7 @@ class GroupRoutePointNightServiceModifyRequest extends ComplexType implements Co
         $this->action = ($action InstanceOf CallCenterScheduledServiceAction)
              ? $action
              : new CallCenterScheduledServiceAction($action);
-        $this->action->setName('action');
+        $this->action->setElementName('action');
         return $this;
     }
 
@@ -138,7 +140,9 @@ class GroupRoutePointNightServiceModifyRequest extends ComplexType implements Co
      */
     public function getAction()
     {
-        return ($this->action) ? $this->action->getValue() : null;
+        return ($this->action)
+            ? $this->action->getElementValue()
+            : null;
     }
 
     /**
@@ -149,7 +153,7 @@ class GroupRoutePointNightServiceModifyRequest extends ComplexType implements Co
         $this->businessHours = ($businessHours InstanceOf ScheduleName)
              ? $businessHours
              : new ScheduleName($businessHours);
-        $this->businessHours->setName('businessHours');
+        $this->businessHours->setElementName('businessHours');
         return $this;
     }
 
@@ -159,7 +163,9 @@ class GroupRoutePointNightServiceModifyRequest extends ComplexType implements Co
      */
     public function getBusinessHours()
     {
-        return ($this->businessHours) ? $this->businessHours->getValue() : null;
+        return ($this->businessHours)
+            ? $this->businessHours->getElementValue()
+            : null;
     }
 
     /**
@@ -168,7 +174,7 @@ class GroupRoutePointNightServiceModifyRequest extends ComplexType implements Co
     public function setForceNightService($forceNightService = null)
     {
         $this->forceNightService = new PrimitiveType($forceNightService);
-        $this->forceNightService->setName('forceNightService');
+        $this->forceNightService->setElementName('forceNightService');
         return $this;
     }
 
@@ -178,7 +184,9 @@ class GroupRoutePointNightServiceModifyRequest extends ComplexType implements Co
      */
     public function getForceNightService()
     {
-        return ($this->forceNightService) ? $this->forceNightService->getValue() : null;
+        return ($this->forceNightService)
+            ? $this->forceNightService->getElementValue()
+            : null;
     }
 
     /**
@@ -189,7 +197,7 @@ class GroupRoutePointNightServiceModifyRequest extends ComplexType implements Co
         $this->transferPhoneNumber = ($transferPhoneNumber InstanceOf OutgoingDNorSIPURI)
              ? $transferPhoneNumber
              : new OutgoingDNorSIPURI($transferPhoneNumber);
-        $this->transferPhoneNumber->setName('transferPhoneNumber');
+        $this->transferPhoneNumber->setElementName('transferPhoneNumber');
         return $this;
     }
 
@@ -199,7 +207,9 @@ class GroupRoutePointNightServiceModifyRequest extends ComplexType implements Co
      */
     public function getTransferPhoneNumber()
     {
-        return ($this->transferPhoneNumber) ? $this->transferPhoneNumber->getValue() : null;
+        return ($this->transferPhoneNumber)
+            ? $this->transferPhoneNumber->getElementValue()
+            : null;
     }
 
     /**
@@ -208,7 +218,7 @@ class GroupRoutePointNightServiceModifyRequest extends ComplexType implements Co
     public function setPlayAnnouncementBeforeAction($playAnnouncementBeforeAction = null)
     {
         $this->playAnnouncementBeforeAction = new PrimitiveType($playAnnouncementBeforeAction);
-        $this->playAnnouncementBeforeAction->setName('playAnnouncementBeforeAction');
+        $this->playAnnouncementBeforeAction->setElementName('playAnnouncementBeforeAction');
         return $this;
     }
 
@@ -218,7 +228,9 @@ class GroupRoutePointNightServiceModifyRequest extends ComplexType implements Co
      */
     public function getPlayAnnouncementBeforeAction()
     {
-        return ($this->playAnnouncementBeforeAction) ? $this->playAnnouncementBeforeAction->getValue() : null;
+        return ($this->playAnnouncementBeforeAction)
+            ? $this->playAnnouncementBeforeAction->getElementValue()
+            : null;
     }
 
     /**
@@ -229,7 +241,7 @@ class GroupRoutePointNightServiceModifyRequest extends ComplexType implements Co
         $this->audioMessageSelection = ($audioMessageSelection InstanceOf ExtendedFileResourceSelection)
              ? $audioMessageSelection
              : new ExtendedFileResourceSelection($audioMessageSelection);
-        $this->audioMessageSelection->setName('audioMessageSelection');
+        $this->audioMessageSelection->setElementName('audioMessageSelection');
         return $this;
     }
 
@@ -239,7 +251,9 @@ class GroupRoutePointNightServiceModifyRequest extends ComplexType implements Co
      */
     public function getAudioMessageSelection()
     {
-        return ($this->audioMessageSelection) ? $this->audioMessageSelection->getValue() : null;
+        return ($this->audioMessageSelection)
+            ? $this->audioMessageSelection->getElementValue()
+            : null;
     }
 
     /**
@@ -250,7 +264,7 @@ class GroupRoutePointNightServiceModifyRequest extends ComplexType implements Co
         $this->audioUrlList = ($audioUrlList InstanceOf CallCenterAnnouncementURLListModify)
              ? $audioUrlList
              : new CallCenterAnnouncementURLListModify($audioUrlList);
-        $this->audioUrlList->setName('audioUrlList');
+        $this->audioUrlList->setElementName('audioUrlList');
         return $this;
     }
 
@@ -271,7 +285,7 @@ class GroupRoutePointNightServiceModifyRequest extends ComplexType implements Co
         $this->audioFileList = ($audioFileList InstanceOf CallCenterAnnouncementFileListModify)
              ? $audioFileList
              : new CallCenterAnnouncementFileListModify($audioFileList);
-        $this->audioFileList->setName('audioFileList');
+        $this->audioFileList->setElementName('audioFileList');
         return $this;
     }
 
@@ -292,7 +306,7 @@ class GroupRoutePointNightServiceModifyRequest extends ComplexType implements Co
         $this->videoMessageSelection = ($videoMessageSelection InstanceOf ExtendedFileResourceSelection)
              ? $videoMessageSelection
              : new ExtendedFileResourceSelection($videoMessageSelection);
-        $this->videoMessageSelection->setName('videoMessageSelection');
+        $this->videoMessageSelection->setElementName('videoMessageSelection');
         return $this;
     }
 
@@ -302,7 +316,9 @@ class GroupRoutePointNightServiceModifyRequest extends ComplexType implements Co
      */
     public function getVideoMessageSelection()
     {
-        return ($this->videoMessageSelection) ? $this->videoMessageSelection->getValue() : null;
+        return ($this->videoMessageSelection)
+            ? $this->videoMessageSelection->getElementValue()
+            : null;
     }
 
     /**
@@ -313,7 +329,7 @@ class GroupRoutePointNightServiceModifyRequest extends ComplexType implements Co
         $this->videoUrlList = ($videoUrlList InstanceOf CallCenterAnnouncementURLListModify)
              ? $videoUrlList
              : new CallCenterAnnouncementURLListModify($videoUrlList);
-        $this->videoUrlList->setName('videoUrlList');
+        $this->videoUrlList->setElementName('videoUrlList');
         return $this;
     }
 
@@ -334,7 +350,7 @@ class GroupRoutePointNightServiceModifyRequest extends ComplexType implements Co
         $this->videoFileList = ($videoFileList InstanceOf CallCenterAnnouncementFileListModify)
              ? $videoFileList
              : new CallCenterAnnouncementFileListModify($videoFileList);
-        $this->videoFileList->setName('videoFileList');
+        $this->videoFileList->setElementName('videoFileList');
         return $this;
     }
 
@@ -355,7 +371,7 @@ class GroupRoutePointNightServiceModifyRequest extends ComplexType implements Co
         $this->manualAnnouncementMode = ($manualAnnouncementMode InstanceOf CallCenterManualNightServiceAnnouncementMode)
              ? $manualAnnouncementMode
              : new CallCenterManualNightServiceAnnouncementMode($manualAnnouncementMode);
-        $this->manualAnnouncementMode->setName('manualAnnouncementMode');
+        $this->manualAnnouncementMode->setElementName('manualAnnouncementMode');
         return $this;
     }
 
@@ -365,7 +381,9 @@ class GroupRoutePointNightServiceModifyRequest extends ComplexType implements Co
      */
     public function getManualAnnouncementMode()
     {
-        return ($this->manualAnnouncementMode) ? $this->manualAnnouncementMode->getValue() : null;
+        return ($this->manualAnnouncementMode)
+            ? $this->manualAnnouncementMode->getElementValue()
+            : null;
     }
 
     /**
@@ -376,7 +394,7 @@ class GroupRoutePointNightServiceModifyRequest extends ComplexType implements Co
         $this->manualAudioMessageSelection = ($manualAudioMessageSelection InstanceOf ExtendedFileResourceSelection)
              ? $manualAudioMessageSelection
              : new ExtendedFileResourceSelection($manualAudioMessageSelection);
-        $this->manualAudioMessageSelection->setName('manualAudioMessageSelection');
+        $this->manualAudioMessageSelection->setElementName('manualAudioMessageSelection');
         return $this;
     }
 
@@ -386,7 +404,9 @@ class GroupRoutePointNightServiceModifyRequest extends ComplexType implements Co
      */
     public function getManualAudioMessageSelection()
     {
-        return ($this->manualAudioMessageSelection) ? $this->manualAudioMessageSelection->getValue() : null;
+        return ($this->manualAudioMessageSelection)
+            ? $this->manualAudioMessageSelection->getElementValue()
+            : null;
     }
 
     /**
@@ -397,7 +417,7 @@ class GroupRoutePointNightServiceModifyRequest extends ComplexType implements Co
         $this->manualAudioUrlList = ($manualAudioUrlList InstanceOf CallCenterAnnouncementURLListModify)
              ? $manualAudioUrlList
              : new CallCenterAnnouncementURLListModify($manualAudioUrlList);
-        $this->manualAudioUrlList->setName('manualAudioUrlList');
+        $this->manualAudioUrlList->setElementName('manualAudioUrlList');
         return $this;
     }
 
@@ -418,7 +438,7 @@ class GroupRoutePointNightServiceModifyRequest extends ComplexType implements Co
         $this->manualAudioFileList = ($manualAudioFileList InstanceOf CallCenterAnnouncementFileListModify)
              ? $manualAudioFileList
              : new CallCenterAnnouncementFileListModify($manualAudioFileList);
-        $this->manualAudioFileList->setName('manualAudioFileList');
+        $this->manualAudioFileList->setElementName('manualAudioFileList');
         return $this;
     }
 
@@ -439,7 +459,7 @@ class GroupRoutePointNightServiceModifyRequest extends ComplexType implements Co
         $this->manualVideoMessageSelection = ($manualVideoMessageSelection InstanceOf ExtendedFileResourceSelection)
              ? $manualVideoMessageSelection
              : new ExtendedFileResourceSelection($manualVideoMessageSelection);
-        $this->manualVideoMessageSelection->setName('manualVideoMessageSelection');
+        $this->manualVideoMessageSelection->setElementName('manualVideoMessageSelection');
         return $this;
     }
 
@@ -449,7 +469,9 @@ class GroupRoutePointNightServiceModifyRequest extends ComplexType implements Co
      */
     public function getManualVideoMessageSelection()
     {
-        return ($this->manualVideoMessageSelection) ? $this->manualVideoMessageSelection->getValue() : null;
+        return ($this->manualVideoMessageSelection)
+            ? $this->manualVideoMessageSelection->getElementValue()
+            : null;
     }
 
     /**
@@ -460,7 +482,7 @@ class GroupRoutePointNightServiceModifyRequest extends ComplexType implements Co
         $this->manualVideoUrlList = ($manualVideoUrlList InstanceOf CallCenterAnnouncementURLListModify)
              ? $manualVideoUrlList
              : new CallCenterAnnouncementURLListModify($manualVideoUrlList);
-        $this->manualVideoUrlList->setName('manualVideoUrlList');
+        $this->manualVideoUrlList->setElementName('manualVideoUrlList');
         return $this;
     }
 
@@ -481,7 +503,7 @@ class GroupRoutePointNightServiceModifyRequest extends ComplexType implements Co
         $this->manualVideoFileList = ($manualVideoFileList InstanceOf CallCenterAnnouncementFileListModify)
              ? $manualVideoFileList
              : new CallCenterAnnouncementFileListModify($manualVideoFileList);
-        $this->manualVideoFileList->setName('manualVideoFileList');
+        $this->manualVideoFileList->setElementName('manualVideoFileList');
         return $this;
     }
 

@@ -16,12 +16,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\MinLength;
  */
 class DepartmentFullPathName extends SimpleType
 {
-    public $name = "DepartmentFullPathName";
-    protected $value;
-
+    public $elementName = "DepartmentFullPathName";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new MinLength("1"));
     }
 }

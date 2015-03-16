@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemOCICallControlApplicationDeleteACLEntryRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemOCICallControlApplicationDeleteACLEntryRequest';
+    public    $elementName = 'SystemOCICallControlApplicationDeleteACLEntryRequest';
     protected $applicationId;
     protected $netAddress;
 
@@ -49,7 +49,7 @@ class SystemOCICallControlApplicationDeleteACLEntryRequest extends ComplexType i
         $this->applicationId = ($applicationId InstanceOf OCICallControlApplicationId)
              ? $applicationId
              : new OCICallControlApplicationId($applicationId);
-        $this->applicationId->setName('applicationId');
+        $this->applicationId->setElementName('applicationId');
         return $this;
     }
 
@@ -59,7 +59,9 @@ class SystemOCICallControlApplicationDeleteACLEntryRequest extends ComplexType i
      */
     public function getApplicationId()
     {
-        return ($this->applicationId) ? $this->applicationId->getValue() : null;
+        return ($this->applicationId)
+            ? $this->applicationId->getElementValue()
+            : null;
     }
 
     /**
@@ -70,7 +72,7 @@ class SystemOCICallControlApplicationDeleteACLEntryRequest extends ComplexType i
         $this->netAddress = ($netAddress InstanceOf IPAddress)
              ? $netAddress
              : new IPAddress($netAddress);
-        $this->netAddress->setName('netAddress');
+        $this->netAddress->setElementName('netAddress');
         return $this;
     }
 
@@ -80,6 +82,8 @@ class SystemOCICallControlApplicationDeleteACLEntryRequest extends ComplexType i
      */
     public function getNetAddress()
     {
-        return ($this->netAddress) ? $this->netAddress->getValue() : null;
+        return ($this->netAddress)
+            ? $this->netAddress->getElementValue()
+            : null;
     }
 }

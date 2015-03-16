@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemShInterfaceRefreshTaskStartRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemShInterfaceRefreshTaskStartRequest';
+    public    $elementName = 'SystemShInterfaceRefreshTaskStartRequest';
 
     public function __construct(    ) {
     }

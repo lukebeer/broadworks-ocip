@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemMediaSetGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemMediaSetGetResponse';
+    public    $elementName = 'SystemMediaSetGetResponse';
     protected $mediaName;
 
     /**
@@ -39,7 +39,7 @@ class SystemMediaSetGetResponse extends ComplexType implements ComplexInterface
         $this->mediaName = ($mediaName InstanceOf MediaName)
              ? $mediaName
              : new MediaName($mediaName);
-        $this->mediaName->setName('mediaName');
+        $this->mediaName->setElementName('mediaName');
         return $this;
     }
 
@@ -49,6 +49,8 @@ class SystemMediaSetGetResponse extends ComplexType implements ComplexInterface
      */
     public function getMediaName()
     {
-        return ($this->mediaName) ? $this->mediaName->getValue() : null;
+        return ($this->mediaName)
+            ? $this->mediaName->getElementValue()
+            : null;
     }
 }

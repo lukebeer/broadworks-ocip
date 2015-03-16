@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderBroadWorksCommunicatorModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'ServiceProviderBroadWorksCommunicatorModifyRequest';
+    public    $elementName = 'ServiceProviderBroadWorksCommunicatorModifyRequest';
     protected $serviceProviderId;
     protected $configurationServerURL;
 
@@ -48,7 +48,7 @@ class ServiceProviderBroadWorksCommunicatorModifyRequest extends ComplexType imp
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
-        $this->serviceProviderId->setName('serviceProviderId');
+        $this->serviceProviderId->setElementName('serviceProviderId');
         return $this;
     }
 
@@ -58,7 +58,9 @@ class ServiceProviderBroadWorksCommunicatorModifyRequest extends ComplexType imp
      */
     public function getServiceProviderId()
     {
-        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
+        return ($this->serviceProviderId)
+            ? $this->serviceProviderId->getElementValue()
+            : null;
     }
 
     /**
@@ -69,7 +71,7 @@ class ServiceProviderBroadWorksCommunicatorModifyRequest extends ComplexType imp
         $this->configurationServerURL = ($configurationServerURL InstanceOf URL)
              ? $configurationServerURL
              : new URL($configurationServerURL);
-        $this->configurationServerURL->setName('configurationServerURL');
+        $this->configurationServerURL->setElementName('configurationServerURL');
         return $this;
     }
 
@@ -79,6 +81,8 @@ class ServiceProviderBroadWorksCommunicatorModifyRequest extends ComplexType imp
      */
     public function getConfigurationServerURL()
     {
-        return ($this->configurationServerURL) ? $this->configurationServerURL->getValue() : null;
+        return ($this->configurationServerURL)
+            ? $this->configurationServerURL->getElementValue()
+            : null;
     }
 }

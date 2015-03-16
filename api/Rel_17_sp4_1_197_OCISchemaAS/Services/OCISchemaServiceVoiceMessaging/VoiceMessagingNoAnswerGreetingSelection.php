@@ -16,12 +16,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\Enumeration;
  */
 class VoiceMessagingNoAnswerGreetingSelection extends SimpleType
 {
-    public $name = "VoiceMessagingNoAnswerGreetingSelection";
-    protected $value;
-
+    public $elementName = "VoiceMessagingNoAnswerGreetingSelection";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new Enumeration([
             'Default',
             'Personal',

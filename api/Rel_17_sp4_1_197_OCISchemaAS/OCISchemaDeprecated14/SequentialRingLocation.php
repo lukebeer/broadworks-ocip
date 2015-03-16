@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SequentialRingLocation extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SequentialRingLocation';
+    public    $elementName = 'SequentialRingLocation';
     protected $phoneNumber;
     protected $numberOfRings;
 
@@ -46,7 +46,7 @@ class SequentialRingLocation extends ComplexType implements ComplexInterface
     public function setPhoneNumber($phoneNumber = null)
     {
         $this->phoneNumber = new SimpleContent($phoneNumber);
-        $this->phoneNumber->setName('phoneNumber');
+        $this->phoneNumber->setElementName('phoneNumber');
         return $this;
     }
 
@@ -56,7 +56,9 @@ class SequentialRingLocation extends ComplexType implements ComplexInterface
      */
     public function getPhoneNumber()
     {
-        return ($this->phoneNumber) ? $this->phoneNumber->getValue() : null;
+        return ($this->phoneNumber)
+            ? $this->phoneNumber->getElementValue()
+            : null;
     }
 
     /**
@@ -65,7 +67,7 @@ class SequentialRingLocation extends ComplexType implements ComplexInterface
     public function setNumberOfRings($numberOfRings = null)
     {
         $this->numberOfRings = new SimpleContent($numberOfRings);
-        $this->numberOfRings->setName('numberOfRings');
+        $this->numberOfRings->setElementName('numberOfRings');
         return $this;
     }
 
@@ -75,6 +77,8 @@ class SequentialRingLocation extends ComplexType implements ComplexInterface
      */
     public function getNumberOfRings()
     {
-        return ($this->numberOfRings) ? $this->numberOfRings->getValue() : null;
+        return ($this->numberOfRings)
+            ? $this->numberOfRings->getElementValue()
+            : null;
     }
 }

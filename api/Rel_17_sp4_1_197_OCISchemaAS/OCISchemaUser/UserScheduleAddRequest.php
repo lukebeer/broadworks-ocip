@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserScheduleAddRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'UserScheduleAddRequest';
+    public    $elementName = 'UserScheduleAddRequest';
     protected $userId;
     protected $scheduleName;
     protected $scheduleType;
@@ -53,7 +53,7 @@ class UserScheduleAddRequest extends ComplexType implements ComplexInterface
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
-        $this->userId->setName('userId');
+        $this->userId->setElementName('userId');
         return $this;
     }
 
@@ -63,7 +63,9 @@ class UserScheduleAddRequest extends ComplexType implements ComplexInterface
      */
     public function getUserId()
     {
-        return ($this->userId) ? $this->userId->getValue() : null;
+        return ($this->userId)
+            ? $this->userId->getElementValue()
+            : null;
     }
 
     /**
@@ -74,7 +76,7 @@ class UserScheduleAddRequest extends ComplexType implements ComplexInterface
         $this->scheduleName = ($scheduleName InstanceOf ScheduleName)
              ? $scheduleName
              : new ScheduleName($scheduleName);
-        $this->scheduleName->setName('scheduleName');
+        $this->scheduleName->setElementName('scheduleName');
         return $this;
     }
 
@@ -84,7 +86,9 @@ class UserScheduleAddRequest extends ComplexType implements ComplexInterface
      */
     public function getScheduleName()
     {
-        return ($this->scheduleName) ? $this->scheduleName->getValue() : null;
+        return ($this->scheduleName)
+            ? $this->scheduleName->getElementValue()
+            : null;
     }
 
     /**
@@ -95,7 +99,7 @@ class UserScheduleAddRequest extends ComplexType implements ComplexInterface
         $this->scheduleType = ($scheduleType InstanceOf ScheduleType)
              ? $scheduleType
              : new ScheduleType($scheduleType);
-        $this->scheduleType->setName('scheduleType');
+        $this->scheduleType->setElementName('scheduleType');
         return $this;
     }
 
@@ -105,6 +109,8 @@ class UserScheduleAddRequest extends ComplexType implements ComplexInterface
      */
     public function getScheduleType()
     {
-        return ($this->scheduleType) ? $this->scheduleType->getValue() : null;
+        return ($this->scheduleType)
+            ? $this->scheduleType->getElementValue()
+            : null;
     }
 }

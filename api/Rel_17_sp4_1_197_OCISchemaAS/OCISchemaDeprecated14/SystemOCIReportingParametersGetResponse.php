@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemOCIReportingParametersGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemOCIReportingParametersGetResponse';
+    public    $elementName = 'SystemOCIReportingParametersGetResponse';
     protected $serverPort;
     protected $enableConnectionPing;
     protected $connectionPingIntervalSeconds;
@@ -44,7 +44,7 @@ class SystemOCIReportingParametersGetResponse extends ComplexType implements Com
         $this->serverPort = ($serverPort InstanceOf Port1025)
              ? $serverPort
              : new Port1025($serverPort);
-        $this->serverPort->setName('serverPort');
+        $this->serverPort->setElementName('serverPort');
         return $this;
     }
 
@@ -54,7 +54,9 @@ class SystemOCIReportingParametersGetResponse extends ComplexType implements Com
      */
     public function getServerPort()
     {
-        return ($this->serverPort) ? $this->serverPort->getValue() : null;
+        return ($this->serverPort)
+            ? $this->serverPort->getElementValue()
+            : null;
     }
 
     /**
@@ -63,7 +65,7 @@ class SystemOCIReportingParametersGetResponse extends ComplexType implements Com
     public function setEnableConnectionPing($enableConnectionPing = null)
     {
         $this->enableConnectionPing = new PrimitiveType($enableConnectionPing);
-        $this->enableConnectionPing->setName('enableConnectionPing');
+        $this->enableConnectionPing->setElementName('enableConnectionPing');
         return $this;
     }
 
@@ -73,7 +75,9 @@ class SystemOCIReportingParametersGetResponse extends ComplexType implements Com
      */
     public function getEnableConnectionPing()
     {
-        return ($this->enableConnectionPing) ? $this->enableConnectionPing->getValue() : null;
+        return ($this->enableConnectionPing)
+            ? $this->enableConnectionPing->getElementValue()
+            : null;
     }
 
     /**
@@ -84,7 +88,7 @@ class SystemOCIReportingParametersGetResponse extends ComplexType implements Com
         $this->connectionPingIntervalSeconds = ($connectionPingIntervalSeconds InstanceOf OCIReportingConnectionPingIntervalSeconds)
              ? $connectionPingIntervalSeconds
              : new OCIReportingConnectionPingIntervalSeconds($connectionPingIntervalSeconds);
-        $this->connectionPingIntervalSeconds->setName('connectionPingIntervalSeconds');
+        $this->connectionPingIntervalSeconds->setElementName('connectionPingIntervalSeconds');
         return $this;
     }
 
@@ -94,7 +98,9 @@ class SystemOCIReportingParametersGetResponse extends ComplexType implements Com
      */
     public function getConnectionPingIntervalSeconds()
     {
-        return ($this->connectionPingIntervalSeconds) ? $this->connectionPingIntervalSeconds->getValue() : null;
+        return ($this->connectionPingIntervalSeconds)
+            ? $this->connectionPingIntervalSeconds->getElementValue()
+            : null;
     }
 
     /**
@@ -103,7 +109,7 @@ class SystemOCIReportingParametersGetResponse extends ComplexType implements Com
     public function setAlterPasswords($alterPasswords = null)
     {
         $this->alterPasswords = new PrimitiveType($alterPasswords);
-        $this->alterPasswords->setName('alterPasswords');
+        $this->alterPasswords->setElementName('alterPasswords');
         return $this;
     }
 
@@ -113,6 +119,8 @@ class SystemOCIReportingParametersGetResponse extends ComplexType implements Com
      */
     public function getAlterPasswords()
     {
-        return ($this->alterPasswords) ? $this->alterPasswords->getValue() : null;
+        return ($this->alterPasswords)
+            ? $this->alterPasswords->getElementValue()
+            : null;
     }
 }

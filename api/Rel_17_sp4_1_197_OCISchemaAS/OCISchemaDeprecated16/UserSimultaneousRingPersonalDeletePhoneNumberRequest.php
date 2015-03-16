@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserSimultaneousRingPersonalDeletePhoneNumberRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'UserSimultaneousRingPersonalDeletePhoneNumberRequest';
+    public    $elementName = 'UserSimultaneousRingPersonalDeletePhoneNumberRequest';
     protected $userId;
     protected $phoneNumber;
 
@@ -48,7 +48,7 @@ class UserSimultaneousRingPersonalDeletePhoneNumberRequest extends ComplexType i
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
-        $this->userId->setName('userId');
+        $this->userId->setElementName('userId');
         return $this;
     }
 
@@ -58,7 +58,9 @@ class UserSimultaneousRingPersonalDeletePhoneNumberRequest extends ComplexType i
      */
     public function getUserId()
     {
-        return ($this->userId) ? $this->userId->getValue() : null;
+        return ($this->userId)
+            ? $this->userId->getElementValue()
+            : null;
     }
 
     /**
@@ -69,7 +71,7 @@ class UserSimultaneousRingPersonalDeletePhoneNumberRequest extends ComplexType i
         $this->phoneNumber = ($phoneNumber InstanceOf OutgoingDNorSIPURI)
              ? $phoneNumber
              : new OutgoingDNorSIPURI($phoneNumber);
-        $this->phoneNumber->setName('phoneNumber');
+        $this->phoneNumber->setElementName('phoneNumber');
         return $this;
     }
 
@@ -79,6 +81,8 @@ class UserSimultaneousRingPersonalDeletePhoneNumberRequest extends ComplexType i
      */
     public function getPhoneNumber()
     {
-        return ($this->phoneNumber) ? $this->phoneNumber->getValue() : null;
+        return ($this->phoneNumber)
+            ? $this->phoneNumber->getElementValue()
+            : null;
     }
 }

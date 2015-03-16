@@ -24,7 +24,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserVoiceMessagingUserModifyVoiceManagementRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'UserVoiceMessagingUserModifyVoiceManagementRequest';
+    public    $elementName = 'UserVoiceMessagingUserModifyVoiceManagementRequest';
     protected $userId;
     protected $isActive;
     protected $processing;
@@ -91,7 +91,7 @@ class UserVoiceMessagingUserModifyVoiceManagementRequest extends ComplexType imp
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
-        $this->userId->setName('userId');
+        $this->userId->setElementName('userId');
         return $this;
     }
 
@@ -101,7 +101,9 @@ class UserVoiceMessagingUserModifyVoiceManagementRequest extends ComplexType imp
      */
     public function getUserId()
     {
-        return ($this->userId) ? $this->userId->getValue() : null;
+        return ($this->userId)
+            ? $this->userId->getElementValue()
+            : null;
     }
 
     /**
@@ -110,7 +112,7 @@ class UserVoiceMessagingUserModifyVoiceManagementRequest extends ComplexType imp
     public function setIsActive($isActive = null)
     {
         $this->isActive = new PrimitiveType($isActive);
-        $this->isActive->setName('isActive');
+        $this->isActive->setElementName('isActive');
         return $this;
     }
 
@@ -120,7 +122,9 @@ class UserVoiceMessagingUserModifyVoiceManagementRequest extends ComplexType imp
      */
     public function getIsActive()
     {
-        return ($this->isActive) ? $this->isActive->getValue() : null;
+        return ($this->isActive)
+            ? $this->isActive->getElementValue()
+            : null;
     }
 
     /**
@@ -131,7 +135,7 @@ class UserVoiceMessagingUserModifyVoiceManagementRequest extends ComplexType imp
         $this->processing = ($processing InstanceOf VoiceMessagingMessageProcessing)
              ? $processing
              : new VoiceMessagingMessageProcessing($processing);
-        $this->processing->setName('processing');
+        $this->processing->setElementName('processing');
         return $this;
     }
 
@@ -141,7 +145,9 @@ class UserVoiceMessagingUserModifyVoiceManagementRequest extends ComplexType imp
      */
     public function getProcessing()
     {
-        return ($this->processing) ? $this->processing->getValue() : null;
+        return ($this->processing)
+            ? $this->processing->getElementValue()
+            : null;
     }
 
     /**
@@ -152,7 +158,7 @@ class UserVoiceMessagingUserModifyVoiceManagementRequest extends ComplexType imp
         $this->voiceMessageDeliveryEmailAddress = ($voiceMessageDeliveryEmailAddress InstanceOf EmailAddress)
              ? $voiceMessageDeliveryEmailAddress
              : new EmailAddress($voiceMessageDeliveryEmailAddress);
-        $this->voiceMessageDeliveryEmailAddress->setName('voiceMessageDeliveryEmailAddress');
+        $this->voiceMessageDeliveryEmailAddress->setElementName('voiceMessageDeliveryEmailAddress');
         return $this;
     }
 
@@ -162,7 +168,9 @@ class UserVoiceMessagingUserModifyVoiceManagementRequest extends ComplexType imp
      */
     public function getVoiceMessageDeliveryEmailAddress()
     {
-        return ($this->voiceMessageDeliveryEmailAddress) ? $this->voiceMessageDeliveryEmailAddress->getValue() : null;
+        return ($this->voiceMessageDeliveryEmailAddress)
+            ? $this->voiceMessageDeliveryEmailAddress->getElementValue()
+            : null;
     }
 
     /**
@@ -171,7 +179,7 @@ class UserVoiceMessagingUserModifyVoiceManagementRequest extends ComplexType imp
     public function setUsePhoneMessageWaitingIndicator($usePhoneMessageWaitingIndicator = null)
     {
         $this->usePhoneMessageWaitingIndicator = new PrimitiveType($usePhoneMessageWaitingIndicator);
-        $this->usePhoneMessageWaitingIndicator->setName('usePhoneMessageWaitingIndicator');
+        $this->usePhoneMessageWaitingIndicator->setElementName('usePhoneMessageWaitingIndicator');
         return $this;
     }
 
@@ -181,7 +189,9 @@ class UserVoiceMessagingUserModifyVoiceManagementRequest extends ComplexType imp
      */
     public function getUsePhoneMessageWaitingIndicator()
     {
-        return ($this->usePhoneMessageWaitingIndicator) ? $this->usePhoneMessageWaitingIndicator->getValue() : null;
+        return ($this->usePhoneMessageWaitingIndicator)
+            ? $this->usePhoneMessageWaitingIndicator->getElementValue()
+            : null;
     }
 
     /**
@@ -190,7 +200,7 @@ class UserVoiceMessagingUserModifyVoiceManagementRequest extends ComplexType imp
     public function setSendVoiceMessageNotifyEmail($sendVoiceMessageNotifyEmail = null)
     {
         $this->sendVoiceMessageNotifyEmail = new PrimitiveType($sendVoiceMessageNotifyEmail);
-        $this->sendVoiceMessageNotifyEmail->setName('sendVoiceMessageNotifyEmail');
+        $this->sendVoiceMessageNotifyEmail->setElementName('sendVoiceMessageNotifyEmail');
         return $this;
     }
 
@@ -200,7 +210,9 @@ class UserVoiceMessagingUserModifyVoiceManagementRequest extends ComplexType imp
      */
     public function getSendVoiceMessageNotifyEmail()
     {
-        return ($this->sendVoiceMessageNotifyEmail) ? $this->sendVoiceMessageNotifyEmail->getValue() : null;
+        return ($this->sendVoiceMessageNotifyEmail)
+            ? $this->sendVoiceMessageNotifyEmail->getElementValue()
+            : null;
     }
 
     /**
@@ -211,7 +223,7 @@ class UserVoiceMessagingUserModifyVoiceManagementRequest extends ComplexType imp
         $this->voiceMessageNotifyEmailAddress = ($voiceMessageNotifyEmailAddress InstanceOf EmailAddress)
              ? $voiceMessageNotifyEmailAddress
              : new EmailAddress($voiceMessageNotifyEmailAddress);
-        $this->voiceMessageNotifyEmailAddress->setName('voiceMessageNotifyEmailAddress');
+        $this->voiceMessageNotifyEmailAddress->setElementName('voiceMessageNotifyEmailAddress');
         return $this;
     }
 
@@ -221,7 +233,9 @@ class UserVoiceMessagingUserModifyVoiceManagementRequest extends ComplexType imp
      */
     public function getVoiceMessageNotifyEmailAddress()
     {
-        return ($this->voiceMessageNotifyEmailAddress) ? $this->voiceMessageNotifyEmailAddress->getValue() : null;
+        return ($this->voiceMessageNotifyEmailAddress)
+            ? $this->voiceMessageNotifyEmailAddress->getElementValue()
+            : null;
     }
 
     /**
@@ -230,7 +244,7 @@ class UserVoiceMessagingUserModifyVoiceManagementRequest extends ComplexType imp
     public function setSendCarbonCopyVoiceMessage($sendCarbonCopyVoiceMessage = null)
     {
         $this->sendCarbonCopyVoiceMessage = new PrimitiveType($sendCarbonCopyVoiceMessage);
-        $this->sendCarbonCopyVoiceMessage->setName('sendCarbonCopyVoiceMessage');
+        $this->sendCarbonCopyVoiceMessage->setElementName('sendCarbonCopyVoiceMessage');
         return $this;
     }
 
@@ -240,7 +254,9 @@ class UserVoiceMessagingUserModifyVoiceManagementRequest extends ComplexType imp
      */
     public function getSendCarbonCopyVoiceMessage()
     {
-        return ($this->sendCarbonCopyVoiceMessage) ? $this->sendCarbonCopyVoiceMessage->getValue() : null;
+        return ($this->sendCarbonCopyVoiceMessage)
+            ? $this->sendCarbonCopyVoiceMessage->getElementValue()
+            : null;
     }
 
     /**
@@ -251,7 +267,7 @@ class UserVoiceMessagingUserModifyVoiceManagementRequest extends ComplexType imp
         $this->voiceMessageCarbonCopyEmailAddress = ($voiceMessageCarbonCopyEmailAddress InstanceOf EmailAddress)
              ? $voiceMessageCarbonCopyEmailAddress
              : new EmailAddress($voiceMessageCarbonCopyEmailAddress);
-        $this->voiceMessageCarbonCopyEmailAddress->setName('voiceMessageCarbonCopyEmailAddress');
+        $this->voiceMessageCarbonCopyEmailAddress->setElementName('voiceMessageCarbonCopyEmailAddress');
         return $this;
     }
 
@@ -261,7 +277,9 @@ class UserVoiceMessagingUserModifyVoiceManagementRequest extends ComplexType imp
      */
     public function getVoiceMessageCarbonCopyEmailAddress()
     {
-        return ($this->voiceMessageCarbonCopyEmailAddress) ? $this->voiceMessageCarbonCopyEmailAddress->getValue() : null;
+        return ($this->voiceMessageCarbonCopyEmailAddress)
+            ? $this->voiceMessageCarbonCopyEmailAddress->getElementValue()
+            : null;
     }
 
     /**
@@ -270,7 +288,7 @@ class UserVoiceMessagingUserModifyVoiceManagementRequest extends ComplexType imp
     public function setTransferOnZeroToPhoneNumber($transferOnZeroToPhoneNumber = null)
     {
         $this->transferOnZeroToPhoneNumber = new PrimitiveType($transferOnZeroToPhoneNumber);
-        $this->transferOnZeroToPhoneNumber->setName('transferOnZeroToPhoneNumber');
+        $this->transferOnZeroToPhoneNumber->setElementName('transferOnZeroToPhoneNumber');
         return $this;
     }
 
@@ -280,7 +298,9 @@ class UserVoiceMessagingUserModifyVoiceManagementRequest extends ComplexType imp
      */
     public function getTransferOnZeroToPhoneNumber()
     {
-        return ($this->transferOnZeroToPhoneNumber) ? $this->transferOnZeroToPhoneNumber->getValue() : null;
+        return ($this->transferOnZeroToPhoneNumber)
+            ? $this->transferOnZeroToPhoneNumber->getElementValue()
+            : null;
     }
 
     /**
@@ -291,7 +311,7 @@ class UserVoiceMessagingUserModifyVoiceManagementRequest extends ComplexType imp
         $this->transferPhoneNumber = ($transferPhoneNumber InstanceOf OutgoingDN)
              ? $transferPhoneNumber
              : new OutgoingDN($transferPhoneNumber);
-        $this->transferPhoneNumber->setName('transferPhoneNumber');
+        $this->transferPhoneNumber->setElementName('transferPhoneNumber');
         return $this;
     }
 
@@ -301,7 +321,9 @@ class UserVoiceMessagingUserModifyVoiceManagementRequest extends ComplexType imp
      */
     public function getTransferPhoneNumber()
     {
-        return ($this->transferPhoneNumber) ? $this->transferPhoneNumber->getValue() : null;
+        return ($this->transferPhoneNumber)
+            ? $this->transferPhoneNumber->getElementValue()
+            : null;
     }
 
     /**
@@ -310,7 +332,7 @@ class UserVoiceMessagingUserModifyVoiceManagementRequest extends ComplexType imp
     public function setAlwaysRedirectToVoiceMail($alwaysRedirectToVoiceMail = null)
     {
         $this->alwaysRedirectToVoiceMail = new PrimitiveType($alwaysRedirectToVoiceMail);
-        $this->alwaysRedirectToVoiceMail->setName('alwaysRedirectToVoiceMail');
+        $this->alwaysRedirectToVoiceMail->setElementName('alwaysRedirectToVoiceMail');
         return $this;
     }
 
@@ -320,7 +342,9 @@ class UserVoiceMessagingUserModifyVoiceManagementRequest extends ComplexType imp
      */
     public function getAlwaysRedirectToVoiceMail()
     {
-        return ($this->alwaysRedirectToVoiceMail) ? $this->alwaysRedirectToVoiceMail->getValue() : null;
+        return ($this->alwaysRedirectToVoiceMail)
+            ? $this->alwaysRedirectToVoiceMail->getElementValue()
+            : null;
     }
 
     /**
@@ -329,7 +353,7 @@ class UserVoiceMessagingUserModifyVoiceManagementRequest extends ComplexType imp
     public function setBusyRedirectToVoiceMail($busyRedirectToVoiceMail = null)
     {
         $this->busyRedirectToVoiceMail = new PrimitiveType($busyRedirectToVoiceMail);
-        $this->busyRedirectToVoiceMail->setName('busyRedirectToVoiceMail');
+        $this->busyRedirectToVoiceMail->setElementName('busyRedirectToVoiceMail');
         return $this;
     }
 
@@ -339,7 +363,9 @@ class UserVoiceMessagingUserModifyVoiceManagementRequest extends ComplexType imp
      */
     public function getBusyRedirectToVoiceMail()
     {
-        return ($this->busyRedirectToVoiceMail) ? $this->busyRedirectToVoiceMail->getValue() : null;
+        return ($this->busyRedirectToVoiceMail)
+            ? $this->busyRedirectToVoiceMail->getElementValue()
+            : null;
     }
 
     /**
@@ -348,7 +374,7 @@ class UserVoiceMessagingUserModifyVoiceManagementRequest extends ComplexType imp
     public function setNoAnswerRedirectToVoiceMail($noAnswerRedirectToVoiceMail = null)
     {
         $this->noAnswerRedirectToVoiceMail = new PrimitiveType($noAnswerRedirectToVoiceMail);
-        $this->noAnswerRedirectToVoiceMail->setName('noAnswerRedirectToVoiceMail');
+        $this->noAnswerRedirectToVoiceMail->setElementName('noAnswerRedirectToVoiceMail');
         return $this;
     }
 
@@ -358,7 +384,9 @@ class UserVoiceMessagingUserModifyVoiceManagementRequest extends ComplexType imp
      */
     public function getNoAnswerRedirectToVoiceMail()
     {
-        return ($this->noAnswerRedirectToVoiceMail) ? $this->noAnswerRedirectToVoiceMail->getValue() : null;
+        return ($this->noAnswerRedirectToVoiceMail)
+            ? $this->noAnswerRedirectToVoiceMail->getElementValue()
+            : null;
     }
 
     /**
@@ -367,7 +395,7 @@ class UserVoiceMessagingUserModifyVoiceManagementRequest extends ComplexType imp
     public function setOutOfPrimaryZoneRedirectToVoiceMail($outOfPrimaryZoneRedirectToVoiceMail = null)
     {
         $this->outOfPrimaryZoneRedirectToVoiceMail = new PrimitiveType($outOfPrimaryZoneRedirectToVoiceMail);
-        $this->outOfPrimaryZoneRedirectToVoiceMail->setName('outOfPrimaryZoneRedirectToVoiceMail');
+        $this->outOfPrimaryZoneRedirectToVoiceMail->setElementName('outOfPrimaryZoneRedirectToVoiceMail');
         return $this;
     }
 
@@ -377,6 +405,8 @@ class UserVoiceMessagingUserModifyVoiceManagementRequest extends ComplexType imp
      */
     public function getOutOfPrimaryZoneRedirectToVoiceMail()
     {
-        return ($this->outOfPrimaryZoneRedirectToVoiceMail) ? $this->outOfPrimaryZoneRedirectToVoiceMail->getValue() : null;
+        return ($this->outOfPrimaryZoneRedirectToVoiceMail)
+            ? $this->outOfPrimaryZoneRedirectToVoiceMail->getElementValue()
+            : null;
     }
 }

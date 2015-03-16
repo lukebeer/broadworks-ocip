@@ -17,12 +17,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\Enumeration;
  */
 class ServiceProviderAdminCommunicationBarringAccess extends SimpleType
 {
-    public $name = "ServiceProviderAdminCommunicationBarringAccess";
-    protected $value;
-
+    public $elementName = "ServiceProviderAdminCommunicationBarringAccess";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new Enumeration([
             'Full',
             'Read-Only'

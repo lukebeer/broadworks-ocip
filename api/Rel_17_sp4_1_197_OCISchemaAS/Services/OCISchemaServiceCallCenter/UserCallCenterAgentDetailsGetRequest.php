@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
 class UserCallCenterAgentDetailsGetRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\UserCallCenterAgentDetailsGetResponse';
-    public    $name = 'UserCallCenterAgentDetailsGetRequest';
+    public    $elementName = 'UserCallCenterAgentDetailsGetRequest';
     protected $agentUserId;
 
     public function __construct(
@@ -47,7 +47,7 @@ class UserCallCenterAgentDetailsGetRequest extends ComplexType implements Comple
         $this->agentUserId = ($agentUserId InstanceOf UserId)
              ? $agentUserId
              : new UserId($agentUserId);
-        $this->agentUserId->setName('agentUserId');
+        $this->agentUserId->setElementName('agentUserId');
         return $this;
     }
 
@@ -57,6 +57,8 @@ class UserCallCenterAgentDetailsGetRequest extends ComplexType implements Comple
      */
     public function getAgentUserId()
     {
-        return ($this->agentUserId) ? $this->agentUserId->getValue() : null;
+        return ($this->agentUserId)
+            ? $this->agentUserId->getElementValue()
+            : null;
     }
 }

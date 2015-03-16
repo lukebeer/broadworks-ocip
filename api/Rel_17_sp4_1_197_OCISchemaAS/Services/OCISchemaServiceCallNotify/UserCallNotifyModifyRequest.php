@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserCallNotifyModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'UserCallNotifyModifyRequest';
+    public    $elementName = 'UserCallNotifyModifyRequest';
     protected $userId;
     protected $callNotifyEmailAddress;
     protected $criteriaActivation;
@@ -53,7 +53,7 @@ class UserCallNotifyModifyRequest extends ComplexType implements ComplexInterfac
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
-        $this->userId->setName('userId');
+        $this->userId->setElementName('userId');
         return $this;
     }
 
@@ -63,7 +63,9 @@ class UserCallNotifyModifyRequest extends ComplexType implements ComplexInterfac
      */
     public function getUserId()
     {
-        return ($this->userId) ? $this->userId->getValue() : null;
+        return ($this->userId)
+            ? $this->userId->getElementValue()
+            : null;
     }
 
     /**
@@ -74,7 +76,7 @@ class UserCallNotifyModifyRequest extends ComplexType implements ComplexInterfac
         $this->callNotifyEmailAddress = ($callNotifyEmailAddress InstanceOf EmailAddress)
              ? $callNotifyEmailAddress
              : new EmailAddress($callNotifyEmailAddress);
-        $this->callNotifyEmailAddress->setName('callNotifyEmailAddress');
+        $this->callNotifyEmailAddress->setElementName('callNotifyEmailAddress');
         return $this;
     }
 
@@ -84,7 +86,9 @@ class UserCallNotifyModifyRequest extends ComplexType implements ComplexInterfac
      */
     public function getCallNotifyEmailAddress()
     {
-        return ($this->callNotifyEmailAddress) ? $this->callNotifyEmailAddress->getValue() : null;
+        return ($this->callNotifyEmailAddress)
+            ? $this->callNotifyEmailAddress->getElementValue()
+            : null;
     }
 
     /**
@@ -95,7 +99,7 @@ class UserCallNotifyModifyRequest extends ComplexType implements ComplexInterfac
         $this->criteriaActivation = ($criteriaActivation InstanceOf CriteriaActivation)
              ? $criteriaActivation
              : new CriteriaActivation($criteriaActivation);
-        $this->criteriaActivation->setName('criteriaActivation');
+        $this->criteriaActivation->setElementName('criteriaActivation');
         return $this;
     }
 

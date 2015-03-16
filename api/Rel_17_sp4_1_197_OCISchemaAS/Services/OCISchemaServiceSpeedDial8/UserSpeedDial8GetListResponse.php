@@ -19,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserSpeedDial8GetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'UserSpeedDial8GetListResponse';
+    public    $elementName = 'UserSpeedDial8GetListResponse';
     protected $speedDialEntry;
 
     /**
@@ -38,7 +38,7 @@ class UserSpeedDial8GetListResponse extends ComplexType implements ComplexInterf
         $this->speedDialEntry = ($speedDialEntry InstanceOf SpeedDial8Entry)
              ? $speedDialEntry
              : new SpeedDial8Entry($speedDialEntry);
-        $this->speedDialEntry->setName('speedDialEntry');
+        $this->speedDialEntry->setElementName('speedDialEntry');
         return $this;
     }
 

@@ -16,12 +16,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\Enumeration;
  */
 class AccountAuthorizationCodeType extends SimpleType
 {
-    public $name = "AccountAuthorizationCodeType";
-    protected $value;
-
+    public $elementName = "AccountAuthorizationCodeType";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new Enumeration([
             'Account Code',
             'Authorization Code',

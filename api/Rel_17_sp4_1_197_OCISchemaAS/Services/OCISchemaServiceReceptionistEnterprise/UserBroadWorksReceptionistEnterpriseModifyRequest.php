@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserBroadWorksReceptionistEnterpriseModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'UserBroadWorksReceptionistEnterpriseModifyRequest';
+    public    $elementName = 'UserBroadWorksReceptionistEnterpriseModifyRequest';
     protected $userId;
     protected $monitoredUserIdList;
 
@@ -49,7 +49,7 @@ class UserBroadWorksReceptionistEnterpriseModifyRequest extends ComplexType impl
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
-        $this->userId->setName('userId');
+        $this->userId->setElementName('userId');
         return $this;
     }
 
@@ -59,7 +59,9 @@ class UserBroadWorksReceptionistEnterpriseModifyRequest extends ComplexType impl
      */
     public function getUserId()
     {
-        return ($this->userId) ? $this->userId->getValue() : null;
+        return ($this->userId)
+            ? $this->userId->getElementValue()
+            : null;
     }
 
     /**
@@ -70,7 +72,7 @@ class UserBroadWorksReceptionistEnterpriseModifyRequest extends ComplexType impl
         $this->monitoredUserIdList = ($monitoredUserIdList InstanceOf ReplacementUserIdList)
              ? $monitoredUserIdList
              : new ReplacementUserIdList($monitoredUserIdList);
-        $this->monitoredUserIdList->setName('monitoredUserIdList');
+        $this->monitoredUserIdList->setElementName('monitoredUserIdList');
         return $this;
     }
 

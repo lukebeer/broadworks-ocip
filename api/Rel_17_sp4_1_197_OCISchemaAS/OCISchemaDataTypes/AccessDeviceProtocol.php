@@ -17,12 +17,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\MaxLength;
  */
 class AccessDeviceProtocol extends SimpleType
 {
-    public $name = "AccessDeviceProtocol";
-    protected $value;
-
+    public $elementName = "AccessDeviceProtocol";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new MinLength("1"));
         $this->addRestriction(new MaxLength("20"));
     }

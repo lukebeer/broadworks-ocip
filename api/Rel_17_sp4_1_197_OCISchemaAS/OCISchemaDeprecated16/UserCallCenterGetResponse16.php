@@ -26,7 +26,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserCallCenterGetResponse16 extends ComplexType implements ComplexInterface
 {
-    public    $name = 'UserCallCenterGetResponse16';
+    public    $elementName = 'UserCallCenterGetResponse16';
     protected $agentACDState;
     protected $useDefaultGuardTimer;
     protected $enableGuardTimer;
@@ -54,7 +54,7 @@ class UserCallCenterGetResponse16 extends ComplexType implements ComplexInterfac
         $this->agentACDState = ($agentACDState InstanceOf AgentACDState)
              ? $agentACDState
              : new AgentACDState($agentACDState);
-        $this->agentACDState->setName('agentACDState');
+        $this->agentACDState->setElementName('agentACDState');
         return $this;
     }
 
@@ -64,7 +64,9 @@ class UserCallCenterGetResponse16 extends ComplexType implements ComplexInterfac
      */
     public function getAgentACDState()
     {
-        return ($this->agentACDState) ? $this->agentACDState->getValue() : null;
+        return ($this->agentACDState)
+            ? $this->agentACDState->getElementValue()
+            : null;
     }
 
     /**
@@ -73,7 +75,7 @@ class UserCallCenterGetResponse16 extends ComplexType implements ComplexInterfac
     public function setUseDefaultGuardTimer($useDefaultGuardTimer = null)
     {
         $this->useDefaultGuardTimer = new PrimitiveType($useDefaultGuardTimer);
-        $this->useDefaultGuardTimer->setName('useDefaultGuardTimer');
+        $this->useDefaultGuardTimer->setElementName('useDefaultGuardTimer');
         return $this;
     }
 
@@ -83,7 +85,9 @@ class UserCallCenterGetResponse16 extends ComplexType implements ComplexInterfac
      */
     public function getUseDefaultGuardTimer()
     {
-        return ($this->useDefaultGuardTimer) ? $this->useDefaultGuardTimer->getValue() : null;
+        return ($this->useDefaultGuardTimer)
+            ? $this->useDefaultGuardTimer->getElementValue()
+            : null;
     }
 
     /**
@@ -92,7 +96,7 @@ class UserCallCenterGetResponse16 extends ComplexType implements ComplexInterfac
     public function setEnableGuardTimer($enableGuardTimer = null)
     {
         $this->enableGuardTimer = new PrimitiveType($enableGuardTimer);
-        $this->enableGuardTimer->setName('enableGuardTimer');
+        $this->enableGuardTimer->setElementName('enableGuardTimer');
         return $this;
     }
 
@@ -102,7 +106,9 @@ class UserCallCenterGetResponse16 extends ComplexType implements ComplexInterfac
      */
     public function getEnableGuardTimer()
     {
-        return ($this->enableGuardTimer) ? $this->enableGuardTimer->getValue() : null;
+        return ($this->enableGuardTimer)
+            ? $this->enableGuardTimer->getElementValue()
+            : null;
     }
 
     /**
@@ -113,7 +119,7 @@ class UserCallCenterGetResponse16 extends ComplexType implements ComplexInterfac
         $this->guardTimerSeconds = ($guardTimerSeconds InstanceOf CallCenterGuardTimerSeconds)
              ? $guardTimerSeconds
              : new CallCenterGuardTimerSeconds($guardTimerSeconds);
-        $this->guardTimerSeconds->setName('guardTimerSeconds');
+        $this->guardTimerSeconds->setElementName('guardTimerSeconds');
         return $this;
     }
 
@@ -123,7 +129,9 @@ class UserCallCenterGetResponse16 extends ComplexType implements ComplexInterfac
      */
     public function getGuardTimerSeconds()
     {
-        return ($this->guardTimerSeconds) ? $this->guardTimerSeconds->getValue() : null;
+        return ($this->guardTimerSeconds)
+            ? $this->guardTimerSeconds->getElementValue()
+            : null;
     }
 
     /**
@@ -132,7 +140,7 @@ class UserCallCenterGetResponse16 extends ComplexType implements ComplexInterfac
     public function setUseSystemDefaultUnavailableSettings($useSystemDefaultUnavailableSettings = null)
     {
         $this->useSystemDefaultUnavailableSettings = new PrimitiveType($useSystemDefaultUnavailableSettings);
-        $this->useSystemDefaultUnavailableSettings->setName('useSystemDefaultUnavailableSettings');
+        $this->useSystemDefaultUnavailableSettings->setElementName('useSystemDefaultUnavailableSettings');
         return $this;
     }
 
@@ -142,7 +150,9 @@ class UserCallCenterGetResponse16 extends ComplexType implements ComplexInterfac
      */
     public function getUseSystemDefaultUnavailableSettings()
     {
-        return ($this->useSystemDefaultUnavailableSettings) ? $this->useSystemDefaultUnavailableSettings->getValue() : null;
+        return ($this->useSystemDefaultUnavailableSettings)
+            ? $this->useSystemDefaultUnavailableSettings->getElementValue()
+            : null;
     }
 
     /**
@@ -151,7 +161,7 @@ class UserCallCenterGetResponse16 extends ComplexType implements ComplexInterfac
     public function setForceAgentUnavailableOnDNDActivation($forceAgentUnavailableOnDNDActivation = null)
     {
         $this->forceAgentUnavailableOnDNDActivation = new PrimitiveType($forceAgentUnavailableOnDNDActivation);
-        $this->forceAgentUnavailableOnDNDActivation->setName('forceAgentUnavailableOnDNDActivation');
+        $this->forceAgentUnavailableOnDNDActivation->setElementName('forceAgentUnavailableOnDNDActivation');
         return $this;
     }
 
@@ -161,7 +171,9 @@ class UserCallCenterGetResponse16 extends ComplexType implements ComplexInterfac
      */
     public function getForceAgentUnavailableOnDNDActivation()
     {
-        return ($this->forceAgentUnavailableOnDNDActivation) ? $this->forceAgentUnavailableOnDNDActivation->getValue() : null;
+        return ($this->forceAgentUnavailableOnDNDActivation)
+            ? $this->forceAgentUnavailableOnDNDActivation->getElementValue()
+            : null;
     }
 
     /**
@@ -170,7 +182,7 @@ class UserCallCenterGetResponse16 extends ComplexType implements ComplexInterfac
     public function setForceUnavailableOnPersonalCalls($forceUnavailableOnPersonalCalls = null)
     {
         $this->forceUnavailableOnPersonalCalls = new PrimitiveType($forceUnavailableOnPersonalCalls);
-        $this->forceUnavailableOnPersonalCalls->setName('forceUnavailableOnPersonalCalls');
+        $this->forceUnavailableOnPersonalCalls->setElementName('forceUnavailableOnPersonalCalls');
         return $this;
     }
 
@@ -180,7 +192,9 @@ class UserCallCenterGetResponse16 extends ComplexType implements ComplexInterfac
      */
     public function getForceUnavailableOnPersonalCalls()
     {
-        return ($this->forceUnavailableOnPersonalCalls) ? $this->forceUnavailableOnPersonalCalls->getValue() : null;
+        return ($this->forceUnavailableOnPersonalCalls)
+            ? $this->forceUnavailableOnPersonalCalls->getElementValue()
+            : null;
     }
 
     /**
@@ -189,7 +203,7 @@ class UserCallCenterGetResponse16 extends ComplexType implements ComplexInterfac
     public function setForceAgentUnavailableOnBouncedCallLimit($forceAgentUnavailableOnBouncedCallLimit = null)
     {
         $this->forceAgentUnavailableOnBouncedCallLimit = new PrimitiveType($forceAgentUnavailableOnBouncedCallLimit);
-        $this->forceAgentUnavailableOnBouncedCallLimit->setName('forceAgentUnavailableOnBouncedCallLimit');
+        $this->forceAgentUnavailableOnBouncedCallLimit->setElementName('forceAgentUnavailableOnBouncedCallLimit');
         return $this;
     }
 
@@ -199,7 +213,9 @@ class UserCallCenterGetResponse16 extends ComplexType implements ComplexInterfac
      */
     public function getForceAgentUnavailableOnBouncedCallLimit()
     {
-        return ($this->forceAgentUnavailableOnBouncedCallLimit) ? $this->forceAgentUnavailableOnBouncedCallLimit->getValue() : null;
+        return ($this->forceAgentUnavailableOnBouncedCallLimit)
+            ? $this->forceAgentUnavailableOnBouncedCallLimit->getElementValue()
+            : null;
     }
 
     /**
@@ -210,7 +226,7 @@ class UserCallCenterGetResponse16 extends ComplexType implements ComplexInterfac
         $this->numberConsecutiveBouncedCallsToForceAgentUnavailable = ($numberConsecutiveBouncedCallsToForceAgentUnavailable InstanceOf CallCenterConsecutiveBouncedCallsToForceAgentUnavailable)
              ? $numberConsecutiveBouncedCallsToForceAgentUnavailable
              : new CallCenterConsecutiveBouncedCallsToForceAgentUnavailable($numberConsecutiveBouncedCallsToForceAgentUnavailable);
-        $this->numberConsecutiveBouncedCallsToForceAgentUnavailable->setName('numberConsecutiveBouncedCallsToForceAgentUnavailable');
+        $this->numberConsecutiveBouncedCallsToForceAgentUnavailable->setElementName('numberConsecutiveBouncedCallsToForceAgentUnavailable');
         return $this;
     }
 
@@ -220,7 +236,9 @@ class UserCallCenterGetResponse16 extends ComplexType implements ComplexInterfac
      */
     public function getNumberConsecutiveBouncedCallsToForceAgentUnavailable()
     {
-        return ($this->numberConsecutiveBouncedCallsToForceAgentUnavailable) ? $this->numberConsecutiveBouncedCallsToForceAgentUnavailable->getValue() : null;
+        return ($this->numberConsecutiveBouncedCallsToForceAgentUnavailable)
+            ? $this->numberConsecutiveBouncedCallsToForceAgentUnavailable->getElementValue()
+            : null;
     }
 
     /**
@@ -229,7 +247,7 @@ class UserCallCenterGetResponse16 extends ComplexType implements ComplexInterfac
     public function setCallCenterTable(TableType $callCenterTable = null)
     {
         $this->callCenterTable = $callCenterTable;
-        $this->callCenterTable->setName('callCenterTable');
+        $this->callCenterTable->setElementName('callCenterTable');
         return $this;
     }
 

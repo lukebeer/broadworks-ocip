@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class EnterpriseCommonPhoneListDeleteListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'EnterpriseCommonPhoneListDeleteListRequest';
+    public    $elementName = 'EnterpriseCommonPhoneListDeleteListRequest';
     protected $serviceProviderId;
     protected $entryName;
 
@@ -49,7 +49,7 @@ class EnterpriseCommonPhoneListDeleteListRequest extends ComplexType implements 
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
-        $this->serviceProviderId->setName('serviceProviderId');
+        $this->serviceProviderId->setElementName('serviceProviderId');
         return $this;
     }
 
@@ -59,7 +59,9 @@ class EnterpriseCommonPhoneListDeleteListRequest extends ComplexType implements 
      */
     public function getServiceProviderId()
     {
-        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
+        return ($this->serviceProviderId)
+            ? $this->serviceProviderId->getElementValue()
+            : null;
     }
 
     /**
@@ -70,7 +72,7 @@ class EnterpriseCommonPhoneListDeleteListRequest extends ComplexType implements 
         $this->entryName = ($entryName InstanceOf PhoneListEntryName)
              ? $entryName
              : new PhoneListEntryName($entryName);
-        $this->entryName->setName('entryName');
+        $this->entryName->setElementName('entryName');
         return $this;
     }
 
@@ -80,6 +82,8 @@ class EnterpriseCommonPhoneListDeleteListRequest extends ComplexType implements 
      */
     public function getEntryName()
     {
-        return ($this->entryName) ? $this->entryName->getValue() : null;
+        return ($this->entryName)
+            ? $this->entryName->getElementValue()
+            : null;
     }
 }

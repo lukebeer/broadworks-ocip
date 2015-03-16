@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceInstanceAddProfileTrunkGroup extends ComplexType implements ComplexInterface
 {
-    public    $name = 'ServiceInstanceAddProfileTrunkGroup';
+    public    $elementName = 'ServiceInstanceAddProfileTrunkGroup';
 
     public function __construct(    ) {
     }

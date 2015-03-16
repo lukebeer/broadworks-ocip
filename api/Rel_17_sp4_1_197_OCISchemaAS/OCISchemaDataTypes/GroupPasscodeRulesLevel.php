@@ -16,12 +16,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\Enumeration;
  */
 class GroupPasscodeRulesLevel extends SimpleType
 {
-    public $name = "GroupPasscodeRulesLevel";
-    protected $value;
-
+    public $elementName = "GroupPasscodeRulesLevel";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new Enumeration([
             'System',
             'Service Provider',

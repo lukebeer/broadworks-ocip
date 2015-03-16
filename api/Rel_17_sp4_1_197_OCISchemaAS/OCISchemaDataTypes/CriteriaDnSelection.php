@@ -16,12 +16,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\Enumeration;
  */
 class CriteriaDnSelection extends SimpleType
 {
-    public $name = "CriteriaDnSelection";
-    protected $value;
-
+    public $elementName = "CriteriaDnSelection";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new Enumeration([
             'Any',
             'Specified Only'

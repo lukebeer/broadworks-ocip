@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemAnonymousCallRejectionModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemAnonymousCallRejectionModifyRequest';
+    public    $elementName = 'SystemAnonymousCallRejectionModifyRequest';
     protected $paiRequired;
     protected $screenOnlyLocalCalls;
 
@@ -46,7 +46,7 @@ class SystemAnonymousCallRejectionModifyRequest extends ComplexType implements C
     public function setPaiRequired($paiRequired = null)
     {
         $this->paiRequired = new PrimitiveType($paiRequired);
-        $this->paiRequired->setName('paiRequired');
+        $this->paiRequired->setElementName('paiRequired');
         return $this;
     }
 
@@ -56,7 +56,9 @@ class SystemAnonymousCallRejectionModifyRequest extends ComplexType implements C
      */
     public function getPaiRequired()
     {
-        return ($this->paiRequired) ? $this->paiRequired->getValue() : null;
+        return ($this->paiRequired)
+            ? $this->paiRequired->getElementValue()
+            : null;
     }
 
     /**
@@ -65,7 +67,7 @@ class SystemAnonymousCallRejectionModifyRequest extends ComplexType implements C
     public function setScreenOnlyLocalCalls($screenOnlyLocalCalls = null)
     {
         $this->screenOnlyLocalCalls = new PrimitiveType($screenOnlyLocalCalls);
-        $this->screenOnlyLocalCalls->setName('screenOnlyLocalCalls');
+        $this->screenOnlyLocalCalls->setElementName('screenOnlyLocalCalls');
         return $this;
     }
 
@@ -75,6 +77,8 @@ class SystemAnonymousCallRejectionModifyRequest extends ComplexType implements C
      */
     public function getScreenOnlyLocalCalls()
     {
-        return ($this->screenOnlyLocalCalls) ? $this->screenOnlyLocalCalls->getValue() : null;
+        return ($this->screenOnlyLocalCalls)
+            ? $this->screenOnlyLocalCalls->getElementValue()
+            : null;
     }
 }

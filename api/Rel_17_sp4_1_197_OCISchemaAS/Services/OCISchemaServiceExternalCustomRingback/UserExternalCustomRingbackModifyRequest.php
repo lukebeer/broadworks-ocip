@@ -28,7 +28,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserExternalCustomRingbackModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'UserExternalCustomRingbackModifyRequest';
+    public    $elementName = 'UserExternalCustomRingbackModifyRequest';
     protected $userId;
     protected $isActive;
     protected $useSettingLevel;
@@ -62,7 +62,7 @@ class UserExternalCustomRingbackModifyRequest extends ComplexType implements Com
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
-        $this->userId->setName('userId');
+        $this->userId->setElementName('userId');
         return $this;
     }
 
@@ -72,7 +72,9 @@ class UserExternalCustomRingbackModifyRequest extends ComplexType implements Com
      */
     public function getUserId()
     {
-        return ($this->userId) ? $this->userId->getValue() : null;
+        return ($this->userId)
+            ? $this->userId->getElementValue()
+            : null;
     }
 
     /**
@@ -81,7 +83,7 @@ class UserExternalCustomRingbackModifyRequest extends ComplexType implements Com
     public function setIsActive($isActive = null)
     {
         $this->isActive = new PrimitiveType($isActive);
-        $this->isActive->setName('isActive');
+        $this->isActive->setElementName('isActive');
         return $this;
     }
 
@@ -91,7 +93,9 @@ class UserExternalCustomRingbackModifyRequest extends ComplexType implements Com
      */
     public function getIsActive()
     {
-        return ($this->isActive) ? $this->isActive->getValue() : null;
+        return ($this->isActive)
+            ? $this->isActive->getElementValue()
+            : null;
     }
 
     /**
@@ -102,7 +106,7 @@ class UserExternalCustomRingbackModifyRequest extends ComplexType implements Com
         $this->useSettingLevel = ($useSettingLevel InstanceOf ExternalCustomRingbackSettingLevel)
              ? $useSettingLevel
              : new ExternalCustomRingbackSettingLevel($useSettingLevel);
-        $this->useSettingLevel->setName('useSettingLevel');
+        $this->useSettingLevel->setElementName('useSettingLevel');
         return $this;
     }
 
@@ -112,7 +116,9 @@ class UserExternalCustomRingbackModifyRequest extends ComplexType implements Com
      */
     public function getUseSettingLevel()
     {
-        return ($this->useSettingLevel) ? $this->useSettingLevel->getValue() : null;
+        return ($this->useSettingLevel)
+            ? $this->useSettingLevel->getElementValue()
+            : null;
     }
 
     /**
@@ -123,7 +129,7 @@ class UserExternalCustomRingbackModifyRequest extends ComplexType implements Com
         $this->sipRequestURI = ($sipRequestURI InstanceOf SIPContact)
              ? $sipRequestURI
              : new SIPContact($sipRequestURI);
-        $this->sipRequestURI->setName('sipRequestURI');
+        $this->sipRequestURI->setElementName('sipRequestURI');
         return $this;
     }
 
@@ -133,6 +139,8 @@ class UserExternalCustomRingbackModifyRequest extends ComplexType implements Com
      */
     public function getSipRequestURI()
     {
-        return ($this->sipRequestURI) ? $this->sipRequestURI->getValue() : null;
+        return ($this->sipRequestURI)
+            ? $this->sipRequestURI->getElementValue()
+            : null;
     }
 }

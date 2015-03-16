@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserCallCenterModifySupervisedAgentListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'UserCallCenterModifySupervisedAgentListRequest';
+    public    $elementName = 'UserCallCenterModifySupervisedAgentListRequest';
     protected $supervisorUserId;
     protected $serviceUserId;
     protected $agentUserIdList;
@@ -52,7 +52,7 @@ class UserCallCenterModifySupervisedAgentListRequest extends ComplexType impleme
         $this->supervisorUserId = ($supervisorUserId InstanceOf UserId)
              ? $supervisorUserId
              : new UserId($supervisorUserId);
-        $this->supervisorUserId->setName('supervisorUserId');
+        $this->supervisorUserId->setElementName('supervisorUserId');
         return $this;
     }
 
@@ -62,7 +62,9 @@ class UserCallCenterModifySupervisedAgentListRequest extends ComplexType impleme
      */
     public function getSupervisorUserId()
     {
-        return ($this->supervisorUserId) ? $this->supervisorUserId->getValue() : null;
+        return ($this->supervisorUserId)
+            ? $this->supervisorUserId->getElementValue()
+            : null;
     }
 
     /**
@@ -73,7 +75,7 @@ class UserCallCenterModifySupervisedAgentListRequest extends ComplexType impleme
         $this->serviceUserId = ($serviceUserId InstanceOf UserId)
              ? $serviceUserId
              : new UserId($serviceUserId);
-        $this->serviceUserId->setName('serviceUserId');
+        $this->serviceUserId->setElementName('serviceUserId');
         return $this;
     }
 
@@ -83,7 +85,9 @@ class UserCallCenterModifySupervisedAgentListRequest extends ComplexType impleme
      */
     public function getServiceUserId()
     {
-        return ($this->serviceUserId) ? $this->serviceUserId->getValue() : null;
+        return ($this->serviceUserId)
+            ? $this->serviceUserId->getElementValue()
+            : null;
     }
 
     /**
@@ -94,7 +98,7 @@ class UserCallCenterModifySupervisedAgentListRequest extends ComplexType impleme
         $this->agentUserIdList = ($agentUserIdList InstanceOf ReplacementUserIdList)
              ? $agentUserIdList
              : new ReplacementUserIdList($agentUserIdList);
-        $this->agentUserIdList->setName('agentUserIdList');
+        $this->agentUserIdList->setElementName('agentUserIdList');
         return $this;
     }
 

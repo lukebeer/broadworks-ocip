@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderCommunicationBarringProfileModifyDefaultRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'ServiceProviderCommunicationBarringProfileModifyDefaultRequest';
+    public    $elementName = 'ServiceProviderCommunicationBarringProfileModifyDefaultRequest';
     protected $serviceProviderId;
     protected $name;
 
@@ -49,7 +49,7 @@ class ServiceProviderCommunicationBarringProfileModifyDefaultRequest extends Com
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
-        $this->serviceProviderId->setName('serviceProviderId');
+        $this->serviceProviderId->setElementName('serviceProviderId');
         return $this;
     }
 
@@ -59,7 +59,9 @@ class ServiceProviderCommunicationBarringProfileModifyDefaultRequest extends Com
      */
     public function getServiceProviderId()
     {
-        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
+        return ($this->serviceProviderId)
+            ? $this->serviceProviderId->getElementValue()
+            : null;
     }
 
     /**
@@ -70,7 +72,7 @@ class ServiceProviderCommunicationBarringProfileModifyDefaultRequest extends Com
         $this->name = ($name InstanceOf CommunicationBarringProfileName)
              ? $name
              : new CommunicationBarringProfileName($name);
-        $this->name->setName('name');
+        $this->name->setElementName('name');
         return $this;
     }
 
@@ -80,6 +82,8 @@ class ServiceProviderCommunicationBarringProfileModifyDefaultRequest extends Com
      */
     public function getName()
     {
-        return ($this->name) ? $this->name->getValue() : null;
+        return ($this->name)
+            ? $this->name->getElementValue()
+            : null;
     }
 }

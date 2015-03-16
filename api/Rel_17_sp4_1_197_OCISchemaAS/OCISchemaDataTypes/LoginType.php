@@ -16,12 +16,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\Enumeration;
  */
 class LoginType extends SimpleType
 {
-    public $name = "LoginType";
-    protected $value;
-
+    public $elementName = "LoginType";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new Enumeration([
             'System',
             'Provisioning',

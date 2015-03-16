@@ -25,7 +25,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupPreAlertingAnnouncementModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'GroupPreAlertingAnnouncementModifyRequest';
+    public    $elementName = 'GroupPreAlertingAnnouncementModifyRequest';
     protected $serviceProviderId;
     protected $groupId;
     protected $announcementInterruption;
@@ -71,7 +71,7 @@ class GroupPreAlertingAnnouncementModifyRequest extends ComplexType implements C
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
-        $this->serviceProviderId->setName('serviceProviderId');
+        $this->serviceProviderId->setElementName('serviceProviderId');
         return $this;
     }
 
@@ -81,7 +81,9 @@ class GroupPreAlertingAnnouncementModifyRequest extends ComplexType implements C
      */
     public function getServiceProviderId()
     {
-        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
+        return ($this->serviceProviderId)
+            ? $this->serviceProviderId->getElementValue()
+            : null;
     }
 
     /**
@@ -92,7 +94,7 @@ class GroupPreAlertingAnnouncementModifyRequest extends ComplexType implements C
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
-        $this->groupId->setName('groupId');
+        $this->groupId->setElementName('groupId');
         return $this;
     }
 
@@ -102,7 +104,9 @@ class GroupPreAlertingAnnouncementModifyRequest extends ComplexType implements C
      */
     public function getGroupId()
     {
-        return ($this->groupId) ? $this->groupId->getValue() : null;
+        return ($this->groupId)
+            ? $this->groupId->getElementValue()
+            : null;
     }
 
     /**
@@ -113,7 +117,7 @@ class GroupPreAlertingAnnouncementModifyRequest extends ComplexType implements C
         $this->announcementInterruption = ($announcementInterruption InstanceOf PreAlertingAnnouncementInterrupt)
              ? $announcementInterruption
              : new PreAlertingAnnouncementInterrupt($announcementInterruption);
-        $this->announcementInterruption->setName('announcementInterruption');
+        $this->announcementInterruption->setElementName('announcementInterruption');
         return $this;
     }
 
@@ -123,7 +127,9 @@ class GroupPreAlertingAnnouncementModifyRequest extends ComplexType implements C
      */
     public function getAnnouncementInterruption()
     {
-        return ($this->announcementInterruption) ? $this->announcementInterruption->getValue() : null;
+        return ($this->announcementInterruption)
+            ? $this->announcementInterruption->getElementValue()
+            : null;
     }
 
     /**
@@ -134,7 +140,7 @@ class GroupPreAlertingAnnouncementModifyRequest extends ComplexType implements C
         $this->interruptionDigitSequence = ($interruptionDigitSequence InstanceOf PreAlertingAnnouncementInterruptDigits)
              ? $interruptionDigitSequence
              : new PreAlertingAnnouncementInterruptDigits($interruptionDigitSequence);
-        $this->interruptionDigitSequence->setName('interruptionDigitSequence');
+        $this->interruptionDigitSequence->setElementName('interruptionDigitSequence');
         return $this;
     }
 
@@ -144,7 +150,9 @@ class GroupPreAlertingAnnouncementModifyRequest extends ComplexType implements C
      */
     public function getInterruptionDigitSequence()
     {
-        return ($this->interruptionDigitSequence) ? $this->interruptionDigitSequence->getValue() : null;
+        return ($this->interruptionDigitSequence)
+            ? $this->interruptionDigitSequence->getElementValue()
+            : null;
     }
 
     /**
@@ -155,7 +163,7 @@ class GroupPreAlertingAnnouncementModifyRequest extends ComplexType implements C
         $this->audioSelection = ($audioSelection InstanceOf ExtendedFileResourceSelection)
              ? $audioSelection
              : new ExtendedFileResourceSelection($audioSelection);
-        $this->audioSelection->setName('audioSelection');
+        $this->audioSelection->setElementName('audioSelection');
         return $this;
     }
 
@@ -165,7 +173,9 @@ class GroupPreAlertingAnnouncementModifyRequest extends ComplexType implements C
      */
     public function getAudioSelection()
     {
-        return ($this->audioSelection) ? $this->audioSelection->getValue() : null;
+        return ($this->audioSelection)
+            ? $this->audioSelection->getElementValue()
+            : null;
     }
 
     /**
@@ -176,7 +186,7 @@ class GroupPreAlertingAnnouncementModifyRequest extends ComplexType implements C
         $this->audioFile = ($audioFile InstanceOf ExtendedMediaFileResource)
              ? $audioFile
              : new ExtendedMediaFileResource($audioFile);
-        $this->audioFile->setName('audioFile');
+        $this->audioFile->setElementName('audioFile');
         return $this;
     }
 
@@ -197,7 +207,7 @@ class GroupPreAlertingAnnouncementModifyRequest extends ComplexType implements C
         $this->videoSelection = ($videoSelection InstanceOf ExtendedFileResourceSelection)
              ? $videoSelection
              : new ExtendedFileResourceSelection($videoSelection);
-        $this->videoSelection->setName('videoSelection');
+        $this->videoSelection->setElementName('videoSelection');
         return $this;
     }
 
@@ -207,7 +217,9 @@ class GroupPreAlertingAnnouncementModifyRequest extends ComplexType implements C
      */
     public function getVideoSelection()
     {
-        return ($this->videoSelection) ? $this->videoSelection->getValue() : null;
+        return ($this->videoSelection)
+            ? $this->videoSelection->getElementValue()
+            : null;
     }
 
     /**
@@ -218,7 +230,7 @@ class GroupPreAlertingAnnouncementModifyRequest extends ComplexType implements C
         $this->videoFile = ($videoFile InstanceOf ExtendedMediaFileResource)
              ? $videoFile
              : new ExtendedMediaFileResource($videoFile);
-        $this->videoFile->setName('videoFile');
+        $this->videoFile->setElementName('videoFile');
         return $this;
     }
 

@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class TutorialFlagModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'TutorialFlagModifyRequest';
+    public    $elementName = 'TutorialFlagModifyRequest';
     protected $userId;
     protected $enableTutorial;
 
@@ -49,7 +49,7 @@ class TutorialFlagModifyRequest extends ComplexType implements ComplexInterface
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
-        $this->userId->setName('userId');
+        $this->userId->setElementName('userId');
         return $this;
     }
 
@@ -59,7 +59,9 @@ class TutorialFlagModifyRequest extends ComplexType implements ComplexInterface
      */
     public function getUserId()
     {
-        return ($this->userId) ? $this->userId->getValue() : null;
+        return ($this->userId)
+            ? $this->userId->getElementValue()
+            : null;
     }
 
     /**
@@ -68,7 +70,7 @@ class TutorialFlagModifyRequest extends ComplexType implements ComplexInterface
     public function setEnableTutorial($enableTutorial = null)
     {
         $this->enableTutorial = new PrimitiveType($enableTutorial);
-        $this->enableTutorial->setName('enableTutorial');
+        $this->enableTutorial->setElementName('enableTutorial');
         return $this;
     }
 
@@ -78,6 +80,8 @@ class TutorialFlagModifyRequest extends ComplexType implements ComplexInterface
      */
     public function getEnableTutorial()
     {
-        return ($this->enableTutorial) ? $this->enableTutorial->getValue() : null;
+        return ($this->enableTutorial)
+            ? $this->enableTutorial->getElementValue()
+            : null;
     }
 }

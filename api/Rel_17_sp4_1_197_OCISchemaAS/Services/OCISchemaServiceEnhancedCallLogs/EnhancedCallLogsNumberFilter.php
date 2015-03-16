@@ -19,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class EnhancedCallLogsNumberFilter extends ComplexType implements ComplexInterface
 {
-    public    $name = 'EnhancedCallLogsNumberFilter';
+    public    $elementName = 'EnhancedCallLogsNumberFilter';
 
     public function __construct(    ) {
     }

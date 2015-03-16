@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderEndpointGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'ServiceProviderEndpointGetListResponse';
+    public    $elementName = 'ServiceProviderEndpointGetListResponse';
     protected $endpointTable;
 
     /**
@@ -39,7 +39,7 @@ class ServiceProviderEndpointGetListResponse extends ComplexType implements Comp
     public function setEndpointTable(TableType $endpointTable = null)
     {
         $this->endpointTable = $endpointTable;
-        $this->endpointTable->setName('endpointTable');
+        $this->endpointTable->setElementName('endpointTable');
         return $this;
     }
 

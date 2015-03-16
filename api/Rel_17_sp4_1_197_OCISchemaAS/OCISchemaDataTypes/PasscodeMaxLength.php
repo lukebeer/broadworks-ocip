@@ -17,12 +17,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\MaxInclusive;
  */
 class PasscodeMaxLength extends SimpleType
 {
-    public $name = "PasscodeMaxLength";
-    protected $value;
-
+    public $elementName = "PasscodeMaxLength";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new MinInclusive("3"));
         $this->addRestriction(new MaxInclusive("30"));
     }

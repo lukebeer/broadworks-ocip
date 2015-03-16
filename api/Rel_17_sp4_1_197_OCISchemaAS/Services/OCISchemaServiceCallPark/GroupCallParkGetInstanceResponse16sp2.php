@@ -27,7 +27,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupCallParkGetInstanceResponse16sp2 extends ComplexType implements ComplexInterface
 {
-    public    $name = 'GroupCallParkGetInstanceResponse16sp2';
+    public    $elementName = 'GroupCallParkGetInstanceResponse16sp2';
     protected $recallAlternateUserId;
     protected $recallTo;
     protected $userTable;
@@ -48,7 +48,7 @@ class GroupCallParkGetInstanceResponse16sp2 extends ComplexType implements Compl
         $this->recallAlternateUserId = ($recallAlternateUserId InstanceOf UserId)
              ? $recallAlternateUserId
              : new UserId($recallAlternateUserId);
-        $this->recallAlternateUserId->setName('recallAlternateUserId');
+        $this->recallAlternateUserId->setElementName('recallAlternateUserId');
         return $this;
     }
 
@@ -58,7 +58,9 @@ class GroupCallParkGetInstanceResponse16sp2 extends ComplexType implements Compl
      */
     public function getRecallAlternateUserId()
     {
-        return ($this->recallAlternateUserId) ? $this->recallAlternateUserId->getValue() : null;
+        return ($this->recallAlternateUserId)
+            ? $this->recallAlternateUserId->getElementValue()
+            : null;
     }
 
     /**
@@ -69,7 +71,7 @@ class GroupCallParkGetInstanceResponse16sp2 extends ComplexType implements Compl
         $this->recallTo = ($recallTo InstanceOf CallParkRecallTo)
              ? $recallTo
              : new CallParkRecallTo($recallTo);
-        $this->recallTo->setName('recallTo');
+        $this->recallTo->setElementName('recallTo');
         return $this;
     }
 
@@ -79,7 +81,9 @@ class GroupCallParkGetInstanceResponse16sp2 extends ComplexType implements Compl
      */
     public function getRecallTo()
     {
-        return ($this->recallTo) ? $this->recallTo->getValue() : null;
+        return ($this->recallTo)
+            ? $this->recallTo->getElementValue()
+            : null;
     }
 
     /**
@@ -88,7 +92,7 @@ class GroupCallParkGetInstanceResponse16sp2 extends ComplexType implements Compl
     public function setUserTable(TableType $userTable = null)
     {
         $this->userTable = $userTable;
-        $this->userTable->setName('userTable');
+        $this->userTable->setElementName('userTable');
         return $this;
     }
 

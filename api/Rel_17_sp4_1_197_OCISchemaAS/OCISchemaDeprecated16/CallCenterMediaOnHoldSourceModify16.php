@@ -19,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class CallCenterMediaOnHoldSourceModify16 extends ComplexType implements ComplexInterface
 {
-    public    $name = 'CallCenterMediaOnHoldSourceModify16';
+    public    $elementName = 'CallCenterMediaOnHoldSourceModify16';
     protected $audioMessageSourceSelection;
     protected $audioFile;
     protected $externalAudioSource;
@@ -57,7 +57,7 @@ class CallCenterMediaOnHoldSourceModify16 extends ComplexType implements Complex
     public function setAudioMessageSourceSelection($audioMessageSourceSelection = null)
     {
         $this->audioMessageSourceSelection = new SimpleContent($audioMessageSourceSelection);
-        $this->audioMessageSourceSelection->setName('audioMessageSourceSelection');
+        $this->audioMessageSourceSelection->setElementName('audioMessageSourceSelection');
         return $this;
     }
 
@@ -67,7 +67,9 @@ class CallCenterMediaOnHoldSourceModify16 extends ComplexType implements Complex
      */
     public function getAudioMessageSourceSelection()
     {
-        return ($this->audioMessageSourceSelection) ? $this->audioMessageSourceSelection->getValue() : null;
+        return ($this->audioMessageSourceSelection)
+            ? $this->audioMessageSourceSelection->getElementValue()
+            : null;
     }
 
     /**
@@ -76,7 +78,7 @@ class CallCenterMediaOnHoldSourceModify16 extends ComplexType implements Complex
     public function setAudioFile($audioFile = null)
     {
         $this->audioFile = new SimpleContent($audioFile);
-        $this->audioFile->setName('audioFile');
+        $this->audioFile->setElementName('audioFile');
         return $this;
     }
 
@@ -86,7 +88,9 @@ class CallCenterMediaOnHoldSourceModify16 extends ComplexType implements Complex
      */
     public function getAudioFile()
     {
-        return ($this->audioFile) ? $this->audioFile->getValue() : null;
+        return ($this->audioFile)
+            ? $this->audioFile->getElementValue()
+            : null;
     }
 
     /**
@@ -95,7 +99,7 @@ class CallCenterMediaOnHoldSourceModify16 extends ComplexType implements Complex
     public function setExternalAudioSource($externalAudioSource = null)
     {
         $this->externalAudioSource = new SimpleContent($externalAudioSource);
-        $this->externalAudioSource->setName('externalAudioSource');
+        $this->externalAudioSource->setElementName('externalAudioSource');
         return $this;
     }
 
@@ -105,7 +109,9 @@ class CallCenterMediaOnHoldSourceModify16 extends ComplexType implements Complex
      */
     public function getExternalAudioSource()
     {
-        return ($this->externalAudioSource) ? $this->externalAudioSource->getValue() : null;
+        return ($this->externalAudioSource)
+            ? $this->externalAudioSource->getElementValue()
+            : null;
     }
 
     /**
@@ -114,7 +120,7 @@ class CallCenterMediaOnHoldSourceModify16 extends ComplexType implements Complex
     public function setVideoMessageSourceSelection($videoMessageSourceSelection = null)
     {
         $this->videoMessageSourceSelection = new SimpleContent($videoMessageSourceSelection);
-        $this->videoMessageSourceSelection->setName('videoMessageSourceSelection');
+        $this->videoMessageSourceSelection->setElementName('videoMessageSourceSelection');
         return $this;
     }
 
@@ -124,7 +130,9 @@ class CallCenterMediaOnHoldSourceModify16 extends ComplexType implements Complex
      */
     public function getVideoMessageSourceSelection()
     {
-        return ($this->videoMessageSourceSelection) ? $this->videoMessageSourceSelection->getValue() : null;
+        return ($this->videoMessageSourceSelection)
+            ? $this->videoMessageSourceSelection->getElementValue()
+            : null;
     }
 
     /**
@@ -133,7 +141,7 @@ class CallCenterMediaOnHoldSourceModify16 extends ComplexType implements Complex
     public function setVideoFile($videoFile = null)
     {
         $this->videoFile = new SimpleContent($videoFile);
-        $this->videoFile->setName('videoFile');
+        $this->videoFile->setElementName('videoFile');
         return $this;
     }
 
@@ -143,7 +151,9 @@ class CallCenterMediaOnHoldSourceModify16 extends ComplexType implements Complex
      */
     public function getVideoFile()
     {
-        return ($this->videoFile) ? $this->videoFile->getValue() : null;
+        return ($this->videoFile)
+            ? $this->videoFile->getElementValue()
+            : null;
     }
 
     /**
@@ -152,7 +162,7 @@ class CallCenterMediaOnHoldSourceModify16 extends ComplexType implements Complex
     public function setExternalVideoSource($externalVideoSource = null)
     {
         $this->externalVideoSource = new SimpleContent($externalVideoSource);
-        $this->externalVideoSource->setName('externalVideoSource');
+        $this->externalVideoSource->setElementName('externalVideoSource');
         return $this;
     }
 
@@ -162,6 +172,8 @@ class CallCenterMediaOnHoldSourceModify16 extends ComplexType implements Complex
      */
     public function getExternalVideoSource()
     {
-        return ($this->externalVideoSource) ? $this->externalVideoSource->getValue() : null;
+        return ($this->externalVideoSource)
+            ? $this->externalVideoSource->getElementValue()
+            : null;
     }
 }

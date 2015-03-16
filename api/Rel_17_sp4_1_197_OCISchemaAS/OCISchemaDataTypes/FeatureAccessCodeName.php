@@ -16,12 +16,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\MinLength;
  */
 class FeatureAccessCodeName extends SimpleType
 {
-    public $name = "FeatureAccessCodeName";
-    protected $value;
-
+    public $elementName = "FeatureAccessCodeName";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new MinLength("1"));
     }
 }

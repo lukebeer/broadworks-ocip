@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class EnterpriseBroadWorksMobileManagerDeleteHomeZoneRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'EnterpriseBroadWorksMobileManagerDeleteHomeZoneRequest';
+    public    $elementName = 'EnterpriseBroadWorksMobileManagerDeleteHomeZoneRequest';
     protected $serviceProviderId;
     protected $homeZoneId;
 
@@ -49,7 +49,7 @@ class EnterpriseBroadWorksMobileManagerDeleteHomeZoneRequest extends ComplexType
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
-        $this->serviceProviderId->setName('serviceProviderId');
+        $this->serviceProviderId->setElementName('serviceProviderId');
         return $this;
     }
 
@@ -59,7 +59,9 @@ class EnterpriseBroadWorksMobileManagerDeleteHomeZoneRequest extends ComplexType
      */
     public function getServiceProviderId()
     {
-        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
+        return ($this->serviceProviderId)
+            ? $this->serviceProviderId->getElementValue()
+            : null;
     }
 
     /**
@@ -68,7 +70,7 @@ class EnterpriseBroadWorksMobileManagerDeleteHomeZoneRequest extends ComplexType
     public function setHomeZoneId($homeZoneId = null)
     {
         $this->homeZoneId = new PrimitiveType($homeZoneId);
-        $this->homeZoneId->setName('homeZoneId');
+        $this->homeZoneId->setElementName('homeZoneId');
         return $this;
     }
 
@@ -78,6 +80,8 @@ class EnterpriseBroadWorksMobileManagerDeleteHomeZoneRequest extends ComplexType
      */
     public function getHomeZoneId()
     {
-        return ($this->homeZoneId) ? $this->homeZoneId->getValue() : null;
+        return ($this->homeZoneId)
+            ? $this->homeZoneId->getElementValue()
+            : null;
     }
 }

@@ -19,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class Holiday extends ComplexType implements ComplexInterface
 {
-    public    $name = 'Holiday';
+    public    $elementName = 'Holiday';
     protected $holidayName;
     protected $startDate;
     protected $endDate;
@@ -48,7 +48,7 @@ class Holiday extends ComplexType implements ComplexInterface
     public function setHolidayName($holidayName = null)
     {
         $this->holidayName = new SimpleContent($holidayName);
-        $this->holidayName->setName('holidayName');
+        $this->holidayName->setElementName('holidayName');
         return $this;
     }
 
@@ -58,7 +58,9 @@ class Holiday extends ComplexType implements ComplexInterface
      */
     public function getHolidayName()
     {
-        return ($this->holidayName) ? $this->holidayName->getValue() : null;
+        return ($this->holidayName)
+            ? $this->holidayName->getElementValue()
+            : null;
     }
 
     /**
@@ -67,7 +69,7 @@ class Holiday extends ComplexType implements ComplexInterface
     public function setStartDate($startDate = null)
     {
         $this->startDate = new SimpleContent($startDate);
-        $this->startDate->setName('startDate');
+        $this->startDate->setElementName('startDate');
         return $this;
     }
 
@@ -77,7 +79,9 @@ class Holiday extends ComplexType implements ComplexInterface
      */
     public function getStartDate()
     {
-        return ($this->startDate) ? $this->startDate->getValue() : null;
+        return ($this->startDate)
+            ? $this->startDate->getElementValue()
+            : null;
     }
 
     /**
@@ -86,7 +90,7 @@ class Holiday extends ComplexType implements ComplexInterface
     public function setEndDate($endDate = null)
     {
         $this->endDate = new SimpleContent($endDate);
-        $this->endDate->setName('endDate');
+        $this->endDate->setElementName('endDate');
         return $this;
     }
 
@@ -96,6 +100,8 @@ class Holiday extends ComplexType implements ComplexInterface
      */
     public function getEndDate()
     {
-        return ($this->endDate) ? $this->endDate->getValue() : null;
+        return ($this->endDate)
+            ? $this->endDate->getElementValue()
+            : null;
     }
 }

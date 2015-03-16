@@ -19,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class RandomPort extends ComplexType implements ComplexInterface
 {
-    public    $name = 'RandomPort';
+    public    $elementName = 'RandomPort';
 
     public function __construct(    ) {
     }

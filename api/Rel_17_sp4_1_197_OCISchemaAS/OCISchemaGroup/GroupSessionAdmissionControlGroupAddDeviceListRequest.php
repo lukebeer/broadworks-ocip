@@ -23,7 +23,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupSessionAdmissionControlGroupAddDeviceListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'GroupSessionAdmissionControlGroupAddDeviceListRequest';
+    public    $elementName = 'GroupSessionAdmissionControlGroupAddDeviceListRequest';
     protected $serviceProviderId;
     protected $groupId;
     protected $name;
@@ -57,7 +57,7 @@ class GroupSessionAdmissionControlGroupAddDeviceListRequest extends ComplexType 
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
-        $this->serviceProviderId->setName('serviceProviderId');
+        $this->serviceProviderId->setElementName('serviceProviderId');
         return $this;
     }
 
@@ -67,7 +67,9 @@ class GroupSessionAdmissionControlGroupAddDeviceListRequest extends ComplexType 
      */
     public function getServiceProviderId()
     {
-        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
+        return ($this->serviceProviderId)
+            ? $this->serviceProviderId->getElementValue()
+            : null;
     }
 
     /**
@@ -78,7 +80,7 @@ class GroupSessionAdmissionControlGroupAddDeviceListRequest extends ComplexType 
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
-        $this->groupId->setName('groupId');
+        $this->groupId->setElementName('groupId');
         return $this;
     }
 
@@ -88,7 +90,9 @@ class GroupSessionAdmissionControlGroupAddDeviceListRequest extends ComplexType 
      */
     public function getGroupId()
     {
-        return ($this->groupId) ? $this->groupId->getValue() : null;
+        return ($this->groupId)
+            ? $this->groupId->getElementValue()
+            : null;
     }
 
     /**
@@ -99,7 +103,7 @@ class GroupSessionAdmissionControlGroupAddDeviceListRequest extends ComplexType 
         $this->name = ($name InstanceOf SessionAdmissionControlGroupName)
              ? $name
              : new SessionAdmissionControlGroupName($name);
-        $this->name->setName('name');
+        $this->name->setElementName('name');
         return $this;
     }
 
@@ -109,7 +113,9 @@ class GroupSessionAdmissionControlGroupAddDeviceListRequest extends ComplexType 
      */
     public function getName()
     {
-        return ($this->name) ? $this->name->getValue() : null;
+        return ($this->name)
+            ? $this->name->getElementValue()
+            : null;
     }
 
     /**
@@ -120,7 +126,7 @@ class GroupSessionAdmissionControlGroupAddDeviceListRequest extends ComplexType 
         $this->devices = ($devices InstanceOf AccessDevice)
              ? $devices
              : new AccessDevice($devices);
-        $this->devices->setName('devices');
+        $this->devices->setElementName('devices');
         return $this;
     }
 

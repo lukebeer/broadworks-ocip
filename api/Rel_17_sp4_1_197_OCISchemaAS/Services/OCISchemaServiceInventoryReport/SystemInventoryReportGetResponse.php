@@ -19,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemInventoryReportGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemInventoryReportGetResponse';
+    public    $elementName = 'SystemInventoryReportGetResponse';
     protected $defaultFromAddress;
 
     /**
@@ -38,7 +38,7 @@ class SystemInventoryReportGetResponse extends ComplexType implements ComplexInt
         $this->defaultFromAddress = ($defaultFromAddress InstanceOf EmailAddress)
              ? $defaultFromAddress
              : new EmailAddress($defaultFromAddress);
-        $this->defaultFromAddress->setName('defaultFromAddress');
+        $this->defaultFromAddress->setElementName('defaultFromAddress');
         return $this;
     }
 
@@ -48,6 +48,8 @@ class SystemInventoryReportGetResponse extends ComplexType implements ComplexInt
      */
     public function getDefaultFromAddress()
     {
-        return ($this->defaultFromAddress) ? $this->defaultFromAddress->getValue() : null;
+        return ($this->defaultFromAddress)
+            ? $this->defaultFromAddress->getElementValue()
+            : null;
     }
 }

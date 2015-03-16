@@ -16,12 +16,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\Enumeration;
  */
 class RedirectingPresentationIndicator extends SimpleType
 {
-    public $name = "RedirectingPresentationIndicator";
-    protected $value;
-
+    public $elementName = "RedirectingPresentationIndicator";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new Enumeration([
             'Anonymous',
             'Anonymous Name',

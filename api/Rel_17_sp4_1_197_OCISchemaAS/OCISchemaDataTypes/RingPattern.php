@@ -16,12 +16,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\Enumeration;
  */
 class RingPattern extends SimpleType
 {
-    public $name = "RingPattern";
-    protected $value;
-
+    public $elementName = "RingPattern";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new Enumeration([
             'Normal',
             'Long-Long',

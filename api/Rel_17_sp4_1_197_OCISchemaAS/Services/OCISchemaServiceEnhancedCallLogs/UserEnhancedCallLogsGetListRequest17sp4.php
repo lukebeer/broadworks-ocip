@@ -35,7 +35,7 @@ use Broadworks_OCIP\core\Client\Client;
 class UserEnhancedCallLogsGetListRequest17sp4 extends ComplexType implements ComplexInterface
 {
     public    $responseType                   = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceEnhancedCallLogs\UserEnhancedCallLogsGetListResponse17sp4';
-    public    $name = 'UserEnhancedCallLogsGetListRequest17sp4';
+    public    $elementName = 'UserEnhancedCallLogsGetListRequest17sp4';
     protected $userId;
     protected $callLogType;
     protected $dateTimeRange;
@@ -81,7 +81,7 @@ class UserEnhancedCallLogsGetListRequest17sp4 extends ComplexType implements Com
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
-        $this->userId->setName('userId');
+        $this->userId->setElementName('userId');
         return $this;
     }
 
@@ -91,7 +91,9 @@ class UserEnhancedCallLogsGetListRequest17sp4 extends ComplexType implements Com
      */
     public function getUserId()
     {
-        return ($this->userId) ? $this->userId->getValue() : null;
+        return ($this->userId)
+            ? $this->userId->getElementValue()
+            : null;
     }
 
     /**
@@ -102,7 +104,7 @@ class UserEnhancedCallLogsGetListRequest17sp4 extends ComplexType implements Com
         $this->callLogType = ($callLogType InstanceOf EnhancedCallLogsCallLogsRequestType)
              ? $callLogType
              : new EnhancedCallLogsCallLogsRequestType($callLogType);
-        $this->callLogType->setName('callLogType');
+        $this->callLogType->setElementName('callLogType');
         return $this;
     }
 
@@ -112,7 +114,9 @@ class UserEnhancedCallLogsGetListRequest17sp4 extends ComplexType implements Com
      */
     public function getCallLogType()
     {
-        return ($this->callLogType) ? $this->callLogType->getValue() : null;
+        return ($this->callLogType)
+            ? $this->callLogType->getElementValue()
+            : null;
     }
 
     /**
@@ -123,7 +127,7 @@ class UserEnhancedCallLogsGetListRequest17sp4 extends ComplexType implements Com
         $this->dateTimeRange = ($dateTimeRange InstanceOf EnhancedCallLogsTimeRange)
              ? $dateTimeRange
              : new EnhancedCallLogsTimeRange($dateTimeRange);
-        $this->dateTimeRange->setName('dateTimeRange');
+        $this->dateTimeRange->setElementName('dateTimeRange');
         return $this;
     }
 
@@ -144,7 +148,7 @@ class UserEnhancedCallLogsGetListRequest17sp4 extends ComplexType implements Com
         $this->numberFilter = ($numberFilter InstanceOf EnhancedCallLogsNumberFilter)
              ? $numberFilter
              : new EnhancedCallLogsNumberFilter($numberFilter);
-        $this->numberFilter->setName('numberFilter');
+        $this->numberFilter->setElementName('numberFilter');
         return $this;
     }
 
@@ -165,7 +169,7 @@ class UserEnhancedCallLogsGetListRequest17sp4 extends ComplexType implements Com
         $this->redirectedNumberFilter = ($redirectedNumberFilter InstanceOf EnhancedCallLogsRedirectedNumberFilter)
              ? $redirectedNumberFilter
              : new EnhancedCallLogsRedirectedNumberFilter($redirectedNumberFilter);
-        $this->redirectedNumberFilter->setName('redirectedNumberFilter');
+        $this->redirectedNumberFilter->setElementName('redirectedNumberFilter');
         return $this;
     }
 
@@ -186,7 +190,7 @@ class UserEnhancedCallLogsGetListRequest17sp4 extends ComplexType implements Com
         $this->accountAuthorizationCodeFilter = ($accountAuthorizationCodeFilter InstanceOf EnhancedCallLogsAccountAuthorizationCodeFilter)
              ? $accountAuthorizationCodeFilter
              : new EnhancedCallLogsAccountAuthorizationCodeFilter($accountAuthorizationCodeFilter);
-        $this->accountAuthorizationCodeFilter->setName('accountAuthorizationCodeFilter');
+        $this->accountAuthorizationCodeFilter->setElementName('accountAuthorizationCodeFilter');
         return $this;
     }
 
@@ -207,7 +211,7 @@ class UserEnhancedCallLogsGetListRequest17sp4 extends ComplexType implements Com
         $this->subscriberType = ($subscriberType InstanceOf EnhancedCallLogsSubscriberType)
              ? $subscriberType
              : new EnhancedCallLogsSubscriberType($subscriberType);
-        $this->subscriberType->setName('subscriberType');
+        $this->subscriberType->setElementName('subscriberType');
         return $this;
     }
 
@@ -217,7 +221,9 @@ class UserEnhancedCallLogsGetListRequest17sp4 extends ComplexType implements Com
      */
     public function getSubscriberType()
     {
-        return ($this->subscriberType) ? $this->subscriberType->getValue() : null;
+        return ($this->subscriberType)
+            ? $this->subscriberType->getElementValue()
+            : null;
     }
 
     /**
@@ -228,7 +234,7 @@ class UserEnhancedCallLogsGetListRequest17sp4 extends ComplexType implements Com
         $this->responsePagingControl = ($responsePagingControl InstanceOf ResponsePagingControl)
              ? $responsePagingControl
              : new ResponsePagingControl($responsePagingControl);
-        $this->responsePagingControl->setName('responsePagingControl');
+        $this->responsePagingControl->setElementName('responsePagingControl');
         return $this;
     }
 

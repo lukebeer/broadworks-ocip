@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupServiceInstancePrivacyGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'GroupServiceInstancePrivacyGetResponse';
+    public    $elementName = 'GroupServiceInstancePrivacyGetResponse';
     protected $enableDirectoryPrivacy;
     protected $enableAutoAttendantExtensionDialingPrivacy;
 
@@ -38,7 +38,7 @@ class GroupServiceInstancePrivacyGetResponse extends ComplexType implements Comp
     public function setEnableDirectoryPrivacy($enableDirectoryPrivacy = null)
     {
         $this->enableDirectoryPrivacy = new PrimitiveType($enableDirectoryPrivacy);
-        $this->enableDirectoryPrivacy->setName('enableDirectoryPrivacy');
+        $this->enableDirectoryPrivacy->setElementName('enableDirectoryPrivacy');
         return $this;
     }
 
@@ -48,7 +48,9 @@ class GroupServiceInstancePrivacyGetResponse extends ComplexType implements Comp
      */
     public function getEnableDirectoryPrivacy()
     {
-        return ($this->enableDirectoryPrivacy) ? $this->enableDirectoryPrivacy->getValue() : null;
+        return ($this->enableDirectoryPrivacy)
+            ? $this->enableDirectoryPrivacy->getElementValue()
+            : null;
     }
 
     /**
@@ -57,7 +59,7 @@ class GroupServiceInstancePrivacyGetResponse extends ComplexType implements Comp
     public function setEnableAutoAttendantExtensionDialingPrivacy($enableAutoAttendantExtensionDialingPrivacy = null)
     {
         $this->enableAutoAttendantExtensionDialingPrivacy = new PrimitiveType($enableAutoAttendantExtensionDialingPrivacy);
-        $this->enableAutoAttendantExtensionDialingPrivacy->setName('enableAutoAttendantExtensionDialingPrivacy');
+        $this->enableAutoAttendantExtensionDialingPrivacy->setElementName('enableAutoAttendantExtensionDialingPrivacy');
         return $this;
     }
 
@@ -67,6 +69,8 @@ class GroupServiceInstancePrivacyGetResponse extends ComplexType implements Comp
      */
     public function getEnableAutoAttendantExtensionDialingPrivacy()
     {
-        return ($this->enableAutoAttendantExtensionDialingPrivacy) ? $this->enableAutoAttendantExtensionDialingPrivacy->getValue() : null;
+        return ($this->enableAutoAttendantExtensionDialingPrivacy)
+            ? $this->enableAutoAttendantExtensionDialingPrivacy->getElementValue()
+            : null;
     }
 }

@@ -19,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class FeatureAccessCodeEntry extends ComplexType implements ComplexInterface
 {
-    public    $name = 'FeatureAccessCodeEntry';
+    public    $elementName = 'FeatureAccessCodeEntry';
     protected $featureAccessCodeName;
     protected $mainCode;
     protected $alternateCode;
@@ -48,7 +48,7 @@ class FeatureAccessCodeEntry extends ComplexType implements ComplexInterface
     public function setFeatureAccessCodeName($featureAccessCodeName = null)
     {
         $this->featureAccessCodeName = new SimpleContent($featureAccessCodeName);
-        $this->featureAccessCodeName->setName('featureAccessCodeName');
+        $this->featureAccessCodeName->setElementName('featureAccessCodeName');
         return $this;
     }
 
@@ -58,7 +58,9 @@ class FeatureAccessCodeEntry extends ComplexType implements ComplexInterface
      */
     public function getFeatureAccessCodeName()
     {
-        return ($this->featureAccessCodeName) ? $this->featureAccessCodeName->getValue() : null;
+        return ($this->featureAccessCodeName)
+            ? $this->featureAccessCodeName->getElementValue()
+            : null;
     }
 
     /**
@@ -67,7 +69,7 @@ class FeatureAccessCodeEntry extends ComplexType implements ComplexInterface
     public function setMainCode($mainCode = null)
     {
         $this->mainCode = new SimpleContent($mainCode);
-        $this->mainCode->setName('mainCode');
+        $this->mainCode->setElementName('mainCode');
         return $this;
     }
 
@@ -77,7 +79,9 @@ class FeatureAccessCodeEntry extends ComplexType implements ComplexInterface
      */
     public function getMainCode()
     {
-        return ($this->mainCode) ? $this->mainCode->getValue() : null;
+        return ($this->mainCode)
+            ? $this->mainCode->getElementValue()
+            : null;
     }
 
     /**
@@ -86,7 +90,7 @@ class FeatureAccessCodeEntry extends ComplexType implements ComplexInterface
     public function setAlternateCode($alternateCode = null)
     {
         $this->alternateCode = new SimpleContent($alternateCode);
-        $this->alternateCode->setName('alternateCode');
+        $this->alternateCode->setElementName('alternateCode');
         return $this;
     }
 
@@ -96,6 +100,8 @@ class FeatureAccessCodeEntry extends ComplexType implements ComplexInterface
      */
     public function getAlternateCode()
     {
-        return ($this->alternateCode) ? $this->alternateCode->getValue() : null;
+        return ($this->alternateCode)
+            ? $this->alternateCode->getElementValue()
+            : null;
     }
 }

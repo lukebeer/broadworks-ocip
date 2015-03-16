@@ -25,7 +25,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupCustomContactDirectoryAddRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'GroupCustomContactDirectoryAddRequest';
+    public    $elementName = 'GroupCustomContactDirectoryAddRequest';
     protected $serviceProviderId;
     protected $groupId;
     protected $name;
@@ -59,7 +59,7 @@ class GroupCustomContactDirectoryAddRequest extends ComplexType implements Compl
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
-        $this->serviceProviderId->setName('serviceProviderId');
+        $this->serviceProviderId->setElementName('serviceProviderId');
         return $this;
     }
 
@@ -69,7 +69,9 @@ class GroupCustomContactDirectoryAddRequest extends ComplexType implements Compl
      */
     public function getServiceProviderId()
     {
-        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
+        return ($this->serviceProviderId)
+            ? $this->serviceProviderId->getElementValue()
+            : null;
     }
 
     /**
@@ -80,7 +82,7 @@ class GroupCustomContactDirectoryAddRequest extends ComplexType implements Compl
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
-        $this->groupId->setName('groupId');
+        $this->groupId->setElementName('groupId');
         return $this;
     }
 
@@ -90,7 +92,9 @@ class GroupCustomContactDirectoryAddRequest extends ComplexType implements Compl
      */
     public function getGroupId()
     {
-        return ($this->groupId) ? $this->groupId->getValue() : null;
+        return ($this->groupId)
+            ? $this->groupId->getElementValue()
+            : null;
     }
 
     /**
@@ -101,7 +105,7 @@ class GroupCustomContactDirectoryAddRequest extends ComplexType implements Compl
         $this->name = ($name InstanceOf CustomContactDirectoryName)
              ? $name
              : new CustomContactDirectoryName($name);
-        $this->name->setName('name');
+        $this->name->setElementName('name');
         return $this;
     }
 
@@ -111,7 +115,9 @@ class GroupCustomContactDirectoryAddRequest extends ComplexType implements Compl
      */
     public function getName()
     {
-        return ($this->name) ? $this->name->getValue() : null;
+        return ($this->name)
+            ? $this->name->getElementValue()
+            : null;
     }
 
     /**
@@ -122,7 +128,7 @@ class GroupCustomContactDirectoryAddRequest extends ComplexType implements Compl
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
-        $this->userId->setName('userId');
+        $this->userId->setElementName('userId');
         return $this;
     }
 
@@ -132,6 +138,8 @@ class GroupCustomContactDirectoryAddRequest extends ComplexType implements Compl
      */
     public function getUserId()
     {
-        return ($this->userId) ? $this->userId->getValue() : null;
+        return ($this->userId)
+            ? $this->userId->getElementValue()
+            : null;
     }
 }

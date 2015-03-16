@@ -16,12 +16,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\Enumeration;
  */
 class IncomingCallToUserAliasMode extends SimpleType
 {
-    public $name = "IncomingCallToUserAliasMode";
-    protected $value;
-
+    public $elementName = "IncomingCallToUserAliasMode";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new Enumeration([
             'Enabled',
             'ExplicitAlias',

@@ -16,12 +16,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\Enumeration;
  */
 class VoicePortalExternalRoutingScope extends SimpleType
 {
-    public $name = "VoicePortalExternalRoutingScope";
-    protected $value;
-
+    public $elementName = "VoicePortalExternalRoutingScope";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new Enumeration([
             'System',
             'Group'

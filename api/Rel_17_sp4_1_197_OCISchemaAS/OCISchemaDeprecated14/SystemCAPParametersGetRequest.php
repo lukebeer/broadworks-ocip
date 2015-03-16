@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
 class SystemCAPParametersGetRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\SystemCAPParametersGetResponse';
-    public    $name = 'SystemCAPParametersGetRequest';
+    public    $elementName = 'SystemCAPParametersGetRequest';
 
     public function __construct(    ) {
     }

@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserIncomingCallingPlanModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'UserIncomingCallingPlanModifyRequest';
+    public    $elementName = 'UserIncomingCallingPlanModifyRequest';
     protected $userId;
     protected $useCustomSettings;
     protected $userPermissions;
@@ -53,7 +53,7 @@ class UserIncomingCallingPlanModifyRequest extends ComplexType implements Comple
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
-        $this->userId->setName('userId');
+        $this->userId->setElementName('userId');
         return $this;
     }
 
@@ -63,7 +63,9 @@ class UserIncomingCallingPlanModifyRequest extends ComplexType implements Comple
      */
     public function getUserId()
     {
-        return ($this->userId) ? $this->userId->getValue() : null;
+        return ($this->userId)
+            ? $this->userId->getElementValue()
+            : null;
     }
 
     /**
@@ -72,7 +74,7 @@ class UserIncomingCallingPlanModifyRequest extends ComplexType implements Comple
     public function setUseCustomSettings($useCustomSettings = null)
     {
         $this->useCustomSettings = new PrimitiveType($useCustomSettings);
-        $this->useCustomSettings->setName('useCustomSettings');
+        $this->useCustomSettings->setElementName('useCustomSettings');
         return $this;
     }
 
@@ -82,7 +84,9 @@ class UserIncomingCallingPlanModifyRequest extends ComplexType implements Comple
      */
     public function getUseCustomSettings()
     {
-        return ($this->useCustomSettings) ? $this->useCustomSettings->getValue() : null;
+        return ($this->useCustomSettings)
+            ? $this->useCustomSettings->getElementValue()
+            : null;
     }
 
     /**
@@ -93,7 +97,7 @@ class UserIncomingCallingPlanModifyRequest extends ComplexType implements Comple
         $this->userPermissions = ($userPermissions InstanceOf IncomingCallingPlanPermissionsModify)
              ? $userPermissions
              : new IncomingCallingPlanPermissionsModify($userPermissions);
-        $this->userPermissions->setName('userPermissions');
+        $this->userPermissions->setElementName('userPermissions');
         return $this;
     }
 

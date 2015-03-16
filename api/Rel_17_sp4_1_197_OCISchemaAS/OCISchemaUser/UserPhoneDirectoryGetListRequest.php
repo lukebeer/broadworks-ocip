@@ -44,7 +44,7 @@ use Broadworks_OCIP\core\Client\Client;
 class UserPhoneDirectoryGetListRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType                              = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser\UserPhoneDirectoryGetListResponse';
-    public    $name = 'UserPhoneDirectoryGetListRequest';
+    public    $elementName = 'UserPhoneDirectoryGetListRequest';
     protected $userId;
     protected $includeCommonPhoneList;
     protected $responseSizeLimit;
@@ -105,7 +105,7 @@ class UserPhoneDirectoryGetListRequest extends ComplexType implements ComplexInt
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
-        $this->userId->setName('userId');
+        $this->userId->setElementName('userId');
         return $this;
     }
 
@@ -115,7 +115,9 @@ class UserPhoneDirectoryGetListRequest extends ComplexType implements ComplexInt
      */
     public function getUserId()
     {
-        return ($this->userId) ? $this->userId->getValue() : null;
+        return ($this->userId)
+            ? $this->userId->getElementValue()
+            : null;
     }
 
     /**
@@ -124,7 +126,7 @@ class UserPhoneDirectoryGetListRequest extends ComplexType implements ComplexInt
     public function setIncludeCommonPhoneList($includeCommonPhoneList = null)
     {
         $this->includeCommonPhoneList = new PrimitiveType($includeCommonPhoneList);
-        $this->includeCommonPhoneList->setName('includeCommonPhoneList');
+        $this->includeCommonPhoneList->setElementName('includeCommonPhoneList');
         return $this;
     }
 
@@ -134,7 +136,9 @@ class UserPhoneDirectoryGetListRequest extends ComplexType implements ComplexInt
      */
     public function getIncludeCommonPhoneList()
     {
-        return ($this->includeCommonPhoneList) ? $this->includeCommonPhoneList->getValue() : null;
+        return ($this->includeCommonPhoneList)
+            ? $this->includeCommonPhoneList->getElementValue()
+            : null;
     }
 
     /**
@@ -145,7 +149,7 @@ class UserPhoneDirectoryGetListRequest extends ComplexType implements ComplexInt
         $this->responseSizeLimit = ($responseSizeLimit InstanceOf ResponseSizeLimit)
              ? $responseSizeLimit
              : new ResponseSizeLimit($responseSizeLimit);
-        $this->responseSizeLimit->setName('responseSizeLimit');
+        $this->responseSizeLimit->setElementName('responseSizeLimit');
         return $this;
     }
 
@@ -155,7 +159,9 @@ class UserPhoneDirectoryGetListRequest extends ComplexType implements ComplexInt
      */
     public function getResponseSizeLimit()
     {
-        return ($this->responseSizeLimit) ? $this->responseSizeLimit->getValue() : null;
+        return ($this->responseSizeLimit)
+            ? $this->responseSizeLimit->getElementValue()
+            : null;
     }
 
     /**
@@ -164,7 +170,7 @@ class UserPhoneDirectoryGetListRequest extends ComplexType implements ComplexInt
     public function setSearchCriteriaModeOr($searchCriteriaModeOr = null)
     {
         $this->searchCriteriaModeOr = new PrimitiveType($searchCriteriaModeOr);
-        $this->searchCriteriaModeOr->setName('searchCriteriaModeOr');
+        $this->searchCriteriaModeOr->setElementName('searchCriteriaModeOr');
         return $this;
     }
 
@@ -174,7 +180,9 @@ class UserPhoneDirectoryGetListRequest extends ComplexType implements ComplexInt
      */
     public function getSearchCriteriaModeOr()
     {
-        return ($this->searchCriteriaModeOr) ? $this->searchCriteriaModeOr->getValue() : null;
+        return ($this->searchCriteriaModeOr)
+            ? $this->searchCriteriaModeOr->getElementValue()
+            : null;
     }
 
     /**
@@ -185,7 +193,7 @@ class UserPhoneDirectoryGetListRequest extends ComplexType implements ComplexInt
         $this->searchCriteriaUserLastName = ($searchCriteriaUserLastName InstanceOf SearchCriteriaUserLastName)
              ? $searchCriteriaUserLastName
              : new SearchCriteriaUserLastName($searchCriteriaUserLastName);
-        $this->searchCriteriaUserLastName->setName('searchCriteriaUserLastName');
+        $this->searchCriteriaUserLastName->setElementName('searchCriteriaUserLastName');
         return $this;
     }
 
@@ -206,7 +214,7 @@ class UserPhoneDirectoryGetListRequest extends ComplexType implements ComplexInt
         $this->searchCriteriaUserFirstName = ($searchCriteriaUserFirstName InstanceOf SearchCriteriaUserFirstName)
              ? $searchCriteriaUserFirstName
              : new SearchCriteriaUserFirstName($searchCriteriaUserFirstName);
-        $this->searchCriteriaUserFirstName->setName('searchCriteriaUserFirstName');
+        $this->searchCriteriaUserFirstName->setElementName('searchCriteriaUserFirstName');
         return $this;
     }
 
@@ -227,7 +235,7 @@ class UserPhoneDirectoryGetListRequest extends ComplexType implements ComplexInt
         $this->searchCriteriaDn = ($searchCriteriaDn InstanceOf SearchCriteriaDn)
              ? $searchCriteriaDn
              : new SearchCriteriaDn($searchCriteriaDn);
-        $this->searchCriteriaDn->setName('searchCriteriaDn');
+        $this->searchCriteriaDn->setElementName('searchCriteriaDn');
         return $this;
     }
 
@@ -248,7 +256,7 @@ class UserPhoneDirectoryGetListRequest extends ComplexType implements ComplexInt
         $this->searchCriteriaExtension = ($searchCriteriaExtension InstanceOf SearchCriteriaExtension)
              ? $searchCriteriaExtension
              : new SearchCriteriaExtension($searchCriteriaExtension);
-        $this->searchCriteriaExtension->setName('searchCriteriaExtension');
+        $this->searchCriteriaExtension->setElementName('searchCriteriaExtension');
         return $this;
     }
 
@@ -269,7 +277,7 @@ class UserPhoneDirectoryGetListRequest extends ComplexType implements ComplexInt
         $this->searchCriteriaMobilePhoneNumber = ($searchCriteriaMobilePhoneNumber InstanceOf SearchCriteriaMobilePhoneNumber)
              ? $searchCriteriaMobilePhoneNumber
              : new SearchCriteriaMobilePhoneNumber($searchCriteriaMobilePhoneNumber);
-        $this->searchCriteriaMobilePhoneNumber->setName('searchCriteriaMobilePhoneNumber');
+        $this->searchCriteriaMobilePhoneNumber->setElementName('searchCriteriaMobilePhoneNumber');
         return $this;
     }
 
@@ -290,7 +298,7 @@ class UserPhoneDirectoryGetListRequest extends ComplexType implements ComplexInt
         $this->searchCriteriaEmailAddress = ($searchCriteriaEmailAddress InstanceOf SearchCriteriaEmailAddress)
              ? $searchCriteriaEmailAddress
              : new SearchCriteriaEmailAddress($searchCriteriaEmailAddress);
-        $this->searchCriteriaEmailAddress->setName('searchCriteriaEmailAddress');
+        $this->searchCriteriaEmailAddress->setElementName('searchCriteriaEmailAddress');
         return $this;
     }
 
@@ -311,7 +319,7 @@ class UserPhoneDirectoryGetListRequest extends ComplexType implements ComplexInt
         $this->searchCriteriaExactUserDepartment = ($searchCriteriaExactUserDepartment InstanceOf SearchCriteriaExactUserDepartment)
              ? $searchCriteriaExactUserDepartment
              : new SearchCriteriaExactUserDepartment($searchCriteriaExactUserDepartment);
-        $this->searchCriteriaExactUserDepartment->setName('searchCriteriaExactUserDepartment');
+        $this->searchCriteriaExactUserDepartment->setElementName('searchCriteriaExactUserDepartment');
         return $this;
     }
 
@@ -332,7 +340,7 @@ class UserPhoneDirectoryGetListRequest extends ComplexType implements ComplexInt
         $this->searchCriteriaExactUserGroup = ($searchCriteriaExactUserGroup InstanceOf SearchCriteriaExactUserGroup)
              ? $searchCriteriaExactUserGroup
              : new SearchCriteriaExactUserGroup($searchCriteriaExactUserGroup);
-        $this->searchCriteriaExactUserGroup->setName('searchCriteriaExactUserGroup');
+        $this->searchCriteriaExactUserGroup->setElementName('searchCriteriaExactUserGroup');
         return $this;
     }
 
@@ -353,7 +361,7 @@ class UserPhoneDirectoryGetListRequest extends ComplexType implements ComplexInt
         $this->searchCriteriaExactCustomContactDirectory = ($searchCriteriaExactCustomContactDirectory InstanceOf SearchCriteriaExactCustomContactDirectory)
              ? $searchCriteriaExactCustomContactDirectory
              : new SearchCriteriaExactCustomContactDirectory($searchCriteriaExactCustomContactDirectory);
-        $this->searchCriteriaExactCustomContactDirectory->setName('searchCriteriaExactCustomContactDirectory');
+        $this->searchCriteriaExactCustomContactDirectory->setElementName('searchCriteriaExactCustomContactDirectory');
         return $this;
     }
 

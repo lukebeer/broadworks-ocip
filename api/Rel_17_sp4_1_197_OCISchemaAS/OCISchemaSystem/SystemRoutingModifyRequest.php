@@ -24,7 +24,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemRoutingModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemRoutingModifyRequest';
+    public    $elementName = 'SystemRoutingModifyRequest';
     protected $isRouteRoundRobin;
     protected $routeTimerSeconds;
     protected $dnsResolvedAddressSelectionPolicy;
@@ -62,7 +62,7 @@ class SystemRoutingModifyRequest extends ComplexType implements ComplexInterface
     public function setIsRouteRoundRobin($isRouteRoundRobin = null)
     {
         $this->isRouteRoundRobin = new PrimitiveType($isRouteRoundRobin);
-        $this->isRouteRoundRobin->setName('isRouteRoundRobin');
+        $this->isRouteRoundRobin->setElementName('isRouteRoundRobin');
         return $this;
     }
 
@@ -72,7 +72,9 @@ class SystemRoutingModifyRequest extends ComplexType implements ComplexInterface
      */
     public function getIsRouteRoundRobin()
     {
-        return ($this->isRouteRoundRobin) ? $this->isRouteRoundRobin->getValue() : null;
+        return ($this->isRouteRoundRobin)
+            ? $this->isRouteRoundRobin->getElementValue()
+            : null;
     }
 
     /**
@@ -83,7 +85,7 @@ class SystemRoutingModifyRequest extends ComplexType implements ComplexInterface
         $this->routeTimerSeconds = ($routeTimerSeconds InstanceOf RouteTimerSeconds)
              ? $routeTimerSeconds
              : new RouteTimerSeconds($routeTimerSeconds);
-        $this->routeTimerSeconds->setName('routeTimerSeconds');
+        $this->routeTimerSeconds->setElementName('routeTimerSeconds');
         return $this;
     }
 
@@ -93,7 +95,9 @@ class SystemRoutingModifyRequest extends ComplexType implements ComplexInterface
      */
     public function getRouteTimerSeconds()
     {
-        return ($this->routeTimerSeconds) ? $this->routeTimerSeconds->getValue() : null;
+        return ($this->routeTimerSeconds)
+            ? $this->routeTimerSeconds->getElementValue()
+            : null;
     }
 
     /**
@@ -104,7 +108,7 @@ class SystemRoutingModifyRequest extends ComplexType implements ComplexInterface
         $this->dnsResolvedAddressSelectionPolicy = ($dnsResolvedAddressSelectionPolicy InstanceOf RoutingDNSResolvedAddressSelectionPolicy)
              ? $dnsResolvedAddressSelectionPolicy
              : new RoutingDNSResolvedAddressSelectionPolicy($dnsResolvedAddressSelectionPolicy);
-        $this->dnsResolvedAddressSelectionPolicy->setName('dnsResolvedAddressSelectionPolicy');
+        $this->dnsResolvedAddressSelectionPolicy->setElementName('dnsResolvedAddressSelectionPolicy');
         return $this;
     }
 
@@ -114,7 +118,9 @@ class SystemRoutingModifyRequest extends ComplexType implements ComplexInterface
      */
     public function getDnsResolvedAddressSelectionPolicy()
     {
-        return ($this->dnsResolvedAddressSelectionPolicy) ? $this->dnsResolvedAddressSelectionPolicy->getValue() : null;
+        return ($this->dnsResolvedAddressSelectionPolicy)
+            ? $this->dnsResolvedAddressSelectionPolicy->getElementValue()
+            : null;
     }
 
     /**
@@ -125,7 +131,7 @@ class SystemRoutingModifyRequest extends ComplexType implements ComplexInterface
         $this->statefulExpirationMinutes = ($statefulExpirationMinutes InstanceOf RoutingStatefulExpirationMinutes)
              ? $statefulExpirationMinutes
              : new RoutingStatefulExpirationMinutes($statefulExpirationMinutes);
-        $this->statefulExpirationMinutes->setName('statefulExpirationMinutes');
+        $this->statefulExpirationMinutes->setElementName('statefulExpirationMinutes');
         return $this;
     }
 
@@ -135,7 +141,9 @@ class SystemRoutingModifyRequest extends ComplexType implements ComplexInterface
      */
     public function getStatefulExpirationMinutes()
     {
-        return ($this->statefulExpirationMinutes) ? $this->statefulExpirationMinutes->getValue() : null;
+        return ($this->statefulExpirationMinutes)
+            ? $this->statefulExpirationMinutes->getElementValue()
+            : null;
     }
 
     /**
@@ -146,7 +154,7 @@ class SystemRoutingModifyRequest extends ComplexType implements ComplexInterface
         $this->maxAddressesPerHostname = ($maxAddressesPerHostname InstanceOf RoutingMaxAddresses)
              ? $maxAddressesPerHostname
              : new RoutingMaxAddresses($maxAddressesPerHostname);
-        $this->maxAddressesPerHostname->setName('maxAddressesPerHostname');
+        $this->maxAddressesPerHostname->setElementName('maxAddressesPerHostname');
         return $this;
     }
 
@@ -156,7 +164,9 @@ class SystemRoutingModifyRequest extends ComplexType implements ComplexInterface
      */
     public function getMaxAddressesPerHostname()
     {
-        return ($this->maxAddressesPerHostname) ? $this->maxAddressesPerHostname->getValue() : null;
+        return ($this->maxAddressesPerHostname)
+            ? $this->maxAddressesPerHostname->getElementValue()
+            : null;
     }
 
     /**
@@ -167,7 +177,7 @@ class SystemRoutingModifyRequest extends ComplexType implements ComplexInterface
         $this->maxAddressesDuringSetup = ($maxAddressesDuringSetup InstanceOf RoutingMaxAddresses)
              ? $maxAddressesDuringSetup
              : new RoutingMaxAddresses($maxAddressesDuringSetup);
-        $this->maxAddressesDuringSetup->setName('maxAddressesDuringSetup');
+        $this->maxAddressesDuringSetup->setElementName('maxAddressesDuringSetup');
         return $this;
     }
 
@@ -177,6 +187,8 @@ class SystemRoutingModifyRequest extends ComplexType implements ComplexInterface
      */
     public function getMaxAddressesDuringSetup()
     {
-        return ($this->maxAddressesDuringSetup) ? $this->maxAddressesDuringSetup->getValue() : null;
+        return ($this->maxAddressesDuringSetup)
+            ? $this->maxAddressesDuringSetup->getElementValue()
+            : null;
     }
 }

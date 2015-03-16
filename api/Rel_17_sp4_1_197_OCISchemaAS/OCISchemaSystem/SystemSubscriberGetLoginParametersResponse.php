@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemSubscriberGetLoginParametersResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemSubscriberGetLoginParametersResponse';
+    public    $elementName = 'SystemSubscriberGetLoginParametersResponse';
     protected $maxFailedLoginAttempts;
     protected $minLoginIdLength;
 
@@ -40,7 +40,7 @@ class SystemSubscriberGetLoginParametersResponse extends ComplexType implements 
         $this->maxFailedLoginAttempts = ($maxFailedLoginAttempts InstanceOf SystemMaxLoginAttempts)
              ? $maxFailedLoginAttempts
              : new SystemMaxLoginAttempts($maxFailedLoginAttempts);
-        $this->maxFailedLoginAttempts->setName('maxFailedLoginAttempts');
+        $this->maxFailedLoginAttempts->setElementName('maxFailedLoginAttempts');
         return $this;
     }
 
@@ -50,7 +50,9 @@ class SystemSubscriberGetLoginParametersResponse extends ComplexType implements 
      */
     public function getMaxFailedLoginAttempts()
     {
-        return ($this->maxFailedLoginAttempts) ? $this->maxFailedLoginAttempts->getValue() : null;
+        return ($this->maxFailedLoginAttempts)
+            ? $this->maxFailedLoginAttempts->getElementValue()
+            : null;
     }
 
     /**
@@ -61,7 +63,7 @@ class SystemSubscriberGetLoginParametersResponse extends ComplexType implements 
         $this->minLoginIdLength = ($minLoginIdLength InstanceOf SystemMinLoginIdLength)
              ? $minLoginIdLength
              : new SystemMinLoginIdLength($minLoginIdLength);
-        $this->minLoginIdLength->setName('minLoginIdLength');
+        $this->minLoginIdLength->setElementName('minLoginIdLength');
         return $this;
     }
 
@@ -71,6 +73,8 @@ class SystemSubscriberGetLoginParametersResponse extends ComplexType implements 
      */
     public function getMinLoginIdLength()
     {
-        return ($this->minLoginIdLength) ? $this->minLoginIdLength->getValue() : null;
+        return ($this->minLoginIdLength)
+            ? $this->minLoginIdLength->getElementValue()
+            : null;
     }
 }

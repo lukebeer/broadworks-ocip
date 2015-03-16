@@ -25,7 +25,7 @@ use Broadworks_OCIP\core\Client\Client;
 class GroupTrunkGroupGetAvailableHostedUserListRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType                      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceTrunkGroup\GroupTrunkGroupGetAvailableHostedUserListResponse';
-    public    $name = 'GroupTrunkGroupGetAvailableHostedUserListRequest';
+    public    $elementName = 'GroupTrunkGroupGetAvailableHostedUserListRequest';
     protected $trunkGroupKey;
     protected $responseSizeLimit;
     protected $searchCriteriaUserLastName;
@@ -62,7 +62,7 @@ class GroupTrunkGroupGetAvailableHostedUserListRequest extends ComplexType imple
         $this->trunkGroupKey = ($trunkGroupKey InstanceOf TrunkGroupKey)
              ? $trunkGroupKey
              : new TrunkGroupKey($trunkGroupKey);
-        $this->trunkGroupKey->setName('trunkGroupKey');
+        $this->trunkGroupKey->setElementName('trunkGroupKey');
         return $this;
     }
 
@@ -83,7 +83,7 @@ class GroupTrunkGroupGetAvailableHostedUserListRequest extends ComplexType imple
         $this->responseSizeLimit = ($responseSizeLimit InstanceOf ResponseSizeLimit)
              ? $responseSizeLimit
              : new ResponseSizeLimit($responseSizeLimit);
-        $this->responseSizeLimit->setName('responseSizeLimit');
+        $this->responseSizeLimit->setElementName('responseSizeLimit');
         return $this;
     }
 
@@ -93,7 +93,9 @@ class GroupTrunkGroupGetAvailableHostedUserListRequest extends ComplexType imple
      */
     public function getResponseSizeLimit()
     {
-        return ($this->responseSizeLimit) ? $this->responseSizeLimit->getValue() : null;
+        return ($this->responseSizeLimit)
+            ? $this->responseSizeLimit->getElementValue()
+            : null;
     }
 
     /**
@@ -104,7 +106,7 @@ class GroupTrunkGroupGetAvailableHostedUserListRequest extends ComplexType imple
         $this->searchCriteriaUserLastName = ($searchCriteriaUserLastName InstanceOf SearchCriteriaUserLastName)
              ? $searchCriteriaUserLastName
              : new SearchCriteriaUserLastName($searchCriteriaUserLastName);
-        $this->searchCriteriaUserLastName->setName('searchCriteriaUserLastName');
+        $this->searchCriteriaUserLastName->setElementName('searchCriteriaUserLastName');
         return $this;
     }
 
@@ -125,7 +127,7 @@ class GroupTrunkGroupGetAvailableHostedUserListRequest extends ComplexType imple
         $this->searchCriteriaUserFirstName = ($searchCriteriaUserFirstName InstanceOf SearchCriteriaUserFirstName)
              ? $searchCriteriaUserFirstName
              : new SearchCriteriaUserFirstName($searchCriteriaUserFirstName);
-        $this->searchCriteriaUserFirstName->setName('searchCriteriaUserFirstName');
+        $this->searchCriteriaUserFirstName->setElementName('searchCriteriaUserFirstName');
         return $this;
     }
 
@@ -146,7 +148,7 @@ class GroupTrunkGroupGetAvailableHostedUserListRequest extends ComplexType imple
         $this->searchCriteriaExactUserDepartment = ($searchCriteriaExactUserDepartment InstanceOf SearchCriteriaExactUserDepartment)
              ? $searchCriteriaExactUserDepartment
              : new SearchCriteriaExactUserDepartment($searchCriteriaExactUserDepartment);
-        $this->searchCriteriaExactUserDepartment->setName('searchCriteriaExactUserDepartment');
+        $this->searchCriteriaExactUserDepartment->setElementName('searchCriteriaExactUserDepartment');
         return $this;
     }
 

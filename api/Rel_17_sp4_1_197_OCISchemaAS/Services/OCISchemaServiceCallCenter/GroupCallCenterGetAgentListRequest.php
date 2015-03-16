@@ -27,7 +27,7 @@ use Broadworks_OCIP\core\Client\Client;
 class GroupCallCenterGetAgentListRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType                      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\GroupCallCenterGetAgentListResponse';
-    public    $name = 'GroupCallCenterGetAgentListRequest';
+    public    $elementName = 'GroupCallCenterGetAgentListRequest';
     protected $serviceUserId;
     protected $responseSizeLimit;
     protected $searchCriteriaUserLastName;
@@ -67,7 +67,7 @@ class GroupCallCenterGetAgentListRequest extends ComplexType implements ComplexI
         $this->serviceUserId = ($serviceUserId InstanceOf UserId)
              ? $serviceUserId
              : new UserId($serviceUserId);
-        $this->serviceUserId->setName('serviceUserId');
+        $this->serviceUserId->setElementName('serviceUserId');
         return $this;
     }
 
@@ -77,7 +77,9 @@ class GroupCallCenterGetAgentListRequest extends ComplexType implements ComplexI
      */
     public function getServiceUserId()
     {
-        return ($this->serviceUserId) ? $this->serviceUserId->getValue() : null;
+        return ($this->serviceUserId)
+            ? $this->serviceUserId->getElementValue()
+            : null;
     }
 
     /**
@@ -88,7 +90,7 @@ class GroupCallCenterGetAgentListRequest extends ComplexType implements ComplexI
         $this->responseSizeLimit = ($responseSizeLimit InstanceOf ResponseSizeLimit)
              ? $responseSizeLimit
              : new ResponseSizeLimit($responseSizeLimit);
-        $this->responseSizeLimit->setName('responseSizeLimit');
+        $this->responseSizeLimit->setElementName('responseSizeLimit');
         return $this;
     }
 
@@ -98,7 +100,9 @@ class GroupCallCenterGetAgentListRequest extends ComplexType implements ComplexI
      */
     public function getResponseSizeLimit()
     {
-        return ($this->responseSizeLimit) ? $this->responseSizeLimit->getValue() : null;
+        return ($this->responseSizeLimit)
+            ? $this->responseSizeLimit->getElementValue()
+            : null;
     }
 
     /**
@@ -109,7 +113,7 @@ class GroupCallCenterGetAgentListRequest extends ComplexType implements ComplexI
         $this->searchCriteriaUserLastName = ($searchCriteriaUserLastName InstanceOf SearchCriteriaUserLastName)
              ? $searchCriteriaUserLastName
              : new SearchCriteriaUserLastName($searchCriteriaUserLastName);
-        $this->searchCriteriaUserLastName->setName('searchCriteriaUserLastName');
+        $this->searchCriteriaUserLastName->setElementName('searchCriteriaUserLastName');
         return $this;
     }
 
@@ -130,7 +134,7 @@ class GroupCallCenterGetAgentListRequest extends ComplexType implements ComplexI
         $this->searchCriteriaUserFirstName = ($searchCriteriaUserFirstName InstanceOf SearchCriteriaUserFirstName)
              ? $searchCriteriaUserFirstName
              : new SearchCriteriaUserFirstName($searchCriteriaUserFirstName);
-        $this->searchCriteriaUserFirstName->setName('searchCriteriaUserFirstName');
+        $this->searchCriteriaUserFirstName->setElementName('searchCriteriaUserFirstName');
         return $this;
     }
 
@@ -151,7 +155,7 @@ class GroupCallCenterGetAgentListRequest extends ComplexType implements ComplexI
         $this->searchCriteriaExactUserDepartment = ($searchCriteriaExactUserDepartment InstanceOf SearchCriteriaExactUserDepartment)
              ? $searchCriteriaExactUserDepartment
              : new SearchCriteriaExactUserDepartment($searchCriteriaExactUserDepartment);
-        $this->searchCriteriaExactUserDepartment->setName('searchCriteriaExactUserDepartment');
+        $this->searchCriteriaExactUserDepartment->setElementName('searchCriteriaExactUserDepartment');
         return $this;
     }
 
@@ -172,7 +176,7 @@ class GroupCallCenterGetAgentListRequest extends ComplexType implements ComplexI
         $this->searchCriteriaExactUserGroup = ($searchCriteriaExactUserGroup InstanceOf SearchCriteriaExactUserGroup)
              ? $searchCriteriaExactUserGroup
              : new SearchCriteriaExactUserGroup($searchCriteriaExactUserGroup);
-        $this->searchCriteriaExactUserGroup->setName('searchCriteriaExactUserGroup');
+        $this->searchCriteriaExactUserGroup->setElementName('searchCriteriaExactUserGroup');
         return $this;
     }
 

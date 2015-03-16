@@ -17,12 +17,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\Pattern;
  */
 class DigitAny extends SimpleType
 {
-    public $name = "DigitAny";
-    protected $value;
-
+    public $elementName = "DigitAny";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new Length("1"));
         $this->addRestriction(new Pattern("[0-9]|\*|#"));
     }

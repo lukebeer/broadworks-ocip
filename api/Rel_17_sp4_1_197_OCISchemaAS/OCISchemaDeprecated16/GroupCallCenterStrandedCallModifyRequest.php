@@ -24,7 +24,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupCallCenterStrandedCallModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'GroupCallCenterStrandedCallModifyRequest';
+    public    $elementName = 'GroupCallCenterStrandedCallModifyRequest';
     protected $serviceUserId;
     protected $action;
     protected $transferPhoneNumber;
@@ -67,7 +67,7 @@ class GroupCallCenterStrandedCallModifyRequest extends ComplexType implements Co
         $this->serviceUserId = ($serviceUserId InstanceOf UserId)
              ? $serviceUserId
              : new UserId($serviceUserId);
-        $this->serviceUserId->setName('serviceUserId');
+        $this->serviceUserId->setElementName('serviceUserId');
         return $this;
     }
 
@@ -77,7 +77,9 @@ class GroupCallCenterStrandedCallModifyRequest extends ComplexType implements Co
      */
     public function getServiceUserId()
     {
-        return ($this->serviceUserId) ? $this->serviceUserId->getValue() : null;
+        return ($this->serviceUserId)
+            ? $this->serviceUserId->getElementValue()
+            : null;
     }
 
     /**
@@ -88,7 +90,7 @@ class GroupCallCenterStrandedCallModifyRequest extends ComplexType implements Co
         $this->action = ($action InstanceOf CallCenterStrandedCallProcessingAction)
              ? $action
              : new CallCenterStrandedCallProcessingAction($action);
-        $this->action->setName('action');
+        $this->action->setElementName('action');
         return $this;
     }
 
@@ -98,7 +100,9 @@ class GroupCallCenterStrandedCallModifyRequest extends ComplexType implements Co
      */
     public function getAction()
     {
-        return ($this->action) ? $this->action->getValue() : null;
+        return ($this->action)
+            ? $this->action->getElementValue()
+            : null;
     }
 
     /**
@@ -109,7 +113,7 @@ class GroupCallCenterStrandedCallModifyRequest extends ComplexType implements Co
         $this->transferPhoneNumber = ($transferPhoneNumber InstanceOf OutgoingDNorSIPURI)
              ? $transferPhoneNumber
              : new OutgoingDNorSIPURI($transferPhoneNumber);
-        $this->transferPhoneNumber->setName('transferPhoneNumber');
+        $this->transferPhoneNumber->setElementName('transferPhoneNumber');
         return $this;
     }
 
@@ -119,7 +123,9 @@ class GroupCallCenterStrandedCallModifyRequest extends ComplexType implements Co
      */
     public function getTransferPhoneNumber()
     {
-        return ($this->transferPhoneNumber) ? $this->transferPhoneNumber->getValue() : null;
+        return ($this->transferPhoneNumber)
+            ? $this->transferPhoneNumber->getElementValue()
+            : null;
     }
 
     /**
@@ -130,7 +136,7 @@ class GroupCallCenterStrandedCallModifyRequest extends ComplexType implements Co
         $this->audioMessageSelection = ($audioMessageSelection InstanceOf ExtendedFileResourceSelection)
              ? $audioMessageSelection
              : new ExtendedFileResourceSelection($audioMessageSelection);
-        $this->audioMessageSelection->setName('audioMessageSelection');
+        $this->audioMessageSelection->setElementName('audioMessageSelection');
         return $this;
     }
 
@@ -140,7 +146,9 @@ class GroupCallCenterStrandedCallModifyRequest extends ComplexType implements Co
      */
     public function getAudioMessageSelection()
     {
-        return ($this->audioMessageSelection) ? $this->audioMessageSelection->getValue() : null;
+        return ($this->audioMessageSelection)
+            ? $this->audioMessageSelection->getElementValue()
+            : null;
     }
 
     /**
@@ -151,7 +159,7 @@ class GroupCallCenterStrandedCallModifyRequest extends ComplexType implements Co
         $this->audioFile = ($audioFile InstanceOf ExtendedMediaFileResource)
              ? $audioFile
              : new ExtendedMediaFileResource($audioFile);
-        $this->audioFile->setName('audioFile');
+        $this->audioFile->setElementName('audioFile');
         return $this;
     }
 
@@ -172,7 +180,7 @@ class GroupCallCenterStrandedCallModifyRequest extends ComplexType implements Co
         $this->videoMessageSelection = ($videoMessageSelection InstanceOf ExtendedFileResourceSelection)
              ? $videoMessageSelection
              : new ExtendedFileResourceSelection($videoMessageSelection);
-        $this->videoMessageSelection->setName('videoMessageSelection');
+        $this->videoMessageSelection->setElementName('videoMessageSelection');
         return $this;
     }
 
@@ -182,7 +190,9 @@ class GroupCallCenterStrandedCallModifyRequest extends ComplexType implements Co
      */
     public function getVideoMessageSelection()
     {
-        return ($this->videoMessageSelection) ? $this->videoMessageSelection->getValue() : null;
+        return ($this->videoMessageSelection)
+            ? $this->videoMessageSelection->getElementValue()
+            : null;
     }
 
     /**
@@ -193,7 +203,7 @@ class GroupCallCenterStrandedCallModifyRequest extends ComplexType implements Co
         $this->videoFile = ($videoFile InstanceOf ExtendedMediaFileResource)
              ? $videoFile
              : new ExtendedMediaFileResource($videoFile);
-        $this->videoFile->setName('videoFile');
+        $this->videoFile->setElementName('videoFile');
         return $this;
     }
 

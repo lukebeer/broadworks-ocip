@@ -23,7 +23,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupScheduleAddRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'GroupScheduleAddRequest';
+    public    $elementName = 'GroupScheduleAddRequest';
     protected $serviceProviderId;
     protected $groupId;
     protected $scheduleName;
@@ -57,7 +57,7 @@ class GroupScheduleAddRequest extends ComplexType implements ComplexInterface
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
-        $this->serviceProviderId->setName('serviceProviderId');
+        $this->serviceProviderId->setElementName('serviceProviderId');
         return $this;
     }
 
@@ -67,7 +67,9 @@ class GroupScheduleAddRequest extends ComplexType implements ComplexInterface
      */
     public function getServiceProviderId()
     {
-        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
+        return ($this->serviceProviderId)
+            ? $this->serviceProviderId->getElementValue()
+            : null;
     }
 
     /**
@@ -78,7 +80,7 @@ class GroupScheduleAddRequest extends ComplexType implements ComplexInterface
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
-        $this->groupId->setName('groupId');
+        $this->groupId->setElementName('groupId');
         return $this;
     }
 
@@ -88,7 +90,9 @@ class GroupScheduleAddRequest extends ComplexType implements ComplexInterface
      */
     public function getGroupId()
     {
-        return ($this->groupId) ? $this->groupId->getValue() : null;
+        return ($this->groupId)
+            ? $this->groupId->getElementValue()
+            : null;
     }
 
     /**
@@ -99,7 +103,7 @@ class GroupScheduleAddRequest extends ComplexType implements ComplexInterface
         $this->scheduleName = ($scheduleName InstanceOf ScheduleName)
              ? $scheduleName
              : new ScheduleName($scheduleName);
-        $this->scheduleName->setName('scheduleName');
+        $this->scheduleName->setElementName('scheduleName');
         return $this;
     }
 
@@ -109,7 +113,9 @@ class GroupScheduleAddRequest extends ComplexType implements ComplexInterface
      */
     public function getScheduleName()
     {
-        return ($this->scheduleName) ? $this->scheduleName->getValue() : null;
+        return ($this->scheduleName)
+            ? $this->scheduleName->getElementValue()
+            : null;
     }
 
     /**
@@ -120,7 +126,7 @@ class GroupScheduleAddRequest extends ComplexType implements ComplexInterface
         $this->scheduleType = ($scheduleType InstanceOf ScheduleType)
              ? $scheduleType
              : new ScheduleType($scheduleType);
-        $this->scheduleType->setName('scheduleType');
+        $this->scheduleType->setElementName('scheduleType');
         return $this;
     }
 
@@ -130,6 +136,8 @@ class GroupScheduleAddRequest extends ComplexType implements ComplexInterface
      */
     public function getScheduleType()
     {
-        return ($this->scheduleType) ? $this->scheduleType->getValue() : null;
+        return ($this->scheduleType)
+            ? $this->scheduleType->getElementValue()
+            : null;
     }
 }

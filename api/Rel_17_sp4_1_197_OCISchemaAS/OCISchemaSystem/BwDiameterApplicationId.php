@@ -16,12 +16,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\Enumeration;
  */
 class BwDiameterApplicationId extends SimpleType
 {
-    public $name = "BwDiameterApplicationId";
-    protected $value;
-
+    public $elementName = "BwDiameterApplicationId";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new Enumeration([
             'Rf',
             'Ro',

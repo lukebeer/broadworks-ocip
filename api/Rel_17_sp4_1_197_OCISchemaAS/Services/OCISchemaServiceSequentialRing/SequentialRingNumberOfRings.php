@@ -16,12 +16,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\Enumeration;
  */
 class SequentialRingNumberOfRings extends SimpleType
 {
-    public $name = "SequentialRingNumberOfRings";
-    protected $value;
-
+    public $elementName = "SequentialRingNumberOfRings";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new Enumeration([
             '0',
             '2',

@@ -16,12 +16,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\Enumeration;
  */
 class DTMFTransmissionMethod extends SimpleType
 {
-    public $name = "DTMFTransmissionMethod";
-    protected $value;
-
+    public $elementName = "DTMFTransmissionMethod";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new Enumeration([
             'Signaling',
             'RTP'

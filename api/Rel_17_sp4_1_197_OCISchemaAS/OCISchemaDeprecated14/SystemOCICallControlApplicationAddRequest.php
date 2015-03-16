@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemOCICallControlApplicationAddRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemOCICallControlApplicationAddRequest';
+    public    $elementName = 'SystemOCICallControlApplicationAddRequest';
     protected $applicationId;
     protected $enableSystemWide;
     protected $description;
@@ -53,7 +53,7 @@ class SystemOCICallControlApplicationAddRequest extends ComplexType implements C
         $this->applicationId = ($applicationId InstanceOf OCICallControlApplicationId)
              ? $applicationId
              : new OCICallControlApplicationId($applicationId);
-        $this->applicationId->setName('applicationId');
+        $this->applicationId->setElementName('applicationId');
         return $this;
     }
 
@@ -63,7 +63,9 @@ class SystemOCICallControlApplicationAddRequest extends ComplexType implements C
      */
     public function getApplicationId()
     {
-        return ($this->applicationId) ? $this->applicationId->getValue() : null;
+        return ($this->applicationId)
+            ? $this->applicationId->getElementValue()
+            : null;
     }
 
     /**
@@ -72,7 +74,7 @@ class SystemOCICallControlApplicationAddRequest extends ComplexType implements C
     public function setEnableSystemWide($enableSystemWide = null)
     {
         $this->enableSystemWide = new PrimitiveType($enableSystemWide);
-        $this->enableSystemWide->setName('enableSystemWide');
+        $this->enableSystemWide->setElementName('enableSystemWide');
         return $this;
     }
 
@@ -82,7 +84,9 @@ class SystemOCICallControlApplicationAddRequest extends ComplexType implements C
      */
     public function getEnableSystemWide()
     {
-        return ($this->enableSystemWide) ? $this->enableSystemWide->getValue() : null;
+        return ($this->enableSystemWide)
+            ? $this->enableSystemWide->getElementValue()
+            : null;
     }
 
     /**
@@ -93,7 +97,7 @@ class SystemOCICallControlApplicationAddRequest extends ComplexType implements C
         $this->description = ($description InstanceOf OCICallControlApplicationDescription)
              ? $description
              : new OCICallControlApplicationDescription($description);
-        $this->description->setName('description');
+        $this->description->setElementName('description');
         return $this;
     }
 
@@ -103,6 +107,8 @@ class SystemOCICallControlApplicationAddRequest extends ComplexType implements C
      */
     public function getDescription()
     {
-        return ($this->description) ? $this->description->getValue() : null;
+        return ($this->description)
+            ? $this->description->getElementValue()
+            : null;
     }
 }

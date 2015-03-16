@@ -16,12 +16,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\Enumeration;
  */
 class AudioFileCodec extends SimpleType
 {
-    public $name = "AudioFileCodec";
-    protected $value;
-
+    public $elementName = "AudioFileCodec";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new Enumeration([
             'None',
             'G711',

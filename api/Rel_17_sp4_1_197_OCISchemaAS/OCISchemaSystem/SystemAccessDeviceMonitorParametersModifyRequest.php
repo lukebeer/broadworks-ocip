@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemAccessDeviceMonitorParametersModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemAccessDeviceMonitorParametersModifyRequest';
+    public    $elementName = 'SystemAccessDeviceMonitorParametersModifyRequest';
     protected $pollingIntervalMinutes;
 
     public function __construct(
@@ -45,7 +45,7 @@ class SystemAccessDeviceMonitorParametersModifyRequest extends ComplexType imple
         $this->pollingIntervalMinutes = ($pollingIntervalMinutes InstanceOf AccessDeviceMonitorPollingIntervalMinutes)
              ? $pollingIntervalMinutes
              : new AccessDeviceMonitorPollingIntervalMinutes($pollingIntervalMinutes);
-        $this->pollingIntervalMinutes->setName('pollingIntervalMinutes');
+        $this->pollingIntervalMinutes->setElementName('pollingIntervalMinutes');
         return $this;
     }
 
@@ -55,6 +55,8 @@ class SystemAccessDeviceMonitorParametersModifyRequest extends ComplexType imple
      */
     public function getPollingIntervalMinutes()
     {
-        return ($this->pollingIntervalMinutes) ? $this->pollingIntervalMinutes->getValue() : null;
+        return ($this->pollingIntervalMinutes)
+            ? $this->pollingIntervalMinutes->getElementValue()
+            : null;
     }
 }

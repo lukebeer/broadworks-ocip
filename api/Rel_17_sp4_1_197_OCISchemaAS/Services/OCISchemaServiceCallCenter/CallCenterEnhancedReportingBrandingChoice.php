@@ -16,12 +16,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\Enumeration;
  */
 class CallCenterEnhancedReportingBrandingChoice extends SimpleType
 {
-    public $name = "CallCenterEnhancedReportingBrandingChoice";
-    protected $value;
-
+    public $elementName = "CallCenterEnhancedReportingBrandingChoice";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new Enumeration([
             'System',
             'Custom'

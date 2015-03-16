@@ -23,7 +23,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderDnDeleteListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'ServiceProviderDnDeleteListRequest';
+    public    $elementName = 'ServiceProviderDnDeleteListRequest';
     protected $serviceProviderId;
     protected $phoneNumber;
     protected $dnRange;
@@ -54,7 +54,7 @@ class ServiceProviderDnDeleteListRequest extends ComplexType implements ComplexI
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
-        $this->serviceProviderId->setName('serviceProviderId');
+        $this->serviceProviderId->setElementName('serviceProviderId');
         return $this;
     }
 
@@ -64,7 +64,9 @@ class ServiceProviderDnDeleteListRequest extends ComplexType implements ComplexI
      */
     public function getServiceProviderId()
     {
-        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
+        return ($this->serviceProviderId)
+            ? $this->serviceProviderId->getElementValue()
+            : null;
     }
 
     /**
@@ -75,7 +77,7 @@ class ServiceProviderDnDeleteListRequest extends ComplexType implements ComplexI
         $this->phoneNumber = ($phoneNumber InstanceOf DN)
              ? $phoneNumber
              : new DN($phoneNumber);
-        $this->phoneNumber->setName('phoneNumber');
+        $this->phoneNumber->setElementName('phoneNumber');
         return $this;
     }
 
@@ -85,7 +87,9 @@ class ServiceProviderDnDeleteListRequest extends ComplexType implements ComplexI
      */
     public function getPhoneNumber()
     {
-        return ($this->phoneNumber) ? $this->phoneNumber->getValue() : null;
+        return ($this->phoneNumber)
+            ? $this->phoneNumber->getElementValue()
+            : null;
     }
 
     /**
@@ -96,7 +100,7 @@ class ServiceProviderDnDeleteListRequest extends ComplexType implements ComplexI
         $this->dnRange = ($dnRange InstanceOf DNRange)
              ? $dnRange
              : new DNRange($dnRange);
-        $this->dnRange->setName('dnRange');
+        $this->dnRange->setElementName('dnRange');
         return $this;
     }
 

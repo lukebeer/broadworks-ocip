@@ -17,12 +17,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\MaxInclusive;
  */
 class SpeedDial8Code extends SimpleType
 {
-    public $name = "SpeedDial8Code";
-    protected $value;
-
+    public $elementName = "SpeedDial8Code";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new MinInclusive("2"));
         $this->addRestriction(new MaxInclusive("9"));
     }

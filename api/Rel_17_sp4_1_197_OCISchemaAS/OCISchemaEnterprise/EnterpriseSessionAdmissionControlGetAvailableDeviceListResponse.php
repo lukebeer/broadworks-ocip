@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class EnterpriseSessionAdmissionControlGetAvailableDeviceListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'EnterpriseSessionAdmissionControlGetAvailableDeviceListResponse';
+    public    $elementName = 'EnterpriseSessionAdmissionControlGetAvailableDeviceListResponse';
     protected $accessDevice;
 
     /**
@@ -39,7 +39,7 @@ class EnterpriseSessionAdmissionControlGetAvailableDeviceListResponse extends Co
         $this->accessDevice = ($accessDevice InstanceOf EnterpriseAccessDevice)
              ? $accessDevice
              : new EnterpriseAccessDevice($accessDevice);
-        $this->accessDevice->setName('accessDevice');
+        $this->accessDevice->setElementName('accessDevice');
         return $this;
     }
 

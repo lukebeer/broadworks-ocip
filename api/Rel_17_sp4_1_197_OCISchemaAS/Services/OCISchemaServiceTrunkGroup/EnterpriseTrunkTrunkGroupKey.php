@@ -19,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class EnterpriseTrunkTrunkGroupKey extends ComplexType implements ComplexInterface
 {
-    public    $name = 'EnterpriseTrunkTrunkGroupKey';
+    public    $elementName = 'EnterpriseTrunkTrunkGroupKey';
     protected $groupId;
     protected $trunkGroupName;
 
@@ -45,7 +45,7 @@ class EnterpriseTrunkTrunkGroupKey extends ComplexType implements ComplexInterfa
     public function setGroupId($groupId = null)
     {
         $this->groupId = new SimpleContent($groupId);
-        $this->groupId->setName('groupId');
+        $this->groupId->setElementName('groupId');
         return $this;
     }
 
@@ -55,7 +55,9 @@ class EnterpriseTrunkTrunkGroupKey extends ComplexType implements ComplexInterfa
      */
     public function getGroupId()
     {
-        return ($this->groupId) ? $this->groupId->getValue() : null;
+        return ($this->groupId)
+            ? $this->groupId->getElementValue()
+            : null;
     }
 
     /**
@@ -64,7 +66,7 @@ class EnterpriseTrunkTrunkGroupKey extends ComplexType implements ComplexInterfa
     public function setTrunkGroupName($trunkGroupName = null)
     {
         $this->trunkGroupName = new SimpleContent($trunkGroupName);
-        $this->trunkGroupName->setName('trunkGroupName');
+        $this->trunkGroupName->setElementName('trunkGroupName');
         return $this;
     }
 
@@ -74,6 +76,8 @@ class EnterpriseTrunkTrunkGroupKey extends ComplexType implements ComplexInterfa
      */
     public function getTrunkGroupName()
     {
-        return ($this->trunkGroupName) ? $this->trunkGroupName->getValue() : null;
+        return ($this->trunkGroupName)
+            ? $this->trunkGroupName->getElementValue()
+            : null;
     }
 }

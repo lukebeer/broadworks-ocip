@@ -16,12 +16,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\Enumeration;
  */
 class AccessDeviceEnhancedConfigurationMode extends SimpleType
 {
-    public $name = "AccessDeviceEnhancedConfigurationMode";
-    protected $value;
-
+    public $elementName = "AccessDeviceEnhancedConfigurationMode";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new Enumeration([
             'Default',
             'Manual',

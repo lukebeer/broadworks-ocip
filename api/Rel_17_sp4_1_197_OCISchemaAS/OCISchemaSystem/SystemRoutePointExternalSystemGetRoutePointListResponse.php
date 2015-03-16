@@ -19,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemRoutePointExternalSystemGetRoutePointListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemRoutePointExternalSystemGetRoutePointListResponse';
+    public    $elementName = 'SystemRoutePointExternalSystemGetRoutePointListResponse';
     protected $serviceUserId;
 
     /**
@@ -38,7 +38,7 @@ class SystemRoutePointExternalSystemGetRoutePointListResponse extends ComplexTyp
         $this->serviceUserId = ($serviceUserId InstanceOf UserId)
              ? $serviceUserId
              : new UserId($serviceUserId);
-        $this->serviceUserId->setName('serviceUserId');
+        $this->serviceUserId->setElementName('serviceUserId');
         return $this;
     }
 
@@ -48,6 +48,8 @@ class SystemRoutePointExternalSystemGetRoutePointListResponse extends ComplexTyp
      */
     public function getServiceUserId()
     {
-        return ($this->serviceUserId) ? $this->serviceUserId->getValue() : null;
+        return ($this->serviceUserId)
+            ? $this->serviceUserId->getElementValue()
+            : null;
     }
 }

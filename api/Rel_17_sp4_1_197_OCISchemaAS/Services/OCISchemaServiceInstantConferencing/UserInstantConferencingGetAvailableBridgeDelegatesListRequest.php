@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
 class UserInstantConferencingGetAvailableBridgeDelegatesListRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType        = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing\UserInstantConferencingGetAvailableBridgeDelegatesListResponse';
-    public    $name = 'UserInstantConferencingGetAvailableBridgeDelegatesListRequest';
+    public    $elementName = 'UserInstantConferencingGetAvailableBridgeDelegatesListRequest';
     protected $userId;
     protected $bridgeServiceUserId;
 
@@ -49,7 +49,7 @@ class UserInstantConferencingGetAvailableBridgeDelegatesListRequest extends Comp
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
-        $this->userId->setName('userId');
+        $this->userId->setElementName('userId');
         return $this;
     }
 
@@ -59,7 +59,9 @@ class UserInstantConferencingGetAvailableBridgeDelegatesListRequest extends Comp
      */
     public function getUserId()
     {
-        return ($this->userId) ? $this->userId->getValue() : null;
+        return ($this->userId)
+            ? $this->userId->getElementValue()
+            : null;
     }
 
     /**
@@ -70,7 +72,7 @@ class UserInstantConferencingGetAvailableBridgeDelegatesListRequest extends Comp
         $this->bridgeServiceUserId = ($bridgeServiceUserId InstanceOf UserId)
              ? $bridgeServiceUserId
              : new UserId($bridgeServiceUserId);
-        $this->bridgeServiceUserId->setName('bridgeServiceUserId');
+        $this->bridgeServiceUserId->setElementName('bridgeServiceUserId');
         return $this;
     }
 
@@ -80,6 +82,8 @@ class UserInstantConferencingGetAvailableBridgeDelegatesListRequest extends Comp
      */
     public function getBridgeServiceUserId()
     {
-        return ($this->bridgeServiceUserId) ? $this->bridgeServiceUserId->getValue() : null;
+        return ($this->bridgeServiceUserId)
+            ? $this->bridgeServiceUserId->getElementValue()
+            : null;
     }
 }

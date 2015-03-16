@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderDomainUnassignListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'ServiceProviderDomainUnassignListRequest';
+    public    $elementName = 'ServiceProviderDomainUnassignListRequest';
     protected $serviceProviderId;
     protected $domain;
 
@@ -48,7 +48,7 @@ class ServiceProviderDomainUnassignListRequest extends ComplexType implements Co
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
-        $this->serviceProviderId->setName('serviceProviderId');
+        $this->serviceProviderId->setElementName('serviceProviderId');
         return $this;
     }
 
@@ -58,7 +58,9 @@ class ServiceProviderDomainUnassignListRequest extends ComplexType implements Co
      */
     public function getServiceProviderId()
     {
-        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
+        return ($this->serviceProviderId)
+            ? $this->serviceProviderId->getElementValue()
+            : null;
     }
 
     /**
@@ -69,7 +71,7 @@ class ServiceProviderDomainUnassignListRequest extends ComplexType implements Co
         $this->domain = ($domain InstanceOf NetAddress)
              ? $domain
              : new NetAddress($domain);
-        $this->domain->setName('domain');
+        $this->domain->setElementName('domain');
         return $this;
     }
 
@@ -79,6 +81,8 @@ class ServiceProviderDomainUnassignListRequest extends ComplexType implements Co
      */
     public function getDomain()
     {
-        return ($this->domain) ? $this->domain->getValue() : null;
+        return ($this->domain)
+            ? $this->domain->getElementValue()
+            : null;
     }
 }

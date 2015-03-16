@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class EnterpriseBroadWorksMobileManagerSendCarrierFilesRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'EnterpriseBroadWorksMobileManagerSendCarrierFilesRequest';
+    public    $elementName = 'EnterpriseBroadWorksMobileManagerSendCarrierFilesRequest';
     protected $serviceProviderId;
     protected $emailTo;
 
@@ -49,7 +49,7 @@ class EnterpriseBroadWorksMobileManagerSendCarrierFilesRequest extends ComplexTy
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
-        $this->serviceProviderId->setName('serviceProviderId');
+        $this->serviceProviderId->setElementName('serviceProviderId');
         return $this;
     }
 
@@ -59,7 +59,9 @@ class EnterpriseBroadWorksMobileManagerSendCarrierFilesRequest extends ComplexTy
      */
     public function getServiceProviderId()
     {
-        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
+        return ($this->serviceProviderId)
+            ? $this->serviceProviderId->getElementValue()
+            : null;
     }
 
     /**
@@ -70,7 +72,7 @@ class EnterpriseBroadWorksMobileManagerSendCarrierFilesRequest extends ComplexTy
         $this->emailTo = ($emailTo InstanceOf EmailAddress)
              ? $emailTo
              : new EmailAddress($emailTo);
-        $this->emailTo->setName('emailTo');
+        $this->emailTo->setElementName('emailTo');
         return $this;
     }
 
@@ -80,6 +82,8 @@ class EnterpriseBroadWorksMobileManagerSendCarrierFilesRequest extends ComplexTy
      */
     public function getEmailTo()
     {
-        return ($this->emailTo) ? $this->emailTo->getValue() : null;
+        return ($this->emailTo)
+            ? $this->emailTo->getElementValue()
+            : null;
     }
 }

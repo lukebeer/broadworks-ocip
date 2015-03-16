@@ -16,12 +16,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\Enumeration;
  */
 class MusicOnHoldMessageSelection extends SimpleType
 {
-    public $name = "MusicOnHoldMessageSelection";
-    protected $value;
-
+    public $elementName = "MusicOnHoldMessageSelection";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new Enumeration([
             'System',
             'External',

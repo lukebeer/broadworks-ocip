@@ -23,7 +23,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserVideoAddOnModifyRequest14 extends ComplexType implements ComplexInterface
 {
-    public    $name = 'UserVideoAddOnModifyRequest14';
+    public    $elementName = 'UserVideoAddOnModifyRequest14';
     protected $userId;
     protected $isActive;
     protected $maxOriginatingCallDelaySeconds;
@@ -57,7 +57,7 @@ class UserVideoAddOnModifyRequest14 extends ComplexType implements ComplexInterf
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
-        $this->userId->setName('userId');
+        $this->userId->setElementName('userId');
         return $this;
     }
 
@@ -67,7 +67,9 @@ class UserVideoAddOnModifyRequest14 extends ComplexType implements ComplexInterf
      */
     public function getUserId()
     {
-        return ($this->userId) ? $this->userId->getValue() : null;
+        return ($this->userId)
+            ? $this->userId->getElementValue()
+            : null;
     }
 
     /**
@@ -76,7 +78,7 @@ class UserVideoAddOnModifyRequest14 extends ComplexType implements ComplexInterf
     public function setIsActive($isActive = null)
     {
         $this->isActive = new PrimitiveType($isActive);
-        $this->isActive->setName('isActive');
+        $this->isActive->setElementName('isActive');
         return $this;
     }
 
@@ -86,7 +88,9 @@ class UserVideoAddOnModifyRequest14 extends ComplexType implements ComplexInterf
      */
     public function getIsActive()
     {
-        return ($this->isActive) ? $this->isActive->getValue() : null;
+        return ($this->isActive)
+            ? $this->isActive->getElementValue()
+            : null;
     }
 
     /**
@@ -97,7 +101,7 @@ class UserVideoAddOnModifyRequest14 extends ComplexType implements ComplexInterf
         $this->maxOriginatingCallDelaySeconds = ($maxOriginatingCallDelaySeconds InstanceOf VideoAddOnMaxOriginatingCallDelaySeconds)
              ? $maxOriginatingCallDelaySeconds
              : new VideoAddOnMaxOriginatingCallDelaySeconds($maxOriginatingCallDelaySeconds);
-        $this->maxOriginatingCallDelaySeconds->setName('maxOriginatingCallDelaySeconds');
+        $this->maxOriginatingCallDelaySeconds->setElementName('maxOriginatingCallDelaySeconds');
         return $this;
     }
 
@@ -107,7 +111,9 @@ class UserVideoAddOnModifyRequest14 extends ComplexType implements ComplexInterf
      */
     public function getMaxOriginatingCallDelaySeconds()
     {
-        return ($this->maxOriginatingCallDelaySeconds) ? $this->maxOriginatingCallDelaySeconds->getValue() : null;
+        return ($this->maxOriginatingCallDelaySeconds)
+            ? $this->maxOriginatingCallDelaySeconds->getElementValue()
+            : null;
     }
 
     /**
@@ -118,7 +124,7 @@ class UserVideoAddOnModifyRequest14 extends ComplexType implements ComplexInterf
         $this->accessDeviceEndpoint = ($accessDeviceEndpoint InstanceOf AccessDeviceEndpointModify)
              ? $accessDeviceEndpoint
              : new AccessDeviceEndpointModify($accessDeviceEndpoint);
-        $this->accessDeviceEndpoint->setName('accessDeviceEndpoint');
+        $this->accessDeviceEndpoint->setElementName('accessDeviceEndpoint');
         return $this;
     }
 

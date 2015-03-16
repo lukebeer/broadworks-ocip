@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserRoutePointSupervisorModifyListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'UserRoutePointSupervisorModifyListRequest';
+    public    $elementName = 'UserRoutePointSupervisorModifyListRequest';
     protected $userId;
     protected $supervisorUserIdList;
 
@@ -49,7 +49,7 @@ class UserRoutePointSupervisorModifyListRequest extends ComplexType implements C
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
-        $this->userId->setName('userId');
+        $this->userId->setElementName('userId');
         return $this;
     }
 
@@ -59,7 +59,9 @@ class UserRoutePointSupervisorModifyListRequest extends ComplexType implements C
      */
     public function getUserId()
     {
-        return ($this->userId) ? $this->userId->getValue() : null;
+        return ($this->userId)
+            ? $this->userId->getElementValue()
+            : null;
     }
 
     /**
@@ -70,7 +72,7 @@ class UserRoutePointSupervisorModifyListRequest extends ComplexType implements C
         $this->supervisorUserIdList = ($supervisorUserIdList InstanceOf ReplacementUserIdList)
              ? $supervisorUserIdList
              : new ReplacementUserIdList($supervisorUserIdList);
-        $this->supervisorUserIdList->setName('supervisorUserIdList');
+        $this->supervisorUserIdList->setElementName('supervisorUserIdList');
         return $this;
     }
 

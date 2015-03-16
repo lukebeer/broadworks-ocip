@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderTrunkGroupModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'ServiceProviderTrunkGroupModifyRequest';
+    public    $elementName = 'ServiceProviderTrunkGroupModifyRequest';
     protected $serviceProviderId;
     protected $maxActiveCalls;
     protected $burstingMaxActiveCalls;
@@ -52,7 +52,7 @@ class ServiceProviderTrunkGroupModifyRequest extends ComplexType implements Comp
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
-        $this->serviceProviderId->setName('serviceProviderId');
+        $this->serviceProviderId->setElementName('serviceProviderId');
         return $this;
     }
 
@@ -62,7 +62,9 @@ class ServiceProviderTrunkGroupModifyRequest extends ComplexType implements Comp
      */
     public function getServiceProviderId()
     {
-        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
+        return ($this->serviceProviderId)
+            ? $this->serviceProviderId->getElementValue()
+            : null;
     }
 
     /**
@@ -73,7 +75,7 @@ class ServiceProviderTrunkGroupModifyRequest extends ComplexType implements Comp
         $this->maxActiveCalls = ($maxActiveCalls InstanceOf UnboundedNonNegativeInt)
              ? $maxActiveCalls
              : new UnboundedNonNegativeInt($maxActiveCalls);
-        $this->maxActiveCalls->setName('maxActiveCalls');
+        $this->maxActiveCalls->setElementName('maxActiveCalls');
         return $this;
     }
 
@@ -94,7 +96,7 @@ class ServiceProviderTrunkGroupModifyRequest extends ComplexType implements Comp
         $this->burstingMaxActiveCalls = ($burstingMaxActiveCalls InstanceOf UnboundedNonNegativeInt)
              ? $burstingMaxActiveCalls
              : new UnboundedNonNegativeInt($burstingMaxActiveCalls);
-        $this->burstingMaxActiveCalls->setName('burstingMaxActiveCalls');
+        $this->burstingMaxActiveCalls->setElementName('burstingMaxActiveCalls');
         return $this;
     }
 

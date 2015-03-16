@@ -17,12 +17,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\MaxInclusive;
  */
 class CallingNameRetrievalQueryTimerMilliSeconds extends SimpleType
 {
-    public $name = "CallingNameRetrievalQueryTimerMilliSeconds";
-    protected $value;
-
+    public $elementName = "CallingNameRetrievalQueryTimerMilliSeconds";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new MinInclusive("500"));
         $this->addRestriction(new MaxInclusive("5000"));
     }

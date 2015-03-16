@@ -19,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserPortalPasscodeGetInfoResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'UserPortalPasscodeGetInfoResponse';
+    public    $elementName = 'UserPortalPasscodeGetInfoResponse';
     protected $isLoginDisabled;
     protected $passcode;
 
@@ -37,7 +37,7 @@ class UserPortalPasscodeGetInfoResponse extends ComplexType implements ComplexIn
     public function setIsLoginDisabled($isLoginDisabled = null)
     {
         $this->isLoginDisabled = new PrimitiveType($isLoginDisabled);
-        $this->isLoginDisabled->setName('isLoginDisabled');
+        $this->isLoginDisabled->setElementName('isLoginDisabled');
         return $this;
     }
 
@@ -47,7 +47,9 @@ class UserPortalPasscodeGetInfoResponse extends ComplexType implements ComplexIn
      */
     public function getIsLoginDisabled()
     {
-        return ($this->isLoginDisabled) ? $this->isLoginDisabled->getValue() : null;
+        return ($this->isLoginDisabled)
+            ? $this->isLoginDisabled->getElementValue()
+            : null;
     }
 
     /**
@@ -58,7 +60,7 @@ class UserPortalPasscodeGetInfoResponse extends ComplexType implements ComplexIn
         $this->passcode = ($passcode InstanceOf Passcode)
              ? $passcode
              : new Passcode($passcode);
-        $this->passcode->setName('passcode');
+        $this->passcode->setElementName('passcode');
         return $this;
     }
 
@@ -68,6 +70,8 @@ class UserPortalPasscodeGetInfoResponse extends ComplexType implements ComplexIn
      */
     public function getPasscode()
     {
-        return ($this->passcode) ? $this->passcode->getValue() : null;
+        return ($this->passcode)
+            ? $this->passcode->getElementValue()
+            : null;
     }
 }

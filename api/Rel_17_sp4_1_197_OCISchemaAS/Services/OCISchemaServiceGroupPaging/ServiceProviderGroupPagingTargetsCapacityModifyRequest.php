@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderGroupPagingTargetsCapacityModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'ServiceProviderGroupPagingTargetsCapacityModifyRequest';
+    public    $elementName = 'ServiceProviderGroupPagingTargetsCapacityModifyRequest';
     protected $serviceProviderId;
     protected $maximumTargetUsers;
 
@@ -49,7 +49,7 @@ class ServiceProviderGroupPagingTargetsCapacityModifyRequest extends ComplexType
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
-        $this->serviceProviderId->setName('serviceProviderId');
+        $this->serviceProviderId->setElementName('serviceProviderId');
         return $this;
     }
 
@@ -59,7 +59,9 @@ class ServiceProviderGroupPagingTargetsCapacityModifyRequest extends ComplexType
      */
     public function getServiceProviderId()
     {
-        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
+        return ($this->serviceProviderId)
+            ? $this->serviceProviderId->getElementValue()
+            : null;
     }
 
     /**
@@ -70,7 +72,7 @@ class ServiceProviderGroupPagingTargetsCapacityModifyRequest extends ComplexType
         $this->maximumTargetUsers = ($maximumTargetUsers InstanceOf GroupPagingMaxTargetCapacity)
              ? $maximumTargetUsers
              : new GroupPagingMaxTargetCapacity($maximumTargetUsers);
-        $this->maximumTargetUsers->setName('maximumTargetUsers');
+        $this->maximumTargetUsers->setElementName('maximumTargetUsers');
         return $this;
     }
 
@@ -80,6 +82,8 @@ class ServiceProviderGroupPagingTargetsCapacityModifyRequest extends ComplexType
      */
     public function getMaximumTargetUsers()
     {
-        return ($this->maximumTargetUsers) ? $this->maximumTargetUsers->getValue() : null;
+        return ($this->maximumTargetUsers)
+            ? $this->maximumTargetUsers->getElementValue()
+            : null;
     }
 }

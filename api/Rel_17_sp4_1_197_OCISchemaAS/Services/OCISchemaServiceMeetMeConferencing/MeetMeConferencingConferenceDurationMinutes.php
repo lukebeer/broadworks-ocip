@@ -16,12 +16,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\Pattern;
  */
 class MeetMeConferencingConferenceDurationMinutes extends SimpleType
 {
-    public $name = "MeetMeConferencingConferenceDurationMinutes";
-    protected $value;
-
+    public $elementName = "MeetMeConferencingConferenceDurationMinutes";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new Pattern("0|15|30|45"));
     }
 }

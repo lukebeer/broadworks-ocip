@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderVoiceMessagingGroupModifyVoicePortalBrandingRequest16 extends ComplexType implements ComplexInterface
 {
-    public    $name = 'ServiceProviderVoiceMessagingGroupModifyVoicePortalBrandingRequest16';
+    public    $elementName = 'ServiceProviderVoiceMessagingGroupModifyVoicePortalBrandingRequest16';
     protected $serviceProviderId;
     protected $voicePortalGreetingSelection;
     protected $voicePortalGreetingFile;
@@ -59,7 +59,7 @@ class ServiceProviderVoiceMessagingGroupModifyVoicePortalBrandingRequest16 exten
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
-        $this->serviceProviderId->setName('serviceProviderId');
+        $this->serviceProviderId->setElementName('serviceProviderId');
         return $this;
     }
 
@@ -69,7 +69,9 @@ class ServiceProviderVoiceMessagingGroupModifyVoicePortalBrandingRequest16 exten
      */
     public function getServiceProviderId()
     {
-        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
+        return ($this->serviceProviderId)
+            ? $this->serviceProviderId->getElementValue()
+            : null;
     }
 
     /**
@@ -80,7 +82,7 @@ class ServiceProviderVoiceMessagingGroupModifyVoicePortalBrandingRequest16 exten
         $this->voicePortalGreetingSelection = ($voicePortalGreetingSelection InstanceOf VoiceMessagingBrandingSelection)
              ? $voicePortalGreetingSelection
              : new VoiceMessagingBrandingSelection($voicePortalGreetingSelection);
-        $this->voicePortalGreetingSelection->setName('voicePortalGreetingSelection');
+        $this->voicePortalGreetingSelection->setElementName('voicePortalGreetingSelection');
         return $this;
     }
 
@@ -90,7 +92,9 @@ class ServiceProviderVoiceMessagingGroupModifyVoicePortalBrandingRequest16 exten
      */
     public function getVoicePortalGreetingSelection()
     {
-        return ($this->voicePortalGreetingSelection) ? $this->voicePortalGreetingSelection->getValue() : null;
+        return ($this->voicePortalGreetingSelection)
+            ? $this->voicePortalGreetingSelection->getElementValue()
+            : null;
     }
 
     /**
@@ -101,7 +105,7 @@ class ServiceProviderVoiceMessagingGroupModifyVoicePortalBrandingRequest16 exten
         $this->voicePortalGreetingFile = ($voicePortalGreetingFile InstanceOf LabeledMediaFileResource)
              ? $voicePortalGreetingFile
              : new LabeledMediaFileResource($voicePortalGreetingFile);
-        $this->voicePortalGreetingFile->setName('voicePortalGreetingFile');
+        $this->voicePortalGreetingFile->setElementName('voicePortalGreetingFile');
         return $this;
     }
 
@@ -122,7 +126,7 @@ class ServiceProviderVoiceMessagingGroupModifyVoicePortalBrandingRequest16 exten
         $this->voiceMessagingGreetingSelection = ($voiceMessagingGreetingSelection InstanceOf VoiceMessagingBrandingSelection)
              ? $voiceMessagingGreetingSelection
              : new VoiceMessagingBrandingSelection($voiceMessagingGreetingSelection);
-        $this->voiceMessagingGreetingSelection->setName('voiceMessagingGreetingSelection');
+        $this->voiceMessagingGreetingSelection->setElementName('voiceMessagingGreetingSelection');
         return $this;
     }
 
@@ -132,7 +136,9 @@ class ServiceProviderVoiceMessagingGroupModifyVoicePortalBrandingRequest16 exten
      */
     public function getVoiceMessagingGreetingSelection()
     {
-        return ($this->voiceMessagingGreetingSelection) ? $this->voiceMessagingGreetingSelection->getValue() : null;
+        return ($this->voiceMessagingGreetingSelection)
+            ? $this->voiceMessagingGreetingSelection->getElementValue()
+            : null;
     }
 
     /**
@@ -143,7 +149,7 @@ class ServiceProviderVoiceMessagingGroupModifyVoicePortalBrandingRequest16 exten
         $this->voiceMessagingGreetingFile = ($voiceMessagingGreetingFile InstanceOf LabeledMediaFileResource)
              ? $voiceMessagingGreetingFile
              : new LabeledMediaFileResource($voiceMessagingGreetingFile);
-        $this->voiceMessagingGreetingFile->setName('voiceMessagingGreetingFile');
+        $this->voiceMessagingGreetingFile->setElementName('voiceMessagingGreetingFile');
         return $this;
     }
 

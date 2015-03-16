@@ -23,7 +23,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class EnterpriseVoiceVPNModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'EnterpriseVoiceVPNModifyRequest';
+    public    $elementName = 'EnterpriseVoiceVPNModifyRequest';
     protected $serviceProviderId;
     protected $isActive;
     protected $defaultSelection;
@@ -60,7 +60,7 @@ class EnterpriseVoiceVPNModifyRequest extends ComplexType implements ComplexInte
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
-        $this->serviceProviderId->setName('serviceProviderId');
+        $this->serviceProviderId->setElementName('serviceProviderId');
         return $this;
     }
 
@@ -70,7 +70,9 @@ class EnterpriseVoiceVPNModifyRequest extends ComplexType implements ComplexInte
      */
     public function getServiceProviderId()
     {
-        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
+        return ($this->serviceProviderId)
+            ? $this->serviceProviderId->getElementValue()
+            : null;
     }
 
     /**
@@ -79,7 +81,7 @@ class EnterpriseVoiceVPNModifyRequest extends ComplexType implements ComplexInte
     public function setIsActive($isActive = null)
     {
         $this->isActive = new PrimitiveType($isActive);
-        $this->isActive->setName('isActive');
+        $this->isActive->setElementName('isActive');
         return $this;
     }
 
@@ -89,7 +91,9 @@ class EnterpriseVoiceVPNModifyRequest extends ComplexType implements ComplexInte
      */
     public function getIsActive()
     {
-        return ($this->isActive) ? $this->isActive->getValue() : null;
+        return ($this->isActive)
+            ? $this->isActive->getElementValue()
+            : null;
     }
 
     /**
@@ -100,7 +104,7 @@ class EnterpriseVoiceVPNModifyRequest extends ComplexType implements ComplexInte
         $this->defaultSelection = ($defaultSelection InstanceOf EnterpriseVoiceVPNDefaultSelection)
              ? $defaultSelection
              : new EnterpriseVoiceVPNDefaultSelection($defaultSelection);
-        $this->defaultSelection->setName('defaultSelection');
+        $this->defaultSelection->setElementName('defaultSelection');
         return $this;
     }
 
@@ -110,7 +114,9 @@ class EnterpriseVoiceVPNModifyRequest extends ComplexType implements ComplexInte
      */
     public function getDefaultSelection()
     {
-        return ($this->defaultSelection) ? $this->defaultSelection->getValue() : null;
+        return ($this->defaultSelection)
+            ? $this->defaultSelection->getElementValue()
+            : null;
     }
 
     /**
@@ -121,7 +127,7 @@ class EnterpriseVoiceVPNModifyRequest extends ComplexType implements ComplexInte
         $this->e164Selection = ($e164Selection InstanceOf EnterpriseVoiceVPNNonMatchingE164NumberSelection)
              ? $e164Selection
              : new EnterpriseVoiceVPNNonMatchingE164NumberSelection($e164Selection);
-        $this->e164Selection->setName('e164Selection');
+        $this->e164Selection->setElementName('e164Selection');
         return $this;
     }
 
@@ -131,7 +137,9 @@ class EnterpriseVoiceVPNModifyRequest extends ComplexType implements ComplexInte
      */
     public function getE164Selection()
     {
-        return ($this->e164Selection) ? $this->e164Selection->getValue() : null;
+        return ($this->e164Selection)
+            ? $this->e164Selection->getElementValue()
+            : null;
     }
 
     /**
@@ -140,7 +148,7 @@ class EnterpriseVoiceVPNModifyRequest extends ComplexType implements ComplexInte
     public function setUsePhoneContext($usePhoneContext = null)
     {
         $this->usePhoneContext = new PrimitiveType($usePhoneContext);
-        $this->usePhoneContext->setName('usePhoneContext');
+        $this->usePhoneContext->setElementName('usePhoneContext');
         return $this;
     }
 
@@ -150,6 +158,8 @@ class EnterpriseVoiceVPNModifyRequest extends ComplexType implements ComplexInte
      */
     public function getUsePhoneContext()
     {
-        return ($this->usePhoneContext) ? $this->usePhoneContext->getValue() : null;
+        return ($this->usePhoneContext)
+            ? $this->usePhoneContext->getElementValue()
+            : null;
     }
 }

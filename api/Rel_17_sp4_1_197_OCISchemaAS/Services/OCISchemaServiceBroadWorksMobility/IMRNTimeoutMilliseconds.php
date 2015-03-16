@@ -17,12 +17,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\MaxInclusive;
  */
 class IMRNTimeoutMilliseconds extends SimpleType
 {
-    public $name = "IMRNTimeoutMilliseconds";
-    protected $value;
-
+    public $elementName = "IMRNTimeoutMilliseconds";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new MinInclusive("100"));
         $this->addRestriction(new MaxInclusive("60000"));
     }

@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserEnhancedCallLogsGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'UserEnhancedCallLogsGetListResponse';
+    public    $elementName = 'UserEnhancedCallLogsGetListResponse';
     protected $placed;
     protected $received;
     protected $missed;
@@ -41,7 +41,7 @@ class UserEnhancedCallLogsGetListResponse extends ComplexType implements Complex
         $this->placed = ($placed InstanceOf EnhancedCallLogsEntry)
              ? $placed
              : new EnhancedCallLogsEntry($placed);
-        $this->placed->setName('placed');
+        $this->placed->setElementName('placed');
         return $this;
     }
 
@@ -62,7 +62,7 @@ class UserEnhancedCallLogsGetListResponse extends ComplexType implements Complex
         $this->received = ($received InstanceOf EnhancedCallLogsEntry)
              ? $received
              : new EnhancedCallLogsEntry($received);
-        $this->received->setName('received');
+        $this->received->setElementName('received');
         return $this;
     }
 
@@ -83,7 +83,7 @@ class UserEnhancedCallLogsGetListResponse extends ComplexType implements Complex
         $this->missed = ($missed InstanceOf EnhancedCallLogsEntry)
              ? $missed
              : new EnhancedCallLogsEntry($missed);
-        $this->missed->setName('missed');
+        $this->missed->setElementName('missed');
         return $this;
     }
 

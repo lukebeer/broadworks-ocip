@@ -57,7 +57,7 @@ class Builder
     {
         $oci = self::BROADSOFT_DOC_HEAD;
         $oci .= '<sessionId xmlns="">' . $this->session->getSessionId() . '</sessionId>';
-        $oci .= '<command xsi:type="' . $command->getName() . '" xmlns="">';
+        $oci .= '<command xsi:type="' . $command->getElementName() . '" xmlns="">';
         foreach ($command->getElements() as $element) {
             if ($element InstanceOf ComplexType) {
                 $oci .= self::buildComplex($element);
@@ -105,7 +105,7 @@ class Builder
                 $oci .= self::buildSimple($element);
             }
         }
-        return ($oci) ? "<{$complex->getName()}>$oci</{$complex->getName()}>" : '';
+        return ($oci) ? "<{$complex->getElementName()}>$oci</{$complex->getElementName()}>" : '';
     }
 
     /**
@@ -116,7 +116,7 @@ class Builder
      */
     public static function buildSimple(SimpleType $simple)
     {
-        if (empty($simple->getValue())) return '';
-        return "<{$simple->getName()}>{$simple->getValue()}</{$simple->getName()}>";
+        if (empty($simple->getElementValue())) return '';
+        return "<{$simple->getElementName()}>{$simple->getElementValue()}</{$simple->getElementName()}>";
     }
 }

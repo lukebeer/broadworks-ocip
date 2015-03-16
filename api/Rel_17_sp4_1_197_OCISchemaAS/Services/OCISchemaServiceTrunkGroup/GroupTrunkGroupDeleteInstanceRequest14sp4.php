@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupTrunkGroupDeleteInstanceRequest14sp4 extends ComplexType implements ComplexInterface
 {
-    public    $name = 'GroupTrunkGroupDeleteInstanceRequest14sp4';
+    public    $elementName = 'GroupTrunkGroupDeleteInstanceRequest14sp4';
     protected $trunkGroupKey;
 
     public function __construct(
@@ -45,7 +45,7 @@ class GroupTrunkGroupDeleteInstanceRequest14sp4 extends ComplexType implements C
         $this->trunkGroupKey = ($trunkGroupKey InstanceOf TrunkGroupKey)
              ? $trunkGroupKey
              : new TrunkGroupKey($trunkGroupKey);
-        $this->trunkGroupKey->setName('trunkGroupKey');
+        $this->trunkGroupKey->setElementName('trunkGroupKey');
         return $this;
     }
 

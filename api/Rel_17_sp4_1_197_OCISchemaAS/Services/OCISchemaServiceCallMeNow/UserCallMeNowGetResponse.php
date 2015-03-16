@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserCallMeNowGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'UserCallMeNowGetResponse';
+    public    $elementName = 'UserCallMeNowGetResponse';
     protected $isActive;
     protected $answerConfirmation;
     protected $criteriaTable;
@@ -41,7 +41,7 @@ class UserCallMeNowGetResponse extends ComplexType implements ComplexInterface
     public function setIsActive($isActive = null)
     {
         $this->isActive = new PrimitiveType($isActive);
-        $this->isActive->setName('isActive');
+        $this->isActive->setElementName('isActive');
         return $this;
     }
 
@@ -51,7 +51,9 @@ class UserCallMeNowGetResponse extends ComplexType implements ComplexInterface
      */
     public function getIsActive()
     {
-        return ($this->isActive) ? $this->isActive->getValue() : null;
+        return ($this->isActive)
+            ? $this->isActive->getElementValue()
+            : null;
     }
 
     /**
@@ -62,7 +64,7 @@ class UserCallMeNowGetResponse extends ComplexType implements ComplexInterface
         $this->answerConfirmation = ($answerConfirmation InstanceOf CallMeNowAnswerConfirmation)
              ? $answerConfirmation
              : new CallMeNowAnswerConfirmation($answerConfirmation);
-        $this->answerConfirmation->setName('answerConfirmation');
+        $this->answerConfirmation->setElementName('answerConfirmation');
         return $this;
     }
 
@@ -72,7 +74,9 @@ class UserCallMeNowGetResponse extends ComplexType implements ComplexInterface
      */
     public function getAnswerConfirmation()
     {
-        return ($this->answerConfirmation) ? $this->answerConfirmation->getValue() : null;
+        return ($this->answerConfirmation)
+            ? $this->answerConfirmation->getElementValue()
+            : null;
     }
 
     /**
@@ -81,7 +85,7 @@ class UserCallMeNowGetResponse extends ComplexType implements ComplexInterface
     public function setCriteriaTable(TableType $criteriaTable = null)
     {
         $this->criteriaTable = $criteriaTable;
-        $this->criteriaTable->setName('criteriaTable');
+        $this->criteriaTable->setElementName('criteriaTable');
         return $this;
     }
 

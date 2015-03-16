@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
 class SystemCallingNameRetrievalGetRequest17sp4 extends ComplexType implements ComplexInterface
 {
     public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallingNameRetrieval\SystemCallingNameRetrievalGetResponse17sp4';
-    public    $name = 'SystemCallingNameRetrievalGetRequest17sp4';
+    public    $elementName = 'SystemCallingNameRetrievalGetRequest17sp4';
 
     public function __construct(    ) {
     }

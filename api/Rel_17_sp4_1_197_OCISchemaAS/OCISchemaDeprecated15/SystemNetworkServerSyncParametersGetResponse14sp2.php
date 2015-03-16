@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemNetworkServerSyncParametersGetResponse14sp2 extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemNetworkServerSyncParametersGetResponse14sp2';
+    public    $elementName = 'SystemNetworkServerSyncParametersGetResponse14sp2';
     protected $enableSync;
     protected $syncLinePorts;
 
@@ -39,7 +39,7 @@ class SystemNetworkServerSyncParametersGetResponse14sp2 extends ComplexType impl
     public function setEnableSync($enableSync = null)
     {
         $this->enableSync = new PrimitiveType($enableSync);
-        $this->enableSync->setName('enableSync');
+        $this->enableSync->setElementName('enableSync');
         return $this;
     }
 
@@ -49,7 +49,9 @@ class SystemNetworkServerSyncParametersGetResponse14sp2 extends ComplexType impl
      */
     public function getEnableSync()
     {
-        return ($this->enableSync) ? $this->enableSync->getValue() : null;
+        return ($this->enableSync)
+            ? $this->enableSync->getElementValue()
+            : null;
     }
 
     /**
@@ -58,7 +60,7 @@ class SystemNetworkServerSyncParametersGetResponse14sp2 extends ComplexType impl
     public function setSyncLinePorts($syncLinePorts = null)
     {
         $this->syncLinePorts = new PrimitiveType($syncLinePorts);
-        $this->syncLinePorts->setName('syncLinePorts');
+        $this->syncLinePorts->setElementName('syncLinePorts');
         return $this;
     }
 
@@ -68,6 +70,8 @@ class SystemNetworkServerSyncParametersGetResponse14sp2 extends ComplexType impl
      */
     public function getSyncLinePorts()
     {
-        return ($this->syncLinePorts) ? $this->syncLinePorts->getValue() : null;
+        return ($this->syncLinePorts)
+            ? $this->syncLinePorts->getElementValue()
+            : null;
     }
 }

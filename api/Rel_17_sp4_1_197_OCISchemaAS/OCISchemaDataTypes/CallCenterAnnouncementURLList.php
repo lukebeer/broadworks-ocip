@@ -19,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class CallCenterAnnouncementURLList extends ComplexType implements ComplexInterface
 {
-    public    $name = 'CallCenterAnnouncementURLList';
+    public    $elementName = 'CallCenterAnnouncementURLList';
     protected $url1;
     protected $url2;
     protected $url3;
@@ -51,7 +51,7 @@ class CallCenterAnnouncementURLList extends ComplexType implements ComplexInterf
     public function setUrl1($url1 = null)
     {
         $this->url1 = new SimpleContent($url1);
-        $this->url1->setName('url1');
+        $this->url1->setElementName('url1');
         return $this;
     }
 
@@ -61,7 +61,9 @@ class CallCenterAnnouncementURLList extends ComplexType implements ComplexInterf
      */
     public function getUrl1()
     {
-        return ($this->url1) ? $this->url1->getValue() : null;
+        return ($this->url1)
+            ? $this->url1->getElementValue()
+            : null;
     }
 
     /**
@@ -70,7 +72,7 @@ class CallCenterAnnouncementURLList extends ComplexType implements ComplexInterf
     public function setUrl2($url2 = null)
     {
         $this->url2 = new SimpleContent($url2);
-        $this->url2->setName('url2');
+        $this->url2->setElementName('url2');
         return $this;
     }
 
@@ -80,7 +82,9 @@ class CallCenterAnnouncementURLList extends ComplexType implements ComplexInterf
      */
     public function getUrl2()
     {
-        return ($this->url2) ? $this->url2->getValue() : null;
+        return ($this->url2)
+            ? $this->url2->getElementValue()
+            : null;
     }
 
     /**
@@ -89,7 +93,7 @@ class CallCenterAnnouncementURLList extends ComplexType implements ComplexInterf
     public function setUrl3($url3 = null)
     {
         $this->url3 = new SimpleContent($url3);
-        $this->url3->setName('url3');
+        $this->url3->setElementName('url3');
         return $this;
     }
 
@@ -99,7 +103,9 @@ class CallCenterAnnouncementURLList extends ComplexType implements ComplexInterf
      */
     public function getUrl3()
     {
-        return ($this->url3) ? $this->url3->getValue() : null;
+        return ($this->url3)
+            ? $this->url3->getElementValue()
+            : null;
     }
 
     /**
@@ -108,7 +114,7 @@ class CallCenterAnnouncementURLList extends ComplexType implements ComplexInterf
     public function setUrl4($url4 = null)
     {
         $this->url4 = new SimpleContent($url4);
-        $this->url4->setName('url4');
+        $this->url4->setElementName('url4');
         return $this;
     }
 
@@ -118,6 +124,8 @@ class CallCenterAnnouncementURLList extends ComplexType implements ComplexInterf
      */
     public function getUrl4()
     {
-        return ($this->url4) ? $this->url4->getValue() : null;
+        return ($this->url4)
+            ? $this->url4->getElementValue()
+            : null;
     }
 }

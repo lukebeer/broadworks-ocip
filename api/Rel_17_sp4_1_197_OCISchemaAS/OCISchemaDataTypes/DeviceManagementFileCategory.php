@@ -16,12 +16,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\Enumeration;
  */
 class DeviceManagementFileCategory extends SimpleType
 {
-    public $name = "DeviceManagementFileCategory";
-    protected $value;
-
+    public $elementName = "DeviceManagementFileCategory";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new Enumeration([
             'Static',
             'Dynamic Group',

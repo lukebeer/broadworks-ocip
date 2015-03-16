@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemLogConfigModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemLogConfigModifyRequest';
+    public    $elementName = 'SystemLogConfigModifyRequest';
     protected $configFile;
 
     public function __construct(
@@ -45,7 +45,7 @@ class SystemLogConfigModifyRequest extends ComplexType implements ComplexInterfa
         $this->configFile = ($configFile InstanceOf FileResource)
              ? $configFile
              : new FileResource($configFile);
-        $this->configFile->setName('configFile');
+        $this->configFile->setElementName('configFile');
         return $this;
     }
 

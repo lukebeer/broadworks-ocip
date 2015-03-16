@@ -19,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserINIntegrationGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'UserINIntegrationGetResponse';
+    public    $elementName = 'UserINIntegrationGetResponse';
     protected $originatingServiceKey;
     protected $terminatingServiceKey;
 
@@ -39,7 +39,7 @@ class UserINIntegrationGetResponse extends ComplexType implements ComplexInterfa
         $this->originatingServiceKey = ($originatingServiceKey InstanceOf MobilityManagerServiceKey)
              ? $originatingServiceKey
              : new MobilityManagerServiceKey($originatingServiceKey);
-        $this->originatingServiceKey->setName('originatingServiceKey');
+        $this->originatingServiceKey->setElementName('originatingServiceKey');
         return $this;
     }
 
@@ -49,7 +49,9 @@ class UserINIntegrationGetResponse extends ComplexType implements ComplexInterfa
      */
     public function getOriginatingServiceKey()
     {
-        return ($this->originatingServiceKey) ? $this->originatingServiceKey->getValue() : null;
+        return ($this->originatingServiceKey)
+            ? $this->originatingServiceKey->getElementValue()
+            : null;
     }
 
     /**
@@ -60,7 +62,7 @@ class UserINIntegrationGetResponse extends ComplexType implements ComplexInterfa
         $this->terminatingServiceKey = ($terminatingServiceKey InstanceOf MobilityManagerServiceKey)
              ? $terminatingServiceKey
              : new MobilityManagerServiceKey($terminatingServiceKey);
-        $this->terminatingServiceKey->setName('terminatingServiceKey');
+        $this->terminatingServiceKey->setElementName('terminatingServiceKey');
         return $this;
     }
 
@@ -70,6 +72,8 @@ class UserINIntegrationGetResponse extends ComplexType implements ComplexInterfa
      */
     public function getTerminatingServiceKey()
     {
-        return ($this->terminatingServiceKey) ? $this->terminatingServiceKey->getValue() : null;
+        return ($this->terminatingServiceKey)
+            ? $this->terminatingServiceKey->getElementValue()
+            : null;
     }
 }

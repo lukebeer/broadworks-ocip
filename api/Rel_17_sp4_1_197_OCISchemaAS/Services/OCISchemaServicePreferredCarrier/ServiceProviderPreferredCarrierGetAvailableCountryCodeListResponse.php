@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderPreferredCarrierGetAvailableCountryCodeListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'ServiceProviderPreferredCarrierGetAvailableCountryCodeListResponse';
+    public    $elementName = 'ServiceProviderPreferredCarrierGetAvailableCountryCodeListResponse';
     protected $defaultCountryCode;
     protected $countryCode;
 
@@ -40,7 +40,7 @@ class ServiceProviderPreferredCarrierGetAvailableCountryCodeListResponse extends
         $this->defaultCountryCode = ($defaultCountryCode InstanceOf CountryCode)
              ? $defaultCountryCode
              : new CountryCode($defaultCountryCode);
-        $this->defaultCountryCode->setName('defaultCountryCode');
+        $this->defaultCountryCode->setElementName('defaultCountryCode');
         return $this;
     }
 
@@ -50,7 +50,9 @@ class ServiceProviderPreferredCarrierGetAvailableCountryCodeListResponse extends
      */
     public function getDefaultCountryCode()
     {
-        return ($this->defaultCountryCode) ? $this->defaultCountryCode->getValue() : null;
+        return ($this->defaultCountryCode)
+            ? $this->defaultCountryCode->getElementValue()
+            : null;
     }
 
     /**
@@ -61,7 +63,7 @@ class ServiceProviderPreferredCarrierGetAvailableCountryCodeListResponse extends
         $this->countryCode = ($countryCode InstanceOf CountryCode)
              ? $countryCode
              : new CountryCode($countryCode);
-        $this->countryCode->setName('countryCode');
+        $this->countryCode->setElementName('countryCode');
         return $this;
     }
 
@@ -71,6 +73,8 @@ class ServiceProviderPreferredCarrierGetAvailableCountryCodeListResponse extends
      */
     public function getCountryCode()
     {
-        return ($this->countryCode) ? $this->countryCode->getValue() : null;
+        return ($this->countryCode)
+            ? $this->countryCode->getElementValue()
+            : null;
     }
 }

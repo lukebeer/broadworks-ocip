@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
 class SystemCallRecordingGetPlatformListRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallRecording\SystemCallRecordingGetPlatformListResponse';
-    public    $name = 'SystemCallRecordingGetPlatformListRequest';
+    public    $elementName = 'SystemCallRecordingGetPlatformListRequest';
 
     public function __construct(    ) {
     }

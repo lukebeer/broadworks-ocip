@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemSubscriberGetCallProcessingParametersResponse17sp3 extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemSubscriberGetCallProcessingParametersResponse17sp3';
+    public    $elementName = 'SystemSubscriberGetCallProcessingParametersResponse17sp3';
     protected $isExtendedCallingLineIdActive;
     protected $isRingTimeOutActive;
     protected $ringTimeoutSeconds;
@@ -45,7 +45,7 @@ class SystemSubscriberGetCallProcessingParametersResponse17sp3 extends ComplexTy
     public function setIsExtendedCallingLineIdActive($isExtendedCallingLineIdActive = null)
     {
         $this->isExtendedCallingLineIdActive = new PrimitiveType($isExtendedCallingLineIdActive);
-        $this->isExtendedCallingLineIdActive->setName('isExtendedCallingLineIdActive');
+        $this->isExtendedCallingLineIdActive->setElementName('isExtendedCallingLineIdActive');
         return $this;
     }
 
@@ -55,7 +55,9 @@ class SystemSubscriberGetCallProcessingParametersResponse17sp3 extends ComplexTy
      */
     public function getIsExtendedCallingLineIdActive()
     {
-        return ($this->isExtendedCallingLineIdActive) ? $this->isExtendedCallingLineIdActive->getValue() : null;
+        return ($this->isExtendedCallingLineIdActive)
+            ? $this->isExtendedCallingLineIdActive->getElementValue()
+            : null;
     }
 
     /**
@@ -64,7 +66,7 @@ class SystemSubscriberGetCallProcessingParametersResponse17sp3 extends ComplexTy
     public function setIsRingTimeOutActive($isRingTimeOutActive = null)
     {
         $this->isRingTimeOutActive = new PrimitiveType($isRingTimeOutActive);
-        $this->isRingTimeOutActive->setName('isRingTimeOutActive');
+        $this->isRingTimeOutActive->setElementName('isRingTimeOutActive');
         return $this;
     }
 
@@ -74,7 +76,9 @@ class SystemSubscriberGetCallProcessingParametersResponse17sp3 extends ComplexTy
      */
     public function getIsRingTimeOutActive()
     {
-        return ($this->isRingTimeOutActive) ? $this->isRingTimeOutActive->getValue() : null;
+        return ($this->isRingTimeOutActive)
+            ? $this->isRingTimeOutActive->getElementValue()
+            : null;
     }
 
     /**
@@ -85,7 +89,7 @@ class SystemSubscriberGetCallProcessingParametersResponse17sp3 extends ComplexTy
         $this->ringTimeoutSeconds = ($ringTimeoutSeconds InstanceOf SystemUserRingTimeoutSeconds)
              ? $ringTimeoutSeconds
              : new SystemUserRingTimeoutSeconds($ringTimeoutSeconds);
-        $this->ringTimeoutSeconds->setName('ringTimeoutSeconds');
+        $this->ringTimeoutSeconds->setElementName('ringTimeoutSeconds');
         return $this;
     }
 
@@ -95,7 +99,9 @@ class SystemSubscriberGetCallProcessingParametersResponse17sp3 extends ComplexTy
      */
     public function getRingTimeoutSeconds()
     {
-        return ($this->ringTimeoutSeconds) ? $this->ringTimeoutSeconds->getValue() : null;
+        return ($this->ringTimeoutSeconds)
+            ? $this->ringTimeoutSeconds->getElementValue()
+            : null;
     }
 
     /**
@@ -104,7 +110,7 @@ class SystemSubscriberGetCallProcessingParametersResponse17sp3 extends ComplexTy
     public function setAllowEmergencyRemoteOfficeOriginations($allowEmergencyRemoteOfficeOriginations = null)
     {
         $this->allowEmergencyRemoteOfficeOriginations = new PrimitiveType($allowEmergencyRemoteOfficeOriginations);
-        $this->allowEmergencyRemoteOfficeOriginations->setName('allowEmergencyRemoteOfficeOriginations');
+        $this->allowEmergencyRemoteOfficeOriginations->setElementName('allowEmergencyRemoteOfficeOriginations');
         return $this;
     }
 
@@ -114,7 +120,9 @@ class SystemSubscriberGetCallProcessingParametersResponse17sp3 extends ComplexTy
      */
     public function getAllowEmergencyRemoteOfficeOriginations()
     {
-        return ($this->allowEmergencyRemoteOfficeOriginations) ? $this->allowEmergencyRemoteOfficeOriginations->getValue() : null;
+        return ($this->allowEmergencyRemoteOfficeOriginations)
+            ? $this->allowEmergencyRemoteOfficeOriginations->getElementValue()
+            : null;
     }
 
     /**
@@ -125,7 +133,7 @@ class SystemSubscriberGetCallProcessingParametersResponse17sp3 extends ComplexTy
         $this->maxNoAnswerNumberOfRings = ($maxNoAnswerNumberOfRings InstanceOf MaxNoAnswerNumberOfRings)
              ? $maxNoAnswerNumberOfRings
              : new MaxNoAnswerNumberOfRings($maxNoAnswerNumberOfRings);
-        $this->maxNoAnswerNumberOfRings->setName('maxNoAnswerNumberOfRings');
+        $this->maxNoAnswerNumberOfRings->setElementName('maxNoAnswerNumberOfRings');
         return $this;
     }
 
@@ -135,7 +143,9 @@ class SystemSubscriberGetCallProcessingParametersResponse17sp3 extends ComplexTy
      */
     public function getMaxNoAnswerNumberOfRings()
     {
-        return ($this->maxNoAnswerNumberOfRings) ? $this->maxNoAnswerNumberOfRings->getValue() : null;
+        return ($this->maxNoAnswerNumberOfRings)
+            ? $this->maxNoAnswerNumberOfRings->getElementValue()
+            : null;
     }
 
     /**
@@ -146,7 +156,7 @@ class SystemSubscriberGetCallProcessingParametersResponse17sp3 extends ComplexTy
         $this->incomingCallToUserAliasMode = ($incomingCallToUserAliasMode InstanceOf IncomingCallToUserAliasMode)
              ? $incomingCallToUserAliasMode
              : new IncomingCallToUserAliasMode($incomingCallToUserAliasMode);
-        $this->incomingCallToUserAliasMode->setName('incomingCallToUserAliasMode');
+        $this->incomingCallToUserAliasMode->setElementName('incomingCallToUserAliasMode');
         return $this;
     }
 
@@ -156,7 +166,9 @@ class SystemSubscriberGetCallProcessingParametersResponse17sp3 extends ComplexTy
      */
     public function getIncomingCallToUserAliasMode()
     {
-        return ($this->incomingCallToUserAliasMode) ? $this->incomingCallToUserAliasMode->getValue() : null;
+        return ($this->incomingCallToUserAliasMode)
+            ? $this->incomingCallToUserAliasMode->getElementValue()
+            : null;
     }
 
     /**
@@ -165,7 +177,7 @@ class SystemSubscriberGetCallProcessingParametersResponse17sp3 extends ComplexTy
     public function setBypassTerminationLoopDetection($bypassTerminationLoopDetection = null)
     {
         $this->bypassTerminationLoopDetection = new PrimitiveType($bypassTerminationLoopDetection);
-        $this->bypassTerminationLoopDetection->setName('bypassTerminationLoopDetection');
+        $this->bypassTerminationLoopDetection->setElementName('bypassTerminationLoopDetection');
         return $this;
     }
 
@@ -175,6 +187,8 @@ class SystemSubscriberGetCallProcessingParametersResponse17sp3 extends ComplexTy
      */
     public function getBypassTerminationLoopDetection()
     {
-        return ($this->bypassTerminationLoopDetection) ? $this->bypassTerminationLoopDetection->getValue() : null;
+        return ($this->bypassTerminationLoopDetection)
+            ? $this->bypassTerminationLoopDetection->getElementValue()
+            : null;
     }
 }

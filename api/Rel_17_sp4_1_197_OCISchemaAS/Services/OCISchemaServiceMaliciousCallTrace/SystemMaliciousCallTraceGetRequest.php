@@ -23,7 +23,7 @@ use Broadworks_OCIP\core\Client\Client;
 class SystemMaliciousCallTraceGetRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceMaliciousCallTrace\SystemMaliciousCallTraceGetResponse';
-    public    $name = 'SystemMaliciousCallTraceGetRequest';
+    public    $elementName = 'SystemMaliciousCallTraceGetRequest';
 
     public function __construct(    ) {
     }

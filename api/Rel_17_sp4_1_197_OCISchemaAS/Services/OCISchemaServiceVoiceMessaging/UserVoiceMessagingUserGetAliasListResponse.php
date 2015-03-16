@@ -19,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserVoiceMessagingUserGetAliasListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'UserVoiceMessagingUserGetAliasListResponse';
+    public    $elementName = 'UserVoiceMessagingUserGetAliasListResponse';
     protected $phoneNumber;
 
     /**
@@ -38,7 +38,7 @@ class UserVoiceMessagingUserGetAliasListResponse extends ComplexType implements 
         $this->phoneNumber = ($phoneNumber InstanceOf DN)
              ? $phoneNumber
              : new DN($phoneNumber);
-        $this->phoneNumber->setName('phoneNumber');
+        $this->phoneNumber->setElementName('phoneNumber');
         return $this;
     }
 
@@ -48,6 +48,8 @@ class UserVoiceMessagingUserGetAliasListResponse extends ComplexType implements 
      */
     public function getPhoneNumber()
     {
-        return ($this->phoneNumber) ? $this->phoneNumber->getValue() : null;
+        return ($this->phoneNumber)
+            ? $this->phoneNumber->getElementValue()
+            : null;
     }
 }

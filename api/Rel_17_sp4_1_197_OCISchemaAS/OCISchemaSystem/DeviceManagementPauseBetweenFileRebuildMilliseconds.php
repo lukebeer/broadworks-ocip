@@ -17,12 +17,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\MaxInclusive;
  */
 class DeviceManagementPauseBetweenFileRebuildMilliseconds extends SimpleType
 {
-    public $name = "DeviceManagementPauseBetweenFileRebuildMilliseconds";
-    protected $value;
-
+    public $elementName = "DeviceManagementPauseBetweenFileRebuildMilliseconds";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new MinInclusive("0"));
         $this->addRestriction(new MaxInclusive("10000"));
     }

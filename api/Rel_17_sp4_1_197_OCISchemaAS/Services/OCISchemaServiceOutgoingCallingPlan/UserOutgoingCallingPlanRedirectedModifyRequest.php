@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserOutgoingCallingPlanRedirectedModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'UserOutgoingCallingPlanRedirectedModifyRequest';
+    public    $elementName = 'UserOutgoingCallingPlanRedirectedModifyRequest';
     protected $userId;
     protected $useCustomSettings;
     protected $userPermissions;
@@ -53,7 +53,7 @@ class UserOutgoingCallingPlanRedirectedModifyRequest extends ComplexType impleme
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
-        $this->userId->setName('userId');
+        $this->userId->setElementName('userId');
         return $this;
     }
 
@@ -63,7 +63,9 @@ class UserOutgoingCallingPlanRedirectedModifyRequest extends ComplexType impleme
      */
     public function getUserId()
     {
-        return ($this->userId) ? $this->userId->getValue() : null;
+        return ($this->userId)
+            ? $this->userId->getElementValue()
+            : null;
     }
 
     /**
@@ -72,7 +74,7 @@ class UserOutgoingCallingPlanRedirectedModifyRequest extends ComplexType impleme
     public function setUseCustomSettings($useCustomSettings = null)
     {
         $this->useCustomSettings = new PrimitiveType($useCustomSettings);
-        $this->useCustomSettings->setName('useCustomSettings');
+        $this->useCustomSettings->setElementName('useCustomSettings');
         return $this;
     }
 
@@ -82,7 +84,9 @@ class UserOutgoingCallingPlanRedirectedModifyRequest extends ComplexType impleme
      */
     public function getUseCustomSettings()
     {
-        return ($this->useCustomSettings) ? $this->useCustomSettings->getValue() : null;
+        return ($this->useCustomSettings)
+            ? $this->useCustomSettings->getElementValue()
+            : null;
     }
 
     /**
@@ -93,7 +97,7 @@ class UserOutgoingCallingPlanRedirectedModifyRequest extends ComplexType impleme
         $this->userPermissions = ($userPermissions InstanceOf OutgoingCallingPlanRedirectedPermissionsModify)
              ? $userPermissions
              : new OutgoingCallingPlanRedirectedPermissionsModify($userPermissions);
-        $this->userPermissions->setName('userPermissions');
+        $this->userPermissions->setElementName('userPermissions');
         return $this;
     }
 

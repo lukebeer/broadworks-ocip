@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserExternalCustomRingbackGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'UserExternalCustomRingbackGetResponse';
+    public    $elementName = 'UserExternalCustomRingbackGetResponse';
     protected $isActive;
     protected $useSettingLevel;
     protected $sipRequestURI;
@@ -40,7 +40,7 @@ class UserExternalCustomRingbackGetResponse extends ComplexType implements Compl
     public function setIsActive($isActive = null)
     {
         $this->isActive = new PrimitiveType($isActive);
-        $this->isActive->setName('isActive');
+        $this->isActive->setElementName('isActive');
         return $this;
     }
 
@@ -50,7 +50,9 @@ class UserExternalCustomRingbackGetResponse extends ComplexType implements Compl
      */
     public function getIsActive()
     {
-        return ($this->isActive) ? $this->isActive->getValue() : null;
+        return ($this->isActive)
+            ? $this->isActive->getElementValue()
+            : null;
     }
 
     /**
@@ -61,7 +63,7 @@ class UserExternalCustomRingbackGetResponse extends ComplexType implements Compl
         $this->useSettingLevel = ($useSettingLevel InstanceOf ExternalCustomRingbackSettingLevel)
              ? $useSettingLevel
              : new ExternalCustomRingbackSettingLevel($useSettingLevel);
-        $this->useSettingLevel->setName('useSettingLevel');
+        $this->useSettingLevel->setElementName('useSettingLevel');
         return $this;
     }
 
@@ -71,7 +73,9 @@ class UserExternalCustomRingbackGetResponse extends ComplexType implements Compl
      */
     public function getUseSettingLevel()
     {
-        return ($this->useSettingLevel) ? $this->useSettingLevel->getValue() : null;
+        return ($this->useSettingLevel)
+            ? $this->useSettingLevel->getElementValue()
+            : null;
     }
 
     /**
@@ -82,7 +86,7 @@ class UserExternalCustomRingbackGetResponse extends ComplexType implements Compl
         $this->sipRequestURI = ($sipRequestURI InstanceOf SIPContact)
              ? $sipRequestURI
              : new SIPContact($sipRequestURI);
-        $this->sipRequestURI->setName('sipRequestURI');
+        $this->sipRequestURI->setElementName('sipRequestURI');
         return $this;
     }
 
@@ -92,6 +96,8 @@ class UserExternalCustomRingbackGetResponse extends ComplexType implements Compl
      */
     public function getSipRequestURI()
     {
-        return ($this->sipRequestURI) ? $this->sipRequestURI->getValue() : null;
+        return ($this->sipRequestURI)
+            ? $this->sipRequestURI->getElementValue()
+            : null;
     }
 }

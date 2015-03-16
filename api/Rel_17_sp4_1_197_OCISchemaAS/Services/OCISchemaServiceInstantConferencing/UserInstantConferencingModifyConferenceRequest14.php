@@ -25,7 +25,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserInstantConferencingModifyConferenceRequest14 extends ComplexType implements ComplexInterface
 {
-    public    $name = 'UserInstantConferencingModifyConferenceRequest14';
+    public    $elementName = 'UserInstantConferencingModifyConferenceRequest14';
     protected $userId;
     protected $conferenceKey;
     protected $title;
@@ -71,7 +71,7 @@ class UserInstantConferencingModifyConferenceRequest14 extends ComplexType imple
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
-        $this->userId->setName('userId');
+        $this->userId->setElementName('userId');
         return $this;
     }
 
@@ -81,7 +81,9 @@ class UserInstantConferencingModifyConferenceRequest14 extends ComplexType imple
      */
     public function getUserId()
     {
-        return ($this->userId) ? $this->userId->getValue() : null;
+        return ($this->userId)
+            ? $this->userId->getElementValue()
+            : null;
     }
 
     /**
@@ -92,7 +94,7 @@ class UserInstantConferencingModifyConferenceRequest14 extends ComplexType imple
         $this->conferenceKey = ($conferenceKey InstanceOf InstantConferencingConferenceKey)
              ? $conferenceKey
              : new InstantConferencingConferenceKey($conferenceKey);
-        $this->conferenceKey->setName('conferenceKey');
+        $this->conferenceKey->setElementName('conferenceKey');
         return $this;
     }
 
@@ -113,7 +115,7 @@ class UserInstantConferencingModifyConferenceRequest14 extends ComplexType imple
         $this->title = ($title InstanceOf InstantConferencingTitle)
              ? $title
              : new InstantConferencingTitle($title);
-        $this->title->setName('title');
+        $this->title->setElementName('title');
         return $this;
     }
 
@@ -123,7 +125,9 @@ class UserInstantConferencingModifyConferenceRequest14 extends ComplexType imple
      */
     public function getTitle()
     {
-        return ($this->title) ? $this->title->getValue() : null;
+        return ($this->title)
+            ? $this->title->getElementValue()
+            : null;
     }
 
     /**
@@ -132,7 +136,7 @@ class UserInstantConferencingModifyConferenceRequest14 extends ComplexType imple
     public function setLeaderRequired($leaderRequired = null)
     {
         $this->leaderRequired = new PrimitiveType($leaderRequired);
-        $this->leaderRequired->setName('leaderRequired');
+        $this->leaderRequired->setElementName('leaderRequired');
         return $this;
     }
 
@@ -142,7 +146,9 @@ class UserInstantConferencingModifyConferenceRequest14 extends ComplexType imple
      */
     public function getLeaderRequired()
     {
-        return ($this->leaderRequired) ? $this->leaderRequired->getValue() : null;
+        return ($this->leaderRequired)
+            ? $this->leaderRequired->getElementValue()
+            : null;
     }
 
     /**
@@ -151,7 +157,7 @@ class UserInstantConferencingModifyConferenceRequest14 extends ComplexType imple
     public function setLeaderReleaseDropsParticipants($leaderReleaseDropsParticipants = null)
     {
         $this->leaderReleaseDropsParticipants = new PrimitiveType($leaderReleaseDropsParticipants);
-        $this->leaderReleaseDropsParticipants->setName('leaderReleaseDropsParticipants');
+        $this->leaderReleaseDropsParticipants->setElementName('leaderReleaseDropsParticipants');
         return $this;
     }
 
@@ -161,7 +167,9 @@ class UserInstantConferencingModifyConferenceRequest14 extends ComplexType imple
      */
     public function getLeaderReleaseDropsParticipants()
     {
-        return ($this->leaderReleaseDropsParticipants) ? $this->leaderReleaseDropsParticipants->getValue() : null;
+        return ($this->leaderReleaseDropsParticipants)
+            ? $this->leaderReleaseDropsParticipants->getElementValue()
+            : null;
     }
 
     /**
@@ -170,7 +178,7 @@ class UserInstantConferencingModifyConferenceRequest14 extends ComplexType imple
     public function setAnnounceCallers($announceCallers = null)
     {
         $this->announceCallers = new PrimitiveType($announceCallers);
-        $this->announceCallers->setName('announceCallers');
+        $this->announceCallers->setElementName('announceCallers');
         return $this;
     }
 
@@ -180,7 +188,9 @@ class UserInstantConferencingModifyConferenceRequest14 extends ComplexType imple
      */
     public function getAnnounceCallers()
     {
-        return ($this->announceCallers) ? $this->announceCallers->getValue() : null;
+        return ($this->announceCallers)
+            ? $this->announceCallers->getElementValue()
+            : null;
     }
 
     /**
@@ -191,7 +201,7 @@ class UserInstantConferencingModifyConferenceRequest14 extends ComplexType imple
         $this->conferenceSchedule = ($conferenceSchedule InstanceOf InstantConferencingSchedule)
              ? $conferenceSchedule
              : new InstantConferencingSchedule($conferenceSchedule);
-        $this->conferenceSchedule->setName('conferenceSchedule');
+        $this->conferenceSchedule->setElementName('conferenceSchedule');
         return $this;
     }
 
@@ -212,7 +222,7 @@ class UserInstantConferencingModifyConferenceRequest14 extends ComplexType imple
         $this->billingCode = ($billingCode InstanceOf InstantConferencingBillingCode)
              ? $billingCode
              : new InstantConferencingBillingCode($billingCode);
-        $this->billingCode->setName('billingCode');
+        $this->billingCode->setElementName('billingCode');
         return $this;
     }
 
@@ -222,6 +232,8 @@ class UserInstantConferencingModifyConferenceRequest14 extends ComplexType imple
      */
     public function getBillingCode()
     {
-        return ($this->billingCode) ? $this->billingCode->getValue() : null;
+        return ($this->billingCode)
+            ? $this->billingCode->getElementValue()
+            : null;
     }
 }

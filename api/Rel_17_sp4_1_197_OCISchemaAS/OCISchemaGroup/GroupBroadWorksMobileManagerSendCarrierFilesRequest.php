@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupBroadWorksMobileManagerSendCarrierFilesRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'GroupBroadWorksMobileManagerSendCarrierFilesRequest';
+    public    $elementName = 'GroupBroadWorksMobileManagerSendCarrierFilesRequest';
     protected $serviceProviderId;
     protected $groupId;
     protected $emailTo;
@@ -53,7 +53,7 @@ class GroupBroadWorksMobileManagerSendCarrierFilesRequest extends ComplexType im
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
-        $this->serviceProviderId->setName('serviceProviderId');
+        $this->serviceProviderId->setElementName('serviceProviderId');
         return $this;
     }
 
@@ -63,7 +63,9 @@ class GroupBroadWorksMobileManagerSendCarrierFilesRequest extends ComplexType im
      */
     public function getServiceProviderId()
     {
-        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
+        return ($this->serviceProviderId)
+            ? $this->serviceProviderId->getElementValue()
+            : null;
     }
 
     /**
@@ -74,7 +76,7 @@ class GroupBroadWorksMobileManagerSendCarrierFilesRequest extends ComplexType im
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
-        $this->groupId->setName('groupId');
+        $this->groupId->setElementName('groupId');
         return $this;
     }
 
@@ -84,7 +86,9 @@ class GroupBroadWorksMobileManagerSendCarrierFilesRequest extends ComplexType im
      */
     public function getGroupId()
     {
-        return ($this->groupId) ? $this->groupId->getValue() : null;
+        return ($this->groupId)
+            ? $this->groupId->getElementValue()
+            : null;
     }
 
     /**
@@ -95,7 +99,7 @@ class GroupBroadWorksMobileManagerSendCarrierFilesRequest extends ComplexType im
         $this->emailTo = ($emailTo InstanceOf EmailAddress)
              ? $emailTo
              : new EmailAddress($emailTo);
-        $this->emailTo->setName('emailTo');
+        $this->emailTo->setElementName('emailTo');
         return $this;
     }
 
@@ -105,6 +109,8 @@ class GroupBroadWorksMobileManagerSendCarrierFilesRequest extends ComplexType im
      */
     public function getEmailTo()
     {
-        return ($this->emailTo) ? $this->emailTo->getValue() : null;
+        return ($this->emailTo)
+            ? $this->emailTo->getElementValue()
+            : null;
     }
 }

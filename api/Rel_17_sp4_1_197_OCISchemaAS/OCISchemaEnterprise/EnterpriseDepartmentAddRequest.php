@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class EnterpriseDepartmentAddRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'EnterpriseDepartmentAddRequest';
+    public    $elementName = 'EnterpriseDepartmentAddRequest';
     protected $enterpriseId;
     protected $departmentName;
     protected $parentDepartmentKey;
@@ -53,7 +53,7 @@ class EnterpriseDepartmentAddRequest extends ComplexType implements ComplexInter
         $this->enterpriseId = ($enterpriseId InstanceOf ServiceProviderId)
              ? $enterpriseId
              : new ServiceProviderId($enterpriseId);
-        $this->enterpriseId->setName('enterpriseId');
+        $this->enterpriseId->setElementName('enterpriseId');
         return $this;
     }
 
@@ -63,7 +63,9 @@ class EnterpriseDepartmentAddRequest extends ComplexType implements ComplexInter
      */
     public function getEnterpriseId()
     {
-        return ($this->enterpriseId) ? $this->enterpriseId->getValue() : null;
+        return ($this->enterpriseId)
+            ? $this->enterpriseId->getElementValue()
+            : null;
     }
 
     /**
@@ -74,7 +76,7 @@ class EnterpriseDepartmentAddRequest extends ComplexType implements ComplexInter
         $this->departmentName = ($departmentName InstanceOf DepartmentName)
              ? $departmentName
              : new DepartmentName($departmentName);
-        $this->departmentName->setName('departmentName');
+        $this->departmentName->setElementName('departmentName');
         return $this;
     }
 
@@ -84,7 +86,9 @@ class EnterpriseDepartmentAddRequest extends ComplexType implements ComplexInter
      */
     public function getDepartmentName()
     {
-        return ($this->departmentName) ? $this->departmentName->getValue() : null;
+        return ($this->departmentName)
+            ? $this->departmentName->getElementValue()
+            : null;
     }
 
     /**
@@ -95,7 +99,7 @@ class EnterpriseDepartmentAddRequest extends ComplexType implements ComplexInter
         $this->parentDepartmentKey = ($parentDepartmentKey InstanceOf EnterpriseDepartmentKey)
              ? $parentDepartmentKey
              : new EnterpriseDepartmentKey($parentDepartmentKey);
-        $this->parentDepartmentKey->setName('parentDepartmentKey');
+        $this->parentDepartmentKey->setElementName('parentDepartmentKey');
         return $this;
     }
 

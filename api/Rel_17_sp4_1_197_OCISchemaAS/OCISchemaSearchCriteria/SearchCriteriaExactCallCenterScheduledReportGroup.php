@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SearchCriteriaExactCallCenterScheduledReportGroup extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SearchCriteriaExactCallCenterScheduledReportGroup';
+    public    $elementName = 'SearchCriteriaExactCallCenterScheduledReportGroup';
     protected $serviceProviderId;
     protected $groupId;
 
@@ -49,7 +49,7 @@ class SearchCriteriaExactCallCenterScheduledReportGroup extends ComplexType impl
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
-        $this->serviceProviderId->setName('serviceProviderId');
+        $this->serviceProviderId->setElementName('serviceProviderId');
         return $this;
     }
 
@@ -59,7 +59,9 @@ class SearchCriteriaExactCallCenterScheduledReportGroup extends ComplexType impl
      */
     public function getServiceProviderId()
     {
-        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
+        return ($this->serviceProviderId)
+            ? $this->serviceProviderId->getElementValue()
+            : null;
     }
 
     /**
@@ -70,7 +72,7 @@ class SearchCriteriaExactCallCenterScheduledReportGroup extends ComplexType impl
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
-        $this->groupId->setName('groupId');
+        $this->groupId->setElementName('groupId');
         return $this;
     }
 
@@ -80,6 +82,8 @@ class SearchCriteriaExactCallCenterScheduledReportGroup extends ComplexType impl
      */
     public function getGroupId()
     {
-        return ($this->groupId) ? $this->groupId->getValue() : null;
+        return ($this->groupId)
+            ? $this->groupId->getElementValue()
+            : null;
     }
 }

@@ -39,7 +39,7 @@ use Broadworks_OCIP\core\Client\Client;
 class GroupCallProcessingGetPolicyRequest14sp7 extends ComplexType implements ComplexInterface
 {
     public    $responseType      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15\GroupCallProcessingGetPolicyResponse14sp7';
-    public    $name = 'GroupCallProcessingGetPolicyRequest14sp7';
+    public    $elementName = 'GroupCallProcessingGetPolicyRequest14sp7';
     protected $serviceProviderId;
     protected $groupId;
 
@@ -67,7 +67,7 @@ class GroupCallProcessingGetPolicyRequest14sp7 extends ComplexType implements Co
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
-        $this->serviceProviderId->setName('serviceProviderId');
+        $this->serviceProviderId->setElementName('serviceProviderId');
         return $this;
     }
 
@@ -77,7 +77,9 @@ class GroupCallProcessingGetPolicyRequest14sp7 extends ComplexType implements Co
      */
     public function getServiceProviderId()
     {
-        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
+        return ($this->serviceProviderId)
+            ? $this->serviceProviderId->getElementValue()
+            : null;
     }
 
     /**
@@ -88,7 +90,7 @@ class GroupCallProcessingGetPolicyRequest14sp7 extends ComplexType implements Co
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
-        $this->groupId->setName('groupId');
+        $this->groupId->setElementName('groupId');
         return $this;
     }
 
@@ -98,6 +100,8 @@ class GroupCallProcessingGetPolicyRequest14sp7 extends ComplexType implements Co
      */
     public function getGroupId()
     {
-        return ($this->groupId) ? $this->groupId->getValue() : null;
+        return ($this->groupId)
+            ? $this->groupId->getElementValue()
+            : null;
     }
 }

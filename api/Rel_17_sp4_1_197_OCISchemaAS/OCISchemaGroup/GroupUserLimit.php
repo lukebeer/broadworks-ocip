@@ -17,12 +17,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\MaxInclusive;
  */
 class GroupUserLimit extends SimpleType
 {
-    public $name = "GroupUserLimit";
-    protected $value;
-
+    public $elementName = "GroupUserLimit";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new MinInclusive("1"));
         $this->addRestriction(new MaxInclusive("999999"));
     }

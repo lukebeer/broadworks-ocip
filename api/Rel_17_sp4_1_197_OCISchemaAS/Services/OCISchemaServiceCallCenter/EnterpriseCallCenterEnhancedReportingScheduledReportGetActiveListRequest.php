@@ -25,7 +25,7 @@ use Broadworks_OCIP\core\Client\Client;
 class EnterpriseCallCenterEnhancedReportingScheduledReportGetActiveListRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType                                                    = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\EnterpriseCallCenterEnhancedReportingScheduledReportGetActiveListResponse';
-    public    $name = 'EnterpriseCallCenterEnhancedReportingScheduledReportGetActiveListRequest';
+    public    $elementName = 'EnterpriseCallCenterEnhancedReportingScheduledReportGetActiveListRequest';
     protected $serviceProviderId;
     protected $responseSizeLimit;
     protected $searchCriteriaCallCenterScheduledReportName;
@@ -62,7 +62,7 @@ class EnterpriseCallCenterEnhancedReportingScheduledReportGetActiveListRequest e
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
-        $this->serviceProviderId->setName('serviceProviderId');
+        $this->serviceProviderId->setElementName('serviceProviderId');
         return $this;
     }
 
@@ -72,7 +72,9 @@ class EnterpriseCallCenterEnhancedReportingScheduledReportGetActiveListRequest e
      */
     public function getServiceProviderId()
     {
-        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
+        return ($this->serviceProviderId)
+            ? $this->serviceProviderId->getElementValue()
+            : null;
     }
 
     /**
@@ -83,7 +85,7 @@ class EnterpriseCallCenterEnhancedReportingScheduledReportGetActiveListRequest e
         $this->responseSizeLimit = ($responseSizeLimit InstanceOf ResponseSizeLimit)
              ? $responseSizeLimit
              : new ResponseSizeLimit($responseSizeLimit);
-        $this->responseSizeLimit->setName('responseSizeLimit');
+        $this->responseSizeLimit->setElementName('responseSizeLimit');
         return $this;
     }
 
@@ -93,7 +95,9 @@ class EnterpriseCallCenterEnhancedReportingScheduledReportGetActiveListRequest e
      */
     public function getResponseSizeLimit()
     {
-        return ($this->responseSizeLimit) ? $this->responseSizeLimit->getValue() : null;
+        return ($this->responseSizeLimit)
+            ? $this->responseSizeLimit->getElementValue()
+            : null;
     }
 
     /**
@@ -104,7 +108,7 @@ class EnterpriseCallCenterEnhancedReportingScheduledReportGetActiveListRequest e
         $this->searchCriteriaCallCenterScheduledReportName = ($searchCriteriaCallCenterScheduledReportName InstanceOf SearchCriteriaCallCenterScheduledReportName)
              ? $searchCriteriaCallCenterScheduledReportName
              : new SearchCriteriaCallCenterScheduledReportName($searchCriteriaCallCenterScheduledReportName);
-        $this->searchCriteriaCallCenterScheduledReportName->setName('searchCriteriaCallCenterScheduledReportName');
+        $this->searchCriteriaCallCenterScheduledReportName->setElementName('searchCriteriaCallCenterScheduledReportName');
         return $this;
     }
 
@@ -125,7 +129,7 @@ class EnterpriseCallCenterEnhancedReportingScheduledReportGetActiveListRequest e
         $this->searchCriteriaExactCallCenterScheduledReportCreatedBySupervisor = ($searchCriteriaExactCallCenterScheduledReportCreatedBySupervisor InstanceOf SearchCriteriaExactCallCenterScheduledReportCreatedBySupervisor)
              ? $searchCriteriaExactCallCenterScheduledReportCreatedBySupervisor
              : new SearchCriteriaExactCallCenterScheduledReportCreatedBySupervisor($searchCriteriaExactCallCenterScheduledReportCreatedBySupervisor);
-        $this->searchCriteriaExactCallCenterScheduledReportCreatedBySupervisor->setName('searchCriteriaExactCallCenterScheduledReportCreatedBySupervisor');
+        $this->searchCriteriaExactCallCenterScheduledReportCreatedBySupervisor->setElementName('searchCriteriaExactCallCenterScheduledReportCreatedBySupervisor');
         return $this;
     }
 
@@ -146,7 +150,7 @@ class EnterpriseCallCenterEnhancedReportingScheduledReportGetActiveListRequest e
         $this->searchCriteriaExactCallCenterReportTemplateKey = ($searchCriteriaExactCallCenterReportTemplateKey InstanceOf SearchCriteriaExactCallCenterReportTemplateKey)
              ? $searchCriteriaExactCallCenterReportTemplateKey
              : new SearchCriteriaExactCallCenterReportTemplateKey($searchCriteriaExactCallCenterReportTemplateKey);
-        $this->searchCriteriaExactCallCenterReportTemplateKey->setName('searchCriteriaExactCallCenterReportTemplateKey');
+        $this->searchCriteriaExactCallCenterReportTemplateKey->setElementName('searchCriteriaExactCallCenterReportTemplateKey');
         return $this;
     }
 

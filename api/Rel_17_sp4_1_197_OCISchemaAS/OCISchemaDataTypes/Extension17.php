@@ -17,12 +17,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\MaxLength;
  */
 class Extension17 extends SimpleType
 {
-    public $name = "Extension17";
-    protected $value;
-
+    public $elementName = "Extension17";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new MinLength("2"));
         $this->addRestriction(new MaxLength("20"));
     }

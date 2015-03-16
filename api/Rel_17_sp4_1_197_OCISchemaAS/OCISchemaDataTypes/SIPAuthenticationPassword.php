@@ -17,12 +17,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\MaxLength;
  */
 class SIPAuthenticationPassword extends SimpleType
 {
-    public $name = "SIPAuthenticationPassword";
-    protected $value;
-
+    public $elementName = "SIPAuthenticationPassword";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new MinLength("1"));
         $this->addRestriction(new MaxLength("20"));
     }

@@ -19,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class CommunicationBarringOriginatingRule extends ComplexType implements ComplexInterface
 {
-    public    $name = 'CommunicationBarringOriginatingRule';
+    public    $elementName = 'CommunicationBarringOriginatingRule';
     protected $criteria;
     protected $action;
     protected $treatmentId;
@@ -54,7 +54,7 @@ class CommunicationBarringOriginatingRule extends ComplexType implements Complex
     public function setCriteria($criteria = null)
     {
         $this->criteria = new SimpleContent($criteria);
-        $this->criteria->setName('criteria');
+        $this->criteria->setElementName('criteria');
         return $this;
     }
 
@@ -64,7 +64,9 @@ class CommunicationBarringOriginatingRule extends ComplexType implements Complex
      */
     public function getCriteria()
     {
-        return ($this->criteria) ? $this->criteria->getValue() : null;
+        return ($this->criteria)
+            ? $this->criteria->getElementValue()
+            : null;
     }
 
     /**
@@ -73,7 +75,7 @@ class CommunicationBarringOriginatingRule extends ComplexType implements Complex
     public function setAction($action = null)
     {
         $this->action = new SimpleContent($action);
-        $this->action->setName('action');
+        $this->action->setElementName('action');
         return $this;
     }
 
@@ -83,7 +85,9 @@ class CommunicationBarringOriginatingRule extends ComplexType implements Complex
      */
     public function getAction()
     {
-        return ($this->action) ? $this->action->getValue() : null;
+        return ($this->action)
+            ? $this->action->getElementValue()
+            : null;
     }
 
     /**
@@ -92,7 +96,7 @@ class CommunicationBarringOriginatingRule extends ComplexType implements Complex
     public function setTreatmentId($treatmentId = null)
     {
         $this->treatmentId = new SimpleContent($treatmentId);
-        $this->treatmentId->setName('treatmentId');
+        $this->treatmentId->setElementName('treatmentId');
         return $this;
     }
 
@@ -102,7 +106,9 @@ class CommunicationBarringOriginatingRule extends ComplexType implements Complex
      */
     public function getTreatmentId()
     {
-        return ($this->treatmentId) ? $this->treatmentId->getValue() : null;
+        return ($this->treatmentId)
+            ? $this->treatmentId->getElementValue()
+            : null;
     }
 
     /**
@@ -111,7 +117,7 @@ class CommunicationBarringOriginatingRule extends ComplexType implements Complex
     public function setTransferNumber($transferNumber = null)
     {
         $this->transferNumber = new SimpleContent($transferNumber);
-        $this->transferNumber->setName('transferNumber');
+        $this->transferNumber->setElementName('transferNumber');
         return $this;
     }
 
@@ -121,7 +127,9 @@ class CommunicationBarringOriginatingRule extends ComplexType implements Complex
      */
     public function getTransferNumber()
     {
-        return ($this->transferNumber) ? $this->transferNumber->getValue() : null;
+        return ($this->transferNumber)
+            ? $this->transferNumber->getElementValue()
+            : null;
     }
 
     /**
@@ -130,7 +138,7 @@ class CommunicationBarringOriginatingRule extends ComplexType implements Complex
     public function setCallTimeoutSeconds($callTimeoutSeconds = null)
     {
         $this->callTimeoutSeconds = new SimpleContent($callTimeoutSeconds);
-        $this->callTimeoutSeconds->setName('callTimeoutSeconds');
+        $this->callTimeoutSeconds->setElementName('callTimeoutSeconds');
         return $this;
     }
 
@@ -140,6 +148,8 @@ class CommunicationBarringOriginatingRule extends ComplexType implements Complex
      */
     public function getCallTimeoutSeconds()
     {
-        return ($this->callTimeoutSeconds) ? $this->callTimeoutSeconds->getValue() : null;
+        return ($this->callTimeoutSeconds)
+            ? $this->callTimeoutSeconds->getElementValue()
+            : null;
     }
 }

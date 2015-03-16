@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
 class SystemCallCenterEnhancedReportingReportTemplateGetRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\SystemCallCenterEnhancedReportingReportTemplateGetResponse';
-    public    $name = 'SystemCallCenterEnhancedReportingReportTemplateGetRequest';
+    public    $elementName = 'SystemCallCenterEnhancedReportingReportTemplateGetRequest';
     protected $name;
 
     public function __construct(
@@ -46,7 +46,7 @@ class SystemCallCenterEnhancedReportingReportTemplateGetRequest extends ComplexT
         $this->name = ($name InstanceOf CallCenterReportTemplateName)
              ? $name
              : new CallCenterReportTemplateName($name);
-        $this->name->setName('name');
+        $this->name->setElementName('name');
         return $this;
     }
 
@@ -56,6 +56,8 @@ class SystemCallCenterEnhancedReportingReportTemplateGetRequest extends ComplexT
      */
     public function getName()
     {
-        return ($this->name) ? $this->name->getValue() : null;
+        return ($this->name)
+            ? $this->name->getElementValue()
+            : null;
     }
 }

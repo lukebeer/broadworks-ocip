@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
 class ServiceProviderEnhancedCallLogsGetRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated17\ServiceProviderEnhancedCallLogsGetResponse';
-    public    $name = 'ServiceProviderEnhancedCallLogsGetRequest';
+    public    $elementName = 'ServiceProviderEnhancedCallLogsGetRequest';
     protected $serviceProviderId;
 
     public function __construct(
@@ -46,7 +46,7 @@ class ServiceProviderEnhancedCallLogsGetRequest extends ComplexType implements C
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
-        $this->serviceProviderId->setName('serviceProviderId');
+        $this->serviceProviderId->setElementName('serviceProviderId');
         return $this;
     }
 
@@ -56,6 +56,8 @@ class ServiceProviderEnhancedCallLogsGetRequest extends ComplexType implements C
      */
     public function getServiceProviderId()
     {
-        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
+        return ($this->serviceProviderId)
+            ? $this->serviceProviderId->getElementValue()
+            : null;
     }
 }

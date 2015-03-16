@@ -24,7 +24,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserCallForwardingNoAnswerModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'UserCallForwardingNoAnswerModifyRequest';
+    public    $elementName = 'UserCallForwardingNoAnswerModifyRequest';
     protected $userId;
     protected $isActive;
     protected $forwardToPhoneNumber;
@@ -58,7 +58,7 @@ class UserCallForwardingNoAnswerModifyRequest extends ComplexType implements Com
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
-        $this->userId->setName('userId');
+        $this->userId->setElementName('userId');
         return $this;
     }
 
@@ -68,7 +68,9 @@ class UserCallForwardingNoAnswerModifyRequest extends ComplexType implements Com
      */
     public function getUserId()
     {
-        return ($this->userId) ? $this->userId->getValue() : null;
+        return ($this->userId)
+            ? $this->userId->getElementValue()
+            : null;
     }
 
     /**
@@ -77,7 +79,7 @@ class UserCallForwardingNoAnswerModifyRequest extends ComplexType implements Com
     public function setIsActive($isActive = null)
     {
         $this->isActive = new PrimitiveType($isActive);
-        $this->isActive->setName('isActive');
+        $this->isActive->setElementName('isActive');
         return $this;
     }
 
@@ -87,7 +89,9 @@ class UserCallForwardingNoAnswerModifyRequest extends ComplexType implements Com
      */
     public function getIsActive()
     {
-        return ($this->isActive) ? $this->isActive->getValue() : null;
+        return ($this->isActive)
+            ? $this->isActive->getElementValue()
+            : null;
     }
 
     /**
@@ -98,7 +102,7 @@ class UserCallForwardingNoAnswerModifyRequest extends ComplexType implements Com
         $this->forwardToPhoneNumber = ($forwardToPhoneNumber InstanceOf OutgoingDNorSIPURI)
              ? $forwardToPhoneNumber
              : new OutgoingDNorSIPURI($forwardToPhoneNumber);
-        $this->forwardToPhoneNumber->setName('forwardToPhoneNumber');
+        $this->forwardToPhoneNumber->setElementName('forwardToPhoneNumber');
         return $this;
     }
 
@@ -108,7 +112,9 @@ class UserCallForwardingNoAnswerModifyRequest extends ComplexType implements Com
      */
     public function getForwardToPhoneNumber()
     {
-        return ($this->forwardToPhoneNumber) ? $this->forwardToPhoneNumber->getValue() : null;
+        return ($this->forwardToPhoneNumber)
+            ? $this->forwardToPhoneNumber->getElementValue()
+            : null;
     }
 
     /**
@@ -119,7 +125,7 @@ class UserCallForwardingNoAnswerModifyRequest extends ComplexType implements Com
         $this->numberOfRings = ($numberOfRings InstanceOf CallForwardingNoAnswerNumberOfRings)
              ? $numberOfRings
              : new CallForwardingNoAnswerNumberOfRings($numberOfRings);
-        $this->numberOfRings->setName('numberOfRings');
+        $this->numberOfRings->setElementName('numberOfRings');
         return $this;
     }
 
@@ -129,6 +135,8 @@ class UserCallForwardingNoAnswerModifyRequest extends ComplexType implements Com
      */
     public function getNumberOfRings()
     {
-        return ($this->numberOfRings) ? $this->numberOfRings->getValue() : null;
+        return ($this->numberOfRings)
+            ? $this->numberOfRings->getElementValue()
+            : null;
     }
 }

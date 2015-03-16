@@ -24,7 +24,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderCPEConfigReorderDeviceLinePortsRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'ServiceProviderCPEConfigReorderDeviceLinePortsRequest';
+    public    $elementName = 'ServiceProviderCPEConfigReorderDeviceLinePortsRequest';
     protected $serviceProviderId;
     protected $deviceName;
     protected $orderedLinePortList;
@@ -55,7 +55,7 @@ class ServiceProviderCPEConfigReorderDeviceLinePortsRequest extends ComplexType 
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
-        $this->serviceProviderId->setName('serviceProviderId');
+        $this->serviceProviderId->setElementName('serviceProviderId');
         return $this;
     }
 
@@ -65,7 +65,9 @@ class ServiceProviderCPEConfigReorderDeviceLinePortsRequest extends ComplexType 
      */
     public function getServiceProviderId()
     {
-        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
+        return ($this->serviceProviderId)
+            ? $this->serviceProviderId->getElementValue()
+            : null;
     }
 
     /**
@@ -76,7 +78,7 @@ class ServiceProviderCPEConfigReorderDeviceLinePortsRequest extends ComplexType 
         $this->deviceName = ($deviceName InstanceOf AccessDeviceName)
              ? $deviceName
              : new AccessDeviceName($deviceName);
-        $this->deviceName->setName('deviceName');
+        $this->deviceName->setElementName('deviceName');
         return $this;
     }
 
@@ -86,7 +88,9 @@ class ServiceProviderCPEConfigReorderDeviceLinePortsRequest extends ComplexType 
      */
     public function getDeviceName()
     {
-        return ($this->deviceName) ? $this->deviceName->getValue() : null;
+        return ($this->deviceName)
+            ? $this->deviceName->getElementValue()
+            : null;
     }
 
     /**
@@ -97,7 +101,7 @@ class ServiceProviderCPEConfigReorderDeviceLinePortsRequest extends ComplexType 
         $this->orderedLinePortList = ($orderedLinePortList InstanceOf AccessDeviceEndpointLinePort)
              ? $orderedLinePortList
              : new AccessDeviceEndpointLinePort($orderedLinePortList);
-        $this->orderedLinePortList->setName('orderedLinePortList');
+        $this->orderedLinePortList->setElementName('orderedLinePortList');
         return $this;
     }
 
@@ -107,6 +111,8 @@ class ServiceProviderCPEConfigReorderDeviceLinePortsRequest extends ComplexType 
      */
     public function getOrderedLinePortList()
     {
-        return ($this->orderedLinePortList) ? $this->orderedLinePortList->getValue() : null;
+        return ($this->orderedLinePortList)
+            ? $this->orderedLinePortList->getElementValue()
+            : null;
     }
 }

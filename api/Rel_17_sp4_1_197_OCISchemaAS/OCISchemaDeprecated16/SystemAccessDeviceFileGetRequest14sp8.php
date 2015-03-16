@@ -23,7 +23,7 @@ use Broadworks_OCIP\core\Client\Client;
 class SystemAccessDeviceFileGetRequest14sp8 extends ComplexType implements ComplexInterface
 {
     public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\SystemAccessDeviceFileGetResponse14sp8';
-    public    $name = 'SystemAccessDeviceFileGetRequest14sp8';
+    public    $elementName = 'SystemAccessDeviceFileGetRequest14sp8';
     protected $deviceName;
     protected $fileFormat;
 
@@ -51,7 +51,7 @@ class SystemAccessDeviceFileGetRequest14sp8 extends ComplexType implements Compl
         $this->deviceName = ($deviceName InstanceOf AccessDeviceName)
              ? $deviceName
              : new AccessDeviceName($deviceName);
-        $this->deviceName->setName('deviceName');
+        $this->deviceName->setElementName('deviceName');
         return $this;
     }
 
@@ -61,7 +61,9 @@ class SystemAccessDeviceFileGetRequest14sp8 extends ComplexType implements Compl
      */
     public function getDeviceName()
     {
-        return ($this->deviceName) ? $this->deviceName->getValue() : null;
+        return ($this->deviceName)
+            ? $this->deviceName->getElementValue()
+            : null;
     }
 
     /**
@@ -72,7 +74,7 @@ class SystemAccessDeviceFileGetRequest14sp8 extends ComplexType implements Compl
         $this->fileFormat = ($fileFormat InstanceOf DeviceManagementFileFormat)
              ? $fileFormat
              : new DeviceManagementFileFormat($fileFormat);
-        $this->fileFormat->setName('fileFormat');
+        $this->fileFormat->setElementName('fileFormat');
         return $this;
     }
 
@@ -82,6 +84,8 @@ class SystemAccessDeviceFileGetRequest14sp8 extends ComplexType implements Compl
      */
     public function getFileFormat()
     {
-        return ($this->fileFormat) ? $this->fileFormat->getValue() : null;
+        return ($this->fileFormat)
+            ? $this->fileFormat->getElementValue()
+            : null;
     }
 }

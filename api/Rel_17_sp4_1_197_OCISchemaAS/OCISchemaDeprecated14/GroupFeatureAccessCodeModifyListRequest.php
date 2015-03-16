@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupFeatureAccessCodeModifyListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'GroupFeatureAccessCodeModifyListRequest';
+    public    $elementName = 'GroupFeatureAccessCodeModifyListRequest';
     protected $serviceProviderId;
     protected $groupId;
 
@@ -50,7 +50,7 @@ class GroupFeatureAccessCodeModifyListRequest extends ComplexType implements Com
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
-        $this->serviceProviderId->setName('serviceProviderId');
+        $this->serviceProviderId->setElementName('serviceProviderId');
         return $this;
     }
 
@@ -60,7 +60,9 @@ class GroupFeatureAccessCodeModifyListRequest extends ComplexType implements Com
      */
     public function getServiceProviderId()
     {
-        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
+        return ($this->serviceProviderId)
+            ? $this->serviceProviderId->getElementValue()
+            : null;
     }
 
     /**
@@ -71,7 +73,7 @@ class GroupFeatureAccessCodeModifyListRequest extends ComplexType implements Com
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
-        $this->groupId->setName('groupId');
+        $this->groupId->setElementName('groupId');
         return $this;
     }
 
@@ -81,6 +83,8 @@ class GroupFeatureAccessCodeModifyListRequest extends ComplexType implements Com
      */
     public function getGroupId()
     {
-        return ($this->groupId) ? $this->groupId->getValue() : null;
+        return ($this->groupId)
+            ? $this->groupId->getElementValue()
+            : null;
     }
 }

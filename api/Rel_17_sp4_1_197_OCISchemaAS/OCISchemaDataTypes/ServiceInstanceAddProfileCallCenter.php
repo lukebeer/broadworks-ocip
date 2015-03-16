@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceInstanceAddProfileCallCenter extends ComplexType implements ComplexInterface
 {
-    public    $name = 'ServiceInstanceAddProfileCallCenter';
+    public    $elementName = 'ServiceInstanceAddProfileCallCenter';
 
     public function __construct(    ) {
     }

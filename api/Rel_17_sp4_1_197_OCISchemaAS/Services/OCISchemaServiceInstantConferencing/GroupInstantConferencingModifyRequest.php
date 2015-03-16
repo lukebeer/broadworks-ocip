@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupInstantConferencingModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'GroupInstantConferencingModifyRequest';
+    public    $elementName = 'GroupInstantConferencingModifyRequest';
     protected $serviceProviderId;
     protected $groupId;
     protected $portsAllocatedToGroup;
@@ -53,7 +53,7 @@ class GroupInstantConferencingModifyRequest extends ComplexType implements Compl
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
-        $this->serviceProviderId->setName('serviceProviderId');
+        $this->serviceProviderId->setElementName('serviceProviderId');
         return $this;
     }
 
@@ -63,7 +63,9 @@ class GroupInstantConferencingModifyRequest extends ComplexType implements Compl
      */
     public function getServiceProviderId()
     {
-        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
+        return ($this->serviceProviderId)
+            ? $this->serviceProviderId->getElementValue()
+            : null;
     }
 
     /**
@@ -74,7 +76,7 @@ class GroupInstantConferencingModifyRequest extends ComplexType implements Compl
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
-        $this->groupId->setName('groupId');
+        $this->groupId->setElementName('groupId');
         return $this;
     }
 
@@ -84,7 +86,9 @@ class GroupInstantConferencingModifyRequest extends ComplexType implements Compl
      */
     public function getGroupId()
     {
-        return ($this->groupId) ? $this->groupId->getValue() : null;
+        return ($this->groupId)
+            ? $this->groupId->getElementValue()
+            : null;
     }
 
     /**
@@ -95,7 +99,7 @@ class GroupInstantConferencingModifyRequest extends ComplexType implements Compl
         $this->portsAllocatedToGroup = ($portsAllocatedToGroup InstanceOf UnboundedNonNegativeInt)
              ? $portsAllocatedToGroup
              : new UnboundedNonNegativeInt($portsAllocatedToGroup);
-        $this->portsAllocatedToGroup->setName('portsAllocatedToGroup');
+        $this->portsAllocatedToGroup->setElementName('portsAllocatedToGroup');
         return $this;
     }
 

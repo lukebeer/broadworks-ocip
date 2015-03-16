@@ -23,7 +23,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupCallCenterBouncedCallGetResponse17 extends ComplexType implements ComplexInterface
 {
-    public    $name = 'GroupCallCenterBouncedCallGetResponse17';
+    public    $elementName = 'GroupCallCenterBouncedCallGetResponse17';
     protected $isActive;
     protected $numberOfRingsBeforeBouncingCall;
     protected $enableTransfer;
@@ -48,7 +48,7 @@ class GroupCallCenterBouncedCallGetResponse17 extends ComplexType implements Com
     public function setIsActive($isActive = null)
     {
         $this->isActive = new PrimitiveType($isActive);
-        $this->isActive->setName('isActive');
+        $this->isActive->setElementName('isActive');
         return $this;
     }
 
@@ -58,7 +58,9 @@ class GroupCallCenterBouncedCallGetResponse17 extends ComplexType implements Com
      */
     public function getIsActive()
     {
-        return ($this->isActive) ? $this->isActive->getValue() : null;
+        return ($this->isActive)
+            ? $this->isActive->getElementValue()
+            : null;
     }
 
     /**
@@ -69,7 +71,7 @@ class GroupCallCenterBouncedCallGetResponse17 extends ComplexType implements Com
         $this->numberOfRingsBeforeBouncingCall = ($numberOfRingsBeforeBouncingCall InstanceOf HuntNoAnswerRings)
              ? $numberOfRingsBeforeBouncingCall
              : new HuntNoAnswerRings($numberOfRingsBeforeBouncingCall);
-        $this->numberOfRingsBeforeBouncingCall->setName('numberOfRingsBeforeBouncingCall');
+        $this->numberOfRingsBeforeBouncingCall->setElementName('numberOfRingsBeforeBouncingCall');
         return $this;
     }
 
@@ -79,7 +81,9 @@ class GroupCallCenterBouncedCallGetResponse17 extends ComplexType implements Com
      */
     public function getNumberOfRingsBeforeBouncingCall()
     {
-        return ($this->numberOfRingsBeforeBouncingCall) ? $this->numberOfRingsBeforeBouncingCall->getValue() : null;
+        return ($this->numberOfRingsBeforeBouncingCall)
+            ? $this->numberOfRingsBeforeBouncingCall->getElementValue()
+            : null;
     }
 
     /**
@@ -88,7 +92,7 @@ class GroupCallCenterBouncedCallGetResponse17 extends ComplexType implements Com
     public function setEnableTransfer($enableTransfer = null)
     {
         $this->enableTransfer = new PrimitiveType($enableTransfer);
-        $this->enableTransfer->setName('enableTransfer');
+        $this->enableTransfer->setElementName('enableTransfer');
         return $this;
     }
 
@@ -98,7 +102,9 @@ class GroupCallCenterBouncedCallGetResponse17 extends ComplexType implements Com
      */
     public function getEnableTransfer()
     {
-        return ($this->enableTransfer) ? $this->enableTransfer->getValue() : null;
+        return ($this->enableTransfer)
+            ? $this->enableTransfer->getElementValue()
+            : null;
     }
 
     /**
@@ -109,7 +115,7 @@ class GroupCallCenterBouncedCallGetResponse17 extends ComplexType implements Com
         $this->transferPhoneNumber = ($transferPhoneNumber InstanceOf OutgoingDNorSIPURI)
              ? $transferPhoneNumber
              : new OutgoingDNorSIPURI($transferPhoneNumber);
-        $this->transferPhoneNumber->setName('transferPhoneNumber');
+        $this->transferPhoneNumber->setElementName('transferPhoneNumber');
         return $this;
     }
 
@@ -119,7 +125,9 @@ class GroupCallCenterBouncedCallGetResponse17 extends ComplexType implements Com
      */
     public function getTransferPhoneNumber()
     {
-        return ($this->transferPhoneNumber) ? $this->transferPhoneNumber->getValue() : null;
+        return ($this->transferPhoneNumber)
+            ? $this->transferPhoneNumber->getElementValue()
+            : null;
     }
 
     /**
@@ -128,7 +136,7 @@ class GroupCallCenterBouncedCallGetResponse17 extends ComplexType implements Com
     public function setBounceCallWhenAgentUnavailable($bounceCallWhenAgentUnavailable = null)
     {
         $this->bounceCallWhenAgentUnavailable = new PrimitiveType($bounceCallWhenAgentUnavailable);
-        $this->bounceCallWhenAgentUnavailable->setName('bounceCallWhenAgentUnavailable');
+        $this->bounceCallWhenAgentUnavailable->setElementName('bounceCallWhenAgentUnavailable');
         return $this;
     }
 
@@ -138,7 +146,9 @@ class GroupCallCenterBouncedCallGetResponse17 extends ComplexType implements Com
      */
     public function getBounceCallWhenAgentUnavailable()
     {
-        return ($this->bounceCallWhenAgentUnavailable) ? $this->bounceCallWhenAgentUnavailable->getValue() : null;
+        return ($this->bounceCallWhenAgentUnavailable)
+            ? $this->bounceCallWhenAgentUnavailable->getElementValue()
+            : null;
     }
 
     /**
@@ -147,7 +157,7 @@ class GroupCallCenterBouncedCallGetResponse17 extends ComplexType implements Com
     public function setAlertCallCenterCallOnHold($alertCallCenterCallOnHold = null)
     {
         $this->alertCallCenterCallOnHold = new PrimitiveType($alertCallCenterCallOnHold);
-        $this->alertCallCenterCallOnHold->setName('alertCallCenterCallOnHold');
+        $this->alertCallCenterCallOnHold->setElementName('alertCallCenterCallOnHold');
         return $this;
     }
 
@@ -157,7 +167,9 @@ class GroupCallCenterBouncedCallGetResponse17 extends ComplexType implements Com
      */
     public function getAlertCallCenterCallOnHold()
     {
-        return ($this->alertCallCenterCallOnHold) ? $this->alertCallCenterCallOnHold->getValue() : null;
+        return ($this->alertCallCenterCallOnHold)
+            ? $this->alertCallCenterCallOnHold->getElementValue()
+            : null;
     }
 
     /**
@@ -168,7 +180,7 @@ class GroupCallCenterBouncedCallGetResponse17 extends ComplexType implements Com
         $this->alertCallCenterCallOnHoldSeconds = ($alertCallCenterCallOnHoldSeconds InstanceOf AlertCallCenterCallOnHoldSeconds)
              ? $alertCallCenterCallOnHoldSeconds
              : new AlertCallCenterCallOnHoldSeconds($alertCallCenterCallOnHoldSeconds);
-        $this->alertCallCenterCallOnHoldSeconds->setName('alertCallCenterCallOnHoldSeconds');
+        $this->alertCallCenterCallOnHoldSeconds->setElementName('alertCallCenterCallOnHoldSeconds');
         return $this;
     }
 
@@ -178,7 +190,9 @@ class GroupCallCenterBouncedCallGetResponse17 extends ComplexType implements Com
      */
     public function getAlertCallCenterCallOnHoldSeconds()
     {
-        return ($this->alertCallCenterCallOnHoldSeconds) ? $this->alertCallCenterCallOnHoldSeconds->getValue() : null;
+        return ($this->alertCallCenterCallOnHoldSeconds)
+            ? $this->alertCallCenterCallOnHoldSeconds->getElementValue()
+            : null;
     }
 
     /**
@@ -187,7 +201,7 @@ class GroupCallCenterBouncedCallGetResponse17 extends ComplexType implements Com
     public function setBounceCallCenterCallOnHold($bounceCallCenterCallOnHold = null)
     {
         $this->bounceCallCenterCallOnHold = new PrimitiveType($bounceCallCenterCallOnHold);
-        $this->bounceCallCenterCallOnHold->setName('bounceCallCenterCallOnHold');
+        $this->bounceCallCenterCallOnHold->setElementName('bounceCallCenterCallOnHold');
         return $this;
     }
 
@@ -197,7 +211,9 @@ class GroupCallCenterBouncedCallGetResponse17 extends ComplexType implements Com
      */
     public function getBounceCallCenterCallOnHold()
     {
-        return ($this->bounceCallCenterCallOnHold) ? $this->bounceCallCenterCallOnHold->getValue() : null;
+        return ($this->bounceCallCenterCallOnHold)
+            ? $this->bounceCallCenterCallOnHold->getElementValue()
+            : null;
     }
 
     /**
@@ -208,7 +224,7 @@ class GroupCallCenterBouncedCallGetResponse17 extends ComplexType implements Com
         $this->bounceCallCenterCallOnHoldSeconds = ($bounceCallCenterCallOnHoldSeconds InstanceOf BounceCallCenterCallOnHoldSeconds)
              ? $bounceCallCenterCallOnHoldSeconds
              : new BounceCallCenterCallOnHoldSeconds($bounceCallCenterCallOnHoldSeconds);
-        $this->bounceCallCenterCallOnHoldSeconds->setName('bounceCallCenterCallOnHoldSeconds');
+        $this->bounceCallCenterCallOnHoldSeconds->setElementName('bounceCallCenterCallOnHoldSeconds');
         return $this;
     }
 
@@ -218,6 +234,8 @@ class GroupCallCenterBouncedCallGetResponse17 extends ComplexType implements Com
      */
     public function getBounceCallCenterCallOnHoldSeconds()
     {
-        return ($this->bounceCallCenterCallOnHoldSeconds) ? $this->bounceCallCenterCallOnHoldSeconds->getValue() : null;
+        return ($this->bounceCallCenterCallOnHoldSeconds)
+            ? $this->bounceCallCenterCallOnHoldSeconds->getElementValue()
+            : null;
     }
 }

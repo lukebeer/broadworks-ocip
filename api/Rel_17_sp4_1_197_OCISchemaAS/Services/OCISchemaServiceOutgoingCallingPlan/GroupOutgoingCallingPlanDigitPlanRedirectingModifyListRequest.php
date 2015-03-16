@@ -23,7 +23,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupOutgoingCallingPlanDigitPlanRedirectingModifyListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'GroupOutgoingCallingPlanDigitPlanRedirectingModifyListRequest';
+    public    $elementName = 'GroupOutgoingCallingPlanDigitPlanRedirectingModifyListRequest';
     protected $serviceProviderId;
     protected $groupId;
     protected $groupPermissions;
@@ -57,7 +57,7 @@ class GroupOutgoingCallingPlanDigitPlanRedirectingModifyListRequest extends Comp
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
-        $this->serviceProviderId->setName('serviceProviderId');
+        $this->serviceProviderId->setElementName('serviceProviderId');
         return $this;
     }
 
@@ -67,7 +67,9 @@ class GroupOutgoingCallingPlanDigitPlanRedirectingModifyListRequest extends Comp
      */
     public function getServiceProviderId()
     {
-        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
+        return ($this->serviceProviderId)
+            ? $this->serviceProviderId->getElementValue()
+            : null;
     }
 
     /**
@@ -78,7 +80,7 @@ class GroupOutgoingCallingPlanDigitPlanRedirectingModifyListRequest extends Comp
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
-        $this->groupId->setName('groupId');
+        $this->groupId->setElementName('groupId');
         return $this;
     }
 
@@ -88,7 +90,9 @@ class GroupOutgoingCallingPlanDigitPlanRedirectingModifyListRequest extends Comp
      */
     public function getGroupId()
     {
-        return ($this->groupId) ? $this->groupId->getValue() : null;
+        return ($this->groupId)
+            ? $this->groupId->getElementValue()
+            : null;
     }
 
     /**
@@ -99,7 +103,7 @@ class GroupOutgoingCallingPlanDigitPlanRedirectingModifyListRequest extends Comp
         $this->groupPermissions = ($groupPermissions InstanceOf OutgoingCallingPlanDigitPatternRedirectingPermissions)
              ? $groupPermissions
              : new OutgoingCallingPlanDigitPatternRedirectingPermissions($groupPermissions);
-        $this->groupPermissions->setName('groupPermissions');
+        $this->groupPermissions->setElementName('groupPermissions');
         return $this;
     }
 
@@ -120,7 +124,7 @@ class GroupOutgoingCallingPlanDigitPlanRedirectingModifyListRequest extends Comp
         $this->departmentPermissions = ($departmentPermissions InstanceOf OutgoingCallingPlanDigitPatternRedirectingDepartmentPermissionsModify)
              ? $departmentPermissions
              : new OutgoingCallingPlanDigitPatternRedirectingDepartmentPermissionsModify($departmentPermissions);
-        $this->departmentPermissions->setName('departmentPermissions');
+        $this->departmentPermissions->setElementName('departmentPermissions');
         return $this;
     }
 

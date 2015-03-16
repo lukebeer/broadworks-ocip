@@ -24,7 +24,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemRoutingAddRouteDeviceRequest14 extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemRoutingAddRouteDeviceRequest14';
+    public    $elementName = 'SystemRoutingAddRouteDeviceRequest14';
     protected $routeName;
     protected $netAddress;
     protected $port;
@@ -61,7 +61,7 @@ class SystemRoutingAddRouteDeviceRequest14 extends ComplexType implements Comple
         $this->routeName = ($routeName InstanceOf RouteName)
              ? $routeName
              : new RouteName($routeName);
-        $this->routeName->setName('routeName');
+        $this->routeName->setElementName('routeName');
         return $this;
     }
 
@@ -71,7 +71,9 @@ class SystemRoutingAddRouteDeviceRequest14 extends ComplexType implements Comple
      */
     public function getRouteName()
     {
-        return ($this->routeName) ? $this->routeName->getValue() : null;
+        return ($this->routeName)
+            ? $this->routeName->getElementValue()
+            : null;
     }
 
     /**
@@ -82,7 +84,7 @@ class SystemRoutingAddRouteDeviceRequest14 extends ComplexType implements Comple
         $this->netAddress = ($netAddress InstanceOf NetAddress)
              ? $netAddress
              : new NetAddress($netAddress);
-        $this->netAddress->setName('netAddress');
+        $this->netAddress->setElementName('netAddress');
         return $this;
     }
 
@@ -92,7 +94,9 @@ class SystemRoutingAddRouteDeviceRequest14 extends ComplexType implements Comple
      */
     public function getNetAddress()
     {
-        return ($this->netAddress) ? $this->netAddress->getValue() : null;
+        return ($this->netAddress)
+            ? $this->netAddress->getElementValue()
+            : null;
     }
 
     /**
@@ -103,7 +107,7 @@ class SystemRoutingAddRouteDeviceRequest14 extends ComplexType implements Comple
         $this->port = ($port InstanceOf Port1025)
              ? $port
              : new Port1025($port);
-        $this->port->setName('port');
+        $this->port->setElementName('port');
         return $this;
     }
 
@@ -113,7 +117,9 @@ class SystemRoutingAddRouteDeviceRequest14 extends ComplexType implements Comple
      */
     public function getPort()
     {
-        return ($this->port) ? $this->port->getValue() : null;
+        return ($this->port)
+            ? $this->port->getElementValue()
+            : null;
     }
 
     /**
@@ -124,7 +130,7 @@ class SystemRoutingAddRouteDeviceRequest14 extends ComplexType implements Comple
         $this->transportProtocol = ($transportProtocol InstanceOf TransportProtocol)
              ? $transportProtocol
              : new TransportProtocol($transportProtocol);
-        $this->transportProtocol->setName('transportProtocol');
+        $this->transportProtocol->setElementName('transportProtocol');
         return $this;
     }
 
@@ -134,7 +140,9 @@ class SystemRoutingAddRouteDeviceRequest14 extends ComplexType implements Comple
      */
     public function getTransportProtocol()
     {
-        return ($this->transportProtocol) ? $this->transportProtocol->getValue() : null;
+        return ($this->transportProtocol)
+            ? $this->transportProtocol->getElementValue()
+            : null;
     }
 
     /**
@@ -145,7 +153,7 @@ class SystemRoutingAddRouteDeviceRequest14 extends ComplexType implements Comple
         $this->description = ($description InstanceOf RouteDeviceDescription)
              ? $description
              : new RouteDeviceDescription($description);
-        $this->description->setName('description');
+        $this->description->setElementName('description');
         return $this;
     }
 
@@ -155,6 +163,8 @@ class SystemRoutingAddRouteDeviceRequest14 extends ComplexType implements Comple
      */
     public function getDescription()
     {
-        return ($this->description) ? $this->description->getValue() : null;
+        return ($this->description)
+            ? $this->description->getElementValue()
+            : null;
     }
 }

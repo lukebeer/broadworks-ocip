@@ -17,12 +17,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\MaxLength;
  */
 class LocationDialingCode extends SimpleType
 {
-    public $name = "LocationDialingCode";
-    protected $value;
-
+    public $elementName = "LocationDialingCode";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new MinLength("1"));
         $this->addRestriction(new MaxLength("15"));
     }

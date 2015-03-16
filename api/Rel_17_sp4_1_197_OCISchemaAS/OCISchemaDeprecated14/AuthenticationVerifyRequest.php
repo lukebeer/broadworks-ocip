@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
 class AuthenticationVerifyRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\AuthenticationVerifyResponse';
-    public    $name = 'AuthenticationVerifyRequest';
+    public    $elementName = 'AuthenticationVerifyRequest';
     protected $userId;
     protected $password;
 
@@ -50,7 +50,7 @@ class AuthenticationVerifyRequest extends ComplexType implements ComplexInterfac
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
-        $this->userId->setName('userId');
+        $this->userId->setElementName('userId');
         return $this;
     }
 
@@ -60,7 +60,9 @@ class AuthenticationVerifyRequest extends ComplexType implements ComplexInterfac
      */
     public function getUserId()
     {
-        return ($this->userId) ? $this->userId->getValue() : null;
+        return ($this->userId)
+            ? $this->userId->getElementValue()
+            : null;
     }
 
     /**
@@ -71,7 +73,7 @@ class AuthenticationVerifyRequest extends ComplexType implements ComplexInterfac
         $this->password = ($password InstanceOf Password)
              ? $password
              : new Password($password);
-        $this->password->setName('password');
+        $this->password->setElementName('password');
         return $this;
     }
 
@@ -81,6 +83,8 @@ class AuthenticationVerifyRequest extends ComplexType implements ComplexInterfac
      */
     public function getPassword()
     {
-        return ($this->password) ? $this->password->getValue() : null;
+        return ($this->password)
+            ? $this->password->getElementValue()
+            : null;
     }
 }

@@ -16,12 +16,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\Enumeration;
  */
 class ServiceInvocationDisposition extends SimpleType
 {
-    public $name = "ServiceInvocationDisposition";
-    protected $value;
-
+    public $elementName = "ServiceInvocationDisposition";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new Enumeration([
             'Automatic Hold/Retrieve',
             'Call Forward Always',

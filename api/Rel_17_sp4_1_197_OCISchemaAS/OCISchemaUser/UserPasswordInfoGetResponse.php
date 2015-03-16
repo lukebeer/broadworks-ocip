@@ -19,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserPasswordInfoGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'UserPasswordInfoGetResponse';
+    public    $elementName = 'UserPasswordInfoGetResponse';
     protected $isLoginDisabled;
 
     /**
@@ -36,7 +36,7 @@ class UserPasswordInfoGetResponse extends ComplexType implements ComplexInterfac
     public function setIsLoginDisabled($isLoginDisabled = null)
     {
         $this->isLoginDisabled = new PrimitiveType($isLoginDisabled);
-        $this->isLoginDisabled->setName('isLoginDisabled');
+        $this->isLoginDisabled->setElementName('isLoginDisabled');
         return $this;
     }
 
@@ -46,6 +46,8 @@ class UserPasswordInfoGetResponse extends ComplexType implements ComplexInterfac
      */
     public function getIsLoginDisabled()
     {
-        return ($this->isLoginDisabled) ? $this->isLoginDisabled->getValue() : null;
+        return ($this->isLoginDisabled)
+            ? $this->isLoginDisabled->getElementValue()
+            : null;
     }
 }

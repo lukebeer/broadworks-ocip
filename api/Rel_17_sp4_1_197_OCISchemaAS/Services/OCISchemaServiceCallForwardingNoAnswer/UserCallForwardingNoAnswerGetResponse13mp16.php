@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserCallForwardingNoAnswerGetResponse13mp16 extends ComplexType implements ComplexInterface
 {
-    public    $name = 'UserCallForwardingNoAnswerGetResponse13mp16';
+    public    $elementName = 'UserCallForwardingNoAnswerGetResponse13mp16';
     protected $isActive;
     protected $forwardToPhoneNumber;
     protected $numberOfRings;
@@ -40,7 +40,7 @@ class UserCallForwardingNoAnswerGetResponse13mp16 extends ComplexType implements
     public function setIsActive($isActive = null)
     {
         $this->isActive = new PrimitiveType($isActive);
-        $this->isActive->setName('isActive');
+        $this->isActive->setElementName('isActive');
         return $this;
     }
 
@@ -50,7 +50,9 @@ class UserCallForwardingNoAnswerGetResponse13mp16 extends ComplexType implements
      */
     public function getIsActive()
     {
-        return ($this->isActive) ? $this->isActive->getValue() : null;
+        return ($this->isActive)
+            ? $this->isActive->getElementValue()
+            : null;
     }
 
     /**
@@ -61,7 +63,7 @@ class UserCallForwardingNoAnswerGetResponse13mp16 extends ComplexType implements
         $this->forwardToPhoneNumber = ($forwardToPhoneNumber InstanceOf OutgoingDNorSIPURI)
              ? $forwardToPhoneNumber
              : new OutgoingDNorSIPURI($forwardToPhoneNumber);
-        $this->forwardToPhoneNumber->setName('forwardToPhoneNumber');
+        $this->forwardToPhoneNumber->setElementName('forwardToPhoneNumber');
         return $this;
     }
 
@@ -71,7 +73,9 @@ class UserCallForwardingNoAnswerGetResponse13mp16 extends ComplexType implements
      */
     public function getForwardToPhoneNumber()
     {
-        return ($this->forwardToPhoneNumber) ? $this->forwardToPhoneNumber->getValue() : null;
+        return ($this->forwardToPhoneNumber)
+            ? $this->forwardToPhoneNumber->getElementValue()
+            : null;
     }
 
     /**
@@ -82,7 +86,7 @@ class UserCallForwardingNoAnswerGetResponse13mp16 extends ComplexType implements
         $this->numberOfRings = ($numberOfRings InstanceOf CallForwardingNoAnswerNumberOfRings)
              ? $numberOfRings
              : new CallForwardingNoAnswerNumberOfRings($numberOfRings);
-        $this->numberOfRings->setName('numberOfRings');
+        $this->numberOfRings->setElementName('numberOfRings');
         return $this;
     }
 
@@ -92,6 +96,8 @@ class UserCallForwardingNoAnswerGetResponse13mp16 extends ComplexType implements
      */
     public function getNumberOfRings()
     {
-        return ($this->numberOfRings) ? $this->numberOfRings->getValue() : null;
+        return ($this->numberOfRings)
+            ? $this->numberOfRings->getElementValue()
+            : null;
     }
 }

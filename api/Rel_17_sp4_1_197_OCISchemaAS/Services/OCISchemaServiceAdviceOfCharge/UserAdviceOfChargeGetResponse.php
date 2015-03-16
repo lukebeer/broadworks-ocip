@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserAdviceOfChargeGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'UserAdviceOfChargeGetResponse';
+    public    $elementName = 'UserAdviceOfChargeGetResponse';
     protected $isActive;
     protected $aocType;
 
@@ -38,7 +38,7 @@ class UserAdviceOfChargeGetResponse extends ComplexType implements ComplexInterf
     public function setIsActive($isActive = null)
     {
         $this->isActive = new PrimitiveType($isActive);
-        $this->isActive->setName('isActive');
+        $this->isActive->setElementName('isActive');
         return $this;
     }
 
@@ -48,7 +48,9 @@ class UserAdviceOfChargeGetResponse extends ComplexType implements ComplexInterf
      */
     public function getIsActive()
     {
-        return ($this->isActive) ? $this->isActive->getValue() : null;
+        return ($this->isActive)
+            ? $this->isActive->getElementValue()
+            : null;
     }
 
     /**
@@ -59,7 +61,7 @@ class UserAdviceOfChargeGetResponse extends ComplexType implements ComplexInterf
         $this->aocType = ($aocType InstanceOf AdviceOfChargeType)
              ? $aocType
              : new AdviceOfChargeType($aocType);
-        $this->aocType->setName('aocType');
+        $this->aocType->setElementName('aocType');
         return $this;
     }
 
@@ -69,6 +71,8 @@ class UserAdviceOfChargeGetResponse extends ComplexType implements ComplexInterf
      */
     public function getAocType()
     {
-        return ($this->aocType) ? $this->aocType->getValue() : null;
+        return ($this->aocType)
+            ? $this->aocType->getElementValue()
+            : null;
     }
 }

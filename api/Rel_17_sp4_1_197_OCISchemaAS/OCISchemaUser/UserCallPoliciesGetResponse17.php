@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserCallPoliciesGetResponse17 extends ComplexType implements ComplexInterface
 {
-    public    $name = 'UserCallPoliciesGetResponse17';
+    public    $elementName = 'UserCallPoliciesGetResponse17';
     protected $redirectedCallsCOLPPrivacy;
     protected $callBeingForwardedResponseCallType;
 
@@ -40,7 +40,7 @@ class UserCallPoliciesGetResponse17 extends ComplexType implements ComplexInterf
         $this->redirectedCallsCOLPPrivacy = ($redirectedCallsCOLPPrivacy InstanceOf ConnectedLineIdentificationPrivacyOnRedirectedCalls)
              ? $redirectedCallsCOLPPrivacy
              : new ConnectedLineIdentificationPrivacyOnRedirectedCalls($redirectedCallsCOLPPrivacy);
-        $this->redirectedCallsCOLPPrivacy->setName('redirectedCallsCOLPPrivacy');
+        $this->redirectedCallsCOLPPrivacy->setElementName('redirectedCallsCOLPPrivacy');
         return $this;
     }
 
@@ -50,7 +50,9 @@ class UserCallPoliciesGetResponse17 extends ComplexType implements ComplexInterf
      */
     public function getRedirectedCallsCOLPPrivacy()
     {
-        return ($this->redirectedCallsCOLPPrivacy) ? $this->redirectedCallsCOLPPrivacy->getValue() : null;
+        return ($this->redirectedCallsCOLPPrivacy)
+            ? $this->redirectedCallsCOLPPrivacy->getElementValue()
+            : null;
     }
 
     /**
@@ -61,7 +63,7 @@ class UserCallPoliciesGetResponse17 extends ComplexType implements ComplexInterf
         $this->callBeingForwardedResponseCallType = ($callBeingForwardedResponseCallType InstanceOf CallBeingForwardedResponseCallType)
              ? $callBeingForwardedResponseCallType
              : new CallBeingForwardedResponseCallType($callBeingForwardedResponseCallType);
-        $this->callBeingForwardedResponseCallType->setName('callBeingForwardedResponseCallType');
+        $this->callBeingForwardedResponseCallType->setElementName('callBeingForwardedResponseCallType');
         return $this;
     }
 
@@ -71,6 +73,8 @@ class UserCallPoliciesGetResponse17 extends ComplexType implements ComplexInterf
      */
     public function getCallBeingForwardedResponseCallType()
     {
-        return ($this->callBeingForwardedResponseCallType) ? $this->callBeingForwardedResponseCallType->getValue() : null;
+        return ($this->callBeingForwardedResponseCallType)
+            ? $this->callBeingForwardedResponseCallType->getElementValue()
+            : null;
     }
 }

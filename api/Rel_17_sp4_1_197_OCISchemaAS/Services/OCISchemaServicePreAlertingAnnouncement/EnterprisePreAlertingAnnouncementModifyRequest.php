@@ -24,7 +24,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class EnterprisePreAlertingAnnouncementModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'EnterprisePreAlertingAnnouncementModifyRequest';
+    public    $elementName = 'EnterprisePreAlertingAnnouncementModifyRequest';
     protected $serviceProviderId;
     protected $announcementInterruption;
     protected $interruptionDigitSequence;
@@ -67,7 +67,7 @@ class EnterprisePreAlertingAnnouncementModifyRequest extends ComplexType impleme
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
-        $this->serviceProviderId->setName('serviceProviderId');
+        $this->serviceProviderId->setElementName('serviceProviderId');
         return $this;
     }
 
@@ -77,7 +77,9 @@ class EnterprisePreAlertingAnnouncementModifyRequest extends ComplexType impleme
      */
     public function getServiceProviderId()
     {
-        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
+        return ($this->serviceProviderId)
+            ? $this->serviceProviderId->getElementValue()
+            : null;
     }
 
     /**
@@ -88,7 +90,7 @@ class EnterprisePreAlertingAnnouncementModifyRequest extends ComplexType impleme
         $this->announcementInterruption = ($announcementInterruption InstanceOf PreAlertingAnnouncementInterrupt)
              ? $announcementInterruption
              : new PreAlertingAnnouncementInterrupt($announcementInterruption);
-        $this->announcementInterruption->setName('announcementInterruption');
+        $this->announcementInterruption->setElementName('announcementInterruption');
         return $this;
     }
 
@@ -98,7 +100,9 @@ class EnterprisePreAlertingAnnouncementModifyRequest extends ComplexType impleme
      */
     public function getAnnouncementInterruption()
     {
-        return ($this->announcementInterruption) ? $this->announcementInterruption->getValue() : null;
+        return ($this->announcementInterruption)
+            ? $this->announcementInterruption->getElementValue()
+            : null;
     }
 
     /**
@@ -109,7 +113,7 @@ class EnterprisePreAlertingAnnouncementModifyRequest extends ComplexType impleme
         $this->interruptionDigitSequence = ($interruptionDigitSequence InstanceOf PreAlertingAnnouncementInterruptDigits)
              ? $interruptionDigitSequence
              : new PreAlertingAnnouncementInterruptDigits($interruptionDigitSequence);
-        $this->interruptionDigitSequence->setName('interruptionDigitSequence');
+        $this->interruptionDigitSequence->setElementName('interruptionDigitSequence');
         return $this;
     }
 
@@ -119,7 +123,9 @@ class EnterprisePreAlertingAnnouncementModifyRequest extends ComplexType impleme
      */
     public function getInterruptionDigitSequence()
     {
-        return ($this->interruptionDigitSequence) ? $this->interruptionDigitSequence->getValue() : null;
+        return ($this->interruptionDigitSequence)
+            ? $this->interruptionDigitSequence->getElementValue()
+            : null;
     }
 
     /**
@@ -130,7 +136,7 @@ class EnterprisePreAlertingAnnouncementModifyRequest extends ComplexType impleme
         $this->audioSelection = ($audioSelection InstanceOf ExtendedFileResourceSelection)
              ? $audioSelection
              : new ExtendedFileResourceSelection($audioSelection);
-        $this->audioSelection->setName('audioSelection');
+        $this->audioSelection->setElementName('audioSelection');
         return $this;
     }
 
@@ -140,7 +146,9 @@ class EnterprisePreAlertingAnnouncementModifyRequest extends ComplexType impleme
      */
     public function getAudioSelection()
     {
-        return ($this->audioSelection) ? $this->audioSelection->getValue() : null;
+        return ($this->audioSelection)
+            ? $this->audioSelection->getElementValue()
+            : null;
     }
 
     /**
@@ -151,7 +159,7 @@ class EnterprisePreAlertingAnnouncementModifyRequest extends ComplexType impleme
         $this->audioFile = ($audioFile InstanceOf ExtendedMediaFileResource)
              ? $audioFile
              : new ExtendedMediaFileResource($audioFile);
-        $this->audioFile->setName('audioFile');
+        $this->audioFile->setElementName('audioFile');
         return $this;
     }
 
@@ -172,7 +180,7 @@ class EnterprisePreAlertingAnnouncementModifyRequest extends ComplexType impleme
         $this->videoSelection = ($videoSelection InstanceOf ExtendedFileResourceSelection)
              ? $videoSelection
              : new ExtendedFileResourceSelection($videoSelection);
-        $this->videoSelection->setName('videoSelection');
+        $this->videoSelection->setElementName('videoSelection');
         return $this;
     }
 
@@ -182,7 +190,9 @@ class EnterprisePreAlertingAnnouncementModifyRequest extends ComplexType impleme
      */
     public function getVideoSelection()
     {
-        return ($this->videoSelection) ? $this->videoSelection->getValue() : null;
+        return ($this->videoSelection)
+            ? $this->videoSelection->getElementValue()
+            : null;
     }
 
     /**
@@ -193,7 +203,7 @@ class EnterprisePreAlertingAnnouncementModifyRequest extends ComplexType impleme
         $this->videoFile = ($videoFile InstanceOf ExtendedMediaFileResource)
              ? $videoFile
              : new ExtendedMediaFileResource($videoFile);
-        $this->videoFile->setName('videoFile');
+        $this->videoFile->setElementName('videoFile');
         return $this;
     }
 

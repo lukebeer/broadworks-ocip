@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ReplacementEnterpriseDeviceList extends ComplexType implements ComplexInterface
 {
-    public    $name = 'ReplacementEnterpriseDeviceList';
+    public    $elementName = 'ReplacementEnterpriseDeviceList';
     protected $device;
 
     public function __construct(
@@ -43,7 +43,7 @@ class ReplacementEnterpriseDeviceList extends ComplexType implements ComplexInte
     public function setDevice($device = null)
     {
         $this->device = new SimpleContent($device);
-        $this->device->setName('device');
+        $this->device->setElementName('device');
         return $this;
     }
 
@@ -53,6 +53,8 @@ class ReplacementEnterpriseDeviceList extends ComplexType implements ComplexInte
      */
     public function getDevice()
     {
-        return ($this->device) ? $this->device->getValue() : null;
+        return ($this->device)
+            ? $this->device->getElementValue()
+            : null;
     }
 }

@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
 class SystemDeviceManagementTagGetListRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemDeviceManagementTagGetListResponse';
-    public    $name = 'SystemDeviceManagementTagGetListRequest';
+    public    $elementName = 'SystemDeviceManagementTagGetListRequest';
 
     public function __construct(    ) {
     }

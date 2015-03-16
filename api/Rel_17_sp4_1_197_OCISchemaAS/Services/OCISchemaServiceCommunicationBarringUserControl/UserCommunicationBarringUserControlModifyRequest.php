@@ -26,7 +26,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserCommunicationBarringUserControlModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'UserCommunicationBarringUserControlModifyRequest';
+    public    $elementName = 'UserCommunicationBarringUserControlModifyRequest';
     protected $userId;
     protected $enableProfile;
     protected $oldPasscode;
@@ -63,7 +63,7 @@ class UserCommunicationBarringUserControlModifyRequest extends ComplexType imple
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
-        $this->userId->setName('userId');
+        $this->userId->setElementName('userId');
         return $this;
     }
 
@@ -73,7 +73,9 @@ class UserCommunicationBarringUserControlModifyRequest extends ComplexType imple
      */
     public function getUserId()
     {
-        return ($this->userId) ? $this->userId->getValue() : null;
+        return ($this->userId)
+            ? $this->userId->getElementValue()
+            : null;
     }
 
     /**
@@ -84,7 +86,7 @@ class UserCommunicationBarringUserControlModifyRequest extends ComplexType imple
         $this->enableProfile = ($enableProfile InstanceOf CommunicationBarringUserControlProfileCode)
              ? $enableProfile
              : new CommunicationBarringUserControlProfileCode($enableProfile);
-        $this->enableProfile->setName('enableProfile');
+        $this->enableProfile->setElementName('enableProfile');
         return $this;
     }
 
@@ -94,7 +96,9 @@ class UserCommunicationBarringUserControlModifyRequest extends ComplexType imple
      */
     public function getEnableProfile()
     {
-        return ($this->enableProfile) ? $this->enableProfile->getValue() : null;
+        return ($this->enableProfile)
+            ? $this->enableProfile->getElementValue()
+            : null;
     }
 
     /**
@@ -105,7 +109,7 @@ class UserCommunicationBarringUserControlModifyRequest extends ComplexType imple
         $this->oldPasscode = ($oldPasscode InstanceOf Passcode)
              ? $oldPasscode
              : new Passcode($oldPasscode);
-        $this->oldPasscode->setName('oldPasscode');
+        $this->oldPasscode->setElementName('oldPasscode');
         return $this;
     }
 
@@ -115,7 +119,9 @@ class UserCommunicationBarringUserControlModifyRequest extends ComplexType imple
      */
     public function getOldPasscode()
     {
-        return ($this->oldPasscode) ? $this->oldPasscode->getValue() : null;
+        return ($this->oldPasscode)
+            ? $this->oldPasscode->getElementValue()
+            : null;
     }
 
     /**
@@ -126,7 +132,7 @@ class UserCommunicationBarringUserControlModifyRequest extends ComplexType imple
         $this->newPasscode = ($newPasscode InstanceOf Passcode)
              ? $newPasscode
              : new Passcode($newPasscode);
-        $this->newPasscode->setName('newPasscode');
+        $this->newPasscode->setElementName('newPasscode');
         return $this;
     }
 
@@ -136,7 +142,9 @@ class UserCommunicationBarringUserControlModifyRequest extends ComplexType imple
      */
     public function getNewPasscode()
     {
-        return ($this->newPasscode) ? $this->newPasscode->getValue() : null;
+        return ($this->newPasscode)
+            ? $this->newPasscode->getElementValue()
+            : null;
     }
 
     /**
@@ -145,7 +153,7 @@ class UserCommunicationBarringUserControlModifyRequest extends ComplexType imple
     public function setResetLockout($resetLockout = null)
     {
         $this->resetLockout = new PrimitiveType($resetLockout);
-        $this->resetLockout->setName('resetLockout');
+        $this->resetLockout->setElementName('resetLockout');
         return $this;
     }
 
@@ -155,6 +163,8 @@ class UserCommunicationBarringUserControlModifyRequest extends ComplexType imple
      */
     public function getResetLockout()
     {
-        return ($this->resetLockout) ? $this->resetLockout->getValue() : null;
+        return ($this->resetLockout)
+            ? $this->resetLockout->getElementValue()
+            : null;
     }
 }

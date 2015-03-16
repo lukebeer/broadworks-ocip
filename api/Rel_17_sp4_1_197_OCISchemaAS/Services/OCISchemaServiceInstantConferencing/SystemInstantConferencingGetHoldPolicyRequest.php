@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
 class SystemInstantConferencingGetHoldPolicyRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing\SystemInstantConferencingGetHoldPolicyResponse';
-    public    $name = 'SystemInstantConferencingGetHoldPolicyRequest';
+    public    $elementName = 'SystemInstantConferencingGetHoldPolicyRequest';
 
     public function __construct(    ) {
     }

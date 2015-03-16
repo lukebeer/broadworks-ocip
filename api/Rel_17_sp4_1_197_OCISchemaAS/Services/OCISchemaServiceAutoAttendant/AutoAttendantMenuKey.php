@@ -16,12 +16,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\Enumeration;
  */
 class AutoAttendantMenuKey extends SimpleType
 {
-    public $name = "AutoAttendantMenuKey";
-    protected $value;
-
+    public $elementName = "AutoAttendantMenuKey";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new Enumeration([
             '0',
             '1',

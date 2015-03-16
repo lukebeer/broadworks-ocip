@@ -17,12 +17,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\MaxLength;
  */
 class CallCenterScheduledReportName extends SimpleType
 {
-    public $name = "CallCenterScheduledReportName";
-    protected $value;
-
+    public $elementName = "CallCenterScheduledReportName";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new MinLength("1"));
         $this->addRestriction(new MaxLength("80"));
     }

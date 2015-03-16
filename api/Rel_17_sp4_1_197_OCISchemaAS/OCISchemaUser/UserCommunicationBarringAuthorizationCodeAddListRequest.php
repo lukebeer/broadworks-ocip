@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserCommunicationBarringAuthorizationCodeAddListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'UserCommunicationBarringAuthorizationCodeAddListRequest';
+    public    $elementName = 'UserCommunicationBarringAuthorizationCodeAddListRequest';
     protected $userId;
     protected $code;
 
@@ -48,7 +48,7 @@ class UserCommunicationBarringAuthorizationCodeAddListRequest extends ComplexTyp
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
-        $this->userId->setName('userId');
+        $this->userId->setElementName('userId');
         return $this;
     }
 
@@ -58,7 +58,9 @@ class UserCommunicationBarringAuthorizationCodeAddListRequest extends ComplexTyp
      */
     public function getUserId()
     {
-        return ($this->userId) ? $this->userId->getValue() : null;
+        return ($this->userId)
+            ? $this->userId->getElementValue()
+            : null;
     }
 
     /**
@@ -69,7 +71,7 @@ class UserCommunicationBarringAuthorizationCodeAddListRequest extends ComplexTyp
         $this->code = ($code InstanceOf CommunicationBarringAuthorizationCodeEntry)
              ? $code
              : new CommunicationBarringAuthorizationCodeEntry($code);
-        $this->code->setName('code');
+        $this->code->setElementName('code');
         return $this;
     }
 

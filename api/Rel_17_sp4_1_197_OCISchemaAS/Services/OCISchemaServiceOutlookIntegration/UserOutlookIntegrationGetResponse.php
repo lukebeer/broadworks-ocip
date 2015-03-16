@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserOutlookIntegrationGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'UserOutlookIntegrationGetResponse';
+    public    $elementName = 'UserOutlookIntegrationGetResponse';
     protected $isActive;
     protected $contactRetrievalSelection;
 
@@ -38,7 +38,7 @@ class UserOutlookIntegrationGetResponse extends ComplexType implements ComplexIn
     public function setIsActive($isActive = null)
     {
         $this->isActive = new PrimitiveType($isActive);
-        $this->isActive->setName('isActive');
+        $this->isActive->setElementName('isActive');
         return $this;
     }
 
@@ -48,7 +48,9 @@ class UserOutlookIntegrationGetResponse extends ComplexType implements ComplexIn
      */
     public function getIsActive()
     {
-        return ($this->isActive) ? $this->isActive->getValue() : null;
+        return ($this->isActive)
+            ? $this->isActive->getElementValue()
+            : null;
     }
 
     /**
@@ -59,7 +61,7 @@ class UserOutlookIntegrationGetResponse extends ComplexType implements ComplexIn
         $this->contactRetrievalSelection = ($contactRetrievalSelection InstanceOf OutlookIntegrationContactRetrievalSelection)
              ? $contactRetrievalSelection
              : new OutlookIntegrationContactRetrievalSelection($contactRetrievalSelection);
-        $this->contactRetrievalSelection->setName('contactRetrievalSelection');
+        $this->contactRetrievalSelection->setElementName('contactRetrievalSelection');
         return $this;
     }
 
@@ -69,6 +71,8 @@ class UserOutlookIntegrationGetResponse extends ComplexType implements ComplexIn
      */
     public function getContactRetrievalSelection()
     {
-        return ($this->contactRetrievalSelection) ? $this->contactRetrievalSelection->getValue() : null;
+        return ($this->contactRetrievalSelection)
+            ? $this->contactRetrievalSelection->getElementValue()
+            : null;
     }
 }

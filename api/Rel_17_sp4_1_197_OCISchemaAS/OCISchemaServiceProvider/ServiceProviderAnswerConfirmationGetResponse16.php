@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderAnswerConfirmationGetResponse16 extends ComplexType implements ComplexInterface
 {
-    public    $name = 'ServiceProviderAnswerConfirmationGetResponse16';
+    public    $elementName = 'ServiceProviderAnswerConfirmationGetResponse16';
     protected $announcementMessageSelection;
     protected $confirmationMessageAudioFileDescription;
     protected $confirmationMessageMediaType;
@@ -44,7 +44,7 @@ class ServiceProviderAnswerConfirmationGetResponse16 extends ComplexType impleme
         $this->announcementMessageSelection = ($announcementMessageSelection InstanceOf AnswerConfirmationAnnouncementSelection)
              ? $announcementMessageSelection
              : new AnswerConfirmationAnnouncementSelection($announcementMessageSelection);
-        $this->announcementMessageSelection->setName('announcementMessageSelection');
+        $this->announcementMessageSelection->setElementName('announcementMessageSelection');
         return $this;
     }
 
@@ -54,7 +54,9 @@ class ServiceProviderAnswerConfirmationGetResponse16 extends ComplexType impleme
      */
     public function getAnnouncementMessageSelection()
     {
-        return ($this->announcementMessageSelection) ? $this->announcementMessageSelection->getValue() : null;
+        return ($this->announcementMessageSelection)
+            ? $this->announcementMessageSelection->getElementValue()
+            : null;
     }
 
     /**
@@ -65,7 +67,7 @@ class ServiceProviderAnswerConfirmationGetResponse16 extends ComplexType impleme
         $this->confirmationMessageAudioFileDescription = ($confirmationMessageAudioFileDescription InstanceOf FileDescription)
              ? $confirmationMessageAudioFileDescription
              : new FileDescription($confirmationMessageAudioFileDescription);
-        $this->confirmationMessageAudioFileDescription->setName('confirmationMessageAudioFileDescription');
+        $this->confirmationMessageAudioFileDescription->setElementName('confirmationMessageAudioFileDescription');
         return $this;
     }
 
@@ -75,7 +77,9 @@ class ServiceProviderAnswerConfirmationGetResponse16 extends ComplexType impleme
      */
     public function getConfirmationMessageAudioFileDescription()
     {
-        return ($this->confirmationMessageAudioFileDescription) ? $this->confirmationMessageAudioFileDescription->getValue() : null;
+        return ($this->confirmationMessageAudioFileDescription)
+            ? $this->confirmationMessageAudioFileDescription->getElementValue()
+            : null;
     }
 
     /**
@@ -86,7 +90,7 @@ class ServiceProviderAnswerConfirmationGetResponse16 extends ComplexType impleme
         $this->confirmationMessageMediaType = ($confirmationMessageMediaType InstanceOf MediaFileType)
              ? $confirmationMessageMediaType
              : new MediaFileType($confirmationMessageMediaType);
-        $this->confirmationMessageMediaType->setName('confirmationMessageMediaType');
+        $this->confirmationMessageMediaType->setElementName('confirmationMessageMediaType');
         return $this;
     }
 
@@ -96,7 +100,9 @@ class ServiceProviderAnswerConfirmationGetResponse16 extends ComplexType impleme
      */
     public function getConfirmationMessageMediaType()
     {
-        return ($this->confirmationMessageMediaType) ? $this->confirmationMessageMediaType->getValue() : null;
+        return ($this->confirmationMessageMediaType)
+            ? $this->confirmationMessageMediaType->getElementValue()
+            : null;
     }
 
     /**
@@ -107,7 +113,7 @@ class ServiceProviderAnswerConfirmationGetResponse16 extends ComplexType impleme
         $this->confirmationTimoutSeconds = ($confirmationTimoutSeconds InstanceOf AnswerConfirmationTimeoutSeconds)
              ? $confirmationTimoutSeconds
              : new AnswerConfirmationTimeoutSeconds($confirmationTimoutSeconds);
-        $this->confirmationTimoutSeconds->setName('confirmationTimoutSeconds');
+        $this->confirmationTimoutSeconds->setElementName('confirmationTimoutSeconds');
         return $this;
     }
 
@@ -117,6 +123,8 @@ class ServiceProviderAnswerConfirmationGetResponse16 extends ComplexType impleme
      */
     public function getConfirmationTimoutSeconds()
     {
-        return ($this->confirmationTimoutSeconds) ? $this->confirmationTimoutSeconds->getValue() : null;
+        return ($this->confirmationTimoutSeconds)
+            ? $this->confirmationTimoutSeconds->getElementValue()
+            : null;
     }
 }

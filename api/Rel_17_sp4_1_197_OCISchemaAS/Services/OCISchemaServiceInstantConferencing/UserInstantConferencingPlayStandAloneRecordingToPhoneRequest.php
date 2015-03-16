@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserInstantConferencingPlayStandAloneRecordingToPhoneRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'UserInstantConferencingPlayStandAloneRecordingToPhoneRequest';
+    public    $elementName = 'UserInstantConferencingPlayStandAloneRecordingToPhoneRequest';
     protected $conferenceOwnerUserId;
     protected $recordingKey;
     protected $playBackPhoneNumber;
@@ -53,7 +53,7 @@ class UserInstantConferencingPlayStandAloneRecordingToPhoneRequest extends Compl
         $this->conferenceOwnerUserId = ($conferenceOwnerUserId InstanceOf UserId)
              ? $conferenceOwnerUserId
              : new UserId($conferenceOwnerUserId);
-        $this->conferenceOwnerUserId->setName('conferenceOwnerUserId');
+        $this->conferenceOwnerUserId->setElementName('conferenceOwnerUserId');
         return $this;
     }
 
@@ -63,7 +63,9 @@ class UserInstantConferencingPlayStandAloneRecordingToPhoneRequest extends Compl
      */
     public function getConferenceOwnerUserId()
     {
-        return ($this->conferenceOwnerUserId) ? $this->conferenceOwnerUserId->getValue() : null;
+        return ($this->conferenceOwnerUserId)
+            ? $this->conferenceOwnerUserId->getElementValue()
+            : null;
     }
 
     /**
@@ -74,7 +76,7 @@ class UserInstantConferencingPlayStandAloneRecordingToPhoneRequest extends Compl
         $this->recordingKey = ($recordingKey InstanceOf InstantConferencingRecordingKey)
              ? $recordingKey
              : new InstantConferencingRecordingKey($recordingKey);
-        $this->recordingKey->setName('recordingKey');
+        $this->recordingKey->setElementName('recordingKey');
         return $this;
     }
 
@@ -95,7 +97,7 @@ class UserInstantConferencingPlayStandAloneRecordingToPhoneRequest extends Compl
         $this->playBackPhoneNumber = ($playBackPhoneNumber InstanceOf OutgoingDNorSIPURI)
              ? $playBackPhoneNumber
              : new OutgoingDNorSIPURI($playBackPhoneNumber);
-        $this->playBackPhoneNumber->setName('playBackPhoneNumber');
+        $this->playBackPhoneNumber->setElementName('playBackPhoneNumber');
         return $this;
     }
 
@@ -105,6 +107,8 @@ class UserInstantConferencingPlayStandAloneRecordingToPhoneRequest extends Compl
      */
     public function getPlayBackPhoneNumber()
     {
-        return ($this->playBackPhoneNumber) ? $this->playBackPhoneNumber->getValue() : null;
+        return ($this->playBackPhoneNumber)
+            ? $this->playBackPhoneNumber->getElementValue()
+            : null;
     }
 }

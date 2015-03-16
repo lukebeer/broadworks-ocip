@@ -23,7 +23,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserSelectiveCallRejectionGetCriteriaResponse16sp1 extends ComplexType implements ComplexInterface
 {
-    public    $name = 'UserSelectiveCallRejectionGetCriteriaResponse16sp1';
+    public    $elementName = 'UserSelectiveCallRejectionGetCriteriaResponse16sp1';
     protected $timeSchedule;
     protected $fromDnCriteria;
     protected $blacklisted;
@@ -46,7 +46,7 @@ class UserSelectiveCallRejectionGetCriteriaResponse16sp1 extends ComplexType imp
         $this->timeSchedule = ($timeSchedule InstanceOf TimeSchedule)
              ? $timeSchedule
              : new TimeSchedule($timeSchedule);
-        $this->timeSchedule->setName('timeSchedule');
+        $this->timeSchedule->setElementName('timeSchedule');
         return $this;
     }
 
@@ -67,7 +67,7 @@ class UserSelectiveCallRejectionGetCriteriaResponse16sp1 extends ComplexType imp
         $this->fromDnCriteria = ($fromDnCriteria InstanceOf SelectiveCallRejectionCriteriaCallType)
              ? $fromDnCriteria
              : new SelectiveCallRejectionCriteriaCallType($fromDnCriteria);
-        $this->fromDnCriteria->setName('fromDnCriteria');
+        $this->fromDnCriteria->setElementName('fromDnCriteria');
         return $this;
     }
 
@@ -86,7 +86,7 @@ class UserSelectiveCallRejectionGetCriteriaResponse16sp1 extends ComplexType imp
     public function setBlacklisted($blacklisted = null)
     {
         $this->blacklisted = new PrimitiveType($blacklisted);
-        $this->blacklisted->setName('blacklisted');
+        $this->blacklisted->setElementName('blacklisted');
         return $this;
     }
 
@@ -96,7 +96,9 @@ class UserSelectiveCallRejectionGetCriteriaResponse16sp1 extends ComplexType imp
      */
     public function getBlacklisted()
     {
-        return ($this->blacklisted) ? $this->blacklisted->getValue() : null;
+        return ($this->blacklisted)
+            ? $this->blacklisted->getElementValue()
+            : null;
     }
 
     /**
@@ -107,7 +109,7 @@ class UserSelectiveCallRejectionGetCriteriaResponse16sp1 extends ComplexType imp
         $this->holidaySchedule = ($holidaySchedule InstanceOf HolidaySchedule)
              ? $holidaySchedule
              : new HolidaySchedule($holidaySchedule);
-        $this->holidaySchedule->setName('holidaySchedule');
+        $this->holidaySchedule->setElementName('holidaySchedule');
         return $this;
     }
 
@@ -126,7 +128,7 @@ class UserSelectiveCallRejectionGetCriteriaResponse16sp1 extends ComplexType imp
     public function setPrivate($private = null)
     {
         $this->private = new PrimitiveType($private);
-        $this->private->setName('private');
+        $this->private->setElementName('private');
         return $this;
     }
 
@@ -136,6 +138,8 @@ class UserSelectiveCallRejectionGetCriteriaResponse16sp1 extends ComplexType imp
      */
     public function getPrivate()
     {
-        return ($this->private) ? $this->private->getValue() : null;
+        return ($this->private)
+            ? $this->private->getElementValue()
+            : null;
     }
 }

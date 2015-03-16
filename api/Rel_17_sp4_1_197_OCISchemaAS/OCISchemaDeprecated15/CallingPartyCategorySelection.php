@@ -16,12 +16,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\Enumeration;
  */
 class CallingPartyCategorySelection extends SimpleType
 {
-    public $name = "CallingPartyCategorySelection";
-    protected $value;
-
+    public $elementName = "CallingPartyCategorySelection";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new Enumeration([
             'Special',
             'Hospital',

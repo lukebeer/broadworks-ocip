@@ -19,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SearchCriteriaExactVirtualOnNetCallTypeName extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SearchCriteriaExactVirtualOnNetCallTypeName';
+    public    $elementName = 'SearchCriteriaExactVirtualOnNetCallTypeName';
     protected $virtualOnNetCallTypeName;
 
     public function __construct(
@@ -44,7 +44,7 @@ class SearchCriteriaExactVirtualOnNetCallTypeName extends ComplexType implements
         $this->virtualOnNetCallTypeName = ($virtualOnNetCallTypeName InstanceOf VirtualOnNetCallTypeName)
              ? $virtualOnNetCallTypeName
              : new VirtualOnNetCallTypeName($virtualOnNetCallTypeName);
-        $this->virtualOnNetCallTypeName->setName('virtualOnNetCallTypeName');
+        $this->virtualOnNetCallTypeName->setElementName('virtualOnNetCallTypeName');
         return $this;
     }
 
@@ -54,6 +54,8 @@ class SearchCriteriaExactVirtualOnNetCallTypeName extends ComplexType implements
      */
     public function getVirtualOnNetCallTypeName()
     {
-        return ($this->virtualOnNetCallTypeName) ? $this->virtualOnNetCallTypeName->getValue() : null;
+        return ($this->virtualOnNetCallTypeName)
+            ? $this->virtualOnNetCallTypeName->getElementValue()
+            : null;
     }
 }

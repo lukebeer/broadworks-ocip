@@ -34,7 +34,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupHuntGroupModifyInstanceRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'GroupHuntGroupModifyInstanceRequest';
+    public    $elementName = 'GroupHuntGroupModifyInstanceRequest';
     protected $serviceUserId;
     protected $serviceInstanceProfile;
     protected $policy;
@@ -101,7 +101,7 @@ class GroupHuntGroupModifyInstanceRequest extends ComplexType implements Complex
         $this->serviceUserId = ($serviceUserId InstanceOf UserId)
              ? $serviceUserId
              : new UserId($serviceUserId);
-        $this->serviceUserId->setName('serviceUserId');
+        $this->serviceUserId->setElementName('serviceUserId');
         return $this;
     }
 
@@ -111,7 +111,9 @@ class GroupHuntGroupModifyInstanceRequest extends ComplexType implements Complex
      */
     public function getServiceUserId()
     {
-        return ($this->serviceUserId) ? $this->serviceUserId->getValue() : null;
+        return ($this->serviceUserId)
+            ? $this->serviceUserId->getElementValue()
+            : null;
     }
 
     /**
@@ -122,7 +124,7 @@ class GroupHuntGroupModifyInstanceRequest extends ComplexType implements Complex
         $this->serviceInstanceProfile = ($serviceInstanceProfile InstanceOf ServiceInstanceModifyProfile)
              ? $serviceInstanceProfile
              : new ServiceInstanceModifyProfile($serviceInstanceProfile);
-        $this->serviceInstanceProfile->setName('serviceInstanceProfile');
+        $this->serviceInstanceProfile->setElementName('serviceInstanceProfile');
         return $this;
     }
 
@@ -143,7 +145,7 @@ class GroupHuntGroupModifyInstanceRequest extends ComplexType implements Complex
         $this->policy = ($policy InstanceOf HuntPolicy)
              ? $policy
              : new HuntPolicy($policy);
-        $this->policy->setName('policy');
+        $this->policy->setElementName('policy');
         return $this;
     }
 
@@ -153,7 +155,9 @@ class GroupHuntGroupModifyInstanceRequest extends ComplexType implements Complex
      */
     public function getPolicy()
     {
-        return ($this->policy) ? $this->policy->getValue() : null;
+        return ($this->policy)
+            ? $this->policy->getElementValue()
+            : null;
     }
 
     /**
@@ -162,7 +166,7 @@ class GroupHuntGroupModifyInstanceRequest extends ComplexType implements Complex
     public function setHuntAfterNoAnswer($huntAfterNoAnswer = null)
     {
         $this->huntAfterNoAnswer = new PrimitiveType($huntAfterNoAnswer);
-        $this->huntAfterNoAnswer->setName('huntAfterNoAnswer');
+        $this->huntAfterNoAnswer->setElementName('huntAfterNoAnswer');
         return $this;
     }
 
@@ -172,7 +176,9 @@ class GroupHuntGroupModifyInstanceRequest extends ComplexType implements Complex
      */
     public function getHuntAfterNoAnswer()
     {
-        return ($this->huntAfterNoAnswer) ? $this->huntAfterNoAnswer->getValue() : null;
+        return ($this->huntAfterNoAnswer)
+            ? $this->huntAfterNoAnswer->getElementValue()
+            : null;
     }
 
     /**
@@ -183,7 +189,7 @@ class GroupHuntGroupModifyInstanceRequest extends ComplexType implements Complex
         $this->noAnswerNumberOfRings = ($noAnswerNumberOfRings InstanceOf HuntNoAnswerRings)
              ? $noAnswerNumberOfRings
              : new HuntNoAnswerRings($noAnswerNumberOfRings);
-        $this->noAnswerNumberOfRings->setName('noAnswerNumberOfRings');
+        $this->noAnswerNumberOfRings->setElementName('noAnswerNumberOfRings');
         return $this;
     }
 
@@ -193,7 +199,9 @@ class GroupHuntGroupModifyInstanceRequest extends ComplexType implements Complex
      */
     public function getNoAnswerNumberOfRings()
     {
-        return ($this->noAnswerNumberOfRings) ? $this->noAnswerNumberOfRings->getValue() : null;
+        return ($this->noAnswerNumberOfRings)
+            ? $this->noAnswerNumberOfRings->getElementValue()
+            : null;
     }
 
     /**
@@ -202,7 +210,7 @@ class GroupHuntGroupModifyInstanceRequest extends ComplexType implements Complex
     public function setForwardAfterTimeout($forwardAfterTimeout = null)
     {
         $this->forwardAfterTimeout = new PrimitiveType($forwardAfterTimeout);
-        $this->forwardAfterTimeout->setName('forwardAfterTimeout');
+        $this->forwardAfterTimeout->setElementName('forwardAfterTimeout');
         return $this;
     }
 
@@ -212,7 +220,9 @@ class GroupHuntGroupModifyInstanceRequest extends ComplexType implements Complex
      */
     public function getForwardAfterTimeout()
     {
-        return ($this->forwardAfterTimeout) ? $this->forwardAfterTimeout->getValue() : null;
+        return ($this->forwardAfterTimeout)
+            ? $this->forwardAfterTimeout->getElementValue()
+            : null;
     }
 
     /**
@@ -223,7 +233,7 @@ class GroupHuntGroupModifyInstanceRequest extends ComplexType implements Complex
         $this->forwardTimeoutSeconds = ($forwardTimeoutSeconds InstanceOf HuntForwardTimeoutSeconds)
              ? $forwardTimeoutSeconds
              : new HuntForwardTimeoutSeconds($forwardTimeoutSeconds);
-        $this->forwardTimeoutSeconds->setName('forwardTimeoutSeconds');
+        $this->forwardTimeoutSeconds->setElementName('forwardTimeoutSeconds');
         return $this;
     }
 
@@ -233,7 +243,9 @@ class GroupHuntGroupModifyInstanceRequest extends ComplexType implements Complex
      */
     public function getForwardTimeoutSeconds()
     {
-        return ($this->forwardTimeoutSeconds) ? $this->forwardTimeoutSeconds->getValue() : null;
+        return ($this->forwardTimeoutSeconds)
+            ? $this->forwardTimeoutSeconds->getElementValue()
+            : null;
     }
 
     /**
@@ -244,7 +256,7 @@ class GroupHuntGroupModifyInstanceRequest extends ComplexType implements Complex
         $this->forwardToPhoneNumber = ($forwardToPhoneNumber InstanceOf OutgoingDN)
              ? $forwardToPhoneNumber
              : new OutgoingDN($forwardToPhoneNumber);
-        $this->forwardToPhoneNumber->setName('forwardToPhoneNumber');
+        $this->forwardToPhoneNumber->setElementName('forwardToPhoneNumber');
         return $this;
     }
 
@@ -254,7 +266,9 @@ class GroupHuntGroupModifyInstanceRequest extends ComplexType implements Complex
      */
     public function getForwardToPhoneNumber()
     {
-        return ($this->forwardToPhoneNumber) ? $this->forwardToPhoneNumber->getValue() : null;
+        return ($this->forwardToPhoneNumber)
+            ? $this->forwardToPhoneNumber->getElementValue()
+            : null;
     }
 
     /**
@@ -265,7 +279,7 @@ class GroupHuntGroupModifyInstanceRequest extends ComplexType implements Complex
         $this->agentUserIdList = ($agentUserIdList InstanceOf ReplacementUserIdList)
              ? $agentUserIdList
              : new ReplacementUserIdList($agentUserIdList);
-        $this->agentUserIdList->setName('agentUserIdList');
+        $this->agentUserIdList->setElementName('agentUserIdList');
         return $this;
     }
 
@@ -284,7 +298,7 @@ class GroupHuntGroupModifyInstanceRequest extends ComplexType implements Complex
     public function setAllowCallWaitingForAgents($allowCallWaitingForAgents = null)
     {
         $this->allowCallWaitingForAgents = new PrimitiveType($allowCallWaitingForAgents);
-        $this->allowCallWaitingForAgents->setName('allowCallWaitingForAgents');
+        $this->allowCallWaitingForAgents->setElementName('allowCallWaitingForAgents');
         return $this;
     }
 
@@ -294,7 +308,9 @@ class GroupHuntGroupModifyInstanceRequest extends ComplexType implements Complex
      */
     public function getAllowCallWaitingForAgents()
     {
-        return ($this->allowCallWaitingForAgents) ? $this->allowCallWaitingForAgents->getValue() : null;
+        return ($this->allowCallWaitingForAgents)
+            ? $this->allowCallWaitingForAgents->getElementValue()
+            : null;
     }
 
     /**
@@ -303,7 +319,7 @@ class GroupHuntGroupModifyInstanceRequest extends ComplexType implements Complex
     public function setUseSystemHuntGroupCLIDSetting($useSystemHuntGroupCLIDSetting = null)
     {
         $this->useSystemHuntGroupCLIDSetting = new PrimitiveType($useSystemHuntGroupCLIDSetting);
-        $this->useSystemHuntGroupCLIDSetting->setName('useSystemHuntGroupCLIDSetting');
+        $this->useSystemHuntGroupCLIDSetting->setElementName('useSystemHuntGroupCLIDSetting');
         return $this;
     }
 
@@ -313,7 +329,9 @@ class GroupHuntGroupModifyInstanceRequest extends ComplexType implements Complex
      */
     public function getUseSystemHuntGroupCLIDSetting()
     {
-        return ($this->useSystemHuntGroupCLIDSetting) ? $this->useSystemHuntGroupCLIDSetting->getValue() : null;
+        return ($this->useSystemHuntGroupCLIDSetting)
+            ? $this->useSystemHuntGroupCLIDSetting->getElementValue()
+            : null;
     }
 
     /**
@@ -322,7 +340,7 @@ class GroupHuntGroupModifyInstanceRequest extends ComplexType implements Complex
     public function setIncludeHuntGroupNameInCLID($includeHuntGroupNameInCLID = null)
     {
         $this->includeHuntGroupNameInCLID = new PrimitiveType($includeHuntGroupNameInCLID);
-        $this->includeHuntGroupNameInCLID->setName('includeHuntGroupNameInCLID');
+        $this->includeHuntGroupNameInCLID->setElementName('includeHuntGroupNameInCLID');
         return $this;
     }
 
@@ -332,7 +350,9 @@ class GroupHuntGroupModifyInstanceRequest extends ComplexType implements Complex
      */
     public function getIncludeHuntGroupNameInCLID()
     {
-        return ($this->includeHuntGroupNameInCLID) ? $this->includeHuntGroupNameInCLID->getValue() : null;
+        return ($this->includeHuntGroupNameInCLID)
+            ? $this->includeHuntGroupNameInCLID->getElementValue()
+            : null;
     }
 
     /**
@@ -341,7 +361,7 @@ class GroupHuntGroupModifyInstanceRequest extends ComplexType implements Complex
     public function setEnableNotReachableForwarding($enableNotReachableForwarding = null)
     {
         $this->enableNotReachableForwarding = new PrimitiveType($enableNotReachableForwarding);
-        $this->enableNotReachableForwarding->setName('enableNotReachableForwarding');
+        $this->enableNotReachableForwarding->setElementName('enableNotReachableForwarding');
         return $this;
     }
 
@@ -351,7 +371,9 @@ class GroupHuntGroupModifyInstanceRequest extends ComplexType implements Complex
      */
     public function getEnableNotReachableForwarding()
     {
-        return ($this->enableNotReachableForwarding) ? $this->enableNotReachableForwarding->getValue() : null;
+        return ($this->enableNotReachableForwarding)
+            ? $this->enableNotReachableForwarding->getElementValue()
+            : null;
     }
 
     /**
@@ -362,7 +384,7 @@ class GroupHuntGroupModifyInstanceRequest extends ComplexType implements Complex
         $this->notReachableForwardToPhoneNumber = ($notReachableForwardToPhoneNumber InstanceOf OutgoingDNorSIPURI)
              ? $notReachableForwardToPhoneNumber
              : new OutgoingDNorSIPURI($notReachableForwardToPhoneNumber);
-        $this->notReachableForwardToPhoneNumber->setName('notReachableForwardToPhoneNumber');
+        $this->notReachableForwardToPhoneNumber->setElementName('notReachableForwardToPhoneNumber');
         return $this;
     }
 
@@ -372,7 +394,9 @@ class GroupHuntGroupModifyInstanceRequest extends ComplexType implements Complex
      */
     public function getNotReachableForwardToPhoneNumber()
     {
-        return ($this->notReachableForwardToPhoneNumber) ? $this->notReachableForwardToPhoneNumber->getValue() : null;
+        return ($this->notReachableForwardToPhoneNumber)
+            ? $this->notReachableForwardToPhoneNumber->getElementValue()
+            : null;
     }
 
     /**
@@ -381,7 +405,7 @@ class GroupHuntGroupModifyInstanceRequest extends ComplexType implements Complex
     public function setMakeBusyWhenNotReachable($makeBusyWhenNotReachable = null)
     {
         $this->makeBusyWhenNotReachable = new PrimitiveType($makeBusyWhenNotReachable);
-        $this->makeBusyWhenNotReachable->setName('makeBusyWhenNotReachable');
+        $this->makeBusyWhenNotReachable->setElementName('makeBusyWhenNotReachable');
         return $this;
     }
 
@@ -391,6 +415,8 @@ class GroupHuntGroupModifyInstanceRequest extends ComplexType implements Complex
      */
     public function getMakeBusyWhenNotReachable()
     {
-        return ($this->makeBusyWhenNotReachable) ? $this->makeBusyWhenNotReachable->getValue() : null;
+        return ($this->makeBusyWhenNotReachable)
+            ? $this->makeBusyWhenNotReachable->getElementValue()
+            : null;
     }
 }

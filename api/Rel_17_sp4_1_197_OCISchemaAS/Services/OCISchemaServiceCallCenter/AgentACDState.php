@@ -16,12 +16,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\Enumeration;
  */
 class AgentACDState extends SimpleType
 {
-    public $name = "AgentACDState";
-    protected $value;
-
+    public $elementName = "AgentACDState";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new Enumeration([
             'Sign-In',
             'Sign-Out',

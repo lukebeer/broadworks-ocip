@@ -19,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserAuthenticationGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'UserAuthenticationGetResponse';
+    public    $elementName = 'UserAuthenticationGetResponse';
     protected $userName;
 
     /**
@@ -38,7 +38,7 @@ class UserAuthenticationGetResponse extends ComplexType implements ComplexInterf
         $this->userName = ($userName InstanceOf SIPAuthenticationUserName)
              ? $userName
              : new SIPAuthenticationUserName($userName);
-        $this->userName->setName('userName');
+        $this->userName->setElementName('userName');
         return $this;
     }
 
@@ -48,6 +48,8 @@ class UserAuthenticationGetResponse extends ComplexType implements ComplexInterf
      */
     public function getUserName()
     {
-        return ($this->userName) ? $this->userName->getValue() : null;
+        return ($this->userName)
+            ? $this->userName->getElementValue()
+            : null;
     }
 }

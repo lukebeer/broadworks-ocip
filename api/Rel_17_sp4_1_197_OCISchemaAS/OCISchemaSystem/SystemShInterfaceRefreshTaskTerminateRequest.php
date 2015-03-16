@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemShInterfaceRefreshTaskTerminateRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemShInterfaceRefreshTaskTerminateRequest';
+    public    $elementName = 'SystemShInterfaceRefreshTaskTerminateRequest';
 
     public function __construct(    ) {
     }

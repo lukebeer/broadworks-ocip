@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupGroupPagingAddOriginatorListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'GroupGroupPagingAddOriginatorListRequest';
+    public    $elementName = 'GroupGroupPagingAddOriginatorListRequest';
     protected $serviceUserId;
     protected $originatorUserId;
 
@@ -48,7 +48,7 @@ class GroupGroupPagingAddOriginatorListRequest extends ComplexType implements Co
         $this->serviceUserId = ($serviceUserId InstanceOf UserId)
              ? $serviceUserId
              : new UserId($serviceUserId);
-        $this->serviceUserId->setName('serviceUserId');
+        $this->serviceUserId->setElementName('serviceUserId');
         return $this;
     }
 
@@ -58,7 +58,9 @@ class GroupGroupPagingAddOriginatorListRequest extends ComplexType implements Co
      */
     public function getServiceUserId()
     {
-        return ($this->serviceUserId) ? $this->serviceUserId->getValue() : null;
+        return ($this->serviceUserId)
+            ? $this->serviceUserId->getElementValue()
+            : null;
     }
 
     /**
@@ -69,7 +71,7 @@ class GroupGroupPagingAddOriginatorListRequest extends ComplexType implements Co
         $this->originatorUserId = ($originatorUserId InstanceOf UserId)
              ? $originatorUserId
              : new UserId($originatorUserId);
-        $this->originatorUserId->setName('originatorUserId');
+        $this->originatorUserId->setElementName('originatorUserId');
         return $this;
     }
 
@@ -79,6 +81,8 @@ class GroupGroupPagingAddOriginatorListRequest extends ComplexType implements Co
      */
     public function getOriginatorUserId()
     {
-        return ($this->originatorUserId) ? $this->originatorUserId->getValue() : null;
+        return ($this->originatorUserId)
+            ? $this->originatorUserId->getElementValue()
+            : null;
     }
 }

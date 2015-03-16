@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemExpensiveCallNotificationGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemExpensiveCallNotificationGetResponse';
+    public    $elementName = 'SystemExpensiveCallNotificationGetResponse';
     protected $enablePostAnnouncementDelayTimer;
     protected $postAnnouncementDelaySeconds;
 
@@ -38,7 +38,7 @@ class SystemExpensiveCallNotificationGetResponse extends ComplexType implements 
     public function setEnablePostAnnouncementDelayTimer($enablePostAnnouncementDelayTimer = null)
     {
         $this->enablePostAnnouncementDelayTimer = new PrimitiveType($enablePostAnnouncementDelayTimer);
-        $this->enablePostAnnouncementDelayTimer->setName('enablePostAnnouncementDelayTimer');
+        $this->enablePostAnnouncementDelayTimer->setElementName('enablePostAnnouncementDelayTimer');
         return $this;
     }
 
@@ -48,7 +48,9 @@ class SystemExpensiveCallNotificationGetResponse extends ComplexType implements 
      */
     public function getEnablePostAnnouncementDelayTimer()
     {
-        return ($this->enablePostAnnouncementDelayTimer) ? $this->enablePostAnnouncementDelayTimer->getValue() : null;
+        return ($this->enablePostAnnouncementDelayTimer)
+            ? $this->enablePostAnnouncementDelayTimer->getElementValue()
+            : null;
     }
 
     /**
@@ -59,7 +61,7 @@ class SystemExpensiveCallNotificationGetResponse extends ComplexType implements 
         $this->postAnnouncementDelaySeconds = ($postAnnouncementDelaySeconds InstanceOf ExpensiveCallNotificationPostAnnouncementDelaySeconds)
              ? $postAnnouncementDelaySeconds
              : new ExpensiveCallNotificationPostAnnouncementDelaySeconds($postAnnouncementDelaySeconds);
-        $this->postAnnouncementDelaySeconds->setName('postAnnouncementDelaySeconds');
+        $this->postAnnouncementDelaySeconds->setElementName('postAnnouncementDelaySeconds');
         return $this;
     }
 
@@ -69,6 +71,8 @@ class SystemExpensiveCallNotificationGetResponse extends ComplexType implements 
      */
     public function getPostAnnouncementDelaySeconds()
     {
-        return ($this->postAnnouncementDelaySeconds) ? $this->postAnnouncementDelaySeconds->getValue() : null;
+        return ($this->postAnnouncementDelaySeconds)
+            ? $this->postAnnouncementDelaySeconds->getElementValue()
+            : null;
     }
 }

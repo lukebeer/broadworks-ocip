@@ -25,7 +25,7 @@ use Broadworks_OCIP\core\Client\Client;
 class EnterpriseCallCenterCurrentAndPastCallCenterGetListRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType                 = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\EnterpriseCallCenterCurrentAndPastCallCenterGetListResponse';
-    public    $name = 'EnterpriseCallCenterCurrentAndPastCallCenterGetListRequest';
+    public    $elementName = 'EnterpriseCallCenterCurrentAndPastCallCenterGetListRequest';
     protected $serviceProviderId;
     protected $isPremiumOnly;
     protected $responseSizeLimit;
@@ -62,7 +62,7 @@ class EnterpriseCallCenterCurrentAndPastCallCenterGetListRequest extends Complex
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
-        $this->serviceProviderId->setName('serviceProviderId');
+        $this->serviceProviderId->setElementName('serviceProviderId');
         return $this;
     }
 
@@ -72,7 +72,9 @@ class EnterpriseCallCenterCurrentAndPastCallCenterGetListRequest extends Complex
      */
     public function getServiceProviderId()
     {
-        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
+        return ($this->serviceProviderId)
+            ? $this->serviceProviderId->getElementValue()
+            : null;
     }
 
     /**
@@ -81,7 +83,7 @@ class EnterpriseCallCenterCurrentAndPastCallCenterGetListRequest extends Complex
     public function setIsPremiumOnly($isPremiumOnly = null)
     {
         $this->isPremiumOnly = new PrimitiveType($isPremiumOnly);
-        $this->isPremiumOnly->setName('isPremiumOnly');
+        $this->isPremiumOnly->setElementName('isPremiumOnly');
         return $this;
     }
 
@@ -91,7 +93,9 @@ class EnterpriseCallCenterCurrentAndPastCallCenterGetListRequest extends Complex
      */
     public function getIsPremiumOnly()
     {
-        return ($this->isPremiumOnly) ? $this->isPremiumOnly->getValue() : null;
+        return ($this->isPremiumOnly)
+            ? $this->isPremiumOnly->getElementValue()
+            : null;
     }
 
     /**
@@ -102,7 +106,7 @@ class EnterpriseCallCenterCurrentAndPastCallCenterGetListRequest extends Complex
         $this->responseSizeLimit = ($responseSizeLimit InstanceOf ResponseSizeLimit)
              ? $responseSizeLimit
              : new ResponseSizeLimit($responseSizeLimit);
-        $this->responseSizeLimit->setName('responseSizeLimit');
+        $this->responseSizeLimit->setElementName('responseSizeLimit');
         return $this;
     }
 
@@ -112,7 +116,9 @@ class EnterpriseCallCenterCurrentAndPastCallCenterGetListRequest extends Complex
      */
     public function getResponseSizeLimit()
     {
-        return ($this->responseSizeLimit) ? $this->responseSizeLimit->getValue() : null;
+        return ($this->responseSizeLimit)
+            ? $this->responseSizeLimit->getElementValue()
+            : null;
     }
 
     /**
@@ -123,7 +129,7 @@ class EnterpriseCallCenterCurrentAndPastCallCenterGetListRequest extends Complex
         $this->searchCriteriaExactUserGroup = ($searchCriteriaExactUserGroup InstanceOf SearchCriteriaExactUserGroup)
              ? $searchCriteriaExactUserGroup
              : new SearchCriteriaExactUserGroup($searchCriteriaExactUserGroup);
-        $this->searchCriteriaExactUserGroup->setName('searchCriteriaExactUserGroup');
+        $this->searchCriteriaExactUserGroup->setElementName('searchCriteriaExactUserGroup');
         return $this;
     }
 
@@ -144,7 +150,7 @@ class EnterpriseCallCenterCurrentAndPastCallCenterGetListRequest extends Complex
         $this->searchCriteriaCallCenterName = ($searchCriteriaCallCenterName InstanceOf SearchCriteriaCallCenterName)
              ? $searchCriteriaCallCenterName
              : new SearchCriteriaCallCenterName($searchCriteriaCallCenterName);
-        $this->searchCriteriaCallCenterName->setName('searchCriteriaCallCenterName');
+        $this->searchCriteriaCallCenterName->setElementName('searchCriteriaCallCenterName');
         return $this;
     }
 

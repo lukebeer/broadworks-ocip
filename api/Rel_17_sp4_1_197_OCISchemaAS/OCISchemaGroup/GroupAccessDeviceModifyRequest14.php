@@ -38,7 +38,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupAccessDeviceModifyRequest14 extends ComplexType implements ComplexInterface
 {
-    public    $name = 'GroupAccessDeviceModifyRequest14';
+    public    $elementName = 'GroupAccessDeviceModifyRequest14';
     protected $serviceProviderId;
     protected $groupId;
     protected $deviceName;
@@ -126,7 +126,7 @@ class GroupAccessDeviceModifyRequest14 extends ComplexType implements ComplexInt
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
-        $this->serviceProviderId->setName('serviceProviderId');
+        $this->serviceProviderId->setElementName('serviceProviderId');
         return $this;
     }
 
@@ -136,7 +136,9 @@ class GroupAccessDeviceModifyRequest14 extends ComplexType implements ComplexInt
      */
     public function getServiceProviderId()
     {
-        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
+        return ($this->serviceProviderId)
+            ? $this->serviceProviderId->getElementValue()
+            : null;
     }
 
     /**
@@ -147,7 +149,7 @@ class GroupAccessDeviceModifyRequest14 extends ComplexType implements ComplexInt
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
-        $this->groupId->setName('groupId');
+        $this->groupId->setElementName('groupId');
         return $this;
     }
 
@@ -157,7 +159,9 @@ class GroupAccessDeviceModifyRequest14 extends ComplexType implements ComplexInt
      */
     public function getGroupId()
     {
-        return ($this->groupId) ? $this->groupId->getValue() : null;
+        return ($this->groupId)
+            ? $this->groupId->getElementValue()
+            : null;
     }
 
     /**
@@ -168,7 +172,7 @@ class GroupAccessDeviceModifyRequest14 extends ComplexType implements ComplexInt
         $this->deviceName = ($deviceName InstanceOf AccessDeviceName)
              ? $deviceName
              : new AccessDeviceName($deviceName);
-        $this->deviceName->setName('deviceName');
+        $this->deviceName->setElementName('deviceName');
         return $this;
     }
 
@@ -178,7 +182,9 @@ class GroupAccessDeviceModifyRequest14 extends ComplexType implements ComplexInt
      */
     public function getDeviceName()
     {
-        return ($this->deviceName) ? $this->deviceName->getValue() : null;
+        return ($this->deviceName)
+            ? $this->deviceName->getElementValue()
+            : null;
     }
 
     /**
@@ -189,7 +195,7 @@ class GroupAccessDeviceModifyRequest14 extends ComplexType implements ComplexInt
         $this->protocol = ($protocol InstanceOf AccessDeviceProtocol)
              ? $protocol
              : new AccessDeviceProtocol($protocol);
-        $this->protocol->setName('protocol');
+        $this->protocol->setElementName('protocol');
         return $this;
     }
 
@@ -199,7 +205,9 @@ class GroupAccessDeviceModifyRequest14 extends ComplexType implements ComplexInt
      */
     public function getProtocol()
     {
-        return ($this->protocol) ? $this->protocol->getValue() : null;
+        return ($this->protocol)
+            ? $this->protocol->getElementValue()
+            : null;
     }
 
     /**
@@ -210,7 +218,7 @@ class GroupAccessDeviceModifyRequest14 extends ComplexType implements ComplexInt
         $this->netAddress = ($netAddress InstanceOf NetAddress)
              ? $netAddress
              : new NetAddress($netAddress);
-        $this->netAddress->setName('netAddress');
+        $this->netAddress->setElementName('netAddress');
         return $this;
     }
 
@@ -220,7 +228,9 @@ class GroupAccessDeviceModifyRequest14 extends ComplexType implements ComplexInt
      */
     public function getNetAddress()
     {
-        return ($this->netAddress) ? $this->netAddress->getValue() : null;
+        return ($this->netAddress)
+            ? $this->netAddress->getElementValue()
+            : null;
     }
 
     /**
@@ -231,7 +241,7 @@ class GroupAccessDeviceModifyRequest14 extends ComplexType implements ComplexInt
         $this->port = ($port InstanceOf Port1025)
              ? $port
              : new Port1025($port);
-        $this->port->setName('port');
+        $this->port->setElementName('port');
         return $this;
     }
 
@@ -241,7 +251,9 @@ class GroupAccessDeviceModifyRequest14 extends ComplexType implements ComplexInt
      */
     public function getPort()
     {
-        return ($this->port) ? $this->port->getValue() : null;
+        return ($this->port)
+            ? $this->port->getElementValue()
+            : null;
     }
 
     /**
@@ -252,7 +264,7 @@ class GroupAccessDeviceModifyRequest14 extends ComplexType implements ComplexInt
         $this->outboundProxyServerNetAddress = ($outboundProxyServerNetAddress InstanceOf NetAddress)
              ? $outboundProxyServerNetAddress
              : new NetAddress($outboundProxyServerNetAddress);
-        $this->outboundProxyServerNetAddress->setName('outboundProxyServerNetAddress');
+        $this->outboundProxyServerNetAddress->setElementName('outboundProxyServerNetAddress');
         return $this;
     }
 
@@ -262,7 +274,9 @@ class GroupAccessDeviceModifyRequest14 extends ComplexType implements ComplexInt
      */
     public function getOutboundProxyServerNetAddress()
     {
-        return ($this->outboundProxyServerNetAddress) ? $this->outboundProxyServerNetAddress->getValue() : null;
+        return ($this->outboundProxyServerNetAddress)
+            ? $this->outboundProxyServerNetAddress->getElementValue()
+            : null;
     }
 
     /**
@@ -273,7 +287,7 @@ class GroupAccessDeviceModifyRequest14 extends ComplexType implements ComplexInt
         $this->stunServerNetAddress = ($stunServerNetAddress InstanceOf NetAddress)
              ? $stunServerNetAddress
              : new NetAddress($stunServerNetAddress);
-        $this->stunServerNetAddress->setName('stunServerNetAddress');
+        $this->stunServerNetAddress->setElementName('stunServerNetAddress');
         return $this;
     }
 
@@ -283,7 +297,9 @@ class GroupAccessDeviceModifyRequest14 extends ComplexType implements ComplexInt
      */
     public function getStunServerNetAddress()
     {
-        return ($this->stunServerNetAddress) ? $this->stunServerNetAddress->getValue() : null;
+        return ($this->stunServerNetAddress)
+            ? $this->stunServerNetAddress->getElementValue()
+            : null;
     }
 
     /**
@@ -294,7 +310,7 @@ class GroupAccessDeviceModifyRequest14 extends ComplexType implements ComplexInt
         $this->macAddress = ($macAddress InstanceOf AccessDeviceMACAddress)
              ? $macAddress
              : new AccessDeviceMACAddress($macAddress);
-        $this->macAddress->setName('macAddress');
+        $this->macAddress->setElementName('macAddress');
         return $this;
     }
 
@@ -304,7 +320,9 @@ class GroupAccessDeviceModifyRequest14 extends ComplexType implements ComplexInt
      */
     public function getMacAddress()
     {
-        return ($this->macAddress) ? $this->macAddress->getValue() : null;
+        return ($this->macAddress)
+            ? $this->macAddress->getElementValue()
+            : null;
     }
 
     /**
@@ -315,7 +333,7 @@ class GroupAccessDeviceModifyRequest14 extends ComplexType implements ComplexInt
         $this->serialNumber = ($serialNumber InstanceOf AccessDeviceSerialNumber)
              ? $serialNumber
              : new AccessDeviceSerialNumber($serialNumber);
-        $this->serialNumber->setName('serialNumber');
+        $this->serialNumber->setElementName('serialNumber');
         return $this;
     }
 
@@ -325,7 +343,9 @@ class GroupAccessDeviceModifyRequest14 extends ComplexType implements ComplexInt
      */
     public function getSerialNumber()
     {
-        return ($this->serialNumber) ? $this->serialNumber->getValue() : null;
+        return ($this->serialNumber)
+            ? $this->serialNumber->getElementValue()
+            : null;
     }
 
     /**
@@ -336,7 +356,7 @@ class GroupAccessDeviceModifyRequest14 extends ComplexType implements ComplexInt
         $this->description = ($description InstanceOf AccessDeviceDescription)
              ? $description
              : new AccessDeviceDescription($description);
-        $this->description->setName('description');
+        $this->description->setElementName('description');
         return $this;
     }
 
@@ -346,7 +366,9 @@ class GroupAccessDeviceModifyRequest14 extends ComplexType implements ComplexInt
      */
     public function getDescription()
     {
-        return ($this->description) ? $this->description->getValue() : null;
+        return ($this->description)
+            ? $this->description->getElementValue()
+            : null;
     }
 
     /**
@@ -357,7 +379,7 @@ class GroupAccessDeviceModifyRequest14 extends ComplexType implements ComplexInt
         $this->configurationMode = ($configurationMode InstanceOf AccessDeviceEnhancedConfigurationMode)
              ? $configurationMode
              : new AccessDeviceEnhancedConfigurationMode($configurationMode);
-        $this->configurationMode->setName('configurationMode');
+        $this->configurationMode->setElementName('configurationMode');
         return $this;
     }
 
@@ -367,7 +389,9 @@ class GroupAccessDeviceModifyRequest14 extends ComplexType implements ComplexInt
      */
     public function getConfigurationMode()
     {
-        return ($this->configurationMode) ? $this->configurationMode->getValue() : null;
+        return ($this->configurationMode)
+            ? $this->configurationMode->getElementValue()
+            : null;
     }
 
     /**
@@ -378,7 +402,7 @@ class GroupAccessDeviceModifyRequest14 extends ComplexType implements ComplexInt
         $this->configurationFile = ($configurationFile InstanceOf FileResource)
              ? $configurationFile
              : new FileResource($configurationFile);
-        $this->configurationFile->setName('configurationFile');
+        $this->configurationFile->setElementName('configurationFile');
         return $this;
     }
 
@@ -399,7 +423,7 @@ class GroupAccessDeviceModifyRequest14 extends ComplexType implements ComplexInt
         $this->physicalLocation = ($physicalLocation InstanceOf AccessDevicePhysicalLocation)
              ? $physicalLocation
              : new AccessDevicePhysicalLocation($physicalLocation);
-        $this->physicalLocation->setName('physicalLocation');
+        $this->physicalLocation->setElementName('physicalLocation');
         return $this;
     }
 
@@ -409,7 +433,9 @@ class GroupAccessDeviceModifyRequest14 extends ComplexType implements ComplexInt
      */
     public function getPhysicalLocation()
     {
-        return ($this->physicalLocation) ? $this->physicalLocation->getValue() : null;
+        return ($this->physicalLocation)
+            ? $this->physicalLocation->getElementValue()
+            : null;
     }
 
     /**
@@ -420,7 +446,7 @@ class GroupAccessDeviceModifyRequest14 extends ComplexType implements ComplexInt
         $this->transportProtocol = ($transportProtocol InstanceOf TransportProtocol)
              ? $transportProtocol
              : new TransportProtocol($transportProtocol);
-        $this->transportProtocol->setName('transportProtocol');
+        $this->transportProtocol->setElementName('transportProtocol');
         return $this;
     }
 
@@ -430,7 +456,9 @@ class GroupAccessDeviceModifyRequest14 extends ComplexType implements ComplexInt
      */
     public function getTransportProtocol()
     {
-        return ($this->transportProtocol) ? $this->transportProtocol->getValue() : null;
+        return ($this->transportProtocol)
+            ? $this->transportProtocol->getElementValue()
+            : null;
     }
 
     /**
@@ -441,7 +469,7 @@ class GroupAccessDeviceModifyRequest14 extends ComplexType implements ComplexInt
         $this->mobilityManagerProvisioningURL = ($mobilityManagerProvisioningURL InstanceOf URL)
              ? $mobilityManagerProvisioningURL
              : new URL($mobilityManagerProvisioningURL);
-        $this->mobilityManagerProvisioningURL->setName('mobilityManagerProvisioningURL');
+        $this->mobilityManagerProvisioningURL->setElementName('mobilityManagerProvisioningURL');
         return $this;
     }
 
@@ -451,7 +479,9 @@ class GroupAccessDeviceModifyRequest14 extends ComplexType implements ComplexInt
      */
     public function getMobilityManagerProvisioningURL()
     {
-        return ($this->mobilityManagerProvisioningURL) ? $this->mobilityManagerProvisioningURL->getValue() : null;
+        return ($this->mobilityManagerProvisioningURL)
+            ? $this->mobilityManagerProvisioningURL->getElementValue()
+            : null;
     }
 
     /**
@@ -462,7 +492,7 @@ class GroupAccessDeviceModifyRequest14 extends ComplexType implements ComplexInt
         $this->mobilityManagerProvisioningUserName = ($mobilityManagerProvisioningUserName InstanceOf MobilityManagerProvisioningUserName)
              ? $mobilityManagerProvisioningUserName
              : new MobilityManagerProvisioningUserName($mobilityManagerProvisioningUserName);
-        $this->mobilityManagerProvisioningUserName->setName('mobilityManagerProvisioningUserName');
+        $this->mobilityManagerProvisioningUserName->setElementName('mobilityManagerProvisioningUserName');
         return $this;
     }
 
@@ -472,7 +502,9 @@ class GroupAccessDeviceModifyRequest14 extends ComplexType implements ComplexInt
      */
     public function getMobilityManagerProvisioningUserName()
     {
-        return ($this->mobilityManagerProvisioningUserName) ? $this->mobilityManagerProvisioningUserName->getValue() : null;
+        return ($this->mobilityManagerProvisioningUserName)
+            ? $this->mobilityManagerProvisioningUserName->getElementValue()
+            : null;
     }
 
     /**
@@ -483,7 +515,7 @@ class GroupAccessDeviceModifyRequest14 extends ComplexType implements ComplexInt
         $this->mobilityManagerProvisioningPassword = ($mobilityManagerProvisioningPassword InstanceOf MobilityManagerProvisioningPassword)
              ? $mobilityManagerProvisioningPassword
              : new MobilityManagerProvisioningPassword($mobilityManagerProvisioningPassword);
-        $this->mobilityManagerProvisioningPassword->setName('mobilityManagerProvisioningPassword');
+        $this->mobilityManagerProvisioningPassword->setElementName('mobilityManagerProvisioningPassword');
         return $this;
     }
 
@@ -493,7 +525,9 @@ class GroupAccessDeviceModifyRequest14 extends ComplexType implements ComplexInt
      */
     public function getMobilityManagerProvisioningPassword()
     {
-        return ($this->mobilityManagerProvisioningPassword) ? $this->mobilityManagerProvisioningPassword->getValue() : null;
+        return ($this->mobilityManagerProvisioningPassword)
+            ? $this->mobilityManagerProvisioningPassword->getElementValue()
+            : null;
     }
 
     /**
@@ -504,7 +538,7 @@ class GroupAccessDeviceModifyRequest14 extends ComplexType implements ComplexInt
         $this->mobilityManagerDefaultOriginatingServiceKey = ($mobilityManagerDefaultOriginatingServiceKey InstanceOf MobilityManagerServiceKey)
              ? $mobilityManagerDefaultOriginatingServiceKey
              : new MobilityManagerServiceKey($mobilityManagerDefaultOriginatingServiceKey);
-        $this->mobilityManagerDefaultOriginatingServiceKey->setName('mobilityManagerDefaultOriginatingServiceKey');
+        $this->mobilityManagerDefaultOriginatingServiceKey->setElementName('mobilityManagerDefaultOriginatingServiceKey');
         return $this;
     }
 
@@ -514,7 +548,9 @@ class GroupAccessDeviceModifyRequest14 extends ComplexType implements ComplexInt
      */
     public function getMobilityManagerDefaultOriginatingServiceKey()
     {
-        return ($this->mobilityManagerDefaultOriginatingServiceKey) ? $this->mobilityManagerDefaultOriginatingServiceKey->getValue() : null;
+        return ($this->mobilityManagerDefaultOriginatingServiceKey)
+            ? $this->mobilityManagerDefaultOriginatingServiceKey->getElementValue()
+            : null;
     }
 
     /**
@@ -525,7 +561,7 @@ class GroupAccessDeviceModifyRequest14 extends ComplexType implements ComplexInt
         $this->mobilityManagerDefaultTerminatingServiceKey = ($mobilityManagerDefaultTerminatingServiceKey InstanceOf MobilityManagerServiceKey)
              ? $mobilityManagerDefaultTerminatingServiceKey
              : new MobilityManagerServiceKey($mobilityManagerDefaultTerminatingServiceKey);
-        $this->mobilityManagerDefaultTerminatingServiceKey->setName('mobilityManagerDefaultTerminatingServiceKey');
+        $this->mobilityManagerDefaultTerminatingServiceKey->setElementName('mobilityManagerDefaultTerminatingServiceKey');
         return $this;
     }
 
@@ -535,7 +571,9 @@ class GroupAccessDeviceModifyRequest14 extends ComplexType implements ComplexInt
      */
     public function getMobilityManagerDefaultTerminatingServiceKey()
     {
-        return ($this->mobilityManagerDefaultTerminatingServiceKey) ? $this->mobilityManagerDefaultTerminatingServiceKey->getValue() : null;
+        return ($this->mobilityManagerDefaultTerminatingServiceKey)
+            ? $this->mobilityManagerDefaultTerminatingServiceKey->getElementValue()
+            : null;
     }
 
     /**
@@ -544,7 +582,7 @@ class GroupAccessDeviceModifyRequest14 extends ComplexType implements ComplexInt
     public function setUseCustomUserNamePassword($useCustomUserNamePassword = null)
     {
         $this->useCustomUserNamePassword = new PrimitiveType($useCustomUserNamePassword);
-        $this->useCustomUserNamePassword->setName('useCustomUserNamePassword');
+        $this->useCustomUserNamePassword->setElementName('useCustomUserNamePassword');
         return $this;
     }
 
@@ -554,7 +592,9 @@ class GroupAccessDeviceModifyRequest14 extends ComplexType implements ComplexInt
      */
     public function getUseCustomUserNamePassword()
     {
-        return ($this->useCustomUserNamePassword) ? $this->useCustomUserNamePassword->getValue() : null;
+        return ($this->useCustomUserNamePassword)
+            ? $this->useCustomUserNamePassword->getElementValue()
+            : null;
     }
 
     /**
@@ -565,7 +605,7 @@ class GroupAccessDeviceModifyRequest14 extends ComplexType implements ComplexInt
         $this->accessDeviceCredentials = ($accessDeviceCredentials InstanceOf DeviceManagementUserNamePassword16)
              ? $accessDeviceCredentials
              : new DeviceManagementUserNamePassword16($accessDeviceCredentials);
-        $this->accessDeviceCredentials->setName('accessDeviceCredentials');
+        $this->accessDeviceCredentials->setElementName('accessDeviceCredentials');
         return $this;
     }
 

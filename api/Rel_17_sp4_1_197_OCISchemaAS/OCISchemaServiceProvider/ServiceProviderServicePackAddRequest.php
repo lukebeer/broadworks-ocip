@@ -25,7 +25,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderServicePackAddRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'ServiceProviderServicePackAddRequest';
+    public    $elementName = 'ServiceProviderServicePackAddRequest';
     protected $serviceProviderId;
     protected $servicePackName;
     protected $servicePackDescription;
@@ -65,7 +65,7 @@ class ServiceProviderServicePackAddRequest extends ComplexType implements Comple
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
-        $this->serviceProviderId->setName('serviceProviderId');
+        $this->serviceProviderId->setElementName('serviceProviderId');
         return $this;
     }
 
@@ -75,7 +75,9 @@ class ServiceProviderServicePackAddRequest extends ComplexType implements Comple
      */
     public function getServiceProviderId()
     {
-        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
+        return ($this->serviceProviderId)
+            ? $this->serviceProviderId->getElementValue()
+            : null;
     }
 
     /**
@@ -86,7 +88,7 @@ class ServiceProviderServicePackAddRequest extends ComplexType implements Comple
         $this->servicePackName = ($servicePackName InstanceOf ServicePackName)
              ? $servicePackName
              : new ServicePackName($servicePackName);
-        $this->servicePackName->setName('servicePackName');
+        $this->servicePackName->setElementName('servicePackName');
         return $this;
     }
 
@@ -96,7 +98,9 @@ class ServiceProviderServicePackAddRequest extends ComplexType implements Comple
      */
     public function getServicePackName()
     {
-        return ($this->servicePackName) ? $this->servicePackName->getValue() : null;
+        return ($this->servicePackName)
+            ? $this->servicePackName->getElementValue()
+            : null;
     }
 
     /**
@@ -107,7 +111,7 @@ class ServiceProviderServicePackAddRequest extends ComplexType implements Comple
         $this->servicePackDescription = ($servicePackDescription InstanceOf ServicePackDescription)
              ? $servicePackDescription
              : new ServicePackDescription($servicePackDescription);
-        $this->servicePackDescription->setName('servicePackDescription');
+        $this->servicePackDescription->setElementName('servicePackDescription');
         return $this;
     }
 
@@ -117,7 +121,9 @@ class ServiceProviderServicePackAddRequest extends ComplexType implements Comple
      */
     public function getServicePackDescription()
     {
-        return ($this->servicePackDescription) ? $this->servicePackDescription->getValue() : null;
+        return ($this->servicePackDescription)
+            ? $this->servicePackDescription->getElementValue()
+            : null;
     }
 
     /**
@@ -126,7 +132,7 @@ class ServiceProviderServicePackAddRequest extends ComplexType implements Comple
     public function setIsAvailableForUse($isAvailableForUse = null)
     {
         $this->isAvailableForUse = new PrimitiveType($isAvailableForUse);
-        $this->isAvailableForUse->setName('isAvailableForUse');
+        $this->isAvailableForUse->setElementName('isAvailableForUse');
         return $this;
     }
 
@@ -136,7 +142,9 @@ class ServiceProviderServicePackAddRequest extends ComplexType implements Comple
      */
     public function getIsAvailableForUse()
     {
-        return ($this->isAvailableForUse) ? $this->isAvailableForUse->getValue() : null;
+        return ($this->isAvailableForUse)
+            ? $this->isAvailableForUse->getElementValue()
+            : null;
     }
 
     /**
@@ -147,7 +155,7 @@ class ServiceProviderServicePackAddRequest extends ComplexType implements Comple
         $this->servicePackQuantity = ($servicePackQuantity InstanceOf UnboundedPositiveInt)
              ? $servicePackQuantity
              : new UnboundedPositiveInt($servicePackQuantity);
-        $this->servicePackQuantity->setName('servicePackQuantity');
+        $this->servicePackQuantity->setElementName('servicePackQuantity');
         return $this;
     }
 
@@ -168,7 +176,7 @@ class ServiceProviderServicePackAddRequest extends ComplexType implements Comple
         $this->serviceName = ($serviceName InstanceOf UserService)
              ? $serviceName
              : new UserService($serviceName);
-        $this->serviceName->setName('serviceName');
+        $this->serviceName->setElementName('serviceName');
         return $this;
     }
 
@@ -178,6 +186,8 @@ class ServiceProviderServicePackAddRequest extends ComplexType implements Comple
      */
     public function getServiceName()
     {
-        return ($this->serviceName) ? $this->serviceName->getValue() : null;
+        return ($this->serviceName)
+            ? $this->serviceName->getElementValue()
+            : null;
     }
 }

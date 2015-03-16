@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
 class EnterpriseVoiceVPNGetRequest14sp3 extends ComplexType implements ComplexInterface
 {
     public    $responseType      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaEnterprise\EnterpriseVoiceVPNGetResponse14sp3';
-    public    $name = 'EnterpriseVoiceVPNGetRequest14sp3';
+    public    $elementName = 'EnterpriseVoiceVPNGetRequest14sp3';
     protected $serviceProviderId;
 
     public function __construct(
@@ -46,7 +46,7 @@ class EnterpriseVoiceVPNGetRequest14sp3 extends ComplexType implements ComplexIn
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
-        $this->serviceProviderId->setName('serviceProviderId');
+        $this->serviceProviderId->setElementName('serviceProviderId');
         return $this;
     }
 
@@ -56,6 +56,8 @@ class EnterpriseVoiceVPNGetRequest14sp3 extends ComplexType implements ComplexIn
      */
     public function getServiceProviderId()
     {
-        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
+        return ($this->serviceProviderId)
+            ? $this->serviceProviderId->getElementValue()
+            : null;
     }
 }

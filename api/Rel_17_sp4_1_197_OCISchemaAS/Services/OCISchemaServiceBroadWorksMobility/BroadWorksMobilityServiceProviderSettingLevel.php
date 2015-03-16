@@ -16,12 +16,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\Enumeration;
  */
 class BroadWorksMobilityServiceProviderSettingLevel extends SimpleType
 {
-    public $name = "BroadWorksMobilityServiceProviderSettingLevel";
-    protected $value;
-
+    public $elementName = "BroadWorksMobilityServiceProviderSettingLevel";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new Enumeration([
             'ServiceProvider',
             'System'

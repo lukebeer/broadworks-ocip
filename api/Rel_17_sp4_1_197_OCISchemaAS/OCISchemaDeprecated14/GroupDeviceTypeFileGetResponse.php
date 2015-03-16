@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupDeviceTypeFileGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'GroupDeviceTypeFileGetResponse';
+    public    $elementName = 'GroupDeviceTypeFileGetResponse';
     protected $fileSource;
     protected $configurationFileName;
 
@@ -41,7 +41,7 @@ class GroupDeviceTypeFileGetResponse extends ComplexType implements ComplexInter
         $this->fileSource = ($fileSource InstanceOf AccessDeviceEnhancedConfigurationMode)
              ? $fileSource
              : new AccessDeviceEnhancedConfigurationMode($fileSource);
-        $this->fileSource->setName('fileSource');
+        $this->fileSource->setElementName('fileSource');
         return $this;
     }
 
@@ -51,7 +51,9 @@ class GroupDeviceTypeFileGetResponse extends ComplexType implements ComplexInter
      */
     public function getFileSource()
     {
-        return ($this->fileSource) ? $this->fileSource->getValue() : null;
+        return ($this->fileSource)
+            ? $this->fileSource->getElementValue()
+            : null;
     }
 
     /**
@@ -62,7 +64,7 @@ class GroupDeviceTypeFileGetResponse extends ComplexType implements ComplexInter
         $this->configurationFileName = ($configurationFileName InstanceOf AccessDeviceEnhancedConfigurationFileName)
              ? $configurationFileName
              : new AccessDeviceEnhancedConfigurationFileName($configurationFileName);
-        $this->configurationFileName->setName('configurationFileName');
+        $this->configurationFileName->setElementName('configurationFileName');
         return $this;
     }
 
@@ -72,6 +74,8 @@ class GroupDeviceTypeFileGetResponse extends ComplexType implements ComplexInter
      */
     public function getConfigurationFileName()
     {
-        return ($this->configurationFileName) ? $this->configurationFileName->getValue() : null;
+        return ($this->configurationFileName)
+            ? $this->configurationFileName->getElementValue()
+            : null;
     }
 }

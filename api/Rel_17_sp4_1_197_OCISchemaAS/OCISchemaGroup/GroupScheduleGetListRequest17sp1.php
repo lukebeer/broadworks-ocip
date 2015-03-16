@@ -23,7 +23,7 @@ use Broadworks_OCIP\core\Client\Client;
 class GroupScheduleGetListRequest17sp1 extends ComplexType implements ComplexInterface
 {
     public    $responseType      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupScheduleGetListResponse17sp1';
-    public    $name = 'GroupScheduleGetListRequest17sp1';
+    public    $elementName = 'GroupScheduleGetListRequest17sp1';
     protected $serviceProviderId;
     protected $groupId;
     protected $scheduleType;
@@ -54,7 +54,7 @@ class GroupScheduleGetListRequest17sp1 extends ComplexType implements ComplexInt
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
-        $this->serviceProviderId->setName('serviceProviderId');
+        $this->serviceProviderId->setElementName('serviceProviderId');
         return $this;
     }
 
@@ -64,7 +64,9 @@ class GroupScheduleGetListRequest17sp1 extends ComplexType implements ComplexInt
      */
     public function getServiceProviderId()
     {
-        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
+        return ($this->serviceProviderId)
+            ? $this->serviceProviderId->getElementValue()
+            : null;
     }
 
     /**
@@ -75,7 +77,7 @@ class GroupScheduleGetListRequest17sp1 extends ComplexType implements ComplexInt
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
-        $this->groupId->setName('groupId');
+        $this->groupId->setElementName('groupId');
         return $this;
     }
 
@@ -85,7 +87,9 @@ class GroupScheduleGetListRequest17sp1 extends ComplexType implements ComplexInt
      */
     public function getGroupId()
     {
-        return ($this->groupId) ? $this->groupId->getValue() : null;
+        return ($this->groupId)
+            ? $this->groupId->getElementValue()
+            : null;
     }
 
     /**
@@ -96,7 +100,7 @@ class GroupScheduleGetListRequest17sp1 extends ComplexType implements ComplexInt
         $this->scheduleType = ($scheduleType InstanceOf ScheduleType)
              ? $scheduleType
              : new ScheduleType($scheduleType);
-        $this->scheduleType->setName('scheduleType');
+        $this->scheduleType->setElementName('scheduleType');
         return $this;
     }
 
@@ -106,6 +110,8 @@ class GroupScheduleGetListRequest17sp1 extends ComplexType implements ComplexInt
      */
     public function getScheduleType()
     {
-        return ($this->scheduleType) ? $this->scheduleType->getValue() : null;
+        return ($this->scheduleType)
+            ? $this->scheduleType->getElementValue()
+            : null;
     }
 }

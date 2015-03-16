@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupTrunkGroupGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'GroupTrunkGroupGetResponse';
+    public    $elementName = 'GroupTrunkGroupGetResponse';
     protected $maxActiveCalls;
     protected $maxAvailableActiveCalls;
 
@@ -40,7 +40,7 @@ class GroupTrunkGroupGetResponse extends ComplexType implements ComplexInterface
         $this->maxActiveCalls = ($maxActiveCalls InstanceOf UnboundedNonNegativeInt)
              ? $maxActiveCalls
              : new UnboundedNonNegativeInt($maxActiveCalls);
-        $this->maxActiveCalls->setName('maxActiveCalls');
+        $this->maxActiveCalls->setElementName('maxActiveCalls');
         return $this;
     }
 
@@ -61,7 +61,7 @@ class GroupTrunkGroupGetResponse extends ComplexType implements ComplexInterface
         $this->maxAvailableActiveCalls = ($maxAvailableActiveCalls InstanceOf UnboundedNonNegativeInt)
              ? $maxAvailableActiveCalls
              : new UnboundedNonNegativeInt($maxAvailableActiveCalls);
-        $this->maxAvailableActiveCalls->setName('maxAvailableActiveCalls');
+        $this->maxAvailableActiveCalls->setElementName('maxAvailableActiveCalls');
         return $this;
     }
 

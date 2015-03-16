@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserCallPoliciesModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'UserCallPoliciesModifyRequest';
+    public    $elementName = 'UserCallPoliciesModifyRequest';
     protected $userId;
     protected $redirectedCallsCOLPPrivacy;
     protected $callBeingForwardedResponseCallType;
@@ -53,7 +53,7 @@ class UserCallPoliciesModifyRequest extends ComplexType implements ComplexInterf
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
-        $this->userId->setName('userId');
+        $this->userId->setElementName('userId');
         return $this;
     }
 
@@ -63,7 +63,9 @@ class UserCallPoliciesModifyRequest extends ComplexType implements ComplexInterf
      */
     public function getUserId()
     {
-        return ($this->userId) ? $this->userId->getValue() : null;
+        return ($this->userId)
+            ? $this->userId->getElementValue()
+            : null;
     }
 
     /**
@@ -74,7 +76,7 @@ class UserCallPoliciesModifyRequest extends ComplexType implements ComplexInterf
         $this->redirectedCallsCOLPPrivacy = ($redirectedCallsCOLPPrivacy InstanceOf ConnectedLineIdentificationPrivacyOnRedirectedCalls)
              ? $redirectedCallsCOLPPrivacy
              : new ConnectedLineIdentificationPrivacyOnRedirectedCalls($redirectedCallsCOLPPrivacy);
-        $this->redirectedCallsCOLPPrivacy->setName('redirectedCallsCOLPPrivacy');
+        $this->redirectedCallsCOLPPrivacy->setElementName('redirectedCallsCOLPPrivacy');
         return $this;
     }
 
@@ -84,7 +86,9 @@ class UserCallPoliciesModifyRequest extends ComplexType implements ComplexInterf
      */
     public function getRedirectedCallsCOLPPrivacy()
     {
-        return ($this->redirectedCallsCOLPPrivacy) ? $this->redirectedCallsCOLPPrivacy->getValue() : null;
+        return ($this->redirectedCallsCOLPPrivacy)
+            ? $this->redirectedCallsCOLPPrivacy->getElementValue()
+            : null;
     }
 
     /**
@@ -95,7 +99,7 @@ class UserCallPoliciesModifyRequest extends ComplexType implements ComplexInterf
         $this->callBeingForwardedResponseCallType = ($callBeingForwardedResponseCallType InstanceOf CallBeingForwardedResponseCallType)
              ? $callBeingForwardedResponseCallType
              : new CallBeingForwardedResponseCallType($callBeingForwardedResponseCallType);
-        $this->callBeingForwardedResponseCallType->setName('callBeingForwardedResponseCallType');
+        $this->callBeingForwardedResponseCallType->setElementName('callBeingForwardedResponseCallType');
         return $this;
     }
 
@@ -105,6 +109,8 @@ class UserCallPoliciesModifyRequest extends ComplexType implements ComplexInterf
      */
     public function getCallBeingForwardedResponseCallType()
     {
-        return ($this->callBeingForwardedResponseCallType) ? $this->callBeingForwardedResponseCallType->getValue() : null;
+        return ($this->callBeingForwardedResponseCallType)
+            ? $this->callBeingForwardedResponseCallType->getElementValue()
+            : null;
     }
 }

@@ -25,7 +25,7 @@ use Broadworks_OCIP\core\Client\Client;
 class GroupAccessDeviceGetAvailableDetailListRequest14 extends ComplexType implements ComplexInterface
 {
     public    $responseType      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupAccessDeviceGetAvailableDetailListResponse14';
-    public    $name = 'GroupAccessDeviceGetAvailableDetailListRequest14';
+    public    $elementName = 'GroupAccessDeviceGetAvailableDetailListRequest14';
     protected $serviceProviderId;
     protected $groupId;
     protected $isMusicOnHold;
@@ -59,7 +59,7 @@ class GroupAccessDeviceGetAvailableDetailListRequest14 extends ComplexType imple
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
-        $this->serviceProviderId->setName('serviceProviderId');
+        $this->serviceProviderId->setElementName('serviceProviderId');
         return $this;
     }
 
@@ -69,7 +69,9 @@ class GroupAccessDeviceGetAvailableDetailListRequest14 extends ComplexType imple
      */
     public function getServiceProviderId()
     {
-        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
+        return ($this->serviceProviderId)
+            ? $this->serviceProviderId->getElementValue()
+            : null;
     }
 
     /**
@@ -80,7 +82,7 @@ class GroupAccessDeviceGetAvailableDetailListRequest14 extends ComplexType imple
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
-        $this->groupId->setName('groupId');
+        $this->groupId->setElementName('groupId');
         return $this;
     }
 
@@ -90,7 +92,9 @@ class GroupAccessDeviceGetAvailableDetailListRequest14 extends ComplexType imple
      */
     public function getGroupId()
     {
-        return ($this->groupId) ? $this->groupId->getValue() : null;
+        return ($this->groupId)
+            ? $this->groupId->getElementValue()
+            : null;
     }
 
     /**
@@ -99,7 +103,7 @@ class GroupAccessDeviceGetAvailableDetailListRequest14 extends ComplexType imple
     public function setIsMusicOnHold($isMusicOnHold = null)
     {
         $this->isMusicOnHold = new PrimitiveType($isMusicOnHold);
-        $this->isMusicOnHold->setName('isMusicOnHold');
+        $this->isMusicOnHold->setElementName('isMusicOnHold');
         return $this;
     }
 
@@ -109,7 +113,9 @@ class GroupAccessDeviceGetAvailableDetailListRequest14 extends ComplexType imple
      */
     public function getIsMusicOnHold()
     {
-        return ($this->isMusicOnHold) ? $this->isMusicOnHold->getValue() : null;
+        return ($this->isMusicOnHold)
+            ? $this->isMusicOnHold->getElementValue()
+            : null;
     }
 
     /**
@@ -118,7 +124,7 @@ class GroupAccessDeviceGetAvailableDetailListRequest14 extends ComplexType imple
     public function setOnlyVideoCapable($onlyVideoCapable = null)
     {
         $this->onlyVideoCapable = new PrimitiveType($onlyVideoCapable);
-        $this->onlyVideoCapable->setName('onlyVideoCapable');
+        $this->onlyVideoCapable->setElementName('onlyVideoCapable');
         return $this;
     }
 
@@ -128,6 +134,8 @@ class GroupAccessDeviceGetAvailableDetailListRequest14 extends ComplexType imple
      */
     public function getOnlyVideoCapable()
     {
-        return ($this->onlyVideoCapable) ? $this->onlyVideoCapable->getValue() : null;
+        return ($this->onlyVideoCapable)
+            ? $this->onlyVideoCapable->getElementValue()
+            : null;
     }
 }

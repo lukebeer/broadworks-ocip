@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
 class SystemCallMeNowGetRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallMeNow\SystemCallMeNowGetResponse';
-    public    $name = 'SystemCallMeNowGetRequest';
+    public    $elementName = 'SystemCallMeNowGetRequest';
 
     public function __construct(    ) {
     }

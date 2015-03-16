@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserSMDIMessageDeskGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'UserSMDIMessageDeskGetResponse';
+    public    $elementName = 'UserSMDIMessageDeskGetResponse';
     protected $isActive;
     protected $messageDeskNumber;
 
@@ -38,7 +38,7 @@ class UserSMDIMessageDeskGetResponse extends ComplexType implements ComplexInter
     public function setIsActive($isActive = null)
     {
         $this->isActive = new PrimitiveType($isActive);
-        $this->isActive->setName('isActive');
+        $this->isActive->setElementName('isActive');
         return $this;
     }
 
@@ -48,7 +48,9 @@ class UserSMDIMessageDeskGetResponse extends ComplexType implements ComplexInter
      */
     public function getIsActive()
     {
-        return ($this->isActive) ? $this->isActive->getValue() : null;
+        return ($this->isActive)
+            ? $this->isActive->getElementValue()
+            : null;
     }
 
     /**
@@ -59,7 +61,7 @@ class UserSMDIMessageDeskGetResponse extends ComplexType implements ComplexInter
         $this->messageDeskNumber = ($messageDeskNumber InstanceOf SMDIMessageDeskNumber)
              ? $messageDeskNumber
              : new SMDIMessageDeskNumber($messageDeskNumber);
-        $this->messageDeskNumber->setName('messageDeskNumber');
+        $this->messageDeskNumber->setElementName('messageDeskNumber');
         return $this;
     }
 
@@ -69,6 +71,8 @@ class UserSMDIMessageDeskGetResponse extends ComplexType implements ComplexInter
      */
     public function getMessageDeskNumber()
     {
-        return ($this->messageDeskNumber) ? $this->messageDeskNumber->getValue() : null;
+        return ($this->messageDeskNumber)
+            ? $this->messageDeskNumber->getElementValue()
+            : null;
     }
 }

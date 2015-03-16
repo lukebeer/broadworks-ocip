@@ -19,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class OutgoingCallingPlanDigitPatternCallMeNowPermission extends ComplexType implements ComplexInterface
 {
-    public    $name = 'OutgoingCallingPlanDigitPatternCallMeNowPermission';
+    public    $elementName = 'OutgoingCallingPlanDigitPatternCallMeNowPermission';
     protected $digitPatternName;
     protected $permission;
 
@@ -45,7 +45,7 @@ class OutgoingCallingPlanDigitPatternCallMeNowPermission extends ComplexType imp
     public function setDigitPatternName($digitPatternName = null)
     {
         $this->digitPatternName = new SimpleContent($digitPatternName);
-        $this->digitPatternName->setName('digitPatternName');
+        $this->digitPatternName->setElementName('digitPatternName');
         return $this;
     }
 
@@ -55,7 +55,9 @@ class OutgoingCallingPlanDigitPatternCallMeNowPermission extends ComplexType imp
      */
     public function getDigitPatternName()
     {
-        return ($this->digitPatternName) ? $this->digitPatternName->getValue() : null;
+        return ($this->digitPatternName)
+            ? $this->digitPatternName->getElementValue()
+            : null;
     }
 
     /**
@@ -64,7 +66,7 @@ class OutgoingCallingPlanDigitPatternCallMeNowPermission extends ComplexType imp
     public function setPermission($permission = null)
     {
         $this->permission = new SimpleContent($permission);
-        $this->permission->setName('permission');
+        $this->permission->setElementName('permission');
         return $this;
     }
 
@@ -74,6 +76,8 @@ class OutgoingCallingPlanDigitPatternCallMeNowPermission extends ComplexType imp
      */
     public function getPermission()
     {
-        return ($this->permission) ? $this->permission->getValue() : null;
+        return ($this->permission)
+            ? $this->permission->getElementValue()
+            : null;
     }
 }

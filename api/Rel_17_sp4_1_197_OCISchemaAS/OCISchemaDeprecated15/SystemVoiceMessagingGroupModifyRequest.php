@@ -30,7 +30,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemVoiceMessagingGroupModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemVoiceMessagingGroupModifyRequest';
+    public    $elementName = 'SystemVoiceMessagingGroupModifyRequest';
     protected $realDeleteForImap;
     protected $useDnInMailBody;
     protected $useShortSubjectLine;
@@ -107,7 +107,7 @@ class SystemVoiceMessagingGroupModifyRequest extends ComplexType implements Comp
     public function setRealDeleteForImap($realDeleteForImap = null)
     {
         $this->realDeleteForImap = new PrimitiveType($realDeleteForImap);
-        $this->realDeleteForImap->setName('realDeleteForImap');
+        $this->realDeleteForImap->setElementName('realDeleteForImap');
         return $this;
     }
 
@@ -117,7 +117,9 @@ class SystemVoiceMessagingGroupModifyRequest extends ComplexType implements Comp
      */
     public function getRealDeleteForImap()
     {
-        return ($this->realDeleteForImap) ? $this->realDeleteForImap->getValue() : null;
+        return ($this->realDeleteForImap)
+            ? $this->realDeleteForImap->getElementValue()
+            : null;
     }
 
     /**
@@ -126,7 +128,7 @@ class SystemVoiceMessagingGroupModifyRequest extends ComplexType implements Comp
     public function setUseDnInMailBody($useDnInMailBody = null)
     {
         $this->useDnInMailBody = new PrimitiveType($useDnInMailBody);
-        $this->useDnInMailBody->setName('useDnInMailBody');
+        $this->useDnInMailBody->setElementName('useDnInMailBody');
         return $this;
     }
 
@@ -136,7 +138,9 @@ class SystemVoiceMessagingGroupModifyRequest extends ComplexType implements Comp
      */
     public function getUseDnInMailBody()
     {
-        return ($this->useDnInMailBody) ? $this->useDnInMailBody->getValue() : null;
+        return ($this->useDnInMailBody)
+            ? $this->useDnInMailBody->getElementValue()
+            : null;
     }
 
     /**
@@ -145,7 +149,7 @@ class SystemVoiceMessagingGroupModifyRequest extends ComplexType implements Comp
     public function setUseShortSubjectLine($useShortSubjectLine = null)
     {
         $this->useShortSubjectLine = new PrimitiveType($useShortSubjectLine);
-        $this->useShortSubjectLine->setName('useShortSubjectLine');
+        $this->useShortSubjectLine->setElementName('useShortSubjectLine');
         return $this;
     }
 
@@ -155,7 +159,9 @@ class SystemVoiceMessagingGroupModifyRequest extends ComplexType implements Comp
      */
     public function getUseShortSubjectLine()
     {
-        return ($this->useShortSubjectLine) ? $this->useShortSubjectLine->getValue() : null;
+        return ($this->useShortSubjectLine)
+            ? $this->useShortSubjectLine->getElementValue()
+            : null;
     }
 
     /**
@@ -166,7 +172,7 @@ class SystemVoiceMessagingGroupModifyRequest extends ComplexType implements Comp
         $this->maxGreetingLengthMinutes = ($maxGreetingLengthMinutes InstanceOf VoiceMessagingMaxGreetingLengthMinutes)
              ? $maxGreetingLengthMinutes
              : new VoiceMessagingMaxGreetingLengthMinutes($maxGreetingLengthMinutes);
-        $this->maxGreetingLengthMinutes->setName('maxGreetingLengthMinutes');
+        $this->maxGreetingLengthMinutes->setElementName('maxGreetingLengthMinutes');
         return $this;
     }
 
@@ -176,7 +182,9 @@ class SystemVoiceMessagingGroupModifyRequest extends ComplexType implements Comp
      */
     public function getMaxGreetingLengthMinutes()
     {
-        return ($this->maxGreetingLengthMinutes) ? $this->maxGreetingLengthMinutes->getValue() : null;
+        return ($this->maxGreetingLengthMinutes)
+            ? $this->maxGreetingLengthMinutes->getElementValue()
+            : null;
     }
 
     /**
@@ -187,7 +195,7 @@ class SystemVoiceMessagingGroupModifyRequest extends ComplexType implements Comp
         $this->maxMessageLengthMinutes = ($maxMessageLengthMinutes InstanceOf VoiceMessagingMaxMessageLengthMinutes)
              ? $maxMessageLengthMinutes
              : new VoiceMessagingMaxMessageLengthMinutes($maxMessageLengthMinutes);
-        $this->maxMessageLengthMinutes->setName('maxMessageLengthMinutes');
+        $this->maxMessageLengthMinutes->setElementName('maxMessageLengthMinutes');
         return $this;
     }
 
@@ -197,7 +205,9 @@ class SystemVoiceMessagingGroupModifyRequest extends ComplexType implements Comp
      */
     public function getMaxMessageLengthMinutes()
     {
-        return ($this->maxMessageLengthMinutes) ? $this->maxMessageLengthMinutes->getValue() : null;
+        return ($this->maxMessageLengthMinutes)
+            ? $this->maxMessageLengthMinutes->getElementValue()
+            : null;
     }
 
     /**
@@ -208,7 +218,7 @@ class SystemVoiceMessagingGroupModifyRequest extends ComplexType implements Comp
         $this->maxMailboxLengthMinutes = ($maxMailboxLengthMinutes InstanceOf VoiceMessagingMailboxLengthMinutes)
              ? $maxMailboxLengthMinutes
              : new VoiceMessagingMailboxLengthMinutes($maxMailboxLengthMinutes);
-        $this->maxMailboxLengthMinutes->setName('maxMailboxLengthMinutes');
+        $this->maxMailboxLengthMinutes->setElementName('maxMailboxLengthMinutes');
         return $this;
     }
 
@@ -218,7 +228,9 @@ class SystemVoiceMessagingGroupModifyRequest extends ComplexType implements Comp
      */
     public function getMaxMailboxLengthMinutes()
     {
-        return ($this->maxMailboxLengthMinutes) ? $this->maxMailboxLengthMinutes->getValue() : null;
+        return ($this->maxMailboxLengthMinutes)
+            ? $this->maxMailboxLengthMinutes->getElementValue()
+            : null;
     }
 
     /**
@@ -227,7 +239,7 @@ class SystemVoiceMessagingGroupModifyRequest extends ComplexType implements Comp
     public function setDoesMessageAge($doesMessageAge = null)
     {
         $this->doesMessageAge = new PrimitiveType($doesMessageAge);
-        $this->doesMessageAge->setName('doesMessageAge');
+        $this->doesMessageAge->setElementName('doesMessageAge');
         return $this;
     }
 
@@ -237,7 +249,9 @@ class SystemVoiceMessagingGroupModifyRequest extends ComplexType implements Comp
      */
     public function getDoesMessageAge()
     {
-        return ($this->doesMessageAge) ? $this->doesMessageAge->getValue() : null;
+        return ($this->doesMessageAge)
+            ? $this->doesMessageAge->getElementValue()
+            : null;
     }
 
     /**
@@ -248,7 +262,7 @@ class SystemVoiceMessagingGroupModifyRequest extends ComplexType implements Comp
         $this->holdPeriodDays = ($holdPeriodDays InstanceOf VoiceMessagingHoldPeriodDays)
              ? $holdPeriodDays
              : new VoiceMessagingHoldPeriodDays($holdPeriodDays);
-        $this->holdPeriodDays->setName('holdPeriodDays');
+        $this->holdPeriodDays->setElementName('holdPeriodDays');
         return $this;
     }
 
@@ -258,7 +272,9 @@ class SystemVoiceMessagingGroupModifyRequest extends ComplexType implements Comp
      */
     public function getHoldPeriodDays()
     {
-        return ($this->holdPeriodDays) ? $this->holdPeriodDays->getValue() : null;
+        return ($this->holdPeriodDays)
+            ? $this->holdPeriodDays->getElementValue()
+            : null;
     }
 
     /**
@@ -269,7 +285,7 @@ class SystemVoiceMessagingGroupModifyRequest extends ComplexType implements Comp
         $this->mailServerNetAddress = ($mailServerNetAddress InstanceOf NetAddress)
              ? $mailServerNetAddress
              : new NetAddress($mailServerNetAddress);
-        $this->mailServerNetAddress->setName('mailServerNetAddress');
+        $this->mailServerNetAddress->setElementName('mailServerNetAddress');
         return $this;
     }
 
@@ -279,7 +295,9 @@ class SystemVoiceMessagingGroupModifyRequest extends ComplexType implements Comp
      */
     public function getMailServerNetAddress()
     {
-        return ($this->mailServerNetAddress) ? $this->mailServerNetAddress->getValue() : null;
+        return ($this->mailServerNetAddress)
+            ? $this->mailServerNetAddress->getElementValue()
+            : null;
     }
 
     /**
@@ -290,7 +308,7 @@ class SystemVoiceMessagingGroupModifyRequest extends ComplexType implements Comp
         $this->mailServerProtocol = ($mailServerProtocol InstanceOf VoiceMessagingMailServerProtocol)
              ? $mailServerProtocol
              : new VoiceMessagingMailServerProtocol($mailServerProtocol);
-        $this->mailServerProtocol->setName('mailServerProtocol');
+        $this->mailServerProtocol->setElementName('mailServerProtocol');
         return $this;
     }
 
@@ -300,7 +318,9 @@ class SystemVoiceMessagingGroupModifyRequest extends ComplexType implements Comp
      */
     public function getMailServerProtocol()
     {
-        return ($this->mailServerProtocol) ? $this->mailServerProtocol->getValue() : null;
+        return ($this->mailServerProtocol)
+            ? $this->mailServerProtocol->getElementValue()
+            : null;
     }
 
     /**
@@ -311,7 +331,7 @@ class SystemVoiceMessagingGroupModifyRequest extends ComplexType implements Comp
         $this->defaultDeliveryFromAddress = ($defaultDeliveryFromAddress InstanceOf EmailAddress)
              ? $defaultDeliveryFromAddress
              : new EmailAddress($defaultDeliveryFromAddress);
-        $this->defaultDeliveryFromAddress->setName('defaultDeliveryFromAddress');
+        $this->defaultDeliveryFromAddress->setElementName('defaultDeliveryFromAddress');
         return $this;
     }
 
@@ -321,7 +341,9 @@ class SystemVoiceMessagingGroupModifyRequest extends ComplexType implements Comp
      */
     public function getDefaultDeliveryFromAddress()
     {
-        return ($this->defaultDeliveryFromAddress) ? $this->defaultDeliveryFromAddress->getValue() : null;
+        return ($this->defaultDeliveryFromAddress)
+            ? $this->defaultDeliveryFromAddress->getElementValue()
+            : null;
     }
 
     /**
@@ -332,7 +354,7 @@ class SystemVoiceMessagingGroupModifyRequest extends ComplexType implements Comp
         $this->defaultNotificationFromAddress = ($defaultNotificationFromAddress InstanceOf EmailAddress)
              ? $defaultNotificationFromAddress
              : new EmailAddress($defaultNotificationFromAddress);
-        $this->defaultNotificationFromAddress->setName('defaultNotificationFromAddress');
+        $this->defaultNotificationFromAddress->setElementName('defaultNotificationFromAddress');
         return $this;
     }
 
@@ -342,7 +364,9 @@ class SystemVoiceMessagingGroupModifyRequest extends ComplexType implements Comp
      */
     public function getDefaultNotificationFromAddress()
     {
-        return ($this->defaultNotificationFromAddress) ? $this->defaultNotificationFromAddress->getValue() : null;
+        return ($this->defaultNotificationFromAddress)
+            ? $this->defaultNotificationFromAddress->getElementValue()
+            : null;
     }
 
     /**
@@ -353,7 +377,7 @@ class SystemVoiceMessagingGroupModifyRequest extends ComplexType implements Comp
         $this->defaultVoicePortalLockoutFromAddress = ($defaultVoicePortalLockoutFromAddress InstanceOf EmailAddress)
              ? $defaultVoicePortalLockoutFromAddress
              : new EmailAddress($defaultVoicePortalLockoutFromAddress);
-        $this->defaultVoicePortalLockoutFromAddress->setName('defaultVoicePortalLockoutFromAddress');
+        $this->defaultVoicePortalLockoutFromAddress->setElementName('defaultVoicePortalLockoutFromAddress');
         return $this;
     }
 
@@ -363,7 +387,9 @@ class SystemVoiceMessagingGroupModifyRequest extends ComplexType implements Comp
      */
     public function getDefaultVoicePortalLockoutFromAddress()
     {
-        return ($this->defaultVoicePortalLockoutFromAddress) ? $this->defaultVoicePortalLockoutFromAddress->getValue() : null;
+        return ($this->defaultVoicePortalLockoutFromAddress)
+            ? $this->defaultVoicePortalLockoutFromAddress->getElementValue()
+            : null;
     }
 
     /**
@@ -372,7 +398,7 @@ class SystemVoiceMessagingGroupModifyRequest extends ComplexType implements Comp
     public function setUseOutgoingMWIOnSMDI($useOutgoingMWIOnSMDI = null)
     {
         $this->useOutgoingMWIOnSMDI = new PrimitiveType($useOutgoingMWIOnSMDI);
-        $this->useOutgoingMWIOnSMDI->setName('useOutgoingMWIOnSMDI');
+        $this->useOutgoingMWIOnSMDI->setElementName('useOutgoingMWIOnSMDI');
         return $this;
     }
 
@@ -382,7 +408,9 @@ class SystemVoiceMessagingGroupModifyRequest extends ComplexType implements Comp
      */
     public function getUseOutgoingMWIOnSMDI()
     {
-        return ($this->useOutgoingMWIOnSMDI) ? $this->useOutgoingMWIOnSMDI->getValue() : null;
+        return ($this->useOutgoingMWIOnSMDI)
+            ? $this->useOutgoingMWIOnSMDI->getElementValue()
+            : null;
     }
 
     /**
@@ -393,7 +421,7 @@ class SystemVoiceMessagingGroupModifyRequest extends ComplexType implements Comp
         $this->mwiDelayInSeconds = ($mwiDelayInSeconds InstanceOf VoiceMessagingMessageWaitingIndicatorDelayInSeconds)
              ? $mwiDelayInSeconds
              : new VoiceMessagingMessageWaitingIndicatorDelayInSeconds($mwiDelayInSeconds);
-        $this->mwiDelayInSeconds->setName('mwiDelayInSeconds');
+        $this->mwiDelayInSeconds->setElementName('mwiDelayInSeconds');
         return $this;
     }
 
@@ -403,7 +431,9 @@ class SystemVoiceMessagingGroupModifyRequest extends ComplexType implements Comp
      */
     public function getMwiDelayInSeconds()
     {
-        return ($this->mwiDelayInSeconds) ? $this->mwiDelayInSeconds->getValue() : null;
+        return ($this->mwiDelayInSeconds)
+            ? $this->mwiDelayInSeconds->getElementValue()
+            : null;
     }
 
     /**
@@ -414,7 +444,7 @@ class SystemVoiceMessagingGroupModifyRequest extends ComplexType implements Comp
         $this->voicePortalScope = ($voicePortalScope InstanceOf SystemVoicePortalScope)
              ? $voicePortalScope
              : new SystemVoicePortalScope($voicePortalScope);
-        $this->voicePortalScope->setName('voicePortalScope');
+        $this->voicePortalScope->setElementName('voicePortalScope');
         return $this;
     }
 
@@ -424,7 +454,9 @@ class SystemVoiceMessagingGroupModifyRequest extends ComplexType implements Comp
      */
     public function getVoicePortalScope()
     {
-        return ($this->voicePortalScope) ? $this->voicePortalScope->getValue() : null;
+        return ($this->voicePortalScope)
+            ? $this->voicePortalScope->getElementValue()
+            : null;
     }
 
     /**
@@ -433,7 +465,7 @@ class SystemVoiceMessagingGroupModifyRequest extends ComplexType implements Comp
     public function setNetworkWideMessaging($networkWideMessaging = null)
     {
         $this->networkWideMessaging = new PrimitiveType($networkWideMessaging);
-        $this->networkWideMessaging->setName('networkWideMessaging');
+        $this->networkWideMessaging->setElementName('networkWideMessaging');
         return $this;
     }
 
@@ -443,7 +475,9 @@ class SystemVoiceMessagingGroupModifyRequest extends ComplexType implements Comp
      */
     public function getNetworkWideMessaging()
     {
-        return ($this->networkWideMessaging) ? $this->networkWideMessaging->getValue() : null;
+        return ($this->networkWideMessaging)
+            ? $this->networkWideMessaging->getElementValue()
+            : null;
     }
 
     /**
@@ -452,7 +486,7 @@ class SystemVoiceMessagingGroupModifyRequest extends ComplexType implements Comp
     public function setUseExternalRouting($useExternalRouting = null)
     {
         $this->useExternalRouting = new PrimitiveType($useExternalRouting);
-        $this->useExternalRouting->setName('useExternalRouting');
+        $this->useExternalRouting->setElementName('useExternalRouting');
         return $this;
     }
 
@@ -462,7 +496,9 @@ class SystemVoiceMessagingGroupModifyRequest extends ComplexType implements Comp
      */
     public function getUseExternalRouting()
     {
-        return ($this->useExternalRouting) ? $this->useExternalRouting->getValue() : null;
+        return ($this->useExternalRouting)
+            ? $this->useExternalRouting->getElementValue()
+            : null;
     }
 
     /**
@@ -473,7 +509,7 @@ class SystemVoiceMessagingGroupModifyRequest extends ComplexType implements Comp
         $this->defaultExternalRoutingAddress = ($defaultExternalRoutingAddress InstanceOf OutgoingDNorSIPURI)
              ? $defaultExternalRoutingAddress
              : new OutgoingDNorSIPURI($defaultExternalRoutingAddress);
-        $this->defaultExternalRoutingAddress->setName('defaultExternalRoutingAddress');
+        $this->defaultExternalRoutingAddress->setElementName('defaultExternalRoutingAddress');
         return $this;
     }
 
@@ -483,6 +519,8 @@ class SystemVoiceMessagingGroupModifyRequest extends ComplexType implements Comp
      */
     public function getDefaultExternalRoutingAddress()
     {
-        return ($this->defaultExternalRoutingAddress) ? $this->defaultExternalRoutingAddress->getValue() : null;
+        return ($this->defaultExternalRoutingAddress)
+            ? $this->defaultExternalRoutingAddress->getElementValue()
+            : null;
     }
 }

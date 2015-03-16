@@ -19,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class TrunkGroupDeviceMultipleContactEndpointRead extends ComplexType implements ComplexInterface
 {
-    public    $name = 'TrunkGroupDeviceMultipleContactEndpointRead';
+    public    $elementName = 'TrunkGroupDeviceMultipleContactEndpointRead';
     protected $name;
     protected $linePort;
     protected $contact;
@@ -57,7 +57,7 @@ class TrunkGroupDeviceMultipleContactEndpointRead extends ComplexType implements
     public function setName($name = null)
     {
         $this->name = new SimpleContent($name);
-        $this->name->setName('name');
+        $this->name->setElementName('name');
         return $this;
     }
 
@@ -67,7 +67,9 @@ class TrunkGroupDeviceMultipleContactEndpointRead extends ComplexType implements
      */
     public function getName()
     {
-        return ($this->name) ? $this->name->getValue() : null;
+        return ($this->name)
+            ? $this->name->getElementValue()
+            : null;
     }
 
     /**
@@ -76,7 +78,7 @@ class TrunkGroupDeviceMultipleContactEndpointRead extends ComplexType implements
     public function setLinePort($linePort = null)
     {
         $this->linePort = new SimpleContent($linePort);
-        $this->linePort->setName('linePort');
+        $this->linePort->setElementName('linePort');
         return $this;
     }
 
@@ -86,7 +88,9 @@ class TrunkGroupDeviceMultipleContactEndpointRead extends ComplexType implements
      */
     public function getLinePort()
     {
-        return ($this->linePort) ? $this->linePort->getValue() : null;
+        return ($this->linePort)
+            ? $this->linePort->getElementValue()
+            : null;
     }
 
     /**
@@ -95,7 +99,7 @@ class TrunkGroupDeviceMultipleContactEndpointRead extends ComplexType implements
     public function setContact($contact = null)
     {
         $this->contact = new SimpleContent($contact);
-        $this->contact->setName('contact');
+        $this->contact->setElementName('contact');
         return $this;
     }
 
@@ -105,7 +109,9 @@ class TrunkGroupDeviceMultipleContactEndpointRead extends ComplexType implements
      */
     public function getContact()
     {
-        return ($this->contact) ? $this->contact->getValue() : null;
+        return ($this->contact)
+            ? $this->contact->getElementValue()
+            : null;
     }
 
     /**
@@ -114,7 +120,7 @@ class TrunkGroupDeviceMultipleContactEndpointRead extends ComplexType implements
     public function setStaticRegistrationCapable($staticRegistrationCapable = null)
     {
         $this->staticRegistrationCapable = new SimpleContent($staticRegistrationCapable);
-        $this->staticRegistrationCapable->setName('staticRegistrationCapable');
+        $this->staticRegistrationCapable->setElementName('staticRegistrationCapable');
         return $this;
     }
 
@@ -124,7 +130,9 @@ class TrunkGroupDeviceMultipleContactEndpointRead extends ComplexType implements
      */
     public function getStaticRegistrationCapable()
     {
-        return ($this->staticRegistrationCapable) ? $this->staticRegistrationCapable->getValue() : null;
+        return ($this->staticRegistrationCapable)
+            ? $this->staticRegistrationCapable->getElementValue()
+            : null;
     }
 
     /**
@@ -133,7 +141,7 @@ class TrunkGroupDeviceMultipleContactEndpointRead extends ComplexType implements
     public function setUseDomain($useDomain = null)
     {
         $this->useDomain = new SimpleContent($useDomain);
-        $this->useDomain->setName('useDomain');
+        $this->useDomain->setElementName('useDomain');
         return $this;
     }
 
@@ -143,7 +151,9 @@ class TrunkGroupDeviceMultipleContactEndpointRead extends ComplexType implements
      */
     public function getUseDomain()
     {
-        return ($this->useDomain) ? $this->useDomain->getValue() : null;
+        return ($this->useDomain)
+            ? $this->useDomain->getElementValue()
+            : null;
     }
 
     /**
@@ -152,7 +162,7 @@ class TrunkGroupDeviceMultipleContactEndpointRead extends ComplexType implements
     public function setIsPilotUser($isPilotUser = null)
     {
         $this->isPilotUser = new SimpleContent($isPilotUser);
-        $this->isPilotUser->setName('isPilotUser');
+        $this->isPilotUser->setElementName('isPilotUser');
         return $this;
     }
 
@@ -162,6 +172,8 @@ class TrunkGroupDeviceMultipleContactEndpointRead extends ComplexType implements
      */
     public function getIsPilotUser()
     {
-        return ($this->isPilotUser) ? $this->isPilotUser->getValue() : null;
+        return ($this->isPilotUser)
+            ? $this->isPilotUser->getElementValue()
+            : null;
     }
 }

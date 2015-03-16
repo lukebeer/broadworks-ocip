@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemNumberActivationModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemNumberActivationModifyRequest';
+    public    $elementName = 'SystemNumberActivationModifyRequest';
     protected $useNumberActivation;
 
     public function __construct(
@@ -43,7 +43,7 @@ class SystemNumberActivationModifyRequest extends ComplexType implements Complex
     public function setUseNumberActivation($useNumberActivation = null)
     {
         $this->useNumberActivation = new PrimitiveType($useNumberActivation);
-        $this->useNumberActivation->setName('useNumberActivation');
+        $this->useNumberActivation->setElementName('useNumberActivation');
         return $this;
     }
 
@@ -53,6 +53,8 @@ class SystemNumberActivationModifyRequest extends ComplexType implements Complex
      */
     public function getUseNumberActivation()
     {
-        return ($this->useNumberActivation) ? $this->useNumberActivation->getValue() : null;
+        return ($this->useNumberActivation)
+            ? $this->useNumberActivation->getElementValue()
+            : null;
     }
 }

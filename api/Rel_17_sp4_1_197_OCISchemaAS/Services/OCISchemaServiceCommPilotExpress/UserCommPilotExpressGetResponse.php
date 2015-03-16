@@ -23,7 +23,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserCommPilotExpressGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'UserCommPilotExpressGetResponse';
+    public    $elementName = 'UserCommPilotExpressGetResponse';
     protected $profile;
     protected $availableInOffice;
     protected $availableOutOfOffice;
@@ -46,7 +46,7 @@ class UserCommPilotExpressGetResponse extends ComplexType implements ComplexInte
         $this->profile = ($profile InstanceOf CommPilotExpressProfile)
              ? $profile
              : new CommPilotExpressProfile($profile);
-        $this->profile->setName('profile');
+        $this->profile->setElementName('profile');
         return $this;
     }
 
@@ -56,7 +56,9 @@ class UserCommPilotExpressGetResponse extends ComplexType implements ComplexInte
      */
     public function getProfile()
     {
-        return ($this->profile) ? $this->profile->getValue() : null;
+        return ($this->profile)
+            ? $this->profile->getElementValue()
+            : null;
     }
 
     /**
@@ -67,7 +69,7 @@ class UserCommPilotExpressGetResponse extends ComplexType implements ComplexInte
         $this->availableInOffice = ($availableInOffice InstanceOf CommPilotExpressAvailableInOffice)
              ? $availableInOffice
              : new CommPilotExpressAvailableInOffice($availableInOffice);
-        $this->availableInOffice->setName('availableInOffice');
+        $this->availableInOffice->setElementName('availableInOffice');
         return $this;
     }
 
@@ -88,7 +90,7 @@ class UserCommPilotExpressGetResponse extends ComplexType implements ComplexInte
         $this->availableOutOfOffice = ($availableOutOfOffice InstanceOf CommPilotExpressAvailableOutOfOffice)
              ? $availableOutOfOffice
              : new CommPilotExpressAvailableOutOfOffice($availableOutOfOffice);
-        $this->availableOutOfOffice->setName('availableOutOfOffice');
+        $this->availableOutOfOffice->setElementName('availableOutOfOffice');
         return $this;
     }
 
@@ -109,7 +111,7 @@ class UserCommPilotExpressGetResponse extends ComplexType implements ComplexInte
         $this->busy = ($busy InstanceOf CommPilotExpressBusy)
              ? $busy
              : new CommPilotExpressBusy($busy);
-        $this->busy->setName('busy');
+        $this->busy->setElementName('busy');
         return $this;
     }
 
@@ -130,7 +132,7 @@ class UserCommPilotExpressGetResponse extends ComplexType implements ComplexInte
         $this->unavailable = ($unavailable InstanceOf CommPilotExpressUnavailable)
              ? $unavailable
              : new CommPilotExpressUnavailable($unavailable);
-        $this->unavailable->setName('unavailable');
+        $this->unavailable->setElementName('unavailable');
         return $this;
     }
 

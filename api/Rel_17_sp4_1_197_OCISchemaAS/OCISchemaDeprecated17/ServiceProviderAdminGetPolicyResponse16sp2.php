@@ -34,7 +34,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderAdminGetPolicyResponse16sp2 extends ComplexType implements ComplexInterface
 {
-    public    $name = 'ServiceProviderAdminGetPolicyResponse16sp2';
+    public    $elementName = 'ServiceProviderAdminGetPolicyResponse16sp2';
     protected $profileAccess;
     protected $groupAccess;
     protected $userAccess;
@@ -65,7 +65,7 @@ class ServiceProviderAdminGetPolicyResponse16sp2 extends ComplexType implements 
         $this->profileAccess = ($profileAccess InstanceOf ServiceProviderAdminProfileAccess)
              ? $profileAccess
              : new ServiceProviderAdminProfileAccess($profileAccess);
-        $this->profileAccess->setName('profileAccess');
+        $this->profileAccess->setElementName('profileAccess');
         return $this;
     }
 
@@ -75,7 +75,9 @@ class ServiceProviderAdminGetPolicyResponse16sp2 extends ComplexType implements 
      */
     public function getProfileAccess()
     {
-        return ($this->profileAccess) ? $this->profileAccess->getValue() : null;
+        return ($this->profileAccess)
+            ? $this->profileAccess->getElementValue()
+            : null;
     }
 
     /**
@@ -86,7 +88,7 @@ class ServiceProviderAdminGetPolicyResponse16sp2 extends ComplexType implements 
         $this->groupAccess = ($groupAccess InstanceOf ServiceProviderAdminGroupAccess)
              ? $groupAccess
              : new ServiceProviderAdminGroupAccess($groupAccess);
-        $this->groupAccess->setName('groupAccess');
+        $this->groupAccess->setElementName('groupAccess');
         return $this;
     }
 
@@ -96,7 +98,9 @@ class ServiceProviderAdminGetPolicyResponse16sp2 extends ComplexType implements 
      */
     public function getGroupAccess()
     {
-        return ($this->groupAccess) ? $this->groupAccess->getValue() : null;
+        return ($this->groupAccess)
+            ? $this->groupAccess->getElementValue()
+            : null;
     }
 
     /**
@@ -107,7 +111,7 @@ class ServiceProviderAdminGetPolicyResponse16sp2 extends ComplexType implements 
         $this->userAccess = ($userAccess InstanceOf ServiceProviderAdminUserAccess)
              ? $userAccess
              : new ServiceProviderAdminUserAccess($userAccess);
-        $this->userAccess->setName('userAccess');
+        $this->userAccess->setElementName('userAccess');
         return $this;
     }
 
@@ -117,7 +121,9 @@ class ServiceProviderAdminGetPolicyResponse16sp2 extends ComplexType implements 
      */
     public function getUserAccess()
     {
-        return ($this->userAccess) ? $this->userAccess->getValue() : null;
+        return ($this->userAccess)
+            ? $this->userAccess->getElementValue()
+            : null;
     }
 
     /**
@@ -128,7 +134,7 @@ class ServiceProviderAdminGetPolicyResponse16sp2 extends ComplexType implements 
         $this->adminAccess = ($adminAccess InstanceOf ServiceProviderAdminAdminAccess)
              ? $adminAccess
              : new ServiceProviderAdminAdminAccess($adminAccess);
-        $this->adminAccess->setName('adminAccess');
+        $this->adminAccess->setElementName('adminAccess');
         return $this;
     }
 
@@ -138,7 +144,9 @@ class ServiceProviderAdminGetPolicyResponse16sp2 extends ComplexType implements 
      */
     public function getAdminAccess()
     {
-        return ($this->adminAccess) ? $this->adminAccess->getValue() : null;
+        return ($this->adminAccess)
+            ? $this->adminAccess->getElementValue()
+            : null;
     }
 
     /**
@@ -149,7 +157,7 @@ class ServiceProviderAdminGetPolicyResponse16sp2 extends ComplexType implements 
         $this->departmentAccess = ($departmentAccess InstanceOf ServiceProviderAdminDepartmentAccess)
              ? $departmentAccess
              : new ServiceProviderAdminDepartmentAccess($departmentAccess);
-        $this->departmentAccess->setName('departmentAccess');
+        $this->departmentAccess->setElementName('departmentAccess');
         return $this;
     }
 
@@ -159,7 +167,9 @@ class ServiceProviderAdminGetPolicyResponse16sp2 extends ComplexType implements 
      */
     public function getDepartmentAccess()
     {
-        return ($this->departmentAccess) ? $this->departmentAccess->getValue() : null;
+        return ($this->departmentAccess)
+            ? $this->departmentAccess->getElementValue()
+            : null;
     }
 
     /**
@@ -170,7 +180,7 @@ class ServiceProviderAdminGetPolicyResponse16sp2 extends ComplexType implements 
         $this->accessDeviceAccess = ($accessDeviceAccess InstanceOf ServiceProviderAdminAccessDeviceAccess)
              ? $accessDeviceAccess
              : new ServiceProviderAdminAccessDeviceAccess($accessDeviceAccess);
-        $this->accessDeviceAccess->setName('accessDeviceAccess');
+        $this->accessDeviceAccess->setElementName('accessDeviceAccess');
         return $this;
     }
 
@@ -180,7 +190,9 @@ class ServiceProviderAdminGetPolicyResponse16sp2 extends ComplexType implements 
      */
     public function getAccessDeviceAccess()
     {
-        return ($this->accessDeviceAccess) ? $this->accessDeviceAccess->getValue() : null;
+        return ($this->accessDeviceAccess)
+            ? $this->accessDeviceAccess->getElementValue()
+            : null;
     }
 
     /**
@@ -191,7 +203,7 @@ class ServiceProviderAdminGetPolicyResponse16sp2 extends ComplexType implements 
         $this->phoneNumberExtensionAccess = ($phoneNumberExtensionAccess InstanceOf ServiceProviderAdminPhoneNumberExtensionAccess)
              ? $phoneNumberExtensionAccess
              : new ServiceProviderAdminPhoneNumberExtensionAccess($phoneNumberExtensionAccess);
-        $this->phoneNumberExtensionAccess->setName('phoneNumberExtensionAccess');
+        $this->phoneNumberExtensionAccess->setElementName('phoneNumberExtensionAccess');
         return $this;
     }
 
@@ -201,7 +213,9 @@ class ServiceProviderAdminGetPolicyResponse16sp2 extends ComplexType implements 
      */
     public function getPhoneNumberExtensionAccess()
     {
-        return ($this->phoneNumberExtensionAccess) ? $this->phoneNumberExtensionAccess->getValue() : null;
+        return ($this->phoneNumberExtensionAccess)
+            ? $this->phoneNumberExtensionAccess->getElementValue()
+            : null;
     }
 
     /**
@@ -212,7 +226,7 @@ class ServiceProviderAdminGetPolicyResponse16sp2 extends ComplexType implements 
         $this->serviceAccess = ($serviceAccess InstanceOf ServiceProviderAdminServiceAccess)
              ? $serviceAccess
              : new ServiceProviderAdminServiceAccess($serviceAccess);
-        $this->serviceAccess->setName('serviceAccess');
+        $this->serviceAccess->setElementName('serviceAccess');
         return $this;
     }
 
@@ -222,7 +236,9 @@ class ServiceProviderAdminGetPolicyResponse16sp2 extends ComplexType implements 
      */
     public function getServiceAccess()
     {
-        return ($this->serviceAccess) ? $this->serviceAccess->getValue() : null;
+        return ($this->serviceAccess)
+            ? $this->serviceAccess->getElementValue()
+            : null;
     }
 
     /**
@@ -233,7 +249,7 @@ class ServiceProviderAdminGetPolicyResponse16sp2 extends ComplexType implements 
         $this->servicePackAccess = ($servicePackAccess InstanceOf ServiceProviderAdminServicePackAccess)
              ? $servicePackAccess
              : new ServiceProviderAdminServicePackAccess($servicePackAccess);
-        $this->servicePackAccess->setName('servicePackAccess');
+        $this->servicePackAccess->setElementName('servicePackAccess');
         return $this;
     }
 
@@ -243,7 +259,9 @@ class ServiceProviderAdminGetPolicyResponse16sp2 extends ComplexType implements 
      */
     public function getServicePackAccess()
     {
-        return ($this->servicePackAccess) ? $this->servicePackAccess->getValue() : null;
+        return ($this->servicePackAccess)
+            ? $this->servicePackAccess->getElementValue()
+            : null;
     }
 
     /**
@@ -254,7 +272,7 @@ class ServiceProviderAdminGetPolicyResponse16sp2 extends ComplexType implements 
         $this->sessionAdmissionControlAccess = ($sessionAdmissionControlAccess InstanceOf ServiceProviderAdminSessionAdmissionControlAccess)
              ? $sessionAdmissionControlAccess
              : new ServiceProviderAdminSessionAdmissionControlAccess($sessionAdmissionControlAccess);
-        $this->sessionAdmissionControlAccess->setName('sessionAdmissionControlAccess');
+        $this->sessionAdmissionControlAccess->setElementName('sessionAdmissionControlAccess');
         return $this;
     }
 
@@ -264,7 +282,9 @@ class ServiceProviderAdminGetPolicyResponse16sp2 extends ComplexType implements 
      */
     public function getSessionAdmissionControlAccess()
     {
-        return ($this->sessionAdmissionControlAccess) ? $this->sessionAdmissionControlAccess->getValue() : null;
+        return ($this->sessionAdmissionControlAccess)
+            ? $this->sessionAdmissionControlAccess->getElementValue()
+            : null;
     }
 
     /**
@@ -275,7 +295,7 @@ class ServiceProviderAdminGetPolicyResponse16sp2 extends ComplexType implements 
         $this->webBrandingAccess = ($webBrandingAccess InstanceOf ServiceProviderAdminWebBrandingAccess)
              ? $webBrandingAccess
              : new ServiceProviderAdminWebBrandingAccess($webBrandingAccess);
-        $this->webBrandingAccess->setName('webBrandingAccess');
+        $this->webBrandingAccess->setElementName('webBrandingAccess');
         return $this;
     }
 
@@ -285,7 +305,9 @@ class ServiceProviderAdminGetPolicyResponse16sp2 extends ComplexType implements 
      */
     public function getWebBrandingAccess()
     {
-        return ($this->webBrandingAccess) ? $this->webBrandingAccess->getValue() : null;
+        return ($this->webBrandingAccess)
+            ? $this->webBrandingAccess->getElementValue()
+            : null;
     }
 
     /**
@@ -296,7 +318,7 @@ class ServiceProviderAdminGetPolicyResponse16sp2 extends ComplexType implements 
         $this->networkPolicyAccess = ($networkPolicyAccess InstanceOf EnterpriseAdminNetworkPolicyAccess)
              ? $networkPolicyAccess
              : new EnterpriseAdminNetworkPolicyAccess($networkPolicyAccess);
-        $this->networkPolicyAccess->setName('networkPolicyAccess');
+        $this->networkPolicyAccess->setElementName('networkPolicyAccess');
         return $this;
     }
 
@@ -306,7 +328,9 @@ class ServiceProviderAdminGetPolicyResponse16sp2 extends ComplexType implements 
      */
     public function getNetworkPolicyAccess()
     {
-        return ($this->networkPolicyAccess) ? $this->networkPolicyAccess->getValue() : null;
+        return ($this->networkPolicyAccess)
+            ? $this->networkPolicyAccess->getElementValue()
+            : null;
     }
 
     /**
@@ -317,7 +341,7 @@ class ServiceProviderAdminGetPolicyResponse16sp2 extends ComplexType implements 
         $this->dialableCallerIDAccess = ($dialableCallerIDAccess InstanceOf ServiceProviderAdminDialableCallerIDAccess)
              ? $dialableCallerIDAccess
              : new ServiceProviderAdminDialableCallerIDAccess($dialableCallerIDAccess);
-        $this->dialableCallerIDAccess->setName('dialableCallerIDAccess');
+        $this->dialableCallerIDAccess->setElementName('dialableCallerIDAccess');
         return $this;
     }
 
@@ -327,6 +351,8 @@ class ServiceProviderAdminGetPolicyResponse16sp2 extends ComplexType implements 
      */
     public function getDialableCallerIDAccess()
     {
-        return ($this->dialableCallerIDAccess) ? $this->dialableCallerIDAccess->getValue() : null;
+        return ($this->dialableCallerIDAccess)
+            ? $this->dialableCallerIDAccess->getElementValue()
+            : null;
     }
 }

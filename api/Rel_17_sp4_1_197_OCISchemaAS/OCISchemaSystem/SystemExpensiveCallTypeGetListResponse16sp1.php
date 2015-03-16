@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemExpensiveCallTypeGetListResponse16sp1 extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemExpensiveCallTypeGetListResponse16sp1';
+    public    $elementName = 'SystemExpensiveCallTypeGetListResponse16sp1';
     protected $alternateCallIndicatorTable;
 
     /**
@@ -38,7 +38,7 @@ class SystemExpensiveCallTypeGetListResponse16sp1 extends ComplexType implements
     public function setAlternateCallIndicatorTable(TableType $alternateCallIndicatorTable = null)
     {
         $this->alternateCallIndicatorTable = $alternateCallIndicatorTable;
-        $this->alternateCallIndicatorTable->setName('alternateCallIndicatorTable');
+        $this->alternateCallIndicatorTable->setElementName('alternateCallIndicatorTable');
         return $this;
     }
 

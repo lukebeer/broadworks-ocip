@@ -25,7 +25,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupServiceModifyAuthorizationListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'GroupServiceModifyAuthorizationListRequest';
+    public    $elementName = 'GroupServiceModifyAuthorizationListRequest';
     protected $serviceProviderId;
     protected $groupId;
     protected $servicePackAuthorization;
@@ -62,7 +62,7 @@ class GroupServiceModifyAuthorizationListRequest extends ComplexType implements 
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
-        $this->serviceProviderId->setName('serviceProviderId');
+        $this->serviceProviderId->setElementName('serviceProviderId');
         return $this;
     }
 
@@ -72,7 +72,9 @@ class GroupServiceModifyAuthorizationListRequest extends ComplexType implements 
      */
     public function getServiceProviderId()
     {
-        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
+        return ($this->serviceProviderId)
+            ? $this->serviceProviderId->getElementValue()
+            : null;
     }
 
     /**
@@ -83,7 +85,7 @@ class GroupServiceModifyAuthorizationListRequest extends ComplexType implements 
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
-        $this->groupId->setName('groupId');
+        $this->groupId->setElementName('groupId');
         return $this;
     }
 
@@ -93,7 +95,9 @@ class GroupServiceModifyAuthorizationListRequest extends ComplexType implements 
      */
     public function getGroupId()
     {
-        return ($this->groupId) ? $this->groupId->getValue() : null;
+        return ($this->groupId)
+            ? $this->groupId->getElementValue()
+            : null;
     }
 
     /**
@@ -104,7 +108,7 @@ class GroupServiceModifyAuthorizationListRequest extends ComplexType implements 
         $this->servicePackAuthorization = ($servicePackAuthorization InstanceOf ServicePackAuthorization)
              ? $servicePackAuthorization
              : new ServicePackAuthorization($servicePackAuthorization);
-        $this->servicePackAuthorization->setName('servicePackAuthorization');
+        $this->servicePackAuthorization->setElementName('servicePackAuthorization');
         return $this;
     }
 
@@ -125,7 +129,7 @@ class GroupServiceModifyAuthorizationListRequest extends ComplexType implements 
         $this->groupServiceAuthorization = ($groupServiceAuthorization InstanceOf GroupServiceAuthorization)
              ? $groupServiceAuthorization
              : new GroupServiceAuthorization($groupServiceAuthorization);
-        $this->groupServiceAuthorization->setName('groupServiceAuthorization');
+        $this->groupServiceAuthorization->setElementName('groupServiceAuthorization');
         return $this;
     }
 
@@ -146,7 +150,7 @@ class GroupServiceModifyAuthorizationListRequest extends ComplexType implements 
         $this->userServiceAuthorization = ($userServiceAuthorization InstanceOf UserServiceAuthorization)
              ? $userServiceAuthorization
              : new UserServiceAuthorization($userServiceAuthorization);
-        $this->userServiceAuthorization->setName('userServiceAuthorization');
+        $this->userServiceAuthorization->setElementName('userServiceAuthorization');
         return $this;
     }
 

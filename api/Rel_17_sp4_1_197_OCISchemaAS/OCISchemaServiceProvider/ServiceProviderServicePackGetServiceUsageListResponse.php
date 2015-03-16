@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderServicePackGetServiceUsageListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'ServiceProviderServicePackGetServiceUsageListResponse';
+    public    $elementName = 'ServiceProviderServicePackGetServiceUsageListResponse';
     protected $serviceUsageTable;
 
     /**
@@ -37,7 +37,7 @@ class ServiceProviderServicePackGetServiceUsageListResponse extends ComplexType 
     public function setServiceUsageTable(TableType $serviceUsageTable = null)
     {
         $this->serviceUsageTable = $serviceUsageTable;
-        $this->serviceUsageTable->setName('serviceUsageTable');
+        $this->serviceUsageTable->setElementName('serviceUsageTable');
         return $this;
     }
 

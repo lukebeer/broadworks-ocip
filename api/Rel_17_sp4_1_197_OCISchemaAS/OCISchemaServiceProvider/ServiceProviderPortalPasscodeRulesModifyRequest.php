@@ -26,7 +26,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderPortalPasscodeRulesModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'ServiceProviderPortalPasscodeRulesModifyRequest';
+    public    $elementName = 'ServiceProviderPortalPasscodeRulesModifyRequest';
     protected $serviceProviderId;
     protected $disallowRepeatedDigits;
     protected $disallowUserNumber;
@@ -90,7 +90,7 @@ class ServiceProviderPortalPasscodeRulesModifyRequest extends ComplexType implem
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
-        $this->serviceProviderId->setName('serviceProviderId');
+        $this->serviceProviderId->setElementName('serviceProviderId');
         return $this;
     }
 
@@ -100,7 +100,9 @@ class ServiceProviderPortalPasscodeRulesModifyRequest extends ComplexType implem
      */
     public function getServiceProviderId()
     {
-        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
+        return ($this->serviceProviderId)
+            ? $this->serviceProviderId->getElementValue()
+            : null;
     }
 
     /**
@@ -109,7 +111,7 @@ class ServiceProviderPortalPasscodeRulesModifyRequest extends ComplexType implem
     public function setDisallowRepeatedDigits($disallowRepeatedDigits = null)
     {
         $this->disallowRepeatedDigits = new PrimitiveType($disallowRepeatedDigits);
-        $this->disallowRepeatedDigits->setName('disallowRepeatedDigits');
+        $this->disallowRepeatedDigits->setElementName('disallowRepeatedDigits');
         return $this;
     }
 
@@ -119,7 +121,9 @@ class ServiceProviderPortalPasscodeRulesModifyRequest extends ComplexType implem
      */
     public function getDisallowRepeatedDigits()
     {
-        return ($this->disallowRepeatedDigits) ? $this->disallowRepeatedDigits->getValue() : null;
+        return ($this->disallowRepeatedDigits)
+            ? $this->disallowRepeatedDigits->getElementValue()
+            : null;
     }
 
     /**
@@ -128,7 +132,7 @@ class ServiceProviderPortalPasscodeRulesModifyRequest extends ComplexType implem
     public function setDisallowUserNumber($disallowUserNumber = null)
     {
         $this->disallowUserNumber = new PrimitiveType($disallowUserNumber);
-        $this->disallowUserNumber->setName('disallowUserNumber');
+        $this->disallowUserNumber->setElementName('disallowUserNumber');
         return $this;
     }
 
@@ -138,7 +142,9 @@ class ServiceProviderPortalPasscodeRulesModifyRequest extends ComplexType implem
      */
     public function getDisallowUserNumber()
     {
-        return ($this->disallowUserNumber) ? $this->disallowUserNumber->getValue() : null;
+        return ($this->disallowUserNumber)
+            ? $this->disallowUserNumber->getElementValue()
+            : null;
     }
 
     /**
@@ -147,7 +153,7 @@ class ServiceProviderPortalPasscodeRulesModifyRequest extends ComplexType implem
     public function setDisallowReversedUserNumber($disallowReversedUserNumber = null)
     {
         $this->disallowReversedUserNumber = new PrimitiveType($disallowReversedUserNumber);
-        $this->disallowReversedUserNumber->setName('disallowReversedUserNumber');
+        $this->disallowReversedUserNumber->setElementName('disallowReversedUserNumber');
         return $this;
     }
 
@@ -157,7 +163,9 @@ class ServiceProviderPortalPasscodeRulesModifyRequest extends ComplexType implem
      */
     public function getDisallowReversedUserNumber()
     {
-        return ($this->disallowReversedUserNumber) ? $this->disallowReversedUserNumber->getValue() : null;
+        return ($this->disallowReversedUserNumber)
+            ? $this->disallowReversedUserNumber->getElementValue()
+            : null;
     }
 
     /**
@@ -166,7 +174,7 @@ class ServiceProviderPortalPasscodeRulesModifyRequest extends ComplexType implem
     public function setDisallowOldPasscode($disallowOldPasscode = null)
     {
         $this->disallowOldPasscode = new PrimitiveType($disallowOldPasscode);
-        $this->disallowOldPasscode->setName('disallowOldPasscode');
+        $this->disallowOldPasscode->setElementName('disallowOldPasscode');
         return $this;
     }
 
@@ -176,7 +184,9 @@ class ServiceProviderPortalPasscodeRulesModifyRequest extends ComplexType implem
      */
     public function getDisallowOldPasscode()
     {
-        return ($this->disallowOldPasscode) ? $this->disallowOldPasscode->getValue() : null;
+        return ($this->disallowOldPasscode)
+            ? $this->disallowOldPasscode->getElementValue()
+            : null;
     }
 
     /**
@@ -185,7 +195,7 @@ class ServiceProviderPortalPasscodeRulesModifyRequest extends ComplexType implem
     public function setDisallowReversedOldPasscode($disallowReversedOldPasscode = null)
     {
         $this->disallowReversedOldPasscode = new PrimitiveType($disallowReversedOldPasscode);
-        $this->disallowReversedOldPasscode->setName('disallowReversedOldPasscode');
+        $this->disallowReversedOldPasscode->setElementName('disallowReversedOldPasscode');
         return $this;
     }
 
@@ -195,7 +205,9 @@ class ServiceProviderPortalPasscodeRulesModifyRequest extends ComplexType implem
      */
     public function getDisallowReversedOldPasscode()
     {
-        return ($this->disallowReversedOldPasscode) ? $this->disallowReversedOldPasscode->getValue() : null;
+        return ($this->disallowReversedOldPasscode)
+            ? $this->disallowReversedOldPasscode->getElementValue()
+            : null;
     }
 
     /**
@@ -206,7 +218,7 @@ class ServiceProviderPortalPasscodeRulesModifyRequest extends ComplexType implem
         $this->minCodeLength = ($minCodeLength InstanceOf PasscodeMinLength)
              ? $minCodeLength
              : new PasscodeMinLength($minCodeLength);
-        $this->minCodeLength->setName('minCodeLength');
+        $this->minCodeLength->setElementName('minCodeLength');
         return $this;
     }
 
@@ -216,7 +228,9 @@ class ServiceProviderPortalPasscodeRulesModifyRequest extends ComplexType implem
      */
     public function getMinCodeLength()
     {
-        return ($this->minCodeLength) ? $this->minCodeLength->getValue() : null;
+        return ($this->minCodeLength)
+            ? $this->minCodeLength->getElementValue()
+            : null;
     }
 
     /**
@@ -227,7 +241,7 @@ class ServiceProviderPortalPasscodeRulesModifyRequest extends ComplexType implem
         $this->maxCodeLength = ($maxCodeLength InstanceOf PasscodeMaxLength)
              ? $maxCodeLength
              : new PasscodeMaxLength($maxCodeLength);
-        $this->maxCodeLength->setName('maxCodeLength');
+        $this->maxCodeLength->setElementName('maxCodeLength');
         return $this;
     }
 
@@ -237,7 +251,9 @@ class ServiceProviderPortalPasscodeRulesModifyRequest extends ComplexType implem
      */
     public function getMaxCodeLength()
     {
-        return ($this->maxCodeLength) ? $this->maxCodeLength->getValue() : null;
+        return ($this->maxCodeLength)
+            ? $this->maxCodeLength->getElementValue()
+            : null;
     }
 
     /**
@@ -246,7 +262,7 @@ class ServiceProviderPortalPasscodeRulesModifyRequest extends ComplexType implem
     public function setDisableLoginAfterMaxFailedLoginAttempts($disableLoginAfterMaxFailedLoginAttempts = null)
     {
         $this->disableLoginAfterMaxFailedLoginAttempts = new PrimitiveType($disableLoginAfterMaxFailedLoginAttempts);
-        $this->disableLoginAfterMaxFailedLoginAttempts->setName('disableLoginAfterMaxFailedLoginAttempts');
+        $this->disableLoginAfterMaxFailedLoginAttempts->setElementName('disableLoginAfterMaxFailedLoginAttempts');
         return $this;
     }
 
@@ -256,7 +272,9 @@ class ServiceProviderPortalPasscodeRulesModifyRequest extends ComplexType implem
      */
     public function getDisableLoginAfterMaxFailedLoginAttempts()
     {
-        return ($this->disableLoginAfterMaxFailedLoginAttempts) ? $this->disableLoginAfterMaxFailedLoginAttempts->getValue() : null;
+        return ($this->disableLoginAfterMaxFailedLoginAttempts)
+            ? $this->disableLoginAfterMaxFailedLoginAttempts->getElementValue()
+            : null;
     }
 
     /**
@@ -267,7 +285,7 @@ class ServiceProviderPortalPasscodeRulesModifyRequest extends ComplexType implem
         $this->maxFailedLoginAttempts = ($maxFailedLoginAttempts InstanceOf PortalMaxFailedLoginAttempts)
              ? $maxFailedLoginAttempts
              : new PortalMaxFailedLoginAttempts($maxFailedLoginAttempts);
-        $this->maxFailedLoginAttempts->setName('maxFailedLoginAttempts');
+        $this->maxFailedLoginAttempts->setElementName('maxFailedLoginAttempts');
         return $this;
     }
 
@@ -277,7 +295,9 @@ class ServiceProviderPortalPasscodeRulesModifyRequest extends ComplexType implem
      */
     public function getMaxFailedLoginAttempts()
     {
-        return ($this->maxFailedLoginAttempts) ? $this->maxFailedLoginAttempts->getValue() : null;
+        return ($this->maxFailedLoginAttempts)
+            ? $this->maxFailedLoginAttempts->getElementValue()
+            : null;
     }
 
     /**
@@ -286,7 +306,7 @@ class ServiceProviderPortalPasscodeRulesModifyRequest extends ComplexType implem
     public function setExpirePassword($expirePassword = null)
     {
         $this->expirePassword = new PrimitiveType($expirePassword);
-        $this->expirePassword->setName('expirePassword');
+        $this->expirePassword->setElementName('expirePassword');
         return $this;
     }
 
@@ -296,7 +316,9 @@ class ServiceProviderPortalPasscodeRulesModifyRequest extends ComplexType implem
      */
     public function getExpirePassword()
     {
-        return ($this->expirePassword) ? $this->expirePassword->getValue() : null;
+        return ($this->expirePassword)
+            ? $this->expirePassword->getElementValue()
+            : null;
     }
 
     /**
@@ -307,7 +329,7 @@ class ServiceProviderPortalPasscodeRulesModifyRequest extends ComplexType implem
         $this->passcodeExpiresDays = ($passcodeExpiresDays InstanceOf PasscodeExpiresDays)
              ? $passcodeExpiresDays
              : new PasscodeExpiresDays($passcodeExpiresDays);
-        $this->passcodeExpiresDays->setName('passcodeExpiresDays');
+        $this->passcodeExpiresDays->setElementName('passcodeExpiresDays');
         return $this;
     }
 
@@ -317,7 +339,9 @@ class ServiceProviderPortalPasscodeRulesModifyRequest extends ComplexType implem
      */
     public function getPasscodeExpiresDays()
     {
-        return ($this->passcodeExpiresDays) ? $this->passcodeExpiresDays->getValue() : null;
+        return ($this->passcodeExpiresDays)
+            ? $this->passcodeExpiresDays->getElementValue()
+            : null;
     }
 
     /**
@@ -326,7 +350,7 @@ class ServiceProviderPortalPasscodeRulesModifyRequest extends ComplexType implem
     public function setSendLoginDisabledNotifyEmail($sendLoginDisabledNotifyEmail = null)
     {
         $this->sendLoginDisabledNotifyEmail = new PrimitiveType($sendLoginDisabledNotifyEmail);
-        $this->sendLoginDisabledNotifyEmail->setName('sendLoginDisabledNotifyEmail');
+        $this->sendLoginDisabledNotifyEmail->setElementName('sendLoginDisabledNotifyEmail');
         return $this;
     }
 
@@ -336,7 +360,9 @@ class ServiceProviderPortalPasscodeRulesModifyRequest extends ComplexType implem
      */
     public function getSendLoginDisabledNotifyEmail()
     {
-        return ($this->sendLoginDisabledNotifyEmail) ? $this->sendLoginDisabledNotifyEmail->getValue() : null;
+        return ($this->sendLoginDisabledNotifyEmail)
+            ? $this->sendLoginDisabledNotifyEmail->getElementValue()
+            : null;
     }
 
     /**
@@ -347,7 +373,7 @@ class ServiceProviderPortalPasscodeRulesModifyRequest extends ComplexType implem
         $this->loginDisabledNotifyEmailAddress = ($loginDisabledNotifyEmailAddress InstanceOf EmailAddress)
              ? $loginDisabledNotifyEmailAddress
              : new EmailAddress($loginDisabledNotifyEmailAddress);
-        $this->loginDisabledNotifyEmailAddress->setName('loginDisabledNotifyEmailAddress');
+        $this->loginDisabledNotifyEmailAddress->setElementName('loginDisabledNotifyEmailAddress');
         return $this;
     }
 
@@ -357,6 +383,8 @@ class ServiceProviderPortalPasscodeRulesModifyRequest extends ComplexType implem
      */
     public function getLoginDisabledNotifyEmailAddress()
     {
-        return ($this->loginDisabledNotifyEmailAddress) ? $this->loginDisabledNotifyEmailAddress->getValue() : null;
+        return ($this->loginDisabledNotifyEmailAddress)
+            ? $this->loginDisabledNotifyEmailAddress->getElementValue()
+            : null;
     }
 }

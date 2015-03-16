@@ -19,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class OutgoingPinholeDigitPlanDigitPatternRedirectingDepartmentPermissions extends ComplexType implements ComplexInterface
 {
-    public    $name = 'OutgoingPinholeDigitPlanDigitPatternRedirectingDepartmentPermissions';
+    public    $elementName = 'OutgoingPinholeDigitPlanDigitPatternRedirectingDepartmentPermissions';
     protected $departmentKey;
     protected $departmentName;
     protected $permissions;
@@ -48,7 +48,7 @@ class OutgoingPinholeDigitPlanDigitPatternRedirectingDepartmentPermissions exten
     public function setDepartmentKey($departmentKey = null)
     {
         $this->departmentKey = new SimpleContent($departmentKey);
-        $this->departmentKey->setName('departmentKey');
+        $this->departmentKey->setElementName('departmentKey');
         return $this;
     }
 
@@ -58,7 +58,9 @@ class OutgoingPinholeDigitPlanDigitPatternRedirectingDepartmentPermissions exten
      */
     public function getDepartmentKey()
     {
-        return ($this->departmentKey) ? $this->departmentKey->getValue() : null;
+        return ($this->departmentKey)
+            ? $this->departmentKey->getElementValue()
+            : null;
     }
 
     /**
@@ -67,7 +69,7 @@ class OutgoingPinholeDigitPlanDigitPatternRedirectingDepartmentPermissions exten
     public function setDepartmentName($departmentName = null)
     {
         $this->departmentName = new SimpleContent($departmentName);
-        $this->departmentName->setName('departmentName');
+        $this->departmentName->setElementName('departmentName');
         return $this;
     }
 
@@ -77,7 +79,9 @@ class OutgoingPinholeDigitPlanDigitPatternRedirectingDepartmentPermissions exten
      */
     public function getDepartmentName()
     {
-        return ($this->departmentName) ? $this->departmentName->getValue() : null;
+        return ($this->departmentName)
+            ? $this->departmentName->getElementValue()
+            : null;
     }
 
     /**
@@ -86,7 +90,7 @@ class OutgoingPinholeDigitPlanDigitPatternRedirectingDepartmentPermissions exten
     public function setPermissions($permissions = null)
     {
         $this->permissions = new SimpleContent($permissions);
-        $this->permissions->setName('permissions');
+        $this->permissions->setElementName('permissions');
         return $this;
     }
 
@@ -96,6 +100,8 @@ class OutgoingPinholeDigitPlanDigitPatternRedirectingDepartmentPermissions exten
      */
     public function getPermissions()
     {
-        return ($this->permissions) ? $this->permissions->getValue() : null;
+        return ($this->permissions)
+            ? $this->permissions->getElementValue()
+            : null;
     }
 }

@@ -26,7 +26,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserThirdPartyVoiceMailSupportModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'UserThirdPartyVoiceMailSupportModifyRequest';
+    public    $elementName = 'UserThirdPartyVoiceMailSupportModifyRequest';
     protected $userId;
     protected $isActive;
     protected $busyRedirectToVoiceMail;
@@ -81,7 +81,7 @@ class UserThirdPartyVoiceMailSupportModifyRequest extends ComplexType implements
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
-        $this->userId->setName('userId');
+        $this->userId->setElementName('userId');
         return $this;
     }
 
@@ -91,7 +91,9 @@ class UserThirdPartyVoiceMailSupportModifyRequest extends ComplexType implements
      */
     public function getUserId()
     {
-        return ($this->userId) ? $this->userId->getValue() : null;
+        return ($this->userId)
+            ? $this->userId->getElementValue()
+            : null;
     }
 
     /**
@@ -100,7 +102,7 @@ class UserThirdPartyVoiceMailSupportModifyRequest extends ComplexType implements
     public function setIsActive($isActive = null)
     {
         $this->isActive = new PrimitiveType($isActive);
-        $this->isActive->setName('isActive');
+        $this->isActive->setElementName('isActive');
         return $this;
     }
 
@@ -110,7 +112,9 @@ class UserThirdPartyVoiceMailSupportModifyRequest extends ComplexType implements
      */
     public function getIsActive()
     {
-        return ($this->isActive) ? $this->isActive->getValue() : null;
+        return ($this->isActive)
+            ? $this->isActive->getElementValue()
+            : null;
     }
 
     /**
@@ -119,7 +123,7 @@ class UserThirdPartyVoiceMailSupportModifyRequest extends ComplexType implements
     public function setBusyRedirectToVoiceMail($busyRedirectToVoiceMail = null)
     {
         $this->busyRedirectToVoiceMail = new PrimitiveType($busyRedirectToVoiceMail);
-        $this->busyRedirectToVoiceMail->setName('busyRedirectToVoiceMail');
+        $this->busyRedirectToVoiceMail->setElementName('busyRedirectToVoiceMail');
         return $this;
     }
 
@@ -129,7 +133,9 @@ class UserThirdPartyVoiceMailSupportModifyRequest extends ComplexType implements
      */
     public function getBusyRedirectToVoiceMail()
     {
-        return ($this->busyRedirectToVoiceMail) ? $this->busyRedirectToVoiceMail->getValue() : null;
+        return ($this->busyRedirectToVoiceMail)
+            ? $this->busyRedirectToVoiceMail->getElementValue()
+            : null;
     }
 
     /**
@@ -138,7 +144,7 @@ class UserThirdPartyVoiceMailSupportModifyRequest extends ComplexType implements
     public function setNoAnswerRedirectToVoiceMail($noAnswerRedirectToVoiceMail = null)
     {
         $this->noAnswerRedirectToVoiceMail = new PrimitiveType($noAnswerRedirectToVoiceMail);
-        $this->noAnswerRedirectToVoiceMail->setName('noAnswerRedirectToVoiceMail');
+        $this->noAnswerRedirectToVoiceMail->setElementName('noAnswerRedirectToVoiceMail');
         return $this;
     }
 
@@ -148,7 +154,9 @@ class UserThirdPartyVoiceMailSupportModifyRequest extends ComplexType implements
      */
     public function getNoAnswerRedirectToVoiceMail()
     {
-        return ($this->noAnswerRedirectToVoiceMail) ? $this->noAnswerRedirectToVoiceMail->getValue() : null;
+        return ($this->noAnswerRedirectToVoiceMail)
+            ? $this->noAnswerRedirectToVoiceMail->getElementValue()
+            : null;
     }
 
     /**
@@ -159,7 +167,7 @@ class UserThirdPartyVoiceMailSupportModifyRequest extends ComplexType implements
         $this->serverSelection = ($serverSelection InstanceOf ThirdPartyVoiceMailSupportServerSelection)
              ? $serverSelection
              : new ThirdPartyVoiceMailSupportServerSelection($serverSelection);
-        $this->serverSelection->setName('serverSelection');
+        $this->serverSelection->setElementName('serverSelection');
         return $this;
     }
 
@@ -169,7 +177,9 @@ class UserThirdPartyVoiceMailSupportModifyRequest extends ComplexType implements
      */
     public function getServerSelection()
     {
-        return ($this->serverSelection) ? $this->serverSelection->getValue() : null;
+        return ($this->serverSelection)
+            ? $this->serverSelection->getElementValue()
+            : null;
     }
 
     /**
@@ -180,7 +190,7 @@ class UserThirdPartyVoiceMailSupportModifyRequest extends ComplexType implements
         $this->userServer = ($userServer InstanceOf ThirdPartyVoiceMailSupportMailServer)
              ? $userServer
              : new ThirdPartyVoiceMailSupportMailServer($userServer);
-        $this->userServer->setName('userServer');
+        $this->userServer->setElementName('userServer');
         return $this;
     }
 
@@ -190,7 +200,9 @@ class UserThirdPartyVoiceMailSupportModifyRequest extends ComplexType implements
      */
     public function getUserServer()
     {
-        return ($this->userServer) ? $this->userServer->getValue() : null;
+        return ($this->userServer)
+            ? $this->userServer->getElementValue()
+            : null;
     }
 
     /**
@@ -201,7 +213,7 @@ class UserThirdPartyVoiceMailSupportModifyRequest extends ComplexType implements
         $this->mailboxIdType = ($mailboxIdType InstanceOf ThirdPartyVoiceMailSupportMailboxIdType)
              ? $mailboxIdType
              : new ThirdPartyVoiceMailSupportMailboxIdType($mailboxIdType);
-        $this->mailboxIdType->setName('mailboxIdType');
+        $this->mailboxIdType->setElementName('mailboxIdType');
         return $this;
     }
 
@@ -211,7 +223,9 @@ class UserThirdPartyVoiceMailSupportModifyRequest extends ComplexType implements
      */
     public function getMailboxIdType()
     {
-        return ($this->mailboxIdType) ? $this->mailboxIdType->getValue() : null;
+        return ($this->mailboxIdType)
+            ? $this->mailboxIdType->getElementValue()
+            : null;
     }
 
     /**
@@ -222,7 +236,7 @@ class UserThirdPartyVoiceMailSupportModifyRequest extends ComplexType implements
         $this->mailboxURL = ($mailboxURL InstanceOf SIPURI)
              ? $mailboxURL
              : new SIPURI($mailboxURL);
-        $this->mailboxURL->setName('mailboxURL');
+        $this->mailboxURL->setElementName('mailboxURL');
         return $this;
     }
 
@@ -232,7 +246,9 @@ class UserThirdPartyVoiceMailSupportModifyRequest extends ComplexType implements
      */
     public function getMailboxURL()
     {
-        return ($this->mailboxURL) ? $this->mailboxURL->getValue() : null;
+        return ($this->mailboxURL)
+            ? $this->mailboxURL->getElementValue()
+            : null;
     }
 
     /**
@@ -243,7 +259,7 @@ class UserThirdPartyVoiceMailSupportModifyRequest extends ComplexType implements
         $this->noAnswerNumberOfRings = ($noAnswerNumberOfRings InstanceOf ThirdPartyVoiceMailSupportNumberOfRings)
              ? $noAnswerNumberOfRings
              : new ThirdPartyVoiceMailSupportNumberOfRings($noAnswerNumberOfRings);
-        $this->noAnswerNumberOfRings->setName('noAnswerNumberOfRings');
+        $this->noAnswerNumberOfRings->setElementName('noAnswerNumberOfRings');
         return $this;
     }
 
@@ -253,7 +269,9 @@ class UserThirdPartyVoiceMailSupportModifyRequest extends ComplexType implements
      */
     public function getNoAnswerNumberOfRings()
     {
-        return ($this->noAnswerNumberOfRings) ? $this->noAnswerNumberOfRings->getValue() : null;
+        return ($this->noAnswerNumberOfRings)
+            ? $this->noAnswerNumberOfRings->getElementValue()
+            : null;
     }
 
     /**
@@ -262,7 +280,7 @@ class UserThirdPartyVoiceMailSupportModifyRequest extends ComplexType implements
     public function setAlwaysRedirectToVoiceMail($alwaysRedirectToVoiceMail = null)
     {
         $this->alwaysRedirectToVoiceMail = new PrimitiveType($alwaysRedirectToVoiceMail);
-        $this->alwaysRedirectToVoiceMail->setName('alwaysRedirectToVoiceMail');
+        $this->alwaysRedirectToVoiceMail->setElementName('alwaysRedirectToVoiceMail');
         return $this;
     }
 
@@ -272,7 +290,9 @@ class UserThirdPartyVoiceMailSupportModifyRequest extends ComplexType implements
      */
     public function getAlwaysRedirectToVoiceMail()
     {
-        return ($this->alwaysRedirectToVoiceMail) ? $this->alwaysRedirectToVoiceMail->getValue() : null;
+        return ($this->alwaysRedirectToVoiceMail)
+            ? $this->alwaysRedirectToVoiceMail->getElementValue()
+            : null;
     }
 
     /**
@@ -281,7 +301,7 @@ class UserThirdPartyVoiceMailSupportModifyRequest extends ComplexType implements
     public function setOutOfPrimaryZoneRedirectToVoiceMail($outOfPrimaryZoneRedirectToVoiceMail = null)
     {
         $this->outOfPrimaryZoneRedirectToVoiceMail = new PrimitiveType($outOfPrimaryZoneRedirectToVoiceMail);
-        $this->outOfPrimaryZoneRedirectToVoiceMail->setName('outOfPrimaryZoneRedirectToVoiceMail');
+        $this->outOfPrimaryZoneRedirectToVoiceMail->setElementName('outOfPrimaryZoneRedirectToVoiceMail');
         return $this;
     }
 
@@ -291,6 +311,8 @@ class UserThirdPartyVoiceMailSupportModifyRequest extends ComplexType implements
      */
     public function getOutOfPrimaryZoneRedirectToVoiceMail()
     {
-        return ($this->outOfPrimaryZoneRedirectToVoiceMail) ? $this->outOfPrimaryZoneRedirectToVoiceMail->getValue() : null;
+        return ($this->outOfPrimaryZoneRedirectToVoiceMail)
+            ? $this->outOfPrimaryZoneRedirectToVoiceMail->getElementValue()
+            : null;
     }
 }

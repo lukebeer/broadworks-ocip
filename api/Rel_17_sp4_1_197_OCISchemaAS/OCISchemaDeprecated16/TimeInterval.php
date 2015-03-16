@@ -19,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class TimeInterval extends ComplexType implements ComplexInterface
 {
-    public    $name = 'TimeInterval';
+    public    $elementName = 'TimeInterval';
     protected $startDayOfWeek;
     protected $startHour;
     protected $startMinute;
@@ -57,7 +57,7 @@ class TimeInterval extends ComplexType implements ComplexInterface
     public function setStartDayOfWeek($startDayOfWeek = null)
     {
         $this->startDayOfWeek = new SimpleContent($startDayOfWeek);
-        $this->startDayOfWeek->setName('startDayOfWeek');
+        $this->startDayOfWeek->setElementName('startDayOfWeek');
         return $this;
     }
 
@@ -67,7 +67,9 @@ class TimeInterval extends ComplexType implements ComplexInterface
      */
     public function getStartDayOfWeek()
     {
-        return ($this->startDayOfWeek) ? $this->startDayOfWeek->getValue() : null;
+        return ($this->startDayOfWeek)
+            ? $this->startDayOfWeek->getElementValue()
+            : null;
     }
 
     /**
@@ -76,7 +78,7 @@ class TimeInterval extends ComplexType implements ComplexInterface
     public function setStartHour($startHour = null)
     {
         $this->startHour = new SimpleContent($startHour);
-        $this->startHour->setName('startHour');
+        $this->startHour->setElementName('startHour');
         return $this;
     }
 
@@ -86,7 +88,9 @@ class TimeInterval extends ComplexType implements ComplexInterface
      */
     public function getStartHour()
     {
-        return ($this->startHour) ? $this->startHour->getValue() : null;
+        return ($this->startHour)
+            ? $this->startHour->getElementValue()
+            : null;
     }
 
     /**
@@ -95,7 +99,7 @@ class TimeInterval extends ComplexType implements ComplexInterface
     public function setStartMinute($startMinute = null)
     {
         $this->startMinute = new SimpleContent($startMinute);
-        $this->startMinute->setName('startMinute');
+        $this->startMinute->setElementName('startMinute');
         return $this;
     }
 
@@ -105,7 +109,9 @@ class TimeInterval extends ComplexType implements ComplexInterface
      */
     public function getStartMinute()
     {
-        return ($this->startMinute) ? $this->startMinute->getValue() : null;
+        return ($this->startMinute)
+            ? $this->startMinute->getElementValue()
+            : null;
     }
 
     /**
@@ -114,7 +120,7 @@ class TimeInterval extends ComplexType implements ComplexInterface
     public function setEndDayOfWeek($endDayOfWeek = null)
     {
         $this->endDayOfWeek = new SimpleContent($endDayOfWeek);
-        $this->endDayOfWeek->setName('endDayOfWeek');
+        $this->endDayOfWeek->setElementName('endDayOfWeek');
         return $this;
     }
 
@@ -124,7 +130,9 @@ class TimeInterval extends ComplexType implements ComplexInterface
      */
     public function getEndDayOfWeek()
     {
-        return ($this->endDayOfWeek) ? $this->endDayOfWeek->getValue() : null;
+        return ($this->endDayOfWeek)
+            ? $this->endDayOfWeek->getElementValue()
+            : null;
     }
 
     /**
@@ -133,7 +141,7 @@ class TimeInterval extends ComplexType implements ComplexInterface
     public function setEndHour($endHour = null)
     {
         $this->endHour = new SimpleContent($endHour);
-        $this->endHour->setName('endHour');
+        $this->endHour->setElementName('endHour');
         return $this;
     }
 
@@ -143,7 +151,9 @@ class TimeInterval extends ComplexType implements ComplexInterface
      */
     public function getEndHour()
     {
-        return ($this->endHour) ? $this->endHour->getValue() : null;
+        return ($this->endHour)
+            ? $this->endHour->getElementValue()
+            : null;
     }
 
     /**
@@ -152,7 +162,7 @@ class TimeInterval extends ComplexType implements ComplexInterface
     public function setEndMinute($endMinute = null)
     {
         $this->endMinute = new SimpleContent($endMinute);
-        $this->endMinute->setName('endMinute');
+        $this->endMinute->setElementName('endMinute');
         return $this;
     }
 
@@ -162,6 +172,8 @@ class TimeInterval extends ComplexType implements ComplexInterface
      */
     public function getEndMinute()
     {
-        return ($this->endMinute) ? $this->endMinute->getValue() : null;
+        return ($this->endMinute)
+            ? $this->endMinute->getElementValue()
+            : null;
     }
 }

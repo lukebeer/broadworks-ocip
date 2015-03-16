@@ -23,7 +23,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserInstantConferencingGetFutureConferenceListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'UserInstantConferencingGetFutureConferenceListResponse';
+    public    $elementName = 'UserInstantConferencingGetFutureConferenceListResponse';
     protected $conferenceTable;
 
     /**
@@ -40,7 +40,7 @@ class UserInstantConferencingGetFutureConferenceListResponse extends ComplexType
     public function setConferenceTable(TableType $conferenceTable = null)
     {
         $this->conferenceTable = $conferenceTable;
-        $this->conferenceTable->setName('conferenceTable');
+        $this->conferenceTable->setElementName('conferenceTable');
         return $this;
     }
 

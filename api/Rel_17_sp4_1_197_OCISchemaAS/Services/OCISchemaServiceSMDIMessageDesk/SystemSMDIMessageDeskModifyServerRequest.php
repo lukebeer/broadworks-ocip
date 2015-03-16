@@ -23,7 +23,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemSMDIMessageDeskModifyServerRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemSMDIMessageDeskModifyServerRequest';
+    public    $elementName = 'SystemSMDIMessageDeskModifyServerRequest';
     protected $deviceName;
     protected $netAddress;
     protected $port;
@@ -57,7 +57,7 @@ class SystemSMDIMessageDeskModifyServerRequest extends ComplexType implements Co
         $this->deviceName = ($deviceName InstanceOf SMDIDeviceName)
              ? $deviceName
              : new SMDIDeviceName($deviceName);
-        $this->deviceName->setName('deviceName');
+        $this->deviceName->setElementName('deviceName');
         return $this;
     }
 
@@ -67,7 +67,9 @@ class SystemSMDIMessageDeskModifyServerRequest extends ComplexType implements Co
      */
     public function getDeviceName()
     {
-        return ($this->deviceName) ? $this->deviceName->getValue() : null;
+        return ($this->deviceName)
+            ? $this->deviceName->getElementValue()
+            : null;
     }
 
     /**
@@ -78,7 +80,7 @@ class SystemSMDIMessageDeskModifyServerRequest extends ComplexType implements Co
         $this->netAddress = ($netAddress InstanceOf NetAddress)
              ? $netAddress
              : new NetAddress($netAddress);
-        $this->netAddress->setName('netAddress');
+        $this->netAddress->setElementName('netAddress');
         return $this;
     }
 
@@ -88,7 +90,9 @@ class SystemSMDIMessageDeskModifyServerRequest extends ComplexType implements Co
      */
     public function getNetAddress()
     {
-        return ($this->netAddress) ? $this->netAddress->getValue() : null;
+        return ($this->netAddress)
+            ? $this->netAddress->getElementValue()
+            : null;
     }
 
     /**
@@ -99,7 +103,7 @@ class SystemSMDIMessageDeskModifyServerRequest extends ComplexType implements Co
         $this->port = ($port InstanceOf Port)
              ? $port
              : new Port($port);
-        $this->port->setName('port');
+        $this->port->setElementName('port');
         return $this;
     }
 
@@ -109,7 +113,9 @@ class SystemSMDIMessageDeskModifyServerRequest extends ComplexType implements Co
      */
     public function getPort()
     {
-        return ($this->port) ? $this->port->getValue() : null;
+        return ($this->port)
+            ? $this->port->getElementValue()
+            : null;
     }
 
     /**
@@ -120,7 +126,7 @@ class SystemSMDIMessageDeskModifyServerRequest extends ComplexType implements Co
         $this->description = ($description InstanceOf SMDIServerDescription)
              ? $description
              : new SMDIServerDescription($description);
-        $this->description->setName('description');
+        $this->description->setElementName('description');
         return $this;
     }
 
@@ -130,6 +136,8 @@ class SystemSMDIMessageDeskModifyServerRequest extends ComplexType implements Co
      */
     public function getDescription()
     {
-        return ($this->description) ? $this->description->getValue() : null;
+        return ($this->description)
+            ? $this->description->getElementValue()
+            : null;
     }
 }

@@ -16,12 +16,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\Enumeration;
  */
 class ConnectedLineIdentificationPrivacyOnRedirectedCalls extends SimpleType
 {
-    public $name = "ConnectedLineIdentificationPrivacyOnRedirectedCalls";
-    protected $value;
-
+    public $elementName = "ConnectedLineIdentificationPrivacyOnRedirectedCalls";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new Enumeration([
             'No Privacy',
             'Privacy For External Calls',

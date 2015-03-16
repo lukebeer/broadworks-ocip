@@ -23,7 +23,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemFileRepositoryDeviceUserModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemFileRepositoryDeviceUserModifyRequest';
+    public    $elementName = 'SystemFileRepositoryDeviceUserModifyRequest';
     protected $fileRepositoryName;
     protected $userName;
     protected $password;
@@ -63,7 +63,7 @@ class SystemFileRepositoryDeviceUserModifyRequest extends ComplexType implements
         $this->fileRepositoryName = ($fileRepositoryName InstanceOf FileRepositoryName)
              ? $fileRepositoryName
              : new FileRepositoryName($fileRepositoryName);
-        $this->fileRepositoryName->setName('fileRepositoryName');
+        $this->fileRepositoryName->setElementName('fileRepositoryName');
         return $this;
     }
 
@@ -73,7 +73,9 @@ class SystemFileRepositoryDeviceUserModifyRequest extends ComplexType implements
      */
     public function getFileRepositoryName()
     {
-        return ($this->fileRepositoryName) ? $this->fileRepositoryName->getValue() : null;
+        return ($this->fileRepositoryName)
+            ? $this->fileRepositoryName->getElementValue()
+            : null;
     }
 
     /**
@@ -84,7 +86,7 @@ class SystemFileRepositoryDeviceUserModifyRequest extends ComplexType implements
         $this->userName = ($userName InstanceOf FileRepositoryUserName)
              ? $userName
              : new FileRepositoryUserName($userName);
-        $this->userName->setName('userName');
+        $this->userName->setElementName('userName');
         return $this;
     }
 
@@ -94,7 +96,9 @@ class SystemFileRepositoryDeviceUserModifyRequest extends ComplexType implements
      */
     public function getUserName()
     {
-        return ($this->userName) ? $this->userName->getValue() : null;
+        return ($this->userName)
+            ? $this->userName->getElementValue()
+            : null;
     }
 
     /**
@@ -105,7 +109,7 @@ class SystemFileRepositoryDeviceUserModifyRequest extends ComplexType implements
         $this->password = ($password InstanceOf FileRepositoryUserPassword)
              ? $password
              : new FileRepositoryUserPassword($password);
-        $this->password->setName('password');
+        $this->password->setElementName('password');
         return $this;
     }
 
@@ -115,7 +119,9 @@ class SystemFileRepositoryDeviceUserModifyRequest extends ComplexType implements
      */
     public function getPassword()
     {
-        return ($this->password) ? $this->password->getValue() : null;
+        return ($this->password)
+            ? $this->password->getElementValue()
+            : null;
     }
 
     /**
@@ -124,7 +130,7 @@ class SystemFileRepositoryDeviceUserModifyRequest extends ComplexType implements
     public function setAllowPut($allowPut = null)
     {
         $this->allowPut = new PrimitiveType($allowPut);
-        $this->allowPut->setName('allowPut');
+        $this->allowPut->setElementName('allowPut');
         return $this;
     }
 
@@ -134,7 +140,9 @@ class SystemFileRepositoryDeviceUserModifyRequest extends ComplexType implements
      */
     public function getAllowPut()
     {
-        return ($this->allowPut) ? $this->allowPut->getValue() : null;
+        return ($this->allowPut)
+            ? $this->allowPut->getElementValue()
+            : null;
     }
 
     /**
@@ -143,7 +151,7 @@ class SystemFileRepositoryDeviceUserModifyRequest extends ComplexType implements
     public function setAllowDelete($allowDelete = null)
     {
         $this->allowDelete = new PrimitiveType($allowDelete);
-        $this->allowDelete->setName('allowDelete');
+        $this->allowDelete->setElementName('allowDelete');
         return $this;
     }
 
@@ -153,7 +161,9 @@ class SystemFileRepositoryDeviceUserModifyRequest extends ComplexType implements
      */
     public function getAllowDelete()
     {
-        return ($this->allowDelete) ? $this->allowDelete->getValue() : null;
+        return ($this->allowDelete)
+            ? $this->allowDelete->getElementValue()
+            : null;
     }
 
     /**
@@ -162,7 +172,7 @@ class SystemFileRepositoryDeviceUserModifyRequest extends ComplexType implements
     public function setAllowGet($allowGet = null)
     {
         $this->allowGet = new PrimitiveType($allowGet);
-        $this->allowGet->setName('allowGet');
+        $this->allowGet->setElementName('allowGet');
         return $this;
     }
 
@@ -172,6 +182,8 @@ class SystemFileRepositoryDeviceUserModifyRequest extends ComplexType implements
      */
     public function getAllowGet()
     {
-        return ($this->allowGet) ? $this->allowGet->getValue() : null;
+        return ($this->allowGet)
+            ? $this->allowGet->getElementValue()
+            : null;
     }
 }

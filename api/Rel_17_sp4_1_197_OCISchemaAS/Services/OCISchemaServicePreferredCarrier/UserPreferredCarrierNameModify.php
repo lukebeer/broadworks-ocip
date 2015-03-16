@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserPreferredCarrierNameModify extends ComplexType implements ComplexInterface
 {
-    public    $name = 'UserPreferredCarrierNameModify';
+    public    $elementName = 'UserPreferredCarrierNameModify';
     protected $useGroupPreferredCarrier;
     protected $carrier;
 
@@ -47,7 +47,7 @@ class UserPreferredCarrierNameModify extends ComplexType implements ComplexInter
     public function setUseGroupPreferredCarrier($useGroupPreferredCarrier = null)
     {
         $this->useGroupPreferredCarrier = new SimpleContent($useGroupPreferredCarrier);
-        $this->useGroupPreferredCarrier->setName('useGroupPreferredCarrier');
+        $this->useGroupPreferredCarrier->setElementName('useGroupPreferredCarrier');
         return $this;
     }
 
@@ -57,7 +57,9 @@ class UserPreferredCarrierNameModify extends ComplexType implements ComplexInter
      */
     public function getUseGroupPreferredCarrier()
     {
-        return ($this->useGroupPreferredCarrier) ? $this->useGroupPreferredCarrier->getValue() : null;
+        return ($this->useGroupPreferredCarrier)
+            ? $this->useGroupPreferredCarrier->getElementValue()
+            : null;
     }
 
     /**
@@ -66,7 +68,7 @@ class UserPreferredCarrierNameModify extends ComplexType implements ComplexInter
     public function setCarrier($carrier = null)
     {
         $this->carrier = new SimpleContent($carrier);
-        $this->carrier->setName('carrier');
+        $this->carrier->setElementName('carrier');
         return $this;
     }
 
@@ -76,6 +78,8 @@ class UserPreferredCarrierNameModify extends ComplexType implements ComplexInter
      */
     public function getCarrier()
     {
-        return ($this->carrier) ? $this->carrier->getValue() : null;
+        return ($this->carrier)
+            ? $this->carrier->getElementValue()
+            : null;
     }
 }

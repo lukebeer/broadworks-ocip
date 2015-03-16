@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemTimeZoneGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemTimeZoneGetListResponse';
+    public    $elementName = 'SystemTimeZoneGetListResponse';
     protected $timeZoneTable;
 
     /**
@@ -37,7 +37,7 @@ class SystemTimeZoneGetListResponse extends ComplexType implements ComplexInterf
     public function setTimeZoneTable(TableType $timeZoneTable = null)
     {
         $this->timeZoneTable = $timeZoneTable;
-        $this->timeZoneTable->setName('timeZoneTable');
+        $this->timeZoneTable->setElementName('timeZoneTable');
         return $this;
     }
 

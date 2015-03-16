@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserSelectiveCallAcceptanceModifyActiveCriteriaListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'UserSelectiveCallAcceptanceModifyActiveCriteriaListRequest';
+    public    $elementName = 'UserSelectiveCallAcceptanceModifyActiveCriteriaListRequest';
     protected $userId;
     protected $criteriaActivation;
 
@@ -49,7 +49,7 @@ class UserSelectiveCallAcceptanceModifyActiveCriteriaListRequest extends Complex
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
-        $this->userId->setName('userId');
+        $this->userId->setElementName('userId');
         return $this;
     }
 
@@ -59,7 +59,9 @@ class UserSelectiveCallAcceptanceModifyActiveCriteriaListRequest extends Complex
      */
     public function getUserId()
     {
-        return ($this->userId) ? $this->userId->getValue() : null;
+        return ($this->userId)
+            ? $this->userId->getElementValue()
+            : null;
     }
 
     /**
@@ -70,7 +72,7 @@ class UserSelectiveCallAcceptanceModifyActiveCriteriaListRequest extends Complex
         $this->criteriaActivation = ($criteriaActivation InstanceOf CriteriaActivation)
              ? $criteriaActivation
              : new CriteriaActivation($criteriaActivation);
-        $this->criteriaActivation->setName('criteriaActivation');
+        $this->criteriaActivation->setElementName('criteriaActivation');
         return $this;
     }
 

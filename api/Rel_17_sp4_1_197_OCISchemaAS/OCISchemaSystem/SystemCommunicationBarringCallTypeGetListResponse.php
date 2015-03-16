@@ -19,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemCommunicationBarringCallTypeGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemCommunicationBarringCallTypeGetListResponse';
+    public    $elementName = 'SystemCommunicationBarringCallTypeGetListResponse';
     protected $callTypeTable;
 
     /**
@@ -36,7 +36,7 @@ class SystemCommunicationBarringCallTypeGetListResponse extends ComplexType impl
     public function setCallTypeTable(TableType $callTypeTable = null)
     {
         $this->callTypeTable = $callTypeTable;
-        $this->callTypeTable->setName('callTypeTable');
+        $this->callTypeTable->setElementName('callTypeTable');
         return $this;
     }
 

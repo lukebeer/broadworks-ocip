@@ -17,12 +17,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\MaxInclusive;
  */
 class HuntForwardTimeoutSeconds extends SimpleType
 {
-    public $name = "HuntForwardTimeoutSeconds";
-    protected $value;
-
+    public $elementName = "HuntForwardTimeoutSeconds";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new MinInclusive("0"));
         $this->addRestriction(new MaxInclusive("7200"));
     }

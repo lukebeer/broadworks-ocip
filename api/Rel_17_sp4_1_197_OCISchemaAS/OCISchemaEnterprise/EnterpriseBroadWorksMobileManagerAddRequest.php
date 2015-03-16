@@ -26,7 +26,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class EnterpriseBroadWorksMobileManagerAddRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'EnterpriseBroadWorksMobileManagerAddRequest';
+    public    $elementName = 'EnterpriseBroadWorksMobileManagerAddRequest';
     protected $serviceProviderId;
     protected $informationFile;
     protected $certificateFile;
@@ -81,7 +81,7 @@ class EnterpriseBroadWorksMobileManagerAddRequest extends ComplexType implements
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
-        $this->serviceProviderId->setName('serviceProviderId');
+        $this->serviceProviderId->setElementName('serviceProviderId');
         return $this;
     }
 
@@ -91,7 +91,9 @@ class EnterpriseBroadWorksMobileManagerAddRequest extends ComplexType implements
      */
     public function getServiceProviderId()
     {
-        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
+        return ($this->serviceProviderId)
+            ? $this->serviceProviderId->getElementValue()
+            : null;
     }
 
     /**
@@ -102,7 +104,7 @@ class EnterpriseBroadWorksMobileManagerAddRequest extends ComplexType implements
         $this->informationFile = ($informationFile InstanceOf BroadWorksMobileManagerInformationFile)
              ? $informationFile
              : new BroadWorksMobileManagerInformationFile($informationFile);
-        $this->informationFile->setName('informationFile');
+        $this->informationFile->setElementName('informationFile');
         return $this;
     }
 
@@ -112,7 +114,9 @@ class EnterpriseBroadWorksMobileManagerAddRequest extends ComplexType implements
      */
     public function getInformationFile()
     {
-        return ($this->informationFile) ? $this->informationFile->getValue() : null;
+        return ($this->informationFile)
+            ? $this->informationFile->getElementValue()
+            : null;
     }
 
     /**
@@ -123,7 +127,7 @@ class EnterpriseBroadWorksMobileManagerAddRequest extends ComplexType implements
         $this->certificateFile = ($certificateFile InstanceOf BroadWorksMobileManagerCertificateFile)
              ? $certificateFile
              : new BroadWorksMobileManagerCertificateFile($certificateFile);
-        $this->certificateFile->setName('certificateFile');
+        $this->certificateFile->setElementName('certificateFile');
         return $this;
     }
 
@@ -133,7 +137,9 @@ class EnterpriseBroadWorksMobileManagerAddRequest extends ComplexType implements
      */
     public function getCertificateFile()
     {
-        return ($this->certificateFile) ? $this->certificateFile->getValue() : null;
+        return ($this->certificateFile)
+            ? $this->certificateFile->getElementValue()
+            : null;
     }
 
     /**
@@ -142,7 +148,7 @@ class EnterpriseBroadWorksMobileManagerAddRequest extends ComplexType implements
     public function setIsActive($isActive = null)
     {
         $this->isActive = new PrimitiveType($isActive);
-        $this->isActive->setName('isActive');
+        $this->isActive->setElementName('isActive');
         return $this;
     }
 
@@ -152,7 +158,9 @@ class EnterpriseBroadWorksMobileManagerAddRequest extends ComplexType implements
      */
     public function getIsActive()
     {
-        return ($this->isActive) ? $this->isActive->getValue() : null;
+        return ($this->isActive)
+            ? $this->isActive->getElementValue()
+            : null;
     }
 
     /**
@@ -161,7 +169,7 @@ class EnterpriseBroadWorksMobileManagerAddRequest extends ComplexType implements
     public function setLocalToCarrier($localToCarrier = null)
     {
         $this->localToCarrier = new PrimitiveType($localToCarrier);
-        $this->localToCarrier->setName('localToCarrier');
+        $this->localToCarrier->setElementName('localToCarrier');
         return $this;
     }
 
@@ -171,7 +179,9 @@ class EnterpriseBroadWorksMobileManagerAddRequest extends ComplexType implements
      */
     public function getLocalToCarrier()
     {
-        return ($this->localToCarrier) ? $this->localToCarrier->getValue() : null;
+        return ($this->localToCarrier)
+            ? $this->localToCarrier->getElementValue()
+            : null;
     }
 
     /**
@@ -180,7 +190,7 @@ class EnterpriseBroadWorksMobileManagerAddRequest extends ComplexType implements
     public function setMaxTxPerSecondEnabled($maxTxPerSecondEnabled = null)
     {
         $this->maxTxPerSecondEnabled = new PrimitiveType($maxTxPerSecondEnabled);
-        $this->maxTxPerSecondEnabled->setName('maxTxPerSecondEnabled');
+        $this->maxTxPerSecondEnabled->setElementName('maxTxPerSecondEnabled');
         return $this;
     }
 
@@ -190,7 +200,9 @@ class EnterpriseBroadWorksMobileManagerAddRequest extends ComplexType implements
      */
     public function getMaxTxPerSecondEnabled()
     {
-        return ($this->maxTxPerSecondEnabled) ? $this->maxTxPerSecondEnabled->getValue() : null;
+        return ($this->maxTxPerSecondEnabled)
+            ? $this->maxTxPerSecondEnabled->getElementValue()
+            : null;
     }
 
     /**
@@ -201,7 +213,7 @@ class EnterpriseBroadWorksMobileManagerAddRequest extends ComplexType implements
         $this->maxTxPerSecond = ($maxTxPerSecond InstanceOf BroadWorksMobileManagerMaxTxPerSecond)
              ? $maxTxPerSecond
              : new BroadWorksMobileManagerMaxTxPerSecond($maxTxPerSecond);
-        $this->maxTxPerSecond->setName('maxTxPerSecond');
+        $this->maxTxPerSecond->setElementName('maxTxPerSecond');
         return $this;
     }
 
@@ -211,7 +223,9 @@ class EnterpriseBroadWorksMobileManagerAddRequest extends ComplexType implements
      */
     public function getMaxTxPerSecond()
     {
-        return ($this->maxTxPerSecond) ? $this->maxTxPerSecond->getValue() : null;
+        return ($this->maxTxPerSecond)
+            ? $this->maxTxPerSecond->getElementValue()
+            : null;
     }
 
     /**
@@ -220,7 +234,7 @@ class EnterpriseBroadWorksMobileManagerAddRequest extends ComplexType implements
     public function setTldnEnabled($tldnEnabled = null)
     {
         $this->tldnEnabled = new PrimitiveType($tldnEnabled);
-        $this->tldnEnabled->setName('tldnEnabled');
+        $this->tldnEnabled->setElementName('tldnEnabled');
         return $this;
     }
 
@@ -230,7 +244,9 @@ class EnterpriseBroadWorksMobileManagerAddRequest extends ComplexType implements
      */
     public function getTldnEnabled()
     {
-        return ($this->tldnEnabled) ? $this->tldnEnabled->getValue() : null;
+        return ($this->tldnEnabled)
+            ? $this->tldnEnabled->getElementValue()
+            : null;
     }
 
     /**
@@ -239,7 +255,7 @@ class EnterpriseBroadWorksMobileManagerAddRequest extends ComplexType implements
     public function setGenericNumberEnabled($genericNumberEnabled = null)
     {
         $this->genericNumberEnabled = new PrimitiveType($genericNumberEnabled);
-        $this->genericNumberEnabled->setName('genericNumberEnabled');
+        $this->genericNumberEnabled->setElementName('genericNumberEnabled');
         return $this;
     }
 
@@ -249,7 +265,9 @@ class EnterpriseBroadWorksMobileManagerAddRequest extends ComplexType implements
      */
     public function getGenericNumberEnabled()
     {
-        return ($this->genericNumberEnabled) ? $this->genericNumberEnabled->getValue() : null;
+        return ($this->genericNumberEnabled)
+            ? $this->genericNumberEnabled->getElementValue()
+            : null;
     }
 
     /**
@@ -258,7 +276,7 @@ class EnterpriseBroadWorksMobileManagerAddRequest extends ComplexType implements
     public function setMobileStateCheckEnabled($mobileStateCheckEnabled = null)
     {
         $this->mobileStateCheckEnabled = new PrimitiveType($mobileStateCheckEnabled);
-        $this->mobileStateCheckEnabled->setName('mobileStateCheckEnabled');
+        $this->mobileStateCheckEnabled->setElementName('mobileStateCheckEnabled');
         return $this;
     }
 
@@ -268,7 +286,9 @@ class EnterpriseBroadWorksMobileManagerAddRequest extends ComplexType implements
      */
     public function getMobileStateCheckEnabled()
     {
-        return ($this->mobileStateCheckEnabled) ? $this->mobileStateCheckEnabled->getValue() : null;
+        return ($this->mobileStateCheckEnabled)
+            ? $this->mobileStateCheckEnabled->getElementValue()
+            : null;
     }
 
     /**
@@ -277,7 +297,7 @@ class EnterpriseBroadWorksMobileManagerAddRequest extends ComplexType implements
     public function setLocationBasedServicesEnabled($locationBasedServicesEnabled = null)
     {
         $this->locationBasedServicesEnabled = new PrimitiveType($locationBasedServicesEnabled);
-        $this->locationBasedServicesEnabled->setName('locationBasedServicesEnabled');
+        $this->locationBasedServicesEnabled->setElementName('locationBasedServicesEnabled');
         return $this;
     }
 
@@ -287,6 +307,8 @@ class EnterpriseBroadWorksMobileManagerAddRequest extends ComplexType implements
      */
     public function getLocationBasedServicesEnabled()
     {
-        return ($this->locationBasedServicesEnabled) ? $this->locationBasedServicesEnabled->getValue() : null;
+        return ($this->locationBasedServicesEnabled)
+            ? $this->locationBasedServicesEnabled->getElementValue()
+            : null;
     }
 }

@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
 class SystemTreatmentMappingCallBlockingServiceGetListRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemTreatmentMappingCallBlockingServiceGetListResponse';
-    public    $name = 'SystemTreatmentMappingCallBlockingServiceGetListRequest';
+    public    $elementName = 'SystemTreatmentMappingCallBlockingServiceGetListRequest';
 
     public function __construct(    ) {
     }

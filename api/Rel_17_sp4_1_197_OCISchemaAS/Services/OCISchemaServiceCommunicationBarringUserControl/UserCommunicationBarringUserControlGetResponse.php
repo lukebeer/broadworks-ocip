@@ -23,7 +23,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserCommunicationBarringUserControlGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'UserCommunicationBarringUserControlGetResponse';
+    public    $elementName = 'UserCommunicationBarringUserControlGetResponse';
     protected $lockoutStatus;
     protected $profileTable;
 
@@ -41,7 +41,7 @@ class UserCommunicationBarringUserControlGetResponse extends ComplexType impleme
     public function setLockoutStatus($lockoutStatus = null)
     {
         $this->lockoutStatus = new PrimitiveType($lockoutStatus);
-        $this->lockoutStatus->setName('lockoutStatus');
+        $this->lockoutStatus->setElementName('lockoutStatus');
         return $this;
     }
 
@@ -51,7 +51,9 @@ class UserCommunicationBarringUserControlGetResponse extends ComplexType impleme
      */
     public function getLockoutStatus()
     {
-        return ($this->lockoutStatus) ? $this->lockoutStatus->getValue() : null;
+        return ($this->lockoutStatus)
+            ? $this->lockoutStatus->getElementValue()
+            : null;
     }
 
     /**
@@ -60,7 +62,7 @@ class UserCommunicationBarringUserControlGetResponse extends ComplexType impleme
     public function setProfileTable(TableType $profileTable = null)
     {
         $this->profileTable = $profileTable;
-        $this->profileTable->setName('profileTable');
+        $this->profileTable->setElementName('profileTable');
         return $this;
     }
 

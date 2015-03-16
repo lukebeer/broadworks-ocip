@@ -17,12 +17,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\MaxInclusive;
  */
 class EnhancedCallLogsMaxLoggedCalls17sp4 extends SimpleType
 {
-    public $name = "EnhancedCallLogsMaxLoggedCalls17sp4";
-    protected $value;
-
+    public $elementName = "EnhancedCallLogsMaxLoggedCalls17sp4";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new MinInclusive("1"));
         $this->addRestriction(new MaxInclusive("99000"));
     }

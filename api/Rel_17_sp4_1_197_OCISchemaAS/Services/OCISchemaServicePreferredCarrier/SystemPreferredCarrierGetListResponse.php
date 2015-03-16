@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemPreferredCarrierGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemPreferredCarrierGetListResponse';
+    public    $elementName = 'SystemPreferredCarrierGetListResponse';
     protected $systemCarrierTable;
 
     /**
@@ -38,7 +38,7 @@ class SystemPreferredCarrierGetListResponse extends ComplexType implements Compl
     public function setSystemCarrierTable(TableType $systemCarrierTable = null)
     {
         $this->systemCarrierTable = $systemCarrierTable;
-        $this->systemCarrierTable->setName('systemCarrierTable');
+        $this->systemCarrierTable->setElementName('systemCarrierTable');
         return $this;
     }
 

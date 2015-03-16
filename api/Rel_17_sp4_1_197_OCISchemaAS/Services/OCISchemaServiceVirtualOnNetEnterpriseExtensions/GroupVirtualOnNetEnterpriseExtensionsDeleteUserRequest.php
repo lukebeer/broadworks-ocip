@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupVirtualOnNetEnterpriseExtensionsDeleteUserRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'GroupVirtualOnNetEnterpriseExtensionsDeleteUserRequest';
+    public    $elementName = 'GroupVirtualOnNetEnterpriseExtensionsDeleteUserRequest';
     protected $serviceProviderId;
     protected $groupId;
     protected $phoneNumber;
@@ -53,7 +53,7 @@ class GroupVirtualOnNetEnterpriseExtensionsDeleteUserRequest extends ComplexType
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
-        $this->serviceProviderId->setName('serviceProviderId');
+        $this->serviceProviderId->setElementName('serviceProviderId');
         return $this;
     }
 
@@ -63,7 +63,9 @@ class GroupVirtualOnNetEnterpriseExtensionsDeleteUserRequest extends ComplexType
      */
     public function getServiceProviderId()
     {
-        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
+        return ($this->serviceProviderId)
+            ? $this->serviceProviderId->getElementValue()
+            : null;
     }
 
     /**
@@ -74,7 +76,7 @@ class GroupVirtualOnNetEnterpriseExtensionsDeleteUserRequest extends ComplexType
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
-        $this->groupId->setName('groupId');
+        $this->groupId->setElementName('groupId');
         return $this;
     }
 
@@ -84,7 +86,9 @@ class GroupVirtualOnNetEnterpriseExtensionsDeleteUserRequest extends ComplexType
      */
     public function getGroupId()
     {
-        return ($this->groupId) ? $this->groupId->getValue() : null;
+        return ($this->groupId)
+            ? $this->groupId->getElementValue()
+            : null;
     }
 
     /**
@@ -95,7 +99,7 @@ class GroupVirtualOnNetEnterpriseExtensionsDeleteUserRequest extends ComplexType
         $this->phoneNumber = ($phoneNumber InstanceOf DN)
              ? $phoneNumber
              : new DN($phoneNumber);
-        $this->phoneNumber->setName('phoneNumber');
+        $this->phoneNumber->setElementName('phoneNumber');
         return $this;
     }
 
@@ -105,6 +109,8 @@ class GroupVirtualOnNetEnterpriseExtensionsDeleteUserRequest extends ComplexType
      */
     public function getPhoneNumber()
     {
-        return ($this->phoneNumber) ? $this->phoneNumber->getValue() : null;
+        return ($this->phoneNumber)
+            ? $this->phoneNumber->getElementValue()
+            : null;
     }
 }

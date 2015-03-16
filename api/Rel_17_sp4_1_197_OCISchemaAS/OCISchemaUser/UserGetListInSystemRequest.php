@@ -31,7 +31,7 @@ use Broadworks_OCIP\core\Client\Client;
 class UserGetListInSystemRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType                                 = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser\UserGetListInSystemResponse';
-    public    $name = 'UserGetListInSystemRequest';
+    public    $elementName = 'UserGetListInSystemRequest';
     protected $responseSizeLimit;
     protected $searchCriteriaUserLastName;
     protected $searchCriteriaUserFirstName;
@@ -80,7 +80,7 @@ class UserGetListInSystemRequest extends ComplexType implements ComplexInterface
         $this->responseSizeLimit = ($responseSizeLimit InstanceOf ResponseSizeLimit)
              ? $responseSizeLimit
              : new ResponseSizeLimit($responseSizeLimit);
-        $this->responseSizeLimit->setName('responseSizeLimit');
+        $this->responseSizeLimit->setElementName('responseSizeLimit');
         return $this;
     }
 
@@ -90,7 +90,9 @@ class UserGetListInSystemRequest extends ComplexType implements ComplexInterface
      */
     public function getResponseSizeLimit()
     {
-        return ($this->responseSizeLimit) ? $this->responseSizeLimit->getValue() : null;
+        return ($this->responseSizeLimit)
+            ? $this->responseSizeLimit->getElementValue()
+            : null;
     }
 
     /**
@@ -101,7 +103,7 @@ class UserGetListInSystemRequest extends ComplexType implements ComplexInterface
         $this->searchCriteriaUserLastName = ($searchCriteriaUserLastName InstanceOf SearchCriteriaUserLastName)
              ? $searchCriteriaUserLastName
              : new SearchCriteriaUserLastName($searchCriteriaUserLastName);
-        $this->searchCriteriaUserLastName->setName('searchCriteriaUserLastName');
+        $this->searchCriteriaUserLastName->setElementName('searchCriteriaUserLastName');
         return $this;
     }
 
@@ -122,7 +124,7 @@ class UserGetListInSystemRequest extends ComplexType implements ComplexInterface
         $this->searchCriteriaUserFirstName = ($searchCriteriaUserFirstName InstanceOf SearchCriteriaUserFirstName)
              ? $searchCriteriaUserFirstName
              : new SearchCriteriaUserFirstName($searchCriteriaUserFirstName);
-        $this->searchCriteriaUserFirstName->setName('searchCriteriaUserFirstName');
+        $this->searchCriteriaUserFirstName->setElementName('searchCriteriaUserFirstName');
         return $this;
     }
 
@@ -143,7 +145,7 @@ class UserGetListInSystemRequest extends ComplexType implements ComplexInterface
         $this->searchCriteriaDn = ($searchCriteriaDn InstanceOf SearchCriteriaDn)
              ? $searchCriteriaDn
              : new SearchCriteriaDn($searchCriteriaDn);
-        $this->searchCriteriaDn->setName('searchCriteriaDn');
+        $this->searchCriteriaDn->setElementName('searchCriteriaDn');
         return $this;
     }
 
@@ -164,7 +166,7 @@ class UserGetListInSystemRequest extends ComplexType implements ComplexInterface
         $this->searchCriteriaEmailAddress = ($searchCriteriaEmailAddress InstanceOf SearchCriteriaEmailAddress)
              ? $searchCriteriaEmailAddress
              : new SearchCriteriaEmailAddress($searchCriteriaEmailAddress);
-        $this->searchCriteriaEmailAddress->setName('searchCriteriaEmailAddress');
+        $this->searchCriteriaEmailAddress->setElementName('searchCriteriaEmailAddress');
         return $this;
     }
 
@@ -185,7 +187,7 @@ class UserGetListInSystemRequest extends ComplexType implements ComplexInterface
         $this->searchCriteriaGroupId = ($searchCriteriaGroupId InstanceOf SearchCriteriaGroupId)
              ? $searchCriteriaGroupId
              : new SearchCriteriaGroupId($searchCriteriaGroupId);
-        $this->searchCriteriaGroupId->setName('searchCriteriaGroupId');
+        $this->searchCriteriaGroupId->setElementName('searchCriteriaGroupId');
         return $this;
     }
 
@@ -206,7 +208,7 @@ class UserGetListInSystemRequest extends ComplexType implements ComplexInterface
         $this->searchCriteriaExactServiceProvider = ($searchCriteriaExactServiceProvider InstanceOf SearchCriteriaExactServiceProvider)
              ? $searchCriteriaExactServiceProvider
              : new SearchCriteriaExactServiceProvider($searchCriteriaExactServiceProvider);
-        $this->searchCriteriaExactServiceProvider->setName('searchCriteriaExactServiceProvider');
+        $this->searchCriteriaExactServiceProvider->setElementName('searchCriteriaExactServiceProvider');
         return $this;
     }
 
@@ -227,7 +229,7 @@ class UserGetListInSystemRequest extends ComplexType implements ComplexInterface
         $this->searchCriteriaExactUserInTrunkGroup = ($searchCriteriaExactUserInTrunkGroup InstanceOf SearchCriteriaExactUserInTrunkGroup)
              ? $searchCriteriaExactUserInTrunkGroup
              : new SearchCriteriaExactUserInTrunkGroup($searchCriteriaExactUserInTrunkGroup);
-        $this->searchCriteriaExactUserInTrunkGroup->setName('searchCriteriaExactUserInTrunkGroup');
+        $this->searchCriteriaExactUserInTrunkGroup->setElementName('searchCriteriaExactUserInTrunkGroup');
         return $this;
     }
 
@@ -248,7 +250,7 @@ class UserGetListInSystemRequest extends ComplexType implements ComplexInterface
         $this->searchCriteriaExactUserNetworkClassOfService = ($searchCriteriaExactUserNetworkClassOfService InstanceOf SearchCriteriaExactUserNetworkClassOfService)
              ? $searchCriteriaExactUserNetworkClassOfService
              : new SearchCriteriaExactUserNetworkClassOfService($searchCriteriaExactUserNetworkClassOfService);
-        $this->searchCriteriaExactUserNetworkClassOfService->setName('searchCriteriaExactUserNetworkClassOfService');
+        $this->searchCriteriaExactUserNetworkClassOfService->setElementName('searchCriteriaExactUserNetworkClassOfService');
         return $this;
     }
 

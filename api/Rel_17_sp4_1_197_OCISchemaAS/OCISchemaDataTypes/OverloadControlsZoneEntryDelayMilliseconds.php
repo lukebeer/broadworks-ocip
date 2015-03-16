@@ -17,12 +17,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\MaxInclusive;
  */
 class OverloadControlsZoneEntryDelayMilliseconds extends SimpleType
 {
-    public $name = "OverloadControlsZoneEntryDelayMilliseconds";
-    protected $value;
-
+    public $elementName = "OverloadControlsZoneEntryDelayMilliseconds";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new MinInclusive("500"));
         $this->addRestriction(new MaxInclusive("60000"));
     }

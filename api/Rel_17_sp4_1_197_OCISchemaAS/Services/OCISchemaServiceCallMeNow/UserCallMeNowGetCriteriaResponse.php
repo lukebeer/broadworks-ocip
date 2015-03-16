@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserCallMeNowGetCriteriaResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'UserCallMeNowGetCriteriaResponse';
+    public    $elementName = 'UserCallMeNowGetCriteriaResponse';
     protected $timeSchedule;
     protected $holidaySchedule;
     protected $rejectCall;
@@ -44,7 +44,7 @@ class UserCallMeNowGetCriteriaResponse extends ComplexType implements ComplexInt
         $this->timeSchedule = ($timeSchedule InstanceOf TimeSchedule)
              ? $timeSchedule
              : new TimeSchedule($timeSchedule);
-        $this->timeSchedule->setName('timeSchedule');
+        $this->timeSchedule->setElementName('timeSchedule');
         return $this;
     }
 
@@ -65,7 +65,7 @@ class UserCallMeNowGetCriteriaResponse extends ComplexType implements ComplexInt
         $this->holidaySchedule = ($holidaySchedule InstanceOf HolidaySchedule)
              ? $holidaySchedule
              : new HolidaySchedule($holidaySchedule);
-        $this->holidaySchedule->setName('holidaySchedule');
+        $this->holidaySchedule->setElementName('holidaySchedule');
         return $this;
     }
 
@@ -84,7 +84,7 @@ class UserCallMeNowGetCriteriaResponse extends ComplexType implements ComplexInt
     public function setRejectCall($rejectCall = null)
     {
         $this->rejectCall = new PrimitiveType($rejectCall);
-        $this->rejectCall->setName('rejectCall');
+        $this->rejectCall->setElementName('rejectCall');
         return $this;
     }
 
@@ -94,7 +94,9 @@ class UserCallMeNowGetCriteriaResponse extends ComplexType implements ComplexInt
      */
     public function getRejectCall()
     {
-        return ($this->rejectCall) ? $this->rejectCall->getValue() : null;
+        return ($this->rejectCall)
+            ? $this->rejectCall->getElementValue()
+            : null;
     }
 
     /**
@@ -105,7 +107,7 @@ class UserCallMeNowGetCriteriaResponse extends ComplexType implements ComplexInt
         $this->toDnCriteria = ($toDnCriteria InstanceOf CallMeNowToDnCriteria)
              ? $toDnCriteria
              : new CallMeNowToDnCriteria($toDnCriteria);
-        $this->toDnCriteria->setName('toDnCriteria');
+        $this->toDnCriteria->setElementName('toDnCriteria');
         return $this;
     }
 

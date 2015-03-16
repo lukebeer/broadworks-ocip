@@ -16,12 +16,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\Enumeration;
  */
 class MaliciousCallTraceCallTypeSelection extends SimpleType
 {
-    public $name = "MaliciousCallTraceCallTypeSelection";
-    protected $value;
-
+    public $elementName = "MaliciousCallTraceCallTypeSelection";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new Enumeration([
             'All Incoming',
             'Answered Incoming',

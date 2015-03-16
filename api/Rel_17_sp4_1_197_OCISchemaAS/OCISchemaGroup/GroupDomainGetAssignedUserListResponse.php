@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupDomainGetAssignedUserListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'GroupDomainGetAssignedUserListResponse';
+    public    $elementName = 'GroupDomainGetAssignedUserListResponse';
     protected $userTable;
 
     /**
@@ -38,7 +38,7 @@ class GroupDomainGetAssignedUserListResponse extends ComplexType implements Comp
     public function setUserTable(TableType $userTable = null)
     {
         $this->userTable = $userTable;
-        $this->userTable->setName('userTable');
+        $this->userTable->setElementName('userTable');
         return $this;
     }
 

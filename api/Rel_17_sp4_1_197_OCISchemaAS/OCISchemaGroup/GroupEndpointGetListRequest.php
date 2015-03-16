@@ -34,7 +34,7 @@ use Broadworks_OCIP\core\Client\Client;
 class GroupEndpointGetListRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType                   = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupEndpointGetListResponse';
-    public    $name = 'GroupEndpointGetListRequest';
+    public    $elementName = 'GroupEndpointGetListRequest';
     protected $serviceProviderId;
     protected $groupId;
     protected $responseSizeLimit;
@@ -98,7 +98,7 @@ class GroupEndpointGetListRequest extends ComplexType implements ComplexInterfac
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
-        $this->serviceProviderId->setName('serviceProviderId');
+        $this->serviceProviderId->setElementName('serviceProviderId');
         return $this;
     }
 
@@ -108,7 +108,9 @@ class GroupEndpointGetListRequest extends ComplexType implements ComplexInterfac
      */
     public function getServiceProviderId()
     {
-        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
+        return ($this->serviceProviderId)
+            ? $this->serviceProviderId->getElementValue()
+            : null;
     }
 
     /**
@@ -119,7 +121,7 @@ class GroupEndpointGetListRequest extends ComplexType implements ComplexInterfac
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
-        $this->groupId->setName('groupId');
+        $this->groupId->setElementName('groupId');
         return $this;
     }
 
@@ -129,7 +131,9 @@ class GroupEndpointGetListRequest extends ComplexType implements ComplexInterfac
      */
     public function getGroupId()
     {
-        return ($this->groupId) ? $this->groupId->getValue() : null;
+        return ($this->groupId)
+            ? $this->groupId->getElementValue()
+            : null;
     }
 
     /**
@@ -140,7 +144,7 @@ class GroupEndpointGetListRequest extends ComplexType implements ComplexInterfac
         $this->responseSizeLimit = ($responseSizeLimit InstanceOf ResponseSizeLimit)
              ? $responseSizeLimit
              : new ResponseSizeLimit($responseSizeLimit);
-        $this->responseSizeLimit->setName('responseSizeLimit');
+        $this->responseSizeLimit->setElementName('responseSizeLimit');
         return $this;
     }
 
@@ -150,7 +154,9 @@ class GroupEndpointGetListRequest extends ComplexType implements ComplexInterfac
      */
     public function getResponseSizeLimit()
     {
-        return ($this->responseSizeLimit) ? $this->responseSizeLimit->getValue() : null;
+        return ($this->responseSizeLimit)
+            ? $this->responseSizeLimit->getElementValue()
+            : null;
     }
 
     /**
@@ -161,7 +167,7 @@ class GroupEndpointGetListRequest extends ComplexType implements ComplexInterfac
         $this->searchCriteriaLinePortUserPart = ($searchCriteriaLinePortUserPart InstanceOf SearchCriteriaLinePortUserPart)
              ? $searchCriteriaLinePortUserPart
              : new SearchCriteriaLinePortUserPart($searchCriteriaLinePortUserPart);
-        $this->searchCriteriaLinePortUserPart->setName('searchCriteriaLinePortUserPart');
+        $this->searchCriteriaLinePortUserPart->setElementName('searchCriteriaLinePortUserPart');
         return $this;
     }
 
@@ -182,7 +188,7 @@ class GroupEndpointGetListRequest extends ComplexType implements ComplexInterfac
         $this->searchCriteriaLinePortDomain = ($searchCriteriaLinePortDomain InstanceOf SearchCriteriaLinePortDomain)
              ? $searchCriteriaLinePortDomain
              : new SearchCriteriaLinePortDomain($searchCriteriaLinePortDomain);
-        $this->searchCriteriaLinePortDomain->setName('searchCriteriaLinePortDomain');
+        $this->searchCriteriaLinePortDomain->setElementName('searchCriteriaLinePortDomain');
         return $this;
     }
 
@@ -203,7 +209,7 @@ class GroupEndpointGetListRequest extends ComplexType implements ComplexInterfac
         $this->searchCriteriaUserLastName = ($searchCriteriaUserLastName InstanceOf SearchCriteriaUserLastName)
              ? $searchCriteriaUserLastName
              : new SearchCriteriaUserLastName($searchCriteriaUserLastName);
-        $this->searchCriteriaUserLastName->setName('searchCriteriaUserLastName');
+        $this->searchCriteriaUserLastName->setElementName('searchCriteriaUserLastName');
         return $this;
     }
 
@@ -224,7 +230,7 @@ class GroupEndpointGetListRequest extends ComplexType implements ComplexInterfac
         $this->searchCriteriaUserFirstName = ($searchCriteriaUserFirstName InstanceOf SearchCriteriaUserFirstName)
              ? $searchCriteriaUserFirstName
              : new SearchCriteriaUserFirstName($searchCriteriaUserFirstName);
-        $this->searchCriteriaUserFirstName->setName('searchCriteriaUserFirstName');
+        $this->searchCriteriaUserFirstName->setElementName('searchCriteriaUserFirstName');
         return $this;
     }
 
@@ -245,7 +251,7 @@ class GroupEndpointGetListRequest extends ComplexType implements ComplexInterfac
         $this->searchCriteriaUserId = ($searchCriteriaUserId InstanceOf SearchCriteriaUserId)
              ? $searchCriteriaUserId
              : new SearchCriteriaUserId($searchCriteriaUserId);
-        $this->searchCriteriaUserId->setName('searchCriteriaUserId');
+        $this->searchCriteriaUserId->setElementName('searchCriteriaUserId');
         return $this;
     }
 
@@ -266,7 +272,7 @@ class GroupEndpointGetListRequest extends ComplexType implements ComplexInterfac
         $this->searchCriteriaDn = ($searchCriteriaDn InstanceOf SearchCriteriaDn)
              ? $searchCriteriaDn
              : new SearchCriteriaDn($searchCriteriaDn);
-        $this->searchCriteriaDn->setName('searchCriteriaDn');
+        $this->searchCriteriaDn->setElementName('searchCriteriaDn');
         return $this;
     }
 
@@ -287,7 +293,7 @@ class GroupEndpointGetListRequest extends ComplexType implements ComplexInterfac
         $this->searchCriteriaExtension = ($searchCriteriaExtension InstanceOf SearchCriteriaExtension)
              ? $searchCriteriaExtension
              : new SearchCriteriaExtension($searchCriteriaExtension);
-        $this->searchCriteriaExtension->setName('searchCriteriaExtension');
+        $this->searchCriteriaExtension->setElementName('searchCriteriaExtension');
         return $this;
     }
 
@@ -308,7 +314,7 @@ class GroupEndpointGetListRequest extends ComplexType implements ComplexInterfac
         $this->searchCriteriaDeviceType = ($searchCriteriaDeviceType InstanceOf SearchCriteriaDeviceType)
              ? $searchCriteriaDeviceType
              : new SearchCriteriaDeviceType($searchCriteriaDeviceType);
-        $this->searchCriteriaDeviceType->setName('searchCriteriaDeviceType');
+        $this->searchCriteriaDeviceType->setElementName('searchCriteriaDeviceType');
         return $this;
     }
 
@@ -329,7 +335,7 @@ class GroupEndpointGetListRequest extends ComplexType implements ComplexInterfac
         $this->searchCriteriaDeviceName = ($searchCriteriaDeviceName InstanceOf SearchCriteriaDeviceName)
              ? $searchCriteriaDeviceName
              : new SearchCriteriaDeviceName($searchCriteriaDeviceName);
-        $this->searchCriteriaDeviceName->setName('searchCriteriaDeviceName');
+        $this->searchCriteriaDeviceName->setElementName('searchCriteriaDeviceName');
         return $this;
     }
 
@@ -350,7 +356,7 @@ class GroupEndpointGetListRequest extends ComplexType implements ComplexInterfac
         $this->searchCriteriaDeviceMACAddress = ($searchCriteriaDeviceMACAddress InstanceOf SearchCriteriaDeviceMACAddress)
              ? $searchCriteriaDeviceMACAddress
              : new SearchCriteriaDeviceMACAddress($searchCriteriaDeviceMACAddress);
-        $this->searchCriteriaDeviceMACAddress->setName('searchCriteriaDeviceMACAddress');
+        $this->searchCriteriaDeviceMACAddress->setElementName('searchCriteriaDeviceMACAddress');
         return $this;
     }
 
@@ -371,7 +377,7 @@ class GroupEndpointGetListRequest extends ComplexType implements ComplexInterfac
         $this->searchCriteriaDeviceNetAddress = ($searchCriteriaDeviceNetAddress InstanceOf SearchCriteriaDeviceNetAddress)
              ? $searchCriteriaDeviceNetAddress
              : new SearchCriteriaDeviceNetAddress($searchCriteriaDeviceNetAddress);
-        $this->searchCriteriaDeviceNetAddress->setName('searchCriteriaDeviceNetAddress');
+        $this->searchCriteriaDeviceNetAddress->setElementName('searchCriteriaDeviceNetAddress');
         return $this;
     }
 

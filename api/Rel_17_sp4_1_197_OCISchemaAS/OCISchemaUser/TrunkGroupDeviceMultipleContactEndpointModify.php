@@ -19,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class TrunkGroupDeviceMultipleContactEndpointModify extends ComplexType implements ComplexInterface
 {
-    public    $name = 'TrunkGroupDeviceMultipleContactEndpointModify';
+    public    $elementName = 'TrunkGroupDeviceMultipleContactEndpointModify';
     protected $name;
     protected $linePort;
     protected $contactList;
@@ -48,7 +48,7 @@ class TrunkGroupDeviceMultipleContactEndpointModify extends ComplexType implemen
     public function setName($name = null)
     {
         $this->name = new SimpleContent($name);
-        $this->name->setName('name');
+        $this->name->setElementName('name');
         return $this;
     }
 
@@ -58,7 +58,9 @@ class TrunkGroupDeviceMultipleContactEndpointModify extends ComplexType implemen
      */
     public function getName()
     {
-        return ($this->name) ? $this->name->getValue() : null;
+        return ($this->name)
+            ? $this->name->getElementValue()
+            : null;
     }
 
     /**
@@ -67,7 +69,7 @@ class TrunkGroupDeviceMultipleContactEndpointModify extends ComplexType implemen
     public function setLinePort($linePort = null)
     {
         $this->linePort = new SimpleContent($linePort);
-        $this->linePort->setName('linePort');
+        $this->linePort->setElementName('linePort');
         return $this;
     }
 
@@ -77,7 +79,9 @@ class TrunkGroupDeviceMultipleContactEndpointModify extends ComplexType implemen
      */
     public function getLinePort()
     {
-        return ($this->linePort) ? $this->linePort->getValue() : null;
+        return ($this->linePort)
+            ? $this->linePort->getElementValue()
+            : null;
     }
 
     /**
@@ -86,7 +90,7 @@ class TrunkGroupDeviceMultipleContactEndpointModify extends ComplexType implemen
     public function setContactList($contactList = null)
     {
         $this->contactList = new SimpleContent($contactList);
-        $this->contactList->setName('contactList');
+        $this->contactList->setElementName('contactList');
         return $this;
     }
 
@@ -96,6 +100,8 @@ class TrunkGroupDeviceMultipleContactEndpointModify extends ComplexType implemen
      */
     public function getContactList()
     {
-        return ($this->contactList) ? $this->contactList->getValue() : null;
+        return ($this->contactList)
+            ? $this->contactList->getElementValue()
+            : null;
     }
 }

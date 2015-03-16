@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserMusicOnHoldUserGetResponse16 extends ComplexType implements ComplexInterface
 {
-    public    $name = 'UserMusicOnHoldUserGetResponse16';
+    public    $elementName = 'UserMusicOnHoldUserGetResponse16';
     protected $enableVideo;
     protected $source;
     protected $useAlternateSourceForInternalCalls;
@@ -40,7 +40,7 @@ class UserMusicOnHoldUserGetResponse16 extends ComplexType implements ComplexInt
     public function setEnableVideo($enableVideo = null)
     {
         $this->enableVideo = new PrimitiveType($enableVideo);
-        $this->enableVideo->setName('enableVideo');
+        $this->enableVideo->setElementName('enableVideo');
         return $this;
     }
 
@@ -50,7 +50,9 @@ class UserMusicOnHoldUserGetResponse16 extends ComplexType implements ComplexInt
      */
     public function getEnableVideo()
     {
-        return ($this->enableVideo) ? $this->enableVideo->getValue() : null;
+        return ($this->enableVideo)
+            ? $this->enableVideo->getElementValue()
+            : null;
     }
 
     /**
@@ -61,7 +63,7 @@ class UserMusicOnHoldUserGetResponse16 extends ComplexType implements ComplexInt
         $this->source = ($source InstanceOf MusicOnHoldUserSourceRead16)
              ? $source
              : new MusicOnHoldUserSourceRead16($source);
-        $this->source->setName('source');
+        $this->source->setElementName('source');
         return $this;
     }
 
@@ -80,7 +82,7 @@ class UserMusicOnHoldUserGetResponse16 extends ComplexType implements ComplexInt
     public function setUseAlternateSourceForInternalCalls($useAlternateSourceForInternalCalls = null)
     {
         $this->useAlternateSourceForInternalCalls = new PrimitiveType($useAlternateSourceForInternalCalls);
-        $this->useAlternateSourceForInternalCalls->setName('useAlternateSourceForInternalCalls');
+        $this->useAlternateSourceForInternalCalls->setElementName('useAlternateSourceForInternalCalls');
         return $this;
     }
 
@@ -90,7 +92,9 @@ class UserMusicOnHoldUserGetResponse16 extends ComplexType implements ComplexInt
      */
     public function getUseAlternateSourceForInternalCalls()
     {
-        return ($this->useAlternateSourceForInternalCalls) ? $this->useAlternateSourceForInternalCalls->getValue() : null;
+        return ($this->useAlternateSourceForInternalCalls)
+            ? $this->useAlternateSourceForInternalCalls->getElementValue()
+            : null;
     }
 
     /**
@@ -101,7 +105,7 @@ class UserMusicOnHoldUserGetResponse16 extends ComplexType implements ComplexInt
         $this->internalSource = ($internalSource InstanceOf MusicOnHoldUserSourceRead16)
              ? $internalSource
              : new MusicOnHoldUserSourceRead16($internalSource);
-        $this->internalSource->setName('internalSource');
+        $this->internalSource->setElementName('internalSource');
         return $this;
     }
 

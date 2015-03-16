@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupGroupPagingDeleteTargetListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'GroupGroupPagingDeleteTargetListRequest';
+    public    $elementName = 'GroupGroupPagingDeleteTargetListRequest';
     protected $serviceUserId;
     protected $targetUserId;
 
@@ -48,7 +48,7 @@ class GroupGroupPagingDeleteTargetListRequest extends ComplexType implements Com
         $this->serviceUserId = ($serviceUserId InstanceOf UserId)
              ? $serviceUserId
              : new UserId($serviceUserId);
-        $this->serviceUserId->setName('serviceUserId');
+        $this->serviceUserId->setElementName('serviceUserId');
         return $this;
     }
 
@@ -58,7 +58,9 @@ class GroupGroupPagingDeleteTargetListRequest extends ComplexType implements Com
      */
     public function getServiceUserId()
     {
-        return ($this->serviceUserId) ? $this->serviceUserId->getValue() : null;
+        return ($this->serviceUserId)
+            ? $this->serviceUserId->getElementValue()
+            : null;
     }
 
     /**
@@ -69,7 +71,7 @@ class GroupGroupPagingDeleteTargetListRequest extends ComplexType implements Com
         $this->targetUserId = ($targetUserId InstanceOf UserId)
              ? $targetUserId
              : new UserId($targetUserId);
-        $this->targetUserId->setName('targetUserId');
+        $this->targetUserId->setElementName('targetUserId');
         return $this;
     }
 
@@ -79,6 +81,8 @@ class GroupGroupPagingDeleteTargetListRequest extends ComplexType implements Com
      */
     public function getTargetUserId()
     {
-        return ($this->targetUserId) ? $this->targetUserId->getValue() : null;
+        return ($this->targetUserId)
+            ? $this->targetUserId->getElementValue()
+            : null;
     }
 }

@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserClassmarkModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'UserClassmarkModifyRequest';
+    public    $elementName = 'UserClassmarkModifyRequest';
     protected $userId;
     protected $classmark;
 
@@ -48,7 +48,7 @@ class UserClassmarkModifyRequest extends ComplexType implements ComplexInterface
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
-        $this->userId->setName('userId');
+        $this->userId->setElementName('userId');
         return $this;
     }
 
@@ -58,7 +58,9 @@ class UserClassmarkModifyRequest extends ComplexType implements ComplexInterface
      */
     public function getUserId()
     {
-        return ($this->userId) ? $this->userId->getValue() : null;
+        return ($this->userId)
+            ? $this->userId->getElementValue()
+            : null;
     }
 
     /**
@@ -69,7 +71,7 @@ class UserClassmarkModifyRequest extends ComplexType implements ComplexInterface
         $this->classmark = ($classmark InstanceOf Classmark)
              ? $classmark
              : new Classmark($classmark);
-        $this->classmark->setName('classmark');
+        $this->classmark->setElementName('classmark');
         return $this;
     }
 
@@ -79,6 +81,8 @@ class UserClassmarkModifyRequest extends ComplexType implements ComplexInterface
      */
     public function getClassmark()
     {
-        return ($this->classmark) ? $this->classmark->getValue() : null;
+        return ($this->classmark)
+            ? $this->classmark->getElementValue()
+            : null;
     }
 }

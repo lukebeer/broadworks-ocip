@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderVoiceMessagingGroupModifyVoicePortalRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'ServiceProviderVoiceMessagingGroupModifyVoicePortalRequest';
+    public    $elementName = 'ServiceProviderVoiceMessagingGroupModifyVoicePortalRequest';
     protected $serviceProviderId;
     protected $voicePortalScope;
 
@@ -49,7 +49,7 @@ class ServiceProviderVoiceMessagingGroupModifyVoicePortalRequest extends Complex
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
-        $this->serviceProviderId->setName('serviceProviderId');
+        $this->serviceProviderId->setElementName('serviceProviderId');
         return $this;
     }
 
@@ -59,7 +59,9 @@ class ServiceProviderVoiceMessagingGroupModifyVoicePortalRequest extends Complex
      */
     public function getServiceProviderId()
     {
-        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
+        return ($this->serviceProviderId)
+            ? $this->serviceProviderId->getElementValue()
+            : null;
     }
 
     /**
@@ -70,7 +72,7 @@ class ServiceProviderVoiceMessagingGroupModifyVoicePortalRequest extends Complex
         $this->voicePortalScope = ($voicePortalScope InstanceOf ServiceProviderVoicePortalScope)
              ? $voicePortalScope
              : new ServiceProviderVoicePortalScope($voicePortalScope);
-        $this->voicePortalScope->setName('voicePortalScope');
+        $this->voicePortalScope->setElementName('voicePortalScope');
         return $this;
     }
 
@@ -80,6 +82,8 @@ class ServiceProviderVoiceMessagingGroupModifyVoicePortalRequest extends Complex
      */
     public function getVoicePortalScope()
     {
-        return ($this->voicePortalScope) ? $this->voicePortalScope->getValue() : null;
+        return ($this->voicePortalScope)
+            ? $this->voicePortalScope->getElementValue()
+            : null;
     }
 }

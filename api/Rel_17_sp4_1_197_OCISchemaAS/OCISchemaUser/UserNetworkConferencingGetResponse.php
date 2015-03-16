@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserNetworkConferencingGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'UserNetworkConferencingGetResponse';
+    public    $elementName = 'UserNetworkConferencingGetResponse';
     protected $conferenceURI;
     protected $maxConferenceParties;
 
@@ -40,7 +40,7 @@ class UserNetworkConferencingGetResponse extends ComplexType implements ComplexI
         $this->conferenceURI = ($conferenceURI InstanceOf SIPURI)
              ? $conferenceURI
              : new SIPURI($conferenceURI);
-        $this->conferenceURI->setName('conferenceURI');
+        $this->conferenceURI->setElementName('conferenceURI');
         return $this;
     }
 
@@ -50,7 +50,9 @@ class UserNetworkConferencingGetResponse extends ComplexType implements ComplexI
      */
     public function getConferenceURI()
     {
-        return ($this->conferenceURI) ? $this->conferenceURI->getValue() : null;
+        return ($this->conferenceURI)
+            ? $this->conferenceURI->getElementValue()
+            : null;
     }
 
     /**
@@ -61,7 +63,7 @@ class UserNetworkConferencingGetResponse extends ComplexType implements ComplexI
         $this->maxConferenceParties = ($maxConferenceParties InstanceOf CallProcessingMaxConferenceParties)
              ? $maxConferenceParties
              : new CallProcessingMaxConferenceParties($maxConferenceParties);
-        $this->maxConferenceParties->setName('maxConferenceParties');
+        $this->maxConferenceParties->setElementName('maxConferenceParties');
         return $this;
     }
 
@@ -71,6 +73,8 @@ class UserNetworkConferencingGetResponse extends ComplexType implements ComplexI
      */
     public function getMaxConferenceParties()
     {
-        return ($this->maxConferenceParties) ? $this->maxConferenceParties->getValue() : null;
+        return ($this->maxConferenceParties)
+            ? $this->maxConferenceParties->getElementValue()
+            : null;
     }
 }

@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
 class UserHolidayScheduleGetRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType        = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\UserHolidayScheduleGetResponse';
-    public    $name = 'UserHolidayScheduleGetRequest';
+    public    $elementName = 'UserHolidayScheduleGetRequest';
     protected $userId;
     protected $holidayScheduleName;
 
@@ -50,7 +50,7 @@ class UserHolidayScheduleGetRequest extends ComplexType implements ComplexInterf
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
-        $this->userId->setName('userId');
+        $this->userId->setElementName('userId');
         return $this;
     }
 
@@ -60,7 +60,9 @@ class UserHolidayScheduleGetRequest extends ComplexType implements ComplexInterf
      */
     public function getUserId()
     {
-        return ($this->userId) ? $this->userId->getValue() : null;
+        return ($this->userId)
+            ? $this->userId->getElementValue()
+            : null;
     }
 
     /**
@@ -71,7 +73,7 @@ class UserHolidayScheduleGetRequest extends ComplexType implements ComplexInterf
         $this->holidayScheduleName = ($holidayScheduleName InstanceOf ScheduleName)
              ? $holidayScheduleName
              : new ScheduleName($holidayScheduleName);
-        $this->holidayScheduleName->setName('holidayScheduleName');
+        $this->holidayScheduleName->setElementName('holidayScheduleName');
         return $this;
     }
 
@@ -81,6 +83,8 @@ class UserHolidayScheduleGetRequest extends ComplexType implements ComplexInterf
      */
     public function getHolidayScheduleName()
     {
-        return ($this->holidayScheduleName) ? $this->holidayScheduleName->getValue() : null;
+        return ($this->holidayScheduleName)
+            ? $this->holidayScheduleName->getElementValue()
+            : null;
     }
 }

@@ -19,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class InterceptDNListEntry extends ComplexType implements ComplexInterface
 {
-    public    $name = 'InterceptDNListEntry';
+    public    $elementName = 'InterceptDNListEntry';
     protected $phoneNumber;
     protected $description;
 
@@ -45,7 +45,7 @@ class InterceptDNListEntry extends ComplexType implements ComplexInterface
     public function setPhoneNumber($phoneNumber = null)
     {
         $this->phoneNumber = new SimpleContent($phoneNumber);
-        $this->phoneNumber->setName('phoneNumber');
+        $this->phoneNumber->setElementName('phoneNumber');
         return $this;
     }
 
@@ -55,7 +55,9 @@ class InterceptDNListEntry extends ComplexType implements ComplexInterface
      */
     public function getPhoneNumber()
     {
-        return ($this->phoneNumber) ? $this->phoneNumber->getValue() : null;
+        return ($this->phoneNumber)
+            ? $this->phoneNumber->getElementValue()
+            : null;
     }
 
     /**
@@ -64,7 +66,7 @@ class InterceptDNListEntry extends ComplexType implements ComplexInterface
     public function setDescription($description = null)
     {
         $this->description = new SimpleContent($description);
-        $this->description->setName('description');
+        $this->description->setElementName('description');
         return $this;
     }
 
@@ -74,6 +76,8 @@ class InterceptDNListEntry extends ComplexType implements ComplexInterface
      */
     public function getDescription()
     {
-        return ($this->description) ? $this->description->getValue() : null;
+        return ($this->description)
+            ? $this->description->getElementValue()
+            : null;
     }
 }

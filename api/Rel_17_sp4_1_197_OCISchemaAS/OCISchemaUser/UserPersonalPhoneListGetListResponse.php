@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserPersonalPhoneListGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'UserPersonalPhoneListGetListResponse';
+    public    $elementName = 'UserPersonalPhoneListGetListResponse';
     protected $entry;
 
     /**
@@ -39,7 +39,7 @@ class UserPersonalPhoneListGetListResponse extends ComplexType implements Comple
         $this->entry = ($entry InstanceOf PhoneListEntry)
              ? $entry
              : new PhoneListEntry($entry);
-        $this->entry->setName('entry');
+        $this->entry->setElementName('entry');
         return $this;
     }
 

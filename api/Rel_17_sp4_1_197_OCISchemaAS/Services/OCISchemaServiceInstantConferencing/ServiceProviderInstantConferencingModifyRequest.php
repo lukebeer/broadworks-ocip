@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderInstantConferencingModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'ServiceProviderInstantConferencingModifyRequest';
+    public    $elementName = 'ServiceProviderInstantConferencingModifyRequest';
     protected $serviceProviderId;
     protected $portsAllocatedToServiceProvider;
 
@@ -49,7 +49,7 @@ class ServiceProviderInstantConferencingModifyRequest extends ComplexType implem
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
-        $this->serviceProviderId->setName('serviceProviderId');
+        $this->serviceProviderId->setElementName('serviceProviderId');
         return $this;
     }
 
@@ -59,7 +59,9 @@ class ServiceProviderInstantConferencingModifyRequest extends ComplexType implem
      */
     public function getServiceProviderId()
     {
-        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
+        return ($this->serviceProviderId)
+            ? $this->serviceProviderId->getElementValue()
+            : null;
     }
 
     /**
@@ -70,7 +72,7 @@ class ServiceProviderInstantConferencingModifyRequest extends ComplexType implem
         $this->portsAllocatedToServiceProvider = ($portsAllocatedToServiceProvider InstanceOf UnboundedNonNegativeInt)
              ? $portsAllocatedToServiceProvider
              : new UnboundedNonNegativeInt($portsAllocatedToServiceProvider);
-        $this->portsAllocatedToServiceProvider->setName('portsAllocatedToServiceProvider');
+        $this->portsAllocatedToServiceProvider->setElementName('portsAllocatedToServiceProvider');
         return $this;
     }
 

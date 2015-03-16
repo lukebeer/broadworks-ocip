@@ -36,7 +36,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserCallCenterEnhancedReportingScheduledReportModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'UserCallCenterEnhancedReportingScheduledReportModifyRequest';
+    public    $elementName = 'UserCallCenterEnhancedReportingScheduledReportModifyRequest';
     protected $supervisorUserId;
     protected $name;
     protected $newName;
@@ -118,7 +118,7 @@ class UserCallCenterEnhancedReportingScheduledReportModifyRequest extends Comple
         $this->supervisorUserId = ($supervisorUserId InstanceOf UserId)
              ? $supervisorUserId
              : new UserId($supervisorUserId);
-        $this->supervisorUserId->setName('supervisorUserId');
+        $this->supervisorUserId->setElementName('supervisorUserId');
         return $this;
     }
 
@@ -128,7 +128,9 @@ class UserCallCenterEnhancedReportingScheduledReportModifyRequest extends Comple
      */
     public function getSupervisorUserId()
     {
-        return ($this->supervisorUserId) ? $this->supervisorUserId->getValue() : null;
+        return ($this->supervisorUserId)
+            ? $this->supervisorUserId->getElementValue()
+            : null;
     }
 
     /**
@@ -139,7 +141,7 @@ class UserCallCenterEnhancedReportingScheduledReportModifyRequest extends Comple
         $this->name = ($name InstanceOf CallCenterScheduledReportName)
              ? $name
              : new CallCenterScheduledReportName($name);
-        $this->name->setName('name');
+        $this->name->setElementName('name');
         return $this;
     }
 
@@ -149,7 +151,9 @@ class UserCallCenterEnhancedReportingScheduledReportModifyRequest extends Comple
      */
     public function getName()
     {
-        return ($this->name) ? $this->name->getValue() : null;
+        return ($this->name)
+            ? $this->name->getElementValue()
+            : null;
     }
 
     /**
@@ -160,7 +164,7 @@ class UserCallCenterEnhancedReportingScheduledReportModifyRequest extends Comple
         $this->newName = ($newName InstanceOf CallCenterScheduledReportName)
              ? $newName
              : new CallCenterScheduledReportName($newName);
-        $this->newName->setName('newName');
+        $this->newName->setElementName('newName');
         return $this;
     }
 
@@ -170,7 +174,9 @@ class UserCallCenterEnhancedReportingScheduledReportModifyRequest extends Comple
      */
     public function getNewName()
     {
-        return ($this->newName) ? $this->newName->getValue() : null;
+        return ($this->newName)
+            ? $this->newName->getElementValue()
+            : null;
     }
 
     /**
@@ -181,7 +187,7 @@ class UserCallCenterEnhancedReportingScheduledReportModifyRequest extends Comple
         $this->description = ($description InstanceOf CallCenterScheduledReportDescription)
              ? $description
              : new CallCenterScheduledReportDescription($description);
-        $this->description->setName('description');
+        $this->description->setElementName('description');
         return $this;
     }
 
@@ -191,7 +197,9 @@ class UserCallCenterEnhancedReportingScheduledReportModifyRequest extends Comple
      */
     public function getDescription()
     {
-        return ($this->description) ? $this->description->getValue() : null;
+        return ($this->description)
+            ? $this->description->getElementValue()
+            : null;
     }
 
     /**
@@ -202,7 +210,7 @@ class UserCallCenterEnhancedReportingScheduledReportModifyRequest extends Comple
         $this->schedule = ($schedule InstanceOf CallCenterReportSchedule)
              ? $schedule
              : new CallCenterReportSchedule($schedule);
-        $this->schedule->setName('schedule');
+        $this->schedule->setElementName('schedule');
         return $this;
     }
 
@@ -223,7 +231,7 @@ class UserCallCenterEnhancedReportingScheduledReportModifyRequest extends Comple
         $this->samplingPeriod = ($samplingPeriod InstanceOf CallCenterReportSamplingPeriod)
              ? $samplingPeriod
              : new CallCenterReportSamplingPeriod($samplingPeriod);
-        $this->samplingPeriod->setName('samplingPeriod');
+        $this->samplingPeriod->setElementName('samplingPeriod');
         return $this;
     }
 
@@ -233,7 +241,9 @@ class UserCallCenterEnhancedReportingScheduledReportModifyRequest extends Comple
      */
     public function getSamplingPeriod()
     {
-        return ($this->samplingPeriod) ? $this->samplingPeriod->getValue() : null;
+        return ($this->samplingPeriod)
+            ? $this->samplingPeriod->getElementValue()
+            : null;
     }
 
     /**
@@ -244,7 +254,7 @@ class UserCallCenterEnhancedReportingScheduledReportModifyRequest extends Comple
         $this->startDayOfWeek = ($startDayOfWeek InstanceOf DayOfWeek)
              ? $startDayOfWeek
              : new DayOfWeek($startDayOfWeek);
-        $this->startDayOfWeek->setName('startDayOfWeek');
+        $this->startDayOfWeek->setElementName('startDayOfWeek');
         return $this;
     }
 
@@ -254,7 +264,9 @@ class UserCallCenterEnhancedReportingScheduledReportModifyRequest extends Comple
      */
     public function getStartDayOfWeek()
     {
-        return ($this->startDayOfWeek) ? $this->startDayOfWeek->getValue() : null;
+        return ($this->startDayOfWeek)
+            ? $this->startDayOfWeek->getElementValue()
+            : null;
     }
 
     /**
@@ -265,7 +277,7 @@ class UserCallCenterEnhancedReportingScheduledReportModifyRequest extends Comple
         $this->reportTimeZone = ($reportTimeZone InstanceOf TimeZone)
              ? $reportTimeZone
              : new TimeZone($reportTimeZone);
-        $this->reportTimeZone->setName('reportTimeZone');
+        $this->reportTimeZone->setElementName('reportTimeZone');
         return $this;
     }
 
@@ -275,7 +287,9 @@ class UserCallCenterEnhancedReportingScheduledReportModifyRequest extends Comple
      */
     public function getReportTimeZone()
     {
-        return ($this->reportTimeZone) ? $this->reportTimeZone->getValue() : null;
+        return ($this->reportTimeZone)
+            ? $this->reportTimeZone->getElementValue()
+            : null;
     }
 
     /**
@@ -286,7 +300,7 @@ class UserCallCenterEnhancedReportingScheduledReportModifyRequest extends Comple
         $this->reportDateFormat = ($reportDateFormat InstanceOf CallCenterReportDateFormat)
              ? $reportDateFormat
              : new CallCenterReportDateFormat($reportDateFormat);
-        $this->reportDateFormat->setName('reportDateFormat');
+        $this->reportDateFormat->setElementName('reportDateFormat');
         return $this;
     }
 
@@ -296,7 +310,9 @@ class UserCallCenterEnhancedReportingScheduledReportModifyRequest extends Comple
      */
     public function getReportDateFormat()
     {
-        return ($this->reportDateFormat) ? $this->reportDateFormat->getValue() : null;
+        return ($this->reportDateFormat)
+            ? $this->reportDateFormat->getElementValue()
+            : null;
     }
 
     /**
@@ -307,7 +323,7 @@ class UserCallCenterEnhancedReportingScheduledReportModifyRequest extends Comple
         $this->reportTimeFormat = ($reportTimeFormat InstanceOf CallCenterReportTimeFormat)
              ? $reportTimeFormat
              : new CallCenterReportTimeFormat($reportTimeFormat);
-        $this->reportTimeFormat->setName('reportTimeFormat');
+        $this->reportTimeFormat->setElementName('reportTimeFormat');
         return $this;
     }
 
@@ -317,7 +333,9 @@ class UserCallCenterEnhancedReportingScheduledReportModifyRequest extends Comple
      */
     public function getReportTimeFormat()
     {
-        return ($this->reportTimeFormat) ? $this->reportTimeFormat->getValue() : null;
+        return ($this->reportTimeFormat)
+            ? $this->reportTimeFormat->getElementValue()
+            : null;
     }
 
     /**
@@ -328,7 +346,7 @@ class UserCallCenterEnhancedReportingScheduledReportModifyRequest extends Comple
         $this->reportInterval = ($reportInterval InstanceOf CallCenterReportInterval)
              ? $reportInterval
              : new CallCenterReportInterval($reportInterval);
-        $this->reportInterval->setName('reportInterval');
+        $this->reportInterval->setElementName('reportInterval');
         return $this;
     }
 
@@ -349,7 +367,7 @@ class UserCallCenterEnhancedReportingScheduledReportModifyRequest extends Comple
         $this->reportFormat = ($reportFormat InstanceOf CallCenterReportFileFormat)
              ? $reportFormat
              : new CallCenterReportFileFormat($reportFormat);
-        $this->reportFormat->setName('reportFormat');
+        $this->reportFormat->setElementName('reportFormat');
         return $this;
     }
 
@@ -359,7 +377,9 @@ class UserCallCenterEnhancedReportingScheduledReportModifyRequest extends Comple
      */
     public function getReportFormat()
     {
-        return ($this->reportFormat) ? $this->reportFormat->getValue() : null;
+        return ($this->reportFormat)
+            ? $this->reportFormat->getElementValue()
+            : null;
     }
 
     /**
@@ -370,7 +390,7 @@ class UserCallCenterEnhancedReportingScheduledReportModifyRequest extends Comple
         $this->agent = ($agent InstanceOf CallCenterScheduledReportAgentSelection)
              ? $agent
              : new CallCenterScheduledReportAgentSelection($agent);
-        $this->agent->setName('agent');
+        $this->agent->setElementName('agent');
         return $this;
     }
 
@@ -391,7 +411,7 @@ class UserCallCenterEnhancedReportingScheduledReportModifyRequest extends Comple
         $this->callCompletionThresholdSeconds = ($callCompletionThresholdSeconds InstanceOf CallCenterReportThresholdSeconds)
              ? $callCompletionThresholdSeconds
              : new CallCenterReportThresholdSeconds($callCompletionThresholdSeconds);
-        $this->callCompletionThresholdSeconds->setName('callCompletionThresholdSeconds');
+        $this->callCompletionThresholdSeconds->setElementName('callCompletionThresholdSeconds');
         return $this;
     }
 
@@ -401,7 +421,9 @@ class UserCallCenterEnhancedReportingScheduledReportModifyRequest extends Comple
      */
     public function getCallCompletionThresholdSeconds()
     {
-        return ($this->callCompletionThresholdSeconds) ? $this->callCompletionThresholdSeconds->getValue() : null;
+        return ($this->callCompletionThresholdSeconds)
+            ? $this->callCompletionThresholdSeconds->getElementValue()
+            : null;
     }
 
     /**
@@ -412,7 +434,7 @@ class UserCallCenterEnhancedReportingScheduledReportModifyRequest extends Comple
         $this->shortDurationThresholdSeconds = ($shortDurationThresholdSeconds InstanceOf CallCenterReportThresholdSeconds)
              ? $shortDurationThresholdSeconds
              : new CallCenterReportThresholdSeconds($shortDurationThresholdSeconds);
-        $this->shortDurationThresholdSeconds->setName('shortDurationThresholdSeconds');
+        $this->shortDurationThresholdSeconds->setElementName('shortDurationThresholdSeconds');
         return $this;
     }
 
@@ -422,7 +444,9 @@ class UserCallCenterEnhancedReportingScheduledReportModifyRequest extends Comple
      */
     public function getShortDurationThresholdSeconds()
     {
-        return ($this->shortDurationThresholdSeconds) ? $this->shortDurationThresholdSeconds->getValue() : null;
+        return ($this->shortDurationThresholdSeconds)
+            ? $this->shortDurationThresholdSeconds->getElementValue()
+            : null;
     }
 
     /**
@@ -433,7 +457,7 @@ class UserCallCenterEnhancedReportingScheduledReportModifyRequest extends Comple
         $this->serviceLevelThresholdSeconds = ($serviceLevelThresholdSeconds InstanceOf CallCenterReportServiceLevelThresholdReplacementList)
              ? $serviceLevelThresholdSeconds
              : new CallCenterReportServiceLevelThresholdReplacementList($serviceLevelThresholdSeconds);
-        $this->serviceLevelThresholdSeconds->setName('serviceLevelThresholdSeconds');
+        $this->serviceLevelThresholdSeconds->setElementName('serviceLevelThresholdSeconds');
         return $this;
     }
 
@@ -454,7 +478,7 @@ class UserCallCenterEnhancedReportingScheduledReportModifyRequest extends Comple
         $this->serviceLevelInclusions = ($serviceLevelInclusions InstanceOf CallCenterScheduledReportServiceLevelInclusionsModify)
              ? $serviceLevelInclusions
              : new CallCenterScheduledReportServiceLevelInclusionsModify($serviceLevelInclusions);
-        $this->serviceLevelInclusions->setName('serviceLevelInclusions');
+        $this->serviceLevelInclusions->setElementName('serviceLevelInclusions');
         return $this;
     }
 
@@ -475,7 +499,7 @@ class UserCallCenterEnhancedReportingScheduledReportModifyRequest extends Comple
         $this->serviceLevelObjectivePercentage = ($serviceLevelObjectivePercentage InstanceOf CallCenterReportServiceLevelObjective)
              ? $serviceLevelObjectivePercentage
              : new CallCenterReportServiceLevelObjective($serviceLevelObjectivePercentage);
-        $this->serviceLevelObjectivePercentage->setName('serviceLevelObjectivePercentage');
+        $this->serviceLevelObjectivePercentage->setElementName('serviceLevelObjectivePercentage');
         return $this;
     }
 
@@ -485,7 +509,9 @@ class UserCallCenterEnhancedReportingScheduledReportModifyRequest extends Comple
      */
     public function getServiceLevelObjectivePercentage()
     {
-        return ($this->serviceLevelObjectivePercentage) ? $this->serviceLevelObjectivePercentage->getValue() : null;
+        return ($this->serviceLevelObjectivePercentage)
+            ? $this->serviceLevelObjectivePercentage->getElementValue()
+            : null;
     }
 
     /**
@@ -496,7 +522,7 @@ class UserCallCenterEnhancedReportingScheduledReportModifyRequest extends Comple
         $this->abandonedCallThresholdSeconds = ($abandonedCallThresholdSeconds InstanceOf CallCenterReportAbandonedCallThresholdReplacementList)
              ? $abandonedCallThresholdSeconds
              : new CallCenterReportAbandonedCallThresholdReplacementList($abandonedCallThresholdSeconds);
-        $this->abandonedCallThresholdSeconds->setName('abandonedCallThresholdSeconds');
+        $this->abandonedCallThresholdSeconds->setElementName('abandonedCallThresholdSeconds');
         return $this;
     }
 
@@ -517,7 +543,7 @@ class UserCallCenterEnhancedReportingScheduledReportModifyRequest extends Comple
         $this->emailAddress = ($emailAddress InstanceOf CallCenterReportReplacementEmailList)
              ? $emailAddress
              : new CallCenterReportReplacementEmailList($emailAddress);
-        $this->emailAddress->setName('emailAddress');
+        $this->emailAddress->setElementName('emailAddress');
         return $this;
     }
 

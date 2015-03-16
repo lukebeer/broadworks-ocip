@@ -15,11 +15,8 @@ use Broadworks_OCIP\core\Builder\Types\SimpleType;
  */
 class SharedCallAppearanceMaximumAppearances extends SimpleType
 {
-    public $name = "SharedCallAppearanceMaximumAppearances";
-    protected $value;
-
+    public $elementName = "SharedCallAppearanceMaximumAppearances";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
     }
 }

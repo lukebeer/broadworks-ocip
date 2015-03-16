@@ -16,12 +16,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\Enumeration;
  */
 class AnswerConfirmationAnnouncementSelection extends SimpleType
 {
-    public $name = "AnswerConfirmationAnnouncementSelection";
-    protected $value;
-
+    public $elementName = "AnswerConfirmationAnnouncementSelection";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new Enumeration([
             'System',
             'Custom'

@@ -23,7 +23,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemBroadWorksMobilityModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemBroadWorksMobilityModifyRequest';
+    public    $elementName = 'SystemBroadWorksMobilityModifyRequest';
     protected $enableLocationServices;
     protected $enableMSRNLookup;
     protected $enableMobileStateChecking;
@@ -67,7 +67,7 @@ class SystemBroadWorksMobilityModifyRequest extends ComplexType implements Compl
     public function setEnableLocationServices($enableLocationServices = null)
     {
         $this->enableLocationServices = new PrimitiveType($enableLocationServices);
-        $this->enableLocationServices->setName('enableLocationServices');
+        $this->enableLocationServices->setElementName('enableLocationServices');
         return $this;
     }
 
@@ -77,7 +77,9 @@ class SystemBroadWorksMobilityModifyRequest extends ComplexType implements Compl
      */
     public function getEnableLocationServices()
     {
-        return ($this->enableLocationServices) ? $this->enableLocationServices->getValue() : null;
+        return ($this->enableLocationServices)
+            ? $this->enableLocationServices->getElementValue()
+            : null;
     }
 
     /**
@@ -86,7 +88,7 @@ class SystemBroadWorksMobilityModifyRequest extends ComplexType implements Compl
     public function setEnableMSRNLookup($enableMSRNLookup = null)
     {
         $this->enableMSRNLookup = new PrimitiveType($enableMSRNLookup);
-        $this->enableMSRNLookup->setName('enableMSRNLookup');
+        $this->enableMSRNLookup->setElementName('enableMSRNLookup');
         return $this;
     }
 
@@ -96,7 +98,9 @@ class SystemBroadWorksMobilityModifyRequest extends ComplexType implements Compl
      */
     public function getEnableMSRNLookup()
     {
-        return ($this->enableMSRNLookup) ? $this->enableMSRNLookup->getValue() : null;
+        return ($this->enableMSRNLookup)
+            ? $this->enableMSRNLookup->getElementValue()
+            : null;
     }
 
     /**
@@ -105,7 +109,7 @@ class SystemBroadWorksMobilityModifyRequest extends ComplexType implements Compl
     public function setEnableMobileStateChecking($enableMobileStateChecking = null)
     {
         $this->enableMobileStateChecking = new PrimitiveType($enableMobileStateChecking);
-        $this->enableMobileStateChecking->setName('enableMobileStateChecking');
+        $this->enableMobileStateChecking->setElementName('enableMobileStateChecking');
         return $this;
     }
 
@@ -115,7 +119,9 @@ class SystemBroadWorksMobilityModifyRequest extends ComplexType implements Compl
      */
     public function getEnableMobileStateChecking()
     {
-        return ($this->enableMobileStateChecking) ? $this->enableMobileStateChecking->getValue() : null;
+        return ($this->enableMobileStateChecking)
+            ? $this->enableMobileStateChecking->getElementValue()
+            : null;
     }
 
     /**
@@ -124,7 +130,7 @@ class SystemBroadWorksMobilityModifyRequest extends ComplexType implements Compl
     public function setDenyCallOriginations($denyCallOriginations = null)
     {
         $this->denyCallOriginations = new PrimitiveType($denyCallOriginations);
-        $this->denyCallOriginations->setName('denyCallOriginations');
+        $this->denyCallOriginations->setElementName('denyCallOriginations');
         return $this;
     }
 
@@ -134,7 +140,9 @@ class SystemBroadWorksMobilityModifyRequest extends ComplexType implements Compl
      */
     public function getDenyCallOriginations()
     {
-        return ($this->denyCallOriginations) ? $this->denyCallOriginations->getValue() : null;
+        return ($this->denyCallOriginations)
+            ? $this->denyCallOriginations->getElementValue()
+            : null;
     }
 
     /**
@@ -143,7 +151,7 @@ class SystemBroadWorksMobilityModifyRequest extends ComplexType implements Compl
     public function setDenyCallTerminations($denyCallTerminations = null)
     {
         $this->denyCallTerminations = new PrimitiveType($denyCallTerminations);
-        $this->denyCallTerminations->setName('denyCallTerminations');
+        $this->denyCallTerminations->setElementName('denyCallTerminations');
         return $this;
     }
 
@@ -153,7 +161,9 @@ class SystemBroadWorksMobilityModifyRequest extends ComplexType implements Compl
      */
     public function getDenyCallTerminations()
     {
-        return ($this->denyCallTerminations) ? $this->denyCallTerminations->getValue() : null;
+        return ($this->denyCallTerminations)
+            ? $this->denyCallTerminations->getElementValue()
+            : null;
     }
 
     /**
@@ -164,7 +174,7 @@ class SystemBroadWorksMobilityModifyRequest extends ComplexType implements Compl
         $this->imrnTimeoutMilliseconds = ($imrnTimeoutMilliseconds InstanceOf IMRNTimeoutMilliseconds)
              ? $imrnTimeoutMilliseconds
              : new IMRNTimeoutMilliseconds($imrnTimeoutMilliseconds);
-        $this->imrnTimeoutMilliseconds->setName('imrnTimeoutMilliseconds');
+        $this->imrnTimeoutMilliseconds->setElementName('imrnTimeoutMilliseconds');
         return $this;
     }
 
@@ -174,7 +184,9 @@ class SystemBroadWorksMobilityModifyRequest extends ComplexType implements Compl
      */
     public function getImrnTimeoutMilliseconds()
     {
-        return ($this->imrnTimeoutMilliseconds) ? $this->imrnTimeoutMilliseconds->getValue() : null;
+        return ($this->imrnTimeoutMilliseconds)
+            ? $this->imrnTimeoutMilliseconds->getElementValue()
+            : null;
     }
 
     /**
@@ -185,7 +197,7 @@ class SystemBroadWorksMobilityModifyRequest extends ComplexType implements Compl
         $this->scfSignalingIPAddress = ($scfSignalingIPAddress InstanceOf IPAddress)
              ? $scfSignalingIPAddress
              : new IPAddress($scfSignalingIPAddress);
-        $this->scfSignalingIPAddress->setName('scfSignalingIPAddress');
+        $this->scfSignalingIPAddress->setElementName('scfSignalingIPAddress');
         return $this;
     }
 
@@ -195,7 +207,9 @@ class SystemBroadWorksMobilityModifyRequest extends ComplexType implements Compl
      */
     public function getScfSignalingIPAddress()
     {
-        return ($this->scfSignalingIPAddress) ? $this->scfSignalingIPAddress->getValue() : null;
+        return ($this->scfSignalingIPAddress)
+            ? $this->scfSignalingIPAddress->getElementValue()
+            : null;
     }
 
     /**
@@ -206,7 +220,7 @@ class SystemBroadWorksMobilityModifyRequest extends ComplexType implements Compl
         $this->scfSignalingPort = ($scfSignalingPort InstanceOf Port)
              ? $scfSignalingPort
              : new Port($scfSignalingPort);
-        $this->scfSignalingPort->setName('scfSignalingPort');
+        $this->scfSignalingPort->setElementName('scfSignalingPort');
         return $this;
     }
 
@@ -216,6 +230,8 @@ class SystemBroadWorksMobilityModifyRequest extends ComplexType implements Compl
      */
     public function getScfSignalingPort()
     {
-        return ($this->scfSignalingPort) ? $this->scfSignalingPort->getValue() : null;
+        return ($this->scfSignalingPort)
+            ? $this->scfSignalingPort->getElementValue()
+            : null;
     }
 }

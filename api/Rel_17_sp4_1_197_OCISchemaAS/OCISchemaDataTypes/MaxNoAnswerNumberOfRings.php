@@ -17,12 +17,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\MaxInclusive;
  */
 class MaxNoAnswerNumberOfRings extends SimpleType
 {
-    public $name = "MaxNoAnswerNumberOfRings";
-    protected $value;
-
+    public $elementName = "MaxNoAnswerNumberOfRings";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new MinInclusive("6"));
         $this->addRestriction(new MaxInclusive("20"));
     }

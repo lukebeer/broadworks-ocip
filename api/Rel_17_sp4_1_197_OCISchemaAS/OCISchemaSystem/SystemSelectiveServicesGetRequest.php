@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
 class SystemSelectiveServicesGetRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemSelectiveServicesGetResponse';
-    public    $name = 'SystemSelectiveServicesGetRequest';
+    public    $elementName = 'SystemSelectiveServicesGetRequest';
 
     public function __construct(    ) {
     }

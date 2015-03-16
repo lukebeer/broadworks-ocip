@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemOCIReportingAddACLEntryRequest13mp9 extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemOCIReportingAddACLEntryRequest13mp9';
+    public    $elementName = 'SystemOCIReportingAddACLEntryRequest13mp9';
     protected $netAddress;
     protected $description;
     protected $restrictMessages;
@@ -53,7 +53,7 @@ class SystemOCIReportingAddACLEntryRequest13mp9 extends ComplexType implements C
         $this->netAddress = ($netAddress InstanceOf NetAddress)
              ? $netAddress
              : new NetAddress($netAddress);
-        $this->netAddress->setName('netAddress');
+        $this->netAddress->setElementName('netAddress');
         return $this;
     }
 
@@ -63,7 +63,9 @@ class SystemOCIReportingAddACLEntryRequest13mp9 extends ComplexType implements C
      */
     public function getNetAddress()
     {
-        return ($this->netAddress) ? $this->netAddress->getValue() : null;
+        return ($this->netAddress)
+            ? $this->netAddress->getElementValue()
+            : null;
     }
 
     /**
@@ -74,7 +76,7 @@ class SystemOCIReportingAddACLEntryRequest13mp9 extends ComplexType implements C
         $this->description = ($description InstanceOf NetworkACLEntryDescription)
              ? $description
              : new NetworkACLEntryDescription($description);
-        $this->description->setName('description');
+        $this->description->setElementName('description');
         return $this;
     }
 
@@ -84,7 +86,9 @@ class SystemOCIReportingAddACLEntryRequest13mp9 extends ComplexType implements C
      */
     public function getDescription()
     {
-        return ($this->description) ? $this->description->getValue() : null;
+        return ($this->description)
+            ? $this->description->getElementValue()
+            : null;
     }
 
     /**
@@ -93,7 +97,7 @@ class SystemOCIReportingAddACLEntryRequest13mp9 extends ComplexType implements C
     public function setRestrictMessages($restrictMessages = null)
     {
         $this->restrictMessages = new PrimitiveType($restrictMessages);
-        $this->restrictMessages->setName('restrictMessages');
+        $this->restrictMessages->setElementName('restrictMessages');
         return $this;
     }
 
@@ -103,6 +107,8 @@ class SystemOCIReportingAddACLEntryRequest13mp9 extends ComplexType implements C
      */
     public function getRestrictMessages()
     {
-        return ($this->restrictMessages) ? $this->restrictMessages->getValue() : null;
+        return ($this->restrictMessages)
+            ? $this->restrictMessages->getElementValue()
+            : null;
     }
 }

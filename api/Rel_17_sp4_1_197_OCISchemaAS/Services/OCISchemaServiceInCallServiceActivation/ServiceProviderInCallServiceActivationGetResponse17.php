@@ -19,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderInCallServiceActivationGetResponse17 extends ComplexType implements ComplexInterface
 {
-    public    $name = 'ServiceProviderInCallServiceActivationGetResponse17';
+    public    $elementName = 'ServiceProviderInCallServiceActivationGetResponse17';
     protected $flashActivationDigits;
     protected $callTransferActivationDigits;
 
@@ -39,7 +39,7 @@ class ServiceProviderInCallServiceActivationGetResponse17 extends ComplexType im
         $this->flashActivationDigits = ($flashActivationDigits InstanceOf InCallServiceActivationDigits)
              ? $flashActivationDigits
              : new InCallServiceActivationDigits($flashActivationDigits);
-        $this->flashActivationDigits->setName('flashActivationDigits');
+        $this->flashActivationDigits->setElementName('flashActivationDigits');
         return $this;
     }
 
@@ -49,7 +49,9 @@ class ServiceProviderInCallServiceActivationGetResponse17 extends ComplexType im
      */
     public function getFlashActivationDigits()
     {
-        return ($this->flashActivationDigits) ? $this->flashActivationDigits->getValue() : null;
+        return ($this->flashActivationDigits)
+            ? $this->flashActivationDigits->getElementValue()
+            : null;
     }
 
     /**
@@ -60,7 +62,7 @@ class ServiceProviderInCallServiceActivationGetResponse17 extends ComplexType im
         $this->callTransferActivationDigits = ($callTransferActivationDigits InstanceOf InCallServiceActivationDigits)
              ? $callTransferActivationDigits
              : new InCallServiceActivationDigits($callTransferActivationDigits);
-        $this->callTransferActivationDigits->setName('callTransferActivationDigits');
+        $this->callTransferActivationDigits->setElementName('callTransferActivationDigits');
         return $this;
     }
 
@@ -70,6 +72,8 @@ class ServiceProviderInCallServiceActivationGetResponse17 extends ComplexType im
      */
     public function getCallTransferActivationDigits()
     {
-        return ($this->callTransferActivationDigits) ? $this->callTransferActivationDigits->getValue() : null;
+        return ($this->callTransferActivationDigits)
+            ? $this->callTransferActivationDigits->getElementValue()
+            : null;
     }
 }

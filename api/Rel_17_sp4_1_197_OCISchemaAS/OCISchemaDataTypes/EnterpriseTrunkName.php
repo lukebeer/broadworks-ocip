@@ -18,12 +18,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\MaxLength;
  */
 class EnterpriseTrunkName extends SimpleType
 {
-    public $name = "EnterpriseTrunkName";
-    protected $value;
-
+    public $elementName = "EnterpriseTrunkName";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new MinLength("1"));
         $this->addRestriction(new MaxLength("30"));
     }

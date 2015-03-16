@@ -16,12 +16,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\Enumeration;
  */
 class AttendantConsoleDisplayColumn extends SimpleType
 {
-    public $name = "AttendantConsoleDisplayColumn";
-    protected $value;
-
+    public $elementName = "AttendantConsoleDisplayColumn";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new Enumeration([
             'Action',
             'Department',

@@ -16,12 +16,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\Enumeration;
  */
 class OutgoingPinholeDigitPlanCallMeNowPermission extends SimpleType
 {
-    public $name = "OutgoingPinholeDigitPlanCallMeNowPermission";
-    protected $value;
-
+    public $elementName = "OutgoingPinholeDigitPlanCallMeNowPermission";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new Enumeration([
             'Ignore',
             'Allow'

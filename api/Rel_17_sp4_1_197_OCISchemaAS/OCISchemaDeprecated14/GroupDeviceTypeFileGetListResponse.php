@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupDeviceTypeFileGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'GroupDeviceTypeFileGetListResponse';
+    public    $elementName = 'GroupDeviceTypeFileGetListResponse';
     protected $groupDeviceTypeFilesTable;
 
     /**
@@ -39,7 +39,7 @@ class GroupDeviceTypeFileGetListResponse extends ComplexType implements ComplexI
     public function setGroupDeviceTypeFilesTable(TableType $groupDeviceTypeFilesTable = null)
     {
         $this->groupDeviceTypeFilesTable = $groupDeviceTypeFilesTable;
-        $this->groupDeviceTypeFilesTable->setName('groupDeviceTypeFilesTable');
+        $this->groupDeviceTypeFilesTable->setElementName('groupDeviceTypeFilesTable');
         return $this;
     }
 

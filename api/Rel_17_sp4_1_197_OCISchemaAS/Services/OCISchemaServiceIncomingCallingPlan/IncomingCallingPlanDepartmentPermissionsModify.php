@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class IncomingCallingPlanDepartmentPermissionsModify extends ComplexType implements ComplexInterface
 {
-    public    $name = 'IncomingCallingPlanDepartmentPermissionsModify';
+    public    $elementName = 'IncomingCallingPlanDepartmentPermissionsModify';
     protected $departmentKey;
     protected $allowFromWithinGroup;
     protected $allowFromOutsideGroup;
@@ -55,7 +55,7 @@ class IncomingCallingPlanDepartmentPermissionsModify extends ComplexType impleme
     public function setDepartmentKey($departmentKey = null)
     {
         $this->departmentKey = new SimpleContent($departmentKey);
-        $this->departmentKey->setName('departmentKey');
+        $this->departmentKey->setElementName('departmentKey');
         return $this;
     }
 
@@ -65,7 +65,9 @@ class IncomingCallingPlanDepartmentPermissionsModify extends ComplexType impleme
      */
     public function getDepartmentKey()
     {
-        return ($this->departmentKey) ? $this->departmentKey->getValue() : null;
+        return ($this->departmentKey)
+            ? $this->departmentKey->getElementValue()
+            : null;
     }
 
     /**
@@ -74,7 +76,7 @@ class IncomingCallingPlanDepartmentPermissionsModify extends ComplexType impleme
     public function setAllowFromWithinGroup($allowFromWithinGroup = null)
     {
         $this->allowFromWithinGroup = new SimpleContent($allowFromWithinGroup);
-        $this->allowFromWithinGroup->setName('allowFromWithinGroup');
+        $this->allowFromWithinGroup->setElementName('allowFromWithinGroup');
         return $this;
     }
 
@@ -84,7 +86,9 @@ class IncomingCallingPlanDepartmentPermissionsModify extends ComplexType impleme
      */
     public function getAllowFromWithinGroup()
     {
-        return ($this->allowFromWithinGroup) ? $this->allowFromWithinGroup->getValue() : null;
+        return ($this->allowFromWithinGroup)
+            ? $this->allowFromWithinGroup->getElementValue()
+            : null;
     }
 
     /**
@@ -93,7 +97,7 @@ class IncomingCallingPlanDepartmentPermissionsModify extends ComplexType impleme
     public function setAllowFromOutsideGroup($allowFromOutsideGroup = null)
     {
         $this->allowFromOutsideGroup = new SimpleContent($allowFromOutsideGroup);
-        $this->allowFromOutsideGroup->setName('allowFromOutsideGroup');
+        $this->allowFromOutsideGroup->setElementName('allowFromOutsideGroup');
         return $this;
     }
 
@@ -103,7 +107,9 @@ class IncomingCallingPlanDepartmentPermissionsModify extends ComplexType impleme
      */
     public function getAllowFromOutsideGroup()
     {
-        return ($this->allowFromOutsideGroup) ? $this->allowFromOutsideGroup->getValue() : null;
+        return ($this->allowFromOutsideGroup)
+            ? $this->allowFromOutsideGroup->getElementValue()
+            : null;
     }
 
     /**
@@ -112,7 +118,7 @@ class IncomingCallingPlanDepartmentPermissionsModify extends ComplexType impleme
     public function setAllowCollectCalls($allowCollectCalls = null)
     {
         $this->allowCollectCalls = new SimpleContent($allowCollectCalls);
-        $this->allowCollectCalls->setName('allowCollectCalls');
+        $this->allowCollectCalls->setElementName('allowCollectCalls');
         return $this;
     }
 
@@ -122,7 +128,9 @@ class IncomingCallingPlanDepartmentPermissionsModify extends ComplexType impleme
      */
     public function getAllowCollectCalls()
     {
-        return ($this->allowCollectCalls) ? $this->allowCollectCalls->getValue() : null;
+        return ($this->allowCollectCalls)
+            ? $this->allowCollectCalls->getElementValue()
+            : null;
     }
 
     /**
@@ -131,7 +139,7 @@ class IncomingCallingPlanDepartmentPermissionsModify extends ComplexType impleme
     public function setDigitPatternPermission($digitPatternPermission = null)
     {
         $this->digitPatternPermission = new SimpleContent($digitPatternPermission);
-        $this->digitPatternPermission->setName('digitPatternPermission');
+        $this->digitPatternPermission->setElementName('digitPatternPermission');
         return $this;
     }
 
@@ -141,6 +149,8 @@ class IncomingCallingPlanDepartmentPermissionsModify extends ComplexType impleme
      */
     public function getDigitPatternPermission()
     {
-        return ($this->digitPatternPermission) ? $this->digitPatternPermission->getValue() : null;
+        return ($this->digitPatternPermission)
+            ? $this->digitPatternPermission->getElementValue()
+            : null;
     }
 }

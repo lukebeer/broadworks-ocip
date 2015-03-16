@@ -17,12 +17,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\MaxInclusive;
  */
 class CallCenterRingTimeBeforePlayingComfortMessageBypassAnnouncementSeconds extends SimpleType
 {
-    public $name = "CallCenterRingTimeBeforePlayingComfortMessageBypassAnnouncementSeconds";
-    protected $value;
-
+    public $elementName = "CallCenterRingTimeBeforePlayingComfortMessageBypassAnnouncementSeconds";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new MinInclusive("0"));
         $this->addRestriction(new MaxInclusive("120"));
     }

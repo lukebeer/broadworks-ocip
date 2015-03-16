@@ -16,12 +16,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\Enumeration;
  */
 class OrganizationType extends SimpleType
 {
-    public $name = "OrganizationType";
-    protected $value;
-
+    public $elementName = "OrganizationType";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new Enumeration([
             'Service Provider',
             'Enterprise'

@@ -24,7 +24,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserInstantConferencingLoginStandAloneResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'UserInstantConferencingLoginStandAloneResponse';
+    public    $elementName = 'UserInstantConferencingLoginStandAloneResponse';
     protected $locale;
     protected $encoding;
     protected $timeZone;
@@ -47,7 +47,7 @@ class UserInstantConferencingLoginStandAloneResponse extends ComplexType impleme
         $this->locale = ($locale InstanceOf OCILocale)
              ? $locale
              : new OCILocale($locale);
-        $this->locale->setName('locale');
+        $this->locale->setElementName('locale');
         return $this;
     }
 
@@ -57,7 +57,9 @@ class UserInstantConferencingLoginStandAloneResponse extends ComplexType impleme
      */
     public function getLocale()
     {
-        return ($this->locale) ? $this->locale->getValue() : null;
+        return ($this->locale)
+            ? $this->locale->getElementValue()
+            : null;
     }
 
     /**
@@ -68,7 +70,7 @@ class UserInstantConferencingLoginStandAloneResponse extends ComplexType impleme
         $this->encoding = ($encoding InstanceOf Encoding)
              ? $encoding
              : new Encoding($encoding);
-        $this->encoding->setName('encoding');
+        $this->encoding->setElementName('encoding');
         return $this;
     }
 
@@ -78,7 +80,9 @@ class UserInstantConferencingLoginStandAloneResponse extends ComplexType impleme
      */
     public function getEncoding()
     {
-        return ($this->encoding) ? $this->encoding->getValue() : null;
+        return ($this->encoding)
+            ? $this->encoding->getElementValue()
+            : null;
     }
 
     /**
@@ -89,7 +93,7 @@ class UserInstantConferencingLoginStandAloneResponse extends ComplexType impleme
         $this->timeZone = ($timeZone InstanceOf TimeZone)
              ? $timeZone
              : new TimeZone($timeZone);
-        $this->timeZone->setName('timeZone');
+        $this->timeZone->setElementName('timeZone');
         return $this;
     }
 
@@ -99,7 +103,9 @@ class UserInstantConferencingLoginStandAloneResponse extends ComplexType impleme
      */
     public function getTimeZone()
     {
-        return ($this->timeZone) ? $this->timeZone->getValue() : null;
+        return ($this->timeZone)
+            ? $this->timeZone->getElementValue()
+            : null;
     }
 
     /**
@@ -110,7 +116,7 @@ class UserInstantConferencingLoginStandAloneResponse extends ComplexType impleme
         $this->timeZoneDisplayName = ($timeZoneDisplayName InstanceOf TimeZoneDisplayName)
              ? $timeZoneDisplayName
              : new TimeZoneDisplayName($timeZoneDisplayName);
-        $this->timeZoneDisplayName->setName('timeZoneDisplayName');
+        $this->timeZoneDisplayName->setElementName('timeZoneDisplayName');
         return $this;
     }
 
@@ -120,7 +126,9 @@ class UserInstantConferencingLoginStandAloneResponse extends ComplexType impleme
      */
     public function getTimeZoneDisplayName()
     {
-        return ($this->timeZoneDisplayName) ? $this->timeZoneDisplayName->getValue() : null;
+        return ($this->timeZoneDisplayName)
+            ? $this->timeZoneDisplayName->getElementValue()
+            : null;
     }
 
     /**
@@ -131,7 +139,7 @@ class UserInstantConferencingLoginStandAloneResponse extends ComplexType impleme
         $this->phoneNumber = ($phoneNumber InstanceOf DN)
              ? $phoneNumber
              : new DN($phoneNumber);
-        $this->phoneNumber->setName('phoneNumber');
+        $this->phoneNumber->setElementName('phoneNumber');
         return $this;
     }
 
@@ -141,6 +149,8 @@ class UserInstantConferencingLoginStandAloneResponse extends ComplexType impleme
      */
     public function getPhoneNumber()
     {
-        return ($this->phoneNumber) ? $this->phoneNumber->getValue() : null;
+        return ($this->phoneNumber)
+            ? $this->phoneNumber->getElementValue()
+            : null;
     }
 }

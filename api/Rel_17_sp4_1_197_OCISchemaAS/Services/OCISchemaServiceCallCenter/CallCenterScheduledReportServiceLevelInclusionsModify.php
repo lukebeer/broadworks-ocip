@@ -19,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class CallCenterScheduledReportServiceLevelInclusionsModify extends ComplexType implements ComplexInterface
 {
-    public    $name = 'CallCenterScheduledReportServiceLevelInclusionsModify';
+    public    $elementName = 'CallCenterScheduledReportServiceLevelInclusionsModify';
     protected $includeOverflowTimeTransferedInServiceLevel;
     protected $includeOtherTransfersInServiceLevel;
     protected $abandonedCallsInServiceLevel;
@@ -51,7 +51,7 @@ class CallCenterScheduledReportServiceLevelInclusionsModify extends ComplexType 
     public function setIncludeOverflowTimeTransferedInServiceLevel($includeOverflowTimeTransferedInServiceLevel = null)
     {
         $this->includeOverflowTimeTransferedInServiceLevel = new SimpleContent($includeOverflowTimeTransferedInServiceLevel);
-        $this->includeOverflowTimeTransferedInServiceLevel->setName('includeOverflowTimeTransferedInServiceLevel');
+        $this->includeOverflowTimeTransferedInServiceLevel->setElementName('includeOverflowTimeTransferedInServiceLevel');
         return $this;
     }
 
@@ -61,7 +61,9 @@ class CallCenterScheduledReportServiceLevelInclusionsModify extends ComplexType 
      */
     public function getIncludeOverflowTimeTransferedInServiceLevel()
     {
-        return ($this->includeOverflowTimeTransferedInServiceLevel) ? $this->includeOverflowTimeTransferedInServiceLevel->getValue() : null;
+        return ($this->includeOverflowTimeTransferedInServiceLevel)
+            ? $this->includeOverflowTimeTransferedInServiceLevel->getElementValue()
+            : null;
     }
 
     /**
@@ -70,7 +72,7 @@ class CallCenterScheduledReportServiceLevelInclusionsModify extends ComplexType 
     public function setIncludeOtherTransfersInServiceLevel($includeOtherTransfersInServiceLevel = null)
     {
         $this->includeOtherTransfersInServiceLevel = new SimpleContent($includeOtherTransfersInServiceLevel);
-        $this->includeOtherTransfersInServiceLevel->setName('includeOtherTransfersInServiceLevel');
+        $this->includeOtherTransfersInServiceLevel->setElementName('includeOtherTransfersInServiceLevel');
         return $this;
     }
 
@@ -80,7 +82,9 @@ class CallCenterScheduledReportServiceLevelInclusionsModify extends ComplexType 
      */
     public function getIncludeOtherTransfersInServiceLevel()
     {
-        return ($this->includeOtherTransfersInServiceLevel) ? $this->includeOtherTransfersInServiceLevel->getValue() : null;
+        return ($this->includeOtherTransfersInServiceLevel)
+            ? $this->includeOtherTransfersInServiceLevel->getElementValue()
+            : null;
     }
 
     /**
@@ -89,7 +93,7 @@ class CallCenterScheduledReportServiceLevelInclusionsModify extends ComplexType 
     public function setAbandonedCallsInServiceLevel($abandonedCallsInServiceLevel = null)
     {
         $this->abandonedCallsInServiceLevel = new SimpleContent($abandonedCallsInServiceLevel);
-        $this->abandonedCallsInServiceLevel->setName('abandonedCallsInServiceLevel');
+        $this->abandonedCallsInServiceLevel->setElementName('abandonedCallsInServiceLevel');
         return $this;
     }
 
@@ -99,7 +103,9 @@ class CallCenterScheduledReportServiceLevelInclusionsModify extends ComplexType 
      */
     public function getAbandonedCallsInServiceLevel()
     {
-        return ($this->abandonedCallsInServiceLevel) ? $this->abandonedCallsInServiceLevel->getValue() : null;
+        return ($this->abandonedCallsInServiceLevel)
+            ? $this->abandonedCallsInServiceLevel->getElementValue()
+            : null;
     }
 
     /**
@@ -108,7 +114,7 @@ class CallCenterScheduledReportServiceLevelInclusionsModify extends ComplexType 
     public function setAbandonedCallIntervalSeconds($abandonedCallIntervalSeconds = null)
     {
         $this->abandonedCallIntervalSeconds = new SimpleContent($abandonedCallIntervalSeconds);
-        $this->abandonedCallIntervalSeconds->setName('abandonedCallIntervalSeconds');
+        $this->abandonedCallIntervalSeconds->setElementName('abandonedCallIntervalSeconds');
         return $this;
     }
 
@@ -118,6 +124,8 @@ class CallCenterScheduledReportServiceLevelInclusionsModify extends ComplexType 
      */
     public function getAbandonedCallIntervalSeconds()
     {
-        return ($this->abandonedCallIntervalSeconds) ? $this->abandonedCallIntervalSeconds->getValue() : null;
+        return ($this->abandonedCallIntervalSeconds)
+            ? $this->abandonedCallIntervalSeconds->getElementValue()
+            : null;
     }
 }

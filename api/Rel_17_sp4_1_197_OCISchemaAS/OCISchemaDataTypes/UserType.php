@@ -16,12 +16,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\Enumeration;
  */
 class UserType extends SimpleType
 {
-    public $name = "UserType";
-    protected $value;
-
+    public $elementName = "UserType";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new Enumeration([
             'Normal',
             'Auto Attendant',

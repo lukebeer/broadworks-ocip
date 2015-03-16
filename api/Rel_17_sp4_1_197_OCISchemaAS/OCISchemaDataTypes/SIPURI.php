@@ -24,12 +24,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\MaxLength;
  */
 class SIPURI extends SimpleType
 {
-    public $name = "SIPURI";
-    protected $value;
-
+    public $elementName = "SIPURI";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new MinLength("1"));
         $this->addRestriction(new MaxLength("161"));
     }

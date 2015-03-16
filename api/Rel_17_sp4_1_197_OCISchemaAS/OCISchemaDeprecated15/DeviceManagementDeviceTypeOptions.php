@@ -19,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class DeviceManagementDeviceTypeOptions extends ComplexType implements ComplexInterface
 {
-    public    $name = 'DeviceManagementDeviceTypeOptions';
+    public    $elementName = 'DeviceManagementDeviceTypeOptions';
     protected $deviceAccessProtocol;
     protected $tagMode;
     protected $tagSet;
@@ -93,7 +93,7 @@ class DeviceManagementDeviceTypeOptions extends ComplexType implements ComplexIn
     public function setDeviceAccessProtocol($deviceAccessProtocol = null)
     {
         $this->deviceAccessProtocol = new SimpleContent($deviceAccessProtocol);
-        $this->deviceAccessProtocol->setName('deviceAccessProtocol');
+        $this->deviceAccessProtocol->setElementName('deviceAccessProtocol');
         return $this;
     }
 
@@ -103,7 +103,9 @@ class DeviceManagementDeviceTypeOptions extends ComplexType implements ComplexIn
      */
     public function getDeviceAccessProtocol()
     {
-        return ($this->deviceAccessProtocol) ? $this->deviceAccessProtocol->getValue() : null;
+        return ($this->deviceAccessProtocol)
+            ? $this->deviceAccessProtocol->getElementValue()
+            : null;
     }
 
     /**
@@ -112,7 +114,7 @@ class DeviceManagementDeviceTypeOptions extends ComplexType implements ComplexIn
     public function setTagMode($tagMode = null)
     {
         $this->tagMode = new SimpleContent($tagMode);
-        $this->tagMode->setName('tagMode');
+        $this->tagMode->setElementName('tagMode');
         return $this;
     }
 
@@ -122,7 +124,9 @@ class DeviceManagementDeviceTypeOptions extends ComplexType implements ComplexIn
      */
     public function getTagMode()
     {
-        return ($this->tagMode) ? $this->tagMode->getValue() : null;
+        return ($this->tagMode)
+            ? $this->tagMode->getElementValue()
+            : null;
     }
 
     /**
@@ -131,7 +135,7 @@ class DeviceManagementDeviceTypeOptions extends ComplexType implements ComplexIn
     public function setTagSet($tagSet = null)
     {
         $this->tagSet = new SimpleContent($tagSet);
-        $this->tagSet->setName('tagSet');
+        $this->tagSet->setElementName('tagSet');
         return $this;
     }
 
@@ -141,7 +145,9 @@ class DeviceManagementDeviceTypeOptions extends ComplexType implements ComplexIn
      */
     public function getTagSet()
     {
-        return ($this->tagSet) ? $this->tagSet->getValue() : null;
+        return ($this->tagSet)
+            ? $this->tagSet->getElementValue()
+            : null;
     }
 
     /**
@@ -150,7 +156,7 @@ class DeviceManagementDeviceTypeOptions extends ComplexType implements ComplexIn
     public function setAllowDeviceProfileCustomTagSet($allowDeviceProfileCustomTagSet = null)
     {
         $this->allowDeviceProfileCustomTagSet = new SimpleContent($allowDeviceProfileCustomTagSet);
-        $this->allowDeviceProfileCustomTagSet->setName('allowDeviceProfileCustomTagSet');
+        $this->allowDeviceProfileCustomTagSet->setElementName('allowDeviceProfileCustomTagSet');
         return $this;
     }
 
@@ -160,7 +166,9 @@ class DeviceManagementDeviceTypeOptions extends ComplexType implements ComplexIn
      */
     public function getAllowDeviceProfileCustomTagSet()
     {
-        return ($this->allowDeviceProfileCustomTagSet) ? $this->allowDeviceProfileCustomTagSet->getValue() : null;
+        return ($this->allowDeviceProfileCustomTagSet)
+            ? $this->allowDeviceProfileCustomTagSet->getElementValue()
+            : null;
     }
 
     /**
@@ -169,7 +177,7 @@ class DeviceManagementDeviceTypeOptions extends ComplexType implements ComplexIn
     public function setAllowGroupCustomTagSet($allowGroupCustomTagSet = null)
     {
         $this->allowGroupCustomTagSet = new SimpleContent($allowGroupCustomTagSet);
-        $this->allowGroupCustomTagSet->setName('allowGroupCustomTagSet');
+        $this->allowGroupCustomTagSet->setElementName('allowGroupCustomTagSet');
         return $this;
     }
 
@@ -179,7 +187,9 @@ class DeviceManagementDeviceTypeOptions extends ComplexType implements ComplexIn
      */
     public function getAllowGroupCustomTagSet()
     {
-        return ($this->allowGroupCustomTagSet) ? $this->allowGroupCustomTagSet->getValue() : null;
+        return ($this->allowGroupCustomTagSet)
+            ? $this->allowGroupCustomTagSet->getElementValue()
+            : null;
     }
 
     /**
@@ -188,7 +198,7 @@ class DeviceManagementDeviceTypeOptions extends ComplexType implements ComplexIn
     public function setSendEmailUponResetFailure($sendEmailUponResetFailure = null)
     {
         $this->sendEmailUponResetFailure = new SimpleContent($sendEmailUponResetFailure);
-        $this->sendEmailUponResetFailure->setName('sendEmailUponResetFailure');
+        $this->sendEmailUponResetFailure->setElementName('sendEmailUponResetFailure');
         return $this;
     }
 
@@ -198,7 +208,9 @@ class DeviceManagementDeviceTypeOptions extends ComplexType implements ComplexIn
      */
     public function getSendEmailUponResetFailure()
     {
-        return ($this->sendEmailUponResetFailure) ? $this->sendEmailUponResetFailure->getValue() : null;
+        return ($this->sendEmailUponResetFailure)
+            ? $this->sendEmailUponResetFailure->getElementValue()
+            : null;
     }
 
     /**
@@ -207,7 +219,7 @@ class DeviceManagementDeviceTypeOptions extends ComplexType implements ComplexIn
     public function setDeviceAccessNetAddress($deviceAccessNetAddress = null)
     {
         $this->deviceAccessNetAddress = new SimpleContent($deviceAccessNetAddress);
-        $this->deviceAccessNetAddress->setName('deviceAccessNetAddress');
+        $this->deviceAccessNetAddress->setElementName('deviceAccessNetAddress');
         return $this;
     }
 
@@ -217,7 +229,9 @@ class DeviceManagementDeviceTypeOptions extends ComplexType implements ComplexIn
      */
     public function getDeviceAccessNetAddress()
     {
-        return ($this->deviceAccessNetAddress) ? $this->deviceAccessNetAddress->getValue() : null;
+        return ($this->deviceAccessNetAddress)
+            ? $this->deviceAccessNetAddress->getElementValue()
+            : null;
     }
 
     /**
@@ -226,7 +240,7 @@ class DeviceManagementDeviceTypeOptions extends ComplexType implements ComplexIn
     public function setDeviceAccessPort($deviceAccessPort = null)
     {
         $this->deviceAccessPort = new SimpleContent($deviceAccessPort);
-        $this->deviceAccessPort->setName('deviceAccessPort');
+        $this->deviceAccessPort->setElementName('deviceAccessPort');
         return $this;
     }
 
@@ -236,7 +250,9 @@ class DeviceManagementDeviceTypeOptions extends ComplexType implements ComplexIn
      */
     public function getDeviceAccessPort()
     {
-        return ($this->deviceAccessPort) ? $this->deviceAccessPort->getValue() : null;
+        return ($this->deviceAccessPort)
+            ? $this->deviceAccessPort->getElementValue()
+            : null;
     }
 
     /**
@@ -245,7 +261,7 @@ class DeviceManagementDeviceTypeOptions extends ComplexType implements ComplexIn
     public function setDeviceAccessContext($deviceAccessContext = null)
     {
         $this->deviceAccessContext = new SimpleContent($deviceAccessContext);
-        $this->deviceAccessContext->setName('deviceAccessContext');
+        $this->deviceAccessContext->setElementName('deviceAccessContext');
         return $this;
     }
 
@@ -255,7 +271,9 @@ class DeviceManagementDeviceTypeOptions extends ComplexType implements ComplexIn
      */
     public function getDeviceAccessContext()
     {
-        return ($this->deviceAccessContext) ? $this->deviceAccessContext->getValue() : null;
+        return ($this->deviceAccessContext)
+            ? $this->deviceAccessContext->getElementValue()
+            : null;
     }
 
     /**
@@ -264,7 +282,7 @@ class DeviceManagementDeviceTypeOptions extends ComplexType implements ComplexIn
     public function setDeviceAccessURI($deviceAccessURI = null)
     {
         $this->deviceAccessURI = new SimpleContent($deviceAccessURI);
-        $this->deviceAccessURI->setName('deviceAccessURI');
+        $this->deviceAccessURI->setElementName('deviceAccessURI');
         return $this;
     }
 
@@ -274,7 +292,9 @@ class DeviceManagementDeviceTypeOptions extends ComplexType implements ComplexIn
      */
     public function getDeviceAccessURI()
     {
-        return ($this->deviceAccessURI) ? $this->deviceAccessURI->getValue() : null;
+        return ($this->deviceAccessURI)
+            ? $this->deviceAccessURI->getElementValue()
+            : null;
     }
 
     /**
@@ -283,7 +303,7 @@ class DeviceManagementDeviceTypeOptions extends ComplexType implements ComplexIn
     public function setDefaultDeviceLanguage($defaultDeviceLanguage = null)
     {
         $this->defaultDeviceLanguage = new SimpleContent($defaultDeviceLanguage);
-        $this->defaultDeviceLanguage->setName('defaultDeviceLanguage');
+        $this->defaultDeviceLanguage->setElementName('defaultDeviceLanguage');
         return $this;
     }
 
@@ -293,7 +313,9 @@ class DeviceManagementDeviceTypeOptions extends ComplexType implements ComplexIn
      */
     public function getDefaultDeviceLanguage()
     {
-        return ($this->defaultDeviceLanguage) ? $this->defaultDeviceLanguage->getValue() : null;
+        return ($this->defaultDeviceLanguage)
+            ? $this->defaultDeviceLanguage->getElementValue()
+            : null;
     }
 
     /**
@@ -302,7 +324,7 @@ class DeviceManagementDeviceTypeOptions extends ComplexType implements ComplexIn
     public function setDefaultDeviceEncoding($defaultDeviceEncoding = null)
     {
         $this->defaultDeviceEncoding = new SimpleContent($defaultDeviceEncoding);
-        $this->defaultDeviceEncoding->setName('defaultDeviceEncoding');
+        $this->defaultDeviceEncoding->setElementName('defaultDeviceEncoding');
         return $this;
     }
 
@@ -312,7 +334,9 @@ class DeviceManagementDeviceTypeOptions extends ComplexType implements ComplexIn
      */
     public function getDefaultDeviceEncoding()
     {
-        return ($this->defaultDeviceEncoding) ? $this->defaultDeviceEncoding->getValue() : null;
+        return ($this->defaultDeviceEncoding)
+            ? $this->defaultDeviceEncoding->getElementValue()
+            : null;
     }
 
     /**
@@ -321,7 +345,7 @@ class DeviceManagementDeviceTypeOptions extends ComplexType implements ComplexIn
     public function setAccessDeviceCredentials($accessDeviceCredentials = null)
     {
         $this->accessDeviceCredentials = new SimpleContent($accessDeviceCredentials);
-        $this->accessDeviceCredentials->setName('accessDeviceCredentials');
+        $this->accessDeviceCredentials->setElementName('accessDeviceCredentials');
         return $this;
     }
 
@@ -331,7 +355,9 @@ class DeviceManagementDeviceTypeOptions extends ComplexType implements ComplexIn
      */
     public function getAccessDeviceCredentials()
     {
-        return ($this->accessDeviceCredentials) ? $this->accessDeviceCredentials->getValue() : null;
+        return ($this->accessDeviceCredentials)
+            ? $this->accessDeviceCredentials->getElementValue()
+            : null;
     }
 
     /**
@@ -340,7 +366,7 @@ class DeviceManagementDeviceTypeOptions extends ComplexType implements ComplexIn
     public function setUseHttpDigestAuthentication($useHttpDigestAuthentication = null)
     {
         $this->useHttpDigestAuthentication = new SimpleContent($useHttpDigestAuthentication);
-        $this->useHttpDigestAuthentication->setName('useHttpDigestAuthentication');
+        $this->useHttpDigestAuthentication->setElementName('useHttpDigestAuthentication');
         return $this;
     }
 
@@ -350,7 +376,9 @@ class DeviceManagementDeviceTypeOptions extends ComplexType implements ComplexIn
      */
     public function getUseHttpDigestAuthentication()
     {
-        return ($this->useHttpDigestAuthentication) ? $this->useHttpDigestAuthentication->getValue() : null;
+        return ($this->useHttpDigestAuthentication)
+            ? $this->useHttpDigestAuthentication->getElementValue()
+            : null;
     }
 
     /**
@@ -359,7 +387,7 @@ class DeviceManagementDeviceTypeOptions extends ComplexType implements ComplexIn
     public function setMacBasedFileAuthentication($macBasedFileAuthentication = null)
     {
         $this->macBasedFileAuthentication = new SimpleContent($macBasedFileAuthentication);
-        $this->macBasedFileAuthentication->setName('macBasedFileAuthentication');
+        $this->macBasedFileAuthentication->setElementName('macBasedFileAuthentication');
         return $this;
     }
 
@@ -369,7 +397,9 @@ class DeviceManagementDeviceTypeOptions extends ComplexType implements ComplexIn
      */
     public function getMacBasedFileAuthentication()
     {
-        return ($this->macBasedFileAuthentication) ? $this->macBasedFileAuthentication->getValue() : null;
+        return ($this->macBasedFileAuthentication)
+            ? $this->macBasedFileAuthentication->getElementValue()
+            : null;
     }
 
     /**
@@ -378,7 +408,7 @@ class DeviceManagementDeviceTypeOptions extends ComplexType implements ComplexIn
     public function setUserNamePasswordFileAuthentication($userNamePasswordFileAuthentication = null)
     {
         $this->userNamePasswordFileAuthentication = new SimpleContent($userNamePasswordFileAuthentication);
-        $this->userNamePasswordFileAuthentication->setName('userNamePasswordFileAuthentication');
+        $this->userNamePasswordFileAuthentication->setElementName('userNamePasswordFileAuthentication');
         return $this;
     }
 
@@ -388,7 +418,9 @@ class DeviceManagementDeviceTypeOptions extends ComplexType implements ComplexIn
      */
     public function getUserNamePasswordFileAuthentication()
     {
-        return ($this->userNamePasswordFileAuthentication) ? $this->userNamePasswordFileAuthentication->getValue() : null;
+        return ($this->userNamePasswordFileAuthentication)
+            ? $this->userNamePasswordFileAuthentication->getElementValue()
+            : null;
     }
 
     /**
@@ -397,7 +429,7 @@ class DeviceManagementDeviceTypeOptions extends ComplexType implements ComplexIn
     public function setMacInNonRequestURI($macInNonRequestURI = null)
     {
         $this->macInNonRequestURI = new SimpleContent($macInNonRequestURI);
-        $this->macInNonRequestURI->setName('macInNonRequestURI');
+        $this->macInNonRequestURI->setElementName('macInNonRequestURI');
         return $this;
     }
 
@@ -407,7 +439,9 @@ class DeviceManagementDeviceTypeOptions extends ComplexType implements ComplexIn
      */
     public function getMacInNonRequestURI()
     {
-        return ($this->macInNonRequestURI) ? $this->macInNonRequestURI->getValue() : null;
+        return ($this->macInNonRequestURI)
+            ? $this->macInNonRequestURI->getElementValue()
+            : null;
     }
 
     /**
@@ -416,7 +450,7 @@ class DeviceManagementDeviceTypeOptions extends ComplexType implements ComplexIn
     public function setMacFormatInNonRequestURI($macFormatInNonRequestURI = null)
     {
         $this->macFormatInNonRequestURI = new SimpleContent($macFormatInNonRequestURI);
-        $this->macFormatInNonRequestURI->setName('macFormatInNonRequestURI');
+        $this->macFormatInNonRequestURI->setElementName('macFormatInNonRequestURI');
         return $this;
     }
 
@@ -426,6 +460,8 @@ class DeviceManagementDeviceTypeOptions extends ComplexType implements ComplexIn
      */
     public function getMacFormatInNonRequestURI()
     {
-        return ($this->macFormatInNonRequestURI) ? $this->macFormatInNonRequestURI->getValue() : null;
+        return ($this->macFormatInNonRequestURI)
+            ? $this->macFormatInNonRequestURI->getElementValue()
+            : null;
     }
 }

@@ -27,7 +27,7 @@ use Broadworks_OCIP\core\Client\Client;
 class GroupRoutePointGetInstanceListRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType                 = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceRoutePoint\GroupRoutePointGetInstanceListResponse';
-    public    $name = 'GroupRoutePointGetInstanceListRequest';
+    public    $elementName = 'GroupRoutePointGetInstanceListRequest';
     protected $serviceProviderId;
     protected $groupId;
     protected $groupDepartmentName;
@@ -64,7 +64,7 @@ class GroupRoutePointGetInstanceListRequest extends ComplexType implements Compl
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
-        $this->serviceProviderId->setName('serviceProviderId');
+        $this->serviceProviderId->setElementName('serviceProviderId');
         return $this;
     }
 
@@ -74,7 +74,9 @@ class GroupRoutePointGetInstanceListRequest extends ComplexType implements Compl
      */
     public function getServiceProviderId()
     {
-        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
+        return ($this->serviceProviderId)
+            ? $this->serviceProviderId->getElementValue()
+            : null;
     }
 
     /**
@@ -85,7 +87,7 @@ class GroupRoutePointGetInstanceListRequest extends ComplexType implements Compl
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
-        $this->groupId->setName('groupId');
+        $this->groupId->setElementName('groupId');
         return $this;
     }
 
@@ -95,7 +97,9 @@ class GroupRoutePointGetInstanceListRequest extends ComplexType implements Compl
      */
     public function getGroupId()
     {
-        return ($this->groupId) ? $this->groupId->getValue() : null;
+        return ($this->groupId)
+            ? $this->groupId->getElementValue()
+            : null;
     }
 
     /**
@@ -106,7 +110,7 @@ class GroupRoutePointGetInstanceListRequest extends ComplexType implements Compl
         $this->groupDepartmentName = ($groupDepartmentName InstanceOf DepartmentName)
              ? $groupDepartmentName
              : new DepartmentName($groupDepartmentName);
-        $this->groupDepartmentName->setName('groupDepartmentName');
+        $this->groupDepartmentName->setElementName('groupDepartmentName');
         return $this;
     }
 
@@ -116,7 +120,9 @@ class GroupRoutePointGetInstanceListRequest extends ComplexType implements Compl
      */
     public function getGroupDepartmentName()
     {
-        return ($this->groupDepartmentName) ? $this->groupDepartmentName->getValue() : null;
+        return ($this->groupDepartmentName)
+            ? $this->groupDepartmentName->getElementValue()
+            : null;
     }
 
     /**
@@ -127,7 +133,7 @@ class GroupRoutePointGetInstanceListRequest extends ComplexType implements Compl
         $this->responseSizeLimit = ($responseSizeLimit InstanceOf ResponseSizeLimit)
              ? $responseSizeLimit
              : new ResponseSizeLimit($responseSizeLimit);
-        $this->responseSizeLimit->setName('responseSizeLimit');
+        $this->responseSizeLimit->setElementName('responseSizeLimit');
         return $this;
     }
 
@@ -137,7 +143,9 @@ class GroupRoutePointGetInstanceListRequest extends ComplexType implements Compl
      */
     public function getResponseSizeLimit()
     {
-        return ($this->responseSizeLimit) ? $this->responseSizeLimit->getValue() : null;
+        return ($this->responseSizeLimit)
+            ? $this->responseSizeLimit->getElementValue()
+            : null;
     }
 
     /**
@@ -148,7 +156,7 @@ class GroupRoutePointGetInstanceListRequest extends ComplexType implements Compl
         $this->searchCriteriaRoutePointName = ($searchCriteriaRoutePointName InstanceOf SearchCriteriaRoutePointName)
              ? $searchCriteriaRoutePointName
              : new SearchCriteriaRoutePointName($searchCriteriaRoutePointName);
-        $this->searchCriteriaRoutePointName->setName('searchCriteriaRoutePointName');
+        $this->searchCriteriaRoutePointName->setElementName('searchCriteriaRoutePointName');
         return $this;
     }
 

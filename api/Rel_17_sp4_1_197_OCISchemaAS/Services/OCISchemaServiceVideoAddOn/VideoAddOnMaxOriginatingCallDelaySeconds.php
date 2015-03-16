@@ -16,12 +16,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\Enumeration;
  */
 class VideoAddOnMaxOriginatingCallDelaySeconds extends SimpleType
 {
-    public $name = "VideoAddOnMaxOriginatingCallDelaySeconds";
-    protected $value;
-
+    public $elementName = "VideoAddOnMaxOriginatingCallDelaySeconds";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new Enumeration([
             '2',
             '5',

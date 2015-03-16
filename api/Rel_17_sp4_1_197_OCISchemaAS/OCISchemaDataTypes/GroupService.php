@@ -16,12 +16,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\Enumeration;
  */
 class GroupService extends SimpleType
 {
-    public $name = "GroupService";
-    protected $value;
-
+    public $elementName = "GroupService";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new Enumeration([
             'Account/Authorization Codes',
             'Auto Attendant',

@@ -17,12 +17,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\MaxLength;
  */
 class NetworkTranslationIndex extends SimpleType
 {
-    public $name = "NetworkTranslationIndex";
-    protected $value;
-
+    public $elementName = "NetworkTranslationIndex";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new MinLength("1"));
         $this->addRestriction(new MaxLength("128"));
     }

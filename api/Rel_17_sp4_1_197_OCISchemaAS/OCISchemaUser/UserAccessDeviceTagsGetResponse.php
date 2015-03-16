@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserAccessDeviceTagsGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'UserAccessDeviceTagsGetResponse';
+    public    $elementName = 'UserAccessDeviceTagsGetResponse';
     protected $deviceTagsTable;
 
     /**
@@ -37,7 +37,7 @@ class UserAccessDeviceTagsGetResponse extends ComplexType implements ComplexInte
     public function setDeviceTagsTable(TableType $deviceTagsTable = null)
     {
         $this->deviceTagsTable = $deviceTagsTable;
-        $this->deviceTagsTable->setName('deviceTagsTable');
+        $this->deviceTagsTable->setElementName('deviceTagsTable');
         return $this;
     }
 

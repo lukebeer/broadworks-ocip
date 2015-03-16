@@ -16,12 +16,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\Enumeration;
  */
 class HuntPolicy extends SimpleType
 {
-    public $name = "HuntPolicy";
-    protected $value;
-
+    public $elementName = "HuntPolicy";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new Enumeration([
             'Circular',
             'Regular',

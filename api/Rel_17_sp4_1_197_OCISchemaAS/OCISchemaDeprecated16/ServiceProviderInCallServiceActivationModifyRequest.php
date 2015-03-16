@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderInCallServiceActivationModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'ServiceProviderInCallServiceActivationModifyRequest';
+    public    $elementName = 'ServiceProviderInCallServiceActivationModifyRequest';
     protected $serviceProviderId;
     protected $activationDigits;
 
@@ -50,7 +50,7 @@ class ServiceProviderInCallServiceActivationModifyRequest extends ComplexType im
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
-        $this->serviceProviderId->setName('serviceProviderId');
+        $this->serviceProviderId->setElementName('serviceProviderId');
         return $this;
     }
 
@@ -60,7 +60,9 @@ class ServiceProviderInCallServiceActivationModifyRequest extends ComplexType im
      */
     public function getServiceProviderId()
     {
-        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
+        return ($this->serviceProviderId)
+            ? $this->serviceProviderId->getElementValue()
+            : null;
     }
 
     /**
@@ -71,7 +73,7 @@ class ServiceProviderInCallServiceActivationModifyRequest extends ComplexType im
         $this->activationDigits = ($activationDigits InstanceOf InCallServiceActivationDigits)
              ? $activationDigits
              : new InCallServiceActivationDigits($activationDigits);
-        $this->activationDigits->setName('activationDigits');
+        $this->activationDigits->setElementName('activationDigits');
         return $this;
     }
 
@@ -81,6 +83,8 @@ class ServiceProviderInCallServiceActivationModifyRequest extends ComplexType im
      */
     public function getActivationDigits()
     {
-        return ($this->activationDigits) ? $this->activationDigits->getValue() : null;
+        return ($this->activationDigits)
+            ? $this->activationDigits->getElementValue()
+            : null;
     }
 }

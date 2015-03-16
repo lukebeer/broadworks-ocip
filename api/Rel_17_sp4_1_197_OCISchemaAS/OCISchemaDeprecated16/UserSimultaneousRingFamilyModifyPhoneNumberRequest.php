@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserSimultaneousRingFamilyModifyPhoneNumberRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'UserSimultaneousRingFamilyModifyPhoneNumberRequest';
+    public    $elementName = 'UserSimultaneousRingFamilyModifyPhoneNumberRequest';
     protected $userId;
     protected $phoneNumber;
     protected $answerConfirmationRequired;
@@ -52,7 +52,7 @@ class UserSimultaneousRingFamilyModifyPhoneNumberRequest extends ComplexType imp
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
-        $this->userId->setName('userId');
+        $this->userId->setElementName('userId');
         return $this;
     }
 
@@ -62,7 +62,9 @@ class UserSimultaneousRingFamilyModifyPhoneNumberRequest extends ComplexType imp
      */
     public function getUserId()
     {
-        return ($this->userId) ? $this->userId->getValue() : null;
+        return ($this->userId)
+            ? $this->userId->getElementValue()
+            : null;
     }
 
     /**
@@ -73,7 +75,7 @@ class UserSimultaneousRingFamilyModifyPhoneNumberRequest extends ComplexType imp
         $this->phoneNumber = ($phoneNumber InstanceOf OutgoingDNorSIPURI)
              ? $phoneNumber
              : new OutgoingDNorSIPURI($phoneNumber);
-        $this->phoneNumber->setName('phoneNumber');
+        $this->phoneNumber->setElementName('phoneNumber');
         return $this;
     }
 
@@ -83,7 +85,9 @@ class UserSimultaneousRingFamilyModifyPhoneNumberRequest extends ComplexType imp
      */
     public function getPhoneNumber()
     {
-        return ($this->phoneNumber) ? $this->phoneNumber->getValue() : null;
+        return ($this->phoneNumber)
+            ? $this->phoneNumber->getElementValue()
+            : null;
     }
 
     /**
@@ -92,7 +96,7 @@ class UserSimultaneousRingFamilyModifyPhoneNumberRequest extends ComplexType imp
     public function setAnswerConfirmationRequired($answerConfirmationRequired = null)
     {
         $this->answerConfirmationRequired = new PrimitiveType($answerConfirmationRequired);
-        $this->answerConfirmationRequired->setName('answerConfirmationRequired');
+        $this->answerConfirmationRequired->setElementName('answerConfirmationRequired');
         return $this;
     }
 
@@ -102,6 +106,8 @@ class UserSimultaneousRingFamilyModifyPhoneNumberRequest extends ComplexType imp
      */
     public function getAnswerConfirmationRequired()
     {
-        return ($this->answerConfirmationRequired) ? $this->answerConfirmationRequired->getValue() : null;
+        return ($this->answerConfirmationRequired)
+            ? $this->answerConfirmationRequired->getElementValue()
+            : null;
     }
 }

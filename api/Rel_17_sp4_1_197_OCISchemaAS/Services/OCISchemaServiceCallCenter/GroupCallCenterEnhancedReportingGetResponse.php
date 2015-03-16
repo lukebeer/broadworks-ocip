@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupCallCenterEnhancedReportingGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'GroupCallCenterEnhancedReportingGetResponse';
+    public    $elementName = 'GroupCallCenterEnhancedReportingGetResponse';
     protected $reportingServer;
     protected $webStatisticSource;
 
@@ -40,7 +40,7 @@ class GroupCallCenterEnhancedReportingGetResponse extends ComplexType implements
         $this->reportingServer = ($reportingServer InstanceOf CallCenterReportServerChoice)
              ? $reportingServer
              : new CallCenterReportServerChoice($reportingServer);
-        $this->reportingServer->setName('reportingServer');
+        $this->reportingServer->setElementName('reportingServer');
         return $this;
     }
 
@@ -50,7 +50,9 @@ class GroupCallCenterEnhancedReportingGetResponse extends ComplexType implements
      */
     public function getReportingServer()
     {
-        return ($this->reportingServer) ? $this->reportingServer->getValue() : null;
+        return ($this->reportingServer)
+            ? $this->reportingServer->getElementValue()
+            : null;
     }
 
     /**
@@ -61,7 +63,7 @@ class GroupCallCenterEnhancedReportingGetResponse extends ComplexType implements
         $this->webStatisticSource = ($webStatisticSource InstanceOf CallCenterReportWebStatisticsSource)
              ? $webStatisticSource
              : new CallCenterReportWebStatisticsSource($webStatisticSource);
-        $this->webStatisticSource->setName('webStatisticSource');
+        $this->webStatisticSource->setElementName('webStatisticSource');
         return $this;
     }
 
@@ -71,6 +73,8 @@ class GroupCallCenterEnhancedReportingGetResponse extends ComplexType implements
      */
     public function getWebStatisticSource()
     {
-        return ($this->webStatisticSource) ? $this->webStatisticSource->getValue() : null;
+        return ($this->webStatisticSource)
+            ? $this->webStatisticSource->getElementValue()
+            : null;
     }
 }

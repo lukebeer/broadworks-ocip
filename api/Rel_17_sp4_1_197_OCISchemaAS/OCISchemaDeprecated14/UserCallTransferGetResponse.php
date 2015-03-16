@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserCallTransferGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'UserCallTransferGetResponse';
+    public    $elementName = 'UserCallTransferGetResponse';
     protected $isRecallActive;
     protected $recallNumberOfRings;
     protected $useDiversionInhibitorForBlindTransfer;
@@ -40,7 +40,7 @@ class UserCallTransferGetResponse extends ComplexType implements ComplexInterfac
     public function setIsRecallActive($isRecallActive = null)
     {
         $this->isRecallActive = new PrimitiveType($isRecallActive);
-        $this->isRecallActive->setName('isRecallActive');
+        $this->isRecallActive->setElementName('isRecallActive');
         return $this;
     }
 
@@ -50,7 +50,9 @@ class UserCallTransferGetResponse extends ComplexType implements ComplexInterfac
      */
     public function getIsRecallActive()
     {
-        return ($this->isRecallActive) ? $this->isRecallActive->getValue() : null;
+        return ($this->isRecallActive)
+            ? $this->isRecallActive->getElementValue()
+            : null;
     }
 
     /**
@@ -61,7 +63,7 @@ class UserCallTransferGetResponse extends ComplexType implements ComplexInterfac
         $this->recallNumberOfRings = ($recallNumberOfRings InstanceOf CallTransferRecallNumberOfRings)
              ? $recallNumberOfRings
              : new CallTransferRecallNumberOfRings($recallNumberOfRings);
-        $this->recallNumberOfRings->setName('recallNumberOfRings');
+        $this->recallNumberOfRings->setElementName('recallNumberOfRings');
         return $this;
     }
 
@@ -71,7 +73,9 @@ class UserCallTransferGetResponse extends ComplexType implements ComplexInterfac
      */
     public function getRecallNumberOfRings()
     {
-        return ($this->recallNumberOfRings) ? $this->recallNumberOfRings->getValue() : null;
+        return ($this->recallNumberOfRings)
+            ? $this->recallNumberOfRings->getElementValue()
+            : null;
     }
 
     /**
@@ -80,7 +84,7 @@ class UserCallTransferGetResponse extends ComplexType implements ComplexInterfac
     public function setUseDiversionInhibitorForBlindTransfer($useDiversionInhibitorForBlindTransfer = null)
     {
         $this->useDiversionInhibitorForBlindTransfer = new PrimitiveType($useDiversionInhibitorForBlindTransfer);
-        $this->useDiversionInhibitorForBlindTransfer->setName('useDiversionInhibitorForBlindTransfer');
+        $this->useDiversionInhibitorForBlindTransfer->setElementName('useDiversionInhibitorForBlindTransfer');
         return $this;
     }
 
@@ -90,7 +94,9 @@ class UserCallTransferGetResponse extends ComplexType implements ComplexInterfac
      */
     public function getUseDiversionInhibitorForBlindTransfer()
     {
-        return ($this->useDiversionInhibitorForBlindTransfer) ? $this->useDiversionInhibitorForBlindTransfer->getValue() : null;
+        return ($this->useDiversionInhibitorForBlindTransfer)
+            ? $this->useDiversionInhibitorForBlindTransfer->getElementValue()
+            : null;
     }
 
     /**
@@ -99,7 +105,7 @@ class UserCallTransferGetResponse extends ComplexType implements ComplexInterfac
     public function setUseDiversionInhibitorForConsultativeCalls($useDiversionInhibitorForConsultativeCalls = null)
     {
         $this->useDiversionInhibitorForConsultativeCalls = new PrimitiveType($useDiversionInhibitorForConsultativeCalls);
-        $this->useDiversionInhibitorForConsultativeCalls->setName('useDiversionInhibitorForConsultativeCalls');
+        $this->useDiversionInhibitorForConsultativeCalls->setElementName('useDiversionInhibitorForConsultativeCalls');
         return $this;
     }
 
@@ -109,6 +115,8 @@ class UserCallTransferGetResponse extends ComplexType implements ComplexInterfac
      */
     public function getUseDiversionInhibitorForConsultativeCalls()
     {
-        return ($this->useDiversionInhibitorForConsultativeCalls) ? $this->useDiversionInhibitorForConsultativeCalls->getValue() : null;
+        return ($this->useDiversionInhibitorForConsultativeCalls)
+            ? $this->useDiversionInhibitorForConsultativeCalls->getElementValue()
+            : null;
     }
 }

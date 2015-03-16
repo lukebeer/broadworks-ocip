@@ -19,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SearchCriteriaExactUserNetworkClassOfService extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SearchCriteriaExactUserNetworkClassOfService';
+    public    $elementName = 'SearchCriteriaExactUserNetworkClassOfService';
     protected $networkClassOfService;
 
     public function __construct(
@@ -44,7 +44,7 @@ class SearchCriteriaExactUserNetworkClassOfService extends ComplexType implement
         $this->networkClassOfService = ($networkClassOfService InstanceOf NetworkClassOfServiceName)
              ? $networkClassOfService
              : new NetworkClassOfServiceName($networkClassOfService);
-        $this->networkClassOfService->setName('networkClassOfService');
+        $this->networkClassOfService->setElementName('networkClassOfService');
         return $this;
     }
 
@@ -54,6 +54,8 @@ class SearchCriteriaExactUserNetworkClassOfService extends ComplexType implement
      */
     public function getNetworkClassOfService()
     {
-        return ($this->networkClassOfService) ? $this->networkClassOfService->getValue() : null;
+        return ($this->networkClassOfService)
+            ? $this->networkClassOfService->getElementValue()
+            : null;
     }
 }

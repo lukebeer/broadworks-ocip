@@ -19,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class OutgoingCallingPlanDepartmentAuthorizationCodes extends ComplexType implements ComplexInterface
 {
-    public    $name = 'OutgoingCallingPlanDepartmentAuthorizationCodes';
+    public    $elementName = 'OutgoingCallingPlanDepartmentAuthorizationCodes';
     protected $departmentKey;
     protected $departmentName;
     protected $codeEntry;
@@ -48,7 +48,7 @@ class OutgoingCallingPlanDepartmentAuthorizationCodes extends ComplexType implem
     public function setDepartmentKey($departmentKey = null)
     {
         $this->departmentKey = new SimpleContent($departmentKey);
-        $this->departmentKey->setName('departmentKey');
+        $this->departmentKey->setElementName('departmentKey');
         return $this;
     }
 
@@ -58,7 +58,9 @@ class OutgoingCallingPlanDepartmentAuthorizationCodes extends ComplexType implem
      */
     public function getDepartmentKey()
     {
-        return ($this->departmentKey) ? $this->departmentKey->getValue() : null;
+        return ($this->departmentKey)
+            ? $this->departmentKey->getElementValue()
+            : null;
     }
 
     /**
@@ -67,7 +69,7 @@ class OutgoingCallingPlanDepartmentAuthorizationCodes extends ComplexType implem
     public function setDepartmentName($departmentName = null)
     {
         $this->departmentName = new SimpleContent($departmentName);
-        $this->departmentName->setName('departmentName');
+        $this->departmentName->setElementName('departmentName');
         return $this;
     }
 
@@ -77,7 +79,9 @@ class OutgoingCallingPlanDepartmentAuthorizationCodes extends ComplexType implem
      */
     public function getDepartmentName()
     {
-        return ($this->departmentName) ? $this->departmentName->getValue() : null;
+        return ($this->departmentName)
+            ? $this->departmentName->getElementValue()
+            : null;
     }
 
     /**
@@ -86,7 +90,7 @@ class OutgoingCallingPlanDepartmentAuthorizationCodes extends ComplexType implem
     public function setCodeEntry($codeEntry = null)
     {
         $this->codeEntry = new SimpleContent($codeEntry);
-        $this->codeEntry->setName('codeEntry');
+        $this->codeEntry->setElementName('codeEntry');
         return $this;
     }
 
@@ -96,6 +100,8 @@ class OutgoingCallingPlanDepartmentAuthorizationCodes extends ComplexType implem
      */
     public function getCodeEntry()
     {
-        return ($this->codeEntry) ? $this->codeEntry->getValue() : null;
+        return ($this->codeEntry)
+            ? $this->codeEntry->getElementValue()
+            : null;
     }
 }

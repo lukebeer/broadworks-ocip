@@ -16,12 +16,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\Enumeration;
  */
 class InstantConferencingStandAloneCallControlAction extends SimpleType
 {
-    public $name = "InstantConferencingStandAloneCallControlAction";
-    protected $value;
-
+    public $elementName = "InstantConferencingStandAloneCallControlAction";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new Enumeration([
             'Join',
             'Call'

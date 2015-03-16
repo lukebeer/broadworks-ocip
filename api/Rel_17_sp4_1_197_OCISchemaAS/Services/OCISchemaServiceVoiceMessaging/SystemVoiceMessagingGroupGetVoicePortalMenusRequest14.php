@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
 class SystemVoiceMessagingGroupGetVoicePortalMenusRequest14 extends ComplexType implements ComplexInterface
 {
     public    $responseType       = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceVoiceMessaging\SystemVoiceMessagingGroupGetVoicePortalMenusResponse14';
-    public    $name = 'SystemVoiceMessagingGroupGetVoicePortalMenusRequest14';
+    public    $elementName = 'SystemVoiceMessagingGroupGetVoicePortalMenusRequest14';
     protected $getDefaultMenuKeys;
 
     public function __construct(
@@ -44,7 +44,7 @@ class SystemVoiceMessagingGroupGetVoicePortalMenusRequest14 extends ComplexType 
     public function setGetDefaultMenuKeys($getDefaultMenuKeys = null)
     {
         $this->getDefaultMenuKeys = new PrimitiveType($getDefaultMenuKeys);
-        $this->getDefaultMenuKeys->setName('getDefaultMenuKeys');
+        $this->getDefaultMenuKeys->setElementName('getDefaultMenuKeys');
         return $this;
     }
 
@@ -54,6 +54,8 @@ class SystemVoiceMessagingGroupGetVoicePortalMenusRequest14 extends ComplexType 
      */
     public function getGetDefaultMenuKeys()
     {
-        return ($this->getDefaultMenuKeys) ? $this->getDefaultMenuKeys->getValue() : null;
+        return ($this->getDefaultMenuKeys)
+            ? $this->getDefaultMenuKeys->getElementValue()
+            : null;
     }
 }

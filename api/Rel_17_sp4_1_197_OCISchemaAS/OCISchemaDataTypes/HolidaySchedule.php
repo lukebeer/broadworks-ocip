@@ -19,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class HolidaySchedule extends ComplexType implements ComplexInterface
 {
-    public    $name = 'HolidaySchedule';
+    public    $elementName = 'HolidaySchedule';
     protected $type;
     protected $name;
 
@@ -45,7 +45,7 @@ class HolidaySchedule extends ComplexType implements ComplexInterface
     public function setType($type = null)
     {
         $this->type = new SimpleContent($type);
-        $this->type->setName('type');
+        $this->type->setElementName('type');
         return $this;
     }
 
@@ -55,7 +55,9 @@ class HolidaySchedule extends ComplexType implements ComplexInterface
      */
     public function getType()
     {
-        return ($this->type) ? $this->type->getValue() : null;
+        return ($this->type)
+            ? $this->type->getElementValue()
+            : null;
     }
 
     /**
@@ -64,7 +66,7 @@ class HolidaySchedule extends ComplexType implements ComplexInterface
     public function setName($name = null)
     {
         $this->name = new SimpleContent($name);
-        $this->name->setName('name');
+        $this->name->setElementName('name');
         return $this;
     }
 
@@ -74,6 +76,8 @@ class HolidaySchedule extends ComplexType implements ComplexInterface
      */
     public function getName()
     {
-        return ($this->name) ? $this->name->getValue() : null;
+        return ($this->name)
+            ? $this->name->getElementValue()
+            : null;
     }
 }

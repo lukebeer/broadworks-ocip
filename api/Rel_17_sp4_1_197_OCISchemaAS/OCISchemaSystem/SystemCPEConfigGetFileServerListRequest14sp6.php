@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
 class SystemCPEConfigGetFileServerListRequest14sp6 extends ComplexType implements ComplexInterface
 {
     public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemCPEConfigGetFileServerListResponse14sp6';
-    public    $name = 'SystemCPEConfigGetFileServerListRequest14sp6';
+    public    $elementName = 'SystemCPEConfigGetFileServerListRequest14sp6';
 
     public function __construct(    ) {
     }

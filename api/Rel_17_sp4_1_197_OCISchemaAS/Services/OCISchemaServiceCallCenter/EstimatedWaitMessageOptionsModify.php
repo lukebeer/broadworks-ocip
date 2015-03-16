@@ -19,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class EstimatedWaitMessageOptionsModify extends ComplexType implements ComplexInterface
 {
-    public    $name = 'EstimatedWaitMessageOptionsModify';
+    public    $elementName = 'EstimatedWaitMessageOptionsModify';
     protected $enabled;
     protected $operatingMode;
     protected $playPositionHighVolume;
@@ -60,7 +60,7 @@ class EstimatedWaitMessageOptionsModify extends ComplexType implements ComplexIn
     public function setEnabled($enabled = null)
     {
         $this->enabled = new SimpleContent($enabled);
-        $this->enabled->setName('enabled');
+        $this->enabled->setElementName('enabled');
         return $this;
     }
 
@@ -70,7 +70,9 @@ class EstimatedWaitMessageOptionsModify extends ComplexType implements ComplexIn
      */
     public function getEnabled()
     {
-        return ($this->enabled) ? $this->enabled->getValue() : null;
+        return ($this->enabled)
+            ? $this->enabled->getElementValue()
+            : null;
     }
 
     /**
@@ -79,7 +81,7 @@ class EstimatedWaitMessageOptionsModify extends ComplexType implements ComplexIn
     public function setOperatingMode($operatingMode = null)
     {
         $this->operatingMode = new SimpleContent($operatingMode);
-        $this->operatingMode->setName('operatingMode');
+        $this->operatingMode->setElementName('operatingMode');
         return $this;
     }
 
@@ -89,7 +91,9 @@ class EstimatedWaitMessageOptionsModify extends ComplexType implements ComplexIn
      */
     public function getOperatingMode()
     {
-        return ($this->operatingMode) ? $this->operatingMode->getValue() : null;
+        return ($this->operatingMode)
+            ? $this->operatingMode->getElementValue()
+            : null;
     }
 
     /**
@@ -98,7 +102,7 @@ class EstimatedWaitMessageOptionsModify extends ComplexType implements ComplexIn
     public function setPlayPositionHighVolume($playPositionHighVolume = null)
     {
         $this->playPositionHighVolume = new SimpleContent($playPositionHighVolume);
-        $this->playPositionHighVolume->setName('playPositionHighVolume');
+        $this->playPositionHighVolume->setElementName('playPositionHighVolume');
         return $this;
     }
 
@@ -108,7 +112,9 @@ class EstimatedWaitMessageOptionsModify extends ComplexType implements ComplexIn
      */
     public function getPlayPositionHighVolume()
     {
-        return ($this->playPositionHighVolume) ? $this->playPositionHighVolume->getValue() : null;
+        return ($this->playPositionHighVolume)
+            ? $this->playPositionHighVolume->getElementValue()
+            : null;
     }
 
     /**
@@ -117,7 +123,7 @@ class EstimatedWaitMessageOptionsModify extends ComplexType implements ComplexIn
     public function setPlayTimeHighVolume($playTimeHighVolume = null)
     {
         $this->playTimeHighVolume = new SimpleContent($playTimeHighVolume);
-        $this->playTimeHighVolume->setName('playTimeHighVolume');
+        $this->playTimeHighVolume->setElementName('playTimeHighVolume');
         return $this;
     }
 
@@ -127,7 +133,9 @@ class EstimatedWaitMessageOptionsModify extends ComplexType implements ComplexIn
      */
     public function getPlayTimeHighVolume()
     {
-        return ($this->playTimeHighVolume) ? $this->playTimeHighVolume->getValue() : null;
+        return ($this->playTimeHighVolume)
+            ? $this->playTimeHighVolume->getElementValue()
+            : null;
     }
 
     /**
@@ -136,7 +144,7 @@ class EstimatedWaitMessageOptionsModify extends ComplexType implements ComplexIn
     public function setMaximumPositions($maximumPositions = null)
     {
         $this->maximumPositions = new SimpleContent($maximumPositions);
-        $this->maximumPositions->setName('maximumPositions');
+        $this->maximumPositions->setElementName('maximumPositions');
         return $this;
     }
 
@@ -146,7 +154,9 @@ class EstimatedWaitMessageOptionsModify extends ComplexType implements ComplexIn
      */
     public function getMaximumPositions()
     {
-        return ($this->maximumPositions) ? $this->maximumPositions->getValue() : null;
+        return ($this->maximumPositions)
+            ? $this->maximumPositions->getElementValue()
+            : null;
     }
 
     /**
@@ -155,7 +165,7 @@ class EstimatedWaitMessageOptionsModify extends ComplexType implements ComplexIn
     public function setMaximumWaitingMinutes($maximumWaitingMinutes = null)
     {
         $this->maximumWaitingMinutes = new SimpleContent($maximumWaitingMinutes);
-        $this->maximumWaitingMinutes->setName('maximumWaitingMinutes');
+        $this->maximumWaitingMinutes->setElementName('maximumWaitingMinutes');
         return $this;
     }
 
@@ -165,7 +175,9 @@ class EstimatedWaitMessageOptionsModify extends ComplexType implements ComplexIn
      */
     public function getMaximumWaitingMinutes()
     {
-        return ($this->maximumWaitingMinutes) ? $this->maximumWaitingMinutes->getValue() : null;
+        return ($this->maximumWaitingMinutes)
+            ? $this->maximumWaitingMinutes->getElementValue()
+            : null;
     }
 
     /**
@@ -174,7 +186,7 @@ class EstimatedWaitMessageOptionsModify extends ComplexType implements ComplexIn
     public function setDefaultCallHandlingMinutes($defaultCallHandlingMinutes = null)
     {
         $this->defaultCallHandlingMinutes = new SimpleContent($defaultCallHandlingMinutes);
-        $this->defaultCallHandlingMinutes->setName('defaultCallHandlingMinutes');
+        $this->defaultCallHandlingMinutes->setElementName('defaultCallHandlingMinutes');
         return $this;
     }
 
@@ -184,6 +196,8 @@ class EstimatedWaitMessageOptionsModify extends ComplexType implements ComplexIn
      */
     public function getDefaultCallHandlingMinutes()
     {
-        return ($this->defaultCallHandlingMinutes) ? $this->defaultCallHandlingMinutes->getValue() : null;
+        return ($this->defaultCallHandlingMinutes)
+            ? $this->defaultCallHandlingMinutes->getElementValue()
+            : null;
     }
 }

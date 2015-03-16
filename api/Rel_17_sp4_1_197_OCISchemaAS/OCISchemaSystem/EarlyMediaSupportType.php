@@ -18,12 +18,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\Enumeration;
  */
 class EarlyMediaSupportType extends SimpleType
 {
-    public $name = "EarlyMediaSupportType";
-    protected $value;
-
+    public $elementName = "EarlyMediaSupportType";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new Enumeration([
             'No Early Media',
             'RTP - Session',

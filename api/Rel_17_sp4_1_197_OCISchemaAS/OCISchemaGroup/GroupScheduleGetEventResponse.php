@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupScheduleGetEventResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'GroupScheduleGetEventResponse';
+    public    $elementName = 'GroupScheduleGetEventResponse';
     protected $startDate;
     protected $endDate;
     protected $recurrence;
@@ -38,7 +38,7 @@ class GroupScheduleGetEventResponse extends ComplexType implements ComplexInterf
      */
     public function setStartDate(xs:date $startDate = null)
     {
-        $this->startDate->setName('startDate');
+        $this->startDate->setElementName('startDate');
         return $this;
     }
 
@@ -48,7 +48,9 @@ class GroupScheduleGetEventResponse extends ComplexType implements ComplexInterf
      */
     public function getStartDate()
     {
-        return ($this->startDate) ? $this->startDate->getValue() : null;
+        return ($this->startDate)
+            ? $this->startDate->getElementValue()
+            : null;
     }
 
     /**
@@ -56,7 +58,7 @@ class GroupScheduleGetEventResponse extends ComplexType implements ComplexInterf
      */
     public function setEndDate(xs:date $endDate = null)
     {
-        $this->endDate->setName('endDate');
+        $this->endDate->setElementName('endDate');
         return $this;
     }
 
@@ -66,7 +68,9 @@ class GroupScheduleGetEventResponse extends ComplexType implements ComplexInterf
      */
     public function getEndDate()
     {
-        return ($this->endDate) ? $this->endDate->getValue() : null;
+        return ($this->endDate)
+            ? $this->endDate->getElementValue()
+            : null;
     }
 
     /**
@@ -77,7 +81,7 @@ class GroupScheduleGetEventResponse extends ComplexType implements ComplexInterf
         $this->recurrence = ($recurrence InstanceOf Recurrence)
              ? $recurrence
              : new Recurrence($recurrence);
-        $this->recurrence->setName('recurrence');
+        $this->recurrence->setElementName('recurrence');
         return $this;
     }
 

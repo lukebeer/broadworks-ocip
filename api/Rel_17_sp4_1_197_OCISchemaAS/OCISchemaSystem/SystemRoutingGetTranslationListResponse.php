@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemRoutingGetTranslationListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemRoutingGetTranslationListResponse';
+    public    $elementName = 'SystemRoutingGetTranslationListResponse';
     protected $routingTable;
 
     /**
@@ -37,7 +37,7 @@ class SystemRoutingGetTranslationListResponse extends ComplexType implements Com
     public function setRoutingTable(TableType $routingTable = null)
     {
         $this->routingTable = $routingTable;
-        $this->routingTable->setName('routingTable');
+        $this->routingTable->setElementName('routingTable');
         return $this;
     }
 

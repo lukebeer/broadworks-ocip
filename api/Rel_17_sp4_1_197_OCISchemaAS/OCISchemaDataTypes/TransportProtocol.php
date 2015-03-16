@@ -16,12 +16,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\Enumeration;
  */
 class TransportProtocol extends SimpleType
 {
-    public $name = "TransportProtocol";
-    protected $value;
-
+    public $elementName = "TransportProtocol";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new Enumeration([
             'UDP',
             'TCP',

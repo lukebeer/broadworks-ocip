@@ -16,12 +16,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\Enumeration;
  */
 class ScheduleCombinationType extends SimpleType
 {
-    public $name = "ScheduleCombinationType";
-    protected $value;
-
+    public $elementName = "ScheduleCombinationType";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new Enumeration([
             'UNION',
             'INTERSECTION'

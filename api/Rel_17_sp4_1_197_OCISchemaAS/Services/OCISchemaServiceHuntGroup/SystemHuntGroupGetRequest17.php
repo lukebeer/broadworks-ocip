@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
 class SystemHuntGroupGetRequest17 extends ComplexType implements ComplexInterface
 {
     public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceHuntGroup\SystemHuntGroupGetResponse17';
-    public    $name = 'SystemHuntGroupGetRequest17';
+    public    $elementName = 'SystemHuntGroupGetRequest17';
 
     public function __construct(    ) {
     }

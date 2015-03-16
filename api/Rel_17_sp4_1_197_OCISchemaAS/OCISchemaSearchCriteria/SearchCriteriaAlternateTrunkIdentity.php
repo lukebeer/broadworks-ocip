@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SearchCriteriaAlternateTrunkIdentity extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SearchCriteriaAlternateTrunkIdentity';
+    public    $elementName = 'SearchCriteriaAlternateTrunkIdentity';
     protected $mode;
     protected $value;
     protected $isCaseInsensitive;
@@ -52,7 +52,7 @@ class SearchCriteriaAlternateTrunkIdentity extends ComplexType implements Comple
         $this->mode = ($mode InstanceOf SearchMode)
              ? $mode
              : new SearchMode($mode);
-        $this->mode->setName('mode');
+        $this->mode->setElementName('mode');
         return $this;
     }
 
@@ -62,7 +62,9 @@ class SearchCriteriaAlternateTrunkIdentity extends ComplexType implements Comple
      */
     public function getMode()
     {
-        return ($this->mode) ? $this->mode->getValue() : null;
+        return ($this->mode)
+            ? $this->mode->getElementValue()
+            : null;
     }
 
     /**
@@ -73,7 +75,7 @@ class SearchCriteriaAlternateTrunkIdentity extends ComplexType implements Comple
         $this->value = ($value InstanceOf AlternateTrunkIdentity)
              ? $value
              : new AlternateTrunkIdentity($value);
-        $this->value->setName('value');
+        $this->value->setElementName('value');
         return $this;
     }
 
@@ -83,7 +85,9 @@ class SearchCriteriaAlternateTrunkIdentity extends ComplexType implements Comple
      */
     public function getValue()
     {
-        return ($this->value) ? $this->value->getValue() : null;
+        return ($this->value)
+            ? $this->value->getElementValue()
+            : null;
     }
 
     /**
@@ -92,7 +96,7 @@ class SearchCriteriaAlternateTrunkIdentity extends ComplexType implements Comple
     public function setIsCaseInsensitive($isCaseInsensitive = null)
     {
         $this->isCaseInsensitive = new PrimitiveType($isCaseInsensitive);
-        $this->isCaseInsensitive->setName('isCaseInsensitive');
+        $this->isCaseInsensitive->setElementName('isCaseInsensitive');
         return $this;
     }
 
@@ -102,6 +106,8 @@ class SearchCriteriaAlternateTrunkIdentity extends ComplexType implements Comple
      */
     public function getIsCaseInsensitive()
     {
-        return ($this->isCaseInsensitive) ? $this->isCaseInsensitive->getValue() : null;
+        return ($this->isCaseInsensitive)
+            ? $this->isCaseInsensitive->getElementValue()
+            : null;
     }
 }

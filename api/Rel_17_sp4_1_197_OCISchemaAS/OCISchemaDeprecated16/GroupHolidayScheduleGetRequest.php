@@ -23,7 +23,7 @@ use Broadworks_OCIP\core\Client\Client;
 class GroupHolidayScheduleGetRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType        = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\GroupHolidayScheduleGetResponse';
-    public    $name = 'GroupHolidayScheduleGetRequest';
+    public    $elementName = 'GroupHolidayScheduleGetRequest';
     protected $serviceProviderId;
     protected $groupId;
     protected $holidayScheduleName;
@@ -54,7 +54,7 @@ class GroupHolidayScheduleGetRequest extends ComplexType implements ComplexInter
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
-        $this->serviceProviderId->setName('serviceProviderId');
+        $this->serviceProviderId->setElementName('serviceProviderId');
         return $this;
     }
 
@@ -64,7 +64,9 @@ class GroupHolidayScheduleGetRequest extends ComplexType implements ComplexInter
      */
     public function getServiceProviderId()
     {
-        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
+        return ($this->serviceProviderId)
+            ? $this->serviceProviderId->getElementValue()
+            : null;
     }
 
     /**
@@ -75,7 +77,7 @@ class GroupHolidayScheduleGetRequest extends ComplexType implements ComplexInter
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
-        $this->groupId->setName('groupId');
+        $this->groupId->setElementName('groupId');
         return $this;
     }
 
@@ -85,7 +87,9 @@ class GroupHolidayScheduleGetRequest extends ComplexType implements ComplexInter
      */
     public function getGroupId()
     {
-        return ($this->groupId) ? $this->groupId->getValue() : null;
+        return ($this->groupId)
+            ? $this->groupId->getElementValue()
+            : null;
     }
 
     /**
@@ -96,7 +100,7 @@ class GroupHolidayScheduleGetRequest extends ComplexType implements ComplexInter
         $this->holidayScheduleName = ($holidayScheduleName InstanceOf ScheduleName)
              ? $holidayScheduleName
              : new ScheduleName($holidayScheduleName);
-        $this->holidayScheduleName->setName('holidayScheduleName');
+        $this->holidayScheduleName->setElementName('holidayScheduleName');
         return $this;
     }
 
@@ -106,6 +110,8 @@ class GroupHolidayScheduleGetRequest extends ComplexType implements ComplexInter
      */
     public function getHolidayScheduleName()
     {
-        return ($this->holidayScheduleName) ? $this->holidayScheduleName->getValue() : null;
+        return ($this->holidayScheduleName)
+            ? $this->holidayScheduleName->getElementValue()
+            : null;
     }
 }

@@ -23,7 +23,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserHotelingHostModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'UserHotelingHostModifyRequest';
+    public    $elementName = 'UserHotelingHostModifyRequest';
     protected $userId;
     protected $isActive;
     protected $enforceAssociationLimit;
@@ -63,7 +63,7 @@ class UserHotelingHostModifyRequest extends ComplexType implements ComplexInterf
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
-        $this->userId->setName('userId');
+        $this->userId->setElementName('userId');
         return $this;
     }
 
@@ -73,7 +73,9 @@ class UserHotelingHostModifyRequest extends ComplexType implements ComplexInterf
      */
     public function getUserId()
     {
-        return ($this->userId) ? $this->userId->getValue() : null;
+        return ($this->userId)
+            ? $this->userId->getElementValue()
+            : null;
     }
 
     /**
@@ -82,7 +84,7 @@ class UserHotelingHostModifyRequest extends ComplexType implements ComplexInterf
     public function setIsActive($isActive = null)
     {
         $this->isActive = new PrimitiveType($isActive);
-        $this->isActive->setName('isActive');
+        $this->isActive->setElementName('isActive');
         return $this;
     }
 
@@ -92,7 +94,9 @@ class UserHotelingHostModifyRequest extends ComplexType implements ComplexInterf
      */
     public function getIsActive()
     {
-        return ($this->isActive) ? $this->isActive->getValue() : null;
+        return ($this->isActive)
+            ? $this->isActive->getElementValue()
+            : null;
     }
 
     /**
@@ -101,7 +105,7 @@ class UserHotelingHostModifyRequest extends ComplexType implements ComplexInterf
     public function setEnforceAssociationLimit($enforceAssociationLimit = null)
     {
         $this->enforceAssociationLimit = new PrimitiveType($enforceAssociationLimit);
-        $this->enforceAssociationLimit->setName('enforceAssociationLimit');
+        $this->enforceAssociationLimit->setElementName('enforceAssociationLimit');
         return $this;
     }
 
@@ -111,7 +115,9 @@ class UserHotelingHostModifyRequest extends ComplexType implements ComplexInterf
      */
     public function getEnforceAssociationLimit()
     {
-        return ($this->enforceAssociationLimit) ? $this->enforceAssociationLimit->getValue() : null;
+        return ($this->enforceAssociationLimit)
+            ? $this->enforceAssociationLimit->getElementValue()
+            : null;
     }
 
     /**
@@ -122,7 +128,7 @@ class UserHotelingHostModifyRequest extends ComplexType implements ComplexInterf
         $this->associationLimitHours = ($associationLimitHours InstanceOf HotelingAssociationLimitHours)
              ? $associationLimitHours
              : new HotelingAssociationLimitHours($associationLimitHours);
-        $this->associationLimitHours->setName('associationLimitHours');
+        $this->associationLimitHours->setElementName('associationLimitHours');
         return $this;
     }
 
@@ -132,7 +138,9 @@ class UserHotelingHostModifyRequest extends ComplexType implements ComplexInterf
      */
     public function getAssociationLimitHours()
     {
-        return ($this->associationLimitHours) ? $this->associationLimitHours->getValue() : null;
+        return ($this->associationLimitHours)
+            ? $this->associationLimitHours->getElementValue()
+            : null;
     }
 
     /**
@@ -143,7 +151,7 @@ class UserHotelingHostModifyRequest extends ComplexType implements ComplexInterf
         $this->accessLevel = ($accessLevel InstanceOf HotelingHostAccessLevel)
              ? $accessLevel
              : new HotelingHostAccessLevel($accessLevel);
-        $this->accessLevel->setName('accessLevel');
+        $this->accessLevel->setElementName('accessLevel');
         return $this;
     }
 
@@ -153,7 +161,9 @@ class UserHotelingHostModifyRequest extends ComplexType implements ComplexInterf
      */
     public function getAccessLevel()
     {
-        return ($this->accessLevel) ? $this->accessLevel->getValue() : null;
+        return ($this->accessLevel)
+            ? $this->accessLevel->getElementValue()
+            : null;
     }
 
     /**
@@ -162,7 +172,7 @@ class UserHotelingHostModifyRequest extends ComplexType implements ComplexInterf
     public function setRemoveGuestAssociation($removeGuestAssociation = null)
     {
         $this->removeGuestAssociation = new PrimitiveType($removeGuestAssociation);
-        $this->removeGuestAssociation->setName('removeGuestAssociation');
+        $this->removeGuestAssociation->setElementName('removeGuestAssociation');
         return $this;
     }
 
@@ -172,6 +182,8 @@ class UserHotelingHostModifyRequest extends ComplexType implements ComplexInterf
      */
     public function getRemoveGuestAssociation()
     {
-        return ($this->removeGuestAssociation) ? $this->removeGuestAssociation->getValue() : null;
+        return ($this->removeGuestAssociation)
+            ? $this->removeGuestAssociation->getElementValue()
+            : null;
     }
 }

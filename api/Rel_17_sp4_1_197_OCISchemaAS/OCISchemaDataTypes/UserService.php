@@ -17,12 +17,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\Comment;
  */
 class UserService extends SimpleType
 {
-    public $name = "UserService";
-    protected $value;
-
+    public $elementName = "UserService";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new Enumeration([
             'Advice Of Charge',
             'Alternate Numbers',

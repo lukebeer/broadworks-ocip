@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
 class PublicClusterGetFullyQualifiedDomainNameRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaLogin\PublicClusterGetFullyQualifiedDomainNameResponse';
-    public    $name = 'PublicClusterGetFullyQualifiedDomainNameRequest';
+    public    $elementName = 'PublicClusterGetFullyQualifiedDomainNameRequest';
 
     public function __construct(    ) {
     }

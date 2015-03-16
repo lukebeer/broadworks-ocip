@@ -24,7 +24,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderEnhancedCallLogsModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'ServiceProviderEnhancedCallLogsModifyRequest';
+    public    $elementName = 'ServiceProviderEnhancedCallLogsModifyRequest';
     protected $serviceProviderId;
     protected $maxLoggedCalls;
     protected $callExpirationDays;
@@ -55,7 +55,7 @@ class ServiceProviderEnhancedCallLogsModifyRequest extends ComplexType implement
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
-        $this->serviceProviderId->setName('serviceProviderId');
+        $this->serviceProviderId->setElementName('serviceProviderId');
         return $this;
     }
 
@@ -65,7 +65,9 @@ class ServiceProviderEnhancedCallLogsModifyRequest extends ComplexType implement
      */
     public function getServiceProviderId()
     {
-        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
+        return ($this->serviceProviderId)
+            ? $this->serviceProviderId->getElementValue()
+            : null;
     }
 
     /**
@@ -76,7 +78,7 @@ class ServiceProviderEnhancedCallLogsModifyRequest extends ComplexType implement
         $this->maxLoggedCalls = ($maxLoggedCalls InstanceOf EnhancedCallLogsMaxLoggedCalls17sp4)
              ? $maxLoggedCalls
              : new EnhancedCallLogsMaxLoggedCalls17sp4($maxLoggedCalls);
-        $this->maxLoggedCalls->setName('maxLoggedCalls');
+        $this->maxLoggedCalls->setElementName('maxLoggedCalls');
         return $this;
     }
 
@@ -86,7 +88,9 @@ class ServiceProviderEnhancedCallLogsModifyRequest extends ComplexType implement
      */
     public function getMaxLoggedCalls()
     {
-        return ($this->maxLoggedCalls) ? $this->maxLoggedCalls->getValue() : null;
+        return ($this->maxLoggedCalls)
+            ? $this->maxLoggedCalls->getElementValue()
+            : null;
     }
 
     /**
@@ -97,7 +101,7 @@ class ServiceProviderEnhancedCallLogsModifyRequest extends ComplexType implement
         $this->callExpirationDays = ($callExpirationDays InstanceOf EnhancedCallLogsCallExpirationDays)
              ? $callExpirationDays
              : new EnhancedCallLogsCallExpirationDays($callExpirationDays);
-        $this->callExpirationDays->setName('callExpirationDays');
+        $this->callExpirationDays->setElementName('callExpirationDays');
         return $this;
     }
 
@@ -107,6 +111,8 @@ class ServiceProviderEnhancedCallLogsModifyRequest extends ComplexType implement
      */
     public function getCallExpirationDays()
     {
-        return ($this->callExpirationDays) ? $this->callExpirationDays->getValue() : null;
+        return ($this->callExpirationDays)
+            ? $this->callExpirationDays->getElementValue()
+            : null;
     }
 }

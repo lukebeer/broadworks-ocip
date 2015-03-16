@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupRoutePointExternalSystemGetAssignedRoutePointListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'GroupRoutePointExternalSystemGetAssignedRoutePointListResponse';
+    public    $elementName = 'GroupRoutePointExternalSystemGetAssignedRoutePointListResponse';
     protected $routePointTable;
 
     /**
@@ -39,7 +39,7 @@ class GroupRoutePointExternalSystemGetAssignedRoutePointListResponse extends Com
     public function setRoutePointTable(TableType $routePointTable = null)
     {
         $this->routePointTable = $routePointTable;
-        $this->routePointTable->setName('routePointTable');
+        $this->routePointTable->setElementName('routePointTable');
         return $this;
     }
 

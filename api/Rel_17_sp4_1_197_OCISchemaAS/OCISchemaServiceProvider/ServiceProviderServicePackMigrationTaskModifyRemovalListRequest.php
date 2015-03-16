@@ -24,7 +24,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderServicePackMigrationTaskModifyRemovalListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'ServiceProviderServicePackMigrationTaskModifyRemovalListRequest';
+    public    $elementName = 'ServiceProviderServicePackMigrationTaskModifyRemovalListRequest';
     protected $serviceProviderId;
     protected $taskName;
     protected $userServiceNameList;
@@ -58,7 +58,7 @@ class ServiceProviderServicePackMigrationTaskModifyRemovalListRequest extends Co
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
-        $this->serviceProviderId->setName('serviceProviderId');
+        $this->serviceProviderId->setElementName('serviceProviderId');
         return $this;
     }
 
@@ -68,7 +68,9 @@ class ServiceProviderServicePackMigrationTaskModifyRemovalListRequest extends Co
      */
     public function getServiceProviderId()
     {
-        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
+        return ($this->serviceProviderId)
+            ? $this->serviceProviderId->getElementValue()
+            : null;
     }
 
     /**
@@ -79,7 +81,7 @@ class ServiceProviderServicePackMigrationTaskModifyRemovalListRequest extends Co
         $this->taskName = ($taskName InstanceOf ServicePackMigrationTaskName)
              ? $taskName
              : new ServicePackMigrationTaskName($taskName);
-        $this->taskName->setName('taskName');
+        $this->taskName->setElementName('taskName');
         return $this;
     }
 
@@ -89,7 +91,9 @@ class ServiceProviderServicePackMigrationTaskModifyRemovalListRequest extends Co
      */
     public function getTaskName()
     {
-        return ($this->taskName) ? $this->taskName->getValue() : null;
+        return ($this->taskName)
+            ? $this->taskName->getElementValue()
+            : null;
     }
 
     /**
@@ -100,7 +104,7 @@ class ServiceProviderServicePackMigrationTaskModifyRemovalListRequest extends Co
         $this->userServiceNameList = ($userServiceNameList InstanceOf ReplacementUserServiceList)
              ? $userServiceNameList
              : new ReplacementUserServiceList($userServiceNameList);
-        $this->userServiceNameList->setName('userServiceNameList');
+        $this->userServiceNameList->setElementName('userServiceNameList');
         return $this;
     }
 
@@ -121,7 +125,7 @@ class ServiceProviderServicePackMigrationTaskModifyRemovalListRequest extends Co
         $this->servicePackNameList = ($servicePackNameList InstanceOf ReplacementServicePackNameList)
              ? $servicePackNameList
              : new ReplacementServicePackNameList($servicePackNameList);
-        $this->servicePackNameList->setName('servicePackNameList');
+        $this->servicePackNameList->setElementName('servicePackNameList');
         return $this;
     }
 

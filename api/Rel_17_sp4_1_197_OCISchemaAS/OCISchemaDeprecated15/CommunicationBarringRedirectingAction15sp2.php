@@ -16,12 +16,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\Enumeration;
  */
 class CommunicationBarringRedirectingAction15sp2 extends SimpleType
 {
-    public $name = "CommunicationBarringRedirectingAction15sp2";
-    protected $value;
-
+    public $elementName = "CommunicationBarringRedirectingAction15sp2";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new Enumeration([
             'Allow',
             'Block'

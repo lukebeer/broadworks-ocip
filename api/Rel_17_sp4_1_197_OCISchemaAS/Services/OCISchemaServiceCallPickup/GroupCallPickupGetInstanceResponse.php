@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupCallPickupGetInstanceResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'GroupCallPickupGetInstanceResponse';
+    public    $elementName = 'GroupCallPickupGetInstanceResponse';
     protected $userTable;
 
     /**
@@ -37,7 +37,7 @@ class GroupCallPickupGetInstanceResponse extends ComplexType implements ComplexI
     public function setUserTable(TableType $userTable = null)
     {
         $this->userTable = $userTable;
-        $this->userTable->setName('userTable');
+        $this->userTable->setElementName('userTable');
         return $this;
     }
 

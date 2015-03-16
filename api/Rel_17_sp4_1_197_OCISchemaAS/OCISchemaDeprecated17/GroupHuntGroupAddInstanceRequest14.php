@@ -29,7 +29,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupHuntGroupAddInstanceRequest14 extends ComplexType implements ComplexInterface
 {
-    public    $name = 'GroupHuntGroupAddInstanceRequest14';
+    public    $elementName = 'GroupHuntGroupAddInstanceRequest14';
     protected $serviceProviderId;
     protected $groupId;
     protected $serviceUserId;
@@ -87,7 +87,7 @@ class GroupHuntGroupAddInstanceRequest14 extends ComplexType implements ComplexI
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
-        $this->serviceProviderId->setName('serviceProviderId');
+        $this->serviceProviderId->setElementName('serviceProviderId');
         return $this;
     }
 
@@ -97,7 +97,9 @@ class GroupHuntGroupAddInstanceRequest14 extends ComplexType implements ComplexI
      */
     public function getServiceProviderId()
     {
-        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
+        return ($this->serviceProviderId)
+            ? $this->serviceProviderId->getElementValue()
+            : null;
     }
 
     /**
@@ -108,7 +110,7 @@ class GroupHuntGroupAddInstanceRequest14 extends ComplexType implements ComplexI
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
-        $this->groupId->setName('groupId');
+        $this->groupId->setElementName('groupId');
         return $this;
     }
 
@@ -118,7 +120,9 @@ class GroupHuntGroupAddInstanceRequest14 extends ComplexType implements ComplexI
      */
     public function getGroupId()
     {
-        return ($this->groupId) ? $this->groupId->getValue() : null;
+        return ($this->groupId)
+            ? $this->groupId->getElementValue()
+            : null;
     }
 
     /**
@@ -129,7 +133,7 @@ class GroupHuntGroupAddInstanceRequest14 extends ComplexType implements ComplexI
         $this->serviceUserId = ($serviceUserId InstanceOf UserId)
              ? $serviceUserId
              : new UserId($serviceUserId);
-        $this->serviceUserId->setName('serviceUserId');
+        $this->serviceUserId->setElementName('serviceUserId');
         return $this;
     }
 
@@ -139,7 +143,9 @@ class GroupHuntGroupAddInstanceRequest14 extends ComplexType implements ComplexI
      */
     public function getServiceUserId()
     {
-        return ($this->serviceUserId) ? $this->serviceUserId->getValue() : null;
+        return ($this->serviceUserId)
+            ? $this->serviceUserId->getElementValue()
+            : null;
     }
 
     /**
@@ -150,7 +156,7 @@ class GroupHuntGroupAddInstanceRequest14 extends ComplexType implements ComplexI
         $this->serviceInstanceProfile = ($serviceInstanceProfile InstanceOf ServiceInstanceAddProfile)
              ? $serviceInstanceProfile
              : new ServiceInstanceAddProfile($serviceInstanceProfile);
-        $this->serviceInstanceProfile->setName('serviceInstanceProfile');
+        $this->serviceInstanceProfile->setElementName('serviceInstanceProfile');
         return $this;
     }
 
@@ -171,7 +177,7 @@ class GroupHuntGroupAddInstanceRequest14 extends ComplexType implements ComplexI
         $this->policy = ($policy InstanceOf HuntPolicy)
              ? $policy
              : new HuntPolicy($policy);
-        $this->policy->setName('policy');
+        $this->policy->setElementName('policy');
         return $this;
     }
 
@@ -181,7 +187,9 @@ class GroupHuntGroupAddInstanceRequest14 extends ComplexType implements ComplexI
      */
     public function getPolicy()
     {
-        return ($this->policy) ? $this->policy->getValue() : null;
+        return ($this->policy)
+            ? $this->policy->getElementValue()
+            : null;
     }
 
     /**
@@ -190,7 +198,7 @@ class GroupHuntGroupAddInstanceRequest14 extends ComplexType implements ComplexI
     public function setHuntAfterNoAnswer($huntAfterNoAnswer = null)
     {
         $this->huntAfterNoAnswer = new PrimitiveType($huntAfterNoAnswer);
-        $this->huntAfterNoAnswer->setName('huntAfterNoAnswer');
+        $this->huntAfterNoAnswer->setElementName('huntAfterNoAnswer');
         return $this;
     }
 
@@ -200,7 +208,9 @@ class GroupHuntGroupAddInstanceRequest14 extends ComplexType implements ComplexI
      */
     public function getHuntAfterNoAnswer()
     {
-        return ($this->huntAfterNoAnswer) ? $this->huntAfterNoAnswer->getValue() : null;
+        return ($this->huntAfterNoAnswer)
+            ? $this->huntAfterNoAnswer->getElementValue()
+            : null;
     }
 
     /**
@@ -211,7 +221,7 @@ class GroupHuntGroupAddInstanceRequest14 extends ComplexType implements ComplexI
         $this->noAnswerNumberOfRings = ($noAnswerNumberOfRings InstanceOf HuntNoAnswerRings)
              ? $noAnswerNumberOfRings
              : new HuntNoAnswerRings($noAnswerNumberOfRings);
-        $this->noAnswerNumberOfRings->setName('noAnswerNumberOfRings');
+        $this->noAnswerNumberOfRings->setElementName('noAnswerNumberOfRings');
         return $this;
     }
 
@@ -221,7 +231,9 @@ class GroupHuntGroupAddInstanceRequest14 extends ComplexType implements ComplexI
      */
     public function getNoAnswerNumberOfRings()
     {
-        return ($this->noAnswerNumberOfRings) ? $this->noAnswerNumberOfRings->getValue() : null;
+        return ($this->noAnswerNumberOfRings)
+            ? $this->noAnswerNumberOfRings->getElementValue()
+            : null;
     }
 
     /**
@@ -230,7 +242,7 @@ class GroupHuntGroupAddInstanceRequest14 extends ComplexType implements ComplexI
     public function setForwardAfterTimeout($forwardAfterTimeout = null)
     {
         $this->forwardAfterTimeout = new PrimitiveType($forwardAfterTimeout);
-        $this->forwardAfterTimeout->setName('forwardAfterTimeout');
+        $this->forwardAfterTimeout->setElementName('forwardAfterTimeout');
         return $this;
     }
 
@@ -240,7 +252,9 @@ class GroupHuntGroupAddInstanceRequest14 extends ComplexType implements ComplexI
      */
     public function getForwardAfterTimeout()
     {
-        return ($this->forwardAfterTimeout) ? $this->forwardAfterTimeout->getValue() : null;
+        return ($this->forwardAfterTimeout)
+            ? $this->forwardAfterTimeout->getElementValue()
+            : null;
     }
 
     /**
@@ -251,7 +265,7 @@ class GroupHuntGroupAddInstanceRequest14 extends ComplexType implements ComplexI
         $this->forwardTimeoutSeconds = ($forwardTimeoutSeconds InstanceOf HuntForwardTimeoutSeconds)
              ? $forwardTimeoutSeconds
              : new HuntForwardTimeoutSeconds($forwardTimeoutSeconds);
-        $this->forwardTimeoutSeconds->setName('forwardTimeoutSeconds');
+        $this->forwardTimeoutSeconds->setElementName('forwardTimeoutSeconds');
         return $this;
     }
 
@@ -261,7 +275,9 @@ class GroupHuntGroupAddInstanceRequest14 extends ComplexType implements ComplexI
      */
     public function getForwardTimeoutSeconds()
     {
-        return ($this->forwardTimeoutSeconds) ? $this->forwardTimeoutSeconds->getValue() : null;
+        return ($this->forwardTimeoutSeconds)
+            ? $this->forwardTimeoutSeconds->getElementValue()
+            : null;
     }
 
     /**
@@ -272,7 +288,7 @@ class GroupHuntGroupAddInstanceRequest14 extends ComplexType implements ComplexI
         $this->forwardToPhoneNumber = ($forwardToPhoneNumber InstanceOf OutgoingDN)
              ? $forwardToPhoneNumber
              : new OutgoingDN($forwardToPhoneNumber);
-        $this->forwardToPhoneNumber->setName('forwardToPhoneNumber');
+        $this->forwardToPhoneNumber->setElementName('forwardToPhoneNumber');
         return $this;
     }
 
@@ -282,7 +298,9 @@ class GroupHuntGroupAddInstanceRequest14 extends ComplexType implements ComplexI
      */
     public function getForwardToPhoneNumber()
     {
-        return ($this->forwardToPhoneNumber) ? $this->forwardToPhoneNumber->getValue() : null;
+        return ($this->forwardToPhoneNumber)
+            ? $this->forwardToPhoneNumber->getElementValue()
+            : null;
     }
 
     /**
@@ -293,7 +311,7 @@ class GroupHuntGroupAddInstanceRequest14 extends ComplexType implements ComplexI
         $this->agentUserId = ($agentUserId InstanceOf UserId)
              ? $agentUserId
              : new UserId($agentUserId);
-        $this->agentUserId->setName('agentUserId');
+        $this->agentUserId->setElementName('agentUserId');
         return $this;
     }
 
@@ -303,7 +321,9 @@ class GroupHuntGroupAddInstanceRequest14 extends ComplexType implements ComplexI
      */
     public function getAgentUserId()
     {
-        return ($this->agentUserId) ? $this->agentUserId->getValue() : null;
+        return ($this->agentUserId)
+            ? $this->agentUserId->getElementValue()
+            : null;
     }
 
     /**
@@ -312,7 +332,7 @@ class GroupHuntGroupAddInstanceRequest14 extends ComplexType implements ComplexI
     public function setAllowCallWaitingForAgents($allowCallWaitingForAgents = null)
     {
         $this->allowCallWaitingForAgents = new PrimitiveType($allowCallWaitingForAgents);
-        $this->allowCallWaitingForAgents->setName('allowCallWaitingForAgents');
+        $this->allowCallWaitingForAgents->setElementName('allowCallWaitingForAgents');
         return $this;
     }
 
@@ -322,6 +342,8 @@ class GroupHuntGroupAddInstanceRequest14 extends ComplexType implements ComplexI
      */
     public function getAllowCallWaitingForAgents()
     {
-        return ($this->allowCallWaitingForAgents) ? $this->allowCallWaitingForAgents->getValue() : null;
+        return ($this->allowCallWaitingForAgents)
+            ? $this->allowCallWaitingForAgents->getElementValue()
+            : null;
     }
 }

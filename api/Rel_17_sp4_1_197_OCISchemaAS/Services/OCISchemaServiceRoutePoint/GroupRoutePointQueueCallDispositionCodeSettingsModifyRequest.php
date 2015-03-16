@@ -23,7 +23,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupRoutePointQueueCallDispositionCodeSettingsModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'GroupRoutePointQueueCallDispositionCodeSettingsModifyRequest';
+    public    $elementName = 'GroupRoutePointQueueCallDispositionCodeSettingsModifyRequest';
     protected $serviceUserId;
     protected $enableCallDispositionCodes;
     protected $includeOrganizationCodes;
@@ -63,7 +63,7 @@ class GroupRoutePointQueueCallDispositionCodeSettingsModifyRequest extends Compl
         $this->serviceUserId = ($serviceUserId InstanceOf UserId)
              ? $serviceUserId
              : new UserId($serviceUserId);
-        $this->serviceUserId->setName('serviceUserId');
+        $this->serviceUserId->setElementName('serviceUserId');
         return $this;
     }
 
@@ -73,7 +73,9 @@ class GroupRoutePointQueueCallDispositionCodeSettingsModifyRequest extends Compl
      */
     public function getServiceUserId()
     {
-        return ($this->serviceUserId) ? $this->serviceUserId->getValue() : null;
+        return ($this->serviceUserId)
+            ? $this->serviceUserId->getElementValue()
+            : null;
     }
 
     /**
@@ -82,7 +84,7 @@ class GroupRoutePointQueueCallDispositionCodeSettingsModifyRequest extends Compl
     public function setEnableCallDispositionCodes($enableCallDispositionCodes = null)
     {
         $this->enableCallDispositionCodes = new PrimitiveType($enableCallDispositionCodes);
-        $this->enableCallDispositionCodes->setName('enableCallDispositionCodes');
+        $this->enableCallDispositionCodes->setElementName('enableCallDispositionCodes');
         return $this;
     }
 
@@ -92,7 +94,9 @@ class GroupRoutePointQueueCallDispositionCodeSettingsModifyRequest extends Compl
      */
     public function getEnableCallDispositionCodes()
     {
-        return ($this->enableCallDispositionCodes) ? $this->enableCallDispositionCodes->getValue() : null;
+        return ($this->enableCallDispositionCodes)
+            ? $this->enableCallDispositionCodes->getElementValue()
+            : null;
     }
 
     /**
@@ -101,7 +105,7 @@ class GroupRoutePointQueueCallDispositionCodeSettingsModifyRequest extends Compl
     public function setIncludeOrganizationCodes($includeOrganizationCodes = null)
     {
         $this->includeOrganizationCodes = new PrimitiveType($includeOrganizationCodes);
-        $this->includeOrganizationCodes->setName('includeOrganizationCodes');
+        $this->includeOrganizationCodes->setElementName('includeOrganizationCodes');
         return $this;
     }
 
@@ -111,7 +115,9 @@ class GroupRoutePointQueueCallDispositionCodeSettingsModifyRequest extends Compl
      */
     public function getIncludeOrganizationCodes()
     {
-        return ($this->includeOrganizationCodes) ? $this->includeOrganizationCodes->getValue() : null;
+        return ($this->includeOrganizationCodes)
+            ? $this->includeOrganizationCodes->getElementValue()
+            : null;
     }
 
     /**
@@ -120,7 +126,7 @@ class GroupRoutePointQueueCallDispositionCodeSettingsModifyRequest extends Compl
     public function setForceUseOfCallDispositionCodes($forceUseOfCallDispositionCodes = null)
     {
         $this->forceUseOfCallDispositionCodes = new PrimitiveType($forceUseOfCallDispositionCodes);
-        $this->forceUseOfCallDispositionCodes->setName('forceUseOfCallDispositionCodes');
+        $this->forceUseOfCallDispositionCodes->setElementName('forceUseOfCallDispositionCodes');
         return $this;
     }
 
@@ -130,7 +136,9 @@ class GroupRoutePointQueueCallDispositionCodeSettingsModifyRequest extends Compl
      */
     public function getForceUseOfCallDispositionCodes()
     {
-        return ($this->forceUseOfCallDispositionCodes) ? $this->forceUseOfCallDispositionCodes->getValue() : null;
+        return ($this->forceUseOfCallDispositionCodes)
+            ? $this->forceUseOfCallDispositionCodes->getElementValue()
+            : null;
     }
 
     /**
@@ -141,7 +149,7 @@ class GroupRoutePointQueueCallDispositionCodeSettingsModifyRequest extends Compl
         $this->defaultCallDispositionCode = ($defaultCallDispositionCode InstanceOf CallDispositionCodeWithLevel)
              ? $defaultCallDispositionCode
              : new CallDispositionCodeWithLevel($defaultCallDispositionCode);
-        $this->defaultCallDispositionCode->setName('defaultCallDispositionCode');
+        $this->defaultCallDispositionCode->setElementName('defaultCallDispositionCode');
         return $this;
     }
 
@@ -162,7 +170,7 @@ class GroupRoutePointQueueCallDispositionCodeSettingsModifyRequest extends Compl
         $this->callDispositionCodeActivation = ($callDispositionCodeActivation InstanceOf CallDispositionCodeActivation)
              ? $callDispositionCodeActivation
              : new CallDispositionCodeActivation($callDispositionCodeActivation);
-        $this->callDispositionCodeActivation->setName('callDispositionCodeActivation');
+        $this->callDispositionCodeActivation->setElementName('callDispositionCodeActivation');
         return $this;
     }
 

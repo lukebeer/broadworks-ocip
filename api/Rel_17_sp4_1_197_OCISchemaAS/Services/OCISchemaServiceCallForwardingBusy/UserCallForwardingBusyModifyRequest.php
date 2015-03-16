@@ -23,7 +23,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserCallForwardingBusyModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'UserCallForwardingBusyModifyRequest';
+    public    $elementName = 'UserCallForwardingBusyModifyRequest';
     protected $userId;
     protected $isActive;
     protected $forwardToPhoneNumber;
@@ -54,7 +54,7 @@ class UserCallForwardingBusyModifyRequest extends ComplexType implements Complex
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
-        $this->userId->setName('userId');
+        $this->userId->setElementName('userId');
         return $this;
     }
 
@@ -64,7 +64,9 @@ class UserCallForwardingBusyModifyRequest extends ComplexType implements Complex
      */
     public function getUserId()
     {
-        return ($this->userId) ? $this->userId->getValue() : null;
+        return ($this->userId)
+            ? $this->userId->getElementValue()
+            : null;
     }
 
     /**
@@ -73,7 +75,7 @@ class UserCallForwardingBusyModifyRequest extends ComplexType implements Complex
     public function setIsActive($isActive = null)
     {
         $this->isActive = new PrimitiveType($isActive);
-        $this->isActive->setName('isActive');
+        $this->isActive->setElementName('isActive');
         return $this;
     }
 
@@ -83,7 +85,9 @@ class UserCallForwardingBusyModifyRequest extends ComplexType implements Complex
      */
     public function getIsActive()
     {
-        return ($this->isActive) ? $this->isActive->getValue() : null;
+        return ($this->isActive)
+            ? $this->isActive->getElementValue()
+            : null;
     }
 
     /**
@@ -94,7 +98,7 @@ class UserCallForwardingBusyModifyRequest extends ComplexType implements Complex
         $this->forwardToPhoneNumber = ($forwardToPhoneNumber InstanceOf OutgoingDNorSIPURI)
              ? $forwardToPhoneNumber
              : new OutgoingDNorSIPURI($forwardToPhoneNumber);
-        $this->forwardToPhoneNumber->setName('forwardToPhoneNumber');
+        $this->forwardToPhoneNumber->setElementName('forwardToPhoneNumber');
         return $this;
     }
 
@@ -104,6 +108,8 @@ class UserCallForwardingBusyModifyRequest extends ComplexType implements Complex
      */
     public function getForwardToPhoneNumber()
     {
-        return ($this->forwardToPhoneNumber) ? $this->forwardToPhoneNumber->getValue() : null;
+        return ($this->forwardToPhoneNumber)
+            ? $this->forwardToPhoneNumber->getElementValue()
+            : null;
     }
 }

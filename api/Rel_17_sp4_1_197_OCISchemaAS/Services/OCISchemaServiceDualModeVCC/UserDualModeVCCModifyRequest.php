@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserDualModeVCCModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'UserDualModeVCCModifyRequest';
+    public    $elementName = 'UserDualModeVCCModifyRequest';
     protected $userId;
     protected $subscriberUserName;
     protected $subscriberPassword;
@@ -53,7 +53,7 @@ class UserDualModeVCCModifyRequest extends ComplexType implements ComplexInterfa
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
-        $this->userId->setName('userId');
+        $this->userId->setElementName('userId');
         return $this;
     }
 
@@ -63,7 +63,9 @@ class UserDualModeVCCModifyRequest extends ComplexType implements ComplexInterfa
      */
     public function getUserId()
     {
-        return ($this->userId) ? $this->userId->getValue() : null;
+        return ($this->userId)
+            ? $this->userId->getElementValue()
+            : null;
     }
 
     /**
@@ -74,7 +76,7 @@ class UserDualModeVCCModifyRequest extends ComplexType implements ComplexInterfa
         $this->subscriberUserName = ($subscriberUserName InstanceOf DualModeVCCSubscriberUserName)
              ? $subscriberUserName
              : new DualModeVCCSubscriberUserName($subscriberUserName);
-        $this->subscriberUserName->setName('subscriberUserName');
+        $this->subscriberUserName->setElementName('subscriberUserName');
         return $this;
     }
 
@@ -84,7 +86,9 @@ class UserDualModeVCCModifyRequest extends ComplexType implements ComplexInterfa
      */
     public function getSubscriberUserName()
     {
-        return ($this->subscriberUserName) ? $this->subscriberUserName->getValue() : null;
+        return ($this->subscriberUserName)
+            ? $this->subscriberUserName->getElementValue()
+            : null;
     }
 
     /**
@@ -95,7 +99,7 @@ class UserDualModeVCCModifyRequest extends ComplexType implements ComplexInterfa
         $this->subscriberPassword = ($subscriberPassword InstanceOf DualModeVCCSubscriberPassword)
              ? $subscriberPassword
              : new DualModeVCCSubscriberPassword($subscriberPassword);
-        $this->subscriberPassword->setName('subscriberPassword');
+        $this->subscriberPassword->setElementName('subscriberPassword');
         return $this;
     }
 
@@ -105,6 +109,8 @@ class UserDualModeVCCModifyRequest extends ComplexType implements ComplexInterfa
      */
     public function getSubscriberPassword()
     {
-        return ($this->subscriberPassword) ? $this->subscriberPassword->getValue() : null;
+        return ($this->subscriberPassword)
+            ? $this->subscriberPassword->getElementValue()
+            : null;
     }
 }

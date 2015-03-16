@@ -25,7 +25,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupAccountAuthorizationCodesModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'GroupAccountAuthorizationCodesModifyRequest';
+    public    $elementName = 'GroupAccountAuthorizationCodesModifyRequest';
     protected $serviceProviderId;
     protected $groupId;
     protected $codeType;
@@ -68,7 +68,7 @@ class GroupAccountAuthorizationCodesModifyRequest extends ComplexType implements
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
-        $this->serviceProviderId->setName('serviceProviderId');
+        $this->serviceProviderId->setElementName('serviceProviderId');
         return $this;
     }
 
@@ -78,7 +78,9 @@ class GroupAccountAuthorizationCodesModifyRequest extends ComplexType implements
      */
     public function getServiceProviderId()
     {
-        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
+        return ($this->serviceProviderId)
+            ? $this->serviceProviderId->getElementValue()
+            : null;
     }
 
     /**
@@ -89,7 +91,7 @@ class GroupAccountAuthorizationCodesModifyRequest extends ComplexType implements
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
-        $this->groupId->setName('groupId');
+        $this->groupId->setElementName('groupId');
         return $this;
     }
 
@@ -99,7 +101,9 @@ class GroupAccountAuthorizationCodesModifyRequest extends ComplexType implements
      */
     public function getGroupId()
     {
-        return ($this->groupId) ? $this->groupId->getValue() : null;
+        return ($this->groupId)
+            ? $this->groupId->getElementValue()
+            : null;
     }
 
     /**
@@ -110,7 +114,7 @@ class GroupAccountAuthorizationCodesModifyRequest extends ComplexType implements
         $this->codeType = ($codeType InstanceOf AccountAuthorizationCodeType)
              ? $codeType
              : new AccountAuthorizationCodeType($codeType);
-        $this->codeType->setName('codeType');
+        $this->codeType->setElementName('codeType');
         return $this;
     }
 
@@ -120,7 +124,9 @@ class GroupAccountAuthorizationCodesModifyRequest extends ComplexType implements
      */
     public function getCodeType()
     {
-        return ($this->codeType) ? $this->codeType->getValue() : null;
+        return ($this->codeType)
+            ? $this->codeType->getElementValue()
+            : null;
     }
 
     /**
@@ -131,7 +137,7 @@ class GroupAccountAuthorizationCodesModifyRequest extends ComplexType implements
         $this->numberOfDigits = ($numberOfDigits InstanceOf AccountAuthorizationCodeNumberOfDigits)
              ? $numberOfDigits
              : new AccountAuthorizationCodeNumberOfDigits($numberOfDigits);
-        $this->numberOfDigits->setName('numberOfDigits');
+        $this->numberOfDigits->setElementName('numberOfDigits');
         return $this;
     }
 
@@ -141,7 +147,9 @@ class GroupAccountAuthorizationCodesModifyRequest extends ComplexType implements
      */
     public function getNumberOfDigits()
     {
-        return ($this->numberOfDigits) ? $this->numberOfDigits->getValue() : null;
+        return ($this->numberOfDigits)
+            ? $this->numberOfDigits->getElementValue()
+            : null;
     }
 
     /**
@@ -150,7 +158,7 @@ class GroupAccountAuthorizationCodesModifyRequest extends ComplexType implements
     public function setAllowLocalAndTollFreeCalls($allowLocalAndTollFreeCalls = null)
     {
         $this->allowLocalAndTollFreeCalls = new PrimitiveType($allowLocalAndTollFreeCalls);
-        $this->allowLocalAndTollFreeCalls->setName('allowLocalAndTollFreeCalls');
+        $this->allowLocalAndTollFreeCalls->setElementName('allowLocalAndTollFreeCalls');
         return $this;
     }
 
@@ -160,7 +168,9 @@ class GroupAccountAuthorizationCodesModifyRequest extends ComplexType implements
      */
     public function getAllowLocalAndTollFreeCalls()
     {
-        return ($this->allowLocalAndTollFreeCalls) ? $this->allowLocalAndTollFreeCalls->getValue() : null;
+        return ($this->allowLocalAndTollFreeCalls)
+            ? $this->allowLocalAndTollFreeCalls->getElementValue()
+            : null;
     }
 
     /**
@@ -171,7 +181,7 @@ class GroupAccountAuthorizationCodesModifyRequest extends ComplexType implements
         $this->mandatoryUsageUserIdList = ($mandatoryUsageUserIdList InstanceOf ReplacementUserIdList)
              ? $mandatoryUsageUserIdList
              : new ReplacementUserIdList($mandatoryUsageUserIdList);
-        $this->mandatoryUsageUserIdList->setName('mandatoryUsageUserIdList');
+        $this->mandatoryUsageUserIdList->setElementName('mandatoryUsageUserIdList');
         return $this;
     }
 
@@ -192,7 +202,7 @@ class GroupAccountAuthorizationCodesModifyRequest extends ComplexType implements
         $this->optionalUsageUserIdList = ($optionalUsageUserIdList InstanceOf ReplacementUserIdList)
              ? $optionalUsageUserIdList
              : new ReplacementUserIdList($optionalUsageUserIdList);
-        $this->optionalUsageUserIdList->setName('optionalUsageUserIdList');
+        $this->optionalUsageUserIdList->setElementName('optionalUsageUserIdList');
         return $this;
     }
 

@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemShInterfaceParametersGetResponse17 extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemShInterfaceParametersGetResponse17';
+    public    $elementName = 'SystemShInterfaceParametersGetResponse17';
     protected $hssRealm;
     protected $publicIdentityRefreshDelaySeconds;
 
@@ -40,7 +40,7 @@ class SystemShInterfaceParametersGetResponse17 extends ComplexType implements Co
         $this->hssRealm = ($hssRealm InstanceOf DomainName)
              ? $hssRealm
              : new DomainName($hssRealm);
-        $this->hssRealm->setName('hssRealm');
+        $this->hssRealm->setElementName('hssRealm');
         return $this;
     }
 
@@ -50,7 +50,9 @@ class SystemShInterfaceParametersGetResponse17 extends ComplexType implements Co
      */
     public function getHssRealm()
     {
-        return ($this->hssRealm) ? $this->hssRealm->getValue() : null;
+        return ($this->hssRealm)
+            ? $this->hssRealm->getElementValue()
+            : null;
     }
 
     /**
@@ -61,7 +63,7 @@ class SystemShInterfaceParametersGetResponse17 extends ComplexType implements Co
         $this->publicIdentityRefreshDelaySeconds = ($publicIdentityRefreshDelaySeconds InstanceOf ShInterfacePublicIdentityRefreshDelaySeconds)
              ? $publicIdentityRefreshDelaySeconds
              : new ShInterfacePublicIdentityRefreshDelaySeconds($publicIdentityRefreshDelaySeconds);
-        $this->publicIdentityRefreshDelaySeconds->setName('publicIdentityRefreshDelaySeconds');
+        $this->publicIdentityRefreshDelaySeconds->setElementName('publicIdentityRefreshDelaySeconds');
         return $this;
     }
 
@@ -71,6 +73,8 @@ class SystemShInterfaceParametersGetResponse17 extends ComplexType implements Co
      */
     public function getPublicIdentityRefreshDelaySeconds()
     {
-        return ($this->publicIdentityRefreshDelaySeconds) ? $this->publicIdentityRefreshDelaySeconds->getValue() : null;
+        return ($this->publicIdentityRefreshDelaySeconds)
+            ? $this->publicIdentityRefreshDelaySeconds->getElementValue()
+            : null;
     }
 }

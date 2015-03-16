@@ -16,12 +16,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\Enumeration;
  */
 class EnterpriseVoiceVPNDigitManipulationOperationOptionalValue extends SimpleType
 {
-    public $name = "EnterpriseVoiceVPNDigitManipulationOperationOptionalValue";
-    protected $value;
-
+    public $elementName = "EnterpriseVoiceVPNDigitManipulationOperationOptionalValue";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "EnterpriseVoiceVPNDigitManipulationOperation";
+        $this->setElementValue($value);
         $this->addRestriction(new Enumeration([
             'Prepend',
             'Overwrite',

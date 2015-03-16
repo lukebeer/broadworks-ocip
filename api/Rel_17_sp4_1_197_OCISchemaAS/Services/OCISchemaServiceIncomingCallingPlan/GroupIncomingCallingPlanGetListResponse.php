@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupIncomingCallingPlanGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'GroupIncomingCallingPlanGetListResponse';
+    public    $elementName = 'GroupIncomingCallingPlanGetListResponse';
     protected $groupPermissions;
     protected $departmentPermissions;
 
@@ -40,7 +40,7 @@ class GroupIncomingCallingPlanGetListResponse extends ComplexType implements Com
         $this->groupPermissions = ($groupPermissions InstanceOf IncomingCallingPlanPermissions)
              ? $groupPermissions
              : new IncomingCallingPlanPermissions($groupPermissions);
-        $this->groupPermissions->setName('groupPermissions');
+        $this->groupPermissions->setElementName('groupPermissions');
         return $this;
     }
 
@@ -61,7 +61,7 @@ class GroupIncomingCallingPlanGetListResponse extends ComplexType implements Com
         $this->departmentPermissions = ($departmentPermissions InstanceOf IncomingCallingPlanDepartmentPermissions)
              ? $departmentPermissions
              : new IncomingCallingPlanDepartmentPermissions($departmentPermissions);
-        $this->departmentPermissions->setName('departmentPermissions');
+        $this->departmentPermissions->setElementName('departmentPermissions');
         return $this;
     }
 

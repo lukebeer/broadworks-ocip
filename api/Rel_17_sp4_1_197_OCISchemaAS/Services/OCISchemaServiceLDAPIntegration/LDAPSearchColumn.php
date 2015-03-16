@@ -17,12 +17,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\Enumeration;
  */
 class LDAPSearchColumn extends SimpleType
 {
-    public $name = "LDAPSearchColumn";
-    protected $value;
-
+    public $elementName = "LDAPSearchColumn";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new Enumeration([
             '1',
             '2',

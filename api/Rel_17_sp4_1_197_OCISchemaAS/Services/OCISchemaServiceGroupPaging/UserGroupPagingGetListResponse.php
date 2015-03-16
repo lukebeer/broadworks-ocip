@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserGroupPagingGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'UserGroupPagingGetListResponse';
+    public    $elementName = 'UserGroupPagingGetListResponse';
     protected $pagingGroupTable;
 
     /**
@@ -38,7 +38,7 @@ class UserGroupPagingGetListResponse extends ComplexType implements ComplexInter
     public function setPagingGroupTable(TableType $pagingGroupTable = null)
     {
         $this->pagingGroupTable = $pagingGroupTable;
-        $this->pagingGroupTable->setName('pagingGroupTable');
+        $this->pagingGroupTable->setElementName('pagingGroupTable');
         return $this;
     }
 

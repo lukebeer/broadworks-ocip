@@ -25,7 +25,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemSIPDeviceTypeFileAddRequest14sp8 extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemSIPDeviceTypeFileAddRequest14sp8';
+    public    $elementName = 'SystemSIPDeviceTypeFileAddRequest14sp8';
     protected $deviceType;
     protected $fileFormat;
     protected $remoteFileFormat;
@@ -83,7 +83,7 @@ class SystemSIPDeviceTypeFileAddRequest14sp8 extends ComplexType implements Comp
         $this->deviceType = ($deviceType InstanceOf AccessDeviceType)
              ? $deviceType
              : new AccessDeviceType($deviceType);
-        $this->deviceType->setName('deviceType');
+        $this->deviceType->setElementName('deviceType');
         return $this;
     }
 
@@ -93,7 +93,9 @@ class SystemSIPDeviceTypeFileAddRequest14sp8 extends ComplexType implements Comp
      */
     public function getDeviceType()
     {
-        return ($this->deviceType) ? $this->deviceType->getValue() : null;
+        return ($this->deviceType)
+            ? $this->deviceType->getElementValue()
+            : null;
     }
 
     /**
@@ -104,7 +106,7 @@ class SystemSIPDeviceTypeFileAddRequest14sp8 extends ComplexType implements Comp
         $this->fileFormat = ($fileFormat InstanceOf DeviceManagementFileFormat)
              ? $fileFormat
              : new DeviceManagementFileFormat($fileFormat);
-        $this->fileFormat->setName('fileFormat');
+        $this->fileFormat->setElementName('fileFormat');
         return $this;
     }
 
@@ -114,7 +116,9 @@ class SystemSIPDeviceTypeFileAddRequest14sp8 extends ComplexType implements Comp
      */
     public function getFileFormat()
     {
-        return ($this->fileFormat) ? $this->fileFormat->getValue() : null;
+        return ($this->fileFormat)
+            ? $this->fileFormat->getElementValue()
+            : null;
     }
 
     /**
@@ -125,7 +129,7 @@ class SystemSIPDeviceTypeFileAddRequest14sp8 extends ComplexType implements Comp
         $this->remoteFileFormat = ($remoteFileFormat InstanceOf DeviceManagementFileFormat)
              ? $remoteFileFormat
              : new DeviceManagementFileFormat($remoteFileFormat);
-        $this->remoteFileFormat->setName('remoteFileFormat');
+        $this->remoteFileFormat->setElementName('remoteFileFormat');
         return $this;
     }
 
@@ -135,7 +139,9 @@ class SystemSIPDeviceTypeFileAddRequest14sp8 extends ComplexType implements Comp
      */
     public function getRemoteFileFormat()
     {
-        return ($this->remoteFileFormat) ? $this->remoteFileFormat->getValue() : null;
+        return ($this->remoteFileFormat)
+            ? $this->remoteFileFormat->getElementValue()
+            : null;
     }
 
     /**
@@ -146,7 +152,7 @@ class SystemSIPDeviceTypeFileAddRequest14sp8 extends ComplexType implements Comp
         $this->fileCategory = ($fileCategory InstanceOf DeviceManagementFileCategory)
              ? $fileCategory
              : new DeviceManagementFileCategory($fileCategory);
-        $this->fileCategory->setName('fileCategory');
+        $this->fileCategory->setElementName('fileCategory');
         return $this;
     }
 
@@ -156,7 +162,9 @@ class SystemSIPDeviceTypeFileAddRequest14sp8 extends ComplexType implements Comp
      */
     public function getFileCategory()
     {
-        return ($this->fileCategory) ? $this->fileCategory->getValue() : null;
+        return ($this->fileCategory)
+            ? $this->fileCategory->getElementValue()
+            : null;
     }
 
     /**
@@ -165,7 +173,7 @@ class SystemSIPDeviceTypeFileAddRequest14sp8 extends ComplexType implements Comp
     public function setAllowFileCustomization($allowFileCustomization = null)
     {
         $this->allowFileCustomization = new PrimitiveType($allowFileCustomization);
-        $this->allowFileCustomization->setName('allowFileCustomization');
+        $this->allowFileCustomization->setElementName('allowFileCustomization');
         return $this;
     }
 
@@ -175,7 +183,9 @@ class SystemSIPDeviceTypeFileAddRequest14sp8 extends ComplexType implements Comp
      */
     public function getAllowFileCustomization()
     {
-        return ($this->allowFileCustomization) ? $this->allowFileCustomization->getValue() : null;
+        return ($this->allowFileCustomization)
+            ? $this->allowFileCustomization->getElementValue()
+            : null;
     }
 
     /**
@@ -186,7 +196,7 @@ class SystemSIPDeviceTypeFileAddRequest14sp8 extends ComplexType implements Comp
         $this->fileSource = ($fileSource InstanceOf DeviceTypeFileEnhancedConfigurationMode)
              ? $fileSource
              : new DeviceTypeFileEnhancedConfigurationMode($fileSource);
-        $this->fileSource->setName('fileSource');
+        $this->fileSource->setElementName('fileSource');
         return $this;
     }
 
@@ -196,7 +206,9 @@ class SystemSIPDeviceTypeFileAddRequest14sp8 extends ComplexType implements Comp
      */
     public function getFileSource()
     {
-        return ($this->fileSource) ? $this->fileSource->getValue() : null;
+        return ($this->fileSource)
+            ? $this->fileSource->getElementValue()
+            : null;
     }
 
     /**
@@ -207,7 +219,7 @@ class SystemSIPDeviceTypeFileAddRequest14sp8 extends ComplexType implements Comp
         $this->uploadFile = ($uploadFile InstanceOf FileResource)
              ? $uploadFile
              : new FileResource($uploadFile);
-        $this->uploadFile->setName('uploadFile');
+        $this->uploadFile->setElementName('uploadFile');
         return $this;
     }
 
@@ -226,7 +238,7 @@ class SystemSIPDeviceTypeFileAddRequest14sp8 extends ComplexType implements Comp
     public function setUseHttpDigestAuthentication($useHttpDigestAuthentication = null)
     {
         $this->useHttpDigestAuthentication = new PrimitiveType($useHttpDigestAuthentication);
-        $this->useHttpDigestAuthentication->setName('useHttpDigestAuthentication');
+        $this->useHttpDigestAuthentication->setElementName('useHttpDigestAuthentication');
         return $this;
     }
 
@@ -236,7 +248,9 @@ class SystemSIPDeviceTypeFileAddRequest14sp8 extends ComplexType implements Comp
      */
     public function getUseHttpDigestAuthentication()
     {
-        return ($this->useHttpDigestAuthentication) ? $this->useHttpDigestAuthentication->getValue() : null;
+        return ($this->useHttpDigestAuthentication)
+            ? $this->useHttpDigestAuthentication->getElementValue()
+            : null;
     }
 
     /**
@@ -245,7 +259,7 @@ class SystemSIPDeviceTypeFileAddRequest14sp8 extends ComplexType implements Comp
     public function setMacBasedFileAuthentication($macBasedFileAuthentication = null)
     {
         $this->macBasedFileAuthentication = new PrimitiveType($macBasedFileAuthentication);
-        $this->macBasedFileAuthentication->setName('macBasedFileAuthentication');
+        $this->macBasedFileAuthentication->setElementName('macBasedFileAuthentication');
         return $this;
     }
 
@@ -255,7 +269,9 @@ class SystemSIPDeviceTypeFileAddRequest14sp8 extends ComplexType implements Comp
      */
     public function getMacBasedFileAuthentication()
     {
-        return ($this->macBasedFileAuthentication) ? $this->macBasedFileAuthentication->getValue() : null;
+        return ($this->macBasedFileAuthentication)
+            ? $this->macBasedFileAuthentication->getElementValue()
+            : null;
     }
 
     /**
@@ -264,7 +280,7 @@ class SystemSIPDeviceTypeFileAddRequest14sp8 extends ComplexType implements Comp
     public function setUserNamePasswordFileAuthentication($userNamePasswordFileAuthentication = null)
     {
         $this->userNamePasswordFileAuthentication = new PrimitiveType($userNamePasswordFileAuthentication);
-        $this->userNamePasswordFileAuthentication->setName('userNamePasswordFileAuthentication');
+        $this->userNamePasswordFileAuthentication->setElementName('userNamePasswordFileAuthentication');
         return $this;
     }
 
@@ -274,7 +290,9 @@ class SystemSIPDeviceTypeFileAddRequest14sp8 extends ComplexType implements Comp
      */
     public function getUserNamePasswordFileAuthentication()
     {
-        return ($this->userNamePasswordFileAuthentication) ? $this->userNamePasswordFileAuthentication->getValue() : null;
+        return ($this->userNamePasswordFileAuthentication)
+            ? $this->userNamePasswordFileAuthentication->getElementValue()
+            : null;
     }
 
     /**
@@ -283,7 +301,7 @@ class SystemSIPDeviceTypeFileAddRequest14sp8 extends ComplexType implements Comp
     public function setMacInNonRequestURI($macInNonRequestURI = null)
     {
         $this->macInNonRequestURI = new PrimitiveType($macInNonRequestURI);
-        $this->macInNonRequestURI->setName('macInNonRequestURI');
+        $this->macInNonRequestURI->setElementName('macInNonRequestURI');
         return $this;
     }
 
@@ -293,7 +311,9 @@ class SystemSIPDeviceTypeFileAddRequest14sp8 extends ComplexType implements Comp
      */
     public function getMacInNonRequestURI()
     {
-        return ($this->macInNonRequestURI) ? $this->macInNonRequestURI->getValue() : null;
+        return ($this->macInNonRequestURI)
+            ? $this->macInNonRequestURI->getElementValue()
+            : null;
     }
 
     /**
@@ -304,7 +324,7 @@ class SystemSIPDeviceTypeFileAddRequest14sp8 extends ComplexType implements Comp
         $this->macFormatInNonRequestURI = ($macFormatInNonRequestURI InstanceOf DeviceManagementAccessURI)
              ? $macFormatInNonRequestURI
              : new DeviceManagementAccessURI($macFormatInNonRequestURI);
-        $this->macFormatInNonRequestURI->setName('macFormatInNonRequestURI');
+        $this->macFormatInNonRequestURI->setElementName('macFormatInNonRequestURI');
         return $this;
     }
 
@@ -314,6 +334,8 @@ class SystemSIPDeviceTypeFileAddRequest14sp8 extends ComplexType implements Comp
      */
     public function getMacFormatInNonRequestURI()
     {
-        return ($this->macFormatInNonRequestURI) ? $this->macFormatInNonRequestURI->getValue() : null;
+        return ($this->macFormatInNonRequestURI)
+            ? $this->macFormatInNonRequestURI->getElementValue()
+            : null;
     }
 }

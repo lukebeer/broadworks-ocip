@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupCallCenterGetUnlicensedAgentListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'GroupCallCenterGetUnlicensedAgentListResponse';
+    public    $elementName = 'GroupCallCenterGetUnlicensedAgentListResponse';
     protected $userTable;
 
     /**
@@ -38,7 +38,7 @@ class GroupCallCenterGetUnlicensedAgentListResponse extends ComplexType implemen
     public function setUserTable(TableType $userTable = null)
     {
         $this->userTable = $userTable;
-        $this->userTable->setName('userTable');
+        $this->userTable->setElementName('userTable');
         return $this;
     }
 

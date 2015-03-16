@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemTwoStageDialingDeleteDnRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemTwoStageDialingDeleteDnRequest';
+    public    $elementName = 'SystemTwoStageDialingDeleteDnRequest';
     protected $phoneNumber;
 
     public function __construct(
@@ -45,7 +45,7 @@ class SystemTwoStageDialingDeleteDnRequest extends ComplexType implements Comple
         $this->phoneNumber = ($phoneNumber InstanceOf DN)
              ? $phoneNumber
              : new DN($phoneNumber);
-        $this->phoneNumber->setName('phoneNumber');
+        $this->phoneNumber->setElementName('phoneNumber');
         return $this;
     }
 
@@ -55,6 +55,8 @@ class SystemTwoStageDialingDeleteDnRequest extends ComplexType implements Comple
      */
     public function getPhoneNumber()
     {
-        return ($this->phoneNumber) ? $this->phoneNumber->getValue() : null;
+        return ($this->phoneNumber)
+            ? $this->phoneNumber->getElementValue()
+            : null;
     }
 }

@@ -19,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class MeetMeConferencingConferenceDuration extends ComplexType implements ComplexInterface
 {
-    public    $name = 'MeetMeConferencingConferenceDuration';
+    public    $elementName = 'MeetMeConferencingConferenceDuration';
     protected $hours;
     protected $minutes;
 
@@ -45,7 +45,7 @@ class MeetMeConferencingConferenceDuration extends ComplexType implements Comple
     public function setHours($hours = null)
     {
         $this->hours = new SimpleContent($hours);
-        $this->hours->setName('hours');
+        $this->hours->setElementName('hours');
         return $this;
     }
 
@@ -55,7 +55,9 @@ class MeetMeConferencingConferenceDuration extends ComplexType implements Comple
      */
     public function getHours()
     {
-        return ($this->hours) ? $this->hours->getValue() : null;
+        return ($this->hours)
+            ? $this->hours->getElementValue()
+            : null;
     }
 
     /**
@@ -64,7 +66,7 @@ class MeetMeConferencingConferenceDuration extends ComplexType implements Comple
     public function setMinutes($minutes = null)
     {
         $this->minutes = new SimpleContent($minutes);
-        $this->minutes->setName('minutes');
+        $this->minutes->setElementName('minutes');
         return $this;
     }
 
@@ -74,6 +76,8 @@ class MeetMeConferencingConferenceDuration extends ComplexType implements Comple
      */
     public function getMinutes()
     {
-        return ($this->minutes) ? $this->minutes->getValue() : null;
+        return ($this->minutes)
+            ? $this->minutes->getElementValue()
+            : null;
     }
 }

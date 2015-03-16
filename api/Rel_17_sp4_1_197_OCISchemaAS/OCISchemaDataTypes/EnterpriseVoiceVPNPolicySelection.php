@@ -16,12 +16,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\Enumeration;
  */
 class EnterpriseVoiceVPNPolicySelection extends SimpleType
 {
-    public $name = "EnterpriseVoiceVPNPolicySelection";
-    protected $value;
-
+    public $elementName = "EnterpriseVoiceVPNPolicySelection";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new Enumeration([
             'Private',
             'Public',

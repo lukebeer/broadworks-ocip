@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupRoutePointGetDNISListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'GroupRoutePointGetDNISListResponse';
+    public    $elementName = 'GroupRoutePointGetDNISListResponse';
     protected $displayDNISNumber;
     protected $displayDNISName;
     protected $dnisTable;
@@ -40,7 +40,7 @@ class GroupRoutePointGetDNISListResponse extends ComplexType implements ComplexI
     public function setDisplayDNISNumber($displayDNISNumber = null)
     {
         $this->displayDNISNumber = new PrimitiveType($displayDNISNumber);
-        $this->displayDNISNumber->setName('displayDNISNumber');
+        $this->displayDNISNumber->setElementName('displayDNISNumber');
         return $this;
     }
 
@@ -50,7 +50,9 @@ class GroupRoutePointGetDNISListResponse extends ComplexType implements ComplexI
      */
     public function getDisplayDNISNumber()
     {
-        return ($this->displayDNISNumber) ? $this->displayDNISNumber->getValue() : null;
+        return ($this->displayDNISNumber)
+            ? $this->displayDNISNumber->getElementValue()
+            : null;
     }
 
     /**
@@ -59,7 +61,7 @@ class GroupRoutePointGetDNISListResponse extends ComplexType implements ComplexI
     public function setDisplayDNISName($displayDNISName = null)
     {
         $this->displayDNISName = new PrimitiveType($displayDNISName);
-        $this->displayDNISName->setName('displayDNISName');
+        $this->displayDNISName->setElementName('displayDNISName');
         return $this;
     }
 
@@ -69,7 +71,9 @@ class GroupRoutePointGetDNISListResponse extends ComplexType implements ComplexI
      */
     public function getDisplayDNISName()
     {
-        return ($this->displayDNISName) ? $this->displayDNISName->getValue() : null;
+        return ($this->displayDNISName)
+            ? $this->displayDNISName->getElementValue()
+            : null;
     }
 
     /**
@@ -78,7 +82,7 @@ class GroupRoutePointGetDNISListResponse extends ComplexType implements ComplexI
     public function setDnisTable(TableType $dnisTable = null)
     {
         $this->dnisTable = $dnisTable;
-        $this->dnisTable->setName('dnisTable');
+        $this->dnisTable->setElementName('dnisTable');
         return $this;
     }
 

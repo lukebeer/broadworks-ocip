@@ -24,7 +24,7 @@ use Broadworks_OCIP\core\Client\Client;
 class SystemDialPlanPolicyGetRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\SystemDialPlanPolicyGetResponse';
-    public    $name = 'SystemDialPlanPolicyGetRequest';
+    public    $elementName = 'SystemDialPlanPolicyGetRequest';
 
     public function __construct(    ) {
     }

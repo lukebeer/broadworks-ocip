@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserCallCenterMonitoringModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'UserCallCenterMonitoringModifyRequest';
+    public    $elementName = 'UserCallCenterMonitoringModifyRequest';
     protected $userId;
     protected $playToneToAgentForSilentMonitoring;
 
@@ -49,7 +49,7 @@ class UserCallCenterMonitoringModifyRequest extends ComplexType implements Compl
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
-        $this->userId->setName('userId');
+        $this->userId->setElementName('userId');
         return $this;
     }
 
@@ -59,7 +59,9 @@ class UserCallCenterMonitoringModifyRequest extends ComplexType implements Compl
      */
     public function getUserId()
     {
-        return ($this->userId) ? $this->userId->getValue() : null;
+        return ($this->userId)
+            ? $this->userId->getElementValue()
+            : null;
     }
 
     /**
@@ -68,7 +70,7 @@ class UserCallCenterMonitoringModifyRequest extends ComplexType implements Compl
     public function setPlayToneToAgentForSilentMonitoring($playToneToAgentForSilentMonitoring = null)
     {
         $this->playToneToAgentForSilentMonitoring = new PrimitiveType($playToneToAgentForSilentMonitoring);
-        $this->playToneToAgentForSilentMonitoring->setName('playToneToAgentForSilentMonitoring');
+        $this->playToneToAgentForSilentMonitoring->setElementName('playToneToAgentForSilentMonitoring');
         return $this;
     }
 
@@ -78,6 +80,8 @@ class UserCallCenterMonitoringModifyRequest extends ComplexType implements Compl
      */
     public function getPlayToneToAgentForSilentMonitoring()
     {
-        return ($this->playToneToAgentForSilentMonitoring) ? $this->playToneToAgentForSilentMonitoring->getValue() : null;
+        return ($this->playToneToAgentForSilentMonitoring)
+            ? $this->playToneToAgentForSilentMonitoring->getElementValue()
+            : null;
     }
 }

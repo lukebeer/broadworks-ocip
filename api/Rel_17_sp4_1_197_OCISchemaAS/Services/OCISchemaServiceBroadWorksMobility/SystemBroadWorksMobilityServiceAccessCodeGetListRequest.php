@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
 class SystemBroadWorksMobilityServiceAccessCodeGetListRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceBroadWorksMobility\SystemBroadWorksMobilityServiceAccessCodeGetListResponse';
-    public    $name = 'SystemBroadWorksMobilityServiceAccessCodeGetListRequest';
+    public    $elementName = 'SystemBroadWorksMobilityServiceAccessCodeGetListRequest';
 
     public function __construct(    ) {
     }

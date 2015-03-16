@@ -23,7 +23,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserSimultaneousRingPersonalModifyRequest17 extends ComplexType implements ComplexInterface
 {
-    public    $name = 'UserSimultaneousRingPersonalModifyRequest17';
+    public    $elementName = 'UserSimultaneousRingPersonalModifyRequest17';
     protected $userId;
     protected $isActive;
     protected $doNotRingIfOnCall;
@@ -60,7 +60,7 @@ class UserSimultaneousRingPersonalModifyRequest17 extends ComplexType implements
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
-        $this->userId->setName('userId');
+        $this->userId->setElementName('userId');
         return $this;
     }
 
@@ -70,7 +70,9 @@ class UserSimultaneousRingPersonalModifyRequest17 extends ComplexType implements
      */
     public function getUserId()
     {
-        return ($this->userId) ? $this->userId->getValue() : null;
+        return ($this->userId)
+            ? $this->userId->getElementValue()
+            : null;
     }
 
     /**
@@ -79,7 +81,7 @@ class UserSimultaneousRingPersonalModifyRequest17 extends ComplexType implements
     public function setIsActive($isActive = null)
     {
         $this->isActive = new PrimitiveType($isActive);
-        $this->isActive->setName('isActive');
+        $this->isActive->setElementName('isActive');
         return $this;
     }
 
@@ -89,7 +91,9 @@ class UserSimultaneousRingPersonalModifyRequest17 extends ComplexType implements
      */
     public function getIsActive()
     {
-        return ($this->isActive) ? $this->isActive->getValue() : null;
+        return ($this->isActive)
+            ? $this->isActive->getElementValue()
+            : null;
     }
 
     /**
@@ -98,7 +102,7 @@ class UserSimultaneousRingPersonalModifyRequest17 extends ComplexType implements
     public function setDoNotRingIfOnCall($doNotRingIfOnCall = null)
     {
         $this->doNotRingIfOnCall = new PrimitiveType($doNotRingIfOnCall);
-        $this->doNotRingIfOnCall->setName('doNotRingIfOnCall');
+        $this->doNotRingIfOnCall->setElementName('doNotRingIfOnCall');
         return $this;
     }
 
@@ -108,7 +112,9 @@ class UserSimultaneousRingPersonalModifyRequest17 extends ComplexType implements
      */
     public function getDoNotRingIfOnCall()
     {
-        return ($this->doNotRingIfOnCall) ? $this->doNotRingIfOnCall->getValue() : null;
+        return ($this->doNotRingIfOnCall)
+            ? $this->doNotRingIfOnCall->getElementValue()
+            : null;
     }
 
     /**
@@ -119,7 +125,7 @@ class UserSimultaneousRingPersonalModifyRequest17 extends ComplexType implements
         $this->simultaneousRingNumberList = ($simultaneousRingNumberList InstanceOf SimultaneousRingReplacementNumberList)
              ? $simultaneousRingNumberList
              : new SimultaneousRingReplacementNumberList($simultaneousRingNumberList);
-        $this->simultaneousRingNumberList->setName('simultaneousRingNumberList');
+        $this->simultaneousRingNumberList->setElementName('simultaneousRingNumberList');
         return $this;
     }
 
@@ -140,7 +146,7 @@ class UserSimultaneousRingPersonalModifyRequest17 extends ComplexType implements
         $this->criteriaActivation = ($criteriaActivation InstanceOf CriteriaActivation)
              ? $criteriaActivation
              : new CriteriaActivation($criteriaActivation);
-        $this->criteriaActivation->setName('criteriaActivation');
+        $this->criteriaActivation->setElementName('criteriaActivation');
         return $this;
     }
 

@@ -26,7 +26,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class EnterpriseEnhancedCallLogsGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'EnterpriseEnhancedCallLogsGetListResponse';
+    public    $elementName = 'EnterpriseEnhancedCallLogsGetListResponse';
     protected $totalNumberOfRows;
     protected $extendedCallLog;
 
@@ -44,7 +44,7 @@ class EnterpriseEnhancedCallLogsGetListResponse extends ComplexType implements C
     public function setTotalNumberOfRows($totalNumberOfRows = null)
     {
         $this->totalNumberOfRows = new PrimitiveType($totalNumberOfRows);
-        $this->totalNumberOfRows->setName('totalNumberOfRows');
+        $this->totalNumberOfRows->setElementName('totalNumberOfRows');
         return $this;
     }
 
@@ -54,7 +54,9 @@ class EnterpriseEnhancedCallLogsGetListResponse extends ComplexType implements C
      */
     public function getTotalNumberOfRows()
     {
-        return ($this->totalNumberOfRows) ? $this->totalNumberOfRows->getValue() : null;
+        return ($this->totalNumberOfRows)
+            ? $this->totalNumberOfRows->getElementValue()
+            : null;
     }
 
     /**
@@ -65,7 +67,7 @@ class EnterpriseEnhancedCallLogsGetListResponse extends ComplexType implements C
         $this->extendedCallLog = ($extendedCallLog InstanceOf ExtendedMixedCallLogsEntry)
              ? $extendedCallLog
              : new ExtendedMixedCallLogsEntry($extendedCallLog);
-        $this->extendedCallLog->setName('extendedCallLog');
+        $this->extendedCallLog->setElementName('extendedCallLog');
         return $this;
     }
 

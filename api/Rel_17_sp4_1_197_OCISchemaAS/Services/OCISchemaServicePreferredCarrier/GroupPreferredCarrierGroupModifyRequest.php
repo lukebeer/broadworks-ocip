@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupPreferredCarrierGroupModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'GroupPreferredCarrierGroupModifyRequest';
+    public    $elementName = 'GroupPreferredCarrierGroupModifyRequest';
     protected $serviceProviderId;
     protected $groupId;
     protected $intraLataCarrier;
@@ -59,7 +59,7 @@ class GroupPreferredCarrierGroupModifyRequest extends ComplexType implements Com
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
-        $this->serviceProviderId->setName('serviceProviderId');
+        $this->serviceProviderId->setElementName('serviceProviderId');
         return $this;
     }
 
@@ -69,7 +69,9 @@ class GroupPreferredCarrierGroupModifyRequest extends ComplexType implements Com
      */
     public function getServiceProviderId()
     {
-        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
+        return ($this->serviceProviderId)
+            ? $this->serviceProviderId->getElementValue()
+            : null;
     }
 
     /**
@@ -80,7 +82,7 @@ class GroupPreferredCarrierGroupModifyRequest extends ComplexType implements Com
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
-        $this->groupId->setName('groupId');
+        $this->groupId->setElementName('groupId');
         return $this;
     }
 
@@ -90,7 +92,9 @@ class GroupPreferredCarrierGroupModifyRequest extends ComplexType implements Com
      */
     public function getGroupId()
     {
-        return ($this->groupId) ? $this->groupId->getValue() : null;
+        return ($this->groupId)
+            ? $this->groupId->getElementValue()
+            : null;
     }
 
     /**
@@ -101,7 +105,7 @@ class GroupPreferredCarrierGroupModifyRequest extends ComplexType implements Com
         $this->intraLataCarrier = ($intraLataCarrier InstanceOf GroupPreferredCarrierNameModify)
              ? $intraLataCarrier
              : new GroupPreferredCarrierNameModify($intraLataCarrier);
-        $this->intraLataCarrier->setName('intraLataCarrier');
+        $this->intraLataCarrier->setElementName('intraLataCarrier');
         return $this;
     }
 
@@ -122,7 +126,7 @@ class GroupPreferredCarrierGroupModifyRequest extends ComplexType implements Com
         $this->interLataCarrier = ($interLataCarrier InstanceOf GroupPreferredCarrierNameModify)
              ? $interLataCarrier
              : new GroupPreferredCarrierNameModify($interLataCarrier);
-        $this->interLataCarrier->setName('interLataCarrier');
+        $this->interLataCarrier->setElementName('interLataCarrier');
         return $this;
     }
 
@@ -143,7 +147,7 @@ class GroupPreferredCarrierGroupModifyRequest extends ComplexType implements Com
         $this->internationalCarrier = ($internationalCarrier InstanceOf GroupPreferredCarrierNameModify)
              ? $internationalCarrier
              : new GroupPreferredCarrierNameModify($internationalCarrier);
-        $this->internationalCarrier->setName('internationalCarrier');
+        $this->internationalCarrier->setElementName('internationalCarrier');
         return $this;
     }
 

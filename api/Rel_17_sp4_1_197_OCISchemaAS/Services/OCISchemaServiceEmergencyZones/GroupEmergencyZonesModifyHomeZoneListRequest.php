@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupEmergencyZonesModifyHomeZoneListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'GroupEmergencyZonesModifyHomeZoneListRequest';
+    public    $elementName = 'GroupEmergencyZonesModifyHomeZoneListRequest';
     protected $serviceProviderId;
     protected $groupId;
     protected $homeZoneIpAddressList;
@@ -55,7 +55,7 @@ class GroupEmergencyZonesModifyHomeZoneListRequest extends ComplexType implement
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
-        $this->serviceProviderId->setName('serviceProviderId');
+        $this->serviceProviderId->setElementName('serviceProviderId');
         return $this;
     }
 
@@ -65,7 +65,9 @@ class GroupEmergencyZonesModifyHomeZoneListRequest extends ComplexType implement
      */
     public function getServiceProviderId()
     {
-        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
+        return ($this->serviceProviderId)
+            ? $this->serviceProviderId->getElementValue()
+            : null;
     }
 
     /**
@@ -76,7 +78,7 @@ class GroupEmergencyZonesModifyHomeZoneListRequest extends ComplexType implement
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
-        $this->groupId->setName('groupId');
+        $this->groupId->setElementName('groupId');
         return $this;
     }
 
@@ -86,7 +88,9 @@ class GroupEmergencyZonesModifyHomeZoneListRequest extends ComplexType implement
      */
     public function getGroupId()
     {
-        return ($this->groupId) ? $this->groupId->getValue() : null;
+        return ($this->groupId)
+            ? $this->groupId->getElementValue()
+            : null;
     }
 
     /**
@@ -94,7 +98,7 @@ class GroupEmergencyZonesModifyHomeZoneListRequest extends ComplexType implement
      */
     public function setHomeZoneIpAddressList($homeZoneIpAddressList = null)
     {
-        $this->homeZoneIpAddressList->setName('homeZoneIpAddressList');
+        $this->homeZoneIpAddressList->setElementName('homeZoneIpAddressList');
         return $this;
     }
 
@@ -104,7 +108,9 @@ class GroupEmergencyZonesModifyHomeZoneListRequest extends ComplexType implement
      */
     public function getHomeZoneIpAddressList()
     {
-        return ($this->homeZoneIpAddressList) ? $this->homeZoneIpAddressList->getValue() : null;
+        return ($this->homeZoneIpAddressList)
+            ? $this->homeZoneIpAddressList->getElementValue()
+            : null;
     }
 
     /**
@@ -112,7 +118,7 @@ class GroupEmergencyZonesModifyHomeZoneListRequest extends ComplexType implement
      */
     public function setHomeZoneIpAddressRangeList($homeZoneIpAddressRangeList = null)
     {
-        $this->homeZoneIpAddressRangeList->setName('homeZoneIpAddressRangeList');
+        $this->homeZoneIpAddressRangeList->setElementName('homeZoneIpAddressRangeList');
         return $this;
     }
 
@@ -122,6 +128,8 @@ class GroupEmergencyZonesModifyHomeZoneListRequest extends ComplexType implement
      */
     public function getHomeZoneIpAddressRangeList()
     {
-        return ($this->homeZoneIpAddressRangeList) ? $this->homeZoneIpAddressRangeList->getValue() : null;
+        return ($this->homeZoneIpAddressRangeList)
+            ? $this->homeZoneIpAddressRangeList->getElementValue()
+            : null;
     }
 }

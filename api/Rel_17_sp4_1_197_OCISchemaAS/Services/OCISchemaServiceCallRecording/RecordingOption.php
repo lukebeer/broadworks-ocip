@@ -16,12 +16,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\Enumeration;
  */
 class RecordingOption extends SimpleType
 {
-    public $name = "RecordingOption";
-    protected $value;
-
+    public $elementName = "RecordingOption";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new Enumeration([
             'Always',
             'Never',

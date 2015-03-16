@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class EnterpriseCallCenterCallDispositionCodeModifyActiveListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'EnterpriseCallCenterCallDispositionCodeModifyActiveListRequest';
+    public    $elementName = 'EnterpriseCallCenterCallDispositionCodeModifyActiveListRequest';
     protected $serviceProviderId;
     protected $callDispositionCodeActivation;
 
@@ -49,7 +49,7 @@ class EnterpriseCallCenterCallDispositionCodeModifyActiveListRequest extends Com
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
-        $this->serviceProviderId->setName('serviceProviderId');
+        $this->serviceProviderId->setElementName('serviceProviderId');
         return $this;
     }
 
@@ -59,7 +59,9 @@ class EnterpriseCallCenterCallDispositionCodeModifyActiveListRequest extends Com
      */
     public function getServiceProviderId()
     {
-        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
+        return ($this->serviceProviderId)
+            ? $this->serviceProviderId->getElementValue()
+            : null;
     }
 
     /**
@@ -70,7 +72,7 @@ class EnterpriseCallCenterCallDispositionCodeModifyActiveListRequest extends Com
         $this->callDispositionCodeActivation = ($callDispositionCodeActivation InstanceOf CallDispositionCodeActivation)
              ? $callDispositionCodeActivation
              : new CallDispositionCodeActivation($callDispositionCodeActivation);
-        $this->callDispositionCodeActivation->setName('callDispositionCodeActivation');
+        $this->callDispositionCodeActivation->setElementName('callDispositionCodeActivation');
         return $this;
     }
 

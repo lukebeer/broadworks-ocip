@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderRoutePointExternalSystemAssignListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'ServiceProviderRoutePointExternalSystemAssignListRequest';
+    public    $elementName = 'ServiceProviderRoutePointExternalSystemAssignListRequest';
     protected $serviceProviderId;
     protected $routePointExternalSystem;
 
@@ -48,7 +48,7 @@ class ServiceProviderRoutePointExternalSystemAssignListRequest extends ComplexTy
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
-        $this->serviceProviderId->setName('serviceProviderId');
+        $this->serviceProviderId->setElementName('serviceProviderId');
         return $this;
     }
 
@@ -58,7 +58,9 @@ class ServiceProviderRoutePointExternalSystemAssignListRequest extends ComplexTy
      */
     public function getServiceProviderId()
     {
-        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
+        return ($this->serviceProviderId)
+            ? $this->serviceProviderId->getElementValue()
+            : null;
     }
 
     /**
@@ -69,7 +71,7 @@ class ServiceProviderRoutePointExternalSystemAssignListRequest extends ComplexTy
         $this->routePointExternalSystem = ($routePointExternalSystem InstanceOf RoutePointExternalSystem)
              ? $routePointExternalSystem
              : new RoutePointExternalSystem($routePointExternalSystem);
-        $this->routePointExternalSystem->setName('routePointExternalSystem');
+        $this->routePointExternalSystem->setElementName('routePointExternalSystem');
         return $this;
     }
 
@@ -79,6 +81,8 @@ class ServiceProviderRoutePointExternalSystemAssignListRequest extends ComplexTy
      */
     public function getRoutePointExternalSystem()
     {
-        return ($this->routePointExternalSystem) ? $this->routePointExternalSystem->getValue() : null;
+        return ($this->routePointExternalSystem)
+            ? $this->routePointExternalSystem->getElementValue()
+            : null;
     }
 }

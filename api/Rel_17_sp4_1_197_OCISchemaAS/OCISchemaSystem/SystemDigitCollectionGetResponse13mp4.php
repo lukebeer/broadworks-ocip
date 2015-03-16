@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemDigitCollectionGetResponse13mp4 extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemDigitCollectionGetResponse13mp4';
+    public    $elementName = 'SystemDigitCollectionGetResponse13mp4';
     protected $accessCode;
     protected $publicDigitMap;
     protected $privateDigitMap;
@@ -41,7 +41,7 @@ class SystemDigitCollectionGetResponse13mp4 extends ComplexType implements Compl
         $this->accessCode = ($accessCode InstanceOf AccessCode)
              ? $accessCode
              : new AccessCode($accessCode);
-        $this->accessCode->setName('accessCode');
+        $this->accessCode->setElementName('accessCode');
         return $this;
     }
 
@@ -51,7 +51,9 @@ class SystemDigitCollectionGetResponse13mp4 extends ComplexType implements Compl
      */
     public function getAccessCode()
     {
-        return ($this->accessCode) ? $this->accessCode->getValue() : null;
+        return ($this->accessCode)
+            ? $this->accessCode->getElementValue()
+            : null;
     }
 
     /**
@@ -62,7 +64,7 @@ class SystemDigitCollectionGetResponse13mp4 extends ComplexType implements Compl
         $this->publicDigitMap = ($publicDigitMap InstanceOf DigitMap)
              ? $publicDigitMap
              : new DigitMap($publicDigitMap);
-        $this->publicDigitMap->setName('publicDigitMap');
+        $this->publicDigitMap->setElementName('publicDigitMap');
         return $this;
     }
 
@@ -72,7 +74,9 @@ class SystemDigitCollectionGetResponse13mp4 extends ComplexType implements Compl
      */
     public function getPublicDigitMap()
     {
-        return ($this->publicDigitMap) ? $this->publicDigitMap->getValue() : null;
+        return ($this->publicDigitMap)
+            ? $this->publicDigitMap->getElementValue()
+            : null;
     }
 
     /**
@@ -83,7 +87,7 @@ class SystemDigitCollectionGetResponse13mp4 extends ComplexType implements Compl
         $this->privateDigitMap = ($privateDigitMap InstanceOf DigitMap)
              ? $privateDigitMap
              : new DigitMap($privateDigitMap);
-        $this->privateDigitMap->setName('privateDigitMap');
+        $this->privateDigitMap->setElementName('privateDigitMap');
         return $this;
     }
 
@@ -93,6 +97,8 @@ class SystemDigitCollectionGetResponse13mp4 extends ComplexType implements Compl
      */
     public function getPrivateDigitMap()
     {
-        return ($this->privateDigitMap) ? $this->privateDigitMap->getValue() : null;
+        return ($this->privateDigitMap)
+            ? $this->privateDigitMap->getElementValue()
+            : null;
     }
 }

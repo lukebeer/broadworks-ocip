@@ -38,7 +38,7 @@ use Broadworks_OCIP\core\Client\Client;
 class EnterprisePhoneDirectoryGetListRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType                      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\EnterprisePhoneDirectoryGetListResponse';
-    public    $name = 'EnterprisePhoneDirectoryGetListRequest';
+    public    $elementName = 'EnterprisePhoneDirectoryGetListRequest';
     protected $enterpriseId;
     protected $isExtendedInfoRequested;
     protected $responseSizeLimit;
@@ -99,7 +99,7 @@ class EnterprisePhoneDirectoryGetListRequest extends ComplexType implements Comp
         $this->enterpriseId = ($enterpriseId InstanceOf ServiceProviderId)
              ? $enterpriseId
              : new ServiceProviderId($enterpriseId);
-        $this->enterpriseId->setName('enterpriseId');
+        $this->enterpriseId->setElementName('enterpriseId');
         return $this;
     }
 
@@ -109,7 +109,9 @@ class EnterprisePhoneDirectoryGetListRequest extends ComplexType implements Comp
      */
     public function getEnterpriseId()
     {
-        return ($this->enterpriseId) ? $this->enterpriseId->getValue() : null;
+        return ($this->enterpriseId)
+            ? $this->enterpriseId->getElementValue()
+            : null;
     }
 
     /**
@@ -118,7 +120,7 @@ class EnterprisePhoneDirectoryGetListRequest extends ComplexType implements Comp
     public function setIsExtendedInfoRequested($isExtendedInfoRequested = null)
     {
         $this->isExtendedInfoRequested = new PrimitiveType($isExtendedInfoRequested);
-        $this->isExtendedInfoRequested->setName('isExtendedInfoRequested');
+        $this->isExtendedInfoRequested->setElementName('isExtendedInfoRequested');
         return $this;
     }
 
@@ -128,7 +130,9 @@ class EnterprisePhoneDirectoryGetListRequest extends ComplexType implements Comp
      */
     public function getIsExtendedInfoRequested()
     {
-        return ($this->isExtendedInfoRequested) ? $this->isExtendedInfoRequested->getValue() : null;
+        return ($this->isExtendedInfoRequested)
+            ? $this->isExtendedInfoRequested->getElementValue()
+            : null;
     }
 
     /**
@@ -139,7 +143,7 @@ class EnterprisePhoneDirectoryGetListRequest extends ComplexType implements Comp
         $this->responseSizeLimit = ($responseSizeLimit InstanceOf ResponseSizeLimit)
              ? $responseSizeLimit
              : new ResponseSizeLimit($responseSizeLimit);
-        $this->responseSizeLimit->setName('responseSizeLimit');
+        $this->responseSizeLimit->setElementName('responseSizeLimit');
         return $this;
     }
 
@@ -149,7 +153,9 @@ class EnterprisePhoneDirectoryGetListRequest extends ComplexType implements Comp
      */
     public function getResponseSizeLimit()
     {
-        return ($this->responseSizeLimit) ? $this->responseSizeLimit->getValue() : null;
+        return ($this->responseSizeLimit)
+            ? $this->responseSizeLimit->getElementValue()
+            : null;
     }
 
     /**
@@ -160,7 +166,7 @@ class EnterprisePhoneDirectoryGetListRequest extends ComplexType implements Comp
         $this->searchCriteriaUserLastName = ($searchCriteriaUserLastName InstanceOf SearchCriteriaUserLastName)
              ? $searchCriteriaUserLastName
              : new SearchCriteriaUserLastName($searchCriteriaUserLastName);
-        $this->searchCriteriaUserLastName->setName('searchCriteriaUserLastName');
+        $this->searchCriteriaUserLastName->setElementName('searchCriteriaUserLastName');
         return $this;
     }
 
@@ -181,7 +187,7 @@ class EnterprisePhoneDirectoryGetListRequest extends ComplexType implements Comp
         $this->searchCriteriaUserFirstName = ($searchCriteriaUserFirstName InstanceOf SearchCriteriaUserFirstName)
              ? $searchCriteriaUserFirstName
              : new SearchCriteriaUserFirstName($searchCriteriaUserFirstName);
-        $this->searchCriteriaUserFirstName->setName('searchCriteriaUserFirstName');
+        $this->searchCriteriaUserFirstName->setElementName('searchCriteriaUserFirstName');
         return $this;
     }
 
@@ -202,7 +208,7 @@ class EnterprisePhoneDirectoryGetListRequest extends ComplexType implements Comp
         $this->searchCriteriaDn = ($searchCriteriaDn InstanceOf SearchCriteriaDn)
              ? $searchCriteriaDn
              : new SearchCriteriaDn($searchCriteriaDn);
-        $this->searchCriteriaDn->setName('searchCriteriaDn');
+        $this->searchCriteriaDn->setElementName('searchCriteriaDn');
         return $this;
     }
 
@@ -223,7 +229,7 @@ class EnterprisePhoneDirectoryGetListRequest extends ComplexType implements Comp
         $this->searchCriteriaGroupLocationCode = ($searchCriteriaGroupLocationCode InstanceOf SearchCriteriaGroupLocationCode)
              ? $searchCriteriaGroupLocationCode
              : new SearchCriteriaGroupLocationCode($searchCriteriaGroupLocationCode);
-        $this->searchCriteriaGroupLocationCode->setName('searchCriteriaGroupLocationCode');
+        $this->searchCriteriaGroupLocationCode->setElementName('searchCriteriaGroupLocationCode');
         return $this;
     }
 
@@ -244,7 +250,7 @@ class EnterprisePhoneDirectoryGetListRequest extends ComplexType implements Comp
         $this->searchCriteriaExtension = ($searchCriteriaExtension InstanceOf SearchCriteriaExtension)
              ? $searchCriteriaExtension
              : new SearchCriteriaExtension($searchCriteriaExtension);
-        $this->searchCriteriaExtension->setName('searchCriteriaExtension');
+        $this->searchCriteriaExtension->setElementName('searchCriteriaExtension');
         return $this;
     }
 
@@ -265,7 +271,7 @@ class EnterprisePhoneDirectoryGetListRequest extends ComplexType implements Comp
         $this->searchCriteriaMobilePhoneNumber = ($searchCriteriaMobilePhoneNumber InstanceOf SearchCriteriaMobilePhoneNumber)
              ? $searchCriteriaMobilePhoneNumber
              : new SearchCriteriaMobilePhoneNumber($searchCriteriaMobilePhoneNumber);
-        $this->searchCriteriaMobilePhoneNumber->setName('searchCriteriaMobilePhoneNumber');
+        $this->searchCriteriaMobilePhoneNumber->setElementName('searchCriteriaMobilePhoneNumber');
         return $this;
     }
 
@@ -286,7 +292,7 @@ class EnterprisePhoneDirectoryGetListRequest extends ComplexType implements Comp
         $this->searchCriteriaEmailAddress = ($searchCriteriaEmailAddress InstanceOf SearchCriteriaEmailAddress)
              ? $searchCriteriaEmailAddress
              : new SearchCriteriaEmailAddress($searchCriteriaEmailAddress);
-        $this->searchCriteriaEmailAddress->setName('searchCriteriaEmailAddress');
+        $this->searchCriteriaEmailAddress->setElementName('searchCriteriaEmailAddress');
         return $this;
     }
 
@@ -307,7 +313,7 @@ class EnterprisePhoneDirectoryGetListRequest extends ComplexType implements Comp
         $this->searchCriteriaYahooId = ($searchCriteriaYahooId InstanceOf SearchCriteriaYahooId)
              ? $searchCriteriaYahooId
              : new SearchCriteriaYahooId($searchCriteriaYahooId);
-        $this->searchCriteriaYahooId->setName('searchCriteriaYahooId');
+        $this->searchCriteriaYahooId->setElementName('searchCriteriaYahooId');
         return $this;
     }
 
@@ -328,7 +334,7 @@ class EnterprisePhoneDirectoryGetListRequest extends ComplexType implements Comp
         $this->searchCriteriaExactUserGroup = ($searchCriteriaExactUserGroup InstanceOf SearchCriteriaExactUserGroup)
              ? $searchCriteriaExactUserGroup
              : new SearchCriteriaExactUserGroup($searchCriteriaExactUserGroup);
-        $this->searchCriteriaExactUserGroup->setName('searchCriteriaExactUserGroup');
+        $this->searchCriteriaExactUserGroup->setElementName('searchCriteriaExactUserGroup');
         return $this;
     }
 
@@ -349,7 +355,7 @@ class EnterprisePhoneDirectoryGetListRequest extends ComplexType implements Comp
         $this->searchCriteriaExactUserDepartment = ($searchCriteriaExactUserDepartment InstanceOf SearchCriteriaExactUserDepartment)
              ? $searchCriteriaExactUserDepartment
              : new SearchCriteriaExactUserDepartment($searchCriteriaExactUserDepartment);
-        $this->searchCriteriaExactUserDepartment->setName('searchCriteriaExactUserDepartment');
+        $this->searchCriteriaExactUserDepartment->setElementName('searchCriteriaExactUserDepartment');
         return $this;
     }
 

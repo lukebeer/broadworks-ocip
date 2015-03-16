@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupMusicOnHoldGetDepartmentListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'GroupMusicOnHoldGetDepartmentListResponse';
+    public    $elementName = 'GroupMusicOnHoldGetDepartmentListResponse';
     protected $hasDepartment;
     protected $department;
     protected $departmentFullPath;
@@ -39,7 +39,7 @@ class GroupMusicOnHoldGetDepartmentListResponse extends ComplexType implements C
     public function setHasDepartment($hasDepartment = null)
     {
         $this->hasDepartment = new PrimitiveType($hasDepartment);
-        $this->hasDepartment->setName('hasDepartment');
+        $this->hasDepartment->setElementName('hasDepartment');
         return $this;
     }
 
@@ -49,7 +49,9 @@ class GroupMusicOnHoldGetDepartmentListResponse extends ComplexType implements C
      */
     public function getHasDepartment()
     {
-        return ($this->hasDepartment) ? $this->hasDepartment->getValue() : null;
+        return ($this->hasDepartment)
+            ? $this->hasDepartment->getElementValue()
+            : null;
     }
 
     /**
@@ -60,7 +62,7 @@ class GroupMusicOnHoldGetDepartmentListResponse extends ComplexType implements C
         $this->department = ($department InstanceOf DepartmentKey)
              ? $department
              : new DepartmentKey($department);
-        $this->department->setName('department');
+        $this->department->setElementName('department');
         return $this;
     }
 
@@ -81,7 +83,7 @@ class GroupMusicOnHoldGetDepartmentListResponse extends ComplexType implements C
         $this->departmentFullPath = ($departmentFullPath InstanceOf DepartmentFullPathName)
              ? $departmentFullPath
              : new DepartmentFullPathName($departmentFullPath);
-        $this->departmentFullPath->setName('departmentFullPath');
+        $this->departmentFullPath->setElementName('departmentFullPath');
         return $this;
     }
 
@@ -91,6 +93,8 @@ class GroupMusicOnHoldGetDepartmentListResponse extends ComplexType implements C
      */
     public function getDepartmentFullPath()
     {
-        return ($this->departmentFullPath) ? $this->departmentFullPath->getValue() : null;
+        return ($this->departmentFullPath)
+            ? $this->departmentFullPath->getElementValue()
+            : null;
     }
 }

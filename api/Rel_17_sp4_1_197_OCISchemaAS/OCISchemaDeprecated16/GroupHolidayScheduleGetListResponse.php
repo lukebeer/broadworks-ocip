@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupHolidayScheduleGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'GroupHolidayScheduleGetListResponse';
+    public    $elementName = 'GroupHolidayScheduleGetListResponse';
     protected $holidayScheduleName;
 
     /**
@@ -39,7 +39,7 @@ class GroupHolidayScheduleGetListResponse extends ComplexType implements Complex
         $this->holidayScheduleName = ($holidayScheduleName InstanceOf ScheduleName)
              ? $holidayScheduleName
              : new ScheduleName($holidayScheduleName);
-        $this->holidayScheduleName->setName('holidayScheduleName');
+        $this->holidayScheduleName->setElementName('holidayScheduleName');
         return $this;
     }
 
@@ -49,6 +49,8 @@ class GroupHolidayScheduleGetListResponse extends ComplexType implements Complex
      */
     public function getHolidayScheduleName()
     {
-        return ($this->holidayScheduleName) ? $this->holidayScheduleName->getValue() : null;
+        return ($this->holidayScheduleName)
+            ? $this->holidayScheduleName->getElementValue()
+            : null;
     }
 }

@@ -23,7 +23,7 @@ use Broadworks_OCIP\core\Client\Client;
 class UserMusicOnHoldUserGetRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15\UserMusicOnHoldUserGetResponse';
-    public    $name = 'UserMusicOnHoldUserGetRequest';
+    public    $elementName = 'UserMusicOnHoldUserGetRequest';
     protected $userId;
 
     public function __construct(
@@ -48,7 +48,7 @@ class UserMusicOnHoldUserGetRequest extends ComplexType implements ComplexInterf
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
-        $this->userId->setName('userId');
+        $this->userId->setElementName('userId');
         return $this;
     }
 
@@ -58,6 +58,8 @@ class UserMusicOnHoldUserGetRequest extends ComplexType implements ComplexInterf
      */
     public function getUserId()
     {
-        return ($this->userId) ? $this->userId->getValue() : null;
+        return ($this->userId)
+            ? $this->userId->getElementValue()
+            : null;
     }
 }

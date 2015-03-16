@@ -19,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class LDAPPage extends ComplexType implements ComplexInterface
 {
-    public    $name = 'LDAPPage';
+    public    $elementName = 'LDAPPage';
 
     public function __construct(    ) {
     }

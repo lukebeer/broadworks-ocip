@@ -17,12 +17,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\MaxLength;
  */
 class InstantConferencingDeviceDescription extends SimpleType
 {
-    public $name = "InstantConferencingDeviceDescription";
-    protected $value;
-
+    public $elementName = "InstantConferencingDeviceDescription";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new MinLength("1"));
         $this->addRestriction(new MaxLength("80"));
     }

@@ -19,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserAnonymousCallRejectionGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'UserAnonymousCallRejectionGetResponse';
+    public    $elementName = 'UserAnonymousCallRejectionGetResponse';
     protected $isActive;
 
     /**
@@ -36,7 +36,7 @@ class UserAnonymousCallRejectionGetResponse extends ComplexType implements Compl
     public function setIsActive($isActive = null)
     {
         $this->isActive = new PrimitiveType($isActive);
-        $this->isActive->setName('isActive');
+        $this->isActive->setElementName('isActive');
         return $this;
     }
 
@@ -46,6 +46,8 @@ class UserAnonymousCallRejectionGetResponse extends ComplexType implements Compl
      */
     public function getIsActive()
     {
-        return ($this->isActive) ? $this->isActive->getValue() : null;
+        return ($this->isActive)
+            ? $this->isActive->getElementValue()
+            : null;
     }
 }

@@ -38,7 +38,7 @@ use Broadworks_OCIP\core\Client\Client;
 class GroupCustomContactDirectoryGetRequest17 extends ComplexType implements ComplexInterface
 {
     public    $responseType                    = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupCustomContactDirectoryGetResponse17';
-    public    $name = 'GroupCustomContactDirectoryGetRequest17';
+    public    $elementName = 'GroupCustomContactDirectoryGetRequest17';
     protected $serviceProviderId;
     protected $groupId;
     protected $name;
@@ -90,7 +90,7 @@ class GroupCustomContactDirectoryGetRequest17 extends ComplexType implements Com
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
-        $this->serviceProviderId->setName('serviceProviderId');
+        $this->serviceProviderId->setElementName('serviceProviderId');
         return $this;
     }
 
@@ -100,7 +100,9 @@ class GroupCustomContactDirectoryGetRequest17 extends ComplexType implements Com
      */
     public function getServiceProviderId()
     {
-        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
+        return ($this->serviceProviderId)
+            ? $this->serviceProviderId->getElementValue()
+            : null;
     }
 
     /**
@@ -111,7 +113,7 @@ class GroupCustomContactDirectoryGetRequest17 extends ComplexType implements Com
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
-        $this->groupId->setName('groupId');
+        $this->groupId->setElementName('groupId');
         return $this;
     }
 
@@ -121,7 +123,9 @@ class GroupCustomContactDirectoryGetRequest17 extends ComplexType implements Com
      */
     public function getGroupId()
     {
-        return ($this->groupId) ? $this->groupId->getValue() : null;
+        return ($this->groupId)
+            ? $this->groupId->getElementValue()
+            : null;
     }
 
     /**
@@ -132,7 +136,7 @@ class GroupCustomContactDirectoryGetRequest17 extends ComplexType implements Com
         $this->name = ($name InstanceOf CustomContactDirectoryName)
              ? $name
              : new CustomContactDirectoryName($name);
-        $this->name->setName('name');
+        $this->name->setElementName('name');
         return $this;
     }
 
@@ -142,7 +146,9 @@ class GroupCustomContactDirectoryGetRequest17 extends ComplexType implements Com
      */
     public function getName()
     {
-        return ($this->name) ? $this->name->getValue() : null;
+        return ($this->name)
+            ? $this->name->getElementValue()
+            : null;
     }
 
     /**
@@ -153,7 +159,7 @@ class GroupCustomContactDirectoryGetRequest17 extends ComplexType implements Com
         $this->responseSizeLimit = ($responseSizeLimit InstanceOf ResponseSizeLimit)
              ? $responseSizeLimit
              : new ResponseSizeLimit($responseSizeLimit);
-        $this->responseSizeLimit->setName('responseSizeLimit');
+        $this->responseSizeLimit->setElementName('responseSizeLimit');
         return $this;
     }
 
@@ -163,7 +169,9 @@ class GroupCustomContactDirectoryGetRequest17 extends ComplexType implements Com
      */
     public function getResponseSizeLimit()
     {
-        return ($this->responseSizeLimit) ? $this->responseSizeLimit->getValue() : null;
+        return ($this->responseSizeLimit)
+            ? $this->responseSizeLimit->getElementValue()
+            : null;
     }
 
     /**
@@ -172,7 +180,7 @@ class GroupCustomContactDirectoryGetRequest17 extends ComplexType implements Com
     public function setSearchCriteriaModeOr($searchCriteriaModeOr = null)
     {
         $this->searchCriteriaModeOr = new PrimitiveType($searchCriteriaModeOr);
-        $this->searchCriteriaModeOr->setName('searchCriteriaModeOr');
+        $this->searchCriteriaModeOr->setElementName('searchCriteriaModeOr');
         return $this;
     }
 
@@ -182,7 +190,9 @@ class GroupCustomContactDirectoryGetRequest17 extends ComplexType implements Com
      */
     public function getSearchCriteriaModeOr()
     {
-        return ($this->searchCriteriaModeOr) ? $this->searchCriteriaModeOr->getValue() : null;
+        return ($this->searchCriteriaModeOr)
+            ? $this->searchCriteriaModeOr->getElementValue()
+            : null;
     }
 
     /**
@@ -193,7 +203,7 @@ class GroupCustomContactDirectoryGetRequest17 extends ComplexType implements Com
         $this->searchCriteriaUserLastName = ($searchCriteriaUserLastName InstanceOf SearchCriteriaUserLastName)
              ? $searchCriteriaUserLastName
              : new SearchCriteriaUserLastName($searchCriteriaUserLastName);
-        $this->searchCriteriaUserLastName->setName('searchCriteriaUserLastName');
+        $this->searchCriteriaUserLastName->setElementName('searchCriteriaUserLastName');
         return $this;
     }
 
@@ -214,7 +224,7 @@ class GroupCustomContactDirectoryGetRequest17 extends ComplexType implements Com
         $this->searchCriteriaUserFirstName = ($searchCriteriaUserFirstName InstanceOf SearchCriteriaUserFirstName)
              ? $searchCriteriaUserFirstName
              : new SearchCriteriaUserFirstName($searchCriteriaUserFirstName);
-        $this->searchCriteriaUserFirstName->setName('searchCriteriaUserFirstName');
+        $this->searchCriteriaUserFirstName->setElementName('searchCriteriaUserFirstName');
         return $this;
     }
 
@@ -235,7 +245,7 @@ class GroupCustomContactDirectoryGetRequest17 extends ComplexType implements Com
         $this->searchCriteriaDn = ($searchCriteriaDn InstanceOf SearchCriteriaDn)
              ? $searchCriteriaDn
              : new SearchCriteriaDn($searchCriteriaDn);
-        $this->searchCriteriaDn->setName('searchCriteriaDn');
+        $this->searchCriteriaDn->setElementName('searchCriteriaDn');
         return $this;
     }
 
@@ -256,7 +266,7 @@ class GroupCustomContactDirectoryGetRequest17 extends ComplexType implements Com
         $this->searchCriteriaExtension = ($searchCriteriaExtension InstanceOf SearchCriteriaExtension)
              ? $searchCriteriaExtension
              : new SearchCriteriaExtension($searchCriteriaExtension);
-        $this->searchCriteriaExtension->setName('searchCriteriaExtension');
+        $this->searchCriteriaExtension->setElementName('searchCriteriaExtension');
         return $this;
     }
 
@@ -277,7 +287,7 @@ class GroupCustomContactDirectoryGetRequest17 extends ComplexType implements Com
         $this->searchCriteriaMobilePhoneNumber = ($searchCriteriaMobilePhoneNumber InstanceOf SearchCriteriaMobilePhoneNumber)
              ? $searchCriteriaMobilePhoneNumber
              : new SearchCriteriaMobilePhoneNumber($searchCriteriaMobilePhoneNumber);
-        $this->searchCriteriaMobilePhoneNumber->setName('searchCriteriaMobilePhoneNumber');
+        $this->searchCriteriaMobilePhoneNumber->setElementName('searchCriteriaMobilePhoneNumber');
         return $this;
     }
 

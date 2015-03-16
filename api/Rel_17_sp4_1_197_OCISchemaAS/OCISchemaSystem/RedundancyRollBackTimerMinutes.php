@@ -17,12 +17,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\MaxInclusive;
  */
 class RedundancyRollBackTimerMinutes extends SimpleType
 {
-    public $name = "RedundancyRollBackTimerMinutes";
-    protected $value;
-
+    public $elementName = "RedundancyRollBackTimerMinutes";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new MinInclusive("0"));
         $this->addRestriction(new MaxInclusive("3600"));
     }

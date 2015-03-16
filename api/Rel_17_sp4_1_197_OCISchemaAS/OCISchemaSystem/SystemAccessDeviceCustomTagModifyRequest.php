@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemAccessDeviceCustomTagModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemAccessDeviceCustomTagModifyRequest';
+    public    $elementName = 'SystemAccessDeviceCustomTagModifyRequest';
     protected $deviceName;
     protected $tagName;
     protected $tagValue;
@@ -53,7 +53,7 @@ class SystemAccessDeviceCustomTagModifyRequest extends ComplexType implements Co
         $this->deviceName = ($deviceName InstanceOf AccessDeviceName)
              ? $deviceName
              : new AccessDeviceName($deviceName);
-        $this->deviceName->setName('deviceName');
+        $this->deviceName->setElementName('deviceName');
         return $this;
     }
 
@@ -63,7 +63,9 @@ class SystemAccessDeviceCustomTagModifyRequest extends ComplexType implements Co
      */
     public function getDeviceName()
     {
-        return ($this->deviceName) ? $this->deviceName->getValue() : null;
+        return ($this->deviceName)
+            ? $this->deviceName->getElementValue()
+            : null;
     }
 
     /**
@@ -74,7 +76,7 @@ class SystemAccessDeviceCustomTagModifyRequest extends ComplexType implements Co
         $this->tagName = ($tagName InstanceOf DeviceManagementTagName)
              ? $tagName
              : new DeviceManagementTagName($tagName);
-        $this->tagName->setName('tagName');
+        $this->tagName->setElementName('tagName');
         return $this;
     }
 
@@ -84,7 +86,9 @@ class SystemAccessDeviceCustomTagModifyRequest extends ComplexType implements Co
      */
     public function getTagName()
     {
-        return ($this->tagName) ? $this->tagName->getValue() : null;
+        return ($this->tagName)
+            ? $this->tagName->getElementValue()
+            : null;
     }
 
     /**
@@ -95,7 +99,7 @@ class SystemAccessDeviceCustomTagModifyRequest extends ComplexType implements Co
         $this->tagValue = ($tagValue InstanceOf DeviceManagementTagValue)
              ? $tagValue
              : new DeviceManagementTagValue($tagValue);
-        $this->tagValue->setName('tagValue');
+        $this->tagValue->setElementName('tagValue');
         return $this;
     }
 
@@ -105,6 +109,8 @@ class SystemAccessDeviceCustomTagModifyRequest extends ComplexType implements Co
      */
     public function getTagValue()
     {
-        return ($this->tagValue) ? $this->tagValue->getValue() : null;
+        return ($this->tagValue)
+            ? $this->tagValue->getElementValue()
+            : null;
     }
 }

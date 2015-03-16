@@ -23,7 +23,7 @@ use Broadworks_OCIP\core\Client\Client;
 class GroupNetworkClassOfServiceGetAssignedListRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupNetworkClassOfServiceGetAssignedListResponse';
-    public    $name = 'GroupNetworkClassOfServiceGetAssignedListRequest';
+    public    $elementName = 'GroupNetworkClassOfServiceGetAssignedListRequest';
     protected $serviceProviderId;
     protected $groupId;
 
@@ -51,7 +51,7 @@ class GroupNetworkClassOfServiceGetAssignedListRequest extends ComplexType imple
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
-        $this->serviceProviderId->setName('serviceProviderId');
+        $this->serviceProviderId->setElementName('serviceProviderId');
         return $this;
     }
 
@@ -61,7 +61,9 @@ class GroupNetworkClassOfServiceGetAssignedListRequest extends ComplexType imple
      */
     public function getServiceProviderId()
     {
-        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
+        return ($this->serviceProviderId)
+            ? $this->serviceProviderId->getElementValue()
+            : null;
     }
 
     /**
@@ -72,7 +74,7 @@ class GroupNetworkClassOfServiceGetAssignedListRequest extends ComplexType imple
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
-        $this->groupId->setName('groupId');
+        $this->groupId->setElementName('groupId');
         return $this;
     }
 
@@ -82,6 +84,8 @@ class GroupNetworkClassOfServiceGetAssignedListRequest extends ComplexType imple
      */
     public function getGroupId()
     {
-        return ($this->groupId) ? $this->groupId->getValue() : null;
+        return ($this->groupId)
+            ? $this->groupId->getElementValue()
+            : null;
     }
 }

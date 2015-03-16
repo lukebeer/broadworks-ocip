@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupCallCenterSupervisorReportingGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'GroupCallCenterSupervisorReportingGetResponse';
+    public    $elementName = 'GroupCallCenterSupervisorReportingGetResponse';
     protected $reportingServerName;
     protected $supervisorTable;
 
@@ -42,7 +42,7 @@ class GroupCallCenterSupervisorReportingGetResponse extends ComplexType implemen
         $this->reportingServerName = ($reportingServerName InstanceOf CallCenterReportingServerName)
              ? $reportingServerName
              : new CallCenterReportingServerName($reportingServerName);
-        $this->reportingServerName->setName('reportingServerName');
+        $this->reportingServerName->setElementName('reportingServerName');
         return $this;
     }
 
@@ -52,7 +52,9 @@ class GroupCallCenterSupervisorReportingGetResponse extends ComplexType implemen
      */
     public function getReportingServerName()
     {
-        return ($this->reportingServerName) ? $this->reportingServerName->getValue() : null;
+        return ($this->reportingServerName)
+            ? $this->reportingServerName->getElementValue()
+            : null;
     }
 
     /**
@@ -61,7 +63,7 @@ class GroupCallCenterSupervisorReportingGetResponse extends ComplexType implemen
     public function setSupervisorTable(TableType $supervisorTable = null)
     {
         $this->supervisorTable = $supervisorTable;
-        $this->supervisorTable->setName('supervisorTable');
+        $this->supervisorTable->setElementName('supervisorTable');
         return $this;
     }
 

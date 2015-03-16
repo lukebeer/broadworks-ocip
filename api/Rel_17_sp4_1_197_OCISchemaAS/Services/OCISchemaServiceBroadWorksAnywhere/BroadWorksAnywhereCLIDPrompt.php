@@ -16,12 +16,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\Enumeration;
  */
 class BroadWorksAnywhereCLIDPrompt extends SimpleType
 {
-    public $name = "BroadWorksAnywhereCLIDPrompt";
-    protected $value;
-
+    public $elementName = "BroadWorksAnywhereCLIDPrompt";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new Enumeration([
             'Always Prompt ',
             'Never Prompt ',

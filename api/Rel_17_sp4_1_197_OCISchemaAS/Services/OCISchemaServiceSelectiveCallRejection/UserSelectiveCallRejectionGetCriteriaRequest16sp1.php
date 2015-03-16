@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
 class UserSelectiveCallRejectionGetCriteriaRequest16sp1 extends ComplexType implements ComplexInterface
 {
     public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceSelectiveCallRejection\UserSelectiveCallRejectionGetCriteriaResponse16sp1';
-    public    $name = 'UserSelectiveCallRejectionGetCriteriaRequest16sp1';
+    public    $elementName = 'UserSelectiveCallRejectionGetCriteriaRequest16sp1';
     protected $userId;
     protected $criteriaName;
 
@@ -50,7 +50,7 @@ class UserSelectiveCallRejectionGetCriteriaRequest16sp1 extends ComplexType impl
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
-        $this->userId->setName('userId');
+        $this->userId->setElementName('userId');
         return $this;
     }
 
@@ -60,7 +60,9 @@ class UserSelectiveCallRejectionGetCriteriaRequest16sp1 extends ComplexType impl
      */
     public function getUserId()
     {
-        return ($this->userId) ? $this->userId->getValue() : null;
+        return ($this->userId)
+            ? $this->userId->getElementValue()
+            : null;
     }
 
     /**
@@ -71,7 +73,7 @@ class UserSelectiveCallRejectionGetCriteriaRequest16sp1 extends ComplexType impl
         $this->criteriaName = ($criteriaName InstanceOf CriteriaName)
              ? $criteriaName
              : new CriteriaName($criteriaName);
-        $this->criteriaName->setName('criteriaName');
+        $this->criteriaName->setElementName('criteriaName');
         return $this;
     }
 
@@ -81,6 +83,8 @@ class UserSelectiveCallRejectionGetCriteriaRequest16sp1 extends ComplexType impl
      */
     public function getCriteriaName()
     {
-        return ($this->criteriaName) ? $this->criteriaName->getValue() : null;
+        return ($this->criteriaName)
+            ? $this->criteriaName->getElementValue()
+            : null;
     }
 }

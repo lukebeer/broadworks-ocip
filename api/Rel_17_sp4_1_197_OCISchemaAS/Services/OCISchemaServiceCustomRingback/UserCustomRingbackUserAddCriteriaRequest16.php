@@ -27,7 +27,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserCustomRingbackUserAddCriteriaRequest16 extends ComplexType implements ComplexInterface
 {
-    public    $name = 'UserCustomRingbackUserAddCriteriaRequest16';
+    public    $elementName = 'UserCustomRingbackUserAddCriteriaRequest16';
     protected $userId;
     protected $criteriaName;
     protected $timeSchedule;
@@ -91,7 +91,7 @@ class UserCustomRingbackUserAddCriteriaRequest16 extends ComplexType implements 
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
-        $this->userId->setName('userId');
+        $this->userId->setElementName('userId');
         return $this;
     }
 
@@ -101,7 +101,9 @@ class UserCustomRingbackUserAddCriteriaRequest16 extends ComplexType implements 
      */
     public function getUserId()
     {
-        return ($this->userId) ? $this->userId->getValue() : null;
+        return ($this->userId)
+            ? $this->userId->getElementValue()
+            : null;
     }
 
     /**
@@ -112,7 +114,7 @@ class UserCustomRingbackUserAddCriteriaRequest16 extends ComplexType implements 
         $this->criteriaName = ($criteriaName InstanceOf CriteriaName)
              ? $criteriaName
              : new CriteriaName($criteriaName);
-        $this->criteriaName->setName('criteriaName');
+        $this->criteriaName->setElementName('criteriaName');
         return $this;
     }
 
@@ -122,7 +124,9 @@ class UserCustomRingbackUserAddCriteriaRequest16 extends ComplexType implements 
      */
     public function getCriteriaName()
     {
-        return ($this->criteriaName) ? $this->criteriaName->getValue() : null;
+        return ($this->criteriaName)
+            ? $this->criteriaName->getElementValue()
+            : null;
     }
 
     /**
@@ -133,7 +137,7 @@ class UserCustomRingbackUserAddCriteriaRequest16 extends ComplexType implements 
         $this->timeSchedule = ($timeSchedule InstanceOf TimeSchedule)
              ? $timeSchedule
              : new TimeSchedule($timeSchedule);
-        $this->timeSchedule->setName('timeSchedule');
+        $this->timeSchedule->setElementName('timeSchedule');
         return $this;
     }
 
@@ -154,7 +158,7 @@ class UserCustomRingbackUserAddCriteriaRequest16 extends ComplexType implements 
         $this->holidaySchedule = ($holidaySchedule InstanceOf HolidaySchedule)
              ? $holidaySchedule
              : new HolidaySchedule($holidaySchedule);
-        $this->holidaySchedule->setName('holidaySchedule');
+        $this->holidaySchedule->setElementName('holidaySchedule');
         return $this;
     }
 
@@ -173,7 +177,7 @@ class UserCustomRingbackUserAddCriteriaRequest16 extends ComplexType implements 
     public function setBlacklisted($blacklisted = null)
     {
         $this->blacklisted = new PrimitiveType($blacklisted);
-        $this->blacklisted->setName('blacklisted');
+        $this->blacklisted->setElementName('blacklisted');
         return $this;
     }
 
@@ -183,7 +187,9 @@ class UserCustomRingbackUserAddCriteriaRequest16 extends ComplexType implements 
      */
     public function getBlacklisted()
     {
-        return ($this->blacklisted) ? $this->blacklisted->getValue() : null;
+        return ($this->blacklisted)
+            ? $this->blacklisted->getElementValue()
+            : null;
     }
 
     /**
@@ -194,7 +200,7 @@ class UserCustomRingbackUserAddCriteriaRequest16 extends ComplexType implements 
         $this->fromDnCriteria = ($fromDnCriteria InstanceOf CriteriaFromDn)
              ? $fromDnCriteria
              : new CriteriaFromDn($fromDnCriteria);
-        $this->fromDnCriteria->setName('fromDnCriteria');
+        $this->fromDnCriteria->setElementName('fromDnCriteria');
         return $this;
     }
 
@@ -215,7 +221,7 @@ class UserCustomRingbackUserAddCriteriaRequest16 extends ComplexType implements 
         $this->audioSelection = ($audioSelection InstanceOf ExtendedFileResourceSelection)
              ? $audioSelection
              : new ExtendedFileResourceSelection($audioSelection);
-        $this->audioSelection->setName('audioSelection');
+        $this->audioSelection->setElementName('audioSelection');
         return $this;
     }
 
@@ -225,7 +231,9 @@ class UserCustomRingbackUserAddCriteriaRequest16 extends ComplexType implements 
      */
     public function getAudioSelection()
     {
-        return ($this->audioSelection) ? $this->audioSelection->getValue() : null;
+        return ($this->audioSelection)
+            ? $this->audioSelection->getElementValue()
+            : null;
     }
 
     /**
@@ -236,7 +244,7 @@ class UserCustomRingbackUserAddCriteriaRequest16 extends ComplexType implements 
         $this->audioFile = ($audioFile InstanceOf ExtendedMediaFileResource)
              ? $audioFile
              : new ExtendedMediaFileResource($audioFile);
-        $this->audioFile->setName('audioFile');
+        $this->audioFile->setElementName('audioFile');
         return $this;
     }
 
@@ -257,7 +265,7 @@ class UserCustomRingbackUserAddCriteriaRequest16 extends ComplexType implements 
         $this->videoSelection = ($videoSelection InstanceOf ExtendedFileResourceSelection)
              ? $videoSelection
              : new ExtendedFileResourceSelection($videoSelection);
-        $this->videoSelection->setName('videoSelection');
+        $this->videoSelection->setElementName('videoSelection');
         return $this;
     }
 
@@ -267,7 +275,9 @@ class UserCustomRingbackUserAddCriteriaRequest16 extends ComplexType implements 
      */
     public function getVideoSelection()
     {
-        return ($this->videoSelection) ? $this->videoSelection->getValue() : null;
+        return ($this->videoSelection)
+            ? $this->videoSelection->getElementValue()
+            : null;
     }
 
     /**
@@ -278,7 +288,7 @@ class UserCustomRingbackUserAddCriteriaRequest16 extends ComplexType implements 
         $this->videoFile = ($videoFile InstanceOf ExtendedMediaFileResource)
              ? $videoFile
              : new ExtendedMediaFileResource($videoFile);
-        $this->videoFile->setName('videoFile');
+        $this->videoFile->setElementName('videoFile');
         return $this;
     }
 
@@ -299,7 +309,7 @@ class UserCustomRingbackUserAddCriteriaRequest16 extends ComplexType implements 
         $this->callWaitingAudioSelection = ($callWaitingAudioSelection InstanceOf ExtendedFileResourceSelection)
              ? $callWaitingAudioSelection
              : new ExtendedFileResourceSelection($callWaitingAudioSelection);
-        $this->callWaitingAudioSelection->setName('callWaitingAudioSelection');
+        $this->callWaitingAudioSelection->setElementName('callWaitingAudioSelection');
         return $this;
     }
 
@@ -309,7 +319,9 @@ class UserCustomRingbackUserAddCriteriaRequest16 extends ComplexType implements 
      */
     public function getCallWaitingAudioSelection()
     {
-        return ($this->callWaitingAudioSelection) ? $this->callWaitingAudioSelection->getValue() : null;
+        return ($this->callWaitingAudioSelection)
+            ? $this->callWaitingAudioSelection->getElementValue()
+            : null;
     }
 
     /**
@@ -320,7 +332,7 @@ class UserCustomRingbackUserAddCriteriaRequest16 extends ComplexType implements 
         $this->callWaitingAudioFile = ($callWaitingAudioFile InstanceOf ExtendedMediaFileResource)
              ? $callWaitingAudioFile
              : new ExtendedMediaFileResource($callWaitingAudioFile);
-        $this->callWaitingAudioFile->setName('callWaitingAudioFile');
+        $this->callWaitingAudioFile->setElementName('callWaitingAudioFile');
         return $this;
     }
 
@@ -341,7 +353,7 @@ class UserCustomRingbackUserAddCriteriaRequest16 extends ComplexType implements 
         $this->callWaitingVideoSelection = ($callWaitingVideoSelection InstanceOf ExtendedFileResourceSelection)
              ? $callWaitingVideoSelection
              : new ExtendedFileResourceSelection($callWaitingVideoSelection);
-        $this->callWaitingVideoSelection->setName('callWaitingVideoSelection');
+        $this->callWaitingVideoSelection->setElementName('callWaitingVideoSelection');
         return $this;
     }
 
@@ -351,7 +363,9 @@ class UserCustomRingbackUserAddCriteriaRequest16 extends ComplexType implements 
      */
     public function getCallWaitingVideoSelection()
     {
-        return ($this->callWaitingVideoSelection) ? $this->callWaitingVideoSelection->getValue() : null;
+        return ($this->callWaitingVideoSelection)
+            ? $this->callWaitingVideoSelection->getElementValue()
+            : null;
     }
 
     /**
@@ -362,7 +376,7 @@ class UserCustomRingbackUserAddCriteriaRequest16 extends ComplexType implements 
         $this->callWaitingVideoFile = ($callWaitingVideoFile InstanceOf ExtendedMediaFileResource)
              ? $callWaitingVideoFile
              : new ExtendedMediaFileResource($callWaitingVideoFile);
-        $this->callWaitingVideoFile->setName('callWaitingVideoFile');
+        $this->callWaitingVideoFile->setElementName('callWaitingVideoFile');
         return $this;
     }
 

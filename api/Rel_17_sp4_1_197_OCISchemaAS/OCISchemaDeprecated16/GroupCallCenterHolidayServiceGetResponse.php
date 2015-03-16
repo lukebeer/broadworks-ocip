@@ -26,7 +26,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupCallCenterHolidayServiceGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'GroupCallCenterHolidayServiceGetResponse';
+    public    $elementName = 'GroupCallCenterHolidayServiceGetResponse';
     protected $action;
     protected $holidaySchedule;
     protected $transferPhoneNumber;
@@ -56,7 +56,7 @@ class GroupCallCenterHolidayServiceGetResponse extends ComplexType implements Co
         $this->action = ($action InstanceOf CallCenterScheduledServiceAction)
              ? $action
              : new CallCenterScheduledServiceAction($action);
-        $this->action->setName('action');
+        $this->action->setElementName('action');
         return $this;
     }
 
@@ -66,7 +66,9 @@ class GroupCallCenterHolidayServiceGetResponse extends ComplexType implements Co
      */
     public function getAction()
     {
-        return ($this->action) ? $this->action->getValue() : null;
+        return ($this->action)
+            ? $this->action->getElementValue()
+            : null;
     }
 
     /**
@@ -77,7 +79,7 @@ class GroupCallCenterHolidayServiceGetResponse extends ComplexType implements Co
         $this->holidaySchedule = ($holidaySchedule InstanceOf ScheduleName)
              ? $holidaySchedule
              : new ScheduleName($holidaySchedule);
-        $this->holidaySchedule->setName('holidaySchedule');
+        $this->holidaySchedule->setElementName('holidaySchedule');
         return $this;
     }
 
@@ -87,7 +89,9 @@ class GroupCallCenterHolidayServiceGetResponse extends ComplexType implements Co
      */
     public function getHolidaySchedule()
     {
-        return ($this->holidaySchedule) ? $this->holidaySchedule->getValue() : null;
+        return ($this->holidaySchedule)
+            ? $this->holidaySchedule->getElementValue()
+            : null;
     }
 
     /**
@@ -98,7 +102,7 @@ class GroupCallCenterHolidayServiceGetResponse extends ComplexType implements Co
         $this->transferPhoneNumber = ($transferPhoneNumber InstanceOf OutgoingDNorSIPURI)
              ? $transferPhoneNumber
              : new OutgoingDNorSIPURI($transferPhoneNumber);
-        $this->transferPhoneNumber->setName('transferPhoneNumber');
+        $this->transferPhoneNumber->setElementName('transferPhoneNumber');
         return $this;
     }
 
@@ -108,7 +112,9 @@ class GroupCallCenterHolidayServiceGetResponse extends ComplexType implements Co
      */
     public function getTransferPhoneNumber()
     {
-        return ($this->transferPhoneNumber) ? $this->transferPhoneNumber->getValue() : null;
+        return ($this->transferPhoneNumber)
+            ? $this->transferPhoneNumber->getElementValue()
+            : null;
     }
 
     /**
@@ -117,7 +123,7 @@ class GroupCallCenterHolidayServiceGetResponse extends ComplexType implements Co
     public function setPlayAnnouncementBeforeAction($playAnnouncementBeforeAction = null)
     {
         $this->playAnnouncementBeforeAction = new PrimitiveType($playAnnouncementBeforeAction);
-        $this->playAnnouncementBeforeAction->setName('playAnnouncementBeforeAction');
+        $this->playAnnouncementBeforeAction->setElementName('playAnnouncementBeforeAction');
         return $this;
     }
 
@@ -127,7 +133,9 @@ class GroupCallCenterHolidayServiceGetResponse extends ComplexType implements Co
      */
     public function getPlayAnnouncementBeforeAction()
     {
-        return ($this->playAnnouncementBeforeAction) ? $this->playAnnouncementBeforeAction->getValue() : null;
+        return ($this->playAnnouncementBeforeAction)
+            ? $this->playAnnouncementBeforeAction->getElementValue()
+            : null;
     }
 
     /**
@@ -138,7 +146,7 @@ class GroupCallCenterHolidayServiceGetResponse extends ComplexType implements Co
         $this->audioMessageSelection = ($audioMessageSelection InstanceOf ExtendedFileResourceSelection)
              ? $audioMessageSelection
              : new ExtendedFileResourceSelection($audioMessageSelection);
-        $this->audioMessageSelection->setName('audioMessageSelection');
+        $this->audioMessageSelection->setElementName('audioMessageSelection');
         return $this;
     }
 
@@ -148,7 +156,9 @@ class GroupCallCenterHolidayServiceGetResponse extends ComplexType implements Co
      */
     public function getAudioMessageSelection()
     {
-        return ($this->audioMessageSelection) ? $this->audioMessageSelection->getValue() : null;
+        return ($this->audioMessageSelection)
+            ? $this->audioMessageSelection->getElementValue()
+            : null;
     }
 
     /**
@@ -159,7 +169,7 @@ class GroupCallCenterHolidayServiceGetResponse extends ComplexType implements Co
         $this->audioFileUrl = ($audioFileUrl InstanceOf URL)
              ? $audioFileUrl
              : new URL($audioFileUrl);
-        $this->audioFileUrl->setName('audioFileUrl');
+        $this->audioFileUrl->setElementName('audioFileUrl');
         return $this;
     }
 
@@ -169,7 +179,9 @@ class GroupCallCenterHolidayServiceGetResponse extends ComplexType implements Co
      */
     public function getAudioFileUrl()
     {
-        return ($this->audioFileUrl) ? $this->audioFileUrl->getValue() : null;
+        return ($this->audioFileUrl)
+            ? $this->audioFileUrl->getElementValue()
+            : null;
     }
 
     /**
@@ -180,7 +192,7 @@ class GroupCallCenterHolidayServiceGetResponse extends ComplexType implements Co
         $this->audioFileDescription = ($audioFileDescription InstanceOf FileDescription)
              ? $audioFileDescription
              : new FileDescription($audioFileDescription);
-        $this->audioFileDescription->setName('audioFileDescription');
+        $this->audioFileDescription->setElementName('audioFileDescription');
         return $this;
     }
 
@@ -190,7 +202,9 @@ class GroupCallCenterHolidayServiceGetResponse extends ComplexType implements Co
      */
     public function getAudioFileDescription()
     {
-        return ($this->audioFileDescription) ? $this->audioFileDescription->getValue() : null;
+        return ($this->audioFileDescription)
+            ? $this->audioFileDescription->getElementValue()
+            : null;
     }
 
     /**
@@ -201,7 +215,7 @@ class GroupCallCenterHolidayServiceGetResponse extends ComplexType implements Co
         $this->audioMediaType = ($audioMediaType InstanceOf MediaFileType)
              ? $audioMediaType
              : new MediaFileType($audioMediaType);
-        $this->audioMediaType->setName('audioMediaType');
+        $this->audioMediaType->setElementName('audioMediaType');
         return $this;
     }
 
@@ -211,7 +225,9 @@ class GroupCallCenterHolidayServiceGetResponse extends ComplexType implements Co
      */
     public function getAudioMediaType()
     {
-        return ($this->audioMediaType) ? $this->audioMediaType->getValue() : null;
+        return ($this->audioMediaType)
+            ? $this->audioMediaType->getElementValue()
+            : null;
     }
 
     /**
@@ -222,7 +238,7 @@ class GroupCallCenterHolidayServiceGetResponse extends ComplexType implements Co
         $this->videoMessageSelection = ($videoMessageSelection InstanceOf ExtendedFileResourceSelection)
              ? $videoMessageSelection
              : new ExtendedFileResourceSelection($videoMessageSelection);
-        $this->videoMessageSelection->setName('videoMessageSelection');
+        $this->videoMessageSelection->setElementName('videoMessageSelection');
         return $this;
     }
 
@@ -232,7 +248,9 @@ class GroupCallCenterHolidayServiceGetResponse extends ComplexType implements Co
      */
     public function getVideoMessageSelection()
     {
-        return ($this->videoMessageSelection) ? $this->videoMessageSelection->getValue() : null;
+        return ($this->videoMessageSelection)
+            ? $this->videoMessageSelection->getElementValue()
+            : null;
     }
 
     /**
@@ -243,7 +261,7 @@ class GroupCallCenterHolidayServiceGetResponse extends ComplexType implements Co
         $this->videoFileUrl = ($videoFileUrl InstanceOf URL)
              ? $videoFileUrl
              : new URL($videoFileUrl);
-        $this->videoFileUrl->setName('videoFileUrl');
+        $this->videoFileUrl->setElementName('videoFileUrl');
         return $this;
     }
 
@@ -253,7 +271,9 @@ class GroupCallCenterHolidayServiceGetResponse extends ComplexType implements Co
      */
     public function getVideoFileUrl()
     {
-        return ($this->videoFileUrl) ? $this->videoFileUrl->getValue() : null;
+        return ($this->videoFileUrl)
+            ? $this->videoFileUrl->getElementValue()
+            : null;
     }
 
     /**
@@ -264,7 +284,7 @@ class GroupCallCenterHolidayServiceGetResponse extends ComplexType implements Co
         $this->videoFileDescription = ($videoFileDescription InstanceOf FileDescription)
              ? $videoFileDescription
              : new FileDescription($videoFileDescription);
-        $this->videoFileDescription->setName('videoFileDescription');
+        $this->videoFileDescription->setElementName('videoFileDescription');
         return $this;
     }
 
@@ -274,7 +294,9 @@ class GroupCallCenterHolidayServiceGetResponse extends ComplexType implements Co
      */
     public function getVideoFileDescription()
     {
-        return ($this->videoFileDescription) ? $this->videoFileDescription->getValue() : null;
+        return ($this->videoFileDescription)
+            ? $this->videoFileDescription->getElementValue()
+            : null;
     }
 
     /**
@@ -285,7 +307,7 @@ class GroupCallCenterHolidayServiceGetResponse extends ComplexType implements Co
         $this->videoMediaType = ($videoMediaType InstanceOf MediaFileType)
              ? $videoMediaType
              : new MediaFileType($videoMediaType);
-        $this->videoMediaType->setName('videoMediaType');
+        $this->videoMediaType->setElementName('videoMediaType');
         return $this;
     }
 
@@ -295,6 +317,8 @@ class GroupCallCenterHolidayServiceGetResponse extends ComplexType implements Co
      */
     public function getVideoMediaType()
     {
-        return ($this->videoMediaType) ? $this->videoMediaType->getValue() : null;
+        return ($this->videoMediaType)
+            ? $this->videoMediaType->getElementValue()
+            : null;
     }
 }

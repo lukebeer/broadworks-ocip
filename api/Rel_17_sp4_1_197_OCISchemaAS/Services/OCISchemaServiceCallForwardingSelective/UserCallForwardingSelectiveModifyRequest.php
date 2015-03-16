@@ -23,7 +23,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserCallForwardingSelectiveModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'UserCallForwardingSelectiveModifyRequest';
+    public    $elementName = 'UserCallForwardingSelectiveModifyRequest';
     protected $userId;
     protected $isActive;
     protected $defaultForwardToPhoneNumber;
@@ -60,7 +60,7 @@ class UserCallForwardingSelectiveModifyRequest extends ComplexType implements Co
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
-        $this->userId->setName('userId');
+        $this->userId->setElementName('userId');
         return $this;
     }
 
@@ -70,7 +70,9 @@ class UserCallForwardingSelectiveModifyRequest extends ComplexType implements Co
      */
     public function getUserId()
     {
-        return ($this->userId) ? $this->userId->getValue() : null;
+        return ($this->userId)
+            ? $this->userId->getElementValue()
+            : null;
     }
 
     /**
@@ -79,7 +81,7 @@ class UserCallForwardingSelectiveModifyRequest extends ComplexType implements Co
     public function setIsActive($isActive = null)
     {
         $this->isActive = new PrimitiveType($isActive);
-        $this->isActive->setName('isActive');
+        $this->isActive->setElementName('isActive');
         return $this;
     }
 
@@ -89,7 +91,9 @@ class UserCallForwardingSelectiveModifyRequest extends ComplexType implements Co
      */
     public function getIsActive()
     {
-        return ($this->isActive) ? $this->isActive->getValue() : null;
+        return ($this->isActive)
+            ? $this->isActive->getElementValue()
+            : null;
     }
 
     /**
@@ -100,7 +104,7 @@ class UserCallForwardingSelectiveModifyRequest extends ComplexType implements Co
         $this->defaultForwardToPhoneNumber = ($defaultForwardToPhoneNumber InstanceOf OutgoingDNorSIPURI)
              ? $defaultForwardToPhoneNumber
              : new OutgoingDNorSIPURI($defaultForwardToPhoneNumber);
-        $this->defaultForwardToPhoneNumber->setName('defaultForwardToPhoneNumber');
+        $this->defaultForwardToPhoneNumber->setElementName('defaultForwardToPhoneNumber');
         return $this;
     }
 
@@ -110,7 +114,9 @@ class UserCallForwardingSelectiveModifyRequest extends ComplexType implements Co
      */
     public function getDefaultForwardToPhoneNumber()
     {
-        return ($this->defaultForwardToPhoneNumber) ? $this->defaultForwardToPhoneNumber->getValue() : null;
+        return ($this->defaultForwardToPhoneNumber)
+            ? $this->defaultForwardToPhoneNumber->getElementValue()
+            : null;
     }
 
     /**
@@ -119,7 +125,7 @@ class UserCallForwardingSelectiveModifyRequest extends ComplexType implements Co
     public function setPlayRingReminder($playRingReminder = null)
     {
         $this->playRingReminder = new PrimitiveType($playRingReminder);
-        $this->playRingReminder->setName('playRingReminder');
+        $this->playRingReminder->setElementName('playRingReminder');
         return $this;
     }
 
@@ -129,7 +135,9 @@ class UserCallForwardingSelectiveModifyRequest extends ComplexType implements Co
      */
     public function getPlayRingReminder()
     {
-        return ($this->playRingReminder) ? $this->playRingReminder->getValue() : null;
+        return ($this->playRingReminder)
+            ? $this->playRingReminder->getElementValue()
+            : null;
     }
 
     /**
@@ -140,7 +148,7 @@ class UserCallForwardingSelectiveModifyRequest extends ComplexType implements Co
         $this->criteriaActivation = ($criteriaActivation InstanceOf CriteriaActivation)
              ? $criteriaActivation
              : new CriteriaActivation($criteriaActivation);
-        $this->criteriaActivation->setName('criteriaActivation');
+        $this->criteriaActivation->setElementName('criteriaActivation');
         return $this;
     }
 

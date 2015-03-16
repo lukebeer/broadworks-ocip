@@ -16,12 +16,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\Enumeration;
  */
 class NetworkServerType extends SimpleType
 {
-    public $name = "NetworkServerType";
-    protected $value;
-
+    public $elementName = "NetworkServerType";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new Enumeration([
             'Lookup',
             'Update',

@@ -19,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class InstantConferencingRecurrenceScheduleDaily extends ComplexType implements ComplexInterface
 {
-    public    $name = 'InstantConferencingRecurrenceScheduleDaily';
+    public    $elementName = 'InstantConferencingRecurrenceScheduleDaily';
     protected $recurrenceDayInterval;
 
     public function __construct(
@@ -44,7 +44,7 @@ class InstantConferencingRecurrenceScheduleDaily extends ComplexType implements 
         $this->recurrenceDayInterval = ($recurrenceDayInterval InstanceOf InstantConferencingRecurrenceDayInterval)
              ? $recurrenceDayInterval
              : new InstantConferencingRecurrenceDayInterval($recurrenceDayInterval);
-        $this->recurrenceDayInterval->setName('recurrenceDayInterval');
+        $this->recurrenceDayInterval->setElementName('recurrenceDayInterval');
         return $this;
     }
 
@@ -54,6 +54,8 @@ class InstantConferencingRecurrenceScheduleDaily extends ComplexType implements 
      */
     public function getRecurrenceDayInterval()
     {
-        return ($this->recurrenceDayInterval) ? $this->recurrenceDayInterval->getValue() : null;
+        return ($this->recurrenceDayInterval)
+            ? $this->recurrenceDayInterval->getElementValue()
+            : null;
     }
 }

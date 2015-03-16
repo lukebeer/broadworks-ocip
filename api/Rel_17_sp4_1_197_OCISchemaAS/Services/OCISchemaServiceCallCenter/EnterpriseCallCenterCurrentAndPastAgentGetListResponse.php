@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class EnterpriseCallCenterCurrentAndPastAgentGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'EnterpriseCallCenterCurrentAndPastAgentGetListResponse';
+    public    $elementName = 'EnterpriseCallCenterCurrentAndPastAgentGetListResponse';
     protected $agentUserTable;
     protected $deletedAgentUserTable;
 
@@ -38,7 +38,7 @@ class EnterpriseCallCenterCurrentAndPastAgentGetListResponse extends ComplexType
     public function setAgentUserTable(TableType $agentUserTable = null)
     {
         $this->agentUserTable = $agentUserTable;
-        $this->agentUserTable->setName('agentUserTable');
+        $this->agentUserTable->setElementName('agentUserTable');
         return $this;
     }
 
@@ -57,7 +57,7 @@ class EnterpriseCallCenterCurrentAndPastAgentGetListResponse extends ComplexType
     public function setDeletedAgentUserTable(TableType $deletedAgentUserTable = null)
     {
         $this->deletedAgentUserTable = $deletedAgentUserTable;
-        $this->deletedAgentUserTable->setName('deletedAgentUserTable');
+        $this->deletedAgentUserTable->setElementName('deletedAgentUserTable');
         return $this;
     }
 

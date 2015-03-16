@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderServicePackMigrationTaskTerminateRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'ServiceProviderServicePackMigrationTaskTerminateRequest';
+    public    $elementName = 'ServiceProviderServicePackMigrationTaskTerminateRequest';
     protected $serviceProviderId;
     protected $taskName;
 
@@ -50,7 +50,7 @@ class ServiceProviderServicePackMigrationTaskTerminateRequest extends ComplexTyp
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
-        $this->serviceProviderId->setName('serviceProviderId');
+        $this->serviceProviderId->setElementName('serviceProviderId');
         return $this;
     }
 
@@ -60,7 +60,9 @@ class ServiceProviderServicePackMigrationTaskTerminateRequest extends ComplexTyp
      */
     public function getServiceProviderId()
     {
-        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
+        return ($this->serviceProviderId)
+            ? $this->serviceProviderId->getElementValue()
+            : null;
     }
 
     /**
@@ -71,7 +73,7 @@ class ServiceProviderServicePackMigrationTaskTerminateRequest extends ComplexTyp
         $this->taskName = ($taskName InstanceOf ServicePackMigrationTaskName)
              ? $taskName
              : new ServicePackMigrationTaskName($taskName);
-        $this->taskName->setName('taskName');
+        $this->taskName->setElementName('taskName');
         return $this;
     }
 
@@ -81,6 +83,8 @@ class ServiceProviderServicePackMigrationTaskTerminateRequest extends ComplexTyp
      */
     public function getTaskName()
     {
-        return ($this->taskName) ? $this->taskName->getValue() : null;
+        return ($this->taskName)
+            ? $this->taskName->getElementValue()
+            : null;
     }
 }

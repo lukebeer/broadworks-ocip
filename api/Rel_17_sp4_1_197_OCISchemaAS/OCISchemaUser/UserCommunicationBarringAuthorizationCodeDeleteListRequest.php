@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserCommunicationBarringAuthorizationCodeDeleteListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'UserCommunicationBarringAuthorizationCodeDeleteListRequest';
+    public    $elementName = 'UserCommunicationBarringAuthorizationCodeDeleteListRequest';
     protected $userId;
     protected $code;
 
@@ -48,7 +48,7 @@ class UserCommunicationBarringAuthorizationCodeDeleteListRequest extends Complex
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
-        $this->userId->setName('userId');
+        $this->userId->setElementName('userId');
         return $this;
     }
 
@@ -58,7 +58,9 @@ class UserCommunicationBarringAuthorizationCodeDeleteListRequest extends Complex
      */
     public function getUserId()
     {
-        return ($this->userId) ? $this->userId->getValue() : null;
+        return ($this->userId)
+            ? $this->userId->getElementValue()
+            : null;
     }
 
     /**
@@ -69,7 +71,7 @@ class UserCommunicationBarringAuthorizationCodeDeleteListRequest extends Complex
         $this->code = ($code InstanceOf CommunicationBarringAuthorizationCode)
              ? $code
              : new CommunicationBarringAuthorizationCode($code);
-        $this->code->setName('code');
+        $this->code->setElementName('code');
         return $this;
     }
 
@@ -79,6 +81,8 @@ class UserCommunicationBarringAuthorizationCodeDeleteListRequest extends Complex
      */
     public function getCode()
     {
-        return ($this->code) ? $this->code->getValue() : null;
+        return ($this->code)
+            ? $this->code->getElementValue()
+            : null;
     }
 }

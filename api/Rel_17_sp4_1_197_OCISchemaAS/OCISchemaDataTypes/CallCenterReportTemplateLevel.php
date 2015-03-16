@@ -16,12 +16,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\Enumeration;
  */
 class CallCenterReportTemplateLevel extends SimpleType
 {
-    public $name = "CallCenterReportTemplateLevel";
-    protected $value;
-
+    public $elementName = "CallCenterReportTemplateLevel";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new Enumeration([
             'System',
             'Enterprise',

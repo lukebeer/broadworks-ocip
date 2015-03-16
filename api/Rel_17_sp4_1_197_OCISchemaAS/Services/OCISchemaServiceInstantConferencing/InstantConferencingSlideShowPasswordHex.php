@@ -17,12 +17,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\MaxLength;
  */
 class InstantConferencingSlideShowPasswordHex extends SimpleType
 {
-    public $name = "InstantConferencingSlideShowPasswordHex";
-    protected $value;
-
+    public $elementName = "InstantConferencingSlideShowPasswordHex";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new MinLength("1"));
         $this->addRestriction(new MaxLength("248"));
     }

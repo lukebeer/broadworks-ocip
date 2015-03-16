@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemLegacyAutomaticCallbackGetLineTypeListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemLegacyAutomaticCallbackGetLineTypeListResponse';
+    public    $elementName = 'SystemLegacyAutomaticCallbackGetLineTypeListResponse';
     protected $lineTypeTable;
 
     /**
@@ -38,7 +38,7 @@ class SystemLegacyAutomaticCallbackGetLineTypeListResponse extends ComplexType i
     public function setLineTypeTable(TableType $lineTypeTable = null)
     {
         $this->lineTypeTable = $lineTypeTable;
-        $this->lineTypeTable->setName('lineTypeTable');
+        $this->lineTypeTable->setElementName('lineTypeTable');
         return $this;
     }
 

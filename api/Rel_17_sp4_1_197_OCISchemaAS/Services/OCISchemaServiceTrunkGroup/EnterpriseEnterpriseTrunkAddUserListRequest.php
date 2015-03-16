@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class EnterpriseEnterpriseTrunkAddUserListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'EnterpriseEnterpriseTrunkAddUserListRequest';
+    public    $elementName = 'EnterpriseEnterpriseTrunkAddUserListRequest';
     protected $serviceProviderId;
     protected $enterpriseTrunkName;
     protected $userId;
@@ -53,7 +53,7 @@ class EnterpriseEnterpriseTrunkAddUserListRequest extends ComplexType implements
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
-        $this->serviceProviderId->setName('serviceProviderId');
+        $this->serviceProviderId->setElementName('serviceProviderId');
         return $this;
     }
 
@@ -63,7 +63,9 @@ class EnterpriseEnterpriseTrunkAddUserListRequest extends ComplexType implements
      */
     public function getServiceProviderId()
     {
-        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
+        return ($this->serviceProviderId)
+            ? $this->serviceProviderId->getElementValue()
+            : null;
     }
 
     /**
@@ -74,7 +76,7 @@ class EnterpriseEnterpriseTrunkAddUserListRequest extends ComplexType implements
         $this->enterpriseTrunkName = ($enterpriseTrunkName InstanceOf EnterpriseTrunkName)
              ? $enterpriseTrunkName
              : new EnterpriseTrunkName($enterpriseTrunkName);
-        $this->enterpriseTrunkName->setName('enterpriseTrunkName');
+        $this->enterpriseTrunkName->setElementName('enterpriseTrunkName');
         return $this;
     }
 
@@ -84,7 +86,9 @@ class EnterpriseEnterpriseTrunkAddUserListRequest extends ComplexType implements
      */
     public function getEnterpriseTrunkName()
     {
-        return ($this->enterpriseTrunkName) ? $this->enterpriseTrunkName->getValue() : null;
+        return ($this->enterpriseTrunkName)
+            ? $this->enterpriseTrunkName->getElementValue()
+            : null;
     }
 
     /**
@@ -95,7 +99,7 @@ class EnterpriseEnterpriseTrunkAddUserListRequest extends ComplexType implements
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
-        $this->userId->setName('userId');
+        $this->userId->setElementName('userId');
         return $this;
     }
 
@@ -105,6 +109,8 @@ class EnterpriseEnterpriseTrunkAddUserListRequest extends ComplexType implements
      */
     public function getUserId()
     {
-        return ($this->userId) ? $this->userId->getValue() : null;
+        return ($this->userId)
+            ? $this->userId->getElementValue()
+            : null;
     }
 }

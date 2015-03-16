@@ -16,12 +16,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\Enumeration;
  */
 class InstantConferencingRecurrenceTimeFrame extends SimpleType
 {
-    public $name = "InstantConferencingRecurrenceTimeFrame";
-    protected $value;
-
+    public $elementName = "InstantConferencingRecurrenceTimeFrame";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new Enumeration([
             'Daily',
             'Weekly',

@@ -17,12 +17,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\MaxInclusive;
  */
 class EmergencyCallCleanupMinutes extends SimpleType
 {
-    public $name = "EmergencyCallCleanupMinutes";
-    protected $value;
-
+    public $elementName = "EmergencyCallCleanupMinutes";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new MinInclusive("1"));
         $this->addRestriction(new MaxInclusive("1440"));
     }

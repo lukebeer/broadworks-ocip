@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
 class UserConnectedLineIdentificationRestrictionGetRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceConnectedLineIdentificationRestriction\UserConnectedLineIdentificationRestrictionGetResponse';
-    public    $name = 'UserConnectedLineIdentificationRestrictionGetRequest';
+    public    $elementName = 'UserConnectedLineIdentificationRestrictionGetRequest';
     protected $userId;
 
     public function __construct(
@@ -47,7 +47,7 @@ class UserConnectedLineIdentificationRestrictionGetRequest extends ComplexType i
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
-        $this->userId->setName('userId');
+        $this->userId->setElementName('userId');
         return $this;
     }
 
@@ -57,6 +57,8 @@ class UserConnectedLineIdentificationRestrictionGetRequest extends ComplexType i
      */
     public function getUserId()
     {
-        return ($this->userId) ? $this->userId->getValue() : null;
+        return ($this->userId)
+            ? $this->userId->getElementValue()
+            : null;
     }
 }

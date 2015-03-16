@@ -16,12 +16,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\Enumeration;
  */
 class LocationCriteria extends SimpleType
 {
-    public $name = "LocationCriteria";
-    protected $value;
-
+    public $elementName = "LocationCriteria";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new Enumeration([
             'In Office Zone',
             'In Primary Zone',

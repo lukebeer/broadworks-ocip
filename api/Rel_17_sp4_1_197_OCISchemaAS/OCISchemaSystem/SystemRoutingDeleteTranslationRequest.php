@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemRoutingDeleteTranslationRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemRoutingDeleteTranslationRequest';
+    public    $elementName = 'SystemRoutingDeleteTranslationRequest';
     protected $digits;
 
     public function __construct(
@@ -45,7 +45,7 @@ class SystemRoutingDeleteTranslationRequest extends ComplexType implements Compl
         $this->digits = ($digits InstanceOf RoutingDigits)
              ? $digits
              : new RoutingDigits($digits);
-        $this->digits->setName('digits');
+        $this->digits->setElementName('digits');
         return $this;
     }
 
@@ -55,6 +55,8 @@ class SystemRoutingDeleteTranslationRequest extends ComplexType implements Compl
      */
     public function getDigits()
     {
-        return ($this->digits) ? $this->digits->getValue() : null;
+        return ($this->digits)
+            ? $this->digits->getElementValue()
+            : null;
     }
 }

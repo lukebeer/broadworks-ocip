@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class EnterpriseVoiceVPNDeletePolicyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'EnterpriseVoiceVPNDeletePolicyRequest';
+    public    $elementName = 'EnterpriseVoiceVPNDeletePolicyRequest';
     protected $serviceProviderId;
     protected $locationDialingCode;
 
@@ -49,7 +49,7 @@ class EnterpriseVoiceVPNDeletePolicyRequest extends ComplexType implements Compl
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
-        $this->serviceProviderId->setName('serviceProviderId');
+        $this->serviceProviderId->setElementName('serviceProviderId');
         return $this;
     }
 
@@ -59,7 +59,9 @@ class EnterpriseVoiceVPNDeletePolicyRequest extends ComplexType implements Compl
      */
     public function getServiceProviderId()
     {
-        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
+        return ($this->serviceProviderId)
+            ? $this->serviceProviderId->getElementValue()
+            : null;
     }
 
     /**
@@ -70,7 +72,7 @@ class EnterpriseVoiceVPNDeletePolicyRequest extends ComplexType implements Compl
         $this->locationDialingCode = ($locationDialingCode InstanceOf EnterpriseVoiceVPNLocationCode)
              ? $locationDialingCode
              : new EnterpriseVoiceVPNLocationCode($locationDialingCode);
-        $this->locationDialingCode->setName('locationDialingCode');
+        $this->locationDialingCode->setElementName('locationDialingCode');
         return $this;
     }
 
@@ -80,6 +82,8 @@ class EnterpriseVoiceVPNDeletePolicyRequest extends ComplexType implements Compl
      */
     public function getLocationDialingCode()
     {
-        return ($this->locationDialingCode) ? $this->locationDialingCode->getValue() : null;
+        return ($this->locationDialingCode)
+            ? $this->locationDialingCode->getElementValue()
+            : null;
     }
 }

@@ -24,7 +24,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupAccessDeviceCustomTagModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'GroupAccessDeviceCustomTagModifyRequest';
+    public    $elementName = 'GroupAccessDeviceCustomTagModifyRequest';
     protected $serviceProviderId;
     protected $groupId;
     protected $deviceName;
@@ -61,7 +61,7 @@ class GroupAccessDeviceCustomTagModifyRequest extends ComplexType implements Com
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
-        $this->serviceProviderId->setName('serviceProviderId');
+        $this->serviceProviderId->setElementName('serviceProviderId');
         return $this;
     }
 
@@ -71,7 +71,9 @@ class GroupAccessDeviceCustomTagModifyRequest extends ComplexType implements Com
      */
     public function getServiceProviderId()
     {
-        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
+        return ($this->serviceProviderId)
+            ? $this->serviceProviderId->getElementValue()
+            : null;
     }
 
     /**
@@ -82,7 +84,7 @@ class GroupAccessDeviceCustomTagModifyRequest extends ComplexType implements Com
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
-        $this->groupId->setName('groupId');
+        $this->groupId->setElementName('groupId');
         return $this;
     }
 
@@ -92,7 +94,9 @@ class GroupAccessDeviceCustomTagModifyRequest extends ComplexType implements Com
      */
     public function getGroupId()
     {
-        return ($this->groupId) ? $this->groupId->getValue() : null;
+        return ($this->groupId)
+            ? $this->groupId->getElementValue()
+            : null;
     }
 
     /**
@@ -103,7 +107,7 @@ class GroupAccessDeviceCustomTagModifyRequest extends ComplexType implements Com
         $this->deviceName = ($deviceName InstanceOf AccessDeviceName)
              ? $deviceName
              : new AccessDeviceName($deviceName);
-        $this->deviceName->setName('deviceName');
+        $this->deviceName->setElementName('deviceName');
         return $this;
     }
 
@@ -113,7 +117,9 @@ class GroupAccessDeviceCustomTagModifyRequest extends ComplexType implements Com
      */
     public function getDeviceName()
     {
-        return ($this->deviceName) ? $this->deviceName->getValue() : null;
+        return ($this->deviceName)
+            ? $this->deviceName->getElementValue()
+            : null;
     }
 
     /**
@@ -124,7 +130,7 @@ class GroupAccessDeviceCustomTagModifyRequest extends ComplexType implements Com
         $this->tagName = ($tagName InstanceOf DeviceManagementTagName)
              ? $tagName
              : new DeviceManagementTagName($tagName);
-        $this->tagName->setName('tagName');
+        $this->tagName->setElementName('tagName');
         return $this;
     }
 
@@ -134,7 +140,9 @@ class GroupAccessDeviceCustomTagModifyRequest extends ComplexType implements Com
      */
     public function getTagName()
     {
-        return ($this->tagName) ? $this->tagName->getValue() : null;
+        return ($this->tagName)
+            ? $this->tagName->getElementValue()
+            : null;
     }
 
     /**
@@ -145,7 +153,7 @@ class GroupAccessDeviceCustomTagModifyRequest extends ComplexType implements Com
         $this->tagValue = ($tagValue InstanceOf DeviceManagementTagValue)
              ? $tagValue
              : new DeviceManagementTagValue($tagValue);
-        $this->tagValue->setName('tagValue');
+        $this->tagValue->setElementName('tagValue');
         return $this;
     }
 
@@ -155,6 +163,8 @@ class GroupAccessDeviceCustomTagModifyRequest extends ComplexType implements Com
      */
     public function getTagValue()
     {
-        return ($this->tagValue) ? $this->tagValue->getValue() : null;
+        return ($this->tagValue)
+            ? $this->tagValue->getElementValue()
+            : null;
     }
 }

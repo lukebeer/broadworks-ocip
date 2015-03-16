@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
 class SystemPerformanceMeasurementReportingGetFileServerListRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemPerformanceMeasurementReportingGetFileServerListResponse';
-    public    $name = 'SystemPerformanceMeasurementReportingGetFileServerListRequest';
+    public    $elementName = 'SystemPerformanceMeasurementReportingGetFileServerListRequest';
 
     public function __construct(    ) {
     }

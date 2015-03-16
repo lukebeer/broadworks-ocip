@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupOutgoingCallingPlanTransferNumbersGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'GroupOutgoingCallingPlanTransferNumbersGetListResponse';
+    public    $elementName = 'GroupOutgoingCallingPlanTransferNumbersGetListResponse';
     protected $groupNumbers;
     protected $departmentNumbers;
 
@@ -40,7 +40,7 @@ class GroupOutgoingCallingPlanTransferNumbersGetListResponse extends ComplexType
         $this->groupNumbers = ($groupNumbers InstanceOf OutgoingCallingPlanTransferNumbers)
              ? $groupNumbers
              : new OutgoingCallingPlanTransferNumbers($groupNumbers);
-        $this->groupNumbers->setName('groupNumbers');
+        $this->groupNumbers->setElementName('groupNumbers');
         return $this;
     }
 
@@ -61,7 +61,7 @@ class GroupOutgoingCallingPlanTransferNumbersGetListResponse extends ComplexType
         $this->departmentNumbers = ($departmentNumbers InstanceOf OutgoingCallingPlanDepartmentTransferNumbers)
              ? $departmentNumbers
              : new OutgoingCallingPlanDepartmentTransferNumbers($departmentNumbers);
-        $this->departmentNumbers->setName('departmentNumbers');
+        $this->departmentNumbers->setElementName('departmentNumbers');
         return $this;
     }
 

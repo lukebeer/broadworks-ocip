@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemAccessDeviceModifyUserRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemAccessDeviceModifyUserRequest';
+    public    $elementName = 'SystemAccessDeviceModifyUserRequest';
     protected $deviceName;
     protected $linePort;
     protected $isPrimaryLinePort;
@@ -53,7 +53,7 @@ class SystemAccessDeviceModifyUserRequest extends ComplexType implements Complex
         $this->deviceName = ($deviceName InstanceOf AccessDeviceName)
              ? $deviceName
              : new AccessDeviceName($deviceName);
-        $this->deviceName->setName('deviceName');
+        $this->deviceName->setElementName('deviceName');
         return $this;
     }
 
@@ -63,7 +63,9 @@ class SystemAccessDeviceModifyUserRequest extends ComplexType implements Complex
      */
     public function getDeviceName()
     {
-        return ($this->deviceName) ? $this->deviceName->getValue() : null;
+        return ($this->deviceName)
+            ? $this->deviceName->getElementValue()
+            : null;
     }
 
     /**
@@ -74,7 +76,7 @@ class SystemAccessDeviceModifyUserRequest extends ComplexType implements Complex
         $this->linePort = ($linePort InstanceOf AccessDeviceEndpointLinePort)
              ? $linePort
              : new AccessDeviceEndpointLinePort($linePort);
-        $this->linePort->setName('linePort');
+        $this->linePort->setElementName('linePort');
         return $this;
     }
 
@@ -84,7 +86,9 @@ class SystemAccessDeviceModifyUserRequest extends ComplexType implements Complex
      */
     public function getLinePort()
     {
-        return ($this->linePort) ? $this->linePort->getValue() : null;
+        return ($this->linePort)
+            ? $this->linePort->getElementValue()
+            : null;
     }
 
     /**
@@ -93,7 +97,7 @@ class SystemAccessDeviceModifyUserRequest extends ComplexType implements Complex
     public function setIsPrimaryLinePort($isPrimaryLinePort = null)
     {
         $this->isPrimaryLinePort = new PrimitiveType($isPrimaryLinePort);
-        $this->isPrimaryLinePort->setName('isPrimaryLinePort');
+        $this->isPrimaryLinePort->setElementName('isPrimaryLinePort');
         return $this;
     }
 
@@ -103,6 +107,8 @@ class SystemAccessDeviceModifyUserRequest extends ComplexType implements Complex
      */
     public function getIsPrimaryLinePort()
     {
-        return ($this->isPrimaryLinePort) ? $this->isPrimaryLinePort->getValue() : null;
+        return ($this->isPrimaryLinePort)
+            ? $this->isPrimaryLinePort->getElementValue()
+            : null;
     }
 }

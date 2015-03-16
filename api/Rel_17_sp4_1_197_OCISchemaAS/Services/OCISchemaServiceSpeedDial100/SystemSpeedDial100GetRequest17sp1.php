@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
 class SystemSpeedDial100GetRequest17sp1 extends ComplexType implements ComplexInterface
 {
     public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceSpeedDial100\SystemSpeedDial100GetResponse17sp1';
-    public    $name = 'SystemSpeedDial100GetRequest17sp1';
+    public    $elementName = 'SystemSpeedDial100GetRequest17sp1';
 
     public function __construct(    ) {
     }

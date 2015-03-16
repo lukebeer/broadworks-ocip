@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class EnterpriseEnterpriseTrunkDeleteRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'EnterpriseEnterpriseTrunkDeleteRequest';
+    public    $elementName = 'EnterpriseEnterpriseTrunkDeleteRequest';
     protected $serviceProviderId;
     protected $enterpriseTrunkName;
 
@@ -49,7 +49,7 @@ class EnterpriseEnterpriseTrunkDeleteRequest extends ComplexType implements Comp
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
-        $this->serviceProviderId->setName('serviceProviderId');
+        $this->serviceProviderId->setElementName('serviceProviderId');
         return $this;
     }
 
@@ -59,7 +59,9 @@ class EnterpriseEnterpriseTrunkDeleteRequest extends ComplexType implements Comp
      */
     public function getServiceProviderId()
     {
-        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
+        return ($this->serviceProviderId)
+            ? $this->serviceProviderId->getElementValue()
+            : null;
     }
 
     /**
@@ -70,7 +72,7 @@ class EnterpriseEnterpriseTrunkDeleteRequest extends ComplexType implements Comp
         $this->enterpriseTrunkName = ($enterpriseTrunkName InstanceOf EnterpriseTrunkName)
              ? $enterpriseTrunkName
              : new EnterpriseTrunkName($enterpriseTrunkName);
-        $this->enterpriseTrunkName->setName('enterpriseTrunkName');
+        $this->enterpriseTrunkName->setElementName('enterpriseTrunkName');
         return $this;
     }
 
@@ -80,6 +82,8 @@ class EnterpriseEnterpriseTrunkDeleteRequest extends ComplexType implements Comp
      */
     public function getEnterpriseTrunkName()
     {
-        return ($this->enterpriseTrunkName) ? $this->enterpriseTrunkName->getValue() : null;
+        return ($this->enterpriseTrunkName)
+            ? $this->enterpriseTrunkName->getElementValue()
+            : null;
     }
 }

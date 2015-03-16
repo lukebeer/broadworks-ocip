@@ -19,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupRoutePointGetAnnouncementResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'GroupRoutePointGetAnnouncementResponse';
+    public    $elementName = 'GroupRoutePointGetAnnouncementResponse';
     protected $mediaOnHoldSource;
 
     /**
@@ -38,7 +38,7 @@ class GroupRoutePointGetAnnouncementResponse extends ComplexType implements Comp
         $this->mediaOnHoldSource = ($mediaOnHoldSource InstanceOf CallCenterMediaOnHoldSourceRead17)
              ? $mediaOnHoldSource
              : new CallCenterMediaOnHoldSourceRead17($mediaOnHoldSource);
-        $this->mediaOnHoldSource->setName('mediaOnHoldSource');
+        $this->mediaOnHoldSource->setElementName('mediaOnHoldSource');
         return $this;
     }
 

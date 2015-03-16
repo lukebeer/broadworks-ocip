@@ -19,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ErrorResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'ErrorResponse';
+    public    $elementName = 'ErrorResponse';
     protected $errorCode;
     protected $summary;
     protected $summaryEnglish;
@@ -39,7 +39,7 @@ class ErrorResponse extends ComplexType implements ComplexInterface
     public function setErrorCode($errorCode = null)
     {
         $this->errorCode = new PrimitiveType($errorCode);
-        $this->errorCode->setName('errorCode');
+        $this->errorCode->setElementName('errorCode');
         return $this;
     }
 
@@ -49,7 +49,9 @@ class ErrorResponse extends ComplexType implements ComplexInterface
      */
     public function getErrorCode()
     {
-        return ($this->errorCode) ? $this->errorCode->getValue() : null;
+        return ($this->errorCode)
+            ? $this->errorCode->getElementValue()
+            : null;
     }
 
     /**
@@ -58,7 +60,7 @@ class ErrorResponse extends ComplexType implements ComplexInterface
     public function setSummary($summary = null)
     {
         $this->summary = new PrimitiveType($summary);
-        $this->summary->setName('summary');
+        $this->summary->setElementName('summary');
         return $this;
     }
 
@@ -68,7 +70,9 @@ class ErrorResponse extends ComplexType implements ComplexInterface
      */
     public function getSummary()
     {
-        return ($this->summary) ? $this->summary->getValue() : null;
+        return ($this->summary)
+            ? $this->summary->getElementValue()
+            : null;
     }
 
     /**
@@ -77,7 +81,7 @@ class ErrorResponse extends ComplexType implements ComplexInterface
     public function setSummaryEnglish($summaryEnglish = null)
     {
         $this->summaryEnglish = new PrimitiveType($summaryEnglish);
-        $this->summaryEnglish->setName('summaryEnglish');
+        $this->summaryEnglish->setElementName('summaryEnglish');
         return $this;
     }
 
@@ -87,7 +91,9 @@ class ErrorResponse extends ComplexType implements ComplexInterface
      */
     public function getSummaryEnglish()
     {
-        return ($this->summaryEnglish) ? $this->summaryEnglish->getValue() : null;
+        return ($this->summaryEnglish)
+            ? $this->summaryEnglish->getElementValue()
+            : null;
     }
 
     /**
@@ -96,7 +102,7 @@ class ErrorResponse extends ComplexType implements ComplexInterface
     public function setDetail($detail = null)
     {
         $this->detail = new PrimitiveType($detail);
-        $this->detail->setName('detail');
+        $this->detail->setElementName('detail');
         return $this;
     }
 
@@ -106,6 +112,8 @@ class ErrorResponse extends ComplexType implements ComplexInterface
      */
     public function getDetail()
     {
-        return ($this->detail) ? $this->detail->getValue() : null;
+        return ($this->detail)
+            ? $this->detail->getElementValue()
+            : null;
     }
 }

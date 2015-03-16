@@ -25,7 +25,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserCallCenterGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'UserCallCenterGetListResponse';
+    public    $elementName = 'UserCallCenterGetListResponse';
     protected $userTable;
 
     /**
@@ -42,7 +42,7 @@ class UserCallCenterGetListResponse extends ComplexType implements ComplexInterf
     public function setUserTable(TableType $userTable = null)
     {
         $this->userTable = $userTable;
-        $this->userTable->setName('userTable');
+        $this->userTable->setElementName('userTable');
         return $this;
     }
 

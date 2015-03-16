@@ -17,12 +17,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\MaxLength;
  */
 class RoutingProfile extends SimpleType
 {
-    public $name = "RoutingProfile";
-    protected $value;
-
+    public $elementName = "RoutingProfile";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new MinLength("4"));
         $this->addRestriction(new MaxLength("12"));
     }

@@ -23,7 +23,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupCallCenterQueueStatusNotificationModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'GroupCallCenterQueueStatusNotificationModifyRequest';
+    public    $elementName = 'GroupCallCenterQueueStatusNotificationModifyRequest';
     protected $serviceUserId;
     protected $enableQueueStatusNotification;
     protected $enableQueueDepthThreshold;
@@ -63,7 +63,7 @@ class GroupCallCenterQueueStatusNotificationModifyRequest extends ComplexType im
         $this->serviceUserId = ($serviceUserId InstanceOf UserId)
              ? $serviceUserId
              : new UserId($serviceUserId);
-        $this->serviceUserId->setName('serviceUserId');
+        $this->serviceUserId->setElementName('serviceUserId');
         return $this;
     }
 
@@ -73,7 +73,9 @@ class GroupCallCenterQueueStatusNotificationModifyRequest extends ComplexType im
      */
     public function getServiceUserId()
     {
-        return ($this->serviceUserId) ? $this->serviceUserId->getValue() : null;
+        return ($this->serviceUserId)
+            ? $this->serviceUserId->getElementValue()
+            : null;
     }
 
     /**
@@ -82,7 +84,7 @@ class GroupCallCenterQueueStatusNotificationModifyRequest extends ComplexType im
     public function setEnableQueueStatusNotification($enableQueueStatusNotification = null)
     {
         $this->enableQueueStatusNotification = new PrimitiveType($enableQueueStatusNotification);
-        $this->enableQueueStatusNotification->setName('enableQueueStatusNotification');
+        $this->enableQueueStatusNotification->setElementName('enableQueueStatusNotification');
         return $this;
     }
 
@@ -92,7 +94,9 @@ class GroupCallCenterQueueStatusNotificationModifyRequest extends ComplexType im
      */
     public function getEnableQueueStatusNotification()
     {
-        return ($this->enableQueueStatusNotification) ? $this->enableQueueStatusNotification->getValue() : null;
+        return ($this->enableQueueStatusNotification)
+            ? $this->enableQueueStatusNotification->getElementValue()
+            : null;
     }
 
     /**
@@ -101,7 +105,7 @@ class GroupCallCenterQueueStatusNotificationModifyRequest extends ComplexType im
     public function setEnableQueueDepthThreshold($enableQueueDepthThreshold = null)
     {
         $this->enableQueueDepthThreshold = new PrimitiveType($enableQueueDepthThreshold);
-        $this->enableQueueDepthThreshold->setName('enableQueueDepthThreshold');
+        $this->enableQueueDepthThreshold->setElementName('enableQueueDepthThreshold');
         return $this;
     }
 
@@ -111,7 +115,9 @@ class GroupCallCenterQueueStatusNotificationModifyRequest extends ComplexType im
      */
     public function getEnableQueueDepthThreshold()
     {
-        return ($this->enableQueueDepthThreshold) ? $this->enableQueueDepthThreshold->getValue() : null;
+        return ($this->enableQueueDepthThreshold)
+            ? $this->enableQueueDepthThreshold->getElementValue()
+            : null;
     }
 
     /**
@@ -120,7 +126,7 @@ class GroupCallCenterQueueStatusNotificationModifyRequest extends ComplexType im
     public function setEnableWaitingTimeThreshold($enableWaitingTimeThreshold = null)
     {
         $this->enableWaitingTimeThreshold = new PrimitiveType($enableWaitingTimeThreshold);
-        $this->enableWaitingTimeThreshold->setName('enableWaitingTimeThreshold');
+        $this->enableWaitingTimeThreshold->setElementName('enableWaitingTimeThreshold');
         return $this;
     }
 
@@ -130,7 +136,9 @@ class GroupCallCenterQueueStatusNotificationModifyRequest extends ComplexType im
      */
     public function getEnableWaitingTimeThreshold()
     {
-        return ($this->enableWaitingTimeThreshold) ? $this->enableWaitingTimeThreshold->getValue() : null;
+        return ($this->enableWaitingTimeThreshold)
+            ? $this->enableWaitingTimeThreshold->getElementValue()
+            : null;
     }
 
     /**
@@ -141,7 +149,7 @@ class GroupCallCenterQueueStatusNotificationModifyRequest extends ComplexType im
         $this->numberOfCallsThreshold = ($numberOfCallsThreshold InstanceOf CallCenterQueueDepthNotificationThreshold)
              ? $numberOfCallsThreshold
              : new CallCenterQueueDepthNotificationThreshold($numberOfCallsThreshold);
-        $this->numberOfCallsThreshold->setName('numberOfCallsThreshold');
+        $this->numberOfCallsThreshold->setElementName('numberOfCallsThreshold');
         return $this;
     }
 
@@ -151,7 +159,9 @@ class GroupCallCenterQueueStatusNotificationModifyRequest extends ComplexType im
      */
     public function getNumberOfCallsThreshold()
     {
-        return ($this->numberOfCallsThreshold) ? $this->numberOfCallsThreshold->getValue() : null;
+        return ($this->numberOfCallsThreshold)
+            ? $this->numberOfCallsThreshold->getElementValue()
+            : null;
     }
 
     /**
@@ -162,7 +172,7 @@ class GroupCallCenterQueueStatusNotificationModifyRequest extends ComplexType im
         $this->waitingTimeOfCallsThreshold = ($waitingTimeOfCallsThreshold InstanceOf CallCenterWaitingTimeNotificationThresholdSeconds)
              ? $waitingTimeOfCallsThreshold
              : new CallCenterWaitingTimeNotificationThresholdSeconds($waitingTimeOfCallsThreshold);
-        $this->waitingTimeOfCallsThreshold->setName('waitingTimeOfCallsThreshold');
+        $this->waitingTimeOfCallsThreshold->setElementName('waitingTimeOfCallsThreshold');
         return $this;
     }
 
@@ -172,6 +182,8 @@ class GroupCallCenterQueueStatusNotificationModifyRequest extends ComplexType im
      */
     public function getWaitingTimeOfCallsThreshold()
     {
-        return ($this->waitingTimeOfCallsThreshold) ? $this->waitingTimeOfCallsThreshold->getValue() : null;
+        return ($this->waitingTimeOfCallsThreshold)
+            ? $this->waitingTimeOfCallsThreshold->getElementValue()
+            : null;
     }
 }

@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class EnterpriseCallCenterAgentUnavailableCodeDeleteRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'EnterpriseCallCenterAgentUnavailableCodeDeleteRequest';
+    public    $elementName = 'EnterpriseCallCenterAgentUnavailableCodeDeleteRequest';
     protected $serviceProviderId;
     protected $code;
 
@@ -48,7 +48,7 @@ class EnterpriseCallCenterAgentUnavailableCodeDeleteRequest extends ComplexType 
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
-        $this->serviceProviderId->setName('serviceProviderId');
+        $this->serviceProviderId->setElementName('serviceProviderId');
         return $this;
     }
 
@@ -58,7 +58,9 @@ class EnterpriseCallCenterAgentUnavailableCodeDeleteRequest extends ComplexType 
      */
     public function getServiceProviderId()
     {
-        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
+        return ($this->serviceProviderId)
+            ? $this->serviceProviderId->getElementValue()
+            : null;
     }
 
     /**
@@ -69,7 +71,7 @@ class EnterpriseCallCenterAgentUnavailableCodeDeleteRequest extends ComplexType 
         $this->code = ($code InstanceOf CallCenterAgentUnavailableCode)
              ? $code
              : new CallCenterAgentUnavailableCode($code);
-        $this->code->setName('code');
+        $this->code->setElementName('code');
         return $this;
     }
 
@@ -79,6 +81,8 @@ class EnterpriseCallCenterAgentUnavailableCodeDeleteRequest extends ComplexType 
      */
     public function getCode()
     {
-        return ($this->code) ? $this->code->getValue() : null;
+        return ($this->code)
+            ? $this->code->getElementValue()
+            : null;
     }
 }

@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserZoneCallingRestrictionsGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'UserZoneCallingRestrictionsGetResponse';
+    public    $elementName = 'UserZoneCallingRestrictionsGetResponse';
     protected $homeZoneName;
 
     /**
@@ -39,7 +39,7 @@ class UserZoneCallingRestrictionsGetResponse extends ComplexType implements Comp
         $this->homeZoneName = ($homeZoneName InstanceOf ZoneName)
              ? $homeZoneName
              : new ZoneName($homeZoneName);
-        $this->homeZoneName->setName('homeZoneName');
+        $this->homeZoneName->setElementName('homeZoneName');
         return $this;
     }
 
@@ -49,6 +49,8 @@ class UserZoneCallingRestrictionsGetResponse extends ComplexType implements Comp
      */
     public function getHomeZoneName()
     {
-        return ($this->homeZoneName) ? $this->homeZoneName->getValue() : null;
+        return ($this->homeZoneName)
+            ? $this->homeZoneName->getElementValue()
+            : null;
     }
 }

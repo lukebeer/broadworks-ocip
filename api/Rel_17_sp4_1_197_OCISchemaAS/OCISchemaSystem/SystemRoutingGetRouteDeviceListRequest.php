@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
 class SystemRoutingGetRouteDeviceListRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemRoutingGetRouteDeviceListResponse';
-    public    $name = 'SystemRoutingGetRouteDeviceListRequest';
+    public    $elementName = 'SystemRoutingGetRouteDeviceListRequest';
     protected $routeName;
 
     public function __construct(
@@ -46,7 +46,7 @@ class SystemRoutingGetRouteDeviceListRequest extends ComplexType implements Comp
         $this->routeName = ($routeName InstanceOf RouteName)
              ? $routeName
              : new RouteName($routeName);
-        $this->routeName->setName('routeName');
+        $this->routeName->setElementName('routeName');
         return $this;
     }
 
@@ -56,6 +56,8 @@ class SystemRoutingGetRouteDeviceListRequest extends ComplexType implements Comp
      */
     public function getRouteName()
     {
-        return ($this->routeName) ? $this->routeName->getValue() : null;
+        return ($this->routeName)
+            ? $this->routeName->getElementValue()
+            : null;
     }
 }

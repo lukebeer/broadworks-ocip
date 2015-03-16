@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
 class SystemTimeScheduleGetRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType     = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\SystemTimeScheduleGetResponse';
-    public    $name = 'SystemTimeScheduleGetRequest';
+    public    $elementName = 'SystemTimeScheduleGetRequest';
     protected $timeScheduleName;
 
     public function __construct(
@@ -46,7 +46,7 @@ class SystemTimeScheduleGetRequest extends ComplexType implements ComplexInterfa
         $this->timeScheduleName = ($timeScheduleName InstanceOf ScheduleName)
              ? $timeScheduleName
              : new ScheduleName($timeScheduleName);
-        $this->timeScheduleName->setName('timeScheduleName');
+        $this->timeScheduleName->setElementName('timeScheduleName');
         return $this;
     }
 
@@ -56,6 +56,8 @@ class SystemTimeScheduleGetRequest extends ComplexType implements ComplexInterfa
      */
     public function getTimeScheduleName()
     {
-        return ($this->timeScheduleName) ? $this->timeScheduleName->getValue() : null;
+        return ($this->timeScheduleName)
+            ? $this->timeScheduleName->getElementValue()
+            : null;
     }
 }

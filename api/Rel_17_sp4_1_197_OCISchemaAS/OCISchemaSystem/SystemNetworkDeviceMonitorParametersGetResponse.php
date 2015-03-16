@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemNetworkDeviceMonitorParametersGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemNetworkDeviceMonitorParametersGetResponse';
+    public    $elementName = 'SystemNetworkDeviceMonitorParametersGetResponse';
     protected $pollingIntervalMinutes;
     protected $failedPollingIntervalMinutes;
 
@@ -41,7 +41,7 @@ class SystemNetworkDeviceMonitorParametersGetResponse extends ComplexType implem
         $this->pollingIntervalMinutes = ($pollingIntervalMinutes InstanceOf NetworkDeviceMonitorPollingIntervalMinutes)
              ? $pollingIntervalMinutes
              : new NetworkDeviceMonitorPollingIntervalMinutes($pollingIntervalMinutes);
-        $this->pollingIntervalMinutes->setName('pollingIntervalMinutes');
+        $this->pollingIntervalMinutes->setElementName('pollingIntervalMinutes');
         return $this;
     }
 
@@ -51,7 +51,9 @@ class SystemNetworkDeviceMonitorParametersGetResponse extends ComplexType implem
      */
     public function getPollingIntervalMinutes()
     {
-        return ($this->pollingIntervalMinutes) ? $this->pollingIntervalMinutes->getValue() : null;
+        return ($this->pollingIntervalMinutes)
+            ? $this->pollingIntervalMinutes->getElementValue()
+            : null;
     }
 
     /**
@@ -62,7 +64,7 @@ class SystemNetworkDeviceMonitorParametersGetResponse extends ComplexType implem
         $this->failedPollingIntervalMinutes = ($failedPollingIntervalMinutes InstanceOf NetworkDeviceMonitorFailedPollingIntervalMinutes)
              ? $failedPollingIntervalMinutes
              : new NetworkDeviceMonitorFailedPollingIntervalMinutes($failedPollingIntervalMinutes);
-        $this->failedPollingIntervalMinutes->setName('failedPollingIntervalMinutes');
+        $this->failedPollingIntervalMinutes->setElementName('failedPollingIntervalMinutes');
         return $this;
     }
 
@@ -72,6 +74,8 @@ class SystemNetworkDeviceMonitorParametersGetResponse extends ComplexType implem
      */
     public function getFailedPollingIntervalMinutes()
     {
-        return ($this->failedPollingIntervalMinutes) ? $this->failedPollingIntervalMinutes->getValue() : null;
+        return ($this->failedPollingIntervalMinutes)
+            ? $this->failedPollingIntervalMinutes->getElementValue()
+            : null;
     }
 }

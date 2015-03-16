@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupCallCenterAgentUnavailableCodeGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'GroupCallCenterAgentUnavailableCodeGetListResponse';
+    public    $elementName = 'GroupCallCenterAgentUnavailableCodeGetListResponse';
     protected $unavailableCodesTable;
 
     /**
@@ -37,7 +37,7 @@ class GroupCallCenterAgentUnavailableCodeGetListResponse extends ComplexType imp
     public function setUnavailableCodesTable(TableType $unavailableCodesTable = null)
     {
         $this->unavailableCodesTable = $unavailableCodesTable;
-        $this->unavailableCodesTable->setName('unavailableCodesTable');
+        $this->unavailableCodesTable->setElementName('unavailableCodesTable');
         return $this;
     }
 

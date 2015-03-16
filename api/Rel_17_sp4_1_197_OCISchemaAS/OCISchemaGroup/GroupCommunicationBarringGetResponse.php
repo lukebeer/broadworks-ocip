@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupCommunicationBarringGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'GroupCommunicationBarringGetResponse';
+    public    $elementName = 'GroupCommunicationBarringGetResponse';
     protected $useDefaultServiceProviderProfile;
     protected $profile;
 
@@ -38,7 +38,7 @@ class GroupCommunicationBarringGetResponse extends ComplexType implements Comple
     public function setUseDefaultServiceProviderProfile($useDefaultServiceProviderProfile = null)
     {
         $this->useDefaultServiceProviderProfile = new PrimitiveType($useDefaultServiceProviderProfile);
-        $this->useDefaultServiceProviderProfile->setName('useDefaultServiceProviderProfile');
+        $this->useDefaultServiceProviderProfile->setElementName('useDefaultServiceProviderProfile');
         return $this;
     }
 
@@ -48,7 +48,9 @@ class GroupCommunicationBarringGetResponse extends ComplexType implements Comple
      */
     public function getUseDefaultServiceProviderProfile()
     {
-        return ($this->useDefaultServiceProviderProfile) ? $this->useDefaultServiceProviderProfile->getValue() : null;
+        return ($this->useDefaultServiceProviderProfile)
+            ? $this->useDefaultServiceProviderProfile->getElementValue()
+            : null;
     }
 
     /**
@@ -59,7 +61,7 @@ class GroupCommunicationBarringGetResponse extends ComplexType implements Comple
         $this->profile = ($profile InstanceOf CommunicationBarringProfileName)
              ? $profile
              : new CommunicationBarringProfileName($profile);
-        $this->profile->setName('profile');
+        $this->profile->setElementName('profile');
         return $this;
     }
 
@@ -69,6 +71,8 @@ class GroupCommunicationBarringGetResponse extends ComplexType implements Comple
      */
     public function getProfile()
     {
-        return ($this->profile) ? $this->profile->getValue() : null;
+        return ($this->profile)
+            ? $this->profile->getElementValue()
+            : null;
     }
 }

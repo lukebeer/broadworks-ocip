@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemCallRecordingGetPlatformUsageResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemCallRecordingGetPlatformUsageResponse';
+    public    $elementName = 'SystemCallRecordingGetPlatformUsageResponse';
     protected $groupTable;
 
     /**
@@ -37,7 +37,7 @@ class SystemCallRecordingGetPlatformUsageResponse extends ComplexType implements
     public function setGroupTable(TableType $groupTable = null)
     {
         $this->groupTable = $groupTable;
-        $this->groupTable->setName('groupTable');
+        $this->groupTable->setElementName('groupTable');
         return $this;
     }
 

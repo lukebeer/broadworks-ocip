@@ -26,7 +26,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserBroadWorksAnywhereModifySelectiveCriteriaRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'UserBroadWorksAnywhereModifySelectiveCriteriaRequest';
+    public    $elementName = 'UserBroadWorksAnywhereModifySelectiveCriteriaRequest';
     protected $userId;
     protected $phoneNumber;
     protected $criteriaName;
@@ -72,7 +72,7 @@ class UserBroadWorksAnywhereModifySelectiveCriteriaRequest extends ComplexType i
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
-        $this->userId->setName('userId');
+        $this->userId->setElementName('userId');
         return $this;
     }
 
@@ -82,7 +82,9 @@ class UserBroadWorksAnywhereModifySelectiveCriteriaRequest extends ComplexType i
      */
     public function getUserId()
     {
-        return ($this->userId) ? $this->userId->getValue() : null;
+        return ($this->userId)
+            ? $this->userId->getElementValue()
+            : null;
     }
 
     /**
@@ -93,7 +95,7 @@ class UserBroadWorksAnywhereModifySelectiveCriteriaRequest extends ComplexType i
         $this->phoneNumber = ($phoneNumber InstanceOf DN)
              ? $phoneNumber
              : new DN($phoneNumber);
-        $this->phoneNumber->setName('phoneNumber');
+        $this->phoneNumber->setElementName('phoneNumber');
         return $this;
     }
 
@@ -103,7 +105,9 @@ class UserBroadWorksAnywhereModifySelectiveCriteriaRequest extends ComplexType i
      */
     public function getPhoneNumber()
     {
-        return ($this->phoneNumber) ? $this->phoneNumber->getValue() : null;
+        return ($this->phoneNumber)
+            ? $this->phoneNumber->getElementValue()
+            : null;
     }
 
     /**
@@ -114,7 +118,7 @@ class UserBroadWorksAnywhereModifySelectiveCriteriaRequest extends ComplexType i
         $this->criteriaName = ($criteriaName InstanceOf CriteriaName)
              ? $criteriaName
              : new CriteriaName($criteriaName);
-        $this->criteriaName->setName('criteriaName');
+        $this->criteriaName->setElementName('criteriaName');
         return $this;
     }
 
@@ -124,7 +128,9 @@ class UserBroadWorksAnywhereModifySelectiveCriteriaRequest extends ComplexType i
      */
     public function getCriteriaName()
     {
-        return ($this->criteriaName) ? $this->criteriaName->getValue() : null;
+        return ($this->criteriaName)
+            ? $this->criteriaName->getElementValue()
+            : null;
     }
 
     /**
@@ -135,7 +141,7 @@ class UserBroadWorksAnywhereModifySelectiveCriteriaRequest extends ComplexType i
         $this->newCriteriaName = ($newCriteriaName InstanceOf CriteriaName)
              ? $newCriteriaName
              : new CriteriaName($newCriteriaName);
-        $this->newCriteriaName->setName('newCriteriaName');
+        $this->newCriteriaName->setElementName('newCriteriaName');
         return $this;
     }
 
@@ -145,7 +151,9 @@ class UserBroadWorksAnywhereModifySelectiveCriteriaRequest extends ComplexType i
      */
     public function getNewCriteriaName()
     {
-        return ($this->newCriteriaName) ? $this->newCriteriaName->getValue() : null;
+        return ($this->newCriteriaName)
+            ? $this->newCriteriaName->getElementValue()
+            : null;
     }
 
     /**
@@ -156,7 +164,7 @@ class UserBroadWorksAnywhereModifySelectiveCriteriaRequest extends ComplexType i
         $this->timeSchedule = ($timeSchedule InstanceOf TimeSchedule)
              ? $timeSchedule
              : new TimeSchedule($timeSchedule);
-        $this->timeSchedule->setName('timeSchedule');
+        $this->timeSchedule->setElementName('timeSchedule');
         return $this;
     }
 
@@ -177,7 +185,7 @@ class UserBroadWorksAnywhereModifySelectiveCriteriaRequest extends ComplexType i
         $this->fromDnCriteria = ($fromDnCriteria InstanceOf CriteriaFromDnModify)
              ? $fromDnCriteria
              : new CriteriaFromDnModify($fromDnCriteria);
-        $this->fromDnCriteria->setName('fromDnCriteria');
+        $this->fromDnCriteria->setElementName('fromDnCriteria');
         return $this;
     }
 
@@ -198,7 +206,7 @@ class UserBroadWorksAnywhereModifySelectiveCriteriaRequest extends ComplexType i
         $this->holidaySchedule = ($holidaySchedule InstanceOf HolidaySchedule)
              ? $holidaySchedule
              : new HolidaySchedule($holidaySchedule);
-        $this->holidaySchedule->setName('holidaySchedule');
+        $this->holidaySchedule->setElementName('holidaySchedule');
         return $this;
     }
 
@@ -217,7 +225,7 @@ class UserBroadWorksAnywhereModifySelectiveCriteriaRequest extends ComplexType i
     public function setBlacklisted($blacklisted = null)
     {
         $this->blacklisted = new PrimitiveType($blacklisted);
-        $this->blacklisted->setName('blacklisted');
+        $this->blacklisted->setElementName('blacklisted');
         return $this;
     }
 
@@ -227,6 +235,8 @@ class UserBroadWorksAnywhereModifySelectiveCriteriaRequest extends ComplexType i
      */
     public function getBlacklisted()
     {
-        return ($this->blacklisted) ? $this->blacklisted->getValue() : null;
+        return ($this->blacklisted)
+            ? $this->blacklisted->getElementValue()
+            : null;
     }
 }

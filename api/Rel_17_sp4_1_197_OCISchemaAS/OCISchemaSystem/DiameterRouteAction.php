@@ -16,12 +16,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\Enumeration;
  */
 class DiameterRouteAction extends SimpleType
 {
-    public $name = "DiameterRouteAction";
-    protected $value;
-
+    public $elementName = "DiameterRouteAction";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new Enumeration([
             'Local',
             'Relay'

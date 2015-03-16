@@ -16,12 +16,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\Enumeration;
  */
 class CallCenterReportTemplateAccessOption extends SimpleType
 {
-    public $name = "CallCenterReportTemplateAccessOption";
-    protected $value;
-
+    public $elementName = "CallCenterReportTemplateAccessOption";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new Enumeration([
             'Supervisor Only',
             'Supervisor and Agent'

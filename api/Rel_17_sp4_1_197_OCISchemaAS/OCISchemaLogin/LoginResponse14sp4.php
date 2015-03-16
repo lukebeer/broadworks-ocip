@@ -25,7 +25,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class LoginResponse14sp4 extends ComplexType implements ComplexInterface
 {
-    public    $name = 'LoginResponse14sp4';
+    public    $elementName = 'LoginResponse14sp4';
     protected $loginType;
     protected $locale;
     protected $encoding;
@@ -51,7 +51,7 @@ class LoginResponse14sp4 extends ComplexType implements ComplexInterface
         $this->loginType = ($loginType InstanceOf LoginType)
              ? $loginType
              : new LoginType($loginType);
-        $this->loginType->setName('loginType');
+        $this->loginType->setElementName('loginType');
         return $this;
     }
 
@@ -61,7 +61,9 @@ class LoginResponse14sp4 extends ComplexType implements ComplexInterface
      */
     public function getLoginType()
     {
-        return ($this->loginType) ? $this->loginType->getValue() : null;
+        return ($this->loginType)
+            ? $this->loginType->getElementValue()
+            : null;
     }
 
     /**
@@ -72,7 +74,7 @@ class LoginResponse14sp4 extends ComplexType implements ComplexInterface
         $this->locale = ($locale InstanceOf OCILocale)
              ? $locale
              : new OCILocale($locale);
-        $this->locale->setName('locale');
+        $this->locale->setElementName('locale');
         return $this;
     }
 
@@ -82,7 +84,9 @@ class LoginResponse14sp4 extends ComplexType implements ComplexInterface
      */
     public function getLocale()
     {
-        return ($this->locale) ? $this->locale->getValue() : null;
+        return ($this->locale)
+            ? $this->locale->getElementValue()
+            : null;
     }
 
     /**
@@ -93,7 +97,7 @@ class LoginResponse14sp4 extends ComplexType implements ComplexInterface
         $this->encoding = ($encoding InstanceOf Encoding)
              ? $encoding
              : new Encoding($encoding);
-        $this->encoding->setName('encoding');
+        $this->encoding->setElementName('encoding');
         return $this;
     }
 
@@ -103,7 +107,9 @@ class LoginResponse14sp4 extends ComplexType implements ComplexInterface
      */
     public function getEncoding()
     {
-        return ($this->encoding) ? $this->encoding->getValue() : null;
+        return ($this->encoding)
+            ? $this->encoding->getElementValue()
+            : null;
     }
 
     /**
@@ -114,7 +120,7 @@ class LoginResponse14sp4 extends ComplexType implements ComplexInterface
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
-        $this->groupId->setName('groupId');
+        $this->groupId->setElementName('groupId');
         return $this;
     }
 
@@ -124,7 +130,9 @@ class LoginResponse14sp4 extends ComplexType implements ComplexInterface
      */
     public function getGroupId()
     {
-        return ($this->groupId) ? $this->groupId->getValue() : null;
+        return ($this->groupId)
+            ? $this->groupId->getElementValue()
+            : null;
     }
 
     /**
@@ -135,7 +143,7 @@ class LoginResponse14sp4 extends ComplexType implements ComplexInterface
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
-        $this->serviceProviderId->setName('serviceProviderId');
+        $this->serviceProviderId->setElementName('serviceProviderId');
         return $this;
     }
 
@@ -145,7 +153,9 @@ class LoginResponse14sp4 extends ComplexType implements ComplexInterface
      */
     public function getServiceProviderId()
     {
-        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
+        return ($this->serviceProviderId)
+            ? $this->serviceProviderId->getElementValue()
+            : null;
     }
 
     /**
@@ -154,7 +164,7 @@ class LoginResponse14sp4 extends ComplexType implements ComplexInterface
     public function setIsEnterprise($isEnterprise = null)
     {
         $this->isEnterprise = new PrimitiveType($isEnterprise);
-        $this->isEnterprise->setName('isEnterprise');
+        $this->isEnterprise->setElementName('isEnterprise');
         return $this;
     }
 
@@ -164,7 +174,9 @@ class LoginResponse14sp4 extends ComplexType implements ComplexInterface
      */
     public function getIsEnterprise()
     {
-        return ($this->isEnterprise) ? $this->isEnterprise->getValue() : null;
+        return ($this->isEnterprise)
+            ? $this->isEnterprise->getElementValue()
+            : null;
     }
 
     /**
@@ -173,7 +185,7 @@ class LoginResponse14sp4 extends ComplexType implements ComplexInterface
     public function setPasswordExpiresDays($passwordExpiresDays = null)
     {
         $this->passwordExpiresDays = new PrimitiveType($passwordExpiresDays);
-        $this->passwordExpiresDays->setName('passwordExpiresDays');
+        $this->passwordExpiresDays->setElementName('passwordExpiresDays');
         return $this;
     }
 
@@ -183,7 +195,9 @@ class LoginResponse14sp4 extends ComplexType implements ComplexInterface
      */
     public function getPasswordExpiresDays()
     {
-        return ($this->passwordExpiresDays) ? $this->passwordExpiresDays->getValue() : null;
+        return ($this->passwordExpiresDays)
+            ? $this->passwordExpiresDays->getElementValue()
+            : null;
     }
 
     /**
@@ -194,7 +208,7 @@ class LoginResponse14sp4 extends ComplexType implements ComplexInterface
         $this->userDomain = ($userDomain InstanceOf NetAddress)
              ? $userDomain
              : new NetAddress($userDomain);
-        $this->userDomain->setName('userDomain');
+        $this->userDomain->setElementName('userDomain');
         return $this;
     }
 
@@ -204,6 +218,8 @@ class LoginResponse14sp4 extends ComplexType implements ComplexInterface
      */
     public function getUserDomain()
     {
-        return ($this->userDomain) ? $this->userDomain->getValue() : null;
+        return ($this->userDomain)
+            ? $this->userDomain->getElementValue()
+            : null;
     }
 }

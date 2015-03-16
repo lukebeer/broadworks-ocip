@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserPrivacyGetAvailableMonitorsUserListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'UserPrivacyGetAvailableMonitorsUserListResponse';
+    public    $elementName = 'UserPrivacyGetAvailableMonitorsUserListResponse';
     protected $availableMonitorsTable;
 
     /**
@@ -39,7 +39,7 @@ class UserPrivacyGetAvailableMonitorsUserListResponse extends ComplexType implem
     public function setAvailableMonitorsTable(TableType $availableMonitorsTable = null)
     {
         $this->availableMonitorsTable = $availableMonitorsTable;
-        $this->availableMonitorsTable->setName('availableMonitorsTable');
+        $this->availableMonitorsTable->setElementName('availableMonitorsTable');
         return $this;
     }
 

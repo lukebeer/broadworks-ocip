@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemCodecDeleteRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemCodecDeleteRequest';
+    public    $elementName = 'SystemCodecDeleteRequest';
     protected $codec;
 
     public function __construct(
@@ -45,7 +45,7 @@ class SystemCodecDeleteRequest extends ComplexType implements ComplexInterface
         $this->codec = ($codec InstanceOf Codec)
              ? $codec
              : new Codec($codec);
-        $this->codec->setName('codec');
+        $this->codec->setElementName('codec');
         return $this;
     }
 
@@ -55,6 +55,8 @@ class SystemCodecDeleteRequest extends ComplexType implements ComplexInterface
      */
     public function getCodec()
     {
-        return ($this->codec) ? $this->codec->getValue() : null;
+        return ($this->codec)
+            ? $this->codec->getElementValue()
+            : null;
     }
 }

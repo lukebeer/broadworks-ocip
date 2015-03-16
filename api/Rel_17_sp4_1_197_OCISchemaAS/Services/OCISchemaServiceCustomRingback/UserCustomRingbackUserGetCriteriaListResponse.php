@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserCustomRingbackUserGetCriteriaListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'UserCustomRingbackUserGetCriteriaListResponse';
+    public    $elementName = 'UserCustomRingbackUserGetCriteriaListResponse';
     protected $criteriaTable;
 
     /**
@@ -38,7 +38,7 @@ class UserCustomRingbackUserGetCriteriaListResponse extends ComplexType implemen
     public function setCriteriaTable(TableType $criteriaTable = null)
     {
         $this->criteriaTable = $criteriaTable;
-        $this->criteriaTable->setName('criteriaTable');
+        $this->criteriaTable->setElementName('criteriaTable');
         return $this;
     }
 

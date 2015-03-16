@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
 class SystemMusicOnHoldGetRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceMusicOnHold\SystemMusicOnHoldGetResponse';
-    public    $name = 'SystemMusicOnHoldGetRequest';
+    public    $elementName = 'SystemMusicOnHoldGetRequest';
 
     public function __construct(    ) {
     }

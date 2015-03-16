@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupScheduleGetListResponse17sp1 extends ComplexType implements ComplexInterface
 {
-    public    $name = 'GroupScheduleGetListResponse17sp1';
+    public    $elementName = 'GroupScheduleGetListResponse17sp1';
     protected $scheduleGlobalKey;
 
     /**
@@ -40,7 +40,7 @@ class GroupScheduleGetListResponse17sp1 extends ComplexType implements ComplexIn
         $this->scheduleGlobalKey = ($scheduleGlobalKey InstanceOf ScheduleGlobalKey)
              ? $scheduleGlobalKey
              : new ScheduleGlobalKey($scheduleGlobalKey);
-        $this->scheduleGlobalKey->setName('scheduleGlobalKey');
+        $this->scheduleGlobalKey->setElementName('scheduleGlobalKey');
         return $this;
     }
 

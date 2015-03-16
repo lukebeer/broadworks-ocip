@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderNetworkClassOfServiceUnassignListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'ServiceProviderNetworkClassOfServiceUnassignListRequest';
+    public    $elementName = 'ServiceProviderNetworkClassOfServiceUnassignListRequest';
     protected $serviceProviderId;
     protected $networkClassOfService;
     protected $defaultNetworkClassOfService;
@@ -52,7 +52,7 @@ class ServiceProviderNetworkClassOfServiceUnassignListRequest extends ComplexTyp
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
-        $this->serviceProviderId->setName('serviceProviderId');
+        $this->serviceProviderId->setElementName('serviceProviderId');
         return $this;
     }
 
@@ -62,7 +62,9 @@ class ServiceProviderNetworkClassOfServiceUnassignListRequest extends ComplexTyp
      */
     public function getServiceProviderId()
     {
-        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
+        return ($this->serviceProviderId)
+            ? $this->serviceProviderId->getElementValue()
+            : null;
     }
 
     /**
@@ -73,7 +75,7 @@ class ServiceProviderNetworkClassOfServiceUnassignListRequest extends ComplexTyp
         $this->networkClassOfService = ($networkClassOfService InstanceOf NetworkClassOfServiceName)
              ? $networkClassOfService
              : new NetworkClassOfServiceName($networkClassOfService);
-        $this->networkClassOfService->setName('networkClassOfService');
+        $this->networkClassOfService->setElementName('networkClassOfService');
         return $this;
     }
 
@@ -83,7 +85,9 @@ class ServiceProviderNetworkClassOfServiceUnassignListRequest extends ComplexTyp
      */
     public function getNetworkClassOfService()
     {
-        return ($this->networkClassOfService) ? $this->networkClassOfService->getValue() : null;
+        return ($this->networkClassOfService)
+            ? $this->networkClassOfService->getElementValue()
+            : null;
     }
 
     /**
@@ -94,7 +98,7 @@ class ServiceProviderNetworkClassOfServiceUnassignListRequest extends ComplexTyp
         $this->defaultNetworkClassOfService = ($defaultNetworkClassOfService InstanceOf NetworkClassOfServiceName)
              ? $defaultNetworkClassOfService
              : new NetworkClassOfServiceName($defaultNetworkClassOfService);
-        $this->defaultNetworkClassOfService->setName('defaultNetworkClassOfService');
+        $this->defaultNetworkClassOfService->setElementName('defaultNetworkClassOfService');
         return $this;
     }
 
@@ -104,6 +108,8 @@ class ServiceProviderNetworkClassOfServiceUnassignListRequest extends ComplexTyp
      */
     public function getDefaultNetworkClassOfService()
     {
-        return ($this->defaultNetworkClassOfService) ? $this->defaultNetworkClassOfService->getValue() : null;
+        return ($this->defaultNetworkClassOfService)
+            ? $this->defaultNetworkClassOfService->getElementValue()
+            : null;
     }
 }

@@ -26,7 +26,7 @@ use Broadworks_OCIP\core\Client\Client;
 class ServiceProviderAccessDeviceGetListRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType                   = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderAccessDeviceGetListResponse';
-    public    $name = 'ServiceProviderAccessDeviceGetListRequest';
+    public    $elementName = 'ServiceProviderAccessDeviceGetListRequest';
     protected $serviceProviderId;
     protected $responseSizeLimit;
     protected $searchCriteriaDeviceName;
@@ -66,7 +66,7 @@ class ServiceProviderAccessDeviceGetListRequest extends ComplexType implements C
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
-        $this->serviceProviderId->setName('serviceProviderId');
+        $this->serviceProviderId->setElementName('serviceProviderId');
         return $this;
     }
 
@@ -76,7 +76,9 @@ class ServiceProviderAccessDeviceGetListRequest extends ComplexType implements C
      */
     public function getServiceProviderId()
     {
-        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
+        return ($this->serviceProviderId)
+            ? $this->serviceProviderId->getElementValue()
+            : null;
     }
 
     /**
@@ -87,7 +89,7 @@ class ServiceProviderAccessDeviceGetListRequest extends ComplexType implements C
         $this->responseSizeLimit = ($responseSizeLimit InstanceOf ResponseSizeLimit)
              ? $responseSizeLimit
              : new ResponseSizeLimit($responseSizeLimit);
-        $this->responseSizeLimit->setName('responseSizeLimit');
+        $this->responseSizeLimit->setElementName('responseSizeLimit');
         return $this;
     }
 
@@ -97,7 +99,9 @@ class ServiceProviderAccessDeviceGetListRequest extends ComplexType implements C
      */
     public function getResponseSizeLimit()
     {
-        return ($this->responseSizeLimit) ? $this->responseSizeLimit->getValue() : null;
+        return ($this->responseSizeLimit)
+            ? $this->responseSizeLimit->getElementValue()
+            : null;
     }
 
     /**
@@ -108,7 +112,7 @@ class ServiceProviderAccessDeviceGetListRequest extends ComplexType implements C
         $this->searchCriteriaDeviceName = ($searchCriteriaDeviceName InstanceOf SearchCriteriaDeviceName)
              ? $searchCriteriaDeviceName
              : new SearchCriteriaDeviceName($searchCriteriaDeviceName);
-        $this->searchCriteriaDeviceName->setName('searchCriteriaDeviceName');
+        $this->searchCriteriaDeviceName->setElementName('searchCriteriaDeviceName');
         return $this;
     }
 
@@ -129,7 +133,7 @@ class ServiceProviderAccessDeviceGetListRequest extends ComplexType implements C
         $this->searchCriteriaDeviceMACAddress = ($searchCriteriaDeviceMACAddress InstanceOf SearchCriteriaDeviceMACAddress)
              ? $searchCriteriaDeviceMACAddress
              : new SearchCriteriaDeviceMACAddress($searchCriteriaDeviceMACAddress);
-        $this->searchCriteriaDeviceMACAddress->setName('searchCriteriaDeviceMACAddress');
+        $this->searchCriteriaDeviceMACAddress->setElementName('searchCriteriaDeviceMACAddress');
         return $this;
     }
 
@@ -150,7 +154,7 @@ class ServiceProviderAccessDeviceGetListRequest extends ComplexType implements C
         $this->searchCriteriaDeviceNetAddress = ($searchCriteriaDeviceNetAddress InstanceOf SearchCriteriaDeviceNetAddress)
              ? $searchCriteriaDeviceNetAddress
              : new SearchCriteriaDeviceNetAddress($searchCriteriaDeviceNetAddress);
-        $this->searchCriteriaDeviceNetAddress->setName('searchCriteriaDeviceNetAddress');
+        $this->searchCriteriaDeviceNetAddress->setElementName('searchCriteriaDeviceNetAddress');
         return $this;
     }
 
@@ -171,7 +175,7 @@ class ServiceProviderAccessDeviceGetListRequest extends ComplexType implements C
         $this->searchCriteriaExactDeviceType = ($searchCriteriaExactDeviceType InstanceOf SearchCriteriaExactDeviceType)
              ? $searchCriteriaExactDeviceType
              : new SearchCriteriaExactDeviceType($searchCriteriaExactDeviceType);
-        $this->searchCriteriaExactDeviceType->setName('searchCriteriaExactDeviceType');
+        $this->searchCriteriaExactDeviceType->setElementName('searchCriteriaExactDeviceType');
         return $this;
     }
 

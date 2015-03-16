@@ -27,7 +27,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupCallCenterOverflowModifyRequest17 extends ComplexType implements ComplexInterface
 {
-    public    $name = 'GroupCallCenterOverflowModifyRequest17';
+    public    $elementName = 'GroupCallCenterOverflowModifyRequest17';
     protected $serviceUserId;
     protected $action;
     protected $transferPhoneNumber;
@@ -85,7 +85,7 @@ class GroupCallCenterOverflowModifyRequest17 extends ComplexType implements Comp
         $this->serviceUserId = ($serviceUserId InstanceOf UserId)
              ? $serviceUserId
              : new UserId($serviceUserId);
-        $this->serviceUserId->setName('serviceUserId');
+        $this->serviceUserId->setElementName('serviceUserId');
         return $this;
     }
 
@@ -95,7 +95,9 @@ class GroupCallCenterOverflowModifyRequest17 extends ComplexType implements Comp
      */
     public function getServiceUserId()
     {
-        return ($this->serviceUserId) ? $this->serviceUserId->getValue() : null;
+        return ($this->serviceUserId)
+            ? $this->serviceUserId->getElementValue()
+            : null;
     }
 
     /**
@@ -106,7 +108,7 @@ class GroupCallCenterOverflowModifyRequest17 extends ComplexType implements Comp
         $this->action = ($action InstanceOf CallCenterOverflowProcessingAction)
              ? $action
              : new CallCenterOverflowProcessingAction($action);
-        $this->action->setName('action');
+        $this->action->setElementName('action');
         return $this;
     }
 
@@ -116,7 +118,9 @@ class GroupCallCenterOverflowModifyRequest17 extends ComplexType implements Comp
      */
     public function getAction()
     {
-        return ($this->action) ? $this->action->getValue() : null;
+        return ($this->action)
+            ? $this->action->getElementValue()
+            : null;
     }
 
     /**
@@ -127,7 +131,7 @@ class GroupCallCenterOverflowModifyRequest17 extends ComplexType implements Comp
         $this->transferPhoneNumber = ($transferPhoneNumber InstanceOf OutgoingDNorSIPURI)
              ? $transferPhoneNumber
              : new OutgoingDNorSIPURI($transferPhoneNumber);
-        $this->transferPhoneNumber->setName('transferPhoneNumber');
+        $this->transferPhoneNumber->setElementName('transferPhoneNumber');
         return $this;
     }
 
@@ -137,7 +141,9 @@ class GroupCallCenterOverflowModifyRequest17 extends ComplexType implements Comp
      */
     public function getTransferPhoneNumber()
     {
-        return ($this->transferPhoneNumber) ? $this->transferPhoneNumber->getValue() : null;
+        return ($this->transferPhoneNumber)
+            ? $this->transferPhoneNumber->getElementValue()
+            : null;
     }
 
     /**
@@ -146,7 +152,7 @@ class GroupCallCenterOverflowModifyRequest17 extends ComplexType implements Comp
     public function setOverflowAfterTimeout($overflowAfterTimeout = null)
     {
         $this->overflowAfterTimeout = new PrimitiveType($overflowAfterTimeout);
-        $this->overflowAfterTimeout->setName('overflowAfterTimeout');
+        $this->overflowAfterTimeout->setElementName('overflowAfterTimeout');
         return $this;
     }
 
@@ -156,7 +162,9 @@ class GroupCallCenterOverflowModifyRequest17 extends ComplexType implements Comp
      */
     public function getOverflowAfterTimeout()
     {
-        return ($this->overflowAfterTimeout) ? $this->overflowAfterTimeout->getValue() : null;
+        return ($this->overflowAfterTimeout)
+            ? $this->overflowAfterTimeout->getElementValue()
+            : null;
     }
 
     /**
@@ -167,7 +175,7 @@ class GroupCallCenterOverflowModifyRequest17 extends ComplexType implements Comp
         $this->timeoutSeconds = ($timeoutSeconds InstanceOf HuntForwardTimeoutSeconds)
              ? $timeoutSeconds
              : new HuntForwardTimeoutSeconds($timeoutSeconds);
-        $this->timeoutSeconds->setName('timeoutSeconds');
+        $this->timeoutSeconds->setElementName('timeoutSeconds');
         return $this;
     }
 
@@ -177,7 +185,9 @@ class GroupCallCenterOverflowModifyRequest17 extends ComplexType implements Comp
      */
     public function getTimeoutSeconds()
     {
-        return ($this->timeoutSeconds) ? $this->timeoutSeconds->getValue() : null;
+        return ($this->timeoutSeconds)
+            ? $this->timeoutSeconds->getElementValue()
+            : null;
     }
 
     /**
@@ -186,7 +196,7 @@ class GroupCallCenterOverflowModifyRequest17 extends ComplexType implements Comp
     public function setPlayAnnouncementBeforeOverflowProcessing($playAnnouncementBeforeOverflowProcessing = null)
     {
         $this->playAnnouncementBeforeOverflowProcessing = new PrimitiveType($playAnnouncementBeforeOverflowProcessing);
-        $this->playAnnouncementBeforeOverflowProcessing->setName('playAnnouncementBeforeOverflowProcessing');
+        $this->playAnnouncementBeforeOverflowProcessing->setElementName('playAnnouncementBeforeOverflowProcessing');
         return $this;
     }
 
@@ -196,7 +206,9 @@ class GroupCallCenterOverflowModifyRequest17 extends ComplexType implements Comp
      */
     public function getPlayAnnouncementBeforeOverflowProcessing()
     {
-        return ($this->playAnnouncementBeforeOverflowProcessing) ? $this->playAnnouncementBeforeOverflowProcessing->getValue() : null;
+        return ($this->playAnnouncementBeforeOverflowProcessing)
+            ? $this->playAnnouncementBeforeOverflowProcessing->getElementValue()
+            : null;
     }
 
     /**
@@ -207,7 +219,7 @@ class GroupCallCenterOverflowModifyRequest17 extends ComplexType implements Comp
         $this->audioMessageSelection = ($audioMessageSelection InstanceOf ExtendedFileResourceSelection)
              ? $audioMessageSelection
              : new ExtendedFileResourceSelection($audioMessageSelection);
-        $this->audioMessageSelection->setName('audioMessageSelection');
+        $this->audioMessageSelection->setElementName('audioMessageSelection');
         return $this;
     }
 
@@ -217,7 +229,9 @@ class GroupCallCenterOverflowModifyRequest17 extends ComplexType implements Comp
      */
     public function getAudioMessageSelection()
     {
-        return ($this->audioMessageSelection) ? $this->audioMessageSelection->getValue() : null;
+        return ($this->audioMessageSelection)
+            ? $this->audioMessageSelection->getElementValue()
+            : null;
     }
 
     /**
@@ -228,7 +242,7 @@ class GroupCallCenterOverflowModifyRequest17 extends ComplexType implements Comp
         $this->audioUrlList = ($audioUrlList InstanceOf CallCenterAnnouncementURLListModify)
              ? $audioUrlList
              : new CallCenterAnnouncementURLListModify($audioUrlList);
-        $this->audioUrlList->setName('audioUrlList');
+        $this->audioUrlList->setElementName('audioUrlList');
         return $this;
     }
 
@@ -249,7 +263,7 @@ class GroupCallCenterOverflowModifyRequest17 extends ComplexType implements Comp
         $this->audioFileList = ($audioFileList InstanceOf CallCenterAnnouncementFileListModify)
              ? $audioFileList
              : new CallCenterAnnouncementFileListModify($audioFileList);
-        $this->audioFileList->setName('audioFileList');
+        $this->audioFileList->setElementName('audioFileList');
         return $this;
     }
 
@@ -270,7 +284,7 @@ class GroupCallCenterOverflowModifyRequest17 extends ComplexType implements Comp
         $this->videoMessageSelection = ($videoMessageSelection InstanceOf ExtendedFileResourceSelection)
              ? $videoMessageSelection
              : new ExtendedFileResourceSelection($videoMessageSelection);
-        $this->videoMessageSelection->setName('videoMessageSelection');
+        $this->videoMessageSelection->setElementName('videoMessageSelection');
         return $this;
     }
 
@@ -280,7 +294,9 @@ class GroupCallCenterOverflowModifyRequest17 extends ComplexType implements Comp
      */
     public function getVideoMessageSelection()
     {
-        return ($this->videoMessageSelection) ? $this->videoMessageSelection->getValue() : null;
+        return ($this->videoMessageSelection)
+            ? $this->videoMessageSelection->getElementValue()
+            : null;
     }
 
     /**
@@ -291,7 +307,7 @@ class GroupCallCenterOverflowModifyRequest17 extends ComplexType implements Comp
         $this->videoUrlList = ($videoUrlList InstanceOf CallCenterAnnouncementURLListModify)
              ? $videoUrlList
              : new CallCenterAnnouncementURLListModify($videoUrlList);
-        $this->videoUrlList->setName('videoUrlList');
+        $this->videoUrlList->setElementName('videoUrlList');
         return $this;
     }
 
@@ -312,7 +328,7 @@ class GroupCallCenterOverflowModifyRequest17 extends ComplexType implements Comp
         $this->videoFileList = ($videoFileList InstanceOf CallCenterAnnouncementFileListModify)
              ? $videoFileList
              : new CallCenterAnnouncementFileListModify($videoFileList);
-        $this->videoFileList->setName('videoFileList');
+        $this->videoFileList->setElementName('videoFileList');
         return $this;
     }
 

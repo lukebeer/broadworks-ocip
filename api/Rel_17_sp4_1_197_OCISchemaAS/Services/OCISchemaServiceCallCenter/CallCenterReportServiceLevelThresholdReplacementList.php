@@ -19,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class CallCenterReportServiceLevelThresholdReplacementList extends ComplexType implements ComplexInterface
 {
-    public    $name = 'CallCenterReportServiceLevelThresholdReplacementList';
+    public    $elementName = 'CallCenterReportServiceLevelThresholdReplacementList';
     protected $serviceLevelThresholdSeconds;
 
     public function __construct(
@@ -42,7 +42,7 @@ class CallCenterReportServiceLevelThresholdReplacementList extends ComplexType i
     public function setServiceLevelThresholdSeconds($serviceLevelThresholdSeconds = null)
     {
         $this->serviceLevelThresholdSeconds = new SimpleContent($serviceLevelThresholdSeconds);
-        $this->serviceLevelThresholdSeconds->setName('serviceLevelThresholdSeconds');
+        $this->serviceLevelThresholdSeconds->setElementName('serviceLevelThresholdSeconds');
         return $this;
     }
 
@@ -52,6 +52,8 @@ class CallCenterReportServiceLevelThresholdReplacementList extends ComplexType i
      */
     public function getServiceLevelThresholdSeconds()
     {
-        return ($this->serviceLevelThresholdSeconds) ? $this->serviceLevelThresholdSeconds->getValue() : null;
+        return ($this->serviceLevelThresholdSeconds)
+            ? $this->serviceLevelThresholdSeconds->getElementValue()
+            : null;
     }
 }

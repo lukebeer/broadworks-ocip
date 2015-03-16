@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderScheduleModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'ServiceProviderScheduleModifyRequest';
+    public    $elementName = 'ServiceProviderScheduleModifyRequest';
     protected $serviceProviderId;
     protected $scheduleKey;
     protected $newScheduleName;
@@ -53,7 +53,7 @@ class ServiceProviderScheduleModifyRequest extends ComplexType implements Comple
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
-        $this->serviceProviderId->setName('serviceProviderId');
+        $this->serviceProviderId->setElementName('serviceProviderId');
         return $this;
     }
 
@@ -63,7 +63,9 @@ class ServiceProviderScheduleModifyRequest extends ComplexType implements Comple
      */
     public function getServiceProviderId()
     {
-        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
+        return ($this->serviceProviderId)
+            ? $this->serviceProviderId->getElementValue()
+            : null;
     }
 
     /**
@@ -74,7 +76,7 @@ class ServiceProviderScheduleModifyRequest extends ComplexType implements Comple
         $this->scheduleKey = ($scheduleKey InstanceOf ScheduleKey)
              ? $scheduleKey
              : new ScheduleKey($scheduleKey);
-        $this->scheduleKey->setName('scheduleKey');
+        $this->scheduleKey->setElementName('scheduleKey');
         return $this;
     }
 
@@ -95,7 +97,7 @@ class ServiceProviderScheduleModifyRequest extends ComplexType implements Comple
         $this->newScheduleName = ($newScheduleName InstanceOf ScheduleName)
              ? $newScheduleName
              : new ScheduleName($newScheduleName);
-        $this->newScheduleName->setName('newScheduleName');
+        $this->newScheduleName->setElementName('newScheduleName');
         return $this;
     }
 
@@ -105,6 +107,8 @@ class ServiceProviderScheduleModifyRequest extends ComplexType implements Comple
      */
     public function getNewScheduleName()
     {
-        return ($this->newScheduleName) ? $this->newScheduleName->getValue() : null;
+        return ($this->newScheduleName)
+            ? $this->newScheduleName->getElementValue()
+            : null;
     }
 }

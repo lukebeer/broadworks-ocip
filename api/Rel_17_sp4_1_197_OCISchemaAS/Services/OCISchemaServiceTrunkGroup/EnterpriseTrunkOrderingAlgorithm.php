@@ -16,12 +16,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\Enumeration;
  */
 class EnterpriseTrunkOrderingAlgorithm extends SimpleType
 {
-    public $name = "EnterpriseTrunkOrderingAlgorithm";
-    protected $value;
-
+    public $elementName = "EnterpriseTrunkOrderingAlgorithm";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new Enumeration([
             'Ordered Load Balancing',
             'Overflow',

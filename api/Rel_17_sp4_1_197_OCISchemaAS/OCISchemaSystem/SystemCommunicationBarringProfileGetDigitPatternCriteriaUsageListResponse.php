@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemCommunicationBarringProfileGetDigitPatternCriteriaUsageListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemCommunicationBarringProfileGetDigitPatternCriteriaUsageListResponse';
+    public    $elementName = 'SystemCommunicationBarringProfileGetDigitPatternCriteriaUsageListResponse';
     protected $profileTable;
 
     /**
@@ -37,7 +37,7 @@ class SystemCommunicationBarringProfileGetDigitPatternCriteriaUsageListResponse 
     public function setProfileTable(TableType $profileTable = null)
     {
         $this->profileTable = $profileTable;
-        $this->profileTable->setName('profileTable');
+        $this->profileTable->setElementName('profileTable');
         return $this;
     }
 

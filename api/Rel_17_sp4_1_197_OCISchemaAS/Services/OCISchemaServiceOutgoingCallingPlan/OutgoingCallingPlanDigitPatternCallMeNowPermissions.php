@@ -19,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class OutgoingCallingPlanDigitPatternCallMeNowPermissions extends ComplexType implements ComplexInterface
 {
-    public    $name = 'OutgoingCallingPlanDigitPatternCallMeNowPermissions';
+    public    $elementName = 'OutgoingCallingPlanDigitPatternCallMeNowPermissions';
     protected $digitPatternPermissions;
 
     public function __construct(
@@ -42,7 +42,7 @@ class OutgoingCallingPlanDigitPatternCallMeNowPermissions extends ComplexType im
     public function setDigitPatternPermissions($digitPatternPermissions = null)
     {
         $this->digitPatternPermissions = new SimpleContent($digitPatternPermissions);
-        $this->digitPatternPermissions->setName('digitPatternPermissions');
+        $this->digitPatternPermissions->setElementName('digitPatternPermissions');
         return $this;
     }
 
@@ -52,6 +52,8 @@ class OutgoingCallingPlanDigitPatternCallMeNowPermissions extends ComplexType im
      */
     public function getDigitPatternPermissions()
     {
-        return ($this->digitPatternPermissions) ? $this->digitPatternPermissions->getValue() : null;
+        return ($this->digitPatternPermissions)
+            ? $this->digitPatternPermissions->getElementValue()
+            : null;
     }
 }

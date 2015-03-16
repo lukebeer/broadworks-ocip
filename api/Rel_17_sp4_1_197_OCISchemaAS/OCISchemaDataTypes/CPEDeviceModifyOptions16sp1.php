@@ -23,7 +23,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class CPEDeviceModifyOptions16sp1 extends ComplexType implements ComplexInterface
 {
-    public    $name = 'CPEDeviceModifyOptions16sp1';
+    public    $elementName = 'CPEDeviceModifyOptions16sp1';
     protected $enableMonitoring;
     protected $deviceManagementDeviceTypeOptions;
 
@@ -49,7 +49,7 @@ class CPEDeviceModifyOptions16sp1 extends ComplexType implements ComplexInterfac
     public function setEnableMonitoring($enableMonitoring = null)
     {
         $this->enableMonitoring = new SimpleContent($enableMonitoring);
-        $this->enableMonitoring->setName('enableMonitoring');
+        $this->enableMonitoring->setElementName('enableMonitoring');
         return $this;
     }
 
@@ -59,7 +59,9 @@ class CPEDeviceModifyOptions16sp1 extends ComplexType implements ComplexInterfac
      */
     public function getEnableMonitoring()
     {
-        return ($this->enableMonitoring) ? $this->enableMonitoring->getValue() : null;
+        return ($this->enableMonitoring)
+            ? $this->enableMonitoring->getElementValue()
+            : null;
     }
 
     /**
@@ -68,7 +70,7 @@ class CPEDeviceModifyOptions16sp1 extends ComplexType implements ComplexInterfac
     public function setDeviceManagementDeviceTypeOptions($deviceManagementDeviceTypeOptions = null)
     {
         $this->deviceManagementDeviceTypeOptions = new SimpleContent($deviceManagementDeviceTypeOptions);
-        $this->deviceManagementDeviceTypeOptions->setName('deviceManagementDeviceTypeOptions');
+        $this->deviceManagementDeviceTypeOptions->setElementName('deviceManagementDeviceTypeOptions');
         return $this;
     }
 
@@ -78,6 +80,8 @@ class CPEDeviceModifyOptions16sp1 extends ComplexType implements ComplexInterfac
      */
     public function getDeviceManagementDeviceTypeOptions()
     {
-        return ($this->deviceManagementDeviceTypeOptions) ? $this->deviceManagementDeviceTypeOptions->getValue() : null;
+        return ($this->deviceManagementDeviceTypeOptions)
+            ? $this->deviceManagementDeviceTypeOptions->getElementValue()
+            : null;
     }
 }

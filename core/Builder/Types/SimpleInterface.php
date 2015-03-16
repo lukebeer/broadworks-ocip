@@ -32,12 +32,12 @@ interface SimpleInterface
     /**
      * @return mixed
      */
-    public function getName();
+    public function getElementName();
 
     /**
      * @return mixed
      */
-    public function getValue();
+    public function getElementValue();
 
     /**
      * @param RestrictionInterface $restriction

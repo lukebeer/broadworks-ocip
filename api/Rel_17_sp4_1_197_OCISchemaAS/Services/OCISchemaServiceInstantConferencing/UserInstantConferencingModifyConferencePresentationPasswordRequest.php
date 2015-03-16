@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserInstantConferencingModifyConferencePresentationPasswordRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'UserInstantConferencingModifyConferencePresentationPasswordRequest';
+    public    $elementName = 'UserInstantConferencingModifyConferencePresentationPasswordRequest';
     protected $userId;
     protected $conferenceKey;
     protected $presentationPassword;
@@ -52,7 +52,7 @@ class UserInstantConferencingModifyConferencePresentationPasswordRequest extends
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
-        $this->userId->setName('userId');
+        $this->userId->setElementName('userId');
         return $this;
     }
 
@@ -62,7 +62,9 @@ class UserInstantConferencingModifyConferencePresentationPasswordRequest extends
      */
     public function getUserId()
     {
-        return ($this->userId) ? $this->userId->getValue() : null;
+        return ($this->userId)
+            ? $this->userId->getElementValue()
+            : null;
     }
 
     /**
@@ -73,7 +75,7 @@ class UserInstantConferencingModifyConferencePresentationPasswordRequest extends
         $this->conferenceKey = ($conferenceKey InstanceOf InstantConferencingConferenceKey)
              ? $conferenceKey
              : new InstantConferencingConferenceKey($conferenceKey);
-        $this->conferenceKey->setName('conferenceKey');
+        $this->conferenceKey->setElementName('conferenceKey');
         return $this;
     }
 
@@ -94,7 +96,7 @@ class UserInstantConferencingModifyConferencePresentationPasswordRequest extends
         $this->presentationPassword = ($presentationPassword InstanceOf InstantConferencingPresentationPassword)
              ? $presentationPassword
              : new InstantConferencingPresentationPassword($presentationPassword);
-        $this->presentationPassword->setName('presentationPassword');
+        $this->presentationPassword->setElementName('presentationPassword');
         return $this;
     }
 
@@ -104,6 +106,8 @@ class UserInstantConferencingModifyConferencePresentationPasswordRequest extends
      */
     public function getPresentationPassword()
     {
-        return ($this->presentationPassword) ? $this->presentationPassword->getValue() : null;
+        return ($this->presentationPassword)
+            ? $this->presentationPassword->getElementValue()
+            : null;
     }
 }

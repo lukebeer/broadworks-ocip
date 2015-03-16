@@ -30,7 +30,7 @@ use Broadworks_OCIP\core\Client\Client;
 class EnterpriseEnterpriseTrunkGetAvailableUserListRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType                         = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceTrunkGroup\EnterpriseEnterpriseTrunkGetAvailableUserListResponse';
-    public    $name = 'EnterpriseEnterpriseTrunkGetAvailableUserListRequest';
+    public    $elementName = 'EnterpriseEnterpriseTrunkGetAvailableUserListRequest';
     protected $serviceProviderId;
     protected $responseSizeLimit;
     protected $searchCriteriaUserLastName;
@@ -76,7 +76,7 @@ class EnterpriseEnterpriseTrunkGetAvailableUserListRequest extends ComplexType i
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
-        $this->serviceProviderId->setName('serviceProviderId');
+        $this->serviceProviderId->setElementName('serviceProviderId');
         return $this;
     }
 
@@ -86,7 +86,9 @@ class EnterpriseEnterpriseTrunkGetAvailableUserListRequest extends ComplexType i
      */
     public function getServiceProviderId()
     {
-        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
+        return ($this->serviceProviderId)
+            ? $this->serviceProviderId->getElementValue()
+            : null;
     }
 
     /**
@@ -97,7 +99,7 @@ class EnterpriseEnterpriseTrunkGetAvailableUserListRequest extends ComplexType i
         $this->responseSizeLimit = ($responseSizeLimit InstanceOf ResponseSizeLimit)
              ? $responseSizeLimit
              : new ResponseSizeLimit($responseSizeLimit);
-        $this->responseSizeLimit->setName('responseSizeLimit');
+        $this->responseSizeLimit->setElementName('responseSizeLimit');
         return $this;
     }
 
@@ -107,7 +109,9 @@ class EnterpriseEnterpriseTrunkGetAvailableUserListRequest extends ComplexType i
      */
     public function getResponseSizeLimit()
     {
-        return ($this->responseSizeLimit) ? $this->responseSizeLimit->getValue() : null;
+        return ($this->responseSizeLimit)
+            ? $this->responseSizeLimit->getElementValue()
+            : null;
     }
 
     /**
@@ -118,7 +122,7 @@ class EnterpriseEnterpriseTrunkGetAvailableUserListRequest extends ComplexType i
         $this->searchCriteriaUserLastName = ($searchCriteriaUserLastName InstanceOf SearchCriteriaUserLastName)
              ? $searchCriteriaUserLastName
              : new SearchCriteriaUserLastName($searchCriteriaUserLastName);
-        $this->searchCriteriaUserLastName->setName('searchCriteriaUserLastName');
+        $this->searchCriteriaUserLastName->setElementName('searchCriteriaUserLastName');
         return $this;
     }
 
@@ -139,7 +143,7 @@ class EnterpriseEnterpriseTrunkGetAvailableUserListRequest extends ComplexType i
         $this->searchCriteriaUserFirstName = ($searchCriteriaUserFirstName InstanceOf SearchCriteriaUserFirstName)
              ? $searchCriteriaUserFirstName
              : new SearchCriteriaUserFirstName($searchCriteriaUserFirstName);
-        $this->searchCriteriaUserFirstName->setName('searchCriteriaUserFirstName');
+        $this->searchCriteriaUserFirstName->setElementName('searchCriteriaUserFirstName');
         return $this;
     }
 
@@ -160,7 +164,7 @@ class EnterpriseEnterpriseTrunkGetAvailableUserListRequest extends ComplexType i
         $this->searchCriteriaDn = ($searchCriteriaDn InstanceOf SearchCriteriaDn)
              ? $searchCriteriaDn
              : new SearchCriteriaDn($searchCriteriaDn);
-        $this->searchCriteriaDn->setName('searchCriteriaDn');
+        $this->searchCriteriaDn->setElementName('searchCriteriaDn');
         return $this;
     }
 
@@ -181,7 +185,7 @@ class EnterpriseEnterpriseTrunkGetAvailableUserListRequest extends ComplexType i
         $this->searchCriteriaUserId = ($searchCriteriaUserId InstanceOf SearchCriteriaUserId)
              ? $searchCriteriaUserId
              : new SearchCriteriaUserId($searchCriteriaUserId);
-        $this->searchCriteriaUserId->setName('searchCriteriaUserId');
+        $this->searchCriteriaUserId->setElementName('searchCriteriaUserId');
         return $this;
     }
 
@@ -202,7 +206,7 @@ class EnterpriseEnterpriseTrunkGetAvailableUserListRequest extends ComplexType i
         $this->searchCriteriaGroupId = ($searchCriteriaGroupId InstanceOf SearchCriteriaGroupId)
              ? $searchCriteriaGroupId
              : new SearchCriteriaGroupId($searchCriteriaGroupId);
-        $this->searchCriteriaGroupId->setName('searchCriteriaGroupId');
+        $this->searchCriteriaGroupId->setElementName('searchCriteriaGroupId');
         return $this;
     }
 
@@ -223,7 +227,7 @@ class EnterpriseEnterpriseTrunkGetAvailableUserListRequest extends ComplexType i
         $this->searchCriteriaAlternateTrunkIdentity = ($searchCriteriaAlternateTrunkIdentity InstanceOf SearchCriteriaAlternateTrunkIdentity)
              ? $searchCriteriaAlternateTrunkIdentity
              : new SearchCriteriaAlternateTrunkIdentity($searchCriteriaAlternateTrunkIdentity);
-        $this->searchCriteriaAlternateTrunkIdentity->setName('searchCriteriaAlternateTrunkIdentity');
+        $this->searchCriteriaAlternateTrunkIdentity->setElementName('searchCriteriaAlternateTrunkIdentity');
         return $this;
     }
 

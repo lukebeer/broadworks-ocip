@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class InstantConferencingRecurrenceScheduleMonthly extends ComplexType implements ComplexInterface
 {
-    public    $name = 'InstantConferencingRecurrenceScheduleMonthly';
+    public    $elementName = 'InstantConferencingRecurrenceScheduleMonthly';
     protected $recurrenceMonthInterval;
 
     public function __construct(
@@ -47,7 +47,7 @@ class InstantConferencingRecurrenceScheduleMonthly extends ComplexType implement
         $this->recurrenceMonthInterval = ($recurrenceMonthInterval InstanceOf InstantConferencingRecurrenceMonthInterval)
              ? $recurrenceMonthInterval
              : new InstantConferencingRecurrenceMonthInterval($recurrenceMonthInterval);
-        $this->recurrenceMonthInterval->setName('recurrenceMonthInterval');
+        $this->recurrenceMonthInterval->setElementName('recurrenceMonthInterval');
         return $this;
     }
 
@@ -57,6 +57,8 @@ class InstantConferencingRecurrenceScheduleMonthly extends ComplexType implement
      */
     public function getRecurrenceMonthInterval()
     {
-        return ($this->recurrenceMonthInterval) ? $this->recurrenceMonthInterval->getValue() : null;
+        return ($this->recurrenceMonthInterval)
+            ? $this->recurrenceMonthInterval->getElementValue()
+            : null;
     }
 }

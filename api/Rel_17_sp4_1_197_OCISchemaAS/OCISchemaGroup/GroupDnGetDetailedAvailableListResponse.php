@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupDnGetDetailedAvailableListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'GroupDnGetDetailedAvailableListResponse';
+    public    $elementName = 'GroupDnGetDetailedAvailableListResponse';
     protected $dnTable;
 
     /**
@@ -39,7 +39,7 @@ class GroupDnGetDetailedAvailableListResponse extends ComplexType implements Com
     public function setDnTable(TableType $dnTable = null)
     {
         $this->dnTable = $dnTable;
-        $this->dnTable->setName('dnTable');
+        $this->dnTable->setElementName('dnTable');
         return $this;
     }
 

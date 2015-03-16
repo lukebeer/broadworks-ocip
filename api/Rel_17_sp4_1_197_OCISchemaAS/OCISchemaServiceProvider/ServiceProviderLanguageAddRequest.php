@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderLanguageAddRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'ServiceProviderLanguageAddRequest';
+    public    $elementName = 'ServiceProviderLanguageAddRequest';
     protected $serviceProviderId;
     protected $language;
 
@@ -48,7 +48,7 @@ class ServiceProviderLanguageAddRequest extends ComplexType implements ComplexIn
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
-        $this->serviceProviderId->setName('serviceProviderId');
+        $this->serviceProviderId->setElementName('serviceProviderId');
         return $this;
     }
 
@@ -58,7 +58,9 @@ class ServiceProviderLanguageAddRequest extends ComplexType implements ComplexIn
      */
     public function getServiceProviderId()
     {
-        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
+        return ($this->serviceProviderId)
+            ? $this->serviceProviderId->getElementValue()
+            : null;
     }
 
     /**
@@ -69,7 +71,7 @@ class ServiceProviderLanguageAddRequest extends ComplexType implements ComplexIn
         $this->language = ($language InstanceOf Language)
              ? $language
              : new Language($language);
-        $this->language->setName('language');
+        $this->language->setElementName('language');
         return $this;
     }
 
@@ -79,6 +81,8 @@ class ServiceProviderLanguageAddRequest extends ComplexType implements ComplexIn
      */
     public function getLanguage()
     {
-        return ($this->language) ? $this->language->getValue() : null;
+        return ($this->language)
+            ? $this->language->getElementValue()
+            : null;
     }
 }

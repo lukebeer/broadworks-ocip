@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupRoutingProfileModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'GroupRoutingProfileModifyRequest';
+    public    $elementName = 'GroupRoutingProfileModifyRequest';
     protected $serviceProviderId;
     protected $groupId;
     protected $routingProfile;
@@ -52,7 +52,7 @@ class GroupRoutingProfileModifyRequest extends ComplexType implements ComplexInt
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
-        $this->serviceProviderId->setName('serviceProviderId');
+        $this->serviceProviderId->setElementName('serviceProviderId');
         return $this;
     }
 
@@ -62,7 +62,9 @@ class GroupRoutingProfileModifyRequest extends ComplexType implements ComplexInt
      */
     public function getServiceProviderId()
     {
-        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
+        return ($this->serviceProviderId)
+            ? $this->serviceProviderId->getElementValue()
+            : null;
     }
 
     /**
@@ -73,7 +75,7 @@ class GroupRoutingProfileModifyRequest extends ComplexType implements ComplexInt
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
-        $this->groupId->setName('groupId');
+        $this->groupId->setElementName('groupId');
         return $this;
     }
 
@@ -83,7 +85,9 @@ class GroupRoutingProfileModifyRequest extends ComplexType implements ComplexInt
      */
     public function getGroupId()
     {
-        return ($this->groupId) ? $this->groupId->getValue() : null;
+        return ($this->groupId)
+            ? $this->groupId->getElementValue()
+            : null;
     }
 
     /**
@@ -94,7 +98,7 @@ class GroupRoutingProfileModifyRequest extends ComplexType implements ComplexInt
         $this->routingProfile = ($routingProfile InstanceOf RoutingProfile)
              ? $routingProfile
              : new RoutingProfile($routingProfile);
-        $this->routingProfile->setName('routingProfile');
+        $this->routingProfile->setElementName('routingProfile');
         return $this;
     }
 
@@ -104,6 +108,8 @@ class GroupRoutingProfileModifyRequest extends ComplexType implements ComplexInt
      */
     public function getRoutingProfile()
     {
-        return ($this->routingProfile) ? $this->routingProfile->getValue() : null;
+        return ($this->routingProfile)
+            ? $this->routingProfile->getElementValue()
+            : null;
     }
 }

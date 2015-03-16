@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemDialableCallerIDCriteriaDeleteRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemDialableCallerIDCriteriaDeleteRequest';
+    public    $elementName = 'SystemDialableCallerIDCriteriaDeleteRequest';
     protected $name;
 
     public function __construct(
@@ -45,7 +45,7 @@ class SystemDialableCallerIDCriteriaDeleteRequest extends ComplexType implements
         $this->name = ($name InstanceOf DialableCallerIDCriteriaName)
              ? $name
              : new DialableCallerIDCriteriaName($name);
-        $this->name->setName('name');
+        $this->name->setElementName('name');
         return $this;
     }
 
@@ -55,6 +55,8 @@ class SystemDialableCallerIDCriteriaDeleteRequest extends ComplexType implements
      */
     public function getName()
     {
-        return ($this->name) ? $this->name->getValue() : null;
+        return ($this->name)
+            ? $this->name->getElementValue()
+            : null;
     }
 }

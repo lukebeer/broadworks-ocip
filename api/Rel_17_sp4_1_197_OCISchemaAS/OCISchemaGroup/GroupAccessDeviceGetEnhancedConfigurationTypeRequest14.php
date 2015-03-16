@@ -24,7 +24,7 @@ use Broadworks_OCIP\core\Client\Client;
 class GroupAccessDeviceGetEnhancedConfigurationTypeRequest14 extends ComplexType implements ComplexInterface
 {
     public    $responseType      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupAccessDeviceGetEnhancedConfigurationTypeResponse14';
-    public    $name = 'GroupAccessDeviceGetEnhancedConfigurationTypeRequest14';
+    public    $elementName = 'GroupAccessDeviceGetEnhancedConfigurationTypeRequest14';
     protected $serviceProviderId;
     protected $groupId;
     protected $deviceType;
@@ -55,7 +55,7 @@ class GroupAccessDeviceGetEnhancedConfigurationTypeRequest14 extends ComplexType
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
-        $this->serviceProviderId->setName('serviceProviderId');
+        $this->serviceProviderId->setElementName('serviceProviderId');
         return $this;
     }
 
@@ -65,7 +65,9 @@ class GroupAccessDeviceGetEnhancedConfigurationTypeRequest14 extends ComplexType
      */
     public function getServiceProviderId()
     {
-        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
+        return ($this->serviceProviderId)
+            ? $this->serviceProviderId->getElementValue()
+            : null;
     }
 
     /**
@@ -76,7 +78,7 @@ class GroupAccessDeviceGetEnhancedConfigurationTypeRequest14 extends ComplexType
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
-        $this->groupId->setName('groupId');
+        $this->groupId->setElementName('groupId');
         return $this;
     }
 
@@ -86,7 +88,9 @@ class GroupAccessDeviceGetEnhancedConfigurationTypeRequest14 extends ComplexType
      */
     public function getGroupId()
     {
-        return ($this->groupId) ? $this->groupId->getValue() : null;
+        return ($this->groupId)
+            ? $this->groupId->getElementValue()
+            : null;
     }
 
     /**
@@ -97,7 +101,7 @@ class GroupAccessDeviceGetEnhancedConfigurationTypeRequest14 extends ComplexType
         $this->deviceType = ($deviceType InstanceOf AccessDeviceType)
              ? $deviceType
              : new AccessDeviceType($deviceType);
-        $this->deviceType->setName('deviceType');
+        $this->deviceType->setElementName('deviceType');
         return $this;
     }
 
@@ -107,6 +111,8 @@ class GroupAccessDeviceGetEnhancedConfigurationTypeRequest14 extends ComplexType
      */
     public function getDeviceType()
     {
-        return ($this->deviceType) ? $this->deviceType->getValue() : null;
+        return ($this->deviceType)
+            ? $this->deviceType->getElementValue()
+            : null;
     }
 }

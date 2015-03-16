@@ -17,12 +17,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\MaxInclusive;
  */
 class CAPMaxClientConnections extends SimpleType
 {
-    public $name = "CAPMaxClientConnections";
-    protected $value;
-
+    public $elementName = "CAPMaxClientConnections";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new MinInclusive("0"));
         $this->addRestriction(new MaxInclusive("10"));
     }

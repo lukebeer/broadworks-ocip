@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupPreferredCarrierNameModify extends ComplexType implements ComplexInterface
 {
-    public    $name = 'GroupPreferredCarrierNameModify';
+    public    $elementName = 'GroupPreferredCarrierNameModify';
     protected $useServiceProviderPreferredCarrier;
     protected $carrier;
 
@@ -47,7 +47,7 @@ class GroupPreferredCarrierNameModify extends ComplexType implements ComplexInte
     public function setUseServiceProviderPreferredCarrier($useServiceProviderPreferredCarrier = null)
     {
         $this->useServiceProviderPreferredCarrier = new SimpleContent($useServiceProviderPreferredCarrier);
-        $this->useServiceProviderPreferredCarrier->setName('useServiceProviderPreferredCarrier');
+        $this->useServiceProviderPreferredCarrier->setElementName('useServiceProviderPreferredCarrier');
         return $this;
     }
 
@@ -57,7 +57,9 @@ class GroupPreferredCarrierNameModify extends ComplexType implements ComplexInte
      */
     public function getUseServiceProviderPreferredCarrier()
     {
-        return ($this->useServiceProviderPreferredCarrier) ? $this->useServiceProviderPreferredCarrier->getValue() : null;
+        return ($this->useServiceProviderPreferredCarrier)
+            ? $this->useServiceProviderPreferredCarrier->getElementValue()
+            : null;
     }
 
     /**
@@ -66,7 +68,7 @@ class GroupPreferredCarrierNameModify extends ComplexType implements ComplexInte
     public function setCarrier($carrier = null)
     {
         $this->carrier = new SimpleContent($carrier);
-        $this->carrier->setName('carrier');
+        $this->carrier->setElementName('carrier');
         return $this;
     }
 
@@ -76,6 +78,8 @@ class GroupPreferredCarrierNameModify extends ComplexType implements ComplexInte
      */
     public function getCarrier()
     {
-        return ($this->carrier) ? $this->carrier->getValue() : null;
+        return ($this->carrier)
+            ? $this->carrier->getElementValue()
+            : null;
     }
 }

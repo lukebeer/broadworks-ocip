@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class OCIDataResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'OCIDataResponse';
+    public    $elementName = 'OCIDataResponse';
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaBASE\OCIDataResponse $response

@@ -24,7 +24,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderServicePackModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'ServiceProviderServicePackModifyRequest';
+    public    $elementName = 'ServiceProviderServicePackModifyRequest';
     protected $serviceProviderId;
     protected $servicePackName;
     protected $newServicePackName;
@@ -64,7 +64,7 @@ class ServiceProviderServicePackModifyRequest extends ComplexType implements Com
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
-        $this->serviceProviderId->setName('serviceProviderId');
+        $this->serviceProviderId->setElementName('serviceProviderId');
         return $this;
     }
 
@@ -74,7 +74,9 @@ class ServiceProviderServicePackModifyRequest extends ComplexType implements Com
      */
     public function getServiceProviderId()
     {
-        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
+        return ($this->serviceProviderId)
+            ? $this->serviceProviderId->getElementValue()
+            : null;
     }
 
     /**
@@ -85,7 +87,7 @@ class ServiceProviderServicePackModifyRequest extends ComplexType implements Com
         $this->servicePackName = ($servicePackName InstanceOf ServicePackName)
              ? $servicePackName
              : new ServicePackName($servicePackName);
-        $this->servicePackName->setName('servicePackName');
+        $this->servicePackName->setElementName('servicePackName');
         return $this;
     }
 
@@ -95,7 +97,9 @@ class ServiceProviderServicePackModifyRequest extends ComplexType implements Com
      */
     public function getServicePackName()
     {
-        return ($this->servicePackName) ? $this->servicePackName->getValue() : null;
+        return ($this->servicePackName)
+            ? $this->servicePackName->getElementValue()
+            : null;
     }
 
     /**
@@ -106,7 +110,7 @@ class ServiceProviderServicePackModifyRequest extends ComplexType implements Com
         $this->newServicePackName = ($newServicePackName InstanceOf ServicePackName)
              ? $newServicePackName
              : new ServicePackName($newServicePackName);
-        $this->newServicePackName->setName('newServicePackName');
+        $this->newServicePackName->setElementName('newServicePackName');
         return $this;
     }
 
@@ -116,7 +120,9 @@ class ServiceProviderServicePackModifyRequest extends ComplexType implements Com
      */
     public function getNewServicePackName()
     {
-        return ($this->newServicePackName) ? $this->newServicePackName->getValue() : null;
+        return ($this->newServicePackName)
+            ? $this->newServicePackName->getElementValue()
+            : null;
     }
 
     /**
@@ -127,7 +133,7 @@ class ServiceProviderServicePackModifyRequest extends ComplexType implements Com
         $this->servicePackDescription = ($servicePackDescription InstanceOf ServicePackDescription)
              ? $servicePackDescription
              : new ServicePackDescription($servicePackDescription);
-        $this->servicePackDescription->setName('servicePackDescription');
+        $this->servicePackDescription->setElementName('servicePackDescription');
         return $this;
     }
 
@@ -137,7 +143,9 @@ class ServiceProviderServicePackModifyRequest extends ComplexType implements Com
      */
     public function getServicePackDescription()
     {
-        return ($this->servicePackDescription) ? $this->servicePackDescription->getValue() : null;
+        return ($this->servicePackDescription)
+            ? $this->servicePackDescription->getElementValue()
+            : null;
     }
 
     /**
@@ -146,7 +154,7 @@ class ServiceProviderServicePackModifyRequest extends ComplexType implements Com
     public function setIsAvailableForUse($isAvailableForUse = null)
     {
         $this->isAvailableForUse = new PrimitiveType($isAvailableForUse);
-        $this->isAvailableForUse->setName('isAvailableForUse');
+        $this->isAvailableForUse->setElementName('isAvailableForUse');
         return $this;
     }
 
@@ -156,7 +164,9 @@ class ServiceProviderServicePackModifyRequest extends ComplexType implements Com
      */
     public function getIsAvailableForUse()
     {
-        return ($this->isAvailableForUse) ? $this->isAvailableForUse->getValue() : null;
+        return ($this->isAvailableForUse)
+            ? $this->isAvailableForUse->getElementValue()
+            : null;
     }
 
     /**
@@ -167,7 +177,7 @@ class ServiceProviderServicePackModifyRequest extends ComplexType implements Com
         $this->servicePackQuantity = ($servicePackQuantity InstanceOf UnboundedPositiveInt)
              ? $servicePackQuantity
              : new UnboundedPositiveInt($servicePackQuantity);
-        $this->servicePackQuantity->setName('servicePackQuantity');
+        $this->servicePackQuantity->setElementName('servicePackQuantity');
         return $this;
     }
 

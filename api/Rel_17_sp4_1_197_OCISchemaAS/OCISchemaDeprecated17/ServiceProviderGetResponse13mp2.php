@@ -24,7 +24,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderGetResponse13mp2 extends ComplexType implements ComplexInterface
 {
-    public    $name = 'ServiceProviderGetResponse13mp2';
+    public    $elementName = 'ServiceProviderGetResponse13mp2';
     protected $defaultDomain;
     protected $serviceProviderName;
     protected $supportEmail;
@@ -47,7 +47,7 @@ class ServiceProviderGetResponse13mp2 extends ComplexType implements ComplexInte
         $this->defaultDomain = ($defaultDomain InstanceOf NetAddress)
              ? $defaultDomain
              : new NetAddress($defaultDomain);
-        $this->defaultDomain->setName('defaultDomain');
+        $this->defaultDomain->setElementName('defaultDomain');
         return $this;
     }
 
@@ -57,7 +57,9 @@ class ServiceProviderGetResponse13mp2 extends ComplexType implements ComplexInte
      */
     public function getDefaultDomain()
     {
-        return ($this->defaultDomain) ? $this->defaultDomain->getValue() : null;
+        return ($this->defaultDomain)
+            ? $this->defaultDomain->getElementValue()
+            : null;
     }
 
     /**
@@ -68,7 +70,7 @@ class ServiceProviderGetResponse13mp2 extends ComplexType implements ComplexInte
         $this->serviceProviderName = ($serviceProviderName InstanceOf ServiceProviderName)
              ? $serviceProviderName
              : new ServiceProviderName($serviceProviderName);
-        $this->serviceProviderName->setName('serviceProviderName');
+        $this->serviceProviderName->setElementName('serviceProviderName');
         return $this;
     }
 
@@ -78,7 +80,9 @@ class ServiceProviderGetResponse13mp2 extends ComplexType implements ComplexInte
      */
     public function getServiceProviderName()
     {
-        return ($this->serviceProviderName) ? $this->serviceProviderName->getValue() : null;
+        return ($this->serviceProviderName)
+            ? $this->serviceProviderName->getElementValue()
+            : null;
     }
 
     /**
@@ -89,7 +93,7 @@ class ServiceProviderGetResponse13mp2 extends ComplexType implements ComplexInte
         $this->supportEmail = ($supportEmail InstanceOf EmailAddress)
              ? $supportEmail
              : new EmailAddress($supportEmail);
-        $this->supportEmail->setName('supportEmail');
+        $this->supportEmail->setElementName('supportEmail');
         return $this;
     }
 
@@ -99,7 +103,9 @@ class ServiceProviderGetResponse13mp2 extends ComplexType implements ComplexInte
      */
     public function getSupportEmail()
     {
-        return ($this->supportEmail) ? $this->supportEmail->getValue() : null;
+        return ($this->supportEmail)
+            ? $this->supportEmail->getElementValue()
+            : null;
     }
 
     /**
@@ -110,7 +116,7 @@ class ServiceProviderGetResponse13mp2 extends ComplexType implements ComplexInte
         $this->contact = ($contact InstanceOf Contact)
              ? $contact
              : new Contact($contact);
-        $this->contact->setName('contact');
+        $this->contact->setElementName('contact');
         return $this;
     }
 
@@ -131,7 +137,7 @@ class ServiceProviderGetResponse13mp2 extends ComplexType implements ComplexInte
         $this->address = ($address InstanceOf StreetAddress)
              ? $address
              : new StreetAddress($address);
-        $this->address->setName('address');
+        $this->address->setElementName('address');
         return $this;
     }
 

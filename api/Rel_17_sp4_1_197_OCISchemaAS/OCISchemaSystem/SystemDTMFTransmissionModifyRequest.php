@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemDTMFTransmissionModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemDTMFTransmissionModifyRequest';
+    public    $elementName = 'SystemDTMFTransmissionModifyRequest';
     protected $transmissionMethod;
     protected $signalingContentType;
 
@@ -49,7 +49,7 @@ class SystemDTMFTransmissionModifyRequest extends ComplexType implements Complex
         $this->transmissionMethod = ($transmissionMethod InstanceOf DTMFTransmissionMethod)
              ? $transmissionMethod
              : new DTMFTransmissionMethod($transmissionMethod);
-        $this->transmissionMethod->setName('transmissionMethod');
+        $this->transmissionMethod->setElementName('transmissionMethod');
         return $this;
     }
 
@@ -59,7 +59,9 @@ class SystemDTMFTransmissionModifyRequest extends ComplexType implements Complex
      */
     public function getTransmissionMethod()
     {
-        return ($this->transmissionMethod) ? $this->transmissionMethod->getValue() : null;
+        return ($this->transmissionMethod)
+            ? $this->transmissionMethod->getElementValue()
+            : null;
     }
 
     /**
@@ -70,7 +72,7 @@ class SystemDTMFTransmissionModifyRequest extends ComplexType implements Complex
         $this->signalingContentType = ($signalingContentType InstanceOf DtmfTransmissionSignalingContentType)
              ? $signalingContentType
              : new DtmfTransmissionSignalingContentType($signalingContentType);
-        $this->signalingContentType->setName('signalingContentType');
+        $this->signalingContentType->setElementName('signalingContentType');
         return $this;
     }
 
@@ -80,6 +82,8 @@ class SystemDTMFTransmissionModifyRequest extends ComplexType implements Complex
      */
     public function getSignalingContentType()
     {
-        return ($this->signalingContentType) ? $this->signalingContentType->getValue() : null;
+        return ($this->signalingContentType)
+            ? $this->signalingContentType->getElementValue()
+            : null;
     }
 }

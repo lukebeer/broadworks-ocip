@@ -24,7 +24,7 @@ use Broadworks_OCIP\core\Client\Client;
 class GroupDirectoryNumberHuntingGetRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType  = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceDirectoryNumberHunting\GroupDirectoryNumberHuntingGetResponse';
-    public    $name = 'GroupDirectoryNumberHuntingGetRequest';
+    public    $elementName = 'GroupDirectoryNumberHuntingGetRequest';
     protected $serviceUserId;
 
     public function __construct(
@@ -49,7 +49,7 @@ class GroupDirectoryNumberHuntingGetRequest extends ComplexType implements Compl
         $this->serviceUserId = ($serviceUserId InstanceOf UserId)
              ? $serviceUserId
              : new UserId($serviceUserId);
-        $this->serviceUserId->setName('serviceUserId');
+        $this->serviceUserId->setElementName('serviceUserId');
         return $this;
     }
 
@@ -59,6 +59,8 @@ class GroupDirectoryNumberHuntingGetRequest extends ComplexType implements Compl
      */
     public function getServiceUserId()
     {
-        return ($this->serviceUserId) ? $this->serviceUserId->getValue() : null;
+        return ($this->serviceUserId)
+            ? $this->serviceUserId->getElementValue()
+            : null;
     }
 }

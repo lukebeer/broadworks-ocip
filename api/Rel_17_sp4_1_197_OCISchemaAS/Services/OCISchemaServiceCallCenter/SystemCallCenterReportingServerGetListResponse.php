@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemCallCenterReportingServerGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemCallCenterReportingServerGetListResponse';
+    public    $elementName = 'SystemCallCenterReportingServerGetListResponse';
     protected $reportingServerTable;
 
     /**
@@ -37,7 +37,7 @@ class SystemCallCenterReportingServerGetListResponse extends ComplexType impleme
     public function setReportingServerTable(TableType $reportingServerTable = null)
     {
         $this->reportingServerTable = $reportingServerTable;
-        $this->reportingServerTable->setName('reportingServerTable');
+        $this->reportingServerTable->setElementName('reportingServerTable');
         return $this;
     }
 

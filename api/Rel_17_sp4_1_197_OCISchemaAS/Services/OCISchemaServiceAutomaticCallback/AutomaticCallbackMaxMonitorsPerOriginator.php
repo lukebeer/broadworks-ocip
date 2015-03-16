@@ -17,12 +17,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\MaxInclusive;
  */
 class AutomaticCallbackMaxMonitorsPerOriginator extends SimpleType
 {
-    public $name = "AutomaticCallbackMaxMonitorsPerOriginator";
-    protected $value;
-
+    public $elementName = "AutomaticCallbackMaxMonitorsPerOriginator";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new MinInclusive("1"));
         $this->addRestriction(new MaxInclusive("30"));
     }

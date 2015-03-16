@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupInstantConferencingGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'GroupInstantConferencingGetResponse';
+    public    $elementName = 'GroupInstantConferencingGetResponse';
     protected $portsAvailableFromServiceProvider;
     protected $portsAllocatedToGroup;
     protected $portsConsumedByGroupBridges;
@@ -41,7 +41,7 @@ class GroupInstantConferencingGetResponse extends ComplexType implements Complex
         $this->portsAvailableFromServiceProvider = ($portsAvailableFromServiceProvider InstanceOf UnboundedNonNegativeInt)
              ? $portsAvailableFromServiceProvider
              : new UnboundedNonNegativeInt($portsAvailableFromServiceProvider);
-        $this->portsAvailableFromServiceProvider->setName('portsAvailableFromServiceProvider');
+        $this->portsAvailableFromServiceProvider->setElementName('portsAvailableFromServiceProvider');
         return $this;
     }
 
@@ -62,7 +62,7 @@ class GroupInstantConferencingGetResponse extends ComplexType implements Complex
         $this->portsAllocatedToGroup = ($portsAllocatedToGroup InstanceOf UnboundedNonNegativeInt)
              ? $portsAllocatedToGroup
              : new UnboundedNonNegativeInt($portsAllocatedToGroup);
-        $this->portsAllocatedToGroup->setName('portsAllocatedToGroup');
+        $this->portsAllocatedToGroup->setElementName('portsAllocatedToGroup');
         return $this;
     }
 
@@ -81,7 +81,7 @@ class GroupInstantConferencingGetResponse extends ComplexType implements Complex
     public function setPortsConsumedByGroupBridges($portsConsumedByGroupBridges = null)
     {
         $this->portsConsumedByGroupBridges = new PrimitiveType($portsConsumedByGroupBridges);
-        $this->portsConsumedByGroupBridges->setName('portsConsumedByGroupBridges');
+        $this->portsConsumedByGroupBridges->setElementName('portsConsumedByGroupBridges');
         return $this;
     }
 
@@ -91,6 +91,8 @@ class GroupInstantConferencingGetResponse extends ComplexType implements Complex
      */
     public function getPortsConsumedByGroupBridges()
     {
-        return ($this->portsConsumedByGroupBridges) ? $this->portsConsumedByGroupBridges->getValue() : null;
+        return ($this->portsConsumedByGroupBridges)
+            ? $this->portsConsumedByGroupBridges->getElementValue()
+            : null;
     }
 }

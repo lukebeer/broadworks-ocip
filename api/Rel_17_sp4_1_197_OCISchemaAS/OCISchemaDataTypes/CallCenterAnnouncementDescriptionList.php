@@ -19,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class CallCenterAnnouncementDescriptionList extends ComplexType implements ComplexInterface
 {
-    public    $name = 'CallCenterAnnouncementDescriptionList';
+    public    $elementName = 'CallCenterAnnouncementDescriptionList';
     protected $fileDescription1;
     protected $fileDescription2;
     protected $fileDescription3;
@@ -51,7 +51,7 @@ class CallCenterAnnouncementDescriptionList extends ComplexType implements Compl
     public function setFileDescription1($fileDescription1 = null)
     {
         $this->fileDescription1 = new SimpleContent($fileDescription1);
-        $this->fileDescription1->setName('fileDescription1');
+        $this->fileDescription1->setElementName('fileDescription1');
         return $this;
     }
 
@@ -61,7 +61,9 @@ class CallCenterAnnouncementDescriptionList extends ComplexType implements Compl
      */
     public function getFileDescription1()
     {
-        return ($this->fileDescription1) ? $this->fileDescription1->getValue() : null;
+        return ($this->fileDescription1)
+            ? $this->fileDescription1->getElementValue()
+            : null;
     }
 
     /**
@@ -70,7 +72,7 @@ class CallCenterAnnouncementDescriptionList extends ComplexType implements Compl
     public function setFileDescription2($fileDescription2 = null)
     {
         $this->fileDescription2 = new SimpleContent($fileDescription2);
-        $this->fileDescription2->setName('fileDescription2');
+        $this->fileDescription2->setElementName('fileDescription2');
         return $this;
     }
 
@@ -80,7 +82,9 @@ class CallCenterAnnouncementDescriptionList extends ComplexType implements Compl
      */
     public function getFileDescription2()
     {
-        return ($this->fileDescription2) ? $this->fileDescription2->getValue() : null;
+        return ($this->fileDescription2)
+            ? $this->fileDescription2->getElementValue()
+            : null;
     }
 
     /**
@@ -89,7 +93,7 @@ class CallCenterAnnouncementDescriptionList extends ComplexType implements Compl
     public function setFileDescription3($fileDescription3 = null)
     {
         $this->fileDescription3 = new SimpleContent($fileDescription3);
-        $this->fileDescription3->setName('fileDescription3');
+        $this->fileDescription3->setElementName('fileDescription3');
         return $this;
     }
 
@@ -99,7 +103,9 @@ class CallCenterAnnouncementDescriptionList extends ComplexType implements Compl
      */
     public function getFileDescription3()
     {
-        return ($this->fileDescription3) ? $this->fileDescription3->getValue() : null;
+        return ($this->fileDescription3)
+            ? $this->fileDescription3->getElementValue()
+            : null;
     }
 
     /**
@@ -108,7 +114,7 @@ class CallCenterAnnouncementDescriptionList extends ComplexType implements Compl
     public function setFileDescription4($fileDescription4 = null)
     {
         $this->fileDescription4 = new SimpleContent($fileDescription4);
-        $this->fileDescription4->setName('fileDescription4');
+        $this->fileDescription4->setElementName('fileDescription4');
         return $this;
     }
 
@@ -118,6 +124,8 @@ class CallCenterAnnouncementDescriptionList extends ComplexType implements Compl
      */
     public function getFileDescription4()
     {
-        return ($this->fileDescription4) ? $this->fileDescription4->getValue() : null;
+        return ($this->fileDescription4)
+            ? $this->fileDescription4->getElementValue()
+            : null;
     }
 }

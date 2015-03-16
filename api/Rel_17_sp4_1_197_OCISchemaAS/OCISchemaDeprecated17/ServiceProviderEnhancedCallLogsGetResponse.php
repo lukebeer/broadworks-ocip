@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderEnhancedCallLogsGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'ServiceProviderEnhancedCallLogsGetResponse';
+    public    $elementName = 'ServiceProviderEnhancedCallLogsGetResponse';
     protected $maxLoggedCalls;
     protected $callExpirationDays;
 
@@ -40,7 +40,7 @@ class ServiceProviderEnhancedCallLogsGetResponse extends ComplexType implements 
         $this->maxLoggedCalls = ($maxLoggedCalls InstanceOf EnhancedCallLogsMaxLoggedCalls)
              ? $maxLoggedCalls
              : new EnhancedCallLogsMaxLoggedCalls($maxLoggedCalls);
-        $this->maxLoggedCalls->setName('maxLoggedCalls');
+        $this->maxLoggedCalls->setElementName('maxLoggedCalls');
         return $this;
     }
 
@@ -50,7 +50,9 @@ class ServiceProviderEnhancedCallLogsGetResponse extends ComplexType implements 
      */
     public function getMaxLoggedCalls()
     {
-        return ($this->maxLoggedCalls) ? $this->maxLoggedCalls->getValue() : null;
+        return ($this->maxLoggedCalls)
+            ? $this->maxLoggedCalls->getElementValue()
+            : null;
     }
 
     /**
@@ -61,7 +63,7 @@ class ServiceProviderEnhancedCallLogsGetResponse extends ComplexType implements 
         $this->callExpirationDays = ($callExpirationDays InstanceOf EnhancedCallLogsCallExpirationDays)
              ? $callExpirationDays
              : new EnhancedCallLogsCallExpirationDays($callExpirationDays);
-        $this->callExpirationDays->setName('callExpirationDays');
+        $this->callExpirationDays->setElementName('callExpirationDays');
         return $this;
     }
 
@@ -71,6 +73,8 @@ class ServiceProviderEnhancedCallLogsGetResponse extends ComplexType implements 
      */
     public function getCallExpirationDays()
     {
-        return ($this->callExpirationDays) ? $this->callExpirationDays->getValue() : null;
+        return ($this->callExpirationDays)
+            ? $this->callExpirationDays->getElementValue()
+            : null;
     }
 }

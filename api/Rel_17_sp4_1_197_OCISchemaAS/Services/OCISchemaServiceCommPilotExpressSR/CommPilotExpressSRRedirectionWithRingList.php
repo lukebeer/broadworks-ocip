@@ -19,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class CommPilotExpressSRRedirectionWithRingList extends ComplexType implements ComplexInterface
 {
-    public    $name = 'CommPilotExpressSRRedirectionWithRingList';
+    public    $elementName = 'CommPilotExpressSRRedirectionWithRingList';
     protected $numberEntry;
 
     public function __construct(
@@ -42,7 +42,7 @@ class CommPilotExpressSRRedirectionWithRingList extends ComplexType implements C
     public function setNumberEntry($numberEntry = null)
     {
         $this->numberEntry = new SimpleContent($numberEntry);
-        $this->numberEntry->setName('numberEntry');
+        $this->numberEntry->setElementName('numberEntry');
         return $this;
     }
 
@@ -52,6 +52,8 @@ class CommPilotExpressSRRedirectionWithRingList extends ComplexType implements C
      */
     public function getNumberEntry()
     {
-        return ($this->numberEntry) ? $this->numberEntry->getValue() : null;
+        return ($this->numberEntry)
+            ? $this->numberEntry->getElementValue()
+            : null;
     }
 }

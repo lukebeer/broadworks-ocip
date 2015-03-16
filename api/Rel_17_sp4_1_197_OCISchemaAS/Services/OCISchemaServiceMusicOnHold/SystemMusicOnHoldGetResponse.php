@@ -19,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemMusicOnHoldGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemMusicOnHoldGetResponse';
+    public    $elementName = 'SystemMusicOnHoldGetResponse';
     protected $delayMilliseconds;
 
     /**
@@ -38,7 +38,7 @@ class SystemMusicOnHoldGetResponse extends ComplexType implements ComplexInterfa
         $this->delayMilliseconds = ($delayMilliseconds InstanceOf MusicOnHoldDelayMilliseconds)
              ? $delayMilliseconds
              : new MusicOnHoldDelayMilliseconds($delayMilliseconds);
-        $this->delayMilliseconds->setName('delayMilliseconds');
+        $this->delayMilliseconds->setElementName('delayMilliseconds');
         return $this;
     }
 
@@ -48,6 +48,8 @@ class SystemMusicOnHoldGetResponse extends ComplexType implements ComplexInterfa
      */
     public function getDelayMilliseconds()
     {
-        return ($this->delayMilliseconds) ? $this->delayMilliseconds->getValue() : null;
+        return ($this->delayMilliseconds)
+            ? $this->delayMilliseconds->getElementValue()
+            : null;
     }
 }

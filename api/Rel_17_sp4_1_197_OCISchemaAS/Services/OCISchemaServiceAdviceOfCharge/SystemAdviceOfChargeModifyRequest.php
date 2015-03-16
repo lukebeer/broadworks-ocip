@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemAdviceOfChargeModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemAdviceOfChargeModifyRequest';
+    public    $elementName = 'SystemAdviceOfChargeModifyRequest';
     protected $delayBetweenNotificationSeconds;
     protected $incomingAocHandling;
     protected $costInformationSource;
@@ -53,7 +53,7 @@ class SystemAdviceOfChargeModifyRequest extends ComplexType implements ComplexIn
         $this->delayBetweenNotificationSeconds = ($delayBetweenNotificationSeconds InstanceOf AdviceOfChargeDelayBetweenNotificationSeconds)
              ? $delayBetweenNotificationSeconds
              : new AdviceOfChargeDelayBetweenNotificationSeconds($delayBetweenNotificationSeconds);
-        $this->delayBetweenNotificationSeconds->setName('delayBetweenNotificationSeconds');
+        $this->delayBetweenNotificationSeconds->setElementName('delayBetweenNotificationSeconds');
         return $this;
     }
 
@@ -63,7 +63,9 @@ class SystemAdviceOfChargeModifyRequest extends ComplexType implements ComplexIn
      */
     public function getDelayBetweenNotificationSeconds()
     {
-        return ($this->delayBetweenNotificationSeconds) ? $this->delayBetweenNotificationSeconds->getValue() : null;
+        return ($this->delayBetweenNotificationSeconds)
+            ? $this->delayBetweenNotificationSeconds->getElementValue()
+            : null;
     }
 
     /**
@@ -74,7 +76,7 @@ class SystemAdviceOfChargeModifyRequest extends ComplexType implements ComplexIn
         $this->incomingAocHandling = ($incomingAocHandling InstanceOf AdviceOfChargeIncomingAocHandling)
              ? $incomingAocHandling
              : new AdviceOfChargeIncomingAocHandling($incomingAocHandling);
-        $this->incomingAocHandling->setName('incomingAocHandling');
+        $this->incomingAocHandling->setElementName('incomingAocHandling');
         return $this;
     }
 
@@ -84,7 +86,9 @@ class SystemAdviceOfChargeModifyRequest extends ComplexType implements ComplexIn
      */
     public function getIncomingAocHandling()
     {
-        return ($this->incomingAocHandling) ? $this->incomingAocHandling->getValue() : null;
+        return ($this->incomingAocHandling)
+            ? $this->incomingAocHandling->getElementValue()
+            : null;
     }
 
     /**
@@ -95,7 +99,7 @@ class SystemAdviceOfChargeModifyRequest extends ComplexType implements ComplexIn
         $this->costInformationSource = ($costInformationSource InstanceOf NetAddress)
              ? $costInformationSource
              : new NetAddress($costInformationSource);
-        $this->costInformationSource->setName('costInformationSource');
+        $this->costInformationSource->setElementName('costInformationSource');
         return $this;
     }
 
@@ -105,6 +109,8 @@ class SystemAdviceOfChargeModifyRequest extends ComplexType implements ComplexIn
      */
     public function getCostInformationSource()
     {
-        return ($this->costInformationSource) ? $this->costInformationSource->getValue() : null;
+        return ($this->costInformationSource)
+            ? $this->costInformationSource->getElementValue()
+            : null;
     }
 }

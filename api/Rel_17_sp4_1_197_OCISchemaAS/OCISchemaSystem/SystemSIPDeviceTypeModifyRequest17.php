@@ -33,7 +33,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemSIPDeviceTypeModifyRequest17 extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemSIPDeviceTypeModifyRequest17';
+    public    $elementName = 'SystemSIPDeviceTypeModifyRequest17';
     protected $deviceType;
     protected $isObsolete;
     protected $registrationCapable;
@@ -142,7 +142,7 @@ class SystemSIPDeviceTypeModifyRequest17 extends ComplexType implements ComplexI
         $this->deviceType = ($deviceType InstanceOf AccessDeviceType)
              ? $deviceType
              : new AccessDeviceType($deviceType);
-        $this->deviceType->setName('deviceType');
+        $this->deviceType->setElementName('deviceType');
         return $this;
     }
 
@@ -152,7 +152,9 @@ class SystemSIPDeviceTypeModifyRequest17 extends ComplexType implements ComplexI
      */
     public function getDeviceType()
     {
-        return ($this->deviceType) ? $this->deviceType->getValue() : null;
+        return ($this->deviceType)
+            ? $this->deviceType->getElementValue()
+            : null;
     }
 
     /**
@@ -161,7 +163,7 @@ class SystemSIPDeviceTypeModifyRequest17 extends ComplexType implements ComplexI
     public function setIsObsolete($isObsolete = null)
     {
         $this->isObsolete = new PrimitiveType($isObsolete);
-        $this->isObsolete->setName('isObsolete');
+        $this->isObsolete->setElementName('isObsolete');
         return $this;
     }
 
@@ -171,7 +173,9 @@ class SystemSIPDeviceTypeModifyRequest17 extends ComplexType implements ComplexI
      */
     public function getIsObsolete()
     {
-        return ($this->isObsolete) ? $this->isObsolete->getValue() : null;
+        return ($this->isObsolete)
+            ? $this->isObsolete->getElementValue()
+            : null;
     }
 
     /**
@@ -180,7 +184,7 @@ class SystemSIPDeviceTypeModifyRequest17 extends ComplexType implements ComplexI
     public function setRegistrationCapable($registrationCapable = null)
     {
         $this->registrationCapable = new PrimitiveType($registrationCapable);
-        $this->registrationCapable->setName('registrationCapable');
+        $this->registrationCapable->setElementName('registrationCapable');
         return $this;
     }
 
@@ -190,7 +194,9 @@ class SystemSIPDeviceTypeModifyRequest17 extends ComplexType implements ComplexI
      */
     public function getRegistrationCapable()
     {
-        return ($this->registrationCapable) ? $this->registrationCapable->getValue() : null;
+        return ($this->registrationCapable)
+            ? $this->registrationCapable->getElementValue()
+            : null;
     }
 
     /**
@@ -199,7 +205,7 @@ class SystemSIPDeviceTypeModifyRequest17 extends ComplexType implements ComplexI
     public function setRFC3264Hold($RFC3264Hold = null)
     {
         $this->RFC3264Hold = new PrimitiveType($RFC3264Hold);
-        $this->RFC3264Hold->setName('RFC3264Hold');
+        $this->RFC3264Hold->setElementName('RFC3264Hold');
         return $this;
     }
 
@@ -209,7 +215,9 @@ class SystemSIPDeviceTypeModifyRequest17 extends ComplexType implements ComplexI
      */
     public function getRFC3264Hold()
     {
-        return ($this->RFC3264Hold) ? $this->RFC3264Hold->getValue() : null;
+        return ($this->RFC3264Hold)
+            ? $this->RFC3264Hold->getElementValue()
+            : null;
     }
 
     /**
@@ -218,7 +226,7 @@ class SystemSIPDeviceTypeModifyRequest17 extends ComplexType implements ComplexI
     public function setIsTrusted($isTrusted = null)
     {
         $this->isTrusted = new PrimitiveType($isTrusted);
-        $this->isTrusted->setName('isTrusted');
+        $this->isTrusted->setElementName('isTrusted');
         return $this;
     }
 
@@ -228,7 +236,9 @@ class SystemSIPDeviceTypeModifyRequest17 extends ComplexType implements ComplexI
      */
     public function getIsTrusted()
     {
-        return ($this->isTrusted) ? $this->isTrusted->getValue() : null;
+        return ($this->isTrusted)
+            ? $this->isTrusted->getElementValue()
+            : null;
     }
 
     /**
@@ -237,7 +247,7 @@ class SystemSIPDeviceTypeModifyRequest17 extends ComplexType implements ComplexI
     public function setE164Capable($E164Capable = null)
     {
         $this->E164Capable = new PrimitiveType($E164Capable);
-        $this->E164Capable->setName('E164Capable');
+        $this->E164Capable->setElementName('E164Capable');
         return $this;
     }
 
@@ -247,7 +257,9 @@ class SystemSIPDeviceTypeModifyRequest17 extends ComplexType implements ComplexI
      */
     public function getE164Capable()
     {
-        return ($this->E164Capable) ? $this->E164Capable->getValue() : null;
+        return ($this->E164Capable)
+            ? $this->E164Capable->getElementValue()
+            : null;
     }
 
     /**
@@ -256,7 +268,7 @@ class SystemSIPDeviceTypeModifyRequest17 extends ComplexType implements ComplexI
     public function setRouteAdvance($routeAdvance = null)
     {
         $this->routeAdvance = new PrimitiveType($routeAdvance);
-        $this->routeAdvance->setName('routeAdvance');
+        $this->routeAdvance->setElementName('routeAdvance');
         return $this;
     }
 
@@ -266,7 +278,9 @@ class SystemSIPDeviceTypeModifyRequest17 extends ComplexType implements ComplexI
      */
     public function getRouteAdvance()
     {
-        return ($this->routeAdvance) ? $this->routeAdvance->getValue() : null;
+        return ($this->routeAdvance)
+            ? $this->routeAdvance->getElementValue()
+            : null;
     }
 
     /**
@@ -275,7 +289,7 @@ class SystemSIPDeviceTypeModifyRequest17 extends ComplexType implements ComplexI
     public function setForwardingOverride($forwardingOverride = null)
     {
         $this->forwardingOverride = new PrimitiveType($forwardingOverride);
-        $this->forwardingOverride->setName('forwardingOverride');
+        $this->forwardingOverride->setElementName('forwardingOverride');
         return $this;
     }
 
@@ -285,7 +299,9 @@ class SystemSIPDeviceTypeModifyRequest17 extends ComplexType implements ComplexI
      */
     public function getForwardingOverride()
     {
-        return ($this->forwardingOverride) ? $this->forwardingOverride->getValue() : null;
+        return ($this->forwardingOverride)
+            ? $this->forwardingOverride->getElementValue()
+            : null;
     }
 
     /**
@@ -294,7 +310,7 @@ class SystemSIPDeviceTypeModifyRequest17 extends ComplexType implements ComplexI
     public function setWirelessIntegration($wirelessIntegration = null)
     {
         $this->wirelessIntegration = new PrimitiveType($wirelessIntegration);
-        $this->wirelessIntegration->setName('wirelessIntegration');
+        $this->wirelessIntegration->setElementName('wirelessIntegration');
         return $this;
     }
 
@@ -304,7 +320,9 @@ class SystemSIPDeviceTypeModifyRequest17 extends ComplexType implements ComplexI
      */
     public function getWirelessIntegration()
     {
-        return ($this->wirelessIntegration) ? $this->wirelessIntegration->getValue() : null;
+        return ($this->wirelessIntegration)
+            ? $this->wirelessIntegration->getElementValue()
+            : null;
     }
 
     /**
@@ -315,7 +333,7 @@ class SystemSIPDeviceTypeModifyRequest17 extends ComplexType implements ComplexI
         $this->webBasedConfigURL = ($webBasedConfigURL InstanceOf WebBasedConfigURL)
              ? $webBasedConfigURL
              : new WebBasedConfigURL($webBasedConfigURL);
-        $this->webBasedConfigURL->setName('webBasedConfigURL');
+        $this->webBasedConfigURL->setElementName('webBasedConfigURL');
         return $this;
     }
 
@@ -325,7 +343,9 @@ class SystemSIPDeviceTypeModifyRequest17 extends ComplexType implements ComplexI
      */
     public function getWebBasedConfigURL()
     {
-        return ($this->webBasedConfigURL) ? $this->webBasedConfigURL->getValue() : null;
+        return ($this->webBasedConfigURL)
+            ? $this->webBasedConfigURL->getElementValue()
+            : null;
     }
 
     /**
@@ -334,7 +354,7 @@ class SystemSIPDeviceTypeModifyRequest17 extends ComplexType implements ComplexI
     public function setIsVideoCapable($isVideoCapable = null)
     {
         $this->isVideoCapable = new PrimitiveType($isVideoCapable);
-        $this->isVideoCapable->setName('isVideoCapable');
+        $this->isVideoCapable->setElementName('isVideoCapable');
         return $this;
     }
 
@@ -344,7 +364,9 @@ class SystemSIPDeviceTypeModifyRequest17 extends ComplexType implements ComplexI
      */
     public function getIsVideoCapable()
     {
-        return ($this->isVideoCapable) ? $this->isVideoCapable->getValue() : null;
+        return ($this->isVideoCapable)
+            ? $this->isVideoCapable->getElementValue()
+            : null;
     }
 
     /**
@@ -353,7 +375,7 @@ class SystemSIPDeviceTypeModifyRequest17 extends ComplexType implements ComplexI
     public function setPBXIntegration($PBXIntegration = null)
     {
         $this->PBXIntegration = new PrimitiveType($PBXIntegration);
-        $this->PBXIntegration->setName('PBXIntegration');
+        $this->PBXIntegration->setElementName('PBXIntegration');
         return $this;
     }
 
@@ -363,7 +385,9 @@ class SystemSIPDeviceTypeModifyRequest17 extends ComplexType implements ComplexI
      */
     public function getPBXIntegration()
     {
-        return ($this->PBXIntegration) ? $this->PBXIntegration->getValue() : null;
+        return ($this->PBXIntegration)
+            ? $this->PBXIntegration->getElementValue()
+            : null;
     }
 
     /**
@@ -372,7 +396,7 @@ class SystemSIPDeviceTypeModifyRequest17 extends ComplexType implements ComplexI
     public function setStaticRegistrationCapable($staticRegistrationCapable = null)
     {
         $this->staticRegistrationCapable = new PrimitiveType($staticRegistrationCapable);
-        $this->staticRegistrationCapable->setName('staticRegistrationCapable');
+        $this->staticRegistrationCapable->setElementName('staticRegistrationCapable');
         return $this;
     }
 
@@ -382,7 +406,9 @@ class SystemSIPDeviceTypeModifyRequest17 extends ComplexType implements ComplexI
      */
     public function getStaticRegistrationCapable()
     {
-        return ($this->staticRegistrationCapable) ? $this->staticRegistrationCapable->getValue() : null;
+        return ($this->staticRegistrationCapable)
+            ? $this->staticRegistrationCapable->getElementValue()
+            : null;
     }
 
     /**
@@ -393,7 +419,7 @@ class SystemSIPDeviceTypeModifyRequest17 extends ComplexType implements ComplexI
         $this->cpeDeviceOptions = ($cpeDeviceOptions InstanceOf CPEDeviceModifyOptions16sp1)
              ? $cpeDeviceOptions
              : new CPEDeviceModifyOptions16sp1($cpeDeviceOptions);
-        $this->cpeDeviceOptions->setName('cpeDeviceOptions');
+        $this->cpeDeviceOptions->setElementName('cpeDeviceOptions');
         return $this;
     }
 
@@ -414,7 +440,7 @@ class SystemSIPDeviceTypeModifyRequest17 extends ComplexType implements ComplexI
         $this->earlyMediaSupport = ($earlyMediaSupport InstanceOf EarlyMediaSupportType)
              ? $earlyMediaSupport
              : new EarlyMediaSupportType($earlyMediaSupport);
-        $this->earlyMediaSupport->setName('earlyMediaSupport');
+        $this->earlyMediaSupport->setElementName('earlyMediaSupport');
         return $this;
     }
 
@@ -424,7 +450,9 @@ class SystemSIPDeviceTypeModifyRequest17 extends ComplexType implements ComplexI
      */
     public function getEarlyMediaSupport()
     {
-        return ($this->earlyMediaSupport) ? $this->earlyMediaSupport->getValue() : null;
+        return ($this->earlyMediaSupport)
+            ? $this->earlyMediaSupport->getElementValue()
+            : null;
     }
 
     /**
@@ -433,7 +461,7 @@ class SystemSIPDeviceTypeModifyRequest17 extends ComplexType implements ComplexI
     public function setAuthenticateRefer($authenticateRefer = null)
     {
         $this->authenticateRefer = new PrimitiveType($authenticateRefer);
-        $this->authenticateRefer->setName('authenticateRefer');
+        $this->authenticateRefer->setElementName('authenticateRefer');
         return $this;
     }
 
@@ -443,7 +471,9 @@ class SystemSIPDeviceTypeModifyRequest17 extends ComplexType implements ComplexI
      */
     public function getAuthenticateRefer()
     {
-        return ($this->authenticateRefer) ? $this->authenticateRefer->getValue() : null;
+        return ($this->authenticateRefer)
+            ? $this->authenticateRefer->getElementValue()
+            : null;
     }
 
     /**
@@ -452,7 +482,7 @@ class SystemSIPDeviceTypeModifyRequest17 extends ComplexType implements ComplexI
     public function setAutoConfigSoftClient($autoConfigSoftClient = null)
     {
         $this->autoConfigSoftClient = new PrimitiveType($autoConfigSoftClient);
-        $this->autoConfigSoftClient->setName('autoConfigSoftClient');
+        $this->autoConfigSoftClient->setElementName('autoConfigSoftClient');
         return $this;
     }
 
@@ -462,7 +492,9 @@ class SystemSIPDeviceTypeModifyRequest17 extends ComplexType implements ComplexI
      */
     public function getAutoConfigSoftClient()
     {
-        return ($this->autoConfigSoftClient) ? $this->autoConfigSoftClient->getValue() : null;
+        return ($this->autoConfigSoftClient)
+            ? $this->autoConfigSoftClient->getElementValue()
+            : null;
     }
 
     /**
@@ -473,7 +505,7 @@ class SystemSIPDeviceTypeModifyRequest17 extends ComplexType implements ComplexI
         $this->authenticationMode = ($authenticationMode InstanceOf AuthenticationMode)
              ? $authenticationMode
              : new AuthenticationMode($authenticationMode);
-        $this->authenticationMode->setName('authenticationMode');
+        $this->authenticationMode->setElementName('authenticationMode');
         return $this;
     }
 
@@ -483,7 +515,9 @@ class SystemSIPDeviceTypeModifyRequest17 extends ComplexType implements ComplexI
      */
     public function getAuthenticationMode()
     {
-        return ($this->authenticationMode) ? $this->authenticationMode->getValue() : null;
+        return ($this->authenticationMode)
+            ? $this->authenticationMode->getElementValue()
+            : null;
     }
 
     /**
@@ -492,7 +526,7 @@ class SystemSIPDeviceTypeModifyRequest17 extends ComplexType implements ComplexI
     public function setRequiresBroadWorksDigitCollection($requiresBroadWorksDigitCollection = null)
     {
         $this->requiresBroadWorksDigitCollection = new PrimitiveType($requiresBroadWorksDigitCollection);
-        $this->requiresBroadWorksDigitCollection->setName('requiresBroadWorksDigitCollection');
+        $this->requiresBroadWorksDigitCollection->setElementName('requiresBroadWorksDigitCollection');
         return $this;
     }
 
@@ -502,7 +536,9 @@ class SystemSIPDeviceTypeModifyRequest17 extends ComplexType implements ComplexI
      */
     public function getRequiresBroadWorksDigitCollection()
     {
-        return ($this->requiresBroadWorksDigitCollection) ? $this->requiresBroadWorksDigitCollection->getValue() : null;
+        return ($this->requiresBroadWorksDigitCollection)
+            ? $this->requiresBroadWorksDigitCollection->getElementValue()
+            : null;
     }
 
     /**
@@ -511,7 +547,7 @@ class SystemSIPDeviceTypeModifyRequest17 extends ComplexType implements ComplexI
     public function setRequiresBroadWorksCallWaitingTone($requiresBroadWorksCallWaitingTone = null)
     {
         $this->requiresBroadWorksCallWaitingTone = new PrimitiveType($requiresBroadWorksCallWaitingTone);
-        $this->requiresBroadWorksCallWaitingTone->setName('requiresBroadWorksCallWaitingTone');
+        $this->requiresBroadWorksCallWaitingTone->setElementName('requiresBroadWorksCallWaitingTone');
         return $this;
     }
 
@@ -521,7 +557,9 @@ class SystemSIPDeviceTypeModifyRequest17 extends ComplexType implements ComplexI
      */
     public function getRequiresBroadWorksCallWaitingTone()
     {
-        return ($this->requiresBroadWorksCallWaitingTone) ? $this->requiresBroadWorksCallWaitingTone->getValue() : null;
+        return ($this->requiresBroadWorksCallWaitingTone)
+            ? $this->requiresBroadWorksCallWaitingTone->getElementValue()
+            : null;
     }
 
     /**
@@ -530,7 +568,7 @@ class SystemSIPDeviceTypeModifyRequest17 extends ComplexType implements ComplexI
     public function setRequiresMWISubscription($requiresMWISubscription = null)
     {
         $this->requiresMWISubscription = new PrimitiveType($requiresMWISubscription);
-        $this->requiresMWISubscription->setName('requiresMWISubscription');
+        $this->requiresMWISubscription->setElementName('requiresMWISubscription');
         return $this;
     }
 
@@ -540,7 +578,9 @@ class SystemSIPDeviceTypeModifyRequest17 extends ComplexType implements ComplexI
      */
     public function getRequiresMWISubscription()
     {
-        return ($this->requiresMWISubscription) ? $this->requiresMWISubscription->getValue() : null;
+        return ($this->requiresMWISubscription)
+            ? $this->requiresMWISubscription->getElementValue()
+            : null;
     }
 
     /**
@@ -549,7 +589,7 @@ class SystemSIPDeviceTypeModifyRequest17 extends ComplexType implements ComplexI
     public function setUseHistoryInfoHeaderOnAccessSide($useHistoryInfoHeaderOnAccessSide = null)
     {
         $this->useHistoryInfoHeaderOnAccessSide = new PrimitiveType($useHistoryInfoHeaderOnAccessSide);
-        $this->useHistoryInfoHeaderOnAccessSide->setName('useHistoryInfoHeaderOnAccessSide');
+        $this->useHistoryInfoHeaderOnAccessSide->setElementName('useHistoryInfoHeaderOnAccessSide');
         return $this;
     }
 
@@ -559,7 +599,9 @@ class SystemSIPDeviceTypeModifyRequest17 extends ComplexType implements ComplexI
      */
     public function getUseHistoryInfoHeaderOnAccessSide()
     {
-        return ($this->useHistoryInfoHeaderOnAccessSide) ? $this->useHistoryInfoHeaderOnAccessSide->getValue() : null;
+        return ($this->useHistoryInfoHeaderOnAccessSide)
+            ? $this->useHistoryInfoHeaderOnAccessSide->getElementValue()
+            : null;
     }
 
     /**
@@ -568,7 +610,7 @@ class SystemSIPDeviceTypeModifyRequest17 extends ComplexType implements ComplexI
     public function setAdviceOfChargeCapable($adviceOfChargeCapable = null)
     {
         $this->adviceOfChargeCapable = new PrimitiveType($adviceOfChargeCapable);
-        $this->adviceOfChargeCapable->setName('adviceOfChargeCapable');
+        $this->adviceOfChargeCapable->setElementName('adviceOfChargeCapable');
         return $this;
     }
 
@@ -578,7 +620,9 @@ class SystemSIPDeviceTypeModifyRequest17 extends ComplexType implements ComplexI
      */
     public function getAdviceOfChargeCapable()
     {
-        return ($this->adviceOfChargeCapable) ? $this->adviceOfChargeCapable->getValue() : null;
+        return ($this->adviceOfChargeCapable)
+            ? $this->adviceOfChargeCapable->getElementValue()
+            : null;
     }
 
     /**
@@ -589,7 +633,7 @@ class SystemSIPDeviceTypeModifyRequest17 extends ComplexType implements ComplexI
         $this->resetEvent = ($resetEvent InstanceOf AccessDeviceResetEvent)
              ? $resetEvent
              : new AccessDeviceResetEvent($resetEvent);
-        $this->resetEvent->setName('resetEvent');
+        $this->resetEvent->setElementName('resetEvent');
         return $this;
     }
 
@@ -599,7 +643,9 @@ class SystemSIPDeviceTypeModifyRequest17 extends ComplexType implements ComplexI
      */
     public function getResetEvent()
     {
-        return ($this->resetEvent) ? $this->resetEvent->getValue() : null;
+        return ($this->resetEvent)
+            ? $this->resetEvent->getElementValue()
+            : null;
     }
 
     /**
@@ -608,7 +654,7 @@ class SystemSIPDeviceTypeModifyRequest17 extends ComplexType implements ComplexI
     public function setSupportCallCenterMIMEType($supportCallCenterMIMEType = null)
     {
         $this->supportCallCenterMIMEType = new PrimitiveType($supportCallCenterMIMEType);
-        $this->supportCallCenterMIMEType->setName('supportCallCenterMIMEType');
+        $this->supportCallCenterMIMEType->setElementName('supportCallCenterMIMEType');
         return $this;
     }
 
@@ -618,7 +664,9 @@ class SystemSIPDeviceTypeModifyRequest17 extends ComplexType implements ComplexI
      */
     public function getSupportCallCenterMIMEType()
     {
-        return ($this->supportCallCenterMIMEType) ? $this->supportCallCenterMIMEType->getValue() : null;
+        return ($this->supportCallCenterMIMEType)
+            ? $this->supportCallCenterMIMEType->getElementValue()
+            : null;
     }
 
     /**
@@ -629,7 +677,7 @@ class SystemSIPDeviceTypeModifyRequest17 extends ComplexType implements ComplexI
         $this->trunkMode = ($trunkMode InstanceOf TrunkMode)
              ? $trunkMode
              : new TrunkMode($trunkMode);
-        $this->trunkMode->setName('trunkMode');
+        $this->trunkMode->setElementName('trunkMode');
         return $this;
     }
 
@@ -639,7 +687,9 @@ class SystemSIPDeviceTypeModifyRequest17 extends ComplexType implements ComplexI
      */
     public function getTrunkMode()
     {
-        return ($this->trunkMode) ? $this->trunkMode->getValue() : null;
+        return ($this->trunkMode)
+            ? $this->trunkMode->getElementValue()
+            : null;
     }
 
     /**
@@ -648,7 +698,7 @@ class SystemSIPDeviceTypeModifyRequest17 extends ComplexType implements ComplexI
     public function setAddPCalledPartyId($addPCalledPartyId = null)
     {
         $this->addPCalledPartyId = new PrimitiveType($addPCalledPartyId);
-        $this->addPCalledPartyId->setName('addPCalledPartyId');
+        $this->addPCalledPartyId->setElementName('addPCalledPartyId');
         return $this;
     }
 
@@ -658,7 +708,9 @@ class SystemSIPDeviceTypeModifyRequest17 extends ComplexType implements ComplexI
      */
     public function getAddPCalledPartyId()
     {
-        return ($this->addPCalledPartyId) ? $this->addPCalledPartyId->getValue() : null;
+        return ($this->addPCalledPartyId)
+            ? $this->addPCalledPartyId->getElementValue()
+            : null;
     }
 
     /**
@@ -667,7 +719,7 @@ class SystemSIPDeviceTypeModifyRequest17 extends ComplexType implements ComplexI
     public function setSupportIdentityInUpdateAndReInvite($supportIdentityInUpdateAndReInvite = null)
     {
         $this->supportIdentityInUpdateAndReInvite = new PrimitiveType($supportIdentityInUpdateAndReInvite);
-        $this->supportIdentityInUpdateAndReInvite->setName('supportIdentityInUpdateAndReInvite');
+        $this->supportIdentityInUpdateAndReInvite->setElementName('supportIdentityInUpdateAndReInvite');
         return $this;
     }
 
@@ -677,7 +729,9 @@ class SystemSIPDeviceTypeModifyRequest17 extends ComplexType implements ComplexI
      */
     public function getSupportIdentityInUpdateAndReInvite()
     {
-        return ($this->supportIdentityInUpdateAndReInvite) ? $this->supportIdentityInUpdateAndReInvite->getValue() : null;
+        return ($this->supportIdentityInUpdateAndReInvite)
+            ? $this->supportIdentityInUpdateAndReInvite->getElementValue()
+            : null;
     }
 
     /**
@@ -688,7 +742,7 @@ class SystemSIPDeviceTypeModifyRequest17 extends ComplexType implements ComplexI
         $this->unscreenedPresentationIdentityPolicy = ($unscreenedPresentationIdentityPolicy InstanceOf UnscreenedPresentationIdentityPolicy)
              ? $unscreenedPresentationIdentityPolicy
              : new UnscreenedPresentationIdentityPolicy($unscreenedPresentationIdentityPolicy);
-        $this->unscreenedPresentationIdentityPolicy->setName('unscreenedPresentationIdentityPolicy');
+        $this->unscreenedPresentationIdentityPolicy->setElementName('unscreenedPresentationIdentityPolicy');
         return $this;
     }
 
@@ -698,6 +752,8 @@ class SystemSIPDeviceTypeModifyRequest17 extends ComplexType implements ComplexI
      */
     public function getUnscreenedPresentationIdentityPolicy()
     {
-        return ($this->unscreenedPresentationIdentityPolicy) ? $this->unscreenedPresentationIdentityPolicy->getValue() : null;
+        return ($this->unscreenedPresentationIdentityPolicy)
+            ? $this->unscreenedPresentationIdentityPolicy->getElementValue()
+            : null;
     }
 }

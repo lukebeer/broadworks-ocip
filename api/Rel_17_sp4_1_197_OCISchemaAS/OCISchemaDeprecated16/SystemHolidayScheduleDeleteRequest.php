@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemHolidayScheduleDeleteRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemHolidayScheduleDeleteRequest';
+    public    $elementName = 'SystemHolidayScheduleDeleteRequest';
     protected $holidayScheduleName;
 
     public function __construct(
@@ -45,7 +45,7 @@ class SystemHolidayScheduleDeleteRequest extends ComplexType implements ComplexI
         $this->holidayScheduleName = ($holidayScheduleName InstanceOf ScheduleName)
              ? $holidayScheduleName
              : new ScheduleName($holidayScheduleName);
-        $this->holidayScheduleName->setName('holidayScheduleName');
+        $this->holidayScheduleName->setElementName('holidayScheduleName');
         return $this;
     }
 
@@ -55,6 +55,8 @@ class SystemHolidayScheduleDeleteRequest extends ComplexType implements ComplexI
      */
     public function getHolidayScheduleName()
     {
-        return ($this->holidayScheduleName) ? $this->holidayScheduleName->getValue() : null;
+        return ($this->holidayScheduleName)
+            ? $this->holidayScheduleName->getElementValue()
+            : null;
     }
 }

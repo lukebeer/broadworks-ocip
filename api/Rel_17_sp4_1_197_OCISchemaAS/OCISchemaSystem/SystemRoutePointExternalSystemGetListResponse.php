@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemRoutePointExternalSystemGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemRoutePointExternalSystemGetListResponse';
+    public    $elementName = 'SystemRoutePointExternalSystemGetListResponse';
     protected $externalSystemTable;
 
     /**
@@ -39,7 +39,7 @@ class SystemRoutePointExternalSystemGetListResponse extends ComplexType implemen
     public function setExternalSystemTable(TableType $externalSystemTable = null)
     {
         $this->externalSystemTable = $externalSystemTable;
-        $this->externalSystemTable->setName('externalSystemTable');
+        $this->externalSystemTable->setElementName('externalSystemTable');
         return $this;
     }
 

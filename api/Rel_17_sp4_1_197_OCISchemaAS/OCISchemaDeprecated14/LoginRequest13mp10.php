@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
 class LoginRequest13mp10 extends ComplexType implements ComplexInterface
 {
     public    $responseType   = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\LoginResponse13mp10';
-    public    $name = 'LoginRequest13mp10';
+    public    $elementName = 'LoginRequest13mp10';
     protected $userId;
     protected $signedPassword;
 
@@ -50,7 +50,7 @@ class LoginRequest13mp10 extends ComplexType implements ComplexInterface
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
-        $this->userId->setName('userId');
+        $this->userId->setElementName('userId');
         return $this;
     }
 
@@ -60,7 +60,9 @@ class LoginRequest13mp10 extends ComplexType implements ComplexInterface
      */
     public function getUserId()
     {
-        return ($this->userId) ? $this->userId->getValue() : null;
+        return ($this->userId)
+            ? $this->userId->getElementValue()
+            : null;
     }
 
     /**
@@ -71,7 +73,7 @@ class LoginRequest13mp10 extends ComplexType implements ComplexInterface
         $this->signedPassword = ($signedPassword InstanceOf SignedPassword)
              ? $signedPassword
              : new SignedPassword($signedPassword);
-        $this->signedPassword->setName('signedPassword');
+        $this->signedPassword->setElementName('signedPassword');
         return $this;
     }
 
@@ -81,6 +83,8 @@ class LoginRequest13mp10 extends ComplexType implements ComplexInterface
      */
     public function getSignedPassword()
     {
-        return ($this->signedPassword) ? $this->signedPassword->getValue() : null;
+        return ($this->signedPassword)
+            ? $this->signedPassword->getElementValue()
+            : null;
     }
 }

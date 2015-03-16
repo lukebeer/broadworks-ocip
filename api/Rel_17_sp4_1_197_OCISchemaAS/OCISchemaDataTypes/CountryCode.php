@@ -17,12 +17,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\Pattern;
  */
 class CountryCode extends SimpleType
 {
-    public $name = "CountryCode";
-    protected $value;
-
+    public $elementName = "CountryCode";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new MaxLength("3"));
         $this->addRestriction(new Pattern("[0-9]|[1-9][0-9]{1,2}"));
     }

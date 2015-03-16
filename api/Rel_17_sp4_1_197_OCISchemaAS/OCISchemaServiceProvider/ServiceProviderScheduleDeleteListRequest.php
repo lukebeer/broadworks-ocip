@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderScheduleDeleteListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'ServiceProviderScheduleDeleteListRequest';
+    public    $elementName = 'ServiceProviderScheduleDeleteListRequest';
     protected $serviceProviderId;
     protected $scheduleKey;
 
@@ -49,7 +49,7 @@ class ServiceProviderScheduleDeleteListRequest extends ComplexType implements Co
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
-        $this->serviceProviderId->setName('serviceProviderId');
+        $this->serviceProviderId->setElementName('serviceProviderId');
         return $this;
     }
 
@@ -59,7 +59,9 @@ class ServiceProviderScheduleDeleteListRequest extends ComplexType implements Co
      */
     public function getServiceProviderId()
     {
-        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
+        return ($this->serviceProviderId)
+            ? $this->serviceProviderId->getElementValue()
+            : null;
     }
 
     /**
@@ -70,7 +72,7 @@ class ServiceProviderScheduleDeleteListRequest extends ComplexType implements Co
         $this->scheduleKey = ($scheduleKey InstanceOf ScheduleKey)
              ? $scheduleKey
              : new ScheduleKey($scheduleKey);
-        $this->scheduleKey->setName('scheduleKey');
+        $this->scheduleKey->setElementName('scheduleKey');
         return $this;
     }
 

@@ -24,7 +24,7 @@ use Broadworks_OCIP\core\Client\Client;
 class UserInstantConferencingGetStandAloneSlideShowContentRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType          = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing\UserInstantConferencingGetStandAloneSlideShowContentResponse';
-    public    $name = 'UserInstantConferencingGetStandAloneSlideShowContentRequest';
+    public    $elementName = 'UserInstantConferencingGetStandAloneSlideShowContentRequest';
     protected $bridgeServiceUserId;
     protected $conferenceOwnerUserId;
     protected $documentId;
@@ -58,7 +58,7 @@ class UserInstantConferencingGetStandAloneSlideShowContentRequest extends Comple
         $this->bridgeServiceUserId = ($bridgeServiceUserId InstanceOf UserId)
              ? $bridgeServiceUserId
              : new UserId($bridgeServiceUserId);
-        $this->bridgeServiceUserId->setName('bridgeServiceUserId');
+        $this->bridgeServiceUserId->setElementName('bridgeServiceUserId');
         return $this;
     }
 
@@ -68,7 +68,9 @@ class UserInstantConferencingGetStandAloneSlideShowContentRequest extends Comple
      */
     public function getBridgeServiceUserId()
     {
-        return ($this->bridgeServiceUserId) ? $this->bridgeServiceUserId->getValue() : null;
+        return ($this->bridgeServiceUserId)
+            ? $this->bridgeServiceUserId->getElementValue()
+            : null;
     }
 
     /**
@@ -79,7 +81,7 @@ class UserInstantConferencingGetStandAloneSlideShowContentRequest extends Comple
         $this->conferenceOwnerUserId = ($conferenceOwnerUserId InstanceOf UserId)
              ? $conferenceOwnerUserId
              : new UserId($conferenceOwnerUserId);
-        $this->conferenceOwnerUserId->setName('conferenceOwnerUserId');
+        $this->conferenceOwnerUserId->setElementName('conferenceOwnerUserId');
         return $this;
     }
 
@@ -89,7 +91,9 @@ class UserInstantConferencingGetStandAloneSlideShowContentRequest extends Comple
      */
     public function getConferenceOwnerUserId()
     {
-        return ($this->conferenceOwnerUserId) ? $this->conferenceOwnerUserId->getValue() : null;
+        return ($this->conferenceOwnerUserId)
+            ? $this->conferenceOwnerUserId->getElementValue()
+            : null;
     }
 
     /**
@@ -100,7 +104,7 @@ class UserInstantConferencingGetStandAloneSlideShowContentRequest extends Comple
         $this->documentId = ($documentId InstanceOf InstantConferencingDocumentId)
              ? $documentId
              : new InstantConferencingDocumentId($documentId);
-        $this->documentId->setName('documentId');
+        $this->documentId->setElementName('documentId');
         return $this;
     }
 
@@ -110,7 +114,9 @@ class UserInstantConferencingGetStandAloneSlideShowContentRequest extends Comple
      */
     public function getDocumentId()
     {
-        return ($this->documentId) ? $this->documentId->getValue() : null;
+        return ($this->documentId)
+            ? $this->documentId->getElementValue()
+            : null;
     }
 
     /**
@@ -121,7 +127,7 @@ class UserInstantConferencingGetStandAloneSlideShowContentRequest extends Comple
         $this->slideshowPasswordHex = ($slideshowPasswordHex InstanceOf InstantConferencingSlideShowPasswordHex)
              ? $slideshowPasswordHex
              : new InstantConferencingSlideShowPasswordHex($slideshowPasswordHex);
-        $this->slideshowPasswordHex->setName('slideshowPasswordHex');
+        $this->slideshowPasswordHex->setElementName('slideshowPasswordHex');
         return $this;
     }
 
@@ -131,6 +137,8 @@ class UserInstantConferencingGetStandAloneSlideShowContentRequest extends Comple
      */
     public function getSlideshowPasswordHex()
     {
-        return ($this->slideshowPasswordHex) ? $this->slideshowPasswordHex->getValue() : null;
+        return ($this->slideshowPasswordHex)
+            ? $this->slideshowPasswordHex->getElementValue()
+            : null;
     }
 }

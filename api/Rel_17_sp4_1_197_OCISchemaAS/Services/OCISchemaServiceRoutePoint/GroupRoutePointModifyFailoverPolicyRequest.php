@@ -24,7 +24,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupRoutePointModifyFailoverPolicyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'GroupRoutePointModifyFailoverPolicyRequest';
+    public    $elementName = 'GroupRoutePointModifyFailoverPolicyRequest';
     protected $serviceUserId;
     protected $enableFailoverSupport;
     protected $externalSystem;
@@ -70,7 +70,7 @@ class GroupRoutePointModifyFailoverPolicyRequest extends ComplexType implements 
         $this->serviceUserId = ($serviceUserId InstanceOf UserId)
              ? $serviceUserId
              : new UserId($serviceUserId);
-        $this->serviceUserId->setName('serviceUserId');
+        $this->serviceUserId->setElementName('serviceUserId');
         return $this;
     }
 
@@ -80,7 +80,9 @@ class GroupRoutePointModifyFailoverPolicyRequest extends ComplexType implements 
      */
     public function getServiceUserId()
     {
-        return ($this->serviceUserId) ? $this->serviceUserId->getValue() : null;
+        return ($this->serviceUserId)
+            ? $this->serviceUserId->getElementValue()
+            : null;
     }
 
     /**
@@ -89,7 +91,7 @@ class GroupRoutePointModifyFailoverPolicyRequest extends ComplexType implements 
     public function setEnableFailoverSupport($enableFailoverSupport = null)
     {
         $this->enableFailoverSupport = new PrimitiveType($enableFailoverSupport);
-        $this->enableFailoverSupport->setName('enableFailoverSupport');
+        $this->enableFailoverSupport->setElementName('enableFailoverSupport');
         return $this;
     }
 
@@ -99,7 +101,9 @@ class GroupRoutePointModifyFailoverPolicyRequest extends ComplexType implements 
      */
     public function getEnableFailoverSupport()
     {
-        return ($this->enableFailoverSupport) ? $this->enableFailoverSupport->getValue() : null;
+        return ($this->enableFailoverSupport)
+            ? $this->enableFailoverSupport->getElementValue()
+            : null;
     }
 
     /**
@@ -110,7 +114,7 @@ class GroupRoutePointModifyFailoverPolicyRequest extends ComplexType implements 
         $this->externalSystem = ($externalSystem InstanceOf RoutePointExternalSystem)
              ? $externalSystem
              : new RoutePointExternalSystem($externalSystem);
-        $this->externalSystem->setName('externalSystem');
+        $this->externalSystem->setElementName('externalSystem');
         return $this;
     }
 
@@ -120,7 +124,9 @@ class GroupRoutePointModifyFailoverPolicyRequest extends ComplexType implements 
      */
     public function getExternalSystem()
     {
-        return ($this->externalSystem) ? $this->externalSystem->getValue() : null;
+        return ($this->externalSystem)
+            ? $this->externalSystem->getElementValue()
+            : null;
     }
 
     /**
@@ -131,7 +137,7 @@ class GroupRoutePointModifyFailoverPolicyRequest extends ComplexType implements 
         $this->failoverPhoneNumber = ($failoverPhoneNumber InstanceOf OutgoingDNorSIPURI)
              ? $failoverPhoneNumber
              : new OutgoingDNorSIPURI($failoverPhoneNumber);
-        $this->failoverPhoneNumber->setName('failoverPhoneNumber');
+        $this->failoverPhoneNumber->setElementName('failoverPhoneNumber');
         return $this;
     }
 
@@ -141,7 +147,9 @@ class GroupRoutePointModifyFailoverPolicyRequest extends ComplexType implements 
      */
     public function getFailoverPhoneNumber()
     {
-        return ($this->failoverPhoneNumber) ? $this->failoverPhoneNumber->getValue() : null;
+        return ($this->failoverPhoneNumber)
+            ? $this->failoverPhoneNumber->getElementValue()
+            : null;
     }
 
     /**
@@ -150,7 +158,7 @@ class GroupRoutePointModifyFailoverPolicyRequest extends ComplexType implements 
     public function setPerCallEnableFailoverSupport($perCallEnableFailoverSupport = null)
     {
         $this->perCallEnableFailoverSupport = new PrimitiveType($perCallEnableFailoverSupport);
-        $this->perCallEnableFailoverSupport->setName('perCallEnableFailoverSupport');
+        $this->perCallEnableFailoverSupport->setElementName('perCallEnableFailoverSupport');
         return $this;
     }
 
@@ -160,7 +168,9 @@ class GroupRoutePointModifyFailoverPolicyRequest extends ComplexType implements 
      */
     public function getPerCallEnableFailoverSupport()
     {
-        return ($this->perCallEnableFailoverSupport) ? $this->perCallEnableFailoverSupport->getValue() : null;
+        return ($this->perCallEnableFailoverSupport)
+            ? $this->perCallEnableFailoverSupport->getElementValue()
+            : null;
     }
 
     /**
@@ -171,7 +181,7 @@ class GroupRoutePointModifyFailoverPolicyRequest extends ComplexType implements 
         $this->perCallCallFailureTimeoutSeconds = ($perCallCallFailureTimeoutSeconds InstanceOf RoutePointCallFailureTimeout)
              ? $perCallCallFailureTimeoutSeconds
              : new RoutePointCallFailureTimeout($perCallCallFailureTimeoutSeconds);
-        $this->perCallCallFailureTimeoutSeconds->setName('perCallCallFailureTimeoutSeconds');
+        $this->perCallCallFailureTimeoutSeconds->setElementName('perCallCallFailureTimeoutSeconds');
         return $this;
     }
 
@@ -181,7 +191,9 @@ class GroupRoutePointModifyFailoverPolicyRequest extends ComplexType implements 
      */
     public function getPerCallCallFailureTimeoutSeconds()
     {
-        return ($this->perCallCallFailureTimeoutSeconds) ? $this->perCallCallFailureTimeoutSeconds->getValue() : null;
+        return ($this->perCallCallFailureTimeoutSeconds)
+            ? $this->perCallCallFailureTimeoutSeconds->getElementValue()
+            : null;
     }
 
     /**
@@ -192,7 +204,7 @@ class GroupRoutePointModifyFailoverPolicyRequest extends ComplexType implements 
         $this->perCallOutboundCallFailureTimeoutSeconds = ($perCallOutboundCallFailureTimeoutSeconds InstanceOf RoutePointCallFailureTimeout)
              ? $perCallOutboundCallFailureTimeoutSeconds
              : new RoutePointCallFailureTimeout($perCallOutboundCallFailureTimeoutSeconds);
-        $this->perCallOutboundCallFailureTimeoutSeconds->setName('perCallOutboundCallFailureTimeoutSeconds');
+        $this->perCallOutboundCallFailureTimeoutSeconds->setElementName('perCallOutboundCallFailureTimeoutSeconds');
         return $this;
     }
 
@@ -202,7 +214,9 @@ class GroupRoutePointModifyFailoverPolicyRequest extends ComplexType implements 
      */
     public function getPerCallOutboundCallFailureTimeoutSeconds()
     {
-        return ($this->perCallOutboundCallFailureTimeoutSeconds) ? $this->perCallOutboundCallFailureTimeoutSeconds->getValue() : null;
+        return ($this->perCallOutboundCallFailureTimeoutSeconds)
+            ? $this->perCallOutboundCallFailureTimeoutSeconds->getElementValue()
+            : null;
     }
 
     /**
@@ -213,7 +227,7 @@ class GroupRoutePointModifyFailoverPolicyRequest extends ComplexType implements 
         $this->perCallFailoverPhoneNumber = ($perCallFailoverPhoneNumber InstanceOf OutgoingDNorSIPURI)
              ? $perCallFailoverPhoneNumber
              : new OutgoingDNorSIPURI($perCallFailoverPhoneNumber);
-        $this->perCallFailoverPhoneNumber->setName('perCallFailoverPhoneNumber');
+        $this->perCallFailoverPhoneNumber->setElementName('perCallFailoverPhoneNumber');
         return $this;
     }
 
@@ -223,6 +237,8 @@ class GroupRoutePointModifyFailoverPolicyRequest extends ComplexType implements 
      */
     public function getPerCallFailoverPhoneNumber()
     {
-        return ($this->perCallFailoverPhoneNumber) ? $this->perCallFailoverPhoneNumber->getValue() : null;
+        return ($this->perCallFailoverPhoneNumber)
+            ? $this->perCallFailoverPhoneNumber->getElementValue()
+            : null;
     }
 }

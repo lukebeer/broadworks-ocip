@@ -19,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemDomainGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemDomainGetListResponse';
+    public    $elementName = 'SystemDomainGetListResponse';
     protected $systemDefaultDomain;
     protected $domain;
 
@@ -39,7 +39,7 @@ class SystemDomainGetListResponse extends ComplexType implements ComplexInterfac
         $this->systemDefaultDomain = ($systemDefaultDomain InstanceOf NetAddress)
              ? $systemDefaultDomain
              : new NetAddress($systemDefaultDomain);
-        $this->systemDefaultDomain->setName('systemDefaultDomain');
+        $this->systemDefaultDomain->setElementName('systemDefaultDomain');
         return $this;
     }
 
@@ -49,7 +49,9 @@ class SystemDomainGetListResponse extends ComplexType implements ComplexInterfac
      */
     public function getSystemDefaultDomain()
     {
-        return ($this->systemDefaultDomain) ? $this->systemDefaultDomain->getValue() : null;
+        return ($this->systemDefaultDomain)
+            ? $this->systemDefaultDomain->getElementValue()
+            : null;
     }
 
     /**
@@ -60,7 +62,7 @@ class SystemDomainGetListResponse extends ComplexType implements ComplexInterfac
         $this->domain = ($domain InstanceOf NetAddress)
              ? $domain
              : new NetAddress($domain);
-        $this->domain->setName('domain');
+        $this->domain->setElementName('domain');
         return $this;
     }
 
@@ -70,6 +72,8 @@ class SystemDomainGetListResponse extends ComplexType implements ComplexInterfac
      */
     public function getDomain()
     {
-        return ($this->domain) ? $this->domain->getValue() : null;
+        return ($this->domain)
+            ? $this->domain->getElementValue()
+            : null;
     }
 }

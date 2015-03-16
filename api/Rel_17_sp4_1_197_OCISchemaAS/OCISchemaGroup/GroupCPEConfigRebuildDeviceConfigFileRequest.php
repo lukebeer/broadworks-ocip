@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupCPEConfigRebuildDeviceConfigFileRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'GroupCPEConfigRebuildDeviceConfigFileRequest';
+    public    $elementName = 'GroupCPEConfigRebuildDeviceConfigFileRequest';
     protected $serviceProviderId;
     protected $groupId;
     protected $deviceName;
@@ -53,7 +53,7 @@ class GroupCPEConfigRebuildDeviceConfigFileRequest extends ComplexType implement
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
-        $this->serviceProviderId->setName('serviceProviderId');
+        $this->serviceProviderId->setElementName('serviceProviderId');
         return $this;
     }
 
@@ -63,7 +63,9 @@ class GroupCPEConfigRebuildDeviceConfigFileRequest extends ComplexType implement
      */
     public function getServiceProviderId()
     {
-        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
+        return ($this->serviceProviderId)
+            ? $this->serviceProviderId->getElementValue()
+            : null;
     }
 
     /**
@@ -74,7 +76,7 @@ class GroupCPEConfigRebuildDeviceConfigFileRequest extends ComplexType implement
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
-        $this->groupId->setName('groupId');
+        $this->groupId->setElementName('groupId');
         return $this;
     }
 
@@ -84,7 +86,9 @@ class GroupCPEConfigRebuildDeviceConfigFileRequest extends ComplexType implement
      */
     public function getGroupId()
     {
-        return ($this->groupId) ? $this->groupId->getValue() : null;
+        return ($this->groupId)
+            ? $this->groupId->getElementValue()
+            : null;
     }
 
     /**
@@ -95,7 +99,7 @@ class GroupCPEConfigRebuildDeviceConfigFileRequest extends ComplexType implement
         $this->deviceName = ($deviceName InstanceOf AccessDeviceName)
              ? $deviceName
              : new AccessDeviceName($deviceName);
-        $this->deviceName->setName('deviceName');
+        $this->deviceName->setElementName('deviceName');
         return $this;
     }
 
@@ -105,6 +109,8 @@ class GroupCPEConfigRebuildDeviceConfigFileRequest extends ComplexType implement
      */
     public function getDeviceName()
     {
-        return ($this->deviceName) ? $this->deviceName->getValue() : null;
+        return ($this->deviceName)
+            ? $this->deviceName->getElementValue()
+            : null;
     }
 }

@@ -17,12 +17,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\MaxLength;
  */
 class ServiceInstanceProfileName extends SimpleType
 {
-    public $name = "ServiceInstanceProfileName";
-    protected $value;
-
+    public $elementName = "ServiceInstanceProfileName";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new MinLength("1"));
         $this->addRestriction(new MaxLength("30"));
     }

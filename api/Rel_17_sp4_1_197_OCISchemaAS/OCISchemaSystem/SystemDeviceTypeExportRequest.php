@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
 class SystemDeviceTypeExportRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemDeviceTypeExportResponse';
-    public    $name = 'SystemDeviceTypeExportRequest';
+    public    $elementName = 'SystemDeviceTypeExportRequest';
     protected $deviceType;
 
     public function __construct(
@@ -46,7 +46,7 @@ class SystemDeviceTypeExportRequest extends ComplexType implements ComplexInterf
         $this->deviceType = ($deviceType InstanceOf AccessDeviceType)
              ? $deviceType
              : new AccessDeviceType($deviceType);
-        $this->deviceType->setName('deviceType');
+        $this->deviceType->setElementName('deviceType');
         return $this;
     }
 
@@ -56,6 +56,8 @@ class SystemDeviceTypeExportRequest extends ComplexType implements ComplexInterf
      */
     public function getDeviceType()
     {
-        return ($this->deviceType) ? $this->deviceType->getValue() : null;
+        return ($this->deviceType)
+            ? $this->deviceType->getElementValue()
+            : null;
     }
 }

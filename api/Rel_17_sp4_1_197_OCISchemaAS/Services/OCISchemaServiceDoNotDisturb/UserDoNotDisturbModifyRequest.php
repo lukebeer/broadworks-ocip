@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserDoNotDisturbModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'UserDoNotDisturbModifyRequest';
+    public    $elementName = 'UserDoNotDisturbModifyRequest';
     protected $userId;
     protected $isActive;
     protected $ringSplash;
@@ -53,7 +53,7 @@ class UserDoNotDisturbModifyRequest extends ComplexType implements ComplexInterf
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
-        $this->userId->setName('userId');
+        $this->userId->setElementName('userId');
         return $this;
     }
 
@@ -63,7 +63,9 @@ class UserDoNotDisturbModifyRequest extends ComplexType implements ComplexInterf
      */
     public function getUserId()
     {
-        return ($this->userId) ? $this->userId->getValue() : null;
+        return ($this->userId)
+            ? $this->userId->getElementValue()
+            : null;
     }
 
     /**
@@ -72,7 +74,7 @@ class UserDoNotDisturbModifyRequest extends ComplexType implements ComplexInterf
     public function setIsActive($isActive = null)
     {
         $this->isActive = new PrimitiveType($isActive);
-        $this->isActive->setName('isActive');
+        $this->isActive->setElementName('isActive');
         return $this;
     }
 
@@ -82,7 +84,9 @@ class UserDoNotDisturbModifyRequest extends ComplexType implements ComplexInterf
      */
     public function getIsActive()
     {
-        return ($this->isActive) ? $this->isActive->getValue() : null;
+        return ($this->isActive)
+            ? $this->isActive->getElementValue()
+            : null;
     }
 
     /**
@@ -91,7 +95,7 @@ class UserDoNotDisturbModifyRequest extends ComplexType implements ComplexInterf
     public function setRingSplash($ringSplash = null)
     {
         $this->ringSplash = new PrimitiveType($ringSplash);
-        $this->ringSplash->setName('ringSplash');
+        $this->ringSplash->setElementName('ringSplash');
         return $this;
     }
 
@@ -101,6 +105,8 @@ class UserDoNotDisturbModifyRequest extends ComplexType implements ComplexInterf
      */
     public function getRingSplash()
     {
-        return ($this->ringSplash) ? $this->ringSplash->getValue() : null;
+        return ($this->ringSplash)
+            ? $this->ringSplash->getElementValue()
+            : null;
     }
 }

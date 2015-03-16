@@ -17,12 +17,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\MaxInclusive;
  */
 class CallTransferBusyCampOnSeconds extends SimpleType
 {
-    public $name = "CallTransferBusyCampOnSeconds";
-    protected $value;
-
+    public $elementName = "CallTransferBusyCampOnSeconds";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new MinInclusive("30"));
         $this->addRestriction(new MaxInclusive("600"));
     }

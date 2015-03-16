@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ReplacementUserIdList extends ComplexType implements ComplexInterface
 {
-    public    $name = 'ReplacementUserIdList';
+    public    $elementName = 'ReplacementUserIdList';
     protected $userId;
 
     public function __construct(
@@ -43,7 +43,7 @@ class ReplacementUserIdList extends ComplexType implements ComplexInterface
     public function setUserId($userId = null)
     {
         $this->userId = new SimpleContent($userId);
-        $this->userId->setName('userId');
+        $this->userId->setElementName('userId');
         return $this;
     }
 
@@ -53,6 +53,8 @@ class ReplacementUserIdList extends ComplexType implements ComplexInterface
      */
     public function getUserId()
     {
-        return ($this->userId) ? $this->userId->getValue() : null;
+        return ($this->userId)
+            ? $this->userId->getElementValue()
+            : null;
     }
 }

@@ -23,7 +23,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupHuntGroupGetInstanceListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'GroupHuntGroupGetInstanceListResponse';
+    public    $elementName = 'GroupHuntGroupGetInstanceListResponse';
     protected $huntGroupTable;
 
     /**
@@ -40,7 +40,7 @@ class GroupHuntGroupGetInstanceListResponse extends ComplexType implements Compl
     public function setHuntGroupTable(TableType $huntGroupTable = null)
     {
         $this->huntGroupTable = $huntGroupTable;
-        $this->huntGroupTable->setName('huntGroupTable');
+        $this->huntGroupTable->setElementName('huntGroupTable');
         return $this;
     }
 

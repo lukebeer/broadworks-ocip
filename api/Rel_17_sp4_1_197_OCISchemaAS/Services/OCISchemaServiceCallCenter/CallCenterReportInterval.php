@@ -19,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class CallCenterReportInterval extends ComplexType implements ComplexInterface
 {
-    public    $name = 'CallCenterReportInterval';
+    public    $elementName = 'CallCenterReportInterval';
 
     public function __construct(    ) {
     }

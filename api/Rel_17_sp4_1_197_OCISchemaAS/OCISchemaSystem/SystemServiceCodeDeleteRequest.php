@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemServiceCodeDeleteRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemServiceCodeDeleteRequest';
+    public    $elementName = 'SystemServiceCodeDeleteRequest';
     protected $serviceCode;
 
     public function __construct(
@@ -45,7 +45,7 @@ class SystemServiceCodeDeleteRequest extends ComplexType implements ComplexInter
         $this->serviceCode = ($serviceCode InstanceOf ServiceCode)
              ? $serviceCode
              : new ServiceCode($serviceCode);
-        $this->serviceCode->setName('serviceCode');
+        $this->serviceCode->setElementName('serviceCode');
         return $this;
     }
 
@@ -55,6 +55,8 @@ class SystemServiceCodeDeleteRequest extends ComplexType implements ComplexInter
      */
     public function getServiceCode()
     {
-        return ($this->serviceCode) ? $this->serviceCode->getValue() : null;
+        return ($this->serviceCode)
+            ? $this->serviceCode->getElementValue()
+            : null;
     }
 }

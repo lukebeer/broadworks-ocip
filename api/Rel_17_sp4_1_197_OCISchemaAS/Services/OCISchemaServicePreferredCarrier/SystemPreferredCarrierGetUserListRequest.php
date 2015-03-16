@@ -28,7 +28,7 @@ use Broadworks_OCIP\core\Client\Client;
 class SystemPreferredCarrierGetUserListRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType                = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServicePreferredCarrier\SystemPreferredCarrierGetUserListResponse';
-    public    $name = 'SystemPreferredCarrierGetUserListRequest';
+    public    $elementName = 'SystemPreferredCarrierGetUserListRequest';
     protected $carrier;
     protected $responseSizeLimit;
     protected $searchCriteriaUserLastName;
@@ -68,7 +68,7 @@ class SystemPreferredCarrierGetUserListRequest extends ComplexType implements Co
         $this->carrier = ($carrier InstanceOf PreferredCarrierName)
              ? $carrier
              : new PreferredCarrierName($carrier);
-        $this->carrier->setName('carrier');
+        $this->carrier->setElementName('carrier');
         return $this;
     }
 
@@ -78,7 +78,9 @@ class SystemPreferredCarrierGetUserListRequest extends ComplexType implements Co
      */
     public function getCarrier()
     {
-        return ($this->carrier) ? $this->carrier->getValue() : null;
+        return ($this->carrier)
+            ? $this->carrier->getElementValue()
+            : null;
     }
 
     /**
@@ -89,7 +91,7 @@ class SystemPreferredCarrierGetUserListRequest extends ComplexType implements Co
         $this->responseSizeLimit = ($responseSizeLimit InstanceOf ResponseSizeLimit)
              ? $responseSizeLimit
              : new ResponseSizeLimit($responseSizeLimit);
-        $this->responseSizeLimit->setName('responseSizeLimit');
+        $this->responseSizeLimit->setElementName('responseSizeLimit');
         return $this;
     }
 
@@ -99,7 +101,9 @@ class SystemPreferredCarrierGetUserListRequest extends ComplexType implements Co
      */
     public function getResponseSizeLimit()
     {
-        return ($this->responseSizeLimit) ? $this->responseSizeLimit->getValue() : null;
+        return ($this->responseSizeLimit)
+            ? $this->responseSizeLimit->getElementValue()
+            : null;
     }
 
     /**
@@ -110,7 +114,7 @@ class SystemPreferredCarrierGetUserListRequest extends ComplexType implements Co
         $this->searchCriteriaUserLastName = ($searchCriteriaUserLastName InstanceOf SearchCriteriaUserLastName)
              ? $searchCriteriaUserLastName
              : new SearchCriteriaUserLastName($searchCriteriaUserLastName);
-        $this->searchCriteriaUserLastName->setName('searchCriteriaUserLastName');
+        $this->searchCriteriaUserLastName->setElementName('searchCriteriaUserLastName');
         return $this;
     }
 
@@ -131,7 +135,7 @@ class SystemPreferredCarrierGetUserListRequest extends ComplexType implements Co
         $this->searchCriteriaUserFirstName = ($searchCriteriaUserFirstName InstanceOf SearchCriteriaUserFirstName)
              ? $searchCriteriaUserFirstName
              : new SearchCriteriaUserFirstName($searchCriteriaUserFirstName);
-        $this->searchCriteriaUserFirstName->setName('searchCriteriaUserFirstName');
+        $this->searchCriteriaUserFirstName->setElementName('searchCriteriaUserFirstName');
         return $this;
     }
 
@@ -152,7 +156,7 @@ class SystemPreferredCarrierGetUserListRequest extends ComplexType implements Co
         $this->searchCriteriaDn = ($searchCriteriaDn InstanceOf SearchCriteriaDn)
              ? $searchCriteriaDn
              : new SearchCriteriaDn($searchCriteriaDn);
-        $this->searchCriteriaDn->setName('searchCriteriaDn');
+        $this->searchCriteriaDn->setElementName('searchCriteriaDn');
         return $this;
     }
 
@@ -173,7 +177,7 @@ class SystemPreferredCarrierGetUserListRequest extends ComplexType implements Co
         $this->searchCriteriaEmailAddress = ($searchCriteriaEmailAddress InstanceOf SearchCriteriaEmailAddress)
              ? $searchCriteriaEmailAddress
              : new SearchCriteriaEmailAddress($searchCriteriaEmailAddress);
-        $this->searchCriteriaEmailAddress->setName('searchCriteriaEmailAddress');
+        $this->searchCriteriaEmailAddress->setElementName('searchCriteriaEmailAddress');
         return $this;
     }
 

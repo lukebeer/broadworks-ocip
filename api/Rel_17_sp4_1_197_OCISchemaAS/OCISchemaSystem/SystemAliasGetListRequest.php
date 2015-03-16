@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
 class SystemAliasGetListRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemAliasGetListResponse';
-    public    $name = 'SystemAliasGetListRequest';
+    public    $elementName = 'SystemAliasGetListRequest';
 
     public function __construct(    ) {
     }

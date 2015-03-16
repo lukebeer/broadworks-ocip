@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserPortalPasscodeModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'UserPortalPasscodeModifyRequest';
+    public    $elementName = 'UserPortalPasscodeModifyRequest';
     protected $userId;
     protected $oldPasscode;
     protected $newPasscode;
@@ -52,7 +52,7 @@ class UserPortalPasscodeModifyRequest extends ComplexType implements ComplexInte
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
-        $this->userId->setName('userId');
+        $this->userId->setElementName('userId');
         return $this;
     }
 
@@ -62,7 +62,9 @@ class UserPortalPasscodeModifyRequest extends ComplexType implements ComplexInte
      */
     public function getUserId()
     {
-        return ($this->userId) ? $this->userId->getValue() : null;
+        return ($this->userId)
+            ? $this->userId->getElementValue()
+            : null;
     }
 
     /**
@@ -73,7 +75,7 @@ class UserPortalPasscodeModifyRequest extends ComplexType implements ComplexInte
         $this->oldPasscode = ($oldPasscode InstanceOf Passcode)
              ? $oldPasscode
              : new Passcode($oldPasscode);
-        $this->oldPasscode->setName('oldPasscode');
+        $this->oldPasscode->setElementName('oldPasscode');
         return $this;
     }
 
@@ -83,7 +85,9 @@ class UserPortalPasscodeModifyRequest extends ComplexType implements ComplexInte
      */
     public function getOldPasscode()
     {
-        return ($this->oldPasscode) ? $this->oldPasscode->getValue() : null;
+        return ($this->oldPasscode)
+            ? $this->oldPasscode->getElementValue()
+            : null;
     }
 
     /**
@@ -94,7 +98,7 @@ class UserPortalPasscodeModifyRequest extends ComplexType implements ComplexInte
         $this->newPasscode = ($newPasscode InstanceOf Passcode)
              ? $newPasscode
              : new Passcode($newPasscode);
-        $this->newPasscode->setName('newPasscode');
+        $this->newPasscode->setElementName('newPasscode');
         return $this;
     }
 
@@ -104,6 +108,8 @@ class UserPortalPasscodeModifyRequest extends ComplexType implements ComplexInte
      */
     public function getNewPasscode()
     {
-        return ($this->newPasscode) ? $this->newPasscode->getValue() : null;
+        return ($this->newPasscode)
+            ? $this->newPasscode->getElementValue()
+            : null;
     }
 }

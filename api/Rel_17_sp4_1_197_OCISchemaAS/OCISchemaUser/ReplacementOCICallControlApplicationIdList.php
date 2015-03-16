@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ReplacementOCICallControlApplicationIdList extends ComplexType implements ComplexInterface
 {
-    public    $name = 'ReplacementOCICallControlApplicationIdList';
+    public    $elementName = 'ReplacementOCICallControlApplicationIdList';
     protected $applicationId;
 
     public function __construct(
@@ -43,7 +43,7 @@ class ReplacementOCICallControlApplicationIdList extends ComplexType implements 
     public function setApplicationId($applicationId = null)
     {
         $this->applicationId = new SimpleContent($applicationId);
-        $this->applicationId->setName('applicationId');
+        $this->applicationId->setElementName('applicationId');
         return $this;
     }
 
@@ -53,6 +53,8 @@ class ReplacementOCICallControlApplicationIdList extends ComplexType implements 
      */
     public function getApplicationId()
     {
-        return ($this->applicationId) ? $this->applicationId->getValue() : null;
+        return ($this->applicationId)
+            ? $this->applicationId->getElementValue()
+            : null;
     }
 }

@@ -24,7 +24,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserPushToTalkModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'UserPushToTalkModifyRequest';
+    public    $elementName = 'UserPushToTalkModifyRequest';
     protected $userId;
     protected $allowAutoAnswer;
     protected $outgoingConnectionSelection;
@@ -61,7 +61,7 @@ class UserPushToTalkModifyRequest extends ComplexType implements ComplexInterfac
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
-        $this->userId->setName('userId');
+        $this->userId->setElementName('userId');
         return $this;
     }
 
@@ -71,7 +71,9 @@ class UserPushToTalkModifyRequest extends ComplexType implements ComplexInterfac
      */
     public function getUserId()
     {
-        return ($this->userId) ? $this->userId->getValue() : null;
+        return ($this->userId)
+            ? $this->userId->getElementValue()
+            : null;
     }
 
     /**
@@ -80,7 +82,7 @@ class UserPushToTalkModifyRequest extends ComplexType implements ComplexInterfac
     public function setAllowAutoAnswer($allowAutoAnswer = null)
     {
         $this->allowAutoAnswer = new PrimitiveType($allowAutoAnswer);
-        $this->allowAutoAnswer->setName('allowAutoAnswer');
+        $this->allowAutoAnswer->setElementName('allowAutoAnswer');
         return $this;
     }
 
@@ -90,7 +92,9 @@ class UserPushToTalkModifyRequest extends ComplexType implements ComplexInterfac
      */
     public function getAllowAutoAnswer()
     {
-        return ($this->allowAutoAnswer) ? $this->allowAutoAnswer->getValue() : null;
+        return ($this->allowAutoAnswer)
+            ? $this->allowAutoAnswer->getElementValue()
+            : null;
     }
 
     /**
@@ -101,7 +105,7 @@ class UserPushToTalkModifyRequest extends ComplexType implements ComplexInterfac
         $this->outgoingConnectionSelection = ($outgoingConnectionSelection InstanceOf PushToTalkOutgoingConnectionSelection)
              ? $outgoingConnectionSelection
              : new PushToTalkOutgoingConnectionSelection($outgoingConnectionSelection);
-        $this->outgoingConnectionSelection->setName('outgoingConnectionSelection');
+        $this->outgoingConnectionSelection->setElementName('outgoingConnectionSelection');
         return $this;
     }
 
@@ -111,7 +115,9 @@ class UserPushToTalkModifyRequest extends ComplexType implements ComplexInterfac
      */
     public function getOutgoingConnectionSelection()
     {
-        return ($this->outgoingConnectionSelection) ? $this->outgoingConnectionSelection->getValue() : null;
+        return ($this->outgoingConnectionSelection)
+            ? $this->outgoingConnectionSelection->getElementValue()
+            : null;
     }
 
     /**
@@ -122,7 +128,7 @@ class UserPushToTalkModifyRequest extends ComplexType implements ComplexInterfac
         $this->accessListSelection = ($accessListSelection InstanceOf PushToTalkAccessListSelection)
              ? $accessListSelection
              : new PushToTalkAccessListSelection($accessListSelection);
-        $this->accessListSelection->setName('accessListSelection');
+        $this->accessListSelection->setElementName('accessListSelection');
         return $this;
     }
 
@@ -132,7 +138,9 @@ class UserPushToTalkModifyRequest extends ComplexType implements ComplexInterfac
      */
     public function getAccessListSelection()
     {
-        return ($this->accessListSelection) ? $this->accessListSelection->getValue() : null;
+        return ($this->accessListSelection)
+            ? $this->accessListSelection->getElementValue()
+            : null;
     }
 
     /**
@@ -143,7 +151,7 @@ class UserPushToTalkModifyRequest extends ComplexType implements ComplexInterfac
         $this->selectedUserIdList = ($selectedUserIdList InstanceOf ReplacementUserIdList)
              ? $selectedUserIdList
              : new ReplacementUserIdList($selectedUserIdList);
-        $this->selectedUserIdList->setName('selectedUserIdList');
+        $this->selectedUserIdList->setElementName('selectedUserIdList');
         return $this;
     }
 

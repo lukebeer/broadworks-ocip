@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
 class UserZoneCallingRestrictionsGetRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceZoneCallingRestrictions\UserZoneCallingRestrictionsGetResponse';
-    public    $name = 'UserZoneCallingRestrictionsGetRequest';
+    public    $elementName = 'UserZoneCallingRestrictionsGetRequest';
     protected $userId;
 
     public function __construct(
@@ -46,7 +46,7 @@ class UserZoneCallingRestrictionsGetRequest extends ComplexType implements Compl
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
-        $this->userId->setName('userId');
+        $this->userId->setElementName('userId');
         return $this;
     }
 
@@ -56,6 +56,8 @@ class UserZoneCallingRestrictionsGetRequest extends ComplexType implements Compl
      */
     public function getUserId()
     {
-        return ($this->userId) ? $this->userId->getValue() : null;
+        return ($this->userId)
+            ? $this->userId->getElementValue()
+            : null;
     }
 }

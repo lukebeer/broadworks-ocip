@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderOfficeZoneGetAssignedListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'ServiceProviderOfficeZoneGetAssignedListResponse';
+    public    $elementName = 'ServiceProviderOfficeZoneGetAssignedListResponse';
     protected $officeZoneTable;
 
     /**
@@ -38,7 +38,7 @@ class ServiceProviderOfficeZoneGetAssignedListResponse extends ComplexType imple
     public function setOfficeZoneTable(TableType $officeZoneTable = null)
     {
         $this->officeZoneTable = $officeZoneTable;
-        $this->officeZoneTable->setName('officeZoneTable');
+        $this->officeZoneTable->setElementName('officeZoneTable');
         return $this;
     }
 

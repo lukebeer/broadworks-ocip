@@ -23,7 +23,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemASRParametersModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemASRParametersModifyRequest';
+    public    $elementName = 'SystemASRParametersModifyRequest';
     protected $maxTransmissions;
     protected $retransmissionDelayMilliSeconds;
     protected $listeningPort;
@@ -57,7 +57,7 @@ class SystemASRParametersModifyRequest extends ComplexType implements ComplexInt
         $this->maxTransmissions = ($maxTransmissions InstanceOf ASRMaxTransmissions)
              ? $maxTransmissions
              : new ASRMaxTransmissions($maxTransmissions);
-        $this->maxTransmissions->setName('maxTransmissions');
+        $this->maxTransmissions->setElementName('maxTransmissions');
         return $this;
     }
 
@@ -67,7 +67,9 @@ class SystemASRParametersModifyRequest extends ComplexType implements ComplexInt
      */
     public function getMaxTransmissions()
     {
-        return ($this->maxTransmissions) ? $this->maxTransmissions->getValue() : null;
+        return ($this->maxTransmissions)
+            ? $this->maxTransmissions->getElementValue()
+            : null;
     }
 
     /**
@@ -78,7 +80,7 @@ class SystemASRParametersModifyRequest extends ComplexType implements ComplexInt
         $this->retransmissionDelayMilliSeconds = ($retransmissionDelayMilliSeconds InstanceOf ASRRetransmissionDelayMilliSeconds)
              ? $retransmissionDelayMilliSeconds
              : new ASRRetransmissionDelayMilliSeconds($retransmissionDelayMilliSeconds);
-        $this->retransmissionDelayMilliSeconds->setName('retransmissionDelayMilliSeconds');
+        $this->retransmissionDelayMilliSeconds->setElementName('retransmissionDelayMilliSeconds');
         return $this;
     }
 
@@ -88,7 +90,9 @@ class SystemASRParametersModifyRequest extends ComplexType implements ComplexInt
      */
     public function getRetransmissionDelayMilliSeconds()
     {
-        return ($this->retransmissionDelayMilliSeconds) ? $this->retransmissionDelayMilliSeconds->getValue() : null;
+        return ($this->retransmissionDelayMilliSeconds)
+            ? $this->retransmissionDelayMilliSeconds->getElementValue()
+            : null;
     }
 
     /**
@@ -99,7 +103,7 @@ class SystemASRParametersModifyRequest extends ComplexType implements ComplexInt
         $this->listeningPort = ($listeningPort InstanceOf Port1025)
              ? $listeningPort
              : new Port1025($listeningPort);
-        $this->listeningPort->setName('listeningPort');
+        $this->listeningPort->setElementName('listeningPort');
         return $this;
     }
 
@@ -109,7 +113,9 @@ class SystemASRParametersModifyRequest extends ComplexType implements ComplexInt
      */
     public function getListeningPort()
     {
-        return ($this->listeningPort) ? $this->listeningPort->getValue() : null;
+        return ($this->listeningPort)
+            ? $this->listeningPort->getElementValue()
+            : null;
     }
 
     /**
@@ -120,7 +126,7 @@ class SystemASRParametersModifyRequest extends ComplexType implements ComplexInt
         $this->sourceAddress = ($sourceAddress InstanceOf NetAddress)
              ? $sourceAddress
              : new NetAddress($sourceAddress);
-        $this->sourceAddress->setName('sourceAddress');
+        $this->sourceAddress->setElementName('sourceAddress');
         return $this;
     }
 
@@ -130,6 +136,8 @@ class SystemASRParametersModifyRequest extends ComplexType implements ComplexInt
      */
     public function getSourceAddress()
     {
-        return ($this->sourceAddress) ? $this->sourceAddress->getValue() : null;
+        return ($this->sourceAddress)
+            ? $this->sourceAddress->getElementValue()
+            : null;
     }
 }

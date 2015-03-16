@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupEnterpriseTrunkDeleteRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'GroupEnterpriseTrunkDeleteRequest';
+    public    $elementName = 'GroupEnterpriseTrunkDeleteRequest';
     protected $serviceProviderId;
     protected $groupId;
     protected $enterpriseTrunkName;
@@ -53,7 +53,7 @@ class GroupEnterpriseTrunkDeleteRequest extends ComplexType implements ComplexIn
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
-        $this->serviceProviderId->setName('serviceProviderId');
+        $this->serviceProviderId->setElementName('serviceProviderId');
         return $this;
     }
 
@@ -63,7 +63,9 @@ class GroupEnterpriseTrunkDeleteRequest extends ComplexType implements ComplexIn
      */
     public function getServiceProviderId()
     {
-        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
+        return ($this->serviceProviderId)
+            ? $this->serviceProviderId->getElementValue()
+            : null;
     }
 
     /**
@@ -74,7 +76,7 @@ class GroupEnterpriseTrunkDeleteRequest extends ComplexType implements ComplexIn
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
-        $this->groupId->setName('groupId');
+        $this->groupId->setElementName('groupId');
         return $this;
     }
 
@@ -84,7 +86,9 @@ class GroupEnterpriseTrunkDeleteRequest extends ComplexType implements ComplexIn
      */
     public function getGroupId()
     {
-        return ($this->groupId) ? $this->groupId->getValue() : null;
+        return ($this->groupId)
+            ? $this->groupId->getElementValue()
+            : null;
     }
 
     /**
@@ -95,7 +99,7 @@ class GroupEnterpriseTrunkDeleteRequest extends ComplexType implements ComplexIn
         $this->enterpriseTrunkName = ($enterpriseTrunkName InstanceOf EnterpriseTrunkName)
              ? $enterpriseTrunkName
              : new EnterpriseTrunkName($enterpriseTrunkName);
-        $this->enterpriseTrunkName->setName('enterpriseTrunkName');
+        $this->enterpriseTrunkName->setElementName('enterpriseTrunkName');
         return $this;
     }
 
@@ -105,6 +109,8 @@ class GroupEnterpriseTrunkDeleteRequest extends ComplexType implements ComplexIn
      */
     public function getEnterpriseTrunkName()
     {
-        return ($this->enterpriseTrunkName) ? $this->enterpriseTrunkName->getValue() : null;
+        return ($this->enterpriseTrunkName)
+            ? $this->enterpriseTrunkName->getElementValue()
+            : null;
     }
 }

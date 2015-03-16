@@ -18,12 +18,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\MaxInclusive;
  */
 class EnhancedCallLogsNonPagedResponseSize extends SimpleType
 {
-    public $name = "EnhancedCallLogsNonPagedResponseSize";
-    protected $value;
-
+    public $elementName = "EnhancedCallLogsNonPagedResponseSize";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new MinInclusive("100"));
         $this->addRestriction(new MaxInclusive("1000"));
     }

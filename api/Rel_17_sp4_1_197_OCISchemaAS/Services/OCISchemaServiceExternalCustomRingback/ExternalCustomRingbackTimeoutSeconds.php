@@ -17,12 +17,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\MaxInclusive;
  */
 class ExternalCustomRingbackTimeoutSeconds extends SimpleType
 {
-    public $name = "ExternalCustomRingbackTimeoutSeconds";
-    protected $value;
-
+    public $elementName = "ExternalCustomRingbackTimeoutSeconds";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new MinInclusive("1"));
         $this->addRestriction(new MaxInclusive("20"));
     }

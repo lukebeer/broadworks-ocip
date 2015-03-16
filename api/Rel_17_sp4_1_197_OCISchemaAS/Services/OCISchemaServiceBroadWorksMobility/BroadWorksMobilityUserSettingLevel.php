@@ -16,12 +16,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\Enumeration;
  */
 class BroadWorksMobilityUserSettingLevel extends SimpleType
 {
-    public $name = "BroadWorksMobilityUserSettingLevel";
-    protected $value;
-
+    public $elementName = "BroadWorksMobilityUserSettingLevel";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new Enumeration([
             'Group',
             'User'

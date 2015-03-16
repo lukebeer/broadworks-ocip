@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupDepartmentGetAvailableParentListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'GroupDepartmentGetAvailableParentListResponse';
+    public    $elementName = 'GroupDepartmentGetAvailableParentListResponse';
     protected $departmentKey;
     protected $fullPathName;
 
@@ -41,7 +41,7 @@ class GroupDepartmentGetAvailableParentListResponse extends ComplexType implemen
         $this->departmentKey = ($departmentKey InstanceOf DepartmentKey)
              ? $departmentKey
              : new DepartmentKey($departmentKey);
-        $this->departmentKey->setName('departmentKey');
+        $this->departmentKey->setElementName('departmentKey');
         return $this;
     }
 
@@ -62,7 +62,7 @@ class GroupDepartmentGetAvailableParentListResponse extends ComplexType implemen
         $this->fullPathName = ($fullPathName InstanceOf DepartmentFullPathName)
              ? $fullPathName
              : new DepartmentFullPathName($fullPathName);
-        $this->fullPathName->setName('fullPathName');
+        $this->fullPathName->setElementName('fullPathName');
         return $this;
     }
 
@@ -72,6 +72,8 @@ class GroupDepartmentGetAvailableParentListResponse extends ComplexType implemen
      */
     public function getFullPathName()
     {
-        return ($this->fullPathName) ? $this->fullPathName->getValue() : null;
+        return ($this->fullPathName)
+            ? $this->fullPathName->getElementValue()
+            : null;
     }
 }

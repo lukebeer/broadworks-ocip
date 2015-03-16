@@ -23,7 +23,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserAttendantConsoleGetResponse14sp2 extends ComplexType implements ComplexInterface
 {
-    public    $name = 'UserAttendantConsoleGetResponse14sp2';
+    public    $elementName = 'UserAttendantConsoleGetResponse14sp2';
     protected $launchOnLogin;
     protected $allowUserConfigCallDetails;
     protected $allowUserViewCallDetails;
@@ -44,7 +44,7 @@ class UserAttendantConsoleGetResponse14sp2 extends ComplexType implements Comple
     public function setLaunchOnLogin($launchOnLogin = null)
     {
         $this->launchOnLogin = new PrimitiveType($launchOnLogin);
-        $this->launchOnLogin->setName('launchOnLogin');
+        $this->launchOnLogin->setElementName('launchOnLogin');
         return $this;
     }
 
@@ -54,7 +54,9 @@ class UserAttendantConsoleGetResponse14sp2 extends ComplexType implements Comple
      */
     public function getLaunchOnLogin()
     {
-        return ($this->launchOnLogin) ? $this->launchOnLogin->getValue() : null;
+        return ($this->launchOnLogin)
+            ? $this->launchOnLogin->getElementValue()
+            : null;
     }
 
     /**
@@ -63,7 +65,7 @@ class UserAttendantConsoleGetResponse14sp2 extends ComplexType implements Comple
     public function setAllowUserConfigCallDetails($allowUserConfigCallDetails = null)
     {
         $this->allowUserConfigCallDetails = new PrimitiveType($allowUserConfigCallDetails);
-        $this->allowUserConfigCallDetails->setName('allowUserConfigCallDetails');
+        $this->allowUserConfigCallDetails->setElementName('allowUserConfigCallDetails');
         return $this;
     }
 
@@ -73,7 +75,9 @@ class UserAttendantConsoleGetResponse14sp2 extends ComplexType implements Comple
      */
     public function getAllowUserConfigCallDetails()
     {
-        return ($this->allowUserConfigCallDetails) ? $this->allowUserConfigCallDetails->getValue() : null;
+        return ($this->allowUserConfigCallDetails)
+            ? $this->allowUserConfigCallDetails->getElementValue()
+            : null;
     }
 
     /**
@@ -82,7 +86,7 @@ class UserAttendantConsoleGetResponse14sp2 extends ComplexType implements Comple
     public function setAllowUserViewCallDetails($allowUserViewCallDetails = null)
     {
         $this->allowUserViewCallDetails = new PrimitiveType($allowUserViewCallDetails);
-        $this->allowUserViewCallDetails->setName('allowUserViewCallDetails');
+        $this->allowUserViewCallDetails->setElementName('allowUserViewCallDetails');
         return $this;
     }
 
@@ -92,7 +96,9 @@ class UserAttendantConsoleGetResponse14sp2 extends ComplexType implements Comple
      */
     public function getAllowUserViewCallDetails()
     {
-        return ($this->allowUserViewCallDetails) ? $this->allowUserViewCallDetails->getValue() : null;
+        return ($this->allowUserViewCallDetails)
+            ? $this->allowUserViewCallDetails->getElementValue()
+            : null;
     }
 
     /**
@@ -103,7 +109,7 @@ class UserAttendantConsoleGetResponse14sp2 extends ComplexType implements Comple
         $this->displayColumn = ($displayColumn InstanceOf AttendantConsoleDisplayColumn)
              ? $displayColumn
              : new AttendantConsoleDisplayColumn($displayColumn);
-        $this->displayColumn->setName('displayColumn');
+        $this->displayColumn->setElementName('displayColumn');
         return $this;
     }
 
@@ -113,7 +119,9 @@ class UserAttendantConsoleGetResponse14sp2 extends ComplexType implements Comple
      */
     public function getDisplayColumn()
     {
-        return ($this->displayColumn) ? $this->displayColumn->getValue() : null;
+        return ($this->displayColumn)
+            ? $this->displayColumn->getElementValue()
+            : null;
     }
 
     /**
@@ -122,7 +130,7 @@ class UserAttendantConsoleGetResponse14sp2 extends ComplexType implements Comple
     public function setMonitoredUserTable(TableType $monitoredUserTable = null)
     {
         $this->monitoredUserTable = $monitoredUserTable;
-        $this->monitoredUserTable->setName('monitoredUserTable');
+        $this->monitoredUserTable->setElementName('monitoredUserTable');
         return $this;
     }
 

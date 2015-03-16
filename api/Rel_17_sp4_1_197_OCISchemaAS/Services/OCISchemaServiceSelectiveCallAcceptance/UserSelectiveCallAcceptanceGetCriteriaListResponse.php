@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserSelectiveCallAcceptanceGetCriteriaListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'UserSelectiveCallAcceptanceGetCriteriaListResponse';
+    public    $elementName = 'UserSelectiveCallAcceptanceGetCriteriaListResponse';
     protected $criteriaTable;
 
     /**
@@ -38,7 +38,7 @@ class UserSelectiveCallAcceptanceGetCriteriaListResponse extends ComplexType imp
     public function setCriteriaTable(TableType $criteriaTable = null)
     {
         $this->criteriaTable = $criteriaTable;
-        $this->criteriaTable->setName('criteriaTable');
+        $this->criteriaTable->setElementName('criteriaTable');
         return $this;
     }
 

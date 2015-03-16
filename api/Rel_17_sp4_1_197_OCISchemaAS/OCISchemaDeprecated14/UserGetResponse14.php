@@ -41,7 +41,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserGetResponse14 extends ComplexType implements ComplexInterface
 {
-    public    $name = 'UserGetResponse14';
+    public    $elementName = 'UserGetResponse14';
     protected $serviceProviderId;
     protected $groupId;
     protected $lastName;
@@ -84,7 +84,7 @@ class UserGetResponse14 extends ComplexType implements ComplexInterface
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
-        $this->serviceProviderId->setName('serviceProviderId');
+        $this->serviceProviderId->setElementName('serviceProviderId');
         return $this;
     }
 
@@ -94,7 +94,9 @@ class UserGetResponse14 extends ComplexType implements ComplexInterface
      */
     public function getServiceProviderId()
     {
-        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
+        return ($this->serviceProviderId)
+            ? $this->serviceProviderId->getElementValue()
+            : null;
     }
 
     /**
@@ -105,7 +107,7 @@ class UserGetResponse14 extends ComplexType implements ComplexInterface
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
-        $this->groupId->setName('groupId');
+        $this->groupId->setElementName('groupId');
         return $this;
     }
 
@@ -115,7 +117,9 @@ class UserGetResponse14 extends ComplexType implements ComplexInterface
      */
     public function getGroupId()
     {
-        return ($this->groupId) ? $this->groupId->getValue() : null;
+        return ($this->groupId)
+            ? $this->groupId->getElementValue()
+            : null;
     }
 
     /**
@@ -126,7 +130,7 @@ class UserGetResponse14 extends ComplexType implements ComplexInterface
         $this->lastName = ($lastName InstanceOf LastName)
              ? $lastName
              : new LastName($lastName);
-        $this->lastName->setName('lastName');
+        $this->lastName->setElementName('lastName');
         return $this;
     }
 
@@ -136,7 +140,9 @@ class UserGetResponse14 extends ComplexType implements ComplexInterface
      */
     public function getLastName()
     {
-        return ($this->lastName) ? $this->lastName->getValue() : null;
+        return ($this->lastName)
+            ? $this->lastName->getElementValue()
+            : null;
     }
 
     /**
@@ -147,7 +153,7 @@ class UserGetResponse14 extends ComplexType implements ComplexInterface
         $this->firstName = ($firstName InstanceOf FirstName)
              ? $firstName
              : new FirstName($firstName);
-        $this->firstName->setName('firstName');
+        $this->firstName->setElementName('firstName');
         return $this;
     }
 
@@ -157,7 +163,9 @@ class UserGetResponse14 extends ComplexType implements ComplexInterface
      */
     public function getFirstName()
     {
-        return ($this->firstName) ? $this->firstName->getValue() : null;
+        return ($this->firstName)
+            ? $this->firstName->getElementValue()
+            : null;
     }
 
     /**
@@ -168,7 +176,7 @@ class UserGetResponse14 extends ComplexType implements ComplexInterface
         $this->callingLineIdLastName = ($callingLineIdLastName InstanceOf CallingLineIdLastName)
              ? $callingLineIdLastName
              : new CallingLineIdLastName($callingLineIdLastName);
-        $this->callingLineIdLastName->setName('callingLineIdLastName');
+        $this->callingLineIdLastName->setElementName('callingLineIdLastName');
         return $this;
     }
 
@@ -178,7 +186,9 @@ class UserGetResponse14 extends ComplexType implements ComplexInterface
      */
     public function getCallingLineIdLastName()
     {
-        return ($this->callingLineIdLastName) ? $this->callingLineIdLastName->getValue() : null;
+        return ($this->callingLineIdLastName)
+            ? $this->callingLineIdLastName->getElementValue()
+            : null;
     }
 
     /**
@@ -189,7 +199,7 @@ class UserGetResponse14 extends ComplexType implements ComplexInterface
         $this->callingLineIdFirstName = ($callingLineIdFirstName InstanceOf CallingLineIdFirstName)
              ? $callingLineIdFirstName
              : new CallingLineIdFirstName($callingLineIdFirstName);
-        $this->callingLineIdFirstName->setName('callingLineIdFirstName');
+        $this->callingLineIdFirstName->setElementName('callingLineIdFirstName');
         return $this;
     }
 
@@ -199,7 +209,9 @@ class UserGetResponse14 extends ComplexType implements ComplexInterface
      */
     public function getCallingLineIdFirstName()
     {
-        return ($this->callingLineIdFirstName) ? $this->callingLineIdFirstName->getValue() : null;
+        return ($this->callingLineIdFirstName)
+            ? $this->callingLineIdFirstName->getElementValue()
+            : null;
     }
 
     /**
@@ -210,7 +222,7 @@ class UserGetResponse14 extends ComplexType implements ComplexInterface
         $this->hiraganaLastName = ($hiraganaLastName InstanceOf HiraganaLastName)
              ? $hiraganaLastName
              : new HiraganaLastName($hiraganaLastName);
-        $this->hiraganaLastName->setName('hiraganaLastName');
+        $this->hiraganaLastName->setElementName('hiraganaLastName');
         return $this;
     }
 
@@ -220,7 +232,9 @@ class UserGetResponse14 extends ComplexType implements ComplexInterface
      */
     public function getHiraganaLastName()
     {
-        return ($this->hiraganaLastName) ? $this->hiraganaLastName->getValue() : null;
+        return ($this->hiraganaLastName)
+            ? $this->hiraganaLastName->getElementValue()
+            : null;
     }
 
     /**
@@ -231,7 +245,7 @@ class UserGetResponse14 extends ComplexType implements ComplexInterface
         $this->hiraganaFirstName = ($hiraganaFirstName InstanceOf HiraganaFirstName)
              ? $hiraganaFirstName
              : new HiraganaFirstName($hiraganaFirstName);
-        $this->hiraganaFirstName->setName('hiraganaFirstName');
+        $this->hiraganaFirstName->setElementName('hiraganaFirstName');
         return $this;
     }
 
@@ -241,7 +255,9 @@ class UserGetResponse14 extends ComplexType implements ComplexInterface
      */
     public function getHiraganaFirstName()
     {
-        return ($this->hiraganaFirstName) ? $this->hiraganaFirstName->getValue() : null;
+        return ($this->hiraganaFirstName)
+            ? $this->hiraganaFirstName->getElementValue()
+            : null;
     }
 
     /**
@@ -252,7 +268,7 @@ class UserGetResponse14 extends ComplexType implements ComplexInterface
         $this->phoneNumber = ($phoneNumber InstanceOf DN)
              ? $phoneNumber
              : new DN($phoneNumber);
-        $this->phoneNumber->setName('phoneNumber');
+        $this->phoneNumber->setElementName('phoneNumber');
         return $this;
     }
 
@@ -262,7 +278,9 @@ class UserGetResponse14 extends ComplexType implements ComplexInterface
      */
     public function getPhoneNumber()
     {
-        return ($this->phoneNumber) ? $this->phoneNumber->getValue() : null;
+        return ($this->phoneNumber)
+            ? $this->phoneNumber->getElementValue()
+            : null;
     }
 
     /**
@@ -273,7 +291,7 @@ class UserGetResponse14 extends ComplexType implements ComplexInterface
         $this->extension = ($extension InstanceOf Extension)
              ? $extension
              : new Extension($extension);
-        $this->extension->setName('extension');
+        $this->extension->setElementName('extension');
         return $this;
     }
 
@@ -283,7 +301,9 @@ class UserGetResponse14 extends ComplexType implements ComplexInterface
      */
     public function getExtension()
     {
-        return ($this->extension) ? $this->extension->getValue() : null;
+        return ($this->extension)
+            ? $this->extension->getElementValue()
+            : null;
     }
 
     /**
@@ -294,7 +314,7 @@ class UserGetResponse14 extends ComplexType implements ComplexInterface
         $this->callingLineIdPhoneNumber = ($callingLineIdPhoneNumber InstanceOf DN)
              ? $callingLineIdPhoneNumber
              : new DN($callingLineIdPhoneNumber);
-        $this->callingLineIdPhoneNumber->setName('callingLineIdPhoneNumber');
+        $this->callingLineIdPhoneNumber->setElementName('callingLineIdPhoneNumber');
         return $this;
     }
 
@@ -304,7 +324,9 @@ class UserGetResponse14 extends ComplexType implements ComplexInterface
      */
     public function getCallingLineIdPhoneNumber()
     {
-        return ($this->callingLineIdPhoneNumber) ? $this->callingLineIdPhoneNumber->getValue() : null;
+        return ($this->callingLineIdPhoneNumber)
+            ? $this->callingLineIdPhoneNumber->getElementValue()
+            : null;
     }
 
     /**
@@ -315,7 +337,7 @@ class UserGetResponse14 extends ComplexType implements ComplexInterface
         $this->department = ($department InstanceOf DepartmentKey)
              ? $department
              : new DepartmentKey($department);
-        $this->department->setName('department');
+        $this->department->setElementName('department');
         return $this;
     }
 
@@ -336,7 +358,7 @@ class UserGetResponse14 extends ComplexType implements ComplexInterface
         $this->departmentFullPath = ($departmentFullPath InstanceOf DepartmentFullPathName)
              ? $departmentFullPath
              : new DepartmentFullPathName($departmentFullPath);
-        $this->departmentFullPath->setName('departmentFullPath');
+        $this->departmentFullPath->setElementName('departmentFullPath');
         return $this;
     }
 
@@ -346,7 +368,9 @@ class UserGetResponse14 extends ComplexType implements ComplexInterface
      */
     public function getDepartmentFullPath()
     {
-        return ($this->departmentFullPath) ? $this->departmentFullPath->getValue() : null;
+        return ($this->departmentFullPath)
+            ? $this->departmentFullPath->getElementValue()
+            : null;
     }
 
     /**
@@ -357,7 +381,7 @@ class UserGetResponse14 extends ComplexType implements ComplexInterface
         $this->language = ($language InstanceOf Language)
              ? $language
              : new Language($language);
-        $this->language->setName('language');
+        $this->language->setElementName('language');
         return $this;
     }
 
@@ -367,7 +391,9 @@ class UserGetResponse14 extends ComplexType implements ComplexInterface
      */
     public function getLanguage()
     {
-        return ($this->language) ? $this->language->getValue() : null;
+        return ($this->language)
+            ? $this->language->getElementValue()
+            : null;
     }
 
     /**
@@ -378,7 +404,7 @@ class UserGetResponse14 extends ComplexType implements ComplexInterface
         $this->timeZone = ($timeZone InstanceOf TimeZone)
              ? $timeZone
              : new TimeZone($timeZone);
-        $this->timeZone->setName('timeZone');
+        $this->timeZone->setElementName('timeZone');
         return $this;
     }
 
@@ -388,7 +414,9 @@ class UserGetResponse14 extends ComplexType implements ComplexInterface
      */
     public function getTimeZone()
     {
-        return ($this->timeZone) ? $this->timeZone->getValue() : null;
+        return ($this->timeZone)
+            ? $this->timeZone->getElementValue()
+            : null;
     }
 
     /**
@@ -399,7 +427,7 @@ class UserGetResponse14 extends ComplexType implements ComplexInterface
         $this->timeZoneDisplayName = ($timeZoneDisplayName InstanceOf TimeZoneDisplayName)
              ? $timeZoneDisplayName
              : new TimeZoneDisplayName($timeZoneDisplayName);
-        $this->timeZoneDisplayName->setName('timeZoneDisplayName');
+        $this->timeZoneDisplayName->setElementName('timeZoneDisplayName');
         return $this;
     }
 
@@ -409,7 +437,9 @@ class UserGetResponse14 extends ComplexType implements ComplexInterface
      */
     public function getTimeZoneDisplayName()
     {
-        return ($this->timeZoneDisplayName) ? $this->timeZoneDisplayName->getValue() : null;
+        return ($this->timeZoneDisplayName)
+            ? $this->timeZoneDisplayName->getElementValue()
+            : null;
     }
 
     /**
@@ -420,7 +450,7 @@ class UserGetResponse14 extends ComplexType implements ComplexInterface
         $this->defaultAlias = ($defaultAlias InstanceOf SIPURI)
              ? $defaultAlias
              : new SIPURI($defaultAlias);
-        $this->defaultAlias->setName('defaultAlias');
+        $this->defaultAlias->setElementName('defaultAlias');
         return $this;
     }
 
@@ -430,7 +460,9 @@ class UserGetResponse14 extends ComplexType implements ComplexInterface
      */
     public function getDefaultAlias()
     {
-        return ($this->defaultAlias) ? $this->defaultAlias->getValue() : null;
+        return ($this->defaultAlias)
+            ? $this->defaultAlias->getElementValue()
+            : null;
     }
 
     /**
@@ -441,7 +473,7 @@ class UserGetResponse14 extends ComplexType implements ComplexInterface
         $this->alias = ($alias InstanceOf SIPURI)
              ? $alias
              : new SIPURI($alias);
-        $this->alias->setName('alias');
+        $this->alias->setElementName('alias');
         return $this;
     }
 
@@ -451,7 +483,9 @@ class UserGetResponse14 extends ComplexType implements ComplexInterface
      */
     public function getAlias()
     {
-        return ($this->alias) ? $this->alias->getValue() : null;
+        return ($this->alias)
+            ? $this->alias->getElementValue()
+            : null;
     }
 
     /**
@@ -462,7 +496,7 @@ class UserGetResponse14 extends ComplexType implements ComplexInterface
         $this->title = ($title InstanceOf Title)
              ? $title
              : new Title($title);
-        $this->title->setName('title');
+        $this->title->setElementName('title');
         return $this;
     }
 
@@ -472,7 +506,9 @@ class UserGetResponse14 extends ComplexType implements ComplexInterface
      */
     public function getTitle()
     {
-        return ($this->title) ? $this->title->getValue() : null;
+        return ($this->title)
+            ? $this->title->getElementValue()
+            : null;
     }
 
     /**
@@ -483,7 +519,7 @@ class UserGetResponse14 extends ComplexType implements ComplexInterface
         $this->pagerPhoneNumber = ($pagerPhoneNumber InstanceOf InformationalDN)
              ? $pagerPhoneNumber
              : new InformationalDN($pagerPhoneNumber);
-        $this->pagerPhoneNumber->setName('pagerPhoneNumber');
+        $this->pagerPhoneNumber->setElementName('pagerPhoneNumber');
         return $this;
     }
 
@@ -493,7 +529,9 @@ class UserGetResponse14 extends ComplexType implements ComplexInterface
      */
     public function getPagerPhoneNumber()
     {
-        return ($this->pagerPhoneNumber) ? $this->pagerPhoneNumber->getValue() : null;
+        return ($this->pagerPhoneNumber)
+            ? $this->pagerPhoneNumber->getElementValue()
+            : null;
     }
 
     /**
@@ -504,7 +542,7 @@ class UserGetResponse14 extends ComplexType implements ComplexInterface
         $this->mobilePhoneNumber = ($mobilePhoneNumber InstanceOf OutgoingDN)
              ? $mobilePhoneNumber
              : new OutgoingDN($mobilePhoneNumber);
-        $this->mobilePhoneNumber->setName('mobilePhoneNumber');
+        $this->mobilePhoneNumber->setElementName('mobilePhoneNumber');
         return $this;
     }
 
@@ -514,7 +552,9 @@ class UserGetResponse14 extends ComplexType implements ComplexInterface
      */
     public function getMobilePhoneNumber()
     {
-        return ($this->mobilePhoneNumber) ? $this->mobilePhoneNumber->getValue() : null;
+        return ($this->mobilePhoneNumber)
+            ? $this->mobilePhoneNumber->getElementValue()
+            : null;
     }
 
     /**
@@ -525,7 +565,7 @@ class UserGetResponse14 extends ComplexType implements ComplexInterface
         $this->emailAddress = ($emailAddress InstanceOf EmailAddress)
              ? $emailAddress
              : new EmailAddress($emailAddress);
-        $this->emailAddress->setName('emailAddress');
+        $this->emailAddress->setElementName('emailAddress');
         return $this;
     }
 
@@ -535,7 +575,9 @@ class UserGetResponse14 extends ComplexType implements ComplexInterface
      */
     public function getEmailAddress()
     {
-        return ($this->emailAddress) ? $this->emailAddress->getValue() : null;
+        return ($this->emailAddress)
+            ? $this->emailAddress->getElementValue()
+            : null;
     }
 
     /**
@@ -546,7 +588,7 @@ class UserGetResponse14 extends ComplexType implements ComplexInterface
         $this->yahooId = ($yahooId InstanceOf YahooId)
              ? $yahooId
              : new YahooId($yahooId);
-        $this->yahooId->setName('yahooId');
+        $this->yahooId->setElementName('yahooId');
         return $this;
     }
 
@@ -556,7 +598,9 @@ class UserGetResponse14 extends ComplexType implements ComplexInterface
      */
     public function getYahooId()
     {
-        return ($this->yahooId) ? $this->yahooId->getValue() : null;
+        return ($this->yahooId)
+            ? $this->yahooId->getElementValue()
+            : null;
     }
 
     /**
@@ -567,7 +611,7 @@ class UserGetResponse14 extends ComplexType implements ComplexInterface
         $this->addressLocation = ($addressLocation InstanceOf AddressLocation)
              ? $addressLocation
              : new AddressLocation($addressLocation);
-        $this->addressLocation->setName('addressLocation');
+        $this->addressLocation->setElementName('addressLocation');
         return $this;
     }
 
@@ -577,7 +621,9 @@ class UserGetResponse14 extends ComplexType implements ComplexInterface
      */
     public function getAddressLocation()
     {
-        return ($this->addressLocation) ? $this->addressLocation->getValue() : null;
+        return ($this->addressLocation)
+            ? $this->addressLocation->getElementValue()
+            : null;
     }
 
     /**
@@ -588,7 +634,7 @@ class UserGetResponse14 extends ComplexType implements ComplexInterface
         $this->address = ($address InstanceOf StreetAddress)
              ? $address
              : new StreetAddress($address);
-        $this->address->setName('address');
+        $this->address->setElementName('address');
         return $this;
     }
 

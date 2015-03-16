@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
 class SystemPreferredCarrierGetRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServicePreferredCarrier\SystemPreferredCarrierGetResponse';
-    public    $name = 'SystemPreferredCarrierGetRequest';
+    public    $elementName = 'SystemPreferredCarrierGetRequest';
     protected $carrier;
 
     public function __construct(
@@ -46,7 +46,7 @@ class SystemPreferredCarrierGetRequest extends ComplexType implements ComplexInt
         $this->carrier = ($carrier InstanceOf PreferredCarrierName)
              ? $carrier
              : new PreferredCarrierName($carrier);
-        $this->carrier->setName('carrier');
+        $this->carrier->setElementName('carrier');
         return $this;
     }
 
@@ -56,6 +56,8 @@ class SystemPreferredCarrierGetRequest extends ComplexType implements ComplexInt
      */
     public function getCarrier()
     {
-        return ($this->carrier) ? $this->carrier->getValue() : null;
+        return ($this->carrier)
+            ? $this->carrier->getElementValue()
+            : null;
     }
 }

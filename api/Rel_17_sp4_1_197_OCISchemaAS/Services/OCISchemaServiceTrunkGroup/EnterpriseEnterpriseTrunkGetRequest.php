@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
 class EnterpriseEnterpriseTrunkGetRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType        = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceTrunkGroup\EnterpriseEnterpriseTrunkGetResponse';
-    public    $name = 'EnterpriseEnterpriseTrunkGetRequest';
+    public    $elementName = 'EnterpriseEnterpriseTrunkGetRequest';
     protected $serviceProviderId;
     protected $enterpriseTrunkName;
 
@@ -50,7 +50,7 @@ class EnterpriseEnterpriseTrunkGetRequest extends ComplexType implements Complex
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
-        $this->serviceProviderId->setName('serviceProviderId');
+        $this->serviceProviderId->setElementName('serviceProviderId');
         return $this;
     }
 
@@ -60,7 +60,9 @@ class EnterpriseEnterpriseTrunkGetRequest extends ComplexType implements Complex
      */
     public function getServiceProviderId()
     {
-        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
+        return ($this->serviceProviderId)
+            ? $this->serviceProviderId->getElementValue()
+            : null;
     }
 
     /**
@@ -71,7 +73,7 @@ class EnterpriseEnterpriseTrunkGetRequest extends ComplexType implements Complex
         $this->enterpriseTrunkName = ($enterpriseTrunkName InstanceOf EnterpriseTrunkName)
              ? $enterpriseTrunkName
              : new EnterpriseTrunkName($enterpriseTrunkName);
-        $this->enterpriseTrunkName->setName('enterpriseTrunkName');
+        $this->enterpriseTrunkName->setElementName('enterpriseTrunkName');
         return $this;
     }
 
@@ -81,6 +83,8 @@ class EnterpriseEnterpriseTrunkGetRequest extends ComplexType implements Complex
      */
     public function getEnterpriseTrunkName()
     {
-        return ($this->enterpriseTrunkName) ? $this->enterpriseTrunkName->getValue() : null;
+        return ($this->enterpriseTrunkName)
+            ? $this->enterpriseTrunkName->getElementValue()
+            : null;
     }
 }

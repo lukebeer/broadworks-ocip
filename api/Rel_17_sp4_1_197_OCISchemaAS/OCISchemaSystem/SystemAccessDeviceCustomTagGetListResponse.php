@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemAccessDeviceCustomTagGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemAccessDeviceCustomTagGetListResponse';
+    public    $elementName = 'SystemAccessDeviceCustomTagGetListResponse';
     protected $deviceCustomTagsTable;
 
     /**
@@ -38,7 +38,7 @@ class SystemAccessDeviceCustomTagGetListResponse extends ComplexType implements 
     public function setDeviceCustomTagsTable(TableType $deviceCustomTagsTable = null)
     {
         $this->deviceCustomTagsTable = $deviceCustomTagsTable;
-        $this->deviceCustomTagsTable->setName('deviceCustomTagsTable');
+        $this->deviceCustomTagsTable->setElementName('deviceCustomTagsTable');
         return $this;
     }
 

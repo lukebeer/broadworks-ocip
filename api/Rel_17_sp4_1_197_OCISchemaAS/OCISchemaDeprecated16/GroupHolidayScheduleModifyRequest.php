@@ -23,7 +23,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupHolidayScheduleModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'GroupHolidayScheduleModifyRequest';
+    public    $elementName = 'GroupHolidayScheduleModifyRequest';
     protected $serviceProviderId;
     protected $groupId;
     protected $holidayScheduleName;
@@ -117,7 +117,7 @@ class GroupHolidayScheduleModifyRequest extends ComplexType implements ComplexIn
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
-        $this->serviceProviderId->setName('serviceProviderId');
+        $this->serviceProviderId->setElementName('serviceProviderId');
         return $this;
     }
 
@@ -127,7 +127,9 @@ class GroupHolidayScheduleModifyRequest extends ComplexType implements ComplexIn
      */
     public function getServiceProviderId()
     {
-        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
+        return ($this->serviceProviderId)
+            ? $this->serviceProviderId->getElementValue()
+            : null;
     }
 
     /**
@@ -138,7 +140,7 @@ class GroupHolidayScheduleModifyRequest extends ComplexType implements ComplexIn
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
-        $this->groupId->setName('groupId');
+        $this->groupId->setElementName('groupId');
         return $this;
     }
 
@@ -148,7 +150,9 @@ class GroupHolidayScheduleModifyRequest extends ComplexType implements ComplexIn
      */
     public function getGroupId()
     {
-        return ($this->groupId) ? $this->groupId->getValue() : null;
+        return ($this->groupId)
+            ? $this->groupId->getElementValue()
+            : null;
     }
 
     /**
@@ -159,7 +163,7 @@ class GroupHolidayScheduleModifyRequest extends ComplexType implements ComplexIn
         $this->holidayScheduleName = ($holidayScheduleName InstanceOf ScheduleName)
              ? $holidayScheduleName
              : new ScheduleName($holidayScheduleName);
-        $this->holidayScheduleName->setName('holidayScheduleName');
+        $this->holidayScheduleName->setElementName('holidayScheduleName');
         return $this;
     }
 
@@ -169,7 +173,9 @@ class GroupHolidayScheduleModifyRequest extends ComplexType implements ComplexIn
      */
     public function getHolidayScheduleName()
     {
-        return ($this->holidayScheduleName) ? $this->holidayScheduleName->getValue() : null;
+        return ($this->holidayScheduleName)
+            ? $this->holidayScheduleName->getElementValue()
+            : null;
     }
 
     /**
@@ -180,7 +186,7 @@ class GroupHolidayScheduleModifyRequest extends ComplexType implements ComplexIn
         $this->newHolidayScheduleName = ($newHolidayScheduleName InstanceOf ScheduleName)
              ? $newHolidayScheduleName
              : new ScheduleName($newHolidayScheduleName);
-        $this->newHolidayScheduleName->setName('newHolidayScheduleName');
+        $this->newHolidayScheduleName->setElementName('newHolidayScheduleName');
         return $this;
     }
 
@@ -190,7 +196,9 @@ class GroupHolidayScheduleModifyRequest extends ComplexType implements ComplexIn
      */
     public function getNewHolidayScheduleName()
     {
-        return ($this->newHolidayScheduleName) ? $this->newHolidayScheduleName->getValue() : null;
+        return ($this->newHolidayScheduleName)
+            ? $this->newHolidayScheduleName->getElementValue()
+            : null;
     }
 
     /**
@@ -201,7 +209,7 @@ class GroupHolidayScheduleModifyRequest extends ComplexType implements ComplexIn
         $this->holiday01 = ($holiday01 InstanceOf Holiday)
              ? $holiday01
              : new Holiday($holiday01);
-        $this->holiday01->setName('holiday01');
+        $this->holiday01->setElementName('holiday01');
         return $this;
     }
 
@@ -222,7 +230,7 @@ class GroupHolidayScheduleModifyRequest extends ComplexType implements ComplexIn
         $this->holiday02 = ($holiday02 InstanceOf Holiday)
              ? $holiday02
              : new Holiday($holiday02);
-        $this->holiday02->setName('holiday02');
+        $this->holiday02->setElementName('holiday02');
         return $this;
     }
 
@@ -243,7 +251,7 @@ class GroupHolidayScheduleModifyRequest extends ComplexType implements ComplexIn
         $this->holiday03 = ($holiday03 InstanceOf Holiday)
              ? $holiday03
              : new Holiday($holiday03);
-        $this->holiday03->setName('holiday03');
+        $this->holiday03->setElementName('holiday03');
         return $this;
     }
 
@@ -264,7 +272,7 @@ class GroupHolidayScheduleModifyRequest extends ComplexType implements ComplexIn
         $this->holiday04 = ($holiday04 InstanceOf Holiday)
              ? $holiday04
              : new Holiday($holiday04);
-        $this->holiday04->setName('holiday04');
+        $this->holiday04->setElementName('holiday04');
         return $this;
     }
 
@@ -285,7 +293,7 @@ class GroupHolidayScheduleModifyRequest extends ComplexType implements ComplexIn
         $this->holiday05 = ($holiday05 InstanceOf Holiday)
              ? $holiday05
              : new Holiday($holiday05);
-        $this->holiday05->setName('holiday05');
+        $this->holiday05->setElementName('holiday05');
         return $this;
     }
 
@@ -306,7 +314,7 @@ class GroupHolidayScheduleModifyRequest extends ComplexType implements ComplexIn
         $this->holiday06 = ($holiday06 InstanceOf Holiday)
              ? $holiday06
              : new Holiday($holiday06);
-        $this->holiday06->setName('holiday06');
+        $this->holiday06->setElementName('holiday06');
         return $this;
     }
 
@@ -327,7 +335,7 @@ class GroupHolidayScheduleModifyRequest extends ComplexType implements ComplexIn
         $this->holiday07 = ($holiday07 InstanceOf Holiday)
              ? $holiday07
              : new Holiday($holiday07);
-        $this->holiday07->setName('holiday07');
+        $this->holiday07->setElementName('holiday07');
         return $this;
     }
 
@@ -348,7 +356,7 @@ class GroupHolidayScheduleModifyRequest extends ComplexType implements ComplexIn
         $this->holiday08 = ($holiday08 InstanceOf Holiday)
              ? $holiday08
              : new Holiday($holiday08);
-        $this->holiday08->setName('holiday08');
+        $this->holiday08->setElementName('holiday08');
         return $this;
     }
 
@@ -369,7 +377,7 @@ class GroupHolidayScheduleModifyRequest extends ComplexType implements ComplexIn
         $this->holiday09 = ($holiday09 InstanceOf Holiday)
              ? $holiday09
              : new Holiday($holiday09);
-        $this->holiday09->setName('holiday09');
+        $this->holiday09->setElementName('holiday09');
         return $this;
     }
 
@@ -390,7 +398,7 @@ class GroupHolidayScheduleModifyRequest extends ComplexType implements ComplexIn
         $this->holiday10 = ($holiday10 InstanceOf Holiday)
              ? $holiday10
              : new Holiday($holiday10);
-        $this->holiday10->setName('holiday10');
+        $this->holiday10->setElementName('holiday10');
         return $this;
     }
 
@@ -411,7 +419,7 @@ class GroupHolidayScheduleModifyRequest extends ComplexType implements ComplexIn
         $this->holiday11 = ($holiday11 InstanceOf Holiday)
              ? $holiday11
              : new Holiday($holiday11);
-        $this->holiday11->setName('holiday11');
+        $this->holiday11->setElementName('holiday11');
         return $this;
     }
 
@@ -432,7 +440,7 @@ class GroupHolidayScheduleModifyRequest extends ComplexType implements ComplexIn
         $this->holiday12 = ($holiday12 InstanceOf Holiday)
              ? $holiday12
              : new Holiday($holiday12);
-        $this->holiday12->setName('holiday12');
+        $this->holiday12->setElementName('holiday12');
         return $this;
     }
 
@@ -453,7 +461,7 @@ class GroupHolidayScheduleModifyRequest extends ComplexType implements ComplexIn
         $this->holiday13 = ($holiday13 InstanceOf Holiday)
              ? $holiday13
              : new Holiday($holiday13);
-        $this->holiday13->setName('holiday13');
+        $this->holiday13->setElementName('holiday13');
         return $this;
     }
 
@@ -474,7 +482,7 @@ class GroupHolidayScheduleModifyRequest extends ComplexType implements ComplexIn
         $this->holiday14 = ($holiday14 InstanceOf Holiday)
              ? $holiday14
              : new Holiday($holiday14);
-        $this->holiday14->setName('holiday14');
+        $this->holiday14->setElementName('holiday14');
         return $this;
     }
 
@@ -495,7 +503,7 @@ class GroupHolidayScheduleModifyRequest extends ComplexType implements ComplexIn
         $this->holiday15 = ($holiday15 InstanceOf Holiday)
              ? $holiday15
              : new Holiday($holiday15);
-        $this->holiday15->setName('holiday15');
+        $this->holiday15->setElementName('holiday15');
         return $this;
     }
 
@@ -516,7 +524,7 @@ class GroupHolidayScheduleModifyRequest extends ComplexType implements ComplexIn
         $this->holiday16 = ($holiday16 InstanceOf Holiday)
              ? $holiday16
              : new Holiday($holiday16);
-        $this->holiday16->setName('holiday16');
+        $this->holiday16->setElementName('holiday16');
         return $this;
     }
 
@@ -537,7 +545,7 @@ class GroupHolidayScheduleModifyRequest extends ComplexType implements ComplexIn
         $this->holiday17 = ($holiday17 InstanceOf Holiday)
              ? $holiday17
              : new Holiday($holiday17);
-        $this->holiday17->setName('holiday17');
+        $this->holiday17->setElementName('holiday17');
         return $this;
     }
 
@@ -558,7 +566,7 @@ class GroupHolidayScheduleModifyRequest extends ComplexType implements ComplexIn
         $this->holiday18 = ($holiday18 InstanceOf Holiday)
              ? $holiday18
              : new Holiday($holiday18);
-        $this->holiday18->setName('holiday18');
+        $this->holiday18->setElementName('holiday18');
         return $this;
     }
 
@@ -579,7 +587,7 @@ class GroupHolidayScheduleModifyRequest extends ComplexType implements ComplexIn
         $this->holiday19 = ($holiday19 InstanceOf Holiday)
              ? $holiday19
              : new Holiday($holiday19);
-        $this->holiday19->setName('holiday19');
+        $this->holiday19->setElementName('holiday19');
         return $this;
     }
 
@@ -600,7 +608,7 @@ class GroupHolidayScheduleModifyRequest extends ComplexType implements ComplexIn
         $this->holiday20 = ($holiday20 InstanceOf Holiday)
              ? $holiday20
              : new Holiday($holiday20);
-        $this->holiday20->setName('holiday20');
+        $this->holiday20->setElementName('holiday20');
         return $this;
     }
 

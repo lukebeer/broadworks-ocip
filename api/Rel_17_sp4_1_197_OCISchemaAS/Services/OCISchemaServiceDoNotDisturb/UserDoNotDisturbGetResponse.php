@@ -19,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserDoNotDisturbGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'UserDoNotDisturbGetResponse';
+    public    $elementName = 'UserDoNotDisturbGetResponse';
     protected $isActive;
     protected $ringSplash;
 
@@ -37,7 +37,7 @@ class UserDoNotDisturbGetResponse extends ComplexType implements ComplexInterfac
     public function setIsActive($isActive = null)
     {
         $this->isActive = new PrimitiveType($isActive);
-        $this->isActive->setName('isActive');
+        $this->isActive->setElementName('isActive');
         return $this;
     }
 
@@ -47,7 +47,9 @@ class UserDoNotDisturbGetResponse extends ComplexType implements ComplexInterfac
      */
     public function getIsActive()
     {
-        return ($this->isActive) ? $this->isActive->getValue() : null;
+        return ($this->isActive)
+            ? $this->isActive->getElementValue()
+            : null;
     }
 
     /**
@@ -56,7 +58,7 @@ class UserDoNotDisturbGetResponse extends ComplexType implements ComplexInterfac
     public function setRingSplash($ringSplash = null)
     {
         $this->ringSplash = new PrimitiveType($ringSplash);
-        $this->ringSplash->setName('ringSplash');
+        $this->ringSplash->setElementName('ringSplash');
         return $this;
     }
 
@@ -66,6 +68,8 @@ class UserDoNotDisturbGetResponse extends ComplexType implements ComplexInterfac
      */
     public function getRingSplash()
     {
-        return ($this->ringSplash) ? $this->ringSplash->getValue() : null;
+        return ($this->ringSplash)
+            ? $this->ringSplash->getElementValue()
+            : null;
     }
 }

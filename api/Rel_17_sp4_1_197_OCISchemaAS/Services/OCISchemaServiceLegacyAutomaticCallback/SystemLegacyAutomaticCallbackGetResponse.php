@@ -29,7 +29,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemLegacyAutomaticCallbackGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemLegacyAutomaticCallbackGetResponse';
+    public    $elementName = 'SystemLegacyAutomaticCallbackGetResponse';
     protected $maxMonitorsPerOriginator;
     protected $maxMonitorsPerTerminator;
     protected $t2Minutes;
@@ -58,7 +58,7 @@ class SystemLegacyAutomaticCallbackGetResponse extends ComplexType implements Co
         $this->maxMonitorsPerOriginator = ($maxMonitorsPerOriginator InstanceOf LegacyAutomaticCallbackMaxMonitorsPerOriginator)
              ? $maxMonitorsPerOriginator
              : new LegacyAutomaticCallbackMaxMonitorsPerOriginator($maxMonitorsPerOriginator);
-        $this->maxMonitorsPerOriginator->setName('maxMonitorsPerOriginator');
+        $this->maxMonitorsPerOriginator->setElementName('maxMonitorsPerOriginator');
         return $this;
     }
 
@@ -68,7 +68,9 @@ class SystemLegacyAutomaticCallbackGetResponse extends ComplexType implements Co
      */
     public function getMaxMonitorsPerOriginator()
     {
-        return ($this->maxMonitorsPerOriginator) ? $this->maxMonitorsPerOriginator->getValue() : null;
+        return ($this->maxMonitorsPerOriginator)
+            ? $this->maxMonitorsPerOriginator->getElementValue()
+            : null;
     }
 
     /**
@@ -79,7 +81,7 @@ class SystemLegacyAutomaticCallbackGetResponse extends ComplexType implements Co
         $this->maxMonitorsPerTerminator = ($maxMonitorsPerTerminator InstanceOf LegacyAutomaticCallbackMaxMonitorsPerTerminator)
              ? $maxMonitorsPerTerminator
              : new LegacyAutomaticCallbackMaxMonitorsPerTerminator($maxMonitorsPerTerminator);
-        $this->maxMonitorsPerTerminator->setName('maxMonitorsPerTerminator');
+        $this->maxMonitorsPerTerminator->setElementName('maxMonitorsPerTerminator');
         return $this;
     }
 
@@ -89,7 +91,9 @@ class SystemLegacyAutomaticCallbackGetResponse extends ComplexType implements Co
      */
     public function getMaxMonitorsPerTerminator()
     {
-        return ($this->maxMonitorsPerTerminator) ? $this->maxMonitorsPerTerminator->getValue() : null;
+        return ($this->maxMonitorsPerTerminator)
+            ? $this->maxMonitorsPerTerminator->getElementValue()
+            : null;
     }
 
     /**
@@ -100,7 +104,7 @@ class SystemLegacyAutomaticCallbackGetResponse extends ComplexType implements Co
         $this->t2Minutes = ($t2Minutes InstanceOf LegacyAutomaticCallbackT2Minutes)
              ? $t2Minutes
              : new LegacyAutomaticCallbackT2Minutes($t2Minutes);
-        $this->t2Minutes->setName('t2Minutes');
+        $this->t2Minutes->setElementName('t2Minutes');
         return $this;
     }
 
@@ -110,7 +114,9 @@ class SystemLegacyAutomaticCallbackGetResponse extends ComplexType implements Co
      */
     public function getT2Minutes()
     {
-        return ($this->t2Minutes) ? $this->t2Minutes->getValue() : null;
+        return ($this->t2Minutes)
+            ? $this->t2Minutes->getElementValue()
+            : null;
     }
 
     /**
@@ -121,7 +127,7 @@ class SystemLegacyAutomaticCallbackGetResponse extends ComplexType implements Co
         $this->t4Seconds = ($t4Seconds InstanceOf LegacyAutomaticCallbackT4Seconds)
              ? $t4Seconds
              : new LegacyAutomaticCallbackT4Seconds($t4Seconds);
-        $this->t4Seconds->setName('t4Seconds');
+        $this->t4Seconds->setElementName('t4Seconds');
         return $this;
     }
 
@@ -131,7 +137,9 @@ class SystemLegacyAutomaticCallbackGetResponse extends ComplexType implements Co
      */
     public function getT4Seconds()
     {
-        return ($this->t4Seconds) ? $this->t4Seconds->getValue() : null;
+        return ($this->t4Seconds)
+            ? $this->t4Seconds->getElementValue()
+            : null;
     }
 
     /**
@@ -142,7 +150,7 @@ class SystemLegacyAutomaticCallbackGetResponse extends ComplexType implements Co
         $this->t5Seconds = ($t5Seconds InstanceOf LegacyAutomaticCallbackT5Seconds)
              ? $t5Seconds
              : new LegacyAutomaticCallbackT5Seconds($t5Seconds);
-        $this->t5Seconds->setName('t5Seconds');
+        $this->t5Seconds->setElementName('t5Seconds');
         return $this;
     }
 
@@ -152,7 +160,9 @@ class SystemLegacyAutomaticCallbackGetResponse extends ComplexType implements Co
      */
     public function getT5Seconds()
     {
-        return ($this->t5Seconds) ? $this->t5Seconds->getValue() : null;
+        return ($this->t5Seconds)
+            ? $this->t5Seconds->getElementValue()
+            : null;
     }
 
     /**
@@ -163,7 +173,7 @@ class SystemLegacyAutomaticCallbackGetResponse extends ComplexType implements Co
         $this->t6Minutes = ($t6Minutes InstanceOf LegacyAutomaticCallbackT6Minutes)
              ? $t6Minutes
              : new LegacyAutomaticCallbackT6Minutes($t6Minutes);
-        $this->t6Minutes->setName('t6Minutes');
+        $this->t6Minutes->setElementName('t6Minutes');
         return $this;
     }
 
@@ -173,7 +183,9 @@ class SystemLegacyAutomaticCallbackGetResponse extends ComplexType implements Co
      */
     public function getT6Minutes()
     {
-        return ($this->t6Minutes) ? $this->t6Minutes->getValue() : null;
+        return ($this->t6Minutes)
+            ? $this->t6Minutes->getElementValue()
+            : null;
     }
 
     /**
@@ -184,7 +196,7 @@ class SystemLegacyAutomaticCallbackGetResponse extends ComplexType implements Co
         $this->t7Minutes = ($t7Minutes InstanceOf LegacyAutomaticCallbackT7Minutes)
              ? $t7Minutes
              : new LegacyAutomaticCallbackT7Minutes($t7Minutes);
-        $this->t7Minutes->setName('t7Minutes');
+        $this->t7Minutes->setElementName('t7Minutes');
         return $this;
     }
 
@@ -194,7 +206,9 @@ class SystemLegacyAutomaticCallbackGetResponse extends ComplexType implements Co
      */
     public function getT7Minutes()
     {
-        return ($this->t7Minutes) ? $this->t7Minutes->getValue() : null;
+        return ($this->t7Minutes)
+            ? $this->t7Minutes->getElementValue()
+            : null;
     }
 
     /**
@@ -205,7 +219,7 @@ class SystemLegacyAutomaticCallbackGetResponse extends ComplexType implements Co
         $this->t8Seconds = ($t8Seconds InstanceOf LegacyAutomaticCallbackT8Seconds)
              ? $t8Seconds
              : new LegacyAutomaticCallbackT8Seconds($t8Seconds);
-        $this->t8Seconds->setName('t8Seconds');
+        $this->t8Seconds->setElementName('t8Seconds');
         return $this;
     }
 
@@ -215,7 +229,9 @@ class SystemLegacyAutomaticCallbackGetResponse extends ComplexType implements Co
      */
     public function getT8Seconds()
     {
-        return ($this->t8Seconds) ? $this->t8Seconds->getValue() : null;
+        return ($this->t8Seconds)
+            ? $this->t8Seconds->getElementValue()
+            : null;
     }
 
     /**
@@ -226,7 +242,7 @@ class SystemLegacyAutomaticCallbackGetResponse extends ComplexType implements Co
         $this->tRingSeconds = ($tRingSeconds InstanceOf LegacyAutomaticCallbackTRingSeconds)
              ? $tRingSeconds
              : new LegacyAutomaticCallbackTRingSeconds($tRingSeconds);
-        $this->tRingSeconds->setName('tRingSeconds');
+        $this->tRingSeconds->setElementName('tRingSeconds');
         return $this;
     }
 
@@ -236,7 +252,9 @@ class SystemLegacyAutomaticCallbackGetResponse extends ComplexType implements Co
      */
     public function getTRingSeconds()
     {
-        return ($this->tRingSeconds) ? $this->tRingSeconds->getValue() : null;
+        return ($this->tRingSeconds)
+            ? $this->tRingSeconds->getElementValue()
+            : null;
     }
 
     /**
@@ -247,7 +265,7 @@ class SystemLegacyAutomaticCallbackGetResponse extends ComplexType implements Co
         $this->t10OMinutes = ($t10OMinutes InstanceOf LegacyAutomaticCallbackT10OMinutes)
              ? $t10OMinutes
              : new LegacyAutomaticCallbackT10OMinutes($t10OMinutes);
-        $this->t10OMinutes->setName('t10OMinutes');
+        $this->t10OMinutes->setElementName('t10OMinutes');
         return $this;
     }
 
@@ -257,7 +275,9 @@ class SystemLegacyAutomaticCallbackGetResponse extends ComplexType implements Co
      */
     public function getT10OMinutes()
     {
-        return ($this->t10OMinutes) ? $this->t10OMinutes->getValue() : null;
+        return ($this->t10OMinutes)
+            ? $this->t10OMinutes->getElementValue()
+            : null;
     }
 
     /**
@@ -268,7 +288,7 @@ class SystemLegacyAutomaticCallbackGetResponse extends ComplexType implements Co
         $this->t10TMinutes = ($t10TMinutes InstanceOf LegacyAutomaticCallbackT10TMinutes)
              ? $t10TMinutes
              : new LegacyAutomaticCallbackT10TMinutes($t10TMinutes);
-        $this->t10TMinutes->setName('t10TMinutes');
+        $this->t10TMinutes->setElementName('t10TMinutes');
         return $this;
     }
 
@@ -278,6 +298,8 @@ class SystemLegacyAutomaticCallbackGetResponse extends ComplexType implements Co
      */
     public function getT10TMinutes()
     {
-        return ($this->t10TMinutes) ? $this->t10TMinutes->getValue() : null;
+        return ($this->t10TMinutes)
+            ? $this->t10TMinutes->getElementValue()
+            : null;
     }
 }

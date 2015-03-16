@@ -36,7 +36,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupAdminModifyPolicyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'GroupAdminModifyPolicyRequest';
+    public    $elementName = 'GroupAdminModifyPolicyRequest';
     protected $userId;
     protected $profileAccess;
     protected $userAccess;
@@ -103,7 +103,7 @@ class GroupAdminModifyPolicyRequest extends ComplexType implements ComplexInterf
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
-        $this->userId->setName('userId');
+        $this->userId->setElementName('userId');
         return $this;
     }
 
@@ -113,7 +113,9 @@ class GroupAdminModifyPolicyRequest extends ComplexType implements ComplexInterf
      */
     public function getUserId()
     {
-        return ($this->userId) ? $this->userId->getValue() : null;
+        return ($this->userId)
+            ? $this->userId->getElementValue()
+            : null;
     }
 
     /**
@@ -124,7 +126,7 @@ class GroupAdminModifyPolicyRequest extends ComplexType implements ComplexInterf
         $this->profileAccess = ($profileAccess InstanceOf GroupAdminProfileAccess)
              ? $profileAccess
              : new GroupAdminProfileAccess($profileAccess);
-        $this->profileAccess->setName('profileAccess');
+        $this->profileAccess->setElementName('profileAccess');
         return $this;
     }
 
@@ -134,7 +136,9 @@ class GroupAdminModifyPolicyRequest extends ComplexType implements ComplexInterf
      */
     public function getProfileAccess()
     {
-        return ($this->profileAccess) ? $this->profileAccess->getValue() : null;
+        return ($this->profileAccess)
+            ? $this->profileAccess->getElementValue()
+            : null;
     }
 
     /**
@@ -145,7 +149,7 @@ class GroupAdminModifyPolicyRequest extends ComplexType implements ComplexInterf
         $this->userAccess = ($userAccess InstanceOf GroupAdminUserAccess)
              ? $userAccess
              : new GroupAdminUserAccess($userAccess);
-        $this->userAccess->setName('userAccess');
+        $this->userAccess->setElementName('userAccess');
         return $this;
     }
 
@@ -155,7 +159,9 @@ class GroupAdminModifyPolicyRequest extends ComplexType implements ComplexInterf
      */
     public function getUserAccess()
     {
-        return ($this->userAccess) ? $this->userAccess->getValue() : null;
+        return ($this->userAccess)
+            ? $this->userAccess->getElementValue()
+            : null;
     }
 
     /**
@@ -166,7 +172,7 @@ class GroupAdminModifyPolicyRequest extends ComplexType implements ComplexInterf
         $this->adminAccess = ($adminAccess InstanceOf GroupAdminAdminAccess)
              ? $adminAccess
              : new GroupAdminAdminAccess($adminAccess);
-        $this->adminAccess->setName('adminAccess');
+        $this->adminAccess->setElementName('adminAccess');
         return $this;
     }
 
@@ -176,7 +182,9 @@ class GroupAdminModifyPolicyRequest extends ComplexType implements ComplexInterf
      */
     public function getAdminAccess()
     {
-        return ($this->adminAccess) ? $this->adminAccess->getValue() : null;
+        return ($this->adminAccess)
+            ? $this->adminAccess->getElementValue()
+            : null;
     }
 
     /**
@@ -187,7 +195,7 @@ class GroupAdminModifyPolicyRequest extends ComplexType implements ComplexInterf
         $this->departmentAccess = ($departmentAccess InstanceOf GroupAdminDepartmentAccess)
              ? $departmentAccess
              : new GroupAdminDepartmentAccess($departmentAccess);
-        $this->departmentAccess->setName('departmentAccess');
+        $this->departmentAccess->setElementName('departmentAccess');
         return $this;
     }
 
@@ -197,7 +205,9 @@ class GroupAdminModifyPolicyRequest extends ComplexType implements ComplexInterf
      */
     public function getDepartmentAccess()
     {
-        return ($this->departmentAccess) ? $this->departmentAccess->getValue() : null;
+        return ($this->departmentAccess)
+            ? $this->departmentAccess->getElementValue()
+            : null;
     }
 
     /**
@@ -208,7 +218,7 @@ class GroupAdminModifyPolicyRequest extends ComplexType implements ComplexInterf
         $this->accessDeviceAccess = ($accessDeviceAccess InstanceOf GroupAdminAccessDeviceAccess)
              ? $accessDeviceAccess
              : new GroupAdminAccessDeviceAccess($accessDeviceAccess);
-        $this->accessDeviceAccess->setName('accessDeviceAccess');
+        $this->accessDeviceAccess->setElementName('accessDeviceAccess');
         return $this;
     }
 
@@ -218,7 +228,9 @@ class GroupAdminModifyPolicyRequest extends ComplexType implements ComplexInterf
      */
     public function getAccessDeviceAccess()
     {
-        return ($this->accessDeviceAccess) ? $this->accessDeviceAccess->getValue() : null;
+        return ($this->accessDeviceAccess)
+            ? $this->accessDeviceAccess->getElementValue()
+            : null;
     }
 
     /**
@@ -229,7 +241,7 @@ class GroupAdminModifyPolicyRequest extends ComplexType implements ComplexInterf
         $this->enhancedServiceInstanceAccess = ($enhancedServiceInstanceAccess InstanceOf GroupAdminEnhancedServiceInstanceAccess)
              ? $enhancedServiceInstanceAccess
              : new GroupAdminEnhancedServiceInstanceAccess($enhancedServiceInstanceAccess);
-        $this->enhancedServiceInstanceAccess->setName('enhancedServiceInstanceAccess');
+        $this->enhancedServiceInstanceAccess->setElementName('enhancedServiceInstanceAccess');
         return $this;
     }
 
@@ -239,7 +251,9 @@ class GroupAdminModifyPolicyRequest extends ComplexType implements ComplexInterf
      */
     public function getEnhancedServiceInstanceAccess()
     {
-        return ($this->enhancedServiceInstanceAccess) ? $this->enhancedServiceInstanceAccess->getValue() : null;
+        return ($this->enhancedServiceInstanceAccess)
+            ? $this->enhancedServiceInstanceAccess->getElementValue()
+            : null;
     }
 
     /**
@@ -250,7 +264,7 @@ class GroupAdminModifyPolicyRequest extends ComplexType implements ComplexInterf
         $this->featureAccessCodeAccess = ($featureAccessCodeAccess InstanceOf GroupAdminFeatureAccessCodeAccess)
              ? $featureAccessCodeAccess
              : new GroupAdminFeatureAccessCodeAccess($featureAccessCodeAccess);
-        $this->featureAccessCodeAccess->setName('featureAccessCodeAccess');
+        $this->featureAccessCodeAccess->setElementName('featureAccessCodeAccess');
         return $this;
     }
 
@@ -260,7 +274,9 @@ class GroupAdminModifyPolicyRequest extends ComplexType implements ComplexInterf
      */
     public function getFeatureAccessCodeAccess()
     {
-        return ($this->featureAccessCodeAccess) ? $this->featureAccessCodeAccess->getValue() : null;
+        return ($this->featureAccessCodeAccess)
+            ? $this->featureAccessCodeAccess->getElementValue()
+            : null;
     }
 
     /**
@@ -271,7 +287,7 @@ class GroupAdminModifyPolicyRequest extends ComplexType implements ComplexInterf
         $this->phoneNumberExtensionAccess = ($phoneNumberExtensionAccess InstanceOf GroupAdminPhoneNumberExtensionAccess)
              ? $phoneNumberExtensionAccess
              : new GroupAdminPhoneNumberExtensionAccess($phoneNumberExtensionAccess);
-        $this->phoneNumberExtensionAccess->setName('phoneNumberExtensionAccess');
+        $this->phoneNumberExtensionAccess->setElementName('phoneNumberExtensionAccess');
         return $this;
     }
 
@@ -281,7 +297,9 @@ class GroupAdminModifyPolicyRequest extends ComplexType implements ComplexInterf
      */
     public function getPhoneNumberExtensionAccess()
     {
-        return ($this->phoneNumberExtensionAccess) ? $this->phoneNumberExtensionAccess->getValue() : null;
+        return ($this->phoneNumberExtensionAccess)
+            ? $this->phoneNumberExtensionAccess->getElementValue()
+            : null;
     }
 
     /**
@@ -292,7 +310,7 @@ class GroupAdminModifyPolicyRequest extends ComplexType implements ComplexInterf
         $this->callingLineIdNumberAccess = ($callingLineIdNumberAccess InstanceOf GroupAdminCallingLineIdNumberAccess)
              ? $callingLineIdNumberAccess
              : new GroupAdminCallingLineIdNumberAccess($callingLineIdNumberAccess);
-        $this->callingLineIdNumberAccess->setName('callingLineIdNumberAccess');
+        $this->callingLineIdNumberAccess->setElementName('callingLineIdNumberAccess');
         return $this;
     }
 
@@ -302,7 +320,9 @@ class GroupAdminModifyPolicyRequest extends ComplexType implements ComplexInterf
      */
     public function getCallingLineIdNumberAccess()
     {
-        return ($this->callingLineIdNumberAccess) ? $this->callingLineIdNumberAccess->getValue() : null;
+        return ($this->callingLineIdNumberAccess)
+            ? $this->callingLineIdNumberAccess->getElementValue()
+            : null;
     }
 
     /**
@@ -313,7 +333,7 @@ class GroupAdminModifyPolicyRequest extends ComplexType implements ComplexInterf
         $this->serviceAccess = ($serviceAccess InstanceOf GroupAdminServiceAccess)
              ? $serviceAccess
              : new GroupAdminServiceAccess($serviceAccess);
-        $this->serviceAccess->setName('serviceAccess');
+        $this->serviceAccess->setElementName('serviceAccess');
         return $this;
     }
 
@@ -323,7 +343,9 @@ class GroupAdminModifyPolicyRequest extends ComplexType implements ComplexInterf
      */
     public function getServiceAccess()
     {
-        return ($this->serviceAccess) ? $this->serviceAccess->getValue() : null;
+        return ($this->serviceAccess)
+            ? $this->serviceAccess->getElementValue()
+            : null;
     }
 
     /**
@@ -334,7 +356,7 @@ class GroupAdminModifyPolicyRequest extends ComplexType implements ComplexInterf
         $this->trunkGroupAccess = ($trunkGroupAccess InstanceOf GroupAdminTrunkGroupAccess)
              ? $trunkGroupAccess
              : new GroupAdminTrunkGroupAccess($trunkGroupAccess);
-        $this->trunkGroupAccess->setName('trunkGroupAccess');
+        $this->trunkGroupAccess->setElementName('trunkGroupAccess');
         return $this;
     }
 
@@ -344,7 +366,9 @@ class GroupAdminModifyPolicyRequest extends ComplexType implements ComplexInterf
      */
     public function getTrunkGroupAccess()
     {
-        return ($this->trunkGroupAccess) ? $this->trunkGroupAccess->getValue() : null;
+        return ($this->trunkGroupAccess)
+            ? $this->trunkGroupAccess->getElementValue()
+            : null;
     }
 
     /**
@@ -355,7 +379,7 @@ class GroupAdminModifyPolicyRequest extends ComplexType implements ComplexInterf
         $this->sessionAdmissionControlAccess = ($sessionAdmissionControlAccess InstanceOf GroupAdminSessionAdmissionControlAccess)
              ? $sessionAdmissionControlAccess
              : new GroupAdminSessionAdmissionControlAccess($sessionAdmissionControlAccess);
-        $this->sessionAdmissionControlAccess->setName('sessionAdmissionControlAccess');
+        $this->sessionAdmissionControlAccess->setElementName('sessionAdmissionControlAccess');
         return $this;
     }
 
@@ -365,7 +389,9 @@ class GroupAdminModifyPolicyRequest extends ComplexType implements ComplexInterf
      */
     public function getSessionAdmissionControlAccess()
     {
-        return ($this->sessionAdmissionControlAccess) ? $this->sessionAdmissionControlAccess->getValue() : null;
+        return ($this->sessionAdmissionControlAccess)
+            ? $this->sessionAdmissionControlAccess->getElementValue()
+            : null;
     }
 
     /**
@@ -376,7 +402,7 @@ class GroupAdminModifyPolicyRequest extends ComplexType implements ComplexInterf
         $this->officeZoneAccess = ($officeZoneAccess InstanceOf GroupAdminOfficeZoneAccess)
              ? $officeZoneAccess
              : new GroupAdminOfficeZoneAccess($officeZoneAccess);
-        $this->officeZoneAccess->setName('officeZoneAccess');
+        $this->officeZoneAccess->setElementName('officeZoneAccess');
         return $this;
     }
 
@@ -386,7 +412,9 @@ class GroupAdminModifyPolicyRequest extends ComplexType implements ComplexInterf
      */
     public function getOfficeZoneAccess()
     {
-        return ($this->officeZoneAccess) ? $this->officeZoneAccess->getValue() : null;
+        return ($this->officeZoneAccess)
+            ? $this->officeZoneAccess->getElementValue()
+            : null;
     }
 
     /**
@@ -397,7 +425,7 @@ class GroupAdminModifyPolicyRequest extends ComplexType implements ComplexInterf
         $this->dialableCallerIDAccess = ($dialableCallerIDAccess InstanceOf GroupAdminDialableCallerIDAccess)
              ? $dialableCallerIDAccess
              : new GroupAdminDialableCallerIDAccess($dialableCallerIDAccess);
-        $this->dialableCallerIDAccess->setName('dialableCallerIDAccess');
+        $this->dialableCallerIDAccess->setElementName('dialableCallerIDAccess');
         return $this;
     }
 
@@ -407,6 +435,8 @@ class GroupAdminModifyPolicyRequest extends ComplexType implements ComplexInterf
      */
     public function getDialableCallerIDAccess()
     {
-        return ($this->dialableCallerIDAccess) ? $this->dialableCallerIDAccess->getValue() : null;
+        return ($this->dialableCallerIDAccess)
+            ? $this->dialableCallerIDAccess->getElementValue()
+            : null;
     }
 }

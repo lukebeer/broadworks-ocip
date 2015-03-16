@@ -19,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class OCIResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'OCIResponse';
+    public    $elementName = 'OCIResponse';
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaBASE\OCIResponse $response

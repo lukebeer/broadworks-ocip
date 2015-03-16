@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderExternalCustomRingbackGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'ServiceProviderExternalCustomRingbackGetResponse';
+    public    $elementName = 'ServiceProviderExternalCustomRingbackGetResponse';
     protected $prefixDigits;
     protected $serverNetAddress;
     protected $serverPort;
@@ -44,7 +44,7 @@ class ServiceProviderExternalCustomRingbackGetResponse extends ComplexType imple
         $this->prefixDigits = ($prefixDigits InstanceOf ExternalCustomRingbackPrefixDigits)
              ? $prefixDigits
              : new ExternalCustomRingbackPrefixDigits($prefixDigits);
-        $this->prefixDigits->setName('prefixDigits');
+        $this->prefixDigits->setElementName('prefixDigits');
         return $this;
     }
 
@@ -54,7 +54,9 @@ class ServiceProviderExternalCustomRingbackGetResponse extends ComplexType imple
      */
     public function getPrefixDigits()
     {
-        return ($this->prefixDigits) ? $this->prefixDigits->getValue() : null;
+        return ($this->prefixDigits)
+            ? $this->prefixDigits->getElementValue()
+            : null;
     }
 
     /**
@@ -65,7 +67,7 @@ class ServiceProviderExternalCustomRingbackGetResponse extends ComplexType imple
         $this->serverNetAddress = ($serverNetAddress InstanceOf NetAddress)
              ? $serverNetAddress
              : new NetAddress($serverNetAddress);
-        $this->serverNetAddress->setName('serverNetAddress');
+        $this->serverNetAddress->setElementName('serverNetAddress');
         return $this;
     }
 
@@ -75,7 +77,9 @@ class ServiceProviderExternalCustomRingbackGetResponse extends ComplexType imple
      */
     public function getServerNetAddress()
     {
-        return ($this->serverNetAddress) ? $this->serverNetAddress->getValue() : null;
+        return ($this->serverNetAddress)
+            ? $this->serverNetAddress->getElementValue()
+            : null;
     }
 
     /**
@@ -86,7 +90,7 @@ class ServiceProviderExternalCustomRingbackGetResponse extends ComplexType imple
         $this->serverPort = ($serverPort InstanceOf Port1025)
              ? $serverPort
              : new Port1025($serverPort);
-        $this->serverPort->setName('serverPort');
+        $this->serverPort->setElementName('serverPort');
         return $this;
     }
 
@@ -96,7 +100,9 @@ class ServiceProviderExternalCustomRingbackGetResponse extends ComplexType imple
      */
     public function getServerPort()
     {
-        return ($this->serverPort) ? $this->serverPort->getValue() : null;
+        return ($this->serverPort)
+            ? $this->serverPort->getElementValue()
+            : null;
     }
 
     /**
@@ -107,7 +113,7 @@ class ServiceProviderExternalCustomRingbackGetResponse extends ComplexType imple
         $this->timeoutSeconds = ($timeoutSeconds InstanceOf ExternalCustomRingbackTimeoutSeconds)
              ? $timeoutSeconds
              : new ExternalCustomRingbackTimeoutSeconds($timeoutSeconds);
-        $this->timeoutSeconds->setName('timeoutSeconds');
+        $this->timeoutSeconds->setElementName('timeoutSeconds');
         return $this;
     }
 
@@ -117,6 +123,8 @@ class ServiceProviderExternalCustomRingbackGetResponse extends ComplexType imple
      */
     public function getTimeoutSeconds()
     {
-        return ($this->timeoutSeconds) ? $this->timeoutSeconds->getValue() : null;
+        return ($this->timeoutSeconds)
+            ? $this->timeoutSeconds->getElementValue()
+            : null;
     }
 }

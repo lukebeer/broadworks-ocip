@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemLegacyAutomaticCallbackModifyLineTypeRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemLegacyAutomaticCallbackModifyLineTypeRequest';
+    public    $elementName = 'SystemLegacyAutomaticCallbackModifyLineTypeRequest';
     protected $lineType;
     protected $matchAction;
     protected $noMatchAction;
@@ -51,7 +51,7 @@ class SystemLegacyAutomaticCallbackModifyLineTypeRequest extends ComplexType imp
         $this->lineType = ($lineType InstanceOf LegacyAutomaticCallbackLineType)
              ? $lineType
              : new LegacyAutomaticCallbackLineType($lineType);
-        $this->lineType->setName('lineType');
+        $this->lineType->setElementName('lineType');
         return $this;
     }
 
@@ -61,7 +61,9 @@ class SystemLegacyAutomaticCallbackModifyLineTypeRequest extends ComplexType imp
      */
     public function getLineType()
     {
-        return ($this->lineType) ? $this->lineType->getValue() : null;
+        return ($this->lineType)
+            ? $this->lineType->getElementValue()
+            : null;
     }
 
     /**
@@ -72,7 +74,7 @@ class SystemLegacyAutomaticCallbackModifyLineTypeRequest extends ComplexType imp
         $this->matchAction = ($matchAction InstanceOf LegacyAutomaticCallbackLineMatchAction)
              ? $matchAction
              : new LegacyAutomaticCallbackLineMatchAction($matchAction);
-        $this->matchAction->setName('matchAction');
+        $this->matchAction->setElementName('matchAction');
         return $this;
     }
 
@@ -82,7 +84,9 @@ class SystemLegacyAutomaticCallbackModifyLineTypeRequest extends ComplexType imp
      */
     public function getMatchAction()
     {
-        return ($this->matchAction) ? $this->matchAction->getValue() : null;
+        return ($this->matchAction)
+            ? $this->matchAction->getElementValue()
+            : null;
     }
 
     /**
@@ -93,7 +97,7 @@ class SystemLegacyAutomaticCallbackModifyLineTypeRequest extends ComplexType imp
         $this->noMatchAction = ($noMatchAction InstanceOf LegacyAutomaticCallbackLineMatchAction)
              ? $noMatchAction
              : new LegacyAutomaticCallbackLineMatchAction($noMatchAction);
-        $this->noMatchAction->setName('noMatchAction');
+        $this->noMatchAction->setElementName('noMatchAction');
         return $this;
     }
 
@@ -103,6 +107,8 @@ class SystemLegacyAutomaticCallbackModifyLineTypeRequest extends ComplexType imp
      */
     public function getNoMatchAction()
     {
-        return ($this->noMatchAction) ? $this->noMatchAction->getValue() : null;
+        return ($this->noMatchAction)
+            ? $this->noMatchAction->getElementValue()
+            : null;
     }
 }

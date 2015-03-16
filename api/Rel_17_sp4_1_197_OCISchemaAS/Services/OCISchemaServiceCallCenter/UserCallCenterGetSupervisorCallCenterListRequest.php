@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
 class UserCallCenterGetSupervisorCallCenterListRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType     = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\UserCallCenterGetSupervisorCallCenterListResponse';
-    public    $name = 'UserCallCenterGetSupervisorCallCenterListRequest';
+    public    $elementName = 'UserCallCenterGetSupervisorCallCenterListRequest';
     protected $supervisorUserId;
 
     public function __construct(
@@ -47,7 +47,7 @@ class UserCallCenterGetSupervisorCallCenterListRequest extends ComplexType imple
         $this->supervisorUserId = ($supervisorUserId InstanceOf UserId)
              ? $supervisorUserId
              : new UserId($supervisorUserId);
-        $this->supervisorUserId->setName('supervisorUserId');
+        $this->supervisorUserId->setElementName('supervisorUserId');
         return $this;
     }
 
@@ -57,6 +57,8 @@ class UserCallCenterGetSupervisorCallCenterListRequest extends ComplexType imple
      */
     public function getSupervisorUserId()
     {
-        return ($this->supervisorUserId) ? $this->supervisorUserId->getValue() : null;
+        return ($this->supervisorUserId)
+            ? $this->supervisorUserId->getElementValue()
+            : null;
     }
 }

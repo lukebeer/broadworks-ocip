@@ -19,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class CommunicationBarringCallMeNowRule extends ComplexType implements ComplexInterface
 {
-    public    $name = 'CommunicationBarringCallMeNowRule';
+    public    $elementName = 'CommunicationBarringCallMeNowRule';
     protected $criteria;
     protected $action;
     protected $callTimeoutSeconds;
@@ -48,7 +48,7 @@ class CommunicationBarringCallMeNowRule extends ComplexType implements ComplexIn
     public function setCriteria($criteria = null)
     {
         $this->criteria = new SimpleContent($criteria);
-        $this->criteria->setName('criteria');
+        $this->criteria->setElementName('criteria');
         return $this;
     }
 
@@ -58,7 +58,9 @@ class CommunicationBarringCallMeNowRule extends ComplexType implements ComplexIn
      */
     public function getCriteria()
     {
-        return ($this->criteria) ? $this->criteria->getValue() : null;
+        return ($this->criteria)
+            ? $this->criteria->getElementValue()
+            : null;
     }
 
     /**
@@ -67,7 +69,7 @@ class CommunicationBarringCallMeNowRule extends ComplexType implements ComplexIn
     public function setAction($action = null)
     {
         $this->action = new SimpleContent($action);
-        $this->action->setName('action');
+        $this->action->setElementName('action');
         return $this;
     }
 
@@ -77,7 +79,9 @@ class CommunicationBarringCallMeNowRule extends ComplexType implements ComplexIn
      */
     public function getAction()
     {
-        return ($this->action) ? $this->action->getValue() : null;
+        return ($this->action)
+            ? $this->action->getElementValue()
+            : null;
     }
 
     /**
@@ -86,7 +90,7 @@ class CommunicationBarringCallMeNowRule extends ComplexType implements ComplexIn
     public function setCallTimeoutSeconds($callTimeoutSeconds = null)
     {
         $this->callTimeoutSeconds = new SimpleContent($callTimeoutSeconds);
-        $this->callTimeoutSeconds->setName('callTimeoutSeconds');
+        $this->callTimeoutSeconds->setElementName('callTimeoutSeconds');
         return $this;
     }
 
@@ -96,6 +100,8 @@ class CommunicationBarringCallMeNowRule extends ComplexType implements ComplexIn
      */
     public function getCallTimeoutSeconds()
     {
-        return ($this->callTimeoutSeconds) ? $this->callTimeoutSeconds->getValue() : null;
+        return ($this->callTimeoutSeconds)
+            ? $this->callTimeoutSeconds->getElementValue()
+            : null;
     }
 }

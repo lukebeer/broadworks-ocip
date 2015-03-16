@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderInCallServiceActivationModifyRequest17 extends ComplexType implements ComplexInterface
 {
-    public    $name = 'ServiceProviderInCallServiceActivationModifyRequest17';
+    public    $elementName = 'ServiceProviderInCallServiceActivationModifyRequest17';
     protected $serviceProviderId;
     protected $flashActivationDigits;
     protected $callTransferActivationDigits;
@@ -51,7 +51,7 @@ class ServiceProviderInCallServiceActivationModifyRequest17 extends ComplexType 
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
-        $this->serviceProviderId->setName('serviceProviderId');
+        $this->serviceProviderId->setElementName('serviceProviderId');
         return $this;
     }
 
@@ -61,7 +61,9 @@ class ServiceProviderInCallServiceActivationModifyRequest17 extends ComplexType 
      */
     public function getServiceProviderId()
     {
-        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
+        return ($this->serviceProviderId)
+            ? $this->serviceProviderId->getElementValue()
+            : null;
     }
 
     /**
@@ -72,7 +74,7 @@ class ServiceProviderInCallServiceActivationModifyRequest17 extends ComplexType 
         $this->flashActivationDigits = ($flashActivationDigits InstanceOf InCallServiceActivationDigits)
              ? $flashActivationDigits
              : new InCallServiceActivationDigits($flashActivationDigits);
-        $this->flashActivationDigits->setName('flashActivationDigits');
+        $this->flashActivationDigits->setElementName('flashActivationDigits');
         return $this;
     }
 
@@ -82,7 +84,9 @@ class ServiceProviderInCallServiceActivationModifyRequest17 extends ComplexType 
      */
     public function getFlashActivationDigits()
     {
-        return ($this->flashActivationDigits) ? $this->flashActivationDigits->getValue() : null;
+        return ($this->flashActivationDigits)
+            ? $this->flashActivationDigits->getElementValue()
+            : null;
     }
 
     /**
@@ -93,7 +97,7 @@ class ServiceProviderInCallServiceActivationModifyRequest17 extends ComplexType 
         $this->callTransferActivationDigits = ($callTransferActivationDigits InstanceOf InCallServiceActivationDigits)
              ? $callTransferActivationDigits
              : new InCallServiceActivationDigits($callTransferActivationDigits);
-        $this->callTransferActivationDigits->setName('callTransferActivationDigits');
+        $this->callTransferActivationDigits->setElementName('callTransferActivationDigits');
         return $this;
     }
 
@@ -103,6 +107,8 @@ class ServiceProviderInCallServiceActivationModifyRequest17 extends ComplexType 
      */
     public function getCallTransferActivationDigits()
     {
-        return ($this->callTransferActivationDigits) ? $this->callTransferActivationDigits->getValue() : null;
+        return ($this->callTransferActivationDigits)
+            ? $this->callTransferActivationDigits->getElementValue()
+            : null;
     }
 }

@@ -23,7 +23,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderAnswerConfirmationModifyRequest16 extends ComplexType implements ComplexInterface
 {
-    public    $name = 'ServiceProviderAnswerConfirmationModifyRequest16';
+    public    $elementName = 'ServiceProviderAnswerConfirmationModifyRequest16';
     protected $serviceProviderId;
     protected $announcementMessageSelection;
     protected $confirmationMessageAudioFile;
@@ -57,7 +57,7 @@ class ServiceProviderAnswerConfirmationModifyRequest16 extends ComplexType imple
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
-        $this->serviceProviderId->setName('serviceProviderId');
+        $this->serviceProviderId->setElementName('serviceProviderId');
         return $this;
     }
 
@@ -67,7 +67,9 @@ class ServiceProviderAnswerConfirmationModifyRequest16 extends ComplexType imple
      */
     public function getServiceProviderId()
     {
-        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
+        return ($this->serviceProviderId)
+            ? $this->serviceProviderId->getElementValue()
+            : null;
     }
 
     /**
@@ -78,7 +80,7 @@ class ServiceProviderAnswerConfirmationModifyRequest16 extends ComplexType imple
         $this->announcementMessageSelection = ($announcementMessageSelection InstanceOf AnswerConfirmationAnnouncementSelection)
              ? $announcementMessageSelection
              : new AnswerConfirmationAnnouncementSelection($announcementMessageSelection);
-        $this->announcementMessageSelection->setName('announcementMessageSelection');
+        $this->announcementMessageSelection->setElementName('announcementMessageSelection');
         return $this;
     }
 
@@ -88,7 +90,9 @@ class ServiceProviderAnswerConfirmationModifyRequest16 extends ComplexType imple
      */
     public function getAnnouncementMessageSelection()
     {
-        return ($this->announcementMessageSelection) ? $this->announcementMessageSelection->getValue() : null;
+        return ($this->announcementMessageSelection)
+            ? $this->announcementMessageSelection->getElementValue()
+            : null;
     }
 
     /**
@@ -99,7 +103,7 @@ class ServiceProviderAnswerConfirmationModifyRequest16 extends ComplexType imple
         $this->confirmationMessageAudioFile = ($confirmationMessageAudioFile InstanceOf LabeledMediaFileResource)
              ? $confirmationMessageAudioFile
              : new LabeledMediaFileResource($confirmationMessageAudioFile);
-        $this->confirmationMessageAudioFile->setName('confirmationMessageAudioFile');
+        $this->confirmationMessageAudioFile->setElementName('confirmationMessageAudioFile');
         return $this;
     }
 
@@ -120,7 +124,7 @@ class ServiceProviderAnswerConfirmationModifyRequest16 extends ComplexType imple
         $this->confirmationTimoutSeconds = ($confirmationTimoutSeconds InstanceOf AnswerConfirmationTimeoutSeconds)
              ? $confirmationTimoutSeconds
              : new AnswerConfirmationTimeoutSeconds($confirmationTimoutSeconds);
-        $this->confirmationTimoutSeconds->setName('confirmationTimoutSeconds');
+        $this->confirmationTimoutSeconds->setElementName('confirmationTimoutSeconds');
         return $this;
     }
 
@@ -130,6 +134,8 @@ class ServiceProviderAnswerConfirmationModifyRequest16 extends ComplexType imple
      */
     public function getConfirmationTimoutSeconds()
     {
-        return ($this->confirmationTimoutSeconds) ? $this->confirmationTimoutSeconds->getValue() : null;
+        return ($this->confirmationTimoutSeconds)
+            ? $this->confirmationTimoutSeconds->getElementValue()
+            : null;
     }
 }

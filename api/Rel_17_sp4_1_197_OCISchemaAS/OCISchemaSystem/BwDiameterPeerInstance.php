@@ -16,12 +16,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\Enumeration;
  */
 class BwDiameterPeerInstance extends SimpleType
 {
-    public $name = "BwDiameterPeerInstance";
-    protected $value;
-
+    public $elementName = "BwDiameterPeerInstance";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new Enumeration([
             'XS',
             'PS'

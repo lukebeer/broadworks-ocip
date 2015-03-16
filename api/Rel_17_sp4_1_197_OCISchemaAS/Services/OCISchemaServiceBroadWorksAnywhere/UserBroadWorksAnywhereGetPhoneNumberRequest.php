@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
 class UserBroadWorksAnywhereGetPhoneNumberRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceBroadWorksAnywhere\UserBroadWorksAnywhereGetPhoneNumberResponse';
-    public    $name = 'UserBroadWorksAnywhereGetPhoneNumberRequest';
+    public    $elementName = 'UserBroadWorksAnywhereGetPhoneNumberRequest';
     protected $userId;
     protected $phoneNumber;
 
@@ -49,7 +49,7 @@ class UserBroadWorksAnywhereGetPhoneNumberRequest extends ComplexType implements
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
-        $this->userId->setName('userId');
+        $this->userId->setElementName('userId');
         return $this;
     }
 
@@ -59,7 +59,9 @@ class UserBroadWorksAnywhereGetPhoneNumberRequest extends ComplexType implements
      */
     public function getUserId()
     {
-        return ($this->userId) ? $this->userId->getValue() : null;
+        return ($this->userId)
+            ? $this->userId->getElementValue()
+            : null;
     }
 
     /**
@@ -70,7 +72,7 @@ class UserBroadWorksAnywhereGetPhoneNumberRequest extends ComplexType implements
         $this->phoneNumber = ($phoneNumber InstanceOf DN)
              ? $phoneNumber
              : new DN($phoneNumber);
-        $this->phoneNumber->setName('phoneNumber');
+        $this->phoneNumber->setElementName('phoneNumber');
         return $this;
     }
 
@@ -80,6 +82,8 @@ class UserBroadWorksAnywhereGetPhoneNumberRequest extends ComplexType implements
      */
     public function getPhoneNumber()
     {
-        return ($this->phoneNumber) ? $this->phoneNumber->getValue() : null;
+        return ($this->phoneNumber)
+            ? $this->phoneNumber->getElementValue()
+            : null;
     }
 }

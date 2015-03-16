@@ -24,7 +24,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemTrunkGroupUserCreationTaskGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemTrunkGroupUserCreationTaskGetListResponse';
+    public    $elementName = 'SystemTrunkGroupUserCreationTaskGetListResponse';
     protected $taskTable;
 
     /**
@@ -41,7 +41,7 @@ class SystemTrunkGroupUserCreationTaskGetListResponse extends ComplexType implem
     public function setTaskTable(TableType $taskTable = null)
     {
         $this->taskTable = $taskTable;
-        $this->taskTable->setName('taskTable');
+        $this->taskTable->setElementName('taskTable');
         return $this;
     }
 

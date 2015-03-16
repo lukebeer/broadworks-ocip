@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemTreatmentMappingNetworkSIPStatusAddRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemTreatmentMappingNetworkSIPStatusAddRequest';
+    public    $elementName = 'SystemTreatmentMappingNetworkSIPStatusAddRequest';
     protected $sipStatusCode;
     protected $treatmentId;
 
@@ -49,7 +49,7 @@ class SystemTreatmentMappingNetworkSIPStatusAddRequest extends ComplexType imple
         $this->sipStatusCode = ($sipStatusCode InstanceOf SIPFailureStatusCode)
              ? $sipStatusCode
              : new SIPFailureStatusCode($sipStatusCode);
-        $this->sipStatusCode->setName('sipStatusCode');
+        $this->sipStatusCode->setElementName('sipStatusCode');
         return $this;
     }
 
@@ -59,7 +59,9 @@ class SystemTreatmentMappingNetworkSIPStatusAddRequest extends ComplexType imple
      */
     public function getSipStatusCode()
     {
-        return ($this->sipStatusCode) ? $this->sipStatusCode->getValue() : null;
+        return ($this->sipStatusCode)
+            ? $this->sipStatusCode->getElementValue()
+            : null;
     }
 
     /**
@@ -70,7 +72,7 @@ class SystemTreatmentMappingNetworkSIPStatusAddRequest extends ComplexType imple
         $this->treatmentId = ($treatmentId InstanceOf TreatmentId)
              ? $treatmentId
              : new TreatmentId($treatmentId);
-        $this->treatmentId->setName('treatmentId');
+        $this->treatmentId->setElementName('treatmentId');
         return $this;
     }
 
@@ -80,6 +82,8 @@ class SystemTreatmentMappingNetworkSIPStatusAddRequest extends ComplexType imple
      */
     public function getTreatmentId()
     {
-        return ($this->treatmentId) ? $this->treatmentId->getValue() : null;
+        return ($this->treatmentId)
+            ? $this->treatmentId->getElementValue()
+            : null;
     }
 }

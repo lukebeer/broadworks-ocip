@@ -18,12 +18,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\MaxInclusive;
  */
 class BroadWorksMobileManagerMaxTxPerSecond extends SimpleType
 {
-    public $name = "BroadWorksMobileManagerMaxTxPerSecond";
-    protected $value;
-
+    public $elementName = "BroadWorksMobileManagerMaxTxPerSecond";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new MinInclusive("1"));
         $this->addRestriction(new MaxInclusive("1000"));
     }

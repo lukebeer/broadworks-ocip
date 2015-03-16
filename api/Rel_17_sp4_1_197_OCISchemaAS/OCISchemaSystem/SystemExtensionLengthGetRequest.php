@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
 class SystemExtensionLengthGetRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemExtensionLengthGetResponse';
-    public    $name = 'SystemExtensionLengthGetRequest';
+    public    $elementName = 'SystemExtensionLengthGetRequest';
 
     public function __construct(    ) {
     }

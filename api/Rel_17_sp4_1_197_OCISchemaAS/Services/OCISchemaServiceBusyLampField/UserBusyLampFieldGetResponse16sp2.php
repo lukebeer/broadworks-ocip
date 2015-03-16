@@ -23,7 +23,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserBusyLampFieldGetResponse16sp2 extends ComplexType implements ComplexInterface
 {
-    public    $name = 'UserBusyLampFieldGetResponse16sp2';
+    public    $elementName = 'UserBusyLampFieldGetResponse16sp2';
     protected $listURI;
     protected $enableCallParkNotification;
     protected $monitoredUserTable;
@@ -44,7 +44,7 @@ class UserBusyLampFieldGetResponse16sp2 extends ComplexType implements ComplexIn
         $this->listURI = ($listURI InstanceOf SIPURI)
              ? $listURI
              : new SIPURI($listURI);
-        $this->listURI->setName('listURI');
+        $this->listURI->setElementName('listURI');
         return $this;
     }
 
@@ -54,7 +54,9 @@ class UserBusyLampFieldGetResponse16sp2 extends ComplexType implements ComplexIn
      */
     public function getListURI()
     {
-        return ($this->listURI) ? $this->listURI->getValue() : null;
+        return ($this->listURI)
+            ? $this->listURI->getElementValue()
+            : null;
     }
 
     /**
@@ -63,7 +65,7 @@ class UserBusyLampFieldGetResponse16sp2 extends ComplexType implements ComplexIn
     public function setEnableCallParkNotification($enableCallParkNotification = null)
     {
         $this->enableCallParkNotification = new PrimitiveType($enableCallParkNotification);
-        $this->enableCallParkNotification->setName('enableCallParkNotification');
+        $this->enableCallParkNotification->setElementName('enableCallParkNotification');
         return $this;
     }
 
@@ -73,7 +75,9 @@ class UserBusyLampFieldGetResponse16sp2 extends ComplexType implements ComplexIn
      */
     public function getEnableCallParkNotification()
     {
-        return ($this->enableCallParkNotification) ? $this->enableCallParkNotification->getValue() : null;
+        return ($this->enableCallParkNotification)
+            ? $this->enableCallParkNotification->getElementValue()
+            : null;
     }
 
     /**
@@ -82,7 +86,7 @@ class UserBusyLampFieldGetResponse16sp2 extends ComplexType implements ComplexIn
     public function setMonitoredUserTable(TableType $monitoredUserTable = null)
     {
         $this->monitoredUserTable = $monitoredUserTable;
-        $this->monitoredUserTable->setName('monitoredUserTable');
+        $this->monitoredUserTable->setElementName('monitoredUserTable');
         return $this;
     }
 

@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserRoutePointSupervisorGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'UserRoutePointSupervisorGetListResponse';
+    public    $elementName = 'UserRoutePointSupervisorGetListResponse';
     protected $supervisorTable;
 
     /**
@@ -38,7 +38,7 @@ class UserRoutePointSupervisorGetListResponse extends ComplexType implements Com
     public function setSupervisorTable(TableType $supervisorTable = null)
     {
         $this->supervisorTable = $supervisorTable;
-        $this->supervisorTable->setName('supervisorTable');
+        $this->supervisorTable->setElementName('supervisorTable');
         return $this;
     }
 

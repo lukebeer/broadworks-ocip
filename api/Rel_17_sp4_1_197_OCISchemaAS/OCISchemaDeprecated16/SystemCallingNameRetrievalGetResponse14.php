@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemCallingNameRetrievalGetResponse14 extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemCallingNameRetrievalGetResponse14';
+    public    $elementName = 'SystemCallingNameRetrievalGetResponse14';
     protected $queryTimerMilliSeconds;
     protected $serverNetAddress;
     protected $serverPort;
@@ -44,7 +44,7 @@ class SystemCallingNameRetrievalGetResponse14 extends ComplexType implements Com
         $this->queryTimerMilliSeconds = ($queryTimerMilliSeconds InstanceOf CallingNameRetrievalQueryTimerMilliSeconds)
              ? $queryTimerMilliSeconds
              : new CallingNameRetrievalQueryTimerMilliSeconds($queryTimerMilliSeconds);
-        $this->queryTimerMilliSeconds->setName('queryTimerMilliSeconds');
+        $this->queryTimerMilliSeconds->setElementName('queryTimerMilliSeconds');
         return $this;
     }
 
@@ -54,7 +54,9 @@ class SystemCallingNameRetrievalGetResponse14 extends ComplexType implements Com
      */
     public function getQueryTimerMilliSeconds()
     {
-        return ($this->queryTimerMilliSeconds) ? $this->queryTimerMilliSeconds->getValue() : null;
+        return ($this->queryTimerMilliSeconds)
+            ? $this->queryTimerMilliSeconds->getElementValue()
+            : null;
     }
 
     /**
@@ -65,7 +67,7 @@ class SystemCallingNameRetrievalGetResponse14 extends ComplexType implements Com
         $this->serverNetAddress = ($serverNetAddress InstanceOf NetAddress)
              ? $serverNetAddress
              : new NetAddress($serverNetAddress);
-        $this->serverNetAddress->setName('serverNetAddress');
+        $this->serverNetAddress->setElementName('serverNetAddress');
         return $this;
     }
 
@@ -75,7 +77,9 @@ class SystemCallingNameRetrievalGetResponse14 extends ComplexType implements Com
      */
     public function getServerNetAddress()
     {
-        return ($this->serverNetAddress) ? $this->serverNetAddress->getValue() : null;
+        return ($this->serverNetAddress)
+            ? $this->serverNetAddress->getElementValue()
+            : null;
     }
 
     /**
@@ -86,7 +90,7 @@ class SystemCallingNameRetrievalGetResponse14 extends ComplexType implements Com
         $this->serverPort = ($serverPort InstanceOf Port1025)
              ? $serverPort
              : new Port1025($serverPort);
-        $this->serverPort->setName('serverPort');
+        $this->serverPort->setElementName('serverPort');
         return $this;
     }
 
@@ -96,7 +100,9 @@ class SystemCallingNameRetrievalGetResponse14 extends ComplexType implements Com
      */
     public function getServerPort()
     {
-        return ($this->serverPort) ? $this->serverPort->getValue() : null;
+        return ($this->serverPort)
+            ? $this->serverPort->getElementValue()
+            : null;
     }
 
     /**
@@ -107,7 +113,7 @@ class SystemCallingNameRetrievalGetResponse14 extends ComplexType implements Com
         $this->serverTransportProtocol = ($serverTransportProtocol InstanceOf TransportProtocol)
              ? $serverTransportProtocol
              : new TransportProtocol($serverTransportProtocol);
-        $this->serverTransportProtocol->setName('serverTransportProtocol');
+        $this->serverTransportProtocol->setElementName('serverTransportProtocol');
         return $this;
     }
 
@@ -117,6 +123,8 @@ class SystemCallingNameRetrievalGetResponse14 extends ComplexType implements Com
      */
     public function getServerTransportProtocol()
     {
-        return ($this->serverTransportProtocol) ? $this->serverTransportProtocol->getValue() : null;
+        return ($this->serverTransportProtocol)
+            ? $this->serverTransportProtocol->getElementValue()
+            : null;
     }
 }

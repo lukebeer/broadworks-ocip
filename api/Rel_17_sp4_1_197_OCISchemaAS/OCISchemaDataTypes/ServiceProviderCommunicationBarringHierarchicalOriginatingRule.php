@@ -19,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderCommunicationBarringHierarchicalOriginatingRule extends ComplexType implements ComplexInterface
 {
-    public    $name = 'ServiceProviderCommunicationBarringHierarchicalOriginatingRule';
+    public    $elementName = 'ServiceProviderCommunicationBarringHierarchicalOriginatingRule';
     protected $action;
     protected $treatmentId;
     protected $transferNumber;
@@ -60,7 +60,7 @@ class ServiceProviderCommunicationBarringHierarchicalOriginatingRule extends Com
     public function setAction($action = null)
     {
         $this->action = new SimpleContent($action);
-        $this->action->setName('action');
+        $this->action->setElementName('action');
         return $this;
     }
 
@@ -70,7 +70,9 @@ class ServiceProviderCommunicationBarringHierarchicalOriginatingRule extends Com
      */
     public function getAction()
     {
-        return ($this->action) ? $this->action->getValue() : null;
+        return ($this->action)
+            ? $this->action->getElementValue()
+            : null;
     }
 
     /**
@@ -79,7 +81,7 @@ class ServiceProviderCommunicationBarringHierarchicalOriginatingRule extends Com
     public function setTreatmentId($treatmentId = null)
     {
         $this->treatmentId = new SimpleContent($treatmentId);
-        $this->treatmentId->setName('treatmentId');
+        $this->treatmentId->setElementName('treatmentId');
         return $this;
     }
 
@@ -89,7 +91,9 @@ class ServiceProviderCommunicationBarringHierarchicalOriginatingRule extends Com
      */
     public function getTreatmentId()
     {
-        return ($this->treatmentId) ? $this->treatmentId->getValue() : null;
+        return ($this->treatmentId)
+            ? $this->treatmentId->getElementValue()
+            : null;
     }
 
     /**
@@ -98,7 +102,7 @@ class ServiceProviderCommunicationBarringHierarchicalOriginatingRule extends Com
     public function setTransferNumber($transferNumber = null)
     {
         $this->transferNumber = new SimpleContent($transferNumber);
-        $this->transferNumber->setName('transferNumber');
+        $this->transferNumber->setElementName('transferNumber');
         return $this;
     }
 
@@ -108,7 +112,9 @@ class ServiceProviderCommunicationBarringHierarchicalOriginatingRule extends Com
      */
     public function getTransferNumber()
     {
-        return ($this->transferNumber) ? $this->transferNumber->getValue() : null;
+        return ($this->transferNumber)
+            ? $this->transferNumber->getElementValue()
+            : null;
     }
 
     /**
@@ -117,7 +123,7 @@ class ServiceProviderCommunicationBarringHierarchicalOriginatingRule extends Com
     public function setCallTimeoutSeconds($callTimeoutSeconds = null)
     {
         $this->callTimeoutSeconds = new SimpleContent($callTimeoutSeconds);
-        $this->callTimeoutSeconds->setName('callTimeoutSeconds');
+        $this->callTimeoutSeconds->setElementName('callTimeoutSeconds');
         return $this;
     }
 
@@ -127,7 +133,9 @@ class ServiceProviderCommunicationBarringHierarchicalOriginatingRule extends Com
      */
     public function getCallTimeoutSeconds()
     {
-        return ($this->callTimeoutSeconds) ? $this->callTimeoutSeconds->getValue() : null;
+        return ($this->callTimeoutSeconds)
+            ? $this->callTimeoutSeconds->getElementValue()
+            : null;
     }
 
     /**
@@ -136,7 +144,7 @@ class ServiceProviderCommunicationBarringHierarchicalOriginatingRule extends Com
     public function setTimeSchedule($timeSchedule = null)
     {
         $this->timeSchedule = new SimpleContent($timeSchedule);
-        $this->timeSchedule->setName('timeSchedule');
+        $this->timeSchedule->setElementName('timeSchedule');
         return $this;
     }
 
@@ -146,7 +154,9 @@ class ServiceProviderCommunicationBarringHierarchicalOriginatingRule extends Com
      */
     public function getTimeSchedule()
     {
-        return ($this->timeSchedule) ? $this->timeSchedule->getValue() : null;
+        return ($this->timeSchedule)
+            ? $this->timeSchedule->getElementValue()
+            : null;
     }
 
     /**
@@ -155,7 +165,7 @@ class ServiceProviderCommunicationBarringHierarchicalOriginatingRule extends Com
     public function setHolidaySchedule($holidaySchedule = null)
     {
         $this->holidaySchedule = new SimpleContent($holidaySchedule);
-        $this->holidaySchedule->setName('holidaySchedule');
+        $this->holidaySchedule->setElementName('holidaySchedule');
         return $this;
     }
 
@@ -165,7 +175,9 @@ class ServiceProviderCommunicationBarringHierarchicalOriginatingRule extends Com
      */
     public function getHolidaySchedule()
     {
-        return ($this->holidaySchedule) ? $this->holidaySchedule->getValue() : null;
+        return ($this->holidaySchedule)
+            ? $this->holidaySchedule->getElementValue()
+            : null;
     }
 
     /**
@@ -174,7 +186,7 @@ class ServiceProviderCommunicationBarringHierarchicalOriginatingRule extends Com
     public function setPriority($priority = null)
     {
         $this->priority = new SimpleContent($priority);
-        $this->priority->setName('priority');
+        $this->priority->setElementName('priority');
         return $this;
     }
 
@@ -184,6 +196,8 @@ class ServiceProviderCommunicationBarringHierarchicalOriginatingRule extends Com
      */
     public function getPriority()
     {
-        return ($this->priority) ? $this->priority->getValue() : null;
+        return ($this->priority)
+            ? $this->priority->getElementValue()
+            : null;
     }
 }

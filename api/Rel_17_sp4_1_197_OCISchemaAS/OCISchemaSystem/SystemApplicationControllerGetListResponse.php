@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemApplicationControllerGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemApplicationControllerGetListResponse';
+    public    $elementName = 'SystemApplicationControllerGetListResponse';
     protected $applicationControllerTable;
 
     /**
@@ -38,7 +38,7 @@ class SystemApplicationControllerGetListResponse extends ComplexType implements 
     public function setApplicationControllerTable(TableType $applicationControllerTable = null)
     {
         $this->applicationControllerTable = $applicationControllerTable;
-        $this->applicationControllerTable->setName('applicationControllerTable');
+        $this->applicationControllerTable->setElementName('applicationControllerTable');
         return $this;
     }
 

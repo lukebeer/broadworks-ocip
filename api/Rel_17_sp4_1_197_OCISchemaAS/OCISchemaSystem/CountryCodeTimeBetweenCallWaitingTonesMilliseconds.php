@@ -17,12 +17,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\MaxInclusive;
  */
 class CountryCodeTimeBetweenCallWaitingTonesMilliseconds extends SimpleType
 {
-    public $name = "CountryCodeTimeBetweenCallWaitingTonesMilliseconds";
-    protected $value;
-
+    public $elementName = "CountryCodeTimeBetweenCallWaitingTonesMilliseconds";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new MinInclusive("0"));
         $this->addRestriction(new MaxInclusive("120000"));
     }

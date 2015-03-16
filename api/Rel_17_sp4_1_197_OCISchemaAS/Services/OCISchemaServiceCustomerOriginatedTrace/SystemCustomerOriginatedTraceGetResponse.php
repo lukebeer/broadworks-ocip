@@ -19,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemCustomerOriginatedTraceGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemCustomerOriginatedTraceGetResponse';
+    public    $elementName = 'SystemCustomerOriginatedTraceGetResponse';
     protected $screenMaliciousCallers;
 
     /**
@@ -36,7 +36,7 @@ class SystemCustomerOriginatedTraceGetResponse extends ComplexType implements Co
     public function setScreenMaliciousCallers($screenMaliciousCallers = null)
     {
         $this->screenMaliciousCallers = new PrimitiveType($screenMaliciousCallers);
-        $this->screenMaliciousCallers->setName('screenMaliciousCallers');
+        $this->screenMaliciousCallers->setElementName('screenMaliciousCallers');
         return $this;
     }
 
@@ -46,6 +46,8 @@ class SystemCustomerOriginatedTraceGetResponse extends ComplexType implements Co
      */
     public function getScreenMaliciousCallers()
     {
-        return ($this->screenMaliciousCallers) ? $this->screenMaliciousCallers->getValue() : null;
+        return ($this->screenMaliciousCallers)
+            ? $this->screenMaliciousCallers->getElementValue()
+            : null;
     }
 }

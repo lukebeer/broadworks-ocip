@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemSMDIMessageDeskAddServerRouteRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemSMDIMessageDeskAddServerRouteRequest';
+    public    $elementName = 'SystemSMDIMessageDeskAddServerRouteRequest';
     protected $routeDestination;
     protected $deviceName;
 
@@ -49,7 +49,7 @@ class SystemSMDIMessageDeskAddServerRouteRequest extends ComplexType implements 
         $this->routeDestination = ($routeDestination InstanceOf SMDIServerRouteDestination)
              ? $routeDestination
              : new SMDIServerRouteDestination($routeDestination);
-        $this->routeDestination->setName('routeDestination');
+        $this->routeDestination->setElementName('routeDestination');
         return $this;
     }
 
@@ -59,7 +59,9 @@ class SystemSMDIMessageDeskAddServerRouteRequest extends ComplexType implements 
      */
     public function getRouteDestination()
     {
-        return ($this->routeDestination) ? $this->routeDestination->getValue() : null;
+        return ($this->routeDestination)
+            ? $this->routeDestination->getElementValue()
+            : null;
     }
 
     /**
@@ -70,7 +72,7 @@ class SystemSMDIMessageDeskAddServerRouteRequest extends ComplexType implements 
         $this->deviceName = ($deviceName InstanceOf SMDIDeviceName)
              ? $deviceName
              : new SMDIDeviceName($deviceName);
-        $this->deviceName->setName('deviceName');
+        $this->deviceName->setElementName('deviceName');
         return $this;
     }
 
@@ -80,6 +82,8 @@ class SystemSMDIMessageDeskAddServerRouteRequest extends ComplexType implements 
      */
     public function getDeviceName()
     {
-        return ($this->deviceName) ? $this->deviceName->getValue() : null;
+        return ($this->deviceName)
+            ? $this->deviceName->getElementValue()
+            : null;
     }
 }

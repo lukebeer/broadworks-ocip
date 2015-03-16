@@ -31,7 +31,7 @@ use Broadworks_OCIP\core\Client\Client;
 class UserGetListInGroupRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType                        = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser\UserGetListInGroupResponse';
-    public    $name = 'UserGetListInGroupRequest';
+    public    $elementName = 'UserGetListInGroupRequest';
     protected $serviceProviderId;
     protected $GroupId;
     protected $responseSizeLimit;
@@ -80,7 +80,7 @@ class UserGetListInGroupRequest extends ComplexType implements ComplexInterface
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
-        $this->serviceProviderId->setName('serviceProviderId');
+        $this->serviceProviderId->setElementName('serviceProviderId');
         return $this;
     }
 
@@ -90,7 +90,9 @@ class UserGetListInGroupRequest extends ComplexType implements ComplexInterface
      */
     public function getServiceProviderId()
     {
-        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
+        return ($this->serviceProviderId)
+            ? $this->serviceProviderId->getElementValue()
+            : null;
     }
 
     /**
@@ -101,7 +103,7 @@ class UserGetListInGroupRequest extends ComplexType implements ComplexInterface
         $this->GroupId = ($GroupId InstanceOf GroupId)
              ? $GroupId
              : new GroupId($GroupId);
-        $this->GroupId->setName('GroupId');
+        $this->GroupId->setElementName('GroupId');
         return $this;
     }
 
@@ -111,7 +113,9 @@ class UserGetListInGroupRequest extends ComplexType implements ComplexInterface
      */
     public function getGroupId()
     {
-        return ($this->GroupId) ? $this->GroupId->getValue() : null;
+        return ($this->GroupId)
+            ? $this->GroupId->getElementValue()
+            : null;
     }
 
     /**
@@ -122,7 +126,7 @@ class UserGetListInGroupRequest extends ComplexType implements ComplexInterface
         $this->responseSizeLimit = ($responseSizeLimit InstanceOf ResponseSizeLimit)
              ? $responseSizeLimit
              : new ResponseSizeLimit($responseSizeLimit);
-        $this->responseSizeLimit->setName('responseSizeLimit');
+        $this->responseSizeLimit->setElementName('responseSizeLimit');
         return $this;
     }
 
@@ -132,7 +136,9 @@ class UserGetListInGroupRequest extends ComplexType implements ComplexInterface
      */
     public function getResponseSizeLimit()
     {
-        return ($this->responseSizeLimit) ? $this->responseSizeLimit->getValue() : null;
+        return ($this->responseSizeLimit)
+            ? $this->responseSizeLimit->getElementValue()
+            : null;
     }
 
     /**
@@ -143,7 +149,7 @@ class UserGetListInGroupRequest extends ComplexType implements ComplexInterface
         $this->searchCriteriaUserLastName = ($searchCriteriaUserLastName InstanceOf SearchCriteriaUserLastName)
              ? $searchCriteriaUserLastName
              : new SearchCriteriaUserLastName($searchCriteriaUserLastName);
-        $this->searchCriteriaUserLastName->setName('searchCriteriaUserLastName');
+        $this->searchCriteriaUserLastName->setElementName('searchCriteriaUserLastName');
         return $this;
     }
 
@@ -164,7 +170,7 @@ class UserGetListInGroupRequest extends ComplexType implements ComplexInterface
         $this->searchCriteriaUserFirstName = ($searchCriteriaUserFirstName InstanceOf SearchCriteriaUserFirstName)
              ? $searchCriteriaUserFirstName
              : new SearchCriteriaUserFirstName($searchCriteriaUserFirstName);
-        $this->searchCriteriaUserFirstName->setName('searchCriteriaUserFirstName');
+        $this->searchCriteriaUserFirstName->setElementName('searchCriteriaUserFirstName');
         return $this;
     }
 
@@ -185,7 +191,7 @@ class UserGetListInGroupRequest extends ComplexType implements ComplexInterface
         $this->searchCriteriaDn = ($searchCriteriaDn InstanceOf SearchCriteriaDn)
              ? $searchCriteriaDn
              : new SearchCriteriaDn($searchCriteriaDn);
-        $this->searchCriteriaDn->setName('searchCriteriaDn');
+        $this->searchCriteriaDn->setElementName('searchCriteriaDn');
         return $this;
     }
 
@@ -206,7 +212,7 @@ class UserGetListInGroupRequest extends ComplexType implements ComplexInterface
         $this->searchCriteriaEmailAddress = ($searchCriteriaEmailAddress InstanceOf SearchCriteriaEmailAddress)
              ? $searchCriteriaEmailAddress
              : new SearchCriteriaEmailAddress($searchCriteriaEmailAddress);
-        $this->searchCriteriaEmailAddress->setName('searchCriteriaEmailAddress');
+        $this->searchCriteriaEmailAddress->setElementName('searchCriteriaEmailAddress');
         return $this;
     }
 
@@ -227,7 +233,7 @@ class UserGetListInGroupRequest extends ComplexType implements ComplexInterface
         $this->searchCriteriaExactUserDepartment = ($searchCriteriaExactUserDepartment InstanceOf SearchCriteriaExactUserDepartment)
              ? $searchCriteriaExactUserDepartment
              : new SearchCriteriaExactUserDepartment($searchCriteriaExactUserDepartment);
-        $this->searchCriteriaExactUserDepartment->setName('searchCriteriaExactUserDepartment');
+        $this->searchCriteriaExactUserDepartment->setElementName('searchCriteriaExactUserDepartment');
         return $this;
     }
 
@@ -248,7 +254,7 @@ class UserGetListInGroupRequest extends ComplexType implements ComplexInterface
         $this->searchCriteriaExactUserInTrunkGroup = ($searchCriteriaExactUserInTrunkGroup InstanceOf SearchCriteriaExactUserInTrunkGroup)
              ? $searchCriteriaExactUserInTrunkGroup
              : new SearchCriteriaExactUserInTrunkGroup($searchCriteriaExactUserInTrunkGroup);
-        $this->searchCriteriaExactUserInTrunkGroup->setName('searchCriteriaExactUserInTrunkGroup');
+        $this->searchCriteriaExactUserInTrunkGroup->setElementName('searchCriteriaExactUserInTrunkGroup');
         return $this;
     }
 

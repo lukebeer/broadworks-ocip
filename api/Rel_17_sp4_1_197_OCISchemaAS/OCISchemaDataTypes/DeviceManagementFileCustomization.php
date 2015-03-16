@@ -16,12 +16,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\Enumeration;
  */
 class DeviceManagementFileCustomization extends SimpleType
 {
-    public $name = "DeviceManagementFileCustomization";
-    protected $value;
-
+    public $elementName = "DeviceManagementFileCustomization";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new Enumeration([
             'Disallow',
             'Administrator',

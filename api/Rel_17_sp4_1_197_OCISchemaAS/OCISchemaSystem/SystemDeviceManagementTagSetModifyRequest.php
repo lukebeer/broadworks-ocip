@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemDeviceManagementTagSetModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemDeviceManagementTagSetModifyRequest';
+    public    $elementName = 'SystemDeviceManagementTagSetModifyRequest';
     protected $tagSetName;
     protected $newTagSetName;
 
@@ -48,7 +48,7 @@ class SystemDeviceManagementTagSetModifyRequest extends ComplexType implements C
         $this->tagSetName = ($tagSetName InstanceOf DeviceManagementTagSetName)
              ? $tagSetName
              : new DeviceManagementTagSetName($tagSetName);
-        $this->tagSetName->setName('tagSetName');
+        $this->tagSetName->setElementName('tagSetName');
         return $this;
     }
 
@@ -58,7 +58,9 @@ class SystemDeviceManagementTagSetModifyRequest extends ComplexType implements C
      */
     public function getTagSetName()
     {
-        return ($this->tagSetName) ? $this->tagSetName->getValue() : null;
+        return ($this->tagSetName)
+            ? $this->tagSetName->getElementValue()
+            : null;
     }
 
     /**
@@ -69,7 +71,7 @@ class SystemDeviceManagementTagSetModifyRequest extends ComplexType implements C
         $this->newTagSetName = ($newTagSetName InstanceOf DeviceManagementTagSetName)
              ? $newTagSetName
              : new DeviceManagementTagSetName($newTagSetName);
-        $this->newTagSetName->setName('newTagSetName');
+        $this->newTagSetName->setElementName('newTagSetName');
         return $this;
     }
 
@@ -79,6 +81,8 @@ class SystemDeviceManagementTagSetModifyRequest extends ComplexType implements C
      */
     public function getNewTagSetName()
     {
-        return ($this->newTagSetName) ? $this->newTagSetName->getValue() : null;
+        return ($this->newTagSetName)
+            ? $this->newTagSetName->getElementValue()
+            : null;
     }
 }

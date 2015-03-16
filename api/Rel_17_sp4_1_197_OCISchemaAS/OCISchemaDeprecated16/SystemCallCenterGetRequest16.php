@@ -24,7 +24,7 @@ use Broadworks_OCIP\core\Client\Client;
 class SystemCallCenterGetRequest16 extends ComplexType implements ComplexInterface
 {
     public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\SystemCallCenterGetResponse16';
-    public    $name = 'SystemCallCenterGetRequest16';
+    public    $elementName = 'SystemCallCenterGetRequest16';
 
     public function __construct(    ) {
     }

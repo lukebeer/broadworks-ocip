@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupCallCenterEnhancedReportingReportTemplateGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'GroupCallCenterEnhancedReportingReportTemplateGetListResponse';
+    public    $elementName = 'GroupCallCenterEnhancedReportingReportTemplateGetListResponse';
     protected $reportTemplateTable;
 
     /**
@@ -37,7 +37,7 @@ class GroupCallCenterEnhancedReportingReportTemplateGetListResponse extends Comp
     public function setReportTemplateTable(TableType $reportTemplateTable = null)
     {
         $this->reportTemplateTable = $reportTemplateTable;
-        $this->reportTemplateTable->setName('reportTemplateTable');
+        $this->reportTemplateTable->setElementName('reportTemplateTable');
         return $this;
     }
 

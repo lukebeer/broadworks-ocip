@@ -23,7 +23,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemZoneAddRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemZoneAddRequest';
+    public    $elementName = 'SystemZoneAddRequest';
     protected $zoneName;
     protected $netAddress;
     protected $netAddressRange;
@@ -60,7 +60,7 @@ class SystemZoneAddRequest extends ComplexType implements ComplexInterface
         $this->zoneName = ($zoneName InstanceOf ZoneName)
              ? $zoneName
              : new ZoneName($zoneName);
-        $this->zoneName->setName('zoneName');
+        $this->zoneName->setElementName('zoneName');
         return $this;
     }
 
@@ -70,7 +70,9 @@ class SystemZoneAddRequest extends ComplexType implements ComplexInterface
      */
     public function getZoneName()
     {
-        return ($this->zoneName) ? $this->zoneName->getValue() : null;
+        return ($this->zoneName)
+            ? $this->zoneName->getElementValue()
+            : null;
     }
 
     /**
@@ -81,7 +83,7 @@ class SystemZoneAddRequest extends ComplexType implements ComplexInterface
         $this->netAddress = ($netAddress InstanceOf IPAddress)
              ? $netAddress
              : new IPAddress($netAddress);
-        $this->netAddress->setName('netAddress');
+        $this->netAddress->setElementName('netAddress');
         return $this;
     }
 
@@ -91,7 +93,9 @@ class SystemZoneAddRequest extends ComplexType implements ComplexInterface
      */
     public function getNetAddress()
     {
-        return ($this->netAddress) ? $this->netAddress->getValue() : null;
+        return ($this->netAddress)
+            ? $this->netAddress->getElementValue()
+            : null;
     }
 
     /**
@@ -102,7 +106,7 @@ class SystemZoneAddRequest extends ComplexType implements ComplexInterface
         $this->netAddressRange = ($netAddressRange InstanceOf IPAddressRange)
              ? $netAddressRange
              : new IPAddressRange($netAddressRange);
-        $this->netAddressRange->setName('netAddressRange');
+        $this->netAddressRange->setElementName('netAddressRange');
         return $this;
     }
 
@@ -123,7 +127,7 @@ class SystemZoneAddRequest extends ComplexType implements ComplexInterface
         $this->locationBasedPhysicalLocation = ($locationBasedPhysicalLocation InstanceOf PhysicalLocation)
              ? $locationBasedPhysicalLocation
              : new PhysicalLocation($locationBasedPhysicalLocation);
-        $this->locationBasedPhysicalLocation->setName('locationBasedPhysicalLocation');
+        $this->locationBasedPhysicalLocation->setElementName('locationBasedPhysicalLocation');
         return $this;
     }
 
@@ -133,7 +137,9 @@ class SystemZoneAddRequest extends ComplexType implements ComplexInterface
      */
     public function getLocationBasedPhysicalLocation()
     {
-        return ($this->locationBasedPhysicalLocation) ? $this->locationBasedPhysicalLocation->getValue() : null;
+        return ($this->locationBasedPhysicalLocation)
+            ? $this->locationBasedPhysicalLocation->getElementValue()
+            : null;
     }
 
     /**
@@ -144,7 +150,7 @@ class SystemZoneAddRequest extends ComplexType implements ComplexInterface
         $this->callingZonePhysicalLocation = ($callingZonePhysicalLocation InstanceOf PhysicalLocation)
              ? $callingZonePhysicalLocation
              : new PhysicalLocation($callingZonePhysicalLocation);
-        $this->callingZonePhysicalLocation->setName('callingZonePhysicalLocation');
+        $this->callingZonePhysicalLocation->setElementName('callingZonePhysicalLocation');
         return $this;
     }
 
@@ -154,6 +160,8 @@ class SystemZoneAddRequest extends ComplexType implements ComplexInterface
      */
     public function getCallingZonePhysicalLocation()
     {
-        return ($this->callingZonePhysicalLocation) ? $this->callingZonePhysicalLocation->getValue() : null;
+        return ($this->callingZonePhysicalLocation)
+            ? $this->callingZonePhysicalLocation->getElementValue()
+            : null;
     }
 }

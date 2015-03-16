@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
 class SystemOCIReportingParametersGetRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\SystemOCIReportingParametersGetResponse';
-    public    $name = 'SystemOCIReportingParametersGetRequest';
+    public    $elementName = 'SystemOCIReportingParametersGetRequest';
 
     public function __construct(    ) {
     }

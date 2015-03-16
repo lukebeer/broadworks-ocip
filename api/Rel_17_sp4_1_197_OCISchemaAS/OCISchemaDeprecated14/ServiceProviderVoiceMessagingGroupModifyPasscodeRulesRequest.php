@@ -27,7 +27,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderVoiceMessagingGroupModifyPasscodeRulesRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'ServiceProviderVoiceMessagingGroupModifyPasscodeRulesRequest';
+    public    $elementName = 'ServiceProviderVoiceMessagingGroupModifyPasscodeRulesRequest';
     protected $serviceProviderId;
     protected $disallowRepeatedDigits;
     protected $disallowUserNumber;
@@ -91,7 +91,7 @@ class ServiceProviderVoiceMessagingGroupModifyPasscodeRulesRequest extends Compl
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
-        $this->serviceProviderId->setName('serviceProviderId');
+        $this->serviceProviderId->setElementName('serviceProviderId');
         return $this;
     }
 
@@ -101,7 +101,9 @@ class ServiceProviderVoiceMessagingGroupModifyPasscodeRulesRequest extends Compl
      */
     public function getServiceProviderId()
     {
-        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
+        return ($this->serviceProviderId)
+            ? $this->serviceProviderId->getElementValue()
+            : null;
     }
 
     /**
@@ -110,7 +112,7 @@ class ServiceProviderVoiceMessagingGroupModifyPasscodeRulesRequest extends Compl
     public function setDisallowRepeatedDigits($disallowRepeatedDigits = null)
     {
         $this->disallowRepeatedDigits = new PrimitiveType($disallowRepeatedDigits);
-        $this->disallowRepeatedDigits->setName('disallowRepeatedDigits');
+        $this->disallowRepeatedDigits->setElementName('disallowRepeatedDigits');
         return $this;
     }
 
@@ -120,7 +122,9 @@ class ServiceProviderVoiceMessagingGroupModifyPasscodeRulesRequest extends Compl
      */
     public function getDisallowRepeatedDigits()
     {
-        return ($this->disallowRepeatedDigits) ? $this->disallowRepeatedDigits->getValue() : null;
+        return ($this->disallowRepeatedDigits)
+            ? $this->disallowRepeatedDigits->getElementValue()
+            : null;
     }
 
     /**
@@ -129,7 +133,7 @@ class ServiceProviderVoiceMessagingGroupModifyPasscodeRulesRequest extends Compl
     public function setDisallowUserNumber($disallowUserNumber = null)
     {
         $this->disallowUserNumber = new PrimitiveType($disallowUserNumber);
-        $this->disallowUserNumber->setName('disallowUserNumber');
+        $this->disallowUserNumber->setElementName('disallowUserNumber');
         return $this;
     }
 
@@ -139,7 +143,9 @@ class ServiceProviderVoiceMessagingGroupModifyPasscodeRulesRequest extends Compl
      */
     public function getDisallowUserNumber()
     {
-        return ($this->disallowUserNumber) ? $this->disallowUserNumber->getValue() : null;
+        return ($this->disallowUserNumber)
+            ? $this->disallowUserNumber->getElementValue()
+            : null;
     }
 
     /**
@@ -148,7 +154,7 @@ class ServiceProviderVoiceMessagingGroupModifyPasscodeRulesRequest extends Compl
     public function setDisallowReversedUserNumber($disallowReversedUserNumber = null)
     {
         $this->disallowReversedUserNumber = new PrimitiveType($disallowReversedUserNumber);
-        $this->disallowReversedUserNumber->setName('disallowReversedUserNumber');
+        $this->disallowReversedUserNumber->setElementName('disallowReversedUserNumber');
         return $this;
     }
 
@@ -158,7 +164,9 @@ class ServiceProviderVoiceMessagingGroupModifyPasscodeRulesRequest extends Compl
      */
     public function getDisallowReversedUserNumber()
     {
-        return ($this->disallowReversedUserNumber) ? $this->disallowReversedUserNumber->getValue() : null;
+        return ($this->disallowReversedUserNumber)
+            ? $this->disallowReversedUserNumber->getElementValue()
+            : null;
     }
 
     /**
@@ -167,7 +175,7 @@ class ServiceProviderVoiceMessagingGroupModifyPasscodeRulesRequest extends Compl
     public function setDisallowOldPasscode($disallowOldPasscode = null)
     {
         $this->disallowOldPasscode = new PrimitiveType($disallowOldPasscode);
-        $this->disallowOldPasscode->setName('disallowOldPasscode');
+        $this->disallowOldPasscode->setElementName('disallowOldPasscode');
         return $this;
     }
 
@@ -177,7 +185,9 @@ class ServiceProviderVoiceMessagingGroupModifyPasscodeRulesRequest extends Compl
      */
     public function getDisallowOldPasscode()
     {
-        return ($this->disallowOldPasscode) ? $this->disallowOldPasscode->getValue() : null;
+        return ($this->disallowOldPasscode)
+            ? $this->disallowOldPasscode->getElementValue()
+            : null;
     }
 
     /**
@@ -186,7 +196,7 @@ class ServiceProviderVoiceMessagingGroupModifyPasscodeRulesRequest extends Compl
     public function setDisallowReversedOldPasscode($disallowReversedOldPasscode = null)
     {
         $this->disallowReversedOldPasscode = new PrimitiveType($disallowReversedOldPasscode);
-        $this->disallowReversedOldPasscode->setName('disallowReversedOldPasscode');
+        $this->disallowReversedOldPasscode->setElementName('disallowReversedOldPasscode');
         return $this;
     }
 
@@ -196,7 +206,9 @@ class ServiceProviderVoiceMessagingGroupModifyPasscodeRulesRequest extends Compl
      */
     public function getDisallowReversedOldPasscode()
     {
-        return ($this->disallowReversedOldPasscode) ? $this->disallowReversedOldPasscode->getValue() : null;
+        return ($this->disallowReversedOldPasscode)
+            ? $this->disallowReversedOldPasscode->getElementValue()
+            : null;
     }
 
     /**
@@ -207,7 +219,7 @@ class ServiceProviderVoiceMessagingGroupModifyPasscodeRulesRequest extends Compl
         $this->minCodeLength = ($minCodeLength InstanceOf VoiceMessagingMinPasscodeCodeLength)
              ? $minCodeLength
              : new VoiceMessagingMinPasscodeCodeLength($minCodeLength);
-        $this->minCodeLength->setName('minCodeLength');
+        $this->minCodeLength->setElementName('minCodeLength');
         return $this;
     }
 
@@ -217,7 +229,9 @@ class ServiceProviderVoiceMessagingGroupModifyPasscodeRulesRequest extends Compl
      */
     public function getMinCodeLength()
     {
-        return ($this->minCodeLength) ? $this->minCodeLength->getValue() : null;
+        return ($this->minCodeLength)
+            ? $this->minCodeLength->getElementValue()
+            : null;
     }
 
     /**
@@ -228,7 +242,7 @@ class ServiceProviderVoiceMessagingGroupModifyPasscodeRulesRequest extends Compl
         $this->maxCodeLength = ($maxCodeLength InstanceOf VoiceMessagingMaxPasscodeCodeLength)
              ? $maxCodeLength
              : new VoiceMessagingMaxPasscodeCodeLength($maxCodeLength);
-        $this->maxCodeLength->setName('maxCodeLength');
+        $this->maxCodeLength->setElementName('maxCodeLength');
         return $this;
     }
 
@@ -238,7 +252,9 @@ class ServiceProviderVoiceMessagingGroupModifyPasscodeRulesRequest extends Compl
      */
     public function getMaxCodeLength()
     {
-        return ($this->maxCodeLength) ? $this->maxCodeLength->getValue() : null;
+        return ($this->maxCodeLength)
+            ? $this->maxCodeLength->getElementValue()
+            : null;
     }
 
     /**
@@ -247,7 +263,7 @@ class ServiceProviderVoiceMessagingGroupModifyPasscodeRulesRequest extends Compl
     public function setDisableLoginAfterMaxFailedLoginAttempts($disableLoginAfterMaxFailedLoginAttempts = null)
     {
         $this->disableLoginAfterMaxFailedLoginAttempts = new PrimitiveType($disableLoginAfterMaxFailedLoginAttempts);
-        $this->disableLoginAfterMaxFailedLoginAttempts->setName('disableLoginAfterMaxFailedLoginAttempts');
+        $this->disableLoginAfterMaxFailedLoginAttempts->setElementName('disableLoginAfterMaxFailedLoginAttempts');
         return $this;
     }
 
@@ -257,7 +273,9 @@ class ServiceProviderVoiceMessagingGroupModifyPasscodeRulesRequest extends Compl
      */
     public function getDisableLoginAfterMaxFailedLoginAttempts()
     {
-        return ($this->disableLoginAfterMaxFailedLoginAttempts) ? $this->disableLoginAfterMaxFailedLoginAttempts->getValue() : null;
+        return ($this->disableLoginAfterMaxFailedLoginAttempts)
+            ? $this->disableLoginAfterMaxFailedLoginAttempts->getElementValue()
+            : null;
     }
 
     /**
@@ -268,7 +286,7 @@ class ServiceProviderVoiceMessagingGroupModifyPasscodeRulesRequest extends Compl
         $this->maxFailedLoginAttempts = ($maxFailedLoginAttempts InstanceOf VoiceMessagingMaxFailedLoginAttempts)
              ? $maxFailedLoginAttempts
              : new VoiceMessagingMaxFailedLoginAttempts($maxFailedLoginAttempts);
-        $this->maxFailedLoginAttempts->setName('maxFailedLoginAttempts');
+        $this->maxFailedLoginAttempts->setElementName('maxFailedLoginAttempts');
         return $this;
     }
 
@@ -278,7 +296,9 @@ class ServiceProviderVoiceMessagingGroupModifyPasscodeRulesRequest extends Compl
      */
     public function getMaxFailedLoginAttempts()
     {
-        return ($this->maxFailedLoginAttempts) ? $this->maxFailedLoginAttempts->getValue() : null;
+        return ($this->maxFailedLoginAttempts)
+            ? $this->maxFailedLoginAttempts->getElementValue()
+            : null;
     }
 
     /**
@@ -287,7 +307,7 @@ class ServiceProviderVoiceMessagingGroupModifyPasscodeRulesRequest extends Compl
     public function setExpirePassword($expirePassword = null)
     {
         $this->expirePassword = new PrimitiveType($expirePassword);
-        $this->expirePassword->setName('expirePassword');
+        $this->expirePassword->setElementName('expirePassword');
         return $this;
     }
 
@@ -297,7 +317,9 @@ class ServiceProviderVoiceMessagingGroupModifyPasscodeRulesRequest extends Compl
      */
     public function getExpirePassword()
     {
-        return ($this->expirePassword) ? $this->expirePassword->getValue() : null;
+        return ($this->expirePassword)
+            ? $this->expirePassword->getElementValue()
+            : null;
     }
 
     /**
@@ -308,7 +330,7 @@ class ServiceProviderVoiceMessagingGroupModifyPasscodeRulesRequest extends Compl
         $this->passcodeExpiresDays = ($passcodeExpiresDays InstanceOf VoiceMessagingPasscodeExpiresDays)
              ? $passcodeExpiresDays
              : new VoiceMessagingPasscodeExpiresDays($passcodeExpiresDays);
-        $this->passcodeExpiresDays->setName('passcodeExpiresDays');
+        $this->passcodeExpiresDays->setElementName('passcodeExpiresDays');
         return $this;
     }
 
@@ -318,7 +340,9 @@ class ServiceProviderVoiceMessagingGroupModifyPasscodeRulesRequest extends Compl
      */
     public function getPasscodeExpiresDays()
     {
-        return ($this->passcodeExpiresDays) ? $this->passcodeExpiresDays->getValue() : null;
+        return ($this->passcodeExpiresDays)
+            ? $this->passcodeExpiresDays->getElementValue()
+            : null;
     }
 
     /**
@@ -327,7 +351,7 @@ class ServiceProviderVoiceMessagingGroupModifyPasscodeRulesRequest extends Compl
     public function setSendLoginDisabledNotifyEmail($sendLoginDisabledNotifyEmail = null)
     {
         $this->sendLoginDisabledNotifyEmail = new PrimitiveType($sendLoginDisabledNotifyEmail);
-        $this->sendLoginDisabledNotifyEmail->setName('sendLoginDisabledNotifyEmail');
+        $this->sendLoginDisabledNotifyEmail->setElementName('sendLoginDisabledNotifyEmail');
         return $this;
     }
 
@@ -337,7 +361,9 @@ class ServiceProviderVoiceMessagingGroupModifyPasscodeRulesRequest extends Compl
      */
     public function getSendLoginDisabledNotifyEmail()
     {
-        return ($this->sendLoginDisabledNotifyEmail) ? $this->sendLoginDisabledNotifyEmail->getValue() : null;
+        return ($this->sendLoginDisabledNotifyEmail)
+            ? $this->sendLoginDisabledNotifyEmail->getElementValue()
+            : null;
     }
 
     /**
@@ -348,7 +374,7 @@ class ServiceProviderVoiceMessagingGroupModifyPasscodeRulesRequest extends Compl
         $this->loginDisabledNotifyEmailAddress = ($loginDisabledNotifyEmailAddress InstanceOf EmailAddress)
              ? $loginDisabledNotifyEmailAddress
              : new EmailAddress($loginDisabledNotifyEmailAddress);
-        $this->loginDisabledNotifyEmailAddress->setName('loginDisabledNotifyEmailAddress');
+        $this->loginDisabledNotifyEmailAddress->setElementName('loginDisabledNotifyEmailAddress');
         return $this;
     }
 
@@ -358,6 +384,8 @@ class ServiceProviderVoiceMessagingGroupModifyPasscodeRulesRequest extends Compl
      */
     public function getLoginDisabledNotifyEmailAddress()
     {
-        return ($this->loginDisabledNotifyEmailAddress) ? $this->loginDisabledNotifyEmailAddress->getValue() : null;
+        return ($this->loginDisabledNotifyEmailAddress)
+            ? $this->loginDisabledNotifyEmailAddress->getElementValue()
+            : null;
     }
 }

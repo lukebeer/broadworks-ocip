@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemBwDiameterRoutingPeerDeleteRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemBwDiameterRoutingPeerDeleteRequest';
+    public    $elementName = 'SystemBwDiameterRoutingPeerDeleteRequest';
     protected $instance;
     protected $realm;
     protected $applicationId;
@@ -56,7 +56,7 @@ class SystemBwDiameterRoutingPeerDeleteRequest extends ComplexType implements Co
         $this->instance = ($instance InstanceOf BwDiameterPeerInstance)
              ? $instance
              : new BwDiameterPeerInstance($instance);
-        $this->instance->setName('instance');
+        $this->instance->setElementName('instance');
         return $this;
     }
 
@@ -66,7 +66,9 @@ class SystemBwDiameterRoutingPeerDeleteRequest extends ComplexType implements Co
      */
     public function getInstance()
     {
-        return ($this->instance) ? $this->instance->getValue() : null;
+        return ($this->instance)
+            ? $this->instance->getElementValue()
+            : null;
     }
 
     /**
@@ -77,7 +79,7 @@ class SystemBwDiameterRoutingPeerDeleteRequest extends ComplexType implements Co
         $this->realm = ($realm InstanceOf DomainName)
              ? $realm
              : new DomainName($realm);
-        $this->realm->setName('realm');
+        $this->realm->setElementName('realm');
         return $this;
     }
 
@@ -87,7 +89,9 @@ class SystemBwDiameterRoutingPeerDeleteRequest extends ComplexType implements Co
      */
     public function getRealm()
     {
-        return ($this->realm) ? $this->realm->getValue() : null;
+        return ($this->realm)
+            ? $this->realm->getElementValue()
+            : null;
     }
 
     /**
@@ -98,7 +102,7 @@ class SystemBwDiameterRoutingPeerDeleteRequest extends ComplexType implements Co
         $this->applicationId = ($applicationId InstanceOf BwDiameterApplicationId)
              ? $applicationId
              : new BwDiameterApplicationId($applicationId);
-        $this->applicationId->setName('applicationId');
+        $this->applicationId->setElementName('applicationId');
         return $this;
     }
 
@@ -108,7 +112,9 @@ class SystemBwDiameterRoutingPeerDeleteRequest extends ComplexType implements Co
      */
     public function getApplicationId()
     {
-        return ($this->applicationId) ? $this->applicationId->getValue() : null;
+        return ($this->applicationId)
+            ? $this->applicationId->getElementValue()
+            : null;
     }
 
     /**
@@ -119,7 +125,7 @@ class SystemBwDiameterRoutingPeerDeleteRequest extends ComplexType implements Co
         $this->identity = ($identity InstanceOf DomainName)
              ? $identity
              : new DomainName($identity);
-        $this->identity->setName('identity');
+        $this->identity->setElementName('identity');
         return $this;
     }
 
@@ -129,6 +135,8 @@ class SystemBwDiameterRoutingPeerDeleteRequest extends ComplexType implements Co
      */
     public function getIdentity()
     {
-        return ($this->identity) ? $this->identity->getValue() : null;
+        return ($this->identity)
+            ? $this->identity->getElementValue()
+            : null;
     }
 }

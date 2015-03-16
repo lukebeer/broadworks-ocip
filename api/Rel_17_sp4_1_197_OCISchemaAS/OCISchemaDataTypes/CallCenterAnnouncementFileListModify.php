@@ -19,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class CallCenterAnnouncementFileListModify extends ComplexType implements ComplexInterface
 {
-    public    $name = 'CallCenterAnnouncementFileListModify';
+    public    $elementName = 'CallCenterAnnouncementFileListModify';
     protected $file1;
     protected $file2;
     protected $file3;
@@ -51,7 +51,7 @@ class CallCenterAnnouncementFileListModify extends ComplexType implements Comple
     public function setFile1($file1 = null)
     {
         $this->file1 = new SimpleContent($file1);
-        $this->file1->setName('file1');
+        $this->file1->setElementName('file1');
         return $this;
     }
 
@@ -61,7 +61,9 @@ class CallCenterAnnouncementFileListModify extends ComplexType implements Comple
      */
     public function getFile1()
     {
-        return ($this->file1) ? $this->file1->getValue() : null;
+        return ($this->file1)
+            ? $this->file1->getElementValue()
+            : null;
     }
 
     /**
@@ -70,7 +72,7 @@ class CallCenterAnnouncementFileListModify extends ComplexType implements Comple
     public function setFile2($file2 = null)
     {
         $this->file2 = new SimpleContent($file2);
-        $this->file2->setName('file2');
+        $this->file2->setElementName('file2');
         return $this;
     }
 
@@ -80,7 +82,9 @@ class CallCenterAnnouncementFileListModify extends ComplexType implements Comple
      */
     public function getFile2()
     {
-        return ($this->file2) ? $this->file2->getValue() : null;
+        return ($this->file2)
+            ? $this->file2->getElementValue()
+            : null;
     }
 
     /**
@@ -89,7 +93,7 @@ class CallCenterAnnouncementFileListModify extends ComplexType implements Comple
     public function setFile3($file3 = null)
     {
         $this->file3 = new SimpleContent($file3);
-        $this->file3->setName('file3');
+        $this->file3->setElementName('file3');
         return $this;
     }
 
@@ -99,7 +103,9 @@ class CallCenterAnnouncementFileListModify extends ComplexType implements Comple
      */
     public function getFile3()
     {
-        return ($this->file3) ? $this->file3->getValue() : null;
+        return ($this->file3)
+            ? $this->file3->getElementValue()
+            : null;
     }
 
     /**
@@ -108,7 +114,7 @@ class CallCenterAnnouncementFileListModify extends ComplexType implements Comple
     public function setFile4($file4 = null)
     {
         $this->file4 = new SimpleContent($file4);
-        $this->file4->setName('file4');
+        $this->file4->setElementName('file4');
         return $this;
     }
 
@@ -118,6 +124,8 @@ class CallCenterAnnouncementFileListModify extends ComplexType implements Comple
      */
     public function getFile4()
     {
-        return ($this->file4) ? $this->file4->getValue() : null;
+        return ($this->file4)
+            ? $this->file4->getElementValue()
+            : null;
     }
 }

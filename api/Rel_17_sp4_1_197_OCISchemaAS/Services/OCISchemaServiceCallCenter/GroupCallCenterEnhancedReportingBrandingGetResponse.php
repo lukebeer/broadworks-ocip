@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupCallCenterEnhancedReportingBrandingGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'GroupCallCenterEnhancedReportingBrandingGetResponse';
+    public    $elementName = 'GroupCallCenterEnhancedReportingBrandingGetResponse';
     protected $brandingChoice;
     protected $brandingFileDescription;
 
@@ -40,7 +40,7 @@ class GroupCallCenterEnhancedReportingBrandingGetResponse extends ComplexType im
         $this->brandingChoice = ($brandingChoice InstanceOf CallCenterEnhancedReportingBrandingChoice)
              ? $brandingChoice
              : new CallCenterEnhancedReportingBrandingChoice($brandingChoice);
-        $this->brandingChoice->setName('brandingChoice');
+        $this->brandingChoice->setElementName('brandingChoice');
         return $this;
     }
 
@@ -50,7 +50,9 @@ class GroupCallCenterEnhancedReportingBrandingGetResponse extends ComplexType im
      */
     public function getBrandingChoice()
     {
-        return ($this->brandingChoice) ? $this->brandingChoice->getValue() : null;
+        return ($this->brandingChoice)
+            ? $this->brandingChoice->getElementValue()
+            : null;
     }
 
     /**
@@ -61,7 +63,7 @@ class GroupCallCenterEnhancedReportingBrandingGetResponse extends ComplexType im
         $this->brandingFileDescription = ($brandingFileDescription InstanceOf FileDescription)
              ? $brandingFileDescription
              : new FileDescription($brandingFileDescription);
-        $this->brandingFileDescription->setName('brandingFileDescription');
+        $this->brandingFileDescription->setElementName('brandingFileDescription');
         return $this;
     }
 
@@ -71,6 +73,8 @@ class GroupCallCenterEnhancedReportingBrandingGetResponse extends ComplexType im
      */
     public function getBrandingFileDescription()
     {
-        return ($this->brandingFileDescription) ? $this->brandingFileDescription->getValue() : null;
+        return ($this->brandingFileDescription)
+            ? $this->brandingFileDescription->getElementValue()
+            : null;
     }
 }

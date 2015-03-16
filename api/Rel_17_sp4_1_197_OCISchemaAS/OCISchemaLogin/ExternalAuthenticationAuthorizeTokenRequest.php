@@ -29,7 +29,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ExternalAuthenticationAuthorizeTokenRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'ExternalAuthenticationAuthorizeTokenRequest';
+    public    $elementName = 'ExternalAuthenticationAuthorizeTokenRequest';
     protected $userId;
     protected $password;
     protected $loginToken;
@@ -60,7 +60,7 @@ class ExternalAuthenticationAuthorizeTokenRequest extends ComplexType implements
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
-        $this->userId->setName('userId');
+        $this->userId->setElementName('userId');
         return $this;
     }
 
@@ -70,7 +70,9 @@ class ExternalAuthenticationAuthorizeTokenRequest extends ComplexType implements
      */
     public function getUserId()
     {
-        return ($this->userId) ? $this->userId->getValue() : null;
+        return ($this->userId)
+            ? $this->userId->getElementValue()
+            : null;
     }
 
     /**
@@ -81,7 +83,7 @@ class ExternalAuthenticationAuthorizeTokenRequest extends ComplexType implements
         $this->password = ($password InstanceOf Password)
              ? $password
              : new Password($password);
-        $this->password->setName('password');
+        $this->password->setElementName('password');
         return $this;
     }
 
@@ -91,7 +93,9 @@ class ExternalAuthenticationAuthorizeTokenRequest extends ComplexType implements
      */
     public function getPassword()
     {
-        return ($this->password) ? $this->password->getValue() : null;
+        return ($this->password)
+            ? $this->password->getElementValue()
+            : null;
     }
 
     /**
@@ -102,7 +106,7 @@ class ExternalAuthenticationAuthorizeTokenRequest extends ComplexType implements
         $this->loginToken = ($loginToken InstanceOf LoginToken)
              ? $loginToken
              : new LoginToken($loginToken);
-        $this->loginToken->setName('loginToken');
+        $this->loginToken->setElementName('loginToken');
         return $this;
     }
 
@@ -112,6 +116,8 @@ class ExternalAuthenticationAuthorizeTokenRequest extends ComplexType implements
      */
     public function getLoginToken()
     {
-        return ($this->loginToken) ? $this->loginToken->getValue() : null;
+        return ($this->loginToken)
+            ? $this->loginToken->getElementValue()
+            : null;
     }
 }

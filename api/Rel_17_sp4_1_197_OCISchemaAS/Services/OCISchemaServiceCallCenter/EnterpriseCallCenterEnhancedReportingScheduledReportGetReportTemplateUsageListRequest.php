@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
 class EnterpriseCallCenterEnhancedReportingScheduledReportGetReportTemplateUsageListRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\EnterpriseCallCenterEnhancedReportingScheduledReportGetReportTemplateUsageListResponse';
-    public    $name = 'EnterpriseCallCenterEnhancedReportingScheduledReportGetReportTemplateUsageListRequest';
+    public    $elementName = 'EnterpriseCallCenterEnhancedReportingScheduledReportGetReportTemplateUsageListRequest';
     protected $serviceProviderId;
     protected $name;
 
@@ -50,7 +50,7 @@ class EnterpriseCallCenterEnhancedReportingScheduledReportGetReportTemplateUsage
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
-        $this->serviceProviderId->setName('serviceProviderId');
+        $this->serviceProviderId->setElementName('serviceProviderId');
         return $this;
     }
 
@@ -60,7 +60,9 @@ class EnterpriseCallCenterEnhancedReportingScheduledReportGetReportTemplateUsage
      */
     public function getServiceProviderId()
     {
-        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
+        return ($this->serviceProviderId)
+            ? $this->serviceProviderId->getElementValue()
+            : null;
     }
 
     /**
@@ -71,7 +73,7 @@ class EnterpriseCallCenterEnhancedReportingScheduledReportGetReportTemplateUsage
         $this->name = ($name InstanceOf CallCenterReportTemplateName)
              ? $name
              : new CallCenterReportTemplateName($name);
-        $this->name->setName('name');
+        $this->name->setElementName('name');
         return $this;
     }
 
@@ -81,6 +83,8 @@ class EnterpriseCallCenterEnhancedReportingScheduledReportGetReportTemplateUsage
      */
     public function getName()
     {
-        return ($this->name) ? $this->name->getValue() : null;
+        return ($this->name)
+            ? $this->name->getElementValue()
+            : null;
     }
 }

@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
 class SystemCallCenterEnhancedReportingScheduledTaskParametersGetRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\SystemCallCenterEnhancedReportingScheduledTaskParametersGetResponse';
-    public    $name = 'SystemCallCenterEnhancedReportingScheduledTaskParametersGetRequest';
+    public    $elementName = 'SystemCallCenterEnhancedReportingScheduledTaskParametersGetRequest';
 
     public function __construct(    ) {
     }

@@ -19,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class EnterpriseEnterpriseTrunkGetAvailableTrunkGroupListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'EnterpriseEnterpriseTrunkGetAvailableTrunkGroupListResponse';
+    public    $elementName = 'EnterpriseEnterpriseTrunkGetAvailableTrunkGroupListResponse';
     protected $trunkGroup;
 
     /**
@@ -38,7 +38,7 @@ class EnterpriseEnterpriseTrunkGetAvailableTrunkGroupListResponse extends Comple
         $this->trunkGroup = ($trunkGroup InstanceOf EnterpriseTrunkTrunkGroupKey)
              ? $trunkGroup
              : new EnterpriseTrunkTrunkGroupKey($trunkGroup);
-        $this->trunkGroup->setName('trunkGroup');
+        $this->trunkGroup->setElementName('trunkGroup');
         return $this;
     }
 

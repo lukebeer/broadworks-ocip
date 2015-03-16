@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
 class SystemBwDiameterRoutingRealmGetListRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemBwDiameterRoutingRealmGetListResponse';
-    public    $name = 'SystemBwDiameterRoutingRealmGetListRequest';
+    public    $elementName = 'SystemBwDiameterRoutingRealmGetListRequest';
 
     public function __construct(    ) {
     }

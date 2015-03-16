@@ -17,12 +17,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\MaxInclusive;
  */
 class TrunkGroupContinuousOptionsSendingIntervalSeconds extends SimpleType
 {
-    public $name = "TrunkGroupContinuousOptionsSendingIntervalSeconds";
-    protected $value;
-
+    public $elementName = "TrunkGroupContinuousOptionsSendingIntervalSeconds";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new MinInclusive("30"));
         $this->addRestriction(new MaxInclusive("86400"));
     }

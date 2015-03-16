@@ -23,7 +23,7 @@ use Broadworks_OCIP\core\Client\Client;
 class GroupBroadWorksMobileManagerGetHomeZoneRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupBroadWorksMobileManagerGetHomeZoneResponse';
-    public    $name = 'GroupBroadWorksMobileManagerGetHomeZoneRequest';
+    public    $elementName = 'GroupBroadWorksMobileManagerGetHomeZoneRequest';
     protected $serviceProviderId;
     protected $groupId;
     protected $homeZoneId;
@@ -54,7 +54,7 @@ class GroupBroadWorksMobileManagerGetHomeZoneRequest extends ComplexType impleme
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
-        $this->serviceProviderId->setName('serviceProviderId');
+        $this->serviceProviderId->setElementName('serviceProviderId');
         return $this;
     }
 
@@ -64,7 +64,9 @@ class GroupBroadWorksMobileManagerGetHomeZoneRequest extends ComplexType impleme
      */
     public function getServiceProviderId()
     {
-        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
+        return ($this->serviceProviderId)
+            ? $this->serviceProviderId->getElementValue()
+            : null;
     }
 
     /**
@@ -75,7 +77,7 @@ class GroupBroadWorksMobileManagerGetHomeZoneRequest extends ComplexType impleme
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
-        $this->groupId->setName('groupId');
+        $this->groupId->setElementName('groupId');
         return $this;
     }
 
@@ -85,7 +87,9 @@ class GroupBroadWorksMobileManagerGetHomeZoneRequest extends ComplexType impleme
      */
     public function getGroupId()
     {
-        return ($this->groupId) ? $this->groupId->getValue() : null;
+        return ($this->groupId)
+            ? $this->groupId->getElementValue()
+            : null;
     }
 
     /**
@@ -94,7 +98,7 @@ class GroupBroadWorksMobileManagerGetHomeZoneRequest extends ComplexType impleme
     public function setHomeZoneId($homeZoneId = null)
     {
         $this->homeZoneId = new PrimitiveType($homeZoneId);
-        $this->homeZoneId->setName('homeZoneId');
+        $this->homeZoneId->setElementName('homeZoneId');
         return $this;
     }
 
@@ -104,6 +108,8 @@ class GroupBroadWorksMobileManagerGetHomeZoneRequest extends ComplexType impleme
      */
     public function getHomeZoneId()
     {
-        return ($this->homeZoneId) ? $this->homeZoneId->getValue() : null;
+        return ($this->homeZoneId)
+            ? $this->homeZoneId->getElementValue()
+            : null;
     }
 }

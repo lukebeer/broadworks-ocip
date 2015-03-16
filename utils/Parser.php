@@ -140,7 +140,7 @@ class BuildAPI {
                         $code .= str_pad("    public    \$responseType", $maxlen+15, ' ') . " = '$this->base_namespace\\$this->schema_out\\{$this->namespaces[$responseName]}\\$responseName';\n";
                     }
                 }
-                $code .= "    public    \$name = '$name';\n";
+                $code .= "    public    \$elementName = '$name';\n";
                 foreach ($elements as $item) {
                     $code .= "    protected \${$item['name']};\n";
                 }
@@ -237,7 +237,7 @@ class BuildAPI {
                             }
                         }
                     }
-                    $code .= "$pad    \$this->{$item['name']}->setName('{$item['name']}');\n";
+                    $code .= "$pad    \$this->{$item['name']}->setElementName('{$item['name']}');\n";
                     $code .= "$pad    return \$this;\n";
                     $code .= "$pad}\n";
                     $code .= "\n$pad";
@@ -249,7 +249,9 @@ class BuildAPI {
                     $code .= "$pad{\n";
                     $code .= (($this->checkComplexType($item['type']) || (preg_match('/table/i', $item['name']))))
                         ? "$pad    return \$this->{$item['name']};"
-                        : "$pad    return (\$this->{$item['name']}) ? \$this->{$item['name']}->getValue() : null;";
+                        : "$pad    return (\$this->{$item['name']})\n"
+                            ."$pad        ? \$this->{$item['name']}->getElementValue()\n"
+                            ."$pad        : null;";
                     $code .= "\n$pad}\n";
                 }
                 $code .= "}\n";
@@ -324,11 +326,11 @@ class BuildAPI {
                 $code .= "\n */\n";
                 $code .= "class $name extends SimpleType\n";
                 $code .= "{\n";
-                $code .= "    public \$name = \"$name\";\n";
-                $code .= "    protected \$value;\n\n";
+                $code .= "    public \$elementName = \"$name\";\n";
                 $code .= "    public function __construct(\$value) {\n";
-                $code .= "        \$this->value    = \$value;\n";
-                $code .= "        \$this->dataType = \"".str_replace(['(', ')'], '', TypeMap::type($simpleType->restriction->attributes()->base))."\";\n";
+                $code .= "        \$this->setElementValue(\$value);\n";
+               // $code .= "        \$this->dataType = \"".str_replace(['(', ')'], '', TypeMap::type
+                 //   ($simpleType->restriction->attributes()->base))."\";\n";
                 foreach (get_object_vars($simpleType->restriction) as $restriction) {
                     if (is_object($restriction)) {
                         $header .= "use Broadworks_OCIP\core\Builder\Restrictions\\".ucfirst($restriction->getName()).";\n";

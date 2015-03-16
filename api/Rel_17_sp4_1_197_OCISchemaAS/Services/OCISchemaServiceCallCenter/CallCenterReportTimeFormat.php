@@ -16,12 +16,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\Enumeration;
  */
 class CallCenterReportTimeFormat extends SimpleType
 {
-    public $name = "CallCenterReportTimeFormat";
-    protected $value;
-
+    public $elementName = "CallCenterReportTimeFormat";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new Enumeration([
             'AM/PM',
             '24Hour'

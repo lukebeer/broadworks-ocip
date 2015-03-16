@@ -21,12 +21,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\MaxLength;
  */
 class SIPContact extends SimpleType
 {
-    public $name = "SIPContact";
-    protected $value;
-
+    public $elementName = "SIPContact";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new MinLength("1"));
         $this->addRestriction(new MaxLength("1020"));
     }

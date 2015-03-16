@@ -31,7 +31,7 @@ use Broadworks_OCIP\core\Client\Client;
 class EnterpriseEnterpriseTrunkGetUserListRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType                         = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceTrunkGroup\EnterpriseEnterpriseTrunkGetUserListResponse';
-    public    $name = 'EnterpriseEnterpriseTrunkGetUserListRequest';
+    public    $elementName = 'EnterpriseEnterpriseTrunkGetUserListRequest';
     protected $serviceProviderId;
     protected $enterpriseTrunkName;
     protected $responseSizeLimit;
@@ -80,7 +80,7 @@ class EnterpriseEnterpriseTrunkGetUserListRequest extends ComplexType implements
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
-        $this->serviceProviderId->setName('serviceProviderId');
+        $this->serviceProviderId->setElementName('serviceProviderId');
         return $this;
     }
 
@@ -90,7 +90,9 @@ class EnterpriseEnterpriseTrunkGetUserListRequest extends ComplexType implements
      */
     public function getServiceProviderId()
     {
-        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
+        return ($this->serviceProviderId)
+            ? $this->serviceProviderId->getElementValue()
+            : null;
     }
 
     /**
@@ -101,7 +103,7 @@ class EnterpriseEnterpriseTrunkGetUserListRequest extends ComplexType implements
         $this->enterpriseTrunkName = ($enterpriseTrunkName InstanceOf EnterpriseTrunkName)
              ? $enterpriseTrunkName
              : new EnterpriseTrunkName($enterpriseTrunkName);
-        $this->enterpriseTrunkName->setName('enterpriseTrunkName');
+        $this->enterpriseTrunkName->setElementName('enterpriseTrunkName');
         return $this;
     }
 
@@ -111,7 +113,9 @@ class EnterpriseEnterpriseTrunkGetUserListRequest extends ComplexType implements
      */
     public function getEnterpriseTrunkName()
     {
-        return ($this->enterpriseTrunkName) ? $this->enterpriseTrunkName->getValue() : null;
+        return ($this->enterpriseTrunkName)
+            ? $this->enterpriseTrunkName->getElementValue()
+            : null;
     }
 
     /**
@@ -122,7 +126,7 @@ class EnterpriseEnterpriseTrunkGetUserListRequest extends ComplexType implements
         $this->responseSizeLimit = ($responseSizeLimit InstanceOf ResponseSizeLimit)
              ? $responseSizeLimit
              : new ResponseSizeLimit($responseSizeLimit);
-        $this->responseSizeLimit->setName('responseSizeLimit');
+        $this->responseSizeLimit->setElementName('responseSizeLimit');
         return $this;
     }
 
@@ -132,7 +136,9 @@ class EnterpriseEnterpriseTrunkGetUserListRequest extends ComplexType implements
      */
     public function getResponseSizeLimit()
     {
-        return ($this->responseSizeLimit) ? $this->responseSizeLimit->getValue() : null;
+        return ($this->responseSizeLimit)
+            ? $this->responseSizeLimit->getElementValue()
+            : null;
     }
 
     /**
@@ -143,7 +149,7 @@ class EnterpriseEnterpriseTrunkGetUserListRequest extends ComplexType implements
         $this->searchCriteriaUserLastName = ($searchCriteriaUserLastName InstanceOf SearchCriteriaUserLastName)
              ? $searchCriteriaUserLastName
              : new SearchCriteriaUserLastName($searchCriteriaUserLastName);
-        $this->searchCriteriaUserLastName->setName('searchCriteriaUserLastName');
+        $this->searchCriteriaUserLastName->setElementName('searchCriteriaUserLastName');
         return $this;
     }
 
@@ -164,7 +170,7 @@ class EnterpriseEnterpriseTrunkGetUserListRequest extends ComplexType implements
         $this->searchCriteriaUserFirstName = ($searchCriteriaUserFirstName InstanceOf SearchCriteriaUserFirstName)
              ? $searchCriteriaUserFirstName
              : new SearchCriteriaUserFirstName($searchCriteriaUserFirstName);
-        $this->searchCriteriaUserFirstName->setName('searchCriteriaUserFirstName');
+        $this->searchCriteriaUserFirstName->setElementName('searchCriteriaUserFirstName');
         return $this;
     }
 
@@ -185,7 +191,7 @@ class EnterpriseEnterpriseTrunkGetUserListRequest extends ComplexType implements
         $this->searchCriteriaDn = ($searchCriteriaDn InstanceOf SearchCriteriaDn)
              ? $searchCriteriaDn
              : new SearchCriteriaDn($searchCriteriaDn);
-        $this->searchCriteriaDn->setName('searchCriteriaDn');
+        $this->searchCriteriaDn->setElementName('searchCriteriaDn');
         return $this;
     }
 
@@ -206,7 +212,7 @@ class EnterpriseEnterpriseTrunkGetUserListRequest extends ComplexType implements
         $this->searchCriteriaUserId = ($searchCriteriaUserId InstanceOf SearchCriteriaUserId)
              ? $searchCriteriaUserId
              : new SearchCriteriaUserId($searchCriteriaUserId);
-        $this->searchCriteriaUserId->setName('searchCriteriaUserId');
+        $this->searchCriteriaUserId->setElementName('searchCriteriaUserId');
         return $this;
     }
 
@@ -227,7 +233,7 @@ class EnterpriseEnterpriseTrunkGetUserListRequest extends ComplexType implements
         $this->searchCriteriaGroupId = ($searchCriteriaGroupId InstanceOf SearchCriteriaGroupId)
              ? $searchCriteriaGroupId
              : new SearchCriteriaGroupId($searchCriteriaGroupId);
-        $this->searchCriteriaGroupId->setName('searchCriteriaGroupId');
+        $this->searchCriteriaGroupId->setElementName('searchCriteriaGroupId');
         return $this;
     }
 
@@ -248,7 +254,7 @@ class EnterpriseEnterpriseTrunkGetUserListRequest extends ComplexType implements
         $this->searchCriteriaAlternateTrunkIdentity = ($searchCriteriaAlternateTrunkIdentity InstanceOf SearchCriteriaAlternateTrunkIdentity)
              ? $searchCriteriaAlternateTrunkIdentity
              : new SearchCriteriaAlternateTrunkIdentity($searchCriteriaAlternateTrunkIdentity);
-        $this->searchCriteriaAlternateTrunkIdentity->setName('searchCriteriaAlternateTrunkIdentity');
+        $this->searchCriteriaAlternateTrunkIdentity->setElementName('searchCriteriaAlternateTrunkIdentity');
         return $this;
     }
 

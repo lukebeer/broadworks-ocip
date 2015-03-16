@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserSharedCallAppearanceModifyEndpointRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'UserSharedCallAppearanceModifyEndpointRequest';
+    public    $elementName = 'UserSharedCallAppearanceModifyEndpointRequest';
     protected $userId;
     protected $accessDeviceEndpoint;
     protected $isActive;
@@ -59,7 +59,7 @@ class UserSharedCallAppearanceModifyEndpointRequest extends ComplexType implemen
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
-        $this->userId->setName('userId');
+        $this->userId->setElementName('userId');
         return $this;
     }
 
@@ -69,7 +69,9 @@ class UserSharedCallAppearanceModifyEndpointRequest extends ComplexType implemen
      */
     public function getUserId()
     {
-        return ($this->userId) ? $this->userId->getValue() : null;
+        return ($this->userId)
+            ? $this->userId->getElementValue()
+            : null;
     }
 
     /**
@@ -80,7 +82,7 @@ class UserSharedCallAppearanceModifyEndpointRequest extends ComplexType implemen
         $this->accessDeviceEndpoint = ($accessDeviceEndpoint InstanceOf AccessDeviceEndpointKey)
              ? $accessDeviceEndpoint
              : new AccessDeviceEndpointKey($accessDeviceEndpoint);
-        $this->accessDeviceEndpoint->setName('accessDeviceEndpoint');
+        $this->accessDeviceEndpoint->setElementName('accessDeviceEndpoint');
         return $this;
     }
 
@@ -99,7 +101,7 @@ class UserSharedCallAppearanceModifyEndpointRequest extends ComplexType implemen
     public function setIsActive($isActive = null)
     {
         $this->isActive = new PrimitiveType($isActive);
-        $this->isActive->setName('isActive');
+        $this->isActive->setElementName('isActive');
         return $this;
     }
 
@@ -109,7 +111,9 @@ class UserSharedCallAppearanceModifyEndpointRequest extends ComplexType implemen
      */
     public function getIsActive()
     {
-        return ($this->isActive) ? $this->isActive->getValue() : null;
+        return ($this->isActive)
+            ? $this->isActive->getElementValue()
+            : null;
     }
 
     /**
@@ -118,7 +122,7 @@ class UserSharedCallAppearanceModifyEndpointRequest extends ComplexType implemen
     public function setAllowOrigination($allowOrigination = null)
     {
         $this->allowOrigination = new PrimitiveType($allowOrigination);
-        $this->allowOrigination->setName('allowOrigination');
+        $this->allowOrigination->setElementName('allowOrigination');
         return $this;
     }
 
@@ -128,7 +132,9 @@ class UserSharedCallAppearanceModifyEndpointRequest extends ComplexType implemen
      */
     public function getAllowOrigination()
     {
-        return ($this->allowOrigination) ? $this->allowOrigination->getValue() : null;
+        return ($this->allowOrigination)
+            ? $this->allowOrigination->getElementValue()
+            : null;
     }
 
     /**
@@ -137,7 +143,7 @@ class UserSharedCallAppearanceModifyEndpointRequest extends ComplexType implemen
     public function setAllowTermination($allowTermination = null)
     {
         $this->allowTermination = new PrimitiveType($allowTermination);
-        $this->allowTermination->setName('allowTermination');
+        $this->allowTermination->setElementName('allowTermination');
         return $this;
     }
 
@@ -147,6 +153,8 @@ class UserSharedCallAppearanceModifyEndpointRequest extends ComplexType implemen
      */
     public function getAllowTermination()
     {
-        return ($this->allowTermination) ? $this->allowTermination->getValue() : null;
+        return ($this->allowTermination)
+            ? $this->allowTermination->getElementValue()
+            : null;
     }
 }

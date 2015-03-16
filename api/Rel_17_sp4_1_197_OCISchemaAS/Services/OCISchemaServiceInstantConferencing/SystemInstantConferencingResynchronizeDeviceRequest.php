@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemInstantConferencingResynchronizeDeviceRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemInstantConferencingResynchronizeDeviceRequest';
+    public    $elementName = 'SystemInstantConferencingResynchronizeDeviceRequest';
     protected $deviceName;
 
     public function __construct(
@@ -47,7 +47,7 @@ class SystemInstantConferencingResynchronizeDeviceRequest extends ComplexType im
         $this->deviceName = ($deviceName InstanceOf AccessDeviceName)
              ? $deviceName
              : new AccessDeviceName($deviceName);
-        $this->deviceName->setName('deviceName');
+        $this->deviceName->setElementName('deviceName');
         return $this;
     }
 
@@ -57,6 +57,8 @@ class SystemInstantConferencingResynchronizeDeviceRequest extends ComplexType im
      */
     public function getDeviceName()
     {
-        return ($this->deviceName) ? $this->deviceName->getValue() : null;
+        return ($this->deviceName)
+            ? $this->deviceName->getElementValue()
+            : null;
     }
 }

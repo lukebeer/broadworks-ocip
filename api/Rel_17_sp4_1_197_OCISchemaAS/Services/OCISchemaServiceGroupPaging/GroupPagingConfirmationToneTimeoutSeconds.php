@@ -18,12 +18,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\MaxInclusive;
  */
 class GroupPagingConfirmationToneTimeoutSeconds extends SimpleType
 {
-    public $name = "GroupPagingConfirmationToneTimeoutSeconds";
-    protected $value;
-
+    public $elementName = "GroupPagingConfirmationToneTimeoutSeconds";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new MinInclusive("1"));
         $this->addRestriction(new MaxInclusive("20"));
     }

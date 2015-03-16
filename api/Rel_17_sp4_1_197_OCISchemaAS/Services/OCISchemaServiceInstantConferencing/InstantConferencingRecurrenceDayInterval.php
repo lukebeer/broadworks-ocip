@@ -17,12 +17,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\MaxInclusive;
  */
 class InstantConferencingRecurrenceDayInterval extends SimpleType
 {
-    public $name = "InstantConferencingRecurrenceDayInterval";
-    protected $value;
-
+    public $elementName = "InstantConferencingRecurrenceDayInterval";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new MinInclusive("1"));
         $this->addRestriction(new MaxInclusive("366"));
     }

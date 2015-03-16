@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderScheduleDeleteEventListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'ServiceProviderScheduleDeleteEventListRequest';
+    public    $elementName = 'ServiceProviderScheduleDeleteEventListRequest';
     protected $serviceProviderId;
     protected $scheduleKey;
     protected $eventName;
@@ -53,7 +53,7 @@ class ServiceProviderScheduleDeleteEventListRequest extends ComplexType implemen
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
-        $this->serviceProviderId->setName('serviceProviderId');
+        $this->serviceProviderId->setElementName('serviceProviderId');
         return $this;
     }
 
@@ -63,7 +63,9 @@ class ServiceProviderScheduleDeleteEventListRequest extends ComplexType implemen
      */
     public function getServiceProviderId()
     {
-        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
+        return ($this->serviceProviderId)
+            ? $this->serviceProviderId->getElementValue()
+            : null;
     }
 
     /**
@@ -74,7 +76,7 @@ class ServiceProviderScheduleDeleteEventListRequest extends ComplexType implemen
         $this->scheduleKey = ($scheduleKey InstanceOf ScheduleKey)
              ? $scheduleKey
              : new ScheduleKey($scheduleKey);
-        $this->scheduleKey->setName('scheduleKey');
+        $this->scheduleKey->setElementName('scheduleKey');
         return $this;
     }
 
@@ -95,7 +97,7 @@ class ServiceProviderScheduleDeleteEventListRequest extends ComplexType implemen
         $this->eventName = ($eventName InstanceOf EventName)
              ? $eventName
              : new EventName($eventName);
-        $this->eventName->setName('eventName');
+        $this->eventName->setElementName('eventName');
         return $this;
     }
 
@@ -105,6 +107,8 @@ class ServiceProviderScheduleDeleteEventListRequest extends ComplexType implemen
      */
     public function getEventName()
     {
-        return ($this->eventName) ? $this->eventName->getValue() : null;
+        return ($this->eventName)
+            ? $this->eventName->getElementValue()
+            : null;
     }
 }

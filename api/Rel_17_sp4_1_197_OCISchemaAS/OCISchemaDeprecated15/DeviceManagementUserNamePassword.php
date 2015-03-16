@@ -19,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class DeviceManagementUserNamePassword extends ComplexType implements ComplexInterface
 {
-    public    $name = 'DeviceManagementUserNamePassword';
+    public    $elementName = 'DeviceManagementUserNamePassword';
     protected $userName;
     protected $password;
 
@@ -45,7 +45,7 @@ class DeviceManagementUserNamePassword extends ComplexType implements ComplexInt
     public function setUserName($userName = null)
     {
         $this->userName = new SimpleContent($userName);
-        $this->userName->setName('userName');
+        $this->userName->setElementName('userName');
         return $this;
     }
 
@@ -55,7 +55,9 @@ class DeviceManagementUserNamePassword extends ComplexType implements ComplexInt
      */
     public function getUserName()
     {
-        return ($this->userName) ? $this->userName->getValue() : null;
+        return ($this->userName)
+            ? $this->userName->getElementValue()
+            : null;
     }
 
     /**
@@ -64,7 +66,7 @@ class DeviceManagementUserNamePassword extends ComplexType implements ComplexInt
     public function setPassword($password = null)
     {
         $this->password = new SimpleContent($password);
-        $this->password->setName('password');
+        $this->password->setElementName('password');
         return $this;
     }
 
@@ -74,6 +76,8 @@ class DeviceManagementUserNamePassword extends ComplexType implements ComplexInt
      */
     public function getPassword()
     {
-        return ($this->password) ? $this->password->getValue() : null;
+        return ($this->password)
+            ? $this->password->getElementValue()
+            : null;
     }
 }

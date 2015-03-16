@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserInstantConferencingPlayRecordingToPhoneRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'UserInstantConferencingPlayRecordingToPhoneRequest';
+    public    $elementName = 'UserInstantConferencingPlayRecordingToPhoneRequest';
     protected $userId;
     protected $recordingKey;
     protected $playBackPhoneNumber;
@@ -53,7 +53,7 @@ class UserInstantConferencingPlayRecordingToPhoneRequest extends ComplexType imp
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
-        $this->userId->setName('userId');
+        $this->userId->setElementName('userId');
         return $this;
     }
 
@@ -63,7 +63,9 @@ class UserInstantConferencingPlayRecordingToPhoneRequest extends ComplexType imp
      */
     public function getUserId()
     {
-        return ($this->userId) ? $this->userId->getValue() : null;
+        return ($this->userId)
+            ? $this->userId->getElementValue()
+            : null;
     }
 
     /**
@@ -74,7 +76,7 @@ class UserInstantConferencingPlayRecordingToPhoneRequest extends ComplexType imp
         $this->recordingKey = ($recordingKey InstanceOf InstantConferencingRecordingKey)
              ? $recordingKey
              : new InstantConferencingRecordingKey($recordingKey);
-        $this->recordingKey->setName('recordingKey');
+        $this->recordingKey->setElementName('recordingKey');
         return $this;
     }
 
@@ -95,7 +97,7 @@ class UserInstantConferencingPlayRecordingToPhoneRequest extends ComplexType imp
         $this->playBackPhoneNumber = ($playBackPhoneNumber InstanceOf OutgoingDNorSIPURI)
              ? $playBackPhoneNumber
              : new OutgoingDNorSIPURI($playBackPhoneNumber);
-        $this->playBackPhoneNumber->setName('playBackPhoneNumber');
+        $this->playBackPhoneNumber->setElementName('playBackPhoneNumber');
         return $this;
     }
 
@@ -105,6 +107,8 @@ class UserInstantConferencingPlayRecordingToPhoneRequest extends ComplexType imp
      */
     public function getPlayBackPhoneNumber()
     {
-        return ($this->playBackPhoneNumber) ? $this->playBackPhoneNumber->getValue() : null;
+        return ($this->playBackPhoneNumber)
+            ? $this->playBackPhoneNumber->getElementValue()
+            : null;
     }
 }

@@ -17,12 +17,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\MaxInclusive;
  */
 class MusicOnHoldDelayMilliseconds extends SimpleType
 {
-    public $name = "MusicOnHoldDelayMilliseconds";
-    protected $value;
-
+    public $elementName = "MusicOnHoldDelayMilliseconds";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new MinInclusive("0"));
         $this->addRestriction(new MaxInclusive("5000"));
     }

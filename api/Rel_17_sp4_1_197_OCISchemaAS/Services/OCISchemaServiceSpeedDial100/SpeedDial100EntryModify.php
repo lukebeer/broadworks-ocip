@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SpeedDial100EntryModify extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SpeedDial100EntryModify';
+    public    $elementName = 'SpeedDial100EntryModify';
     protected $speedCode;
     protected $phoneNumber;
     protected $description;
@@ -49,7 +49,7 @@ class SpeedDial100EntryModify extends ComplexType implements ComplexInterface
     public function setSpeedCode($speedCode = null)
     {
         $this->speedCode = new SimpleContent($speedCode);
-        $this->speedCode->setName('speedCode');
+        $this->speedCode->setElementName('speedCode');
         return $this;
     }
 
@@ -59,7 +59,9 @@ class SpeedDial100EntryModify extends ComplexType implements ComplexInterface
      */
     public function getSpeedCode()
     {
-        return ($this->speedCode) ? $this->speedCode->getValue() : null;
+        return ($this->speedCode)
+            ? $this->speedCode->getElementValue()
+            : null;
     }
 
     /**
@@ -68,7 +70,7 @@ class SpeedDial100EntryModify extends ComplexType implements ComplexInterface
     public function setPhoneNumber($phoneNumber = null)
     {
         $this->phoneNumber = new SimpleContent($phoneNumber);
-        $this->phoneNumber->setName('phoneNumber');
+        $this->phoneNumber->setElementName('phoneNumber');
         return $this;
     }
 
@@ -78,7 +80,9 @@ class SpeedDial100EntryModify extends ComplexType implements ComplexInterface
      */
     public function getPhoneNumber()
     {
-        return ($this->phoneNumber) ? $this->phoneNumber->getValue() : null;
+        return ($this->phoneNumber)
+            ? $this->phoneNumber->getElementValue()
+            : null;
     }
 
     /**
@@ -87,7 +91,7 @@ class SpeedDial100EntryModify extends ComplexType implements ComplexInterface
     public function setDescription($description = null)
     {
         $this->description = new SimpleContent($description);
-        $this->description->setName('description');
+        $this->description->setElementName('description');
         return $this;
     }
 
@@ -97,6 +101,8 @@ class SpeedDial100EntryModify extends ComplexType implements ComplexInterface
      */
     public function getDescription()
     {
-        return ($this->description) ? $this->description->getValue() : null;
+        return ($this->description)
+            ? $this->description->getElementValue()
+            : null;
     }
 }

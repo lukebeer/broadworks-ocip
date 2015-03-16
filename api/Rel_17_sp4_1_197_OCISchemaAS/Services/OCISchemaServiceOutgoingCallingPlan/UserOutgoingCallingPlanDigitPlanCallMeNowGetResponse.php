@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserOutgoingCallingPlanDigitPlanCallMeNowGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'UserOutgoingCallingPlanDigitPlanCallMeNowGetResponse';
+    public    $elementName = 'UserOutgoingCallingPlanDigitPlanCallMeNowGetResponse';
     protected $useCustomSettings;
     protected $userPermissions;
 
@@ -38,7 +38,7 @@ class UserOutgoingCallingPlanDigitPlanCallMeNowGetResponse extends ComplexType i
     public function setUseCustomSettings($useCustomSettings = null)
     {
         $this->useCustomSettings = new PrimitiveType($useCustomSettings);
-        $this->useCustomSettings->setName('useCustomSettings');
+        $this->useCustomSettings->setElementName('useCustomSettings');
         return $this;
     }
 
@@ -48,7 +48,9 @@ class UserOutgoingCallingPlanDigitPlanCallMeNowGetResponse extends ComplexType i
      */
     public function getUseCustomSettings()
     {
-        return ($this->useCustomSettings) ? $this->useCustomSettings->getValue() : null;
+        return ($this->useCustomSettings)
+            ? $this->useCustomSettings->getElementValue()
+            : null;
     }
 
     /**
@@ -59,7 +61,7 @@ class UserOutgoingCallingPlanDigitPlanCallMeNowGetResponse extends ComplexType i
         $this->userPermissions = ($userPermissions InstanceOf OutgoingCallingPlanDigitPatternCallMeNowPermissions)
              ? $userPermissions
              : new OutgoingCallingPlanDigitPatternCallMeNowPermissions($userPermissions);
-        $this->userPermissions->setName('userPermissions');
+        $this->userPermissions->setElementName('userPermissions');
         return $this;
     }
 

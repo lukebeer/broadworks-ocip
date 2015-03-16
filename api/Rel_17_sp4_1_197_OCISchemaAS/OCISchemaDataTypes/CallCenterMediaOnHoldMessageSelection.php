@@ -16,12 +16,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\Enumeration;
  */
 class CallCenterMediaOnHoldMessageSelection extends SimpleType
 {
-    public $name = "CallCenterMediaOnHoldMessageSelection";
-    protected $value;
-
+    public $elementName = "CallCenterMediaOnHoldMessageSelection";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new Enumeration([
             'Default',
             'URL',

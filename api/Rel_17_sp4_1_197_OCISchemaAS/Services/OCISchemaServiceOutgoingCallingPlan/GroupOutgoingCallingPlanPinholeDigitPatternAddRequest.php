@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupOutgoingCallingPlanPinholeDigitPatternAddRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'GroupOutgoingCallingPlanPinholeDigitPatternAddRequest';
+    public    $elementName = 'GroupOutgoingCallingPlanPinholeDigitPatternAddRequest';
     protected $serviceProviderId;
     protected $groupId;
     protected $name;
@@ -56,7 +56,7 @@ class GroupOutgoingCallingPlanPinholeDigitPatternAddRequest extends ComplexType 
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
-        $this->serviceProviderId->setName('serviceProviderId');
+        $this->serviceProviderId->setElementName('serviceProviderId');
         return $this;
     }
 
@@ -66,7 +66,9 @@ class GroupOutgoingCallingPlanPinholeDigitPatternAddRequest extends ComplexType 
      */
     public function getServiceProviderId()
     {
-        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
+        return ($this->serviceProviderId)
+            ? $this->serviceProviderId->getElementValue()
+            : null;
     }
 
     /**
@@ -77,7 +79,7 @@ class GroupOutgoingCallingPlanPinholeDigitPatternAddRequest extends ComplexType 
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
-        $this->groupId->setName('groupId');
+        $this->groupId->setElementName('groupId');
         return $this;
     }
 
@@ -87,7 +89,9 @@ class GroupOutgoingCallingPlanPinholeDigitPatternAddRequest extends ComplexType 
      */
     public function getGroupId()
     {
-        return ($this->groupId) ? $this->groupId->getValue() : null;
+        return ($this->groupId)
+            ? $this->groupId->getElementValue()
+            : null;
     }
 
     /**
@@ -98,7 +102,7 @@ class GroupOutgoingCallingPlanPinholeDigitPatternAddRequest extends ComplexType 
         $this->name = ($name InstanceOf CallingPlanDigitPatternName)
              ? $name
              : new CallingPlanDigitPatternName($name);
-        $this->name->setName('name');
+        $this->name->setElementName('name');
         return $this;
     }
 
@@ -108,7 +112,9 @@ class GroupOutgoingCallingPlanPinholeDigitPatternAddRequest extends ComplexType 
      */
     public function getName()
     {
-        return ($this->name) ? $this->name->getValue() : null;
+        return ($this->name)
+            ? $this->name->getElementValue()
+            : null;
     }
 
     /**
@@ -119,7 +125,7 @@ class GroupOutgoingCallingPlanPinholeDigitPatternAddRequest extends ComplexType 
         $this->digitPattern = ($digitPattern InstanceOf CallingPlanDigitPattern)
              ? $digitPattern
              : new CallingPlanDigitPattern($digitPattern);
-        $this->digitPattern->setName('digitPattern');
+        $this->digitPattern->setElementName('digitPattern');
         return $this;
     }
 
@@ -129,6 +135,8 @@ class GroupOutgoingCallingPlanPinholeDigitPatternAddRequest extends ComplexType 
      */
     public function getDigitPattern()
     {
-        return ($this->digitPattern) ? $this->digitPattern->getValue() : null;
+        return ($this->digitPattern)
+            ? $this->digitPattern->getElementValue()
+            : null;
     }
 }

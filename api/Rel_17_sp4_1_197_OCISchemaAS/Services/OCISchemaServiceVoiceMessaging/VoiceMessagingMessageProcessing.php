@@ -16,12 +16,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\Enumeration;
  */
 class VoiceMessagingMessageProcessing extends SimpleType
 {
-    public $name = "VoiceMessagingMessageProcessing";
-    protected $value;
-
+    public $elementName = "VoiceMessagingMessageProcessing";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new Enumeration([
             'Unified Voice and Email Messaging',
             'Deliver To Email Address Only'

@@ -19,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class CallCenterAgentStatistics13mp8 extends ComplexType implements ComplexInterface
 {
-    public    $name = 'CallCenterAgentStatistics13mp8';
+    public    $elementName = 'CallCenterAgentStatistics13mp8';
     protected $agentUserId;
     protected $agentDisplayNames;
     protected $available;
@@ -54,7 +54,7 @@ class CallCenterAgentStatistics13mp8 extends ComplexType implements ComplexInter
     public function setAgentUserId($agentUserId = null)
     {
         $this->agentUserId = new SimpleContent($agentUserId);
-        $this->agentUserId->setName('agentUserId');
+        $this->agentUserId->setElementName('agentUserId');
         return $this;
     }
 
@@ -64,7 +64,9 @@ class CallCenterAgentStatistics13mp8 extends ComplexType implements ComplexInter
      */
     public function getAgentUserId()
     {
-        return ($this->agentUserId) ? $this->agentUserId->getValue() : null;
+        return ($this->agentUserId)
+            ? $this->agentUserId->getElementValue()
+            : null;
     }
 
     /**
@@ -73,7 +75,7 @@ class CallCenterAgentStatistics13mp8 extends ComplexType implements ComplexInter
     public function setAgentDisplayNames($agentDisplayNames = null)
     {
         $this->agentDisplayNames = new SimpleContent($agentDisplayNames);
-        $this->agentDisplayNames->setName('agentDisplayNames');
+        $this->agentDisplayNames->setElementName('agentDisplayNames');
         return $this;
     }
 
@@ -83,7 +85,9 @@ class CallCenterAgentStatistics13mp8 extends ComplexType implements ComplexInter
      */
     public function getAgentDisplayNames()
     {
-        return ($this->agentDisplayNames) ? $this->agentDisplayNames->getValue() : null;
+        return ($this->agentDisplayNames)
+            ? $this->agentDisplayNames->getElementValue()
+            : null;
     }
 
     /**
@@ -92,7 +96,7 @@ class CallCenterAgentStatistics13mp8 extends ComplexType implements ComplexInter
     public function setAvailable($available = null)
     {
         $this->available = new SimpleContent($available);
-        $this->available->setName('available');
+        $this->available->setElementName('available');
         return $this;
     }
 
@@ -102,7 +106,9 @@ class CallCenterAgentStatistics13mp8 extends ComplexType implements ComplexInter
      */
     public function getAvailable()
     {
-        return ($this->available) ? $this->available->getValue() : null;
+        return ($this->available)
+            ? $this->available->getElementValue()
+            : null;
     }
 
     /**
@@ -111,7 +117,7 @@ class CallCenterAgentStatistics13mp8 extends ComplexType implements ComplexInter
     public function setStatisticsYesterday($statisticsYesterday = null)
     {
         $this->statisticsYesterday = new SimpleContent($statisticsYesterday);
-        $this->statisticsYesterday->setName('statisticsYesterday');
+        $this->statisticsYesterday->setElementName('statisticsYesterday');
         return $this;
     }
 
@@ -121,7 +127,9 @@ class CallCenterAgentStatistics13mp8 extends ComplexType implements ComplexInter
      */
     public function getStatisticsYesterday()
     {
-        return ($this->statisticsYesterday) ? $this->statisticsYesterday->getValue() : null;
+        return ($this->statisticsYesterday)
+            ? $this->statisticsYesterday->getElementValue()
+            : null;
     }
 
     /**
@@ -130,7 +138,7 @@ class CallCenterAgentStatistics13mp8 extends ComplexType implements ComplexInter
     public function setStatisticsToday($statisticsToday = null)
     {
         $this->statisticsToday = new SimpleContent($statisticsToday);
-        $this->statisticsToday->setName('statisticsToday');
+        $this->statisticsToday->setElementName('statisticsToday');
         return $this;
     }
 
@@ -140,6 +148,8 @@ class CallCenterAgentStatistics13mp8 extends ComplexType implements ComplexInter
      */
     public function getStatisticsToday()
     {
-        return ($this->statisticsToday) ? $this->statisticsToday->getValue() : null;
+        return ($this->statisticsToday)
+            ? $this->statisticsToday->getElementValue()
+            : null;
     }
 }

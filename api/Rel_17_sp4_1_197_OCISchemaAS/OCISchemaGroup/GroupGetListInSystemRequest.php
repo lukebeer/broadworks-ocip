@@ -26,7 +26,7 @@ use Broadworks_OCIP\core\Client\Client;
 class GroupGetListInSystemRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType                       = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupGetListInSystemResponse';
-    public    $name = 'GroupGetListInSystemRequest';
+    public    $elementName = 'GroupGetListInSystemRequest';
     protected $responseSizeLimit;
     protected $searchCriteriaGroupId;
     protected $searchCriteriaGroupName;
@@ -60,7 +60,7 @@ class GroupGetListInSystemRequest extends ComplexType implements ComplexInterfac
         $this->responseSizeLimit = ($responseSizeLimit InstanceOf ResponseSizeLimit)
              ? $responseSizeLimit
              : new ResponseSizeLimit($responseSizeLimit);
-        $this->responseSizeLimit->setName('responseSizeLimit');
+        $this->responseSizeLimit->setElementName('responseSizeLimit');
         return $this;
     }
 
@@ -70,7 +70,9 @@ class GroupGetListInSystemRequest extends ComplexType implements ComplexInterfac
      */
     public function getResponseSizeLimit()
     {
-        return ($this->responseSizeLimit) ? $this->responseSizeLimit->getValue() : null;
+        return ($this->responseSizeLimit)
+            ? $this->responseSizeLimit->getElementValue()
+            : null;
     }
 
     /**
@@ -81,7 +83,7 @@ class GroupGetListInSystemRequest extends ComplexType implements ComplexInterfac
         $this->searchCriteriaGroupId = ($searchCriteriaGroupId InstanceOf SearchCriteriaGroupId)
              ? $searchCriteriaGroupId
              : new SearchCriteriaGroupId($searchCriteriaGroupId);
-        $this->searchCriteriaGroupId->setName('searchCriteriaGroupId');
+        $this->searchCriteriaGroupId->setElementName('searchCriteriaGroupId');
         return $this;
     }
 
@@ -102,7 +104,7 @@ class GroupGetListInSystemRequest extends ComplexType implements ComplexInterfac
         $this->searchCriteriaGroupName = ($searchCriteriaGroupName InstanceOf SearchCriteriaGroupName)
              ? $searchCriteriaGroupName
              : new SearchCriteriaGroupName($searchCriteriaGroupName);
-        $this->searchCriteriaGroupName->setName('searchCriteriaGroupName');
+        $this->searchCriteriaGroupName->setElementName('searchCriteriaGroupName');
         return $this;
     }
 
@@ -123,7 +125,7 @@ class GroupGetListInSystemRequest extends ComplexType implements ComplexInterfac
         $this->searchCriteriaExactServiceProvider = ($searchCriteriaExactServiceProvider InstanceOf SearchCriteriaExactServiceProvider)
              ? $searchCriteriaExactServiceProvider
              : new SearchCriteriaExactServiceProvider($searchCriteriaExactServiceProvider);
-        $this->searchCriteriaExactServiceProvider->setName('searchCriteriaExactServiceProvider');
+        $this->searchCriteriaExactServiceProvider->setElementName('searchCriteriaExactServiceProvider');
         return $this;
     }
 

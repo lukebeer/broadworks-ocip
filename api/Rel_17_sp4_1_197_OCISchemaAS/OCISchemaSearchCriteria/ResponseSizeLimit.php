@@ -18,12 +18,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\MinInclusive;
  */
 class ResponseSizeLimit extends SimpleType
 {
-    public $name = "ResponseSizeLimit";
-    protected $value;
-
+    public $elementName = "ResponseSizeLimit";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new MinInclusive("1"));
     }
 }

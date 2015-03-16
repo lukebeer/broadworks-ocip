@@ -19,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserOCICallControlApplicationGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'UserOCICallControlApplicationGetListResponse';
+    public    $elementName = 'UserOCICallControlApplicationGetListResponse';
     protected $applicationId;
 
     /**
@@ -38,7 +38,7 @@ class UserOCICallControlApplicationGetListResponse extends ComplexType implement
         $this->applicationId = ($applicationId InstanceOf OCICallControlApplicationId)
              ? $applicationId
              : new OCICallControlApplicationId($applicationId);
-        $this->applicationId->setName('applicationId');
+        $this->applicationId->setElementName('applicationId');
         return $this;
     }
 
@@ -48,6 +48,8 @@ class UserOCICallControlApplicationGetListResponse extends ComplexType implement
      */
     public function getApplicationId()
     {
-        return ($this->applicationId) ? $this->applicationId->getValue() : null;
+        return ($this->applicationId)
+            ? $this->applicationId->getElementValue()
+            : null;
     }
 }

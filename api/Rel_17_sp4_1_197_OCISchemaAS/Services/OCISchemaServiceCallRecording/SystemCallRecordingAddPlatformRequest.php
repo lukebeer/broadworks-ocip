@@ -25,7 +25,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemCallRecordingAddPlatformRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemCallRecordingAddPlatformRequest';
+    public    $elementName = 'SystemCallRecordingAddPlatformRequest';
     protected $name;
     protected $netAddress;
     protected $port;
@@ -65,7 +65,7 @@ class SystemCallRecordingAddPlatformRequest extends ComplexType implements Compl
         $this->name = ($name InstanceOf CallRecordingPlatformName)
              ? $name
              : new CallRecordingPlatformName($name);
-        $this->name->setName('name');
+        $this->name->setElementName('name');
         return $this;
     }
 
@@ -75,7 +75,9 @@ class SystemCallRecordingAddPlatformRequest extends ComplexType implements Compl
      */
     public function getName()
     {
-        return ($this->name) ? $this->name->getValue() : null;
+        return ($this->name)
+            ? $this->name->getElementValue()
+            : null;
     }
 
     /**
@@ -86,7 +88,7 @@ class SystemCallRecordingAddPlatformRequest extends ComplexType implements Compl
         $this->netAddress = ($netAddress InstanceOf NetAddress)
              ? $netAddress
              : new NetAddress($netAddress);
-        $this->netAddress->setName('netAddress');
+        $this->netAddress->setElementName('netAddress');
         return $this;
     }
 
@@ -96,7 +98,9 @@ class SystemCallRecordingAddPlatformRequest extends ComplexType implements Compl
      */
     public function getNetAddress()
     {
-        return ($this->netAddress) ? $this->netAddress->getValue() : null;
+        return ($this->netAddress)
+            ? $this->netAddress->getElementValue()
+            : null;
     }
 
     /**
@@ -107,7 +111,7 @@ class SystemCallRecordingAddPlatformRequest extends ComplexType implements Compl
         $this->port = ($port InstanceOf Port)
              ? $port
              : new Port($port);
-        $this->port->setName('port');
+        $this->port->setElementName('port');
         return $this;
     }
 
@@ -117,7 +121,9 @@ class SystemCallRecordingAddPlatformRequest extends ComplexType implements Compl
      */
     public function getPort()
     {
-        return ($this->port) ? $this->port->getValue() : null;
+        return ($this->port)
+            ? $this->port->getElementValue()
+            : null;
     }
 
     /**
@@ -128,7 +134,7 @@ class SystemCallRecordingAddPlatformRequest extends ComplexType implements Compl
         $this->mediaStream = ($mediaStream InstanceOf MediaStream)
              ? $mediaStream
              : new MediaStream($mediaStream);
-        $this->mediaStream->setName('mediaStream');
+        $this->mediaStream->setElementName('mediaStream');
         return $this;
     }
 
@@ -138,7 +144,9 @@ class SystemCallRecordingAddPlatformRequest extends ComplexType implements Compl
      */
     public function getMediaStream()
     {
-        return ($this->mediaStream) ? $this->mediaStream->getValue() : null;
+        return ($this->mediaStream)
+            ? $this->mediaStream->getElementValue()
+            : null;
     }
 
     /**
@@ -149,7 +157,7 @@ class SystemCallRecordingAddPlatformRequest extends ComplexType implements Compl
         $this->transportType = ($transportType InstanceOf TransportProtocol)
              ? $transportType
              : new TransportProtocol($transportType);
-        $this->transportType->setName('transportType');
+        $this->transportType->setElementName('transportType');
         return $this;
     }
 
@@ -159,7 +167,9 @@ class SystemCallRecordingAddPlatformRequest extends ComplexType implements Compl
      */
     public function getTransportType()
     {
-        return ($this->transportType) ? $this->transportType->getValue() : null;
+        return ($this->transportType)
+            ? $this->transportType->getElementValue()
+            : null;
     }
 
     /**
@@ -170,7 +180,7 @@ class SystemCallRecordingAddPlatformRequest extends ComplexType implements Compl
         $this->description = ($description InstanceOf CallRecordingPlatformDescription)
              ? $description
              : new CallRecordingPlatformDescription($description);
-        $this->description->setName('description');
+        $this->description->setElementName('description');
         return $this;
     }
 
@@ -180,6 +190,8 @@ class SystemCallRecordingAddPlatformRequest extends ComplexType implements Compl
      */
     public function getDescription()
     {
-        return ($this->description) ? $this->description->getValue() : null;
+        return ($this->description)
+            ? $this->description->getElementValue()
+            : null;
     }
 }

@@ -19,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class CallCenterRoutingPriorityOrder extends ComplexType implements ComplexInterface
 {
-    public    $name = 'CallCenterRoutingPriorityOrder';
+    public    $elementName = 'CallCenterRoutingPriorityOrder';
     protected $serviceUserId;
     protected $priority;
 
@@ -45,7 +45,7 @@ class CallCenterRoutingPriorityOrder extends ComplexType implements ComplexInter
     public function setServiceUserId($serviceUserId = null)
     {
         $this->serviceUserId = new SimpleContent($serviceUserId);
-        $this->serviceUserId->setName('serviceUserId');
+        $this->serviceUserId->setElementName('serviceUserId');
         return $this;
     }
 
@@ -55,7 +55,9 @@ class CallCenterRoutingPriorityOrder extends ComplexType implements ComplexInter
      */
     public function getServiceUserId()
     {
-        return ($this->serviceUserId) ? $this->serviceUserId->getValue() : null;
+        return ($this->serviceUserId)
+            ? $this->serviceUserId->getElementValue()
+            : null;
     }
 
     /**
@@ -64,7 +66,7 @@ class CallCenterRoutingPriorityOrder extends ComplexType implements ComplexInter
     public function setPriority($priority = null)
     {
         $this->priority = new SimpleContent($priority);
-        $this->priority->setName('priority');
+        $this->priority->setElementName('priority');
         return $this;
     }
 
@@ -74,6 +76,8 @@ class CallCenterRoutingPriorityOrder extends ComplexType implements ComplexInter
      */
     public function getPriority()
     {
-        return ($this->priority) ? $this->priority->getValue() : null;
+        return ($this->priority)
+            ? $this->priority->getElementValue()
+            : null;
     }
 }

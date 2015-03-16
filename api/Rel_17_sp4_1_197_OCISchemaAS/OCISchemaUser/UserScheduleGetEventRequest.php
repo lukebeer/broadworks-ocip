@@ -23,7 +23,7 @@ use Broadworks_OCIP\core\Client\Client;
 class UserScheduleGetEventRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser\UserScheduleGetEventResponse';
-    public    $name = 'UserScheduleGetEventRequest';
+    public    $elementName = 'UserScheduleGetEventRequest';
     protected $userId;
     protected $scheduleKey;
     protected $eventName;
@@ -54,7 +54,7 @@ class UserScheduleGetEventRequest extends ComplexType implements ComplexInterfac
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
-        $this->userId->setName('userId');
+        $this->userId->setElementName('userId');
         return $this;
     }
 
@@ -64,7 +64,9 @@ class UserScheduleGetEventRequest extends ComplexType implements ComplexInterfac
      */
     public function getUserId()
     {
-        return ($this->userId) ? $this->userId->getValue() : null;
+        return ($this->userId)
+            ? $this->userId->getElementValue()
+            : null;
     }
 
     /**
@@ -75,7 +77,7 @@ class UserScheduleGetEventRequest extends ComplexType implements ComplexInterfac
         $this->scheduleKey = ($scheduleKey InstanceOf ScheduleKey)
              ? $scheduleKey
              : new ScheduleKey($scheduleKey);
-        $this->scheduleKey->setName('scheduleKey');
+        $this->scheduleKey->setElementName('scheduleKey');
         return $this;
     }
 
@@ -96,7 +98,7 @@ class UserScheduleGetEventRequest extends ComplexType implements ComplexInterfac
         $this->eventName = ($eventName InstanceOf EventName)
              ? $eventName
              : new EventName($eventName);
-        $this->eventName->setName('eventName');
+        $this->eventName->setElementName('eventName');
         return $this;
     }
 
@@ -106,6 +108,8 @@ class UserScheduleGetEventRequest extends ComplexType implements ComplexInterfac
      */
     public function getEventName()
     {
-        return ($this->eventName) ? $this->eventName->getValue() : null;
+        return ($this->eventName)
+            ? $this->eventName->getElementValue()
+            : null;
     }
 }

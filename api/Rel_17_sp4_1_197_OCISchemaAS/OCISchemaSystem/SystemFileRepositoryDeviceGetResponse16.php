@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemFileRepositoryDeviceGetResponse16 extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemFileRepositoryDeviceGetResponse16';
+    public    $elementName = 'SystemFileRepositoryDeviceGetResponse16';
     protected $rootDirectory;
     protected $port;
 
@@ -40,7 +40,7 @@ class SystemFileRepositoryDeviceGetResponse16 extends ComplexType implements Com
         $this->rootDirectory = ($rootDirectory InstanceOf CPEFileDirectory)
              ? $rootDirectory
              : new CPEFileDirectory($rootDirectory);
-        $this->rootDirectory->setName('rootDirectory');
+        $this->rootDirectory->setElementName('rootDirectory');
         return $this;
     }
 
@@ -50,7 +50,9 @@ class SystemFileRepositoryDeviceGetResponse16 extends ComplexType implements Com
      */
     public function getRootDirectory()
     {
-        return ($this->rootDirectory) ? $this->rootDirectory->getValue() : null;
+        return ($this->rootDirectory)
+            ? $this->rootDirectory->getElementValue()
+            : null;
     }
 
     /**
@@ -61,7 +63,7 @@ class SystemFileRepositoryDeviceGetResponse16 extends ComplexType implements Com
         $this->port = ($port InstanceOf Port)
              ? $port
              : new Port($port);
-        $this->port->setName('port');
+        $this->port->setElementName('port');
         return $this;
     }
 
@@ -71,6 +73,8 @@ class SystemFileRepositoryDeviceGetResponse16 extends ComplexType implements Com
      */
     public function getPort()
     {
-        return ($this->port) ? $this->port->getValue() : null;
+        return ($this->port)
+            ? $this->port->getElementValue()
+            : null;
     }
 }

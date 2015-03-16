@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupCallRecordingGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'GroupCallRecordingGetResponse';
+    public    $elementName = 'GroupCallRecordingGetResponse';
     protected $name;
 
     /**
@@ -39,7 +39,7 @@ class GroupCallRecordingGetResponse extends ComplexType implements ComplexInterf
         $this->name = ($name InstanceOf CallRecordingPlatformName)
              ? $name
              : new CallRecordingPlatformName($name);
-        $this->name->setName('name');
+        $this->name->setElementName('name');
         return $this;
     }
 
@@ -49,6 +49,8 @@ class GroupCallRecordingGetResponse extends ComplexType implements ComplexInterf
      */
     public function getName()
     {
-        return ($this->name) ? $this->name->getValue() : null;
+        return ($this->name)
+            ? $this->name->getElementValue()
+            : null;
     }
 }

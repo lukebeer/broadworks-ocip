@@ -23,7 +23,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserMaliciousCallTraceModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'UserMaliciousCallTraceModifyRequest';
+    public    $elementName = 'UserMaliciousCallTraceModifyRequest';
     protected $userId;
     protected $isActive;
     protected $traceTypeSelection;
@@ -60,7 +60,7 @@ class UserMaliciousCallTraceModifyRequest extends ComplexType implements Complex
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
-        $this->userId->setName('userId');
+        $this->userId->setElementName('userId');
         return $this;
     }
 
@@ -70,7 +70,9 @@ class UserMaliciousCallTraceModifyRequest extends ComplexType implements Complex
      */
     public function getUserId()
     {
-        return ($this->userId) ? $this->userId->getValue() : null;
+        return ($this->userId)
+            ? $this->userId->getElementValue()
+            : null;
     }
 
     /**
@@ -79,7 +81,7 @@ class UserMaliciousCallTraceModifyRequest extends ComplexType implements Complex
     public function setIsActive($isActive = null)
     {
         $this->isActive = new PrimitiveType($isActive);
-        $this->isActive->setName('isActive');
+        $this->isActive->setElementName('isActive');
         return $this;
     }
 
@@ -89,7 +91,9 @@ class UserMaliciousCallTraceModifyRequest extends ComplexType implements Complex
      */
     public function getIsActive()
     {
-        return ($this->isActive) ? $this->isActive->getValue() : null;
+        return ($this->isActive)
+            ? $this->isActive->getElementValue()
+            : null;
     }
 
     /**
@@ -100,7 +104,7 @@ class UserMaliciousCallTraceModifyRequest extends ComplexType implements Complex
         $this->traceTypeSelection = ($traceTypeSelection InstanceOf MaliciousCallTraceCallTypeSelection)
              ? $traceTypeSelection
              : new MaliciousCallTraceCallTypeSelection($traceTypeSelection);
-        $this->traceTypeSelection->setName('traceTypeSelection');
+        $this->traceTypeSelection->setElementName('traceTypeSelection');
         return $this;
     }
 
@@ -110,7 +114,9 @@ class UserMaliciousCallTraceModifyRequest extends ComplexType implements Complex
      */
     public function getTraceTypeSelection()
     {
-        return ($this->traceTypeSelection) ? $this->traceTypeSelection->getValue() : null;
+        return ($this->traceTypeSelection)
+            ? $this->traceTypeSelection->getElementValue()
+            : null;
     }
 
     /**
@@ -119,7 +125,7 @@ class UserMaliciousCallTraceModifyRequest extends ComplexType implements Complex
     public function setTraceForTimePeriod($traceForTimePeriod = null)
     {
         $this->traceForTimePeriod = new PrimitiveType($traceForTimePeriod);
-        $this->traceForTimePeriod->setName('traceForTimePeriod');
+        $this->traceForTimePeriod->setElementName('traceForTimePeriod');
         return $this;
     }
 
@@ -129,7 +135,9 @@ class UserMaliciousCallTraceModifyRequest extends ComplexType implements Complex
      */
     public function getTraceForTimePeriod()
     {
-        return ($this->traceForTimePeriod) ? $this->traceForTimePeriod->getValue() : null;
+        return ($this->traceForTimePeriod)
+            ? $this->traceForTimePeriod->getElementValue()
+            : null;
     }
 
     /**
@@ -140,7 +148,7 @@ class UserMaliciousCallTraceModifyRequest extends ComplexType implements Complex
         $this->traceTimePeriod = ($traceTimePeriod InstanceOf MaliciousCallTraceTimePeriod)
              ? $traceTimePeriod
              : new MaliciousCallTraceTimePeriod($traceTimePeriod);
-        $this->traceTimePeriod->setName('traceTimePeriod');
+        $this->traceTimePeriod->setElementName('traceTimePeriod');
         return $this;
     }
 

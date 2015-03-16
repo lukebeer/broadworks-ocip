@@ -19,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class FileRepositoryProtocolFTP16 extends ComplexType implements ComplexInterface
 {
-    public    $name = 'FileRepositoryProtocolFTP16';
+    public    $elementName = 'FileRepositoryProtocolFTP16';
     protected $ftpPassive;
     protected $netAddress;
     protected $ftpRemoteVerification;
@@ -48,7 +48,7 @@ class FileRepositoryProtocolFTP16 extends ComplexType implements ComplexInterfac
     public function setFtpPassive($ftpPassive = null)
     {
         $this->ftpPassive = new SimpleContent($ftpPassive);
-        $this->ftpPassive->setName('ftpPassive');
+        $this->ftpPassive->setElementName('ftpPassive');
         return $this;
     }
 
@@ -58,7 +58,9 @@ class FileRepositoryProtocolFTP16 extends ComplexType implements ComplexInterfac
      */
     public function getFtpPassive()
     {
-        return ($this->ftpPassive) ? $this->ftpPassive->getValue() : null;
+        return ($this->ftpPassive)
+            ? $this->ftpPassive->getElementValue()
+            : null;
     }
 
     /**
@@ -67,7 +69,7 @@ class FileRepositoryProtocolFTP16 extends ComplexType implements ComplexInterfac
     public function setNetAddress($netAddress = null)
     {
         $this->netAddress = new SimpleContent($netAddress);
-        $this->netAddress->setName('netAddress');
+        $this->netAddress->setElementName('netAddress');
         return $this;
     }
 
@@ -77,7 +79,9 @@ class FileRepositoryProtocolFTP16 extends ComplexType implements ComplexInterfac
      */
     public function getNetAddress()
     {
-        return ($this->netAddress) ? $this->netAddress->getValue() : null;
+        return ($this->netAddress)
+            ? $this->netAddress->getElementValue()
+            : null;
     }
 
     /**
@@ -86,7 +90,7 @@ class FileRepositoryProtocolFTP16 extends ComplexType implements ComplexInterfac
     public function setFtpRemoteVerification($ftpRemoteVerification = null)
     {
         $this->ftpRemoteVerification = new SimpleContent($ftpRemoteVerification);
-        $this->ftpRemoteVerification->setName('ftpRemoteVerification');
+        $this->ftpRemoteVerification->setElementName('ftpRemoteVerification');
         return $this;
     }
 
@@ -96,6 +100,8 @@ class FileRepositoryProtocolFTP16 extends ComplexType implements ComplexInterfac
      */
     public function getFtpRemoteVerification()
     {
-        return ($this->ftpRemoteVerification) ? $this->ftpRemoteVerification->getValue() : null;
+        return ($this->ftpRemoteVerification)
+            ? $this->ftpRemoteVerification->getElementValue()
+            : null;
     }
 }

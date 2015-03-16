@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderDialPlanPolicyGetAccessCodeResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'ServiceProviderDialPlanPolicyGetAccessCodeResponse';
+    public    $elementName = 'ServiceProviderDialPlanPolicyGetAccessCodeResponse';
     protected $includeCodeForNetworkTranslationsAndRouting;
     protected $includeCodeForScreeningServices;
     protected $enableSecondaryDialTone;
@@ -40,7 +40,7 @@ class ServiceProviderDialPlanPolicyGetAccessCodeResponse extends ComplexType imp
     public function setIncludeCodeForNetworkTranslationsAndRouting($includeCodeForNetworkTranslationsAndRouting = null)
     {
         $this->includeCodeForNetworkTranslationsAndRouting = new PrimitiveType($includeCodeForNetworkTranslationsAndRouting);
-        $this->includeCodeForNetworkTranslationsAndRouting->setName('includeCodeForNetworkTranslationsAndRouting');
+        $this->includeCodeForNetworkTranslationsAndRouting->setElementName('includeCodeForNetworkTranslationsAndRouting');
         return $this;
     }
 
@@ -50,7 +50,9 @@ class ServiceProviderDialPlanPolicyGetAccessCodeResponse extends ComplexType imp
      */
     public function getIncludeCodeForNetworkTranslationsAndRouting()
     {
-        return ($this->includeCodeForNetworkTranslationsAndRouting) ? $this->includeCodeForNetworkTranslationsAndRouting->getValue() : null;
+        return ($this->includeCodeForNetworkTranslationsAndRouting)
+            ? $this->includeCodeForNetworkTranslationsAndRouting->getElementValue()
+            : null;
     }
 
     /**
@@ -59,7 +61,7 @@ class ServiceProviderDialPlanPolicyGetAccessCodeResponse extends ComplexType imp
     public function setIncludeCodeForScreeningServices($includeCodeForScreeningServices = null)
     {
         $this->includeCodeForScreeningServices = new PrimitiveType($includeCodeForScreeningServices);
-        $this->includeCodeForScreeningServices->setName('includeCodeForScreeningServices');
+        $this->includeCodeForScreeningServices->setElementName('includeCodeForScreeningServices');
         return $this;
     }
 
@@ -69,7 +71,9 @@ class ServiceProviderDialPlanPolicyGetAccessCodeResponse extends ComplexType imp
      */
     public function getIncludeCodeForScreeningServices()
     {
-        return ($this->includeCodeForScreeningServices) ? $this->includeCodeForScreeningServices->getValue() : null;
+        return ($this->includeCodeForScreeningServices)
+            ? $this->includeCodeForScreeningServices->getElementValue()
+            : null;
     }
 
     /**
@@ -78,7 +82,7 @@ class ServiceProviderDialPlanPolicyGetAccessCodeResponse extends ComplexType imp
     public function setEnableSecondaryDialTone($enableSecondaryDialTone = null)
     {
         $this->enableSecondaryDialTone = new PrimitiveType($enableSecondaryDialTone);
-        $this->enableSecondaryDialTone->setName('enableSecondaryDialTone');
+        $this->enableSecondaryDialTone->setElementName('enableSecondaryDialTone');
         return $this;
     }
 
@@ -88,7 +92,9 @@ class ServiceProviderDialPlanPolicyGetAccessCodeResponse extends ComplexType imp
      */
     public function getEnableSecondaryDialTone()
     {
-        return ($this->enableSecondaryDialTone) ? $this->enableSecondaryDialTone->getValue() : null;
+        return ($this->enableSecondaryDialTone)
+            ? $this->enableSecondaryDialTone->getElementValue()
+            : null;
     }
 
     /**
@@ -99,7 +105,7 @@ class ServiceProviderDialPlanPolicyGetAccessCodeResponse extends ComplexType imp
         $this->description = ($description InstanceOf DialPlanAccessCodeDescription)
              ? $description
              : new DialPlanAccessCodeDescription($description);
-        $this->description->setName('description');
+        $this->description->setElementName('description');
         return $this;
     }
 
@@ -109,6 +115,8 @@ class ServiceProviderDialPlanPolicyGetAccessCodeResponse extends ComplexType imp
      */
     public function getDescription()
     {
-        return ($this->description) ? $this->description->getValue() : null;
+        return ($this->description)
+            ? $this->description->getElementValue()
+            : null;
     }
 }

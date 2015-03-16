@@ -19,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SuccessResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SuccessResponse';
+    public    $elementName = 'SuccessResponse';
 
     /**
      * @return \Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaBASE\SuccessResponse $response

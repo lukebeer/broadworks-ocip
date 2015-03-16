@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserCallCenterDeleteSupervisedAgentListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'UserCallCenterDeleteSupervisedAgentListRequest';
+    public    $elementName = 'UserCallCenterDeleteSupervisedAgentListRequest';
     protected $supervisorUserId;
     protected $serviceUserId;
     protected $agentUserId;
@@ -51,7 +51,7 @@ class UserCallCenterDeleteSupervisedAgentListRequest extends ComplexType impleme
         $this->supervisorUserId = ($supervisorUserId InstanceOf UserId)
              ? $supervisorUserId
              : new UserId($supervisorUserId);
-        $this->supervisorUserId->setName('supervisorUserId');
+        $this->supervisorUserId->setElementName('supervisorUserId');
         return $this;
     }
 
@@ -61,7 +61,9 @@ class UserCallCenterDeleteSupervisedAgentListRequest extends ComplexType impleme
      */
     public function getSupervisorUserId()
     {
-        return ($this->supervisorUserId) ? $this->supervisorUserId->getValue() : null;
+        return ($this->supervisorUserId)
+            ? $this->supervisorUserId->getElementValue()
+            : null;
     }
 
     /**
@@ -72,7 +74,7 @@ class UserCallCenterDeleteSupervisedAgentListRequest extends ComplexType impleme
         $this->serviceUserId = ($serviceUserId InstanceOf UserId)
              ? $serviceUserId
              : new UserId($serviceUserId);
-        $this->serviceUserId->setName('serviceUserId');
+        $this->serviceUserId->setElementName('serviceUserId');
         return $this;
     }
 
@@ -82,7 +84,9 @@ class UserCallCenterDeleteSupervisedAgentListRequest extends ComplexType impleme
      */
     public function getServiceUserId()
     {
-        return ($this->serviceUserId) ? $this->serviceUserId->getValue() : null;
+        return ($this->serviceUserId)
+            ? $this->serviceUserId->getElementValue()
+            : null;
     }
 
     /**
@@ -93,7 +97,7 @@ class UserCallCenterDeleteSupervisedAgentListRequest extends ComplexType impleme
         $this->agentUserId = ($agentUserId InstanceOf UserId)
              ? $agentUserId
              : new UserId($agentUserId);
-        $this->agentUserId->setName('agentUserId');
+        $this->agentUserId->setElementName('agentUserId');
         return $this;
     }
 
@@ -103,6 +107,8 @@ class UserCallCenterDeleteSupervisedAgentListRequest extends ComplexType impleme
      */
     public function getAgentUserId()
     {
-        return ($this->agentUserId) ? $this->agentUserId->getValue() : null;
+        return ($this->agentUserId)
+            ? $this->agentUserId->getElementValue()
+            : null;
     }
 }

@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemApplicationServerSetDeleteRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemApplicationServerSetDeleteRequest';
+    public    $elementName = 'SystemApplicationServerSetDeleteRequest';
     protected $name;
 
     public function __construct(
@@ -45,7 +45,7 @@ class SystemApplicationServerSetDeleteRequest extends ComplexType implements Com
         $this->name = ($name InstanceOf ApplicationServerSetName)
              ? $name
              : new ApplicationServerSetName($name);
-        $this->name->setName('name');
+        $this->name->setElementName('name');
         return $this;
     }
 
@@ -55,6 +55,8 @@ class SystemApplicationServerSetDeleteRequest extends ComplexType implements Com
      */
     public function getName()
     {
-        return ($this->name) ? $this->name->getValue() : null;
+        return ($this->name)
+            ? $this->name->getElementValue()
+            : null;
     }
 }

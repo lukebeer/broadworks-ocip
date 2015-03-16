@@ -26,7 +26,7 @@ use Broadworks_OCIP\core\Client\Client;
 class GroupTrunkGroupGetInstanceUserListRequest14sp4 extends ComplexType implements ComplexInterface
 {
     public    $responseType                      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceTrunkGroup\GroupTrunkGroupGetInstanceUserListResponse14sp4';
-    public    $name = 'GroupTrunkGroupGetInstanceUserListRequest14sp4';
+    public    $elementName = 'GroupTrunkGroupGetInstanceUserListRequest14sp4';
     protected $trunkGroupKey;
     protected $responseSizeLimit;
     protected $searchCriteriaUserLastName;
@@ -66,7 +66,7 @@ class GroupTrunkGroupGetInstanceUserListRequest14sp4 extends ComplexType impleme
         $this->trunkGroupKey = ($trunkGroupKey InstanceOf TrunkGroupKey)
              ? $trunkGroupKey
              : new TrunkGroupKey($trunkGroupKey);
-        $this->trunkGroupKey->setName('trunkGroupKey');
+        $this->trunkGroupKey->setElementName('trunkGroupKey');
         return $this;
     }
 
@@ -87,7 +87,7 @@ class GroupTrunkGroupGetInstanceUserListRequest14sp4 extends ComplexType impleme
         $this->responseSizeLimit = ($responseSizeLimit InstanceOf ResponseSizeLimit)
              ? $responseSizeLimit
              : new ResponseSizeLimit($responseSizeLimit);
-        $this->responseSizeLimit->setName('responseSizeLimit');
+        $this->responseSizeLimit->setElementName('responseSizeLimit');
         return $this;
     }
 
@@ -97,7 +97,9 @@ class GroupTrunkGroupGetInstanceUserListRequest14sp4 extends ComplexType impleme
      */
     public function getResponseSizeLimit()
     {
-        return ($this->responseSizeLimit) ? $this->responseSizeLimit->getValue() : null;
+        return ($this->responseSizeLimit)
+            ? $this->responseSizeLimit->getElementValue()
+            : null;
     }
 
     /**
@@ -108,7 +110,7 @@ class GroupTrunkGroupGetInstanceUserListRequest14sp4 extends ComplexType impleme
         $this->searchCriteriaUserLastName = ($searchCriteriaUserLastName InstanceOf SearchCriteriaUserLastName)
              ? $searchCriteriaUserLastName
              : new SearchCriteriaUserLastName($searchCriteriaUserLastName);
-        $this->searchCriteriaUserLastName->setName('searchCriteriaUserLastName');
+        $this->searchCriteriaUserLastName->setElementName('searchCriteriaUserLastName');
         return $this;
     }
 
@@ -129,7 +131,7 @@ class GroupTrunkGroupGetInstanceUserListRequest14sp4 extends ComplexType impleme
         $this->searchCriteriaUserFirstName = ($searchCriteriaUserFirstName InstanceOf SearchCriteriaUserFirstName)
              ? $searchCriteriaUserFirstName
              : new SearchCriteriaUserFirstName($searchCriteriaUserFirstName);
-        $this->searchCriteriaUserFirstName->setName('searchCriteriaUserFirstName');
+        $this->searchCriteriaUserFirstName->setElementName('searchCriteriaUserFirstName');
         return $this;
     }
 
@@ -150,7 +152,7 @@ class GroupTrunkGroupGetInstanceUserListRequest14sp4 extends ComplexType impleme
         $this->searchCriteriaDn = ($searchCriteriaDn InstanceOf SearchCriteriaDn)
              ? $searchCriteriaDn
              : new SearchCriteriaDn($searchCriteriaDn);
-        $this->searchCriteriaDn->setName('searchCriteriaDn');
+        $this->searchCriteriaDn->setElementName('searchCriteriaDn');
         return $this;
     }
 
@@ -171,7 +173,7 @@ class GroupTrunkGroupGetInstanceUserListRequest14sp4 extends ComplexType impleme
         $this->searchCriteriaExactUserDepartment = ($searchCriteriaExactUserDepartment InstanceOf SearchCriteriaExactUserDepartment)
              ? $searchCriteriaExactUserDepartment
              : new SearchCriteriaExactUserDepartment($searchCriteriaExactUserDepartment);
-        $this->searchCriteriaExactUserDepartment->setName('searchCriteriaExactUserDepartment');
+        $this->searchCriteriaExactUserDepartment->setElementName('searchCriteriaExactUserDepartment');
         return $this;
     }
 

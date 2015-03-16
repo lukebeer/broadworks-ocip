@@ -25,7 +25,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemFileRepositoryDeviceModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemFileRepositoryDeviceModifyRequest';
+    public    $elementName = 'SystemFileRepositoryDeviceModifyRequest';
     protected $name;
     protected $rootDirectory;
     protected $secure;
@@ -71,7 +71,7 @@ class SystemFileRepositoryDeviceModifyRequest extends ComplexType implements Com
         $this->name = ($name InstanceOf FileRepositoryName)
              ? $name
              : new FileRepositoryName($name);
-        $this->name->setName('name');
+        $this->name->setElementName('name');
         return $this;
     }
 
@@ -81,7 +81,9 @@ class SystemFileRepositoryDeviceModifyRequest extends ComplexType implements Com
      */
     public function getName()
     {
-        return ($this->name) ? $this->name->getValue() : null;
+        return ($this->name)
+            ? $this->name->getElementValue()
+            : null;
     }
 
     /**
@@ -92,7 +94,7 @@ class SystemFileRepositoryDeviceModifyRequest extends ComplexType implements Com
         $this->rootDirectory = ($rootDirectory InstanceOf CPEFileDirectory)
              ? $rootDirectory
              : new CPEFileDirectory($rootDirectory);
-        $this->rootDirectory->setName('rootDirectory');
+        $this->rootDirectory->setElementName('rootDirectory');
         return $this;
     }
 
@@ -102,7 +104,9 @@ class SystemFileRepositoryDeviceModifyRequest extends ComplexType implements Com
      */
     public function getRootDirectory()
     {
-        return ($this->rootDirectory) ? $this->rootDirectory->getValue() : null;
+        return ($this->rootDirectory)
+            ? $this->rootDirectory->getElementValue()
+            : null;
     }
 
     /**
@@ -111,7 +115,7 @@ class SystemFileRepositoryDeviceModifyRequest extends ComplexType implements Com
     public function setSecure($secure = null)
     {
         $this->secure = new PrimitiveType($secure);
-        $this->secure->setName('secure');
+        $this->secure->setElementName('secure');
         return $this;
     }
 
@@ -121,7 +125,9 @@ class SystemFileRepositoryDeviceModifyRequest extends ComplexType implements Com
      */
     public function getSecure()
     {
-        return ($this->secure) ? $this->secure->getValue() : null;
+        return ($this->secure)
+            ? $this->secure->getElementValue()
+            : null;
     }
 
     /**
@@ -132,7 +138,7 @@ class SystemFileRepositoryDeviceModifyRequest extends ComplexType implements Com
         $this->netAddress = ($netAddress InstanceOf NetAddress)
              ? $netAddress
              : new NetAddress($netAddress);
-        $this->netAddress->setName('netAddress');
+        $this->netAddress->setElementName('netAddress');
         return $this;
     }
 
@@ -142,7 +148,9 @@ class SystemFileRepositoryDeviceModifyRequest extends ComplexType implements Com
      */
     public function getNetAddress()
     {
-        return ($this->netAddress) ? $this->netAddress->getValue() : null;
+        return ($this->netAddress)
+            ? $this->netAddress->getElementValue()
+            : null;
     }
 
     /**
@@ -151,7 +159,7 @@ class SystemFileRepositoryDeviceModifyRequest extends ComplexType implements Com
     public function setFtpPassive($ftpPassive = null)
     {
         $this->ftpPassive = new PrimitiveType($ftpPassive);
-        $this->ftpPassive->setName('ftpPassive');
+        $this->ftpPassive->setElementName('ftpPassive');
         return $this;
     }
 
@@ -161,7 +169,9 @@ class SystemFileRepositoryDeviceModifyRequest extends ComplexType implements Com
      */
     public function getFtpPassive()
     {
-        return ($this->ftpPassive) ? $this->ftpPassive->getValue() : null;
+        return ($this->ftpPassive)
+            ? $this->ftpPassive->getElementValue()
+            : null;
     }
 
     /**
@@ -172,7 +182,7 @@ class SystemFileRepositoryDeviceModifyRequest extends ComplexType implements Com
         $this->protocol = ($protocol InstanceOf FileRepositoryProtocol)
              ? $protocol
              : new FileRepositoryProtocol($protocol);
-        $this->protocol->setName('protocol');
+        $this->protocol->setElementName('protocol');
         return $this;
     }
 
@@ -182,7 +192,9 @@ class SystemFileRepositoryDeviceModifyRequest extends ComplexType implements Com
      */
     public function getProtocol()
     {
-        return ($this->protocol) ? $this->protocol->getValue() : null;
+        return ($this->protocol)
+            ? $this->protocol->getElementValue()
+            : null;
     }
 
     /**
@@ -193,7 +205,7 @@ class SystemFileRepositoryDeviceModifyRequest extends ComplexType implements Com
         $this->port = ($port InstanceOf Port)
              ? $port
              : new Port($port);
-        $this->port->setName('port');
+        $this->port->setElementName('port');
         return $this;
     }
 
@@ -203,7 +215,9 @@ class SystemFileRepositoryDeviceModifyRequest extends ComplexType implements Com
      */
     public function getPort()
     {
-        return ($this->port) ? $this->port->getValue() : null;
+        return ($this->port)
+            ? $this->port->getElementValue()
+            : null;
     }
 
     /**
@@ -212,7 +226,7 @@ class SystemFileRepositoryDeviceModifyRequest extends ComplexType implements Com
     public function setFtpRemoteVerification($ftpRemoteVerification = null)
     {
         $this->ftpRemoteVerification = new PrimitiveType($ftpRemoteVerification);
-        $this->ftpRemoteVerification->setName('ftpRemoteVerification');
+        $this->ftpRemoteVerification->setElementName('ftpRemoteVerification');
         return $this;
     }
 
@@ -222,6 +236,8 @@ class SystemFileRepositoryDeviceModifyRequest extends ComplexType implements Com
      */
     public function getFtpRemoteVerification()
     {
-        return ($this->ftpRemoteVerification) ? $this->ftpRemoteVerification->getValue() : null;
+        return ($this->ftpRemoteVerification)
+            ? $this->ftpRemoteVerification->getElementValue()
+            : null;
     }
 }

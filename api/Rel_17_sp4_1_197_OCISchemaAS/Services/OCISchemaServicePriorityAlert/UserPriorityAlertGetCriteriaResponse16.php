@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserPriorityAlertGetCriteriaResponse16 extends ComplexType implements ComplexInterface
 {
-    public    $name = 'UserPriorityAlertGetCriteriaResponse16';
+    public    $elementName = 'UserPriorityAlertGetCriteriaResponse16';
     protected $timeSchedule;
     protected $holidaySchedule;
     protected $blacklisted;
@@ -44,7 +44,7 @@ class UserPriorityAlertGetCriteriaResponse16 extends ComplexType implements Comp
         $this->timeSchedule = ($timeSchedule InstanceOf TimeSchedule)
              ? $timeSchedule
              : new TimeSchedule($timeSchedule);
-        $this->timeSchedule->setName('timeSchedule');
+        $this->timeSchedule->setElementName('timeSchedule');
         return $this;
     }
 
@@ -65,7 +65,7 @@ class UserPriorityAlertGetCriteriaResponse16 extends ComplexType implements Comp
         $this->holidaySchedule = ($holidaySchedule InstanceOf HolidaySchedule)
              ? $holidaySchedule
              : new HolidaySchedule($holidaySchedule);
-        $this->holidaySchedule->setName('holidaySchedule');
+        $this->holidaySchedule->setElementName('holidaySchedule');
         return $this;
     }
 
@@ -84,7 +84,7 @@ class UserPriorityAlertGetCriteriaResponse16 extends ComplexType implements Comp
     public function setBlacklisted($blacklisted = null)
     {
         $this->blacklisted = new PrimitiveType($blacklisted);
-        $this->blacklisted->setName('blacklisted');
+        $this->blacklisted->setElementName('blacklisted');
         return $this;
     }
 
@@ -94,7 +94,9 @@ class UserPriorityAlertGetCriteriaResponse16 extends ComplexType implements Comp
      */
     public function getBlacklisted()
     {
-        return ($this->blacklisted) ? $this->blacklisted->getValue() : null;
+        return ($this->blacklisted)
+            ? $this->blacklisted->getElementValue()
+            : null;
     }
 
     /**
@@ -105,7 +107,7 @@ class UserPriorityAlertGetCriteriaResponse16 extends ComplexType implements Comp
         $this->fromDnCriteria = ($fromDnCriteria InstanceOf PriorityAlertCriteriaFromDn)
              ? $fromDnCriteria
              : new PriorityAlertCriteriaFromDn($fromDnCriteria);
-        $this->fromDnCriteria->setName('fromDnCriteria');
+        $this->fromDnCriteria->setElementName('fromDnCriteria');
         return $this;
     }
 

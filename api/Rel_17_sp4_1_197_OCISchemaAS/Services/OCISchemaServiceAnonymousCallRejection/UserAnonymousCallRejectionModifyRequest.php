@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserAnonymousCallRejectionModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'UserAnonymousCallRejectionModifyRequest';
+    public    $elementName = 'UserAnonymousCallRejectionModifyRequest';
     protected $userId;
     protected $isActive;
 
@@ -49,7 +49,7 @@ class UserAnonymousCallRejectionModifyRequest extends ComplexType implements Com
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
-        $this->userId->setName('userId');
+        $this->userId->setElementName('userId');
         return $this;
     }
 
@@ -59,7 +59,9 @@ class UserAnonymousCallRejectionModifyRequest extends ComplexType implements Com
      */
     public function getUserId()
     {
-        return ($this->userId) ? $this->userId->getValue() : null;
+        return ($this->userId)
+            ? $this->userId->getElementValue()
+            : null;
     }
 
     /**
@@ -68,7 +70,7 @@ class UserAnonymousCallRejectionModifyRequest extends ComplexType implements Com
     public function setIsActive($isActive = null)
     {
         $this->isActive = new PrimitiveType($isActive);
-        $this->isActive->setName('isActive');
+        $this->isActive->setElementName('isActive');
         return $this;
     }
 
@@ -78,6 +80,8 @@ class UserAnonymousCallRejectionModifyRequest extends ComplexType implements Com
      */
     public function getIsActive()
     {
-        return ($this->isActive) ? $this->isActive->getValue() : null;
+        return ($this->isActive)
+            ? $this->isActive->getElementValue()
+            : null;
     }
 }

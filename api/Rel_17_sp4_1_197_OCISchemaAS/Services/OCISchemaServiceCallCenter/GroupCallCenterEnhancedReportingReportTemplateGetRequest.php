@@ -23,7 +23,7 @@ use Broadworks_OCIP\core\Client\Client;
 class GroupCallCenterEnhancedReportingReportTemplateGetRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\GroupCallCenterEnhancedReportingReportTemplateGetResponse';
-    public    $name = 'GroupCallCenterEnhancedReportingReportTemplateGetRequest';
+    public    $elementName = 'GroupCallCenterEnhancedReportingReportTemplateGetRequest';
     protected $serviceProviderId;
     protected $groupId;
     protected $name;
@@ -54,7 +54,7 @@ class GroupCallCenterEnhancedReportingReportTemplateGetRequest extends ComplexTy
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
-        $this->serviceProviderId->setName('serviceProviderId');
+        $this->serviceProviderId->setElementName('serviceProviderId');
         return $this;
     }
 
@@ -64,7 +64,9 @@ class GroupCallCenterEnhancedReportingReportTemplateGetRequest extends ComplexTy
      */
     public function getServiceProviderId()
     {
-        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
+        return ($this->serviceProviderId)
+            ? $this->serviceProviderId->getElementValue()
+            : null;
     }
 
     /**
@@ -75,7 +77,7 @@ class GroupCallCenterEnhancedReportingReportTemplateGetRequest extends ComplexTy
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
-        $this->groupId->setName('groupId');
+        $this->groupId->setElementName('groupId');
         return $this;
     }
 
@@ -85,7 +87,9 @@ class GroupCallCenterEnhancedReportingReportTemplateGetRequest extends ComplexTy
      */
     public function getGroupId()
     {
-        return ($this->groupId) ? $this->groupId->getValue() : null;
+        return ($this->groupId)
+            ? $this->groupId->getElementValue()
+            : null;
     }
 
     /**
@@ -96,7 +100,7 @@ class GroupCallCenterEnhancedReportingReportTemplateGetRequest extends ComplexTy
         $this->name = ($name InstanceOf CallCenterReportTemplateName)
              ? $name
              : new CallCenterReportTemplateName($name);
-        $this->name->setName('name');
+        $this->name->setElementName('name');
         return $this;
     }
 
@@ -106,6 +110,8 @@ class GroupCallCenterEnhancedReportingReportTemplateGetRequest extends ComplexTy
      */
     public function getName()
     {
-        return ($this->name) ? $this->name->getValue() : null;
+        return ($this->name)
+            ? $this->name->getElementValue()
+            : null;
     }
 }

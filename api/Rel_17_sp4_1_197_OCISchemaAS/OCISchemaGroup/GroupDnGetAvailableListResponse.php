@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupDnGetAvailableListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'GroupDnGetAvailableListResponse';
+    public    $elementName = 'GroupDnGetAvailableListResponse';
     protected $phoneNumber;
 
     /**
@@ -40,7 +40,7 @@ class GroupDnGetAvailableListResponse extends ComplexType implements ComplexInte
         $this->phoneNumber = ($phoneNumber InstanceOf DN)
              ? $phoneNumber
              : new DN($phoneNumber);
-        $this->phoneNumber->setName('phoneNumber');
+        $this->phoneNumber->setElementName('phoneNumber');
         return $this;
     }
 
@@ -50,6 +50,8 @@ class GroupDnGetAvailableListResponse extends ComplexType implements ComplexInte
      */
     public function getPhoneNumber()
     {
-        return ($this->phoneNumber) ? $this->phoneNumber->getValue() : null;
+        return ($this->phoneNumber)
+            ? $this->phoneNumber->getElementValue()
+            : null;
     }
 }

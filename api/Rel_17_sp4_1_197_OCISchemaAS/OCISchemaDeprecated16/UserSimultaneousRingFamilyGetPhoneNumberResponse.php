@@ -19,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserSimultaneousRingFamilyGetPhoneNumberResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'UserSimultaneousRingFamilyGetPhoneNumberResponse';
+    public    $elementName = 'UserSimultaneousRingFamilyGetPhoneNumberResponse';
     protected $answerConfirmationRequired;
 
     /**
@@ -36,7 +36,7 @@ class UserSimultaneousRingFamilyGetPhoneNumberResponse extends ComplexType imple
     public function setAnswerConfirmationRequired($answerConfirmationRequired = null)
     {
         $this->answerConfirmationRequired = new PrimitiveType($answerConfirmationRequired);
-        $this->answerConfirmationRequired->setName('answerConfirmationRequired');
+        $this->answerConfirmationRequired->setElementName('answerConfirmationRequired');
         return $this;
     }
 
@@ -46,6 +46,8 @@ class UserSimultaneousRingFamilyGetPhoneNumberResponse extends ComplexType imple
      */
     public function getAnswerConfirmationRequired()
     {
-        return ($this->answerConfirmationRequired) ? $this->answerConfirmationRequired->getValue() : null;
+        return ($this->answerConfirmationRequired)
+            ? $this->answerConfirmationRequired->getElementValue()
+            : null;
     }
 }

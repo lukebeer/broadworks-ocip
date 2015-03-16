@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserAttendantConsoleDeleteUserListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'UserAttendantConsoleDeleteUserListRequest';
+    public    $elementName = 'UserAttendantConsoleDeleteUserListRequest';
     protected $userId;
     protected $monitoredUserId;
 
@@ -48,7 +48,7 @@ class UserAttendantConsoleDeleteUserListRequest extends ComplexType implements C
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
-        $this->userId->setName('userId');
+        $this->userId->setElementName('userId');
         return $this;
     }
 
@@ -58,7 +58,9 @@ class UserAttendantConsoleDeleteUserListRequest extends ComplexType implements C
      */
     public function getUserId()
     {
-        return ($this->userId) ? $this->userId->getValue() : null;
+        return ($this->userId)
+            ? $this->userId->getElementValue()
+            : null;
     }
 
     /**
@@ -69,7 +71,7 @@ class UserAttendantConsoleDeleteUserListRequest extends ComplexType implements C
         $this->monitoredUserId = ($monitoredUserId InstanceOf UserId)
              ? $monitoredUserId
              : new UserId($monitoredUserId);
-        $this->monitoredUserId->setName('monitoredUserId');
+        $this->monitoredUserId->setElementName('monitoredUserId');
         return $this;
     }
 
@@ -79,6 +81,8 @@ class UserAttendantConsoleDeleteUserListRequest extends ComplexType implements C
      */
     public function getMonitoredUserId()
     {
-        return ($this->monitoredUserId) ? $this->monitoredUserId->getValue() : null;
+        return ($this->monitoredUserId)
+            ? $this->monitoredUserId->getElementValue()
+            : null;
     }
 }

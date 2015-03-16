@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
 class SystemEmergencyZonesGetRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceEmergencyZones\SystemEmergencyZonesGetResponse';
-    public    $name = 'SystemEmergencyZonesGetRequest';
+    public    $elementName = 'SystemEmergencyZonesGetRequest';
 
     public function __construct(    ) {
     }

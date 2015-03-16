@@ -19,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class MeetMeConferencingConferenceRecordingKey extends ComplexType implements ComplexInterface
 {
-    public    $name = 'MeetMeConferencingConferenceRecordingKey';
+    public    $elementName = 'MeetMeConferencingConferenceRecordingKey';
     protected $bridgeId;
     protected $conferenceId;
     protected $startTime;
@@ -48,7 +48,7 @@ class MeetMeConferencingConferenceRecordingKey extends ComplexType implements Co
     public function setBridgeId($bridgeId = null)
     {
         $this->bridgeId = new SimpleContent($bridgeId);
-        $this->bridgeId->setName('bridgeId');
+        $this->bridgeId->setElementName('bridgeId');
         return $this;
     }
 
@@ -58,7 +58,9 @@ class MeetMeConferencingConferenceRecordingKey extends ComplexType implements Co
      */
     public function getBridgeId()
     {
-        return ($this->bridgeId) ? $this->bridgeId->getValue() : null;
+        return ($this->bridgeId)
+            ? $this->bridgeId->getElementValue()
+            : null;
     }
 
     /**
@@ -67,7 +69,7 @@ class MeetMeConferencingConferenceRecordingKey extends ComplexType implements Co
     public function setConferenceId($conferenceId = null)
     {
         $this->conferenceId = new SimpleContent($conferenceId);
-        $this->conferenceId->setName('conferenceId');
+        $this->conferenceId->setElementName('conferenceId');
         return $this;
     }
 
@@ -77,7 +79,9 @@ class MeetMeConferencingConferenceRecordingKey extends ComplexType implements Co
      */
     public function getConferenceId()
     {
-        return ($this->conferenceId) ? $this->conferenceId->getValue() : null;
+        return ($this->conferenceId)
+            ? $this->conferenceId->getElementValue()
+            : null;
     }
 
     /**
@@ -86,7 +90,7 @@ class MeetMeConferencingConferenceRecordingKey extends ComplexType implements Co
     public function setStartTime($startTime = null)
     {
         $this->startTime = new SimpleContent($startTime);
-        $this->startTime->setName('startTime');
+        $this->startTime->setElementName('startTime');
         return $this;
     }
 
@@ -96,6 +100,8 @@ class MeetMeConferencingConferenceRecordingKey extends ComplexType implements Co
      */
     public function getStartTime()
     {
-        return ($this->startTime) ? $this->startTime->getValue() : null;
+        return ($this->startTime)
+            ? $this->startTime->getElementValue()
+            : null;
     }
 }

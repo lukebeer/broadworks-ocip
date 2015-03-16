@@ -33,7 +33,7 @@ use Broadworks_OCIP\core\Client\Client;
 class GroupEnhancedCallLogsGetListRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType                   = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceEnhancedCallLogs\GroupEnhancedCallLogsGetListResponse';
-    public    $name = 'GroupEnhancedCallLogsGetListRequest';
+    public    $elementName = 'GroupEnhancedCallLogsGetListRequest';
     protected $serviceProviderId;
     protected $groupId;
     protected $callLogType;
@@ -82,7 +82,7 @@ class GroupEnhancedCallLogsGetListRequest extends ComplexType implements Complex
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
-        $this->serviceProviderId->setName('serviceProviderId');
+        $this->serviceProviderId->setElementName('serviceProviderId');
         return $this;
     }
 
@@ -92,7 +92,9 @@ class GroupEnhancedCallLogsGetListRequest extends ComplexType implements Complex
      */
     public function getServiceProviderId()
     {
-        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
+        return ($this->serviceProviderId)
+            ? $this->serviceProviderId->getElementValue()
+            : null;
     }
 
     /**
@@ -103,7 +105,7 @@ class GroupEnhancedCallLogsGetListRequest extends ComplexType implements Complex
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
-        $this->groupId->setName('groupId');
+        $this->groupId->setElementName('groupId');
         return $this;
     }
 
@@ -113,7 +115,9 @@ class GroupEnhancedCallLogsGetListRequest extends ComplexType implements Complex
      */
     public function getGroupId()
     {
-        return ($this->groupId) ? $this->groupId->getValue() : null;
+        return ($this->groupId)
+            ? $this->groupId->getElementValue()
+            : null;
     }
 
     /**
@@ -124,7 +128,7 @@ class GroupEnhancedCallLogsGetListRequest extends ComplexType implements Complex
         $this->callLogType = ($callLogType InstanceOf EnhancedCallLogsCallLogsRequestType)
              ? $callLogType
              : new EnhancedCallLogsCallLogsRequestType($callLogType);
-        $this->callLogType->setName('callLogType');
+        $this->callLogType->setElementName('callLogType');
         return $this;
     }
 
@@ -134,7 +138,9 @@ class GroupEnhancedCallLogsGetListRequest extends ComplexType implements Complex
      */
     public function getCallLogType()
     {
-        return ($this->callLogType) ? $this->callLogType->getValue() : null;
+        return ($this->callLogType)
+            ? $this->callLogType->getElementValue()
+            : null;
     }
 
     /**
@@ -145,7 +151,7 @@ class GroupEnhancedCallLogsGetListRequest extends ComplexType implements Complex
         $this->dateTimeRange = ($dateTimeRange InstanceOf EnhancedCallLogsTimeRange)
              ? $dateTimeRange
              : new EnhancedCallLogsTimeRange($dateTimeRange);
-        $this->dateTimeRange->setName('dateTimeRange');
+        $this->dateTimeRange->setElementName('dateTimeRange');
         return $this;
     }
 
@@ -166,7 +172,7 @@ class GroupEnhancedCallLogsGetListRequest extends ComplexType implements Complex
         $this->numberFilter = ($numberFilter InstanceOf EnhancedCallLogsNumberFilter)
              ? $numberFilter
              : new EnhancedCallLogsNumberFilter($numberFilter);
-        $this->numberFilter->setName('numberFilter');
+        $this->numberFilter->setElementName('numberFilter');
         return $this;
     }
 
@@ -187,7 +193,7 @@ class GroupEnhancedCallLogsGetListRequest extends ComplexType implements Complex
         $this->redirectedNumberFilter = ($redirectedNumberFilter InstanceOf EnhancedCallLogsRedirectedNumberFilter)
              ? $redirectedNumberFilter
              : new EnhancedCallLogsRedirectedNumberFilter($redirectedNumberFilter);
-        $this->redirectedNumberFilter->setName('redirectedNumberFilter');
+        $this->redirectedNumberFilter->setElementName('redirectedNumberFilter');
         return $this;
     }
 
@@ -208,7 +214,7 @@ class GroupEnhancedCallLogsGetListRequest extends ComplexType implements Complex
         $this->accountAuthorizationCodeFilter = ($accountAuthorizationCodeFilter InstanceOf EnhancedCallLogsAccountAuthorizationCodeFilter)
              ? $accountAuthorizationCodeFilter
              : new EnhancedCallLogsAccountAuthorizationCodeFilter($accountAuthorizationCodeFilter);
-        $this->accountAuthorizationCodeFilter->setName('accountAuthorizationCodeFilter');
+        $this->accountAuthorizationCodeFilter->setElementName('accountAuthorizationCodeFilter');
         return $this;
     }
 
@@ -229,7 +235,7 @@ class GroupEnhancedCallLogsGetListRequest extends ComplexType implements Complex
         $this->subscriberType = ($subscriberType InstanceOf EnhancedCallLogsSubscriberType)
              ? $subscriberType
              : new EnhancedCallLogsSubscriberType($subscriberType);
-        $this->subscriberType->setName('subscriberType');
+        $this->subscriberType->setElementName('subscriberType');
         return $this;
     }
 
@@ -239,7 +245,9 @@ class GroupEnhancedCallLogsGetListRequest extends ComplexType implements Complex
      */
     public function getSubscriberType()
     {
-        return ($this->subscriberType) ? $this->subscriberType->getValue() : null;
+        return ($this->subscriberType)
+            ? $this->subscriberType->getElementValue()
+            : null;
     }
 
     /**
@@ -250,7 +258,7 @@ class GroupEnhancedCallLogsGetListRequest extends ComplexType implements Complex
         $this->responsePagingControl = ($responsePagingControl InstanceOf EnhancedCallLogsResponsePagingControl)
              ? $responsePagingControl
              : new EnhancedCallLogsResponsePagingControl($responsePagingControl);
-        $this->responsePagingControl->setName('responsePagingControl');
+        $this->responsePagingControl->setElementName('responsePagingControl');
         return $this;
     }
 

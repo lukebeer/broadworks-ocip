@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemSIPDeleteContentTypeRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemSIPDeleteContentTypeRequest';
+    public    $elementName = 'SystemSIPDeleteContentTypeRequest';
     protected $contentType;
 
     public function __construct(
@@ -45,7 +45,7 @@ class SystemSIPDeleteContentTypeRequest extends ComplexType implements ComplexIn
         $this->contentType = ($contentType InstanceOf SystemSIPContentType)
              ? $contentType
              : new SystemSIPContentType($contentType);
-        $this->contentType->setName('contentType');
+        $this->contentType->setElementName('contentType');
         return $this;
     }
 
@@ -55,6 +55,8 @@ class SystemSIPDeleteContentTypeRequest extends ComplexType implements ComplexIn
      */
     public function getContentType()
     {
-        return ($this->contentType) ? $this->contentType->getValue() : null;
+        return ($this->contentType)
+            ? $this->contentType->getElementValue()
+            : null;
     }
 }

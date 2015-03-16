@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemProvisioningValidationGetResponse14sp2 extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemProvisioningValidationGetResponse14sp2';
+    public    $elementName = 'SystemProvisioningValidationGetResponse14sp2';
     protected $isActive;
     protected $isNetworkServerQueryActive;
     protected $timeoutSeconds;
@@ -39,7 +39,7 @@ class SystemProvisioningValidationGetResponse14sp2 extends ComplexType implement
     public function setIsActive($isActive = null)
     {
         $this->isActive = new PrimitiveType($isActive);
-        $this->isActive->setName('isActive');
+        $this->isActive->setElementName('isActive');
         return $this;
     }
 
@@ -49,7 +49,9 @@ class SystemProvisioningValidationGetResponse14sp2 extends ComplexType implement
      */
     public function getIsActive()
     {
-        return ($this->isActive) ? $this->isActive->getValue() : null;
+        return ($this->isActive)
+            ? $this->isActive->getElementValue()
+            : null;
     }
 
     /**
@@ -58,7 +60,7 @@ class SystemProvisioningValidationGetResponse14sp2 extends ComplexType implement
     public function setIsNetworkServerQueryActive($isNetworkServerQueryActive = null)
     {
         $this->isNetworkServerQueryActive = new PrimitiveType($isNetworkServerQueryActive);
-        $this->isNetworkServerQueryActive->setName('isNetworkServerQueryActive');
+        $this->isNetworkServerQueryActive->setElementName('isNetworkServerQueryActive');
         return $this;
     }
 
@@ -68,7 +70,9 @@ class SystemProvisioningValidationGetResponse14sp2 extends ComplexType implement
      */
     public function getIsNetworkServerQueryActive()
     {
-        return ($this->isNetworkServerQueryActive) ? $this->isNetworkServerQueryActive->getValue() : null;
+        return ($this->isNetworkServerQueryActive)
+            ? $this->isNetworkServerQueryActive->getElementValue()
+            : null;
     }
 
     /**
@@ -79,7 +83,7 @@ class SystemProvisioningValidationGetResponse14sp2 extends ComplexType implement
         $this->timeoutSeconds = ($timeoutSeconds InstanceOf ProvisioningValidationTimeoutSeconds)
              ? $timeoutSeconds
              : new ProvisioningValidationTimeoutSeconds($timeoutSeconds);
-        $this->timeoutSeconds->setName('timeoutSeconds');
+        $this->timeoutSeconds->setElementName('timeoutSeconds');
         return $this;
     }
 
@@ -89,6 +93,8 @@ class SystemProvisioningValidationGetResponse14sp2 extends ComplexType implement
      */
     public function getTimeoutSeconds()
     {
-        return ($this->timeoutSeconds) ? $this->timeoutSeconds->getValue() : null;
+        return ($this->timeoutSeconds)
+            ? $this->timeoutSeconds->getElementValue()
+            : null;
     }
 }

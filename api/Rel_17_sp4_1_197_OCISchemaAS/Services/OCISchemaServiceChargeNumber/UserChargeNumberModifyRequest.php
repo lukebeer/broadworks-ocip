@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserChargeNumberModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'UserChargeNumberModifyRequest';
+    public    $elementName = 'UserChargeNumberModifyRequest';
     protected $userId;
     protected $phoneNumber;
     protected $useChargeNumberForEnhancedTranslations;
@@ -56,7 +56,7 @@ class UserChargeNumberModifyRequest extends ComplexType implements ComplexInterf
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
-        $this->userId->setName('userId');
+        $this->userId->setElementName('userId');
         return $this;
     }
 
@@ -66,7 +66,9 @@ class UserChargeNumberModifyRequest extends ComplexType implements ComplexInterf
      */
     public function getUserId()
     {
-        return ($this->userId) ? $this->userId->getValue() : null;
+        return ($this->userId)
+            ? $this->userId->getElementValue()
+            : null;
     }
 
     /**
@@ -77,7 +79,7 @@ class UserChargeNumberModifyRequest extends ComplexType implements ComplexInterf
         $this->phoneNumber = ($phoneNumber InstanceOf DN)
              ? $phoneNumber
              : new DN($phoneNumber);
-        $this->phoneNumber->setName('phoneNumber');
+        $this->phoneNumber->setElementName('phoneNumber');
         return $this;
     }
 
@@ -87,7 +89,9 @@ class UserChargeNumberModifyRequest extends ComplexType implements ComplexInterf
      */
     public function getPhoneNumber()
     {
-        return ($this->phoneNumber) ? $this->phoneNumber->getValue() : null;
+        return ($this->phoneNumber)
+            ? $this->phoneNumber->getElementValue()
+            : null;
     }
 
     /**
@@ -96,7 +100,7 @@ class UserChargeNumberModifyRequest extends ComplexType implements ComplexInterf
     public function setUseChargeNumberForEnhancedTranslations($useChargeNumberForEnhancedTranslations = null)
     {
         $this->useChargeNumberForEnhancedTranslations = new PrimitiveType($useChargeNumberForEnhancedTranslations);
-        $this->useChargeNumberForEnhancedTranslations->setName('useChargeNumberForEnhancedTranslations');
+        $this->useChargeNumberForEnhancedTranslations->setElementName('useChargeNumberForEnhancedTranslations');
         return $this;
     }
 
@@ -106,7 +110,9 @@ class UserChargeNumberModifyRequest extends ComplexType implements ComplexInterf
      */
     public function getUseChargeNumberForEnhancedTranslations()
     {
-        return ($this->useChargeNumberForEnhancedTranslations) ? $this->useChargeNumberForEnhancedTranslations->getValue() : null;
+        return ($this->useChargeNumberForEnhancedTranslations)
+            ? $this->useChargeNumberForEnhancedTranslations->getElementValue()
+            : null;
     }
 
     /**
@@ -115,7 +121,7 @@ class UserChargeNumberModifyRequest extends ComplexType implements ComplexInterf
     public function setSendChargeNumberToNetwork($sendChargeNumberToNetwork = null)
     {
         $this->sendChargeNumberToNetwork = new PrimitiveType($sendChargeNumberToNetwork);
-        $this->sendChargeNumberToNetwork->setName('sendChargeNumberToNetwork');
+        $this->sendChargeNumberToNetwork->setElementName('sendChargeNumberToNetwork');
         return $this;
     }
 
@@ -125,6 +131,8 @@ class UserChargeNumberModifyRequest extends ComplexType implements ComplexInterf
      */
     public function getSendChargeNumberToNetwork()
     {
-        return ($this->sendChargeNumberToNetwork) ? $this->sendChargeNumberToNetwork->getValue() : null;
+        return ($this->sendChargeNumberToNetwork)
+            ? $this->sendChargeNumberToNetwork->getElementValue()
+            : null;
     }
 }

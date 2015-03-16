@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserSMDIMessageDeskModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'UserSMDIMessageDeskModifyRequest';
+    public    $elementName = 'UserSMDIMessageDeskModifyRequest';
     protected $userId;
     protected $isActive;
     protected $messageDeskNumber;
@@ -53,7 +53,7 @@ class UserSMDIMessageDeskModifyRequest extends ComplexType implements ComplexInt
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
-        $this->userId->setName('userId');
+        $this->userId->setElementName('userId');
         return $this;
     }
 
@@ -63,7 +63,9 @@ class UserSMDIMessageDeskModifyRequest extends ComplexType implements ComplexInt
      */
     public function getUserId()
     {
-        return ($this->userId) ? $this->userId->getValue() : null;
+        return ($this->userId)
+            ? $this->userId->getElementValue()
+            : null;
     }
 
     /**
@@ -72,7 +74,7 @@ class UserSMDIMessageDeskModifyRequest extends ComplexType implements ComplexInt
     public function setIsActive($isActive = null)
     {
         $this->isActive = new PrimitiveType($isActive);
-        $this->isActive->setName('isActive');
+        $this->isActive->setElementName('isActive');
         return $this;
     }
 
@@ -82,7 +84,9 @@ class UserSMDIMessageDeskModifyRequest extends ComplexType implements ComplexInt
      */
     public function getIsActive()
     {
-        return ($this->isActive) ? $this->isActive->getValue() : null;
+        return ($this->isActive)
+            ? $this->isActive->getElementValue()
+            : null;
     }
 
     /**
@@ -93,7 +97,7 @@ class UserSMDIMessageDeskModifyRequest extends ComplexType implements ComplexInt
         $this->messageDeskNumber = ($messageDeskNumber InstanceOf SMDIMessageDeskNumber)
              ? $messageDeskNumber
              : new SMDIMessageDeskNumber($messageDeskNumber);
-        $this->messageDeskNumber->setName('messageDeskNumber');
+        $this->messageDeskNumber->setElementName('messageDeskNumber');
         return $this;
     }
 
@@ -103,6 +107,8 @@ class UserSMDIMessageDeskModifyRequest extends ComplexType implements ComplexInt
      */
     public function getMessageDeskNumber()
     {
-        return ($this->messageDeskNumber) ? $this->messageDeskNumber->getValue() : null;
+        return ($this->messageDeskNumber)
+            ? $this->messageDeskNumber->getElementValue()
+            : null;
     }
 }

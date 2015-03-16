@@ -19,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class TrunkAddressingMultipleContactRead extends ComplexType implements ComplexInterface
 {
-    public    $name = 'TrunkAddressingMultipleContactRead';
+    public    $elementName = 'TrunkAddressingMultipleContactRead';
     protected $trunkGroupDeviceEndpoint;
     protected $enterpriseTrunkName;
     protected $alternateTrunkIdentity;
@@ -48,7 +48,7 @@ class TrunkAddressingMultipleContactRead extends ComplexType implements ComplexI
     public function setTrunkGroupDeviceEndpoint($trunkGroupDeviceEndpoint = null)
     {
         $this->trunkGroupDeviceEndpoint = new SimpleContent($trunkGroupDeviceEndpoint);
-        $this->trunkGroupDeviceEndpoint->setName('trunkGroupDeviceEndpoint');
+        $this->trunkGroupDeviceEndpoint->setElementName('trunkGroupDeviceEndpoint');
         return $this;
     }
 
@@ -58,7 +58,9 @@ class TrunkAddressingMultipleContactRead extends ComplexType implements ComplexI
      */
     public function getTrunkGroupDeviceEndpoint()
     {
-        return ($this->trunkGroupDeviceEndpoint) ? $this->trunkGroupDeviceEndpoint->getValue() : null;
+        return ($this->trunkGroupDeviceEndpoint)
+            ? $this->trunkGroupDeviceEndpoint->getElementValue()
+            : null;
     }
 
     /**
@@ -67,7 +69,7 @@ class TrunkAddressingMultipleContactRead extends ComplexType implements ComplexI
     public function setEnterpriseTrunkName($enterpriseTrunkName = null)
     {
         $this->enterpriseTrunkName = new SimpleContent($enterpriseTrunkName);
-        $this->enterpriseTrunkName->setName('enterpriseTrunkName');
+        $this->enterpriseTrunkName->setElementName('enterpriseTrunkName');
         return $this;
     }
 
@@ -77,7 +79,9 @@ class TrunkAddressingMultipleContactRead extends ComplexType implements ComplexI
      */
     public function getEnterpriseTrunkName()
     {
-        return ($this->enterpriseTrunkName) ? $this->enterpriseTrunkName->getValue() : null;
+        return ($this->enterpriseTrunkName)
+            ? $this->enterpriseTrunkName->getElementValue()
+            : null;
     }
 
     /**
@@ -86,7 +90,7 @@ class TrunkAddressingMultipleContactRead extends ComplexType implements ComplexI
     public function setAlternateTrunkIdentity($alternateTrunkIdentity = null)
     {
         $this->alternateTrunkIdentity = new SimpleContent($alternateTrunkIdentity);
-        $this->alternateTrunkIdentity->setName('alternateTrunkIdentity');
+        $this->alternateTrunkIdentity->setElementName('alternateTrunkIdentity');
         return $this;
     }
 
@@ -96,6 +100,8 @@ class TrunkAddressingMultipleContactRead extends ComplexType implements ComplexI
      */
     public function getAlternateTrunkIdentity()
     {
-        return ($this->alternateTrunkIdentity) ? $this->alternateTrunkIdentity->getValue() : null;
+        return ($this->alternateTrunkIdentity)
+            ? $this->alternateTrunkIdentity->getElementValue()
+            : null;
     }
 }

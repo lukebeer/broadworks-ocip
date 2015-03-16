@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemRoutingAddTranslationRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemRoutingAddTranslationRequest';
+    public    $elementName = 'SystemRoutingAddTranslationRequest';
     protected $digits;
     protected $routeName;
 
@@ -49,7 +49,7 @@ class SystemRoutingAddTranslationRequest extends ComplexType implements ComplexI
         $this->digits = ($digits InstanceOf RoutingDigits)
              ? $digits
              : new RoutingDigits($digits);
-        $this->digits->setName('digits');
+        $this->digits->setElementName('digits');
         return $this;
     }
 
@@ -59,7 +59,9 @@ class SystemRoutingAddTranslationRequest extends ComplexType implements ComplexI
      */
     public function getDigits()
     {
-        return ($this->digits) ? $this->digits->getValue() : null;
+        return ($this->digits)
+            ? $this->digits->getElementValue()
+            : null;
     }
 
     /**
@@ -70,7 +72,7 @@ class SystemRoutingAddTranslationRequest extends ComplexType implements ComplexI
         $this->routeName = ($routeName InstanceOf RouteName)
              ? $routeName
              : new RouteName($routeName);
-        $this->routeName->setName('routeName');
+        $this->routeName->setElementName('routeName');
         return $this;
     }
 
@@ -80,6 +82,8 @@ class SystemRoutingAddTranslationRequest extends ComplexType implements ComplexI
      */
     public function getRouteName()
     {
-        return ($this->routeName) ? $this->routeName->getValue() : null;
+        return ($this->routeName)
+            ? $this->routeName->getElementValue()
+            : null;
     }
 }

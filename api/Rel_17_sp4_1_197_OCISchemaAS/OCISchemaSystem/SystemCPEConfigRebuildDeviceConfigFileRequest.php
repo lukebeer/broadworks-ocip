@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemCPEConfigRebuildDeviceConfigFileRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemCPEConfigRebuildDeviceConfigFileRequest';
+    public    $elementName = 'SystemCPEConfigRebuildDeviceConfigFileRequest';
     protected $deviceName;
 
     public function __construct(
@@ -45,7 +45,7 @@ class SystemCPEConfigRebuildDeviceConfigFileRequest extends ComplexType implemen
         $this->deviceName = ($deviceName InstanceOf AccessDeviceName)
              ? $deviceName
              : new AccessDeviceName($deviceName);
-        $this->deviceName->setName('deviceName');
+        $this->deviceName->setElementName('deviceName');
         return $this;
     }
 
@@ -55,6 +55,8 @@ class SystemCPEConfigRebuildDeviceConfigFileRequest extends ComplexType implemen
      */
     public function getDeviceName()
     {
-        return ($this->deviceName) ? $this->deviceName->getValue() : null;
+        return ($this->deviceName)
+            ? $this->deviceName->getElementValue()
+            : null;
     }
 }

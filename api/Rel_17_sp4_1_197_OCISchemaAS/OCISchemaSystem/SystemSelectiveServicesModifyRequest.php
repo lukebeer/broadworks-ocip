@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemSelectiveServicesModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemSelectiveServicesModifyRequest';
+    public    $elementName = 'SystemSelectiveServicesModifyRequest';
     protected $scheduleCombination;
 
     public function __construct(
@@ -45,7 +45,7 @@ class SystemSelectiveServicesModifyRequest extends ComplexType implements Comple
         $this->scheduleCombination = ($scheduleCombination InstanceOf ScheduleCombinationType)
              ? $scheduleCombination
              : new ScheduleCombinationType($scheduleCombination);
-        $this->scheduleCombination->setName('scheduleCombination');
+        $this->scheduleCombination->setElementName('scheduleCombination');
         return $this;
     }
 
@@ -55,6 +55,8 @@ class SystemSelectiveServicesModifyRequest extends ComplexType implements Comple
      */
     public function getScheduleCombination()
     {
-        return ($this->scheduleCombination) ? $this->scheduleCombination->getValue() : null;
+        return ($this->scheduleCombination)
+            ? $this->scheduleCombination->getElementValue()
+            : null;
     }
 }

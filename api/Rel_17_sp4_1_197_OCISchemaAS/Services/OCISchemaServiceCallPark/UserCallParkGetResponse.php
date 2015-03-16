@@ -23,7 +23,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserCallParkGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'UserCallParkGetResponse';
+    public    $elementName = 'UserCallParkGetResponse';
     protected $name;
     protected $userTable;
 
@@ -43,7 +43,7 @@ class UserCallParkGetResponse extends ComplexType implements ComplexInterface
         $this->name = ($name InstanceOf ServiceInstanceName)
              ? $name
              : new ServiceInstanceName($name);
-        $this->name->setName('name');
+        $this->name->setElementName('name');
         return $this;
     }
 
@@ -53,7 +53,9 @@ class UserCallParkGetResponse extends ComplexType implements ComplexInterface
      */
     public function getName()
     {
-        return ($this->name) ? $this->name->getValue() : null;
+        return ($this->name)
+            ? $this->name->getElementValue()
+            : null;
     }
 
     /**
@@ -62,7 +64,7 @@ class UserCallParkGetResponse extends ComplexType implements ComplexInterface
     public function setUserTable(TableType $userTable = null)
     {
         $this->userTable = $userTable;
-        $this->userTable->setName('userTable');
+        $this->userTable->setElementName('userTable');
         return $this;
     }
 

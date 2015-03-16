@@ -19,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class PhoneListEntry extends ComplexType implements ComplexInterface
 {
-    public    $name = 'PhoneListEntry';
+    public    $elementName = 'PhoneListEntry';
     protected $entryName;
     protected $phoneNumber;
 
@@ -45,7 +45,7 @@ class PhoneListEntry extends ComplexType implements ComplexInterface
     public function setEntryName($entryName = null)
     {
         $this->entryName = new SimpleContent($entryName);
-        $this->entryName->setName('entryName');
+        $this->entryName->setElementName('entryName');
         return $this;
     }
 
@@ -55,7 +55,9 @@ class PhoneListEntry extends ComplexType implements ComplexInterface
      */
     public function getEntryName()
     {
-        return ($this->entryName) ? $this->entryName->getValue() : null;
+        return ($this->entryName)
+            ? $this->entryName->getElementValue()
+            : null;
     }
 
     /**
@@ -64,7 +66,7 @@ class PhoneListEntry extends ComplexType implements ComplexInterface
     public function setPhoneNumber($phoneNumber = null)
     {
         $this->phoneNumber = new SimpleContent($phoneNumber);
-        $this->phoneNumber->setName('phoneNumber');
+        $this->phoneNumber->setElementName('phoneNumber');
         return $this;
     }
 
@@ -74,6 +76,8 @@ class PhoneListEntry extends ComplexType implements ComplexInterface
      */
     public function getPhoneNumber()
     {
-        return ($this->phoneNumber) ? $this->phoneNumber->getValue() : null;
+        return ($this->phoneNumber)
+            ? $this->phoneNumber->getElementValue()
+            : null;
     }
 }

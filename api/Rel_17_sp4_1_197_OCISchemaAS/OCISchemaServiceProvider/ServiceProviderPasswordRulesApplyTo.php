@@ -18,12 +18,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\Enumeration;
  */
 class ServiceProviderPasswordRulesApplyTo extends SimpleType
 {
-    public $name = "ServiceProviderPasswordRulesApplyTo";
-    protected $value;
-
+    public $elementName = "ServiceProviderPasswordRulesApplyTo";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new Enumeration([
             'Administrator',
             'Administrator and User',

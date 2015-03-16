@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ExtendedFileResource extends ComplexType implements ComplexInterface
 {
-    public    $name = 'ExtendedFileResource';
+    public    $elementName = 'ExtendedFileResource';
     protected $file;
     protected $url;
 
@@ -46,7 +46,7 @@ class ExtendedFileResource extends ComplexType implements ComplexInterface
     public function setFile($file = null)
     {
         $this->file = new SimpleContent($file);
-        $this->file->setName('file');
+        $this->file->setElementName('file');
         return $this;
     }
 
@@ -56,7 +56,9 @@ class ExtendedFileResource extends ComplexType implements ComplexInterface
      */
     public function getFile()
     {
-        return ($this->file) ? $this->file->getValue() : null;
+        return ($this->file)
+            ? $this->file->getElementValue()
+            : null;
     }
 
     /**
@@ -65,7 +67,7 @@ class ExtendedFileResource extends ComplexType implements ComplexInterface
     public function setUrl($url = null)
     {
         $this->url = new SimpleContent($url);
-        $this->url->setName('url');
+        $this->url->setElementName('url');
         return $this;
     }
 
@@ -75,6 +77,8 @@ class ExtendedFileResource extends ComplexType implements ComplexInterface
      */
     public function getUrl()
     {
-        return ($this->url) ? $this->url->getValue() : null;
+        return ($this->url)
+            ? $this->url->getElementValue()
+            : null;
     }
 }

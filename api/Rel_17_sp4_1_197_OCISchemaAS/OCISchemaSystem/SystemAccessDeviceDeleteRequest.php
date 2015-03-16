@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemAccessDeviceDeleteRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemAccessDeviceDeleteRequest';
+    public    $elementName = 'SystemAccessDeviceDeleteRequest';
     protected $deviceName;
 
     public function __construct(
@@ -45,7 +45,7 @@ class SystemAccessDeviceDeleteRequest extends ComplexType implements ComplexInte
         $this->deviceName = ($deviceName InstanceOf AccessDeviceName)
              ? $deviceName
              : new AccessDeviceName($deviceName);
-        $this->deviceName->setName('deviceName');
+        $this->deviceName->setElementName('deviceName');
         return $this;
     }
 
@@ -55,6 +55,8 @@ class SystemAccessDeviceDeleteRequest extends ComplexType implements ComplexInte
      */
     public function getDeviceName()
     {
-        return ($this->deviceName) ? $this->deviceName->getValue() : null;
+        return ($this->deviceName)
+            ? $this->deviceName->getElementValue()
+            : null;
     }
 }

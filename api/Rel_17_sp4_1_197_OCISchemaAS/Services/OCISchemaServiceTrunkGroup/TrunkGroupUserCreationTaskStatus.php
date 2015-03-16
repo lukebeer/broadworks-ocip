@@ -16,12 +16,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\Enumeration;
  */
 class TrunkGroupUserCreationTaskStatus extends SimpleType
 {
-    public $name = "TrunkGroupUserCreationTaskStatus";
-    protected $value;
-
+    public $elementName = "TrunkGroupUserCreationTaskStatus";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new Enumeration([
             'Pending',
             'Processing',

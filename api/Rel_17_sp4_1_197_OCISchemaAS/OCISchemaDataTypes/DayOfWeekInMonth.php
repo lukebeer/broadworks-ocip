@@ -16,12 +16,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\Enumeration;
  */
 class DayOfWeekInMonth extends SimpleType
 {
-    public $name = "DayOfWeekInMonth";
-    protected $value;
-
+    public $elementName = "DayOfWeekInMonth";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new Enumeration([
             'First',
             'Second',

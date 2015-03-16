@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class CommPilotExpressRedirectionWithException extends ComplexType implements ComplexInterface
 {
-    public    $name = 'CommPilotExpressRedirectionWithException';
+    public    $elementName = 'CommPilotExpressRedirectionWithException';
     protected $sendCallsToVoiceMailExceptExcludedNumbers;
     protected $excludedPhoneNumber01;
     protected $excludedPhoneNumber02;
@@ -55,7 +55,7 @@ class CommPilotExpressRedirectionWithException extends ComplexType implements Co
     public function setSendCallsToVoiceMailExceptExcludedNumbers($sendCallsToVoiceMailExceptExcludedNumbers = null)
     {
         $this->sendCallsToVoiceMailExceptExcludedNumbers = new SimpleContent($sendCallsToVoiceMailExceptExcludedNumbers);
-        $this->sendCallsToVoiceMailExceptExcludedNumbers->setName('sendCallsToVoiceMailExceptExcludedNumbers');
+        $this->sendCallsToVoiceMailExceptExcludedNumbers->setElementName('sendCallsToVoiceMailExceptExcludedNumbers');
         return $this;
     }
 
@@ -65,7 +65,9 @@ class CommPilotExpressRedirectionWithException extends ComplexType implements Co
      */
     public function getSendCallsToVoiceMailExceptExcludedNumbers()
     {
-        return ($this->sendCallsToVoiceMailExceptExcludedNumbers) ? $this->sendCallsToVoiceMailExceptExcludedNumbers->getValue() : null;
+        return ($this->sendCallsToVoiceMailExceptExcludedNumbers)
+            ? $this->sendCallsToVoiceMailExceptExcludedNumbers->getElementValue()
+            : null;
     }
 
     /**
@@ -74,7 +76,7 @@ class CommPilotExpressRedirectionWithException extends ComplexType implements Co
     public function setExcludedPhoneNumber01($excludedPhoneNumber01 = null)
     {
         $this->excludedPhoneNumber01 = new SimpleContent($excludedPhoneNumber01);
-        $this->excludedPhoneNumber01->setName('excludedPhoneNumber01');
+        $this->excludedPhoneNumber01->setElementName('excludedPhoneNumber01');
         return $this;
     }
 
@@ -84,7 +86,9 @@ class CommPilotExpressRedirectionWithException extends ComplexType implements Co
      */
     public function getExcludedPhoneNumber01()
     {
-        return ($this->excludedPhoneNumber01) ? $this->excludedPhoneNumber01->getValue() : null;
+        return ($this->excludedPhoneNumber01)
+            ? $this->excludedPhoneNumber01->getElementValue()
+            : null;
     }
 
     /**
@@ -93,7 +97,7 @@ class CommPilotExpressRedirectionWithException extends ComplexType implements Co
     public function setExcludedPhoneNumber02($excludedPhoneNumber02 = null)
     {
         $this->excludedPhoneNumber02 = new SimpleContent($excludedPhoneNumber02);
-        $this->excludedPhoneNumber02->setName('excludedPhoneNumber02');
+        $this->excludedPhoneNumber02->setElementName('excludedPhoneNumber02');
         return $this;
     }
 
@@ -103,7 +107,9 @@ class CommPilotExpressRedirectionWithException extends ComplexType implements Co
      */
     public function getExcludedPhoneNumber02()
     {
-        return ($this->excludedPhoneNumber02) ? $this->excludedPhoneNumber02->getValue() : null;
+        return ($this->excludedPhoneNumber02)
+            ? $this->excludedPhoneNumber02->getElementValue()
+            : null;
     }
 
     /**
@@ -112,7 +118,7 @@ class CommPilotExpressRedirectionWithException extends ComplexType implements Co
     public function setExcludedPhoneNumber03($excludedPhoneNumber03 = null)
     {
         $this->excludedPhoneNumber03 = new SimpleContent($excludedPhoneNumber03);
-        $this->excludedPhoneNumber03->setName('excludedPhoneNumber03');
+        $this->excludedPhoneNumber03->setElementName('excludedPhoneNumber03');
         return $this;
     }
 
@@ -122,7 +128,9 @@ class CommPilotExpressRedirectionWithException extends ComplexType implements Co
      */
     public function getExcludedPhoneNumber03()
     {
-        return ($this->excludedPhoneNumber03) ? $this->excludedPhoneNumber03->getValue() : null;
+        return ($this->excludedPhoneNumber03)
+            ? $this->excludedPhoneNumber03->getElementValue()
+            : null;
     }
 
     /**
@@ -131,7 +139,7 @@ class CommPilotExpressRedirectionWithException extends ComplexType implements Co
     public function setForwardExcludedNumbersTo($forwardExcludedNumbersTo = null)
     {
         $this->forwardExcludedNumbersTo = new SimpleContent($forwardExcludedNumbersTo);
-        $this->forwardExcludedNumbersTo->setName('forwardExcludedNumbersTo');
+        $this->forwardExcludedNumbersTo->setElementName('forwardExcludedNumbersTo');
         return $this;
     }
 
@@ -141,6 +149,8 @@ class CommPilotExpressRedirectionWithException extends ComplexType implements Co
      */
     public function getForwardExcludedNumbersTo()
     {
-        return ($this->forwardExcludedNumbersTo) ? $this->forwardExcludedNumbersTo->getValue() : null;
+        return ($this->forwardExcludedNumbersTo)
+            ? $this->forwardExcludedNumbersTo->getElementValue()
+            : null;
     }
 }

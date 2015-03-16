@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupServiceUnassignListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'GroupServiceUnassignListRequest';
+    public    $elementName = 'GroupServiceUnassignListRequest';
     protected $serviceProviderId;
     protected $groupId;
     protected $serviceName;
@@ -53,7 +53,7 @@ class GroupServiceUnassignListRequest extends ComplexType implements ComplexInte
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
-        $this->serviceProviderId->setName('serviceProviderId');
+        $this->serviceProviderId->setElementName('serviceProviderId');
         return $this;
     }
 
@@ -63,7 +63,9 @@ class GroupServiceUnassignListRequest extends ComplexType implements ComplexInte
      */
     public function getServiceProviderId()
     {
-        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
+        return ($this->serviceProviderId)
+            ? $this->serviceProviderId->getElementValue()
+            : null;
     }
 
     /**
@@ -74,7 +76,7 @@ class GroupServiceUnassignListRequest extends ComplexType implements ComplexInte
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
-        $this->groupId->setName('groupId');
+        $this->groupId->setElementName('groupId');
         return $this;
     }
 
@@ -84,7 +86,9 @@ class GroupServiceUnassignListRequest extends ComplexType implements ComplexInte
      */
     public function getGroupId()
     {
-        return ($this->groupId) ? $this->groupId->getValue() : null;
+        return ($this->groupId)
+            ? $this->groupId->getElementValue()
+            : null;
     }
 
     /**
@@ -95,7 +99,7 @@ class GroupServiceUnassignListRequest extends ComplexType implements ComplexInte
         $this->serviceName = ($serviceName InstanceOf GroupService)
              ? $serviceName
              : new GroupService($serviceName);
-        $this->serviceName->setName('serviceName');
+        $this->serviceName->setElementName('serviceName');
         return $this;
     }
 
@@ -105,6 +109,8 @@ class GroupServiceUnassignListRequest extends ComplexType implements ComplexInte
      */
     public function getServiceName()
     {
-        return ($this->serviceName) ? $this->serviceName->getValue() : null;
+        return ($this->serviceName)
+            ? $this->serviceName->getElementValue()
+            : null;
     }
 }

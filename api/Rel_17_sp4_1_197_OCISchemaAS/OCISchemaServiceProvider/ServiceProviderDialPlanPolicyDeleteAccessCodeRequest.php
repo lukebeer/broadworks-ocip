@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderDialPlanPolicyDeleteAccessCodeRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'ServiceProviderDialPlanPolicyDeleteAccessCodeRequest';
+    public    $elementName = 'ServiceProviderDialPlanPolicyDeleteAccessCodeRequest';
     protected $serviceProviderId;
     protected $accessCode;
 
@@ -48,7 +48,7 @@ class ServiceProviderDialPlanPolicyDeleteAccessCodeRequest extends ComplexType i
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
-        $this->serviceProviderId->setName('serviceProviderId');
+        $this->serviceProviderId->setElementName('serviceProviderId');
         return $this;
     }
 
@@ -58,7 +58,9 @@ class ServiceProviderDialPlanPolicyDeleteAccessCodeRequest extends ComplexType i
      */
     public function getServiceProviderId()
     {
-        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
+        return ($this->serviceProviderId)
+            ? $this->serviceProviderId->getElementValue()
+            : null;
     }
 
     /**
@@ -69,7 +71,7 @@ class ServiceProviderDialPlanPolicyDeleteAccessCodeRequest extends ComplexType i
         $this->accessCode = ($accessCode InstanceOf DialPlanAccessCode)
              ? $accessCode
              : new DialPlanAccessCode($accessCode);
-        $this->accessCode->setName('accessCode');
+        $this->accessCode->setElementName('accessCode');
         return $this;
     }
 
@@ -79,6 +81,8 @@ class ServiceProviderDialPlanPolicyDeleteAccessCodeRequest extends ComplexType i
      */
     public function getAccessCode()
     {
-        return ($this->accessCode) ? $this->accessCode->getValue() : null;
+        return ($this->accessCode)
+            ? $this->accessCode->getElementValue()
+            : null;
     }
 }

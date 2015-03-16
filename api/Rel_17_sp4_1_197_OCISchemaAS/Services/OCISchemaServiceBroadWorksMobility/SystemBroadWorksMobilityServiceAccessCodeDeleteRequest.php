@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemBroadWorksMobilityServiceAccessCodeDeleteRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemBroadWorksMobilityServiceAccessCodeDeleteRequest';
+    public    $elementName = 'SystemBroadWorksMobilityServiceAccessCodeDeleteRequest';
     protected $countryCode;
     protected $serviceAccessCode;
 
@@ -48,7 +48,7 @@ class SystemBroadWorksMobilityServiceAccessCodeDeleteRequest extends ComplexType
         $this->countryCode = ($countryCode InstanceOf CountryCode)
              ? $countryCode
              : new CountryCode($countryCode);
-        $this->countryCode->setName('countryCode');
+        $this->countryCode->setElementName('countryCode');
         return $this;
     }
 
@@ -58,7 +58,9 @@ class SystemBroadWorksMobilityServiceAccessCodeDeleteRequest extends ComplexType
      */
     public function getCountryCode()
     {
-        return ($this->countryCode) ? $this->countryCode->getValue() : null;
+        return ($this->countryCode)
+            ? $this->countryCode->getElementValue()
+            : null;
     }
 
     /**
@@ -69,7 +71,7 @@ class SystemBroadWorksMobilityServiceAccessCodeDeleteRequest extends ComplexType
         $this->serviceAccessCode = ($serviceAccessCode InstanceOf ServiceAccessCode)
              ? $serviceAccessCode
              : new ServiceAccessCode($serviceAccessCode);
-        $this->serviceAccessCode->setName('serviceAccessCode');
+        $this->serviceAccessCode->setElementName('serviceAccessCode');
         return $this;
     }
 
@@ -79,6 +81,8 @@ class SystemBroadWorksMobilityServiceAccessCodeDeleteRequest extends ComplexType
      */
     public function getServiceAccessCode()
     {
-        return ($this->serviceAccessCode) ? $this->serviceAccessCode->getValue() : null;
+        return ($this->serviceAccessCode)
+            ? $this->serviceAccessCode->getElementValue()
+            : null;
     }
 }

@@ -17,12 +17,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\MaxInclusive;
  */
 class NoAnswerTimeoutRings extends SimpleType
 {
-    public $name = "NoAnswerTimeoutRings";
-    protected $value;
-
+    public $elementName = "NoAnswerTimeoutRings";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new MinInclusive("2"));
         $this->addRestriction(new MaxInclusive("20"));
     }

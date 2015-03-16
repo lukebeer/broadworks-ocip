@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderLanguageDeleteRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'ServiceProviderLanguageDeleteRequest';
+    public    $elementName = 'ServiceProviderLanguageDeleteRequest';
     protected $serviceProviderId;
     protected $language;
 
@@ -48,7 +48,7 @@ class ServiceProviderLanguageDeleteRequest extends ComplexType implements Comple
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
-        $this->serviceProviderId->setName('serviceProviderId');
+        $this->serviceProviderId->setElementName('serviceProviderId');
         return $this;
     }
 
@@ -58,7 +58,9 @@ class ServiceProviderLanguageDeleteRequest extends ComplexType implements Comple
      */
     public function getServiceProviderId()
     {
-        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
+        return ($this->serviceProviderId)
+            ? $this->serviceProviderId->getElementValue()
+            : null;
     }
 
     /**
@@ -69,7 +71,7 @@ class ServiceProviderLanguageDeleteRequest extends ComplexType implements Comple
         $this->language = ($language InstanceOf Language)
              ? $language
              : new Language($language);
-        $this->language->setName('language');
+        $this->language->setElementName('language');
         return $this;
     }
 
@@ -79,6 +81,8 @@ class ServiceProviderLanguageDeleteRequest extends ComplexType implements Comple
      */
     public function getLanguage()
     {
-        return ($this->language) ? $this->language->getValue() : null;
+        return ($this->language)
+            ? $this->language->getElementValue()
+            : null;
     }
 }

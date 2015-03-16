@@ -23,7 +23,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserSMDIMessageDeskAddServerRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'UserSMDIMessageDeskAddServerRequest';
+    public    $elementName = 'UserSMDIMessageDeskAddServerRequest';
     protected $userId;
     protected $deviceName;
     protected $netAddress;
@@ -57,7 +57,7 @@ class UserSMDIMessageDeskAddServerRequest extends ComplexType implements Complex
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
-        $this->userId->setName('userId');
+        $this->userId->setElementName('userId');
         return $this;
     }
 
@@ -67,7 +67,9 @@ class UserSMDIMessageDeskAddServerRequest extends ComplexType implements Complex
      */
     public function getUserId()
     {
-        return ($this->userId) ? $this->userId->getValue() : null;
+        return ($this->userId)
+            ? $this->userId->getElementValue()
+            : null;
     }
 
     /**
@@ -78,7 +80,7 @@ class UserSMDIMessageDeskAddServerRequest extends ComplexType implements Complex
         $this->deviceName = ($deviceName InstanceOf SMDIDeviceName)
              ? $deviceName
              : new SMDIDeviceName($deviceName);
-        $this->deviceName->setName('deviceName');
+        $this->deviceName->setElementName('deviceName');
         return $this;
     }
 
@@ -88,7 +90,9 @@ class UserSMDIMessageDeskAddServerRequest extends ComplexType implements Complex
      */
     public function getDeviceName()
     {
-        return ($this->deviceName) ? $this->deviceName->getValue() : null;
+        return ($this->deviceName)
+            ? $this->deviceName->getElementValue()
+            : null;
     }
 
     /**
@@ -99,7 +103,7 @@ class UserSMDIMessageDeskAddServerRequest extends ComplexType implements Complex
         $this->netAddress = ($netAddress InstanceOf NetAddress)
              ? $netAddress
              : new NetAddress($netAddress);
-        $this->netAddress->setName('netAddress');
+        $this->netAddress->setElementName('netAddress');
         return $this;
     }
 
@@ -109,7 +113,9 @@ class UserSMDIMessageDeskAddServerRequest extends ComplexType implements Complex
      */
     public function getNetAddress()
     {
-        return ($this->netAddress) ? $this->netAddress->getValue() : null;
+        return ($this->netAddress)
+            ? $this->netAddress->getElementValue()
+            : null;
     }
 
     /**
@@ -120,7 +126,7 @@ class UserSMDIMessageDeskAddServerRequest extends ComplexType implements Complex
         $this->port = ($port InstanceOf Port)
              ? $port
              : new Port($port);
-        $this->port->setName('port');
+        $this->port->setElementName('port');
         return $this;
     }
 
@@ -130,6 +136,8 @@ class UserSMDIMessageDeskAddServerRequest extends ComplexType implements Complex
      */
     public function getPort()
     {
-        return ($this->port) ? $this->port->getValue() : null;
+        return ($this->port)
+            ? $this->port->getElementValue()
+            : null;
     }
 }

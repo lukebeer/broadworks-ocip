@@ -26,7 +26,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupMeetMeConferencingGetInstanceResponse17sp3 extends ComplexType implements ComplexInterface
 {
-    public    $name = 'GroupMeetMeConferencingGetInstanceResponse17sp3';
+    public    $elementName = 'GroupMeetMeConferencingGetInstanceResponse17sp3';
     protected $serviceInstanceProfile;
     protected $allocatedPorts;
     protected $networkClassOfService;
@@ -50,7 +50,7 @@ class GroupMeetMeConferencingGetInstanceResponse17sp3 extends ComplexType implem
         $this->serviceInstanceProfile = ($serviceInstanceProfile InstanceOf ServiceInstanceReadProfile17)
              ? $serviceInstanceProfile
              : new ServiceInstanceReadProfile17($serviceInstanceProfile);
-        $this->serviceInstanceProfile->setName('serviceInstanceProfile');
+        $this->serviceInstanceProfile->setElementName('serviceInstanceProfile');
         return $this;
     }
 
@@ -71,7 +71,7 @@ class GroupMeetMeConferencingGetInstanceResponse17sp3 extends ComplexType implem
         $this->allocatedPorts = ($allocatedPorts InstanceOf MeetMeConferencingConferencePorts)
              ? $allocatedPorts
              : new MeetMeConferencingConferencePorts($allocatedPorts);
-        $this->allocatedPorts->setName('allocatedPorts');
+        $this->allocatedPorts->setElementName('allocatedPorts');
         return $this;
     }
 
@@ -92,7 +92,7 @@ class GroupMeetMeConferencingGetInstanceResponse17sp3 extends ComplexType implem
         $this->networkClassOfService = ($networkClassOfService InstanceOf NetworkClassOfServiceName)
              ? $networkClassOfService
              : new NetworkClassOfServiceName($networkClassOfService);
-        $this->networkClassOfService->setName('networkClassOfService');
+        $this->networkClassOfService->setElementName('networkClassOfService');
         return $this;
     }
 
@@ -102,7 +102,9 @@ class GroupMeetMeConferencingGetInstanceResponse17sp3 extends ComplexType implem
      */
     public function getNetworkClassOfService()
     {
-        return ($this->networkClassOfService) ? $this->networkClassOfService->getValue() : null;
+        return ($this->networkClassOfService)
+            ? $this->networkClassOfService->getElementValue()
+            : null;
     }
 
     /**
@@ -111,7 +113,7 @@ class GroupMeetMeConferencingGetInstanceResponse17sp3 extends ComplexType implem
     public function setAllowIndividualOutDial($allowIndividualOutDial = null)
     {
         $this->allowIndividualOutDial = new PrimitiveType($allowIndividualOutDial);
-        $this->allowIndividualOutDial->setName('allowIndividualOutDial');
+        $this->allowIndividualOutDial->setElementName('allowIndividualOutDial');
         return $this;
     }
 
@@ -121,7 +123,9 @@ class GroupMeetMeConferencingGetInstanceResponse17sp3 extends ComplexType implem
      */
     public function getAllowIndividualOutDial()
     {
-        return ($this->allowIndividualOutDial) ? $this->allowIndividualOutDial->getValue() : null;
+        return ($this->allowIndividualOutDial)
+            ? $this->allowIndividualOutDial->getElementValue()
+            : null;
     }
 
     /**
@@ -132,7 +136,7 @@ class GroupMeetMeConferencingGetInstanceResponse17sp3 extends ComplexType implem
         $this->operatorNumber = ($operatorNumber InstanceOf OutgoingDNorSIPURI)
              ? $operatorNumber
              : new OutgoingDNorSIPURI($operatorNumber);
-        $this->operatorNumber->setName('operatorNumber');
+        $this->operatorNumber->setElementName('operatorNumber');
         return $this;
     }
 
@@ -142,7 +146,9 @@ class GroupMeetMeConferencingGetInstanceResponse17sp3 extends ComplexType implem
      */
     public function getOperatorNumber()
     {
-        return ($this->operatorNumber) ? $this->operatorNumber->getValue() : null;
+        return ($this->operatorNumber)
+            ? $this->operatorNumber->getElementValue()
+            : null;
     }
 
     /**
@@ -151,7 +157,7 @@ class GroupMeetMeConferencingGetInstanceResponse17sp3 extends ComplexType implem
     public function setConferenceHostUserTable(TableType $conferenceHostUserTable = null)
     {
         $this->conferenceHostUserTable = $conferenceHostUserTable;
-        $this->conferenceHostUserTable->setName('conferenceHostUserTable');
+        $this->conferenceHostUserTable->setElementName('conferenceHostUserTable');
         return $this;
     }
 

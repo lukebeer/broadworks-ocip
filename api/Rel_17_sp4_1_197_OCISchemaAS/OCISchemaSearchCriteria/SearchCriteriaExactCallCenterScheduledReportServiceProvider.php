@@ -19,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SearchCriteriaExactCallCenterScheduledReportServiceProvider extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SearchCriteriaExactCallCenterScheduledReportServiceProvider';
+    public    $elementName = 'SearchCriteriaExactCallCenterScheduledReportServiceProvider';
     protected $serviceProviderId;
 
     public function __construct(
@@ -44,7 +44,7 @@ class SearchCriteriaExactCallCenterScheduledReportServiceProvider extends Comple
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
-        $this->serviceProviderId->setName('serviceProviderId');
+        $this->serviceProviderId->setElementName('serviceProviderId');
         return $this;
     }
 
@@ -54,6 +54,8 @@ class SearchCriteriaExactCallCenterScheduledReportServiceProvider extends Comple
      */
     public function getServiceProviderId()
     {
-        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
+        return ($this->serviceProviderId)
+            ? $this->serviceProviderId->getElementValue()
+            : null;
     }
 }

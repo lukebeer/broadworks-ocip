@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemCallReturnGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemCallReturnGetResponse';
+    public    $elementName = 'SystemCallReturnGetResponse';
     protected $twoLevelActivation;
     protected $provideDate;
     protected $lastUnansweredCallOnly;
@@ -42,7 +42,7 @@ class SystemCallReturnGetResponse extends ComplexType implements ComplexInterfac
     public function setTwoLevelActivation($twoLevelActivation = null)
     {
         $this->twoLevelActivation = new PrimitiveType($twoLevelActivation);
-        $this->twoLevelActivation->setName('twoLevelActivation');
+        $this->twoLevelActivation->setElementName('twoLevelActivation');
         return $this;
     }
 
@@ -52,7 +52,9 @@ class SystemCallReturnGetResponse extends ComplexType implements ComplexInterfac
      */
     public function getTwoLevelActivation()
     {
-        return ($this->twoLevelActivation) ? $this->twoLevelActivation->getValue() : null;
+        return ($this->twoLevelActivation)
+            ? $this->twoLevelActivation->getElementValue()
+            : null;
     }
 
     /**
@@ -61,7 +63,7 @@ class SystemCallReturnGetResponse extends ComplexType implements ComplexInterfac
     public function setProvideDate($provideDate = null)
     {
         $this->provideDate = new PrimitiveType($provideDate);
-        $this->provideDate->setName('provideDate');
+        $this->provideDate->setElementName('provideDate');
         return $this;
     }
 
@@ -71,7 +73,9 @@ class SystemCallReturnGetResponse extends ComplexType implements ComplexInterfac
      */
     public function getProvideDate()
     {
-        return ($this->provideDate) ? $this->provideDate->getValue() : null;
+        return ($this->provideDate)
+            ? $this->provideDate->getElementValue()
+            : null;
     }
 
     /**
@@ -80,7 +84,7 @@ class SystemCallReturnGetResponse extends ComplexType implements ComplexInterfac
     public function setLastUnansweredCallOnly($lastUnansweredCallOnly = null)
     {
         $this->lastUnansweredCallOnly = new PrimitiveType($lastUnansweredCallOnly);
-        $this->lastUnansweredCallOnly->setName('lastUnansweredCallOnly');
+        $this->lastUnansweredCallOnly->setElementName('lastUnansweredCallOnly');
         return $this;
     }
 
@@ -90,7 +94,9 @@ class SystemCallReturnGetResponse extends ComplexType implements ComplexInterfac
      */
     public function getLastUnansweredCallOnly()
     {
-        return ($this->lastUnansweredCallOnly) ? $this->lastUnansweredCallOnly->getValue() : null;
+        return ($this->lastUnansweredCallOnly)
+            ? $this->lastUnansweredCallOnly->getElementValue()
+            : null;
     }
 
     /**
@@ -101,7 +107,7 @@ class SystemCallReturnGetResponse extends ComplexType implements ComplexInterfac
         $this->confirmationKey = ($confirmationKey InstanceOf DigitAny)
              ? $confirmationKey
              : new DigitAny($confirmationKey);
-        $this->confirmationKey->setName('confirmationKey');
+        $this->confirmationKey->setElementName('confirmationKey');
         return $this;
     }
 
@@ -111,7 +117,9 @@ class SystemCallReturnGetResponse extends ComplexType implements ComplexInterfac
      */
     public function getConfirmationKey()
     {
-        return ($this->confirmationKey) ? $this->confirmationKey->getValue() : null;
+        return ($this->confirmationKey)
+            ? $this->confirmationKey->getElementValue()
+            : null;
     }
 
     /**
@@ -120,7 +128,7 @@ class SystemCallReturnGetResponse extends ComplexType implements ComplexInterfac
     public function setAllowRestrictedNumber($allowRestrictedNumber = null)
     {
         $this->allowRestrictedNumber = new PrimitiveType($allowRestrictedNumber);
-        $this->allowRestrictedNumber->setName('allowRestrictedNumber');
+        $this->allowRestrictedNumber->setElementName('allowRestrictedNumber');
         return $this;
     }
 
@@ -130,7 +138,9 @@ class SystemCallReturnGetResponse extends ComplexType implements ComplexInterfac
      */
     public function getAllowRestrictedNumber()
     {
-        return ($this->allowRestrictedNumber) ? $this->allowRestrictedNumber->getValue() : null;
+        return ($this->allowRestrictedNumber)
+            ? $this->allowRestrictedNumber->getElementValue()
+            : null;
     }
 
     /**
@@ -139,7 +149,7 @@ class SystemCallReturnGetResponse extends ComplexType implements ComplexInterfac
     public function setDeleteNumberAfterAnsweredCallReturn($deleteNumberAfterAnsweredCallReturn = null)
     {
         $this->deleteNumberAfterAnsweredCallReturn = new PrimitiveType($deleteNumberAfterAnsweredCallReturn);
-        $this->deleteNumberAfterAnsweredCallReturn->setName('deleteNumberAfterAnsweredCallReturn');
+        $this->deleteNumberAfterAnsweredCallReturn->setElementName('deleteNumberAfterAnsweredCallReturn');
         return $this;
     }
 
@@ -149,6 +159,8 @@ class SystemCallReturnGetResponse extends ComplexType implements ComplexInterfac
      */
     public function getDeleteNumberAfterAnsweredCallReturn()
     {
-        return ($this->deleteNumberAfterAnsweredCallReturn) ? $this->deleteNumberAfterAnsweredCallReturn->getValue() : null;
+        return ($this->deleteNumberAfterAnsweredCallReturn)
+            ? $this->deleteNumberAfterAnsweredCallReturn->getElementValue()
+            : null;
     }
 }

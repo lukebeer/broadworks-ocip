@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupBroadWorksMobileManagerGetDomainListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'GroupBroadWorksMobileManagerGetDomainListResponse';
+    public    $elementName = 'GroupBroadWorksMobileManagerGetDomainListResponse';
     protected $domainName;
 
     /**
@@ -39,7 +39,7 @@ class GroupBroadWorksMobileManagerGetDomainListResponse extends ComplexType impl
         $this->domainName = ($domainName InstanceOf BroadWorksMobileManagerDomainName)
              ? $domainName
              : new BroadWorksMobileManagerDomainName($domainName);
-        $this->domainName->setName('domainName');
+        $this->domainName->setElementName('domainName');
         return $this;
     }
 
@@ -49,6 +49,8 @@ class GroupBroadWorksMobileManagerGetDomainListResponse extends ComplexType impl
      */
     public function getDomainName()
     {
-        return ($this->domainName) ? $this->domainName->getValue() : null;
+        return ($this->domainName)
+            ? $this->domainName->getElementValue()
+            : null;
     }
 }

@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemCallTypeDeleteMappingRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemCallTypeDeleteMappingRequest';
+    public    $elementName = 'SystemCallTypeDeleteMappingRequest';
     protected $countryCode;
     protected $digitMap;
 
@@ -49,7 +49,7 @@ class SystemCallTypeDeleteMappingRequest extends ComplexType implements ComplexI
         $this->countryCode = ($countryCode InstanceOf CountryCode)
              ? $countryCode
              : new CountryCode($countryCode);
-        $this->countryCode->setName('countryCode');
+        $this->countryCode->setElementName('countryCode');
         return $this;
     }
 
@@ -59,7 +59,9 @@ class SystemCallTypeDeleteMappingRequest extends ComplexType implements ComplexI
      */
     public function getCountryCode()
     {
-        return ($this->countryCode) ? $this->countryCode->getValue() : null;
+        return ($this->countryCode)
+            ? $this->countryCode->getElementValue()
+            : null;
     }
 
     /**
@@ -70,7 +72,7 @@ class SystemCallTypeDeleteMappingRequest extends ComplexType implements ComplexI
         $this->digitMap = ($digitMap InstanceOf CallTypeDigitMap)
              ? $digitMap
              : new CallTypeDigitMap($digitMap);
-        $this->digitMap->setName('digitMap');
+        $this->digitMap->setElementName('digitMap');
         return $this;
     }
 
@@ -80,6 +82,8 @@ class SystemCallTypeDeleteMappingRequest extends ComplexType implements ComplexI
      */
     public function getDigitMap()
     {
-        return ($this->digitMap) ? $this->digitMap->getValue() : null;
+        return ($this->digitMap)
+            ? $this->digitMap->getElementValue()
+            : null;
     }
 }

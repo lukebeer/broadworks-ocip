@@ -25,7 +25,7 @@ use Broadworks_OCIP\core\Client\Client;
 class UserEnhancedCallLogsGetListRequest16 extends ComplexType implements ComplexInterface
 {
     public    $responseType          = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated17\UserEnhancedCallLogsGetListResponse16';
-    public    $name = 'UserEnhancedCallLogsGetListRequest16';
+    public    $elementName = 'UserEnhancedCallLogsGetListRequest16';
     protected $userId;
     protected $callLogType;
     protected $responsePagingControl;
@@ -56,7 +56,7 @@ class UserEnhancedCallLogsGetListRequest16 extends ComplexType implements Comple
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
-        $this->userId->setName('userId');
+        $this->userId->setElementName('userId');
         return $this;
     }
 
@@ -66,7 +66,9 @@ class UserEnhancedCallLogsGetListRequest16 extends ComplexType implements Comple
      */
     public function getUserId()
     {
-        return ($this->userId) ? $this->userId->getValue() : null;
+        return ($this->userId)
+            ? $this->userId->getElementValue()
+            : null;
     }
 
     /**
@@ -77,7 +79,7 @@ class UserEnhancedCallLogsGetListRequest16 extends ComplexType implements Comple
         $this->callLogType = ($callLogType InstanceOf CallLogsType)
              ? $callLogType
              : new CallLogsType($callLogType);
-        $this->callLogType->setName('callLogType');
+        $this->callLogType->setElementName('callLogType');
         return $this;
     }
 
@@ -87,7 +89,9 @@ class UserEnhancedCallLogsGetListRequest16 extends ComplexType implements Comple
      */
     public function getCallLogType()
     {
-        return ($this->callLogType) ? $this->callLogType->getValue() : null;
+        return ($this->callLogType)
+            ? $this->callLogType->getElementValue()
+            : null;
     }
 
     /**
@@ -98,7 +102,7 @@ class UserEnhancedCallLogsGetListRequest16 extends ComplexType implements Comple
         $this->responsePagingControl = ($responsePagingControl InstanceOf ResponsePagingControl)
              ? $responsePagingControl
              : new ResponsePagingControl($responsePagingControl);
-        $this->responsePagingControl->setName('responsePagingControl');
+        $this->responsePagingControl->setElementName('responsePagingControl');
         return $this;
     }
 

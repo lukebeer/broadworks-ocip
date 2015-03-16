@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class InstantConferencingBridgeOwnerList extends ComplexType implements ComplexInterface
 {
-    public    $name = 'InstantConferencingBridgeOwnerList';
+    public    $elementName = 'InstantConferencingBridgeOwnerList';
     protected $bridgeServiceUserId;
     protected $bridgeName;
     protected $userTable;
@@ -49,7 +49,7 @@ class InstantConferencingBridgeOwnerList extends ComplexType implements ComplexI
     public function setBridgeServiceUserId($bridgeServiceUserId = null)
     {
         $this->bridgeServiceUserId = new SimpleContent($bridgeServiceUserId);
-        $this->bridgeServiceUserId->setName('bridgeServiceUserId');
+        $this->bridgeServiceUserId->setElementName('bridgeServiceUserId');
         return $this;
     }
 
@@ -59,7 +59,9 @@ class InstantConferencingBridgeOwnerList extends ComplexType implements ComplexI
      */
     public function getBridgeServiceUserId()
     {
-        return ($this->bridgeServiceUserId) ? $this->bridgeServiceUserId->getValue() : null;
+        return ($this->bridgeServiceUserId)
+            ? $this->bridgeServiceUserId->getElementValue()
+            : null;
     }
 
     /**
@@ -68,7 +70,7 @@ class InstantConferencingBridgeOwnerList extends ComplexType implements ComplexI
     public function setBridgeName($bridgeName = null)
     {
         $this->bridgeName = new SimpleContent($bridgeName);
-        $this->bridgeName->setName('bridgeName');
+        $this->bridgeName->setElementName('bridgeName');
         return $this;
     }
 
@@ -78,7 +80,9 @@ class InstantConferencingBridgeOwnerList extends ComplexType implements ComplexI
      */
     public function getBridgeName()
     {
-        return ($this->bridgeName) ? $this->bridgeName->getValue() : null;
+        return ($this->bridgeName)
+            ? $this->bridgeName->getElementValue()
+            : null;
     }
 
     /**
@@ -87,7 +91,7 @@ class InstantConferencingBridgeOwnerList extends ComplexType implements ComplexI
     public function setUserTable($userTable = null)
     {
         $this->userTable = new SimpleContent($userTable);
-        $this->userTable->setName('userTable');
+        $this->userTable->setElementName('userTable');
         return $this;
     }
 

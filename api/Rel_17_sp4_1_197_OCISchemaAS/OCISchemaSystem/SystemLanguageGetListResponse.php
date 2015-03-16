@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemLanguageGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemLanguageGetListResponse';
+    public    $elementName = 'SystemLanguageGetListResponse';
     protected $defaultLanguage;
     protected $languageTable;
 
@@ -41,7 +41,7 @@ class SystemLanguageGetListResponse extends ComplexType implements ComplexInterf
         $this->defaultLanguage = ($defaultLanguage InstanceOf Language)
              ? $defaultLanguage
              : new Language($defaultLanguage);
-        $this->defaultLanguage->setName('defaultLanguage');
+        $this->defaultLanguage->setElementName('defaultLanguage');
         return $this;
     }
 
@@ -51,7 +51,9 @@ class SystemLanguageGetListResponse extends ComplexType implements ComplexInterf
      */
     public function getDefaultLanguage()
     {
-        return ($this->defaultLanguage) ? $this->defaultLanguage->getValue() : null;
+        return ($this->defaultLanguage)
+            ? $this->defaultLanguage->getElementValue()
+            : null;
     }
 
     /**
@@ -60,7 +62,7 @@ class SystemLanguageGetListResponse extends ComplexType implements ComplexInterf
     public function setLanguageTable(TableType $languageTable = null)
     {
         $this->languageTable = $languageTable;
-        $this->languageTable->setName('languageTable');
+        $this->languageTable->setElementName('languageTable');
         return $this;
     }
 

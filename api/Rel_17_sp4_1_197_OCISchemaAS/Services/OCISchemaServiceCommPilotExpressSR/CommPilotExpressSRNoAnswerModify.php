@@ -19,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class CommPilotExpressSRNoAnswerModify extends ComplexType implements ComplexInterface
 {
-    public    $name = 'CommPilotExpressSRNoAnswerModify';
+    public    $elementName = 'CommPilotExpressSRNoAnswerModify';
     protected $ringFowardNumbers;
     protected $forwardingNumberList;
     protected $stillNoAnswer;
@@ -48,7 +48,7 @@ class CommPilotExpressSRNoAnswerModify extends ComplexType implements ComplexInt
     public function setRingFowardNumbers($ringFowardNumbers = null)
     {
         $this->ringFowardNumbers = new SimpleContent($ringFowardNumbers);
-        $this->ringFowardNumbers->setName('ringFowardNumbers');
+        $this->ringFowardNumbers->setElementName('ringFowardNumbers');
         return $this;
     }
 
@@ -58,7 +58,9 @@ class CommPilotExpressSRNoAnswerModify extends ComplexType implements ComplexInt
      */
     public function getRingFowardNumbers()
     {
-        return ($this->ringFowardNumbers) ? $this->ringFowardNumbers->getValue() : null;
+        return ($this->ringFowardNumbers)
+            ? $this->ringFowardNumbers->getElementValue()
+            : null;
     }
 
     /**
@@ -67,7 +69,7 @@ class CommPilotExpressSRNoAnswerModify extends ComplexType implements ComplexInt
     public function setForwardingNumberList($forwardingNumberList = null)
     {
         $this->forwardingNumberList = new SimpleContent($forwardingNumberList);
-        $this->forwardingNumberList->setName('forwardingNumberList');
+        $this->forwardingNumberList->setElementName('forwardingNumberList');
         return $this;
     }
 
@@ -77,7 +79,9 @@ class CommPilotExpressSRNoAnswerModify extends ComplexType implements ComplexInt
      */
     public function getForwardingNumberList()
     {
-        return ($this->forwardingNumberList) ? $this->forwardingNumberList->getValue() : null;
+        return ($this->forwardingNumberList)
+            ? $this->forwardingNumberList->getElementValue()
+            : null;
     }
 
     /**
@@ -86,7 +90,7 @@ class CommPilotExpressSRNoAnswerModify extends ComplexType implements ComplexInt
     public function setStillNoAnswer($stillNoAnswer = null)
     {
         $this->stillNoAnswer = new SimpleContent($stillNoAnswer);
-        $this->stillNoAnswer->setName('stillNoAnswer');
+        $this->stillNoAnswer->setElementName('stillNoAnswer');
         return $this;
     }
 
@@ -96,6 +100,8 @@ class CommPilotExpressSRNoAnswerModify extends ComplexType implements ComplexInt
      */
     public function getStillNoAnswer()
     {
-        return ($this->stillNoAnswer) ? $this->stillNoAnswer->getValue() : null;
+        return ($this->stillNoAnswer)
+            ? $this->stillNoAnswer->getElementValue()
+            : null;
     }
 }

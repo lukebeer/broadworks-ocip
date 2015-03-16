@@ -23,7 +23,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupSeriesCompletionModifyInstanceRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'GroupSeriesCompletionModifyInstanceRequest';
+    public    $elementName = 'GroupSeriesCompletionModifyInstanceRequest';
     protected $serviceProviderId;
     protected $groupId;
     protected $name;
@@ -60,7 +60,7 @@ class GroupSeriesCompletionModifyInstanceRequest extends ComplexType implements 
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
-        $this->serviceProviderId->setName('serviceProviderId');
+        $this->serviceProviderId->setElementName('serviceProviderId');
         return $this;
     }
 
@@ -70,7 +70,9 @@ class GroupSeriesCompletionModifyInstanceRequest extends ComplexType implements 
      */
     public function getServiceProviderId()
     {
-        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
+        return ($this->serviceProviderId)
+            ? $this->serviceProviderId->getElementValue()
+            : null;
     }
 
     /**
@@ -81,7 +83,7 @@ class GroupSeriesCompletionModifyInstanceRequest extends ComplexType implements 
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
-        $this->groupId->setName('groupId');
+        $this->groupId->setElementName('groupId');
         return $this;
     }
 
@@ -91,7 +93,9 @@ class GroupSeriesCompletionModifyInstanceRequest extends ComplexType implements 
      */
     public function getGroupId()
     {
-        return ($this->groupId) ? $this->groupId->getValue() : null;
+        return ($this->groupId)
+            ? $this->groupId->getElementValue()
+            : null;
     }
 
     /**
@@ -102,7 +106,7 @@ class GroupSeriesCompletionModifyInstanceRequest extends ComplexType implements 
         $this->name = ($name InstanceOf ServiceInstanceName)
              ? $name
              : new ServiceInstanceName($name);
-        $this->name->setName('name');
+        $this->name->setElementName('name');
         return $this;
     }
 
@@ -112,7 +116,9 @@ class GroupSeriesCompletionModifyInstanceRequest extends ComplexType implements 
      */
     public function getName()
     {
-        return ($this->name) ? $this->name->getValue() : null;
+        return ($this->name)
+            ? $this->name->getElementValue()
+            : null;
     }
 
     /**
@@ -123,7 +129,7 @@ class GroupSeriesCompletionModifyInstanceRequest extends ComplexType implements 
         $this->newName = ($newName InstanceOf ServiceInstanceName)
              ? $newName
              : new ServiceInstanceName($newName);
-        $this->newName->setName('newName');
+        $this->newName->setElementName('newName');
         return $this;
     }
 
@@ -133,7 +139,9 @@ class GroupSeriesCompletionModifyInstanceRequest extends ComplexType implements 
      */
     public function getNewName()
     {
-        return ($this->newName) ? $this->newName->getValue() : null;
+        return ($this->newName)
+            ? $this->newName->getElementValue()
+            : null;
     }
 
     /**
@@ -144,7 +152,7 @@ class GroupSeriesCompletionModifyInstanceRequest extends ComplexType implements 
         $this->userIdList = ($userIdList InstanceOf ReplacementUserIdList)
              ? $userIdList
              : new ReplacementUserIdList($userIdList);
-        $this->userIdList->setName('userIdList');
+        $this->userIdList->setElementName('userIdList');
         return $this;
     }
 

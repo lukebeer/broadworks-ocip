@@ -19,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class CallCenterScheduledReportDNISSelectionRead extends ComplexType implements ComplexInterface
 {
-    public    $name = 'CallCenterScheduledReportDNISSelectionRead';
+    public    $elementName = 'CallCenterScheduledReportDNISSelectionRead';
     protected $serviceUserId;
     protected $deleted;
 
@@ -45,7 +45,7 @@ class CallCenterScheduledReportDNISSelectionRead extends ComplexType implements 
     public function setServiceUserId($serviceUserId = null)
     {
         $this->serviceUserId = new SimpleContent($serviceUserId);
-        $this->serviceUserId->setName('serviceUserId');
+        $this->serviceUserId->setElementName('serviceUserId');
         return $this;
     }
 
@@ -55,7 +55,9 @@ class CallCenterScheduledReportDNISSelectionRead extends ComplexType implements 
      */
     public function getServiceUserId()
     {
-        return ($this->serviceUserId) ? $this->serviceUserId->getValue() : null;
+        return ($this->serviceUserId)
+            ? $this->serviceUserId->getElementValue()
+            : null;
     }
 
     /**
@@ -64,7 +66,7 @@ class CallCenterScheduledReportDNISSelectionRead extends ComplexType implements 
     public function setDeleted($deleted = null)
     {
         $this->deleted = new SimpleContent($deleted);
-        $this->deleted->setName('deleted');
+        $this->deleted->setElementName('deleted');
         return $this;
     }
 
@@ -74,6 +76,8 @@ class CallCenterScheduledReportDNISSelectionRead extends ComplexType implements 
      */
     public function getDeleted()
     {
-        return ($this->deleted) ? $this->deleted->getValue() : null;
+        return ($this->deleted)
+            ? $this->deleted->getElementValue()
+            : null;
     }
 }

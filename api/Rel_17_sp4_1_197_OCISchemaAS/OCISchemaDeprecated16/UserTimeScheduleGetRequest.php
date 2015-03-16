@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
 class UserTimeScheduleGetRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType     = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\UserTimeScheduleGetResponse';
-    public    $name = 'UserTimeScheduleGetRequest';
+    public    $elementName = 'UserTimeScheduleGetRequest';
     protected $userId;
     protected $timeScheduleName;
 
@@ -50,7 +50,7 @@ class UserTimeScheduleGetRequest extends ComplexType implements ComplexInterface
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
-        $this->userId->setName('userId');
+        $this->userId->setElementName('userId');
         return $this;
     }
 
@@ -60,7 +60,9 @@ class UserTimeScheduleGetRequest extends ComplexType implements ComplexInterface
      */
     public function getUserId()
     {
-        return ($this->userId) ? $this->userId->getValue() : null;
+        return ($this->userId)
+            ? $this->userId->getElementValue()
+            : null;
     }
 
     /**
@@ -71,7 +73,7 @@ class UserTimeScheduleGetRequest extends ComplexType implements ComplexInterface
         $this->timeScheduleName = ($timeScheduleName InstanceOf ScheduleName)
              ? $timeScheduleName
              : new ScheduleName($timeScheduleName);
-        $this->timeScheduleName->setName('timeScheduleName');
+        $this->timeScheduleName->setElementName('timeScheduleName');
         return $this;
     }
 
@@ -81,6 +83,8 @@ class UserTimeScheduleGetRequest extends ComplexType implements ComplexInterface
      */
     public function getTimeScheduleName()
     {
-        return ($this->timeScheduleName) ? $this->timeScheduleName->getValue() : null;
+        return ($this->timeScheduleName)
+            ? $this->timeScheduleName->getElementValue()
+            : null;
     }
 }

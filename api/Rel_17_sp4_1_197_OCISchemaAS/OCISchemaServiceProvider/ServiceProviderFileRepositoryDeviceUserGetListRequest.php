@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
 class ServiceProviderFileRepositoryDeviceUserGetListRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType       = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderFileRepositoryDeviceUserGetListResponse';
-    public    $name = 'ServiceProviderFileRepositoryDeviceUserGetListRequest';
+    public    $elementName = 'ServiceProviderFileRepositoryDeviceUserGetListRequest';
     protected $serviceProviderId;
     protected $fileRepositoryName;
 
@@ -50,7 +50,7 @@ class ServiceProviderFileRepositoryDeviceUserGetListRequest extends ComplexType 
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
-        $this->serviceProviderId->setName('serviceProviderId');
+        $this->serviceProviderId->setElementName('serviceProviderId');
         return $this;
     }
 
@@ -60,7 +60,9 @@ class ServiceProviderFileRepositoryDeviceUserGetListRequest extends ComplexType 
      */
     public function getServiceProviderId()
     {
-        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
+        return ($this->serviceProviderId)
+            ? $this->serviceProviderId->getElementValue()
+            : null;
     }
 
     /**
@@ -71,7 +73,7 @@ class ServiceProviderFileRepositoryDeviceUserGetListRequest extends ComplexType 
         $this->fileRepositoryName = ($fileRepositoryName InstanceOf FileRepositoryName)
              ? $fileRepositoryName
              : new FileRepositoryName($fileRepositoryName);
-        $this->fileRepositoryName->setName('fileRepositoryName');
+        $this->fileRepositoryName->setElementName('fileRepositoryName');
         return $this;
     }
 
@@ -81,6 +83,8 @@ class ServiceProviderFileRepositoryDeviceUserGetListRequest extends ComplexType 
      */
     public function getFileRepositoryName()
     {
-        return ($this->fileRepositoryName) ? $this->fileRepositoryName->getValue() : null;
+        return ($this->fileRepositoryName)
+            ? $this->fileRepositoryName->getElementValue()
+            : null;
     }
 }

@@ -23,7 +23,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemAccountingAddChargingFunctionElementServerRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemAccountingAddChargingFunctionElementServerRequest';
+    public    $elementName = 'SystemAccountingAddChargingFunctionElementServerRequest';
     protected $address;
     protected $isNetAddressExtended;
     protected $type;
@@ -57,7 +57,7 @@ class SystemAccountingAddChargingFunctionElementServerRequest extends ComplexTyp
         $this->address = ($address InstanceOf NetAddressExtended)
              ? $address
              : new NetAddressExtended($address);
-        $this->address->setName('address');
+        $this->address->setElementName('address');
         return $this;
     }
 
@@ -67,7 +67,9 @@ class SystemAccountingAddChargingFunctionElementServerRequest extends ComplexTyp
      */
     public function getAddress()
     {
-        return ($this->address) ? $this->address->getValue() : null;
+        return ($this->address)
+            ? $this->address->getElementValue()
+            : null;
     }
 
     /**
@@ -76,7 +78,7 @@ class SystemAccountingAddChargingFunctionElementServerRequest extends ComplexTyp
     public function setIsNetAddressExtended($isNetAddressExtended = null)
     {
         $this->isNetAddressExtended = new PrimitiveType($isNetAddressExtended);
-        $this->isNetAddressExtended->setName('isNetAddressExtended');
+        $this->isNetAddressExtended->setElementName('isNetAddressExtended');
         return $this;
     }
 
@@ -86,7 +88,9 @@ class SystemAccountingAddChargingFunctionElementServerRequest extends ComplexTyp
      */
     public function getIsNetAddressExtended()
     {
-        return ($this->isNetAddressExtended) ? $this->isNetAddressExtended->getValue() : null;
+        return ($this->isNetAddressExtended)
+            ? $this->isNetAddressExtended->getElementValue()
+            : null;
     }
 
     /**
@@ -97,7 +101,7 @@ class SystemAccountingAddChargingFunctionElementServerRequest extends ComplexTyp
         $this->type = ($type InstanceOf ChargingFunctionElementServerType)
              ? $type
              : new ChargingFunctionElementServerType($type);
-        $this->type->setName('type');
+        $this->type->setElementName('type');
         return $this;
     }
 
@@ -107,7 +111,9 @@ class SystemAccountingAddChargingFunctionElementServerRequest extends ComplexTyp
      */
     public function getType()
     {
-        return ($this->type) ? $this->type->getValue() : null;
+        return ($this->type)
+            ? $this->type->getElementValue()
+            : null;
     }
 
     /**
@@ -118,7 +124,7 @@ class SystemAccountingAddChargingFunctionElementServerRequest extends ComplexTyp
         $this->description = ($description InstanceOf ChargingFunctionElementServerDescription)
              ? $description
              : new ChargingFunctionElementServerDescription($description);
-        $this->description->setName('description');
+        $this->description->setElementName('description');
         return $this;
     }
 
@@ -128,6 +134,8 @@ class SystemAccountingAddChargingFunctionElementServerRequest extends ComplexTyp
      */
     public function getDescription()
     {
-        return ($this->description) ? $this->description->getValue() : null;
+        return ($this->description)
+            ? $this->description->getElementValue()
+            : null;
     }
 }

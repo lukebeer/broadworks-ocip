@@ -25,7 +25,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemSMPPModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemSMPPModifyRequest';
+    public    $elementName = 'SystemSMPPModifyRequest';
     protected $primarySMPPServerNetAddress;
     protected $primarySMPPPort;
     protected $secondarySMPPServerNetAddress;
@@ -71,7 +71,7 @@ class SystemSMPPModifyRequest extends ComplexType implements ComplexInterface
         $this->primarySMPPServerNetAddress = ($primarySMPPServerNetAddress InstanceOf NetAddress)
              ? $primarySMPPServerNetAddress
              : new NetAddress($primarySMPPServerNetAddress);
-        $this->primarySMPPServerNetAddress->setName('primarySMPPServerNetAddress');
+        $this->primarySMPPServerNetAddress->setElementName('primarySMPPServerNetAddress');
         return $this;
     }
 
@@ -81,7 +81,9 @@ class SystemSMPPModifyRequest extends ComplexType implements ComplexInterface
      */
     public function getPrimarySMPPServerNetAddress()
     {
-        return ($this->primarySMPPServerNetAddress) ? $this->primarySMPPServerNetAddress->getValue() : null;
+        return ($this->primarySMPPServerNetAddress)
+            ? $this->primarySMPPServerNetAddress->getElementValue()
+            : null;
     }
 
     /**
@@ -92,7 +94,7 @@ class SystemSMPPModifyRequest extends ComplexType implements ComplexInterface
         $this->primarySMPPPort = ($primarySMPPPort InstanceOf Port)
              ? $primarySMPPPort
              : new Port($primarySMPPPort);
-        $this->primarySMPPPort->setName('primarySMPPPort');
+        $this->primarySMPPPort->setElementName('primarySMPPPort');
         return $this;
     }
 
@@ -102,7 +104,9 @@ class SystemSMPPModifyRequest extends ComplexType implements ComplexInterface
      */
     public function getPrimarySMPPPort()
     {
-        return ($this->primarySMPPPort) ? $this->primarySMPPPort->getValue() : null;
+        return ($this->primarySMPPPort)
+            ? $this->primarySMPPPort->getElementValue()
+            : null;
     }
 
     /**
@@ -113,7 +117,7 @@ class SystemSMPPModifyRequest extends ComplexType implements ComplexInterface
         $this->secondarySMPPServerNetAddress = ($secondarySMPPServerNetAddress InstanceOf NetAddress)
              ? $secondarySMPPServerNetAddress
              : new NetAddress($secondarySMPPServerNetAddress);
-        $this->secondarySMPPServerNetAddress->setName('secondarySMPPServerNetAddress');
+        $this->secondarySMPPServerNetAddress->setElementName('secondarySMPPServerNetAddress');
         return $this;
     }
 
@@ -123,7 +127,9 @@ class SystemSMPPModifyRequest extends ComplexType implements ComplexInterface
      */
     public function getSecondarySMPPServerNetAddress()
     {
-        return ($this->secondarySMPPServerNetAddress) ? $this->secondarySMPPServerNetAddress->getValue() : null;
+        return ($this->secondarySMPPServerNetAddress)
+            ? $this->secondarySMPPServerNetAddress->getElementValue()
+            : null;
     }
 
     /**
@@ -134,7 +140,7 @@ class SystemSMPPModifyRequest extends ComplexType implements ComplexInterface
         $this->secondarySMPPPort = ($secondarySMPPPort InstanceOf Port)
              ? $secondarySMPPPort
              : new Port($secondarySMPPPort);
-        $this->secondarySMPPPort->setName('secondarySMPPPort');
+        $this->secondarySMPPPort->setElementName('secondarySMPPPort');
         return $this;
     }
 
@@ -144,7 +150,9 @@ class SystemSMPPModifyRequest extends ComplexType implements ComplexInterface
      */
     public function getSecondarySMPPPort()
     {
-        return ($this->secondarySMPPPort) ? $this->secondarySMPPPort->getValue() : null;
+        return ($this->secondarySMPPPort)
+            ? $this->secondarySMPPPort->getElementValue()
+            : null;
     }
 
     /**
@@ -155,7 +163,7 @@ class SystemSMPPModifyRequest extends ComplexType implements ComplexInterface
         $this->systemId = ($systemId InstanceOf SMPPSystemId)
              ? $systemId
              : new SMPPSystemId($systemId);
-        $this->systemId->setName('systemId');
+        $this->systemId->setElementName('systemId');
         return $this;
     }
 
@@ -165,7 +173,9 @@ class SystemSMPPModifyRequest extends ComplexType implements ComplexInterface
      */
     public function getSystemId()
     {
-        return ($this->systemId) ? $this->systemId->getValue() : null;
+        return ($this->systemId)
+            ? $this->systemId->getElementValue()
+            : null;
     }
 
     /**
@@ -176,7 +186,7 @@ class SystemSMPPModifyRequest extends ComplexType implements ComplexInterface
         $this->password = ($password InstanceOf SMPPPassword)
              ? $password
              : new SMPPPassword($password);
-        $this->password->setName('password');
+        $this->password->setElementName('password');
         return $this;
     }
 
@@ -186,7 +196,9 @@ class SystemSMPPModifyRequest extends ComplexType implements ComplexInterface
      */
     public function getPassword()
     {
-        return ($this->password) ? $this->password->getValue() : null;
+        return ($this->password)
+            ? $this->password->getElementValue()
+            : null;
     }
 
     /**
@@ -197,7 +209,7 @@ class SystemSMPPModifyRequest extends ComplexType implements ComplexInterface
         $this->version = ($version InstanceOf SMPPVersion)
              ? $version
              : new SMPPVersion($version);
-        $this->version->setName('version');
+        $this->version->setElementName('version');
         return $this;
     }
 
@@ -207,7 +219,9 @@ class SystemSMPPModifyRequest extends ComplexType implements ComplexInterface
      */
     public function getVersion()
     {
-        return ($this->version) ? $this->version->getValue() : null;
+        return ($this->version)
+            ? $this->version->getElementValue()
+            : null;
     }
 
     /**
@@ -218,7 +232,7 @@ class SystemSMPPModifyRequest extends ComplexType implements ComplexInterface
         $this->systemType = ($systemType InstanceOf SMPPSystemType)
              ? $systemType
              : new SMPPSystemType($systemType);
-        $this->systemType->setName('systemType');
+        $this->systemType->setElementName('systemType');
         return $this;
     }
 
@@ -228,6 +242,8 @@ class SystemSMPPModifyRequest extends ComplexType implements ComplexInterface
      */
     public function getSystemType()
     {
-        return ($this->systemType) ? $this->systemType->getValue() : null;
+        return ($this->systemType)
+            ? $this->systemType->getElementValue()
+            : null;
     }
 }

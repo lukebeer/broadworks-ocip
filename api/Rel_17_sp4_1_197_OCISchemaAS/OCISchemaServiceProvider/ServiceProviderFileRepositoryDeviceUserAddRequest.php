@@ -24,7 +24,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderFileRepositoryDeviceUserAddRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'ServiceProviderFileRepositoryDeviceUserAddRequest';
+    public    $elementName = 'ServiceProviderFileRepositoryDeviceUserAddRequest';
     protected $serviceProviderId;
     protected $fileRepositoryName;
     protected $userName;
@@ -67,7 +67,7 @@ class ServiceProviderFileRepositoryDeviceUserAddRequest extends ComplexType impl
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
-        $this->serviceProviderId->setName('serviceProviderId');
+        $this->serviceProviderId->setElementName('serviceProviderId');
         return $this;
     }
 
@@ -77,7 +77,9 @@ class ServiceProviderFileRepositoryDeviceUserAddRequest extends ComplexType impl
      */
     public function getServiceProviderId()
     {
-        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
+        return ($this->serviceProviderId)
+            ? $this->serviceProviderId->getElementValue()
+            : null;
     }
 
     /**
@@ -88,7 +90,7 @@ class ServiceProviderFileRepositoryDeviceUserAddRequest extends ComplexType impl
         $this->fileRepositoryName = ($fileRepositoryName InstanceOf FileRepositoryName)
              ? $fileRepositoryName
              : new FileRepositoryName($fileRepositoryName);
-        $this->fileRepositoryName->setName('fileRepositoryName');
+        $this->fileRepositoryName->setElementName('fileRepositoryName');
         return $this;
     }
 
@@ -98,7 +100,9 @@ class ServiceProviderFileRepositoryDeviceUserAddRequest extends ComplexType impl
      */
     public function getFileRepositoryName()
     {
-        return ($this->fileRepositoryName) ? $this->fileRepositoryName->getValue() : null;
+        return ($this->fileRepositoryName)
+            ? $this->fileRepositoryName->getElementValue()
+            : null;
     }
 
     /**
@@ -109,7 +113,7 @@ class ServiceProviderFileRepositoryDeviceUserAddRequest extends ComplexType impl
         $this->userName = ($userName InstanceOf FileRepositoryUserName)
              ? $userName
              : new FileRepositoryUserName($userName);
-        $this->userName->setName('userName');
+        $this->userName->setElementName('userName');
         return $this;
     }
 
@@ -119,7 +123,9 @@ class ServiceProviderFileRepositoryDeviceUserAddRequest extends ComplexType impl
      */
     public function getUserName()
     {
-        return ($this->userName) ? $this->userName->getValue() : null;
+        return ($this->userName)
+            ? $this->userName->getElementValue()
+            : null;
     }
 
     /**
@@ -130,7 +136,7 @@ class ServiceProviderFileRepositoryDeviceUserAddRequest extends ComplexType impl
         $this->password = ($password InstanceOf FileRepositoryUserPassword)
              ? $password
              : new FileRepositoryUserPassword($password);
-        $this->password->setName('password');
+        $this->password->setElementName('password');
         return $this;
     }
 
@@ -140,7 +146,9 @@ class ServiceProviderFileRepositoryDeviceUserAddRequest extends ComplexType impl
      */
     public function getPassword()
     {
-        return ($this->password) ? $this->password->getValue() : null;
+        return ($this->password)
+            ? $this->password->getElementValue()
+            : null;
     }
 
     /**
@@ -149,7 +157,7 @@ class ServiceProviderFileRepositoryDeviceUserAddRequest extends ComplexType impl
     public function setAllowPut($allowPut = null)
     {
         $this->allowPut = new PrimitiveType($allowPut);
-        $this->allowPut->setName('allowPut');
+        $this->allowPut->setElementName('allowPut');
         return $this;
     }
 
@@ -159,7 +167,9 @@ class ServiceProviderFileRepositoryDeviceUserAddRequest extends ComplexType impl
      */
     public function getAllowPut()
     {
-        return ($this->allowPut) ? $this->allowPut->getValue() : null;
+        return ($this->allowPut)
+            ? $this->allowPut->getElementValue()
+            : null;
     }
 
     /**
@@ -168,7 +178,7 @@ class ServiceProviderFileRepositoryDeviceUserAddRequest extends ComplexType impl
     public function setAllowDelete($allowDelete = null)
     {
         $this->allowDelete = new PrimitiveType($allowDelete);
-        $this->allowDelete->setName('allowDelete');
+        $this->allowDelete->setElementName('allowDelete');
         return $this;
     }
 
@@ -178,7 +188,9 @@ class ServiceProviderFileRepositoryDeviceUserAddRequest extends ComplexType impl
      */
     public function getAllowDelete()
     {
-        return ($this->allowDelete) ? $this->allowDelete->getValue() : null;
+        return ($this->allowDelete)
+            ? $this->allowDelete->getElementValue()
+            : null;
     }
 
     /**
@@ -187,7 +199,7 @@ class ServiceProviderFileRepositoryDeviceUserAddRequest extends ComplexType impl
     public function setAllowGet($allowGet = null)
     {
         $this->allowGet = new PrimitiveType($allowGet);
-        $this->allowGet->setName('allowGet');
+        $this->allowGet->setElementName('allowGet');
         return $this;
     }
 
@@ -197,6 +209,8 @@ class ServiceProviderFileRepositoryDeviceUserAddRequest extends ComplexType impl
      */
     public function getAllowGet()
     {
-        return ($this->allowGet) ? $this->allowGet->getValue() : null;
+        return ($this->allowGet)
+            ? $this->allowGet->getElementValue()
+            : null;
     }
 }

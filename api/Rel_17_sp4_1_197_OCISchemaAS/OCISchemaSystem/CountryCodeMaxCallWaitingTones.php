@@ -17,12 +17,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\MaxInclusive;
  */
 class CountryCodeMaxCallWaitingTones extends SimpleType
 {
-    public $name = "CountryCodeMaxCallWaitingTones";
-    protected $value;
-
+    public $elementName = "CountryCodeMaxCallWaitingTones";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new MinInclusive("1"));
         $this->addRestriction(new MaxInclusive("20"));
     }

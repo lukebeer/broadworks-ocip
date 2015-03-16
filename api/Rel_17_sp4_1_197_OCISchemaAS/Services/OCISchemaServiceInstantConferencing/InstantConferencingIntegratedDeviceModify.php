@@ -19,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class InstantConferencingIntegratedDeviceModify extends ComplexType implements ComplexInterface
 {
-    public    $name = 'InstantConferencingIntegratedDeviceModify';
+    public    $elementName = 'InstantConferencingIntegratedDeviceModify';
     protected $userName;
     protected $password;
     protected $secureProvisioning;
@@ -54,7 +54,7 @@ class InstantConferencingIntegratedDeviceModify extends ComplexType implements C
     public function setUserName($userName = null)
     {
         $this->userName = new SimpleContent($userName);
-        $this->userName->setName('userName');
+        $this->userName->setElementName('userName');
         return $this;
     }
 
@@ -64,7 +64,9 @@ class InstantConferencingIntegratedDeviceModify extends ComplexType implements C
      */
     public function getUserName()
     {
-        return ($this->userName) ? $this->userName->getValue() : null;
+        return ($this->userName)
+            ? $this->userName->getElementValue()
+            : null;
     }
 
     /**
@@ -73,7 +75,7 @@ class InstantConferencingIntegratedDeviceModify extends ComplexType implements C
     public function setPassword($password = null)
     {
         $this->password = new SimpleContent($password);
-        $this->password->setName('password');
+        $this->password->setElementName('password');
         return $this;
     }
 
@@ -83,7 +85,9 @@ class InstantConferencingIntegratedDeviceModify extends ComplexType implements C
      */
     public function getPassword()
     {
-        return ($this->password) ? $this->password->getValue() : null;
+        return ($this->password)
+            ? $this->password->getElementValue()
+            : null;
     }
 
     /**
@@ -92,7 +96,7 @@ class InstantConferencingIntegratedDeviceModify extends ComplexType implements C
     public function setSecureProvisioning($secureProvisioning = null)
     {
         $this->secureProvisioning = new SimpleContent($secureProvisioning);
-        $this->secureProvisioning->setName('secureProvisioning');
+        $this->secureProvisioning->setElementName('secureProvisioning');
         return $this;
     }
 
@@ -102,7 +106,9 @@ class InstantConferencingIntegratedDeviceModify extends ComplexType implements C
      */
     public function getSecureProvisioning()
     {
-        return ($this->secureProvisioning) ? $this->secureProvisioning->getValue() : null;
+        return ($this->secureProvisioning)
+            ? $this->secureProvisioning->getElementValue()
+            : null;
     }
 
     /**
@@ -111,7 +117,7 @@ class InstantConferencingIntegratedDeviceModify extends ComplexType implements C
     public function setUnencryptedProvisioningPort($unencryptedProvisioningPort = null)
     {
         $this->unencryptedProvisioningPort = new SimpleContent($unencryptedProvisioningPort);
-        $this->unencryptedProvisioningPort->setName('unencryptedProvisioningPort');
+        $this->unencryptedProvisioningPort->setElementName('unencryptedProvisioningPort');
         return $this;
     }
 
@@ -121,7 +127,9 @@ class InstantConferencingIntegratedDeviceModify extends ComplexType implements C
      */
     public function getUnencryptedProvisioningPort()
     {
-        return ($this->unencryptedProvisioningPort) ? $this->unencryptedProvisioningPort->getValue() : null;
+        return ($this->unencryptedProvisioningPort)
+            ? $this->unencryptedProvisioningPort->getElementValue()
+            : null;
     }
 
     /**
@@ -130,7 +138,7 @@ class InstantConferencingIntegratedDeviceModify extends ComplexType implements C
     public function setEncryptedProvisioningPort($encryptedProvisioningPort = null)
     {
         $this->encryptedProvisioningPort = new SimpleContent($encryptedProvisioningPort);
-        $this->encryptedProvisioningPort->setName('encryptedProvisioningPort');
+        $this->encryptedProvisioningPort->setElementName('encryptedProvisioningPort');
         return $this;
     }
 
@@ -140,6 +148,8 @@ class InstantConferencingIntegratedDeviceModify extends ComplexType implements C
      */
     public function getEncryptedProvisioningPort()
     {
-        return ($this->encryptedProvisioningPort) ? $this->encryptedProvisioningPort->getValue() : null;
+        return ($this->encryptedProvisioningPort)
+            ? $this->encryptedProvisioningPort->getElementValue()
+            : null;
     }
 }

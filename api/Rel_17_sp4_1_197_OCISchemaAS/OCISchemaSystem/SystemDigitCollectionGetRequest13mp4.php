@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
 class SystemDigitCollectionGetRequest13mp4 extends ComplexType implements ComplexInterface
 {
     public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemDigitCollectionGetResponse13mp4';
-    public    $name = 'SystemDigitCollectionGetRequest13mp4';
+    public    $elementName = 'SystemDigitCollectionGetRequest13mp4';
 
     public function __construct(    ) {
     }

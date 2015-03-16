@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class EnterpriseCommonPhoneListAddListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'EnterpriseCommonPhoneListAddListRequest';
+    public    $elementName = 'EnterpriseCommonPhoneListAddListRequest';
     protected $serviceProviderId;
     protected $entry;
 
@@ -49,7 +49,7 @@ class EnterpriseCommonPhoneListAddListRequest extends ComplexType implements Com
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
-        $this->serviceProviderId->setName('serviceProviderId');
+        $this->serviceProviderId->setElementName('serviceProviderId');
         return $this;
     }
 
@@ -59,7 +59,9 @@ class EnterpriseCommonPhoneListAddListRequest extends ComplexType implements Com
      */
     public function getServiceProviderId()
     {
-        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
+        return ($this->serviceProviderId)
+            ? $this->serviceProviderId->getElementValue()
+            : null;
     }
 
     /**
@@ -70,7 +72,7 @@ class EnterpriseCommonPhoneListAddListRequest extends ComplexType implements Com
         $this->entry = ($entry InstanceOf PhoneListEntry)
              ? $entry
              : new PhoneListEntry($entry);
-        $this->entry->setName('entry');
+        $this->entry->setElementName('entry');
         return $this;
     }
 

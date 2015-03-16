@@ -28,7 +28,7 @@ use Broadworks_OCIP\core\Client\Client;
 class SystemGetRegistrationContactListRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType                  = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemGetRegistrationContactListResponse';
-    public    $name = 'SystemGetRegistrationContactListRequest';
+    public    $elementName = 'SystemGetRegistrationContactListRequest';
     protected $deviceLevel;
     protected $deviceName;
     protected $deviceType;
@@ -71,7 +71,7 @@ class SystemGetRegistrationContactListRequest extends ComplexType implements Com
         $this->deviceLevel = ($deviceLevel InstanceOf AccessDeviceLevel)
              ? $deviceLevel
              : new AccessDeviceLevel($deviceLevel);
-        $this->deviceLevel->setName('deviceLevel');
+        $this->deviceLevel->setElementName('deviceLevel');
         return $this;
     }
 
@@ -81,7 +81,9 @@ class SystemGetRegistrationContactListRequest extends ComplexType implements Com
      */
     public function getDeviceLevel()
     {
-        return ($this->deviceLevel) ? $this->deviceLevel->getValue() : null;
+        return ($this->deviceLevel)
+            ? $this->deviceLevel->getElementValue()
+            : null;
     }
 
     /**
@@ -92,7 +94,7 @@ class SystemGetRegistrationContactListRequest extends ComplexType implements Com
         $this->deviceName = ($deviceName InstanceOf AccessDeviceName)
              ? $deviceName
              : new AccessDeviceName($deviceName);
-        $this->deviceName->setName('deviceName');
+        $this->deviceName->setElementName('deviceName');
         return $this;
     }
 
@@ -102,7 +104,9 @@ class SystemGetRegistrationContactListRequest extends ComplexType implements Com
      */
     public function getDeviceName()
     {
-        return ($this->deviceName) ? $this->deviceName->getValue() : null;
+        return ($this->deviceName)
+            ? $this->deviceName->getElementValue()
+            : null;
     }
 
     /**
@@ -113,7 +117,7 @@ class SystemGetRegistrationContactListRequest extends ComplexType implements Com
         $this->deviceType = ($deviceType InstanceOf AccessDeviceType)
              ? $deviceType
              : new AccessDeviceType($deviceType);
-        $this->deviceType->setName('deviceType');
+        $this->deviceType->setElementName('deviceType');
         return $this;
     }
 
@@ -123,7 +127,9 @@ class SystemGetRegistrationContactListRequest extends ComplexType implements Com
      */
     public function getDeviceType()
     {
-        return ($this->deviceType) ? $this->deviceType->getValue() : null;
+        return ($this->deviceType)
+            ? $this->deviceType->getElementValue()
+            : null;
     }
 
     /**
@@ -134,7 +140,7 @@ class SystemGetRegistrationContactListRequest extends ComplexType implements Com
         $this->searchCriteriaRegistrationURI = ($searchCriteriaRegistrationURI InstanceOf SearchCriteriaRegistrationURI)
              ? $searchCriteriaRegistrationURI
              : new SearchCriteriaRegistrationURI($searchCriteriaRegistrationURI);
-        $this->searchCriteriaRegistrationURI->setName('searchCriteriaRegistrationURI');
+        $this->searchCriteriaRegistrationURI->setElementName('searchCriteriaRegistrationURI');
         return $this;
     }
 
@@ -155,7 +161,7 @@ class SystemGetRegistrationContactListRequest extends ComplexType implements Com
         $this->searchCriteriaSIPContact = ($searchCriteriaSIPContact InstanceOf SearchCriteriaSIPContact)
              ? $searchCriteriaSIPContact
              : new SearchCriteriaSIPContact($searchCriteriaSIPContact);
-        $this->searchCriteriaSIPContact->setName('searchCriteriaSIPContact');
+        $this->searchCriteriaSIPContact->setElementName('searchCriteriaSIPContact');
         return $this;
     }
 
@@ -176,7 +182,7 @@ class SystemGetRegistrationContactListRequest extends ComplexType implements Com
         $this->endpointType = ($endpointType InstanceOf RegistrationEndpointType)
              ? $endpointType
              : new RegistrationEndpointType($endpointType);
-        $this->endpointType->setName('endpointType');
+        $this->endpointType->setElementName('endpointType');
         return $this;
     }
 
@@ -186,7 +192,9 @@ class SystemGetRegistrationContactListRequest extends ComplexType implements Com
      */
     public function getEndpointType()
     {
-        return ($this->endpointType) ? $this->endpointType->getValue() : null;
+        return ($this->endpointType)
+            ? $this->endpointType->getElementValue()
+            : null;
     }
 
     /**
@@ -195,7 +203,7 @@ class SystemGetRegistrationContactListRequest extends ComplexType implements Com
     public function setExpired($expired = null)
     {
         $this->expired = new PrimitiveType($expired);
-        $this->expired->setName('expired');
+        $this->expired->setElementName('expired');
         return $this;
     }
 
@@ -205,6 +213,8 @@ class SystemGetRegistrationContactListRequest extends ComplexType implements Com
      */
     public function getExpired()
     {
-        return ($this->expired) ? $this->expired->getValue() : null;
+        return ($this->expired)
+            ? $this->expired->getElementValue()
+            : null;
     }
 }

@@ -23,7 +23,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemNetworkClassOfServiceGetAssignedServiceProviderListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemNetworkClassOfServiceGetAssignedServiceProviderListResponse';
+    public    $elementName = 'SystemNetworkClassOfServiceGetAssignedServiceProviderListResponse';
     protected $serviceProviderTable;
 
     /**
@@ -40,7 +40,7 @@ class SystemNetworkClassOfServiceGetAssignedServiceProviderListResponse extends 
     public function setServiceProviderTable(TableType $serviceProviderTable = null)
     {
         $this->serviceProviderTable = $serviceProviderTable;
-        $this->serviceProviderTable->setName('serviceProviderTable');
+        $this->serviceProviderTable->setElementName('serviceProviderTable');
         return $this;
     }
 

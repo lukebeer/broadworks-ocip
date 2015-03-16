@@ -16,12 +16,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\Enumeration;
  */
 class CPEDeviceResetEventType extends SimpleType
 {
-    public $name = "CPEDeviceResetEventType";
-    protected $value;
-
+    public $elementName = "CPEDeviceResetEventType";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new Enumeration([
             'Resync',
             'Check Sync'

@@ -16,12 +16,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\Enumeration;
  */
 class DayOfWeek extends SimpleType
 {
-    public $name = "DayOfWeek";
-    protected $value;
-
+    public $elementName = "DayOfWeek";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new Enumeration([
             'Sunday',
             'Monday',

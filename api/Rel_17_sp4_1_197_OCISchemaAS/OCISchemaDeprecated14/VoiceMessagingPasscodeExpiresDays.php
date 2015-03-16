@@ -17,12 +17,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\MaxInclusive;
  */
 class VoiceMessagingPasscodeExpiresDays extends SimpleType
 {
-    public $name = "VoiceMessagingPasscodeExpiresDays";
-    protected $value;
-
+    public $elementName = "VoiceMessagingPasscodeExpiresDays";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new MinInclusive("15"));
         $this->addRestriction(new MaxInclusive("180"));
     }

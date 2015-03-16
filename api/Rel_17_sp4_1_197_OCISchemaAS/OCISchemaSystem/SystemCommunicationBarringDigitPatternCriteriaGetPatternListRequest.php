@@ -23,7 +23,7 @@ use Broadworks_OCIP\core\Client\Client;
 class SystemCommunicationBarringDigitPatternCriteriaGetPatternListRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType               = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemCommunicationBarringDigitPatternCriteriaGetPatternListResponse';
-    public    $name = 'SystemCommunicationBarringDigitPatternCriteriaGetPatternListRequest';
+    public    $elementName = 'SystemCommunicationBarringDigitPatternCriteriaGetPatternListRequest';
     protected $name;
     protected $responseSizeLimit;
     protected $searchCriteriaDigitPattern;
@@ -54,7 +54,7 @@ class SystemCommunicationBarringDigitPatternCriteriaGetPatternListRequest extend
         $this->name = ($name InstanceOf DigitPatternCriteriaName)
              ? $name
              : new DigitPatternCriteriaName($name);
-        $this->name->setName('name');
+        $this->name->setElementName('name');
         return $this;
     }
 
@@ -64,7 +64,9 @@ class SystemCommunicationBarringDigitPatternCriteriaGetPatternListRequest extend
      */
     public function getName()
     {
-        return ($this->name) ? $this->name->getValue() : null;
+        return ($this->name)
+            ? $this->name->getElementValue()
+            : null;
     }
 
     /**
@@ -75,7 +77,7 @@ class SystemCommunicationBarringDigitPatternCriteriaGetPatternListRequest extend
         $this->responseSizeLimit = ($responseSizeLimit InstanceOf ResponseSizeLimit)
              ? $responseSizeLimit
              : new ResponseSizeLimit($responseSizeLimit);
-        $this->responseSizeLimit->setName('responseSizeLimit');
+        $this->responseSizeLimit->setElementName('responseSizeLimit');
         return $this;
     }
 
@@ -85,7 +87,9 @@ class SystemCommunicationBarringDigitPatternCriteriaGetPatternListRequest extend
      */
     public function getResponseSizeLimit()
     {
-        return ($this->responseSizeLimit) ? $this->responseSizeLimit->getValue() : null;
+        return ($this->responseSizeLimit)
+            ? $this->responseSizeLimit->getElementValue()
+            : null;
     }
 
     /**
@@ -96,7 +100,7 @@ class SystemCommunicationBarringDigitPatternCriteriaGetPatternListRequest extend
         $this->searchCriteriaDigitPattern = ($searchCriteriaDigitPattern InstanceOf SearchCriteriaDigitPattern)
              ? $searchCriteriaDigitPattern
              : new SearchCriteriaDigitPattern($searchCriteriaDigitPattern);
-        $this->searchCriteriaDigitPattern->setName('searchCriteriaDigitPattern');
+        $this->searchCriteriaDigitPattern->setElementName('searchCriteriaDigitPattern');
         return $this;
     }
 

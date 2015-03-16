@@ -19,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemRoutePointExternalSystemApplicationControllerGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemRoutePointExternalSystemApplicationControllerGetResponse';
+    public    $elementName = 'SystemRoutePointExternalSystemApplicationControllerGetResponse';
     protected $applicationController;
 
     /**
@@ -38,7 +38,7 @@ class SystemRoutePointExternalSystemApplicationControllerGetResponse extends Com
         $this->applicationController = ($applicationController InstanceOf ApplicationControllerName)
              ? $applicationController
              : new ApplicationControllerName($applicationController);
-        $this->applicationController->setName('applicationController');
+        $this->applicationController->setElementName('applicationController');
         return $this;
     }
 
@@ -48,6 +48,8 @@ class SystemRoutePointExternalSystemApplicationControllerGetResponse extends Com
      */
     public function getApplicationController()
     {
-        return ($this->applicationController) ? $this->applicationController->getValue() : null;
+        return ($this->applicationController)
+            ? $this->applicationController->getElementValue()
+            : null;
     }
 }

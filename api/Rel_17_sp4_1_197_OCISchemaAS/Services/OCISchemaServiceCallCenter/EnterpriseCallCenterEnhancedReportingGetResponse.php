@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class EnterpriseCallCenterEnhancedReportingGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'EnterpriseCallCenterEnhancedReportingGetResponse';
+    public    $elementName = 'EnterpriseCallCenterEnhancedReportingGetResponse';
     protected $reportingServer;
     protected $webStatisticSource;
 
@@ -40,7 +40,7 @@ class EnterpriseCallCenterEnhancedReportingGetResponse extends ComplexType imple
         $this->reportingServer = ($reportingServer InstanceOf CallCenterReportServerChoice)
              ? $reportingServer
              : new CallCenterReportServerChoice($reportingServer);
-        $this->reportingServer->setName('reportingServer');
+        $this->reportingServer->setElementName('reportingServer');
         return $this;
     }
 
@@ -50,7 +50,9 @@ class EnterpriseCallCenterEnhancedReportingGetResponse extends ComplexType imple
      */
     public function getReportingServer()
     {
-        return ($this->reportingServer) ? $this->reportingServer->getValue() : null;
+        return ($this->reportingServer)
+            ? $this->reportingServer->getElementValue()
+            : null;
     }
 
     /**
@@ -61,7 +63,7 @@ class EnterpriseCallCenterEnhancedReportingGetResponse extends ComplexType imple
         $this->webStatisticSource = ($webStatisticSource InstanceOf CallCenterReportWebStatisticsSource)
              ? $webStatisticSource
              : new CallCenterReportWebStatisticsSource($webStatisticSource);
-        $this->webStatisticSource->setName('webStatisticSource');
+        $this->webStatisticSource->setElementName('webStatisticSource');
         return $this;
     }
 
@@ -71,6 +73,8 @@ class EnterpriseCallCenterEnhancedReportingGetResponse extends ComplexType imple
      */
     public function getWebStatisticSource()
     {
-        return ($this->webStatisticSource) ? $this->webStatisticSource->getValue() : null;
+        return ($this->webStatisticSource)
+            ? $this->webStatisticSource->getElementValue()
+            : null;
     }
 }

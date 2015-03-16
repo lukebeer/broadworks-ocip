@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemOCIReportingParametersModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemOCIReportingParametersModifyRequest';
+    public    $elementName = 'SystemOCIReportingParametersModifyRequest';
     protected $serverPort;
     protected $enableConnectionPing;
     protected $connectionPingIntervalSeconds;
@@ -59,7 +59,7 @@ class SystemOCIReportingParametersModifyRequest extends ComplexType implements C
         $this->serverPort = ($serverPort InstanceOf Port1025)
              ? $serverPort
              : new Port1025($serverPort);
-        $this->serverPort->setName('serverPort');
+        $this->serverPort->setElementName('serverPort');
         return $this;
     }
 
@@ -69,7 +69,9 @@ class SystemOCIReportingParametersModifyRequest extends ComplexType implements C
      */
     public function getServerPort()
     {
-        return ($this->serverPort) ? $this->serverPort->getValue() : null;
+        return ($this->serverPort)
+            ? $this->serverPort->getElementValue()
+            : null;
     }
 
     /**
@@ -78,7 +80,7 @@ class SystemOCIReportingParametersModifyRequest extends ComplexType implements C
     public function setEnableConnectionPing($enableConnectionPing = null)
     {
         $this->enableConnectionPing = new PrimitiveType($enableConnectionPing);
-        $this->enableConnectionPing->setName('enableConnectionPing');
+        $this->enableConnectionPing->setElementName('enableConnectionPing');
         return $this;
     }
 
@@ -88,7 +90,9 @@ class SystemOCIReportingParametersModifyRequest extends ComplexType implements C
      */
     public function getEnableConnectionPing()
     {
-        return ($this->enableConnectionPing) ? $this->enableConnectionPing->getValue() : null;
+        return ($this->enableConnectionPing)
+            ? $this->enableConnectionPing->getElementValue()
+            : null;
     }
 
     /**
@@ -99,7 +103,7 @@ class SystemOCIReportingParametersModifyRequest extends ComplexType implements C
         $this->connectionPingIntervalSeconds = ($connectionPingIntervalSeconds InstanceOf OCIReportingConnectionPingIntervalSeconds)
              ? $connectionPingIntervalSeconds
              : new OCIReportingConnectionPingIntervalSeconds($connectionPingIntervalSeconds);
-        $this->connectionPingIntervalSeconds->setName('connectionPingIntervalSeconds');
+        $this->connectionPingIntervalSeconds->setElementName('connectionPingIntervalSeconds');
         return $this;
     }
 
@@ -109,7 +113,9 @@ class SystemOCIReportingParametersModifyRequest extends ComplexType implements C
      */
     public function getConnectionPingIntervalSeconds()
     {
-        return ($this->connectionPingIntervalSeconds) ? $this->connectionPingIntervalSeconds->getValue() : null;
+        return ($this->connectionPingIntervalSeconds)
+            ? $this->connectionPingIntervalSeconds->getElementValue()
+            : null;
     }
 
     /**
@@ -118,7 +124,7 @@ class SystemOCIReportingParametersModifyRequest extends ComplexType implements C
     public function setAlterPasswords($alterPasswords = null)
     {
         $this->alterPasswords = new PrimitiveType($alterPasswords);
-        $this->alterPasswords->setName('alterPasswords');
+        $this->alterPasswords->setElementName('alterPasswords');
         return $this;
     }
 
@@ -128,7 +134,9 @@ class SystemOCIReportingParametersModifyRequest extends ComplexType implements C
      */
     public function getAlterPasswords()
     {
-        return ($this->alterPasswords) ? $this->alterPasswords->getValue() : null;
+        return ($this->alterPasswords)
+            ? $this->alterPasswords->getElementValue()
+            : null;
     }
 
     /**
@@ -137,7 +145,7 @@ class SystemOCIReportingParametersModifyRequest extends ComplexType implements C
     public function setEnablePublicIdentityReporting($enablePublicIdentityReporting = null)
     {
         $this->enablePublicIdentityReporting = new PrimitiveType($enablePublicIdentityReporting);
-        $this->enablePublicIdentityReporting->setName('enablePublicIdentityReporting');
+        $this->enablePublicIdentityReporting->setElementName('enablePublicIdentityReporting');
         return $this;
     }
 
@@ -147,6 +155,8 @@ class SystemOCIReportingParametersModifyRequest extends ComplexType implements C
      */
     public function getEnablePublicIdentityReporting()
     {
-        return ($this->enablePublicIdentityReporting) ? $this->enablePublicIdentityReporting->getValue() : null;
+        return ($this->enablePublicIdentityReporting)
+            ? $this->enablePublicIdentityReporting->getElementValue()
+            : null;
     }
 }

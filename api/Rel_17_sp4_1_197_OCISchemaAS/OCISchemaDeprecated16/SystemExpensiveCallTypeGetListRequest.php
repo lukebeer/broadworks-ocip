@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
 class SystemExpensiveCallTypeGetListRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\SystemExpensiveCallTypeGetListResponse';
-    public    $name = 'SystemExpensiveCallTypeGetListRequest';
+    public    $elementName = 'SystemExpensiveCallTypeGetListRequest';
 
     public function __construct(    ) {
     }

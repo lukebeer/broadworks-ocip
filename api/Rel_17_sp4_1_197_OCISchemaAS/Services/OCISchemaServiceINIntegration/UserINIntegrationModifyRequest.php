@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserINIntegrationModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'UserINIntegrationModifyRequest';
+    public    $elementName = 'UserINIntegrationModifyRequest';
     protected $userId;
     protected $originatingServiceKey;
     protected $terminatingServiceKey;
@@ -52,7 +52,7 @@ class UserINIntegrationModifyRequest extends ComplexType implements ComplexInter
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
-        $this->userId->setName('userId');
+        $this->userId->setElementName('userId');
         return $this;
     }
 
@@ -62,7 +62,9 @@ class UserINIntegrationModifyRequest extends ComplexType implements ComplexInter
      */
     public function getUserId()
     {
-        return ($this->userId) ? $this->userId->getValue() : null;
+        return ($this->userId)
+            ? $this->userId->getElementValue()
+            : null;
     }
 
     /**
@@ -73,7 +75,7 @@ class UserINIntegrationModifyRequest extends ComplexType implements ComplexInter
         $this->originatingServiceKey = ($originatingServiceKey InstanceOf MobilityManagerServiceKey)
              ? $originatingServiceKey
              : new MobilityManagerServiceKey($originatingServiceKey);
-        $this->originatingServiceKey->setName('originatingServiceKey');
+        $this->originatingServiceKey->setElementName('originatingServiceKey');
         return $this;
     }
 
@@ -83,7 +85,9 @@ class UserINIntegrationModifyRequest extends ComplexType implements ComplexInter
      */
     public function getOriginatingServiceKey()
     {
-        return ($this->originatingServiceKey) ? $this->originatingServiceKey->getValue() : null;
+        return ($this->originatingServiceKey)
+            ? $this->originatingServiceKey->getElementValue()
+            : null;
     }
 
     /**
@@ -94,7 +98,7 @@ class UserINIntegrationModifyRequest extends ComplexType implements ComplexInter
         $this->terminatingServiceKey = ($terminatingServiceKey InstanceOf MobilityManagerServiceKey)
              ? $terminatingServiceKey
              : new MobilityManagerServiceKey($terminatingServiceKey);
-        $this->terminatingServiceKey->setName('terminatingServiceKey');
+        $this->terminatingServiceKey->setElementName('terminatingServiceKey');
         return $this;
     }
 
@@ -104,6 +108,8 @@ class UserINIntegrationModifyRequest extends ComplexType implements ComplexInter
      */
     public function getTerminatingServiceKey()
     {
-        return ($this->terminatingServiceKey) ? $this->terminatingServiceKey->getValue() : null;
+        return ($this->terminatingServiceKey)
+            ? $this->terminatingServiceKey->getElementValue()
+            : null;
     }
 }

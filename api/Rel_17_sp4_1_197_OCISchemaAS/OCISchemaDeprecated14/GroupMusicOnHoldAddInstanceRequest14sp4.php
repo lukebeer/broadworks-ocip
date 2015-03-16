@@ -26,7 +26,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupMusicOnHoldAddInstanceRequest14sp4 extends ComplexType implements ComplexInterface
 {
-    public    $name = 'GroupMusicOnHoldAddInstanceRequest14sp4';
+    public    $elementName = 'GroupMusicOnHoldAddInstanceRequest14sp4';
     protected $serviceProviderId;
     protected $groupId;
     protected $department;
@@ -78,7 +78,7 @@ class GroupMusicOnHoldAddInstanceRequest14sp4 extends ComplexType implements Com
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
-        $this->serviceProviderId->setName('serviceProviderId');
+        $this->serviceProviderId->setElementName('serviceProviderId');
         return $this;
     }
 
@@ -88,7 +88,9 @@ class GroupMusicOnHoldAddInstanceRequest14sp4 extends ComplexType implements Com
      */
     public function getServiceProviderId()
     {
-        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
+        return ($this->serviceProviderId)
+            ? $this->serviceProviderId->getElementValue()
+            : null;
     }
 
     /**
@@ -99,7 +101,7 @@ class GroupMusicOnHoldAddInstanceRequest14sp4 extends ComplexType implements Com
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
-        $this->groupId->setName('groupId');
+        $this->groupId->setElementName('groupId');
         return $this;
     }
 
@@ -109,7 +111,9 @@ class GroupMusicOnHoldAddInstanceRequest14sp4 extends ComplexType implements Com
      */
     public function getGroupId()
     {
-        return ($this->groupId) ? $this->groupId->getValue() : null;
+        return ($this->groupId)
+            ? $this->groupId->getElementValue()
+            : null;
     }
 
     /**
@@ -120,7 +124,7 @@ class GroupMusicOnHoldAddInstanceRequest14sp4 extends ComplexType implements Com
         $this->department = ($department InstanceOf DepartmentKey)
              ? $department
              : new DepartmentKey($department);
-        $this->department->setName('department');
+        $this->department->setElementName('department');
         return $this;
     }
 
@@ -139,7 +143,7 @@ class GroupMusicOnHoldAddInstanceRequest14sp4 extends ComplexType implements Com
     public function setIsActiveDuringCallHold($isActiveDuringCallHold = null)
     {
         $this->isActiveDuringCallHold = new PrimitiveType($isActiveDuringCallHold);
-        $this->isActiveDuringCallHold->setName('isActiveDuringCallHold');
+        $this->isActiveDuringCallHold->setElementName('isActiveDuringCallHold');
         return $this;
     }
 
@@ -149,7 +153,9 @@ class GroupMusicOnHoldAddInstanceRequest14sp4 extends ComplexType implements Com
      */
     public function getIsActiveDuringCallHold()
     {
-        return ($this->isActiveDuringCallHold) ? $this->isActiveDuringCallHold->getValue() : null;
+        return ($this->isActiveDuringCallHold)
+            ? $this->isActiveDuringCallHold->getElementValue()
+            : null;
     }
 
     /**
@@ -158,7 +164,7 @@ class GroupMusicOnHoldAddInstanceRequest14sp4 extends ComplexType implements Com
     public function setIsActiveDuringCallPark($isActiveDuringCallPark = null)
     {
         $this->isActiveDuringCallPark = new PrimitiveType($isActiveDuringCallPark);
-        $this->isActiveDuringCallPark->setName('isActiveDuringCallPark');
+        $this->isActiveDuringCallPark->setElementName('isActiveDuringCallPark');
         return $this;
     }
 
@@ -168,7 +174,9 @@ class GroupMusicOnHoldAddInstanceRequest14sp4 extends ComplexType implements Com
      */
     public function getIsActiveDuringCallPark()
     {
-        return ($this->isActiveDuringCallPark) ? $this->isActiveDuringCallPark->getValue() : null;
+        return ($this->isActiveDuringCallPark)
+            ? $this->isActiveDuringCallPark->getElementValue()
+            : null;
     }
 
     /**
@@ -177,7 +185,7 @@ class GroupMusicOnHoldAddInstanceRequest14sp4 extends ComplexType implements Com
     public function setIsActiveDuringBusyCampOn($isActiveDuringBusyCampOn = null)
     {
         $this->isActiveDuringBusyCampOn = new PrimitiveType($isActiveDuringBusyCampOn);
-        $this->isActiveDuringBusyCampOn->setName('isActiveDuringBusyCampOn');
+        $this->isActiveDuringBusyCampOn->setElementName('isActiveDuringBusyCampOn');
         return $this;
     }
 
@@ -187,7 +195,9 @@ class GroupMusicOnHoldAddInstanceRequest14sp4 extends ComplexType implements Com
      */
     public function getIsActiveDuringBusyCampOn()
     {
-        return ($this->isActiveDuringBusyCampOn) ? $this->isActiveDuringBusyCampOn->getValue() : null;
+        return ($this->isActiveDuringBusyCampOn)
+            ? $this->isActiveDuringBusyCampOn->getElementValue()
+            : null;
     }
 
     /**
@@ -198,7 +208,7 @@ class GroupMusicOnHoldAddInstanceRequest14sp4 extends ComplexType implements Com
         $this->messageSelection = ($messageSelection InstanceOf MusicOnHoldMessageSelection)
              ? $messageSelection
              : new MusicOnHoldMessageSelection($messageSelection);
-        $this->messageSelection->setName('messageSelection');
+        $this->messageSelection->setElementName('messageSelection');
         return $this;
     }
 
@@ -208,7 +218,9 @@ class GroupMusicOnHoldAddInstanceRequest14sp4 extends ComplexType implements Com
      */
     public function getMessageSelection()
     {
-        return ($this->messageSelection) ? $this->messageSelection->getValue() : null;
+        return ($this->messageSelection)
+            ? $this->messageSelection->getElementValue()
+            : null;
     }
 
     /**
@@ -219,7 +231,7 @@ class GroupMusicOnHoldAddInstanceRequest14sp4 extends ComplexType implements Com
         $this->accessDeviceEndpoint = ($accessDeviceEndpoint InstanceOf AccessDeviceEndpointAdd)
              ? $accessDeviceEndpoint
              : new AccessDeviceEndpointAdd($accessDeviceEndpoint);
-        $this->accessDeviceEndpoint->setName('accessDeviceEndpoint');
+        $this->accessDeviceEndpoint->setElementName('accessDeviceEndpoint');
         return $this;
     }
 
@@ -240,7 +252,7 @@ class GroupMusicOnHoldAddInstanceRequest14sp4 extends ComplexType implements Com
         $this->audioFile = ($audioFile InstanceOf LabeledFileResource)
              ? $audioFile
              : new LabeledFileResource($audioFile);
-        $this->audioFile->setName('audioFile');
+        $this->audioFile->setElementName('audioFile');
         return $this;
     }
 
@@ -261,7 +273,7 @@ class GroupMusicOnHoldAddInstanceRequest14sp4 extends ComplexType implements Com
         $this->videoFile = ($videoFile InstanceOf LabeledFileResource)
              ? $videoFile
              : new LabeledFileResource($videoFile);
-        $this->videoFile->setName('videoFile');
+        $this->videoFile->setElementName('videoFile');
         return $this;
     }
 

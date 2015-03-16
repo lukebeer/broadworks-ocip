@@ -17,12 +17,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\MaxInclusive;
  */
 class RouteTimerSeconds extends SimpleType
 {
-    public $name = "RouteTimerSeconds";
-    protected $value;
-
+    public $elementName = "RouteTimerSeconds";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new MinInclusive("1"));
         $this->addRestriction(new MaxInclusive("25"));
     }

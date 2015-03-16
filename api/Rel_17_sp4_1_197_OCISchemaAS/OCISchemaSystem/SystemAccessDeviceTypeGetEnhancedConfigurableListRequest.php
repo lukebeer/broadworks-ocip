@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
 class SystemAccessDeviceTypeGetEnhancedConfigurableListRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemAccessDeviceTypeGetEnhancedConfigurableListResponse';
-    public    $name = 'SystemAccessDeviceTypeGetEnhancedConfigurableListRequest';
+    public    $elementName = 'SystemAccessDeviceTypeGetEnhancedConfigurableListRequest';
 
     public function __construct(    ) {
     }

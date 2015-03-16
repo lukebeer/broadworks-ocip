@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemCallCenterEnhancedReportingBrandingGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemCallCenterEnhancedReportingBrandingGetResponse';
+    public    $elementName = 'SystemCallCenterEnhancedReportingBrandingGetResponse';
     protected $brandingChoice;
     protected $customBrandingFileDescription;
 
@@ -40,7 +40,7 @@ class SystemCallCenterEnhancedReportingBrandingGetResponse extends ComplexType i
         $this->brandingChoice = ($brandingChoice InstanceOf CallCenterEnhancedReportingSystemBrandingChoice)
              ? $brandingChoice
              : new CallCenterEnhancedReportingSystemBrandingChoice($brandingChoice);
-        $this->brandingChoice->setName('brandingChoice');
+        $this->brandingChoice->setElementName('brandingChoice');
         return $this;
     }
 
@@ -50,7 +50,9 @@ class SystemCallCenterEnhancedReportingBrandingGetResponse extends ComplexType i
      */
     public function getBrandingChoice()
     {
-        return ($this->brandingChoice) ? $this->brandingChoice->getValue() : null;
+        return ($this->brandingChoice)
+            ? $this->brandingChoice->getElementValue()
+            : null;
     }
 
     /**
@@ -61,7 +63,7 @@ class SystemCallCenterEnhancedReportingBrandingGetResponse extends ComplexType i
         $this->customBrandingFileDescription = ($customBrandingFileDescription InstanceOf FileDescription)
              ? $customBrandingFileDescription
              : new FileDescription($customBrandingFileDescription);
-        $this->customBrandingFileDescription->setName('customBrandingFileDescription');
+        $this->customBrandingFileDescription->setElementName('customBrandingFileDescription');
         return $this;
     }
 
@@ -71,6 +73,8 @@ class SystemCallCenterEnhancedReportingBrandingGetResponse extends ComplexType i
      */
     public function getCustomBrandingFileDescription()
     {
-        return ($this->customBrandingFileDescription) ? $this->customBrandingFileDescription->getValue() : null;
+        return ($this->customBrandingFileDescription)
+            ? $this->customBrandingFileDescription->getElementValue()
+            : null;
     }
 }

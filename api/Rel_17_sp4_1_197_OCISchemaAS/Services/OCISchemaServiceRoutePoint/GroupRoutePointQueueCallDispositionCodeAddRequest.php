@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupRoutePointQueueCallDispositionCodeAddRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'GroupRoutePointQueueCallDispositionCodeAddRequest';
+    public    $elementName = 'GroupRoutePointQueueCallDispositionCodeAddRequest';
     protected $serviceUserId;
     protected $code;
     protected $isActive;
@@ -56,7 +56,7 @@ class GroupRoutePointQueueCallDispositionCodeAddRequest extends ComplexType impl
         $this->serviceUserId = ($serviceUserId InstanceOf UserId)
              ? $serviceUserId
              : new UserId($serviceUserId);
-        $this->serviceUserId->setName('serviceUserId');
+        $this->serviceUserId->setElementName('serviceUserId');
         return $this;
     }
 
@@ -66,7 +66,9 @@ class GroupRoutePointQueueCallDispositionCodeAddRequest extends ComplexType impl
      */
     public function getServiceUserId()
     {
-        return ($this->serviceUserId) ? $this->serviceUserId->getValue() : null;
+        return ($this->serviceUserId)
+            ? $this->serviceUserId->getElementValue()
+            : null;
     }
 
     /**
@@ -77,7 +79,7 @@ class GroupRoutePointQueueCallDispositionCodeAddRequest extends ComplexType impl
         $this->code = ($code InstanceOf CallDispositionCode)
              ? $code
              : new CallDispositionCode($code);
-        $this->code->setName('code');
+        $this->code->setElementName('code');
         return $this;
     }
 
@@ -87,7 +89,9 @@ class GroupRoutePointQueueCallDispositionCodeAddRequest extends ComplexType impl
      */
     public function getCode()
     {
-        return ($this->code) ? $this->code->getValue() : null;
+        return ($this->code)
+            ? $this->code->getElementValue()
+            : null;
     }
 
     /**
@@ -96,7 +100,7 @@ class GroupRoutePointQueueCallDispositionCodeAddRequest extends ComplexType impl
     public function setIsActive($isActive = null)
     {
         $this->isActive = new PrimitiveType($isActive);
-        $this->isActive->setName('isActive');
+        $this->isActive->setElementName('isActive');
         return $this;
     }
 
@@ -106,7 +110,9 @@ class GroupRoutePointQueueCallDispositionCodeAddRequest extends ComplexType impl
      */
     public function getIsActive()
     {
-        return ($this->isActive) ? $this->isActive->getValue() : null;
+        return ($this->isActive)
+            ? $this->isActive->getElementValue()
+            : null;
     }
 
     /**
@@ -117,7 +123,7 @@ class GroupRoutePointQueueCallDispositionCodeAddRequest extends ComplexType impl
         $this->description = ($description InstanceOf CallDispositionCodeDescription)
              ? $description
              : new CallDispositionCodeDescription($description);
-        $this->description->setName('description');
+        $this->description->setElementName('description');
         return $this;
     }
 
@@ -127,6 +133,8 @@ class GroupRoutePointQueueCallDispositionCodeAddRequest extends ComplexType impl
      */
     public function getDescription()
     {
-        return ($this->description) ? $this->description->getValue() : null;
+        return ($this->description)
+            ? $this->description->getElementValue()
+            : null;
     }
 }

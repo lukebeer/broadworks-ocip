@@ -27,7 +27,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemCallCenterGetResponse17 extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemCallCenterGetResponse17';
+    public    $elementName = 'SystemCallCenterGetResponse17';
     protected $defaultFromAddress;
     protected $statisticsSamplingPeriodMinutes;
     protected $defaultEnableGuardTimer;
@@ -59,7 +59,7 @@ class SystemCallCenterGetResponse17 extends ComplexType implements ComplexInterf
         $this->defaultFromAddress = ($defaultFromAddress InstanceOf EmailAddress)
              ? $defaultFromAddress
              : new EmailAddress($defaultFromAddress);
-        $this->defaultFromAddress->setName('defaultFromAddress');
+        $this->defaultFromAddress->setElementName('defaultFromAddress');
         return $this;
     }
 
@@ -69,7 +69,9 @@ class SystemCallCenterGetResponse17 extends ComplexType implements ComplexInterf
      */
     public function getDefaultFromAddress()
     {
-        return ($this->defaultFromAddress) ? $this->defaultFromAddress->getValue() : null;
+        return ($this->defaultFromAddress)
+            ? $this->defaultFromAddress->getElementValue()
+            : null;
     }
 
     /**
@@ -80,7 +82,7 @@ class SystemCallCenterGetResponse17 extends ComplexType implements ComplexInterf
         $this->statisticsSamplingPeriodMinutes = ($statisticsSamplingPeriodMinutes InstanceOf CallCenterStatisticsSamplingPeriodMinutes)
              ? $statisticsSamplingPeriodMinutes
              : new CallCenterStatisticsSamplingPeriodMinutes($statisticsSamplingPeriodMinutes);
-        $this->statisticsSamplingPeriodMinutes->setName('statisticsSamplingPeriodMinutes');
+        $this->statisticsSamplingPeriodMinutes->setElementName('statisticsSamplingPeriodMinutes');
         return $this;
     }
 
@@ -90,7 +92,9 @@ class SystemCallCenterGetResponse17 extends ComplexType implements ComplexInterf
      */
     public function getStatisticsSamplingPeriodMinutes()
     {
-        return ($this->statisticsSamplingPeriodMinutes) ? $this->statisticsSamplingPeriodMinutes->getValue() : null;
+        return ($this->statisticsSamplingPeriodMinutes)
+            ? $this->statisticsSamplingPeriodMinutes->getElementValue()
+            : null;
     }
 
     /**
@@ -99,7 +103,7 @@ class SystemCallCenterGetResponse17 extends ComplexType implements ComplexInterf
     public function setDefaultEnableGuardTimer($defaultEnableGuardTimer = null)
     {
         $this->defaultEnableGuardTimer = new PrimitiveType($defaultEnableGuardTimer);
-        $this->defaultEnableGuardTimer->setName('defaultEnableGuardTimer');
+        $this->defaultEnableGuardTimer->setElementName('defaultEnableGuardTimer');
         return $this;
     }
 
@@ -109,7 +113,9 @@ class SystemCallCenterGetResponse17 extends ComplexType implements ComplexInterf
      */
     public function getDefaultEnableGuardTimer()
     {
-        return ($this->defaultEnableGuardTimer) ? $this->defaultEnableGuardTimer->getValue() : null;
+        return ($this->defaultEnableGuardTimer)
+            ? $this->defaultEnableGuardTimer->getElementValue()
+            : null;
     }
 
     /**
@@ -120,7 +126,7 @@ class SystemCallCenterGetResponse17 extends ComplexType implements ComplexInterf
         $this->defaultGuardTimerSeconds = ($defaultGuardTimerSeconds InstanceOf CallCenterGuardTimerSeconds)
              ? $defaultGuardTimerSeconds
              : new CallCenterGuardTimerSeconds($defaultGuardTimerSeconds);
-        $this->defaultGuardTimerSeconds->setName('defaultGuardTimerSeconds');
+        $this->defaultGuardTimerSeconds->setElementName('defaultGuardTimerSeconds');
         return $this;
     }
 
@@ -130,7 +136,9 @@ class SystemCallCenterGetResponse17 extends ComplexType implements ComplexInterf
      */
     public function getDefaultGuardTimerSeconds()
     {
-        return ($this->defaultGuardTimerSeconds) ? $this->defaultGuardTimerSeconds->getValue() : null;
+        return ($this->defaultGuardTimerSeconds)
+            ? $this->defaultGuardTimerSeconds->getElementValue()
+            : null;
     }
 
     /**
@@ -139,7 +147,7 @@ class SystemCallCenterGetResponse17 extends ComplexType implements ComplexInterf
     public function setForceAgentUnavailableOnDNDActivation($forceAgentUnavailableOnDNDActivation = null)
     {
         $this->forceAgentUnavailableOnDNDActivation = new PrimitiveType($forceAgentUnavailableOnDNDActivation);
-        $this->forceAgentUnavailableOnDNDActivation->setName('forceAgentUnavailableOnDNDActivation');
+        $this->forceAgentUnavailableOnDNDActivation->setElementName('forceAgentUnavailableOnDNDActivation');
         return $this;
     }
 
@@ -149,7 +157,9 @@ class SystemCallCenterGetResponse17 extends ComplexType implements ComplexInterf
      */
     public function getForceAgentUnavailableOnDNDActivation()
     {
-        return ($this->forceAgentUnavailableOnDNDActivation) ? $this->forceAgentUnavailableOnDNDActivation->getValue() : null;
+        return ($this->forceAgentUnavailableOnDNDActivation)
+            ? $this->forceAgentUnavailableOnDNDActivation->getElementValue()
+            : null;
     }
 
     /**
@@ -158,7 +168,7 @@ class SystemCallCenterGetResponse17 extends ComplexType implements ComplexInterf
     public function setForceAgentUnavailableOnPersonalCalls($forceAgentUnavailableOnPersonalCalls = null)
     {
         $this->forceAgentUnavailableOnPersonalCalls = new PrimitiveType($forceAgentUnavailableOnPersonalCalls);
-        $this->forceAgentUnavailableOnPersonalCalls->setName('forceAgentUnavailableOnPersonalCalls');
+        $this->forceAgentUnavailableOnPersonalCalls->setElementName('forceAgentUnavailableOnPersonalCalls');
         return $this;
     }
 
@@ -168,7 +178,9 @@ class SystemCallCenterGetResponse17 extends ComplexType implements ComplexInterf
      */
     public function getForceAgentUnavailableOnPersonalCalls()
     {
-        return ($this->forceAgentUnavailableOnPersonalCalls) ? $this->forceAgentUnavailableOnPersonalCalls->getValue() : null;
+        return ($this->forceAgentUnavailableOnPersonalCalls)
+            ? $this->forceAgentUnavailableOnPersonalCalls->getElementValue()
+            : null;
     }
 
     /**
@@ -177,7 +189,7 @@ class SystemCallCenterGetResponse17 extends ComplexType implements ComplexInterf
     public function setForceAgentUnavailableOnBouncedCallLimit($forceAgentUnavailableOnBouncedCallLimit = null)
     {
         $this->forceAgentUnavailableOnBouncedCallLimit = new PrimitiveType($forceAgentUnavailableOnBouncedCallLimit);
-        $this->forceAgentUnavailableOnBouncedCallLimit->setName('forceAgentUnavailableOnBouncedCallLimit');
+        $this->forceAgentUnavailableOnBouncedCallLimit->setElementName('forceAgentUnavailableOnBouncedCallLimit');
         return $this;
     }
 
@@ -187,7 +199,9 @@ class SystemCallCenterGetResponse17 extends ComplexType implements ComplexInterf
      */
     public function getForceAgentUnavailableOnBouncedCallLimit()
     {
-        return ($this->forceAgentUnavailableOnBouncedCallLimit) ? $this->forceAgentUnavailableOnBouncedCallLimit->getValue() : null;
+        return ($this->forceAgentUnavailableOnBouncedCallLimit)
+            ? $this->forceAgentUnavailableOnBouncedCallLimit->getElementValue()
+            : null;
     }
 
     /**
@@ -198,7 +212,7 @@ class SystemCallCenterGetResponse17 extends ComplexType implements ComplexInterf
         $this->numberConsecutiveBouncedCallsToForceAgentUnavailable = ($numberConsecutiveBouncedCallsToForceAgentUnavailable InstanceOf CallCenterConsecutiveBouncedCallsToForceAgentUnavailable)
              ? $numberConsecutiveBouncedCallsToForceAgentUnavailable
              : new CallCenterConsecutiveBouncedCallsToForceAgentUnavailable($numberConsecutiveBouncedCallsToForceAgentUnavailable);
-        $this->numberConsecutiveBouncedCallsToForceAgentUnavailable->setName('numberConsecutiveBouncedCallsToForceAgentUnavailable');
+        $this->numberConsecutiveBouncedCallsToForceAgentUnavailable->setElementName('numberConsecutiveBouncedCallsToForceAgentUnavailable');
         return $this;
     }
 
@@ -208,7 +222,9 @@ class SystemCallCenterGetResponse17 extends ComplexType implements ComplexInterf
      */
     public function getNumberConsecutiveBouncedCallsToForceAgentUnavailable()
     {
-        return ($this->numberConsecutiveBouncedCallsToForceAgentUnavailable) ? $this->numberConsecutiveBouncedCallsToForceAgentUnavailable->getValue() : null;
+        return ($this->numberConsecutiveBouncedCallsToForceAgentUnavailable)
+            ? $this->numberConsecutiveBouncedCallsToForceAgentUnavailable->getElementValue()
+            : null;
     }
 
     /**
@@ -217,7 +233,7 @@ class SystemCallCenterGetResponse17 extends ComplexType implements ComplexInterf
     public function setDefaultPlayRingWhenOfferCall($defaultPlayRingWhenOfferCall = null)
     {
         $this->defaultPlayRingWhenOfferCall = new PrimitiveType($defaultPlayRingWhenOfferCall);
-        $this->defaultPlayRingWhenOfferCall->setName('defaultPlayRingWhenOfferCall');
+        $this->defaultPlayRingWhenOfferCall->setElementName('defaultPlayRingWhenOfferCall');
         return $this;
     }
 
@@ -227,7 +243,9 @@ class SystemCallCenterGetResponse17 extends ComplexType implements ComplexInterf
      */
     public function getDefaultPlayRingWhenOfferCall()
     {
-        return ($this->defaultPlayRingWhenOfferCall) ? $this->defaultPlayRingWhenOfferCall->getValue() : null;
+        return ($this->defaultPlayRingWhenOfferCall)
+            ? $this->defaultPlayRingWhenOfferCall->getElementValue()
+            : null;
     }
 
     /**
@@ -238,7 +256,7 @@ class SystemCallCenterGetResponse17 extends ComplexType implements ComplexInterf
         $this->uniformCallDistributionPolicyScope = ($uniformCallDistributionPolicyScope InstanceOf CallCenterUniformCallDistributionPolicyScope)
              ? $uniformCallDistributionPolicyScope
              : new CallCenterUniformCallDistributionPolicyScope($uniformCallDistributionPolicyScope);
-        $this->uniformCallDistributionPolicyScope->setName('uniformCallDistributionPolicyScope');
+        $this->uniformCallDistributionPolicyScope->setElementName('uniformCallDistributionPolicyScope');
         return $this;
     }
 
@@ -248,7 +266,9 @@ class SystemCallCenterGetResponse17 extends ComplexType implements ComplexInterf
      */
     public function getUniformCallDistributionPolicyScope()
     {
-        return ($this->uniformCallDistributionPolicyScope) ? $this->uniformCallDistributionPolicyScope->getValue() : null;
+        return ($this->uniformCallDistributionPolicyScope)
+            ? $this->uniformCallDistributionPolicyScope->getElementValue()
+            : null;
     }
 
     /**
@@ -259,7 +279,7 @@ class SystemCallCenterGetResponse17 extends ComplexType implements ComplexInterf
         $this->callHandlingSamplingPeriodMinutes = ($callHandlingSamplingPeriodMinutes InstanceOf CallHandlingSamplingPeriodMinutes)
              ? $callHandlingSamplingPeriodMinutes
              : new CallHandlingSamplingPeriodMinutes($callHandlingSamplingPeriodMinutes);
-        $this->callHandlingSamplingPeriodMinutes->setName('callHandlingSamplingPeriodMinutes');
+        $this->callHandlingSamplingPeriodMinutes->setElementName('callHandlingSamplingPeriodMinutes');
         return $this;
     }
 
@@ -269,7 +289,9 @@ class SystemCallCenterGetResponse17 extends ComplexType implements ComplexInterf
      */
     public function getCallHandlingSamplingPeriodMinutes()
     {
-        return ($this->callHandlingSamplingPeriodMinutes) ? $this->callHandlingSamplingPeriodMinutes->getValue() : null;
+        return ($this->callHandlingSamplingPeriodMinutes)
+            ? $this->callHandlingSamplingPeriodMinutes->getElementValue()
+            : null;
     }
 
     /**
@@ -280,7 +302,7 @@ class SystemCallCenterGetResponse17 extends ComplexType implements ComplexInterf
         $this->callHandlingMinimumSamplingSize = ($callHandlingMinimumSamplingSize InstanceOf CallHandlingMinimumSamplingSize)
              ? $callHandlingMinimumSamplingSize
              : new CallHandlingMinimumSamplingSize($callHandlingMinimumSamplingSize);
-        $this->callHandlingMinimumSamplingSize->setName('callHandlingMinimumSamplingSize');
+        $this->callHandlingMinimumSamplingSize->setElementName('callHandlingMinimumSamplingSize');
         return $this;
     }
 
@@ -290,7 +312,9 @@ class SystemCallCenterGetResponse17 extends ComplexType implements ComplexInterf
      */
     public function getCallHandlingMinimumSamplingSize()
     {
-        return ($this->callHandlingMinimumSamplingSize) ? $this->callHandlingMinimumSamplingSize->getValue() : null;
+        return ($this->callHandlingMinimumSamplingSize)
+            ? $this->callHandlingMinimumSamplingSize->getElementValue()
+            : null;
     }
 
     /**
@@ -299,7 +323,7 @@ class SystemCallCenterGetResponse17 extends ComplexType implements ComplexInterf
     public function setPlayToneToAgentForEmergencyCall($playToneToAgentForEmergencyCall = null)
     {
         $this->playToneToAgentForEmergencyCall = new PrimitiveType($playToneToAgentForEmergencyCall);
-        $this->playToneToAgentForEmergencyCall->setName('playToneToAgentForEmergencyCall');
+        $this->playToneToAgentForEmergencyCall->setElementName('playToneToAgentForEmergencyCall');
         return $this;
     }
 
@@ -309,7 +333,9 @@ class SystemCallCenterGetResponse17 extends ComplexType implements ComplexInterf
      */
     public function getPlayToneToAgentForEmergencyCall()
     {
-        return ($this->playToneToAgentForEmergencyCall) ? $this->playToneToAgentForEmergencyCall->getValue() : null;
+        return ($this->playToneToAgentForEmergencyCall)
+            ? $this->playToneToAgentForEmergencyCall->getElementValue()
+            : null;
     }
 
     /**
@@ -320,7 +346,7 @@ class SystemCallCenterGetResponse17 extends ComplexType implements ComplexInterf
         $this->emergencyCallCLIDPrefix = ($emergencyCallCLIDPrefix InstanceOf CallCenterEmergencyCallCLIDPrefix)
              ? $emergencyCallCLIDPrefix
              : new CallCenterEmergencyCallCLIDPrefix($emergencyCallCLIDPrefix);
-        $this->emergencyCallCLIDPrefix->setName('emergencyCallCLIDPrefix');
+        $this->emergencyCallCLIDPrefix->setElementName('emergencyCallCLIDPrefix');
         return $this;
     }
 
@@ -330,6 +356,8 @@ class SystemCallCenterGetResponse17 extends ComplexType implements ComplexInterf
      */
     public function getEmergencyCallCLIDPrefix()
     {
-        return ($this->emergencyCallCLIDPrefix) ? $this->emergencyCallCLIDPrefix->getValue() : null;
+        return ($this->emergencyCallCLIDPrefix)
+            ? $this->emergencyCallCLIDPrefix->getElementValue()
+            : null;
     }
 }

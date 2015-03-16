@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderDnGetAvailableListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'ServiceProviderDnGetAvailableListResponse';
+    public    $elementName = 'ServiceProviderDnGetAvailableListResponse';
     protected $availableDn;
 
     /**
@@ -37,7 +37,7 @@ class ServiceProviderDnGetAvailableListResponse extends ComplexType implements C
     public function setAvailableDn($availableDn = null)
     {
         $this->availableDn = new PrimitiveType($availableDn);
-        $this->availableDn->setName('availableDn');
+        $this->availableDn->setElementName('availableDn');
         return $this;
     }
 
@@ -47,6 +47,8 @@ class ServiceProviderDnGetAvailableListResponse extends ComplexType implements C
      */
     public function getAvailableDn()
     {
-        return ($this->availableDn) ? $this->availableDn->getValue() : null;
+        return ($this->availableDn)
+            ? $this->availableDn->getElementValue()
+            : null;
     }
 }

@@ -16,12 +16,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\Enumeration;
  */
 class EnhancedCallLogsSubscriberType extends SimpleType
 {
-    public $name = "EnhancedCallLogsSubscriberType";
-    protected $value;
-
+    public $elementName = "EnhancedCallLogsSubscriberType";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new Enumeration([
             'Auto Attendant',
             'BroadWorks Anywhere Portal',

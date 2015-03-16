@@ -24,7 +24,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupDnGetAssignmentListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'GroupDnGetAssignmentListResponse';
+    public    $elementName = 'GroupDnGetAssignmentListResponse';
     protected $dnTable;
 
     /**
@@ -41,7 +41,7 @@ class GroupDnGetAssignmentListResponse extends ComplexType implements ComplexInt
     public function setDnTable(TableType $dnTable = null)
     {
         $this->dnTable = $dnTable;
-        $this->dnTable->setName('dnTable');
+        $this->dnTable->setElementName('dnTable');
         return $this;
     }
 

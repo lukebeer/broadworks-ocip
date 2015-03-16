@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class EnterpriseVoiceVPNGetDefaultResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'EnterpriseVoiceVPNGetDefaultResponse';
+    public    $elementName = 'EnterpriseVoiceVPNGetDefaultResponse';
     protected $policySelection;
     protected $digitManipulationOperation;
     protected $routeGroupId;
@@ -44,7 +44,7 @@ class EnterpriseVoiceVPNGetDefaultResponse extends ComplexType implements Comple
         $this->policySelection = ($policySelection InstanceOf EnterpriseVoiceVPNPolicySelection)
              ? $policySelection
              : new EnterpriseVoiceVPNPolicySelection($policySelection);
-        $this->policySelection->setName('policySelection');
+        $this->policySelection->setElementName('policySelection');
         return $this;
     }
 
@@ -54,7 +54,9 @@ class EnterpriseVoiceVPNGetDefaultResponse extends ComplexType implements Comple
      */
     public function getPolicySelection()
     {
-        return ($this->policySelection) ? $this->policySelection->getValue() : null;
+        return ($this->policySelection)
+            ? $this->policySelection->getElementValue()
+            : null;
     }
 
     /**
@@ -65,7 +67,7 @@ class EnterpriseVoiceVPNGetDefaultResponse extends ComplexType implements Comple
         $this->digitManipulationOperation = ($digitManipulationOperation InstanceOf EnterpriseVoiceVPNDigitManipulationOperation)
              ? $digitManipulationOperation
              : new EnterpriseVoiceVPNDigitManipulationOperation($digitManipulationOperation);
-        $this->digitManipulationOperation->setName('digitManipulationOperation');
+        $this->digitManipulationOperation->setElementName('digitManipulationOperation');
         return $this;
     }
 
@@ -75,7 +77,9 @@ class EnterpriseVoiceVPNGetDefaultResponse extends ComplexType implements Comple
      */
     public function getDigitManipulationOperation()
     {
-        return ($this->digitManipulationOperation) ? $this->digitManipulationOperation->getValue() : null;
+        return ($this->digitManipulationOperation)
+            ? $this->digitManipulationOperation->getElementValue()
+            : null;
     }
 
     /**
@@ -86,7 +90,7 @@ class EnterpriseVoiceVPNGetDefaultResponse extends ComplexType implements Comple
         $this->routeGroupId = ($routeGroupId InstanceOf GroupId)
              ? $routeGroupId
              : new GroupId($routeGroupId);
-        $this->routeGroupId->setName('routeGroupId');
+        $this->routeGroupId->setElementName('routeGroupId');
         return $this;
     }
 
@@ -96,7 +100,9 @@ class EnterpriseVoiceVPNGetDefaultResponse extends ComplexType implements Comple
      */
     public function getRouteGroupId()
     {
-        return ($this->routeGroupId) ? $this->routeGroupId->getValue() : null;
+        return ($this->routeGroupId)
+            ? $this->routeGroupId->getElementValue()
+            : null;
     }
 
     /**
@@ -107,7 +113,7 @@ class EnterpriseVoiceVPNGetDefaultResponse extends ComplexType implements Comple
         $this->treatment = ($treatment InstanceOf EnterpriseVoiceVPNTreatmentEntry)
              ? $treatment
              : new EnterpriseVoiceVPNTreatmentEntry($treatment);
-        $this->treatment->setName('treatment');
+        $this->treatment->setElementName('treatment');
         return $this;
     }
 

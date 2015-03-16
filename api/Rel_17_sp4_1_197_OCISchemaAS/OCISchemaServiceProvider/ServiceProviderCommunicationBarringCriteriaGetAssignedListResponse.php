@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderCommunicationBarringCriteriaGetAssignedListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'ServiceProviderCommunicationBarringCriteriaGetAssignedListResponse';
+    public    $elementName = 'ServiceProviderCommunicationBarringCriteriaGetAssignedListResponse';
     protected $criteriaTable;
 
     /**
@@ -38,7 +38,7 @@ class ServiceProviderCommunicationBarringCriteriaGetAssignedListResponse extends
     public function setCriteriaTable(TableType $criteriaTable = null)
     {
         $this->criteriaTable = $criteriaTable;
-        $this->criteriaTable->setName('criteriaTable');
+        $this->criteriaTable->setElementName('criteriaTable');
         return $this;
     }
 

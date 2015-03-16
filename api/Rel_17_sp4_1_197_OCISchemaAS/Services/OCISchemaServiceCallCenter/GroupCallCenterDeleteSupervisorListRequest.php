@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupCallCenterDeleteSupervisorListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'GroupCallCenterDeleteSupervisorListRequest';
+    public    $elementName = 'GroupCallCenterDeleteSupervisorListRequest';
     protected $serviceUserId;
     protected $supervisorUserId;
 
@@ -48,7 +48,7 @@ class GroupCallCenterDeleteSupervisorListRequest extends ComplexType implements 
         $this->serviceUserId = ($serviceUserId InstanceOf UserId)
              ? $serviceUserId
              : new UserId($serviceUserId);
-        $this->serviceUserId->setName('serviceUserId');
+        $this->serviceUserId->setElementName('serviceUserId');
         return $this;
     }
 
@@ -58,7 +58,9 @@ class GroupCallCenterDeleteSupervisorListRequest extends ComplexType implements 
      */
     public function getServiceUserId()
     {
-        return ($this->serviceUserId) ? $this->serviceUserId->getValue() : null;
+        return ($this->serviceUserId)
+            ? $this->serviceUserId->getElementValue()
+            : null;
     }
 
     /**
@@ -69,7 +71,7 @@ class GroupCallCenterDeleteSupervisorListRequest extends ComplexType implements 
         $this->supervisorUserId = ($supervisorUserId InstanceOf UserId)
              ? $supervisorUserId
              : new UserId($supervisorUserId);
-        $this->supervisorUserId->setName('supervisorUserId');
+        $this->supervisorUserId->setElementName('supervisorUserId');
         return $this;
     }
 
@@ -79,6 +81,8 @@ class GroupCallCenterDeleteSupervisorListRequest extends ComplexType implements 
      */
     public function getSupervisorUserId()
     {
-        return ($this->supervisorUserId) ? $this->supervisorUserId->getValue() : null;
+        return ($this->supervisorUserId)
+            ? $this->supervisorUserId->getElementValue()
+            : null;
     }
 }

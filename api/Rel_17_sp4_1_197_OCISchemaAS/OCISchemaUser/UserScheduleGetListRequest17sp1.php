@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
 class UserScheduleGetListRequest17sp1 extends ComplexType implements ComplexInterface
 {
     public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser\UserScheduleGetListResponse17sp1';
-    public    $name = 'UserScheduleGetListRequest17sp1';
+    public    $elementName = 'UserScheduleGetListRequest17sp1';
     protected $userId;
     protected $scheduleType;
 
@@ -50,7 +50,7 @@ class UserScheduleGetListRequest17sp1 extends ComplexType implements ComplexInte
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
-        $this->userId->setName('userId');
+        $this->userId->setElementName('userId');
         return $this;
     }
 
@@ -60,7 +60,9 @@ class UserScheduleGetListRequest17sp1 extends ComplexType implements ComplexInte
      */
     public function getUserId()
     {
-        return ($this->userId) ? $this->userId->getValue() : null;
+        return ($this->userId)
+            ? $this->userId->getElementValue()
+            : null;
     }
 
     /**
@@ -71,7 +73,7 @@ class UserScheduleGetListRequest17sp1 extends ComplexType implements ComplexInte
         $this->scheduleType = ($scheduleType InstanceOf ScheduleType)
              ? $scheduleType
              : new ScheduleType($scheduleType);
-        $this->scheduleType->setName('scheduleType');
+        $this->scheduleType->setElementName('scheduleType');
         return $this;
     }
 
@@ -81,6 +83,8 @@ class UserScheduleGetListRequest17sp1 extends ComplexType implements ComplexInte
      */
     public function getScheduleType()
     {
-        return ($this->scheduleType) ? $this->scheduleType->getValue() : null;
+        return ($this->scheduleType)
+            ? $this->scheduleType->getElementValue()
+            : null;
     }
 }

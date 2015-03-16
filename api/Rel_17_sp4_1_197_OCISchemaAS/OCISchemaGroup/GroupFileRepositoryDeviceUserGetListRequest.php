@@ -23,7 +23,7 @@ use Broadworks_OCIP\core\Client\Client;
 class GroupFileRepositoryDeviceUserGetListRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType       = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupFileRepositoryDeviceUserGetListResponse';
-    public    $name = 'GroupFileRepositoryDeviceUserGetListRequest';
+    public    $elementName = 'GroupFileRepositoryDeviceUserGetListRequest';
     protected $serviceProviderId;
     protected $groupId;
     protected $fileRepositoryName;
@@ -54,7 +54,7 @@ class GroupFileRepositoryDeviceUserGetListRequest extends ComplexType implements
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
-        $this->serviceProviderId->setName('serviceProviderId');
+        $this->serviceProviderId->setElementName('serviceProviderId');
         return $this;
     }
 
@@ -64,7 +64,9 @@ class GroupFileRepositoryDeviceUserGetListRequest extends ComplexType implements
      */
     public function getServiceProviderId()
     {
-        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
+        return ($this->serviceProviderId)
+            ? $this->serviceProviderId->getElementValue()
+            : null;
     }
 
     /**
@@ -75,7 +77,7 @@ class GroupFileRepositoryDeviceUserGetListRequest extends ComplexType implements
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
-        $this->groupId->setName('groupId');
+        $this->groupId->setElementName('groupId');
         return $this;
     }
 
@@ -85,7 +87,9 @@ class GroupFileRepositoryDeviceUserGetListRequest extends ComplexType implements
      */
     public function getGroupId()
     {
-        return ($this->groupId) ? $this->groupId->getValue() : null;
+        return ($this->groupId)
+            ? $this->groupId->getElementValue()
+            : null;
     }
 
     /**
@@ -96,7 +100,7 @@ class GroupFileRepositoryDeviceUserGetListRequest extends ComplexType implements
         $this->fileRepositoryName = ($fileRepositoryName InstanceOf FileRepositoryName)
              ? $fileRepositoryName
              : new FileRepositoryName($fileRepositoryName);
-        $this->fileRepositoryName->setName('fileRepositoryName');
+        $this->fileRepositoryName->setElementName('fileRepositoryName');
         return $this;
     }
 
@@ -106,6 +110,8 @@ class GroupFileRepositoryDeviceUserGetListRequest extends ComplexType implements
      */
     public function getFileRepositoryName()
     {
-        return ($this->fileRepositoryName) ? $this->fileRepositoryName->getValue() : null;
+        return ($this->fileRepositoryName)
+            ? $this->fileRepositoryName->getElementValue()
+            : null;
     }
 }

@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemCallWaitingModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemCallWaitingModifyRequest';
+    public    $elementName = 'SystemCallWaitingModifyRequest';
     protected $playDistinctiveRingback;
 
     public function __construct(
@@ -43,7 +43,7 @@ class SystemCallWaitingModifyRequest extends ComplexType implements ComplexInter
     public function setPlayDistinctiveRingback($playDistinctiveRingback = null)
     {
         $this->playDistinctiveRingback = new PrimitiveType($playDistinctiveRingback);
-        $this->playDistinctiveRingback->setName('playDistinctiveRingback');
+        $this->playDistinctiveRingback->setElementName('playDistinctiveRingback');
         return $this;
     }
 
@@ -53,6 +53,8 @@ class SystemCallWaitingModifyRequest extends ComplexType implements ComplexInter
      */
     public function getPlayDistinctiveRingback()
     {
-        return ($this->playDistinctiveRingback) ? $this->playDistinctiveRingback->getValue() : null;
+        return ($this->playDistinctiveRingback)
+            ? $this->playDistinctiveRingback->getElementValue()
+            : null;
     }
 }

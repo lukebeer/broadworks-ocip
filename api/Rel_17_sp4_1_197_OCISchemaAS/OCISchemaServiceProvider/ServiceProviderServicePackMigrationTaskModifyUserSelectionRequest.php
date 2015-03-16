@@ -25,7 +25,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderServicePackMigrationTaskModifyUserSelectionRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'ServiceProviderServicePackMigrationTaskModifyUserSelectionRequest';
+    public    $elementName = 'ServiceProviderServicePackMigrationTaskModifyUserSelectionRequest';
     protected $serviceProviderId;
     protected $taskName;
     protected $userSelectionType;
@@ -62,7 +62,7 @@ class ServiceProviderServicePackMigrationTaskModifyUserSelectionRequest extends 
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
-        $this->serviceProviderId->setName('serviceProviderId');
+        $this->serviceProviderId->setElementName('serviceProviderId');
         return $this;
     }
 
@@ -72,7 +72,9 @@ class ServiceProviderServicePackMigrationTaskModifyUserSelectionRequest extends 
      */
     public function getServiceProviderId()
     {
-        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
+        return ($this->serviceProviderId)
+            ? $this->serviceProviderId->getElementValue()
+            : null;
     }
 
     /**
@@ -83,7 +85,7 @@ class ServiceProviderServicePackMigrationTaskModifyUserSelectionRequest extends 
         $this->taskName = ($taskName InstanceOf ServicePackMigrationTaskName)
              ? $taskName
              : new ServicePackMigrationTaskName($taskName);
-        $this->taskName->setName('taskName');
+        $this->taskName->setElementName('taskName');
         return $this;
     }
 
@@ -93,7 +95,9 @@ class ServiceProviderServicePackMigrationTaskModifyUserSelectionRequest extends 
      */
     public function getTaskName()
     {
-        return ($this->taskName) ? $this->taskName->getValue() : null;
+        return ($this->taskName)
+            ? $this->taskName->getElementValue()
+            : null;
     }
 
     /**
@@ -104,7 +108,7 @@ class ServiceProviderServicePackMigrationTaskModifyUserSelectionRequest extends 
         $this->userSelectionType = ($userSelectionType InstanceOf ServicePackMigrationTaskUserSelectionType)
              ? $userSelectionType
              : new ServicePackMigrationTaskUserSelectionType($userSelectionType);
-        $this->userSelectionType->setName('userSelectionType');
+        $this->userSelectionType->setElementName('userSelectionType');
         return $this;
     }
 
@@ -114,7 +118,9 @@ class ServiceProviderServicePackMigrationTaskModifyUserSelectionRequest extends 
      */
     public function getUserSelectionType()
     {
-        return ($this->userSelectionType) ? $this->userSelectionType->getValue() : null;
+        return ($this->userSelectionType)
+            ? $this->userSelectionType->getElementValue()
+            : null;
     }
 
     /**
@@ -125,7 +131,7 @@ class ServiceProviderServicePackMigrationTaskModifyUserSelectionRequest extends 
         $this->userServiceNameList = ($userServiceNameList InstanceOf ReplacementUserServiceList)
              ? $userServiceNameList
              : new ReplacementUserServiceList($userServiceNameList);
-        $this->userServiceNameList->setName('userServiceNameList');
+        $this->userServiceNameList->setElementName('userServiceNameList');
         return $this;
     }
 
@@ -146,7 +152,7 @@ class ServiceProviderServicePackMigrationTaskModifyUserSelectionRequest extends 
         $this->servicePackNameList = ($servicePackNameList InstanceOf ReplacementServicePackNameList)
              ? $servicePackNameList
              : new ReplacementServicePackNameList($servicePackNameList);
-        $this->servicePackNameList->setName('servicePackNameList');
+        $this->servicePackNameList->setElementName('servicePackNameList');
         return $this;
     }
 

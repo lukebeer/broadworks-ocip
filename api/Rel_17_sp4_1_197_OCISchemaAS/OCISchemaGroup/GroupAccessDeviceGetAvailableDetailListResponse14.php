@@ -19,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupAccessDeviceGetAvailableDetailListResponse14 extends ComplexType implements ComplexInterface
 {
-    public    $name = 'GroupAccessDeviceGetAvailableDetailListResponse14';
+    public    $elementName = 'GroupAccessDeviceGetAvailableDetailListResponse14';
     protected $availableAccessDevice;
 
     /**
@@ -35,7 +35,7 @@ class GroupAccessDeviceGetAvailableDetailListResponse14 extends ComplexType impl
      */
     public function setAvailableAccessDevice($availableAccessDevice = null)
     {
-        $this->availableAccessDevice->setName('availableAccessDevice');
+        $this->availableAccessDevice->setElementName('availableAccessDevice');
         return $this;
     }
 
@@ -45,6 +45,8 @@ class GroupAccessDeviceGetAvailableDetailListResponse14 extends ComplexType impl
      */
     public function getAvailableAccessDevice()
     {
-        return ($this->availableAccessDevice) ? $this->availableAccessDevice->getValue() : null;
+        return ($this->availableAccessDevice)
+            ? $this->availableAccessDevice->getElementValue()
+            : null;
     }
 }

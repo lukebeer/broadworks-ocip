@@ -32,7 +32,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupTrunkGroupAddInstanceRequest14 extends ComplexType implements ComplexInterface
 {
-    public    $name = 'GroupTrunkGroupAddInstanceRequest14';
+    public    $elementName = 'GroupTrunkGroupAddInstanceRequest14';
     protected $serviceProviderId;
     protected $groupId;
     protected $serviceUserId;
@@ -87,7 +87,7 @@ class GroupTrunkGroupAddInstanceRequest14 extends ComplexType implements Complex
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
-        $this->serviceProviderId->setName('serviceProviderId');
+        $this->serviceProviderId->setElementName('serviceProviderId');
         return $this;
     }
 
@@ -97,7 +97,9 @@ class GroupTrunkGroupAddInstanceRequest14 extends ComplexType implements Complex
      */
     public function getServiceProviderId()
     {
-        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
+        return ($this->serviceProviderId)
+            ? $this->serviceProviderId->getElementValue()
+            : null;
     }
 
     /**
@@ -108,7 +110,7 @@ class GroupTrunkGroupAddInstanceRequest14 extends ComplexType implements Complex
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
-        $this->groupId->setName('groupId');
+        $this->groupId->setElementName('groupId');
         return $this;
     }
 
@@ -118,7 +120,9 @@ class GroupTrunkGroupAddInstanceRequest14 extends ComplexType implements Complex
      */
     public function getGroupId()
     {
-        return ($this->groupId) ? $this->groupId->getValue() : null;
+        return ($this->groupId)
+            ? $this->groupId->getElementValue()
+            : null;
     }
 
     /**
@@ -129,7 +133,7 @@ class GroupTrunkGroupAddInstanceRequest14 extends ComplexType implements Complex
         $this->serviceUserId = ($serviceUserId InstanceOf UserId)
              ? $serviceUserId
              : new UserId($serviceUserId);
-        $this->serviceUserId->setName('serviceUserId');
+        $this->serviceUserId->setElementName('serviceUserId');
         return $this;
     }
 
@@ -139,7 +143,9 @@ class GroupTrunkGroupAddInstanceRequest14 extends ComplexType implements Complex
      */
     public function getServiceUserId()
     {
-        return ($this->serviceUserId) ? $this->serviceUserId->getValue() : null;
+        return ($this->serviceUserId)
+            ? $this->serviceUserId->getElementValue()
+            : null;
     }
 
     /**
@@ -150,7 +156,7 @@ class GroupTrunkGroupAddInstanceRequest14 extends ComplexType implements Complex
         $this->serviceInstanceProfile = ($serviceInstanceProfile InstanceOf ServiceInstanceAddProfileTrunkGroup)
              ? $serviceInstanceProfile
              : new ServiceInstanceAddProfileTrunkGroup($serviceInstanceProfile);
-        $this->serviceInstanceProfile->setName('serviceInstanceProfile');
+        $this->serviceInstanceProfile->setElementName('serviceInstanceProfile');
         return $this;
     }
 
@@ -171,7 +177,7 @@ class GroupTrunkGroupAddInstanceRequest14 extends ComplexType implements Complex
         $this->accessDeviceEndpoint = ($accessDeviceEndpoint InstanceOf AccessDeviceEndpointAdd)
              ? $accessDeviceEndpoint
              : new AccessDeviceEndpointAdd($accessDeviceEndpoint);
-        $this->accessDeviceEndpoint->setName('accessDeviceEndpoint');
+        $this->accessDeviceEndpoint->setElementName('accessDeviceEndpoint');
         return $this;
     }
 
@@ -192,7 +198,7 @@ class GroupTrunkGroupAddInstanceRequest14 extends ComplexType implements Complex
         $this->maxActiveCalls = ($maxActiveCalls InstanceOf MaxActiveCalls)
              ? $maxActiveCalls
              : new MaxActiveCalls($maxActiveCalls);
-        $this->maxActiveCalls->setName('maxActiveCalls');
+        $this->maxActiveCalls->setElementName('maxActiveCalls');
         return $this;
     }
 
@@ -202,7 +208,9 @@ class GroupTrunkGroupAddInstanceRequest14 extends ComplexType implements Complex
      */
     public function getMaxActiveCalls()
     {
-        return ($this->maxActiveCalls) ? $this->maxActiveCalls->getValue() : null;
+        return ($this->maxActiveCalls)
+            ? $this->maxActiveCalls->getElementValue()
+            : null;
     }
 
     /**
@@ -213,7 +221,7 @@ class GroupTrunkGroupAddInstanceRequest14 extends ComplexType implements Complex
         $this->maxIncomingCalls = ($maxIncomingCalls InstanceOf MaxIncomingCalls)
              ? $maxIncomingCalls
              : new MaxIncomingCalls($maxIncomingCalls);
-        $this->maxIncomingCalls->setName('maxIncomingCalls');
+        $this->maxIncomingCalls->setElementName('maxIncomingCalls');
         return $this;
     }
 
@@ -223,7 +231,9 @@ class GroupTrunkGroupAddInstanceRequest14 extends ComplexType implements Complex
      */
     public function getMaxIncomingCalls()
     {
-        return ($this->maxIncomingCalls) ? $this->maxIncomingCalls->getValue() : null;
+        return ($this->maxIncomingCalls)
+            ? $this->maxIncomingCalls->getElementValue()
+            : null;
     }
 
     /**
@@ -234,7 +244,7 @@ class GroupTrunkGroupAddInstanceRequest14 extends ComplexType implements Complex
         $this->maxOutgoingCalls = ($maxOutgoingCalls InstanceOf MaxOutgoingCalls)
              ? $maxOutgoingCalls
              : new MaxOutgoingCalls($maxOutgoingCalls);
-        $this->maxOutgoingCalls->setName('maxOutgoingCalls');
+        $this->maxOutgoingCalls->setElementName('maxOutgoingCalls');
         return $this;
     }
 
@@ -244,7 +254,9 @@ class GroupTrunkGroupAddInstanceRequest14 extends ComplexType implements Complex
      */
     public function getMaxOutgoingCalls()
     {
-        return ($this->maxOutgoingCalls) ? $this->maxOutgoingCalls->getValue() : null;
+        return ($this->maxOutgoingCalls)
+            ? $this->maxOutgoingCalls->getElementValue()
+            : null;
     }
 
     /**
@@ -253,7 +265,7 @@ class GroupTrunkGroupAddInstanceRequest14 extends ComplexType implements Complex
     public function setRequireAuthentication($requireAuthentication = null)
     {
         $this->requireAuthentication = new PrimitiveType($requireAuthentication);
-        $this->requireAuthentication->setName('requireAuthentication');
+        $this->requireAuthentication->setElementName('requireAuthentication');
         return $this;
     }
 
@@ -263,7 +275,9 @@ class GroupTrunkGroupAddInstanceRequest14 extends ComplexType implements Complex
      */
     public function getRequireAuthentication()
     {
-        return ($this->requireAuthentication) ? $this->requireAuthentication->getValue() : null;
+        return ($this->requireAuthentication)
+            ? $this->requireAuthentication->getElementValue()
+            : null;
     }
 
     /**
@@ -274,7 +288,7 @@ class GroupTrunkGroupAddInstanceRequest14 extends ComplexType implements Complex
         $this->sipAuthenticationUserName = ($sipAuthenticationUserName InstanceOf SIPAuthenticationUserName)
              ? $sipAuthenticationUserName
              : new SIPAuthenticationUserName($sipAuthenticationUserName);
-        $this->sipAuthenticationUserName->setName('sipAuthenticationUserName');
+        $this->sipAuthenticationUserName->setElementName('sipAuthenticationUserName');
         return $this;
     }
 
@@ -284,7 +298,9 @@ class GroupTrunkGroupAddInstanceRequest14 extends ComplexType implements Complex
      */
     public function getSipAuthenticationUserName()
     {
-        return ($this->sipAuthenticationUserName) ? $this->sipAuthenticationUserName->getValue() : null;
+        return ($this->sipAuthenticationUserName)
+            ? $this->sipAuthenticationUserName->getElementValue()
+            : null;
     }
 
     /**
@@ -295,7 +311,7 @@ class GroupTrunkGroupAddInstanceRequest14 extends ComplexType implements Complex
         $this->sipAuthenticationPassword = ($sipAuthenticationPassword InstanceOf SIPAuthenticationPassword)
              ? $sipAuthenticationPassword
              : new SIPAuthenticationPassword($sipAuthenticationPassword);
-        $this->sipAuthenticationPassword->setName('sipAuthenticationPassword');
+        $this->sipAuthenticationPassword->setElementName('sipAuthenticationPassword');
         return $this;
     }
 
@@ -305,6 +321,8 @@ class GroupTrunkGroupAddInstanceRequest14 extends ComplexType implements Complex
      */
     public function getSipAuthenticationPassword()
     {
-        return ($this->sipAuthenticationPassword) ? $this->sipAuthenticationPassword->getValue() : null;
+        return ($this->sipAuthenticationPassword)
+            ? $this->sipAuthenticationPassword->getElementValue()
+            : null;
     }
 }

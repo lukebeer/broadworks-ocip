@@ -47,7 +47,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemPolicyGetDefaultResponse14 extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemPolicyGetDefaultResponse14';
+    public    $elementName = 'SystemPolicyGetDefaultResponse14';
     protected $groupCallingPlanAccess;
     protected $groupExtensionAccess;
     protected $groupLDAPIntegrationAccess;
@@ -93,7 +93,7 @@ class SystemPolicyGetDefaultResponse14 extends ComplexType implements ComplexInt
         $this->groupCallingPlanAccess = ($groupCallingPlanAccess InstanceOf GroupCallingPlanAccess)
              ? $groupCallingPlanAccess
              : new GroupCallingPlanAccess($groupCallingPlanAccess);
-        $this->groupCallingPlanAccess->setName('groupCallingPlanAccess');
+        $this->groupCallingPlanAccess->setElementName('groupCallingPlanAccess');
         return $this;
     }
 
@@ -103,7 +103,9 @@ class SystemPolicyGetDefaultResponse14 extends ComplexType implements ComplexInt
      */
     public function getGroupCallingPlanAccess()
     {
-        return ($this->groupCallingPlanAccess) ? $this->groupCallingPlanAccess->getValue() : null;
+        return ($this->groupCallingPlanAccess)
+            ? $this->groupCallingPlanAccess->getElementValue()
+            : null;
     }
 
     /**
@@ -114,7 +116,7 @@ class SystemPolicyGetDefaultResponse14 extends ComplexType implements ComplexInt
         $this->groupExtensionAccess = ($groupExtensionAccess InstanceOf GroupExtensionAccess)
              ? $groupExtensionAccess
              : new GroupExtensionAccess($groupExtensionAccess);
-        $this->groupExtensionAccess->setName('groupExtensionAccess');
+        $this->groupExtensionAccess->setElementName('groupExtensionAccess');
         return $this;
     }
 
@@ -124,7 +126,9 @@ class SystemPolicyGetDefaultResponse14 extends ComplexType implements ComplexInt
      */
     public function getGroupExtensionAccess()
     {
-        return ($this->groupExtensionAccess) ? $this->groupExtensionAccess->getValue() : null;
+        return ($this->groupExtensionAccess)
+            ? $this->groupExtensionAccess->getElementValue()
+            : null;
     }
 
     /**
@@ -135,7 +139,7 @@ class SystemPolicyGetDefaultResponse14 extends ComplexType implements ComplexInt
         $this->groupLDAPIntegrationAccess = ($groupLDAPIntegrationAccess InstanceOf GroupLDAPIntegrationAccess)
              ? $groupLDAPIntegrationAccess
              : new GroupLDAPIntegrationAccess($groupLDAPIntegrationAccess);
-        $this->groupLDAPIntegrationAccess->setName('groupLDAPIntegrationAccess');
+        $this->groupLDAPIntegrationAccess->setElementName('groupLDAPIntegrationAccess');
         return $this;
     }
 
@@ -145,7 +149,9 @@ class SystemPolicyGetDefaultResponse14 extends ComplexType implements ComplexInt
      */
     public function getGroupLDAPIntegrationAccess()
     {
-        return ($this->groupLDAPIntegrationAccess) ? $this->groupLDAPIntegrationAccess->getValue() : null;
+        return ($this->groupLDAPIntegrationAccess)
+            ? $this->groupLDAPIntegrationAccess->getElementValue()
+            : null;
     }
 
     /**
@@ -156,7 +162,7 @@ class SystemPolicyGetDefaultResponse14 extends ComplexType implements ComplexInt
         $this->groupVoiceMessagingAccess = ($groupVoiceMessagingAccess InstanceOf GroupVoiceMessagingAccess)
              ? $groupVoiceMessagingAccess
              : new GroupVoiceMessagingAccess($groupVoiceMessagingAccess);
-        $this->groupVoiceMessagingAccess->setName('groupVoiceMessagingAccess');
+        $this->groupVoiceMessagingAccess->setElementName('groupVoiceMessagingAccess');
         return $this;
     }
 
@@ -166,7 +172,9 @@ class SystemPolicyGetDefaultResponse14 extends ComplexType implements ComplexInt
      */
     public function getGroupVoiceMessagingAccess()
     {
-        return ($this->groupVoiceMessagingAccess) ? $this->groupVoiceMessagingAccess->getValue() : null;
+        return ($this->groupVoiceMessagingAccess)
+            ? $this->groupVoiceMessagingAccess->getElementValue()
+            : null;
     }
 
     /**
@@ -177,7 +185,7 @@ class SystemPolicyGetDefaultResponse14 extends ComplexType implements ComplexInt
         $this->groupDepartmentAdminUserAccess = ($groupDepartmentAdminUserAccess InstanceOf GroupDepartmentAdminUserAccess)
              ? $groupDepartmentAdminUserAccess
              : new GroupDepartmentAdminUserAccess($groupDepartmentAdminUserAccess);
-        $this->groupDepartmentAdminUserAccess->setName('groupDepartmentAdminUserAccess');
+        $this->groupDepartmentAdminUserAccess->setElementName('groupDepartmentAdminUserAccess');
         return $this;
     }
 
@@ -187,7 +195,9 @@ class SystemPolicyGetDefaultResponse14 extends ComplexType implements ComplexInt
      */
     public function getGroupDepartmentAdminUserAccess()
     {
-        return ($this->groupDepartmentAdminUserAccess) ? $this->groupDepartmentAdminUserAccess->getValue() : null;
+        return ($this->groupDepartmentAdminUserAccess)
+            ? $this->groupDepartmentAdminUserAccess->getElementValue()
+            : null;
     }
 
     /**
@@ -198,7 +208,7 @@ class SystemPolicyGetDefaultResponse14 extends ComplexType implements ComplexInt
         $this->groupUserAuthenticationAccess = ($groupUserAuthenticationAccess InstanceOf GroupUserAuthenticationAccess)
              ? $groupUserAuthenticationAccess
              : new GroupUserAuthenticationAccess($groupUserAuthenticationAccess);
-        $this->groupUserAuthenticationAccess->setName('groupUserAuthenticationAccess');
+        $this->groupUserAuthenticationAccess->setElementName('groupUserAuthenticationAccess');
         return $this;
     }
 
@@ -208,7 +218,9 @@ class SystemPolicyGetDefaultResponse14 extends ComplexType implements ComplexInt
      */
     public function getGroupUserAuthenticationAccess()
     {
-        return ($this->groupUserAuthenticationAccess) ? $this->groupUserAuthenticationAccess->getValue() : null;
+        return ($this->groupUserAuthenticationAccess)
+            ? $this->groupUserAuthenticationAccess->getElementValue()
+            : null;
     }
 
     /**
@@ -219,7 +231,7 @@ class SystemPolicyGetDefaultResponse14 extends ComplexType implements ComplexInt
         $this->groupUserGroupDirectoryAccess = ($groupUserGroupDirectoryAccess InstanceOf GroupUserGroupDirectoryAccess)
              ? $groupUserGroupDirectoryAccess
              : new GroupUserGroupDirectoryAccess($groupUserGroupDirectoryAccess);
-        $this->groupUserGroupDirectoryAccess->setName('groupUserGroupDirectoryAccess');
+        $this->groupUserGroupDirectoryAccess->setElementName('groupUserGroupDirectoryAccess');
         return $this;
     }
 
@@ -229,7 +241,9 @@ class SystemPolicyGetDefaultResponse14 extends ComplexType implements ComplexInt
      */
     public function getGroupUserGroupDirectoryAccess()
     {
-        return ($this->groupUserGroupDirectoryAccess) ? $this->groupUserGroupDirectoryAccess->getValue() : null;
+        return ($this->groupUserGroupDirectoryAccess)
+            ? $this->groupUserGroupDirectoryAccess->getElementValue()
+            : null;
     }
 
     /**
@@ -240,7 +254,7 @@ class SystemPolicyGetDefaultResponse14 extends ComplexType implements ComplexInt
         $this->groupUserProfileAccess = ($groupUserProfileAccess InstanceOf GroupUserProfileAccess)
              ? $groupUserProfileAccess
              : new GroupUserProfileAccess($groupUserProfileAccess);
-        $this->groupUserProfileAccess->setName('groupUserProfileAccess');
+        $this->groupUserProfileAccess->setElementName('groupUserProfileAccess');
         return $this;
     }
 
@@ -250,7 +264,9 @@ class SystemPolicyGetDefaultResponse14 extends ComplexType implements ComplexInt
      */
     public function getGroupUserProfileAccess()
     {
-        return ($this->groupUserProfileAccess) ? $this->groupUserProfileAccess->getValue() : null;
+        return ($this->groupUserProfileAccess)
+            ? $this->groupUserProfileAccess->getElementValue()
+            : null;
     }
 
     /**
@@ -261,7 +277,7 @@ class SystemPolicyGetDefaultResponse14 extends ComplexType implements ComplexInt
         $this->groupAdminProfileAccess = ($groupAdminProfileAccess InstanceOf GroupAdminProfileAccess)
              ? $groupAdminProfileAccess
              : new GroupAdminProfileAccess($groupAdminProfileAccess);
-        $this->groupAdminProfileAccess->setName('groupAdminProfileAccess');
+        $this->groupAdminProfileAccess->setElementName('groupAdminProfileAccess');
         return $this;
     }
 
@@ -271,7 +287,9 @@ class SystemPolicyGetDefaultResponse14 extends ComplexType implements ComplexInt
      */
     public function getGroupAdminProfileAccess()
     {
-        return ($this->groupAdminProfileAccess) ? $this->groupAdminProfileAccess->getValue() : null;
+        return ($this->groupAdminProfileAccess)
+            ? $this->groupAdminProfileAccess->getElementValue()
+            : null;
     }
 
     /**
@@ -282,7 +300,7 @@ class SystemPolicyGetDefaultResponse14 extends ComplexType implements ComplexInt
         $this->groupAdminUserAccess = ($groupAdminUserAccess InstanceOf GroupAdminUserAccess)
              ? $groupAdminUserAccess
              : new GroupAdminUserAccess($groupAdminUserAccess);
-        $this->groupAdminUserAccess->setName('groupAdminUserAccess');
+        $this->groupAdminUserAccess->setElementName('groupAdminUserAccess');
         return $this;
     }
 
@@ -292,7 +310,9 @@ class SystemPolicyGetDefaultResponse14 extends ComplexType implements ComplexInt
      */
     public function getGroupAdminUserAccess()
     {
-        return ($this->groupAdminUserAccess) ? $this->groupAdminUserAccess->getValue() : null;
+        return ($this->groupAdminUserAccess)
+            ? $this->groupAdminUserAccess->getElementValue()
+            : null;
     }
 
     /**
@@ -303,7 +323,7 @@ class SystemPolicyGetDefaultResponse14 extends ComplexType implements ComplexInt
         $this->groupAdminAdminAccess = ($groupAdminAdminAccess InstanceOf GroupAdminAdminAccess)
              ? $groupAdminAdminAccess
              : new GroupAdminAdminAccess($groupAdminAdminAccess);
-        $this->groupAdminAdminAccess->setName('groupAdminAdminAccess');
+        $this->groupAdminAdminAccess->setElementName('groupAdminAdminAccess');
         return $this;
     }
 
@@ -313,7 +333,9 @@ class SystemPolicyGetDefaultResponse14 extends ComplexType implements ComplexInt
      */
     public function getGroupAdminAdminAccess()
     {
-        return ($this->groupAdminAdminAccess) ? $this->groupAdminAdminAccess->getValue() : null;
+        return ($this->groupAdminAdminAccess)
+            ? $this->groupAdminAdminAccess->getElementValue()
+            : null;
     }
 
     /**
@@ -324,7 +346,7 @@ class SystemPolicyGetDefaultResponse14 extends ComplexType implements ComplexInt
         $this->groupAdminDepartmentAccess = ($groupAdminDepartmentAccess InstanceOf GroupAdminDepartmentAccess)
              ? $groupAdminDepartmentAccess
              : new GroupAdminDepartmentAccess($groupAdminDepartmentAccess);
-        $this->groupAdminDepartmentAccess->setName('groupAdminDepartmentAccess');
+        $this->groupAdminDepartmentAccess->setElementName('groupAdminDepartmentAccess');
         return $this;
     }
 
@@ -334,7 +356,9 @@ class SystemPolicyGetDefaultResponse14 extends ComplexType implements ComplexInt
      */
     public function getGroupAdminDepartmentAccess()
     {
-        return ($this->groupAdminDepartmentAccess) ? $this->groupAdminDepartmentAccess->getValue() : null;
+        return ($this->groupAdminDepartmentAccess)
+            ? $this->groupAdminDepartmentAccess->getElementValue()
+            : null;
     }
 
     /**
@@ -345,7 +369,7 @@ class SystemPolicyGetDefaultResponse14 extends ComplexType implements ComplexInt
         $this->groupAdminAccessDeviceAccess = ($groupAdminAccessDeviceAccess InstanceOf GroupAdminAccessDeviceAccess)
              ? $groupAdminAccessDeviceAccess
              : new GroupAdminAccessDeviceAccess($groupAdminAccessDeviceAccess);
-        $this->groupAdminAccessDeviceAccess->setName('groupAdminAccessDeviceAccess');
+        $this->groupAdminAccessDeviceAccess->setElementName('groupAdminAccessDeviceAccess');
         return $this;
     }
 
@@ -355,7 +379,9 @@ class SystemPolicyGetDefaultResponse14 extends ComplexType implements ComplexInt
      */
     public function getGroupAdminAccessDeviceAccess()
     {
-        return ($this->groupAdminAccessDeviceAccess) ? $this->groupAdminAccessDeviceAccess->getValue() : null;
+        return ($this->groupAdminAccessDeviceAccess)
+            ? $this->groupAdminAccessDeviceAccess->getElementValue()
+            : null;
     }
 
     /**
@@ -366,7 +392,7 @@ class SystemPolicyGetDefaultResponse14 extends ComplexType implements ComplexInt
         $this->groupAdminEnhancedServiceInstanceAccess = ($groupAdminEnhancedServiceInstanceAccess InstanceOf GroupAdminEnhancedServiceInstanceAccess)
              ? $groupAdminEnhancedServiceInstanceAccess
              : new GroupAdminEnhancedServiceInstanceAccess($groupAdminEnhancedServiceInstanceAccess);
-        $this->groupAdminEnhancedServiceInstanceAccess->setName('groupAdminEnhancedServiceInstanceAccess');
+        $this->groupAdminEnhancedServiceInstanceAccess->setElementName('groupAdminEnhancedServiceInstanceAccess');
         return $this;
     }
 
@@ -376,7 +402,9 @@ class SystemPolicyGetDefaultResponse14 extends ComplexType implements ComplexInt
      */
     public function getGroupAdminEnhancedServiceInstanceAccess()
     {
-        return ($this->groupAdminEnhancedServiceInstanceAccess) ? $this->groupAdminEnhancedServiceInstanceAccess->getValue() : null;
+        return ($this->groupAdminEnhancedServiceInstanceAccess)
+            ? $this->groupAdminEnhancedServiceInstanceAccess->getElementValue()
+            : null;
     }
 
     /**
@@ -387,7 +415,7 @@ class SystemPolicyGetDefaultResponse14 extends ComplexType implements ComplexInt
         $this->groupAdminFeatureAccessCodeAccess = ($groupAdminFeatureAccessCodeAccess InstanceOf GroupAdminFeatureAccessCodeAccess)
              ? $groupAdminFeatureAccessCodeAccess
              : new GroupAdminFeatureAccessCodeAccess($groupAdminFeatureAccessCodeAccess);
-        $this->groupAdminFeatureAccessCodeAccess->setName('groupAdminFeatureAccessCodeAccess');
+        $this->groupAdminFeatureAccessCodeAccess->setElementName('groupAdminFeatureAccessCodeAccess');
         return $this;
     }
 
@@ -397,7 +425,9 @@ class SystemPolicyGetDefaultResponse14 extends ComplexType implements ComplexInt
      */
     public function getGroupAdminFeatureAccessCodeAccess()
     {
-        return ($this->groupAdminFeatureAccessCodeAccess) ? $this->groupAdminFeatureAccessCodeAccess->getValue() : null;
+        return ($this->groupAdminFeatureAccessCodeAccess)
+            ? $this->groupAdminFeatureAccessCodeAccess->getElementValue()
+            : null;
     }
 
     /**
@@ -408,7 +438,7 @@ class SystemPolicyGetDefaultResponse14 extends ComplexType implements ComplexInt
         $this->groupAdminPhoneNumberExtensionAccess = ($groupAdminPhoneNumberExtensionAccess InstanceOf GroupAdminPhoneNumberExtensionAccess)
              ? $groupAdminPhoneNumberExtensionAccess
              : new GroupAdminPhoneNumberExtensionAccess($groupAdminPhoneNumberExtensionAccess);
-        $this->groupAdminPhoneNumberExtensionAccess->setName('groupAdminPhoneNumberExtensionAccess');
+        $this->groupAdminPhoneNumberExtensionAccess->setElementName('groupAdminPhoneNumberExtensionAccess');
         return $this;
     }
 
@@ -418,7 +448,9 @@ class SystemPolicyGetDefaultResponse14 extends ComplexType implements ComplexInt
      */
     public function getGroupAdminPhoneNumberExtensionAccess()
     {
-        return ($this->groupAdminPhoneNumberExtensionAccess) ? $this->groupAdminPhoneNumberExtensionAccess->getValue() : null;
+        return ($this->groupAdminPhoneNumberExtensionAccess)
+            ? $this->groupAdminPhoneNumberExtensionAccess->getElementValue()
+            : null;
     }
 
     /**
@@ -429,7 +461,7 @@ class SystemPolicyGetDefaultResponse14 extends ComplexType implements ComplexInt
         $this->groupAdminServiceAccess = ($groupAdminServiceAccess InstanceOf GroupAdminServiceAccess)
              ? $groupAdminServiceAccess
              : new GroupAdminServiceAccess($groupAdminServiceAccess);
-        $this->groupAdminServiceAccess->setName('groupAdminServiceAccess');
+        $this->groupAdminServiceAccess->setElementName('groupAdminServiceAccess');
         return $this;
     }
 
@@ -439,7 +471,9 @@ class SystemPolicyGetDefaultResponse14 extends ComplexType implements ComplexInt
      */
     public function getGroupAdminServiceAccess()
     {
-        return ($this->groupAdminServiceAccess) ? $this->groupAdminServiceAccess->getValue() : null;
+        return ($this->groupAdminServiceAccess)
+            ? $this->groupAdminServiceAccess->getElementValue()
+            : null;
     }
 
     /**
@@ -450,7 +484,7 @@ class SystemPolicyGetDefaultResponse14 extends ComplexType implements ComplexInt
         $this->serviceProviderAdminProfileAccess = ($serviceProviderAdminProfileAccess InstanceOf ServiceProviderAdminProfileAccess)
              ? $serviceProviderAdminProfileAccess
              : new ServiceProviderAdminProfileAccess($serviceProviderAdminProfileAccess);
-        $this->serviceProviderAdminProfileAccess->setName('serviceProviderAdminProfileAccess');
+        $this->serviceProviderAdminProfileAccess->setElementName('serviceProviderAdminProfileAccess');
         return $this;
     }
 
@@ -460,7 +494,9 @@ class SystemPolicyGetDefaultResponse14 extends ComplexType implements ComplexInt
      */
     public function getServiceProviderAdminProfileAccess()
     {
-        return ($this->serviceProviderAdminProfileAccess) ? $this->serviceProviderAdminProfileAccess->getValue() : null;
+        return ($this->serviceProviderAdminProfileAccess)
+            ? $this->serviceProviderAdminProfileAccess->getElementValue()
+            : null;
     }
 
     /**
@@ -471,7 +507,7 @@ class SystemPolicyGetDefaultResponse14 extends ComplexType implements ComplexInt
         $this->serviceProviderAdminGroupAccess = ($serviceProviderAdminGroupAccess InstanceOf ServiceProviderAdminGroupAccess)
              ? $serviceProviderAdminGroupAccess
              : new ServiceProviderAdminGroupAccess($serviceProviderAdminGroupAccess);
-        $this->serviceProviderAdminGroupAccess->setName('serviceProviderAdminGroupAccess');
+        $this->serviceProviderAdminGroupAccess->setElementName('serviceProviderAdminGroupAccess');
         return $this;
     }
 
@@ -481,7 +517,9 @@ class SystemPolicyGetDefaultResponse14 extends ComplexType implements ComplexInt
      */
     public function getServiceProviderAdminGroupAccess()
     {
-        return ($this->serviceProviderAdminGroupAccess) ? $this->serviceProviderAdminGroupAccess->getValue() : null;
+        return ($this->serviceProviderAdminGroupAccess)
+            ? $this->serviceProviderAdminGroupAccess->getElementValue()
+            : null;
     }
 
     /**
@@ -492,7 +530,7 @@ class SystemPolicyGetDefaultResponse14 extends ComplexType implements ComplexInt
         $this->serviceProviderAdminUserAccess = ($serviceProviderAdminUserAccess InstanceOf ServiceProviderAdminUserAccess)
              ? $serviceProviderAdminUserAccess
              : new ServiceProviderAdminUserAccess($serviceProviderAdminUserAccess);
-        $this->serviceProviderAdminUserAccess->setName('serviceProviderAdminUserAccess');
+        $this->serviceProviderAdminUserAccess->setElementName('serviceProviderAdminUserAccess');
         return $this;
     }
 
@@ -502,7 +540,9 @@ class SystemPolicyGetDefaultResponse14 extends ComplexType implements ComplexInt
      */
     public function getServiceProviderAdminUserAccess()
     {
-        return ($this->serviceProviderAdminUserAccess) ? $this->serviceProviderAdminUserAccess->getValue() : null;
+        return ($this->serviceProviderAdminUserAccess)
+            ? $this->serviceProviderAdminUserAccess->getElementValue()
+            : null;
     }
 
     /**
@@ -513,7 +553,7 @@ class SystemPolicyGetDefaultResponse14 extends ComplexType implements ComplexInt
         $this->serviceProviderAdminAdminAccess = ($serviceProviderAdminAdminAccess InstanceOf ServiceProviderAdminAdminAccess)
              ? $serviceProviderAdminAdminAccess
              : new ServiceProviderAdminAdminAccess($serviceProviderAdminAdminAccess);
-        $this->serviceProviderAdminAdminAccess->setName('serviceProviderAdminAdminAccess');
+        $this->serviceProviderAdminAdminAccess->setElementName('serviceProviderAdminAdminAccess');
         return $this;
     }
 
@@ -523,7 +563,9 @@ class SystemPolicyGetDefaultResponse14 extends ComplexType implements ComplexInt
      */
     public function getServiceProviderAdminAdminAccess()
     {
-        return ($this->serviceProviderAdminAdminAccess) ? $this->serviceProviderAdminAdminAccess->getValue() : null;
+        return ($this->serviceProviderAdminAdminAccess)
+            ? $this->serviceProviderAdminAdminAccess->getElementValue()
+            : null;
     }
 
     /**
@@ -534,7 +576,7 @@ class SystemPolicyGetDefaultResponse14 extends ComplexType implements ComplexInt
         $this->serviceProviderAdminDepartmentAccess = ($serviceProviderAdminDepartmentAccess InstanceOf ServiceProviderAdminDepartmentAccess)
              ? $serviceProviderAdminDepartmentAccess
              : new ServiceProviderAdminDepartmentAccess($serviceProviderAdminDepartmentAccess);
-        $this->serviceProviderAdminDepartmentAccess->setName('serviceProviderAdminDepartmentAccess');
+        $this->serviceProviderAdminDepartmentAccess->setElementName('serviceProviderAdminDepartmentAccess');
         return $this;
     }
 
@@ -544,7 +586,9 @@ class SystemPolicyGetDefaultResponse14 extends ComplexType implements ComplexInt
      */
     public function getServiceProviderAdminDepartmentAccess()
     {
-        return ($this->serviceProviderAdminDepartmentAccess) ? $this->serviceProviderAdminDepartmentAccess->getValue() : null;
+        return ($this->serviceProviderAdminDepartmentAccess)
+            ? $this->serviceProviderAdminDepartmentAccess->getElementValue()
+            : null;
     }
 
     /**
@@ -555,7 +599,7 @@ class SystemPolicyGetDefaultResponse14 extends ComplexType implements ComplexInt
         $this->serviceProviderAdminAccessDeviceAccess = ($serviceProviderAdminAccessDeviceAccess InstanceOf ServiceProviderAdminAccessDeviceAccess)
              ? $serviceProviderAdminAccessDeviceAccess
              : new ServiceProviderAdminAccessDeviceAccess($serviceProviderAdminAccessDeviceAccess);
-        $this->serviceProviderAdminAccessDeviceAccess->setName('serviceProviderAdminAccessDeviceAccess');
+        $this->serviceProviderAdminAccessDeviceAccess->setElementName('serviceProviderAdminAccessDeviceAccess');
         return $this;
     }
 
@@ -565,7 +609,9 @@ class SystemPolicyGetDefaultResponse14 extends ComplexType implements ComplexInt
      */
     public function getServiceProviderAdminAccessDeviceAccess()
     {
-        return ($this->serviceProviderAdminAccessDeviceAccess) ? $this->serviceProviderAdminAccessDeviceAccess->getValue() : null;
+        return ($this->serviceProviderAdminAccessDeviceAccess)
+            ? $this->serviceProviderAdminAccessDeviceAccess->getElementValue()
+            : null;
     }
 
     /**
@@ -576,7 +622,7 @@ class SystemPolicyGetDefaultResponse14 extends ComplexType implements ComplexInt
         $this->serviceProviderAdminPhoneNumberExtensionAccess = ($serviceProviderAdminPhoneNumberExtensionAccess InstanceOf ServiceProviderAdminPhoneNumberExtensionAccess)
              ? $serviceProviderAdminPhoneNumberExtensionAccess
              : new ServiceProviderAdminPhoneNumberExtensionAccess($serviceProviderAdminPhoneNumberExtensionAccess);
-        $this->serviceProviderAdminPhoneNumberExtensionAccess->setName('serviceProviderAdminPhoneNumberExtensionAccess');
+        $this->serviceProviderAdminPhoneNumberExtensionAccess->setElementName('serviceProviderAdminPhoneNumberExtensionAccess');
         return $this;
     }
 
@@ -586,7 +632,9 @@ class SystemPolicyGetDefaultResponse14 extends ComplexType implements ComplexInt
      */
     public function getServiceProviderAdminPhoneNumberExtensionAccess()
     {
-        return ($this->serviceProviderAdminPhoneNumberExtensionAccess) ? $this->serviceProviderAdminPhoneNumberExtensionAccess->getValue() : null;
+        return ($this->serviceProviderAdminPhoneNumberExtensionAccess)
+            ? $this->serviceProviderAdminPhoneNumberExtensionAccess->getElementValue()
+            : null;
     }
 
     /**
@@ -597,7 +645,7 @@ class SystemPolicyGetDefaultResponse14 extends ComplexType implements ComplexInt
         $this->serviceProviderAdminServiceAccess = ($serviceProviderAdminServiceAccess InstanceOf ServiceProviderAdminServiceAccess)
              ? $serviceProviderAdminServiceAccess
              : new ServiceProviderAdminServiceAccess($serviceProviderAdminServiceAccess);
-        $this->serviceProviderAdminServiceAccess->setName('serviceProviderAdminServiceAccess');
+        $this->serviceProviderAdminServiceAccess->setElementName('serviceProviderAdminServiceAccess');
         return $this;
     }
 
@@ -607,7 +655,9 @@ class SystemPolicyGetDefaultResponse14 extends ComplexType implements ComplexInt
      */
     public function getServiceProviderAdminServiceAccess()
     {
-        return ($this->serviceProviderAdminServiceAccess) ? $this->serviceProviderAdminServiceAccess->getValue() : null;
+        return ($this->serviceProviderAdminServiceAccess)
+            ? $this->serviceProviderAdminServiceAccess->getElementValue()
+            : null;
     }
 
     /**
@@ -618,7 +668,7 @@ class SystemPolicyGetDefaultResponse14 extends ComplexType implements ComplexInt
         $this->serviceProviderAdminServicePackAccess = ($serviceProviderAdminServicePackAccess InstanceOf ServiceProviderAdminServicePackAccess)
              ? $serviceProviderAdminServicePackAccess
              : new ServiceProviderAdminServicePackAccess($serviceProviderAdminServicePackAccess);
-        $this->serviceProviderAdminServicePackAccess->setName('serviceProviderAdminServicePackAccess');
+        $this->serviceProviderAdminServicePackAccess->setElementName('serviceProviderAdminServicePackAccess');
         return $this;
     }
 
@@ -628,7 +678,9 @@ class SystemPolicyGetDefaultResponse14 extends ComplexType implements ComplexInt
      */
     public function getServiceProviderAdminServicePackAccess()
     {
-        return ($this->serviceProviderAdminServicePackAccess) ? $this->serviceProviderAdminServicePackAccess->getValue() : null;
+        return ($this->serviceProviderAdminServicePackAccess)
+            ? $this->serviceProviderAdminServicePackAccess->getElementValue()
+            : null;
     }
 
     /**
@@ -639,7 +691,7 @@ class SystemPolicyGetDefaultResponse14 extends ComplexType implements ComplexInt
         $this->serviceProviderAdminWebBrandingAccess = ($serviceProviderAdminWebBrandingAccess InstanceOf ServiceProviderAdminWebBrandingAccess)
              ? $serviceProviderAdminWebBrandingAccess
              : new ServiceProviderAdminWebBrandingAccess($serviceProviderAdminWebBrandingAccess);
-        $this->serviceProviderAdminWebBrandingAccess->setName('serviceProviderAdminWebBrandingAccess');
+        $this->serviceProviderAdminWebBrandingAccess->setElementName('serviceProviderAdminWebBrandingAccess');
         return $this;
     }
 
@@ -649,7 +701,9 @@ class SystemPolicyGetDefaultResponse14 extends ComplexType implements ComplexInt
      */
     public function getServiceProviderAdminWebBrandingAccess()
     {
-        return ($this->serviceProviderAdminWebBrandingAccess) ? $this->serviceProviderAdminWebBrandingAccess->getValue() : null;
+        return ($this->serviceProviderAdminWebBrandingAccess)
+            ? $this->serviceProviderAdminWebBrandingAccess->getElementValue()
+            : null;
     }
 
     /**
@@ -660,7 +714,7 @@ class SystemPolicyGetDefaultResponse14 extends ComplexType implements ComplexInt
         $this->enterpriseAdminNetworkPolicyAccess = ($enterpriseAdminNetworkPolicyAccess InstanceOf EnterpriseAdminNetworkPolicyAccess)
              ? $enterpriseAdminNetworkPolicyAccess
              : new EnterpriseAdminNetworkPolicyAccess($enterpriseAdminNetworkPolicyAccess);
-        $this->enterpriseAdminNetworkPolicyAccess->setName('enterpriseAdminNetworkPolicyAccess');
+        $this->enterpriseAdminNetworkPolicyAccess->setElementName('enterpriseAdminNetworkPolicyAccess');
         return $this;
     }
 
@@ -670,6 +724,8 @@ class SystemPolicyGetDefaultResponse14 extends ComplexType implements ComplexInt
      */
     public function getEnterpriseAdminNetworkPolicyAccess()
     {
-        return ($this->enterpriseAdminNetworkPolicyAccess) ? $this->enterpriseAdminNetworkPolicyAccess->getValue() : null;
+        return ($this->enterpriseAdminNetworkPolicyAccess)
+            ? $this->enterpriseAdminNetworkPolicyAccess->getElementValue()
+            : null;
     }
 }

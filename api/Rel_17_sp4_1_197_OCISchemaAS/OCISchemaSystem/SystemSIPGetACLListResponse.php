@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemSIPGetACLListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemSIPGetACLListResponse';
+    public    $elementName = 'SystemSIPGetACLListResponse';
     protected $aclTable;
 
     /**
@@ -37,7 +37,7 @@ class SystemSIPGetACLListResponse extends ComplexType implements ComplexInterfac
     public function setAclTable(TableType $aclTable = null)
     {
         $this->aclTable = $aclTable;
-        $this->aclTable->setName('aclTable');
+        $this->aclTable->setElementName('aclTable');
         return $this;
     }
 

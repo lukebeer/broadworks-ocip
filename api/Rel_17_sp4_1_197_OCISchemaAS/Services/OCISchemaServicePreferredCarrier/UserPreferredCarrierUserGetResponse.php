@@ -19,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserPreferredCarrierUserGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'UserPreferredCarrierUserGetResponse';
+    public    $elementName = 'UserPreferredCarrierUserGetResponse';
     protected $intraLataCarrier;
     protected $interLataCarrier;
     protected $internationalCarrier;
@@ -40,7 +40,7 @@ class UserPreferredCarrierUserGetResponse extends ComplexType implements Complex
         $this->intraLataCarrier = ($intraLataCarrier InstanceOf UserPreferredCarrierName)
              ? $intraLataCarrier
              : new UserPreferredCarrierName($intraLataCarrier);
-        $this->intraLataCarrier->setName('intraLataCarrier');
+        $this->intraLataCarrier->setElementName('intraLataCarrier');
         return $this;
     }
 
@@ -61,7 +61,7 @@ class UserPreferredCarrierUserGetResponse extends ComplexType implements Complex
         $this->interLataCarrier = ($interLataCarrier InstanceOf UserPreferredCarrierName)
              ? $interLataCarrier
              : new UserPreferredCarrierName($interLataCarrier);
-        $this->interLataCarrier->setName('interLataCarrier');
+        $this->interLataCarrier->setElementName('interLataCarrier');
         return $this;
     }
 
@@ -82,7 +82,7 @@ class UserPreferredCarrierUserGetResponse extends ComplexType implements Complex
         $this->internationalCarrier = ($internationalCarrier InstanceOf UserPreferredCarrierName)
              ? $internationalCarrier
              : new UserPreferredCarrierName($internationalCarrier);
-        $this->internationalCarrier->setName('internationalCarrier');
+        $this->internationalCarrier->setElementName('internationalCarrier');
         return $this;
     }
 

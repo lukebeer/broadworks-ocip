@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
 class SystemConfigurableTreatmentGetListRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemConfigurableTreatmentGetListResponse';
-    public    $name = 'SystemConfigurableTreatmentGetListRequest';
+    public    $elementName = 'SystemConfigurableTreatmentGetListRequest';
 
     public function __construct(    ) {
     }

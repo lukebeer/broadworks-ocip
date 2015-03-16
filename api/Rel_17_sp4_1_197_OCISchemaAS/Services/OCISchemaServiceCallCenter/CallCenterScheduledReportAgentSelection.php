@@ -19,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class CallCenterScheduledReportAgentSelection extends ComplexType implements ComplexInterface
 {
-    public    $name = 'CallCenterScheduledReportAgentSelection';
+    public    $elementName = 'CallCenterScheduledReportAgentSelection';
 
     public function __construct(    ) {
     }

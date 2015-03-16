@@ -17,12 +17,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\MaxLength;
  */
 class SMPPSystemId extends SimpleType
 {
-    public $name = "SMPPSystemId";
-    protected $value;
-
+    public $elementName = "SMPPSystemId";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new MinLength("1"));
         $this->addRestriction(new MaxLength("16"));
     }

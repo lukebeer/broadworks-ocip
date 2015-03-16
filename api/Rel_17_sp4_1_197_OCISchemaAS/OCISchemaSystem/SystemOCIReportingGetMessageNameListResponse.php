@@ -19,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemOCIReportingGetMessageNameListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemOCIReportingGetMessageNameListResponse';
+    public    $elementName = 'SystemOCIReportingGetMessageNameListResponse';
     protected $messageNameStartsWith;
 
     /**
@@ -38,7 +38,7 @@ class SystemOCIReportingGetMessageNameListResponse extends ComplexType implement
         $this->messageNameStartsWith = ($messageNameStartsWith InstanceOf OCIReportingMessageName)
              ? $messageNameStartsWith
              : new OCIReportingMessageName($messageNameStartsWith);
-        $this->messageNameStartsWith->setName('messageNameStartsWith');
+        $this->messageNameStartsWith->setElementName('messageNameStartsWith');
         return $this;
     }
 
@@ -48,6 +48,8 @@ class SystemOCIReportingGetMessageNameListResponse extends ComplexType implement
      */
     public function getMessageNameStartsWith()
     {
-        return ($this->messageNameStartsWith) ? $this->messageNameStartsWith->getValue() : null;
+        return ($this->messageNameStartsWith)
+            ? $this->messageNameStartsWith->getElementValue()
+            : null;
     }
 }

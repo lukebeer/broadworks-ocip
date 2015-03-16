@@ -26,7 +26,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupRoutePointModifyDNISRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'GroupRoutePointModifyDNISRequest';
+    public    $elementName = 'GroupRoutePointModifyDNISRequest';
     protected $dnisKey;
     protected $newDNISName;
     protected $dnisPhoneNumber;
@@ -78,7 +78,7 @@ class GroupRoutePointModifyDNISRequest extends ComplexType implements ComplexInt
         $this->dnisKey = ($dnisKey InstanceOf DNISKey)
              ? $dnisKey
              : new DNISKey($dnisKey);
-        $this->dnisKey->setName('dnisKey');
+        $this->dnisKey->setElementName('dnisKey');
         return $this;
     }
 
@@ -99,7 +99,7 @@ class GroupRoutePointModifyDNISRequest extends ComplexType implements ComplexInt
         $this->newDNISName = ($newDNISName InstanceOf DNISName)
              ? $newDNISName
              : new DNISName($newDNISName);
-        $this->newDNISName->setName('newDNISName');
+        $this->newDNISName->setElementName('newDNISName');
         return $this;
     }
 
@@ -109,7 +109,9 @@ class GroupRoutePointModifyDNISRequest extends ComplexType implements ComplexInt
      */
     public function getNewDNISName()
     {
-        return ($this->newDNISName) ? $this->newDNISName->getValue() : null;
+        return ($this->newDNISName)
+            ? $this->newDNISName->getElementValue()
+            : null;
     }
 
     /**
@@ -120,7 +122,7 @@ class GroupRoutePointModifyDNISRequest extends ComplexType implements ComplexInt
         $this->dnisPhoneNumber = ($dnisPhoneNumber InstanceOf DN)
              ? $dnisPhoneNumber
              : new DN($dnisPhoneNumber);
-        $this->dnisPhoneNumber->setName('dnisPhoneNumber');
+        $this->dnisPhoneNumber->setElementName('dnisPhoneNumber');
         return $this;
     }
 
@@ -130,7 +132,9 @@ class GroupRoutePointModifyDNISRequest extends ComplexType implements ComplexInt
      */
     public function getDnisPhoneNumber()
     {
-        return ($this->dnisPhoneNumber) ? $this->dnisPhoneNumber->getValue() : null;
+        return ($this->dnisPhoneNumber)
+            ? $this->dnisPhoneNumber->getElementValue()
+            : null;
     }
 
     /**
@@ -141,7 +145,7 @@ class GroupRoutePointModifyDNISRequest extends ComplexType implements ComplexInt
         $this->extension = ($extension InstanceOf Extension17)
              ? $extension
              : new Extension17($extension);
-        $this->extension->setName('extension');
+        $this->extension->setElementName('extension');
         return $this;
     }
 
@@ -151,7 +155,9 @@ class GroupRoutePointModifyDNISRequest extends ComplexType implements ComplexInt
      */
     public function getExtension()
     {
-        return ($this->extension) ? $this->extension->getValue() : null;
+        return ($this->extension)
+            ? $this->extension->getElementValue()
+            : null;
     }
 
     /**
@@ -160,7 +166,7 @@ class GroupRoutePointModifyDNISRequest extends ComplexType implements ComplexInt
     public function setUseCustomCLIDSettings($useCustomCLIDSettings = null)
     {
         $this->useCustomCLIDSettings = new PrimitiveType($useCustomCLIDSettings);
-        $this->useCustomCLIDSettings->setName('useCustomCLIDSettings');
+        $this->useCustomCLIDSettings->setElementName('useCustomCLIDSettings');
         return $this;
     }
 
@@ -170,7 +176,9 @@ class GroupRoutePointModifyDNISRequest extends ComplexType implements ComplexInt
      */
     public function getUseCustomCLIDSettings()
     {
-        return ($this->useCustomCLIDSettings) ? $this->useCustomCLIDSettings->getValue() : null;
+        return ($this->useCustomCLIDSettings)
+            ? $this->useCustomCLIDSettings->getElementValue()
+            : null;
     }
 
     /**
@@ -181,7 +189,7 @@ class GroupRoutePointModifyDNISRequest extends ComplexType implements ComplexInt
         $this->callingLineIdPhoneNumber = ($callingLineIdPhoneNumber InstanceOf DN)
              ? $callingLineIdPhoneNumber
              : new DN($callingLineIdPhoneNumber);
-        $this->callingLineIdPhoneNumber->setName('callingLineIdPhoneNumber');
+        $this->callingLineIdPhoneNumber->setElementName('callingLineIdPhoneNumber');
         return $this;
     }
 
@@ -191,7 +199,9 @@ class GroupRoutePointModifyDNISRequest extends ComplexType implements ComplexInt
      */
     public function getCallingLineIdPhoneNumber()
     {
-        return ($this->callingLineIdPhoneNumber) ? $this->callingLineIdPhoneNumber->getValue() : null;
+        return ($this->callingLineIdPhoneNumber)
+            ? $this->callingLineIdPhoneNumber->getElementValue()
+            : null;
     }
 
     /**
@@ -202,7 +212,7 @@ class GroupRoutePointModifyDNISRequest extends ComplexType implements ComplexInt
         $this->callingLineIdLastName = ($callingLineIdLastName InstanceOf CallingLineIdLastName)
              ? $callingLineIdLastName
              : new CallingLineIdLastName($callingLineIdLastName);
-        $this->callingLineIdLastName->setName('callingLineIdLastName');
+        $this->callingLineIdLastName->setElementName('callingLineIdLastName');
         return $this;
     }
 
@@ -212,7 +222,9 @@ class GroupRoutePointModifyDNISRequest extends ComplexType implements ComplexInt
      */
     public function getCallingLineIdLastName()
     {
-        return ($this->callingLineIdLastName) ? $this->callingLineIdLastName->getValue() : null;
+        return ($this->callingLineIdLastName)
+            ? $this->callingLineIdLastName->getElementValue()
+            : null;
     }
 
     /**
@@ -223,7 +235,7 @@ class GroupRoutePointModifyDNISRequest extends ComplexType implements ComplexInt
         $this->callingLineIdFirstName = ($callingLineIdFirstName InstanceOf CallingLineIdFirstName)
              ? $callingLineIdFirstName
              : new CallingLineIdFirstName($callingLineIdFirstName);
-        $this->callingLineIdFirstName->setName('callingLineIdFirstName');
+        $this->callingLineIdFirstName->setElementName('callingLineIdFirstName');
         return $this;
     }
 
@@ -233,7 +245,9 @@ class GroupRoutePointModifyDNISRequest extends ComplexType implements ComplexInt
      */
     public function getCallingLineIdFirstName()
     {
-        return ($this->callingLineIdFirstName) ? $this->callingLineIdFirstName->getValue() : null;
+        return ($this->callingLineIdFirstName)
+            ? $this->callingLineIdFirstName->getElementValue()
+            : null;
     }
 
     /**
@@ -242,7 +256,7 @@ class GroupRoutePointModifyDNISRequest extends ComplexType implements ComplexInt
     public function setUseCustomDnisAnnouncementSettings($useCustomDnisAnnouncementSettings = null)
     {
         $this->useCustomDnisAnnouncementSettings = new PrimitiveType($useCustomDnisAnnouncementSettings);
-        $this->useCustomDnisAnnouncementSettings->setName('useCustomDnisAnnouncementSettings');
+        $this->useCustomDnisAnnouncementSettings->setElementName('useCustomDnisAnnouncementSettings');
         return $this;
     }
 
@@ -252,7 +266,9 @@ class GroupRoutePointModifyDNISRequest extends ComplexType implements ComplexInt
      */
     public function getUseCustomDnisAnnouncementSettings()
     {
-        return ($this->useCustomDnisAnnouncementSettings) ? $this->useCustomDnisAnnouncementSettings->getValue() : null;
+        return ($this->useCustomDnisAnnouncementSettings)
+            ? $this->useCustomDnisAnnouncementSettings->getElementValue()
+            : null;
     }
 
     /**
@@ -261,7 +277,7 @@ class GroupRoutePointModifyDNISRequest extends ComplexType implements ComplexInt
     public function setAllowOutgoingACDCall($allowOutgoingACDCall = null)
     {
         $this->allowOutgoingACDCall = new PrimitiveType($allowOutgoingACDCall);
-        $this->allowOutgoingACDCall->setName('allowOutgoingACDCall');
+        $this->allowOutgoingACDCall->setElementName('allowOutgoingACDCall');
         return $this;
     }
 
@@ -271,6 +287,8 @@ class GroupRoutePointModifyDNISRequest extends ComplexType implements ComplexInt
      */
     public function getAllowOutgoingACDCall()
     {
-        return ($this->allowOutgoingACDCall) ? $this->allowOutgoingACDCall->getValue() : null;
+        return ($this->allowOutgoingACDCall)
+            ? $this->allowOutgoingACDCall->getElementValue()
+            : null;
     }
 }

@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class EnhancedCallLogsResponsePagingControl extends ComplexType implements ComplexInterface
 {
-    public    $name = 'EnhancedCallLogsResponsePagingControl';
+    public    $elementName = 'EnhancedCallLogsResponsePagingControl';
     protected $responseStartIndex;
     protected $responsePageSize;
 
@@ -40,7 +40,7 @@ class EnhancedCallLogsResponsePagingControl extends ComplexType implements Compl
     public function setResponseStartIndex($responseStartIndex = null)
     {
         $this->responseStartIndex = new SimpleContent($responseStartIndex);
-        $this->responseStartIndex->setName('responseStartIndex');
+        $this->responseStartIndex->setElementName('responseStartIndex');
         return $this;
     }
 
@@ -50,7 +50,9 @@ class EnhancedCallLogsResponsePagingControl extends ComplexType implements Compl
      */
     public function getResponseStartIndex()
     {
-        return ($this->responseStartIndex) ? $this->responseStartIndex->getValue() : null;
+        return ($this->responseStartIndex)
+            ? $this->responseStartIndex->getElementValue()
+            : null;
     }
 
     /**
@@ -59,7 +61,7 @@ class EnhancedCallLogsResponsePagingControl extends ComplexType implements Compl
     public function setResponsePageSize($responsePageSize = null)
     {
         $this->responsePageSize = new SimpleContent($responsePageSize);
-        $this->responsePageSize->setName('responsePageSize');
+        $this->responsePageSize->setElementName('responsePageSize');
         return $this;
     }
 
@@ -69,6 +71,8 @@ class EnhancedCallLogsResponsePagingControl extends ComplexType implements Compl
      */
     public function getResponsePageSize()
     {
-        return ($this->responsePageSize) ? $this->responsePageSize->getValue() : null;
+        return ($this->responsePageSize)
+            ? $this->responsePageSize->getElementValue()
+            : null;
     }
 }

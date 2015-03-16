@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupAccountAuthorizationCodesDeleteListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'GroupAccountAuthorizationCodesDeleteListRequest';
+    public    $elementName = 'GroupAccountAuthorizationCodesDeleteListRequest';
     protected $serviceProviderId;
     protected $groupId;
     protected $code;
@@ -52,7 +52,7 @@ class GroupAccountAuthorizationCodesDeleteListRequest extends ComplexType implem
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
-        $this->serviceProviderId->setName('serviceProviderId');
+        $this->serviceProviderId->setElementName('serviceProviderId');
         return $this;
     }
 
@@ -62,7 +62,9 @@ class GroupAccountAuthorizationCodesDeleteListRequest extends ComplexType implem
      */
     public function getServiceProviderId()
     {
-        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
+        return ($this->serviceProviderId)
+            ? $this->serviceProviderId->getElementValue()
+            : null;
     }
 
     /**
@@ -73,7 +75,7 @@ class GroupAccountAuthorizationCodesDeleteListRequest extends ComplexType implem
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
-        $this->groupId->setName('groupId');
+        $this->groupId->setElementName('groupId');
         return $this;
     }
 
@@ -83,7 +85,9 @@ class GroupAccountAuthorizationCodesDeleteListRequest extends ComplexType implem
      */
     public function getGroupId()
     {
-        return ($this->groupId) ? $this->groupId->getValue() : null;
+        return ($this->groupId)
+            ? $this->groupId->getElementValue()
+            : null;
     }
 
     /**
@@ -94,7 +98,7 @@ class GroupAccountAuthorizationCodesDeleteListRequest extends ComplexType implem
         $this->code = ($code InstanceOf AccountAuthorizationCode)
              ? $code
              : new AccountAuthorizationCode($code);
-        $this->code->setName('code');
+        $this->code->setElementName('code');
         return $this;
     }
 
@@ -104,6 +108,8 @@ class GroupAccountAuthorizationCodesDeleteListRequest extends ComplexType implem
      */
     public function getCode()
     {
-        return ($this->code) ? $this->code->getValue() : null;
+        return ($this->code)
+            ? $this->code->getElementValue()
+            : null;
     }
 }

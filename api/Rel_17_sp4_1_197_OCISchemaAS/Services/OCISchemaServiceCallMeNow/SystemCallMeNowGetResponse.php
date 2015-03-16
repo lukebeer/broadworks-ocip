@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemCallMeNowGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemCallMeNowGetResponse';
+    public    $elementName = 'SystemCallMeNowGetResponse';
     protected $passcodeLength;
     protected $passcodeTimeoutSeconds;
 
@@ -40,7 +40,7 @@ class SystemCallMeNowGetResponse extends ComplexType implements ComplexInterface
         $this->passcodeLength = ($passcodeLength InstanceOf CallMeNowPasscodeLength)
              ? $passcodeLength
              : new CallMeNowPasscodeLength($passcodeLength);
-        $this->passcodeLength->setName('passcodeLength');
+        $this->passcodeLength->setElementName('passcodeLength');
         return $this;
     }
 
@@ -50,7 +50,9 @@ class SystemCallMeNowGetResponse extends ComplexType implements ComplexInterface
      */
     public function getPasscodeLength()
     {
-        return ($this->passcodeLength) ? $this->passcodeLength->getValue() : null;
+        return ($this->passcodeLength)
+            ? $this->passcodeLength->getElementValue()
+            : null;
     }
 
     /**
@@ -61,7 +63,7 @@ class SystemCallMeNowGetResponse extends ComplexType implements ComplexInterface
         $this->passcodeTimeoutSeconds = ($passcodeTimeoutSeconds InstanceOf CallMeNowPasscodeTimeoutSeconds)
              ? $passcodeTimeoutSeconds
              : new CallMeNowPasscodeTimeoutSeconds($passcodeTimeoutSeconds);
-        $this->passcodeTimeoutSeconds->setName('passcodeTimeoutSeconds');
+        $this->passcodeTimeoutSeconds->setElementName('passcodeTimeoutSeconds');
         return $this;
     }
 
@@ -71,6 +73,8 @@ class SystemCallMeNowGetResponse extends ComplexType implements ComplexInterface
      */
     public function getPasscodeTimeoutSeconds()
     {
-        return ($this->passcodeTimeoutSeconds) ? $this->passcodeTimeoutSeconds->getValue() : null;
+        return ($this->passcodeTimeoutSeconds)
+            ? $this->passcodeTimeoutSeconds->getElementValue()
+            : null;
     }
 }

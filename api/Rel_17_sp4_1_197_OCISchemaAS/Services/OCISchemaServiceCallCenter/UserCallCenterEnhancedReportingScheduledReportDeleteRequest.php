@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserCallCenterEnhancedReportingScheduledReportDeleteRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'UserCallCenterEnhancedReportingScheduledReportDeleteRequest';
+    public    $elementName = 'UserCallCenterEnhancedReportingScheduledReportDeleteRequest';
     protected $supervisorUserId;
     protected $name;
 
@@ -49,7 +49,7 @@ class UserCallCenterEnhancedReportingScheduledReportDeleteRequest extends Comple
         $this->supervisorUserId = ($supervisorUserId InstanceOf UserId)
              ? $supervisorUserId
              : new UserId($supervisorUserId);
-        $this->supervisorUserId->setName('supervisorUserId');
+        $this->supervisorUserId->setElementName('supervisorUserId');
         return $this;
     }
 
@@ -59,7 +59,9 @@ class UserCallCenterEnhancedReportingScheduledReportDeleteRequest extends Comple
      */
     public function getSupervisorUserId()
     {
-        return ($this->supervisorUserId) ? $this->supervisorUserId->getValue() : null;
+        return ($this->supervisorUserId)
+            ? $this->supervisorUserId->getElementValue()
+            : null;
     }
 
     /**
@@ -70,7 +72,7 @@ class UserCallCenterEnhancedReportingScheduledReportDeleteRequest extends Comple
         $this->name = ($name InstanceOf CallCenterScheduledReportName)
              ? $name
              : new CallCenterScheduledReportName($name);
-        $this->name->setName('name');
+        $this->name->setElementName('name');
         return $this;
     }
 
@@ -80,6 +82,8 @@ class UserCallCenterEnhancedReportingScheduledReportDeleteRequest extends Comple
      */
     public function getName()
     {
-        return ($this->name) ? $this->name->getValue() : null;
+        return ($this->name)
+            ? $this->name->getElementValue()
+            : null;
     }
 }

@@ -19,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemSoftwareVersionGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemSoftwareVersionGetResponse';
+    public    $elementName = 'SystemSoftwareVersionGetResponse';
     protected $version;
 
     /**
@@ -36,7 +36,7 @@ class SystemSoftwareVersionGetResponse extends ComplexType implements ComplexInt
     public function setVersion($version = null)
     {
         $this->version = new PrimitiveType($version);
-        $this->version->setName('version');
+        $this->version->setElementName('version');
         return $this;
     }
 
@@ -46,6 +46,8 @@ class SystemSoftwareVersionGetResponse extends ComplexType implements ComplexInt
      */
     public function getVersion()
     {
-        return ($this->version) ? $this->version->getValue() : null;
+        return ($this->version)
+            ? $this->version->getElementValue()
+            : null;
     }
 }

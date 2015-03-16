@@ -32,7 +32,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemPasswordRulesModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemPasswordRulesModifyRequest';
+    public    $elementName = 'SystemPasswordRulesModifyRequest';
     protected $rulesApplyTo;
     protected $allowWebAddExternalAuthenticationUsers;
     protected $disallowUserId;
@@ -111,7 +111,7 @@ class SystemPasswordRulesModifyRequest extends ComplexType implements ComplexInt
         $this->rulesApplyTo = ($rulesApplyTo InstanceOf SystemPasswordRulesApplyTo)
              ? $rulesApplyTo
              : new SystemPasswordRulesApplyTo($rulesApplyTo);
-        $this->rulesApplyTo->setName('rulesApplyTo');
+        $this->rulesApplyTo->setElementName('rulesApplyTo');
         return $this;
     }
 
@@ -121,7 +121,9 @@ class SystemPasswordRulesModifyRequest extends ComplexType implements ComplexInt
      */
     public function getRulesApplyTo()
     {
-        return ($this->rulesApplyTo) ? $this->rulesApplyTo->getValue() : null;
+        return ($this->rulesApplyTo)
+            ? $this->rulesApplyTo->getElementValue()
+            : null;
     }
 
     /**
@@ -130,7 +132,7 @@ class SystemPasswordRulesModifyRequest extends ComplexType implements ComplexInt
     public function setAllowWebAddExternalAuthenticationUsers($allowWebAddExternalAuthenticationUsers = null)
     {
         $this->allowWebAddExternalAuthenticationUsers = new PrimitiveType($allowWebAddExternalAuthenticationUsers);
-        $this->allowWebAddExternalAuthenticationUsers->setName('allowWebAddExternalAuthenticationUsers');
+        $this->allowWebAddExternalAuthenticationUsers->setElementName('allowWebAddExternalAuthenticationUsers');
         return $this;
     }
 
@@ -140,7 +142,9 @@ class SystemPasswordRulesModifyRequest extends ComplexType implements ComplexInt
      */
     public function getAllowWebAddExternalAuthenticationUsers()
     {
-        return ($this->allowWebAddExternalAuthenticationUsers) ? $this->allowWebAddExternalAuthenticationUsers->getValue() : null;
+        return ($this->allowWebAddExternalAuthenticationUsers)
+            ? $this->allowWebAddExternalAuthenticationUsers->getElementValue()
+            : null;
     }
 
     /**
@@ -149,7 +153,7 @@ class SystemPasswordRulesModifyRequest extends ComplexType implements ComplexInt
     public function setDisallowUserId($disallowUserId = null)
     {
         $this->disallowUserId = new PrimitiveType($disallowUserId);
-        $this->disallowUserId->setName('disallowUserId');
+        $this->disallowUserId->setElementName('disallowUserId');
         return $this;
     }
 
@@ -159,7 +163,9 @@ class SystemPasswordRulesModifyRequest extends ComplexType implements ComplexInt
      */
     public function getDisallowUserId()
     {
-        return ($this->disallowUserId) ? $this->disallowUserId->getValue() : null;
+        return ($this->disallowUserId)
+            ? $this->disallowUserId->getElementValue()
+            : null;
     }
 
     /**
@@ -168,7 +174,7 @@ class SystemPasswordRulesModifyRequest extends ComplexType implements ComplexInt
     public function setDisallowOldPassword($disallowOldPassword = null)
     {
         $this->disallowOldPassword = new PrimitiveType($disallowOldPassword);
-        $this->disallowOldPassword->setName('disallowOldPassword');
+        $this->disallowOldPassword->setElementName('disallowOldPassword');
         return $this;
     }
 
@@ -178,7 +184,9 @@ class SystemPasswordRulesModifyRequest extends ComplexType implements ComplexInt
      */
     public function getDisallowOldPassword()
     {
-        return ($this->disallowOldPassword) ? $this->disallowOldPassword->getValue() : null;
+        return ($this->disallowOldPassword)
+            ? $this->disallowOldPassword->getElementValue()
+            : null;
     }
 
     /**
@@ -187,7 +195,7 @@ class SystemPasswordRulesModifyRequest extends ComplexType implements ComplexInt
     public function setDisallowReversedOldPassword($disallowReversedOldPassword = null)
     {
         $this->disallowReversedOldPassword = new PrimitiveType($disallowReversedOldPassword);
-        $this->disallowReversedOldPassword->setName('disallowReversedOldPassword');
+        $this->disallowReversedOldPassword->setElementName('disallowReversedOldPassword');
         return $this;
     }
 
@@ -197,7 +205,9 @@ class SystemPasswordRulesModifyRequest extends ComplexType implements ComplexInt
      */
     public function getDisallowReversedOldPassword()
     {
-        return ($this->disallowReversedOldPassword) ? $this->disallowReversedOldPassword->getValue() : null;
+        return ($this->disallowReversedOldPassword)
+            ? $this->disallowReversedOldPassword->getElementValue()
+            : null;
     }
 
     /**
@@ -206,7 +216,7 @@ class SystemPasswordRulesModifyRequest extends ComplexType implements ComplexInt
     public function setRestrictMinDigits($restrictMinDigits = null)
     {
         $this->restrictMinDigits = new PrimitiveType($restrictMinDigits);
-        $this->restrictMinDigits->setName('restrictMinDigits');
+        $this->restrictMinDigits->setElementName('restrictMinDigits');
         return $this;
     }
 
@@ -216,7 +226,9 @@ class SystemPasswordRulesModifyRequest extends ComplexType implements ComplexInt
      */
     public function getRestrictMinDigits()
     {
-        return ($this->restrictMinDigits) ? $this->restrictMinDigits->getValue() : null;
+        return ($this->restrictMinDigits)
+            ? $this->restrictMinDigits->getElementValue()
+            : null;
     }
 
     /**
@@ -227,7 +239,7 @@ class SystemPasswordRulesModifyRequest extends ComplexType implements ComplexInt
         $this->minDigits = ($minDigits InstanceOf PasswordMinDigits)
              ? $minDigits
              : new PasswordMinDigits($minDigits);
-        $this->minDigits->setName('minDigits');
+        $this->minDigits->setElementName('minDigits');
         return $this;
     }
 
@@ -237,7 +249,9 @@ class SystemPasswordRulesModifyRequest extends ComplexType implements ComplexInt
      */
     public function getMinDigits()
     {
-        return ($this->minDigits) ? $this->minDigits->getValue() : null;
+        return ($this->minDigits)
+            ? $this->minDigits->getElementValue()
+            : null;
     }
 
     /**
@@ -246,7 +260,7 @@ class SystemPasswordRulesModifyRequest extends ComplexType implements ComplexInt
     public function setRestrictMinUpperCaseLetters($restrictMinUpperCaseLetters = null)
     {
         $this->restrictMinUpperCaseLetters = new PrimitiveType($restrictMinUpperCaseLetters);
-        $this->restrictMinUpperCaseLetters->setName('restrictMinUpperCaseLetters');
+        $this->restrictMinUpperCaseLetters->setElementName('restrictMinUpperCaseLetters');
         return $this;
     }
 
@@ -256,7 +270,9 @@ class SystemPasswordRulesModifyRequest extends ComplexType implements ComplexInt
      */
     public function getRestrictMinUpperCaseLetters()
     {
-        return ($this->restrictMinUpperCaseLetters) ? $this->restrictMinUpperCaseLetters->getValue() : null;
+        return ($this->restrictMinUpperCaseLetters)
+            ? $this->restrictMinUpperCaseLetters->getElementValue()
+            : null;
     }
 
     /**
@@ -267,7 +283,7 @@ class SystemPasswordRulesModifyRequest extends ComplexType implements ComplexInt
         $this->minUpperCaseLetters = ($minUpperCaseLetters InstanceOf PasswordMinUpperCaseLetters)
              ? $minUpperCaseLetters
              : new PasswordMinUpperCaseLetters($minUpperCaseLetters);
-        $this->minUpperCaseLetters->setName('minUpperCaseLetters');
+        $this->minUpperCaseLetters->setElementName('minUpperCaseLetters');
         return $this;
     }
 
@@ -277,7 +293,9 @@ class SystemPasswordRulesModifyRequest extends ComplexType implements ComplexInt
      */
     public function getMinUpperCaseLetters()
     {
-        return ($this->minUpperCaseLetters) ? $this->minUpperCaseLetters->getValue() : null;
+        return ($this->minUpperCaseLetters)
+            ? $this->minUpperCaseLetters->getElementValue()
+            : null;
     }
 
     /**
@@ -286,7 +304,7 @@ class SystemPasswordRulesModifyRequest extends ComplexType implements ComplexInt
     public function setRestrictMinLowerCaseLetters($restrictMinLowerCaseLetters = null)
     {
         $this->restrictMinLowerCaseLetters = new PrimitiveType($restrictMinLowerCaseLetters);
-        $this->restrictMinLowerCaseLetters->setName('restrictMinLowerCaseLetters');
+        $this->restrictMinLowerCaseLetters->setElementName('restrictMinLowerCaseLetters');
         return $this;
     }
 
@@ -296,7 +314,9 @@ class SystemPasswordRulesModifyRequest extends ComplexType implements ComplexInt
      */
     public function getRestrictMinLowerCaseLetters()
     {
-        return ($this->restrictMinLowerCaseLetters) ? $this->restrictMinLowerCaseLetters->getValue() : null;
+        return ($this->restrictMinLowerCaseLetters)
+            ? $this->restrictMinLowerCaseLetters->getElementValue()
+            : null;
     }
 
     /**
@@ -307,7 +327,7 @@ class SystemPasswordRulesModifyRequest extends ComplexType implements ComplexInt
         $this->minLowerCaseLetters = ($minLowerCaseLetters InstanceOf PasswordMinLowerCaseLetters)
              ? $minLowerCaseLetters
              : new PasswordMinLowerCaseLetters($minLowerCaseLetters);
-        $this->minLowerCaseLetters->setName('minLowerCaseLetters');
+        $this->minLowerCaseLetters->setElementName('minLowerCaseLetters');
         return $this;
     }
 
@@ -317,7 +337,9 @@ class SystemPasswordRulesModifyRequest extends ComplexType implements ComplexInt
      */
     public function getMinLowerCaseLetters()
     {
-        return ($this->minLowerCaseLetters) ? $this->minLowerCaseLetters->getValue() : null;
+        return ($this->minLowerCaseLetters)
+            ? $this->minLowerCaseLetters->getElementValue()
+            : null;
     }
 
     /**
@@ -326,7 +348,7 @@ class SystemPasswordRulesModifyRequest extends ComplexType implements ComplexInt
     public function setRestrictMinNonAlphanumericCharacters($restrictMinNonAlphanumericCharacters = null)
     {
         $this->restrictMinNonAlphanumericCharacters = new PrimitiveType($restrictMinNonAlphanumericCharacters);
-        $this->restrictMinNonAlphanumericCharacters->setName('restrictMinNonAlphanumericCharacters');
+        $this->restrictMinNonAlphanumericCharacters->setElementName('restrictMinNonAlphanumericCharacters');
         return $this;
     }
 
@@ -336,7 +358,9 @@ class SystemPasswordRulesModifyRequest extends ComplexType implements ComplexInt
      */
     public function getRestrictMinNonAlphanumericCharacters()
     {
-        return ($this->restrictMinNonAlphanumericCharacters) ? $this->restrictMinNonAlphanumericCharacters->getValue() : null;
+        return ($this->restrictMinNonAlphanumericCharacters)
+            ? $this->restrictMinNonAlphanumericCharacters->getElementValue()
+            : null;
     }
 
     /**
@@ -347,7 +371,7 @@ class SystemPasswordRulesModifyRequest extends ComplexType implements ComplexInt
         $this->minNonAlphanumericCharacters = ($minNonAlphanumericCharacters InstanceOf PasswordMinNonAlphanumericCharacters)
              ? $minNonAlphanumericCharacters
              : new PasswordMinNonAlphanumericCharacters($minNonAlphanumericCharacters);
-        $this->minNonAlphanumericCharacters->setName('minNonAlphanumericCharacters');
+        $this->minNonAlphanumericCharacters->setElementName('minNonAlphanumericCharacters');
         return $this;
     }
 
@@ -357,7 +381,9 @@ class SystemPasswordRulesModifyRequest extends ComplexType implements ComplexInt
      */
     public function getMinNonAlphanumericCharacters()
     {
-        return ($this->minNonAlphanumericCharacters) ? $this->minNonAlphanumericCharacters->getValue() : null;
+        return ($this->minNonAlphanumericCharacters)
+            ? $this->minNonAlphanumericCharacters->getElementValue()
+            : null;
     }
 
     /**
@@ -368,7 +394,7 @@ class SystemPasswordRulesModifyRequest extends ComplexType implements ComplexInt
         $this->minLength = ($minLength InstanceOf PasswordMinLength)
              ? $minLength
              : new PasswordMinLength($minLength);
-        $this->minLength->setName('minLength');
+        $this->minLength->setElementName('minLength');
         return $this;
     }
 
@@ -378,7 +404,9 @@ class SystemPasswordRulesModifyRequest extends ComplexType implements ComplexInt
      */
     public function getMinLength()
     {
-        return ($this->minLength) ? $this->minLength->getValue() : null;
+        return ($this->minLength)
+            ? $this->minLength->getElementValue()
+            : null;
     }
 
     /**
@@ -389,7 +417,7 @@ class SystemPasswordRulesModifyRequest extends ComplexType implements ComplexInt
         $this->maxFailedLoginAttempts = ($maxFailedLoginAttempts InstanceOf MaxFailedLoginAttempts)
              ? $maxFailedLoginAttempts
              : new MaxFailedLoginAttempts($maxFailedLoginAttempts);
-        $this->maxFailedLoginAttempts->setName('maxFailedLoginAttempts');
+        $this->maxFailedLoginAttempts->setElementName('maxFailedLoginAttempts');
         return $this;
     }
 
@@ -399,7 +427,9 @@ class SystemPasswordRulesModifyRequest extends ComplexType implements ComplexInt
      */
     public function getMaxFailedLoginAttempts()
     {
-        return ($this->maxFailedLoginAttempts) ? $this->maxFailedLoginAttempts->getValue() : null;
+        return ($this->maxFailedLoginAttempts)
+            ? $this->maxFailedLoginAttempts->getElementValue()
+            : null;
     }
 
     /**
@@ -410,7 +440,7 @@ class SystemPasswordRulesModifyRequest extends ComplexType implements ComplexInt
         $this->passwordExpiresDays = ($passwordExpiresDays InstanceOf PasswordExpiresDays)
              ? $passwordExpiresDays
              : new PasswordExpiresDays($passwordExpiresDays);
-        $this->passwordExpiresDays->setName('passwordExpiresDays');
+        $this->passwordExpiresDays->setElementName('passwordExpiresDays');
         return $this;
     }
 
@@ -420,7 +450,9 @@ class SystemPasswordRulesModifyRequest extends ComplexType implements ComplexInt
      */
     public function getPasswordExpiresDays()
     {
-        return ($this->passwordExpiresDays) ? $this->passwordExpiresDays->getValue() : null;
+        return ($this->passwordExpiresDays)
+            ? $this->passwordExpiresDays->getElementValue()
+            : null;
     }
 
     /**
@@ -429,7 +461,7 @@ class SystemPasswordRulesModifyRequest extends ComplexType implements ComplexInt
     public function setSendLoginDisabledNotifyEmail($sendLoginDisabledNotifyEmail = null)
     {
         $this->sendLoginDisabledNotifyEmail = new PrimitiveType($sendLoginDisabledNotifyEmail);
-        $this->sendLoginDisabledNotifyEmail->setName('sendLoginDisabledNotifyEmail');
+        $this->sendLoginDisabledNotifyEmail->setElementName('sendLoginDisabledNotifyEmail');
         return $this;
     }
 
@@ -439,7 +471,9 @@ class SystemPasswordRulesModifyRequest extends ComplexType implements ComplexInt
      */
     public function getSendLoginDisabledNotifyEmail()
     {
-        return ($this->sendLoginDisabledNotifyEmail) ? $this->sendLoginDisabledNotifyEmail->getValue() : null;
+        return ($this->sendLoginDisabledNotifyEmail)
+            ? $this->sendLoginDisabledNotifyEmail->getElementValue()
+            : null;
     }
 
     /**
@@ -450,7 +484,7 @@ class SystemPasswordRulesModifyRequest extends ComplexType implements ComplexInt
         $this->loginDisabledNotifyEmailAddress = ($loginDisabledNotifyEmailAddress InstanceOf EmailAddress)
              ? $loginDisabledNotifyEmailAddress
              : new EmailAddress($loginDisabledNotifyEmailAddress);
-        $this->loginDisabledNotifyEmailAddress->setName('loginDisabledNotifyEmailAddress');
+        $this->loginDisabledNotifyEmailAddress->setElementName('loginDisabledNotifyEmailAddress');
         return $this;
     }
 
@@ -460,7 +494,9 @@ class SystemPasswordRulesModifyRequest extends ComplexType implements ComplexInt
      */
     public function getLoginDisabledNotifyEmailAddress()
     {
-        return ($this->loginDisabledNotifyEmailAddress) ? $this->loginDisabledNotifyEmailAddress->getValue() : null;
+        return ($this->loginDisabledNotifyEmailAddress)
+            ? $this->loginDisabledNotifyEmailAddress->getElementValue()
+            : null;
     }
 
     /**
@@ -469,7 +505,7 @@ class SystemPasswordRulesModifyRequest extends ComplexType implements ComplexInt
     public function setDisallowRulesModification($disallowRulesModification = null)
     {
         $this->disallowRulesModification = new PrimitiveType($disallowRulesModification);
-        $this->disallowRulesModification->setName('disallowRulesModification');
+        $this->disallowRulesModification->setElementName('disallowRulesModification');
         return $this;
     }
 
@@ -479,6 +515,8 @@ class SystemPasswordRulesModifyRequest extends ComplexType implements ComplexInt
      */
     public function getDisallowRulesModification()
     {
-        return ($this->disallowRulesModification) ? $this->disallowRulesModification->getValue() : null;
+        return ($this->disallowRulesModification)
+            ? $this->disallowRulesModification->getElementValue()
+            : null;
     }
 }

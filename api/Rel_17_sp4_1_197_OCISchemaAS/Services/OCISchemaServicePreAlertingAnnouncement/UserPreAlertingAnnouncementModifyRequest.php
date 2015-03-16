@@ -24,7 +24,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserPreAlertingAnnouncementModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'UserPreAlertingAnnouncementModifyRequest';
+    public    $elementName = 'UserPreAlertingAnnouncementModifyRequest';
     protected $userId;
     protected $isActive;
     protected $audioSelection;
@@ -67,7 +67,7 @@ class UserPreAlertingAnnouncementModifyRequest extends ComplexType implements Co
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
-        $this->userId->setName('userId');
+        $this->userId->setElementName('userId');
         return $this;
     }
 
@@ -77,7 +77,9 @@ class UserPreAlertingAnnouncementModifyRequest extends ComplexType implements Co
      */
     public function getUserId()
     {
-        return ($this->userId) ? $this->userId->getValue() : null;
+        return ($this->userId)
+            ? $this->userId->getElementValue()
+            : null;
     }
 
     /**
@@ -86,7 +88,7 @@ class UserPreAlertingAnnouncementModifyRequest extends ComplexType implements Co
     public function setIsActive($isActive = null)
     {
         $this->isActive = new PrimitiveType($isActive);
-        $this->isActive->setName('isActive');
+        $this->isActive->setElementName('isActive');
         return $this;
     }
 
@@ -96,7 +98,9 @@ class UserPreAlertingAnnouncementModifyRequest extends ComplexType implements Co
      */
     public function getIsActive()
     {
-        return ($this->isActive) ? $this->isActive->getValue() : null;
+        return ($this->isActive)
+            ? $this->isActive->getElementValue()
+            : null;
     }
 
     /**
@@ -107,7 +111,7 @@ class UserPreAlertingAnnouncementModifyRequest extends ComplexType implements Co
         $this->audioSelection = ($audioSelection InstanceOf ExtendedFileResourceSelection)
              ? $audioSelection
              : new ExtendedFileResourceSelection($audioSelection);
-        $this->audioSelection->setName('audioSelection');
+        $this->audioSelection->setElementName('audioSelection');
         return $this;
     }
 
@@ -117,7 +121,9 @@ class UserPreAlertingAnnouncementModifyRequest extends ComplexType implements Co
      */
     public function getAudioSelection()
     {
-        return ($this->audioSelection) ? $this->audioSelection->getValue() : null;
+        return ($this->audioSelection)
+            ? $this->audioSelection->getElementValue()
+            : null;
     }
 
     /**
@@ -128,7 +134,7 @@ class UserPreAlertingAnnouncementModifyRequest extends ComplexType implements Co
         $this->audioFile = ($audioFile InstanceOf ExtendedMediaFileResource)
              ? $audioFile
              : new ExtendedMediaFileResource($audioFile);
-        $this->audioFile->setName('audioFile');
+        $this->audioFile->setElementName('audioFile');
         return $this;
     }
 
@@ -149,7 +155,7 @@ class UserPreAlertingAnnouncementModifyRequest extends ComplexType implements Co
         $this->videoSelection = ($videoSelection InstanceOf ExtendedFileResourceSelection)
              ? $videoSelection
              : new ExtendedFileResourceSelection($videoSelection);
-        $this->videoSelection->setName('videoSelection');
+        $this->videoSelection->setElementName('videoSelection');
         return $this;
     }
 
@@ -159,7 +165,9 @@ class UserPreAlertingAnnouncementModifyRequest extends ComplexType implements Co
      */
     public function getVideoSelection()
     {
-        return ($this->videoSelection) ? $this->videoSelection->getValue() : null;
+        return ($this->videoSelection)
+            ? $this->videoSelection->getElementValue()
+            : null;
     }
 
     /**
@@ -170,7 +178,7 @@ class UserPreAlertingAnnouncementModifyRequest extends ComplexType implements Co
         $this->videoFile = ($videoFile InstanceOf ExtendedMediaFileResource)
              ? $videoFile
              : new ExtendedMediaFileResource($videoFile);
-        $this->videoFile->setName('videoFile');
+        $this->videoFile->setElementName('videoFile');
         return $this;
     }
 
@@ -191,7 +199,7 @@ class UserPreAlertingAnnouncementModifyRequest extends ComplexType implements Co
         $this->criteriaActivation = ($criteriaActivation InstanceOf CriteriaActivation)
              ? $criteriaActivation
              : new CriteriaActivation($criteriaActivation);
-        $this->criteriaActivation->setName('criteriaActivation');
+        $this->criteriaActivation->setElementName('criteriaActivation');
         return $this;
     }
 

@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemExpensiveCallTypeAddRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemExpensiveCallTypeAddRequest';
+    public    $elementName = 'SystemExpensiveCallTypeAddRequest';
     protected $alternateCallIndicator;
     protected $treatmentAudioFile;
 
@@ -49,7 +49,7 @@ class SystemExpensiveCallTypeAddRequest extends ComplexType implements ComplexIn
         $this->alternateCallIndicator = ($alternateCallIndicator InstanceOf NetworkServerAlternateCallIndicator)
              ? $alternateCallIndicator
              : new NetworkServerAlternateCallIndicator($alternateCallIndicator);
-        $this->alternateCallIndicator->setName('alternateCallIndicator');
+        $this->alternateCallIndicator->setElementName('alternateCallIndicator');
         return $this;
     }
 
@@ -59,7 +59,9 @@ class SystemExpensiveCallTypeAddRequest extends ComplexType implements ComplexIn
      */
     public function getAlternateCallIndicator()
     {
-        return ($this->alternateCallIndicator) ? $this->alternateCallIndicator->getValue() : null;
+        return ($this->alternateCallIndicator)
+            ? $this->alternateCallIndicator->getElementValue()
+            : null;
     }
 
     /**
@@ -70,7 +72,7 @@ class SystemExpensiveCallTypeAddRequest extends ComplexType implements ComplexIn
         $this->treatmentAudioFile = ($treatmentAudioFile InstanceOf MediaTreatmentFileName)
              ? $treatmentAudioFile
              : new MediaTreatmentFileName($treatmentAudioFile);
-        $this->treatmentAudioFile->setName('treatmentAudioFile');
+        $this->treatmentAudioFile->setElementName('treatmentAudioFile');
         return $this;
     }
 
@@ -80,6 +82,8 @@ class SystemExpensiveCallTypeAddRequest extends ComplexType implements ComplexIn
      */
     public function getTreatmentAudioFile()
     {
-        return ($this->treatmentAudioFile) ? $this->treatmentAudioFile->getValue() : null;
+        return ($this->treatmentAudioFile)
+            ? $this->treatmentAudioFile->getElementValue()
+            : null;
     }
 }

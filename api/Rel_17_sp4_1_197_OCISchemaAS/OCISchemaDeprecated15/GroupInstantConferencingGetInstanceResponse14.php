@@ -27,7 +27,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupInstantConferencingGetInstanceResponse14 extends ComplexType implements ComplexInterface
 {
-    public    $name = 'GroupInstantConferencingGetInstanceResponse14';
+    public    $elementName = 'GroupInstantConferencingGetInstanceResponse14';
     protected $serviceInstanceProfile;
     protected $conferenceBridgeLinePort;
     protected $allocatedPorts;
@@ -52,7 +52,7 @@ class GroupInstantConferencingGetInstanceResponse14 extends ComplexType implemen
         $this->serviceInstanceProfile = ($serviceInstanceProfile InstanceOf ServiceInstanceReadProfile)
              ? $serviceInstanceProfile
              : new ServiceInstanceReadProfile($serviceInstanceProfile);
-        $this->serviceInstanceProfile->setName('serviceInstanceProfile');
+        $this->serviceInstanceProfile->setElementName('serviceInstanceProfile');
         return $this;
     }
 
@@ -73,7 +73,7 @@ class GroupInstantConferencingGetInstanceResponse14 extends ComplexType implemen
         $this->conferenceBridgeLinePort = ($conferenceBridgeLinePort InstanceOf AccessDeviceEndpointLinePort)
              ? $conferenceBridgeLinePort
              : new AccessDeviceEndpointLinePort($conferenceBridgeLinePort);
-        $this->conferenceBridgeLinePort->setName('conferenceBridgeLinePort');
+        $this->conferenceBridgeLinePort->setElementName('conferenceBridgeLinePort');
         return $this;
     }
 
@@ -83,7 +83,9 @@ class GroupInstantConferencingGetInstanceResponse14 extends ComplexType implemen
      */
     public function getConferenceBridgeLinePort()
     {
-        return ($this->conferenceBridgeLinePort) ? $this->conferenceBridgeLinePort->getValue() : null;
+        return ($this->conferenceBridgeLinePort)
+            ? $this->conferenceBridgeLinePort->getElementValue()
+            : null;
     }
 
     /**
@@ -94,7 +96,7 @@ class GroupInstantConferencingGetInstanceResponse14 extends ComplexType implemen
         $this->allocatedPorts = ($allocatedPorts InstanceOf InstantConferencingAllocatedPorts)
              ? $allocatedPorts
              : new InstantConferencingAllocatedPorts($allocatedPorts);
-        $this->allocatedPorts->setName('allocatedPorts');
+        $this->allocatedPorts->setElementName('allocatedPorts');
         return $this;
     }
 
@@ -115,7 +117,7 @@ class GroupInstantConferencingGetInstanceResponse14 extends ComplexType implemen
         $this->serviceProfileAppliedOnOutcall = ($serviceProfileAppliedOnOutcall InstanceOf InstantConferencingOutcallProfile)
              ? $serviceProfileAppliedOnOutcall
              : new InstantConferencingOutcallProfile($serviceProfileAppliedOnOutcall);
-        $this->serviceProfileAppliedOnOutcall->setName('serviceProfileAppliedOnOutcall');
+        $this->serviceProfileAppliedOnOutcall->setElementName('serviceProfileAppliedOnOutcall');
         return $this;
     }
 
@@ -125,7 +127,9 @@ class GroupInstantConferencingGetInstanceResponse14 extends ComplexType implemen
      */
     public function getServiceProfileAppliedOnOutcall()
     {
-        return ($this->serviceProfileAppliedOnOutcall) ? $this->serviceProfileAppliedOnOutcall->getValue() : null;
+        return ($this->serviceProfileAppliedOnOutcall)
+            ? $this->serviceProfileAppliedOnOutcall->getElementValue()
+            : null;
     }
 
     /**
@@ -134,7 +138,7 @@ class GroupInstantConferencingGetInstanceResponse14 extends ComplexType implemen
     public function setAllowOutdialInInvitation($allowOutdialInInvitation = null)
     {
         $this->allowOutdialInInvitation = new PrimitiveType($allowOutdialInInvitation);
-        $this->allowOutdialInInvitation->setName('allowOutdialInInvitation');
+        $this->allowOutdialInInvitation->setElementName('allowOutdialInInvitation');
         return $this;
     }
 
@@ -144,7 +148,9 @@ class GroupInstantConferencingGetInstanceResponse14 extends ComplexType implemen
      */
     public function getAllowOutdialInInvitation()
     {
-        return ($this->allowOutdialInInvitation) ? $this->allowOutdialInInvitation->getValue() : null;
+        return ($this->allowOutdialInInvitation)
+            ? $this->allowOutdialInInvitation->getElementValue()
+            : null;
     }
 
     /**
@@ -153,7 +159,7 @@ class GroupInstantConferencingGetInstanceResponse14 extends ComplexType implemen
     public function setAllowDocumentDownload($allowDocumentDownload = null)
     {
         $this->allowDocumentDownload = new PrimitiveType($allowDocumentDownload);
-        $this->allowDocumentDownload->setName('allowDocumentDownload');
+        $this->allowDocumentDownload->setElementName('allowDocumentDownload');
         return $this;
     }
 
@@ -163,7 +169,9 @@ class GroupInstantConferencingGetInstanceResponse14 extends ComplexType implemen
      */
     public function getAllowDocumentDownload()
     {
-        return ($this->allowDocumentDownload) ? $this->allowDocumentDownload->getValue() : null;
+        return ($this->allowDocumentDownload)
+            ? $this->allowDocumentDownload->getElementValue()
+            : null;
     }
 
     /**
@@ -172,7 +180,7 @@ class GroupInstantConferencingGetInstanceResponse14 extends ComplexType implemen
     public function setBridgeAdministratorUserTable(TableType $bridgeAdministratorUserTable = null)
     {
         $this->bridgeAdministratorUserTable = $bridgeAdministratorUserTable;
-        $this->bridgeAdministratorUserTable->setName('bridgeAdministratorUserTable');
+        $this->bridgeAdministratorUserTable->setElementName('bridgeAdministratorUserTable');
         return $this;
     }
 

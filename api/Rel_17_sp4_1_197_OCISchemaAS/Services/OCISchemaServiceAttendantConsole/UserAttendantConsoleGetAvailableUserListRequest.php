@@ -25,7 +25,7 @@ use Broadworks_OCIP\core\Client\Client;
 class UserAttendantConsoleGetAvailableUserListRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType                      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceAttendantConsole\UserAttendantConsoleGetAvailableUserListResponse';
-    public    $name = 'UserAttendantConsoleGetAvailableUserListRequest';
+    public    $elementName = 'UserAttendantConsoleGetAvailableUserListRequest';
     protected $userId;
     protected $responseSizeLimit;
     protected $searchCriteriaUserLastName;
@@ -62,7 +62,7 @@ class UserAttendantConsoleGetAvailableUserListRequest extends ComplexType implem
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
-        $this->userId->setName('userId');
+        $this->userId->setElementName('userId');
         return $this;
     }
 
@@ -72,7 +72,9 @@ class UserAttendantConsoleGetAvailableUserListRequest extends ComplexType implem
      */
     public function getUserId()
     {
-        return ($this->userId) ? $this->userId->getValue() : null;
+        return ($this->userId)
+            ? $this->userId->getElementValue()
+            : null;
     }
 
     /**
@@ -83,7 +85,7 @@ class UserAttendantConsoleGetAvailableUserListRequest extends ComplexType implem
         $this->responseSizeLimit = ($responseSizeLimit InstanceOf ResponseSizeLimit)
              ? $responseSizeLimit
              : new ResponseSizeLimit($responseSizeLimit);
-        $this->responseSizeLimit->setName('responseSizeLimit');
+        $this->responseSizeLimit->setElementName('responseSizeLimit');
         return $this;
     }
 
@@ -93,7 +95,9 @@ class UserAttendantConsoleGetAvailableUserListRequest extends ComplexType implem
      */
     public function getResponseSizeLimit()
     {
-        return ($this->responseSizeLimit) ? $this->responseSizeLimit->getValue() : null;
+        return ($this->responseSizeLimit)
+            ? $this->responseSizeLimit->getElementValue()
+            : null;
     }
 
     /**
@@ -104,7 +108,7 @@ class UserAttendantConsoleGetAvailableUserListRequest extends ComplexType implem
         $this->searchCriteriaUserLastName = ($searchCriteriaUserLastName InstanceOf SearchCriteriaUserLastName)
              ? $searchCriteriaUserLastName
              : new SearchCriteriaUserLastName($searchCriteriaUserLastName);
-        $this->searchCriteriaUserLastName->setName('searchCriteriaUserLastName');
+        $this->searchCriteriaUserLastName->setElementName('searchCriteriaUserLastName');
         return $this;
     }
 
@@ -125,7 +129,7 @@ class UserAttendantConsoleGetAvailableUserListRequest extends ComplexType implem
         $this->searchCriteriaUserFirstName = ($searchCriteriaUserFirstName InstanceOf SearchCriteriaUserFirstName)
              ? $searchCriteriaUserFirstName
              : new SearchCriteriaUserFirstName($searchCriteriaUserFirstName);
-        $this->searchCriteriaUserFirstName->setName('searchCriteriaUserFirstName');
+        $this->searchCriteriaUserFirstName->setElementName('searchCriteriaUserFirstName');
         return $this;
     }
 
@@ -146,7 +150,7 @@ class UserAttendantConsoleGetAvailableUserListRequest extends ComplexType implem
         $this->searchCriteriaExactUserDepartment = ($searchCriteriaExactUserDepartment InstanceOf SearchCriteriaExactUserDepartment)
              ? $searchCriteriaExactUserDepartment
              : new SearchCriteriaExactUserDepartment($searchCriteriaExactUserDepartment);
-        $this->searchCriteriaExactUserDepartment->setName('searchCriteriaExactUserDepartment');
+        $this->searchCriteriaExactUserDepartment->setElementName('searchCriteriaExactUserDepartment');
         return $this;
     }
 

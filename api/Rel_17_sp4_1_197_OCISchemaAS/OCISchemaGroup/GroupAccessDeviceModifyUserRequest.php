@@ -24,7 +24,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupAccessDeviceModifyUserRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'GroupAccessDeviceModifyUserRequest';
+    public    $elementName = 'GroupAccessDeviceModifyUserRequest';
     protected $serviceProviderId;
     protected $groupId;
     protected $deviceName;
@@ -61,7 +61,7 @@ class GroupAccessDeviceModifyUserRequest extends ComplexType implements ComplexI
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
-        $this->serviceProviderId->setName('serviceProviderId');
+        $this->serviceProviderId->setElementName('serviceProviderId');
         return $this;
     }
 
@@ -71,7 +71,9 @@ class GroupAccessDeviceModifyUserRequest extends ComplexType implements ComplexI
      */
     public function getServiceProviderId()
     {
-        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
+        return ($this->serviceProviderId)
+            ? $this->serviceProviderId->getElementValue()
+            : null;
     }
 
     /**
@@ -82,7 +84,7 @@ class GroupAccessDeviceModifyUserRequest extends ComplexType implements ComplexI
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
-        $this->groupId->setName('groupId');
+        $this->groupId->setElementName('groupId');
         return $this;
     }
 
@@ -92,7 +94,9 @@ class GroupAccessDeviceModifyUserRequest extends ComplexType implements ComplexI
      */
     public function getGroupId()
     {
-        return ($this->groupId) ? $this->groupId->getValue() : null;
+        return ($this->groupId)
+            ? $this->groupId->getElementValue()
+            : null;
     }
 
     /**
@@ -103,7 +107,7 @@ class GroupAccessDeviceModifyUserRequest extends ComplexType implements ComplexI
         $this->deviceName = ($deviceName InstanceOf AccessDeviceName)
              ? $deviceName
              : new AccessDeviceName($deviceName);
-        $this->deviceName->setName('deviceName');
+        $this->deviceName->setElementName('deviceName');
         return $this;
     }
 
@@ -113,7 +117,9 @@ class GroupAccessDeviceModifyUserRequest extends ComplexType implements ComplexI
      */
     public function getDeviceName()
     {
-        return ($this->deviceName) ? $this->deviceName->getValue() : null;
+        return ($this->deviceName)
+            ? $this->deviceName->getElementValue()
+            : null;
     }
 
     /**
@@ -124,7 +130,7 @@ class GroupAccessDeviceModifyUserRequest extends ComplexType implements ComplexI
         $this->linePort = ($linePort InstanceOf AccessDeviceEndpointLinePort)
              ? $linePort
              : new AccessDeviceEndpointLinePort($linePort);
-        $this->linePort->setName('linePort');
+        $this->linePort->setElementName('linePort');
         return $this;
     }
 
@@ -134,7 +140,9 @@ class GroupAccessDeviceModifyUserRequest extends ComplexType implements ComplexI
      */
     public function getLinePort()
     {
-        return ($this->linePort) ? $this->linePort->getValue() : null;
+        return ($this->linePort)
+            ? $this->linePort->getElementValue()
+            : null;
     }
 
     /**
@@ -143,7 +151,7 @@ class GroupAccessDeviceModifyUserRequest extends ComplexType implements ComplexI
     public function setIsPrimaryLinePort($isPrimaryLinePort = null)
     {
         $this->isPrimaryLinePort = new PrimitiveType($isPrimaryLinePort);
-        $this->isPrimaryLinePort->setName('isPrimaryLinePort');
+        $this->isPrimaryLinePort->setElementName('isPrimaryLinePort');
         return $this;
     }
 
@@ -153,6 +161,8 @@ class GroupAccessDeviceModifyUserRequest extends ComplexType implements ComplexI
      */
     public function getIsPrimaryLinePort()
     {
-        return ($this->isPrimaryLinePort) ? $this->isPrimaryLinePort->getValue() : null;
+        return ($this->isPrimaryLinePort)
+            ? $this->isPrimaryLinePort->getElementValue()
+            : null;
     }
 }

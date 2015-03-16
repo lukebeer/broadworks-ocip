@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupDeviceTypeCustomTagGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'GroupDeviceTypeCustomTagGetListResponse';
+    public    $elementName = 'GroupDeviceTypeCustomTagGetListResponse';
     protected $groupDeviceTypeCustomTagsTable;
 
     /**
@@ -38,7 +38,7 @@ class GroupDeviceTypeCustomTagGetListResponse extends ComplexType implements Com
     public function setGroupDeviceTypeCustomTagsTable(TableType $groupDeviceTypeCustomTagsTable = null)
     {
         $this->groupDeviceTypeCustomTagsTable = $groupDeviceTypeCustomTagsTable;
-        $this->groupDeviceTypeCustomTagsTable->setName('groupDeviceTypeCustomTagsTable');
+        $this->groupDeviceTypeCustomTagsTable->setElementName('groupDeviceTypeCustomTagsTable');
         return $this;
     }
 

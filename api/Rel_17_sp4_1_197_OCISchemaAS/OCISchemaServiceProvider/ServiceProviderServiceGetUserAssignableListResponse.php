@@ -19,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderServiceGetUserAssignableListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'ServiceProviderServiceGetUserAssignableListResponse';
+    public    $elementName = 'ServiceProviderServiceGetUserAssignableListResponse';
     protected $serviceName;
 
     /**
@@ -38,7 +38,7 @@ class ServiceProviderServiceGetUserAssignableListResponse extends ComplexType im
         $this->serviceName = ($serviceName InstanceOf UserService)
              ? $serviceName
              : new UserService($serviceName);
-        $this->serviceName->setName('serviceName');
+        $this->serviceName->setElementName('serviceName');
         return $this;
     }
 
@@ -48,6 +48,8 @@ class ServiceProviderServiceGetUserAssignableListResponse extends ComplexType im
      */
     public function getServiceName()
     {
-        return ($this->serviceName) ? $this->serviceName->getValue() : null;
+        return ($this->serviceName)
+            ? $this->serviceName->getElementValue()
+            : null;
     }
 }

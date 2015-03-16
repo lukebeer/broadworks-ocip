@@ -17,12 +17,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\MaxInclusive;
  */
 class EnterpriseVoiceVPNExtensionLength extends SimpleType
 {
-    public $name = "EnterpriseVoiceVPNExtensionLength";
-    protected $value;
-
+    public $elementName = "EnterpriseVoiceVPNExtensionLength";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new MinInclusive("0"));
         $this->addRestriction(new MaxInclusive("100"));
     }

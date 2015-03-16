@@ -24,7 +24,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemMediaAddRequest16 extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemMediaAddRequest16';
+    public    $elementName = 'SystemMediaAddRequest16';
     protected $mediaName;
     protected $codecName;
     protected $mediaType;
@@ -61,7 +61,7 @@ class SystemMediaAddRequest16 extends ComplexType implements ComplexInterface
         $this->mediaName = ($mediaName InstanceOf MediaName)
              ? $mediaName
              : new MediaName($mediaName);
-        $this->mediaName->setName('mediaName');
+        $this->mediaName->setElementName('mediaName');
         return $this;
     }
 
@@ -71,7 +71,9 @@ class SystemMediaAddRequest16 extends ComplexType implements ComplexInterface
      */
     public function getMediaName()
     {
-        return ($this->mediaName) ? $this->mediaName->getValue() : null;
+        return ($this->mediaName)
+            ? $this->mediaName->getElementValue()
+            : null;
     }
 
     /**
@@ -82,7 +84,7 @@ class SystemMediaAddRequest16 extends ComplexType implements ComplexInterface
         $this->codecName = ($codecName InstanceOf CodecName)
              ? $codecName
              : new CodecName($codecName);
-        $this->codecName->setName('codecName');
+        $this->codecName->setElementName('codecName');
         return $this;
     }
 
@@ -92,7 +94,9 @@ class SystemMediaAddRequest16 extends ComplexType implements ComplexInterface
      */
     public function getCodecName()
     {
-        return ($this->codecName) ? $this->codecName->getValue() : null;
+        return ($this->codecName)
+            ? $this->codecName->getElementValue()
+            : null;
     }
 
     /**
@@ -103,7 +107,7 @@ class SystemMediaAddRequest16 extends ComplexType implements ComplexInterface
         $this->mediaType = ($mediaType InstanceOf MediaType16)
              ? $mediaType
              : new MediaType16($mediaType);
-        $this->mediaType->setName('mediaType');
+        $this->mediaType->setElementName('mediaType');
         return $this;
     }
 
@@ -113,7 +117,9 @@ class SystemMediaAddRequest16 extends ComplexType implements ComplexInterface
      */
     public function getMediaType()
     {
-        return ($this->mediaType) ? $this->mediaType->getValue() : null;
+        return ($this->mediaType)
+            ? $this->mediaType->getElementValue()
+            : null;
     }
 
     /**
@@ -124,7 +130,7 @@ class SystemMediaAddRequest16 extends ComplexType implements ComplexInterface
         $this->bandwidthEnforcementType = ($bandwidthEnforcementType InstanceOf MediaBandwidthEnforcementType)
              ? $bandwidthEnforcementType
              : new MediaBandwidthEnforcementType($bandwidthEnforcementType);
-        $this->bandwidthEnforcementType->setName('bandwidthEnforcementType');
+        $this->bandwidthEnforcementType->setElementName('bandwidthEnforcementType');
         return $this;
     }
 
@@ -134,7 +140,9 @@ class SystemMediaAddRequest16 extends ComplexType implements ComplexInterface
      */
     public function getBandwidthEnforcementType()
     {
-        return ($this->bandwidthEnforcementType) ? $this->bandwidthEnforcementType->getValue() : null;
+        return ($this->bandwidthEnforcementType)
+            ? $this->bandwidthEnforcementType->getElementValue()
+            : null;
     }
 
     /**
@@ -145,7 +153,7 @@ class SystemMediaAddRequest16 extends ComplexType implements ComplexInterface
         $this->mediaBandwidth = ($mediaBandwidth InstanceOf MediaBandwidthBitsPerSecond)
              ? $mediaBandwidth
              : new MediaBandwidthBitsPerSecond($mediaBandwidth);
-        $this->mediaBandwidth->setName('mediaBandwidth');
+        $this->mediaBandwidth->setElementName('mediaBandwidth');
         return $this;
     }
 
@@ -155,6 +163,8 @@ class SystemMediaAddRequest16 extends ComplexType implements ComplexInterface
      */
     public function getMediaBandwidth()
     {
-        return ($this->mediaBandwidth) ? $this->mediaBandwidth->getValue() : null;
+        return ($this->mediaBandwidth)
+            ? $this->mediaBandwidth->getElementValue()
+            : null;
     }
 }

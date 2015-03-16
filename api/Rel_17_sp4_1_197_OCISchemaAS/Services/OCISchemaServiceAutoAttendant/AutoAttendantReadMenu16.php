@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class AutoAttendantReadMenu16 extends ComplexType implements ComplexInterface
 {
-    public    $name = 'AutoAttendantReadMenu16';
+    public    $elementName = 'AutoAttendantReadMenu16';
     protected $announcementSelection;
     protected $audioFileDescription;
     protected $audioMediaType;
@@ -61,7 +61,7 @@ class AutoAttendantReadMenu16 extends ComplexType implements ComplexInterface
     public function setAnnouncementSelection($announcementSelection = null)
     {
         $this->announcementSelection = new SimpleContent($announcementSelection);
-        $this->announcementSelection->setName('announcementSelection');
+        $this->announcementSelection->setElementName('announcementSelection');
         return $this;
     }
 
@@ -71,7 +71,9 @@ class AutoAttendantReadMenu16 extends ComplexType implements ComplexInterface
      */
     public function getAnnouncementSelection()
     {
-        return ($this->announcementSelection) ? $this->announcementSelection->getValue() : null;
+        return ($this->announcementSelection)
+            ? $this->announcementSelection->getElementValue()
+            : null;
     }
 
     /**
@@ -80,7 +82,7 @@ class AutoAttendantReadMenu16 extends ComplexType implements ComplexInterface
     public function setAudioFileDescription($audioFileDescription = null)
     {
         $this->audioFileDescription = new SimpleContent($audioFileDescription);
-        $this->audioFileDescription->setName('audioFileDescription');
+        $this->audioFileDescription->setElementName('audioFileDescription');
         return $this;
     }
 
@@ -90,7 +92,9 @@ class AutoAttendantReadMenu16 extends ComplexType implements ComplexInterface
      */
     public function getAudioFileDescription()
     {
-        return ($this->audioFileDescription) ? $this->audioFileDescription->getValue() : null;
+        return ($this->audioFileDescription)
+            ? $this->audioFileDescription->getElementValue()
+            : null;
     }
 
     /**
@@ -99,7 +103,7 @@ class AutoAttendantReadMenu16 extends ComplexType implements ComplexInterface
     public function setAudioMediaType($audioMediaType = null)
     {
         $this->audioMediaType = new SimpleContent($audioMediaType);
-        $this->audioMediaType->setName('audioMediaType');
+        $this->audioMediaType->setElementName('audioMediaType');
         return $this;
     }
 
@@ -109,7 +113,9 @@ class AutoAttendantReadMenu16 extends ComplexType implements ComplexInterface
      */
     public function getAudioMediaType()
     {
-        return ($this->audioMediaType) ? $this->audioMediaType->getValue() : null;
+        return ($this->audioMediaType)
+            ? $this->audioMediaType->getElementValue()
+            : null;
     }
 
     /**
@@ -118,7 +124,7 @@ class AutoAttendantReadMenu16 extends ComplexType implements ComplexInterface
     public function setVideoFileDescription($videoFileDescription = null)
     {
         $this->videoFileDescription = new SimpleContent($videoFileDescription);
-        $this->videoFileDescription->setName('videoFileDescription');
+        $this->videoFileDescription->setElementName('videoFileDescription');
         return $this;
     }
 
@@ -128,7 +134,9 @@ class AutoAttendantReadMenu16 extends ComplexType implements ComplexInterface
      */
     public function getVideoFileDescription()
     {
-        return ($this->videoFileDescription) ? $this->videoFileDescription->getValue() : null;
+        return ($this->videoFileDescription)
+            ? $this->videoFileDescription->getElementValue()
+            : null;
     }
 
     /**
@@ -137,7 +145,7 @@ class AutoAttendantReadMenu16 extends ComplexType implements ComplexInterface
     public function setVideoMediaType($videoMediaType = null)
     {
         $this->videoMediaType = new SimpleContent($videoMediaType);
-        $this->videoMediaType->setName('videoMediaType');
+        $this->videoMediaType->setElementName('videoMediaType');
         return $this;
     }
 
@@ -147,7 +155,9 @@ class AutoAttendantReadMenu16 extends ComplexType implements ComplexInterface
      */
     public function getVideoMediaType()
     {
-        return ($this->videoMediaType) ? $this->videoMediaType->getValue() : null;
+        return ($this->videoMediaType)
+            ? $this->videoMediaType->getElementValue()
+            : null;
     }
 
     /**
@@ -156,7 +166,7 @@ class AutoAttendantReadMenu16 extends ComplexType implements ComplexInterface
     public function setEnableFirstMenuLevelExtensionDialing($enableFirstMenuLevelExtensionDialing = null)
     {
         $this->enableFirstMenuLevelExtensionDialing = new SimpleContent($enableFirstMenuLevelExtensionDialing);
-        $this->enableFirstMenuLevelExtensionDialing->setName('enableFirstMenuLevelExtensionDialing');
+        $this->enableFirstMenuLevelExtensionDialing->setElementName('enableFirstMenuLevelExtensionDialing');
         return $this;
     }
 
@@ -166,7 +176,9 @@ class AutoAttendantReadMenu16 extends ComplexType implements ComplexInterface
      */
     public function getEnableFirstMenuLevelExtensionDialing()
     {
-        return ($this->enableFirstMenuLevelExtensionDialing) ? $this->enableFirstMenuLevelExtensionDialing->getValue() : null;
+        return ($this->enableFirstMenuLevelExtensionDialing)
+            ? $this->enableFirstMenuLevelExtensionDialing->getElementValue()
+            : null;
     }
 
     /**
@@ -175,7 +187,7 @@ class AutoAttendantReadMenu16 extends ComplexType implements ComplexInterface
     public function setKeyConfiguration($keyConfiguration = null)
     {
         $this->keyConfiguration = new SimpleContent($keyConfiguration);
-        $this->keyConfiguration->setName('keyConfiguration');
+        $this->keyConfiguration->setElementName('keyConfiguration');
         return $this;
     }
 
@@ -185,6 +197,8 @@ class AutoAttendantReadMenu16 extends ComplexType implements ComplexInterface
      */
     public function getKeyConfiguration()
     {
-        return ($this->keyConfiguration) ? $this->keyConfiguration->getValue() : null;
+        return ($this->keyConfiguration)
+            ? $this->keyConfiguration->getElementValue()
+            : null;
     }
 }

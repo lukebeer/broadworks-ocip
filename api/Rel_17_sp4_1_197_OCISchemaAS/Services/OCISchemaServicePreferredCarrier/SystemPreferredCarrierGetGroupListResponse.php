@@ -24,7 +24,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemPreferredCarrierGetGroupListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemPreferredCarrierGetGroupListResponse';
+    public    $elementName = 'SystemPreferredCarrierGetGroupListResponse';
     protected $groupsUsingCarrierTable;
 
     /**
@@ -41,7 +41,7 @@ class SystemPreferredCarrierGetGroupListResponse extends ComplexType implements 
     public function setGroupsUsingCarrierTable(TableType $groupsUsingCarrierTable = null)
     {
         $this->groupsUsingCarrierTable = $groupsUsingCarrierTable;
-        $this->groupsUsingCarrierTable->setName('groupsUsingCarrierTable');
+        $this->groupsUsingCarrierTable->setElementName('groupsUsingCarrierTable');
         return $this;
     }
 

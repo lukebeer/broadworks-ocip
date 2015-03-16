@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
 class EnterpriseBroadWorksMobileManagerGetHomeZoneRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaEnterprise\EnterpriseBroadWorksMobileManagerGetHomeZoneResponse';
-    public    $name = 'EnterpriseBroadWorksMobileManagerGetHomeZoneRequest';
+    public    $elementName = 'EnterpriseBroadWorksMobileManagerGetHomeZoneRequest';
     protected $serviceProviderId;
     protected $homeZoneId;
 
@@ -50,7 +50,7 @@ class EnterpriseBroadWorksMobileManagerGetHomeZoneRequest extends ComplexType im
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
-        $this->serviceProviderId->setName('serviceProviderId');
+        $this->serviceProviderId->setElementName('serviceProviderId');
         return $this;
     }
 
@@ -60,7 +60,9 @@ class EnterpriseBroadWorksMobileManagerGetHomeZoneRequest extends ComplexType im
      */
     public function getServiceProviderId()
     {
-        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
+        return ($this->serviceProviderId)
+            ? $this->serviceProviderId->getElementValue()
+            : null;
     }
 
     /**
@@ -69,7 +71,7 @@ class EnterpriseBroadWorksMobileManagerGetHomeZoneRequest extends ComplexType im
     public function setHomeZoneId($homeZoneId = null)
     {
         $this->homeZoneId = new PrimitiveType($homeZoneId);
-        $this->homeZoneId->setName('homeZoneId');
+        $this->homeZoneId->setElementName('homeZoneId');
         return $this;
     }
 
@@ -79,6 +81,8 @@ class EnterpriseBroadWorksMobileManagerGetHomeZoneRequest extends ComplexType im
      */
     public function getHomeZoneId()
     {
-        return ($this->homeZoneId) ? $this->homeZoneId->getValue() : null;
+        return ($this->homeZoneId)
+            ? $this->homeZoneId->getElementValue()
+            : null;
     }
 }

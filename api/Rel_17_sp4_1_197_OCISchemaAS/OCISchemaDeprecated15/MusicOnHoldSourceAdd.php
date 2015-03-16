@@ -19,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class MusicOnHoldSourceAdd extends ComplexType implements ComplexInterface
 {
-    public    $name = 'MusicOnHoldSourceAdd';
+    public    $elementName = 'MusicOnHoldSourceAdd';
     protected $audioFilePreferredCodec;
     protected $messageSourceSelection;
     protected $customSource;
@@ -51,7 +51,7 @@ class MusicOnHoldSourceAdd extends ComplexType implements ComplexInterface
     public function setAudioFilePreferredCodec($audioFilePreferredCodec = null)
     {
         $this->audioFilePreferredCodec = new SimpleContent($audioFilePreferredCodec);
-        $this->audioFilePreferredCodec->setName('audioFilePreferredCodec');
+        $this->audioFilePreferredCodec->setElementName('audioFilePreferredCodec');
         return $this;
     }
 
@@ -61,7 +61,9 @@ class MusicOnHoldSourceAdd extends ComplexType implements ComplexInterface
      */
     public function getAudioFilePreferredCodec()
     {
-        return ($this->audioFilePreferredCodec) ? $this->audioFilePreferredCodec->getValue() : null;
+        return ($this->audioFilePreferredCodec)
+            ? $this->audioFilePreferredCodec->getElementValue()
+            : null;
     }
 
     /**
@@ -70,7 +72,7 @@ class MusicOnHoldSourceAdd extends ComplexType implements ComplexInterface
     public function setMessageSourceSelection($messageSourceSelection = null)
     {
         $this->messageSourceSelection = new SimpleContent($messageSourceSelection);
-        $this->messageSourceSelection->setName('messageSourceSelection');
+        $this->messageSourceSelection->setElementName('messageSourceSelection');
         return $this;
     }
 
@@ -80,7 +82,9 @@ class MusicOnHoldSourceAdd extends ComplexType implements ComplexInterface
      */
     public function getMessageSourceSelection()
     {
-        return ($this->messageSourceSelection) ? $this->messageSourceSelection->getValue() : null;
+        return ($this->messageSourceSelection)
+            ? $this->messageSourceSelection->getElementValue()
+            : null;
     }
 
     /**
@@ -89,7 +93,7 @@ class MusicOnHoldSourceAdd extends ComplexType implements ComplexInterface
     public function setCustomSource($customSource = null)
     {
         $this->customSource = new SimpleContent($customSource);
-        $this->customSource->setName('customSource');
+        $this->customSource->setElementName('customSource');
         return $this;
     }
 
@@ -99,7 +103,9 @@ class MusicOnHoldSourceAdd extends ComplexType implements ComplexInterface
      */
     public function getCustomSource()
     {
-        return ($this->customSource) ? $this->customSource->getValue() : null;
+        return ($this->customSource)
+            ? $this->customSource->getElementValue()
+            : null;
     }
 
     /**
@@ -108,7 +114,7 @@ class MusicOnHoldSourceAdd extends ComplexType implements ComplexInterface
     public function setExternalSource($externalSource = null)
     {
         $this->externalSource = new SimpleContent($externalSource);
-        $this->externalSource->setName('externalSource');
+        $this->externalSource->setElementName('externalSource');
         return $this;
     }
 
@@ -118,6 +124,8 @@ class MusicOnHoldSourceAdd extends ComplexType implements ComplexInterface
      */
     public function getExternalSource()
     {
-        return ($this->externalSource) ? $this->externalSource->getValue() : null;
+        return ($this->externalSource)
+            ? $this->externalSource->getElementValue()
+            : null;
     }
 }

@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserInstantConferencingModifyBridgeDelegatesRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'UserInstantConferencingModifyBridgeDelegatesRequest';
+    public    $elementName = 'UserInstantConferencingModifyBridgeDelegatesRequest';
     protected $userId;
     protected $bridgeServiceUserId;
     protected $bridgeDelegatesUserIdList;
@@ -52,7 +52,7 @@ class UserInstantConferencingModifyBridgeDelegatesRequest extends ComplexType im
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
-        $this->userId->setName('userId');
+        $this->userId->setElementName('userId');
         return $this;
     }
 
@@ -62,7 +62,9 @@ class UserInstantConferencingModifyBridgeDelegatesRequest extends ComplexType im
      */
     public function getUserId()
     {
-        return ($this->userId) ? $this->userId->getValue() : null;
+        return ($this->userId)
+            ? $this->userId->getElementValue()
+            : null;
     }
 
     /**
@@ -73,7 +75,7 @@ class UserInstantConferencingModifyBridgeDelegatesRequest extends ComplexType im
         $this->bridgeServiceUserId = ($bridgeServiceUserId InstanceOf UserId)
              ? $bridgeServiceUserId
              : new UserId($bridgeServiceUserId);
-        $this->bridgeServiceUserId->setName('bridgeServiceUserId');
+        $this->bridgeServiceUserId->setElementName('bridgeServiceUserId');
         return $this;
     }
 
@@ -83,7 +85,9 @@ class UserInstantConferencingModifyBridgeDelegatesRequest extends ComplexType im
      */
     public function getBridgeServiceUserId()
     {
-        return ($this->bridgeServiceUserId) ? $this->bridgeServiceUserId->getValue() : null;
+        return ($this->bridgeServiceUserId)
+            ? $this->bridgeServiceUserId->getElementValue()
+            : null;
     }
 
     /**
@@ -94,7 +98,7 @@ class UserInstantConferencingModifyBridgeDelegatesRequest extends ComplexType im
         $this->bridgeDelegatesUserIdList = ($bridgeDelegatesUserIdList InstanceOf ReplacementUserIdList)
              ? $bridgeDelegatesUserIdList
              : new ReplacementUserIdList($bridgeDelegatesUserIdList);
-        $this->bridgeDelegatesUserIdList->setName('bridgeDelegatesUserIdList');
+        $this->bridgeDelegatesUserIdList->setElementName('bridgeDelegatesUserIdList');
         return $this;
     }
 

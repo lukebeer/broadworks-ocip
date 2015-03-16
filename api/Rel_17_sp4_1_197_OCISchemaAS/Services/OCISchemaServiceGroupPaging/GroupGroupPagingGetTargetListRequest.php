@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
 class GroupGroupPagingGetTargetListRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType  = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceGroupPaging\GroupGroupPagingGetTargetListResponse';
-    public    $name = 'GroupGroupPagingGetTargetListRequest';
+    public    $elementName = 'GroupGroupPagingGetTargetListRequest';
     protected $serviceUserId;
 
     public function __construct(
@@ -47,7 +47,7 @@ class GroupGroupPagingGetTargetListRequest extends ComplexType implements Comple
         $this->serviceUserId = ($serviceUserId InstanceOf UserId)
              ? $serviceUserId
              : new UserId($serviceUserId);
-        $this->serviceUserId->setName('serviceUserId');
+        $this->serviceUserId->setElementName('serviceUserId');
         return $this;
     }
 
@@ -57,6 +57,8 @@ class GroupGroupPagingGetTargetListRequest extends ComplexType implements Comple
      */
     public function getServiceUserId()
     {
-        return ($this->serviceUserId) ? $this->serviceUserId->getValue() : null;
+        return ($this->serviceUserId)
+            ? $this->serviceUserId->getElementValue()
+            : null;
     }
 }

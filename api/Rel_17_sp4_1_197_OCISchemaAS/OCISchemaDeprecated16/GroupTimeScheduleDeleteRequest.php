@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupTimeScheduleDeleteRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'GroupTimeScheduleDeleteRequest';
+    public    $elementName = 'GroupTimeScheduleDeleteRequest';
     protected $serviceProviderId;
     protected $groupId;
     protected $timeScheduleName;
@@ -53,7 +53,7 @@ class GroupTimeScheduleDeleteRequest extends ComplexType implements ComplexInter
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
-        $this->serviceProviderId->setName('serviceProviderId');
+        $this->serviceProviderId->setElementName('serviceProviderId');
         return $this;
     }
 
@@ -63,7 +63,9 @@ class GroupTimeScheduleDeleteRequest extends ComplexType implements ComplexInter
      */
     public function getServiceProviderId()
     {
-        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
+        return ($this->serviceProviderId)
+            ? $this->serviceProviderId->getElementValue()
+            : null;
     }
 
     /**
@@ -74,7 +76,7 @@ class GroupTimeScheduleDeleteRequest extends ComplexType implements ComplexInter
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
-        $this->groupId->setName('groupId');
+        $this->groupId->setElementName('groupId');
         return $this;
     }
 
@@ -84,7 +86,9 @@ class GroupTimeScheduleDeleteRequest extends ComplexType implements ComplexInter
      */
     public function getGroupId()
     {
-        return ($this->groupId) ? $this->groupId->getValue() : null;
+        return ($this->groupId)
+            ? $this->groupId->getElementValue()
+            : null;
     }
 
     /**
@@ -95,7 +99,7 @@ class GroupTimeScheduleDeleteRequest extends ComplexType implements ComplexInter
         $this->timeScheduleName = ($timeScheduleName InstanceOf ScheduleName)
              ? $timeScheduleName
              : new ScheduleName($timeScheduleName);
-        $this->timeScheduleName->setName('timeScheduleName');
+        $this->timeScheduleName->setElementName('timeScheduleName');
         return $this;
     }
 
@@ -105,6 +109,8 @@ class GroupTimeScheduleDeleteRequest extends ComplexType implements ComplexInter
      */
     public function getTimeScheduleName()
     {
-        return ($this->timeScheduleName) ? $this->timeScheduleName->getValue() : null;
+        return ($this->timeScheduleName)
+            ? $this->timeScheduleName->getElementValue()
+            : null;
     }
 }

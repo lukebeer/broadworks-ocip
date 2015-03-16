@@ -23,7 +23,7 @@ use Broadworks_OCIP\core\Client\Client;
 class ServiceProviderCommunicationBarringProfileGetCriteriaUsageListRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderCommunicationBarringProfileGetCriteriaUsageListResponse';
-    public    $name = 'ServiceProviderCommunicationBarringProfileGetCriteriaUsageListRequest';
+    public    $elementName = 'ServiceProviderCommunicationBarringProfileGetCriteriaUsageListRequest';
     protected $serviceProviderId;
     protected $criteriaName;
 
@@ -51,7 +51,7 @@ class ServiceProviderCommunicationBarringProfileGetCriteriaUsageListRequest exte
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
-        $this->serviceProviderId->setName('serviceProviderId');
+        $this->serviceProviderId->setElementName('serviceProviderId');
         return $this;
     }
 
@@ -61,7 +61,9 @@ class ServiceProviderCommunicationBarringProfileGetCriteriaUsageListRequest exte
      */
     public function getServiceProviderId()
     {
-        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
+        return ($this->serviceProviderId)
+            ? $this->serviceProviderId->getElementValue()
+            : null;
     }
 
     /**
@@ -72,7 +74,7 @@ class ServiceProviderCommunicationBarringProfileGetCriteriaUsageListRequest exte
         $this->criteriaName = ($criteriaName InstanceOf CommunicationBarringCriteriaName)
              ? $criteriaName
              : new CommunicationBarringCriteriaName($criteriaName);
-        $this->criteriaName->setName('criteriaName');
+        $this->criteriaName->setElementName('criteriaName');
         return $this;
     }
 
@@ -82,6 +84,8 @@ class ServiceProviderCommunicationBarringProfileGetCriteriaUsageListRequest exte
      */
     public function getCriteriaName()
     {
-        return ($this->criteriaName) ? $this->criteriaName->getValue() : null;
+        return ($this->criteriaName)
+            ? $this->criteriaName->getElementValue()
+            : null;
     }
 }

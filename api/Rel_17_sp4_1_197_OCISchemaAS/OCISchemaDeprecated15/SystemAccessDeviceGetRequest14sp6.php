@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
 class SystemAccessDeviceGetRequest14sp6 extends ComplexType implements ComplexInterface
 {
     public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15\SystemAccessDeviceGetResponse14sp6';
-    public    $name = 'SystemAccessDeviceGetRequest14sp6';
+    public    $elementName = 'SystemAccessDeviceGetRequest14sp6';
     protected $deviceName;
 
     public function __construct(
@@ -47,7 +47,7 @@ class SystemAccessDeviceGetRequest14sp6 extends ComplexType implements ComplexIn
         $this->deviceName = ($deviceName InstanceOf AccessDeviceName)
              ? $deviceName
              : new AccessDeviceName($deviceName);
-        $this->deviceName->setName('deviceName');
+        $this->deviceName->setElementName('deviceName');
         return $this;
     }
 
@@ -57,6 +57,8 @@ class SystemAccessDeviceGetRequest14sp6 extends ComplexType implements ComplexIn
      */
     public function getDeviceName()
     {
-        return ($this->deviceName) ? $this->deviceName->getValue() : null;
+        return ($this->deviceName)
+            ? $this->deviceName->getElementValue()
+            : null;
     }
 }

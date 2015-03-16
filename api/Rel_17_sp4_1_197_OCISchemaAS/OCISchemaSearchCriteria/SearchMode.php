@@ -16,12 +16,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\Enumeration;
  */
 class SearchMode extends SimpleType
 {
-    public $name = "SearchMode";
-    protected $value;
-
+    public $elementName = "SearchMode";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new Enumeration([
             'Starts With',
             'Contains',

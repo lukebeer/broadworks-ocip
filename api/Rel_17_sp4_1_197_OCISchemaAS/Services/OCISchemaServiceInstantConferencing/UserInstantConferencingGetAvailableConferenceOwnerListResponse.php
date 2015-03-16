@@ -19,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserInstantConferencingGetAvailableConferenceOwnerListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'UserInstantConferencingGetAvailableConferenceOwnerListResponse';
+    public    $elementName = 'UserInstantConferencingGetAvailableConferenceOwnerListResponse';
     protected $bridge;
 
     /**
@@ -38,7 +38,7 @@ class UserInstantConferencingGetAvailableConferenceOwnerListResponse extends Com
         $this->bridge = ($bridge InstanceOf InstantConferencingBridgeOwnerList)
              ? $bridge
              : new InstantConferencingBridgeOwnerList($bridge);
-        $this->bridge->setName('bridge');
+        $this->bridge->setElementName('bridge');
         return $this;
     }
 

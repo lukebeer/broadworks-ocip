@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderNetworkClassOfServiceModifyDefaultRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'ServiceProviderNetworkClassOfServiceModifyDefaultRequest';
+    public    $elementName = 'ServiceProviderNetworkClassOfServiceModifyDefaultRequest';
     protected $serviceProviderId;
     protected $networkClassOfService;
 
@@ -48,7 +48,7 @@ class ServiceProviderNetworkClassOfServiceModifyDefaultRequest extends ComplexTy
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
-        $this->serviceProviderId->setName('serviceProviderId');
+        $this->serviceProviderId->setElementName('serviceProviderId');
         return $this;
     }
 
@@ -58,7 +58,9 @@ class ServiceProviderNetworkClassOfServiceModifyDefaultRequest extends ComplexTy
      */
     public function getServiceProviderId()
     {
-        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
+        return ($this->serviceProviderId)
+            ? $this->serviceProviderId->getElementValue()
+            : null;
     }
 
     /**
@@ -69,7 +71,7 @@ class ServiceProviderNetworkClassOfServiceModifyDefaultRequest extends ComplexTy
         $this->networkClassOfService = ($networkClassOfService InstanceOf NetworkClassOfServiceName)
              ? $networkClassOfService
              : new NetworkClassOfServiceName($networkClassOfService);
-        $this->networkClassOfService->setName('networkClassOfService');
+        $this->networkClassOfService->setElementName('networkClassOfService');
         return $this;
     }
 
@@ -79,6 +81,8 @@ class ServiceProviderNetworkClassOfServiceModifyDefaultRequest extends ComplexTy
      */
     public function getNetworkClassOfService()
     {
-        return ($this->networkClassOfService) ? $this->networkClassOfService->getValue() : null;
+        return ($this->networkClassOfService)
+            ? $this->networkClassOfService->getElementValue()
+            : null;
     }
 }

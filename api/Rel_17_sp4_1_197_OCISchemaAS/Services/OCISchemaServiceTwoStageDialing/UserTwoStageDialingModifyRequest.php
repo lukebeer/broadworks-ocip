@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserTwoStageDialingModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'UserTwoStageDialingModifyRequest';
+    public    $elementName = 'UserTwoStageDialingModifyRequest';
     protected $userId;
     protected $isActive;
     protected $allowActivationWithUserAddresses;
@@ -52,7 +52,7 @@ class UserTwoStageDialingModifyRequest extends ComplexType implements ComplexInt
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
-        $this->userId->setName('userId');
+        $this->userId->setElementName('userId');
         return $this;
     }
 
@@ -62,7 +62,9 @@ class UserTwoStageDialingModifyRequest extends ComplexType implements ComplexInt
      */
     public function getUserId()
     {
-        return ($this->userId) ? $this->userId->getValue() : null;
+        return ($this->userId)
+            ? $this->userId->getElementValue()
+            : null;
     }
 
     /**
@@ -71,7 +73,7 @@ class UserTwoStageDialingModifyRequest extends ComplexType implements ComplexInt
     public function setIsActive($isActive = null)
     {
         $this->isActive = new PrimitiveType($isActive);
-        $this->isActive->setName('isActive');
+        $this->isActive->setElementName('isActive');
         return $this;
     }
 
@@ -81,7 +83,9 @@ class UserTwoStageDialingModifyRequest extends ComplexType implements ComplexInt
      */
     public function getIsActive()
     {
-        return ($this->isActive) ? $this->isActive->getValue() : null;
+        return ($this->isActive)
+            ? $this->isActive->getElementValue()
+            : null;
     }
 
     /**
@@ -90,7 +94,7 @@ class UserTwoStageDialingModifyRequest extends ComplexType implements ComplexInt
     public function setAllowActivationWithUserAddresses($allowActivationWithUserAddresses = null)
     {
         $this->allowActivationWithUserAddresses = new PrimitiveType($allowActivationWithUserAddresses);
-        $this->allowActivationWithUserAddresses->setName('allowActivationWithUserAddresses');
+        $this->allowActivationWithUserAddresses->setElementName('allowActivationWithUserAddresses');
         return $this;
     }
 
@@ -100,6 +104,8 @@ class UserTwoStageDialingModifyRequest extends ComplexType implements ComplexInt
      */
     public function getAllowActivationWithUserAddresses()
     {
-        return ($this->allowActivationWithUserAddresses) ? $this->allowActivationWithUserAddresses->getValue() : null;
+        return ($this->allowActivationWithUserAddresses)
+            ? $this->allowActivationWithUserAddresses->getElementValue()
+            : null;
     }
 }

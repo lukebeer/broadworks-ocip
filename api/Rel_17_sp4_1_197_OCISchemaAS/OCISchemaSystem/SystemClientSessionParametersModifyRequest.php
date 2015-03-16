@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemClientSessionParametersModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemClientSessionParametersModifyRequest';
+    public    $elementName = 'SystemClientSessionParametersModifyRequest';
     protected $enableInactivityTimeout;
     protected $inactivityTimeoutMinutes;
 
@@ -47,7 +47,7 @@ class SystemClientSessionParametersModifyRequest extends ComplexType implements 
     public function setEnableInactivityTimeout($enableInactivityTimeout = null)
     {
         $this->enableInactivityTimeout = new PrimitiveType($enableInactivityTimeout);
-        $this->enableInactivityTimeout->setName('enableInactivityTimeout');
+        $this->enableInactivityTimeout->setElementName('enableInactivityTimeout');
         return $this;
     }
 
@@ -57,7 +57,9 @@ class SystemClientSessionParametersModifyRequest extends ComplexType implements 
      */
     public function getEnableInactivityTimeout()
     {
-        return ($this->enableInactivityTimeout) ? $this->enableInactivityTimeout->getValue() : null;
+        return ($this->enableInactivityTimeout)
+            ? $this->enableInactivityTimeout->getElementValue()
+            : null;
     }
 
     /**
@@ -68,7 +70,7 @@ class SystemClientSessionParametersModifyRequest extends ComplexType implements 
         $this->inactivityTimeoutMinutes = ($inactivityTimeoutMinutes InstanceOf ClientSessionTimeoutMinutes)
              ? $inactivityTimeoutMinutes
              : new ClientSessionTimeoutMinutes($inactivityTimeoutMinutes);
-        $this->inactivityTimeoutMinutes->setName('inactivityTimeoutMinutes');
+        $this->inactivityTimeoutMinutes->setElementName('inactivityTimeoutMinutes');
         return $this;
     }
 
@@ -78,6 +80,8 @@ class SystemClientSessionParametersModifyRequest extends ComplexType implements 
      */
     public function getInactivityTimeoutMinutes()
     {
-        return ($this->inactivityTimeoutMinutes) ? $this->inactivityTimeoutMinutes->getValue() : null;
+        return ($this->inactivityTimeoutMinutes)
+            ? $this->inactivityTimeoutMinutes->getElementValue()
+            : null;
     }
 }

@@ -27,7 +27,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemSessionAuditGetResponse17sp3 extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemSessionAuditGetResponse17sp3';
+    public    $elementName = 'SystemSessionAuditGetResponse17sp3';
     protected $isAuditActive;
     protected $auditIntervalSeconds;
     protected $auditTimeoutSeconds;
@@ -60,7 +60,7 @@ class SystemSessionAuditGetResponse17sp3 extends ComplexType implements ComplexI
     public function setIsAuditActive($isAuditActive = null)
     {
         $this->isAuditActive = new PrimitiveType($isAuditActive);
-        $this->isAuditActive->setName('isAuditActive');
+        $this->isAuditActive->setElementName('isAuditActive');
         return $this;
     }
 
@@ -70,7 +70,9 @@ class SystemSessionAuditGetResponse17sp3 extends ComplexType implements ComplexI
      */
     public function getIsAuditActive()
     {
-        return ($this->isAuditActive) ? $this->isAuditActive->getValue() : null;
+        return ($this->isAuditActive)
+            ? $this->isAuditActive->getElementValue()
+            : null;
     }
 
     /**
@@ -81,7 +83,7 @@ class SystemSessionAuditGetResponse17sp3 extends ComplexType implements ComplexI
         $this->auditIntervalSeconds = ($auditIntervalSeconds InstanceOf SessionAuditIntervalSeconds)
              ? $auditIntervalSeconds
              : new SessionAuditIntervalSeconds($auditIntervalSeconds);
-        $this->auditIntervalSeconds->setName('auditIntervalSeconds');
+        $this->auditIntervalSeconds->setElementName('auditIntervalSeconds');
         return $this;
     }
 
@@ -91,7 +93,9 @@ class SystemSessionAuditGetResponse17sp3 extends ComplexType implements ComplexI
      */
     public function getAuditIntervalSeconds()
     {
-        return ($this->auditIntervalSeconds) ? $this->auditIntervalSeconds->getValue() : null;
+        return ($this->auditIntervalSeconds)
+            ? $this->auditIntervalSeconds->getElementValue()
+            : null;
     }
 
     /**
@@ -102,7 +106,7 @@ class SystemSessionAuditGetResponse17sp3 extends ComplexType implements ComplexI
         $this->auditTimeoutSeconds = ($auditTimeoutSeconds InstanceOf SessionAuditTimeoutPeriodSeconds)
              ? $auditTimeoutSeconds
              : new SessionAuditTimeoutPeriodSeconds($auditTimeoutSeconds);
-        $this->auditTimeoutSeconds->setName('auditTimeoutSeconds');
+        $this->auditTimeoutSeconds->setElementName('auditTimeoutSeconds');
         return $this;
     }
 
@@ -112,7 +116,9 @@ class SystemSessionAuditGetResponse17sp3 extends ComplexType implements ComplexI
      */
     public function getAuditTimeoutSeconds()
     {
-        return ($this->auditTimeoutSeconds) ? $this->auditTimeoutSeconds->getValue() : null;
+        return ($this->auditTimeoutSeconds)
+            ? $this->auditTimeoutSeconds->getElementValue()
+            : null;
     }
 
     /**
@@ -121,7 +127,7 @@ class SystemSessionAuditGetResponse17sp3 extends ComplexType implements ComplexI
     public function setReleaseCallOnAuditFailure($releaseCallOnAuditFailure = null)
     {
         $this->releaseCallOnAuditFailure = new PrimitiveType($releaseCallOnAuditFailure);
-        $this->releaseCallOnAuditFailure->setName('releaseCallOnAuditFailure');
+        $this->releaseCallOnAuditFailure->setElementName('releaseCallOnAuditFailure');
         return $this;
     }
 
@@ -131,7 +137,9 @@ class SystemSessionAuditGetResponse17sp3 extends ComplexType implements ComplexI
      */
     public function getReleaseCallOnAuditFailure()
     {
-        return ($this->releaseCallOnAuditFailure) ? $this->releaseCallOnAuditFailure->getValue() : null;
+        return ($this->releaseCallOnAuditFailure)
+            ? $this->releaseCallOnAuditFailure->getElementValue()
+            : null;
     }
 
     /**
@@ -140,7 +148,7 @@ class SystemSessionAuditGetResponse17sp3 extends ComplexType implements ComplexI
     public function setIsSIPRefreshAllowedOnAudit($isSIPRefreshAllowedOnAudit = null)
     {
         $this->isSIPRefreshAllowedOnAudit = new PrimitiveType($isSIPRefreshAllowedOnAudit);
-        $this->isSIPRefreshAllowedOnAudit->setName('isSIPRefreshAllowedOnAudit');
+        $this->isSIPRefreshAllowedOnAudit->setElementName('isSIPRefreshAllowedOnAudit');
         return $this;
     }
 
@@ -150,7 +158,9 @@ class SystemSessionAuditGetResponse17sp3 extends ComplexType implements ComplexI
      */
     public function getIsSIPRefreshAllowedOnAudit()
     {
-        return ($this->isSIPRefreshAllowedOnAudit) ? $this->isSIPRefreshAllowedOnAudit->getValue() : null;
+        return ($this->isSIPRefreshAllowedOnAudit)
+            ? $this->isSIPRefreshAllowedOnAudit->getElementValue()
+            : null;
     }
 
     /**
@@ -159,7 +169,7 @@ class SystemSessionAuditGetResponse17sp3 extends ComplexType implements ComplexI
     public function setAllowUpdateForSIPRefresh($allowUpdateForSIPRefresh = null)
     {
         $this->allowUpdateForSIPRefresh = new PrimitiveType($allowUpdateForSIPRefresh);
-        $this->allowUpdateForSIPRefresh->setName('allowUpdateForSIPRefresh');
+        $this->allowUpdateForSIPRefresh->setElementName('allowUpdateForSIPRefresh');
         return $this;
     }
 
@@ -169,7 +179,9 @@ class SystemSessionAuditGetResponse17sp3 extends ComplexType implements ComplexI
      */
     public function getAllowUpdateForSIPRefresh()
     {
-        return ($this->allowUpdateForSIPRefresh) ? $this->allowUpdateForSIPRefresh->getValue() : null;
+        return ($this->allowUpdateForSIPRefresh)
+            ? $this->allowUpdateForSIPRefresh->getElementValue()
+            : null;
     }
 
     /**
@@ -178,7 +190,7 @@ class SystemSessionAuditGetResponse17sp3 extends ComplexType implements ComplexI
     public function setIsSIPSessionTimerActive($isSIPSessionTimerActive = null)
     {
         $this->isSIPSessionTimerActive = new PrimitiveType($isSIPSessionTimerActive);
-        $this->isSIPSessionTimerActive->setName('isSIPSessionTimerActive');
+        $this->isSIPSessionTimerActive->setElementName('isSIPSessionTimerActive');
         return $this;
     }
 
@@ -188,7 +200,9 @@ class SystemSessionAuditGetResponse17sp3 extends ComplexType implements ComplexI
      */
     public function getIsSIPSessionTimerActive()
     {
-        return ($this->isSIPSessionTimerActive) ? $this->isSIPSessionTimerActive->getValue() : null;
+        return ($this->isSIPSessionTimerActive)
+            ? $this->isSIPSessionTimerActive->getElementValue()
+            : null;
     }
 
     /**
@@ -199,7 +213,7 @@ class SystemSessionAuditGetResponse17sp3 extends ComplexType implements ComplexI
         $this->sipSessionExpiresMinimumSeconds = ($sipSessionExpiresMinimumSeconds InstanceOf SIPSessionExpiresMinimumSeconds)
              ? $sipSessionExpiresMinimumSeconds
              : new SIPSessionExpiresMinimumSeconds($sipSessionExpiresMinimumSeconds);
-        $this->sipSessionExpiresMinimumSeconds->setName('sipSessionExpiresMinimumSeconds');
+        $this->sipSessionExpiresMinimumSeconds->setElementName('sipSessionExpiresMinimumSeconds');
         return $this;
     }
 
@@ -209,7 +223,9 @@ class SystemSessionAuditGetResponse17sp3 extends ComplexType implements ComplexI
      */
     public function getSipSessionExpiresMinimumSeconds()
     {
-        return ($this->sipSessionExpiresMinimumSeconds) ? $this->sipSessionExpiresMinimumSeconds->getValue() : null;
+        return ($this->sipSessionExpiresMinimumSeconds)
+            ? $this->sipSessionExpiresMinimumSeconds->getElementValue()
+            : null;
     }
 
     /**
@@ -218,7 +234,7 @@ class SystemSessionAuditGetResponse17sp3 extends ComplexType implements ComplexI
     public function setEnforceSIPSessionExpiresMaximum($enforceSIPSessionExpiresMaximum = null)
     {
         $this->enforceSIPSessionExpiresMaximum = new PrimitiveType($enforceSIPSessionExpiresMaximum);
-        $this->enforceSIPSessionExpiresMaximum->setName('enforceSIPSessionExpiresMaximum');
+        $this->enforceSIPSessionExpiresMaximum->setElementName('enforceSIPSessionExpiresMaximum');
         return $this;
     }
 
@@ -228,7 +244,9 @@ class SystemSessionAuditGetResponse17sp3 extends ComplexType implements ComplexI
      */
     public function getEnforceSIPSessionExpiresMaximum()
     {
-        return ($this->enforceSIPSessionExpiresMaximum) ? $this->enforceSIPSessionExpiresMaximum->getValue() : null;
+        return ($this->enforceSIPSessionExpiresMaximum)
+            ? $this->enforceSIPSessionExpiresMaximum->getElementValue()
+            : null;
     }
 
     /**
@@ -239,7 +257,7 @@ class SystemSessionAuditGetResponse17sp3 extends ComplexType implements ComplexI
         $this->sipSessionExpiresMaximumSeconds = ($sipSessionExpiresMaximumSeconds InstanceOf SIPSessionExpiresMaximumSeconds)
              ? $sipSessionExpiresMaximumSeconds
              : new SIPSessionExpiresMaximumSeconds($sipSessionExpiresMaximumSeconds);
-        $this->sipSessionExpiresMaximumSeconds->setName('sipSessionExpiresMaximumSeconds');
+        $this->sipSessionExpiresMaximumSeconds->setElementName('sipSessionExpiresMaximumSeconds');
         return $this;
     }
 
@@ -249,7 +267,9 @@ class SystemSessionAuditGetResponse17sp3 extends ComplexType implements ComplexI
      */
     public function getSipSessionExpiresMaximumSeconds()
     {
-        return ($this->sipSessionExpiresMaximumSeconds) ? $this->sipSessionExpiresMaximumSeconds->getValue() : null;
+        return ($this->sipSessionExpiresMaximumSeconds)
+            ? $this->sipSessionExpiresMaximumSeconds->getElementValue()
+            : null;
     }
 
     /**
@@ -260,7 +280,7 @@ class SystemSessionAuditGetResponse17sp3 extends ComplexType implements ComplexI
         $this->sipSessionExpiresTimerSeconds = ($sipSessionExpiresTimerSeconds InstanceOf SIPSessionExpiresTimerSeconds)
              ? $sipSessionExpiresTimerSeconds
              : new SIPSessionExpiresTimerSeconds($sipSessionExpiresTimerSeconds);
-        $this->sipSessionExpiresTimerSeconds->setName('sipSessionExpiresTimerSeconds');
+        $this->sipSessionExpiresTimerSeconds->setElementName('sipSessionExpiresTimerSeconds');
         return $this;
     }
 
@@ -270,7 +290,9 @@ class SystemSessionAuditGetResponse17sp3 extends ComplexType implements ComplexI
      */
     public function getSipSessionExpiresTimerSeconds()
     {
-        return ($this->sipSessionExpiresTimerSeconds) ? $this->sipSessionExpiresTimerSeconds->getValue() : null;
+        return ($this->sipSessionExpiresTimerSeconds)
+            ? $this->sipSessionExpiresTimerSeconds->getElementValue()
+            : null;
     }
 
     /**
@@ -279,7 +301,7 @@ class SystemSessionAuditGetResponse17sp3 extends ComplexType implements ComplexI
     public function setAlwaysUseSessionTimerWhenSupported($alwaysUseSessionTimerWhenSupported = null)
     {
         $this->alwaysUseSessionTimerWhenSupported = new PrimitiveType($alwaysUseSessionTimerWhenSupported);
-        $this->alwaysUseSessionTimerWhenSupported->setName('alwaysUseSessionTimerWhenSupported');
+        $this->alwaysUseSessionTimerWhenSupported->setElementName('alwaysUseSessionTimerWhenSupported');
         return $this;
     }
 
@@ -289,7 +311,9 @@ class SystemSessionAuditGetResponse17sp3 extends ComplexType implements ComplexI
      */
     public function getAlwaysUseSessionTimerWhenSupported()
     {
-        return ($this->alwaysUseSessionTimerWhenSupported) ? $this->alwaysUseSessionTimerWhenSupported->getValue() : null;
+        return ($this->alwaysUseSessionTimerWhenSupported)
+            ? $this->alwaysUseSessionTimerWhenSupported->getElementValue()
+            : null;
     }
 
     /**
@@ -300,7 +324,7 @@ class SystemSessionAuditGetResponse17sp3 extends ComplexType implements ComplexI
         $this->preferredSessionTimerRefresher = ($preferredSessionTimerRefresher InstanceOf SessionTimerRefresher)
              ? $preferredSessionTimerRefresher
              : new SessionTimerRefresher($preferredSessionTimerRefresher);
-        $this->preferredSessionTimerRefresher->setName('preferredSessionTimerRefresher');
+        $this->preferredSessionTimerRefresher->setElementName('preferredSessionTimerRefresher');
         return $this;
     }
 
@@ -310,7 +334,9 @@ class SystemSessionAuditGetResponse17sp3 extends ComplexType implements ComplexI
      */
     public function getPreferredSessionTimerRefresher()
     {
-        return ($this->preferredSessionTimerRefresher) ? $this->preferredSessionTimerRefresher->getValue() : null;
+        return ($this->preferredSessionTimerRefresher)
+            ? $this->preferredSessionTimerRefresher->getElementValue()
+            : null;
     }
 
     /**
@@ -319,7 +345,7 @@ class SystemSessionAuditGetResponse17sp3 extends ComplexType implements ComplexI
     public function setEnableEmergencyCallAlarmTimer($enableEmergencyCallAlarmTimer = null)
     {
         $this->enableEmergencyCallAlarmTimer = new PrimitiveType($enableEmergencyCallAlarmTimer);
-        $this->enableEmergencyCallAlarmTimer->setName('enableEmergencyCallAlarmTimer');
+        $this->enableEmergencyCallAlarmTimer->setElementName('enableEmergencyCallAlarmTimer');
         return $this;
     }
 
@@ -329,7 +355,9 @@ class SystemSessionAuditGetResponse17sp3 extends ComplexType implements ComplexI
      */
     public function getEnableEmergencyCallAlarmTimer()
     {
-        return ($this->enableEmergencyCallAlarmTimer) ? $this->enableEmergencyCallAlarmTimer->getValue() : null;
+        return ($this->enableEmergencyCallAlarmTimer)
+            ? $this->enableEmergencyCallAlarmTimer->getElementValue()
+            : null;
     }
 
     /**
@@ -340,7 +368,7 @@ class SystemSessionAuditGetResponse17sp3 extends ComplexType implements ComplexI
         $this->emergencyCallAlarmMinutes = ($emergencyCallAlarmMinutes InstanceOf EmergencyCallAlarmMinutes)
              ? $emergencyCallAlarmMinutes
              : new EmergencyCallAlarmMinutes($emergencyCallAlarmMinutes);
-        $this->emergencyCallAlarmMinutes->setName('emergencyCallAlarmMinutes');
+        $this->emergencyCallAlarmMinutes->setElementName('emergencyCallAlarmMinutes');
         return $this;
     }
 
@@ -350,7 +378,9 @@ class SystemSessionAuditGetResponse17sp3 extends ComplexType implements ComplexI
      */
     public function getEmergencyCallAlarmMinutes()
     {
-        return ($this->emergencyCallAlarmMinutes) ? $this->emergencyCallAlarmMinutes->getValue() : null;
+        return ($this->emergencyCallAlarmMinutes)
+            ? $this->emergencyCallAlarmMinutes->getElementValue()
+            : null;
     }
 
     /**
@@ -359,7 +389,7 @@ class SystemSessionAuditGetResponse17sp3 extends ComplexType implements ComplexI
     public function setEnableEmergencyCallCleanupTimer($enableEmergencyCallCleanupTimer = null)
     {
         $this->enableEmergencyCallCleanupTimer = new PrimitiveType($enableEmergencyCallCleanupTimer);
-        $this->enableEmergencyCallCleanupTimer->setName('enableEmergencyCallCleanupTimer');
+        $this->enableEmergencyCallCleanupTimer->setElementName('enableEmergencyCallCleanupTimer');
         return $this;
     }
 
@@ -369,7 +399,9 @@ class SystemSessionAuditGetResponse17sp3 extends ComplexType implements ComplexI
      */
     public function getEnableEmergencyCallCleanupTimer()
     {
-        return ($this->enableEmergencyCallCleanupTimer) ? $this->enableEmergencyCallCleanupTimer->getValue() : null;
+        return ($this->enableEmergencyCallCleanupTimer)
+            ? $this->enableEmergencyCallCleanupTimer->getElementValue()
+            : null;
     }
 
     /**
@@ -380,7 +412,7 @@ class SystemSessionAuditGetResponse17sp3 extends ComplexType implements ComplexI
         $this->emergencyCallCleanupMinutes = ($emergencyCallCleanupMinutes InstanceOf EmergencyCallCleanupMinutes)
              ? $emergencyCallCleanupMinutes
              : new EmergencyCallCleanupMinutes($emergencyCallCleanupMinutes);
-        $this->emergencyCallCleanupMinutes->setName('emergencyCallCleanupMinutes');
+        $this->emergencyCallCleanupMinutes->setElementName('emergencyCallCleanupMinutes');
         return $this;
     }
 
@@ -390,6 +422,8 @@ class SystemSessionAuditGetResponse17sp3 extends ComplexType implements ComplexI
      */
     public function getEmergencyCallCleanupMinutes()
     {
-        return ($this->emergencyCallCleanupMinutes) ? $this->emergencyCallCleanupMinutes->getValue() : null;
+        return ($this->emergencyCallCleanupMinutes)
+            ? $this->emergencyCallCleanupMinutes->getElementValue()
+            : null;
     }
 }

@@ -26,7 +26,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupAutoAttendantGetInstanceResponse17sp1 extends ComplexType implements ComplexInterface
 {
-    public    $name = 'GroupAutoAttendantGetInstanceResponse17sp1';
+    public    $elementName = 'GroupAutoAttendantGetInstanceResponse17sp1';
     protected $serviceInstanceProfile;
     protected $enableVideo;
     protected $businessHours;
@@ -53,7 +53,7 @@ class GroupAutoAttendantGetInstanceResponse17sp1 extends ComplexType implements 
         $this->serviceInstanceProfile = ($serviceInstanceProfile InstanceOf ServiceInstanceReadProfile17)
              ? $serviceInstanceProfile
              : new ServiceInstanceReadProfile17($serviceInstanceProfile);
-        $this->serviceInstanceProfile->setName('serviceInstanceProfile');
+        $this->serviceInstanceProfile->setElementName('serviceInstanceProfile');
         return $this;
     }
 
@@ -72,7 +72,7 @@ class GroupAutoAttendantGetInstanceResponse17sp1 extends ComplexType implements 
     public function setEnableVideo($enableVideo = null)
     {
         $this->enableVideo = new PrimitiveType($enableVideo);
-        $this->enableVideo->setName('enableVideo');
+        $this->enableVideo->setElementName('enableVideo');
         return $this;
     }
 
@@ -82,7 +82,9 @@ class GroupAutoAttendantGetInstanceResponse17sp1 extends ComplexType implements 
      */
     public function getEnableVideo()
     {
-        return ($this->enableVideo) ? $this->enableVideo->getValue() : null;
+        return ($this->enableVideo)
+            ? $this->enableVideo->getElementValue()
+            : null;
     }
 
     /**
@@ -93,7 +95,7 @@ class GroupAutoAttendantGetInstanceResponse17sp1 extends ComplexType implements 
         $this->businessHours = ($businessHours InstanceOf TimeSchedule)
              ? $businessHours
              : new TimeSchedule($businessHours);
-        $this->businessHours->setName('businessHours');
+        $this->businessHours->setElementName('businessHours');
         return $this;
     }
 
@@ -114,7 +116,7 @@ class GroupAutoAttendantGetInstanceResponse17sp1 extends ComplexType implements 
         $this->holidaySchedule = ($holidaySchedule InstanceOf HolidaySchedule)
              ? $holidaySchedule
              : new HolidaySchedule($holidaySchedule);
-        $this->holidaySchedule->setName('holidaySchedule');
+        $this->holidaySchedule->setElementName('holidaySchedule');
         return $this;
     }
 
@@ -135,7 +137,7 @@ class GroupAutoAttendantGetInstanceResponse17sp1 extends ComplexType implements 
         $this->extensionDialingScope = ($extensionDialingScope InstanceOf AutoAttendantDialingScope)
              ? $extensionDialingScope
              : new AutoAttendantDialingScope($extensionDialingScope);
-        $this->extensionDialingScope->setName('extensionDialingScope');
+        $this->extensionDialingScope->setElementName('extensionDialingScope');
         return $this;
     }
 
@@ -145,7 +147,9 @@ class GroupAutoAttendantGetInstanceResponse17sp1 extends ComplexType implements 
      */
     public function getExtensionDialingScope()
     {
-        return ($this->extensionDialingScope) ? $this->extensionDialingScope->getValue() : null;
+        return ($this->extensionDialingScope)
+            ? $this->extensionDialingScope->getElementValue()
+            : null;
     }
 
     /**
@@ -156,7 +160,7 @@ class GroupAutoAttendantGetInstanceResponse17sp1 extends ComplexType implements 
         $this->nameDialingScope = ($nameDialingScope InstanceOf AutoAttendantDialingScope)
              ? $nameDialingScope
              : new AutoAttendantDialingScope($nameDialingScope);
-        $this->nameDialingScope->setName('nameDialingScope');
+        $this->nameDialingScope->setElementName('nameDialingScope');
         return $this;
     }
 
@@ -166,7 +170,9 @@ class GroupAutoAttendantGetInstanceResponse17sp1 extends ComplexType implements 
      */
     public function getNameDialingScope()
     {
-        return ($this->nameDialingScope) ? $this->nameDialingScope->getValue() : null;
+        return ($this->nameDialingScope)
+            ? $this->nameDialingScope->getElementValue()
+            : null;
     }
 
     /**
@@ -177,7 +183,7 @@ class GroupAutoAttendantGetInstanceResponse17sp1 extends ComplexType implements 
         $this->nameDialingEntries = ($nameDialingEntries InstanceOf AutoAttendantNameDialingEntry)
              ? $nameDialingEntries
              : new AutoAttendantNameDialingEntry($nameDialingEntries);
-        $this->nameDialingEntries->setName('nameDialingEntries');
+        $this->nameDialingEntries->setElementName('nameDialingEntries');
         return $this;
     }
 
@@ -187,7 +193,9 @@ class GroupAutoAttendantGetInstanceResponse17sp1 extends ComplexType implements 
      */
     public function getNameDialingEntries()
     {
-        return ($this->nameDialingEntries) ? $this->nameDialingEntries->getValue() : null;
+        return ($this->nameDialingEntries)
+            ? $this->nameDialingEntries->getElementValue()
+            : null;
     }
 
     /**
@@ -198,7 +206,7 @@ class GroupAutoAttendantGetInstanceResponse17sp1 extends ComplexType implements 
         $this->businessHoursMenu = ($businessHoursMenu InstanceOf AutoAttendantReadMenu16)
              ? $businessHoursMenu
              : new AutoAttendantReadMenu16($businessHoursMenu);
-        $this->businessHoursMenu->setName('businessHoursMenu');
+        $this->businessHoursMenu->setElementName('businessHoursMenu');
         return $this;
     }
 
@@ -219,7 +227,7 @@ class GroupAutoAttendantGetInstanceResponse17sp1 extends ComplexType implements 
         $this->afterHoursMenu = ($afterHoursMenu InstanceOf AutoAttendantReadMenu16)
              ? $afterHoursMenu
              : new AutoAttendantReadMenu16($afterHoursMenu);
-        $this->afterHoursMenu->setName('afterHoursMenu');
+        $this->afterHoursMenu->setElementName('afterHoursMenu');
         return $this;
     }
 

@@ -23,7 +23,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserLinePortGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'UserLinePortGetListResponse';
+    public    $elementName = 'UserLinePortGetListResponse';
     protected $linePortTable;
 
     /**
@@ -40,7 +40,7 @@ class UserLinePortGetListResponse extends ComplexType implements ComplexInterfac
     public function setLinePortTable(TableType $linePortTable = null)
     {
         $this->linePortTable = $linePortTable;
-        $this->linePortTable->setName('linePortTable');
+        $this->linePortTable->setElementName('linePortTable');
         return $this;
     }
 

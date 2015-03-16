@@ -26,7 +26,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserCallForwardingSelectiveModifyCriteriaRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'UserCallForwardingSelectiveModifyCriteriaRequest';
+    public    $elementName = 'UserCallForwardingSelectiveModifyCriteriaRequest';
     protected $userId;
     protected $criteriaName;
     protected $newCriteriaName;
@@ -72,7 +72,7 @@ class UserCallForwardingSelectiveModifyCriteriaRequest extends ComplexType imple
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
-        $this->userId->setName('userId');
+        $this->userId->setElementName('userId');
         return $this;
     }
 
@@ -82,7 +82,9 @@ class UserCallForwardingSelectiveModifyCriteriaRequest extends ComplexType imple
      */
     public function getUserId()
     {
-        return ($this->userId) ? $this->userId->getValue() : null;
+        return ($this->userId)
+            ? $this->userId->getElementValue()
+            : null;
     }
 
     /**
@@ -93,7 +95,7 @@ class UserCallForwardingSelectiveModifyCriteriaRequest extends ComplexType imple
         $this->criteriaName = ($criteriaName InstanceOf CriteriaName)
              ? $criteriaName
              : new CriteriaName($criteriaName);
-        $this->criteriaName->setName('criteriaName');
+        $this->criteriaName->setElementName('criteriaName');
         return $this;
     }
 
@@ -103,7 +105,9 @@ class UserCallForwardingSelectiveModifyCriteriaRequest extends ComplexType imple
      */
     public function getCriteriaName()
     {
-        return ($this->criteriaName) ? $this->criteriaName->getValue() : null;
+        return ($this->criteriaName)
+            ? $this->criteriaName->getElementValue()
+            : null;
     }
 
     /**
@@ -114,7 +118,7 @@ class UserCallForwardingSelectiveModifyCriteriaRequest extends ComplexType imple
         $this->newCriteriaName = ($newCriteriaName InstanceOf CriteriaName)
              ? $newCriteriaName
              : new CriteriaName($newCriteriaName);
-        $this->newCriteriaName->setName('newCriteriaName');
+        $this->newCriteriaName->setElementName('newCriteriaName');
         return $this;
     }
 
@@ -124,7 +128,9 @@ class UserCallForwardingSelectiveModifyCriteriaRequest extends ComplexType imple
      */
     public function getNewCriteriaName()
     {
-        return ($this->newCriteriaName) ? $this->newCriteriaName->getValue() : null;
+        return ($this->newCriteriaName)
+            ? $this->newCriteriaName->getElementValue()
+            : null;
     }
 
     /**
@@ -135,7 +141,7 @@ class UserCallForwardingSelectiveModifyCriteriaRequest extends ComplexType imple
         $this->timeSchedule = ($timeSchedule InstanceOf TimeSchedule)
              ? $timeSchedule
              : new TimeSchedule($timeSchedule);
-        $this->timeSchedule->setName('timeSchedule');
+        $this->timeSchedule->setElementName('timeSchedule');
         return $this;
     }
 
@@ -156,7 +162,7 @@ class UserCallForwardingSelectiveModifyCriteriaRequest extends ComplexType imple
         $this->holidaySchedule = ($holidaySchedule InstanceOf HolidaySchedule)
              ? $holidaySchedule
              : new HolidaySchedule($holidaySchedule);
-        $this->holidaySchedule->setName('holidaySchedule');
+        $this->holidaySchedule->setElementName('holidaySchedule');
         return $this;
     }
 
@@ -177,7 +183,7 @@ class UserCallForwardingSelectiveModifyCriteriaRequest extends ComplexType imple
         $this->forwardToNumberSelection = ($forwardToNumberSelection InstanceOf CallForwardingSelectiveNumberSelection16)
              ? $forwardToNumberSelection
              : new CallForwardingSelectiveNumberSelection16($forwardToNumberSelection);
-        $this->forwardToNumberSelection->setName('forwardToNumberSelection');
+        $this->forwardToNumberSelection->setElementName('forwardToNumberSelection');
         return $this;
     }
 
@@ -187,7 +193,9 @@ class UserCallForwardingSelectiveModifyCriteriaRequest extends ComplexType imple
      */
     public function getForwardToNumberSelection()
     {
-        return ($this->forwardToNumberSelection) ? $this->forwardToNumberSelection->getValue() : null;
+        return ($this->forwardToNumberSelection)
+            ? $this->forwardToNumberSelection->getElementValue()
+            : null;
     }
 
     /**
@@ -198,7 +206,7 @@ class UserCallForwardingSelectiveModifyCriteriaRequest extends ComplexType imple
         $this->forwardToPhoneNumber = ($forwardToPhoneNumber InstanceOf OutgoingDNorSIPURI)
              ? $forwardToPhoneNumber
              : new OutgoingDNorSIPURI($forwardToPhoneNumber);
-        $this->forwardToPhoneNumber->setName('forwardToPhoneNumber');
+        $this->forwardToPhoneNumber->setElementName('forwardToPhoneNumber');
         return $this;
     }
 
@@ -208,7 +216,9 @@ class UserCallForwardingSelectiveModifyCriteriaRequest extends ComplexType imple
      */
     public function getForwardToPhoneNumber()
     {
-        return ($this->forwardToPhoneNumber) ? $this->forwardToPhoneNumber->getValue() : null;
+        return ($this->forwardToPhoneNumber)
+            ? $this->forwardToPhoneNumber->getElementValue()
+            : null;
     }
 
     /**
@@ -219,7 +229,7 @@ class UserCallForwardingSelectiveModifyCriteriaRequest extends ComplexType imple
         $this->fromDnCriteria = ($fromDnCriteria InstanceOf CriteriaFromDnModify)
              ? $fromDnCriteria
              : new CriteriaFromDnModify($fromDnCriteria);
-        $this->fromDnCriteria->setName('fromDnCriteria');
+        $this->fromDnCriteria->setElementName('fromDnCriteria');
         return $this;
     }
 

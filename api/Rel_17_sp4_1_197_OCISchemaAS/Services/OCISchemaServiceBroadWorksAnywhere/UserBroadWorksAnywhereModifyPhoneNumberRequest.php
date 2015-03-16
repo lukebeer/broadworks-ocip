@@ -25,7 +25,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserBroadWorksAnywhereModifyPhoneNumberRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'UserBroadWorksAnywhereModifyPhoneNumberRequest';
+    public    $elementName = 'UserBroadWorksAnywhereModifyPhoneNumberRequest';
     protected $userId;
     protected $phoneNumber;
     protected $newPhoneNumber;
@@ -77,7 +77,7 @@ class UserBroadWorksAnywhereModifyPhoneNumberRequest extends ComplexType impleme
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
-        $this->userId->setName('userId');
+        $this->userId->setElementName('userId');
         return $this;
     }
 
@@ -87,7 +87,9 @@ class UserBroadWorksAnywhereModifyPhoneNumberRequest extends ComplexType impleme
      */
     public function getUserId()
     {
-        return ($this->userId) ? $this->userId->getValue() : null;
+        return ($this->userId)
+            ? $this->userId->getElementValue()
+            : null;
     }
 
     /**
@@ -98,7 +100,7 @@ class UserBroadWorksAnywhereModifyPhoneNumberRequest extends ComplexType impleme
         $this->phoneNumber = ($phoneNumber InstanceOf DN)
              ? $phoneNumber
              : new DN($phoneNumber);
-        $this->phoneNumber->setName('phoneNumber');
+        $this->phoneNumber->setElementName('phoneNumber');
         return $this;
     }
 
@@ -108,7 +110,9 @@ class UserBroadWorksAnywhereModifyPhoneNumberRequest extends ComplexType impleme
      */
     public function getPhoneNumber()
     {
-        return ($this->phoneNumber) ? $this->phoneNumber->getValue() : null;
+        return ($this->phoneNumber)
+            ? $this->phoneNumber->getElementValue()
+            : null;
     }
 
     /**
@@ -119,7 +123,7 @@ class UserBroadWorksAnywhereModifyPhoneNumberRequest extends ComplexType impleme
         $this->newPhoneNumber = ($newPhoneNumber InstanceOf DN)
              ? $newPhoneNumber
              : new DN($newPhoneNumber);
-        $this->newPhoneNumber->setName('newPhoneNumber');
+        $this->newPhoneNumber->setElementName('newPhoneNumber');
         return $this;
     }
 
@@ -129,7 +133,9 @@ class UserBroadWorksAnywhereModifyPhoneNumberRequest extends ComplexType impleme
      */
     public function getNewPhoneNumber()
     {
-        return ($this->newPhoneNumber) ? $this->newPhoneNumber->getValue() : null;
+        return ($this->newPhoneNumber)
+            ? $this->newPhoneNumber->getElementValue()
+            : null;
     }
 
     /**
@@ -140,7 +146,7 @@ class UserBroadWorksAnywhereModifyPhoneNumberRequest extends ComplexType impleme
         $this->description = ($description InstanceOf BroadWorksAnywherePhoneNumberDescription)
              ? $description
              : new BroadWorksAnywherePhoneNumberDescription($description);
-        $this->description->setName('description');
+        $this->description->setElementName('description');
         return $this;
     }
 
@@ -150,7 +156,9 @@ class UserBroadWorksAnywhereModifyPhoneNumberRequest extends ComplexType impleme
      */
     public function getDescription()
     {
-        return ($this->description) ? $this->description->getValue() : null;
+        return ($this->description)
+            ? $this->description->getElementValue()
+            : null;
     }
 
     /**
@@ -159,7 +167,7 @@ class UserBroadWorksAnywhereModifyPhoneNumberRequest extends ComplexType impleme
     public function setIsActive($isActive = null)
     {
         $this->isActive = new PrimitiveType($isActive);
-        $this->isActive->setName('isActive');
+        $this->isActive->setElementName('isActive');
         return $this;
     }
 
@@ -169,7 +177,9 @@ class UserBroadWorksAnywhereModifyPhoneNumberRequest extends ComplexType impleme
      */
     public function getIsActive()
     {
-        return ($this->isActive) ? $this->isActive->getValue() : null;
+        return ($this->isActive)
+            ? $this->isActive->getElementValue()
+            : null;
     }
 
     /**
@@ -180,7 +190,7 @@ class UserBroadWorksAnywhereModifyPhoneNumberRequest extends ComplexType impleme
         $this->outboundAlternateNumber = ($outboundAlternateNumber InstanceOf OutgoingDNorSIPURI)
              ? $outboundAlternateNumber
              : new OutgoingDNorSIPURI($outboundAlternateNumber);
-        $this->outboundAlternateNumber->setName('outboundAlternateNumber');
+        $this->outboundAlternateNumber->setElementName('outboundAlternateNumber');
         return $this;
     }
 
@@ -190,7 +200,9 @@ class UserBroadWorksAnywhereModifyPhoneNumberRequest extends ComplexType impleme
      */
     public function getOutboundAlternateNumber()
     {
-        return ($this->outboundAlternateNumber) ? $this->outboundAlternateNumber->getValue() : null;
+        return ($this->outboundAlternateNumber)
+            ? $this->outboundAlternateNumber->getElementValue()
+            : null;
     }
 
     /**
@@ -199,7 +211,7 @@ class UserBroadWorksAnywhereModifyPhoneNumberRequest extends ComplexType impleme
     public function setBroadworksCallControl($broadworksCallControl = null)
     {
         $this->broadworksCallControl = new PrimitiveType($broadworksCallControl);
-        $this->broadworksCallControl->setName('broadworksCallControl');
+        $this->broadworksCallControl->setElementName('broadworksCallControl');
         return $this;
     }
 
@@ -209,7 +221,9 @@ class UserBroadWorksAnywhereModifyPhoneNumberRequest extends ComplexType impleme
      */
     public function getBroadworksCallControl()
     {
-        return ($this->broadworksCallControl) ? $this->broadworksCallControl->getValue() : null;
+        return ($this->broadworksCallControl)
+            ? $this->broadworksCallControl->getElementValue()
+            : null;
     }
 
     /**
@@ -218,7 +232,7 @@ class UserBroadWorksAnywhereModifyPhoneNumberRequest extends ComplexType impleme
     public function setUseDiversionInhibitor($useDiversionInhibitor = null)
     {
         $this->useDiversionInhibitor = new PrimitiveType($useDiversionInhibitor);
-        $this->useDiversionInhibitor->setName('useDiversionInhibitor');
+        $this->useDiversionInhibitor->setElementName('useDiversionInhibitor');
         return $this;
     }
 
@@ -228,7 +242,9 @@ class UserBroadWorksAnywhereModifyPhoneNumberRequest extends ComplexType impleme
      */
     public function getUseDiversionInhibitor()
     {
-        return ($this->useDiversionInhibitor) ? $this->useDiversionInhibitor->getValue() : null;
+        return ($this->useDiversionInhibitor)
+            ? $this->useDiversionInhibitor->getElementValue()
+            : null;
     }
 
     /**
@@ -237,7 +253,7 @@ class UserBroadWorksAnywhereModifyPhoneNumberRequest extends ComplexType impleme
     public function setAnswerConfirmationRequired($answerConfirmationRequired = null)
     {
         $this->answerConfirmationRequired = new PrimitiveType($answerConfirmationRequired);
-        $this->answerConfirmationRequired->setName('answerConfirmationRequired');
+        $this->answerConfirmationRequired->setElementName('answerConfirmationRequired');
         return $this;
     }
 
@@ -247,7 +263,9 @@ class UserBroadWorksAnywhereModifyPhoneNumberRequest extends ComplexType impleme
      */
     public function getAnswerConfirmationRequired()
     {
-        return ($this->answerConfirmationRequired) ? $this->answerConfirmationRequired->getValue() : null;
+        return ($this->answerConfirmationRequired)
+            ? $this->answerConfirmationRequired->getElementValue()
+            : null;
     }
 
     /**
@@ -258,7 +276,7 @@ class UserBroadWorksAnywhereModifyPhoneNumberRequest extends ComplexType impleme
         $this->criteriaActivation = ($criteriaActivation InstanceOf CriteriaActivation)
              ? $criteriaActivation
              : new CriteriaActivation($criteriaActivation);
-        $this->criteriaActivation->setName('criteriaActivation');
+        $this->criteriaActivation->setElementName('criteriaActivation');
         return $this;
     }
 

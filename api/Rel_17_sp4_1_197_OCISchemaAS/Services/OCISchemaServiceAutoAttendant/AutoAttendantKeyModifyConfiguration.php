@@ -19,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class AutoAttendantKeyModifyConfiguration extends ComplexType implements ComplexInterface
 {
-    public    $name = 'AutoAttendantKeyModifyConfiguration';
+    public    $elementName = 'AutoAttendantKeyModifyConfiguration';
     protected $key;
     protected $entry;
 
@@ -45,7 +45,7 @@ class AutoAttendantKeyModifyConfiguration extends ComplexType implements Complex
     public function setKey($key = null)
     {
         $this->key = new SimpleContent($key);
-        $this->key->setName('key');
+        $this->key->setElementName('key');
         return $this;
     }
 
@@ -55,7 +55,9 @@ class AutoAttendantKeyModifyConfiguration extends ComplexType implements Complex
      */
     public function getKey()
     {
-        return ($this->key) ? $this->key->getValue() : null;
+        return ($this->key)
+            ? $this->key->getElementValue()
+            : null;
     }
 
     /**
@@ -64,7 +66,7 @@ class AutoAttendantKeyModifyConfiguration extends ComplexType implements Complex
     public function setEntry($entry = null)
     {
         $this->entry = new SimpleContent($entry);
-        $this->entry->setName('entry');
+        $this->entry->setElementName('entry');
         return $this;
     }
 
@@ -74,6 +76,8 @@ class AutoAttendantKeyModifyConfiguration extends ComplexType implements Complex
      */
     public function getEntry()
     {
-        return ($this->entry) ? $this->entry->getValue() : null;
+        return ($this->entry)
+            ? $this->entry->getElementValue()
+            : null;
     }
 }

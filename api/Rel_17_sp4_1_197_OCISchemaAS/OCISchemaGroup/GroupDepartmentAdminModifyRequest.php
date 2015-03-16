@@ -26,7 +26,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupDepartmentAdminModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'GroupDepartmentAdminModifyRequest';
+    public    $elementName = 'GroupDepartmentAdminModifyRequest';
     protected $userId;
     protected $firstName;
     protected $lastName;
@@ -63,7 +63,7 @@ class GroupDepartmentAdminModifyRequest extends ComplexType implements ComplexIn
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
-        $this->userId->setName('userId');
+        $this->userId->setElementName('userId');
         return $this;
     }
 
@@ -73,7 +73,9 @@ class GroupDepartmentAdminModifyRequest extends ComplexType implements ComplexIn
      */
     public function getUserId()
     {
-        return ($this->userId) ? $this->userId->getValue() : null;
+        return ($this->userId)
+            ? $this->userId->getElementValue()
+            : null;
     }
 
     /**
@@ -84,7 +86,7 @@ class GroupDepartmentAdminModifyRequest extends ComplexType implements ComplexIn
         $this->firstName = ($firstName InstanceOf FirstName)
              ? $firstName
              : new FirstName($firstName);
-        $this->firstName->setName('firstName');
+        $this->firstName->setElementName('firstName');
         return $this;
     }
 
@@ -94,7 +96,9 @@ class GroupDepartmentAdminModifyRequest extends ComplexType implements ComplexIn
      */
     public function getFirstName()
     {
-        return ($this->firstName) ? $this->firstName->getValue() : null;
+        return ($this->firstName)
+            ? $this->firstName->getElementValue()
+            : null;
     }
 
     /**
@@ -105,7 +109,7 @@ class GroupDepartmentAdminModifyRequest extends ComplexType implements ComplexIn
         $this->lastName = ($lastName InstanceOf LastName)
              ? $lastName
              : new LastName($lastName);
-        $this->lastName->setName('lastName');
+        $this->lastName->setElementName('lastName');
         return $this;
     }
 
@@ -115,7 +119,9 @@ class GroupDepartmentAdminModifyRequest extends ComplexType implements ComplexIn
      */
     public function getLastName()
     {
-        return ($this->lastName) ? $this->lastName->getValue() : null;
+        return ($this->lastName)
+            ? $this->lastName->getElementValue()
+            : null;
     }
 
     /**
@@ -126,7 +132,7 @@ class GroupDepartmentAdminModifyRequest extends ComplexType implements ComplexIn
         $this->password = ($password InstanceOf Password)
              ? $password
              : new Password($password);
-        $this->password->setName('password');
+        $this->password->setElementName('password');
         return $this;
     }
 
@@ -136,7 +142,9 @@ class GroupDepartmentAdminModifyRequest extends ComplexType implements ComplexIn
      */
     public function getPassword()
     {
-        return ($this->password) ? $this->password->getValue() : null;
+        return ($this->password)
+            ? $this->password->getElementValue()
+            : null;
     }
 
     /**
@@ -147,7 +155,7 @@ class GroupDepartmentAdminModifyRequest extends ComplexType implements ComplexIn
         $this->language = ($language InstanceOf Language)
              ? $language
              : new Language($language);
-        $this->language->setName('language');
+        $this->language->setElementName('language');
         return $this;
     }
 
@@ -157,6 +165,8 @@ class GroupDepartmentAdminModifyRequest extends ComplexType implements ComplexIn
      */
     public function getLanguage()
     {
-        return ($this->language) ? $this->language->getValue() : null;
+        return ($this->language)
+            ? $this->language->getElementValue()
+            : null;
     }
 }

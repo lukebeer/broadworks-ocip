@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserOutgoingCallingPlanAuthorizationCodeModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'UserOutgoingCallingPlanAuthorizationCodeModifyRequest';
+    public    $elementName = 'UserOutgoingCallingPlanAuthorizationCodeModifyRequest';
     protected $userId;
     protected $useCustomSettings;
 
@@ -49,7 +49,7 @@ class UserOutgoingCallingPlanAuthorizationCodeModifyRequest extends ComplexType 
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
-        $this->userId->setName('userId');
+        $this->userId->setElementName('userId');
         return $this;
     }
 
@@ -59,7 +59,9 @@ class UserOutgoingCallingPlanAuthorizationCodeModifyRequest extends ComplexType 
      */
     public function getUserId()
     {
-        return ($this->userId) ? $this->userId->getValue() : null;
+        return ($this->userId)
+            ? $this->userId->getElementValue()
+            : null;
     }
 
     /**
@@ -68,7 +70,7 @@ class UserOutgoingCallingPlanAuthorizationCodeModifyRequest extends ComplexType 
     public function setUseCustomSettings($useCustomSettings = null)
     {
         $this->useCustomSettings = new PrimitiveType($useCustomSettings);
-        $this->useCustomSettings->setName('useCustomSettings');
+        $this->useCustomSettings->setElementName('useCustomSettings');
         return $this;
     }
 
@@ -78,6 +80,8 @@ class UserOutgoingCallingPlanAuthorizationCodeModifyRequest extends ComplexType 
      */
     public function getUseCustomSettings()
     {
-        return ($this->useCustomSettings) ? $this->useCustomSettings->getValue() : null;
+        return ($this->useCustomSettings)
+            ? $this->useCustomSettings->getElementValue()
+            : null;
     }
 }

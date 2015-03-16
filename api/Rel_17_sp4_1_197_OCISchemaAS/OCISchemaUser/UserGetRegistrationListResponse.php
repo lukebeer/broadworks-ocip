@@ -28,7 +28,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserGetRegistrationListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'UserGetRegistrationListResponse';
+    public    $elementName = 'UserGetRegistrationListResponse';
     protected $registrationTable;
 
     /**
@@ -45,7 +45,7 @@ class UserGetRegistrationListResponse extends ComplexType implements ComplexInte
     public function setRegistrationTable(TableType $registrationTable = null)
     {
         $this->registrationTable = $registrationTable;
-        $this->registrationTable->setName('registrationTable');
+        $this->registrationTable->setElementName('registrationTable');
         return $this;
     }
 

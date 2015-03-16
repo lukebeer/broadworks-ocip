@@ -23,7 +23,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderLanguageModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'ServiceProviderLanguageModifyRequest';
+    public    $elementName = 'ServiceProviderLanguageModifyRequest';
     protected $serviceProviderId;
     protected $language;
     protected $becomeDefaultLanguage;
@@ -54,7 +54,7 @@ class ServiceProviderLanguageModifyRequest extends ComplexType implements Comple
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
-        $this->serviceProviderId->setName('serviceProviderId');
+        $this->serviceProviderId->setElementName('serviceProviderId');
         return $this;
     }
 
@@ -64,7 +64,9 @@ class ServiceProviderLanguageModifyRequest extends ComplexType implements Comple
      */
     public function getServiceProviderId()
     {
-        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
+        return ($this->serviceProviderId)
+            ? $this->serviceProviderId->getElementValue()
+            : null;
     }
 
     /**
@@ -75,7 +77,7 @@ class ServiceProviderLanguageModifyRequest extends ComplexType implements Comple
         $this->language = ($language InstanceOf Language)
              ? $language
              : new Language($language);
-        $this->language->setName('language');
+        $this->language->setElementName('language');
         return $this;
     }
 
@@ -85,7 +87,9 @@ class ServiceProviderLanguageModifyRequest extends ComplexType implements Comple
      */
     public function getLanguage()
     {
-        return ($this->language) ? $this->language->getValue() : null;
+        return ($this->language)
+            ? $this->language->getElementValue()
+            : null;
     }
 
     /**
@@ -94,7 +98,7 @@ class ServiceProviderLanguageModifyRequest extends ComplexType implements Comple
     public function setBecomeDefaultLanguage($becomeDefaultLanguage = null)
     {
         $this->becomeDefaultLanguage = new PrimitiveType($becomeDefaultLanguage);
-        $this->becomeDefaultLanguage->setName('becomeDefaultLanguage');
+        $this->becomeDefaultLanguage->setElementName('becomeDefaultLanguage');
         return $this;
     }
 
@@ -104,6 +108,8 @@ class ServiceProviderLanguageModifyRequest extends ComplexType implements Comple
      */
     public function getBecomeDefaultLanguage()
     {
-        return ($this->becomeDefaultLanguage) ? $this->becomeDefaultLanguage->getValue() : null;
+        return ($this->becomeDefaultLanguage)
+            ? $this->becomeDefaultLanguage->getElementValue()
+            : null;
     }
 }

@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class EnterpriseCallCenterCallDispositionCodeGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'EnterpriseCallCenterCallDispositionCodeGetListResponse';
+    public    $elementName = 'EnterpriseCallCenterCallDispositionCodeGetListResponse';
     protected $dispositionCodesTable;
 
     /**
@@ -37,7 +37,7 @@ class EnterpriseCallCenterCallDispositionCodeGetListResponse extends ComplexType
     public function setDispositionCodesTable(TableType $dispositionCodesTable = null)
     {
         $this->dispositionCodesTable = $dispositionCodesTable;
-        $this->dispositionCodesTable->setName('dispositionCodesTable');
+        $this->dispositionCodesTable->setElementName('dispositionCodesTable');
         return $this;
     }
 

@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
 class GroupCallCenterGetDNISAnnouncementRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\GroupCallCenterGetDNISAnnouncementResponse';
-    public    $name = 'GroupCallCenterGetDNISAnnouncementRequest';
+    public    $elementName = 'GroupCallCenterGetDNISAnnouncementRequest';
     protected $dnisKey;
 
     public function __construct(
@@ -46,7 +46,7 @@ class GroupCallCenterGetDNISAnnouncementRequest extends ComplexType implements C
         $this->dnisKey = ($dnisKey InstanceOf DNISKey)
              ? $dnisKey
              : new DNISKey($dnisKey);
-        $this->dnisKey->setName('dnisKey');
+        $this->dnisKey->setElementName('dnisKey');
         return $this;
     }
 

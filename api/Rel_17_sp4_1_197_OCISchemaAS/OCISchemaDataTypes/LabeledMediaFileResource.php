@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class LabeledMediaFileResource extends ComplexType implements ComplexInterface
 {
-    public    $name = 'LabeledMediaFileResource';
+    public    $elementName = 'LabeledMediaFileResource';
     protected $description;
     protected $mediaType;
 
@@ -46,7 +46,7 @@ class LabeledMediaFileResource extends ComplexType implements ComplexInterface
     public function setDescription($description = null)
     {
         $this->description = new SimpleContent($description);
-        $this->description->setName('description');
+        $this->description->setElementName('description');
         return $this;
     }
 
@@ -56,7 +56,9 @@ class LabeledMediaFileResource extends ComplexType implements ComplexInterface
      */
     public function getDescription()
     {
-        return ($this->description) ? $this->description->getValue() : null;
+        return ($this->description)
+            ? $this->description->getElementValue()
+            : null;
     }
 
     /**
@@ -65,7 +67,7 @@ class LabeledMediaFileResource extends ComplexType implements ComplexInterface
     public function setMediaType($mediaType = null)
     {
         $this->mediaType = new SimpleContent($mediaType);
-        $this->mediaType->setName('mediaType');
+        $this->mediaType->setElementName('mediaType');
         return $this;
     }
 
@@ -75,6 +77,8 @@ class LabeledMediaFileResource extends ComplexType implements ComplexInterface
      */
     public function getMediaType()
     {
-        return ($this->mediaType) ? $this->mediaType->getValue() : null;
+        return ($this->mediaType)
+            ? $this->mediaType->getElementValue()
+            : null;
     }
 }

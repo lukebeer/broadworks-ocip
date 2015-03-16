@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserCallForwardingNotReachableGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'UserCallForwardingNotReachableGetResponse';
+    public    $elementName = 'UserCallForwardingNotReachableGetResponse';
     protected $isActive;
     protected $forwardToPhoneNumber;
 
@@ -38,7 +38,7 @@ class UserCallForwardingNotReachableGetResponse extends ComplexType implements C
     public function setIsActive($isActive = null)
     {
         $this->isActive = new PrimitiveType($isActive);
-        $this->isActive->setName('isActive');
+        $this->isActive->setElementName('isActive');
         return $this;
     }
 
@@ -48,7 +48,9 @@ class UserCallForwardingNotReachableGetResponse extends ComplexType implements C
      */
     public function getIsActive()
     {
-        return ($this->isActive) ? $this->isActive->getValue() : null;
+        return ($this->isActive)
+            ? $this->isActive->getElementValue()
+            : null;
     }
 
     /**
@@ -59,7 +61,7 @@ class UserCallForwardingNotReachableGetResponse extends ComplexType implements C
         $this->forwardToPhoneNumber = ($forwardToPhoneNumber InstanceOf OutgoingDNorSIPURI)
              ? $forwardToPhoneNumber
              : new OutgoingDNorSIPURI($forwardToPhoneNumber);
-        $this->forwardToPhoneNumber->setName('forwardToPhoneNumber');
+        $this->forwardToPhoneNumber->setElementName('forwardToPhoneNumber');
         return $this;
     }
 
@@ -69,6 +71,8 @@ class UserCallForwardingNotReachableGetResponse extends ComplexType implements C
      */
     public function getForwardToPhoneNumber()
     {
-        return ($this->forwardToPhoneNumber) ? $this->forwardToPhoneNumber->getValue() : null;
+        return ($this->forwardToPhoneNumber)
+            ? $this->forwardToPhoneNumber->getElementValue()
+            : null;
     }
 }

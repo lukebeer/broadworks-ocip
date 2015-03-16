@@ -16,12 +16,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\Enumeration;
  */
 class UnscreenedPresentationIdentityPolicy extends SimpleType
 {
-    public $name = "UnscreenedPresentationIdentityPolicy";
-    protected $value;
-
+    public $elementName = "UnscreenedPresentationIdentityPolicy";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new Enumeration([
             'Profile Presentation Identity',
             'Unscreened Presentation Identity',

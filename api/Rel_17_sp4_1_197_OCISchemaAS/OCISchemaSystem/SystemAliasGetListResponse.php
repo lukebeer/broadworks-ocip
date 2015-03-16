@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemAliasGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemAliasGetListResponse';
+    public    $elementName = 'SystemAliasGetListResponse';
     protected $aliasNetAddress;
 
     /**
@@ -39,7 +39,7 @@ class SystemAliasGetListResponse extends ComplexType implements ComplexInterface
         $this->aliasNetAddress = ($aliasNetAddress InstanceOf NetAddress)
              ? $aliasNetAddress
              : new NetAddress($aliasNetAddress);
-        $this->aliasNetAddress->setName('aliasNetAddress');
+        $this->aliasNetAddress->setElementName('aliasNetAddress');
         return $this;
     }
 
@@ -49,6 +49,8 @@ class SystemAliasGetListResponse extends ComplexType implements ComplexInterface
      */
     public function getAliasNetAddress()
     {
-        return ($this->aliasNetAddress) ? $this->aliasNetAddress->getValue() : null;
+        return ($this->aliasNetAddress)
+            ? $this->aliasNetAddress->getElementValue()
+            : null;
     }
 }

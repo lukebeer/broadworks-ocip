@@ -23,7 +23,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemCallCenterReportingServerModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemCallCenterReportingServerModifyRequest';
+    public    $elementName = 'SystemCallCenterReportingServerModifyRequest';
     protected $name;
     protected $newName;
     protected $url;
@@ -60,7 +60,7 @@ class SystemCallCenterReportingServerModifyRequest extends ComplexType implement
         $this->name = ($name InstanceOf CallCenterReportingServerName)
              ? $name
              : new CallCenterReportingServerName($name);
-        $this->name->setName('name');
+        $this->name->setElementName('name');
         return $this;
     }
 
@@ -70,7 +70,9 @@ class SystemCallCenterReportingServerModifyRequest extends ComplexType implement
      */
     public function getName()
     {
-        return ($this->name) ? $this->name->getValue() : null;
+        return ($this->name)
+            ? $this->name->getElementValue()
+            : null;
     }
 
     /**
@@ -81,7 +83,7 @@ class SystemCallCenterReportingServerModifyRequest extends ComplexType implement
         $this->newName = ($newName InstanceOf CallCenterReportingServerName)
              ? $newName
              : new CallCenterReportingServerName($newName);
-        $this->newName->setName('newName');
+        $this->newName->setElementName('newName');
         return $this;
     }
 
@@ -91,7 +93,9 @@ class SystemCallCenterReportingServerModifyRequest extends ComplexType implement
      */
     public function getNewName()
     {
-        return ($this->newName) ? $this->newName->getValue() : null;
+        return ($this->newName)
+            ? $this->newName->getElementValue()
+            : null;
     }
 
     /**
@@ -102,7 +106,7 @@ class SystemCallCenterReportingServerModifyRequest extends ComplexType implement
         $this->url = ($url InstanceOf URL)
              ? $url
              : new URL($url);
-        $this->url->setName('url');
+        $this->url->setElementName('url');
         return $this;
     }
 
@@ -112,7 +116,9 @@ class SystemCallCenterReportingServerModifyRequest extends ComplexType implement
      */
     public function getUrl()
     {
-        return ($this->url) ? $this->url->getValue() : null;
+        return ($this->url)
+            ? $this->url->getElementValue()
+            : null;
     }
 
     /**
@@ -123,7 +129,7 @@ class SystemCallCenterReportingServerModifyRequest extends ComplexType implement
         $this->netAddress = ($netAddress InstanceOf NetAddress)
              ? $netAddress
              : new NetAddress($netAddress);
-        $this->netAddress->setName('netAddress');
+        $this->netAddress->setElementName('netAddress');
         return $this;
     }
 
@@ -133,7 +139,9 @@ class SystemCallCenterReportingServerModifyRequest extends ComplexType implement
      */
     public function getNetAddress()
     {
-        return ($this->netAddress) ? $this->netAddress->getValue() : null;
+        return ($this->netAddress)
+            ? $this->netAddress->getElementValue()
+            : null;
     }
 
     /**
@@ -144,7 +152,7 @@ class SystemCallCenterReportingServerModifyRequest extends ComplexType implement
         $this->description = ($description InstanceOf CallCenterReportingServerDescription)
              ? $description
              : new CallCenterReportingServerDescription($description);
-        $this->description->setName('description');
+        $this->description->setElementName('description');
         return $this;
     }
 
@@ -154,6 +162,8 @@ class SystemCallCenterReportingServerModifyRequest extends ComplexType implement
      */
     public function getDescription()
     {
-        return ($this->description) ? $this->description->getValue() : null;
+        return ($this->description)
+            ? $this->description->getElementValue()
+            : null;
     }
 }

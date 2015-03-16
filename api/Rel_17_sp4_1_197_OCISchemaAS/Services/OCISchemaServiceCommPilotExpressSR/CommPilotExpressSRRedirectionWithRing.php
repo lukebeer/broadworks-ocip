@@ -19,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class CommPilotExpressSRRedirectionWithRing extends ComplexType implements ComplexInterface
 {
-    public    $name = 'CommPilotExpressSRRedirectionWithRing';
+    public    $elementName = 'CommPilotExpressSRRedirectionWithRing';
     protected $phoneNumber;
     protected $numberOfTimesToRing;
 
@@ -45,7 +45,7 @@ class CommPilotExpressSRRedirectionWithRing extends ComplexType implements Compl
     public function setPhoneNumber($phoneNumber = null)
     {
         $this->phoneNumber = new SimpleContent($phoneNumber);
-        $this->phoneNumber->setName('phoneNumber');
+        $this->phoneNumber->setElementName('phoneNumber');
         return $this;
     }
 
@@ -55,7 +55,9 @@ class CommPilotExpressSRRedirectionWithRing extends ComplexType implements Compl
      */
     public function getPhoneNumber()
     {
-        return ($this->phoneNumber) ? $this->phoneNumber->getValue() : null;
+        return ($this->phoneNumber)
+            ? $this->phoneNumber->getElementValue()
+            : null;
     }
 
     /**
@@ -64,7 +66,7 @@ class CommPilotExpressSRRedirectionWithRing extends ComplexType implements Compl
     public function setNumberOfTimesToRing($numberOfTimesToRing = null)
     {
         $this->numberOfTimesToRing = new SimpleContent($numberOfTimesToRing);
-        $this->numberOfTimesToRing->setName('numberOfTimesToRing');
+        $this->numberOfTimesToRing->setElementName('numberOfTimesToRing');
         return $this;
     }
 
@@ -74,6 +76,8 @@ class CommPilotExpressSRRedirectionWithRing extends ComplexType implements Compl
      */
     public function getNumberOfTimesToRing()
     {
-        return ($this->numberOfTimesToRing) ? $this->numberOfTimesToRing->getValue() : null;
+        return ($this->numberOfTimesToRing)
+            ? $this->numberOfTimesToRing->getElementValue()
+            : null;
     }
 }

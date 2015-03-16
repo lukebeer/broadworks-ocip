@@ -24,7 +24,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemNetworkRoutingServerModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemNetworkRoutingServerModifyRequest';
+    public    $elementName = 'SystemNetworkRoutingServerModifyRequest';
     protected $netAddress;
     protected $port;
     protected $transportProtocol;
@@ -61,7 +61,7 @@ class SystemNetworkRoutingServerModifyRequest extends ComplexType implements Com
         $this->netAddress = ($netAddress InstanceOf NetAddress)
              ? $netAddress
              : new NetAddress($netAddress);
-        $this->netAddress->setName('netAddress');
+        $this->netAddress->setElementName('netAddress');
         return $this;
     }
 
@@ -71,7 +71,9 @@ class SystemNetworkRoutingServerModifyRequest extends ComplexType implements Com
      */
     public function getNetAddress()
     {
-        return ($this->netAddress) ? $this->netAddress->getValue() : null;
+        return ($this->netAddress)
+            ? $this->netAddress->getElementValue()
+            : null;
     }
 
     /**
@@ -82,7 +84,7 @@ class SystemNetworkRoutingServerModifyRequest extends ComplexType implements Com
         $this->port = ($port InstanceOf Port1025)
              ? $port
              : new Port1025($port);
-        $this->port->setName('port');
+        $this->port->setElementName('port');
         return $this;
     }
 
@@ -92,7 +94,9 @@ class SystemNetworkRoutingServerModifyRequest extends ComplexType implements Com
      */
     public function getPort()
     {
-        return ($this->port) ? $this->port->getValue() : null;
+        return ($this->port)
+            ? $this->port->getElementValue()
+            : null;
     }
 
     /**
@@ -103,7 +107,7 @@ class SystemNetworkRoutingServerModifyRequest extends ComplexType implements Com
         $this->transportProtocol = ($transportProtocol InstanceOf TransportProtocol)
              ? $transportProtocol
              : new TransportProtocol($transportProtocol);
-        $this->transportProtocol->setName('transportProtocol');
+        $this->transportProtocol->setElementName('transportProtocol');
         return $this;
     }
 
@@ -113,7 +117,9 @@ class SystemNetworkRoutingServerModifyRequest extends ComplexType implements Com
      */
     public function getTransportProtocol()
     {
-        return ($this->transportProtocol) ? $this->transportProtocol->getValue() : null;
+        return ($this->transportProtocol)
+            ? $this->transportProtocol->getElementValue()
+            : null;
     }
 
     /**
@@ -122,7 +128,7 @@ class SystemNetworkRoutingServerModifyRequest extends ComplexType implements Com
     public function setPoll($poll = null)
     {
         $this->poll = new PrimitiveType($poll);
-        $this->poll->setName('poll');
+        $this->poll->setElementName('poll');
         return $this;
     }
 
@@ -132,7 +138,9 @@ class SystemNetworkRoutingServerModifyRequest extends ComplexType implements Com
      */
     public function getPoll()
     {
-        return ($this->poll) ? $this->poll->getValue() : null;
+        return ($this->poll)
+            ? $this->poll->getElementValue()
+            : null;
     }
 
     /**
@@ -143,7 +151,7 @@ class SystemNetworkRoutingServerModifyRequest extends ComplexType implements Com
         $this->description = ($description InstanceOf NetworkServerDescription)
              ? $description
              : new NetworkServerDescription($description);
-        $this->description->setName('description');
+        $this->description->setElementName('description');
         return $this;
     }
 
@@ -153,6 +161,8 @@ class SystemNetworkRoutingServerModifyRequest extends ComplexType implements Com
      */
     public function getDescription()
     {
-        return ($this->description) ? $this->description->getValue() : null;
+        return ($this->description)
+            ? $this->description->getElementValue()
+            : null;
     }
 }

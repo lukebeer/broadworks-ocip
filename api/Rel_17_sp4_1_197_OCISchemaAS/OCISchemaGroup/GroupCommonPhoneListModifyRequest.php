@@ -23,7 +23,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupCommonPhoneListModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'GroupCommonPhoneListModifyRequest';
+    public    $elementName = 'GroupCommonPhoneListModifyRequest';
     protected $serviceProviderId;
     protected $groupId;
     protected $entryName;
@@ -60,7 +60,7 @@ class GroupCommonPhoneListModifyRequest extends ComplexType implements ComplexIn
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
-        $this->serviceProviderId->setName('serviceProviderId');
+        $this->serviceProviderId->setElementName('serviceProviderId');
         return $this;
     }
 
@@ -70,7 +70,9 @@ class GroupCommonPhoneListModifyRequest extends ComplexType implements ComplexIn
      */
     public function getServiceProviderId()
     {
-        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
+        return ($this->serviceProviderId)
+            ? $this->serviceProviderId->getElementValue()
+            : null;
     }
 
     /**
@@ -81,7 +83,7 @@ class GroupCommonPhoneListModifyRequest extends ComplexType implements ComplexIn
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
-        $this->groupId->setName('groupId');
+        $this->groupId->setElementName('groupId');
         return $this;
     }
 
@@ -91,7 +93,9 @@ class GroupCommonPhoneListModifyRequest extends ComplexType implements ComplexIn
      */
     public function getGroupId()
     {
-        return ($this->groupId) ? $this->groupId->getValue() : null;
+        return ($this->groupId)
+            ? $this->groupId->getElementValue()
+            : null;
     }
 
     /**
@@ -102,7 +106,7 @@ class GroupCommonPhoneListModifyRequest extends ComplexType implements ComplexIn
         $this->entryName = ($entryName InstanceOf PhoneListEntryName)
              ? $entryName
              : new PhoneListEntryName($entryName);
-        $this->entryName->setName('entryName');
+        $this->entryName->setElementName('entryName');
         return $this;
     }
 
@@ -112,7 +116,9 @@ class GroupCommonPhoneListModifyRequest extends ComplexType implements ComplexIn
      */
     public function getEntryName()
     {
-        return ($this->entryName) ? $this->entryName->getValue() : null;
+        return ($this->entryName)
+            ? $this->entryName->getElementValue()
+            : null;
     }
 
     /**
@@ -123,7 +129,7 @@ class GroupCommonPhoneListModifyRequest extends ComplexType implements ComplexIn
         $this->newEntryName = ($newEntryName InstanceOf PhoneListEntryName)
              ? $newEntryName
              : new PhoneListEntryName($newEntryName);
-        $this->newEntryName->setName('newEntryName');
+        $this->newEntryName->setElementName('newEntryName');
         return $this;
     }
 
@@ -133,7 +139,9 @@ class GroupCommonPhoneListModifyRequest extends ComplexType implements ComplexIn
      */
     public function getNewEntryName()
     {
-        return ($this->newEntryName) ? $this->newEntryName->getValue() : null;
+        return ($this->newEntryName)
+            ? $this->newEntryName->getElementValue()
+            : null;
     }
 
     /**
@@ -144,7 +152,7 @@ class GroupCommonPhoneListModifyRequest extends ComplexType implements ComplexIn
         $this->phoneNumber = ($phoneNumber InstanceOf OutgoingDN)
              ? $phoneNumber
              : new OutgoingDN($phoneNumber);
-        $this->phoneNumber->setName('phoneNumber');
+        $this->phoneNumber->setElementName('phoneNumber');
         return $this;
     }
 
@@ -154,6 +162,8 @@ class GroupCommonPhoneListModifyRequest extends ComplexType implements ComplexIn
      */
     public function getPhoneNumber()
     {
-        return ($this->phoneNumber) ? $this->phoneNumber->getValue() : null;
+        return ($this->phoneNumber)
+            ? $this->phoneNumber->getElementValue()
+            : null;
     }
 }

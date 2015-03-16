@@ -25,7 +25,7 @@ use Broadworks_OCIP\core\Client\Client;
 class GroupVirtualOnNetEnterpriseExtensionsGetUserRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceVirtualOnNetEnterpriseExtensions\GroupVirtualOnNetEnterpriseExtensionsGetUserResponse';
-    public    $name = 'GroupVirtualOnNetEnterpriseExtensionsGetUserRequest';
+    public    $elementName = 'GroupVirtualOnNetEnterpriseExtensionsGetUserRequest';
     protected $serviceProviderId;
     protected $groupId;
     protected $phoneNumber;
@@ -56,7 +56,7 @@ class GroupVirtualOnNetEnterpriseExtensionsGetUserRequest extends ComplexType im
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
-        $this->serviceProviderId->setName('serviceProviderId');
+        $this->serviceProviderId->setElementName('serviceProviderId');
         return $this;
     }
 
@@ -66,7 +66,9 @@ class GroupVirtualOnNetEnterpriseExtensionsGetUserRequest extends ComplexType im
      */
     public function getServiceProviderId()
     {
-        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
+        return ($this->serviceProviderId)
+            ? $this->serviceProviderId->getElementValue()
+            : null;
     }
 
     /**
@@ -77,7 +79,7 @@ class GroupVirtualOnNetEnterpriseExtensionsGetUserRequest extends ComplexType im
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
-        $this->groupId->setName('groupId');
+        $this->groupId->setElementName('groupId');
         return $this;
     }
 
@@ -87,7 +89,9 @@ class GroupVirtualOnNetEnterpriseExtensionsGetUserRequest extends ComplexType im
      */
     public function getGroupId()
     {
-        return ($this->groupId) ? $this->groupId->getValue() : null;
+        return ($this->groupId)
+            ? $this->groupId->getElementValue()
+            : null;
     }
 
     /**
@@ -98,7 +102,7 @@ class GroupVirtualOnNetEnterpriseExtensionsGetUserRequest extends ComplexType im
         $this->phoneNumber = ($phoneNumber InstanceOf DN)
              ? $phoneNumber
              : new DN($phoneNumber);
-        $this->phoneNumber->setName('phoneNumber');
+        $this->phoneNumber->setElementName('phoneNumber');
         return $this;
     }
 
@@ -108,6 +112,8 @@ class GroupVirtualOnNetEnterpriseExtensionsGetUserRequest extends ComplexType im
      */
     public function getPhoneNumber()
     {
-        return ($this->phoneNumber) ? $this->phoneNumber->getValue() : null;
+        return ($this->phoneNumber)
+            ? $this->phoneNumber->getElementValue()
+            : null;
     }
 }

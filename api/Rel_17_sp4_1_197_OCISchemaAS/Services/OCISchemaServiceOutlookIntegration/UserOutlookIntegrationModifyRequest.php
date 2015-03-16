@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserOutlookIntegrationModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'UserOutlookIntegrationModifyRequest';
+    public    $elementName = 'UserOutlookIntegrationModifyRequest';
     protected $userId;
     protected $isActive;
     protected $contactRetrievalSelection;
@@ -53,7 +53,7 @@ class UserOutlookIntegrationModifyRequest extends ComplexType implements Complex
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
-        $this->userId->setName('userId');
+        $this->userId->setElementName('userId');
         return $this;
     }
 
@@ -63,7 +63,9 @@ class UserOutlookIntegrationModifyRequest extends ComplexType implements Complex
      */
     public function getUserId()
     {
-        return ($this->userId) ? $this->userId->getValue() : null;
+        return ($this->userId)
+            ? $this->userId->getElementValue()
+            : null;
     }
 
     /**
@@ -72,7 +74,7 @@ class UserOutlookIntegrationModifyRequest extends ComplexType implements Complex
     public function setIsActive($isActive = null)
     {
         $this->isActive = new PrimitiveType($isActive);
-        $this->isActive->setName('isActive');
+        $this->isActive->setElementName('isActive');
         return $this;
     }
 
@@ -82,7 +84,9 @@ class UserOutlookIntegrationModifyRequest extends ComplexType implements Complex
      */
     public function getIsActive()
     {
-        return ($this->isActive) ? $this->isActive->getValue() : null;
+        return ($this->isActive)
+            ? $this->isActive->getElementValue()
+            : null;
     }
 
     /**
@@ -93,7 +97,7 @@ class UserOutlookIntegrationModifyRequest extends ComplexType implements Complex
         $this->contactRetrievalSelection = ($contactRetrievalSelection InstanceOf OutlookIntegrationContactRetrievalSelection)
              ? $contactRetrievalSelection
              : new OutlookIntegrationContactRetrievalSelection($contactRetrievalSelection);
-        $this->contactRetrievalSelection->setName('contactRetrievalSelection');
+        $this->contactRetrievalSelection->setElementName('contactRetrievalSelection');
         return $this;
     }
 
@@ -103,6 +107,8 @@ class UserOutlookIntegrationModifyRequest extends ComplexType implements Complex
      */
     public function getContactRetrievalSelection()
     {
-        return ($this->contactRetrievalSelection) ? $this->contactRetrievalSelection->getValue() : null;
+        return ($this->contactRetrievalSelection)
+            ? $this->contactRetrievalSelection->getElementValue()
+            : null;
     }
 }

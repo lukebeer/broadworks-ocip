@@ -17,12 +17,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\MaxInclusive;
  */
 class CallParkRecallTimerSeconds extends SimpleType
 {
-    public $name = "CallParkRecallTimerSeconds";
-    protected $value;
-
+    public $elementName = "CallParkRecallTimerSeconds";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new MinInclusive("30"));
         $this->addRestriction(new MaxInclusive("600"));
     }

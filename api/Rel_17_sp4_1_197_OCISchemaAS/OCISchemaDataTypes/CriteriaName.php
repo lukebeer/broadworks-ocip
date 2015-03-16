@@ -17,12 +17,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\MaxLength;
  */
 class CriteriaName extends SimpleType
 {
-    public $name = "CriteriaName";
-    protected $value;
-
+    public $elementName = "CriteriaName";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new MinLength("1"));
         $this->addRestriction(new MaxLength("50"));
     }

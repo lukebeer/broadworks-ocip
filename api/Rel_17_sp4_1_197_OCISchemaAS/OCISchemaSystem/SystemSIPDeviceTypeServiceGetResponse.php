@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemSIPDeviceTypeServiceGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemSIPDeviceTypeServiceGetResponse';
+    public    $elementName = 'SystemSIPDeviceTypeServiceGetResponse';
     protected $supportsPolycomPhoneServices;
 
     /**
@@ -37,7 +37,7 @@ class SystemSIPDeviceTypeServiceGetResponse extends ComplexType implements Compl
     public function setSupportsPolycomPhoneServices($supportsPolycomPhoneServices = null)
     {
         $this->supportsPolycomPhoneServices = new PrimitiveType($supportsPolycomPhoneServices);
-        $this->supportsPolycomPhoneServices->setName('supportsPolycomPhoneServices');
+        $this->supportsPolycomPhoneServices->setElementName('supportsPolycomPhoneServices');
         return $this;
     }
 
@@ -47,6 +47,8 @@ class SystemSIPDeviceTypeServiceGetResponse extends ComplexType implements Compl
      */
     public function getSupportsPolycomPhoneServices()
     {
-        return ($this->supportsPolycomPhoneServices) ? $this->supportsPolycomPhoneServices->getValue() : null;
+        return ($this->supportsPolycomPhoneServices)
+            ? $this->supportsPolycomPhoneServices->getElementValue()
+            : null;
     }
 }

@@ -19,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class OutgoingCallingPlanDepartmentTransferNumbers extends ComplexType implements ComplexInterface
 {
-    public    $name = 'OutgoingCallingPlanDepartmentTransferNumbers';
+    public    $elementName = 'OutgoingCallingPlanDepartmentTransferNumbers';
     protected $departmentKey;
     protected $departmentName;
     protected $transferNumbers;
@@ -48,7 +48,7 @@ class OutgoingCallingPlanDepartmentTransferNumbers extends ComplexType implement
     public function setDepartmentKey($departmentKey = null)
     {
         $this->departmentKey = new SimpleContent($departmentKey);
-        $this->departmentKey->setName('departmentKey');
+        $this->departmentKey->setElementName('departmentKey');
         return $this;
     }
 
@@ -58,7 +58,9 @@ class OutgoingCallingPlanDepartmentTransferNumbers extends ComplexType implement
      */
     public function getDepartmentKey()
     {
-        return ($this->departmentKey) ? $this->departmentKey->getValue() : null;
+        return ($this->departmentKey)
+            ? $this->departmentKey->getElementValue()
+            : null;
     }
 
     /**
@@ -67,7 +69,7 @@ class OutgoingCallingPlanDepartmentTransferNumbers extends ComplexType implement
     public function setDepartmentName($departmentName = null)
     {
         $this->departmentName = new SimpleContent($departmentName);
-        $this->departmentName->setName('departmentName');
+        $this->departmentName->setElementName('departmentName');
         return $this;
     }
 
@@ -77,7 +79,9 @@ class OutgoingCallingPlanDepartmentTransferNumbers extends ComplexType implement
      */
     public function getDepartmentName()
     {
-        return ($this->departmentName) ? $this->departmentName->getValue() : null;
+        return ($this->departmentName)
+            ? $this->departmentName->getElementValue()
+            : null;
     }
 
     /**
@@ -86,7 +90,7 @@ class OutgoingCallingPlanDepartmentTransferNumbers extends ComplexType implement
     public function setTransferNumbers($transferNumbers = null)
     {
         $this->transferNumbers = new SimpleContent($transferNumbers);
-        $this->transferNumbers->setName('transferNumbers');
+        $this->transferNumbers->setElementName('transferNumbers');
         return $this;
     }
 
@@ -96,6 +100,8 @@ class OutgoingCallingPlanDepartmentTransferNumbers extends ComplexType implement
      */
     public function getTransferNumbers()
     {
-        return ($this->transferNumbers) ? $this->transferNumbers->getValue() : null;
+        return ($this->transferNumbers)
+            ? $this->transferNumbers->getElementValue()
+            : null;
     }
 }

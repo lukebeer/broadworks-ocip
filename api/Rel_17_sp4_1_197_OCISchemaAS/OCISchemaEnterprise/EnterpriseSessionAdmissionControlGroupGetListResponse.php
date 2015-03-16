@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class EnterpriseSessionAdmissionControlGroupGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'EnterpriseSessionAdmissionControlGroupGetListResponse';
+    public    $elementName = 'EnterpriseSessionAdmissionControlGroupGetListResponse';
     protected $sessionAdmissionControlGroupTable;
 
     /**
@@ -38,7 +38,7 @@ class EnterpriseSessionAdmissionControlGroupGetListResponse extends ComplexType 
     public function setSessionAdmissionControlGroupTable(TableType $sessionAdmissionControlGroupTable = null)
     {
         $this->sessionAdmissionControlGroupTable = $sessionAdmissionControlGroupTable;
-        $this->sessionAdmissionControlGroupTable->setName('sessionAdmissionControlGroupTable');
+        $this->sessionAdmissionControlGroupTable->setElementName('sessionAdmissionControlGroupTable');
         return $this;
     }
 

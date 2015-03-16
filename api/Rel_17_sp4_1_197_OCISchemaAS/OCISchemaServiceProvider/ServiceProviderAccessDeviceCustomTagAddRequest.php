@@ -23,7 +23,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderAccessDeviceCustomTagAddRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'ServiceProviderAccessDeviceCustomTagAddRequest';
+    public    $elementName = 'ServiceProviderAccessDeviceCustomTagAddRequest';
     protected $serviceProviderId;
     protected $deviceName;
     protected $tagName;
@@ -57,7 +57,7 @@ class ServiceProviderAccessDeviceCustomTagAddRequest extends ComplexType impleme
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
-        $this->serviceProviderId->setName('serviceProviderId');
+        $this->serviceProviderId->setElementName('serviceProviderId');
         return $this;
     }
 
@@ -67,7 +67,9 @@ class ServiceProviderAccessDeviceCustomTagAddRequest extends ComplexType impleme
      */
     public function getServiceProviderId()
     {
-        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
+        return ($this->serviceProviderId)
+            ? $this->serviceProviderId->getElementValue()
+            : null;
     }
 
     /**
@@ -78,7 +80,7 @@ class ServiceProviderAccessDeviceCustomTagAddRequest extends ComplexType impleme
         $this->deviceName = ($deviceName InstanceOf AccessDeviceName)
              ? $deviceName
              : new AccessDeviceName($deviceName);
-        $this->deviceName->setName('deviceName');
+        $this->deviceName->setElementName('deviceName');
         return $this;
     }
 
@@ -88,7 +90,9 @@ class ServiceProviderAccessDeviceCustomTagAddRequest extends ComplexType impleme
      */
     public function getDeviceName()
     {
-        return ($this->deviceName) ? $this->deviceName->getValue() : null;
+        return ($this->deviceName)
+            ? $this->deviceName->getElementValue()
+            : null;
     }
 
     /**
@@ -99,7 +103,7 @@ class ServiceProviderAccessDeviceCustomTagAddRequest extends ComplexType impleme
         $this->tagName = ($tagName InstanceOf DeviceManagementTagName)
              ? $tagName
              : new DeviceManagementTagName($tagName);
-        $this->tagName->setName('tagName');
+        $this->tagName->setElementName('tagName');
         return $this;
     }
 
@@ -109,7 +113,9 @@ class ServiceProviderAccessDeviceCustomTagAddRequest extends ComplexType impleme
      */
     public function getTagName()
     {
-        return ($this->tagName) ? $this->tagName->getValue() : null;
+        return ($this->tagName)
+            ? $this->tagName->getElementValue()
+            : null;
     }
 
     /**
@@ -120,7 +126,7 @@ class ServiceProviderAccessDeviceCustomTagAddRequest extends ComplexType impleme
         $this->tagValue = ($tagValue InstanceOf DeviceManagementTagValue)
              ? $tagValue
              : new DeviceManagementTagValue($tagValue);
-        $this->tagValue->setName('tagValue');
+        $this->tagValue->setElementName('tagValue');
         return $this;
     }
 
@@ -130,6 +136,8 @@ class ServiceProviderAccessDeviceCustomTagAddRequest extends ComplexType impleme
      */
     public function getTagValue()
     {
-        return ($this->tagValue) ? $this->tagValue->getValue() : null;
+        return ($this->tagValue)
+            ? $this->tagValue->getElementValue()
+            : null;
     }
 }

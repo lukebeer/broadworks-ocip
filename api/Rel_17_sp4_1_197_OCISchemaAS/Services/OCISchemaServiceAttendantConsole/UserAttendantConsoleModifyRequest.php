@@ -23,7 +23,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserAttendantConsoleModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'UserAttendantConsoleModifyRequest';
+    public    $elementName = 'UserAttendantConsoleModifyRequest';
     protected $userId;
     protected $launchOnLogin;
     protected $allowUserConfigCallDetails;
@@ -63,7 +63,7 @@ class UserAttendantConsoleModifyRequest extends ComplexType implements ComplexIn
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
-        $this->userId->setName('userId');
+        $this->userId->setElementName('userId');
         return $this;
     }
 
@@ -73,7 +73,9 @@ class UserAttendantConsoleModifyRequest extends ComplexType implements ComplexIn
      */
     public function getUserId()
     {
-        return ($this->userId) ? $this->userId->getValue() : null;
+        return ($this->userId)
+            ? $this->userId->getElementValue()
+            : null;
     }
 
     /**
@@ -82,7 +84,7 @@ class UserAttendantConsoleModifyRequest extends ComplexType implements ComplexIn
     public function setLaunchOnLogin($launchOnLogin = null)
     {
         $this->launchOnLogin = new PrimitiveType($launchOnLogin);
-        $this->launchOnLogin->setName('launchOnLogin');
+        $this->launchOnLogin->setElementName('launchOnLogin');
         return $this;
     }
 
@@ -92,7 +94,9 @@ class UserAttendantConsoleModifyRequest extends ComplexType implements ComplexIn
      */
     public function getLaunchOnLogin()
     {
-        return ($this->launchOnLogin) ? $this->launchOnLogin->getValue() : null;
+        return ($this->launchOnLogin)
+            ? $this->launchOnLogin->getElementValue()
+            : null;
     }
 
     /**
@@ -101,7 +105,7 @@ class UserAttendantConsoleModifyRequest extends ComplexType implements ComplexIn
     public function setAllowUserConfigCallDetails($allowUserConfigCallDetails = null)
     {
         $this->allowUserConfigCallDetails = new PrimitiveType($allowUserConfigCallDetails);
-        $this->allowUserConfigCallDetails->setName('allowUserConfigCallDetails');
+        $this->allowUserConfigCallDetails->setElementName('allowUserConfigCallDetails');
         return $this;
     }
 
@@ -111,7 +115,9 @@ class UserAttendantConsoleModifyRequest extends ComplexType implements ComplexIn
      */
     public function getAllowUserConfigCallDetails()
     {
-        return ($this->allowUserConfigCallDetails) ? $this->allowUserConfigCallDetails->getValue() : null;
+        return ($this->allowUserConfigCallDetails)
+            ? $this->allowUserConfigCallDetails->getElementValue()
+            : null;
     }
 
     /**
@@ -120,7 +126,7 @@ class UserAttendantConsoleModifyRequest extends ComplexType implements ComplexIn
     public function setAllowUserViewCallDetails($allowUserViewCallDetails = null)
     {
         $this->allowUserViewCallDetails = new PrimitiveType($allowUserViewCallDetails);
-        $this->allowUserViewCallDetails->setName('allowUserViewCallDetails');
+        $this->allowUserViewCallDetails->setElementName('allowUserViewCallDetails');
         return $this;
     }
 
@@ -130,7 +136,9 @@ class UserAttendantConsoleModifyRequest extends ComplexType implements ComplexIn
      */
     public function getAllowUserViewCallDetails()
     {
-        return ($this->allowUserViewCallDetails) ? $this->allowUserViewCallDetails->getValue() : null;
+        return ($this->allowUserViewCallDetails)
+            ? $this->allowUserViewCallDetails->getElementValue()
+            : null;
     }
 
     /**
@@ -141,7 +149,7 @@ class UserAttendantConsoleModifyRequest extends ComplexType implements ComplexIn
         $this->displayColumnList = ($displayColumnList InstanceOf AttendantConsoleReplacementDisplayColumnList)
              ? $displayColumnList
              : new AttendantConsoleReplacementDisplayColumnList($displayColumnList);
-        $this->displayColumnList->setName('displayColumnList');
+        $this->displayColumnList->setElementName('displayColumnList');
         return $this;
     }
 
@@ -162,7 +170,7 @@ class UserAttendantConsoleModifyRequest extends ComplexType implements ComplexIn
         $this->monitoredUserIdList = ($monitoredUserIdList InstanceOf ReplacementUserIdList)
              ? $monitoredUserIdList
              : new ReplacementUserIdList($monitoredUserIdList);
-        $this->monitoredUserIdList->setName('monitoredUserIdList');
+        $this->monitoredUserIdList->setElementName('monitoredUserIdList');
         return $this;
     }
 

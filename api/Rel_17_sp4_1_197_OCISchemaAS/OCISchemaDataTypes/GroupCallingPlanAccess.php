@@ -21,12 +21,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\Enumeration;
  */
 class GroupCallingPlanAccess extends SimpleType
 {
-    public $name = "GroupCallingPlanAccess";
-    protected $value;
-
+    public $elementName = "GroupCallingPlanAccess";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new Enumeration([
             'Full',
             'Restricted'

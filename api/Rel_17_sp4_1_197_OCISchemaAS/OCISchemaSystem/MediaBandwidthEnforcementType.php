@@ -16,12 +16,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\Enumeration;
  */
 class MediaBandwidthEnforcementType extends SimpleType
 {
-    public $name = "MediaBandwidthEnforcementType";
-    protected $value;
-
+    public $elementName = "MediaBandwidthEnforcementType";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new Enumeration([
             'Allow All',
             'Allow Unspecified',

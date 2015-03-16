@@ -19,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderLanguageGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'ServiceProviderLanguageGetListResponse';
+    public    $elementName = 'ServiceProviderLanguageGetListResponse';
     protected $language;
     protected $defaultLanguage;
 
@@ -39,7 +39,7 @@ class ServiceProviderLanguageGetListResponse extends ComplexType implements Comp
         $this->language = ($language InstanceOf Language)
              ? $language
              : new Language($language);
-        $this->language->setName('language');
+        $this->language->setElementName('language');
         return $this;
     }
 
@@ -49,7 +49,9 @@ class ServiceProviderLanguageGetListResponse extends ComplexType implements Comp
      */
     public function getLanguage()
     {
-        return ($this->language) ? $this->language->getValue() : null;
+        return ($this->language)
+            ? $this->language->getElementValue()
+            : null;
     }
 
     /**
@@ -60,7 +62,7 @@ class ServiceProviderLanguageGetListResponse extends ComplexType implements Comp
         $this->defaultLanguage = ($defaultLanguage InstanceOf Language)
              ? $defaultLanguage
              : new Language($defaultLanguage);
-        $this->defaultLanguage->setName('defaultLanguage');
+        $this->defaultLanguage->setElementName('defaultLanguage');
         return $this;
     }
 
@@ -70,6 +72,8 @@ class ServiceProviderLanguageGetListResponse extends ComplexType implements Comp
      */
     public function getDefaultLanguage()
     {
-        return ($this->defaultLanguage) ? $this->defaultLanguage->getValue() : null;
+        return ($this->defaultLanguage)
+            ? $this->defaultLanguage->getElementValue()
+            : null;
     }
 }

@@ -17,12 +17,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\MaxInclusive;
  */
 class CallProcessingMaxSimultaneousForwards extends SimpleType
 {
-    public $name = "CallProcessingMaxSimultaneousForwards";
-    protected $value;
-
+    public $elementName = "CallProcessingMaxSimultaneousForwards";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new MinInclusive("1"));
         $this->addRestriction(new MaxInclusive("32"));
     }

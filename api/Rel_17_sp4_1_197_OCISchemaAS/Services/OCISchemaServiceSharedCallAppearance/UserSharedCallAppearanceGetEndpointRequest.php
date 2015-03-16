@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
 class UserSharedCallAppearanceGetEndpointRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType         = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceSharedCallAppearance\UserSharedCallAppearanceGetEndpointResponse';
-    public    $name = 'UserSharedCallAppearanceGetEndpointRequest';
+    public    $elementName = 'UserSharedCallAppearanceGetEndpointRequest';
     protected $userId;
     protected $accessDeviceEndpoint;
 
@@ -50,7 +50,7 @@ class UserSharedCallAppearanceGetEndpointRequest extends ComplexType implements 
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
-        $this->userId->setName('userId');
+        $this->userId->setElementName('userId');
         return $this;
     }
 
@@ -60,7 +60,9 @@ class UserSharedCallAppearanceGetEndpointRequest extends ComplexType implements 
      */
     public function getUserId()
     {
-        return ($this->userId) ? $this->userId->getValue() : null;
+        return ($this->userId)
+            ? $this->userId->getElementValue()
+            : null;
     }
 
     /**
@@ -71,7 +73,7 @@ class UserSharedCallAppearanceGetEndpointRequest extends ComplexType implements 
         $this->accessDeviceEndpoint = ($accessDeviceEndpoint InstanceOf AccessDeviceEndpointKey)
              ? $accessDeviceEndpoint
              : new AccessDeviceEndpointKey($accessDeviceEndpoint);
-        $this->accessDeviceEndpoint->setName('accessDeviceEndpoint');
+        $this->accessDeviceEndpoint->setElementName('accessDeviceEndpoint');
         return $this;
     }
 

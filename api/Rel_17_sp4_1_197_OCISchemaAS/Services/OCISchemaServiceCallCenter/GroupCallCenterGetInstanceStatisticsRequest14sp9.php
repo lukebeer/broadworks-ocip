@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
 class GroupCallCenterGetInstanceStatisticsRequest14sp9 extends ComplexType implements ComplexInterface
 {
     public    $responseType    = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\GroupCallCenterGetInstanceStatisticsResponse14sp9';
-    public    $name = 'GroupCallCenterGetInstanceStatisticsRequest14sp9';
+    public    $elementName = 'GroupCallCenterGetInstanceStatisticsRequest14sp9';
     protected $serviceUserId;
     protected $statisticsRange;
 
@@ -50,7 +50,7 @@ class GroupCallCenterGetInstanceStatisticsRequest14sp9 extends ComplexType imple
         $this->serviceUserId = ($serviceUserId InstanceOf UserId)
              ? $serviceUserId
              : new UserId($serviceUserId);
-        $this->serviceUserId->setName('serviceUserId');
+        $this->serviceUserId->setElementName('serviceUserId');
         return $this;
     }
 
@@ -60,7 +60,9 @@ class GroupCallCenterGetInstanceStatisticsRequest14sp9 extends ComplexType imple
      */
     public function getServiceUserId()
     {
-        return ($this->serviceUserId) ? $this->serviceUserId->getValue() : null;
+        return ($this->serviceUserId)
+            ? $this->serviceUserId->getElementValue()
+            : null;
     }
 
     /**
@@ -71,7 +73,7 @@ class GroupCallCenterGetInstanceStatisticsRequest14sp9 extends ComplexType imple
         $this->statisticsRange = ($statisticsRange InstanceOf CallCenterStatisticsRange)
              ? $statisticsRange
              : new CallCenterStatisticsRange($statisticsRange);
-        $this->statisticsRange->setName('statisticsRange');
+        $this->statisticsRange->setElementName('statisticsRange');
         return $this;
     }
 

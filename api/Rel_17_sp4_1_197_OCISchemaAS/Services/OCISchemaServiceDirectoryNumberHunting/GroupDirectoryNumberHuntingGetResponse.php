@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupDirectoryNumberHuntingGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'GroupDirectoryNumberHuntingGetResponse';
+    public    $elementName = 'GroupDirectoryNumberHuntingGetResponse';
     protected $agentUserTable;
 
     /**
@@ -38,7 +38,7 @@ class GroupDirectoryNumberHuntingGetResponse extends ComplexType implements Comp
     public function setAgentUserTable(TableType $agentUserTable = null)
     {
         $this->agentUserTable = $agentUserTable;
-        $this->agentUserTable->setName('agentUserTable');
+        $this->agentUserTable->setElementName('agentUserTable');
         return $this;
     }
 

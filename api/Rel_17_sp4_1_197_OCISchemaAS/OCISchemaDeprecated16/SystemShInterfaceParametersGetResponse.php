@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemShInterfaceParametersGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemShInterfaceParametersGetResponse';
+    public    $elementName = 'SystemShInterfaceParametersGetResponse';
     protected $hssRealm;
     protected $requestTimeoutSeconds;
     protected $publicIdentityRefreshDelaySeconds;
@@ -42,7 +42,7 @@ class SystemShInterfaceParametersGetResponse extends ComplexType implements Comp
         $this->hssRealm = ($hssRealm InstanceOf DomainName)
              ? $hssRealm
              : new DomainName($hssRealm);
-        $this->hssRealm->setName('hssRealm');
+        $this->hssRealm->setElementName('hssRealm');
         return $this;
     }
 
@@ -52,7 +52,9 @@ class SystemShInterfaceParametersGetResponse extends ComplexType implements Comp
      */
     public function getHssRealm()
     {
-        return ($this->hssRealm) ? $this->hssRealm->getValue() : null;
+        return ($this->hssRealm)
+            ? $this->hssRealm->getElementValue()
+            : null;
     }
 
     /**
@@ -63,7 +65,7 @@ class SystemShInterfaceParametersGetResponse extends ComplexType implements Comp
         $this->requestTimeoutSeconds = ($requestTimeoutSeconds InstanceOf ShInterfaceRequestTimeoutSeconds)
              ? $requestTimeoutSeconds
              : new ShInterfaceRequestTimeoutSeconds($requestTimeoutSeconds);
-        $this->requestTimeoutSeconds->setName('requestTimeoutSeconds');
+        $this->requestTimeoutSeconds->setElementName('requestTimeoutSeconds');
         return $this;
     }
 
@@ -73,7 +75,9 @@ class SystemShInterfaceParametersGetResponse extends ComplexType implements Comp
      */
     public function getRequestTimeoutSeconds()
     {
-        return ($this->requestTimeoutSeconds) ? $this->requestTimeoutSeconds->getValue() : null;
+        return ($this->requestTimeoutSeconds)
+            ? $this->requestTimeoutSeconds->getElementValue()
+            : null;
     }
 
     /**
@@ -84,7 +88,7 @@ class SystemShInterfaceParametersGetResponse extends ComplexType implements Comp
         $this->publicIdentityRefreshDelaySeconds = ($publicIdentityRefreshDelaySeconds InstanceOf ShInterfacePublicIdentityRefreshDelaySeconds)
              ? $publicIdentityRefreshDelaySeconds
              : new ShInterfacePublicIdentityRefreshDelaySeconds($publicIdentityRefreshDelaySeconds);
-        $this->publicIdentityRefreshDelaySeconds->setName('publicIdentityRefreshDelaySeconds');
+        $this->publicIdentityRefreshDelaySeconds->setElementName('publicIdentityRefreshDelaySeconds');
         return $this;
     }
 
@@ -94,6 +98,8 @@ class SystemShInterfaceParametersGetResponse extends ComplexType implements Comp
      */
     public function getPublicIdentityRefreshDelaySeconds()
     {
-        return ($this->publicIdentityRefreshDelaySeconds) ? $this->publicIdentityRefreshDelaySeconds->getValue() : null;
+        return ($this->publicIdentityRefreshDelaySeconds)
+            ? $this->publicIdentityRefreshDelaySeconds->getElementValue()
+            : null;
     }
 }

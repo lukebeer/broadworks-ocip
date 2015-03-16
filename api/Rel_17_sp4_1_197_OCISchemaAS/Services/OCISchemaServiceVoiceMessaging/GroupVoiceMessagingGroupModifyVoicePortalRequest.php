@@ -26,7 +26,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupVoiceMessagingGroupModifyVoicePortalRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'GroupVoiceMessagingGroupModifyVoicePortalRequest';
+    public    $elementName = 'GroupVoiceMessagingGroupModifyVoicePortalRequest';
     protected $serviceProviderId;
     protected $groupId;
     protected $serviceInstanceProfile;
@@ -78,7 +78,7 @@ class GroupVoiceMessagingGroupModifyVoicePortalRequest extends ComplexType imple
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
-        $this->serviceProviderId->setName('serviceProviderId');
+        $this->serviceProviderId->setElementName('serviceProviderId');
         return $this;
     }
 
@@ -88,7 +88,9 @@ class GroupVoiceMessagingGroupModifyVoicePortalRequest extends ComplexType imple
      */
     public function getServiceProviderId()
     {
-        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
+        return ($this->serviceProviderId)
+            ? $this->serviceProviderId->getElementValue()
+            : null;
     }
 
     /**
@@ -99,7 +101,7 @@ class GroupVoiceMessagingGroupModifyVoicePortalRequest extends ComplexType imple
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
-        $this->groupId->setName('groupId');
+        $this->groupId->setElementName('groupId');
         return $this;
     }
 
@@ -109,7 +111,9 @@ class GroupVoiceMessagingGroupModifyVoicePortalRequest extends ComplexType imple
      */
     public function getGroupId()
     {
-        return ($this->groupId) ? $this->groupId->getValue() : null;
+        return ($this->groupId)
+            ? $this->groupId->getElementValue()
+            : null;
     }
 
     /**
@@ -120,7 +124,7 @@ class GroupVoiceMessagingGroupModifyVoicePortalRequest extends ComplexType imple
         $this->serviceInstanceProfile = ($serviceInstanceProfile InstanceOf ServiceInstanceModifyProfile)
              ? $serviceInstanceProfile
              : new ServiceInstanceModifyProfile($serviceInstanceProfile);
-        $this->serviceInstanceProfile->setName('serviceInstanceProfile');
+        $this->serviceInstanceProfile->setElementName('serviceInstanceProfile');
         return $this;
     }
 
@@ -139,7 +143,7 @@ class GroupVoiceMessagingGroupModifyVoicePortalRequest extends ComplexType imple
     public function setIsActive($isActive = null)
     {
         $this->isActive = new PrimitiveType($isActive);
-        $this->isActive->setName('isActive');
+        $this->isActive->setElementName('isActive');
         return $this;
     }
 
@@ -149,7 +153,9 @@ class GroupVoiceMessagingGroupModifyVoicePortalRequest extends ComplexType imple
      */
     public function getIsActive()
     {
-        return ($this->isActive) ? $this->isActive->getValue() : null;
+        return ($this->isActive)
+            ? $this->isActive->getElementValue()
+            : null;
     }
 
     /**
@@ -158,7 +164,7 @@ class GroupVoiceMessagingGroupModifyVoicePortalRequest extends ComplexType imple
     public function setAllowIdentificationByPhoneNumberOrVoiceMailAliasesOnLogin($allowIdentificationByPhoneNumberOrVoiceMailAliasesOnLogin = null)
     {
         $this->allowIdentificationByPhoneNumberOrVoiceMailAliasesOnLogin = new PrimitiveType($allowIdentificationByPhoneNumberOrVoiceMailAliasesOnLogin);
-        $this->allowIdentificationByPhoneNumberOrVoiceMailAliasesOnLogin->setName('allowIdentificationByPhoneNumberOrVoiceMailAliasesOnLogin');
+        $this->allowIdentificationByPhoneNumberOrVoiceMailAliasesOnLogin->setElementName('allowIdentificationByPhoneNumberOrVoiceMailAliasesOnLogin');
         return $this;
     }
 
@@ -168,7 +174,9 @@ class GroupVoiceMessagingGroupModifyVoicePortalRequest extends ComplexType imple
      */
     public function getAllowIdentificationByPhoneNumberOrVoiceMailAliasesOnLogin()
     {
-        return ($this->allowIdentificationByPhoneNumberOrVoiceMailAliasesOnLogin) ? $this->allowIdentificationByPhoneNumberOrVoiceMailAliasesOnLogin->getValue() : null;
+        return ($this->allowIdentificationByPhoneNumberOrVoiceMailAliasesOnLogin)
+            ? $this->allowIdentificationByPhoneNumberOrVoiceMailAliasesOnLogin->getElementValue()
+            : null;
     }
 
     /**
@@ -177,7 +185,7 @@ class GroupVoiceMessagingGroupModifyVoicePortalRequest extends ComplexType imple
     public function setUseVoicePortalWizard($useVoicePortalWizard = null)
     {
         $this->useVoicePortalWizard = new PrimitiveType($useVoicePortalWizard);
-        $this->useVoicePortalWizard->setName('useVoicePortalWizard');
+        $this->useVoicePortalWizard->setElementName('useVoicePortalWizard');
         return $this;
     }
 
@@ -187,7 +195,9 @@ class GroupVoiceMessagingGroupModifyVoicePortalRequest extends ComplexType imple
      */
     public function getUseVoicePortalWizard()
     {
-        return ($this->useVoicePortalWizard) ? $this->useVoicePortalWizard->getValue() : null;
+        return ($this->useVoicePortalWizard)
+            ? $this->useVoicePortalWizard->getElementValue()
+            : null;
     }
 
     /**
@@ -198,7 +208,7 @@ class GroupVoiceMessagingGroupModifyVoicePortalRequest extends ComplexType imple
         $this->voicePortalExternalRoutingScope = ($voicePortalExternalRoutingScope InstanceOf VoicePortalExternalRoutingScope)
              ? $voicePortalExternalRoutingScope
              : new VoicePortalExternalRoutingScope($voicePortalExternalRoutingScope);
-        $this->voicePortalExternalRoutingScope->setName('voicePortalExternalRoutingScope');
+        $this->voicePortalExternalRoutingScope->setElementName('voicePortalExternalRoutingScope');
         return $this;
     }
 
@@ -208,7 +218,9 @@ class GroupVoiceMessagingGroupModifyVoicePortalRequest extends ComplexType imple
      */
     public function getVoicePortalExternalRoutingScope()
     {
-        return ($this->voicePortalExternalRoutingScope) ? $this->voicePortalExternalRoutingScope->getValue() : null;
+        return ($this->voicePortalExternalRoutingScope)
+            ? $this->voicePortalExternalRoutingScope->getElementValue()
+            : null;
     }
 
     /**
@@ -217,7 +229,7 @@ class GroupVoiceMessagingGroupModifyVoicePortalRequest extends ComplexType imple
     public function setUseExternalRouting($useExternalRouting = null)
     {
         $this->useExternalRouting = new PrimitiveType($useExternalRouting);
-        $this->useExternalRouting->setName('useExternalRouting');
+        $this->useExternalRouting->setElementName('useExternalRouting');
         return $this;
     }
 
@@ -227,7 +239,9 @@ class GroupVoiceMessagingGroupModifyVoicePortalRequest extends ComplexType imple
      */
     public function getUseExternalRouting()
     {
-        return ($this->useExternalRouting) ? $this->useExternalRouting->getValue() : null;
+        return ($this->useExternalRouting)
+            ? $this->useExternalRouting->getElementValue()
+            : null;
     }
 
     /**
@@ -238,7 +252,7 @@ class GroupVoiceMessagingGroupModifyVoicePortalRequest extends ComplexType imple
         $this->externalRoutingAddress = ($externalRoutingAddress InstanceOf OutgoingDNorSIPURI)
              ? $externalRoutingAddress
              : new OutgoingDNorSIPURI($externalRoutingAddress);
-        $this->externalRoutingAddress->setName('externalRoutingAddress');
+        $this->externalRoutingAddress->setElementName('externalRoutingAddress');
         return $this;
     }
 
@@ -248,7 +262,9 @@ class GroupVoiceMessagingGroupModifyVoicePortalRequest extends ComplexType imple
      */
     public function getExternalRoutingAddress()
     {
-        return ($this->externalRoutingAddress) ? $this->externalRoutingAddress->getValue() : null;
+        return ($this->externalRoutingAddress)
+            ? $this->externalRoutingAddress->getElementValue()
+            : null;
     }
 
     /**
@@ -259,7 +275,7 @@ class GroupVoiceMessagingGroupModifyVoicePortalRequest extends ComplexType imple
         $this->homeZoneName = ($homeZoneName InstanceOf ZoneName)
              ? $homeZoneName
              : new ZoneName($homeZoneName);
-        $this->homeZoneName->setName('homeZoneName');
+        $this->homeZoneName->setElementName('homeZoneName');
         return $this;
     }
 
@@ -269,6 +285,8 @@ class GroupVoiceMessagingGroupModifyVoicePortalRequest extends ComplexType imple
      */
     public function getHomeZoneName()
     {
-        return ($this->homeZoneName) ? $this->homeZoneName->getValue() : null;
+        return ($this->homeZoneName)
+            ? $this->homeZoneName->getElementValue()
+            : null;
     }
 }

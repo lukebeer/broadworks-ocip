@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemThirdPartyVoiceMailSupportModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemThirdPartyVoiceMailSupportModifyRequest';
+    public    $elementName = 'SystemThirdPartyVoiceMailSupportModifyRequest';
     protected $overrideAltCallerIdForVMRetrieval;
 
     public function __construct(
@@ -43,7 +43,7 @@ class SystemThirdPartyVoiceMailSupportModifyRequest extends ComplexType implemen
     public function setOverrideAltCallerIdForVMRetrieval($overrideAltCallerIdForVMRetrieval = null)
     {
         $this->overrideAltCallerIdForVMRetrieval = new PrimitiveType($overrideAltCallerIdForVMRetrieval);
-        $this->overrideAltCallerIdForVMRetrieval->setName('overrideAltCallerIdForVMRetrieval');
+        $this->overrideAltCallerIdForVMRetrieval->setElementName('overrideAltCallerIdForVMRetrieval');
         return $this;
     }
 
@@ -53,6 +53,8 @@ class SystemThirdPartyVoiceMailSupportModifyRequest extends ComplexType implemen
      */
     public function getOverrideAltCallerIdForVMRetrieval()
     {
-        return ($this->overrideAltCallerIdForVMRetrieval) ? $this->overrideAltCallerIdForVMRetrieval->getValue() : null;
+        return ($this->overrideAltCallerIdForVMRetrieval)
+            ? $this->overrideAltCallerIdForVMRetrieval->getElementValue()
+            : null;
     }
 }

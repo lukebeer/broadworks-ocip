@@ -16,12 +16,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\MinLength;
  */
 class BroadWorksMobileManagerInformationFile extends SimpleType
 {
-    public $name = "BroadWorksMobileManagerInformationFile";
-    protected $value;
-
+    public $elementName = "BroadWorksMobileManagerInformationFile";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "xs:base64Binary";
+        $this->setElementValue($value);
         $this->addRestriction(new MinLength("1"));
     }
 }

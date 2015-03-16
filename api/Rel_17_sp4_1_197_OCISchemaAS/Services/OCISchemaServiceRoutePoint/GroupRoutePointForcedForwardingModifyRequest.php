@@ -25,7 +25,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupRoutePointForcedForwardingModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'GroupRoutePointForcedForwardingModifyRequest';
+    public    $elementName = 'GroupRoutePointForcedForwardingModifyRequest';
     protected $serviceUserId;
     protected $isActive;
     protected $forwardToPhoneNumber;
@@ -77,7 +77,7 @@ class GroupRoutePointForcedForwardingModifyRequest extends ComplexType implement
         $this->serviceUserId = ($serviceUserId InstanceOf UserId)
              ? $serviceUserId
              : new UserId($serviceUserId);
-        $this->serviceUserId->setName('serviceUserId');
+        $this->serviceUserId->setElementName('serviceUserId');
         return $this;
     }
 
@@ -87,7 +87,9 @@ class GroupRoutePointForcedForwardingModifyRequest extends ComplexType implement
      */
     public function getServiceUserId()
     {
-        return ($this->serviceUserId) ? $this->serviceUserId->getValue() : null;
+        return ($this->serviceUserId)
+            ? $this->serviceUserId->getElementValue()
+            : null;
     }
 
     /**
@@ -96,7 +98,7 @@ class GroupRoutePointForcedForwardingModifyRequest extends ComplexType implement
     public function setIsActive($isActive = null)
     {
         $this->isActive = new PrimitiveType($isActive);
-        $this->isActive->setName('isActive');
+        $this->isActive->setElementName('isActive');
         return $this;
     }
 
@@ -106,7 +108,9 @@ class GroupRoutePointForcedForwardingModifyRequest extends ComplexType implement
      */
     public function getIsActive()
     {
-        return ($this->isActive) ? $this->isActive->getValue() : null;
+        return ($this->isActive)
+            ? $this->isActive->getElementValue()
+            : null;
     }
 
     /**
@@ -117,7 +121,7 @@ class GroupRoutePointForcedForwardingModifyRequest extends ComplexType implement
         $this->forwardToPhoneNumber = ($forwardToPhoneNumber InstanceOf OutgoingDNorSIPURI)
              ? $forwardToPhoneNumber
              : new OutgoingDNorSIPURI($forwardToPhoneNumber);
-        $this->forwardToPhoneNumber->setName('forwardToPhoneNumber');
+        $this->forwardToPhoneNumber->setElementName('forwardToPhoneNumber');
         return $this;
     }
 
@@ -127,7 +131,9 @@ class GroupRoutePointForcedForwardingModifyRequest extends ComplexType implement
      */
     public function getForwardToPhoneNumber()
     {
-        return ($this->forwardToPhoneNumber) ? $this->forwardToPhoneNumber->getValue() : null;
+        return ($this->forwardToPhoneNumber)
+            ? $this->forwardToPhoneNumber->getElementValue()
+            : null;
     }
 
     /**
@@ -136,7 +142,7 @@ class GroupRoutePointForcedForwardingModifyRequest extends ComplexType implement
     public function setPlayAnnouncementBeforeForwarding($playAnnouncementBeforeForwarding = null)
     {
         $this->playAnnouncementBeforeForwarding = new PrimitiveType($playAnnouncementBeforeForwarding);
-        $this->playAnnouncementBeforeForwarding->setName('playAnnouncementBeforeForwarding');
+        $this->playAnnouncementBeforeForwarding->setElementName('playAnnouncementBeforeForwarding');
         return $this;
     }
 
@@ -146,7 +152,9 @@ class GroupRoutePointForcedForwardingModifyRequest extends ComplexType implement
      */
     public function getPlayAnnouncementBeforeForwarding()
     {
-        return ($this->playAnnouncementBeforeForwarding) ? $this->playAnnouncementBeforeForwarding->getValue() : null;
+        return ($this->playAnnouncementBeforeForwarding)
+            ? $this->playAnnouncementBeforeForwarding->getElementValue()
+            : null;
     }
 
     /**
@@ -157,7 +165,7 @@ class GroupRoutePointForcedForwardingModifyRequest extends ComplexType implement
         $this->audioMessageSelection = ($audioMessageSelection InstanceOf ExtendedFileResourceSelection)
              ? $audioMessageSelection
              : new ExtendedFileResourceSelection($audioMessageSelection);
-        $this->audioMessageSelection->setName('audioMessageSelection');
+        $this->audioMessageSelection->setElementName('audioMessageSelection');
         return $this;
     }
 
@@ -167,7 +175,9 @@ class GroupRoutePointForcedForwardingModifyRequest extends ComplexType implement
      */
     public function getAudioMessageSelection()
     {
-        return ($this->audioMessageSelection) ? $this->audioMessageSelection->getValue() : null;
+        return ($this->audioMessageSelection)
+            ? $this->audioMessageSelection->getElementValue()
+            : null;
     }
 
     /**
@@ -178,7 +188,7 @@ class GroupRoutePointForcedForwardingModifyRequest extends ComplexType implement
         $this->audioUrlList = ($audioUrlList InstanceOf CallCenterAnnouncementURLListModify)
              ? $audioUrlList
              : new CallCenterAnnouncementURLListModify($audioUrlList);
-        $this->audioUrlList->setName('audioUrlList');
+        $this->audioUrlList->setElementName('audioUrlList');
         return $this;
     }
 
@@ -199,7 +209,7 @@ class GroupRoutePointForcedForwardingModifyRequest extends ComplexType implement
         $this->audioFileList = ($audioFileList InstanceOf CallCenterAnnouncementFileListModify)
              ? $audioFileList
              : new CallCenterAnnouncementFileListModify($audioFileList);
-        $this->audioFileList->setName('audioFileList');
+        $this->audioFileList->setElementName('audioFileList');
         return $this;
     }
 
@@ -220,7 +230,7 @@ class GroupRoutePointForcedForwardingModifyRequest extends ComplexType implement
         $this->videoMessageSelection = ($videoMessageSelection InstanceOf ExtendedFileResourceSelection)
              ? $videoMessageSelection
              : new ExtendedFileResourceSelection($videoMessageSelection);
-        $this->videoMessageSelection->setName('videoMessageSelection');
+        $this->videoMessageSelection->setElementName('videoMessageSelection');
         return $this;
     }
 
@@ -230,7 +240,9 @@ class GroupRoutePointForcedForwardingModifyRequest extends ComplexType implement
      */
     public function getVideoMessageSelection()
     {
-        return ($this->videoMessageSelection) ? $this->videoMessageSelection->getValue() : null;
+        return ($this->videoMessageSelection)
+            ? $this->videoMessageSelection->getElementValue()
+            : null;
     }
 
     /**
@@ -241,7 +253,7 @@ class GroupRoutePointForcedForwardingModifyRequest extends ComplexType implement
         $this->videoUrlList = ($videoUrlList InstanceOf CallCenterAnnouncementURLListModify)
              ? $videoUrlList
              : new CallCenterAnnouncementURLListModify($videoUrlList);
-        $this->videoUrlList->setName('videoUrlList');
+        $this->videoUrlList->setElementName('videoUrlList');
         return $this;
     }
 
@@ -262,7 +274,7 @@ class GroupRoutePointForcedForwardingModifyRequest extends ComplexType implement
         $this->videoFileList = ($videoFileList InstanceOf CallCenterAnnouncementFileListModify)
              ? $videoFileList
              : new CallCenterAnnouncementFileListModify($videoFileList);
-        $this->videoFileList->setName('videoFileList');
+        $this->videoFileList->setElementName('videoFileList');
         return $this;
     }
 

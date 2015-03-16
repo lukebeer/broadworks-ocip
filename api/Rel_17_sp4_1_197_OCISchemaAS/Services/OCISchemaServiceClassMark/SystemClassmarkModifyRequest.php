@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemClassmarkModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemClassmarkModifyRequest';
+    public    $elementName = 'SystemClassmarkModifyRequest';
     protected $classmark;
     protected $value;
     protected $webDisplayKey;
@@ -52,7 +52,7 @@ class SystemClassmarkModifyRequest extends ComplexType implements ComplexInterfa
         $this->classmark = ($classmark InstanceOf Classmark)
              ? $classmark
              : new Classmark($classmark);
-        $this->classmark->setName('classmark');
+        $this->classmark->setElementName('classmark');
         return $this;
     }
 
@@ -62,7 +62,9 @@ class SystemClassmarkModifyRequest extends ComplexType implements ComplexInterfa
      */
     public function getClassmark()
     {
-        return ($this->classmark) ? $this->classmark->getValue() : null;
+        return ($this->classmark)
+            ? $this->classmark->getElementValue()
+            : null;
     }
 
     /**
@@ -73,7 +75,7 @@ class SystemClassmarkModifyRequest extends ComplexType implements ComplexInterfa
         $this->value = ($value InstanceOf ClassmarkValue)
              ? $value
              : new ClassmarkValue($value);
-        $this->value->setName('value');
+        $this->value->setElementName('value');
         return $this;
     }
 
@@ -83,7 +85,9 @@ class SystemClassmarkModifyRequest extends ComplexType implements ComplexInterfa
      */
     public function getValue()
     {
-        return ($this->value) ? $this->value->getValue() : null;
+        return ($this->value)
+            ? $this->value->getElementValue()
+            : null;
     }
 
     /**
@@ -94,7 +98,7 @@ class SystemClassmarkModifyRequest extends ComplexType implements ComplexInterfa
         $this->webDisplayKey = ($webDisplayKey InstanceOf WebDisplayKey)
              ? $webDisplayKey
              : new WebDisplayKey($webDisplayKey);
-        $this->webDisplayKey->setName('webDisplayKey');
+        $this->webDisplayKey->setElementName('webDisplayKey');
         return $this;
     }
 
@@ -104,6 +108,8 @@ class SystemClassmarkModifyRequest extends ComplexType implements ComplexInterfa
      */
     public function getWebDisplayKey()
     {
-        return ($this->webDisplayKey) ? $this->webDisplayKey->getValue() : null;
+        return ($this->webDisplayKey)
+            ? $this->webDisplayKey->getElementValue()
+            : null;
     }
 }

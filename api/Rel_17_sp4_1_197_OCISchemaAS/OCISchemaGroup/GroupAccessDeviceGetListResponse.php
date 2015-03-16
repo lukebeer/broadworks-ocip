@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupAccessDeviceGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'GroupAccessDeviceGetListResponse';
+    public    $elementName = 'GroupAccessDeviceGetListResponse';
     protected $accessDeviceTable;
 
     /**
@@ -38,7 +38,7 @@ class GroupAccessDeviceGetListResponse extends ComplexType implements ComplexInt
     public function setAccessDeviceTable(TableType $accessDeviceTable = null)
     {
         $this->accessDeviceTable = $accessDeviceTable;
-        $this->accessDeviceTable->setName('accessDeviceTable');
+        $this->accessDeviceTable->setElementName('accessDeviceTable');
         return $this;
     }
 

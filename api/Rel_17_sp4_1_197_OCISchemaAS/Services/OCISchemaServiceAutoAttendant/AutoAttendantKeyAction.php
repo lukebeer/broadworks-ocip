@@ -16,12 +16,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\Enumeration;
  */
 class AutoAttendantKeyAction extends SimpleType
 {
-    public $name = "AutoAttendantKeyAction";
-    protected $value;
-
+    public $elementName = "AutoAttendantKeyAction";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new Enumeration([
             'Transfer With Prompt',
             'Transfer Without Prompt',

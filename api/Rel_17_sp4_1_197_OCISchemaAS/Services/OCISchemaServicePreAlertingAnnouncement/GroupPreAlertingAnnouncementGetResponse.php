@@ -25,7 +25,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupPreAlertingAnnouncementGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'GroupPreAlertingAnnouncementGetResponse';
+    public    $elementName = 'GroupPreAlertingAnnouncementGetResponse';
     protected $announcementInterruption;
     protected $interruptionDigitSequence;
     protected $audioSelection;
@@ -53,7 +53,7 @@ class GroupPreAlertingAnnouncementGetResponse extends ComplexType implements Com
         $this->announcementInterruption = ($announcementInterruption InstanceOf PreAlertingAnnouncementInterrupt)
              ? $announcementInterruption
              : new PreAlertingAnnouncementInterrupt($announcementInterruption);
-        $this->announcementInterruption->setName('announcementInterruption');
+        $this->announcementInterruption->setElementName('announcementInterruption');
         return $this;
     }
 
@@ -63,7 +63,9 @@ class GroupPreAlertingAnnouncementGetResponse extends ComplexType implements Com
      */
     public function getAnnouncementInterruption()
     {
-        return ($this->announcementInterruption) ? $this->announcementInterruption->getValue() : null;
+        return ($this->announcementInterruption)
+            ? $this->announcementInterruption->getElementValue()
+            : null;
     }
 
     /**
@@ -74,7 +76,7 @@ class GroupPreAlertingAnnouncementGetResponse extends ComplexType implements Com
         $this->interruptionDigitSequence = ($interruptionDigitSequence InstanceOf PreAlertingAnnouncementInterruptDigits)
              ? $interruptionDigitSequence
              : new PreAlertingAnnouncementInterruptDigits($interruptionDigitSequence);
-        $this->interruptionDigitSequence->setName('interruptionDigitSequence');
+        $this->interruptionDigitSequence->setElementName('interruptionDigitSequence');
         return $this;
     }
 
@@ -84,7 +86,9 @@ class GroupPreAlertingAnnouncementGetResponse extends ComplexType implements Com
      */
     public function getInterruptionDigitSequence()
     {
-        return ($this->interruptionDigitSequence) ? $this->interruptionDigitSequence->getValue() : null;
+        return ($this->interruptionDigitSequence)
+            ? $this->interruptionDigitSequence->getElementValue()
+            : null;
     }
 
     /**
@@ -95,7 +99,7 @@ class GroupPreAlertingAnnouncementGetResponse extends ComplexType implements Com
         $this->audioSelection = ($audioSelection InstanceOf ExtendedFileResourceSelection)
              ? $audioSelection
              : new ExtendedFileResourceSelection($audioSelection);
-        $this->audioSelection->setName('audioSelection');
+        $this->audioSelection->setElementName('audioSelection');
         return $this;
     }
 
@@ -105,7 +109,9 @@ class GroupPreAlertingAnnouncementGetResponse extends ComplexType implements Com
      */
     public function getAudioSelection()
     {
-        return ($this->audioSelection) ? $this->audioSelection->getValue() : null;
+        return ($this->audioSelection)
+            ? $this->audioSelection->getElementValue()
+            : null;
     }
 
     /**
@@ -116,7 +122,7 @@ class GroupPreAlertingAnnouncementGetResponse extends ComplexType implements Com
         $this->audioFileDescription = ($audioFileDescription InstanceOf FileDescription)
              ? $audioFileDescription
              : new FileDescription($audioFileDescription);
-        $this->audioFileDescription->setName('audioFileDescription');
+        $this->audioFileDescription->setElementName('audioFileDescription');
         return $this;
     }
 
@@ -126,7 +132,9 @@ class GroupPreAlertingAnnouncementGetResponse extends ComplexType implements Com
      */
     public function getAudioFileDescription()
     {
-        return ($this->audioFileDescription) ? $this->audioFileDescription->getValue() : null;
+        return ($this->audioFileDescription)
+            ? $this->audioFileDescription->getElementValue()
+            : null;
     }
 
     /**
@@ -137,7 +145,7 @@ class GroupPreAlertingAnnouncementGetResponse extends ComplexType implements Com
         $this->audioMediaType = ($audioMediaType InstanceOf MediaFileType)
              ? $audioMediaType
              : new MediaFileType($audioMediaType);
-        $this->audioMediaType->setName('audioMediaType');
+        $this->audioMediaType->setElementName('audioMediaType');
         return $this;
     }
 
@@ -147,7 +155,9 @@ class GroupPreAlertingAnnouncementGetResponse extends ComplexType implements Com
      */
     public function getAudioMediaType()
     {
-        return ($this->audioMediaType) ? $this->audioMediaType->getValue() : null;
+        return ($this->audioMediaType)
+            ? $this->audioMediaType->getElementValue()
+            : null;
     }
 
     /**
@@ -158,7 +168,7 @@ class GroupPreAlertingAnnouncementGetResponse extends ComplexType implements Com
         $this->audioFileUrl = ($audioFileUrl InstanceOf URL)
              ? $audioFileUrl
              : new URL($audioFileUrl);
-        $this->audioFileUrl->setName('audioFileUrl');
+        $this->audioFileUrl->setElementName('audioFileUrl');
         return $this;
     }
 
@@ -168,7 +178,9 @@ class GroupPreAlertingAnnouncementGetResponse extends ComplexType implements Com
      */
     public function getAudioFileUrl()
     {
-        return ($this->audioFileUrl) ? $this->audioFileUrl->getValue() : null;
+        return ($this->audioFileUrl)
+            ? $this->audioFileUrl->getElementValue()
+            : null;
     }
 
     /**
@@ -179,7 +191,7 @@ class GroupPreAlertingAnnouncementGetResponse extends ComplexType implements Com
         $this->videoSelection = ($videoSelection InstanceOf ExtendedFileResourceSelection)
              ? $videoSelection
              : new ExtendedFileResourceSelection($videoSelection);
-        $this->videoSelection->setName('videoSelection');
+        $this->videoSelection->setElementName('videoSelection');
         return $this;
     }
 
@@ -189,7 +201,9 @@ class GroupPreAlertingAnnouncementGetResponse extends ComplexType implements Com
      */
     public function getVideoSelection()
     {
-        return ($this->videoSelection) ? $this->videoSelection->getValue() : null;
+        return ($this->videoSelection)
+            ? $this->videoSelection->getElementValue()
+            : null;
     }
 
     /**
@@ -200,7 +214,7 @@ class GroupPreAlertingAnnouncementGetResponse extends ComplexType implements Com
         $this->videoFileDescription = ($videoFileDescription InstanceOf FileDescription)
              ? $videoFileDescription
              : new FileDescription($videoFileDescription);
-        $this->videoFileDescription->setName('videoFileDescription');
+        $this->videoFileDescription->setElementName('videoFileDescription');
         return $this;
     }
 
@@ -210,7 +224,9 @@ class GroupPreAlertingAnnouncementGetResponse extends ComplexType implements Com
      */
     public function getVideoFileDescription()
     {
-        return ($this->videoFileDescription) ? $this->videoFileDescription->getValue() : null;
+        return ($this->videoFileDescription)
+            ? $this->videoFileDescription->getElementValue()
+            : null;
     }
 
     /**
@@ -221,7 +237,7 @@ class GroupPreAlertingAnnouncementGetResponse extends ComplexType implements Com
         $this->videoMediaType = ($videoMediaType InstanceOf MediaFileType)
              ? $videoMediaType
              : new MediaFileType($videoMediaType);
-        $this->videoMediaType->setName('videoMediaType');
+        $this->videoMediaType->setElementName('videoMediaType');
         return $this;
     }
 
@@ -231,7 +247,9 @@ class GroupPreAlertingAnnouncementGetResponse extends ComplexType implements Com
      */
     public function getVideoMediaType()
     {
-        return ($this->videoMediaType) ? $this->videoMediaType->getValue() : null;
+        return ($this->videoMediaType)
+            ? $this->videoMediaType->getElementValue()
+            : null;
     }
 
     /**
@@ -242,7 +260,7 @@ class GroupPreAlertingAnnouncementGetResponse extends ComplexType implements Com
         $this->videoFileUrl = ($videoFileUrl InstanceOf URL)
              ? $videoFileUrl
              : new URL($videoFileUrl);
-        $this->videoFileUrl->setName('videoFileUrl');
+        $this->videoFileUrl->setElementName('videoFileUrl');
         return $this;
     }
 
@@ -252,6 +270,8 @@ class GroupPreAlertingAnnouncementGetResponse extends ComplexType implements Com
      */
     public function getVideoFileUrl()
     {
-        return ($this->videoFileUrl) ? $this->videoFileUrl->getValue() : null;
+        return ($this->videoFileUrl)
+            ? $this->videoFileUrl->getElementValue()
+            : null;
     }
 }

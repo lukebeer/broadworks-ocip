@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemDeviceManagementTagSetDeleteRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemDeviceManagementTagSetDeleteRequest';
+    public    $elementName = 'SystemDeviceManagementTagSetDeleteRequest';
     protected $tagSetName;
 
     public function __construct(
@@ -45,7 +45,7 @@ class SystemDeviceManagementTagSetDeleteRequest extends ComplexType implements C
         $this->tagSetName = ($tagSetName InstanceOf DeviceManagementTagSetName)
              ? $tagSetName
              : new DeviceManagementTagSetName($tagSetName);
-        $this->tagSetName->setName('tagSetName');
+        $this->tagSetName->setElementName('tagSetName');
         return $this;
     }
 
@@ -55,6 +55,8 @@ class SystemDeviceManagementTagSetDeleteRequest extends ComplexType implements C
      */
     public function getTagSetName()
     {
-        return ($this->tagSetName) ? $this->tagSetName->getValue() : null;
+        return ($this->tagSetName)
+            ? $this->tagSetName->getElementValue()
+            : null;
     }
 }

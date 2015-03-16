@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
 class SystemCallTypeGetMappingListRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemCallTypeGetMappingListResponse';
-    public    $name = 'SystemCallTypeGetMappingListRequest';
+    public    $elementName = 'SystemCallTypeGetMappingListRequest';
     protected $countryCode;
 
     public function __construct(
@@ -46,7 +46,7 @@ class SystemCallTypeGetMappingListRequest extends ComplexType implements Complex
         $this->countryCode = ($countryCode InstanceOf CountryCode)
              ? $countryCode
              : new CountryCode($countryCode);
-        $this->countryCode->setName('countryCode');
+        $this->countryCode->setElementName('countryCode');
         return $this;
     }
 
@@ -56,6 +56,8 @@ class SystemCallTypeGetMappingListRequest extends ComplexType implements Complex
      */
     public function getCountryCode()
     {
-        return ($this->countryCode) ? $this->countryCode->getValue() : null;
+        return ($this->countryCode)
+            ? $this->countryCode->getElementValue()
+            : null;
     }
 }

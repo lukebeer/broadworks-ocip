@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemFileRepositoryDeviceUserDeleteRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemFileRepositoryDeviceUserDeleteRequest';
+    public    $elementName = 'SystemFileRepositoryDeviceUserDeleteRequest';
     protected $fileRepositoryName;
     protected $userName;
 
@@ -49,7 +49,7 @@ class SystemFileRepositoryDeviceUserDeleteRequest extends ComplexType implements
         $this->fileRepositoryName = ($fileRepositoryName InstanceOf FileRepositoryName)
              ? $fileRepositoryName
              : new FileRepositoryName($fileRepositoryName);
-        $this->fileRepositoryName->setName('fileRepositoryName');
+        $this->fileRepositoryName->setElementName('fileRepositoryName');
         return $this;
     }
 
@@ -59,7 +59,9 @@ class SystemFileRepositoryDeviceUserDeleteRequest extends ComplexType implements
      */
     public function getFileRepositoryName()
     {
-        return ($this->fileRepositoryName) ? $this->fileRepositoryName->getValue() : null;
+        return ($this->fileRepositoryName)
+            ? $this->fileRepositoryName->getElementValue()
+            : null;
     }
 
     /**
@@ -70,7 +72,7 @@ class SystemFileRepositoryDeviceUserDeleteRequest extends ComplexType implements
         $this->userName = ($userName InstanceOf FileRepositoryUserName)
              ? $userName
              : new FileRepositoryUserName($userName);
-        $this->userName->setName('userName');
+        $this->userName->setElementName('userName');
         return $this;
     }
 
@@ -80,6 +82,8 @@ class SystemFileRepositoryDeviceUserDeleteRequest extends ComplexType implements
      */
     public function getUserName()
     {
-        return ($this->userName) ? $this->userName->getValue() : null;
+        return ($this->userName)
+            ? $this->userName->getElementValue()
+            : null;
     }
 }

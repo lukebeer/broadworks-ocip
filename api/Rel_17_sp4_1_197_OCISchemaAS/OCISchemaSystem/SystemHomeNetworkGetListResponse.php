@@ -19,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemHomeNetworkGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemHomeNetworkGetListResponse';
+    public    $elementName = 'SystemHomeNetworkGetListResponse';
     protected $mscAddress;
 
     /**
@@ -38,7 +38,7 @@ class SystemHomeNetworkGetListResponse extends ComplexType implements ComplexInt
         $this->mscAddress = ($mscAddress InstanceOf DN)
              ? $mscAddress
              : new DN($mscAddress);
-        $this->mscAddress->setName('mscAddress');
+        $this->mscAddress->setElementName('mscAddress');
         return $this;
     }
 
@@ -48,6 +48,8 @@ class SystemHomeNetworkGetListResponse extends ComplexType implements ComplexInt
      */
     public function getMscAddress()
     {
-        return ($this->mscAddress) ? $this->mscAddress->getValue() : null;
+        return ($this->mscAddress)
+            ? $this->mscAddress->getElementValue()
+            : null;
     }
 }

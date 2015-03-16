@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
 class GroupRoutePointGetDNISAgentListRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceRoutePoint\GroupRoutePointGetDNISAgentListResponse';
-    public    $name = 'GroupRoutePointGetDNISAgentListRequest';
+    public    $elementName = 'GroupRoutePointGetDNISAgentListRequest';
     protected $dnisKey;
 
     public function __construct(
@@ -46,7 +46,7 @@ class GroupRoutePointGetDNISAgentListRequest extends ComplexType implements Comp
         $this->dnisKey = ($dnisKey InstanceOf DNISKey)
              ? $dnisKey
              : new DNISKey($dnisKey);
-        $this->dnisKey->setName('dnisKey');
+        $this->dnisKey->setElementName('dnisKey');
         return $this;
     }
 

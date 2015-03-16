@@ -25,7 +25,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class DepartmentKey extends ComplexType implements ComplexInterface
 {
-    public    $name = 'DepartmentKey';
+    public    $elementName = 'DepartmentKey';
 
     public function __construct(    ) {
     }

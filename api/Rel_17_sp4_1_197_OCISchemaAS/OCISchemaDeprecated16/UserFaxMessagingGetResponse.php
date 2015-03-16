@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserFaxMessagingGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'UserFaxMessagingGetResponse';
+    public    $elementName = 'UserFaxMessagingGetResponse';
     protected $isActive;
     protected $phoneNumber;
     protected $extension;
@@ -40,7 +40,7 @@ class UserFaxMessagingGetResponse extends ComplexType implements ComplexInterfac
     public function setIsActive($isActive = null)
     {
         $this->isActive = new PrimitiveType($isActive);
-        $this->isActive->setName('isActive');
+        $this->isActive->setElementName('isActive');
         return $this;
     }
 
@@ -50,7 +50,9 @@ class UserFaxMessagingGetResponse extends ComplexType implements ComplexInterfac
      */
     public function getIsActive()
     {
-        return ($this->isActive) ? $this->isActive->getValue() : null;
+        return ($this->isActive)
+            ? $this->isActive->getElementValue()
+            : null;
     }
 
     /**
@@ -61,7 +63,7 @@ class UserFaxMessagingGetResponse extends ComplexType implements ComplexInterfac
         $this->phoneNumber = ($phoneNumber InstanceOf DN)
              ? $phoneNumber
              : new DN($phoneNumber);
-        $this->phoneNumber->setName('phoneNumber');
+        $this->phoneNumber->setElementName('phoneNumber');
         return $this;
     }
 
@@ -71,7 +73,9 @@ class UserFaxMessagingGetResponse extends ComplexType implements ComplexInterfac
      */
     public function getPhoneNumber()
     {
-        return ($this->phoneNumber) ? $this->phoneNumber->getValue() : null;
+        return ($this->phoneNumber)
+            ? $this->phoneNumber->getElementValue()
+            : null;
     }
 
     /**
@@ -82,7 +86,7 @@ class UserFaxMessagingGetResponse extends ComplexType implements ComplexInterfac
         $this->extension = ($extension InstanceOf Extension)
              ? $extension
              : new Extension($extension);
-        $this->extension->setName('extension');
+        $this->extension->setElementName('extension');
         return $this;
     }
 
@@ -92,6 +96,8 @@ class UserFaxMessagingGetResponse extends ComplexType implements ComplexInterfac
      */
     public function getExtension()
     {
-        return ($this->extension) ? $this->extension->getValue() : null;
+        return ($this->extension)
+            ? $this->extension->getElementValue()
+            : null;
     }
 }

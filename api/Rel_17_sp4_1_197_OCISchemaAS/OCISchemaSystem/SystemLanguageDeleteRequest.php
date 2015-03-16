@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemLanguageDeleteRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemLanguageDeleteRequest';
+    public    $elementName = 'SystemLanguageDeleteRequest';
     protected $language;
 
     public function __construct(
@@ -45,7 +45,7 @@ class SystemLanguageDeleteRequest extends ComplexType implements ComplexInterfac
         $this->language = ($language InstanceOf Language)
              ? $language
              : new Language($language);
-        $this->language->setName('language');
+        $this->language->setElementName('language');
         return $this;
     }
 
@@ -55,6 +55,8 @@ class SystemLanguageDeleteRequest extends ComplexType implements ComplexInterfac
      */
     public function getLanguage()
     {
-        return ($this->language) ? $this->language->getValue() : null;
+        return ($this->language)
+            ? $this->language->getElementValue()
+            : null;
     }
 }

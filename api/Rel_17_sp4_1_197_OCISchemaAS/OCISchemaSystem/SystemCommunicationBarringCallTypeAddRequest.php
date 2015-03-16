@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemCommunicationBarringCallTypeAddRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemCommunicationBarringCallTypeAddRequest';
+    public    $elementName = 'SystemCommunicationBarringCallTypeAddRequest';
     protected $callType;
     protected $networkServerCallType;
 
@@ -48,7 +48,7 @@ class SystemCommunicationBarringCallTypeAddRequest extends ComplexType implement
         $this->callType = ($callType InstanceOf CommunicationBarringCallType)
              ? $callType
              : new CommunicationBarringCallType($callType);
-        $this->callType->setName('callType');
+        $this->callType->setElementName('callType');
         return $this;
     }
 
@@ -58,7 +58,9 @@ class SystemCommunicationBarringCallTypeAddRequest extends ComplexType implement
      */
     public function getCallType()
     {
-        return ($this->callType) ? $this->callType->getValue() : null;
+        return ($this->callType)
+            ? $this->callType->getElementValue()
+            : null;
     }
 
     /**
@@ -69,7 +71,7 @@ class SystemCommunicationBarringCallTypeAddRequest extends ComplexType implement
         $this->networkServerCallType = ($networkServerCallType InstanceOf NetworkServerCallType)
              ? $networkServerCallType
              : new NetworkServerCallType($networkServerCallType);
-        $this->networkServerCallType->setName('networkServerCallType');
+        $this->networkServerCallType->setElementName('networkServerCallType');
         return $this;
     }
 
@@ -79,6 +81,8 @@ class SystemCommunicationBarringCallTypeAddRequest extends ComplexType implement
      */
     public function getNetworkServerCallType()
     {
-        return ($this->networkServerCallType) ? $this->networkServerCallType->getValue() : null;
+        return ($this->networkServerCallType)
+            ? $this->networkServerCallType->getElementValue()
+            : null;
     }
 }

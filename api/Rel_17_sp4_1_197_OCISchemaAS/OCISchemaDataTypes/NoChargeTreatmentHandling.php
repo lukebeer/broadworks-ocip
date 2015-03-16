@@ -17,12 +17,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\Enumeration;
  */
 class NoChargeTreatmentHandling extends SimpleType
 {
-    public $name = "NoChargeTreatmentHandling";
-    protected $value;
-
+    public $elementName = "NoChargeTreatmentHandling";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new Enumeration([
             'Answer',
             'Early Media'

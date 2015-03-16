@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
 class UserCallCenterGetAgentSupervisorListRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType  = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\UserCallCenterGetAgentSupervisorListResponse';
-    public    $name = 'UserCallCenterGetAgentSupervisorListRequest';
+    public    $elementName = 'UserCallCenterGetAgentSupervisorListRequest';
     protected $agentUserId;
     protected $serviceUserId;
 
@@ -50,7 +50,7 @@ class UserCallCenterGetAgentSupervisorListRequest extends ComplexType implements
         $this->agentUserId = ($agentUserId InstanceOf UserId)
              ? $agentUserId
              : new UserId($agentUserId);
-        $this->agentUserId->setName('agentUserId');
+        $this->agentUserId->setElementName('agentUserId');
         return $this;
     }
 
@@ -60,7 +60,9 @@ class UserCallCenterGetAgentSupervisorListRequest extends ComplexType implements
      */
     public function getAgentUserId()
     {
-        return ($this->agentUserId) ? $this->agentUserId->getValue() : null;
+        return ($this->agentUserId)
+            ? $this->agentUserId->getElementValue()
+            : null;
     }
 
     /**
@@ -71,7 +73,7 @@ class UserCallCenterGetAgentSupervisorListRequest extends ComplexType implements
         $this->serviceUserId = ($serviceUserId InstanceOf UserId)
              ? $serviceUserId
              : new UserId($serviceUserId);
-        $this->serviceUserId->setName('serviceUserId');
+        $this->serviceUserId->setElementName('serviceUserId');
         return $this;
     }
 
@@ -81,6 +83,8 @@ class UserCallCenterGetAgentSupervisorListRequest extends ComplexType implements
      */
     public function getServiceUserId()
     {
-        return ($this->serviceUserId) ? $this->serviceUserId->getValue() : null;
+        return ($this->serviceUserId)
+            ? $this->serviceUserId->getElementValue()
+            : null;
     }
 }

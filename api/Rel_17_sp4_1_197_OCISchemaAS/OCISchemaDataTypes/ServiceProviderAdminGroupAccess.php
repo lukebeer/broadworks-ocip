@@ -17,12 +17,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\Enumeration;
  */
 class ServiceProviderAdminGroupAccess extends SimpleType
 {
-    public $name = "ServiceProviderAdminGroupAccess";
-    protected $value;
-
+    public $elementName = "ServiceProviderAdminGroupAccess";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new Enumeration([
             'Full',
             'Restricted from Adding or Removing Groups',

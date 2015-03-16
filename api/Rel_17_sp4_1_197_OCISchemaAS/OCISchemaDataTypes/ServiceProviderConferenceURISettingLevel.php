@@ -17,12 +17,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\Enumeration;
  */
 class ServiceProviderConferenceURISettingLevel extends SimpleType
 {
-    public $name = "ServiceProviderConferenceURISettingLevel";
-    protected $value;
-
+    public $elementName = "ServiceProviderConferenceURISettingLevel";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new Enumeration([
             'System',
             'Service Provider'

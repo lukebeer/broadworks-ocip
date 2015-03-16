@@ -19,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class AccessDeviceMultipleContactEndpointRead extends ComplexType implements ComplexInterface
 {
-    public    $name = 'AccessDeviceMultipleContactEndpointRead';
+    public    $elementName = 'AccessDeviceMultipleContactEndpointRead';
     protected $accessDevice;
     protected $linePort;
     protected $contact;
@@ -54,7 +54,7 @@ class AccessDeviceMultipleContactEndpointRead extends ComplexType implements Com
     public function setAccessDevice($accessDevice = null)
     {
         $this->accessDevice = new SimpleContent($accessDevice);
-        $this->accessDevice->setName('accessDevice');
+        $this->accessDevice->setElementName('accessDevice');
         return $this;
     }
 
@@ -64,7 +64,9 @@ class AccessDeviceMultipleContactEndpointRead extends ComplexType implements Com
      */
     public function getAccessDevice()
     {
-        return ($this->accessDevice) ? $this->accessDevice->getValue() : null;
+        return ($this->accessDevice)
+            ? $this->accessDevice->getElementValue()
+            : null;
     }
 
     /**
@@ -73,7 +75,7 @@ class AccessDeviceMultipleContactEndpointRead extends ComplexType implements Com
     public function setLinePort($linePort = null)
     {
         $this->linePort = new SimpleContent($linePort);
-        $this->linePort->setName('linePort');
+        $this->linePort->setElementName('linePort');
         return $this;
     }
 
@@ -83,7 +85,9 @@ class AccessDeviceMultipleContactEndpointRead extends ComplexType implements Com
      */
     public function getLinePort()
     {
-        return ($this->linePort) ? $this->linePort->getValue() : null;
+        return ($this->linePort)
+            ? $this->linePort->getElementValue()
+            : null;
     }
 
     /**
@@ -92,7 +96,7 @@ class AccessDeviceMultipleContactEndpointRead extends ComplexType implements Com
     public function setContact($contact = null)
     {
         $this->contact = new SimpleContent($contact);
-        $this->contact->setName('contact');
+        $this->contact->setElementName('contact');
         return $this;
     }
 
@@ -102,7 +106,9 @@ class AccessDeviceMultipleContactEndpointRead extends ComplexType implements Com
      */
     public function getContact()
     {
-        return ($this->contact) ? $this->contact->getValue() : null;
+        return ($this->contact)
+            ? $this->contact->getElementValue()
+            : null;
     }
 
     /**
@@ -111,7 +117,7 @@ class AccessDeviceMultipleContactEndpointRead extends ComplexType implements Com
     public function setStaticRegistrationCapable($staticRegistrationCapable = null)
     {
         $this->staticRegistrationCapable = new SimpleContent($staticRegistrationCapable);
-        $this->staticRegistrationCapable->setName('staticRegistrationCapable');
+        $this->staticRegistrationCapable->setElementName('staticRegistrationCapable');
         return $this;
     }
 
@@ -121,7 +127,9 @@ class AccessDeviceMultipleContactEndpointRead extends ComplexType implements Com
      */
     public function getStaticRegistrationCapable()
     {
-        return ($this->staticRegistrationCapable) ? $this->staticRegistrationCapable->getValue() : null;
+        return ($this->staticRegistrationCapable)
+            ? $this->staticRegistrationCapable->getElementValue()
+            : null;
     }
 
     /**
@@ -130,7 +138,7 @@ class AccessDeviceMultipleContactEndpointRead extends ComplexType implements Com
     public function setUseDomain($useDomain = null)
     {
         $this->useDomain = new SimpleContent($useDomain);
-        $this->useDomain->setName('useDomain');
+        $this->useDomain->setElementName('useDomain');
         return $this;
     }
 
@@ -140,6 +148,8 @@ class AccessDeviceMultipleContactEndpointRead extends ComplexType implements Com
      */
     public function getUseDomain()
     {
-        return ($this->useDomain) ? $this->useDomain->getValue() : null;
+        return ($this->useDomain)
+            ? $this->useDomain->getElementValue()
+            : null;
     }
 }

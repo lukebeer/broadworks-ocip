@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class EnterpriseCallCenterEnhancedReportingModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'EnterpriseCallCenterEnhancedReportingModifyRequest';
+    public    $elementName = 'EnterpriseCallCenterEnhancedReportingModifyRequest';
     protected $serviceProviderId;
     protected $reportingServer;
     protected $webStatisticSource;
@@ -53,7 +53,7 @@ class EnterpriseCallCenterEnhancedReportingModifyRequest extends ComplexType imp
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
-        $this->serviceProviderId->setName('serviceProviderId');
+        $this->serviceProviderId->setElementName('serviceProviderId');
         return $this;
     }
 
@@ -63,7 +63,9 @@ class EnterpriseCallCenterEnhancedReportingModifyRequest extends ComplexType imp
      */
     public function getServiceProviderId()
     {
-        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
+        return ($this->serviceProviderId)
+            ? $this->serviceProviderId->getElementValue()
+            : null;
     }
 
     /**
@@ -74,7 +76,7 @@ class EnterpriseCallCenterEnhancedReportingModifyRequest extends ComplexType imp
         $this->reportingServer = ($reportingServer InstanceOf CallCenterReportServerChoice)
              ? $reportingServer
              : new CallCenterReportServerChoice($reportingServer);
-        $this->reportingServer->setName('reportingServer');
+        $this->reportingServer->setElementName('reportingServer');
         return $this;
     }
 
@@ -84,7 +86,9 @@ class EnterpriseCallCenterEnhancedReportingModifyRequest extends ComplexType imp
      */
     public function getReportingServer()
     {
-        return ($this->reportingServer) ? $this->reportingServer->getValue() : null;
+        return ($this->reportingServer)
+            ? $this->reportingServer->getElementValue()
+            : null;
     }
 
     /**
@@ -95,7 +99,7 @@ class EnterpriseCallCenterEnhancedReportingModifyRequest extends ComplexType imp
         $this->webStatisticSource = ($webStatisticSource InstanceOf CallCenterReportWebStatisticsSource)
              ? $webStatisticSource
              : new CallCenterReportWebStatisticsSource($webStatisticSource);
-        $this->webStatisticSource->setName('webStatisticSource');
+        $this->webStatisticSource->setElementName('webStatisticSource');
         return $this;
     }
 
@@ -105,6 +109,8 @@ class EnterpriseCallCenterEnhancedReportingModifyRequest extends ComplexType imp
      */
     public function getWebStatisticSource()
     {
-        return ($this->webStatisticSource) ? $this->webStatisticSource->getValue() : null;
+        return ($this->webStatisticSource)
+            ? $this->webStatisticSource->getElementValue()
+            : null;
     }
 }

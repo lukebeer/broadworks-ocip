@@ -19,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SearchCriteriaExactEndpointType extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SearchCriteriaExactEndpointType';
+    public    $elementName = 'SearchCriteriaExactEndpointType';
     protected $endpointType;
 
     public function __construct(
@@ -44,7 +44,7 @@ class SearchCriteriaExactEndpointType extends ComplexType implements ComplexInte
         $this->endpointType = ($endpointType InstanceOf EndpointType)
              ? $endpointType
              : new EndpointType($endpointType);
-        $this->endpointType->setName('endpointType');
+        $this->endpointType->setElementName('endpointType');
         return $this;
     }
 
@@ -54,6 +54,8 @@ class SearchCriteriaExactEndpointType extends ComplexType implements ComplexInte
      */
     public function getEndpointType()
     {
-        return ($this->endpointType) ? $this->endpointType->getValue() : null;
+        return ($this->endpointType)
+            ? $this->endpointType->getElementValue()
+            : null;
     }
 }

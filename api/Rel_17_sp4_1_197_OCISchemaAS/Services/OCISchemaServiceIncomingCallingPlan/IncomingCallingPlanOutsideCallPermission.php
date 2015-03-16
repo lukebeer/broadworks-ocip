@@ -16,12 +16,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\Enumeration;
  */
 class IncomingCallingPlanOutsideCallPermission extends SimpleType
 {
-    public $name = "IncomingCallingPlanOutsideCallPermission";
-    protected $value;
-
+    public $elementName = "IncomingCallingPlanOutsideCallPermission";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new Enumeration([
             'Allow',
             'Allow Only If Redirected From Another User',

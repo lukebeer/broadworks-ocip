@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SearchCriteria extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SearchCriteria';
+    public    $elementName = 'SearchCriteria';
 
     public function __construct(    ) {
     }

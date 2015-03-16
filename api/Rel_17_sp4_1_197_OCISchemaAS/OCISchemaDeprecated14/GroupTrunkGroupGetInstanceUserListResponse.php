@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupTrunkGroupGetInstanceUserListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'GroupTrunkGroupGetInstanceUserListResponse';
+    public    $elementName = 'GroupTrunkGroupGetInstanceUserListResponse';
     protected $trunkGroupUserTable;
 
     /**
@@ -38,7 +38,7 @@ class GroupTrunkGroupGetInstanceUserListResponse extends ComplexType implements 
     public function setTrunkGroupUserTable(TableType $trunkGroupUserTable = null)
     {
         $this->trunkGroupUserTable = $trunkGroupUserTable;
-        $this->trunkGroupUserTable->setName('trunkGroupUserTable');
+        $this->trunkGroupUserTable->setElementName('trunkGroupUserTable');
         return $this;
     }
 

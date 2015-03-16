@@ -19,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class CommunicationBarringIncomingRule extends ComplexType implements ComplexInterface
 {
-    public    $name = 'CommunicationBarringIncomingRule';
+    public    $elementName = 'CommunicationBarringIncomingRule';
     protected $digitPatternCriteria;
     protected $action;
     protected $callTimeoutSeconds;
@@ -57,7 +57,7 @@ class CommunicationBarringIncomingRule extends ComplexType implements ComplexInt
     public function setDigitPatternCriteria($digitPatternCriteria = null)
     {
         $this->digitPatternCriteria = new SimpleContent($digitPatternCriteria);
-        $this->digitPatternCriteria->setName('digitPatternCriteria');
+        $this->digitPatternCriteria->setElementName('digitPatternCriteria');
         return $this;
     }
 
@@ -67,7 +67,9 @@ class CommunicationBarringIncomingRule extends ComplexType implements ComplexInt
      */
     public function getDigitPatternCriteria()
     {
-        return ($this->digitPatternCriteria) ? $this->digitPatternCriteria->getValue() : null;
+        return ($this->digitPatternCriteria)
+            ? $this->digitPatternCriteria->getElementValue()
+            : null;
     }
 
     /**
@@ -76,7 +78,7 @@ class CommunicationBarringIncomingRule extends ComplexType implements ComplexInt
     public function setAction($action = null)
     {
         $this->action = new SimpleContent($action);
-        $this->action->setName('action');
+        $this->action->setElementName('action');
         return $this;
     }
 
@@ -86,7 +88,9 @@ class CommunicationBarringIncomingRule extends ComplexType implements ComplexInt
      */
     public function getAction()
     {
-        return ($this->action) ? $this->action->getValue() : null;
+        return ($this->action)
+            ? $this->action->getElementValue()
+            : null;
     }
 
     /**
@@ -95,7 +99,7 @@ class CommunicationBarringIncomingRule extends ComplexType implements ComplexInt
     public function setCallTimeoutSeconds($callTimeoutSeconds = null)
     {
         $this->callTimeoutSeconds = new SimpleContent($callTimeoutSeconds);
-        $this->callTimeoutSeconds->setName('callTimeoutSeconds');
+        $this->callTimeoutSeconds->setElementName('callTimeoutSeconds');
         return $this;
     }
 
@@ -105,7 +109,9 @@ class CommunicationBarringIncomingRule extends ComplexType implements ComplexInt
      */
     public function getCallTimeoutSeconds()
     {
-        return ($this->callTimeoutSeconds) ? $this->callTimeoutSeconds->getValue() : null;
+        return ($this->callTimeoutSeconds)
+            ? $this->callTimeoutSeconds->getElementValue()
+            : null;
     }
 
     /**
@@ -114,7 +120,7 @@ class CommunicationBarringIncomingRule extends ComplexType implements ComplexInt
     public function setTimeSchedule($timeSchedule = null)
     {
         $this->timeSchedule = new SimpleContent($timeSchedule);
-        $this->timeSchedule->setName('timeSchedule');
+        $this->timeSchedule->setElementName('timeSchedule');
         return $this;
     }
 
@@ -124,7 +130,9 @@ class CommunicationBarringIncomingRule extends ComplexType implements ComplexInt
      */
     public function getTimeSchedule()
     {
-        return ($this->timeSchedule) ? $this->timeSchedule->getValue() : null;
+        return ($this->timeSchedule)
+            ? $this->timeSchedule->getElementValue()
+            : null;
     }
 
     /**
@@ -133,7 +141,7 @@ class CommunicationBarringIncomingRule extends ComplexType implements ComplexInt
     public function setHolidaySchedule($holidaySchedule = null)
     {
         $this->holidaySchedule = new SimpleContent($holidaySchedule);
-        $this->holidaySchedule->setName('holidaySchedule');
+        $this->holidaySchedule->setElementName('holidaySchedule');
         return $this;
     }
 
@@ -143,7 +151,9 @@ class CommunicationBarringIncomingRule extends ComplexType implements ComplexInt
      */
     public function getHolidaySchedule()
     {
-        return ($this->holidaySchedule) ? $this->holidaySchedule->getValue() : null;
+        return ($this->holidaySchedule)
+            ? $this->holidaySchedule->getElementValue()
+            : null;
     }
 
     /**
@@ -152,7 +162,7 @@ class CommunicationBarringIncomingRule extends ComplexType implements ComplexInt
     public function setPriority($priority = null)
     {
         $this->priority = new SimpleContent($priority);
-        $this->priority->setName('priority');
+        $this->priority->setElementName('priority');
         return $this;
     }
 
@@ -162,6 +172,8 @@ class CommunicationBarringIncomingRule extends ComplexType implements ComplexInt
      */
     public function getPriority()
     {
-        return ($this->priority) ? $this->priority->getValue() : null;
+        return ($this->priority)
+            ? $this->priority->getElementValue()
+            : null;
     }
 }

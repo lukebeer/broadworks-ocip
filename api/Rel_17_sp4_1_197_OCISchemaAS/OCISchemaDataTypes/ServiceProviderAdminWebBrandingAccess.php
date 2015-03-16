@@ -16,12 +16,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\Enumeration;
  */
 class ServiceProviderAdminWebBrandingAccess extends SimpleType
 {
-    public $name = "ServiceProviderAdminWebBrandingAccess";
-    protected $value;
-
+    public $elementName = "ServiceProviderAdminWebBrandingAccess";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new Enumeration([
             'Full',
             'None'

@@ -23,7 +23,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemZoneCallingRestrictionsZoneModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemZoneCallingRestrictionsZoneModifyRequest';
+    public    $elementName = 'SystemZoneCallingRestrictionsZoneModifyRequest';
     protected $zoneName;
     protected $physicalLocation;
 
@@ -51,7 +51,7 @@ class SystemZoneCallingRestrictionsZoneModifyRequest extends ComplexType impleme
         $this->zoneName = ($zoneName InstanceOf ZoneName)
              ? $zoneName
              : new ZoneName($zoneName);
-        $this->zoneName->setName('zoneName');
+        $this->zoneName->setElementName('zoneName');
         return $this;
     }
 
@@ -61,7 +61,9 @@ class SystemZoneCallingRestrictionsZoneModifyRequest extends ComplexType impleme
      */
     public function getZoneName()
     {
-        return ($this->zoneName) ? $this->zoneName->getValue() : null;
+        return ($this->zoneName)
+            ? $this->zoneName->getElementValue()
+            : null;
     }
 
     /**
@@ -72,7 +74,7 @@ class SystemZoneCallingRestrictionsZoneModifyRequest extends ComplexType impleme
         $this->physicalLocation = ($physicalLocation InstanceOf PhysicalLocation)
              ? $physicalLocation
              : new PhysicalLocation($physicalLocation);
-        $this->physicalLocation->setName('physicalLocation');
+        $this->physicalLocation->setElementName('physicalLocation');
         return $this;
     }
 
@@ -82,6 +84,8 @@ class SystemZoneCallingRestrictionsZoneModifyRequest extends ComplexType impleme
      */
     public function getPhysicalLocation()
     {
-        return ($this->physicalLocation) ? $this->physicalLocation->getValue() : null;
+        return ($this->physicalLocation)
+            ? $this->physicalLocation->getElementValue()
+            : null;
     }
 }

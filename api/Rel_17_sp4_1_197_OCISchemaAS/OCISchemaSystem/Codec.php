@@ -16,12 +16,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\Enumeration;
  */
 class Codec extends SimpleType
 {
-    public $name = "Codec";
-    protected $value;
-
+    public $elementName = "Codec";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new Enumeration([
             'Clear',
             'G711alaw',

@@ -23,7 +23,7 @@ use Broadworks_OCIP\core\Client\Client;
 class UserCallProcessingGetPolicyRequest14sp1 extends ComplexType implements ComplexInterface
 {
     public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\UserCallProcessingGetPolicyResponse14sp1';
-    public    $name = 'UserCallProcessingGetPolicyRequest14sp1';
+    public    $elementName = 'UserCallProcessingGetPolicyRequest14sp1';
     protected $userId;
 
     public function __construct(
@@ -48,7 +48,7 @@ class UserCallProcessingGetPolicyRequest14sp1 extends ComplexType implements Com
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
-        $this->userId->setName('userId');
+        $this->userId->setElementName('userId');
         return $this;
     }
 
@@ -58,6 +58,8 @@ class UserCallProcessingGetPolicyRequest14sp1 extends ComplexType implements Com
      */
     public function getUserId()
     {
-        return ($this->userId) ? $this->userId->getValue() : null;
+        return ($this->userId)
+            ? $this->userId->getElementValue()
+            : null;
     }
 }

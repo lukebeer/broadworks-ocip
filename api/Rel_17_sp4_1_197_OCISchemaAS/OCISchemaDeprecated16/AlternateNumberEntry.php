@@ -19,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class AlternateNumberEntry extends ComplexType implements ComplexInterface
 {
-    public    $name = 'AlternateNumberEntry';
+    public    $elementName = 'AlternateNumberEntry';
     protected $phoneNumber;
     protected $extension;
     protected $ringPattern;
@@ -48,7 +48,7 @@ class AlternateNumberEntry extends ComplexType implements ComplexInterface
     public function setPhoneNumber($phoneNumber = null)
     {
         $this->phoneNumber = new SimpleContent($phoneNumber);
-        $this->phoneNumber->setName('phoneNumber');
+        $this->phoneNumber->setElementName('phoneNumber');
         return $this;
     }
 
@@ -58,7 +58,9 @@ class AlternateNumberEntry extends ComplexType implements ComplexInterface
      */
     public function getPhoneNumber()
     {
-        return ($this->phoneNumber) ? $this->phoneNumber->getValue() : null;
+        return ($this->phoneNumber)
+            ? $this->phoneNumber->getElementValue()
+            : null;
     }
 
     /**
@@ -67,7 +69,7 @@ class AlternateNumberEntry extends ComplexType implements ComplexInterface
     public function setExtension($extension = null)
     {
         $this->extension = new SimpleContent($extension);
-        $this->extension->setName('extension');
+        $this->extension->setElementName('extension');
         return $this;
     }
 
@@ -77,7 +79,9 @@ class AlternateNumberEntry extends ComplexType implements ComplexInterface
      */
     public function getExtension()
     {
-        return ($this->extension) ? $this->extension->getValue() : null;
+        return ($this->extension)
+            ? $this->extension->getElementValue()
+            : null;
     }
 
     /**
@@ -86,7 +90,7 @@ class AlternateNumberEntry extends ComplexType implements ComplexInterface
     public function setRingPattern($ringPattern = null)
     {
         $this->ringPattern = new SimpleContent($ringPattern);
-        $this->ringPattern->setName('ringPattern');
+        $this->ringPattern->setElementName('ringPattern');
         return $this;
     }
 
@@ -96,6 +100,8 @@ class AlternateNumberEntry extends ComplexType implements ComplexInterface
      */
     public function getRingPattern()
     {
-        return ($this->ringPattern) ? $this->ringPattern->getValue() : null;
+        return ($this->ringPattern)
+            ? $this->ringPattern->getElementValue()
+            : null;
     }
 }

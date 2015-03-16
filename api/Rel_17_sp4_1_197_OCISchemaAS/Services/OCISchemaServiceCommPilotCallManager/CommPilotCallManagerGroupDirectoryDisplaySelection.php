@@ -16,12 +16,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\Enumeration;
  */
 class CommPilotCallManagerGroupDirectoryDisplaySelection extends SimpleType
 {
-    public $name = "CommPilotCallManagerGroupDirectoryDisplaySelection";
-    protected $value;
-
+    public $elementName = "CommPilotCallManagerGroupDirectoryDisplaySelection";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new Enumeration([
             'Display',
             'Hide',

@@ -28,7 +28,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemBwDiameterBaseDataGetResponse17sp3 extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemBwDiameterBaseDataGetResponse17sp3';
+    public    $elementName = 'SystemBwDiameterBaseDataGetResponse17sp3';
     protected $xsRealm;
     protected $xsListeningPort;
     protected $psRealm;
@@ -60,7 +60,7 @@ class SystemBwDiameterBaseDataGetResponse17sp3 extends ComplexType implements Co
         $this->xsRealm = ($xsRealm InstanceOf DomainName)
              ? $xsRealm
              : new DomainName($xsRealm);
-        $this->xsRealm->setName('xsRealm');
+        $this->xsRealm->setElementName('xsRealm');
         return $this;
     }
 
@@ -70,7 +70,9 @@ class SystemBwDiameterBaseDataGetResponse17sp3 extends ComplexType implements Co
      */
     public function getXsRealm()
     {
-        return ($this->xsRealm) ? $this->xsRealm->getValue() : null;
+        return ($this->xsRealm)
+            ? $this->xsRealm->getElementValue()
+            : null;
     }
 
     /**
@@ -81,7 +83,7 @@ class SystemBwDiameterBaseDataGetResponse17sp3 extends ComplexType implements Co
         $this->xsListeningPort = ($xsListeningPort InstanceOf Port1025)
              ? $xsListeningPort
              : new Port1025($xsListeningPort);
-        $this->xsListeningPort->setName('xsListeningPort');
+        $this->xsListeningPort->setElementName('xsListeningPort');
         return $this;
     }
 
@@ -91,7 +93,9 @@ class SystemBwDiameterBaseDataGetResponse17sp3 extends ComplexType implements Co
      */
     public function getXsListeningPort()
     {
-        return ($this->xsListeningPort) ? $this->xsListeningPort->getValue() : null;
+        return ($this->xsListeningPort)
+            ? $this->xsListeningPort->getElementValue()
+            : null;
     }
 
     /**
@@ -102,7 +106,7 @@ class SystemBwDiameterBaseDataGetResponse17sp3 extends ComplexType implements Co
         $this->psRealm = ($psRealm InstanceOf DomainName)
              ? $psRealm
              : new DomainName($psRealm);
-        $this->psRealm->setName('psRealm');
+        $this->psRealm->setElementName('psRealm');
         return $this;
     }
 
@@ -112,7 +116,9 @@ class SystemBwDiameterBaseDataGetResponse17sp3 extends ComplexType implements Co
      */
     public function getPsRealm()
     {
-        return ($this->psRealm) ? $this->psRealm->getValue() : null;
+        return ($this->psRealm)
+            ? $this->psRealm->getElementValue()
+            : null;
     }
 
     /**
@@ -123,7 +129,7 @@ class SystemBwDiameterBaseDataGetResponse17sp3 extends ComplexType implements Co
         $this->psListeningPort = ($psListeningPort InstanceOf Port1025)
              ? $psListeningPort
              : new Port1025($psListeningPort);
-        $this->psListeningPort->setName('psListeningPort');
+        $this->psListeningPort->setElementName('psListeningPort');
         return $this;
     }
 
@@ -133,7 +139,9 @@ class SystemBwDiameterBaseDataGetResponse17sp3 extends ComplexType implements Co
      */
     public function getPsListeningPort()
     {
-        return ($this->psListeningPort) ? $this->psListeningPort->getValue() : null;
+        return ($this->psListeningPort)
+            ? $this->psListeningPort->getElementValue()
+            : null;
     }
 
     /**
@@ -142,7 +150,7 @@ class SystemBwDiameterBaseDataGetResponse17sp3 extends ComplexType implements Co
     public function setPsRelayThroughXs($psRelayThroughXs = null)
     {
         $this->psRelayThroughXs = new PrimitiveType($psRelayThroughXs);
-        $this->psRelayThroughXs->setName('psRelayThroughXs');
+        $this->psRelayThroughXs->setElementName('psRelayThroughXs');
         return $this;
     }
 
@@ -152,7 +160,9 @@ class SystemBwDiameterBaseDataGetResponse17sp3 extends ComplexType implements Co
      */
     public function getPsRelayThroughXs()
     {
-        return ($this->psRelayThroughXs) ? $this->psRelayThroughXs->getValue() : null;
+        return ($this->psRelayThroughXs)
+            ? $this->psRelayThroughXs->getElementValue()
+            : null;
     }
 
     /**
@@ -163,7 +173,7 @@ class SystemBwDiameterBaseDataGetResponse17sp3 extends ComplexType implements Co
         $this->xsRelayListeningPort = ($xsRelayListeningPort InstanceOf Port1025)
              ? $xsRelayListeningPort
              : new Port1025($xsRelayListeningPort);
-        $this->xsRelayListeningPort->setName('xsRelayListeningPort');
+        $this->xsRelayListeningPort->setElementName('xsRelayListeningPort');
         return $this;
     }
 
@@ -173,7 +183,9 @@ class SystemBwDiameterBaseDataGetResponse17sp3 extends ComplexType implements Co
      */
     public function getXsRelayListeningPort()
     {
-        return ($this->xsRelayListeningPort) ? $this->xsRelayListeningPort->getValue() : null;
+        return ($this->xsRelayListeningPort)
+            ? $this->xsRelayListeningPort->getElementValue()
+            : null;
     }
 
     /**
@@ -184,7 +196,7 @@ class SystemBwDiameterBaseDataGetResponse17sp3 extends ComplexType implements Co
         $this->tcTimerSeconds = ($tcTimerSeconds InstanceOf BwDiameterTcTimerSeconds)
              ? $tcTimerSeconds
              : new BwDiameterTcTimerSeconds($tcTimerSeconds);
-        $this->tcTimerSeconds->setName('tcTimerSeconds');
+        $this->tcTimerSeconds->setElementName('tcTimerSeconds');
         return $this;
     }
 
@@ -194,7 +206,9 @@ class SystemBwDiameterBaseDataGetResponse17sp3 extends ComplexType implements Co
      */
     public function getTcTimerSeconds()
     {
-        return ($this->tcTimerSeconds) ? $this->tcTimerSeconds->getValue() : null;
+        return ($this->tcTimerSeconds)
+            ? $this->tcTimerSeconds->getElementValue()
+            : null;
     }
 
     /**
@@ -205,7 +219,7 @@ class SystemBwDiameterBaseDataGetResponse17sp3 extends ComplexType implements Co
         $this->twTimerSeconds = ($twTimerSeconds InstanceOf BwDiameterTwTimerSeconds)
              ? $twTimerSeconds
              : new BwDiameterTwTimerSeconds($twTimerSeconds);
-        $this->twTimerSeconds->setName('twTimerSeconds');
+        $this->twTimerSeconds->setElementName('twTimerSeconds');
         return $this;
     }
 
@@ -215,7 +229,9 @@ class SystemBwDiameterBaseDataGetResponse17sp3 extends ComplexType implements Co
      */
     public function getTwTimerSeconds()
     {
-        return ($this->twTimerSeconds) ? $this->twTimerSeconds->getValue() : null;
+        return ($this->twTimerSeconds)
+            ? $this->twTimerSeconds->getElementValue()
+            : null;
     }
 
     /**
@@ -226,7 +242,7 @@ class SystemBwDiameterBaseDataGetResponse17sp3 extends ComplexType implements Co
         $this->requestTimerSeconds = ($requestTimerSeconds InstanceOf BwDiameterRequestTimerSeconds)
              ? $requestTimerSeconds
              : new BwDiameterRequestTimerSeconds($requestTimerSeconds);
-        $this->requestTimerSeconds->setName('requestTimerSeconds');
+        $this->requestTimerSeconds->setElementName('requestTimerSeconds');
         return $this;
     }
 
@@ -236,7 +252,9 @@ class SystemBwDiameterBaseDataGetResponse17sp3 extends ComplexType implements Co
      */
     public function getRequestTimerSeconds()
     {
-        return ($this->requestTimerSeconds) ? $this->requestTimerSeconds->getValue() : null;
+        return ($this->requestTimerSeconds)
+            ? $this->requestTimerSeconds->getElementValue()
+            : null;
     }
 
     /**
@@ -247,7 +265,7 @@ class SystemBwDiameterBaseDataGetResponse17sp3 extends ComplexType implements Co
         $this->busyPeerDetectionOutstandingTxnCount = ($busyPeerDetectionOutstandingTxnCount InstanceOf BwDiameterBusyPeerOutstandingTxnCount)
              ? $busyPeerDetectionOutstandingTxnCount
              : new BwDiameterBusyPeerOutstandingTxnCount($busyPeerDetectionOutstandingTxnCount);
-        $this->busyPeerDetectionOutstandingTxnCount->setName('busyPeerDetectionOutstandingTxnCount');
+        $this->busyPeerDetectionOutstandingTxnCount->setElementName('busyPeerDetectionOutstandingTxnCount');
         return $this;
     }
 
@@ -257,7 +275,9 @@ class SystemBwDiameterBaseDataGetResponse17sp3 extends ComplexType implements Co
      */
     public function getBusyPeerDetectionOutstandingTxnCount()
     {
-        return ($this->busyPeerDetectionOutstandingTxnCount) ? $this->busyPeerDetectionOutstandingTxnCount->getValue() : null;
+        return ($this->busyPeerDetectionOutstandingTxnCount)
+            ? $this->busyPeerDetectionOutstandingTxnCount->getElementValue()
+            : null;
     }
 
     /**
@@ -268,7 +288,7 @@ class SystemBwDiameterBaseDataGetResponse17sp3 extends ComplexType implements Co
         $this->busyPeerRestoreOutstandingTxnCount = ($busyPeerRestoreOutstandingTxnCount InstanceOf BwDiameterBusyPeerOutstandingTxnCount)
              ? $busyPeerRestoreOutstandingTxnCount
              : new BwDiameterBusyPeerOutstandingTxnCount($busyPeerRestoreOutstandingTxnCount);
-        $this->busyPeerRestoreOutstandingTxnCount->setName('busyPeerRestoreOutstandingTxnCount');
+        $this->busyPeerRestoreOutstandingTxnCount->setElementName('busyPeerRestoreOutstandingTxnCount');
         return $this;
     }
 
@@ -278,7 +298,9 @@ class SystemBwDiameterBaseDataGetResponse17sp3 extends ComplexType implements Co
      */
     public function getBusyPeerRestoreOutstandingTxnCount()
     {
-        return ($this->busyPeerRestoreOutstandingTxnCount) ? $this->busyPeerRestoreOutstandingTxnCount->getValue() : null;
+        return ($this->busyPeerRestoreOutstandingTxnCount)
+            ? $this->busyPeerRestoreOutstandingTxnCount->getElementValue()
+            : null;
     }
 
     /**
@@ -289,7 +311,7 @@ class SystemBwDiameterBaseDataGetResponse17sp3 extends ComplexType implements Co
         $this->dynamicEntryInactivityTimerHours = ($dynamicEntryInactivityTimerHours InstanceOf BwDiameterDynamicEntryInactivityTimerHours)
              ? $dynamicEntryInactivityTimerHours
              : new BwDiameterDynamicEntryInactivityTimerHours($dynamicEntryInactivityTimerHours);
-        $this->dynamicEntryInactivityTimerHours->setName('dynamicEntryInactivityTimerHours');
+        $this->dynamicEntryInactivityTimerHours->setElementName('dynamicEntryInactivityTimerHours');
         return $this;
     }
 
@@ -299,7 +321,9 @@ class SystemBwDiameterBaseDataGetResponse17sp3 extends ComplexType implements Co
      */
     public function getDynamicEntryInactivityTimerHours()
     {
-        return ($this->dynamicEntryInactivityTimerHours) ? $this->dynamicEntryInactivityTimerHours->getValue() : null;
+        return ($this->dynamicEntryInactivityTimerHours)
+            ? $this->dynamicEntryInactivityTimerHours->getElementValue()
+            : null;
     }
 
     /**
@@ -310,7 +334,7 @@ class SystemBwDiameterBaseDataGetResponse17sp3 extends ComplexType implements Co
         $this->advertisedOfflineBillingApplication = ($advertisedOfflineBillingApplication InstanceOf BwDiameterAdvertisedApplication)
              ? $advertisedOfflineBillingApplication
              : new BwDiameterAdvertisedApplication($advertisedOfflineBillingApplication);
-        $this->advertisedOfflineBillingApplication->setName('advertisedOfflineBillingApplication');
+        $this->advertisedOfflineBillingApplication->setElementName('advertisedOfflineBillingApplication');
         return $this;
     }
 
@@ -320,7 +344,9 @@ class SystemBwDiameterBaseDataGetResponse17sp3 extends ComplexType implements Co
      */
     public function getAdvertisedOfflineBillingApplication()
     {
-        return ($this->advertisedOfflineBillingApplication) ? $this->advertisedOfflineBillingApplication->getValue() : null;
+        return ($this->advertisedOfflineBillingApplication)
+            ? $this->advertisedOfflineBillingApplication->getElementValue()
+            : null;
     }
 
     /**
@@ -331,7 +357,7 @@ class SystemBwDiameterBaseDataGetResponse17sp3 extends ComplexType implements Co
         $this->advertisedOnlineBillingApplication = ($advertisedOnlineBillingApplication InstanceOf BwDiameterAdvertisedApplication)
              ? $advertisedOnlineBillingApplication
              : new BwDiameterAdvertisedApplication($advertisedOnlineBillingApplication);
-        $this->advertisedOnlineBillingApplication->setName('advertisedOnlineBillingApplication');
+        $this->advertisedOnlineBillingApplication->setElementName('advertisedOnlineBillingApplication');
         return $this;
     }
 
@@ -341,6 +367,8 @@ class SystemBwDiameterBaseDataGetResponse17sp3 extends ComplexType implements Co
      */
     public function getAdvertisedOnlineBillingApplication()
     {
-        return ($this->advertisedOnlineBillingApplication) ? $this->advertisedOnlineBillingApplication->getValue() : null;
+        return ($this->advertisedOnlineBillingApplication)
+            ? $this->advertisedOnlineBillingApplication->getElementValue()
+            : null;
     }
 }

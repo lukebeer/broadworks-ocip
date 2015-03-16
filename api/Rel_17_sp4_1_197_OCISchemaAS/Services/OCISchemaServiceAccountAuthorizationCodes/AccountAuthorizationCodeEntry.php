@@ -19,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class AccountAuthorizationCodeEntry extends ComplexType implements ComplexInterface
 {
-    public    $name = 'AccountAuthorizationCodeEntry';
+    public    $elementName = 'AccountAuthorizationCodeEntry';
     protected $code;
     protected $description;
 
@@ -45,7 +45,7 @@ class AccountAuthorizationCodeEntry extends ComplexType implements ComplexInterf
     public function setCode($code = null)
     {
         $this->code = new SimpleContent($code);
-        $this->code->setName('code');
+        $this->code->setElementName('code');
         return $this;
     }
 
@@ -55,7 +55,9 @@ class AccountAuthorizationCodeEntry extends ComplexType implements ComplexInterf
      */
     public function getCode()
     {
-        return ($this->code) ? $this->code->getValue() : null;
+        return ($this->code)
+            ? $this->code->getElementValue()
+            : null;
     }
 
     /**
@@ -64,7 +66,7 @@ class AccountAuthorizationCodeEntry extends ComplexType implements ComplexInterf
     public function setDescription($description = null)
     {
         $this->description = new SimpleContent($description);
-        $this->description->setName('description');
+        $this->description->setElementName('description');
         return $this;
     }
 
@@ -74,6 +76,8 @@ class AccountAuthorizationCodeEntry extends ComplexType implements ComplexInterf
      */
     public function getDescription()
     {
-        return ($this->description) ? $this->description->getValue() : null;
+        return ($this->description)
+            ? $this->description->getElementValue()
+            : null;
     }
 }

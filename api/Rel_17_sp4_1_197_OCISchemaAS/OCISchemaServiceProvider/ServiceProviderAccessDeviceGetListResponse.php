@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderAccessDeviceGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'ServiceProviderAccessDeviceGetListResponse';
+    public    $elementName = 'ServiceProviderAccessDeviceGetListResponse';
     protected $accessDeviceTable;
 
     /**
@@ -39,7 +39,7 @@ class ServiceProviderAccessDeviceGetListResponse extends ComplexType implements 
     public function setAccessDeviceTable(TableType $accessDeviceTable = null)
     {
         $this->accessDeviceTable = $accessDeviceTable;
-        $this->accessDeviceTable->setName('accessDeviceTable');
+        $this->accessDeviceTable->setElementName('accessDeviceTable');
         return $this;
     }
 

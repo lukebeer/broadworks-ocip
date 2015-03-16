@@ -23,7 +23,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserInstantConferencingEndPresentationRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'UserInstantConferencingEndPresentationRequest';
+    public    $elementName = 'UserInstantConferencingEndPresentationRequest';
     protected $userId;
     protected $bridgeServiceUserId;
     protected $documentId;
@@ -60,7 +60,7 @@ class UserInstantConferencingEndPresentationRequest extends ComplexType implemen
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
-        $this->userId->setName('userId');
+        $this->userId->setElementName('userId');
         return $this;
     }
 
@@ -70,7 +70,9 @@ class UserInstantConferencingEndPresentationRequest extends ComplexType implemen
      */
     public function getUserId()
     {
-        return ($this->userId) ? $this->userId->getValue() : null;
+        return ($this->userId)
+            ? $this->userId->getElementValue()
+            : null;
     }
 
     /**
@@ -81,7 +83,7 @@ class UserInstantConferencingEndPresentationRequest extends ComplexType implemen
         $this->bridgeServiceUserId = ($bridgeServiceUserId InstanceOf UserId)
              ? $bridgeServiceUserId
              : new UserId($bridgeServiceUserId);
-        $this->bridgeServiceUserId->setName('bridgeServiceUserId');
+        $this->bridgeServiceUserId->setElementName('bridgeServiceUserId');
         return $this;
     }
 
@@ -91,7 +93,9 @@ class UserInstantConferencingEndPresentationRequest extends ComplexType implemen
      */
     public function getBridgeServiceUserId()
     {
-        return ($this->bridgeServiceUserId) ? $this->bridgeServiceUserId->getValue() : null;
+        return ($this->bridgeServiceUserId)
+            ? $this->bridgeServiceUserId->getElementValue()
+            : null;
     }
 
     /**
@@ -102,7 +106,7 @@ class UserInstantConferencingEndPresentationRequest extends ComplexType implemen
         $this->documentId = ($documentId InstanceOf InstantConferencingDocumentId)
              ? $documentId
              : new InstantConferencingDocumentId($documentId);
-        $this->documentId->setName('documentId');
+        $this->documentId->setElementName('documentId');
         return $this;
     }
 
@@ -112,7 +116,9 @@ class UserInstantConferencingEndPresentationRequest extends ComplexType implemen
      */
     public function getDocumentId()
     {
-        return ($this->documentId) ? $this->documentId->getValue() : null;
+        return ($this->documentId)
+            ? $this->documentId->getElementValue()
+            : null;
     }
 
     /**
@@ -123,7 +129,7 @@ class UserInstantConferencingEndPresentationRequest extends ComplexType implemen
         $this->accessCode = ($accessCode InstanceOf InstantConferencingAccessCode)
              ? $accessCode
              : new InstantConferencingAccessCode($accessCode);
-        $this->accessCode->setName('accessCode');
+        $this->accessCode->setElementName('accessCode');
         return $this;
     }
 
@@ -133,7 +139,9 @@ class UserInstantConferencingEndPresentationRequest extends ComplexType implemen
      */
     public function getAccessCode()
     {
-        return ($this->accessCode) ? $this->accessCode->getValue() : null;
+        return ($this->accessCode)
+            ? $this->accessCode->getElementValue()
+            : null;
     }
 
     /**
@@ -144,7 +152,7 @@ class UserInstantConferencingEndPresentationRequest extends ComplexType implemen
         $this->slideName = ($slideName InstanceOf InstantConferencingSlideName)
              ? $slideName
              : new InstantConferencingSlideName($slideName);
-        $this->slideName->setName('slideName');
+        $this->slideName->setElementName('slideName');
         return $this;
     }
 
@@ -154,6 +162,8 @@ class UserInstantConferencingEndPresentationRequest extends ComplexType implemen
      */
     public function getSlideName()
     {
-        return ($this->slideName) ? $this->slideName->getValue() : null;
+        return ($this->slideName)
+            ? $this->slideName->getElementValue()
+            : null;
     }
 }

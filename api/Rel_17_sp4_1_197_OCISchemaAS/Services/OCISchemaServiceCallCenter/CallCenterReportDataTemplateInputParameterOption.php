@@ -16,12 +16,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\Enumeration;
  */
 class CallCenterReportDataTemplateInputParameterOption extends SimpleType
 {
-    public $name = "CallCenterReportDataTemplateInputParameterOption";
-    protected $value;
-
+    public $elementName = "CallCenterReportDataTemplateInputParameterOption";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new Enumeration([
             'Required',
             'Does Not Apply'

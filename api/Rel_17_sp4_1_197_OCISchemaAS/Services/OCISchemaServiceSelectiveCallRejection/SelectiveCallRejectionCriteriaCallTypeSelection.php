@@ -16,12 +16,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\Enumeration;
  */
 class SelectiveCallRejectionCriteriaCallTypeSelection extends SimpleType
 {
-    public $name = "SelectiveCallRejectionCriteriaCallTypeSelection";
-    protected $value;
-
+    public $elementName = "SelectiveCallRejectionCriteriaCallTypeSelection";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new Enumeration([
             'Any',
             'Forwarded',

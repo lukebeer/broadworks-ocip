@@ -16,12 +16,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\Enumeration;
  */
 class CallParkRecallTo extends SimpleType
 {
-    public $name = "CallParkRecallTo";
-    protected $value;
-
+    public $elementName = "CallParkRecallTo";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new Enumeration([
             'Parking User Only',
             'Parking User Then Alternate User',

@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
 class UserShInterfaceGetPublicIdDataRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType       = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser\UserShInterfaceGetPublicIdDataResponse';
-    public    $name = 'UserShInterfaceGetPublicIdDataRequest';
+    public    $elementName = 'UserShInterfaceGetPublicIdDataRequest';
     protected $publicUserIdentity;
 
     public function __construct(
@@ -47,7 +47,7 @@ class UserShInterfaceGetPublicIdDataRequest extends ComplexType implements Compl
         $this->publicUserIdentity = ($publicUserIdentity InstanceOf PublicUserIdentity)
              ? $publicUserIdentity
              : new PublicUserIdentity($publicUserIdentity);
-        $this->publicUserIdentity->setName('publicUserIdentity');
+        $this->publicUserIdentity->setElementName('publicUserIdentity');
         return $this;
     }
 

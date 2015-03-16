@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupEmergencyZonesGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'GroupEmergencyZonesGetResponse';
+    public    $elementName = 'GroupEmergencyZonesGetResponse';
     protected $isActive;
     protected $emergencyZonesProhibition;
     protected $sendEmergencyCallNotifyEmail;
@@ -41,7 +41,7 @@ class GroupEmergencyZonesGetResponse extends ComplexType implements ComplexInter
     public function setIsActive($isActive = null)
     {
         $this->isActive = new PrimitiveType($isActive);
-        $this->isActive->setName('isActive');
+        $this->isActive->setElementName('isActive');
         return $this;
     }
 
@@ -51,7 +51,9 @@ class GroupEmergencyZonesGetResponse extends ComplexType implements ComplexInter
      */
     public function getIsActive()
     {
-        return ($this->isActive) ? $this->isActive->getValue() : null;
+        return ($this->isActive)
+            ? $this->isActive->getElementValue()
+            : null;
     }
 
     /**
@@ -62,7 +64,7 @@ class GroupEmergencyZonesGetResponse extends ComplexType implements ComplexInter
         $this->emergencyZonesProhibition = ($emergencyZonesProhibition InstanceOf EmergencyZonesProhibition)
              ? $emergencyZonesProhibition
              : new EmergencyZonesProhibition($emergencyZonesProhibition);
-        $this->emergencyZonesProhibition->setName('emergencyZonesProhibition');
+        $this->emergencyZonesProhibition->setElementName('emergencyZonesProhibition');
         return $this;
     }
 
@@ -72,7 +74,9 @@ class GroupEmergencyZonesGetResponse extends ComplexType implements ComplexInter
      */
     public function getEmergencyZonesProhibition()
     {
-        return ($this->emergencyZonesProhibition) ? $this->emergencyZonesProhibition->getValue() : null;
+        return ($this->emergencyZonesProhibition)
+            ? $this->emergencyZonesProhibition->getElementValue()
+            : null;
     }
 
     /**
@@ -81,7 +85,7 @@ class GroupEmergencyZonesGetResponse extends ComplexType implements ComplexInter
     public function setSendEmergencyCallNotifyEmail($sendEmergencyCallNotifyEmail = null)
     {
         $this->sendEmergencyCallNotifyEmail = new PrimitiveType($sendEmergencyCallNotifyEmail);
-        $this->sendEmergencyCallNotifyEmail->setName('sendEmergencyCallNotifyEmail');
+        $this->sendEmergencyCallNotifyEmail->setElementName('sendEmergencyCallNotifyEmail');
         return $this;
     }
 
@@ -91,7 +95,9 @@ class GroupEmergencyZonesGetResponse extends ComplexType implements ComplexInter
      */
     public function getSendEmergencyCallNotifyEmail()
     {
-        return ($this->sendEmergencyCallNotifyEmail) ? $this->sendEmergencyCallNotifyEmail->getValue() : null;
+        return ($this->sendEmergencyCallNotifyEmail)
+            ? $this->sendEmergencyCallNotifyEmail->getElementValue()
+            : null;
     }
 
     /**
@@ -102,7 +108,7 @@ class GroupEmergencyZonesGetResponse extends ComplexType implements ComplexInter
         $this->emergencyCallNotifyEmailAddress = ($emergencyCallNotifyEmailAddress InstanceOf EmailAddress)
              ? $emergencyCallNotifyEmailAddress
              : new EmailAddress($emergencyCallNotifyEmailAddress);
-        $this->emergencyCallNotifyEmailAddress->setName('emergencyCallNotifyEmailAddress');
+        $this->emergencyCallNotifyEmailAddress->setElementName('emergencyCallNotifyEmailAddress');
         return $this;
     }
 
@@ -112,6 +118,8 @@ class GroupEmergencyZonesGetResponse extends ComplexType implements ComplexInter
      */
     public function getEmergencyCallNotifyEmailAddress()
     {
-        return ($this->emergencyCallNotifyEmailAddress) ? $this->emergencyCallNotifyEmailAddress->getValue() : null;
+        return ($this->emergencyCallNotifyEmailAddress)
+            ? $this->emergencyCallNotifyEmailAddress->getElementValue()
+            : null;
     }
 }

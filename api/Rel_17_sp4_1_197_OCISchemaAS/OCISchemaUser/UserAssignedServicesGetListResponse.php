@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserAssignedServicesGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'UserAssignedServicesGetListResponse';
+    public    $elementName = 'UserAssignedServicesGetListResponse';
     protected $groupServiceEntry;
     protected $userServiceEntry;
 
@@ -41,7 +41,7 @@ class UserAssignedServicesGetListResponse extends ComplexType implements Complex
         $this->groupServiceEntry = ($groupServiceEntry InstanceOf AssignedGroupServicesEntry)
              ? $groupServiceEntry
              : new AssignedGroupServicesEntry($groupServiceEntry);
-        $this->groupServiceEntry->setName('groupServiceEntry');
+        $this->groupServiceEntry->setElementName('groupServiceEntry');
         return $this;
     }
 
@@ -62,7 +62,7 @@ class UserAssignedServicesGetListResponse extends ComplexType implements Complex
         $this->userServiceEntry = ($userServiceEntry InstanceOf AssignedUserServicesEntry)
              ? $userServiceEntry
              : new AssignedUserServicesEntry($userServiceEntry);
-        $this->userServiceEntry->setName('userServiceEntry');
+        $this->userServiceEntry->setElementName('userServiceEntry');
         return $this;
     }
 

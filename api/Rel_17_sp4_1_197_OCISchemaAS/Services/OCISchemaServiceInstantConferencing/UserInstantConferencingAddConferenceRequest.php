@@ -25,7 +25,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserInstantConferencingAddConferenceRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'UserInstantConferencingAddConferenceRequest';
+    public    $elementName = 'UserInstantConferencingAddConferenceRequest';
     protected $userId;
     protected $bridgeServiceUserId;
     protected $conferenceOwnerUserId;
@@ -77,7 +77,7 @@ class UserInstantConferencingAddConferenceRequest extends ComplexType implements
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
-        $this->userId->setName('userId');
+        $this->userId->setElementName('userId');
         return $this;
     }
 
@@ -87,7 +87,9 @@ class UserInstantConferencingAddConferenceRequest extends ComplexType implements
      */
     public function getUserId()
     {
-        return ($this->userId) ? $this->userId->getValue() : null;
+        return ($this->userId)
+            ? $this->userId->getElementValue()
+            : null;
     }
 
     /**
@@ -98,7 +100,7 @@ class UserInstantConferencingAddConferenceRequest extends ComplexType implements
         $this->bridgeServiceUserId = ($bridgeServiceUserId InstanceOf UserId)
              ? $bridgeServiceUserId
              : new UserId($bridgeServiceUserId);
-        $this->bridgeServiceUserId->setName('bridgeServiceUserId');
+        $this->bridgeServiceUserId->setElementName('bridgeServiceUserId');
         return $this;
     }
 
@@ -108,7 +110,9 @@ class UserInstantConferencingAddConferenceRequest extends ComplexType implements
      */
     public function getBridgeServiceUserId()
     {
-        return ($this->bridgeServiceUserId) ? $this->bridgeServiceUserId->getValue() : null;
+        return ($this->bridgeServiceUserId)
+            ? $this->bridgeServiceUserId->getElementValue()
+            : null;
     }
 
     /**
@@ -119,7 +123,7 @@ class UserInstantConferencingAddConferenceRequest extends ComplexType implements
         $this->conferenceOwnerUserId = ($conferenceOwnerUserId InstanceOf UserId)
              ? $conferenceOwnerUserId
              : new UserId($conferenceOwnerUserId);
-        $this->conferenceOwnerUserId->setName('conferenceOwnerUserId');
+        $this->conferenceOwnerUserId->setElementName('conferenceOwnerUserId');
         return $this;
     }
 
@@ -129,7 +133,9 @@ class UserInstantConferencingAddConferenceRequest extends ComplexType implements
      */
     public function getConferenceOwnerUserId()
     {
-        return ($this->conferenceOwnerUserId) ? $this->conferenceOwnerUserId->getValue() : null;
+        return ($this->conferenceOwnerUserId)
+            ? $this->conferenceOwnerUserId->getElementValue()
+            : null;
     }
 
     /**
@@ -140,7 +146,7 @@ class UserInstantConferencingAddConferenceRequest extends ComplexType implements
         $this->title = ($title InstanceOf InstantConferencingTitle)
              ? $title
              : new InstantConferencingTitle($title);
-        $this->title->setName('title');
+        $this->title->setElementName('title');
         return $this;
     }
 
@@ -150,7 +156,9 @@ class UserInstantConferencingAddConferenceRequest extends ComplexType implements
      */
     public function getTitle()
     {
-        return ($this->title) ? $this->title->getValue() : null;
+        return ($this->title)
+            ? $this->title->getElementValue()
+            : null;
     }
 
     /**
@@ -159,7 +167,7 @@ class UserInstantConferencingAddConferenceRequest extends ComplexType implements
     public function setLeaderRequired($leaderRequired = null)
     {
         $this->leaderRequired = new PrimitiveType($leaderRequired);
-        $this->leaderRequired->setName('leaderRequired');
+        $this->leaderRequired->setElementName('leaderRequired');
         return $this;
     }
 
@@ -169,7 +177,9 @@ class UserInstantConferencingAddConferenceRequest extends ComplexType implements
      */
     public function getLeaderRequired()
     {
-        return ($this->leaderRequired) ? $this->leaderRequired->getValue() : null;
+        return ($this->leaderRequired)
+            ? $this->leaderRequired->getElementValue()
+            : null;
     }
 
     /**
@@ -178,7 +188,7 @@ class UserInstantConferencingAddConferenceRequest extends ComplexType implements
     public function setLeaderReleaseDropsParticipants($leaderReleaseDropsParticipants = null)
     {
         $this->leaderReleaseDropsParticipants = new PrimitiveType($leaderReleaseDropsParticipants);
-        $this->leaderReleaseDropsParticipants->setName('leaderReleaseDropsParticipants');
+        $this->leaderReleaseDropsParticipants->setElementName('leaderReleaseDropsParticipants');
         return $this;
     }
 
@@ -188,7 +198,9 @@ class UserInstantConferencingAddConferenceRequest extends ComplexType implements
      */
     public function getLeaderReleaseDropsParticipants()
     {
-        return ($this->leaderReleaseDropsParticipants) ? $this->leaderReleaseDropsParticipants->getValue() : null;
+        return ($this->leaderReleaseDropsParticipants)
+            ? $this->leaderReleaseDropsParticipants->getElementValue()
+            : null;
     }
 
     /**
@@ -197,7 +209,7 @@ class UserInstantConferencingAddConferenceRequest extends ComplexType implements
     public function setAnnounceCallers($announceCallers = null)
     {
         $this->announceCallers = new PrimitiveType($announceCallers);
-        $this->announceCallers->setName('announceCallers');
+        $this->announceCallers->setElementName('announceCallers');
         return $this;
     }
 
@@ -207,7 +219,9 @@ class UserInstantConferencingAddConferenceRequest extends ComplexType implements
      */
     public function getAnnounceCallers()
     {
-        return ($this->announceCallers) ? $this->announceCallers->getValue() : null;
+        return ($this->announceCallers)
+            ? $this->announceCallers->getElementValue()
+            : null;
     }
 
     /**
@@ -218,7 +232,7 @@ class UserInstantConferencingAddConferenceRequest extends ComplexType implements
         $this->conferenceType = ($conferenceType InstanceOf InstantConferencingConferenceType)
              ? $conferenceType
              : new InstantConferencingConferenceType($conferenceType);
-        $this->conferenceType->setName('conferenceType');
+        $this->conferenceType->setElementName('conferenceType');
         return $this;
     }
 
@@ -228,7 +242,9 @@ class UserInstantConferencingAddConferenceRequest extends ComplexType implements
      */
     public function getConferenceType()
     {
-        return ($this->conferenceType) ? $this->conferenceType->getValue() : null;
+        return ($this->conferenceType)
+            ? $this->conferenceType->getElementValue()
+            : null;
     }
 
     /**
@@ -239,7 +255,7 @@ class UserInstantConferencingAddConferenceRequest extends ComplexType implements
         $this->conferenceSchedule = ($conferenceSchedule InstanceOf InstantConferencingSchedule)
              ? $conferenceSchedule
              : new InstantConferencingSchedule($conferenceSchedule);
-        $this->conferenceSchedule->setName('conferenceSchedule');
+        $this->conferenceSchedule->setElementName('conferenceSchedule');
         return $this;
     }
 
@@ -260,7 +276,7 @@ class UserInstantConferencingAddConferenceRequest extends ComplexType implements
         $this->billingCode = ($billingCode InstanceOf InstantConferencingBillingCode)
              ? $billingCode
              : new InstantConferencingBillingCode($billingCode);
-        $this->billingCode->setName('billingCode');
+        $this->billingCode->setElementName('billingCode');
         return $this;
     }
 
@@ -270,6 +286,8 @@ class UserInstantConferencingAddConferenceRequest extends ComplexType implements
      */
     public function getBillingCode()
     {
-        return ($this->billingCode) ? $this->billingCode->getValue() : null;
+        return ($this->billingCode)
+            ? $this->billingCode->getElementValue()
+            : null;
     }
 }

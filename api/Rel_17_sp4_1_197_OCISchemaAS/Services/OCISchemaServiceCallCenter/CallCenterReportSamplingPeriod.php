@@ -16,12 +16,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\Enumeration;
  */
 class CallCenterReportSamplingPeriod extends SimpleType
 {
-    public $name = "CallCenterReportSamplingPeriod";
-    protected $value;
-
+    public $elementName = "CallCenterReportSamplingPeriod";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new Enumeration([
             '15 Minutes',
             '30 Minutes',

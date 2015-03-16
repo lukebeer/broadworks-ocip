@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemOCIReportingGetACLListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemOCIReportingGetACLListResponse';
+    public    $elementName = 'SystemOCIReportingGetACLListResponse';
     protected $ociReportingACLTable;
 
     /**
@@ -38,7 +38,7 @@ class SystemOCIReportingGetACLListResponse extends ComplexType implements Comple
     public function setOciReportingACLTable(TableType $ociReportingACLTable = null)
     {
         $this->ociReportingACLTable = $ociReportingACLTable;
-        $this->ociReportingACLTable->setName('ociReportingACLTable');
+        $this->ociReportingACLTable->setElementName('ociReportingACLTable');
         return $this;
     }
 

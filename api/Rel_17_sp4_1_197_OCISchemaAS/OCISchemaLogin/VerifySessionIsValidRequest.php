@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class VerifySessionIsValidRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'VerifySessionIsValidRequest';
+    public    $elementName = 'VerifySessionIsValidRequest';
 
     public function __construct(    ) {
     }

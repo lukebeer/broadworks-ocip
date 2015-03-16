@@ -16,12 +16,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\Enumeration;
  */
 class NsScreeningFailurePolicy extends SimpleType
 {
-    public $name = "NsScreeningFailurePolicy";
-    protected $value;
-
+    public $elementName = "NsScreeningFailurePolicy";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new Enumeration([
             'Display Received Caller ID',
             'Restrict Number',

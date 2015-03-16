@@ -19,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemCommunicationBarringDigitPatternCriteriaGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemCommunicationBarringDigitPatternCriteriaGetResponse';
+    public    $elementName = 'SystemCommunicationBarringDigitPatternCriteriaGetResponse';
     protected $description;
     protected $digitPattern;
 
@@ -39,7 +39,7 @@ class SystemCommunicationBarringDigitPatternCriteriaGetResponse extends ComplexT
         $this->description = ($description InstanceOf DigitPatternCriteriaDescription)
              ? $description
              : new DigitPatternCriteriaDescription($description);
-        $this->description->setName('description');
+        $this->description->setElementName('description');
         return $this;
     }
 
@@ -49,7 +49,9 @@ class SystemCommunicationBarringDigitPatternCriteriaGetResponse extends ComplexT
      */
     public function getDescription()
     {
-        return ($this->description) ? $this->description->getValue() : null;
+        return ($this->description)
+            ? $this->description->getElementValue()
+            : null;
     }
 
     /**
@@ -60,7 +62,7 @@ class SystemCommunicationBarringDigitPatternCriteriaGetResponse extends ComplexT
         $this->digitPattern = ($digitPattern InstanceOf DigitPattern)
              ? $digitPattern
              : new DigitPattern($digitPattern);
-        $this->digitPattern->setName('digitPattern');
+        $this->digitPattern->setElementName('digitPattern');
         return $this;
     }
 
@@ -70,6 +72,8 @@ class SystemCommunicationBarringDigitPatternCriteriaGetResponse extends ComplexT
      */
     public function getDigitPattern()
     {
-        return ($this->digitPattern) ? $this->digitPattern->getValue() : null;
+        return ($this->digitPattern)
+            ? $this->digitPattern->getElementValue()
+            : null;
     }
 }

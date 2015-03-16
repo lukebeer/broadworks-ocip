@@ -17,12 +17,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\MaxInclusive;
  */
 class PortalMaxFailedLoginAttempts extends SimpleType
 {
-    public $name = "PortalMaxFailedLoginAttempts";
-    protected $value;
-
+    public $elementName = "PortalMaxFailedLoginAttempts";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new MinInclusive("2"));
         $this->addRestriction(new MaxInclusive("10"));
     }

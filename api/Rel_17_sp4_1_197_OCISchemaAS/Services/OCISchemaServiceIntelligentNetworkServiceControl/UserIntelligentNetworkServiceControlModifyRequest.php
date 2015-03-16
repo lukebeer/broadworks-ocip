@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserIntelligentNetworkServiceControlModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'UserIntelligentNetworkServiceControlModifyRequest';
+    public    $elementName = 'UserIntelligentNetworkServiceControlModifyRequest';
     protected $userId;
     protected $preAnswerActionsEnabled;
 
@@ -49,7 +49,7 @@ class UserIntelligentNetworkServiceControlModifyRequest extends ComplexType impl
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
-        $this->userId->setName('userId');
+        $this->userId->setElementName('userId');
         return $this;
     }
 
@@ -59,7 +59,9 @@ class UserIntelligentNetworkServiceControlModifyRequest extends ComplexType impl
      */
     public function getUserId()
     {
-        return ($this->userId) ? $this->userId->getValue() : null;
+        return ($this->userId)
+            ? $this->userId->getElementValue()
+            : null;
     }
 
     /**
@@ -68,7 +70,7 @@ class UserIntelligentNetworkServiceControlModifyRequest extends ComplexType impl
     public function setPreAnswerActionsEnabled($preAnswerActionsEnabled = null)
     {
         $this->preAnswerActionsEnabled = new PrimitiveType($preAnswerActionsEnabled);
-        $this->preAnswerActionsEnabled->setName('preAnswerActionsEnabled');
+        $this->preAnswerActionsEnabled->setElementName('preAnswerActionsEnabled');
         return $this;
     }
 
@@ -78,6 +80,8 @@ class UserIntelligentNetworkServiceControlModifyRequest extends ComplexType impl
      */
     public function getPreAnswerActionsEnabled()
     {
-        return ($this->preAnswerActionsEnabled) ? $this->preAnswerActionsEnabled->getValue() : null;
+        return ($this->preAnswerActionsEnabled)
+            ? $this->preAnswerActionsEnabled->getElementValue()
+            : null;
     }
 }

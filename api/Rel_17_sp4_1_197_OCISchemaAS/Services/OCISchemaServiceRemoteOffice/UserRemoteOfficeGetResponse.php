@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserRemoteOfficeGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'UserRemoteOfficeGetResponse';
+    public    $elementName = 'UserRemoteOfficeGetResponse';
     protected $isActive;
     protected $remoteOfficePhoneNumber;
 
@@ -38,7 +38,7 @@ class UserRemoteOfficeGetResponse extends ComplexType implements ComplexInterfac
     public function setIsActive($isActive = null)
     {
         $this->isActive = new PrimitiveType($isActive);
-        $this->isActive->setName('isActive');
+        $this->isActive->setElementName('isActive');
         return $this;
     }
 
@@ -48,7 +48,9 @@ class UserRemoteOfficeGetResponse extends ComplexType implements ComplexInterfac
      */
     public function getIsActive()
     {
-        return ($this->isActive) ? $this->isActive->getValue() : null;
+        return ($this->isActive)
+            ? $this->isActive->getElementValue()
+            : null;
     }
 
     /**
@@ -59,7 +61,7 @@ class UserRemoteOfficeGetResponse extends ComplexType implements ComplexInterfac
         $this->remoteOfficePhoneNumber = ($remoteOfficePhoneNumber InstanceOf OutgoingDNorSIPURI)
              ? $remoteOfficePhoneNumber
              : new OutgoingDNorSIPURI($remoteOfficePhoneNumber);
-        $this->remoteOfficePhoneNumber->setName('remoteOfficePhoneNumber');
+        $this->remoteOfficePhoneNumber->setElementName('remoteOfficePhoneNumber');
         return $this;
     }
 
@@ -69,6 +71,8 @@ class UserRemoteOfficeGetResponse extends ComplexType implements ComplexInterfac
      */
     public function getRemoteOfficePhoneNumber()
     {
-        return ($this->remoteOfficePhoneNumber) ? $this->remoteOfficePhoneNumber->getValue() : null;
+        return ($this->remoteOfficePhoneNumber)
+            ? $this->remoteOfficePhoneNumber->getElementValue()
+            : null;
     }
 }

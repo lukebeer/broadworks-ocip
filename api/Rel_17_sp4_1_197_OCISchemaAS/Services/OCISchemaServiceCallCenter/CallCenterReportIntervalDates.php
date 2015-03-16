@@ -19,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class CallCenterReportIntervalDates extends ComplexType implements ComplexInterface
 {
-    public    $name = 'CallCenterReportIntervalDates';
+    public    $elementName = 'CallCenterReportIntervalDates';
     protected $startDate;
     protected $startTime;
     protected $endDate;
@@ -51,7 +51,7 @@ class CallCenterReportIntervalDates extends ComplexType implements ComplexInterf
     public function setStartDate($startDate = null)
     {
         $this->startDate = new SimpleContent($startDate);
-        $this->startDate->setName('startDate');
+        $this->startDate->setElementName('startDate');
         return $this;
     }
 
@@ -61,7 +61,9 @@ class CallCenterReportIntervalDates extends ComplexType implements ComplexInterf
      */
     public function getStartDate()
     {
-        return ($this->startDate) ? $this->startDate->getValue() : null;
+        return ($this->startDate)
+            ? $this->startDate->getElementValue()
+            : null;
     }
 
     /**
@@ -70,7 +72,7 @@ class CallCenterReportIntervalDates extends ComplexType implements ComplexInterf
     public function setStartTime($startTime = null)
     {
         $this->startTime = new SimpleContent($startTime);
-        $this->startTime->setName('startTime');
+        $this->startTime->setElementName('startTime');
         return $this;
     }
 
@@ -80,7 +82,9 @@ class CallCenterReportIntervalDates extends ComplexType implements ComplexInterf
      */
     public function getStartTime()
     {
-        return ($this->startTime) ? $this->startTime->getValue() : null;
+        return ($this->startTime)
+            ? $this->startTime->getElementValue()
+            : null;
     }
 
     /**
@@ -89,7 +93,7 @@ class CallCenterReportIntervalDates extends ComplexType implements ComplexInterf
     public function setEndDate($endDate = null)
     {
         $this->endDate = new SimpleContent($endDate);
-        $this->endDate->setName('endDate');
+        $this->endDate->setElementName('endDate');
         return $this;
     }
 
@@ -99,7 +103,9 @@ class CallCenterReportIntervalDates extends ComplexType implements ComplexInterf
      */
     public function getEndDate()
     {
-        return ($this->endDate) ? $this->endDate->getValue() : null;
+        return ($this->endDate)
+            ? $this->endDate->getElementValue()
+            : null;
     }
 
     /**
@@ -108,7 +114,7 @@ class CallCenterReportIntervalDates extends ComplexType implements ComplexInterf
     public function setEndTime($endTime = null)
     {
         $this->endTime = new SimpleContent($endTime);
-        $this->endTime->setName('endTime');
+        $this->endTime->setElementName('endTime');
         return $this;
     }
 
@@ -118,6 +124,8 @@ class CallCenterReportIntervalDates extends ComplexType implements ComplexInterf
      */
     public function getEndTime()
     {
-        return ($this->endTime) ? $this->endTime->getValue() : null;
+        return ($this->endTime)
+            ? $this->endTime->getElementValue()
+            : null;
     }
 }

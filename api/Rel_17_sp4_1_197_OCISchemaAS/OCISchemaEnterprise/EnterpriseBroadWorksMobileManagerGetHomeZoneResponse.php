@@ -23,7 +23,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class EnterpriseBroadWorksMobileManagerGetHomeZoneResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'EnterpriseBroadWorksMobileManagerGetHomeZoneResponse';
+    public    $elementName = 'EnterpriseBroadWorksMobileManagerGetHomeZoneResponse';
     protected $homeZoneDomainName;
     protected $mobileCountryCode;
     protected $mobileNetworkCode;
@@ -46,7 +46,7 @@ class EnterpriseBroadWorksMobileManagerGetHomeZoneResponse extends ComplexType i
         $this->homeZoneDomainName = ($homeZoneDomainName InstanceOf BroadWorksMobileManagerDomainName)
              ? $homeZoneDomainName
              : new BroadWorksMobileManagerDomainName($homeZoneDomainName);
-        $this->homeZoneDomainName->setName('homeZoneDomainName');
+        $this->homeZoneDomainName->setElementName('homeZoneDomainName');
         return $this;
     }
 
@@ -56,7 +56,9 @@ class EnterpriseBroadWorksMobileManagerGetHomeZoneResponse extends ComplexType i
      */
     public function getHomeZoneDomainName()
     {
-        return ($this->homeZoneDomainName) ? $this->homeZoneDomainName->getValue() : null;
+        return ($this->homeZoneDomainName)
+            ? $this->homeZoneDomainName->getElementValue()
+            : null;
     }
 
     /**
@@ -67,7 +69,7 @@ class EnterpriseBroadWorksMobileManagerGetHomeZoneResponse extends ComplexType i
         $this->mobileCountryCode = ($mobileCountryCode InstanceOf BroadWorksMobileManagerHomeZoneMobileCountryCode)
              ? $mobileCountryCode
              : new BroadWorksMobileManagerHomeZoneMobileCountryCode($mobileCountryCode);
-        $this->mobileCountryCode->setName('mobileCountryCode');
+        $this->mobileCountryCode->setElementName('mobileCountryCode');
         return $this;
     }
 
@@ -77,7 +79,9 @@ class EnterpriseBroadWorksMobileManagerGetHomeZoneResponse extends ComplexType i
      */
     public function getMobileCountryCode()
     {
-        return ($this->mobileCountryCode) ? $this->mobileCountryCode->getValue() : null;
+        return ($this->mobileCountryCode)
+            ? $this->mobileCountryCode->getElementValue()
+            : null;
     }
 
     /**
@@ -88,7 +92,7 @@ class EnterpriseBroadWorksMobileManagerGetHomeZoneResponse extends ComplexType i
         $this->mobileNetworkCode = ($mobileNetworkCode InstanceOf BroadWorksMobileManagerHomeZoneNetworkCountryCode)
              ? $mobileNetworkCode
              : new BroadWorksMobileManagerHomeZoneNetworkCountryCode($mobileNetworkCode);
-        $this->mobileNetworkCode->setName('mobileNetworkCode');
+        $this->mobileNetworkCode->setElementName('mobileNetworkCode');
         return $this;
     }
 
@@ -98,7 +102,9 @@ class EnterpriseBroadWorksMobileManagerGetHomeZoneResponse extends ComplexType i
      */
     public function getMobileNetworkCode()
     {
-        return ($this->mobileNetworkCode) ? $this->mobileNetworkCode->getValue() : null;
+        return ($this->mobileNetworkCode)
+            ? $this->mobileNetworkCode->getElementValue()
+            : null;
     }
 
     /**
@@ -109,7 +115,7 @@ class EnterpriseBroadWorksMobileManagerGetHomeZoneResponse extends ComplexType i
         $this->locationAreaCode = ($locationAreaCode InstanceOf BroadWorksMobileManagerHomeZoneLocationAreaCode)
              ? $locationAreaCode
              : new BroadWorksMobileManagerHomeZoneLocationAreaCode($locationAreaCode);
-        $this->locationAreaCode->setName('locationAreaCode');
+        $this->locationAreaCode->setElementName('locationAreaCode');
         return $this;
     }
 
@@ -119,7 +125,9 @@ class EnterpriseBroadWorksMobileManagerGetHomeZoneResponse extends ComplexType i
      */
     public function getLocationAreaCode()
     {
-        return ($this->locationAreaCode) ? $this->locationAreaCode->getValue() : null;
+        return ($this->locationAreaCode)
+            ? $this->locationAreaCode->getElementValue()
+            : null;
     }
 
     /**
@@ -130,7 +138,7 @@ class EnterpriseBroadWorksMobileManagerGetHomeZoneResponse extends ComplexType i
         $this->cellIdentity = ($cellIdentity InstanceOf BroadWorksMobileManagerHomeZoneCellId)
              ? $cellIdentity
              : new BroadWorksMobileManagerHomeZoneCellId($cellIdentity);
-        $this->cellIdentity->setName('cellIdentity');
+        $this->cellIdentity->setElementName('cellIdentity');
         return $this;
     }
 
@@ -140,6 +148,8 @@ class EnterpriseBroadWorksMobileManagerGetHomeZoneResponse extends ComplexType i
      */
     public function getCellIdentity()
     {
-        return ($this->cellIdentity) ? $this->cellIdentity->getValue() : null;
+        return ($this->cellIdentity)
+            ? $this->cellIdentity->getElementValue()
+            : null;
     }
 }

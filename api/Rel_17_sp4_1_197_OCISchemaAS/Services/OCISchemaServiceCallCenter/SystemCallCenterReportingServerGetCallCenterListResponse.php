@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemCallCenterReportingServerGetCallCenterListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemCallCenterReportingServerGetCallCenterListResponse';
+    public    $elementName = 'SystemCallCenterReportingServerGetCallCenterListResponse';
     protected $callCenterTable;
 
     /**
@@ -39,7 +39,7 @@ class SystemCallCenterReportingServerGetCallCenterListResponse extends ComplexTy
     public function setCallCenterTable(TableType $callCenterTable = null)
     {
         $this->callCenterTable = $callCenterTable;
-        $this->callCenterTable->setName('callCenterTable');
+        $this->callCenterTable->setElementName('callCenterTable');
         return $this;
     }
 

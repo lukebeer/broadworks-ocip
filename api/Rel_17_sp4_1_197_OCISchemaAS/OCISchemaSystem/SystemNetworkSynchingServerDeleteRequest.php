@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemNetworkSynchingServerDeleteRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemNetworkSynchingServerDeleteRequest';
+    public    $elementName = 'SystemNetworkSynchingServerDeleteRequest';
     protected $netAddress;
 
     public function __construct(
@@ -45,7 +45,7 @@ class SystemNetworkSynchingServerDeleteRequest extends ComplexType implements Co
         $this->netAddress = ($netAddress InstanceOf NetAddress)
              ? $netAddress
              : new NetAddress($netAddress);
-        $this->netAddress->setName('netAddress');
+        $this->netAddress->setElementName('netAddress');
         return $this;
     }
 
@@ -55,6 +55,8 @@ class SystemNetworkSynchingServerDeleteRequest extends ComplexType implements Co
      */
     public function getNetAddress()
     {
-        return ($this->netAddress) ? $this->netAddress->getValue() : null;
+        return ($this->netAddress)
+            ? $this->netAddress->getElementValue()
+            : null;
     }
 }

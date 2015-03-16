@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupCallCenterModifyInstanceWeightedCallDistributionRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'GroupCallCenterModifyInstanceWeightedCallDistributionRequest';
+    public    $elementName = 'GroupCallCenterModifyInstanceWeightedCallDistributionRequest';
     protected $serviceUserId;
     protected $agentWeight;
 
@@ -49,7 +49,7 @@ class GroupCallCenterModifyInstanceWeightedCallDistributionRequest extends Compl
         $this->serviceUserId = ($serviceUserId InstanceOf UserId)
              ? $serviceUserId
              : new UserId($serviceUserId);
-        $this->serviceUserId->setName('serviceUserId');
+        $this->serviceUserId->setElementName('serviceUserId');
         return $this;
     }
 
@@ -59,7 +59,9 @@ class GroupCallCenterModifyInstanceWeightedCallDistributionRequest extends Compl
      */
     public function getServiceUserId()
     {
-        return ($this->serviceUserId) ? $this->serviceUserId->getValue() : null;
+        return ($this->serviceUserId)
+            ? $this->serviceUserId->getElementValue()
+            : null;
     }
 
     /**
@@ -70,7 +72,7 @@ class GroupCallCenterModifyInstanceWeightedCallDistributionRequest extends Compl
         $this->agentWeight = ($agentWeight InstanceOf HuntAgentWeight)
              ? $agentWeight
              : new HuntAgentWeight($agentWeight);
-        $this->agentWeight->setName('agentWeight');
+        $this->agentWeight->setElementName('agentWeight');
         return $this;
     }
 

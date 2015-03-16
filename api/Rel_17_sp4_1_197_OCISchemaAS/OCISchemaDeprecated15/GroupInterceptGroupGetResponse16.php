@@ -25,7 +25,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupInterceptGroupGetResponse16 extends ComplexType implements ComplexInterface
 {
-    public    $name = 'GroupInterceptGroupGetResponse16';
+    public    $elementName = 'GroupInterceptGroupGetResponse16';
     protected $isActive;
     protected $announcementSelection;
     protected $audioFileDescription;
@@ -51,7 +51,7 @@ class GroupInterceptGroupGetResponse16 extends ComplexType implements ComplexInt
     public function setIsActive($isActive = null)
     {
         $this->isActive = new PrimitiveType($isActive);
-        $this->isActive->setName('isActive');
+        $this->isActive->setElementName('isActive');
         return $this;
     }
 
@@ -61,7 +61,9 @@ class GroupInterceptGroupGetResponse16 extends ComplexType implements ComplexInt
      */
     public function getIsActive()
     {
-        return ($this->isActive) ? $this->isActive->getValue() : null;
+        return ($this->isActive)
+            ? $this->isActive->getElementValue()
+            : null;
     }
 
     /**
@@ -72,7 +74,7 @@ class GroupInterceptGroupGetResponse16 extends ComplexType implements ComplexInt
         $this->announcementSelection = ($announcementSelection InstanceOf AnnouncementSelection)
              ? $announcementSelection
              : new AnnouncementSelection($announcementSelection);
-        $this->announcementSelection->setName('announcementSelection');
+        $this->announcementSelection->setElementName('announcementSelection');
         return $this;
     }
 
@@ -82,7 +84,9 @@ class GroupInterceptGroupGetResponse16 extends ComplexType implements ComplexInt
      */
     public function getAnnouncementSelection()
     {
-        return ($this->announcementSelection) ? $this->announcementSelection->getValue() : null;
+        return ($this->announcementSelection)
+            ? $this->announcementSelection->getElementValue()
+            : null;
     }
 
     /**
@@ -93,7 +97,7 @@ class GroupInterceptGroupGetResponse16 extends ComplexType implements ComplexInt
         $this->audioFileDescription = ($audioFileDescription InstanceOf FileDescription)
              ? $audioFileDescription
              : new FileDescription($audioFileDescription);
-        $this->audioFileDescription->setName('audioFileDescription');
+        $this->audioFileDescription->setElementName('audioFileDescription');
         return $this;
     }
 
@@ -103,7 +107,9 @@ class GroupInterceptGroupGetResponse16 extends ComplexType implements ComplexInt
      */
     public function getAudioFileDescription()
     {
-        return ($this->audioFileDescription) ? $this->audioFileDescription->getValue() : null;
+        return ($this->audioFileDescription)
+            ? $this->audioFileDescription->getElementValue()
+            : null;
     }
 
     /**
@@ -114,7 +120,7 @@ class GroupInterceptGroupGetResponse16 extends ComplexType implements ComplexInt
         $this->audioMediaType = ($audioMediaType InstanceOf MediaFileType)
              ? $audioMediaType
              : new MediaFileType($audioMediaType);
-        $this->audioMediaType->setName('audioMediaType');
+        $this->audioMediaType->setElementName('audioMediaType');
         return $this;
     }
 
@@ -124,7 +130,9 @@ class GroupInterceptGroupGetResponse16 extends ComplexType implements ComplexInt
      */
     public function getAudioMediaType()
     {
-        return ($this->audioMediaType) ? $this->audioMediaType->getValue() : null;
+        return ($this->audioMediaType)
+            ? $this->audioMediaType->getElementValue()
+            : null;
     }
 
     /**
@@ -135,7 +143,7 @@ class GroupInterceptGroupGetResponse16 extends ComplexType implements ComplexInt
         $this->videoFileDescription = ($videoFileDescription InstanceOf FileDescription)
              ? $videoFileDescription
              : new FileDescription($videoFileDescription);
-        $this->videoFileDescription->setName('videoFileDescription');
+        $this->videoFileDescription->setElementName('videoFileDescription');
         return $this;
     }
 
@@ -145,7 +153,9 @@ class GroupInterceptGroupGetResponse16 extends ComplexType implements ComplexInt
      */
     public function getVideoFileDescription()
     {
-        return ($this->videoFileDescription) ? $this->videoFileDescription->getValue() : null;
+        return ($this->videoFileDescription)
+            ? $this->videoFileDescription->getElementValue()
+            : null;
     }
 
     /**
@@ -156,7 +166,7 @@ class GroupInterceptGroupGetResponse16 extends ComplexType implements ComplexInt
         $this->videoMediaType = ($videoMediaType InstanceOf MediaFileType)
              ? $videoMediaType
              : new MediaFileType($videoMediaType);
-        $this->videoMediaType->setName('videoMediaType');
+        $this->videoMediaType->setElementName('videoMediaType');
         return $this;
     }
 
@@ -166,7 +176,9 @@ class GroupInterceptGroupGetResponse16 extends ComplexType implements ComplexInt
      */
     public function getVideoMediaType()
     {
-        return ($this->videoMediaType) ? $this->videoMediaType->getValue() : null;
+        return ($this->videoMediaType)
+            ? $this->videoMediaType->getElementValue()
+            : null;
     }
 
     /**
@@ -175,7 +187,7 @@ class GroupInterceptGroupGetResponse16 extends ComplexType implements ComplexInt
     public function setPlayNewPhoneNumber($playNewPhoneNumber = null)
     {
         $this->playNewPhoneNumber = new PrimitiveType($playNewPhoneNumber);
-        $this->playNewPhoneNumber->setName('playNewPhoneNumber');
+        $this->playNewPhoneNumber->setElementName('playNewPhoneNumber');
         return $this;
     }
 
@@ -185,7 +197,9 @@ class GroupInterceptGroupGetResponse16 extends ComplexType implements ComplexInt
      */
     public function getPlayNewPhoneNumber()
     {
-        return ($this->playNewPhoneNumber) ? $this->playNewPhoneNumber->getValue() : null;
+        return ($this->playNewPhoneNumber)
+            ? $this->playNewPhoneNumber->getElementValue()
+            : null;
     }
 
     /**
@@ -196,7 +210,7 @@ class GroupInterceptGroupGetResponse16 extends ComplexType implements ComplexInt
         $this->newPhoneNumber = ($newPhoneNumber InstanceOf DN)
              ? $newPhoneNumber
              : new DN($newPhoneNumber);
-        $this->newPhoneNumber->setName('newPhoneNumber');
+        $this->newPhoneNumber->setElementName('newPhoneNumber');
         return $this;
     }
 
@@ -206,7 +220,9 @@ class GroupInterceptGroupGetResponse16 extends ComplexType implements ComplexInt
      */
     public function getNewPhoneNumber()
     {
-        return ($this->newPhoneNumber) ? $this->newPhoneNumber->getValue() : null;
+        return ($this->newPhoneNumber)
+            ? $this->newPhoneNumber->getElementValue()
+            : null;
     }
 
     /**
@@ -215,7 +231,7 @@ class GroupInterceptGroupGetResponse16 extends ComplexType implements ComplexInt
     public function setTransferOnZeroToPhoneNumber($transferOnZeroToPhoneNumber = null)
     {
         $this->transferOnZeroToPhoneNumber = new PrimitiveType($transferOnZeroToPhoneNumber);
-        $this->transferOnZeroToPhoneNumber->setName('transferOnZeroToPhoneNumber');
+        $this->transferOnZeroToPhoneNumber->setElementName('transferOnZeroToPhoneNumber');
         return $this;
     }
 
@@ -225,7 +241,9 @@ class GroupInterceptGroupGetResponse16 extends ComplexType implements ComplexInt
      */
     public function getTransferOnZeroToPhoneNumber()
     {
-        return ($this->transferOnZeroToPhoneNumber) ? $this->transferOnZeroToPhoneNumber->getValue() : null;
+        return ($this->transferOnZeroToPhoneNumber)
+            ? $this->transferOnZeroToPhoneNumber->getElementValue()
+            : null;
     }
 
     /**
@@ -236,7 +254,7 @@ class GroupInterceptGroupGetResponse16 extends ComplexType implements ComplexInt
         $this->transferPhoneNumber = ($transferPhoneNumber InstanceOf OutgoingDN)
              ? $transferPhoneNumber
              : new OutgoingDN($transferPhoneNumber);
-        $this->transferPhoneNumber->setName('transferPhoneNumber');
+        $this->transferPhoneNumber->setElementName('transferPhoneNumber');
         return $this;
     }
 
@@ -246,6 +264,8 @@ class GroupInterceptGroupGetResponse16 extends ComplexType implements ComplexInt
      */
     public function getTransferPhoneNumber()
     {
-        return ($this->transferPhoneNumber) ? $this->transferPhoneNumber->getValue() : null;
+        return ($this->transferPhoneNumber)
+            ? $this->transferPhoneNumber->getElementValue()
+            : null;
     }
 }

@@ -28,7 +28,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderPreferredCarrierModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'ServiceProviderPreferredCarrierModifyRequest';
+    public    $elementName = 'ServiceProviderPreferredCarrierModifyRequest';
     protected $serviceProviderId;
     protected $countryCode;
     protected $intraLataCarrier;
@@ -65,7 +65,7 @@ class ServiceProviderPreferredCarrierModifyRequest extends ComplexType implement
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
-        $this->serviceProviderId->setName('serviceProviderId');
+        $this->serviceProviderId->setElementName('serviceProviderId');
         return $this;
     }
 
@@ -75,7 +75,9 @@ class ServiceProviderPreferredCarrierModifyRequest extends ComplexType implement
      */
     public function getServiceProviderId()
     {
-        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
+        return ($this->serviceProviderId)
+            ? $this->serviceProviderId->getElementValue()
+            : null;
     }
 
     /**
@@ -86,7 +88,7 @@ class ServiceProviderPreferredCarrierModifyRequest extends ComplexType implement
         $this->countryCode = ($countryCode InstanceOf CountryCode)
              ? $countryCode
              : new CountryCode($countryCode);
-        $this->countryCode->setName('countryCode');
+        $this->countryCode->setElementName('countryCode');
         return $this;
     }
 
@@ -96,7 +98,9 @@ class ServiceProviderPreferredCarrierModifyRequest extends ComplexType implement
      */
     public function getCountryCode()
     {
-        return ($this->countryCode) ? $this->countryCode->getValue() : null;
+        return ($this->countryCode)
+            ? $this->countryCode->getElementValue()
+            : null;
     }
 
     /**
@@ -107,7 +111,7 @@ class ServiceProviderPreferredCarrierModifyRequest extends ComplexType implement
         $this->intraLataCarrier = ($intraLataCarrier InstanceOf PreferredCarrierName)
              ? $intraLataCarrier
              : new PreferredCarrierName($intraLataCarrier);
-        $this->intraLataCarrier->setName('intraLataCarrier');
+        $this->intraLataCarrier->setElementName('intraLataCarrier');
         return $this;
     }
 
@@ -117,7 +121,9 @@ class ServiceProviderPreferredCarrierModifyRequest extends ComplexType implement
      */
     public function getIntraLataCarrier()
     {
-        return ($this->intraLataCarrier) ? $this->intraLataCarrier->getValue() : null;
+        return ($this->intraLataCarrier)
+            ? $this->intraLataCarrier->getElementValue()
+            : null;
     }
 
     /**
@@ -128,7 +134,7 @@ class ServiceProviderPreferredCarrierModifyRequest extends ComplexType implement
         $this->interLataCarrier = ($interLataCarrier InstanceOf PreferredCarrierName)
              ? $interLataCarrier
              : new PreferredCarrierName($interLataCarrier);
-        $this->interLataCarrier->setName('interLataCarrier');
+        $this->interLataCarrier->setElementName('interLataCarrier');
         return $this;
     }
 
@@ -138,7 +144,9 @@ class ServiceProviderPreferredCarrierModifyRequest extends ComplexType implement
      */
     public function getInterLataCarrier()
     {
-        return ($this->interLataCarrier) ? $this->interLataCarrier->getValue() : null;
+        return ($this->interLataCarrier)
+            ? $this->interLataCarrier->getElementValue()
+            : null;
     }
 
     /**
@@ -149,7 +157,7 @@ class ServiceProviderPreferredCarrierModifyRequest extends ComplexType implement
         $this->internationalCarrier = ($internationalCarrier InstanceOf PreferredCarrierName)
              ? $internationalCarrier
              : new PreferredCarrierName($internationalCarrier);
-        $this->internationalCarrier->setName('internationalCarrier');
+        $this->internationalCarrier->setElementName('internationalCarrier');
         return $this;
     }
 
@@ -159,6 +167,8 @@ class ServiceProviderPreferredCarrierModifyRequest extends ComplexType implement
      */
     public function getInternationalCarrier()
     {
-        return ($this->internationalCarrier) ? $this->internationalCarrier->getValue() : null;
+        return ($this->internationalCarrier)
+            ? $this->internationalCarrier->getElementValue()
+            : null;
     }
 }

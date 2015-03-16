@@ -32,7 +32,7 @@ use Broadworks_OCIP\core\Client\Client;
 class GroupEnterpriseTrunkGetUserListRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType                         = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceTrunkGroup\GroupEnterpriseTrunkGetUserListResponse';
-    public    $name = 'GroupEnterpriseTrunkGetUserListRequest';
+    public    $elementName = 'GroupEnterpriseTrunkGetUserListRequest';
     protected $serviceProviderId;
     protected $groupId;
     protected $enterpriseTrunkName;
@@ -84,7 +84,7 @@ class GroupEnterpriseTrunkGetUserListRequest extends ComplexType implements Comp
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
-        $this->serviceProviderId->setName('serviceProviderId');
+        $this->serviceProviderId->setElementName('serviceProviderId');
         return $this;
     }
 
@@ -94,7 +94,9 @@ class GroupEnterpriseTrunkGetUserListRequest extends ComplexType implements Comp
      */
     public function getServiceProviderId()
     {
-        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
+        return ($this->serviceProviderId)
+            ? $this->serviceProviderId->getElementValue()
+            : null;
     }
 
     /**
@@ -105,7 +107,7 @@ class GroupEnterpriseTrunkGetUserListRequest extends ComplexType implements Comp
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
-        $this->groupId->setName('groupId');
+        $this->groupId->setElementName('groupId');
         return $this;
     }
 
@@ -115,7 +117,9 @@ class GroupEnterpriseTrunkGetUserListRequest extends ComplexType implements Comp
      */
     public function getGroupId()
     {
-        return ($this->groupId) ? $this->groupId->getValue() : null;
+        return ($this->groupId)
+            ? $this->groupId->getElementValue()
+            : null;
     }
 
     /**
@@ -126,7 +130,7 @@ class GroupEnterpriseTrunkGetUserListRequest extends ComplexType implements Comp
         $this->enterpriseTrunkName = ($enterpriseTrunkName InstanceOf EnterpriseTrunkName)
              ? $enterpriseTrunkName
              : new EnterpriseTrunkName($enterpriseTrunkName);
-        $this->enterpriseTrunkName->setName('enterpriseTrunkName');
+        $this->enterpriseTrunkName->setElementName('enterpriseTrunkName');
         return $this;
     }
 
@@ -136,7 +140,9 @@ class GroupEnterpriseTrunkGetUserListRequest extends ComplexType implements Comp
      */
     public function getEnterpriseTrunkName()
     {
-        return ($this->enterpriseTrunkName) ? $this->enterpriseTrunkName->getValue() : null;
+        return ($this->enterpriseTrunkName)
+            ? $this->enterpriseTrunkName->getElementValue()
+            : null;
     }
 
     /**
@@ -147,7 +153,7 @@ class GroupEnterpriseTrunkGetUserListRequest extends ComplexType implements Comp
         $this->responseSizeLimit = ($responseSizeLimit InstanceOf ResponseSizeLimit)
              ? $responseSizeLimit
              : new ResponseSizeLimit($responseSizeLimit);
-        $this->responseSizeLimit->setName('responseSizeLimit');
+        $this->responseSizeLimit->setElementName('responseSizeLimit');
         return $this;
     }
 
@@ -157,7 +163,9 @@ class GroupEnterpriseTrunkGetUserListRequest extends ComplexType implements Comp
      */
     public function getResponseSizeLimit()
     {
-        return ($this->responseSizeLimit) ? $this->responseSizeLimit->getValue() : null;
+        return ($this->responseSizeLimit)
+            ? $this->responseSizeLimit->getElementValue()
+            : null;
     }
 
     /**
@@ -168,7 +176,7 @@ class GroupEnterpriseTrunkGetUserListRequest extends ComplexType implements Comp
         $this->searchCriteriaUserLastName = ($searchCriteriaUserLastName InstanceOf SearchCriteriaUserLastName)
              ? $searchCriteriaUserLastName
              : new SearchCriteriaUserLastName($searchCriteriaUserLastName);
-        $this->searchCriteriaUserLastName->setName('searchCriteriaUserLastName');
+        $this->searchCriteriaUserLastName->setElementName('searchCriteriaUserLastName');
         return $this;
     }
 
@@ -189,7 +197,7 @@ class GroupEnterpriseTrunkGetUserListRequest extends ComplexType implements Comp
         $this->searchCriteriaUserFirstName = ($searchCriteriaUserFirstName InstanceOf SearchCriteriaUserFirstName)
              ? $searchCriteriaUserFirstName
              : new SearchCriteriaUserFirstName($searchCriteriaUserFirstName);
-        $this->searchCriteriaUserFirstName->setName('searchCriteriaUserFirstName');
+        $this->searchCriteriaUserFirstName->setElementName('searchCriteriaUserFirstName');
         return $this;
     }
 
@@ -210,7 +218,7 @@ class GroupEnterpriseTrunkGetUserListRequest extends ComplexType implements Comp
         $this->searchCriteriaDn = ($searchCriteriaDn InstanceOf SearchCriteriaDn)
              ? $searchCriteriaDn
              : new SearchCriteriaDn($searchCriteriaDn);
-        $this->searchCriteriaDn->setName('searchCriteriaDn');
+        $this->searchCriteriaDn->setElementName('searchCriteriaDn');
         return $this;
     }
 
@@ -231,7 +239,7 @@ class GroupEnterpriseTrunkGetUserListRequest extends ComplexType implements Comp
         $this->searchCriteriaUserId = ($searchCriteriaUserId InstanceOf SearchCriteriaUserId)
              ? $searchCriteriaUserId
              : new SearchCriteriaUserId($searchCriteriaUserId);
-        $this->searchCriteriaUserId->setName('searchCriteriaUserId');
+        $this->searchCriteriaUserId->setElementName('searchCriteriaUserId');
         return $this;
     }
 
@@ -252,7 +260,7 @@ class GroupEnterpriseTrunkGetUserListRequest extends ComplexType implements Comp
         $this->searchCriteriaGroupId = ($searchCriteriaGroupId InstanceOf SearchCriteriaGroupId)
              ? $searchCriteriaGroupId
              : new SearchCriteriaGroupId($searchCriteriaGroupId);
-        $this->searchCriteriaGroupId->setName('searchCriteriaGroupId');
+        $this->searchCriteriaGroupId->setElementName('searchCriteriaGroupId');
         return $this;
     }
 
@@ -273,7 +281,7 @@ class GroupEnterpriseTrunkGetUserListRequest extends ComplexType implements Comp
         $this->searchCriteriaAlternateTrunkIdentity = ($searchCriteriaAlternateTrunkIdentity InstanceOf SearchCriteriaAlternateTrunkIdentity)
              ? $searchCriteriaAlternateTrunkIdentity
              : new SearchCriteriaAlternateTrunkIdentity($searchCriteriaAlternateTrunkIdentity);
-        $this->searchCriteriaAlternateTrunkIdentity->setName('searchCriteriaAlternateTrunkIdentity');
+        $this->searchCriteriaAlternateTrunkIdentity->setElementName('searchCriteriaAlternateTrunkIdentity');
         return $this;
     }
 

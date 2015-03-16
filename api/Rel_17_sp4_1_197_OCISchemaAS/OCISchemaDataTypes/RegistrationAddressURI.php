@@ -17,12 +17,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\MaxLength;
  */
 class RegistrationAddressURI extends SimpleType
 {
-    public $name = "RegistrationAddressURI";
-    protected $value;
-
+    public $elementName = "RegistrationAddressURI";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new MinLength("1"));
         $this->addRestriction(new MaxLength("1024"));
     }

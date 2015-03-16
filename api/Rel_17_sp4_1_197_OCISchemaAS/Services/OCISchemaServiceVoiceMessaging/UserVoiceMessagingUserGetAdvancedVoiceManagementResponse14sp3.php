@@ -24,7 +24,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserVoiceMessagingUserGetAdvancedVoiceManagementResponse14sp3 extends ComplexType implements ComplexInterface
 {
-    public    $name = 'UserVoiceMessagingUserGetAdvancedVoiceManagementResponse14sp3';
+    public    $elementName = 'UserVoiceMessagingUserGetAdvancedVoiceManagementResponse14sp3';
     protected $mailServerSelection;
     protected $groupMailServerEmailAddress;
     protected $groupMailServerUserId;
@@ -50,7 +50,7 @@ class UserVoiceMessagingUserGetAdvancedVoiceManagementResponse14sp3 extends Comp
         $this->mailServerSelection = ($mailServerSelection InstanceOf VoiceMessagingUserMailServerSelection)
              ? $mailServerSelection
              : new VoiceMessagingUserMailServerSelection($mailServerSelection);
-        $this->mailServerSelection->setName('mailServerSelection');
+        $this->mailServerSelection->setElementName('mailServerSelection');
         return $this;
     }
 
@@ -60,7 +60,9 @@ class UserVoiceMessagingUserGetAdvancedVoiceManagementResponse14sp3 extends Comp
      */
     public function getMailServerSelection()
     {
-        return ($this->mailServerSelection) ? $this->mailServerSelection->getValue() : null;
+        return ($this->mailServerSelection)
+            ? $this->mailServerSelection->getElementValue()
+            : null;
     }
 
     /**
@@ -71,7 +73,7 @@ class UserVoiceMessagingUserGetAdvancedVoiceManagementResponse14sp3 extends Comp
         $this->groupMailServerEmailAddress = ($groupMailServerEmailAddress InstanceOf EmailAddress)
              ? $groupMailServerEmailAddress
              : new EmailAddress($groupMailServerEmailAddress);
-        $this->groupMailServerEmailAddress->setName('groupMailServerEmailAddress');
+        $this->groupMailServerEmailAddress->setElementName('groupMailServerEmailAddress');
         return $this;
     }
 
@@ -81,7 +83,9 @@ class UserVoiceMessagingUserGetAdvancedVoiceManagementResponse14sp3 extends Comp
      */
     public function getGroupMailServerEmailAddress()
     {
-        return ($this->groupMailServerEmailAddress) ? $this->groupMailServerEmailAddress->getValue() : null;
+        return ($this->groupMailServerEmailAddress)
+            ? $this->groupMailServerEmailAddress->getElementValue()
+            : null;
     }
 
     /**
@@ -92,7 +96,7 @@ class UserVoiceMessagingUserGetAdvancedVoiceManagementResponse14sp3 extends Comp
         $this->groupMailServerUserId = ($groupMailServerUserId InstanceOf VoiceMessagingMailServerUserId)
              ? $groupMailServerUserId
              : new VoiceMessagingMailServerUserId($groupMailServerUserId);
-        $this->groupMailServerUserId->setName('groupMailServerUserId');
+        $this->groupMailServerUserId->setElementName('groupMailServerUserId');
         return $this;
     }
 
@@ -102,7 +106,9 @@ class UserVoiceMessagingUserGetAdvancedVoiceManagementResponse14sp3 extends Comp
      */
     public function getGroupMailServerUserId()
     {
-        return ($this->groupMailServerUserId) ? $this->groupMailServerUserId->getValue() : null;
+        return ($this->groupMailServerUserId)
+            ? $this->groupMailServerUserId->getElementValue()
+            : null;
     }
 
     /**
@@ -113,7 +119,7 @@ class UserVoiceMessagingUserGetAdvancedVoiceManagementResponse14sp3 extends Comp
         $this->personalMailServerNetAddress = ($personalMailServerNetAddress InstanceOf NetAddress)
              ? $personalMailServerNetAddress
              : new NetAddress($personalMailServerNetAddress);
-        $this->personalMailServerNetAddress->setName('personalMailServerNetAddress');
+        $this->personalMailServerNetAddress->setElementName('personalMailServerNetAddress');
         return $this;
     }
 
@@ -123,7 +129,9 @@ class UserVoiceMessagingUserGetAdvancedVoiceManagementResponse14sp3 extends Comp
      */
     public function getPersonalMailServerNetAddress()
     {
-        return ($this->personalMailServerNetAddress) ? $this->personalMailServerNetAddress->getValue() : null;
+        return ($this->personalMailServerNetAddress)
+            ? $this->personalMailServerNetAddress->getElementValue()
+            : null;
     }
 
     /**
@@ -134,7 +142,7 @@ class UserVoiceMessagingUserGetAdvancedVoiceManagementResponse14sp3 extends Comp
         $this->personalMailServerProtocol = ($personalMailServerProtocol InstanceOf VoiceMessagingMailServerProtocol)
              ? $personalMailServerProtocol
              : new VoiceMessagingMailServerProtocol($personalMailServerProtocol);
-        $this->personalMailServerProtocol->setName('personalMailServerProtocol');
+        $this->personalMailServerProtocol->setElementName('personalMailServerProtocol');
         return $this;
     }
 
@@ -144,7 +152,9 @@ class UserVoiceMessagingUserGetAdvancedVoiceManagementResponse14sp3 extends Comp
      */
     public function getPersonalMailServerProtocol()
     {
-        return ($this->personalMailServerProtocol) ? $this->personalMailServerProtocol->getValue() : null;
+        return ($this->personalMailServerProtocol)
+            ? $this->personalMailServerProtocol->getElementValue()
+            : null;
     }
 
     /**
@@ -153,7 +163,7 @@ class UserVoiceMessagingUserGetAdvancedVoiceManagementResponse14sp3 extends Comp
     public function setPersonalMailServerRealDeleteForImap($personalMailServerRealDeleteForImap = null)
     {
         $this->personalMailServerRealDeleteForImap = new PrimitiveType($personalMailServerRealDeleteForImap);
-        $this->personalMailServerRealDeleteForImap->setName('personalMailServerRealDeleteForImap');
+        $this->personalMailServerRealDeleteForImap->setElementName('personalMailServerRealDeleteForImap');
         return $this;
     }
 
@@ -163,7 +173,9 @@ class UserVoiceMessagingUserGetAdvancedVoiceManagementResponse14sp3 extends Comp
      */
     public function getPersonalMailServerRealDeleteForImap()
     {
-        return ($this->personalMailServerRealDeleteForImap) ? $this->personalMailServerRealDeleteForImap->getValue() : null;
+        return ($this->personalMailServerRealDeleteForImap)
+            ? $this->personalMailServerRealDeleteForImap->getElementValue()
+            : null;
     }
 
     /**
@@ -174,7 +186,7 @@ class UserVoiceMessagingUserGetAdvancedVoiceManagementResponse14sp3 extends Comp
         $this->personalMailServerEmailAddress = ($personalMailServerEmailAddress InstanceOf EmailAddress)
              ? $personalMailServerEmailAddress
              : new EmailAddress($personalMailServerEmailAddress);
-        $this->personalMailServerEmailAddress->setName('personalMailServerEmailAddress');
+        $this->personalMailServerEmailAddress->setElementName('personalMailServerEmailAddress');
         return $this;
     }
 
@@ -184,7 +196,9 @@ class UserVoiceMessagingUserGetAdvancedVoiceManagementResponse14sp3 extends Comp
      */
     public function getPersonalMailServerEmailAddress()
     {
-        return ($this->personalMailServerEmailAddress) ? $this->personalMailServerEmailAddress->getValue() : null;
+        return ($this->personalMailServerEmailAddress)
+            ? $this->personalMailServerEmailAddress->getElementValue()
+            : null;
     }
 
     /**
@@ -195,7 +209,7 @@ class UserVoiceMessagingUserGetAdvancedVoiceManagementResponse14sp3 extends Comp
         $this->personalMailServerUserId = ($personalMailServerUserId InstanceOf VoiceMessagingMailServerUserId)
              ? $personalMailServerUserId
              : new VoiceMessagingMailServerUserId($personalMailServerUserId);
-        $this->personalMailServerUserId->setName('personalMailServerUserId');
+        $this->personalMailServerUserId->setElementName('personalMailServerUserId');
         return $this;
     }
 
@@ -205,6 +219,8 @@ class UserVoiceMessagingUserGetAdvancedVoiceManagementResponse14sp3 extends Comp
      */
     public function getPersonalMailServerUserId()
     {
-        return ($this->personalMailServerUserId) ? $this->personalMailServerUserId->getValue() : null;
+        return ($this->personalMailServerUserId)
+            ? $this->personalMailServerUserId->getElementValue()
+            : null;
     }
 }

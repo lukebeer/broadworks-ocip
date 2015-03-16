@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemRoutingDeleteRouteDeviceRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemRoutingDeleteRouteDeviceRequest';
+    public    $elementName = 'SystemRoutingDeleteRouteDeviceRequest';
     protected $routeName;
     protected $netAddress;
     protected $port;
@@ -53,7 +53,7 @@ class SystemRoutingDeleteRouteDeviceRequest extends ComplexType implements Compl
         $this->routeName = ($routeName InstanceOf RouteName)
              ? $routeName
              : new RouteName($routeName);
-        $this->routeName->setName('routeName');
+        $this->routeName->setElementName('routeName');
         return $this;
     }
 
@@ -63,7 +63,9 @@ class SystemRoutingDeleteRouteDeviceRequest extends ComplexType implements Compl
      */
     public function getRouteName()
     {
-        return ($this->routeName) ? $this->routeName->getValue() : null;
+        return ($this->routeName)
+            ? $this->routeName->getElementValue()
+            : null;
     }
 
     /**
@@ -74,7 +76,7 @@ class SystemRoutingDeleteRouteDeviceRequest extends ComplexType implements Compl
         $this->netAddress = ($netAddress InstanceOf NetAddress)
              ? $netAddress
              : new NetAddress($netAddress);
-        $this->netAddress->setName('netAddress');
+        $this->netAddress->setElementName('netAddress');
         return $this;
     }
 
@@ -84,7 +86,9 @@ class SystemRoutingDeleteRouteDeviceRequest extends ComplexType implements Compl
      */
     public function getNetAddress()
     {
-        return ($this->netAddress) ? $this->netAddress->getValue() : null;
+        return ($this->netAddress)
+            ? $this->netAddress->getElementValue()
+            : null;
     }
 
     /**
@@ -95,7 +99,7 @@ class SystemRoutingDeleteRouteDeviceRequest extends ComplexType implements Compl
         $this->port = ($port InstanceOf Port1025)
              ? $port
              : new Port1025($port);
-        $this->port->setName('port');
+        $this->port->setElementName('port');
         return $this;
     }
 
@@ -105,6 +109,8 @@ class SystemRoutingDeleteRouteDeviceRequest extends ComplexType implements Compl
      */
     public function getPort()
     {
-        return ($this->port) ? $this->port->getValue() : null;
+        return ($this->port)
+            ? $this->port->getElementValue()
+            : null;
     }
 }

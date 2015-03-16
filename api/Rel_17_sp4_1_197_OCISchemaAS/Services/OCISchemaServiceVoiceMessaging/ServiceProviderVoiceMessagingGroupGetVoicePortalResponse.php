@@ -19,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderVoiceMessagingGroupGetVoicePortalResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'ServiceProviderVoiceMessagingGroupGetVoicePortalResponse';
+    public    $elementName = 'ServiceProviderVoiceMessagingGroupGetVoicePortalResponse';
     protected $voicePortalScope;
 
     /**
@@ -38,7 +38,7 @@ class ServiceProviderVoiceMessagingGroupGetVoicePortalResponse extends ComplexTy
         $this->voicePortalScope = ($voicePortalScope InstanceOf ServiceProviderVoicePortalScope)
              ? $voicePortalScope
              : new ServiceProviderVoicePortalScope($voicePortalScope);
-        $this->voicePortalScope->setName('voicePortalScope');
+        $this->voicePortalScope->setElementName('voicePortalScope');
         return $this;
     }
 
@@ -48,6 +48,8 @@ class ServiceProviderVoiceMessagingGroupGetVoicePortalResponse extends ComplexTy
      */
     public function getVoicePortalScope()
     {
-        return ($this->voicePortalScope) ? $this->voicePortalScope->getValue() : null;
+        return ($this->voicePortalScope)
+            ? $this->voicePortalScope->getElementValue()
+            : null;
     }
 }

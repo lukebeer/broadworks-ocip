@@ -25,7 +25,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderAccessDeviceFileModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'ServiceProviderAccessDeviceFileModifyRequest';
+    public    $elementName = 'ServiceProviderAccessDeviceFileModifyRequest';
     protected $serviceProviderId;
     protected $deviceName;
     protected $fileType;
@@ -62,7 +62,7 @@ class ServiceProviderAccessDeviceFileModifyRequest extends ComplexType implement
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
-        $this->serviceProviderId->setName('serviceProviderId');
+        $this->serviceProviderId->setElementName('serviceProviderId');
         return $this;
     }
 
@@ -72,7 +72,9 @@ class ServiceProviderAccessDeviceFileModifyRequest extends ComplexType implement
      */
     public function getServiceProviderId()
     {
-        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
+        return ($this->serviceProviderId)
+            ? $this->serviceProviderId->getElementValue()
+            : null;
     }
 
     /**
@@ -83,7 +85,7 @@ class ServiceProviderAccessDeviceFileModifyRequest extends ComplexType implement
         $this->deviceName = ($deviceName InstanceOf AccessDeviceName)
              ? $deviceName
              : new AccessDeviceName($deviceName);
-        $this->deviceName->setName('deviceName');
+        $this->deviceName->setElementName('deviceName');
         return $this;
     }
 
@@ -93,7 +95,9 @@ class ServiceProviderAccessDeviceFileModifyRequest extends ComplexType implement
      */
     public function getDeviceName()
     {
-        return ($this->deviceName) ? $this->deviceName->getValue() : null;
+        return ($this->deviceName)
+            ? $this->deviceName->getElementValue()
+            : null;
     }
 
     /**
@@ -104,7 +108,7 @@ class ServiceProviderAccessDeviceFileModifyRequest extends ComplexType implement
         $this->fileType = ($fileType InstanceOf DeviceManagementFileType)
              ? $fileType
              : new DeviceManagementFileType($fileType);
-        $this->fileType->setName('fileType');
+        $this->fileType->setElementName('fileType');
         return $this;
     }
 
@@ -114,7 +118,9 @@ class ServiceProviderAccessDeviceFileModifyRequest extends ComplexType implement
      */
     public function getFileType()
     {
-        return ($this->fileType) ? $this->fileType->getValue() : null;
+        return ($this->fileType)
+            ? $this->fileType->getElementValue()
+            : null;
     }
 
     /**
@@ -125,7 +131,7 @@ class ServiceProviderAccessDeviceFileModifyRequest extends ComplexType implement
         $this->fileSource = ($fileSource InstanceOf AccessDeviceEnhancedConfigurationMode)
              ? $fileSource
              : new AccessDeviceEnhancedConfigurationMode($fileSource);
-        $this->fileSource->setName('fileSource');
+        $this->fileSource->setElementName('fileSource');
         return $this;
     }
 
@@ -135,7 +141,9 @@ class ServiceProviderAccessDeviceFileModifyRequest extends ComplexType implement
      */
     public function getFileSource()
     {
-        return ($this->fileSource) ? $this->fileSource->getValue() : null;
+        return ($this->fileSource)
+            ? $this->fileSource->getElementValue()
+            : null;
     }
 
     /**
@@ -146,7 +154,7 @@ class ServiceProviderAccessDeviceFileModifyRequest extends ComplexType implement
         $this->uploadFile = ($uploadFile InstanceOf FileResource)
              ? $uploadFile
              : new FileResource($uploadFile);
-        $this->uploadFile->setName('uploadFile');
+        $this->uploadFile->setElementName('uploadFile');
         return $this;
     }
 

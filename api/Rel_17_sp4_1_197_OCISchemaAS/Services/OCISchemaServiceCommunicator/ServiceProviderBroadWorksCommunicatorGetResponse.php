@@ -19,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderBroadWorksCommunicatorGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'ServiceProviderBroadWorksCommunicatorGetResponse';
+    public    $elementName = 'ServiceProviderBroadWorksCommunicatorGetResponse';
     protected $configurationServerURL;
 
     /**
@@ -38,7 +38,7 @@ class ServiceProviderBroadWorksCommunicatorGetResponse extends ComplexType imple
         $this->configurationServerURL = ($configurationServerURL InstanceOf URL)
              ? $configurationServerURL
              : new URL($configurationServerURL);
-        $this->configurationServerURL->setName('configurationServerURL');
+        $this->configurationServerURL->setElementName('configurationServerURL');
         return $this;
     }
 
@@ -48,6 +48,8 @@ class ServiceProviderBroadWorksCommunicatorGetResponse extends ComplexType imple
      */
     public function getConfigurationServerURL()
     {
-        return ($this->configurationServerURL) ? $this->configurationServerURL->getValue() : null;
+        return ($this->configurationServerURL)
+            ? $this->configurationServerURL->getElementValue()
+            : null;
     }
 }

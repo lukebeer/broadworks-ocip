@@ -19,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SearchCriteriaExactDeviceServiceProvider extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SearchCriteriaExactDeviceServiceProvider';
+    public    $elementName = 'SearchCriteriaExactDeviceServiceProvider';
     protected $serviceProviderId;
 
     public function __construct(
@@ -44,7 +44,7 @@ class SearchCriteriaExactDeviceServiceProvider extends ComplexType implements Co
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
-        $this->serviceProviderId->setName('serviceProviderId');
+        $this->serviceProviderId->setElementName('serviceProviderId');
         return $this;
     }
 
@@ -54,6 +54,8 @@ class SearchCriteriaExactDeviceServiceProvider extends ComplexType implements Co
      */
     public function getServiceProviderId()
     {
-        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
+        return ($this->serviceProviderId)
+            ? $this->serviceProviderId->getElementValue()
+            : null;
     }
 }

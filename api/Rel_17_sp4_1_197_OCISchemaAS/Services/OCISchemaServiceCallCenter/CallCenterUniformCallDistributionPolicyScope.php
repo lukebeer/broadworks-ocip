@@ -16,12 +16,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\Enumeration;
  */
 class CallCenterUniformCallDistributionPolicyScope extends SimpleType
 {
-    public $name = "CallCenterUniformCallDistributionPolicyScope";
-    protected $value;
-
+    public $elementName = "CallCenterUniformCallDistributionPolicyScope";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new Enumeration([
             'Agent',
             'Call Center'

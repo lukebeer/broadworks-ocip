@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserCustomRingbackUserModifyActiveCriteriaListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'UserCustomRingbackUserModifyActiveCriteriaListRequest';
+    public    $elementName = 'UserCustomRingbackUserModifyActiveCriteriaListRequest';
     protected $userId;
     protected $criteriaActivation;
 
@@ -49,7 +49,7 @@ class UserCustomRingbackUserModifyActiveCriteriaListRequest extends ComplexType 
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
-        $this->userId->setName('userId');
+        $this->userId->setElementName('userId');
         return $this;
     }
 
@@ -59,7 +59,9 @@ class UserCustomRingbackUserModifyActiveCriteriaListRequest extends ComplexType 
      */
     public function getUserId()
     {
-        return ($this->userId) ? $this->userId->getValue() : null;
+        return ($this->userId)
+            ? $this->userId->getElementValue()
+            : null;
     }
 
     /**
@@ -70,7 +72,7 @@ class UserCustomRingbackUserModifyActiveCriteriaListRequest extends ComplexType 
         $this->criteriaActivation = ($criteriaActivation InstanceOf CriteriaActivation)
              ? $criteriaActivation
              : new CriteriaActivation($criteriaActivation);
-        $this->criteriaActivation->setName('criteriaActivation');
+        $this->criteriaActivation->setElementName('criteriaActivation');
         return $this;
     }
 

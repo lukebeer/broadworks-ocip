@@ -19,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class Recurrence extends ComplexType implements ComplexInterface
 {
-    public    $name = 'Recurrence';
+    public    $elementName = 'Recurrence';
 
     public function __construct(    ) {
     }

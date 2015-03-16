@@ -23,7 +23,7 @@ use Broadworks_OCIP\core\Client\Client;
 class UserLDAPIntegrationGetDirectoryListRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceLDAPIntegration\UserLDAPIntegrationGetDirectoryListResponse';
-    public    $name = 'UserLDAPIntegrationGetDirectoryListRequest';
+    public    $elementName = 'UserLDAPIntegrationGetDirectoryListRequest';
     protected $userId;
     protected $searchKey;
     protected $page;
@@ -54,7 +54,7 @@ class UserLDAPIntegrationGetDirectoryListRequest extends ComplexType implements 
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
-        $this->userId->setName('userId');
+        $this->userId->setElementName('userId');
         return $this;
     }
 
@@ -64,7 +64,9 @@ class UserLDAPIntegrationGetDirectoryListRequest extends ComplexType implements 
      */
     public function getUserId()
     {
-        return ($this->userId) ? $this->userId->getValue() : null;
+        return ($this->userId)
+            ? $this->userId->getElementValue()
+            : null;
     }
 
     /**
@@ -75,7 +77,7 @@ class UserLDAPIntegrationGetDirectoryListRequest extends ComplexType implements 
         $this->searchKey = ($searchKey InstanceOf LDAPSearchKey)
              ? $searchKey
              : new LDAPSearchKey($searchKey);
-        $this->searchKey->setName('searchKey');
+        $this->searchKey->setElementName('searchKey');
         return $this;
     }
 
@@ -85,7 +87,9 @@ class UserLDAPIntegrationGetDirectoryListRequest extends ComplexType implements 
      */
     public function getSearchKey()
     {
-        return ($this->searchKey) ? $this->searchKey->getValue() : null;
+        return ($this->searchKey)
+            ? $this->searchKey->getElementValue()
+            : null;
     }
 
     /**
@@ -96,7 +100,7 @@ class UserLDAPIntegrationGetDirectoryListRequest extends ComplexType implements 
         $this->page = ($page InstanceOf LDAPPage)
              ? $page
              : new LDAPPage($page);
-        $this->page->setName('page');
+        $this->page->setElementName('page');
         return $this;
     }
 

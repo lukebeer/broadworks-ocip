@@ -28,7 +28,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupCallCenterHolidayServiceModifyRequest17sp1 extends ComplexType implements ComplexInterface
 {
-    public    $name = 'GroupCallCenterHolidayServiceModifyRequest17sp1';
+    public    $elementName = 'GroupCallCenterHolidayServiceModifyRequest17sp1';
     protected $serviceUserId;
     protected $action;
     protected $holidaySchedule;
@@ -83,7 +83,7 @@ class GroupCallCenterHolidayServiceModifyRequest17sp1 extends ComplexType implem
         $this->serviceUserId = ($serviceUserId InstanceOf UserId)
              ? $serviceUserId
              : new UserId($serviceUserId);
-        $this->serviceUserId->setName('serviceUserId');
+        $this->serviceUserId->setElementName('serviceUserId');
         return $this;
     }
 
@@ -93,7 +93,9 @@ class GroupCallCenterHolidayServiceModifyRequest17sp1 extends ComplexType implem
      */
     public function getServiceUserId()
     {
-        return ($this->serviceUserId) ? $this->serviceUserId->getValue() : null;
+        return ($this->serviceUserId)
+            ? $this->serviceUserId->getElementValue()
+            : null;
     }
 
     /**
@@ -104,7 +106,7 @@ class GroupCallCenterHolidayServiceModifyRequest17sp1 extends ComplexType implem
         $this->action = ($action InstanceOf CallCenterScheduledServiceAction)
              ? $action
              : new CallCenterScheduledServiceAction($action);
-        $this->action->setName('action');
+        $this->action->setElementName('action');
         return $this;
     }
 
@@ -114,7 +116,9 @@ class GroupCallCenterHolidayServiceModifyRequest17sp1 extends ComplexType implem
      */
     public function getAction()
     {
-        return ($this->action) ? $this->action->getValue() : null;
+        return ($this->action)
+            ? $this->action->getElementValue()
+            : null;
     }
 
     /**
@@ -125,7 +129,7 @@ class GroupCallCenterHolidayServiceModifyRequest17sp1 extends ComplexType implem
         $this->holidaySchedule = ($holidaySchedule InstanceOf HolidaySchedule)
              ? $holidaySchedule
              : new HolidaySchedule($holidaySchedule);
-        $this->holidaySchedule->setName('holidaySchedule');
+        $this->holidaySchedule->setElementName('holidaySchedule');
         return $this;
     }
 
@@ -146,7 +150,7 @@ class GroupCallCenterHolidayServiceModifyRequest17sp1 extends ComplexType implem
         $this->transferPhoneNumber = ($transferPhoneNumber InstanceOf OutgoingDNorSIPURI)
              ? $transferPhoneNumber
              : new OutgoingDNorSIPURI($transferPhoneNumber);
-        $this->transferPhoneNumber->setName('transferPhoneNumber');
+        $this->transferPhoneNumber->setElementName('transferPhoneNumber');
         return $this;
     }
 
@@ -156,7 +160,9 @@ class GroupCallCenterHolidayServiceModifyRequest17sp1 extends ComplexType implem
      */
     public function getTransferPhoneNumber()
     {
-        return ($this->transferPhoneNumber) ? $this->transferPhoneNumber->getValue() : null;
+        return ($this->transferPhoneNumber)
+            ? $this->transferPhoneNumber->getElementValue()
+            : null;
     }
 
     /**
@@ -165,7 +171,7 @@ class GroupCallCenterHolidayServiceModifyRequest17sp1 extends ComplexType implem
     public function setPlayAnnouncementBeforeAction($playAnnouncementBeforeAction = null)
     {
         $this->playAnnouncementBeforeAction = new PrimitiveType($playAnnouncementBeforeAction);
-        $this->playAnnouncementBeforeAction->setName('playAnnouncementBeforeAction');
+        $this->playAnnouncementBeforeAction->setElementName('playAnnouncementBeforeAction');
         return $this;
     }
 
@@ -175,7 +181,9 @@ class GroupCallCenterHolidayServiceModifyRequest17sp1 extends ComplexType implem
      */
     public function getPlayAnnouncementBeforeAction()
     {
-        return ($this->playAnnouncementBeforeAction) ? $this->playAnnouncementBeforeAction->getValue() : null;
+        return ($this->playAnnouncementBeforeAction)
+            ? $this->playAnnouncementBeforeAction->getElementValue()
+            : null;
     }
 
     /**
@@ -186,7 +194,7 @@ class GroupCallCenterHolidayServiceModifyRequest17sp1 extends ComplexType implem
         $this->audioMessageSelection = ($audioMessageSelection InstanceOf ExtendedFileResourceSelection)
              ? $audioMessageSelection
              : new ExtendedFileResourceSelection($audioMessageSelection);
-        $this->audioMessageSelection->setName('audioMessageSelection');
+        $this->audioMessageSelection->setElementName('audioMessageSelection');
         return $this;
     }
 
@@ -196,7 +204,9 @@ class GroupCallCenterHolidayServiceModifyRequest17sp1 extends ComplexType implem
      */
     public function getAudioMessageSelection()
     {
-        return ($this->audioMessageSelection) ? $this->audioMessageSelection->getValue() : null;
+        return ($this->audioMessageSelection)
+            ? $this->audioMessageSelection->getElementValue()
+            : null;
     }
 
     /**
@@ -207,7 +217,7 @@ class GroupCallCenterHolidayServiceModifyRequest17sp1 extends ComplexType implem
         $this->audioUrlList = ($audioUrlList InstanceOf CallCenterAnnouncementURLListModify)
              ? $audioUrlList
              : new CallCenterAnnouncementURLListModify($audioUrlList);
-        $this->audioUrlList->setName('audioUrlList');
+        $this->audioUrlList->setElementName('audioUrlList');
         return $this;
     }
 
@@ -228,7 +238,7 @@ class GroupCallCenterHolidayServiceModifyRequest17sp1 extends ComplexType implem
         $this->audioFileList = ($audioFileList InstanceOf CallCenterAnnouncementFileListModify)
              ? $audioFileList
              : new CallCenterAnnouncementFileListModify($audioFileList);
-        $this->audioFileList->setName('audioFileList');
+        $this->audioFileList->setElementName('audioFileList');
         return $this;
     }
 
@@ -249,7 +259,7 @@ class GroupCallCenterHolidayServiceModifyRequest17sp1 extends ComplexType implem
         $this->videoMessageSelection = ($videoMessageSelection InstanceOf ExtendedFileResourceSelection)
              ? $videoMessageSelection
              : new ExtendedFileResourceSelection($videoMessageSelection);
-        $this->videoMessageSelection->setName('videoMessageSelection');
+        $this->videoMessageSelection->setElementName('videoMessageSelection');
         return $this;
     }
 
@@ -259,7 +269,9 @@ class GroupCallCenterHolidayServiceModifyRequest17sp1 extends ComplexType implem
      */
     public function getVideoMessageSelection()
     {
-        return ($this->videoMessageSelection) ? $this->videoMessageSelection->getValue() : null;
+        return ($this->videoMessageSelection)
+            ? $this->videoMessageSelection->getElementValue()
+            : null;
     }
 
     /**
@@ -270,7 +282,7 @@ class GroupCallCenterHolidayServiceModifyRequest17sp1 extends ComplexType implem
         $this->videoUrlList = ($videoUrlList InstanceOf CallCenterAnnouncementURLListModify)
              ? $videoUrlList
              : new CallCenterAnnouncementURLListModify($videoUrlList);
-        $this->videoUrlList->setName('videoUrlList');
+        $this->videoUrlList->setElementName('videoUrlList');
         return $this;
     }
 
@@ -291,7 +303,7 @@ class GroupCallCenterHolidayServiceModifyRequest17sp1 extends ComplexType implem
         $this->videoFileList = ($videoFileList InstanceOf CallCenterAnnouncementFileListModify)
              ? $videoFileList
              : new CallCenterAnnouncementFileListModify($videoFileList);
-        $this->videoFileList->setName('videoFileList');
+        $this->videoFileList->setElementName('videoFileList');
         return $this;
     }
 

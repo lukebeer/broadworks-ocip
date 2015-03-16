@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserOutgoingCallingPlanTransferNumbersModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'UserOutgoingCallingPlanTransferNumbersModifyRequest';
+    public    $elementName = 'UserOutgoingCallingPlanTransferNumbersModifyRequest';
     protected $userId;
     protected $useCustomSettings;
     protected $userNumbers;
@@ -53,7 +53,7 @@ class UserOutgoingCallingPlanTransferNumbersModifyRequest extends ComplexType im
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
-        $this->userId->setName('userId');
+        $this->userId->setElementName('userId');
         return $this;
     }
 
@@ -63,7 +63,9 @@ class UserOutgoingCallingPlanTransferNumbersModifyRequest extends ComplexType im
      */
     public function getUserId()
     {
-        return ($this->userId) ? $this->userId->getValue() : null;
+        return ($this->userId)
+            ? $this->userId->getElementValue()
+            : null;
     }
 
     /**
@@ -72,7 +74,7 @@ class UserOutgoingCallingPlanTransferNumbersModifyRequest extends ComplexType im
     public function setUseCustomSettings($useCustomSettings = null)
     {
         $this->useCustomSettings = new PrimitiveType($useCustomSettings);
-        $this->useCustomSettings->setName('useCustomSettings');
+        $this->useCustomSettings->setElementName('useCustomSettings');
         return $this;
     }
 
@@ -82,7 +84,9 @@ class UserOutgoingCallingPlanTransferNumbersModifyRequest extends ComplexType im
      */
     public function getUseCustomSettings()
     {
-        return ($this->useCustomSettings) ? $this->useCustomSettings->getValue() : null;
+        return ($this->useCustomSettings)
+            ? $this->useCustomSettings->getElementValue()
+            : null;
     }
 
     /**
@@ -93,7 +97,7 @@ class UserOutgoingCallingPlanTransferNumbersModifyRequest extends ComplexType im
         $this->userNumbers = ($userNumbers InstanceOf OutgoingCallingPlanTransferNumbersModify)
              ? $userNumbers
              : new OutgoingCallingPlanTransferNumbersModify($userNumbers);
-        $this->userNumbers->setName('userNumbers');
+        $this->userNumbers->setElementName('userNumbers');
         return $this;
     }
 

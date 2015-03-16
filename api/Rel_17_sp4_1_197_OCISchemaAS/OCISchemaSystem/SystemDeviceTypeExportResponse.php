@@ -19,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemDeviceTypeExportResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemDeviceTypeExportResponse';
+    public    $elementName = 'SystemDeviceTypeExportResponse';
     protected $file;
 
     /**
@@ -38,7 +38,7 @@ class SystemDeviceTypeExportResponse extends ComplexType implements ComplexInter
         $this->file = ($file InstanceOf URL)
              ? $file
              : new URL($file);
-        $this->file->setName('file');
+        $this->file->setElementName('file');
         return $this;
     }
 
@@ -48,6 +48,8 @@ class SystemDeviceTypeExportResponse extends ComplexType implements ComplexInter
      */
     public function getFile()
     {
-        return ($this->file) ? $this->file->getValue() : null;
+        return ($this->file)
+            ? $this->file->getElementValue()
+            : null;
     }
 }

@@ -24,7 +24,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupBroadWorksMobileManagerActivationRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'GroupBroadWorksMobileManagerActivationRequest';
+    public    $elementName = 'GroupBroadWorksMobileManagerActivationRequest';
     protected $serviceProviderId;
     protected $groupId;
     protected $isActive;
@@ -58,7 +58,7 @@ class GroupBroadWorksMobileManagerActivationRequest extends ComplexType implemen
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
-        $this->serviceProviderId->setName('serviceProviderId');
+        $this->serviceProviderId->setElementName('serviceProviderId');
         return $this;
     }
 
@@ -68,7 +68,9 @@ class GroupBroadWorksMobileManagerActivationRequest extends ComplexType implemen
      */
     public function getServiceProviderId()
     {
-        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
+        return ($this->serviceProviderId)
+            ? $this->serviceProviderId->getElementValue()
+            : null;
     }
 
     /**
@@ -79,7 +81,7 @@ class GroupBroadWorksMobileManagerActivationRequest extends ComplexType implemen
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
-        $this->groupId->setName('groupId');
+        $this->groupId->setElementName('groupId');
         return $this;
     }
 
@@ -89,7 +91,9 @@ class GroupBroadWorksMobileManagerActivationRequest extends ComplexType implemen
      */
     public function getGroupId()
     {
-        return ($this->groupId) ? $this->groupId->getValue() : null;
+        return ($this->groupId)
+            ? $this->groupId->getElementValue()
+            : null;
     }
 
     /**
@@ -98,7 +102,7 @@ class GroupBroadWorksMobileManagerActivationRequest extends ComplexType implemen
     public function setIsActive($isActive = null)
     {
         $this->isActive = new PrimitiveType($isActive);
-        $this->isActive->setName('isActive');
+        $this->isActive->setElementName('isActive');
         return $this;
     }
 
@@ -108,7 +112,9 @@ class GroupBroadWorksMobileManagerActivationRequest extends ComplexType implemen
      */
     public function getIsActive()
     {
-        return ($this->isActive) ? $this->isActive->getValue() : null;
+        return ($this->isActive)
+            ? $this->isActive->getElementValue()
+            : null;
     }
 
     /**
@@ -119,7 +125,7 @@ class GroupBroadWorksMobileManagerActivationRequest extends ComplexType implemen
         $this->deactivationReason = ($deactivationReason InstanceOf BroadWorksMobileManagerDeactivationReason)
              ? $deactivationReason
              : new BroadWorksMobileManagerDeactivationReason($deactivationReason);
-        $this->deactivationReason->setName('deactivationReason');
+        $this->deactivationReason->setElementName('deactivationReason');
         return $this;
     }
 
@@ -129,6 +135,8 @@ class GroupBroadWorksMobileManagerActivationRequest extends ComplexType implemen
      */
     public function getDeactivationReason()
     {
-        return ($this->deactivationReason) ? $this->deactivationReason->getValue() : null;
+        return ($this->deactivationReason)
+            ? $this->deactivationReason->getElementValue()
+            : null;
     }
 }

@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserShInterfaceModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'UserShInterfaceModifyRequest';
+    public    $elementName = 'UserShInterfaceModifyRequest';
     protected $publicUserIdentity;
     protected $SCSCFName;
     protected $IMSUserState;
@@ -53,7 +53,7 @@ class UserShInterfaceModifyRequest extends ComplexType implements ComplexInterfa
         $this->publicUserIdentity = ($publicUserIdentity InstanceOf PublicUserIdentity)
              ? $publicUserIdentity
              : new PublicUserIdentity($publicUserIdentity);
-        $this->publicUserIdentity->setName('publicUserIdentity');
+        $this->publicUserIdentity->setElementName('publicUserIdentity');
         return $this;
     }
 
@@ -74,7 +74,7 @@ class UserShInterfaceModifyRequest extends ComplexType implements ComplexInterfa
         $this->SCSCFName = ($SCSCFName InstanceOf SIPURI)
              ? $SCSCFName
              : new SIPURI($SCSCFName);
-        $this->SCSCFName->setName('SCSCFName');
+        $this->SCSCFName->setElementName('SCSCFName');
         return $this;
     }
 
@@ -84,7 +84,9 @@ class UserShInterfaceModifyRequest extends ComplexType implements ComplexInterfa
      */
     public function getSCSCFName()
     {
-        return ($this->SCSCFName) ? $this->SCSCFName->getValue() : null;
+        return ($this->SCSCFName)
+            ? $this->SCSCFName->getElementValue()
+            : null;
     }
 
     /**
@@ -95,7 +97,7 @@ class UserShInterfaceModifyRequest extends ComplexType implements ComplexInterfa
         $this->IMSUserState = ($IMSUserState InstanceOf IMSUserState)
              ? $IMSUserState
              : new IMSUserState($IMSUserState);
-        $this->IMSUserState->setName('IMSUserState');
+        $this->IMSUserState->setElementName('IMSUserState');
         return $this;
     }
 
@@ -105,6 +107,8 @@ class UserShInterfaceModifyRequest extends ComplexType implements ComplexInterfa
      */
     public function getIMSUserState()
     {
-        return ($this->IMSUserState) ? $this->IMSUserState->getValue() : null;
+        return ($this->IMSUserState)
+            ? $this->IMSUserState->getElementValue()
+            : null;
     }
 }

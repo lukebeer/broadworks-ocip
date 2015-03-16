@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
 class GroupTrunkGroupUserCreationTaskGetRequest14sp4 extends ComplexType implements ComplexInterface
 {
     public    $responseType  = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceTrunkGroup\GroupTrunkGroupUserCreationTaskGetResponse14sp4';
-    public    $name = 'GroupTrunkGroupUserCreationTaskGetRequest14sp4';
+    public    $elementName = 'GroupTrunkGroupUserCreationTaskGetRequest14sp4';
     protected $trunkGroupKey;
     protected $taskName;
 
@@ -50,7 +50,7 @@ class GroupTrunkGroupUserCreationTaskGetRequest14sp4 extends ComplexType impleme
         $this->trunkGroupKey = ($trunkGroupKey InstanceOf TrunkGroupKey)
              ? $trunkGroupKey
              : new TrunkGroupKey($trunkGroupKey);
-        $this->trunkGroupKey->setName('trunkGroupKey');
+        $this->trunkGroupKey->setElementName('trunkGroupKey');
         return $this;
     }
 
@@ -71,7 +71,7 @@ class GroupTrunkGroupUserCreationTaskGetRequest14sp4 extends ComplexType impleme
         $this->taskName = ($taskName InstanceOf TrunkGroupUserCreationTaskName)
              ? $taskName
              : new TrunkGroupUserCreationTaskName($taskName);
-        $this->taskName->setName('taskName');
+        $this->taskName->setElementName('taskName');
         return $this;
     }
 
@@ -81,6 +81,8 @@ class GroupTrunkGroupUserCreationTaskGetRequest14sp4 extends ComplexType impleme
      */
     public function getTaskName()
     {
-        return ($this->taskName) ? $this->taskName->getValue() : null;
+        return ($this->taskName)
+            ? $this->taskName->getElementValue()
+            : null;
     }
 }

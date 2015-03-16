@@ -19,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupPreferredCarrierGroupGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'GroupPreferredCarrierGroupGetResponse';
+    public    $elementName = 'GroupPreferredCarrierGroupGetResponse';
     protected $intraLataCarrier;
     protected $interLataCarrier;
     protected $internationalCarrier;
@@ -40,7 +40,7 @@ class GroupPreferredCarrierGroupGetResponse extends ComplexType implements Compl
         $this->intraLataCarrier = ($intraLataCarrier InstanceOf GroupPreferredCarrierName)
              ? $intraLataCarrier
              : new GroupPreferredCarrierName($intraLataCarrier);
-        $this->intraLataCarrier->setName('intraLataCarrier');
+        $this->intraLataCarrier->setElementName('intraLataCarrier');
         return $this;
     }
 
@@ -61,7 +61,7 @@ class GroupPreferredCarrierGroupGetResponse extends ComplexType implements Compl
         $this->interLataCarrier = ($interLataCarrier InstanceOf GroupPreferredCarrierName)
              ? $interLataCarrier
              : new GroupPreferredCarrierName($interLataCarrier);
-        $this->interLataCarrier->setName('interLataCarrier');
+        $this->interLataCarrier->setElementName('interLataCarrier');
         return $this;
     }
 
@@ -82,7 +82,7 @@ class GroupPreferredCarrierGroupGetResponse extends ComplexType implements Compl
         $this->internationalCarrier = ($internationalCarrier InstanceOf GroupPreferredCarrierName)
              ? $internationalCarrier
              : new GroupPreferredCarrierName($internationalCarrier);
-        $this->internationalCarrier->setName('internationalCarrier');
+        $this->internationalCarrier->setElementName('internationalCarrier');
         return $this;
     }
 

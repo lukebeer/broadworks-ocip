@@ -19,12 +19,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\Enumeration;
  */
 class SystemVoicePortalScope extends SimpleType
 {
-    public $name = "SystemVoicePortalScope";
-    protected $value;
-
+    public $elementName = "SystemVoicePortalScope";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new Enumeration([
             'Service Provider',
             'System'

@@ -23,7 +23,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupNetworkClassOfServiceAssignToAllUsersRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'GroupNetworkClassOfServiceAssignToAllUsersRequest';
+    public    $elementName = 'GroupNetworkClassOfServiceAssignToAllUsersRequest';
     protected $serviceProviderId;
     protected $groupId;
     protected $networkClassOfService;
@@ -54,7 +54,7 @@ class GroupNetworkClassOfServiceAssignToAllUsersRequest extends ComplexType impl
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
-        $this->serviceProviderId->setName('serviceProviderId');
+        $this->serviceProviderId->setElementName('serviceProviderId');
         return $this;
     }
 
@@ -64,7 +64,9 @@ class GroupNetworkClassOfServiceAssignToAllUsersRequest extends ComplexType impl
      */
     public function getServiceProviderId()
     {
-        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
+        return ($this->serviceProviderId)
+            ? $this->serviceProviderId->getElementValue()
+            : null;
     }
 
     /**
@@ -75,7 +77,7 @@ class GroupNetworkClassOfServiceAssignToAllUsersRequest extends ComplexType impl
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
-        $this->groupId->setName('groupId');
+        $this->groupId->setElementName('groupId');
         return $this;
     }
 
@@ -85,7 +87,9 @@ class GroupNetworkClassOfServiceAssignToAllUsersRequest extends ComplexType impl
      */
     public function getGroupId()
     {
-        return ($this->groupId) ? $this->groupId->getValue() : null;
+        return ($this->groupId)
+            ? $this->groupId->getElementValue()
+            : null;
     }
 
     /**
@@ -96,7 +100,7 @@ class GroupNetworkClassOfServiceAssignToAllUsersRequest extends ComplexType impl
         $this->networkClassOfService = ($networkClassOfService InstanceOf NetworkClassOfServiceName)
              ? $networkClassOfService
              : new NetworkClassOfServiceName($networkClassOfService);
-        $this->networkClassOfService->setName('networkClassOfService');
+        $this->networkClassOfService->setElementName('networkClassOfService');
         return $this;
     }
 
@@ -106,6 +110,8 @@ class GroupNetworkClassOfServiceAssignToAllUsersRequest extends ComplexType impl
      */
     public function getNetworkClassOfService()
     {
-        return ($this->networkClassOfService) ? $this->networkClassOfService->getValue() : null;
+        return ($this->networkClassOfService)
+            ? $this->networkClassOfService->getElementValue()
+            : null;
     }
 }

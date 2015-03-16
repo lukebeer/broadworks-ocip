@@ -25,7 +25,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupCallCenterComfortMessageBypassGetResponse17 extends ComplexType implements ComplexInterface
 {
-    public    $name = 'GroupCallCenterComfortMessageBypassGetResponse17';
+    public    $elementName = 'GroupCallCenterComfortMessageBypassGetResponse17';
     protected $isActive;
     protected $callWaitingAgeThresholdSeconds;
     protected $playAnnouncementAfterRinging;
@@ -53,7 +53,7 @@ class GroupCallCenterComfortMessageBypassGetResponse17 extends ComplexType imple
     public function setIsActive($isActive = null)
     {
         $this->isActive = new PrimitiveType($isActive);
-        $this->isActive->setName('isActive');
+        $this->isActive->setElementName('isActive');
         return $this;
     }
 
@@ -63,7 +63,9 @@ class GroupCallCenterComfortMessageBypassGetResponse17 extends ComplexType imple
      */
     public function getIsActive()
     {
-        return ($this->isActive) ? $this->isActive->getValue() : null;
+        return ($this->isActive)
+            ? $this->isActive->getElementValue()
+            : null;
     }
 
     /**
@@ -74,7 +76,7 @@ class GroupCallCenterComfortMessageBypassGetResponse17 extends ComplexType imple
         $this->callWaitingAgeThresholdSeconds = ($callWaitingAgeThresholdSeconds InstanceOf CallCenterComfortMessageBypassThresholdSeconds)
              ? $callWaitingAgeThresholdSeconds
              : new CallCenterComfortMessageBypassThresholdSeconds($callWaitingAgeThresholdSeconds);
-        $this->callWaitingAgeThresholdSeconds->setName('callWaitingAgeThresholdSeconds');
+        $this->callWaitingAgeThresholdSeconds->setElementName('callWaitingAgeThresholdSeconds');
         return $this;
     }
 
@@ -84,7 +86,9 @@ class GroupCallCenterComfortMessageBypassGetResponse17 extends ComplexType imple
      */
     public function getCallWaitingAgeThresholdSeconds()
     {
-        return ($this->callWaitingAgeThresholdSeconds) ? $this->callWaitingAgeThresholdSeconds->getValue() : null;
+        return ($this->callWaitingAgeThresholdSeconds)
+            ? $this->callWaitingAgeThresholdSeconds->getElementValue()
+            : null;
     }
 
     /**
@@ -93,7 +97,7 @@ class GroupCallCenterComfortMessageBypassGetResponse17 extends ComplexType imple
     public function setPlayAnnouncementAfterRinging($playAnnouncementAfterRinging = null)
     {
         $this->playAnnouncementAfterRinging = new PrimitiveType($playAnnouncementAfterRinging);
-        $this->playAnnouncementAfterRinging->setName('playAnnouncementAfterRinging');
+        $this->playAnnouncementAfterRinging->setElementName('playAnnouncementAfterRinging');
         return $this;
     }
 
@@ -103,7 +107,9 @@ class GroupCallCenterComfortMessageBypassGetResponse17 extends ComplexType imple
      */
     public function getPlayAnnouncementAfterRinging()
     {
-        return ($this->playAnnouncementAfterRinging) ? $this->playAnnouncementAfterRinging->getValue() : null;
+        return ($this->playAnnouncementAfterRinging)
+            ? $this->playAnnouncementAfterRinging->getElementValue()
+            : null;
     }
 
     /**
@@ -114,7 +120,7 @@ class GroupCallCenterComfortMessageBypassGetResponse17 extends ComplexType imple
         $this->ringTimeBeforePlayingAnnouncementSeconds = ($ringTimeBeforePlayingAnnouncementSeconds InstanceOf CallCenterRingTimeBeforePlayingComfortMessageBypassAnnouncementSeconds)
              ? $ringTimeBeforePlayingAnnouncementSeconds
              : new CallCenterRingTimeBeforePlayingComfortMessageBypassAnnouncementSeconds($ringTimeBeforePlayingAnnouncementSeconds);
-        $this->ringTimeBeforePlayingAnnouncementSeconds->setName('ringTimeBeforePlayingAnnouncementSeconds');
+        $this->ringTimeBeforePlayingAnnouncementSeconds->setElementName('ringTimeBeforePlayingAnnouncementSeconds');
         return $this;
     }
 
@@ -124,7 +130,9 @@ class GroupCallCenterComfortMessageBypassGetResponse17 extends ComplexType imple
      */
     public function getRingTimeBeforePlayingAnnouncementSeconds()
     {
-        return ($this->ringTimeBeforePlayingAnnouncementSeconds) ? $this->ringTimeBeforePlayingAnnouncementSeconds->getValue() : null;
+        return ($this->ringTimeBeforePlayingAnnouncementSeconds)
+            ? $this->ringTimeBeforePlayingAnnouncementSeconds->getElementValue()
+            : null;
     }
 
     /**
@@ -135,7 +143,7 @@ class GroupCallCenterComfortMessageBypassGetResponse17 extends ComplexType imple
         $this->audioMessageSelection = ($audioMessageSelection InstanceOf ExtendedFileResourceSelection)
              ? $audioMessageSelection
              : new ExtendedFileResourceSelection($audioMessageSelection);
-        $this->audioMessageSelection->setName('audioMessageSelection');
+        $this->audioMessageSelection->setElementName('audioMessageSelection');
         return $this;
     }
 
@@ -145,7 +153,9 @@ class GroupCallCenterComfortMessageBypassGetResponse17 extends ComplexType imple
      */
     public function getAudioMessageSelection()
     {
-        return ($this->audioMessageSelection) ? $this->audioMessageSelection->getValue() : null;
+        return ($this->audioMessageSelection)
+            ? $this->audioMessageSelection->getElementValue()
+            : null;
     }
 
     /**
@@ -156,7 +166,7 @@ class GroupCallCenterComfortMessageBypassGetResponse17 extends ComplexType imple
         $this->audioUrlList = ($audioUrlList InstanceOf CallCenterAnnouncementURLList)
              ? $audioUrlList
              : new CallCenterAnnouncementURLList($audioUrlList);
-        $this->audioUrlList->setName('audioUrlList');
+        $this->audioUrlList->setElementName('audioUrlList');
         return $this;
     }
 
@@ -177,7 +187,7 @@ class GroupCallCenterComfortMessageBypassGetResponse17 extends ComplexType imple
         $this->audioFileList = ($audioFileList InstanceOf CallCenterAnnouncementDescriptionList)
              ? $audioFileList
              : new CallCenterAnnouncementDescriptionList($audioFileList);
-        $this->audioFileList->setName('audioFileList');
+        $this->audioFileList->setElementName('audioFileList');
         return $this;
     }
 
@@ -198,7 +208,7 @@ class GroupCallCenterComfortMessageBypassGetResponse17 extends ComplexType imple
         $this->audioMediaTypeList = ($audioMediaTypeList InstanceOf CallCenterAnnouncementMediaFileTypeList)
              ? $audioMediaTypeList
              : new CallCenterAnnouncementMediaFileTypeList($audioMediaTypeList);
-        $this->audioMediaTypeList->setName('audioMediaTypeList');
+        $this->audioMediaTypeList->setElementName('audioMediaTypeList');
         return $this;
     }
 
@@ -219,7 +229,7 @@ class GroupCallCenterComfortMessageBypassGetResponse17 extends ComplexType imple
         $this->videoMessageSelection = ($videoMessageSelection InstanceOf ExtendedFileResourceSelection)
              ? $videoMessageSelection
              : new ExtendedFileResourceSelection($videoMessageSelection);
-        $this->videoMessageSelection->setName('videoMessageSelection');
+        $this->videoMessageSelection->setElementName('videoMessageSelection');
         return $this;
     }
 
@@ -229,7 +239,9 @@ class GroupCallCenterComfortMessageBypassGetResponse17 extends ComplexType imple
      */
     public function getVideoMessageSelection()
     {
-        return ($this->videoMessageSelection) ? $this->videoMessageSelection->getValue() : null;
+        return ($this->videoMessageSelection)
+            ? $this->videoMessageSelection->getElementValue()
+            : null;
     }
 
     /**
@@ -240,7 +252,7 @@ class GroupCallCenterComfortMessageBypassGetResponse17 extends ComplexType imple
         $this->videoUrlList = ($videoUrlList InstanceOf CallCenterAnnouncementURLList)
              ? $videoUrlList
              : new CallCenterAnnouncementURLList($videoUrlList);
-        $this->videoUrlList->setName('videoUrlList');
+        $this->videoUrlList->setElementName('videoUrlList');
         return $this;
     }
 
@@ -261,7 +273,7 @@ class GroupCallCenterComfortMessageBypassGetResponse17 extends ComplexType imple
         $this->videoFileList = ($videoFileList InstanceOf CallCenterAnnouncementDescriptionList)
              ? $videoFileList
              : new CallCenterAnnouncementDescriptionList($videoFileList);
-        $this->videoFileList->setName('videoFileList');
+        $this->videoFileList->setElementName('videoFileList');
         return $this;
     }
 
@@ -282,7 +294,7 @@ class GroupCallCenterComfortMessageBypassGetResponse17 extends ComplexType imple
         $this->videoMediaTypeList = ($videoMediaTypeList InstanceOf CallCenterAnnouncementMediaFileTypeList)
              ? $videoMediaTypeList
              : new CallCenterAnnouncementMediaFileTypeList($videoMediaTypeList);
-        $this->videoMediaTypeList->setName('videoMediaTypeList');
+        $this->videoMediaTypeList->setElementName('videoMediaTypeList');
         return $this;
     }
 

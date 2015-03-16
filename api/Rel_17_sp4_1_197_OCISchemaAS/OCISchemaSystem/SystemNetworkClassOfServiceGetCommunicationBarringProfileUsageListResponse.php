@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemNetworkClassOfServiceGetCommunicationBarringProfileUsageListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemNetworkClassOfServiceGetCommunicationBarringProfileUsageListResponse';
+    public    $elementName = 'SystemNetworkClassOfServiceGetCommunicationBarringProfileUsageListResponse';
     protected $networkClassOfServiceTable;
 
     /**
@@ -39,7 +39,7 @@ class SystemNetworkClassOfServiceGetCommunicationBarringProfileUsageListResponse
     public function setNetworkClassOfServiceTable(TableType $networkClassOfServiceTable = null)
     {
         $this->networkClassOfServiceTable = $networkClassOfServiceTable;
-        $this->networkClassOfServiceTable->setName('networkClassOfServiceTable');
+        $this->networkClassOfServiceTable->setElementName('networkClassOfServiceTable');
         return $this;
     }
 

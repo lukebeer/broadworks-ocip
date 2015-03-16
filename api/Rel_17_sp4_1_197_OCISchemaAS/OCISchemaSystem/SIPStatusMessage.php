@@ -17,12 +17,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\MaxLength;
  */
 class SIPStatusMessage extends SimpleType
 {
-    public $name = "SIPStatusMessage";
-    protected $value;
-
+    public $elementName = "SIPStatusMessage";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new MinLength("1"));
         $this->addRestriction(new MaxLength("50"));
     }

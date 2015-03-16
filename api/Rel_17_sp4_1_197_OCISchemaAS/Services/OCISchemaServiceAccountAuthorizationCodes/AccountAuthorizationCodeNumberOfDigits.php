@@ -17,12 +17,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\MaxInclusive;
  */
 class AccountAuthorizationCodeNumberOfDigits extends SimpleType
 {
-    public $name = "AccountAuthorizationCodeNumberOfDigits";
-    protected $value;
-
+    public $elementName = "AccountAuthorizationCodeNumberOfDigits";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new MinInclusive("2"));
         $this->addRestriction(new MaxInclusive("14"));
     }

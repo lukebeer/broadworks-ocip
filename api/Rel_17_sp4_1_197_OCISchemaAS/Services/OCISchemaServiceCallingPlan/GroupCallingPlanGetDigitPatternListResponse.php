@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupCallingPlanGetDigitPatternListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'GroupCallingPlanGetDigitPatternListResponse';
+    public    $elementName = 'GroupCallingPlanGetDigitPatternListResponse';
     protected $digitPatternTable;
 
     /**
@@ -37,7 +37,7 @@ class GroupCallingPlanGetDigitPatternListResponse extends ComplexType implements
     public function setDigitPatternTable(TableType $digitPatternTable = null)
     {
         $this->digitPatternTable = $digitPatternTable;
-        $this->digitPatternTable->setName('digitPatternTable');
+        $this->digitPatternTable->setElementName('digitPatternTable');
         return $this;
     }
 

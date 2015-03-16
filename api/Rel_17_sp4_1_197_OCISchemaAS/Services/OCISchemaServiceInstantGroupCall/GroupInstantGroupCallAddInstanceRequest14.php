@@ -27,7 +27,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupInstantGroupCallAddInstanceRequest14 extends ComplexType implements ComplexInterface
 {
-    public    $name = 'GroupInstantGroupCallAddInstanceRequest14';
+    public    $elementName = 'GroupInstantGroupCallAddInstanceRequest14';
     protected $serviceProviderId;
     protected $groupId;
     protected $serviceUserId;
@@ -70,7 +70,7 @@ class GroupInstantGroupCallAddInstanceRequest14 extends ComplexType implements C
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
-        $this->serviceProviderId->setName('serviceProviderId');
+        $this->serviceProviderId->setElementName('serviceProviderId');
         return $this;
     }
 
@@ -80,7 +80,9 @@ class GroupInstantGroupCallAddInstanceRequest14 extends ComplexType implements C
      */
     public function getServiceProviderId()
     {
-        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
+        return ($this->serviceProviderId)
+            ? $this->serviceProviderId->getElementValue()
+            : null;
     }
 
     /**
@@ -91,7 +93,7 @@ class GroupInstantGroupCallAddInstanceRequest14 extends ComplexType implements C
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
-        $this->groupId->setName('groupId');
+        $this->groupId->setElementName('groupId');
         return $this;
     }
 
@@ -101,7 +103,9 @@ class GroupInstantGroupCallAddInstanceRequest14 extends ComplexType implements C
      */
     public function getGroupId()
     {
-        return ($this->groupId) ? $this->groupId->getValue() : null;
+        return ($this->groupId)
+            ? $this->groupId->getElementValue()
+            : null;
     }
 
     /**
@@ -112,7 +116,7 @@ class GroupInstantGroupCallAddInstanceRequest14 extends ComplexType implements C
         $this->serviceUserId = ($serviceUserId InstanceOf UserId)
              ? $serviceUserId
              : new UserId($serviceUserId);
-        $this->serviceUserId->setName('serviceUserId');
+        $this->serviceUserId->setElementName('serviceUserId');
         return $this;
     }
 
@@ -122,7 +126,9 @@ class GroupInstantGroupCallAddInstanceRequest14 extends ComplexType implements C
      */
     public function getServiceUserId()
     {
-        return ($this->serviceUserId) ? $this->serviceUserId->getValue() : null;
+        return ($this->serviceUserId)
+            ? $this->serviceUserId->getElementValue()
+            : null;
     }
 
     /**
@@ -133,7 +139,7 @@ class GroupInstantGroupCallAddInstanceRequest14 extends ComplexType implements C
         $this->serviceInstanceProfile = ($serviceInstanceProfile InstanceOf ServiceInstanceAddProfile)
              ? $serviceInstanceProfile
              : new ServiceInstanceAddProfile($serviceInstanceProfile);
-        $this->serviceInstanceProfile->setName('serviceInstanceProfile');
+        $this->serviceInstanceProfile->setElementName('serviceInstanceProfile');
         return $this;
     }
 
@@ -154,7 +160,7 @@ class GroupInstantGroupCallAddInstanceRequest14 extends ComplexType implements C
         $this->destinationPhoneNumber = ($destinationPhoneNumber InstanceOf OutgoingDNorSIPURI)
              ? $destinationPhoneNumber
              : new OutgoingDNorSIPURI($destinationPhoneNumber);
-        $this->destinationPhoneNumber->setName('destinationPhoneNumber');
+        $this->destinationPhoneNumber->setElementName('destinationPhoneNumber');
         return $this;
     }
 
@@ -164,7 +170,9 @@ class GroupInstantGroupCallAddInstanceRequest14 extends ComplexType implements C
      */
     public function getDestinationPhoneNumber()
     {
-        return ($this->destinationPhoneNumber) ? $this->destinationPhoneNumber->getValue() : null;
+        return ($this->destinationPhoneNumber)
+            ? $this->destinationPhoneNumber->getElementValue()
+            : null;
     }
 
     /**
@@ -173,7 +181,7 @@ class GroupInstantGroupCallAddInstanceRequest14 extends ComplexType implements C
     public function setIsAnswerTimeoutEnabled($isAnswerTimeoutEnabled = null)
     {
         $this->isAnswerTimeoutEnabled = new PrimitiveType($isAnswerTimeoutEnabled);
-        $this->isAnswerTimeoutEnabled->setName('isAnswerTimeoutEnabled');
+        $this->isAnswerTimeoutEnabled->setElementName('isAnswerTimeoutEnabled');
         return $this;
     }
 
@@ -183,7 +191,9 @@ class GroupInstantGroupCallAddInstanceRequest14 extends ComplexType implements C
      */
     public function getIsAnswerTimeoutEnabled()
     {
-        return ($this->isAnswerTimeoutEnabled) ? $this->isAnswerTimeoutEnabled->getValue() : null;
+        return ($this->isAnswerTimeoutEnabled)
+            ? $this->isAnswerTimeoutEnabled->getElementValue()
+            : null;
     }
 
     /**
@@ -194,7 +204,7 @@ class GroupInstantGroupCallAddInstanceRequest14 extends ComplexType implements C
         $this->answerTimeoutMinutes = ($answerTimeoutMinutes InstanceOf InstantGroupCallAnswerTimeoutMinutes)
              ? $answerTimeoutMinutes
              : new InstantGroupCallAnswerTimeoutMinutes($answerTimeoutMinutes);
-        $this->answerTimeoutMinutes->setName('answerTimeoutMinutes');
+        $this->answerTimeoutMinutes->setElementName('answerTimeoutMinutes');
         return $this;
     }
 
@@ -204,6 +214,8 @@ class GroupInstantGroupCallAddInstanceRequest14 extends ComplexType implements C
      */
     public function getAnswerTimeoutMinutes()
     {
-        return ($this->answerTimeoutMinutes) ? $this->answerTimeoutMinutes->getValue() : null;
+        return ($this->answerTimeoutMinutes)
+            ? $this->answerTimeoutMinutes->getElementValue()
+            : null;
     }
 }

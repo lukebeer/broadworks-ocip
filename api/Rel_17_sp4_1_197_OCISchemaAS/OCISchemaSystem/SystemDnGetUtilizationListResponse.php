@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemDnGetUtilizationListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemDnGetUtilizationListResponse';
+    public    $elementName = 'SystemDnGetUtilizationListResponse';
     protected $dnUtilizationTable;
 
     /**
@@ -38,7 +38,7 @@ class SystemDnGetUtilizationListResponse extends ComplexType implements ComplexI
     public function setDnUtilizationTable(TableType $dnUtilizationTable = null)
     {
         $this->dnUtilizationTable = $dnUtilizationTable;
-        $this->dnUtilizationTable->setName('dnUtilizationTable');
+        $this->dnUtilizationTable->setElementName('dnUtilizationTable');
         return $this;
     }
 

@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemFileRepositoryDeviceAddRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemFileRepositoryDeviceAddRequest';
+    public    $elementName = 'SystemFileRepositoryDeviceAddRequest';
     protected $name;
     protected $rootDirectory;
     protected $port;
@@ -53,7 +53,7 @@ class SystemFileRepositoryDeviceAddRequest extends ComplexType implements Comple
         $this->name = ($name InstanceOf FileRepositoryName)
              ? $name
              : new FileRepositoryName($name);
-        $this->name->setName('name');
+        $this->name->setElementName('name');
         return $this;
     }
 
@@ -63,7 +63,9 @@ class SystemFileRepositoryDeviceAddRequest extends ComplexType implements Comple
      */
     public function getName()
     {
-        return ($this->name) ? $this->name->getValue() : null;
+        return ($this->name)
+            ? $this->name->getElementValue()
+            : null;
     }
 
     /**
@@ -74,7 +76,7 @@ class SystemFileRepositoryDeviceAddRequest extends ComplexType implements Comple
         $this->rootDirectory = ($rootDirectory InstanceOf CPEFileDirectory)
              ? $rootDirectory
              : new CPEFileDirectory($rootDirectory);
-        $this->rootDirectory->setName('rootDirectory');
+        $this->rootDirectory->setElementName('rootDirectory');
         return $this;
     }
 
@@ -84,7 +86,9 @@ class SystemFileRepositoryDeviceAddRequest extends ComplexType implements Comple
      */
     public function getRootDirectory()
     {
-        return ($this->rootDirectory) ? $this->rootDirectory->getValue() : null;
+        return ($this->rootDirectory)
+            ? $this->rootDirectory->getElementValue()
+            : null;
     }
 
     /**
@@ -95,7 +99,7 @@ class SystemFileRepositoryDeviceAddRequest extends ComplexType implements Comple
         $this->port = ($port InstanceOf Port)
              ? $port
              : new Port($port);
-        $this->port->setName('port');
+        $this->port->setElementName('port');
         return $this;
     }
 
@@ -105,6 +109,8 @@ class SystemFileRepositoryDeviceAddRequest extends ComplexType implements Comple
      */
     public function getPort()
     {
-        return ($this->port) ? $this->port->getValue() : null;
+        return ($this->port)
+            ? $this->port->getElementValue()
+            : null;
     }
 }

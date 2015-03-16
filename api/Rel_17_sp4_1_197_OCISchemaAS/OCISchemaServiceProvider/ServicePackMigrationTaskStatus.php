@@ -16,12 +16,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\Enumeration;
  */
 class ServicePackMigrationTaskStatus extends SimpleType
 {
-    public $name = "ServicePackMigrationTaskStatus";
-    protected $value;
-
+    public $elementName = "ServicePackMigrationTaskStatus";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new Enumeration([
             'Awaiting Edits',
             'Pending',

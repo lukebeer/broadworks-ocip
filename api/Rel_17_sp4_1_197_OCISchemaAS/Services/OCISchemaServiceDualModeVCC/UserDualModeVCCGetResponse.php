@@ -19,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserDualModeVCCGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'UserDualModeVCCGetResponse';
+    public    $elementName = 'UserDualModeVCCGetResponse';
     protected $subscriberUserName;
 
     /**
@@ -38,7 +38,7 @@ class UserDualModeVCCGetResponse extends ComplexType implements ComplexInterface
         $this->subscriberUserName = ($subscriberUserName InstanceOf DualModeVCCSubscriberUserName)
              ? $subscriberUserName
              : new DualModeVCCSubscriberUserName($subscriberUserName);
-        $this->subscriberUserName->setName('subscriberUserName');
+        $this->subscriberUserName->setElementName('subscriberUserName');
         return $this;
     }
 
@@ -48,6 +48,8 @@ class UserDualModeVCCGetResponse extends ComplexType implements ComplexInterface
      */
     public function getSubscriberUserName()
     {
-        return ($this->subscriberUserName) ? $this->subscriberUserName->getValue() : null;
+        return ($this->subscriberUserName)
+            ? $this->subscriberUserName->getElementValue()
+            : null;
     }
 }

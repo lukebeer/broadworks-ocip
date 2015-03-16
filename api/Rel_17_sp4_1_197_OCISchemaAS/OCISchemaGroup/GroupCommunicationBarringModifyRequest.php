@@ -23,7 +23,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupCommunicationBarringModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'GroupCommunicationBarringModifyRequest';
+    public    $elementName = 'GroupCommunicationBarringModifyRequest';
     protected $serviceProviderId;
     protected $groupId;
     protected $useDefaultServiceProviderProfile;
@@ -57,7 +57,7 @@ class GroupCommunicationBarringModifyRequest extends ComplexType implements Comp
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
-        $this->serviceProviderId->setName('serviceProviderId');
+        $this->serviceProviderId->setElementName('serviceProviderId');
         return $this;
     }
 
@@ -67,7 +67,9 @@ class GroupCommunicationBarringModifyRequest extends ComplexType implements Comp
      */
     public function getServiceProviderId()
     {
-        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
+        return ($this->serviceProviderId)
+            ? $this->serviceProviderId->getElementValue()
+            : null;
     }
 
     /**
@@ -78,7 +80,7 @@ class GroupCommunicationBarringModifyRequest extends ComplexType implements Comp
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
-        $this->groupId->setName('groupId');
+        $this->groupId->setElementName('groupId');
         return $this;
     }
 
@@ -88,7 +90,9 @@ class GroupCommunicationBarringModifyRequest extends ComplexType implements Comp
      */
     public function getGroupId()
     {
-        return ($this->groupId) ? $this->groupId->getValue() : null;
+        return ($this->groupId)
+            ? $this->groupId->getElementValue()
+            : null;
     }
 
     /**
@@ -97,7 +101,7 @@ class GroupCommunicationBarringModifyRequest extends ComplexType implements Comp
     public function setUseDefaultServiceProviderProfile($useDefaultServiceProviderProfile = null)
     {
         $this->useDefaultServiceProviderProfile = new PrimitiveType($useDefaultServiceProviderProfile);
-        $this->useDefaultServiceProviderProfile->setName('useDefaultServiceProviderProfile');
+        $this->useDefaultServiceProviderProfile->setElementName('useDefaultServiceProviderProfile');
         return $this;
     }
 
@@ -107,7 +111,9 @@ class GroupCommunicationBarringModifyRequest extends ComplexType implements Comp
      */
     public function getUseDefaultServiceProviderProfile()
     {
-        return ($this->useDefaultServiceProviderProfile) ? $this->useDefaultServiceProviderProfile->getValue() : null;
+        return ($this->useDefaultServiceProviderProfile)
+            ? $this->useDefaultServiceProviderProfile->getElementValue()
+            : null;
     }
 
     /**
@@ -118,7 +124,7 @@ class GroupCommunicationBarringModifyRequest extends ComplexType implements Comp
         $this->profile = ($profile InstanceOf CommunicationBarringProfileName)
              ? $profile
              : new CommunicationBarringProfileName($profile);
-        $this->profile->setName('profile');
+        $this->profile->setElementName('profile');
         return $this;
     }
 
@@ -128,6 +134,8 @@ class GroupCommunicationBarringModifyRequest extends ComplexType implements Comp
      */
     public function getProfile()
     {
-        return ($this->profile) ? $this->profile->getValue() : null;
+        return ($this->profile)
+            ? $this->profile->getElementValue()
+            : null;
     }
 }

@@ -26,7 +26,7 @@ use Broadworks_OCIP\core\Client\Client;
 class ServiceProviderOfficeZoneGetAssignedGroupListRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType            = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderOfficeZoneGetAssignedGroupListResponse';
-    public    $name = 'ServiceProviderOfficeZoneGetAssignedGroupListRequest';
+    public    $elementName = 'ServiceProviderOfficeZoneGetAssignedGroupListRequest';
     protected $serviceProviderId;
     protected $officeZoneName;
     protected $responseSizeLimit;
@@ -63,7 +63,7 @@ class ServiceProviderOfficeZoneGetAssignedGroupListRequest extends ComplexType i
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
-        $this->serviceProviderId->setName('serviceProviderId');
+        $this->serviceProviderId->setElementName('serviceProviderId');
         return $this;
     }
 
@@ -73,7 +73,9 @@ class ServiceProviderOfficeZoneGetAssignedGroupListRequest extends ComplexType i
      */
     public function getServiceProviderId()
     {
-        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
+        return ($this->serviceProviderId)
+            ? $this->serviceProviderId->getElementValue()
+            : null;
     }
 
     /**
@@ -84,7 +86,7 @@ class ServiceProviderOfficeZoneGetAssignedGroupListRequest extends ComplexType i
         $this->officeZoneName = ($officeZoneName InstanceOf OfficeZoneName)
              ? $officeZoneName
              : new OfficeZoneName($officeZoneName);
-        $this->officeZoneName->setName('officeZoneName');
+        $this->officeZoneName->setElementName('officeZoneName');
         return $this;
     }
 
@@ -94,7 +96,9 @@ class ServiceProviderOfficeZoneGetAssignedGroupListRequest extends ComplexType i
      */
     public function getOfficeZoneName()
     {
-        return ($this->officeZoneName) ? $this->officeZoneName->getValue() : null;
+        return ($this->officeZoneName)
+            ? $this->officeZoneName->getElementValue()
+            : null;
     }
 
     /**
@@ -105,7 +109,7 @@ class ServiceProviderOfficeZoneGetAssignedGroupListRequest extends ComplexType i
         $this->responseSizeLimit = ($responseSizeLimit InstanceOf ResponseSizeLimit)
              ? $responseSizeLimit
              : new ResponseSizeLimit($responseSizeLimit);
-        $this->responseSizeLimit->setName('responseSizeLimit');
+        $this->responseSizeLimit->setElementName('responseSizeLimit');
         return $this;
     }
 
@@ -115,7 +119,9 @@ class ServiceProviderOfficeZoneGetAssignedGroupListRequest extends ComplexType i
      */
     public function getResponseSizeLimit()
     {
-        return ($this->responseSizeLimit) ? $this->responseSizeLimit->getValue() : null;
+        return ($this->responseSizeLimit)
+            ? $this->responseSizeLimit->getElementValue()
+            : null;
     }
 
     /**
@@ -126,7 +132,7 @@ class ServiceProviderOfficeZoneGetAssignedGroupListRequest extends ComplexType i
         $this->searchCriteriaGroupId = ($searchCriteriaGroupId InstanceOf SearchCriteriaGroupId)
              ? $searchCriteriaGroupId
              : new SearchCriteriaGroupId($searchCriteriaGroupId);
-        $this->searchCriteriaGroupId->setName('searchCriteriaGroupId');
+        $this->searchCriteriaGroupId->setElementName('searchCriteriaGroupId');
         return $this;
     }
 
@@ -147,7 +153,7 @@ class ServiceProviderOfficeZoneGetAssignedGroupListRequest extends ComplexType i
         $this->searchCriteriaGroupName = ($searchCriteriaGroupName InstanceOf SearchCriteriaGroupName)
              ? $searchCriteriaGroupName
              : new SearchCriteriaGroupName($searchCriteriaGroupName);
-        $this->searchCriteriaGroupName->setName('searchCriteriaGroupName');
+        $this->searchCriteriaGroupName->setElementName('searchCriteriaGroupName');
         return $this;
     }
 

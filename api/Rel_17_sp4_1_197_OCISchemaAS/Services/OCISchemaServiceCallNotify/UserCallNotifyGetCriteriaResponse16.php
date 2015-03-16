@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserCallNotifyGetCriteriaResponse16 extends ComplexType implements ComplexInterface
 {
-    public    $name = 'UserCallNotifyGetCriteriaResponse16';
+    public    $elementName = 'UserCallNotifyGetCriteriaResponse16';
     protected $timeSchedule;
     protected $holidaySchedule;
     protected $blacklisted;
@@ -44,7 +44,7 @@ class UserCallNotifyGetCriteriaResponse16 extends ComplexType implements Complex
         $this->timeSchedule = ($timeSchedule InstanceOf TimeSchedule)
              ? $timeSchedule
              : new TimeSchedule($timeSchedule);
-        $this->timeSchedule->setName('timeSchedule');
+        $this->timeSchedule->setElementName('timeSchedule');
         return $this;
     }
 
@@ -65,7 +65,7 @@ class UserCallNotifyGetCriteriaResponse16 extends ComplexType implements Complex
         $this->holidaySchedule = ($holidaySchedule InstanceOf HolidaySchedule)
              ? $holidaySchedule
              : new HolidaySchedule($holidaySchedule);
-        $this->holidaySchedule->setName('holidaySchedule');
+        $this->holidaySchedule->setElementName('holidaySchedule');
         return $this;
     }
 
@@ -84,7 +84,7 @@ class UserCallNotifyGetCriteriaResponse16 extends ComplexType implements Complex
     public function setBlacklisted($blacklisted = null)
     {
         $this->blacklisted = new PrimitiveType($blacklisted);
-        $this->blacklisted->setName('blacklisted');
+        $this->blacklisted->setElementName('blacklisted');
         return $this;
     }
 
@@ -94,7 +94,9 @@ class UserCallNotifyGetCriteriaResponse16 extends ComplexType implements Complex
      */
     public function getBlacklisted()
     {
-        return ($this->blacklisted) ? $this->blacklisted->getValue() : null;
+        return ($this->blacklisted)
+            ? $this->blacklisted->getElementValue()
+            : null;
     }
 
     /**
@@ -105,7 +107,7 @@ class UserCallNotifyGetCriteriaResponse16 extends ComplexType implements Complex
         $this->fromDnCriteria = ($fromDnCriteria InstanceOf CriteriaFromDn)
              ? $fromDnCriteria
              : new CriteriaFromDn($fromDnCriteria);
-        $this->fromDnCriteria->setName('fromDnCriteria');
+        $this->fromDnCriteria->setElementName('fromDnCriteria');
         return $this;
     }
 

@@ -17,12 +17,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\MaxInclusive;
  */
 class SystemUserRingTimeoutSeconds extends SimpleType
 {
-    public $name = "SystemUserRingTimeoutSeconds";
-    protected $value;
-
+    public $elementName = "SystemUserRingTimeoutSeconds";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new MinInclusive("1"));
         $this->addRestriction(new MaxInclusive("180"));
     }

@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
 class SystemInventoryReportGetRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInventoryReport\SystemInventoryReportGetResponse';
-    public    $name = 'SystemInventoryReportGetRequest';
+    public    $elementName = 'SystemInventoryReportGetRequest';
 
     public function __construct(    ) {
     }

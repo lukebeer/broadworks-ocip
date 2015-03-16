@@ -19,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class MeetMeConferencingConferenceKey extends ComplexType implements ComplexInterface
 {
-    public    $name = 'MeetMeConferencingConferenceKey';
+    public    $elementName = 'MeetMeConferencingConferenceKey';
     protected $bridgeId;
     protected $conferenceId;
 
@@ -45,7 +45,7 @@ class MeetMeConferencingConferenceKey extends ComplexType implements ComplexInte
     public function setBridgeId($bridgeId = null)
     {
         $this->bridgeId = new SimpleContent($bridgeId);
-        $this->bridgeId->setName('bridgeId');
+        $this->bridgeId->setElementName('bridgeId');
         return $this;
     }
 
@@ -55,7 +55,9 @@ class MeetMeConferencingConferenceKey extends ComplexType implements ComplexInte
      */
     public function getBridgeId()
     {
-        return ($this->bridgeId) ? $this->bridgeId->getValue() : null;
+        return ($this->bridgeId)
+            ? $this->bridgeId->getElementValue()
+            : null;
     }
 
     /**
@@ -64,7 +66,7 @@ class MeetMeConferencingConferenceKey extends ComplexType implements ComplexInte
     public function setConferenceId($conferenceId = null)
     {
         $this->conferenceId = new SimpleContent($conferenceId);
-        $this->conferenceId->setName('conferenceId');
+        $this->conferenceId->setElementName('conferenceId');
         return $this;
     }
 
@@ -74,6 +76,8 @@ class MeetMeConferencingConferenceKey extends ComplexType implements ComplexInte
      */
     public function getConferenceId()
     {
-        return ($this->conferenceId) ? $this->conferenceId->getValue() : null;
+        return ($this->conferenceId)
+            ? $this->conferenceId->getElementValue()
+            : null;
     }
 }

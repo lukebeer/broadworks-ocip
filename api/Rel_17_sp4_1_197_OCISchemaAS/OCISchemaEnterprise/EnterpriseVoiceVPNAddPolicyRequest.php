@@ -25,7 +25,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class EnterpriseVoiceVPNAddPolicyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'EnterpriseVoiceVPNAddPolicyRequest';
+    public    $elementName = 'EnterpriseVoiceVPNAddPolicyRequest';
     protected $serviceProviderId;
     protected $locationDialingCode;
     protected $minExtensionLength;
@@ -68,7 +68,7 @@ class EnterpriseVoiceVPNAddPolicyRequest extends ComplexType implements ComplexI
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
-        $this->serviceProviderId->setName('serviceProviderId');
+        $this->serviceProviderId->setElementName('serviceProviderId');
         return $this;
     }
 
@@ -78,7 +78,9 @@ class EnterpriseVoiceVPNAddPolicyRequest extends ComplexType implements ComplexI
      */
     public function getServiceProviderId()
     {
-        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
+        return ($this->serviceProviderId)
+            ? $this->serviceProviderId->getElementValue()
+            : null;
     }
 
     /**
@@ -89,7 +91,7 @@ class EnterpriseVoiceVPNAddPolicyRequest extends ComplexType implements ComplexI
         $this->locationDialingCode = ($locationDialingCode InstanceOf EnterpriseVoiceVPNLocationCode)
              ? $locationDialingCode
              : new EnterpriseVoiceVPNLocationCode($locationDialingCode);
-        $this->locationDialingCode->setName('locationDialingCode');
+        $this->locationDialingCode->setElementName('locationDialingCode');
         return $this;
     }
 
@@ -99,7 +101,9 @@ class EnterpriseVoiceVPNAddPolicyRequest extends ComplexType implements ComplexI
      */
     public function getLocationDialingCode()
     {
-        return ($this->locationDialingCode) ? $this->locationDialingCode->getValue() : null;
+        return ($this->locationDialingCode)
+            ? $this->locationDialingCode->getElementValue()
+            : null;
     }
 
     /**
@@ -110,7 +114,7 @@ class EnterpriseVoiceVPNAddPolicyRequest extends ComplexType implements ComplexI
         $this->minExtensionLength = ($minExtensionLength InstanceOf EnterpriseVoiceVPNExtensionLength)
              ? $minExtensionLength
              : new EnterpriseVoiceVPNExtensionLength($minExtensionLength);
-        $this->minExtensionLength->setName('minExtensionLength');
+        $this->minExtensionLength->setElementName('minExtensionLength');
         return $this;
     }
 
@@ -120,7 +124,9 @@ class EnterpriseVoiceVPNAddPolicyRequest extends ComplexType implements ComplexI
      */
     public function getMinExtensionLength()
     {
-        return ($this->minExtensionLength) ? $this->minExtensionLength->getValue() : null;
+        return ($this->minExtensionLength)
+            ? $this->minExtensionLength->getElementValue()
+            : null;
     }
 
     /**
@@ -131,7 +137,7 @@ class EnterpriseVoiceVPNAddPolicyRequest extends ComplexType implements ComplexI
         $this->maxExtensionLength = ($maxExtensionLength InstanceOf EnterpriseVoiceVPNExtensionLength)
              ? $maxExtensionLength
              : new EnterpriseVoiceVPNExtensionLength($maxExtensionLength);
-        $this->maxExtensionLength->setName('maxExtensionLength');
+        $this->maxExtensionLength->setElementName('maxExtensionLength');
         return $this;
     }
 
@@ -141,7 +147,9 @@ class EnterpriseVoiceVPNAddPolicyRequest extends ComplexType implements ComplexI
      */
     public function getMaxExtensionLength()
     {
-        return ($this->maxExtensionLength) ? $this->maxExtensionLength->getValue() : null;
+        return ($this->maxExtensionLength)
+            ? $this->maxExtensionLength->getElementValue()
+            : null;
     }
 
     /**
@@ -152,7 +160,7 @@ class EnterpriseVoiceVPNAddPolicyRequest extends ComplexType implements ComplexI
         $this->description = ($description InstanceOf EnterpriseVoiceVPNDescription)
              ? $description
              : new EnterpriseVoiceVPNDescription($description);
-        $this->description->setName('description');
+        $this->description->setElementName('description');
         return $this;
     }
 
@@ -162,7 +170,9 @@ class EnterpriseVoiceVPNAddPolicyRequest extends ComplexType implements ComplexI
      */
     public function getDescription()
     {
-        return ($this->description) ? $this->description->getValue() : null;
+        return ($this->description)
+            ? $this->description->getElementValue()
+            : null;
     }
 
     /**
@@ -173,7 +183,7 @@ class EnterpriseVoiceVPNAddPolicyRequest extends ComplexType implements ComplexI
         $this->routeGroupId = ($routeGroupId InstanceOf GroupId)
              ? $routeGroupId
              : new GroupId($routeGroupId);
-        $this->routeGroupId->setName('routeGroupId');
+        $this->routeGroupId->setElementName('routeGroupId');
         return $this;
     }
 
@@ -183,7 +193,9 @@ class EnterpriseVoiceVPNAddPolicyRequest extends ComplexType implements ComplexI
      */
     public function getRouteGroupId()
     {
-        return ($this->routeGroupId) ? $this->routeGroupId->getValue() : null;
+        return ($this->routeGroupId)
+            ? $this->routeGroupId->getElementValue()
+            : null;
     }
 
     /**
@@ -194,7 +206,7 @@ class EnterpriseVoiceVPNAddPolicyRequest extends ComplexType implements ComplexI
         $this->policySelection = ($policySelection InstanceOf EnterpriseVoiceVPNPolicySelection)
              ? $policySelection
              : new EnterpriseVoiceVPNPolicySelection($policySelection);
-        $this->policySelection->setName('policySelection');
+        $this->policySelection->setElementName('policySelection');
         return $this;
     }
 
@@ -204,6 +216,8 @@ class EnterpriseVoiceVPNAddPolicyRequest extends ComplexType implements ComplexI
      */
     public function getPolicySelection()
     {
-        return ($this->policySelection) ? $this->policySelection->getValue() : null;
+        return ($this->policySelection)
+            ? $this->policySelection->getElementValue()
+            : null;
     }
 }

@@ -19,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderZoneCallingRestrictionsGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'ServiceProviderZoneCallingRestrictionsGetResponse';
+    public    $elementName = 'ServiceProviderZoneCallingRestrictionsGetResponse';
     protected $enableZoneCallingRestrictions;
     protected $enableOriginationRoamingRestrictions;
     protected $enableEmergencyOriginationRoamingRestrictions;
@@ -39,7 +39,7 @@ class ServiceProviderZoneCallingRestrictionsGetResponse extends ComplexType impl
     public function setEnableZoneCallingRestrictions($enableZoneCallingRestrictions = null)
     {
         $this->enableZoneCallingRestrictions = new PrimitiveType($enableZoneCallingRestrictions);
-        $this->enableZoneCallingRestrictions->setName('enableZoneCallingRestrictions');
+        $this->enableZoneCallingRestrictions->setElementName('enableZoneCallingRestrictions');
         return $this;
     }
 
@@ -49,7 +49,9 @@ class ServiceProviderZoneCallingRestrictionsGetResponse extends ComplexType impl
      */
     public function getEnableZoneCallingRestrictions()
     {
-        return ($this->enableZoneCallingRestrictions) ? $this->enableZoneCallingRestrictions->getValue() : null;
+        return ($this->enableZoneCallingRestrictions)
+            ? $this->enableZoneCallingRestrictions->getElementValue()
+            : null;
     }
 
     /**
@@ -58,7 +60,7 @@ class ServiceProviderZoneCallingRestrictionsGetResponse extends ComplexType impl
     public function setEnableOriginationRoamingRestrictions($enableOriginationRoamingRestrictions = null)
     {
         $this->enableOriginationRoamingRestrictions = new PrimitiveType($enableOriginationRoamingRestrictions);
-        $this->enableOriginationRoamingRestrictions->setName('enableOriginationRoamingRestrictions');
+        $this->enableOriginationRoamingRestrictions->setElementName('enableOriginationRoamingRestrictions');
         return $this;
     }
 
@@ -68,7 +70,9 @@ class ServiceProviderZoneCallingRestrictionsGetResponse extends ComplexType impl
      */
     public function getEnableOriginationRoamingRestrictions()
     {
-        return ($this->enableOriginationRoamingRestrictions) ? $this->enableOriginationRoamingRestrictions->getValue() : null;
+        return ($this->enableOriginationRoamingRestrictions)
+            ? $this->enableOriginationRoamingRestrictions->getElementValue()
+            : null;
     }
 
     /**
@@ -77,7 +81,7 @@ class ServiceProviderZoneCallingRestrictionsGetResponse extends ComplexType impl
     public function setEnableEmergencyOriginationRoamingRestrictions($enableEmergencyOriginationRoamingRestrictions = null)
     {
         $this->enableEmergencyOriginationRoamingRestrictions = new PrimitiveType($enableEmergencyOriginationRoamingRestrictions);
-        $this->enableEmergencyOriginationRoamingRestrictions->setName('enableEmergencyOriginationRoamingRestrictions');
+        $this->enableEmergencyOriginationRoamingRestrictions->setElementName('enableEmergencyOriginationRoamingRestrictions');
         return $this;
     }
 
@@ -87,7 +91,9 @@ class ServiceProviderZoneCallingRestrictionsGetResponse extends ComplexType impl
      */
     public function getEnableEmergencyOriginationRoamingRestrictions()
     {
-        return ($this->enableEmergencyOriginationRoamingRestrictions) ? $this->enableEmergencyOriginationRoamingRestrictions->getValue() : null;
+        return ($this->enableEmergencyOriginationRoamingRestrictions)
+            ? $this->enableEmergencyOriginationRoamingRestrictions->getElementValue()
+            : null;
     }
 
     /**
@@ -96,7 +102,7 @@ class ServiceProviderZoneCallingRestrictionsGetResponse extends ComplexType impl
     public function setEnableTerminationRoamingRestrictions($enableTerminationRoamingRestrictions = null)
     {
         $this->enableTerminationRoamingRestrictions = new PrimitiveType($enableTerminationRoamingRestrictions);
-        $this->enableTerminationRoamingRestrictions->setName('enableTerminationRoamingRestrictions');
+        $this->enableTerminationRoamingRestrictions->setElementName('enableTerminationRoamingRestrictions');
         return $this;
     }
 
@@ -106,6 +112,8 @@ class ServiceProviderZoneCallingRestrictionsGetResponse extends ComplexType impl
      */
     public function getEnableTerminationRoamingRestrictions()
     {
-        return ($this->enableTerminationRoamingRestrictions) ? $this->enableTerminationRoamingRestrictions->getValue() : null;
+        return ($this->enableTerminationRoamingRestrictions)
+            ? $this->enableTerminationRoamingRestrictions->getElementValue()
+            : null;
     }
 }

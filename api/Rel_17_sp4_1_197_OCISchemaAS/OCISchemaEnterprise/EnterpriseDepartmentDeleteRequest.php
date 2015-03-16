@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class EnterpriseDepartmentDeleteRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'EnterpriseDepartmentDeleteRequest';
+    public    $elementName = 'EnterpriseDepartmentDeleteRequest';
     protected $enterpriseId;
     protected $departmentName;
 
@@ -49,7 +49,7 @@ class EnterpriseDepartmentDeleteRequest extends ComplexType implements ComplexIn
         $this->enterpriseId = ($enterpriseId InstanceOf ServiceProviderId)
              ? $enterpriseId
              : new ServiceProviderId($enterpriseId);
-        $this->enterpriseId->setName('enterpriseId');
+        $this->enterpriseId->setElementName('enterpriseId');
         return $this;
     }
 
@@ -59,7 +59,9 @@ class EnterpriseDepartmentDeleteRequest extends ComplexType implements ComplexIn
      */
     public function getEnterpriseId()
     {
-        return ($this->enterpriseId) ? $this->enterpriseId->getValue() : null;
+        return ($this->enterpriseId)
+            ? $this->enterpriseId->getElementValue()
+            : null;
     }
 
     /**
@@ -70,7 +72,7 @@ class EnterpriseDepartmentDeleteRequest extends ComplexType implements ComplexIn
         $this->departmentName = ($departmentName InstanceOf DepartmentName)
              ? $departmentName
              : new DepartmentName($departmentName);
-        $this->departmentName->setName('departmentName');
+        $this->departmentName->setElementName('departmentName');
         return $this;
     }
 
@@ -80,6 +82,8 @@ class EnterpriseDepartmentDeleteRequest extends ComplexType implements ComplexIn
      */
     public function getDepartmentName()
     {
-        return ($this->departmentName) ? $this->departmentName->getValue() : null;
+        return ($this->departmentName)
+            ? $this->departmentName->getElementValue()
+            : null;
     }
 }

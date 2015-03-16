@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderServicePackMigrationTaskGetAvailableGroupListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'ServiceProviderServicePackMigrationTaskGetAvailableGroupListResponse';
+    public    $elementName = 'ServiceProviderServicePackMigrationTaskGetAvailableGroupListResponse';
     protected $groupTable;
 
     /**
@@ -37,7 +37,7 @@ class ServiceProviderServicePackMigrationTaskGetAvailableGroupListResponse exten
     public function setGroupTable(TableType $groupTable = null)
     {
         $this->groupTable = $groupTable;
-        $this->groupTable->setName('groupTable');
+        $this->groupTable->setElementName('groupTable');
         return $this;
     }
 

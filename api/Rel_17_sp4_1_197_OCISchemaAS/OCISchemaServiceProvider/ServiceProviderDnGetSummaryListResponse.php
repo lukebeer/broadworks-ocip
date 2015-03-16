@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderDnGetSummaryListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'ServiceProviderDnGetSummaryListResponse';
+    public    $elementName = 'ServiceProviderDnGetSummaryListResponse';
     protected $dnSummaryTable;
 
     /**
@@ -37,7 +37,7 @@ class ServiceProviderDnGetSummaryListResponse extends ComplexType implements Com
     public function setDnSummaryTable(TableType $dnSummaryTable = null)
     {
         $this->dnSummaryTable = $dnSummaryTable;
-        $this->dnSummaryTable->setName('dnSummaryTable');
+        $this->dnSummaryTable->setElementName('dnSummaryTable');
         return $this;
     }
 

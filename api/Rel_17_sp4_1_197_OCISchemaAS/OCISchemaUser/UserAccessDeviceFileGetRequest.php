@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
 class UserAccessDeviceFileGetRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser\UserAccessDeviceFileGetResponse';
-    public    $name = 'UserAccessDeviceFileGetRequest';
+    public    $elementName = 'UserAccessDeviceFileGetRequest';
     protected $userId;
     protected $accessDevice;
     protected $fileFormat;
@@ -53,7 +53,7 @@ class UserAccessDeviceFileGetRequest extends ComplexType implements ComplexInter
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
-        $this->userId->setName('userId');
+        $this->userId->setElementName('userId');
         return $this;
     }
 
@@ -63,7 +63,9 @@ class UserAccessDeviceFileGetRequest extends ComplexType implements ComplexInter
      */
     public function getUserId()
     {
-        return ($this->userId) ? $this->userId->getValue() : null;
+        return ($this->userId)
+            ? $this->userId->getElementValue()
+            : null;
     }
 
     /**
@@ -74,7 +76,7 @@ class UserAccessDeviceFileGetRequest extends ComplexType implements ComplexInter
         $this->accessDevice = ($accessDevice InstanceOf AccessDevice)
              ? $accessDevice
              : new AccessDevice($accessDevice);
-        $this->accessDevice->setName('accessDevice');
+        $this->accessDevice->setElementName('accessDevice');
         return $this;
     }
 
@@ -95,7 +97,7 @@ class UserAccessDeviceFileGetRequest extends ComplexType implements ComplexInter
         $this->fileFormat = ($fileFormat InstanceOf DeviceManagementFileFormat)
              ? $fileFormat
              : new DeviceManagementFileFormat($fileFormat);
-        $this->fileFormat->setName('fileFormat');
+        $this->fileFormat->setElementName('fileFormat');
         return $this;
     }
 
@@ -105,6 +107,8 @@ class UserAccessDeviceFileGetRequest extends ComplexType implements ComplexInter
      */
     public function getFileFormat()
     {
-        return ($this->fileFormat) ? $this->fileFormat->getValue() : null;
+        return ($this->fileFormat)
+            ? $this->fileFormat->getElementValue()
+            : null;
     }
 }

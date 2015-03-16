@@ -17,12 +17,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\MaxInclusive;
  */
 class LegacyAutomaticCallbackT4Seconds extends SimpleType
 {
-    public $name = "LegacyAutomaticCallbackT4Seconds";
-    protected $value;
-
+    public $elementName = "LegacyAutomaticCallbackT4Seconds";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new MinInclusive("0"));
         $this->addRestriction(new MaxInclusive("15"));
     }

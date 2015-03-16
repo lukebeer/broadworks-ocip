@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderRoutingProfileModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'ServiceProviderRoutingProfileModifyRequest';
+    public    $elementName = 'ServiceProviderRoutingProfileModifyRequest';
     protected $serviceProviderId;
     protected $routingProfile;
 
@@ -48,7 +48,7 @@ class ServiceProviderRoutingProfileModifyRequest extends ComplexType implements 
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
-        $this->serviceProviderId->setName('serviceProviderId');
+        $this->serviceProviderId->setElementName('serviceProviderId');
         return $this;
     }
 
@@ -58,7 +58,9 @@ class ServiceProviderRoutingProfileModifyRequest extends ComplexType implements 
      */
     public function getServiceProviderId()
     {
-        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
+        return ($this->serviceProviderId)
+            ? $this->serviceProviderId->getElementValue()
+            : null;
     }
 
     /**
@@ -69,7 +71,7 @@ class ServiceProviderRoutingProfileModifyRequest extends ComplexType implements 
         $this->routingProfile = ($routingProfile InstanceOf RoutingProfile)
              ? $routingProfile
              : new RoutingProfile($routingProfile);
-        $this->routingProfile->setName('routingProfile');
+        $this->routingProfile->setElementName('routingProfile');
         return $this;
     }
 
@@ -79,6 +81,8 @@ class ServiceProviderRoutingProfileModifyRequest extends ComplexType implements 
      */
     public function getRoutingProfile()
     {
-        return ($this->routingProfile) ? $this->routingProfile->getValue() : null;
+        return ($this->routingProfile)
+            ? $this->routingProfile->getElementValue()
+            : null;
     }
 }

@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
 class PrimaryInfoGetRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType           = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaLogin\PrimaryInfoGetResponse';
-    public    $name = 'PrimaryInfoGetRequest';
+    public    $elementName = 'PrimaryInfoGetRequest';
     protected $isPrivate;
     protected $isAddressInfoRequested;
 
@@ -46,7 +46,7 @@ class PrimaryInfoGetRequest extends ComplexType implements ComplexInterface
     public function setIsPrivate($isPrivate = null)
     {
         $this->isPrivate = new PrimitiveType($isPrivate);
-        $this->isPrivate->setName('isPrivate');
+        $this->isPrivate->setElementName('isPrivate');
         return $this;
     }
 
@@ -56,7 +56,9 @@ class PrimaryInfoGetRequest extends ComplexType implements ComplexInterface
      */
     public function getIsPrivate()
     {
-        return ($this->isPrivate) ? $this->isPrivate->getValue() : null;
+        return ($this->isPrivate)
+            ? $this->isPrivate->getElementValue()
+            : null;
     }
 
     /**
@@ -68,7 +70,7 @@ class PrimaryInfoGetRequest extends ComplexType implements ComplexInterface
     public function setIsAddressInfoRequested($isAddressInfoRequested = null)
     {
         $this->isAddressInfoRequested = new PrimitiveType($isAddressInfoRequested);
-        $this->isAddressInfoRequested->setName('isAddressInfoRequested');
+        $this->isAddressInfoRequested->setElementName('isAddressInfoRequested');
         return $this;
     }
 
@@ -81,6 +83,8 @@ class PrimaryInfoGetRequest extends ComplexType implements ComplexInterface
      */
     public function getIsAddressInfoRequested()
     {
-        return ($this->isAddressInfoRequested) ? $this->isAddressInfoRequested->getValue() : null;
+        return ($this->isAddressInfoRequested)
+            ? $this->isAddressInfoRequested->getElementValue()
+            : null;
     }
 }

@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
 class SystemLDAPIntegrationGetDirectoryRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceLDAPIntegration\SystemLDAPIntegrationGetDirectoryResponse';
-    public    $name = 'SystemLDAPIntegrationGetDirectoryRequest';
+    public    $elementName = 'SystemLDAPIntegrationGetDirectoryRequest';
 
     public function __construct(    ) {
     }

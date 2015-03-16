@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemInterceptUserGetDnListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemInterceptUserGetDnListResponse';
+    public    $elementName = 'SystemInterceptUserGetDnListResponse';
     protected $interceptUserList;
 
     /**
@@ -39,7 +39,7 @@ class SystemInterceptUserGetDnListResponse extends ComplexType implements Comple
         $this->interceptUserList = ($interceptUserList InstanceOf InterceptDNListEntry)
              ? $interceptUserList
              : new InterceptDNListEntry($interceptUserList);
-        $this->interceptUserList->setName('interceptUserList');
+        $this->interceptUserList->setElementName('interceptUserList');
         return $this;
     }
 

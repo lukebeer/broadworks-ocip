@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
 class SystemNetworkDeviceMonitorParametersGetRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemNetworkDeviceMonitorParametersGetResponse';
-    public    $name = 'SystemNetworkDeviceMonitorParametersGetRequest';
+    public    $elementName = 'SystemNetworkDeviceMonitorParametersGetRequest';
 
     public function __construct(    ) {
     }

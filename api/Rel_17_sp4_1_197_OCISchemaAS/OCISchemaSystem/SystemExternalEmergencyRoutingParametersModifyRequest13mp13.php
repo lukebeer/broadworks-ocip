@@ -23,7 +23,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemExternalEmergencyRoutingParametersModifyRequest13mp13 extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemExternalEmergencyRoutingParametersModifyRequest13mp13';
+    public    $elementName = 'SystemExternalEmergencyRoutingParametersModifyRequest13mp13';
     protected $serviceURI;
     protected $defaultEmergencyNumber;
     protected $isActive;
@@ -60,7 +60,7 @@ class SystemExternalEmergencyRoutingParametersModifyRequest13mp13 extends Comple
         $this->serviceURI = ($serviceURI InstanceOf NetAddress)
              ? $serviceURI
              : new NetAddress($serviceURI);
-        $this->serviceURI->setName('serviceURI');
+        $this->serviceURI->setElementName('serviceURI');
         return $this;
     }
 
@@ -70,7 +70,9 @@ class SystemExternalEmergencyRoutingParametersModifyRequest13mp13 extends Comple
      */
     public function getServiceURI()
     {
-        return ($this->serviceURI) ? $this->serviceURI->getValue() : null;
+        return ($this->serviceURI)
+            ? $this->serviceURI->getElementValue()
+            : null;
     }
 
     /**
@@ -81,7 +83,7 @@ class SystemExternalEmergencyRoutingParametersModifyRequest13mp13 extends Comple
         $this->defaultEmergencyNumber = ($defaultEmergencyNumber InstanceOf OutgoingDN)
              ? $defaultEmergencyNumber
              : new OutgoingDN($defaultEmergencyNumber);
-        $this->defaultEmergencyNumber->setName('defaultEmergencyNumber');
+        $this->defaultEmergencyNumber->setElementName('defaultEmergencyNumber');
         return $this;
     }
 
@@ -91,7 +93,9 @@ class SystemExternalEmergencyRoutingParametersModifyRequest13mp13 extends Comple
      */
     public function getDefaultEmergencyNumber()
     {
-        return ($this->defaultEmergencyNumber) ? $this->defaultEmergencyNumber->getValue() : null;
+        return ($this->defaultEmergencyNumber)
+            ? $this->defaultEmergencyNumber->getElementValue()
+            : null;
     }
 
     /**
@@ -100,7 +104,7 @@ class SystemExternalEmergencyRoutingParametersModifyRequest13mp13 extends Comple
     public function setIsActive($isActive = null)
     {
         $this->isActive = new PrimitiveType($isActive);
-        $this->isActive->setName('isActive');
+        $this->isActive->setElementName('isActive');
         return $this;
     }
 
@@ -110,7 +114,9 @@ class SystemExternalEmergencyRoutingParametersModifyRequest13mp13 extends Comple
      */
     public function getIsActive()
     {
-        return ($this->isActive) ? $this->isActive->getValue() : null;
+        return ($this->isActive)
+            ? $this->isActive->getElementValue()
+            : null;
     }
 
     /**
@@ -119,7 +125,7 @@ class SystemExternalEmergencyRoutingParametersModifyRequest13mp13 extends Comple
     public function setSupportsDNSSRV($supportsDNSSRV = null)
     {
         $this->supportsDNSSRV = new PrimitiveType($supportsDNSSRV);
-        $this->supportsDNSSRV->setName('supportsDNSSRV');
+        $this->supportsDNSSRV->setElementName('supportsDNSSRV');
         return $this;
     }
 
@@ -129,7 +135,9 @@ class SystemExternalEmergencyRoutingParametersModifyRequest13mp13 extends Comple
      */
     public function getSupportsDNSSRV()
     {
-        return ($this->supportsDNSSRV) ? $this->supportsDNSSRV->getValue() : null;
+        return ($this->supportsDNSSRV)
+            ? $this->supportsDNSSRV->getElementValue()
+            : null;
     }
 
     /**
@@ -140,7 +148,7 @@ class SystemExternalEmergencyRoutingParametersModifyRequest13mp13 extends Comple
         $this->connectionTimeoutSeconds = ($connectionTimeoutSeconds InstanceOf ExternalEmergencyRoutingConnectionTimeoutSeconds)
              ? $connectionTimeoutSeconds
              : new ExternalEmergencyRoutingConnectionTimeoutSeconds($connectionTimeoutSeconds);
-        $this->connectionTimeoutSeconds->setName('connectionTimeoutSeconds');
+        $this->connectionTimeoutSeconds->setElementName('connectionTimeoutSeconds');
         return $this;
     }
 
@@ -150,6 +158,8 @@ class SystemExternalEmergencyRoutingParametersModifyRequest13mp13 extends Comple
      */
     public function getConnectionTimeoutSeconds()
     {
-        return ($this->connectionTimeoutSeconds) ? $this->connectionTimeoutSeconds->getValue() : null;
+        return ($this->connectionTimeoutSeconds)
+            ? $this->connectionTimeoutSeconds->getElementValue()
+            : null;
     }
 }

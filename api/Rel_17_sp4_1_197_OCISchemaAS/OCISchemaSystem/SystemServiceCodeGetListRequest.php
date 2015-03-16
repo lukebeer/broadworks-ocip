@@ -25,7 +25,7 @@ use Broadworks_OCIP\core\Client\Client;
 class SystemServiceCodeGetListRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType                         = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemServiceCodeGetListResponse';
-    public    $name = 'SystemServiceCodeGetListRequest';
+    public    $elementName = 'SystemServiceCodeGetListRequest';
     protected $responseSizeLimit;
     protected $searchCriteriaServiceCode;
     protected $searchCriteriaServiceCodeDescription;
@@ -56,7 +56,7 @@ class SystemServiceCodeGetListRequest extends ComplexType implements ComplexInte
         $this->responseSizeLimit = ($responseSizeLimit InstanceOf ResponseSizeLimit)
              ? $responseSizeLimit
              : new ResponseSizeLimit($responseSizeLimit);
-        $this->responseSizeLimit->setName('responseSizeLimit');
+        $this->responseSizeLimit->setElementName('responseSizeLimit');
         return $this;
     }
 
@@ -66,7 +66,9 @@ class SystemServiceCodeGetListRequest extends ComplexType implements ComplexInte
      */
     public function getResponseSizeLimit()
     {
-        return ($this->responseSizeLimit) ? $this->responseSizeLimit->getValue() : null;
+        return ($this->responseSizeLimit)
+            ? $this->responseSizeLimit->getElementValue()
+            : null;
     }
 
     /**
@@ -77,7 +79,7 @@ class SystemServiceCodeGetListRequest extends ComplexType implements ComplexInte
         $this->searchCriteriaServiceCode = ($searchCriteriaServiceCode InstanceOf SearchCriteriaServiceCode)
              ? $searchCriteriaServiceCode
              : new SearchCriteriaServiceCode($searchCriteriaServiceCode);
-        $this->searchCriteriaServiceCode->setName('searchCriteriaServiceCode');
+        $this->searchCriteriaServiceCode->setElementName('searchCriteriaServiceCode');
         return $this;
     }
 
@@ -98,7 +100,7 @@ class SystemServiceCodeGetListRequest extends ComplexType implements ComplexInte
         $this->searchCriteriaServiceCodeDescription = ($searchCriteriaServiceCodeDescription InstanceOf SearchCriteriaServiceCodeDescription)
              ? $searchCriteriaServiceCodeDescription
              : new SearchCriteriaServiceCodeDescription($searchCriteriaServiceCodeDescription);
-        $this->searchCriteriaServiceCodeDescription->setName('searchCriteriaServiceCodeDescription');
+        $this->searchCriteriaServiceCodeDescription->setElementName('searchCriteriaServiceCodeDescription');
         return $this;
     }
 

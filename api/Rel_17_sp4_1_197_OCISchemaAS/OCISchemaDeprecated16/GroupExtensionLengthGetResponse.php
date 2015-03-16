@@ -19,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupExtensionLengthGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'GroupExtensionLengthGetResponse';
+    public    $elementName = 'GroupExtensionLengthGetResponse';
     protected $extensionLength;
 
     /**
@@ -38,7 +38,7 @@ class GroupExtensionLengthGetResponse extends ComplexType implements ComplexInte
         $this->extensionLength = ($extensionLength InstanceOf GroupExtensionLength)
              ? $extensionLength
              : new GroupExtensionLength($extensionLength);
-        $this->extensionLength->setName('extensionLength');
+        $this->extensionLength->setElementName('extensionLength');
         return $this;
     }
 
@@ -48,6 +48,8 @@ class GroupExtensionLengthGetResponse extends ComplexType implements ComplexInte
      */
     public function getExtensionLength()
     {
-        return ($this->extensionLength) ? $this->extensionLength->getValue() : null;
+        return ($this->extensionLength)
+            ? $this->extensionLength->getElementValue()
+            : null;
     }
 }

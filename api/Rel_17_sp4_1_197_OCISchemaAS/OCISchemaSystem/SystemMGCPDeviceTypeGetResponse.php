@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemMGCPDeviceTypeGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemMGCPDeviceTypeGetResponse';
+    public    $elementName = 'SystemMGCPDeviceTypeGetResponse';
     protected $isObsolete;
     protected $profile;
     protected $numberOfPorts;
@@ -42,7 +42,7 @@ class SystemMGCPDeviceTypeGetResponse extends ComplexType implements ComplexInte
     public function setIsObsolete($isObsolete = null)
     {
         $this->isObsolete = new PrimitiveType($isObsolete);
-        $this->isObsolete->setName('isObsolete');
+        $this->isObsolete->setElementName('isObsolete');
         return $this;
     }
 
@@ -52,7 +52,9 @@ class SystemMGCPDeviceTypeGetResponse extends ComplexType implements ComplexInte
      */
     public function getIsObsolete()
     {
-        return ($this->isObsolete) ? $this->isObsolete->getValue() : null;
+        return ($this->isObsolete)
+            ? $this->isObsolete->getElementValue()
+            : null;
     }
 
     /**
@@ -63,7 +65,7 @@ class SystemMGCPDeviceTypeGetResponse extends ComplexType implements ComplexInte
         $this->profile = ($profile InstanceOf SignalingAddressType)
              ? $profile
              : new SignalingAddressType($profile);
-        $this->profile->setName('profile');
+        $this->profile->setElementName('profile');
         return $this;
     }
 
@@ -73,7 +75,9 @@ class SystemMGCPDeviceTypeGetResponse extends ComplexType implements ComplexInte
      */
     public function getProfile()
     {
-        return ($this->profile) ? $this->profile->getValue() : null;
+        return ($this->profile)
+            ? $this->profile->getElementValue()
+            : null;
     }
 
     /**
@@ -84,7 +88,7 @@ class SystemMGCPDeviceTypeGetResponse extends ComplexType implements ComplexInte
         $this->numberOfPorts = ($numberOfPorts InstanceOf UnboundedPositiveInt)
              ? $numberOfPorts
              : new UnboundedPositiveInt($numberOfPorts);
-        $this->numberOfPorts->setName('numberOfPorts');
+        $this->numberOfPorts->setElementName('numberOfPorts');
         return $this;
     }
 
@@ -105,7 +109,7 @@ class SystemMGCPDeviceTypeGetResponse extends ComplexType implements ComplexInte
         $this->protocolChoice = ($protocolChoice InstanceOf AccessDeviceProtocol)
              ? $protocolChoice
              : new AccessDeviceProtocol($protocolChoice);
-        $this->protocolChoice->setName('protocolChoice');
+        $this->protocolChoice->setElementName('protocolChoice');
         return $this;
     }
 
@@ -115,6 +119,8 @@ class SystemMGCPDeviceTypeGetResponse extends ComplexType implements ComplexInte
      */
     public function getProtocolChoice()
     {
-        return ($this->protocolChoice) ? $this->protocolChoice->getValue() : null;
+        return ($this->protocolChoice)
+            ? $this->protocolChoice->getElementValue()
+            : null;
     }
 }

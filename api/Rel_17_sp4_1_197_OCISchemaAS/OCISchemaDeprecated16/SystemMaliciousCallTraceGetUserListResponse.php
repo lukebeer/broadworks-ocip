@@ -23,7 +23,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemMaliciousCallTraceGetUserListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemMaliciousCallTraceGetUserListResponse';
+    public    $elementName = 'SystemMaliciousCallTraceGetUserListResponse';
     protected $userTable;
 
     /**
@@ -40,7 +40,7 @@ class SystemMaliciousCallTraceGetUserListResponse extends ComplexType implements
     public function setUserTable(TableType $userTable = null)
     {
         $this->userTable = $userTable;
-        $this->userTable->setName('userTable');
+        $this->userTable->setElementName('userTable');
         return $this;
     }
 

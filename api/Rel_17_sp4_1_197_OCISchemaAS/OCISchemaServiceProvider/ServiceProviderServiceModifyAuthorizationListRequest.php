@@ -23,7 +23,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderServiceModifyAuthorizationListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'ServiceProviderServiceModifyAuthorizationListRequest';
+    public    $elementName = 'ServiceProviderServiceModifyAuthorizationListRequest';
     protected $serviceProviderId;
     protected $groupServiceAuthorization;
     protected $userServiceAuthorization;
@@ -54,7 +54,7 @@ class ServiceProviderServiceModifyAuthorizationListRequest extends ComplexType i
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
-        $this->serviceProviderId->setName('serviceProviderId');
+        $this->serviceProviderId->setElementName('serviceProviderId');
         return $this;
     }
 
@@ -64,7 +64,9 @@ class ServiceProviderServiceModifyAuthorizationListRequest extends ComplexType i
      */
     public function getServiceProviderId()
     {
-        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
+        return ($this->serviceProviderId)
+            ? $this->serviceProviderId->getElementValue()
+            : null;
     }
 
     /**
@@ -75,7 +77,7 @@ class ServiceProviderServiceModifyAuthorizationListRequest extends ComplexType i
         $this->groupServiceAuthorization = ($groupServiceAuthorization InstanceOf GroupServiceAuthorization)
              ? $groupServiceAuthorization
              : new GroupServiceAuthorization($groupServiceAuthorization);
-        $this->groupServiceAuthorization->setName('groupServiceAuthorization');
+        $this->groupServiceAuthorization->setElementName('groupServiceAuthorization');
         return $this;
     }
 
@@ -96,7 +98,7 @@ class ServiceProviderServiceModifyAuthorizationListRequest extends ComplexType i
         $this->userServiceAuthorization = ($userServiceAuthorization InstanceOf UserServiceAuthorization)
              ? $userServiceAuthorization
              : new UserServiceAuthorization($userServiceAuthorization);
-        $this->userServiceAuthorization->setName('userServiceAuthorization');
+        $this->userServiceAuthorization->setElementName('userServiceAuthorization');
         return $this;
     }
 

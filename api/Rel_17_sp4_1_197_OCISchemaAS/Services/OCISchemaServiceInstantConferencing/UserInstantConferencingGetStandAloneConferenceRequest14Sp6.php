@@ -23,7 +23,7 @@ use Broadworks_OCIP\core\Client\Client;
 class UserInstantConferencingGetStandAloneConferenceRequest14Sp6 extends ComplexType implements ComplexInterface
 {
     public    $responseType          = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing\UserInstantConferencingGetStandAloneConferenceResponse14Sp6';
-    public    $name = 'UserInstantConferencingGetStandAloneConferenceRequest14Sp6';
+    public    $elementName = 'UserInstantConferencingGetStandAloneConferenceRequest14Sp6';
     protected $conferenceOwnerUserId;
     protected $conferenceKey;
 
@@ -51,7 +51,7 @@ class UserInstantConferencingGetStandAloneConferenceRequest14Sp6 extends Complex
         $this->conferenceOwnerUserId = ($conferenceOwnerUserId InstanceOf UserId)
              ? $conferenceOwnerUserId
              : new UserId($conferenceOwnerUserId);
-        $this->conferenceOwnerUserId->setName('conferenceOwnerUserId');
+        $this->conferenceOwnerUserId->setElementName('conferenceOwnerUserId');
         return $this;
     }
 
@@ -61,7 +61,9 @@ class UserInstantConferencingGetStandAloneConferenceRequest14Sp6 extends Complex
      */
     public function getConferenceOwnerUserId()
     {
-        return ($this->conferenceOwnerUserId) ? $this->conferenceOwnerUserId->getValue() : null;
+        return ($this->conferenceOwnerUserId)
+            ? $this->conferenceOwnerUserId->getElementValue()
+            : null;
     }
 
     /**
@@ -72,7 +74,7 @@ class UserInstantConferencingGetStandAloneConferenceRequest14Sp6 extends Complex
         $this->conferenceKey = ($conferenceKey InstanceOf InstantConferencingConferenceKey)
              ? $conferenceKey
              : new InstantConferencingConferenceKey($conferenceKey);
-        $this->conferenceKey->setName('conferenceKey');
+        $this->conferenceKey->setElementName('conferenceKey');
         return $this;
     }
 

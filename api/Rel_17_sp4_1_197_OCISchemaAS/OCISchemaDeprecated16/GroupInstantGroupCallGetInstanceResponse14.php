@@ -23,7 +23,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupInstantGroupCallGetInstanceResponse14 extends ComplexType implements ComplexInterface
 {
-    public    $name = 'GroupInstantGroupCallGetInstanceResponse14';
+    public    $elementName = 'GroupInstantGroupCallGetInstanceResponse14';
     protected $serviceInstanceProfile;
     protected $destinationPhoneNumber;
     protected $isAnswerTimeoutEnabled;
@@ -45,7 +45,7 @@ class GroupInstantGroupCallGetInstanceResponse14 extends ComplexType implements 
         $this->serviceInstanceProfile = ($serviceInstanceProfile InstanceOf ServiceInstanceReadProfile)
              ? $serviceInstanceProfile
              : new ServiceInstanceReadProfile($serviceInstanceProfile);
-        $this->serviceInstanceProfile->setName('serviceInstanceProfile');
+        $this->serviceInstanceProfile->setElementName('serviceInstanceProfile');
         return $this;
     }
 
@@ -66,7 +66,7 @@ class GroupInstantGroupCallGetInstanceResponse14 extends ComplexType implements 
         $this->destinationPhoneNumber = ($destinationPhoneNumber InstanceOf OutgoingDNorSIPURI)
              ? $destinationPhoneNumber
              : new OutgoingDNorSIPURI($destinationPhoneNumber);
-        $this->destinationPhoneNumber->setName('destinationPhoneNumber');
+        $this->destinationPhoneNumber->setElementName('destinationPhoneNumber');
         return $this;
     }
 
@@ -76,7 +76,9 @@ class GroupInstantGroupCallGetInstanceResponse14 extends ComplexType implements 
      */
     public function getDestinationPhoneNumber()
     {
-        return ($this->destinationPhoneNumber) ? $this->destinationPhoneNumber->getValue() : null;
+        return ($this->destinationPhoneNumber)
+            ? $this->destinationPhoneNumber->getElementValue()
+            : null;
     }
 
     /**
@@ -85,7 +87,7 @@ class GroupInstantGroupCallGetInstanceResponse14 extends ComplexType implements 
     public function setIsAnswerTimeoutEnabled($isAnswerTimeoutEnabled = null)
     {
         $this->isAnswerTimeoutEnabled = new PrimitiveType($isAnswerTimeoutEnabled);
-        $this->isAnswerTimeoutEnabled->setName('isAnswerTimeoutEnabled');
+        $this->isAnswerTimeoutEnabled->setElementName('isAnswerTimeoutEnabled');
         return $this;
     }
 
@@ -95,7 +97,9 @@ class GroupInstantGroupCallGetInstanceResponse14 extends ComplexType implements 
      */
     public function getIsAnswerTimeoutEnabled()
     {
-        return ($this->isAnswerTimeoutEnabled) ? $this->isAnswerTimeoutEnabled->getValue() : null;
+        return ($this->isAnswerTimeoutEnabled)
+            ? $this->isAnswerTimeoutEnabled->getElementValue()
+            : null;
     }
 
     /**
@@ -106,7 +110,7 @@ class GroupInstantGroupCallGetInstanceResponse14 extends ComplexType implements 
         $this->answerTimeoutMinutes = ($answerTimeoutMinutes InstanceOf InstantGroupCallAnswerTimeoutMinutes)
              ? $answerTimeoutMinutes
              : new InstantGroupCallAnswerTimeoutMinutes($answerTimeoutMinutes);
-        $this->answerTimeoutMinutes->setName('answerTimeoutMinutes');
+        $this->answerTimeoutMinutes->setElementName('answerTimeoutMinutes');
         return $this;
     }
 
@@ -116,6 +120,8 @@ class GroupInstantGroupCallGetInstanceResponse14 extends ComplexType implements 
      */
     public function getAnswerTimeoutMinutes()
     {
-        return ($this->answerTimeoutMinutes) ? $this->answerTimeoutMinutes->getValue() : null;
+        return ($this->answerTimeoutMinutes)
+            ? $this->answerTimeoutMinutes->getElementValue()
+            : null;
     }
 }

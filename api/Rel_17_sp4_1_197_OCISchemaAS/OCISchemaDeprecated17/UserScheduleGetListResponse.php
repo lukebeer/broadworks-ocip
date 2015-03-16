@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserScheduleGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'UserScheduleGetListResponse';
+    public    $elementName = 'UserScheduleGetListResponse';
     protected $scheduleName;
     protected $scheduleType;
     protected $scheduleLevel;
@@ -43,7 +43,7 @@ class UserScheduleGetListResponse extends ComplexType implements ComplexInterfac
         $this->scheduleName = ($scheduleName InstanceOf ScheduleName)
              ? $scheduleName
              : new ScheduleName($scheduleName);
-        $this->scheduleName->setName('scheduleName');
+        $this->scheduleName->setElementName('scheduleName');
         return $this;
     }
 
@@ -53,7 +53,9 @@ class UserScheduleGetListResponse extends ComplexType implements ComplexInterfac
      */
     public function getScheduleName()
     {
-        return ($this->scheduleName) ? $this->scheduleName->getValue() : null;
+        return ($this->scheduleName)
+            ? $this->scheduleName->getElementValue()
+            : null;
     }
 
     /**
@@ -64,7 +66,7 @@ class UserScheduleGetListResponse extends ComplexType implements ComplexInterfac
         $this->scheduleType = ($scheduleType InstanceOf ScheduleType)
              ? $scheduleType
              : new ScheduleType($scheduleType);
-        $this->scheduleType->setName('scheduleType');
+        $this->scheduleType->setElementName('scheduleType');
         return $this;
     }
 
@@ -74,7 +76,9 @@ class UserScheduleGetListResponse extends ComplexType implements ComplexInterfac
      */
     public function getScheduleType()
     {
-        return ($this->scheduleType) ? $this->scheduleType->getValue() : null;
+        return ($this->scheduleType)
+            ? $this->scheduleType->getElementValue()
+            : null;
     }
 
     /**
@@ -85,7 +89,7 @@ class UserScheduleGetListResponse extends ComplexType implements ComplexInterfac
         $this->scheduleLevel = ($scheduleLevel InstanceOf ScheduleLevel)
              ? $scheduleLevel
              : new ScheduleLevel($scheduleLevel);
-        $this->scheduleLevel->setName('scheduleLevel');
+        $this->scheduleLevel->setElementName('scheduleLevel');
         return $this;
     }
 
@@ -95,6 +99,8 @@ class UserScheduleGetListResponse extends ComplexType implements ComplexInterfac
      */
     public function getScheduleLevel()
     {
-        return ($this->scheduleLevel) ? $this->scheduleLevel->getValue() : null;
+        return ($this->scheduleLevel)
+            ? $this->scheduleLevel->getElementValue()
+            : null;
     }
 }

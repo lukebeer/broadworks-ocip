@@ -23,7 +23,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupOutgoingCallingPlanTransferNumbersModifyListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'GroupOutgoingCallingPlanTransferNumbersModifyListRequest';
+    public    $elementName = 'GroupOutgoingCallingPlanTransferNumbersModifyListRequest';
     protected $serviceProviderId;
     protected $groupId;
     protected $groupNumbers;
@@ -57,7 +57,7 @@ class GroupOutgoingCallingPlanTransferNumbersModifyListRequest extends ComplexTy
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
-        $this->serviceProviderId->setName('serviceProviderId');
+        $this->serviceProviderId->setElementName('serviceProviderId');
         return $this;
     }
 
@@ -67,7 +67,9 @@ class GroupOutgoingCallingPlanTransferNumbersModifyListRequest extends ComplexTy
      */
     public function getServiceProviderId()
     {
-        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
+        return ($this->serviceProviderId)
+            ? $this->serviceProviderId->getElementValue()
+            : null;
     }
 
     /**
@@ -78,7 +80,7 @@ class GroupOutgoingCallingPlanTransferNumbersModifyListRequest extends ComplexTy
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
-        $this->groupId->setName('groupId');
+        $this->groupId->setElementName('groupId');
         return $this;
     }
 
@@ -88,7 +90,9 @@ class GroupOutgoingCallingPlanTransferNumbersModifyListRequest extends ComplexTy
      */
     public function getGroupId()
     {
-        return ($this->groupId) ? $this->groupId->getValue() : null;
+        return ($this->groupId)
+            ? $this->groupId->getElementValue()
+            : null;
     }
 
     /**
@@ -99,7 +103,7 @@ class GroupOutgoingCallingPlanTransferNumbersModifyListRequest extends ComplexTy
         $this->groupNumbers = ($groupNumbers InstanceOf OutgoingCallingPlanTransferNumbersModify)
              ? $groupNumbers
              : new OutgoingCallingPlanTransferNumbersModify($groupNumbers);
-        $this->groupNumbers->setName('groupNumbers');
+        $this->groupNumbers->setElementName('groupNumbers');
         return $this;
     }
 
@@ -120,7 +124,7 @@ class GroupOutgoingCallingPlanTransferNumbersModifyListRequest extends ComplexTy
         $this->departmentNumbers = ($departmentNumbers InstanceOf OutgoingCallingPlanDepartmentTransferNumbersModify)
              ? $departmentNumbers
              : new OutgoingCallingPlanDepartmentTransferNumbersModify($departmentNumbers);
-        $this->departmentNumbers->setName('departmentNumbers');
+        $this->departmentNumbers->setElementName('departmentNumbers');
         return $this;
     }
 

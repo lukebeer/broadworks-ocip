@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class EnhancedCallLogsAccountAuthorizationCodeFilter extends ComplexType implements ComplexInterface
 {
-    public    $name = 'EnhancedCallLogsAccountAuthorizationCodeFilter';
+    public    $elementName = 'EnhancedCallLogsAccountAuthorizationCodeFilter';
 
     public function __construct(    ) {
     }

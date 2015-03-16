@@ -19,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ShInterfaceUserIdDataEntry extends ComplexType implements ComplexInterface
 {
-    public    $name = 'ShInterfaceUserIdDataEntry';
+    public    $elementName = 'ShInterfaceUserIdDataEntry';
     protected $userType;
     protected $publicUserIdentity;
     protected $endpointType;
@@ -54,7 +54,7 @@ class ShInterfaceUserIdDataEntry extends ComplexType implements ComplexInterface
     public function setUserType($userType = null)
     {
         $this->userType = new SimpleContent($userType);
-        $this->userType->setName('userType');
+        $this->userType->setElementName('userType');
         return $this;
     }
 
@@ -64,7 +64,9 @@ class ShInterfaceUserIdDataEntry extends ComplexType implements ComplexInterface
      */
     public function getUserType()
     {
-        return ($this->userType) ? $this->userType->getValue() : null;
+        return ($this->userType)
+            ? $this->userType->getElementValue()
+            : null;
     }
 
     /**
@@ -73,7 +75,7 @@ class ShInterfaceUserIdDataEntry extends ComplexType implements ComplexInterface
     public function setPublicUserIdentity($publicUserIdentity = null)
     {
         $this->publicUserIdentity = new SimpleContent($publicUserIdentity);
-        $this->publicUserIdentity->setName('publicUserIdentity');
+        $this->publicUserIdentity->setElementName('publicUserIdentity');
         return $this;
     }
 
@@ -83,7 +85,9 @@ class ShInterfaceUserIdDataEntry extends ComplexType implements ComplexInterface
      */
     public function getPublicUserIdentity()
     {
-        return ($this->publicUserIdentity) ? $this->publicUserIdentity->getValue() : null;
+        return ($this->publicUserIdentity)
+            ? $this->publicUserIdentity->getElementValue()
+            : null;
     }
 
     /**
@@ -92,7 +96,7 @@ class ShInterfaceUserIdDataEntry extends ComplexType implements ComplexInterface
     public function setEndpointType($endpointType = null)
     {
         $this->endpointType = new SimpleContent($endpointType);
-        $this->endpointType->setName('endpointType');
+        $this->endpointType->setElementName('endpointType');
         return $this;
     }
 
@@ -102,7 +106,9 @@ class ShInterfaceUserIdDataEntry extends ComplexType implements ComplexInterface
      */
     public function getEndpointType()
     {
-        return ($this->endpointType) ? $this->endpointType->getValue() : null;
+        return ($this->endpointType)
+            ? $this->endpointType->getElementValue()
+            : null;
     }
 
     /**
@@ -111,7 +117,7 @@ class ShInterfaceUserIdDataEntry extends ComplexType implements ComplexInterface
     public function setSCSCFName($SCSCFName = null)
     {
         $this->SCSCFName = new SimpleContent($SCSCFName);
-        $this->SCSCFName->setName('SCSCFName');
+        $this->SCSCFName->setElementName('SCSCFName');
         return $this;
     }
 
@@ -121,7 +127,9 @@ class ShInterfaceUserIdDataEntry extends ComplexType implements ComplexInterface
      */
     public function getSCSCFName()
     {
-        return ($this->SCSCFName) ? $this->SCSCFName->getValue() : null;
+        return ($this->SCSCFName)
+            ? $this->SCSCFName->getElementValue()
+            : null;
     }
 
     /**
@@ -130,7 +138,7 @@ class ShInterfaceUserIdDataEntry extends ComplexType implements ComplexInterface
     public function setIMSUserState($IMSUserState = null)
     {
         $this->IMSUserState = new SimpleContent($IMSUserState);
-        $this->IMSUserState->setName('IMSUserState');
+        $this->IMSUserState->setElementName('IMSUserState');
         return $this;
     }
 
@@ -140,6 +148,8 @@ class ShInterfaceUserIdDataEntry extends ComplexType implements ComplexInterface
      */
     public function getIMSUserState()
     {
-        return ($this->IMSUserState) ? $this->IMSUserState->getValue() : null;
+        return ($this->IMSUserState)
+            ? $this->IMSUserState->getElementValue()
+            : null;
     }
 }

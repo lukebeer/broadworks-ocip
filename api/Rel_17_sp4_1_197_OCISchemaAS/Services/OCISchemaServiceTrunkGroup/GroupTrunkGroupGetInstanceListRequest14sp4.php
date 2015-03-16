@@ -24,7 +24,7 @@ use Broadworks_OCIP\core\Client\Client;
 class GroupTrunkGroupGetInstanceListRequest14sp4 extends ComplexType implements ComplexInterface
 {
     public    $responseType              = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceTrunkGroup\GroupTrunkGroupGetInstanceListResponse14sp4';
-    public    $name = 'GroupTrunkGroupGetInstanceListRequest14sp4';
+    public    $elementName = 'GroupTrunkGroupGetInstanceListRequest14sp4';
     protected $serviceProviderId;
     protected $groupId;
     protected $onlyTrunkGroupsWithDevice;
@@ -55,7 +55,7 @@ class GroupTrunkGroupGetInstanceListRequest14sp4 extends ComplexType implements 
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
-        $this->serviceProviderId->setName('serviceProviderId');
+        $this->serviceProviderId->setElementName('serviceProviderId');
         return $this;
     }
 
@@ -65,7 +65,9 @@ class GroupTrunkGroupGetInstanceListRequest14sp4 extends ComplexType implements 
      */
     public function getServiceProviderId()
     {
-        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
+        return ($this->serviceProviderId)
+            ? $this->serviceProviderId->getElementValue()
+            : null;
     }
 
     /**
@@ -76,7 +78,7 @@ class GroupTrunkGroupGetInstanceListRequest14sp4 extends ComplexType implements 
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
-        $this->groupId->setName('groupId');
+        $this->groupId->setElementName('groupId');
         return $this;
     }
 
@@ -86,7 +88,9 @@ class GroupTrunkGroupGetInstanceListRequest14sp4 extends ComplexType implements 
      */
     public function getGroupId()
     {
-        return ($this->groupId) ? $this->groupId->getValue() : null;
+        return ($this->groupId)
+            ? $this->groupId->getElementValue()
+            : null;
     }
 
     /**
@@ -95,7 +99,7 @@ class GroupTrunkGroupGetInstanceListRequest14sp4 extends ComplexType implements 
     public function setOnlyTrunkGroupsWithDevice($onlyTrunkGroupsWithDevice = null)
     {
         $this->onlyTrunkGroupsWithDevice = new PrimitiveType($onlyTrunkGroupsWithDevice);
-        $this->onlyTrunkGroupsWithDevice->setName('onlyTrunkGroupsWithDevice');
+        $this->onlyTrunkGroupsWithDevice->setElementName('onlyTrunkGroupsWithDevice');
         return $this;
     }
 
@@ -105,6 +109,8 @@ class GroupTrunkGroupGetInstanceListRequest14sp4 extends ComplexType implements 
      */
     public function getOnlyTrunkGroupsWithDevice()
     {
-        return ($this->onlyTrunkGroupsWithDevice) ? $this->onlyTrunkGroupsWithDevice->getValue() : null;
+        return ($this->onlyTrunkGroupsWithDevice)
+            ? $this->onlyTrunkGroupsWithDevice->getElementValue()
+            : null;
     }
 }

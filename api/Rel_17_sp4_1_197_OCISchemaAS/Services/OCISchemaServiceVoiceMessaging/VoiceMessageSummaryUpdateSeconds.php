@@ -20,12 +20,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\MaxInclusive;
  */
 class VoiceMessageSummaryUpdateSeconds extends SimpleType
 {
-    public $name = "VoiceMessageSummaryUpdateSeconds";
-    protected $value;
-
+    public $elementName = "VoiceMessageSummaryUpdateSeconds";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new MinInclusive("0"));
         $this->addRestriction(new MaxInclusive("86400"));
     }

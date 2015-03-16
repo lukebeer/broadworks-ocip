@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemNetworkClassOfServiceGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemNetworkClassOfServiceGetResponse';
+    public    $elementName = 'SystemNetworkClassOfServiceGetResponse';
     protected $description;
     protected $communicationBarringProfile0;
     protected $communicationBarringProfile1;
@@ -51,7 +51,7 @@ class SystemNetworkClassOfServiceGetResponse extends ComplexType implements Comp
         $this->description = ($description InstanceOf NetworkClassOfServiceDescription)
              ? $description
              : new NetworkClassOfServiceDescription($description);
-        $this->description->setName('description');
+        $this->description->setElementName('description');
         return $this;
     }
 
@@ -61,7 +61,9 @@ class SystemNetworkClassOfServiceGetResponse extends ComplexType implements Comp
      */
     public function getDescription()
     {
-        return ($this->description) ? $this->description->getValue() : null;
+        return ($this->description)
+            ? $this->description->getElementValue()
+            : null;
     }
 
     /**
@@ -72,7 +74,7 @@ class SystemNetworkClassOfServiceGetResponse extends ComplexType implements Comp
         $this->communicationBarringProfile0 = ($communicationBarringProfile0 InstanceOf NetworkClassOfServiceCommunicationBarringProfile)
              ? $communicationBarringProfile0
              : new NetworkClassOfServiceCommunicationBarringProfile($communicationBarringProfile0);
-        $this->communicationBarringProfile0->setName('communicationBarringProfile0');
+        $this->communicationBarringProfile0->setElementName('communicationBarringProfile0');
         return $this;
     }
 
@@ -93,7 +95,7 @@ class SystemNetworkClassOfServiceGetResponse extends ComplexType implements Comp
         $this->communicationBarringProfile1 = ($communicationBarringProfile1 InstanceOf NetworkClassOfServiceCommunicationBarringProfile)
              ? $communicationBarringProfile1
              : new NetworkClassOfServiceCommunicationBarringProfile($communicationBarringProfile1);
-        $this->communicationBarringProfile1->setName('communicationBarringProfile1');
+        $this->communicationBarringProfile1->setElementName('communicationBarringProfile1');
         return $this;
     }
 
@@ -114,7 +116,7 @@ class SystemNetworkClassOfServiceGetResponse extends ComplexType implements Comp
         $this->communicationBarringProfile2 = ($communicationBarringProfile2 InstanceOf NetworkClassOfServiceCommunicationBarringProfile)
              ? $communicationBarringProfile2
              : new NetworkClassOfServiceCommunicationBarringProfile($communicationBarringProfile2);
-        $this->communicationBarringProfile2->setName('communicationBarringProfile2');
+        $this->communicationBarringProfile2->setElementName('communicationBarringProfile2');
         return $this;
     }
 
@@ -135,7 +137,7 @@ class SystemNetworkClassOfServiceGetResponse extends ComplexType implements Comp
         $this->communicationBarringProfile3 = ($communicationBarringProfile3 InstanceOf NetworkClassOfServiceCommunicationBarringProfile)
              ? $communicationBarringProfile3
              : new NetworkClassOfServiceCommunicationBarringProfile($communicationBarringProfile3);
-        $this->communicationBarringProfile3->setName('communicationBarringProfile3');
+        $this->communicationBarringProfile3->setElementName('communicationBarringProfile3');
         return $this;
     }
 
@@ -156,7 +158,7 @@ class SystemNetworkClassOfServiceGetResponse extends ComplexType implements Comp
         $this->communicationBarringProfile4 = ($communicationBarringProfile4 InstanceOf NetworkClassOfServiceCommunicationBarringProfile)
              ? $communicationBarringProfile4
              : new NetworkClassOfServiceCommunicationBarringProfile($communicationBarringProfile4);
-        $this->communicationBarringProfile4->setName('communicationBarringProfile4');
+        $this->communicationBarringProfile4->setElementName('communicationBarringProfile4');
         return $this;
     }
 
@@ -177,7 +179,7 @@ class SystemNetworkClassOfServiceGetResponse extends ComplexType implements Comp
         $this->communicationBarringProfile5 = ($communicationBarringProfile5 InstanceOf NetworkClassOfServiceCommunicationBarringProfile)
              ? $communicationBarringProfile5
              : new NetworkClassOfServiceCommunicationBarringProfile($communicationBarringProfile5);
-        $this->communicationBarringProfile5->setName('communicationBarringProfile5');
+        $this->communicationBarringProfile5->setElementName('communicationBarringProfile5');
         return $this;
     }
 
@@ -198,7 +200,7 @@ class SystemNetworkClassOfServiceGetResponse extends ComplexType implements Comp
         $this->communicationBarringProfile6 = ($communicationBarringProfile6 InstanceOf NetworkClassOfServiceCommunicationBarringProfile)
              ? $communicationBarringProfile6
              : new NetworkClassOfServiceCommunicationBarringProfile($communicationBarringProfile6);
-        $this->communicationBarringProfile6->setName('communicationBarringProfile6');
+        $this->communicationBarringProfile6->setElementName('communicationBarringProfile6');
         return $this;
     }
 
@@ -219,7 +221,7 @@ class SystemNetworkClassOfServiceGetResponse extends ComplexType implements Comp
         $this->communicationBarringProfile7 = ($communicationBarringProfile7 InstanceOf NetworkClassOfServiceCommunicationBarringProfile)
              ? $communicationBarringProfile7
              : new NetworkClassOfServiceCommunicationBarringProfile($communicationBarringProfile7);
-        $this->communicationBarringProfile7->setName('communicationBarringProfile7');
+        $this->communicationBarringProfile7->setElementName('communicationBarringProfile7');
         return $this;
     }
 
@@ -240,7 +242,7 @@ class SystemNetworkClassOfServiceGetResponse extends ComplexType implements Comp
         $this->communicationBarringProfile8 = ($communicationBarringProfile8 InstanceOf NetworkClassOfServiceCommunicationBarringProfile)
              ? $communicationBarringProfile8
              : new NetworkClassOfServiceCommunicationBarringProfile($communicationBarringProfile8);
-        $this->communicationBarringProfile8->setName('communicationBarringProfile8');
+        $this->communicationBarringProfile8->setElementName('communicationBarringProfile8');
         return $this;
     }
 
@@ -261,7 +263,7 @@ class SystemNetworkClassOfServiceGetResponse extends ComplexType implements Comp
         $this->communicationBarringProfile9 = ($communicationBarringProfile9 InstanceOf NetworkClassOfServiceCommunicationBarringProfile)
              ? $communicationBarringProfile9
              : new NetworkClassOfServiceCommunicationBarringProfile($communicationBarringProfile9);
-        $this->communicationBarringProfile9->setName('communicationBarringProfile9');
+        $this->communicationBarringProfile9->setElementName('communicationBarringProfile9');
         return $this;
     }
 

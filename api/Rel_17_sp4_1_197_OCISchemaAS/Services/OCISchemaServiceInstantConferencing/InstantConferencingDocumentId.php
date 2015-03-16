@@ -16,12 +16,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\MinLength;
  */
 class InstantConferencingDocumentId extends SimpleType
 {
-    public $name = "InstantConferencingDocumentId";
-    protected $value;
-
+    public $elementName = "InstantConferencingDocumentId";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new MinLength("1"));
     }
 }

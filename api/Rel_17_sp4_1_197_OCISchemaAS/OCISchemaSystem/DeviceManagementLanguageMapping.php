@@ -19,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class DeviceManagementLanguageMapping extends ComplexType implements ComplexInterface
 {
-    public    $name = 'DeviceManagementLanguageMapping';
+    public    $elementName = 'DeviceManagementLanguageMapping';
     protected $broadWorksLanguage;
     protected $deviceLanguage;
 
@@ -45,7 +45,7 @@ class DeviceManagementLanguageMapping extends ComplexType implements ComplexInte
     public function setBroadWorksLanguage($broadWorksLanguage = null)
     {
         $this->broadWorksLanguage = new SimpleContent($broadWorksLanguage);
-        $this->broadWorksLanguage->setName('broadWorksLanguage');
+        $this->broadWorksLanguage->setElementName('broadWorksLanguage');
         return $this;
     }
 
@@ -55,7 +55,9 @@ class DeviceManagementLanguageMapping extends ComplexType implements ComplexInte
      */
     public function getBroadWorksLanguage()
     {
-        return ($this->broadWorksLanguage) ? $this->broadWorksLanguage->getValue() : null;
+        return ($this->broadWorksLanguage)
+            ? $this->broadWorksLanguage->getElementValue()
+            : null;
     }
 
     /**
@@ -64,7 +66,7 @@ class DeviceManagementLanguageMapping extends ComplexType implements ComplexInte
     public function setDeviceLanguage($deviceLanguage = null)
     {
         $this->deviceLanguage = new SimpleContent($deviceLanguage);
-        $this->deviceLanguage->setName('deviceLanguage');
+        $this->deviceLanguage->setElementName('deviceLanguage');
         return $this;
     }
 
@@ -74,6 +76,8 @@ class DeviceManagementLanguageMapping extends ComplexType implements ComplexInte
      */
     public function getDeviceLanguage()
     {
-        return ($this->deviceLanguage) ? $this->deviceLanguage->getValue() : null;
+        return ($this->deviceLanguage)
+            ? $this->deviceLanguage->getElementValue()
+            : null;
     }
 }

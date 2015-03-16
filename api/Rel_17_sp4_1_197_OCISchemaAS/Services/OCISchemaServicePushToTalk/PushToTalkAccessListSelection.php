@@ -16,12 +16,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\Enumeration;
  */
 class PushToTalkAccessListSelection extends SimpleType
 {
-    public $name = "PushToTalkAccessListSelection";
-    protected $value;
-
+    public $elementName = "PushToTalkAccessListSelection";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new Enumeration([
             'Allow Calls From Selected Users',
             'Allow Calls From Everyone Except Selected Users'

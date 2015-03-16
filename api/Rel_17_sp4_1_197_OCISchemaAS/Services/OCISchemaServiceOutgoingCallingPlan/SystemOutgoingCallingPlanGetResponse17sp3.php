@@ -19,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemOutgoingCallingPlanGetResponse17sp3 extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemOutgoingCallingPlanGetResponse17sp3';
+    public    $elementName = 'SystemOutgoingCallingPlanGetResponse17sp3';
     protected $directTransferScreening;
     protected $enableEnhancedTollCallTyping;
 
@@ -37,7 +37,7 @@ class SystemOutgoingCallingPlanGetResponse17sp3 extends ComplexType implements C
     public function setDirectTransferScreening($directTransferScreening = null)
     {
         $this->directTransferScreening = new PrimitiveType($directTransferScreening);
-        $this->directTransferScreening->setName('directTransferScreening');
+        $this->directTransferScreening->setElementName('directTransferScreening');
         return $this;
     }
 
@@ -47,7 +47,9 @@ class SystemOutgoingCallingPlanGetResponse17sp3 extends ComplexType implements C
      */
     public function getDirectTransferScreening()
     {
-        return ($this->directTransferScreening) ? $this->directTransferScreening->getValue() : null;
+        return ($this->directTransferScreening)
+            ? $this->directTransferScreening->getElementValue()
+            : null;
     }
 
     /**
@@ -56,7 +58,7 @@ class SystemOutgoingCallingPlanGetResponse17sp3 extends ComplexType implements C
     public function setEnableEnhancedTollCallTyping($enableEnhancedTollCallTyping = null)
     {
         $this->enableEnhancedTollCallTyping = new PrimitiveType($enableEnhancedTollCallTyping);
-        $this->enableEnhancedTollCallTyping->setName('enableEnhancedTollCallTyping');
+        $this->enableEnhancedTollCallTyping->setElementName('enableEnhancedTollCallTyping');
         return $this;
     }
 
@@ -66,6 +68,8 @@ class SystemOutgoingCallingPlanGetResponse17sp3 extends ComplexType implements C
      */
     public function getEnableEnhancedTollCallTyping()
     {
-        return ($this->enableEnhancedTollCallTyping) ? $this->enableEnhancedTollCallTyping->getValue() : null;
+        return ($this->enableEnhancedTollCallTyping)
+            ? $this->enableEnhancedTollCallTyping->getElementValue()
+            : null;
     }
 }

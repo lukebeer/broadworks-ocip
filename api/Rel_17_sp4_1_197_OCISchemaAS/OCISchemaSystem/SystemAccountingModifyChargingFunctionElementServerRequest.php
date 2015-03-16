@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemAccountingModifyChargingFunctionElementServerRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemAccountingModifyChargingFunctionElementServerRequest';
+    public    $elementName = 'SystemAccountingModifyChargingFunctionElementServerRequest';
     protected $address;
     protected $type;
     protected $description;
@@ -53,7 +53,7 @@ class SystemAccountingModifyChargingFunctionElementServerRequest extends Complex
         $this->address = ($address InstanceOf NetAddressExtended)
              ? $address
              : new NetAddressExtended($address);
-        $this->address->setName('address');
+        $this->address->setElementName('address');
         return $this;
     }
 
@@ -63,7 +63,9 @@ class SystemAccountingModifyChargingFunctionElementServerRequest extends Complex
      */
     public function getAddress()
     {
-        return ($this->address) ? $this->address->getValue() : null;
+        return ($this->address)
+            ? $this->address->getElementValue()
+            : null;
     }
 
     /**
@@ -74,7 +76,7 @@ class SystemAccountingModifyChargingFunctionElementServerRequest extends Complex
         $this->type = ($type InstanceOf ChargingFunctionElementServerType)
              ? $type
              : new ChargingFunctionElementServerType($type);
-        $this->type->setName('type');
+        $this->type->setElementName('type');
         return $this;
     }
 
@@ -84,7 +86,9 @@ class SystemAccountingModifyChargingFunctionElementServerRequest extends Complex
      */
     public function getType()
     {
-        return ($this->type) ? $this->type->getValue() : null;
+        return ($this->type)
+            ? $this->type->getElementValue()
+            : null;
     }
 
     /**
@@ -95,7 +99,7 @@ class SystemAccountingModifyChargingFunctionElementServerRequest extends Complex
         $this->description = ($description InstanceOf ChargingFunctionElementServerDescription)
              ? $description
              : new ChargingFunctionElementServerDescription($description);
-        $this->description->setName('description');
+        $this->description->setElementName('description');
         return $this;
     }
 
@@ -105,6 +109,8 @@ class SystemAccountingModifyChargingFunctionElementServerRequest extends Complex
      */
     public function getDescription()
     {
-        return ($this->description) ? $this->description->getValue() : null;
+        return ($this->description)
+            ? $this->description->getElementValue()
+            : null;
     }
 }

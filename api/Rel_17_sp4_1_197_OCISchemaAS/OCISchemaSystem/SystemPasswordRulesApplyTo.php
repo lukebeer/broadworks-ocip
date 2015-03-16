@@ -20,12 +20,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\Enumeration;
  */
 class SystemPasswordRulesApplyTo extends SimpleType
 {
-    public $name = "SystemPasswordRulesApplyTo";
-    protected $value;
-
+    public $elementName = "SystemPasswordRulesApplyTo";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new Enumeration([
             'System, Provisioning Administrator',
             'System, Provisioning, Service Provider Administrator',

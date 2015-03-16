@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserSequentialRingDeleteCriteriaRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'UserSequentialRingDeleteCriteriaRequest';
+    public    $elementName = 'UserSequentialRingDeleteCriteriaRequest';
     protected $userId;
     protected $criteriaName;
 
@@ -49,7 +49,7 @@ class UserSequentialRingDeleteCriteriaRequest extends ComplexType implements Com
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
-        $this->userId->setName('userId');
+        $this->userId->setElementName('userId');
         return $this;
     }
 
@@ -59,7 +59,9 @@ class UserSequentialRingDeleteCriteriaRequest extends ComplexType implements Com
      */
     public function getUserId()
     {
-        return ($this->userId) ? $this->userId->getValue() : null;
+        return ($this->userId)
+            ? $this->userId->getElementValue()
+            : null;
     }
 
     /**
@@ -70,7 +72,7 @@ class UserSequentialRingDeleteCriteriaRequest extends ComplexType implements Com
         $this->criteriaName = ($criteriaName InstanceOf CriteriaName)
              ? $criteriaName
              : new CriteriaName($criteriaName);
-        $this->criteriaName->setName('criteriaName');
+        $this->criteriaName->setElementName('criteriaName');
         return $this;
     }
 
@@ -80,6 +82,8 @@ class UserSequentialRingDeleteCriteriaRequest extends ComplexType implements Com
      */
     public function getCriteriaName()
     {
-        return ($this->criteriaName) ? $this->criteriaName->getValue() : null;
+        return ($this->criteriaName)
+            ? $this->criteriaName->getElementValue()
+            : null;
     }
 }

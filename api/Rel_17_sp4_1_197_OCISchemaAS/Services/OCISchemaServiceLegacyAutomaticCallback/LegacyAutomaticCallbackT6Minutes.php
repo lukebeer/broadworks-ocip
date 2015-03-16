@@ -17,12 +17,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\MaxInclusive;
  */
 class LegacyAutomaticCallbackT6Minutes extends SimpleType
 {
-    public $name = "LegacyAutomaticCallbackT6Minutes";
-    protected $value;
-
+    public $elementName = "LegacyAutomaticCallbackT6Minutes";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new MinInclusive("1"));
         $this->addRestriction(new MaxInclusive("60"));
     }

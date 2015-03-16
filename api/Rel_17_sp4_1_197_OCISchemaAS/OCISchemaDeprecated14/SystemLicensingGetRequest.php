@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
 class SystemLicensingGetRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\SystemLicensingGetResponse';
-    public    $name = 'SystemLicensingGetRequest';
+    public    $elementName = 'SystemLicensingGetRequest';
 
     public function __construct(    ) {
     }

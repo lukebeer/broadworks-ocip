@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemOutgoingCallingPlanCallTypeAddMappingRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemOutgoingCallingPlanCallTypeAddMappingRequest';
+    public    $elementName = 'SystemOutgoingCallingPlanCallTypeAddMappingRequest';
     protected $countryCode;
     protected $digitMap;
     protected $callType;
@@ -52,7 +52,7 @@ class SystemOutgoingCallingPlanCallTypeAddMappingRequest extends ComplexType imp
         $this->countryCode = ($countryCode InstanceOf CountryCode)
              ? $countryCode
              : new CountryCode($countryCode);
-        $this->countryCode->setName('countryCode');
+        $this->countryCode->setElementName('countryCode');
         return $this;
     }
 
@@ -62,7 +62,9 @@ class SystemOutgoingCallingPlanCallTypeAddMappingRequest extends ComplexType imp
      */
     public function getCountryCode()
     {
-        return ($this->countryCode) ? $this->countryCode->getValue() : null;
+        return ($this->countryCode)
+            ? $this->countryCode->getElementValue()
+            : null;
     }
 
     /**
@@ -73,7 +75,7 @@ class SystemOutgoingCallingPlanCallTypeAddMappingRequest extends ComplexType imp
         $this->digitMap = ($digitMap InstanceOf CallTypeDigitMap)
              ? $digitMap
              : new CallTypeDigitMap($digitMap);
-        $this->digitMap->setName('digitMap');
+        $this->digitMap->setElementName('digitMap');
         return $this;
     }
 
@@ -83,7 +85,9 @@ class SystemOutgoingCallingPlanCallTypeAddMappingRequest extends ComplexType imp
      */
     public function getDigitMap()
     {
-        return ($this->digitMap) ? $this->digitMap->getValue() : null;
+        return ($this->digitMap)
+            ? $this->digitMap->getElementValue()
+            : null;
     }
 
     /**
@@ -94,7 +98,7 @@ class SystemOutgoingCallingPlanCallTypeAddMappingRequest extends ComplexType imp
         $this->callType = ($callType InstanceOf OutgoingCallingPlanCallType)
              ? $callType
              : new OutgoingCallingPlanCallType($callType);
-        $this->callType->setName('callType');
+        $this->callType->setElementName('callType');
         return $this;
     }
 
@@ -104,6 +108,8 @@ class SystemOutgoingCallingPlanCallTypeAddMappingRequest extends ComplexType imp
      */
     public function getCallType()
     {
-        return ($this->callType) ? $this->callType->getValue() : null;
+        return ($this->callType)
+            ? $this->callType->getElementValue()
+            : null;
     }
 }

@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemScheduleGetEventListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemScheduleGetEventListResponse';
+    public    $elementName = 'SystemScheduleGetEventListResponse';
     protected $eventName;
 
     /**
@@ -39,7 +39,7 @@ class SystemScheduleGetEventListResponse extends ComplexType implements ComplexI
         $this->eventName = ($eventName InstanceOf EventName)
              ? $eventName
              : new EventName($eventName);
-        $this->eventName->setName('eventName');
+        $this->eventName->setElementName('eventName');
         return $this;
     }
 
@@ -49,6 +49,8 @@ class SystemScheduleGetEventListResponse extends ComplexType implements ComplexI
      */
     public function getEventName()
     {
-        return ($this->eventName) ? $this->eventName->getValue() : null;
+        return ($this->eventName)
+            ? $this->eventName->getElementValue()
+            : null;
     }
 }

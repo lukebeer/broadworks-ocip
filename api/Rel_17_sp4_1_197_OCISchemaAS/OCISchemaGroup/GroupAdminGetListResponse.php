@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupAdminGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'GroupAdminGetListResponse';
+    public    $elementName = 'GroupAdminGetListResponse';
     protected $groupAdminTable;
 
     /**
@@ -38,7 +38,7 @@ class GroupAdminGetListResponse extends ComplexType implements ComplexInterface
     public function setGroupAdminTable(TableType $groupAdminTable = null)
     {
         $this->groupAdminTable = $groupAdminTable;
-        $this->groupAdminTable->setName('groupAdminTable');
+        $this->groupAdminTable->setElementName('groupAdminTable');
         return $this;
     }
 

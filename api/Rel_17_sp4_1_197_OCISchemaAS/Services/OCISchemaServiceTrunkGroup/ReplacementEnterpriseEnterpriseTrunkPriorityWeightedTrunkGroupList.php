@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ReplacementEnterpriseEnterpriseTrunkPriorityWeightedTrunkGroupList extends ComplexType implements ComplexInterface
 {
-    public    $name = 'ReplacementEnterpriseEnterpriseTrunkPriorityWeightedTrunkGroupList';
+    public    $elementName = 'ReplacementEnterpriseEnterpriseTrunkPriorityWeightedTrunkGroupList';
     protected $trunkGroup;
 
     public function __construct(
@@ -43,7 +43,7 @@ class ReplacementEnterpriseEnterpriseTrunkPriorityWeightedTrunkGroupList extends
     public function setTrunkGroup($trunkGroup = null)
     {
         $this->trunkGroup = new SimpleContent($trunkGroup);
-        $this->trunkGroup->setName('trunkGroup');
+        $this->trunkGroup->setElementName('trunkGroup');
         return $this;
     }
 
@@ -53,6 +53,8 @@ class ReplacementEnterpriseEnterpriseTrunkPriorityWeightedTrunkGroupList extends
      */
     public function getTrunkGroup()
     {
-        return ($this->trunkGroup) ? $this->trunkGroup->getValue() : null;
+        return ($this->trunkGroup)
+            ? $this->trunkGroup->getElementValue()
+            : null;
     }
 }

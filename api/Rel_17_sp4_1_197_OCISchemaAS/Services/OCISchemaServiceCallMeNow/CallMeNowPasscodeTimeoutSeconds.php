@@ -17,12 +17,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\MaxInclusive;
  */
 class CallMeNowPasscodeTimeoutSeconds extends SimpleType
 {
-    public $name = "CallMeNowPasscodeTimeoutSeconds";
-    protected $value;
-
+    public $elementName = "CallMeNowPasscodeTimeoutSeconds";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new MinInclusive("30"));
         $this->addRestriction(new MaxInclusive("180"));
     }

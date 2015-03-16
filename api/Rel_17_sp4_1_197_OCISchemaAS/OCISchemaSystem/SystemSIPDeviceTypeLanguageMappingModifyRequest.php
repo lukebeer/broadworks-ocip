@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemSIPDeviceTypeLanguageMappingModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemSIPDeviceTypeLanguageMappingModifyRequest';
+    public    $elementName = 'SystemSIPDeviceTypeLanguageMappingModifyRequest';
     protected $deviceType;
     protected $languageMapping;
 
@@ -48,7 +48,7 @@ class SystemSIPDeviceTypeLanguageMappingModifyRequest extends ComplexType implem
         $this->deviceType = ($deviceType InstanceOf AccessDeviceType)
              ? $deviceType
              : new AccessDeviceType($deviceType);
-        $this->deviceType->setName('deviceType');
+        $this->deviceType->setElementName('deviceType');
         return $this;
     }
 
@@ -58,7 +58,9 @@ class SystemSIPDeviceTypeLanguageMappingModifyRequest extends ComplexType implem
      */
     public function getDeviceType()
     {
-        return ($this->deviceType) ? $this->deviceType->getValue() : null;
+        return ($this->deviceType)
+            ? $this->deviceType->getElementValue()
+            : null;
     }
 
     /**
@@ -69,7 +71,7 @@ class SystemSIPDeviceTypeLanguageMappingModifyRequest extends ComplexType implem
         $this->languageMapping = ($languageMapping InstanceOf DeviceManagementLanguageMapping)
              ? $languageMapping
              : new DeviceManagementLanguageMapping($languageMapping);
-        $this->languageMapping->setName('languageMapping');
+        $this->languageMapping->setElementName('languageMapping');
         return $this;
     }
 

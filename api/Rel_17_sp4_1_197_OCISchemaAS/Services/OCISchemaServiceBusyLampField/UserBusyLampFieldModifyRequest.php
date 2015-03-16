@@ -23,7 +23,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserBusyLampFieldModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'UserBusyLampFieldModifyRequest';
+    public    $elementName = 'UserBusyLampFieldModifyRequest';
     protected $userId;
     protected $listURI;
     protected $monitoredUserIdList;
@@ -57,7 +57,7 @@ class UserBusyLampFieldModifyRequest extends ComplexType implements ComplexInter
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
-        $this->userId->setName('userId');
+        $this->userId->setElementName('userId');
         return $this;
     }
 
@@ -67,7 +67,9 @@ class UserBusyLampFieldModifyRequest extends ComplexType implements ComplexInter
      */
     public function getUserId()
     {
-        return ($this->userId) ? $this->userId->getValue() : null;
+        return ($this->userId)
+            ? $this->userId->getElementValue()
+            : null;
     }
 
     /**
@@ -78,7 +80,7 @@ class UserBusyLampFieldModifyRequest extends ComplexType implements ComplexInter
         $this->listURI = ($listURI InstanceOf SIPURI)
              ? $listURI
              : new SIPURI($listURI);
-        $this->listURI->setName('listURI');
+        $this->listURI->setElementName('listURI');
         return $this;
     }
 
@@ -88,7 +90,9 @@ class UserBusyLampFieldModifyRequest extends ComplexType implements ComplexInter
      */
     public function getListURI()
     {
-        return ($this->listURI) ? $this->listURI->getValue() : null;
+        return ($this->listURI)
+            ? $this->listURI->getElementValue()
+            : null;
     }
 
     /**
@@ -99,7 +103,7 @@ class UserBusyLampFieldModifyRequest extends ComplexType implements ComplexInter
         $this->monitoredUserIdList = ($monitoredUserIdList InstanceOf ReplacementUserIdList)
              ? $monitoredUserIdList
              : new ReplacementUserIdList($monitoredUserIdList);
-        $this->monitoredUserIdList->setName('monitoredUserIdList');
+        $this->monitoredUserIdList->setElementName('monitoredUserIdList');
         return $this;
     }
 
@@ -118,7 +122,7 @@ class UserBusyLampFieldModifyRequest extends ComplexType implements ComplexInter
     public function setEnableCallParkNotification($enableCallParkNotification = null)
     {
         $this->enableCallParkNotification = new PrimitiveType($enableCallParkNotification);
-        $this->enableCallParkNotification->setName('enableCallParkNotification');
+        $this->enableCallParkNotification->setElementName('enableCallParkNotification');
         return $this;
     }
 
@@ -128,6 +132,8 @@ class UserBusyLampFieldModifyRequest extends ComplexType implements ComplexInter
      */
     public function getEnableCallParkNotification()
     {
-        return ($this->enableCallParkNotification) ? $this->enableCallParkNotification->getValue() : null;
+        return ($this->enableCallParkNotification)
+            ? $this->enableCallParkNotification->getElementValue()
+            : null;
     }
 }

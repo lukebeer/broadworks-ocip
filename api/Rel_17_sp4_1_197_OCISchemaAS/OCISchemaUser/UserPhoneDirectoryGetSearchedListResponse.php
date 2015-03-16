@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserPhoneDirectoryGetSearchedListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'UserPhoneDirectoryGetSearchedListResponse';
+    public    $elementName = 'UserPhoneDirectoryGetSearchedListResponse';
     protected $directoryTable;
 
     /**
@@ -38,7 +38,7 @@ class UserPhoneDirectoryGetSearchedListResponse extends ComplexType implements C
     public function setDirectoryTable(TableType $directoryTable = null)
     {
         $this->directoryTable = $directoryTable;
-        $this->directoryTable->setName('directoryTable');
+        $this->directoryTable->setElementName('directoryTable');
         return $this;
     }
 

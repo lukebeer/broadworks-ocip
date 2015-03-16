@@ -19,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class CallCenterScheduledReportDNISSelection extends ComplexType implements ComplexInterface
 {
-    public    $name = 'CallCenterScheduledReportDNISSelection';
+    public    $elementName = 'CallCenterScheduledReportDNISSelection';
     protected $serviceUserId;
 
     public function __construct(
@@ -42,7 +42,7 @@ class CallCenterScheduledReportDNISSelection extends ComplexType implements Comp
     public function setServiceUserId($serviceUserId = null)
     {
         $this->serviceUserId = new SimpleContent($serviceUserId);
-        $this->serviceUserId->setName('serviceUserId');
+        $this->serviceUserId->setElementName('serviceUserId');
         return $this;
     }
 
@@ -52,6 +52,8 @@ class CallCenterScheduledReportDNISSelection extends ComplexType implements Comp
      */
     public function getServiceUserId()
     {
-        return ($this->serviceUserId) ? $this->serviceUserId->getValue() : null;
+        return ($this->serviceUserId)
+            ? $this->serviceUserId->getElementValue()
+            : null;
     }
 }

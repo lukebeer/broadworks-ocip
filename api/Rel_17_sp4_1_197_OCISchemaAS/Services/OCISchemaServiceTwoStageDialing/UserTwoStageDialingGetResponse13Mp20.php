@@ -19,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserTwoStageDialingGetResponse13Mp20 extends ComplexType implements ComplexInterface
 {
-    public    $name = 'UserTwoStageDialingGetResponse13Mp20';
+    public    $elementName = 'UserTwoStageDialingGetResponse13Mp20';
     protected $isActive;
     protected $allowActivationWithUserAddresses;
 
@@ -37,7 +37,7 @@ class UserTwoStageDialingGetResponse13Mp20 extends ComplexType implements Comple
     public function setIsActive($isActive = null)
     {
         $this->isActive = new PrimitiveType($isActive);
-        $this->isActive->setName('isActive');
+        $this->isActive->setElementName('isActive');
         return $this;
     }
 
@@ -47,7 +47,9 @@ class UserTwoStageDialingGetResponse13Mp20 extends ComplexType implements Comple
      */
     public function getIsActive()
     {
-        return ($this->isActive) ? $this->isActive->getValue() : null;
+        return ($this->isActive)
+            ? $this->isActive->getElementValue()
+            : null;
     }
 
     /**
@@ -56,7 +58,7 @@ class UserTwoStageDialingGetResponse13Mp20 extends ComplexType implements Comple
     public function setAllowActivationWithUserAddresses($allowActivationWithUserAddresses = null)
     {
         $this->allowActivationWithUserAddresses = new PrimitiveType($allowActivationWithUserAddresses);
-        $this->allowActivationWithUserAddresses->setName('allowActivationWithUserAddresses');
+        $this->allowActivationWithUserAddresses->setElementName('allowActivationWithUserAddresses');
         return $this;
     }
 
@@ -66,6 +68,8 @@ class UserTwoStageDialingGetResponse13Mp20 extends ComplexType implements Comple
      */
     public function getAllowActivationWithUserAddresses()
     {
-        return ($this->allowActivationWithUserAddresses) ? $this->allowActivationWithUserAddresses->getValue() : null;
+        return ($this->allowActivationWithUserAddresses)
+            ? $this->allowActivationWithUserAddresses->getElementValue()
+            : null;
     }
 }

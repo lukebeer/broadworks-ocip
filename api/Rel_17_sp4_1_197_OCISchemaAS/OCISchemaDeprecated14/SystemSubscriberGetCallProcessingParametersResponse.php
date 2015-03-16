@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemSubscriberGetCallProcessingParametersResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemSubscriberGetCallProcessingParametersResponse';
+    public    $elementName = 'SystemSubscriberGetCallProcessingParametersResponse';
     protected $userCallingLineIdSelection;
     protected $isExtendedCallingLineIdActive;
     protected $isRingTimeOutActive;
@@ -44,7 +44,7 @@ class SystemSubscriberGetCallProcessingParametersResponse extends ComplexType im
         $this->userCallingLineIdSelection = ($userCallingLineIdSelection InstanceOf SystemUserCallingLineIdSelection)
              ? $userCallingLineIdSelection
              : new SystemUserCallingLineIdSelection($userCallingLineIdSelection);
-        $this->userCallingLineIdSelection->setName('userCallingLineIdSelection');
+        $this->userCallingLineIdSelection->setElementName('userCallingLineIdSelection');
         return $this;
     }
 
@@ -54,7 +54,9 @@ class SystemSubscriberGetCallProcessingParametersResponse extends ComplexType im
      */
     public function getUserCallingLineIdSelection()
     {
-        return ($this->userCallingLineIdSelection) ? $this->userCallingLineIdSelection->getValue() : null;
+        return ($this->userCallingLineIdSelection)
+            ? $this->userCallingLineIdSelection->getElementValue()
+            : null;
     }
 
     /**
@@ -63,7 +65,7 @@ class SystemSubscriberGetCallProcessingParametersResponse extends ComplexType im
     public function setIsExtendedCallingLineIdActive($isExtendedCallingLineIdActive = null)
     {
         $this->isExtendedCallingLineIdActive = new PrimitiveType($isExtendedCallingLineIdActive);
-        $this->isExtendedCallingLineIdActive->setName('isExtendedCallingLineIdActive');
+        $this->isExtendedCallingLineIdActive->setElementName('isExtendedCallingLineIdActive');
         return $this;
     }
 
@@ -73,7 +75,9 @@ class SystemSubscriberGetCallProcessingParametersResponse extends ComplexType im
      */
     public function getIsExtendedCallingLineIdActive()
     {
-        return ($this->isExtendedCallingLineIdActive) ? $this->isExtendedCallingLineIdActive->getValue() : null;
+        return ($this->isExtendedCallingLineIdActive)
+            ? $this->isExtendedCallingLineIdActive->getElementValue()
+            : null;
     }
 
     /**
@@ -82,7 +86,7 @@ class SystemSubscriberGetCallProcessingParametersResponse extends ComplexType im
     public function setIsRingTimeOutActive($isRingTimeOutActive = null)
     {
         $this->isRingTimeOutActive = new PrimitiveType($isRingTimeOutActive);
-        $this->isRingTimeOutActive->setName('isRingTimeOutActive');
+        $this->isRingTimeOutActive->setElementName('isRingTimeOutActive');
         return $this;
     }
 
@@ -92,7 +96,9 @@ class SystemSubscriberGetCallProcessingParametersResponse extends ComplexType im
      */
     public function getIsRingTimeOutActive()
     {
-        return ($this->isRingTimeOutActive) ? $this->isRingTimeOutActive->getValue() : null;
+        return ($this->isRingTimeOutActive)
+            ? $this->isRingTimeOutActive->getElementValue()
+            : null;
     }
 
     /**
@@ -103,7 +109,7 @@ class SystemSubscriberGetCallProcessingParametersResponse extends ComplexType im
         $this->ringTimeoutSeconds = ($ringTimeoutSeconds InstanceOf SystemUserRingTimeoutSeconds)
              ? $ringTimeoutSeconds
              : new SystemUserRingTimeoutSeconds($ringTimeoutSeconds);
-        $this->ringTimeoutSeconds->setName('ringTimeoutSeconds');
+        $this->ringTimeoutSeconds->setElementName('ringTimeoutSeconds');
         return $this;
     }
 
@@ -113,6 +119,8 @@ class SystemSubscriberGetCallProcessingParametersResponse extends ComplexType im
      */
     public function getRingTimeoutSeconds()
     {
-        return ($this->ringTimeoutSeconds) ? $this->ringTimeoutSeconds->getValue() : null;
+        return ($this->ringTimeoutSeconds)
+            ? $this->ringTimeoutSeconds->getElementValue()
+            : null;
     }
 }

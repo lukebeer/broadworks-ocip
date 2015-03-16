@@ -23,7 +23,7 @@ use Broadworks_OCIP\core\Client\Client;
 class UserInstantConferencingGetConferenceRequest14Sp6 extends ComplexType implements ComplexInterface
 {
     public    $responseType  = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing\UserInstantConferencingGetConferenceResponse14Sp6';
-    public    $name = 'UserInstantConferencingGetConferenceRequest14Sp6';
+    public    $elementName = 'UserInstantConferencingGetConferenceRequest14Sp6';
     protected $userId;
     protected $conferenceKey;
 
@@ -51,7 +51,7 @@ class UserInstantConferencingGetConferenceRequest14Sp6 extends ComplexType imple
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
-        $this->userId->setName('userId');
+        $this->userId->setElementName('userId');
         return $this;
     }
 
@@ -61,7 +61,9 @@ class UserInstantConferencingGetConferenceRequest14Sp6 extends ComplexType imple
      */
     public function getUserId()
     {
-        return ($this->userId) ? $this->userId->getValue() : null;
+        return ($this->userId)
+            ? $this->userId->getElementValue()
+            : null;
     }
 
     /**
@@ -72,7 +74,7 @@ class UserInstantConferencingGetConferenceRequest14Sp6 extends ComplexType imple
         $this->conferenceKey = ($conferenceKey InstanceOf InstantConferencingConferenceKey)
              ? $conferenceKey
              : new InstantConferencingConferenceKey($conferenceKey);
-        $this->conferenceKey->setName('conferenceKey');
+        $this->conferenceKey->setElementName('conferenceKey');
         return $this;
     }
 

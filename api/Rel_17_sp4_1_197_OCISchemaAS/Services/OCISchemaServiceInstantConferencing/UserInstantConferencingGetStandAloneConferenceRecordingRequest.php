@@ -23,7 +23,7 @@ use Broadworks_OCIP\core\Client\Client;
 class UserInstantConferencingGetStandAloneConferenceRecordingRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType          = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing\UserInstantConferencingGetStandAloneConferenceRecordingResponse';
-    public    $name = 'UserInstantConferencingGetStandAloneConferenceRecordingRequest';
+    public    $elementName = 'UserInstantConferencingGetStandAloneConferenceRecordingRequest';
     protected $conferenceOwnerUserId;
     protected $recordingKey;
 
@@ -51,7 +51,7 @@ class UserInstantConferencingGetStandAloneConferenceRecordingRequest extends Com
         $this->conferenceOwnerUserId = ($conferenceOwnerUserId InstanceOf UserId)
              ? $conferenceOwnerUserId
              : new UserId($conferenceOwnerUserId);
-        $this->conferenceOwnerUserId->setName('conferenceOwnerUserId');
+        $this->conferenceOwnerUserId->setElementName('conferenceOwnerUserId');
         return $this;
     }
 
@@ -61,7 +61,9 @@ class UserInstantConferencingGetStandAloneConferenceRecordingRequest extends Com
      */
     public function getConferenceOwnerUserId()
     {
-        return ($this->conferenceOwnerUserId) ? $this->conferenceOwnerUserId->getValue() : null;
+        return ($this->conferenceOwnerUserId)
+            ? $this->conferenceOwnerUserId->getElementValue()
+            : null;
     }
 
     /**
@@ -72,7 +74,7 @@ class UserInstantConferencingGetStandAloneConferenceRecordingRequest extends Com
         $this->recordingKey = ($recordingKey InstanceOf InstantConferencingRecordingKey)
              ? $recordingKey
              : new InstantConferencingRecordingKey($recordingKey);
-        $this->recordingKey->setName('recordingKey');
+        $this->recordingKey->setElementName('recordingKey');
         return $this;
     }
 

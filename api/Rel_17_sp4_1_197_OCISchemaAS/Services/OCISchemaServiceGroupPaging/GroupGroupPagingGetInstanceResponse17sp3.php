@@ -23,7 +23,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupGroupPagingGetInstanceResponse17sp3 extends ComplexType implements ComplexInterface
 {
-    public    $name = 'GroupGroupPagingGetInstanceResponse17sp3';
+    public    $elementName = 'GroupGroupPagingGetInstanceResponse17sp3';
     protected $serviceInstanceProfile;
     protected $confirmationToneTimeoutSeconds;
     protected $deliverOriginatorCLIDInstead;
@@ -45,7 +45,7 @@ class GroupGroupPagingGetInstanceResponse17sp3 extends ComplexType implements Co
         $this->serviceInstanceProfile = ($serviceInstanceProfile InstanceOf ServiceInstanceReadProfile17)
              ? $serviceInstanceProfile
              : new ServiceInstanceReadProfile17($serviceInstanceProfile);
-        $this->serviceInstanceProfile->setName('serviceInstanceProfile');
+        $this->serviceInstanceProfile->setElementName('serviceInstanceProfile');
         return $this;
     }
 
@@ -66,7 +66,7 @@ class GroupGroupPagingGetInstanceResponse17sp3 extends ComplexType implements Co
         $this->confirmationToneTimeoutSeconds = ($confirmationToneTimeoutSeconds InstanceOf GroupPagingConfirmationToneTimeoutSeconds)
              ? $confirmationToneTimeoutSeconds
              : new GroupPagingConfirmationToneTimeoutSeconds($confirmationToneTimeoutSeconds);
-        $this->confirmationToneTimeoutSeconds->setName('confirmationToneTimeoutSeconds');
+        $this->confirmationToneTimeoutSeconds->setElementName('confirmationToneTimeoutSeconds');
         return $this;
     }
 
@@ -76,7 +76,9 @@ class GroupGroupPagingGetInstanceResponse17sp3 extends ComplexType implements Co
      */
     public function getConfirmationToneTimeoutSeconds()
     {
-        return ($this->confirmationToneTimeoutSeconds) ? $this->confirmationToneTimeoutSeconds->getValue() : null;
+        return ($this->confirmationToneTimeoutSeconds)
+            ? $this->confirmationToneTimeoutSeconds->getElementValue()
+            : null;
     }
 
     /**
@@ -85,7 +87,7 @@ class GroupGroupPagingGetInstanceResponse17sp3 extends ComplexType implements Co
     public function setDeliverOriginatorCLIDInstead($deliverOriginatorCLIDInstead = null)
     {
         $this->deliverOriginatorCLIDInstead = new PrimitiveType($deliverOriginatorCLIDInstead);
-        $this->deliverOriginatorCLIDInstead->setName('deliverOriginatorCLIDInstead');
+        $this->deliverOriginatorCLIDInstead->setElementName('deliverOriginatorCLIDInstead');
         return $this;
     }
 
@@ -95,7 +97,9 @@ class GroupGroupPagingGetInstanceResponse17sp3 extends ComplexType implements Co
      */
     public function getDeliverOriginatorCLIDInstead()
     {
-        return ($this->deliverOriginatorCLIDInstead) ? $this->deliverOriginatorCLIDInstead->getValue() : null;
+        return ($this->deliverOriginatorCLIDInstead)
+            ? $this->deliverOriginatorCLIDInstead->getElementValue()
+            : null;
     }
 
     /**
@@ -106,7 +110,7 @@ class GroupGroupPagingGetInstanceResponse17sp3 extends ComplexType implements Co
         $this->originatorCLIDPrefix = ($originatorCLIDPrefix InstanceOf GroupPagingOriginatorCLIDPrefix)
              ? $originatorCLIDPrefix
              : new GroupPagingOriginatorCLIDPrefix($originatorCLIDPrefix);
-        $this->originatorCLIDPrefix->setName('originatorCLIDPrefix');
+        $this->originatorCLIDPrefix->setElementName('originatorCLIDPrefix');
         return $this;
     }
 
@@ -116,6 +120,8 @@ class GroupGroupPagingGetInstanceResponse17sp3 extends ComplexType implements Co
      */
     public function getOriginatorCLIDPrefix()
     {
-        return ($this->originatorCLIDPrefix) ? $this->originatorCLIDPrefix->getValue() : null;
+        return ($this->originatorCLIDPrefix)
+            ? $this->originatorCLIDPrefix->getElementValue()
+            : null;
     }
 }

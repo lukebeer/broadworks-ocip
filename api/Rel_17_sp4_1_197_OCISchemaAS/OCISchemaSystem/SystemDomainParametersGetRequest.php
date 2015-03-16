@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
 class SystemDomainParametersGetRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemDomainParametersGetResponse';
-    public    $name = 'SystemDomainParametersGetRequest';
+    public    $elementName = 'SystemDomainParametersGetRequest';
 
     public function __construct(    ) {
     }

@@ -19,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UnboundedNonNegativeInt extends ComplexType implements ComplexInterface
 {
-    public    $name = 'UnboundedNonNegativeInt';
+    public    $elementName = 'UnboundedNonNegativeInt';
 
     public function __construct(    ) {
     }

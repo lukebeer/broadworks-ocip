@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupCallCenterGetDNISListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'GroupCallCenterGetDNISListResponse';
+    public    $elementName = 'GroupCallCenterGetDNISListResponse';
     protected $displayDNISNumber;
     protected $displayDNISName;
     protected $promoteCallsFromPriority1to0;
@@ -47,7 +47,7 @@ class GroupCallCenterGetDNISListResponse extends ComplexType implements ComplexI
     public function setDisplayDNISNumber($displayDNISNumber = null)
     {
         $this->displayDNISNumber = new PrimitiveType($displayDNISNumber);
-        $this->displayDNISNumber->setName('displayDNISNumber');
+        $this->displayDNISNumber->setElementName('displayDNISNumber');
         return $this;
     }
 
@@ -57,7 +57,9 @@ class GroupCallCenterGetDNISListResponse extends ComplexType implements ComplexI
      */
     public function getDisplayDNISNumber()
     {
-        return ($this->displayDNISNumber) ? $this->displayDNISNumber->getValue() : null;
+        return ($this->displayDNISNumber)
+            ? $this->displayDNISNumber->getElementValue()
+            : null;
     }
 
     /**
@@ -66,7 +68,7 @@ class GroupCallCenterGetDNISListResponse extends ComplexType implements ComplexI
     public function setDisplayDNISName($displayDNISName = null)
     {
         $this->displayDNISName = new PrimitiveType($displayDNISName);
-        $this->displayDNISName->setName('displayDNISName');
+        $this->displayDNISName->setElementName('displayDNISName');
         return $this;
     }
 
@@ -76,7 +78,9 @@ class GroupCallCenterGetDNISListResponse extends ComplexType implements ComplexI
      */
     public function getDisplayDNISName()
     {
-        return ($this->displayDNISName) ? $this->displayDNISName->getValue() : null;
+        return ($this->displayDNISName)
+            ? $this->displayDNISName->getElementValue()
+            : null;
     }
 
     /**
@@ -85,7 +89,7 @@ class GroupCallCenterGetDNISListResponse extends ComplexType implements ComplexI
     public function setPromoteCallsFromPriority1to0($promoteCallsFromPriority1to0 = null)
     {
         $this->promoteCallsFromPriority1to0 = new PrimitiveType($promoteCallsFromPriority1to0);
-        $this->promoteCallsFromPriority1to0->setName('promoteCallsFromPriority1to0');
+        $this->promoteCallsFromPriority1to0->setElementName('promoteCallsFromPriority1to0');
         return $this;
     }
 
@@ -95,7 +99,9 @@ class GroupCallCenterGetDNISListResponse extends ComplexType implements ComplexI
      */
     public function getPromoteCallsFromPriority1to0()
     {
-        return ($this->promoteCallsFromPriority1to0) ? $this->promoteCallsFromPriority1to0->getValue() : null;
+        return ($this->promoteCallsFromPriority1to0)
+            ? $this->promoteCallsFromPriority1to0->getElementValue()
+            : null;
     }
 
     /**
@@ -104,7 +110,7 @@ class GroupCallCenterGetDNISListResponse extends ComplexType implements ComplexI
     public function setPromoteCallsFromPriority2to1($promoteCallsFromPriority2to1 = null)
     {
         $this->promoteCallsFromPriority2to1 = new PrimitiveType($promoteCallsFromPriority2to1);
-        $this->promoteCallsFromPriority2to1->setName('promoteCallsFromPriority2to1');
+        $this->promoteCallsFromPriority2to1->setElementName('promoteCallsFromPriority2to1');
         return $this;
     }
 
@@ -114,7 +120,9 @@ class GroupCallCenterGetDNISListResponse extends ComplexType implements ComplexI
      */
     public function getPromoteCallsFromPriority2to1()
     {
-        return ($this->promoteCallsFromPriority2to1) ? $this->promoteCallsFromPriority2to1->getValue() : null;
+        return ($this->promoteCallsFromPriority2to1)
+            ? $this->promoteCallsFromPriority2to1->getElementValue()
+            : null;
     }
 
     /**
@@ -123,7 +131,7 @@ class GroupCallCenterGetDNISListResponse extends ComplexType implements ComplexI
     public function setPromoteCallsFromPriority3to2($promoteCallsFromPriority3to2 = null)
     {
         $this->promoteCallsFromPriority3to2 = new PrimitiveType($promoteCallsFromPriority3to2);
-        $this->promoteCallsFromPriority3to2->setName('promoteCallsFromPriority3to2');
+        $this->promoteCallsFromPriority3to2->setElementName('promoteCallsFromPriority3to2');
         return $this;
     }
 
@@ -133,7 +141,9 @@ class GroupCallCenterGetDNISListResponse extends ComplexType implements ComplexI
      */
     public function getPromoteCallsFromPriority3to2()
     {
-        return ($this->promoteCallsFromPriority3to2) ? $this->promoteCallsFromPriority3to2->getValue() : null;
+        return ($this->promoteCallsFromPriority3to2)
+            ? $this->promoteCallsFromPriority3to2->getElementValue()
+            : null;
     }
 
     /**
@@ -144,7 +154,7 @@ class GroupCallCenterGetDNISListResponse extends ComplexType implements ComplexI
         $this->promoteCallsFromPriority1to0Seconds = ($promoteCallsFromPriority1to0Seconds InstanceOf DNISPromoteCallPrioritySeconds)
              ? $promoteCallsFromPriority1to0Seconds
              : new DNISPromoteCallPrioritySeconds($promoteCallsFromPriority1to0Seconds);
-        $this->promoteCallsFromPriority1to0Seconds->setName('promoteCallsFromPriority1to0Seconds');
+        $this->promoteCallsFromPriority1to0Seconds->setElementName('promoteCallsFromPriority1to0Seconds');
         return $this;
     }
 
@@ -154,7 +164,9 @@ class GroupCallCenterGetDNISListResponse extends ComplexType implements ComplexI
      */
     public function getPromoteCallsFromPriority1to0Seconds()
     {
-        return ($this->promoteCallsFromPriority1to0Seconds) ? $this->promoteCallsFromPriority1to0Seconds->getValue() : null;
+        return ($this->promoteCallsFromPriority1to0Seconds)
+            ? $this->promoteCallsFromPriority1to0Seconds->getElementValue()
+            : null;
     }
 
     /**
@@ -165,7 +177,7 @@ class GroupCallCenterGetDNISListResponse extends ComplexType implements ComplexI
         $this->promoteCallsFromPriority2to1Seconds = ($promoteCallsFromPriority2to1Seconds InstanceOf DNISPromoteCallPrioritySeconds)
              ? $promoteCallsFromPriority2to1Seconds
              : new DNISPromoteCallPrioritySeconds($promoteCallsFromPriority2to1Seconds);
-        $this->promoteCallsFromPriority2to1Seconds->setName('promoteCallsFromPriority2to1Seconds');
+        $this->promoteCallsFromPriority2to1Seconds->setElementName('promoteCallsFromPriority2to1Seconds');
         return $this;
     }
 
@@ -175,7 +187,9 @@ class GroupCallCenterGetDNISListResponse extends ComplexType implements ComplexI
      */
     public function getPromoteCallsFromPriority2to1Seconds()
     {
-        return ($this->promoteCallsFromPriority2to1Seconds) ? $this->promoteCallsFromPriority2to1Seconds->getValue() : null;
+        return ($this->promoteCallsFromPriority2to1Seconds)
+            ? $this->promoteCallsFromPriority2to1Seconds->getElementValue()
+            : null;
     }
 
     /**
@@ -186,7 +200,7 @@ class GroupCallCenterGetDNISListResponse extends ComplexType implements ComplexI
         $this->promoteCallsFromPriority3to2Seconds = ($promoteCallsFromPriority3to2Seconds InstanceOf DNISPromoteCallPrioritySeconds)
              ? $promoteCallsFromPriority3to2Seconds
              : new DNISPromoteCallPrioritySeconds($promoteCallsFromPriority3to2Seconds);
-        $this->promoteCallsFromPriority3to2Seconds->setName('promoteCallsFromPriority3to2Seconds');
+        $this->promoteCallsFromPriority3to2Seconds->setElementName('promoteCallsFromPriority3to2Seconds');
         return $this;
     }
 
@@ -196,7 +210,9 @@ class GroupCallCenterGetDNISListResponse extends ComplexType implements ComplexI
      */
     public function getPromoteCallsFromPriority3to2Seconds()
     {
-        return ($this->promoteCallsFromPriority3to2Seconds) ? $this->promoteCallsFromPriority3to2Seconds->getValue() : null;
+        return ($this->promoteCallsFromPriority3to2Seconds)
+            ? $this->promoteCallsFromPriority3to2Seconds->getElementValue()
+            : null;
     }
 
     /**
@@ -205,7 +221,7 @@ class GroupCallCenterGetDNISListResponse extends ComplexType implements ComplexI
     public function setDnisTable(TableType $dnisTable = null)
     {
         $this->dnisTable = $dnisTable;
-        $this->dnisTable->setName('dnisTable');
+        $this->dnisTable->setElementName('dnisTable');
         return $this;
     }
 

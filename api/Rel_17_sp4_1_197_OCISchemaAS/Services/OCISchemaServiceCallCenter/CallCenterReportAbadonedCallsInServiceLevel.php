@@ -16,12 +16,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\Enumeration;
  */
 class CallCenterReportAbadonedCallsInServiceLevel extends SimpleType
 {
-    public $name = "CallCenterReportAbadonedCallsInServiceLevel";
-    protected $value;
-
+    public $elementName = "CallCenterReportAbadonedCallsInServiceLevel";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new Enumeration([
             'Ignore All Abandoned Calls',
             'Include All Abandoned Calls',

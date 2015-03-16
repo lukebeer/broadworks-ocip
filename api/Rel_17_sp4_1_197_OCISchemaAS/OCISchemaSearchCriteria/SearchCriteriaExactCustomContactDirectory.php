@@ -19,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SearchCriteriaExactCustomContactDirectory extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SearchCriteriaExactCustomContactDirectory';
+    public    $elementName = 'SearchCriteriaExactCustomContactDirectory';
     protected $customContactDirectoryName;
 
     public function __construct(
@@ -44,7 +44,7 @@ class SearchCriteriaExactCustomContactDirectory extends ComplexType implements C
         $this->customContactDirectoryName = ($customContactDirectoryName InstanceOf CustomContactDirectoryName)
              ? $customContactDirectoryName
              : new CustomContactDirectoryName($customContactDirectoryName);
-        $this->customContactDirectoryName->setName('customContactDirectoryName');
+        $this->customContactDirectoryName->setElementName('customContactDirectoryName');
         return $this;
     }
 
@@ -54,6 +54,8 @@ class SearchCriteriaExactCustomContactDirectory extends ComplexType implements C
      */
     public function getCustomContactDirectoryName()
     {
-        return ($this->customContactDirectoryName) ? $this->customContactDirectoryName->getValue() : null;
+        return ($this->customContactDirectoryName)
+            ? $this->customContactDirectoryName->getElementValue()
+            : null;
     }
 }

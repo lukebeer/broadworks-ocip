@@ -19,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderServicePackGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'ServiceProviderServicePackGetListResponse';
+    public    $elementName = 'ServiceProviderServicePackGetListResponse';
     protected $servicePackName;
 
     /**
@@ -38,7 +38,7 @@ class ServiceProviderServicePackGetListResponse extends ComplexType implements C
         $this->servicePackName = ($servicePackName InstanceOf ServicePackName)
              ? $servicePackName
              : new ServicePackName($servicePackName);
-        $this->servicePackName->setName('servicePackName');
+        $this->servicePackName->setElementName('servicePackName');
         return $this;
     }
 
@@ -48,6 +48,8 @@ class ServiceProviderServicePackGetListResponse extends ComplexType implements C
      */
     public function getServicePackName()
     {
-        return ($this->servicePackName) ? $this->servicePackName->getValue() : null;
+        return ($this->servicePackName)
+            ? $this->servicePackName->getElementValue()
+            : null;
     }
 }

@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupThirdPartyVoiceMailSupportGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'GroupThirdPartyVoiceMailSupportGetResponse';
+    public    $elementName = 'GroupThirdPartyVoiceMailSupportGetResponse';
     protected $isActive;
     protected $groupServer;
 
@@ -38,7 +38,7 @@ class GroupThirdPartyVoiceMailSupportGetResponse extends ComplexType implements 
     public function setIsActive($isActive = null)
     {
         $this->isActive = new PrimitiveType($isActive);
-        $this->isActive->setName('isActive');
+        $this->isActive->setElementName('isActive');
         return $this;
     }
 
@@ -48,7 +48,9 @@ class GroupThirdPartyVoiceMailSupportGetResponse extends ComplexType implements 
      */
     public function getIsActive()
     {
-        return ($this->isActive) ? $this->isActive->getValue() : null;
+        return ($this->isActive)
+            ? $this->isActive->getElementValue()
+            : null;
     }
 
     /**
@@ -59,7 +61,7 @@ class GroupThirdPartyVoiceMailSupportGetResponse extends ComplexType implements 
         $this->groupServer = ($groupServer InstanceOf ThirdPartyVoiceMailSupportMailServer)
              ? $groupServer
              : new ThirdPartyVoiceMailSupportMailServer($groupServer);
-        $this->groupServer->setName('groupServer');
+        $this->groupServer->setElementName('groupServer');
         return $this;
     }
 
@@ -69,6 +71,8 @@ class GroupThirdPartyVoiceMailSupportGetResponse extends ComplexType implements 
      */
     public function getGroupServer()
     {
-        return ($this->groupServer) ? $this->groupServer->getValue() : null;
+        return ($this->groupServer)
+            ? $this->groupServer->getElementValue()
+            : null;
     }
 }

@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupCustomContactDirectoryGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'GroupCustomContactDirectoryGetListResponse';
+    public    $elementName = 'GroupCustomContactDirectoryGetListResponse';
     protected $name;
 
     /**
@@ -39,7 +39,7 @@ class GroupCustomContactDirectoryGetListResponse extends ComplexType implements 
         $this->name = ($name InstanceOf CustomContactDirectoryName)
              ? $name
              : new CustomContactDirectoryName($name);
-        $this->name->setName('name');
+        $this->name->setElementName('name');
         return $this;
     }
 
@@ -49,6 +49,8 @@ class GroupCustomContactDirectoryGetListResponse extends ComplexType implements 
      */
     public function getName()
     {
-        return ($this->name) ? $this->name->getValue() : null;
+        return ($this->name)
+            ? $this->name->getElementValue()
+            : null;
     }
 }

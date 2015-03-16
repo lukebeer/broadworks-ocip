@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemCommunicationBarringProfileDeleteRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemCommunicationBarringProfileDeleteRequest';
+    public    $elementName = 'SystemCommunicationBarringProfileDeleteRequest';
     protected $name;
 
     public function __construct(
@@ -45,7 +45,7 @@ class SystemCommunicationBarringProfileDeleteRequest extends ComplexType impleme
         $this->name = ($name InstanceOf CommunicationBarringProfileName)
              ? $name
              : new CommunicationBarringProfileName($name);
-        $this->name->setName('name');
+        $this->name->setElementName('name');
         return $this;
     }
 
@@ -55,6 +55,8 @@ class SystemCommunicationBarringProfileDeleteRequest extends ComplexType impleme
      */
     public function getName()
     {
-        return ($this->name) ? $this->name->getValue() : null;
+        return ($this->name)
+            ? $this->name->getElementValue()
+            : null;
     }
 }

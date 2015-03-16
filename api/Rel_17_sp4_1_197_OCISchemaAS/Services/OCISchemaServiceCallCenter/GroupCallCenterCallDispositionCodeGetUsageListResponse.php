@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupCallCenterCallDispositionCodeGetUsageListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'GroupCallCenterCallDispositionCodeGetUsageListResponse';
+    public    $elementName = 'GroupCallCenterCallDispositionCodeGetUsageListResponse';
     protected $callCenterTable;
 
     /**
@@ -38,7 +38,7 @@ class GroupCallCenterCallDispositionCodeGetUsageListResponse extends ComplexType
     public function setCallCenterTable(TableType $callCenterTable = null)
     {
         $this->callCenterTable = $callCenterTable;
-        $this->callCenterTable->setName('callCenterTable');
+        $this->callCenterTable->setElementName('callCenterTable');
         return $this;
     }
 

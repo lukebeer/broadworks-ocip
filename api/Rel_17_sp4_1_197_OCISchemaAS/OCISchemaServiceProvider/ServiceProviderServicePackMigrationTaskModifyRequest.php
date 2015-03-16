@@ -26,7 +26,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderServicePackMigrationTaskModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'ServiceProviderServicePackMigrationTaskModifyRequest';
+    public    $elementName = 'ServiceProviderServicePackMigrationTaskModifyRequest';
     protected $serviceProviderId;
     protected $taskName;
     protected $newTaskName;
@@ -81,7 +81,7 @@ class ServiceProviderServicePackMigrationTaskModifyRequest extends ComplexType i
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
-        $this->serviceProviderId->setName('serviceProviderId');
+        $this->serviceProviderId->setElementName('serviceProviderId');
         return $this;
     }
 
@@ -91,7 +91,9 @@ class ServiceProviderServicePackMigrationTaskModifyRequest extends ComplexType i
      */
     public function getServiceProviderId()
     {
-        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
+        return ($this->serviceProviderId)
+            ? $this->serviceProviderId->getElementValue()
+            : null;
     }
 
     /**
@@ -102,7 +104,7 @@ class ServiceProviderServicePackMigrationTaskModifyRequest extends ComplexType i
         $this->taskName = ($taskName InstanceOf ServicePackMigrationTaskName)
              ? $taskName
              : new ServicePackMigrationTaskName($taskName);
-        $this->taskName->setName('taskName');
+        $this->taskName->setElementName('taskName');
         return $this;
     }
 
@@ -112,7 +114,9 @@ class ServiceProviderServicePackMigrationTaskModifyRequest extends ComplexType i
      */
     public function getTaskName()
     {
-        return ($this->taskName) ? $this->taskName->getValue() : null;
+        return ($this->taskName)
+            ? $this->taskName->getElementValue()
+            : null;
     }
 
     /**
@@ -123,7 +127,7 @@ class ServiceProviderServicePackMigrationTaskModifyRequest extends ComplexType i
         $this->newTaskName = ($newTaskName InstanceOf ServicePackMigrationTaskName)
              ? $newTaskName
              : new ServicePackMigrationTaskName($newTaskName);
-        $this->newTaskName->setName('newTaskName');
+        $this->newTaskName->setElementName('newTaskName');
         return $this;
     }
 
@@ -133,7 +137,9 @@ class ServiceProviderServicePackMigrationTaskModifyRequest extends ComplexType i
      */
     public function getNewTaskName()
     {
-        return ($this->newTaskName) ? $this->newTaskName->getValue() : null;
+        return ($this->newTaskName)
+            ? $this->newTaskName->getElementValue()
+            : null;
     }
 
     /**
@@ -141,7 +147,7 @@ class ServiceProviderServicePackMigrationTaskModifyRequest extends ComplexType i
      */
     public function setStartTimestamp(xs:dateTime $startTimestamp = null)
     {
-        $this->startTimestamp->setName('startTimestamp');
+        $this->startTimestamp->setElementName('startTimestamp');
         return $this;
     }
 
@@ -151,7 +157,9 @@ class ServiceProviderServicePackMigrationTaskModifyRequest extends ComplexType i
      */
     public function getStartTimestamp()
     {
-        return ($this->startTimestamp) ? $this->startTimestamp->getValue() : null;
+        return ($this->startTimestamp)
+            ? $this->startTimestamp->getElementValue()
+            : null;
     }
 
     /**
@@ -162,7 +170,7 @@ class ServiceProviderServicePackMigrationTaskModifyRequest extends ComplexType i
         $this->maxDurationHours = ($maxDurationHours InstanceOf ServicePackMigrationMaxDurationHours)
              ? $maxDurationHours
              : new ServicePackMigrationMaxDurationHours($maxDurationHours);
-        $this->maxDurationHours->setName('maxDurationHours');
+        $this->maxDurationHours->setElementName('maxDurationHours');
         return $this;
     }
 
@@ -172,7 +180,9 @@ class ServiceProviderServicePackMigrationTaskModifyRequest extends ComplexType i
      */
     public function getMaxDurationHours()
     {
-        return ($this->maxDurationHours) ? $this->maxDurationHours->getValue() : null;
+        return ($this->maxDurationHours)
+            ? $this->maxDurationHours->getElementValue()
+            : null;
     }
 
     /**
@@ -181,7 +191,7 @@ class ServiceProviderServicePackMigrationTaskModifyRequest extends ComplexType i
     public function setSendReportEmail($sendReportEmail = null)
     {
         $this->sendReportEmail = new PrimitiveType($sendReportEmail);
-        $this->sendReportEmail->setName('sendReportEmail');
+        $this->sendReportEmail->setElementName('sendReportEmail');
         return $this;
     }
 
@@ -191,7 +201,9 @@ class ServiceProviderServicePackMigrationTaskModifyRequest extends ComplexType i
      */
     public function getSendReportEmail()
     {
-        return ($this->sendReportEmail) ? $this->sendReportEmail->getValue() : null;
+        return ($this->sendReportEmail)
+            ? $this->sendReportEmail->getElementValue()
+            : null;
     }
 
     /**
@@ -202,7 +214,7 @@ class ServiceProviderServicePackMigrationTaskModifyRequest extends ComplexType i
         $this->reportDeliveryEmailAddress = ($reportDeliveryEmailAddress InstanceOf EmailAddress)
              ? $reportDeliveryEmailAddress
              : new EmailAddress($reportDeliveryEmailAddress);
-        $this->reportDeliveryEmailAddress->setName('reportDeliveryEmailAddress');
+        $this->reportDeliveryEmailAddress->setElementName('reportDeliveryEmailAddress');
         return $this;
     }
 
@@ -212,7 +224,9 @@ class ServiceProviderServicePackMigrationTaskModifyRequest extends ComplexType i
      */
     public function getReportDeliveryEmailAddress()
     {
-        return ($this->reportDeliveryEmailAddress) ? $this->reportDeliveryEmailAddress->getValue() : null;
+        return ($this->reportDeliveryEmailAddress)
+            ? $this->reportDeliveryEmailAddress->getElementValue()
+            : null;
     }
 
     /**
@@ -221,7 +235,7 @@ class ServiceProviderServicePackMigrationTaskModifyRequest extends ComplexType i
     public function setAbortOnError($abortOnError = null)
     {
         $this->abortOnError = new PrimitiveType($abortOnError);
-        $this->abortOnError->setName('abortOnError');
+        $this->abortOnError->setElementName('abortOnError');
         return $this;
     }
 
@@ -231,7 +245,9 @@ class ServiceProviderServicePackMigrationTaskModifyRequest extends ComplexType i
      */
     public function getAbortOnError()
     {
-        return ($this->abortOnError) ? $this->abortOnError->getValue() : null;
+        return ($this->abortOnError)
+            ? $this->abortOnError->getElementValue()
+            : null;
     }
 
     /**
@@ -242,7 +258,7 @@ class ServiceProviderServicePackMigrationTaskModifyRequest extends ComplexType i
         $this->abortErrorThreshold = ($abortErrorThreshold InstanceOf ServicePackMigrationAbortErrorThreshold)
              ? $abortErrorThreshold
              : new ServicePackMigrationAbortErrorThreshold($abortErrorThreshold);
-        $this->abortErrorThreshold->setName('abortErrorThreshold');
+        $this->abortErrorThreshold->setElementName('abortErrorThreshold');
         return $this;
     }
 
@@ -252,7 +268,9 @@ class ServiceProviderServicePackMigrationTaskModifyRequest extends ComplexType i
      */
     public function getAbortErrorThreshold()
     {
-        return ($this->abortErrorThreshold) ? $this->abortErrorThreshold->getValue() : null;
+        return ($this->abortErrorThreshold)
+            ? $this->abortErrorThreshold->getElementValue()
+            : null;
     }
 
     /**
@@ -261,7 +279,7 @@ class ServiceProviderServicePackMigrationTaskModifyRequest extends ComplexType i
     public function setReportAllUsers($reportAllUsers = null)
     {
         $this->reportAllUsers = new PrimitiveType($reportAllUsers);
-        $this->reportAllUsers->setName('reportAllUsers');
+        $this->reportAllUsers->setElementName('reportAllUsers');
         return $this;
     }
 
@@ -271,7 +289,9 @@ class ServiceProviderServicePackMigrationTaskModifyRequest extends ComplexType i
      */
     public function getReportAllUsers()
     {
-        return ($this->reportAllUsers) ? $this->reportAllUsers->getValue() : null;
+        return ($this->reportAllUsers)
+            ? $this->reportAllUsers->getElementValue()
+            : null;
     }
 
     /**
@@ -280,7 +300,7 @@ class ServiceProviderServicePackMigrationTaskModifyRequest extends ComplexType i
     public function setAutomaticallyIncrementServiceQuantity($automaticallyIncrementServiceQuantity = null)
     {
         $this->automaticallyIncrementServiceQuantity = new PrimitiveType($automaticallyIncrementServiceQuantity);
-        $this->automaticallyIncrementServiceQuantity->setName('automaticallyIncrementServiceQuantity');
+        $this->automaticallyIncrementServiceQuantity->setElementName('automaticallyIncrementServiceQuantity');
         return $this;
     }
 
@@ -290,6 +310,8 @@ class ServiceProviderServicePackMigrationTaskModifyRequest extends ComplexType i
      */
     public function getAutomaticallyIncrementServiceQuantity()
     {
-        return ($this->automaticallyIncrementServiceQuantity) ? $this->automaticallyIncrementServiceQuantity->getValue() : null;
+        return ($this->automaticallyIncrementServiceQuantity)
+            ? $this->automaticallyIncrementServiceQuantity->getElementValue()
+            : null;
     }
 }

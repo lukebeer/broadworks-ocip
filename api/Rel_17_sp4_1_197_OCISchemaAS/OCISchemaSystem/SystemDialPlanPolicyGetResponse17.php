@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemDialPlanPolicyGetResponse17 extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemDialPlanPolicyGetResponse17';
+    public    $elementName = 'SystemDialPlanPolicyGetResponse17';
     protected $requiresAccessCodeForPublicCalls;
     protected $allowE164PublicCalls;
     protected $preferE164NumberFormatForCallbackServices;
@@ -41,7 +41,7 @@ class SystemDialPlanPolicyGetResponse17 extends ComplexType implements ComplexIn
     public function setRequiresAccessCodeForPublicCalls($requiresAccessCodeForPublicCalls = null)
     {
         $this->requiresAccessCodeForPublicCalls = new PrimitiveType($requiresAccessCodeForPublicCalls);
-        $this->requiresAccessCodeForPublicCalls->setName('requiresAccessCodeForPublicCalls');
+        $this->requiresAccessCodeForPublicCalls->setElementName('requiresAccessCodeForPublicCalls');
         return $this;
     }
 
@@ -51,7 +51,9 @@ class SystemDialPlanPolicyGetResponse17 extends ComplexType implements ComplexIn
      */
     public function getRequiresAccessCodeForPublicCalls()
     {
-        return ($this->requiresAccessCodeForPublicCalls) ? $this->requiresAccessCodeForPublicCalls->getValue() : null;
+        return ($this->requiresAccessCodeForPublicCalls)
+            ? $this->requiresAccessCodeForPublicCalls->getElementValue()
+            : null;
     }
 
     /**
@@ -60,7 +62,7 @@ class SystemDialPlanPolicyGetResponse17 extends ComplexType implements ComplexIn
     public function setAllowE164PublicCalls($allowE164PublicCalls = null)
     {
         $this->allowE164PublicCalls = new PrimitiveType($allowE164PublicCalls);
-        $this->allowE164PublicCalls->setName('allowE164PublicCalls');
+        $this->allowE164PublicCalls->setElementName('allowE164PublicCalls');
         return $this;
     }
 
@@ -70,7 +72,9 @@ class SystemDialPlanPolicyGetResponse17 extends ComplexType implements ComplexIn
      */
     public function getAllowE164PublicCalls()
     {
-        return ($this->allowE164PublicCalls) ? $this->allowE164PublicCalls->getValue() : null;
+        return ($this->allowE164PublicCalls)
+            ? $this->allowE164PublicCalls->getElementValue()
+            : null;
     }
 
     /**
@@ -79,7 +83,7 @@ class SystemDialPlanPolicyGetResponse17 extends ComplexType implements ComplexIn
     public function setPreferE164NumberFormatForCallbackServices($preferE164NumberFormatForCallbackServices = null)
     {
         $this->preferE164NumberFormatForCallbackServices = new PrimitiveType($preferE164NumberFormatForCallbackServices);
-        $this->preferE164NumberFormatForCallbackServices->setName('preferE164NumberFormatForCallbackServices');
+        $this->preferE164NumberFormatForCallbackServices->setElementName('preferE164NumberFormatForCallbackServices');
         return $this;
     }
 
@@ -89,7 +93,9 @@ class SystemDialPlanPolicyGetResponse17 extends ComplexType implements ComplexIn
      */
     public function getPreferE164NumberFormatForCallbackServices()
     {
-        return ($this->preferE164NumberFormatForCallbackServices) ? $this->preferE164NumberFormatForCallbackServices->getValue() : null;
+        return ($this->preferE164NumberFormatForCallbackServices)
+            ? $this->preferE164NumberFormatForCallbackServices->getElementValue()
+            : null;
     }
 
     /**
@@ -100,7 +106,7 @@ class SystemDialPlanPolicyGetResponse17 extends ComplexType implements ComplexIn
         $this->publicDigitMap = ($publicDigitMap InstanceOf DigitMap)
              ? $publicDigitMap
              : new DigitMap($publicDigitMap);
-        $this->publicDigitMap->setName('publicDigitMap');
+        $this->publicDigitMap->setElementName('publicDigitMap');
         return $this;
     }
 
@@ -110,7 +116,9 @@ class SystemDialPlanPolicyGetResponse17 extends ComplexType implements ComplexIn
      */
     public function getPublicDigitMap()
     {
-        return ($this->publicDigitMap) ? $this->publicDigitMap->getValue() : null;
+        return ($this->publicDigitMap)
+            ? $this->publicDigitMap->getElementValue()
+            : null;
     }
 
     /**
@@ -121,7 +129,7 @@ class SystemDialPlanPolicyGetResponse17 extends ComplexType implements ComplexIn
         $this->privateDigitMap = ($privateDigitMap InstanceOf DigitMap)
              ? $privateDigitMap
              : new DigitMap($privateDigitMap);
-        $this->privateDigitMap->setName('privateDigitMap');
+        $this->privateDigitMap->setElementName('privateDigitMap');
         return $this;
     }
 
@@ -131,6 +139,8 @@ class SystemDialPlanPolicyGetResponse17 extends ComplexType implements ComplexIn
      */
     public function getPrivateDigitMap()
     {
-        return ($this->privateDigitMap) ? $this->privateDigitMap->getValue() : null;
+        return ($this->privateDigitMap)
+            ? $this->privateDigitMap->getElementValue()
+            : null;
     }
 }

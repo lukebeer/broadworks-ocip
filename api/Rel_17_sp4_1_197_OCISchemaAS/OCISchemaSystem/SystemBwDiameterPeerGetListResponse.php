@@ -19,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemBwDiameterPeerGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemBwDiameterPeerGetListResponse';
+    public    $elementName = 'SystemBwDiameterPeerGetListResponse';
     protected $peerTable;
 
     /**
@@ -36,7 +36,7 @@ class SystemBwDiameterPeerGetListResponse extends ComplexType implements Complex
     public function setPeerTable(TableType $peerTable = null)
     {
         $this->peerTable = $peerTable;
-        $this->peerTable->setName('peerTable');
+        $this->peerTable->setElementName('peerTable');
         return $this;
     }
 

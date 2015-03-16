@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserPersonalPhoneListModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'UserPersonalPhoneListModifyRequest';
+    public    $elementName = 'UserPersonalPhoneListModifyRequest';
     protected $userId;
     protected $entryName;
     protected $newEntryName;
@@ -56,7 +56,7 @@ class UserPersonalPhoneListModifyRequest extends ComplexType implements ComplexI
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
-        $this->userId->setName('userId');
+        $this->userId->setElementName('userId');
         return $this;
     }
 
@@ -66,7 +66,9 @@ class UserPersonalPhoneListModifyRequest extends ComplexType implements ComplexI
      */
     public function getUserId()
     {
-        return ($this->userId) ? $this->userId->getValue() : null;
+        return ($this->userId)
+            ? $this->userId->getElementValue()
+            : null;
     }
 
     /**
@@ -77,7 +79,7 @@ class UserPersonalPhoneListModifyRequest extends ComplexType implements ComplexI
         $this->entryName = ($entryName InstanceOf PhoneListEntryName)
              ? $entryName
              : new PhoneListEntryName($entryName);
-        $this->entryName->setName('entryName');
+        $this->entryName->setElementName('entryName');
         return $this;
     }
 
@@ -87,7 +89,9 @@ class UserPersonalPhoneListModifyRequest extends ComplexType implements ComplexI
      */
     public function getEntryName()
     {
-        return ($this->entryName) ? $this->entryName->getValue() : null;
+        return ($this->entryName)
+            ? $this->entryName->getElementValue()
+            : null;
     }
 
     /**
@@ -98,7 +102,7 @@ class UserPersonalPhoneListModifyRequest extends ComplexType implements ComplexI
         $this->newEntryName = ($newEntryName InstanceOf PhoneListEntryName)
              ? $newEntryName
              : new PhoneListEntryName($newEntryName);
-        $this->newEntryName->setName('newEntryName');
+        $this->newEntryName->setElementName('newEntryName');
         return $this;
     }
 
@@ -108,7 +112,9 @@ class UserPersonalPhoneListModifyRequest extends ComplexType implements ComplexI
      */
     public function getNewEntryName()
     {
-        return ($this->newEntryName) ? $this->newEntryName->getValue() : null;
+        return ($this->newEntryName)
+            ? $this->newEntryName->getElementValue()
+            : null;
     }
 
     /**
@@ -119,7 +125,7 @@ class UserPersonalPhoneListModifyRequest extends ComplexType implements ComplexI
         $this->phoneNumber = ($phoneNumber InstanceOf OutgoingDN)
              ? $phoneNumber
              : new OutgoingDN($phoneNumber);
-        $this->phoneNumber->setName('phoneNumber');
+        $this->phoneNumber->setElementName('phoneNumber');
         return $this;
     }
 
@@ -129,6 +135,8 @@ class UserPersonalPhoneListModifyRequest extends ComplexType implements ComplexI
      */
     public function getPhoneNumber()
     {
-        return ($this->phoneNumber) ? $this->phoneNumber->getValue() : null;
+        return ($this->phoneNumber)
+            ? $this->phoneNumber->getElementValue()
+            : null;
     }
 }

@@ -23,7 +23,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupCallCenterAgentUnavailableCodeAddRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'GroupCallCenterAgentUnavailableCodeAddRequest';
+    public    $elementName = 'GroupCallCenterAgentUnavailableCodeAddRequest';
     protected $serviceProviderId;
     protected $groupId;
     protected $isActive;
@@ -60,7 +60,7 @@ class GroupCallCenterAgentUnavailableCodeAddRequest extends ComplexType implemen
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
-        $this->serviceProviderId->setName('serviceProviderId');
+        $this->serviceProviderId->setElementName('serviceProviderId');
         return $this;
     }
 
@@ -70,7 +70,9 @@ class GroupCallCenterAgentUnavailableCodeAddRequest extends ComplexType implemen
      */
     public function getServiceProviderId()
     {
-        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
+        return ($this->serviceProviderId)
+            ? $this->serviceProviderId->getElementValue()
+            : null;
     }
 
     /**
@@ -81,7 +83,7 @@ class GroupCallCenterAgentUnavailableCodeAddRequest extends ComplexType implemen
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
-        $this->groupId->setName('groupId');
+        $this->groupId->setElementName('groupId');
         return $this;
     }
 
@@ -91,7 +93,9 @@ class GroupCallCenterAgentUnavailableCodeAddRequest extends ComplexType implemen
      */
     public function getGroupId()
     {
-        return ($this->groupId) ? $this->groupId->getValue() : null;
+        return ($this->groupId)
+            ? $this->groupId->getElementValue()
+            : null;
     }
 
     /**
@@ -100,7 +104,7 @@ class GroupCallCenterAgentUnavailableCodeAddRequest extends ComplexType implemen
     public function setIsActive($isActive = null)
     {
         $this->isActive = new PrimitiveType($isActive);
-        $this->isActive->setName('isActive');
+        $this->isActive->setElementName('isActive');
         return $this;
     }
 
@@ -110,7 +114,9 @@ class GroupCallCenterAgentUnavailableCodeAddRequest extends ComplexType implemen
      */
     public function getIsActive()
     {
-        return ($this->isActive) ? $this->isActive->getValue() : null;
+        return ($this->isActive)
+            ? $this->isActive->getElementValue()
+            : null;
     }
 
     /**
@@ -121,7 +127,7 @@ class GroupCallCenterAgentUnavailableCodeAddRequest extends ComplexType implemen
         $this->code = ($code InstanceOf CallCenterAgentUnavailableCode)
              ? $code
              : new CallCenterAgentUnavailableCode($code);
-        $this->code->setName('code');
+        $this->code->setElementName('code');
         return $this;
     }
 
@@ -131,7 +137,9 @@ class GroupCallCenterAgentUnavailableCodeAddRequest extends ComplexType implemen
      */
     public function getCode()
     {
-        return ($this->code) ? $this->code->getValue() : null;
+        return ($this->code)
+            ? $this->code->getElementValue()
+            : null;
     }
 
     /**
@@ -142,7 +150,7 @@ class GroupCallCenterAgentUnavailableCodeAddRequest extends ComplexType implemen
         $this->description = ($description InstanceOf CallCenterAgentUnavailableCodeDescription)
              ? $description
              : new CallCenterAgentUnavailableCodeDescription($description);
-        $this->description->setName('description');
+        $this->description->setElementName('description');
         return $this;
     }
 
@@ -152,6 +160,8 @@ class GroupCallCenterAgentUnavailableCodeAddRequest extends ComplexType implemen
      */
     public function getDescription()
     {
-        return ($this->description) ? $this->description->getValue() : null;
+        return ($this->description)
+            ? $this->description->getElementValue()
+            : null;
     }
 }

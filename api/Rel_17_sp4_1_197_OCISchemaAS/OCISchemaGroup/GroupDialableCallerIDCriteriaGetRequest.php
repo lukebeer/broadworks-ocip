@@ -24,7 +24,7 @@ use Broadworks_OCIP\core\Client\Client;
 class GroupDialableCallerIDCriteriaGetRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupDialableCallerIDCriteriaGetResponse';
-    public    $name = 'GroupDialableCallerIDCriteriaGetRequest';
+    public    $elementName = 'GroupDialableCallerIDCriteriaGetRequest';
     protected $serviceProviderId;
     protected $groupId;
     protected $name;
@@ -55,7 +55,7 @@ class GroupDialableCallerIDCriteriaGetRequest extends ComplexType implements Com
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
-        $this->serviceProviderId->setName('serviceProviderId');
+        $this->serviceProviderId->setElementName('serviceProviderId');
         return $this;
     }
 
@@ -65,7 +65,9 @@ class GroupDialableCallerIDCriteriaGetRequest extends ComplexType implements Com
      */
     public function getServiceProviderId()
     {
-        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
+        return ($this->serviceProviderId)
+            ? $this->serviceProviderId->getElementValue()
+            : null;
     }
 
     /**
@@ -76,7 +78,7 @@ class GroupDialableCallerIDCriteriaGetRequest extends ComplexType implements Com
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
-        $this->groupId->setName('groupId');
+        $this->groupId->setElementName('groupId');
         return $this;
     }
 
@@ -86,7 +88,9 @@ class GroupDialableCallerIDCriteriaGetRequest extends ComplexType implements Com
      */
     public function getGroupId()
     {
-        return ($this->groupId) ? $this->groupId->getValue() : null;
+        return ($this->groupId)
+            ? $this->groupId->getElementValue()
+            : null;
     }
 
     /**
@@ -97,7 +101,7 @@ class GroupDialableCallerIDCriteriaGetRequest extends ComplexType implements Com
         $this->name = ($name InstanceOf DialableCallerIDCriteriaName)
              ? $name
              : new DialableCallerIDCriteriaName($name);
-        $this->name->setName('name');
+        $this->name->setElementName('name');
         return $this;
     }
 
@@ -107,6 +111,8 @@ class GroupDialableCallerIDCriteriaGetRequest extends ComplexType implements Com
      */
     public function getName()
     {
-        return ($this->name) ? $this->name->getValue() : null;
+        return ($this->name)
+            ? $this->name->getElementValue()
+            : null;
     }
 }

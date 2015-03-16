@@ -19,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupCallCenterCurrentAndPastCallCenterGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'GroupCallCenterCurrentAndPastCallCenterGetListResponse';
+    public    $elementName = 'GroupCallCenterCurrentAndPastCallCenterGetListResponse';
     protected $serviceUserId;
     protected $deletedServiceUserId;
 
@@ -39,7 +39,7 @@ class GroupCallCenterCurrentAndPastCallCenterGetListResponse extends ComplexType
         $this->serviceUserId = ($serviceUserId InstanceOf UserId)
              ? $serviceUserId
              : new UserId($serviceUserId);
-        $this->serviceUserId->setName('serviceUserId');
+        $this->serviceUserId->setElementName('serviceUserId');
         return $this;
     }
 
@@ -49,7 +49,9 @@ class GroupCallCenterCurrentAndPastCallCenterGetListResponse extends ComplexType
      */
     public function getServiceUserId()
     {
-        return ($this->serviceUserId) ? $this->serviceUserId->getValue() : null;
+        return ($this->serviceUserId)
+            ? $this->serviceUserId->getElementValue()
+            : null;
     }
 
     /**
@@ -60,7 +62,7 @@ class GroupCallCenterCurrentAndPastCallCenterGetListResponse extends ComplexType
         $this->deletedServiceUserId = ($deletedServiceUserId InstanceOf UserId)
              ? $deletedServiceUserId
              : new UserId($deletedServiceUserId);
-        $this->deletedServiceUserId->setName('deletedServiceUserId');
+        $this->deletedServiceUserId->setElementName('deletedServiceUserId');
         return $this;
     }
 
@@ -70,6 +72,8 @@ class GroupCallCenterCurrentAndPastCallCenterGetListResponse extends ComplexType
      */
     public function getDeletedServiceUserId()
     {
-        return ($this->deletedServiceUserId) ? $this->deletedServiceUserId->getValue() : null;
+        return ($this->deletedServiceUserId)
+            ? $this->deletedServiceUserId->getElementValue()
+            : null;
     }
 }

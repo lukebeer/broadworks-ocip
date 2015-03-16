@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class InstantConferencingAllocatedPorts extends ComplexType implements ComplexInterface
 {
-    public    $name = 'InstantConferencingAllocatedPorts';
+    public    $elementName = 'InstantConferencingAllocatedPorts';
 
     public function __construct(    ) {
     }

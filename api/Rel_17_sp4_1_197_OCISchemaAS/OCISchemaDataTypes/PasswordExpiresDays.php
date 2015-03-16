@@ -17,12 +17,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\MaxInclusive;
  */
 class PasswordExpiresDays extends SimpleType
 {
-    public $name = "PasswordExpiresDays";
-    protected $value;
-
+    public $elementName = "PasswordExpiresDays";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new MinInclusive("0"));
         $this->addRestriction(new MaxInclusive("199"));
     }

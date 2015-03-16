@@ -33,7 +33,7 @@ use Broadworks_OCIP\core\Client\Client;
 class GroupVirtualOnNetEnterpriseExtensionsGetUserListRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType                                = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceVirtualOnNetEnterpriseExtensions\GroupVirtualOnNetEnterpriseExtensionsGetUserListResponse';
-    public    $name = 'GroupVirtualOnNetEnterpriseExtensionsGetUserListRequest';
+    public    $elementName = 'GroupVirtualOnNetEnterpriseExtensionsGetUserListRequest';
     protected $serviceProviderId;
     protected $groupId;
     protected $responseSizeLimit;
@@ -79,7 +79,7 @@ class GroupVirtualOnNetEnterpriseExtensionsGetUserListRequest extends ComplexTyp
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
-        $this->serviceProviderId->setName('serviceProviderId');
+        $this->serviceProviderId->setElementName('serviceProviderId');
         return $this;
     }
 
@@ -89,7 +89,9 @@ class GroupVirtualOnNetEnterpriseExtensionsGetUserListRequest extends ComplexTyp
      */
     public function getServiceProviderId()
     {
-        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
+        return ($this->serviceProviderId)
+            ? $this->serviceProviderId->getElementValue()
+            : null;
     }
 
     /**
@@ -100,7 +102,7 @@ class GroupVirtualOnNetEnterpriseExtensionsGetUserListRequest extends ComplexTyp
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
-        $this->groupId->setName('groupId');
+        $this->groupId->setElementName('groupId');
         return $this;
     }
 
@@ -110,7 +112,9 @@ class GroupVirtualOnNetEnterpriseExtensionsGetUserListRequest extends ComplexTyp
      */
     public function getGroupId()
     {
-        return ($this->groupId) ? $this->groupId->getValue() : null;
+        return ($this->groupId)
+            ? $this->groupId->getElementValue()
+            : null;
     }
 
     /**
@@ -121,7 +125,7 @@ class GroupVirtualOnNetEnterpriseExtensionsGetUserListRequest extends ComplexTyp
         $this->responseSizeLimit = ($responseSizeLimit InstanceOf ResponseSizeLimit)
              ? $responseSizeLimit
              : new ResponseSizeLimit($responseSizeLimit);
-        $this->responseSizeLimit->setName('responseSizeLimit');
+        $this->responseSizeLimit->setElementName('responseSizeLimit');
         return $this;
     }
 
@@ -131,7 +135,9 @@ class GroupVirtualOnNetEnterpriseExtensionsGetUserListRequest extends ComplexTyp
      */
     public function getResponseSizeLimit()
     {
-        return ($this->responseSizeLimit) ? $this->responseSizeLimit->getValue() : null;
+        return ($this->responseSizeLimit)
+            ? $this->responseSizeLimit->getElementValue()
+            : null;
     }
 
     /**
@@ -142,7 +148,7 @@ class GroupVirtualOnNetEnterpriseExtensionsGetUserListRequest extends ComplexTyp
         $this->searchCriteriaUserLastName = ($searchCriteriaUserLastName InstanceOf SearchCriteriaUserLastName)
              ? $searchCriteriaUserLastName
              : new SearchCriteriaUserLastName($searchCriteriaUserLastName);
-        $this->searchCriteriaUserLastName->setName('searchCriteriaUserLastName');
+        $this->searchCriteriaUserLastName->setElementName('searchCriteriaUserLastName');
         return $this;
     }
 
@@ -163,7 +169,7 @@ class GroupVirtualOnNetEnterpriseExtensionsGetUserListRequest extends ComplexTyp
         $this->searchCriteriaUserFirstName = ($searchCriteriaUserFirstName InstanceOf SearchCriteriaUserFirstName)
              ? $searchCriteriaUserFirstName
              : new SearchCriteriaUserFirstName($searchCriteriaUserFirstName);
-        $this->searchCriteriaUserFirstName->setName('searchCriteriaUserFirstName');
+        $this->searchCriteriaUserFirstName->setElementName('searchCriteriaUserFirstName');
         return $this;
     }
 
@@ -184,7 +190,7 @@ class GroupVirtualOnNetEnterpriseExtensionsGetUserListRequest extends ComplexTyp
         $this->searchCriteriaDn = ($searchCriteriaDn InstanceOf SearchCriteriaDn)
              ? $searchCriteriaDn
              : new SearchCriteriaDn($searchCriteriaDn);
-        $this->searchCriteriaDn->setName('searchCriteriaDn');
+        $this->searchCriteriaDn->setElementName('searchCriteriaDn');
         return $this;
     }
 
@@ -205,7 +211,7 @@ class GroupVirtualOnNetEnterpriseExtensionsGetUserListRequest extends ComplexTyp
         $this->searchCriteriaExtension = ($searchCriteriaExtension InstanceOf SearchCriteriaExtension)
              ? $searchCriteriaExtension
              : new SearchCriteriaExtension($searchCriteriaExtension);
-        $this->searchCriteriaExtension->setName('searchCriteriaExtension');
+        $this->searchCriteriaExtension->setElementName('searchCriteriaExtension');
         return $this;
     }
 
@@ -226,7 +232,7 @@ class GroupVirtualOnNetEnterpriseExtensionsGetUserListRequest extends ComplexTyp
         $this->searchCriteriaExactVirtualOnNetCallTypeName = ($searchCriteriaExactVirtualOnNetCallTypeName InstanceOf SearchCriteriaExactVirtualOnNetCallTypeName)
              ? $searchCriteriaExactVirtualOnNetCallTypeName
              : new SearchCriteriaExactVirtualOnNetCallTypeName($searchCriteriaExactVirtualOnNetCallTypeName);
-        $this->searchCriteriaExactVirtualOnNetCallTypeName->setName('searchCriteriaExactVirtualOnNetCallTypeName');
+        $this->searchCriteriaExactVirtualOnNetCallTypeName->setElementName('searchCriteriaExactVirtualOnNetCallTypeName');
         return $this;
     }
 

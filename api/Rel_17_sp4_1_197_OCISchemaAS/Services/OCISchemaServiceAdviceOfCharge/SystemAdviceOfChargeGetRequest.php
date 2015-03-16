@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
 class SystemAdviceOfChargeGetRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceAdviceOfCharge\SystemAdviceOfChargeGetResponse';
-    public    $name = 'SystemAdviceOfChargeGetRequest';
+    public    $elementName = 'SystemAdviceOfChargeGetRequest';
 
     public function __construct(    ) {
     }

@@ -40,7 +40,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupTrunkGroupGetInstanceResponse14sp5 extends ComplexType implements ComplexInterface
 {
-    public    $name = 'GroupTrunkGroupGetInstanceResponse14sp5';
+    public    $elementName = 'GroupTrunkGroupGetInstanceResponse14sp5';
     protected $pilotUserId;
     protected $department;
     protected $accessDevice;
@@ -82,7 +82,7 @@ class GroupTrunkGroupGetInstanceResponse14sp5 extends ComplexType implements Com
         $this->pilotUserId = ($pilotUserId InstanceOf UserId)
              ? $pilotUserId
              : new UserId($pilotUserId);
-        $this->pilotUserId->setName('pilotUserId');
+        $this->pilotUserId->setElementName('pilotUserId');
         return $this;
     }
 
@@ -92,7 +92,9 @@ class GroupTrunkGroupGetInstanceResponse14sp5 extends ComplexType implements Com
      */
     public function getPilotUserId()
     {
-        return ($this->pilotUserId) ? $this->pilotUserId->getValue() : null;
+        return ($this->pilotUserId)
+            ? $this->pilotUserId->getElementValue()
+            : null;
     }
 
     /**
@@ -103,7 +105,7 @@ class GroupTrunkGroupGetInstanceResponse14sp5 extends ComplexType implements Com
         $this->department = ($department InstanceOf DepartmentKey)
              ? $department
              : new DepartmentKey($department);
-        $this->department->setName('department');
+        $this->department->setElementName('department');
         return $this;
     }
 
@@ -124,7 +126,7 @@ class GroupTrunkGroupGetInstanceResponse14sp5 extends ComplexType implements Com
         $this->accessDevice = ($accessDevice InstanceOf AccessDevice)
              ? $accessDevice
              : new AccessDevice($accessDevice);
-        $this->accessDevice->setName('accessDevice');
+        $this->accessDevice->setElementName('accessDevice');
         return $this;
     }
 
@@ -145,7 +147,7 @@ class GroupTrunkGroupGetInstanceResponse14sp5 extends ComplexType implements Com
         $this->maxActiveCalls = ($maxActiveCalls InstanceOf MaxActiveCalls)
              ? $maxActiveCalls
              : new MaxActiveCalls($maxActiveCalls);
-        $this->maxActiveCalls->setName('maxActiveCalls');
+        $this->maxActiveCalls->setElementName('maxActiveCalls');
         return $this;
     }
 
@@ -155,7 +157,9 @@ class GroupTrunkGroupGetInstanceResponse14sp5 extends ComplexType implements Com
      */
     public function getMaxActiveCalls()
     {
-        return ($this->maxActiveCalls) ? $this->maxActiveCalls->getValue() : null;
+        return ($this->maxActiveCalls)
+            ? $this->maxActiveCalls->getElementValue()
+            : null;
     }
 
     /**
@@ -166,7 +170,7 @@ class GroupTrunkGroupGetInstanceResponse14sp5 extends ComplexType implements Com
         $this->maxIncomingCalls = ($maxIncomingCalls InstanceOf MaxIncomingCalls)
              ? $maxIncomingCalls
              : new MaxIncomingCalls($maxIncomingCalls);
-        $this->maxIncomingCalls->setName('maxIncomingCalls');
+        $this->maxIncomingCalls->setElementName('maxIncomingCalls');
         return $this;
     }
 
@@ -176,7 +180,9 @@ class GroupTrunkGroupGetInstanceResponse14sp5 extends ComplexType implements Com
      */
     public function getMaxIncomingCalls()
     {
-        return ($this->maxIncomingCalls) ? $this->maxIncomingCalls->getValue() : null;
+        return ($this->maxIncomingCalls)
+            ? $this->maxIncomingCalls->getElementValue()
+            : null;
     }
 
     /**
@@ -187,7 +193,7 @@ class GroupTrunkGroupGetInstanceResponse14sp5 extends ComplexType implements Com
         $this->maxOutgoingCalls = ($maxOutgoingCalls InstanceOf MaxOutgoingCalls)
              ? $maxOutgoingCalls
              : new MaxOutgoingCalls($maxOutgoingCalls);
-        $this->maxOutgoingCalls->setName('maxOutgoingCalls');
+        $this->maxOutgoingCalls->setElementName('maxOutgoingCalls');
         return $this;
     }
 
@@ -197,7 +203,9 @@ class GroupTrunkGroupGetInstanceResponse14sp5 extends ComplexType implements Com
      */
     public function getMaxOutgoingCalls()
     {
-        return ($this->maxOutgoingCalls) ? $this->maxOutgoingCalls->getValue() : null;
+        return ($this->maxOutgoingCalls)
+            ? $this->maxOutgoingCalls->getElementValue()
+            : null;
     }
 
     /**
@@ -206,7 +214,7 @@ class GroupTrunkGroupGetInstanceResponse14sp5 extends ComplexType implements Com
     public function setEnableBursting($enableBursting = null)
     {
         $this->enableBursting = new PrimitiveType($enableBursting);
-        $this->enableBursting->setName('enableBursting');
+        $this->enableBursting->setElementName('enableBursting');
         return $this;
     }
 
@@ -216,7 +224,9 @@ class GroupTrunkGroupGetInstanceResponse14sp5 extends ComplexType implements Com
      */
     public function getEnableBursting()
     {
-        return ($this->enableBursting) ? $this->enableBursting->getValue() : null;
+        return ($this->enableBursting)
+            ? $this->enableBursting->getElementValue()
+            : null;
     }
 
     /**
@@ -227,7 +237,7 @@ class GroupTrunkGroupGetInstanceResponse14sp5 extends ComplexType implements Com
         $this->burstingMaxActiveCalls = ($burstingMaxActiveCalls InstanceOf BurstingMaxActiveCalls)
              ? $burstingMaxActiveCalls
              : new BurstingMaxActiveCalls($burstingMaxActiveCalls);
-        $this->burstingMaxActiveCalls->setName('burstingMaxActiveCalls');
+        $this->burstingMaxActiveCalls->setElementName('burstingMaxActiveCalls');
         return $this;
     }
 
@@ -237,7 +247,9 @@ class GroupTrunkGroupGetInstanceResponse14sp5 extends ComplexType implements Com
      */
     public function getBurstingMaxActiveCalls()
     {
-        return ($this->burstingMaxActiveCalls) ? $this->burstingMaxActiveCalls->getValue() : null;
+        return ($this->burstingMaxActiveCalls)
+            ? $this->burstingMaxActiveCalls->getElementValue()
+            : null;
     }
 
     /**
@@ -248,7 +260,7 @@ class GroupTrunkGroupGetInstanceResponse14sp5 extends ComplexType implements Com
         $this->burstingMaxIncomingCalls = ($burstingMaxIncomingCalls InstanceOf BurstingMaxIncomingCalls)
              ? $burstingMaxIncomingCalls
              : new BurstingMaxIncomingCalls($burstingMaxIncomingCalls);
-        $this->burstingMaxIncomingCalls->setName('burstingMaxIncomingCalls');
+        $this->burstingMaxIncomingCalls->setElementName('burstingMaxIncomingCalls');
         return $this;
     }
 
@@ -258,7 +270,9 @@ class GroupTrunkGroupGetInstanceResponse14sp5 extends ComplexType implements Com
      */
     public function getBurstingMaxIncomingCalls()
     {
-        return ($this->burstingMaxIncomingCalls) ? $this->burstingMaxIncomingCalls->getValue() : null;
+        return ($this->burstingMaxIncomingCalls)
+            ? $this->burstingMaxIncomingCalls->getElementValue()
+            : null;
     }
 
     /**
@@ -269,7 +283,7 @@ class GroupTrunkGroupGetInstanceResponse14sp5 extends ComplexType implements Com
         $this->burstingMaxOutgoingCalls = ($burstingMaxOutgoingCalls InstanceOf BurstingMaxOutgoingCalls)
              ? $burstingMaxOutgoingCalls
              : new BurstingMaxOutgoingCalls($burstingMaxOutgoingCalls);
-        $this->burstingMaxOutgoingCalls->setName('burstingMaxOutgoingCalls');
+        $this->burstingMaxOutgoingCalls->setElementName('burstingMaxOutgoingCalls');
         return $this;
     }
 
@@ -279,7 +293,9 @@ class GroupTrunkGroupGetInstanceResponse14sp5 extends ComplexType implements Com
      */
     public function getBurstingMaxOutgoingCalls()
     {
-        return ($this->burstingMaxOutgoingCalls) ? $this->burstingMaxOutgoingCalls->getValue() : null;
+        return ($this->burstingMaxOutgoingCalls)
+            ? $this->burstingMaxOutgoingCalls->getElementValue()
+            : null;
     }
 
     /**
@@ -290,7 +306,7 @@ class GroupTrunkGroupGetInstanceResponse14sp5 extends ComplexType implements Com
         $this->capacityExceededAction = ($capacityExceededAction InstanceOf TrunkGroupCapacityExceededAction)
              ? $capacityExceededAction
              : new TrunkGroupCapacityExceededAction($capacityExceededAction);
-        $this->capacityExceededAction->setName('capacityExceededAction');
+        $this->capacityExceededAction->setElementName('capacityExceededAction');
         return $this;
     }
 
@@ -300,7 +316,9 @@ class GroupTrunkGroupGetInstanceResponse14sp5 extends ComplexType implements Com
      */
     public function getCapacityExceededAction()
     {
-        return ($this->capacityExceededAction) ? $this->capacityExceededAction->getValue() : null;
+        return ($this->capacityExceededAction)
+            ? $this->capacityExceededAction->getElementValue()
+            : null;
     }
 
     /**
@@ -311,7 +329,7 @@ class GroupTrunkGroupGetInstanceResponse14sp5 extends ComplexType implements Com
         $this->capacityExceededForwardAddress = ($capacityExceededForwardAddress InstanceOf OutgoingDNorSIPURI)
              ? $capacityExceededForwardAddress
              : new OutgoingDNorSIPURI($capacityExceededForwardAddress);
-        $this->capacityExceededForwardAddress->setName('capacityExceededForwardAddress');
+        $this->capacityExceededForwardAddress->setElementName('capacityExceededForwardAddress');
         return $this;
     }
 
@@ -321,7 +339,9 @@ class GroupTrunkGroupGetInstanceResponse14sp5 extends ComplexType implements Com
      */
     public function getCapacityExceededForwardAddress()
     {
-        return ($this->capacityExceededForwardAddress) ? $this->capacityExceededForwardAddress->getValue() : null;
+        return ($this->capacityExceededForwardAddress)
+            ? $this->capacityExceededForwardAddress->getElementValue()
+            : null;
     }
 
     /**
@@ -332,7 +352,7 @@ class GroupTrunkGroupGetInstanceResponse14sp5 extends ComplexType implements Com
         $this->capacityExceededRerouteTrunkGroupKey = ($capacityExceededRerouteTrunkGroupKey InstanceOf TrunkGroupKey)
              ? $capacityExceededRerouteTrunkGroupKey
              : new TrunkGroupKey($capacityExceededRerouteTrunkGroupKey);
-        $this->capacityExceededRerouteTrunkGroupKey->setName('capacityExceededRerouteTrunkGroupKey');
+        $this->capacityExceededRerouteTrunkGroupKey->setElementName('capacityExceededRerouteTrunkGroupKey');
         return $this;
     }
 
@@ -353,7 +373,7 @@ class GroupTrunkGroupGetInstanceResponse14sp5 extends ComplexType implements Com
         $this->capacityExceededTrapInitialCalls = ($capacityExceededTrapInitialCalls InstanceOf TrapInitialThreshold)
              ? $capacityExceededTrapInitialCalls
              : new TrapInitialThreshold($capacityExceededTrapInitialCalls);
-        $this->capacityExceededTrapInitialCalls->setName('capacityExceededTrapInitialCalls');
+        $this->capacityExceededTrapInitialCalls->setElementName('capacityExceededTrapInitialCalls');
         return $this;
     }
 
@@ -363,7 +383,9 @@ class GroupTrunkGroupGetInstanceResponse14sp5 extends ComplexType implements Com
      */
     public function getCapacityExceededTrapInitialCalls()
     {
-        return ($this->capacityExceededTrapInitialCalls) ? $this->capacityExceededTrapInitialCalls->getValue() : null;
+        return ($this->capacityExceededTrapInitialCalls)
+            ? $this->capacityExceededTrapInitialCalls->getElementValue()
+            : null;
     }
 
     /**
@@ -374,7 +396,7 @@ class GroupTrunkGroupGetInstanceResponse14sp5 extends ComplexType implements Com
         $this->capacityExceededTrapOffsetCalls = ($capacityExceededTrapOffsetCalls InstanceOf TrapOffsetThreshold)
              ? $capacityExceededTrapOffsetCalls
              : new TrapOffsetThreshold($capacityExceededTrapOffsetCalls);
-        $this->capacityExceededTrapOffsetCalls->setName('capacityExceededTrapOffsetCalls');
+        $this->capacityExceededTrapOffsetCalls->setElementName('capacityExceededTrapOffsetCalls');
         return $this;
     }
 
@@ -384,7 +406,9 @@ class GroupTrunkGroupGetInstanceResponse14sp5 extends ComplexType implements Com
      */
     public function getCapacityExceededTrapOffsetCalls()
     {
-        return ($this->capacityExceededTrapOffsetCalls) ? $this->capacityExceededTrapOffsetCalls->getValue() : null;
+        return ($this->capacityExceededTrapOffsetCalls)
+            ? $this->capacityExceededTrapOffsetCalls->getElementValue()
+            : null;
     }
 
     /**
@@ -395,7 +419,7 @@ class GroupTrunkGroupGetInstanceResponse14sp5 extends ComplexType implements Com
         $this->unreachableDestinationAction = ($unreachableDestinationAction InstanceOf TrunkGroupUnreachableDestinationAction)
              ? $unreachableDestinationAction
              : new TrunkGroupUnreachableDestinationAction($unreachableDestinationAction);
-        $this->unreachableDestinationAction->setName('unreachableDestinationAction');
+        $this->unreachableDestinationAction->setElementName('unreachableDestinationAction');
         return $this;
     }
 
@@ -405,7 +429,9 @@ class GroupTrunkGroupGetInstanceResponse14sp5 extends ComplexType implements Com
      */
     public function getUnreachableDestinationAction()
     {
-        return ($this->unreachableDestinationAction) ? $this->unreachableDestinationAction->getValue() : null;
+        return ($this->unreachableDestinationAction)
+            ? $this->unreachableDestinationAction->getElementValue()
+            : null;
     }
 
     /**
@@ -416,7 +442,7 @@ class GroupTrunkGroupGetInstanceResponse14sp5 extends ComplexType implements Com
         $this->unreachableDestinationForwardAddress = ($unreachableDestinationForwardAddress InstanceOf OutgoingDNorSIPURI)
              ? $unreachableDestinationForwardAddress
              : new OutgoingDNorSIPURI($unreachableDestinationForwardAddress);
-        $this->unreachableDestinationForwardAddress->setName('unreachableDestinationForwardAddress');
+        $this->unreachableDestinationForwardAddress->setElementName('unreachableDestinationForwardAddress');
         return $this;
     }
 
@@ -426,7 +452,9 @@ class GroupTrunkGroupGetInstanceResponse14sp5 extends ComplexType implements Com
      */
     public function getUnreachableDestinationForwardAddress()
     {
-        return ($this->unreachableDestinationForwardAddress) ? $this->unreachableDestinationForwardAddress->getValue() : null;
+        return ($this->unreachableDestinationForwardAddress)
+            ? $this->unreachableDestinationForwardAddress->getElementValue()
+            : null;
     }
 
     /**
@@ -437,7 +465,7 @@ class GroupTrunkGroupGetInstanceResponse14sp5 extends ComplexType implements Com
         $this->unreachableDestinationRerouteTrunkGroupKey = ($unreachableDestinationRerouteTrunkGroupKey InstanceOf TrunkGroupKey)
              ? $unreachableDestinationRerouteTrunkGroupKey
              : new TrunkGroupKey($unreachableDestinationRerouteTrunkGroupKey);
-        $this->unreachableDestinationRerouteTrunkGroupKey->setName('unreachableDestinationRerouteTrunkGroupKey');
+        $this->unreachableDestinationRerouteTrunkGroupKey->setElementName('unreachableDestinationRerouteTrunkGroupKey');
         return $this;
     }
 
@@ -458,7 +486,7 @@ class GroupTrunkGroupGetInstanceResponse14sp5 extends ComplexType implements Com
         $this->unreachableDestinationTrapInitialCalls = ($unreachableDestinationTrapInitialCalls InstanceOf TrapInitialThreshold)
              ? $unreachableDestinationTrapInitialCalls
              : new TrapInitialThreshold($unreachableDestinationTrapInitialCalls);
-        $this->unreachableDestinationTrapInitialCalls->setName('unreachableDestinationTrapInitialCalls');
+        $this->unreachableDestinationTrapInitialCalls->setElementName('unreachableDestinationTrapInitialCalls');
         return $this;
     }
 
@@ -468,7 +496,9 @@ class GroupTrunkGroupGetInstanceResponse14sp5 extends ComplexType implements Com
      */
     public function getUnreachableDestinationTrapInitialCalls()
     {
-        return ($this->unreachableDestinationTrapInitialCalls) ? $this->unreachableDestinationTrapInitialCalls->getValue() : null;
+        return ($this->unreachableDestinationTrapInitialCalls)
+            ? $this->unreachableDestinationTrapInitialCalls->getElementValue()
+            : null;
     }
 
     /**
@@ -479,7 +509,7 @@ class GroupTrunkGroupGetInstanceResponse14sp5 extends ComplexType implements Com
         $this->unreachableDestinationTrapOffsetCalls = ($unreachableDestinationTrapOffsetCalls InstanceOf TrapOffsetThreshold)
              ? $unreachableDestinationTrapOffsetCalls
              : new TrapOffsetThreshold($unreachableDestinationTrapOffsetCalls);
-        $this->unreachableDestinationTrapOffsetCalls->setName('unreachableDestinationTrapOffsetCalls');
+        $this->unreachableDestinationTrapOffsetCalls->setElementName('unreachableDestinationTrapOffsetCalls');
         return $this;
     }
 
@@ -489,7 +519,9 @@ class GroupTrunkGroupGetInstanceResponse14sp5 extends ComplexType implements Com
      */
     public function getUnreachableDestinationTrapOffsetCalls()
     {
-        return ($this->unreachableDestinationTrapOffsetCalls) ? $this->unreachableDestinationTrapOffsetCalls->getValue() : null;
+        return ($this->unreachableDestinationTrapOffsetCalls)
+            ? $this->unreachableDestinationTrapOffsetCalls->getElementValue()
+            : null;
     }
 
     /**
@@ -500,7 +532,7 @@ class GroupTrunkGroupGetInstanceResponse14sp5 extends ComplexType implements Com
         $this->invitationTimeout = ($invitationTimeout InstanceOf TrunkGroupInvitationTimeoutSeconds)
              ? $invitationTimeout
              : new TrunkGroupInvitationTimeoutSeconds($invitationTimeout);
-        $this->invitationTimeout->setName('invitationTimeout');
+        $this->invitationTimeout->setElementName('invitationTimeout');
         return $this;
     }
 
@@ -510,7 +542,9 @@ class GroupTrunkGroupGetInstanceResponse14sp5 extends ComplexType implements Com
      */
     public function getInvitationTimeout()
     {
-        return ($this->invitationTimeout) ? $this->invitationTimeout->getValue() : null;
+        return ($this->invitationTimeout)
+            ? $this->invitationTimeout->getElementValue()
+            : null;
     }
 
     /**
@@ -519,7 +553,7 @@ class GroupTrunkGroupGetInstanceResponse14sp5 extends ComplexType implements Com
     public function setRequireAuthentication($requireAuthentication = null)
     {
         $this->requireAuthentication = new PrimitiveType($requireAuthentication);
-        $this->requireAuthentication->setName('requireAuthentication');
+        $this->requireAuthentication->setElementName('requireAuthentication');
         return $this;
     }
 
@@ -529,7 +563,9 @@ class GroupTrunkGroupGetInstanceResponse14sp5 extends ComplexType implements Com
      */
     public function getRequireAuthentication()
     {
-        return ($this->requireAuthentication) ? $this->requireAuthentication->getValue() : null;
+        return ($this->requireAuthentication)
+            ? $this->requireAuthentication->getElementValue()
+            : null;
     }
 
     /**
@@ -540,7 +576,7 @@ class GroupTrunkGroupGetInstanceResponse14sp5 extends ComplexType implements Com
         $this->sipAuthenticationUserName = ($sipAuthenticationUserName InstanceOf SIPAuthenticationUserName)
              ? $sipAuthenticationUserName
              : new SIPAuthenticationUserName($sipAuthenticationUserName);
-        $this->sipAuthenticationUserName->setName('sipAuthenticationUserName');
+        $this->sipAuthenticationUserName->setElementName('sipAuthenticationUserName');
         return $this;
     }
 
@@ -550,7 +586,9 @@ class GroupTrunkGroupGetInstanceResponse14sp5 extends ComplexType implements Com
      */
     public function getSipAuthenticationUserName()
     {
-        return ($this->sipAuthenticationUserName) ? $this->sipAuthenticationUserName->getValue() : null;
+        return ($this->sipAuthenticationUserName)
+            ? $this->sipAuthenticationUserName->getElementValue()
+            : null;
     }
 
     /**
@@ -559,7 +597,7 @@ class GroupTrunkGroupGetInstanceResponse14sp5 extends ComplexType implements Com
     public function setHostedUserTable(TableType $hostedUserTable = null)
     {
         $this->hostedUserTable = $hostedUserTable;
-        $this->hostedUserTable->setName('hostedUserTable');
+        $this->hostedUserTable->setElementName('hostedUserTable');
         return $this;
     }
 

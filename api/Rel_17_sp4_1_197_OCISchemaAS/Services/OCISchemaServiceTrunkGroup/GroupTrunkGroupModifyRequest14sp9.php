@@ -23,7 +23,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupTrunkGroupModifyRequest14sp9 extends ComplexType implements ComplexInterface
 {
-    public    $name = 'GroupTrunkGroupModifyRequest14sp9';
+    public    $elementName = 'GroupTrunkGroupModifyRequest14sp9';
     protected $serviceProviderId;
     protected $groupId;
     protected $maxActiveCalls;
@@ -57,7 +57,7 @@ class GroupTrunkGroupModifyRequest14sp9 extends ComplexType implements ComplexIn
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
-        $this->serviceProviderId->setName('serviceProviderId');
+        $this->serviceProviderId->setElementName('serviceProviderId');
         return $this;
     }
 
@@ -67,7 +67,9 @@ class GroupTrunkGroupModifyRequest14sp9 extends ComplexType implements ComplexIn
      */
     public function getServiceProviderId()
     {
-        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
+        return ($this->serviceProviderId)
+            ? $this->serviceProviderId->getElementValue()
+            : null;
     }
 
     /**
@@ -78,7 +80,7 @@ class GroupTrunkGroupModifyRequest14sp9 extends ComplexType implements ComplexIn
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
-        $this->groupId->setName('groupId');
+        $this->groupId->setElementName('groupId');
         return $this;
     }
 
@@ -88,7 +90,9 @@ class GroupTrunkGroupModifyRequest14sp9 extends ComplexType implements ComplexIn
      */
     public function getGroupId()
     {
-        return ($this->groupId) ? $this->groupId->getValue() : null;
+        return ($this->groupId)
+            ? $this->groupId->getElementValue()
+            : null;
     }
 
     /**
@@ -97,7 +101,7 @@ class GroupTrunkGroupModifyRequest14sp9 extends ComplexType implements ComplexIn
     public function setMaxActiveCalls($maxActiveCalls = null)
     {
         $this->maxActiveCalls = new PrimitiveType($maxActiveCalls);
-        $this->maxActiveCalls->setName('maxActiveCalls');
+        $this->maxActiveCalls->setElementName('maxActiveCalls');
         return $this;
     }
 
@@ -107,7 +111,9 @@ class GroupTrunkGroupModifyRequest14sp9 extends ComplexType implements ComplexIn
      */
     public function getMaxActiveCalls()
     {
-        return ($this->maxActiveCalls) ? $this->maxActiveCalls->getValue() : null;
+        return ($this->maxActiveCalls)
+            ? $this->maxActiveCalls->getElementValue()
+            : null;
     }
 
     /**
@@ -118,7 +124,7 @@ class GroupTrunkGroupModifyRequest14sp9 extends ComplexType implements ComplexIn
         $this->burstingMaxActiveCalls = ($burstingMaxActiveCalls InstanceOf UnboundedNonNegativeInt)
              ? $burstingMaxActiveCalls
              : new UnboundedNonNegativeInt($burstingMaxActiveCalls);
-        $this->burstingMaxActiveCalls->setName('burstingMaxActiveCalls');
+        $this->burstingMaxActiveCalls->setElementName('burstingMaxActiveCalls');
         return $this;
     }
 

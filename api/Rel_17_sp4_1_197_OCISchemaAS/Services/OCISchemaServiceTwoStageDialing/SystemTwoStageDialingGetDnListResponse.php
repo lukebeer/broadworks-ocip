@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemTwoStageDialingGetDnListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemTwoStageDialingGetDnListResponse';
+    public    $elementName = 'SystemTwoStageDialingGetDnListResponse';
     protected $phoneNumberTable;
 
     /**
@@ -38,7 +38,7 @@ class SystemTwoStageDialingGetDnListResponse extends ComplexType implements Comp
     public function setPhoneNumberTable(TableType $phoneNumberTable = null)
     {
         $this->phoneNumberTable = $phoneNumberTable;
-        $this->phoneNumberTable->setName('phoneNumberTable');
+        $this->phoneNumberTable->setElementName('phoneNumberTable');
         return $this;
     }
 

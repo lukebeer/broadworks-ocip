@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class IncomingCallingPlanPermissionsModify extends ComplexType implements ComplexInterface
 {
-    public    $name = 'IncomingCallingPlanPermissionsModify';
+    public    $elementName = 'IncomingCallingPlanPermissionsModify';
     protected $allowFromWithinGroup;
     protected $allowFromOutsideGroup;
     protected $allowCollectCalls;
@@ -52,7 +52,7 @@ class IncomingCallingPlanPermissionsModify extends ComplexType implements Comple
     public function setAllowFromWithinGroup($allowFromWithinGroup = null)
     {
         $this->allowFromWithinGroup = new SimpleContent($allowFromWithinGroup);
-        $this->allowFromWithinGroup->setName('allowFromWithinGroup');
+        $this->allowFromWithinGroup->setElementName('allowFromWithinGroup');
         return $this;
     }
 
@@ -62,7 +62,9 @@ class IncomingCallingPlanPermissionsModify extends ComplexType implements Comple
      */
     public function getAllowFromWithinGroup()
     {
-        return ($this->allowFromWithinGroup) ? $this->allowFromWithinGroup->getValue() : null;
+        return ($this->allowFromWithinGroup)
+            ? $this->allowFromWithinGroup->getElementValue()
+            : null;
     }
 
     /**
@@ -71,7 +73,7 @@ class IncomingCallingPlanPermissionsModify extends ComplexType implements Comple
     public function setAllowFromOutsideGroup($allowFromOutsideGroup = null)
     {
         $this->allowFromOutsideGroup = new SimpleContent($allowFromOutsideGroup);
-        $this->allowFromOutsideGroup->setName('allowFromOutsideGroup');
+        $this->allowFromOutsideGroup->setElementName('allowFromOutsideGroup');
         return $this;
     }
 
@@ -81,7 +83,9 @@ class IncomingCallingPlanPermissionsModify extends ComplexType implements Comple
      */
     public function getAllowFromOutsideGroup()
     {
-        return ($this->allowFromOutsideGroup) ? $this->allowFromOutsideGroup->getValue() : null;
+        return ($this->allowFromOutsideGroup)
+            ? $this->allowFromOutsideGroup->getElementValue()
+            : null;
     }
 
     /**
@@ -90,7 +94,7 @@ class IncomingCallingPlanPermissionsModify extends ComplexType implements Comple
     public function setAllowCollectCalls($allowCollectCalls = null)
     {
         $this->allowCollectCalls = new SimpleContent($allowCollectCalls);
-        $this->allowCollectCalls->setName('allowCollectCalls');
+        $this->allowCollectCalls->setElementName('allowCollectCalls');
         return $this;
     }
 
@@ -100,7 +104,9 @@ class IncomingCallingPlanPermissionsModify extends ComplexType implements Comple
      */
     public function getAllowCollectCalls()
     {
-        return ($this->allowCollectCalls) ? $this->allowCollectCalls->getValue() : null;
+        return ($this->allowCollectCalls)
+            ? $this->allowCollectCalls->getElementValue()
+            : null;
     }
 
     /**
@@ -109,7 +115,7 @@ class IncomingCallingPlanPermissionsModify extends ComplexType implements Comple
     public function setDigitPatternPermission($digitPatternPermission = null)
     {
         $this->digitPatternPermission = new SimpleContent($digitPatternPermission);
-        $this->digitPatternPermission->setName('digitPatternPermission');
+        $this->digitPatternPermission->setElementName('digitPatternPermission');
         return $this;
     }
 
@@ -119,6 +125,8 @@ class IncomingCallingPlanPermissionsModify extends ComplexType implements Comple
      */
     public function getDigitPatternPermission()
     {
-        return ($this->digitPatternPermission) ? $this->digitPatternPermission->getValue() : null;
+        return ($this->digitPatternPermission)
+            ? $this->digitPatternPermission->getElementValue()
+            : null;
     }
 }

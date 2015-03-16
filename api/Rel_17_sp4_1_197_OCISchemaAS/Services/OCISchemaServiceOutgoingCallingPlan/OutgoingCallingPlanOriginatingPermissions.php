@@ -19,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class OutgoingCallingPlanOriginatingPermissions extends ComplexType implements ComplexInterface
 {
-    public    $name = 'OutgoingCallingPlanOriginatingPermissions';
+    public    $elementName = 'OutgoingCallingPlanOriginatingPermissions';
     protected $group;
     protected $local;
     protected $tollFree;
@@ -81,7 +81,7 @@ class OutgoingCallingPlanOriginatingPermissions extends ComplexType implements C
     public function setGroup($group = null)
     {
         $this->group = new SimpleContent($group);
-        $this->group->setName('group');
+        $this->group->setElementName('group');
         return $this;
     }
 
@@ -91,7 +91,9 @@ class OutgoingCallingPlanOriginatingPermissions extends ComplexType implements C
      */
     public function getGroup()
     {
-        return ($this->group) ? $this->group->getValue() : null;
+        return ($this->group)
+            ? $this->group->getElementValue()
+            : null;
     }
 
     /**
@@ -100,7 +102,7 @@ class OutgoingCallingPlanOriginatingPermissions extends ComplexType implements C
     public function setLocal($local = null)
     {
         $this->local = new SimpleContent($local);
-        $this->local->setName('local');
+        $this->local->setElementName('local');
         return $this;
     }
 
@@ -110,7 +112,9 @@ class OutgoingCallingPlanOriginatingPermissions extends ComplexType implements C
      */
     public function getLocal()
     {
-        return ($this->local) ? $this->local->getValue() : null;
+        return ($this->local)
+            ? $this->local->getElementValue()
+            : null;
     }
 
     /**
@@ -119,7 +123,7 @@ class OutgoingCallingPlanOriginatingPermissions extends ComplexType implements C
     public function setTollFree($tollFree = null)
     {
         $this->tollFree = new SimpleContent($tollFree);
-        $this->tollFree->setName('tollFree');
+        $this->tollFree->setElementName('tollFree');
         return $this;
     }
 
@@ -129,7 +133,9 @@ class OutgoingCallingPlanOriginatingPermissions extends ComplexType implements C
      */
     public function getTollFree()
     {
-        return ($this->tollFree) ? $this->tollFree->getValue() : null;
+        return ($this->tollFree)
+            ? $this->tollFree->getElementValue()
+            : null;
     }
 
     /**
@@ -138,7 +144,7 @@ class OutgoingCallingPlanOriginatingPermissions extends ComplexType implements C
     public function setToll($toll = null)
     {
         $this->toll = new SimpleContent($toll);
-        $this->toll->setName('toll');
+        $this->toll->setElementName('toll');
         return $this;
     }
 
@@ -148,7 +154,9 @@ class OutgoingCallingPlanOriginatingPermissions extends ComplexType implements C
      */
     public function getToll()
     {
-        return ($this->toll) ? $this->toll->getValue() : null;
+        return ($this->toll)
+            ? $this->toll->getElementValue()
+            : null;
     }
 
     /**
@@ -157,7 +165,7 @@ class OutgoingCallingPlanOriginatingPermissions extends ComplexType implements C
     public function setInternational($international = null)
     {
         $this->international = new SimpleContent($international);
-        $this->international->setName('international');
+        $this->international->setElementName('international');
         return $this;
     }
 
@@ -167,7 +175,9 @@ class OutgoingCallingPlanOriginatingPermissions extends ComplexType implements C
      */
     public function getInternational()
     {
-        return ($this->international) ? $this->international->getValue() : null;
+        return ($this->international)
+            ? $this->international->getElementValue()
+            : null;
     }
 
     /**
@@ -176,7 +186,7 @@ class OutgoingCallingPlanOriginatingPermissions extends ComplexType implements C
     public function setOperatorAssisted($operatorAssisted = null)
     {
         $this->operatorAssisted = new SimpleContent($operatorAssisted);
-        $this->operatorAssisted->setName('operatorAssisted');
+        $this->operatorAssisted->setElementName('operatorAssisted');
         return $this;
     }
 
@@ -186,7 +196,9 @@ class OutgoingCallingPlanOriginatingPermissions extends ComplexType implements C
      */
     public function getOperatorAssisted()
     {
-        return ($this->operatorAssisted) ? $this->operatorAssisted->getValue() : null;
+        return ($this->operatorAssisted)
+            ? $this->operatorAssisted->getElementValue()
+            : null;
     }
 
     /**
@@ -195,7 +207,7 @@ class OutgoingCallingPlanOriginatingPermissions extends ComplexType implements C
     public function setChargeableDirectoryAssisted($chargeableDirectoryAssisted = null)
     {
         $this->chargeableDirectoryAssisted = new SimpleContent($chargeableDirectoryAssisted);
-        $this->chargeableDirectoryAssisted->setName('chargeableDirectoryAssisted');
+        $this->chargeableDirectoryAssisted->setElementName('chargeableDirectoryAssisted');
         return $this;
     }
 
@@ -205,7 +217,9 @@ class OutgoingCallingPlanOriginatingPermissions extends ComplexType implements C
      */
     public function getChargeableDirectoryAssisted()
     {
-        return ($this->chargeableDirectoryAssisted) ? $this->chargeableDirectoryAssisted->getValue() : null;
+        return ($this->chargeableDirectoryAssisted)
+            ? $this->chargeableDirectoryAssisted->getElementValue()
+            : null;
     }
 
     /**
@@ -214,7 +228,7 @@ class OutgoingCallingPlanOriginatingPermissions extends ComplexType implements C
     public function setSpecialServicesI($specialServicesI = null)
     {
         $this->specialServicesI = new SimpleContent($specialServicesI);
-        $this->specialServicesI->setName('specialServicesI');
+        $this->specialServicesI->setElementName('specialServicesI');
         return $this;
     }
 
@@ -224,7 +238,9 @@ class OutgoingCallingPlanOriginatingPermissions extends ComplexType implements C
      */
     public function getSpecialServicesI()
     {
-        return ($this->specialServicesI) ? $this->specialServicesI->getValue() : null;
+        return ($this->specialServicesI)
+            ? $this->specialServicesI->getElementValue()
+            : null;
     }
 
     /**
@@ -233,7 +249,7 @@ class OutgoingCallingPlanOriginatingPermissions extends ComplexType implements C
     public function setSpecialServicesII($specialServicesII = null)
     {
         $this->specialServicesII = new SimpleContent($specialServicesII);
-        $this->specialServicesII->setName('specialServicesII');
+        $this->specialServicesII->setElementName('specialServicesII');
         return $this;
     }
 
@@ -243,7 +259,9 @@ class OutgoingCallingPlanOriginatingPermissions extends ComplexType implements C
      */
     public function getSpecialServicesII()
     {
-        return ($this->specialServicesII) ? $this->specialServicesII->getValue() : null;
+        return ($this->specialServicesII)
+            ? $this->specialServicesII->getElementValue()
+            : null;
     }
 
     /**
@@ -252,7 +270,7 @@ class OutgoingCallingPlanOriginatingPermissions extends ComplexType implements C
     public function setPremiumServicesI($premiumServicesI = null)
     {
         $this->premiumServicesI = new SimpleContent($premiumServicesI);
-        $this->premiumServicesI->setName('premiumServicesI');
+        $this->premiumServicesI->setElementName('premiumServicesI');
         return $this;
     }
 
@@ -262,7 +280,9 @@ class OutgoingCallingPlanOriginatingPermissions extends ComplexType implements C
      */
     public function getPremiumServicesI()
     {
-        return ($this->premiumServicesI) ? $this->premiumServicesI->getValue() : null;
+        return ($this->premiumServicesI)
+            ? $this->premiumServicesI->getElementValue()
+            : null;
     }
 
     /**
@@ -271,7 +291,7 @@ class OutgoingCallingPlanOriginatingPermissions extends ComplexType implements C
     public function setPremiumServicesII($premiumServicesII = null)
     {
         $this->premiumServicesII = new SimpleContent($premiumServicesII);
-        $this->premiumServicesII->setName('premiumServicesII');
+        $this->premiumServicesII->setElementName('premiumServicesII');
         return $this;
     }
 
@@ -281,7 +301,9 @@ class OutgoingCallingPlanOriginatingPermissions extends ComplexType implements C
      */
     public function getPremiumServicesII()
     {
-        return ($this->premiumServicesII) ? $this->premiumServicesII->getValue() : null;
+        return ($this->premiumServicesII)
+            ? $this->premiumServicesII->getElementValue()
+            : null;
     }
 
     /**
@@ -290,7 +312,7 @@ class OutgoingCallingPlanOriginatingPermissions extends ComplexType implements C
     public function setCasual($casual = null)
     {
         $this->casual = new SimpleContent($casual);
-        $this->casual->setName('casual');
+        $this->casual->setElementName('casual');
         return $this;
     }
 
@@ -300,7 +322,9 @@ class OutgoingCallingPlanOriginatingPermissions extends ComplexType implements C
      */
     public function getCasual()
     {
-        return ($this->casual) ? $this->casual->getValue() : null;
+        return ($this->casual)
+            ? $this->casual->getElementValue()
+            : null;
     }
 
     /**
@@ -309,7 +333,7 @@ class OutgoingCallingPlanOriginatingPermissions extends ComplexType implements C
     public function setUrlDialing($urlDialing = null)
     {
         $this->urlDialing = new SimpleContent($urlDialing);
-        $this->urlDialing->setName('urlDialing');
+        $this->urlDialing->setElementName('urlDialing');
         return $this;
     }
 
@@ -319,7 +343,9 @@ class OutgoingCallingPlanOriginatingPermissions extends ComplexType implements C
      */
     public function getUrlDialing()
     {
-        return ($this->urlDialing) ? $this->urlDialing->getValue() : null;
+        return ($this->urlDialing)
+            ? $this->urlDialing->getElementValue()
+            : null;
     }
 
     /**
@@ -328,7 +354,7 @@ class OutgoingCallingPlanOriginatingPermissions extends ComplexType implements C
     public function setUnknown($unknown = null)
     {
         $this->unknown = new SimpleContent($unknown);
-        $this->unknown->setName('unknown');
+        $this->unknown->setElementName('unknown');
         return $this;
     }
 
@@ -338,6 +364,8 @@ class OutgoingCallingPlanOriginatingPermissions extends ComplexType implements C
      */
     public function getUnknown()
     {
-        return ($this->unknown) ? $this->unknown->getValue() : null;
+        return ($this->unknown)
+            ? $this->unknown->getElementValue()
+            : null;
     }
 }

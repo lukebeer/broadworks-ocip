@@ -19,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class CallCenterReportReplacementEmailList extends ComplexType implements ComplexInterface
 {
-    public    $name = 'CallCenterReportReplacementEmailList';
+    public    $elementName = 'CallCenterReportReplacementEmailList';
     protected $emailAddress;
 
     public function __construct(
@@ -42,7 +42,7 @@ class CallCenterReportReplacementEmailList extends ComplexType implements Comple
     public function setEmailAddress($emailAddress = null)
     {
         $this->emailAddress = new SimpleContent($emailAddress);
-        $this->emailAddress->setName('emailAddress');
+        $this->emailAddress->setElementName('emailAddress');
         return $this;
     }
 
@@ -52,6 +52,8 @@ class CallCenterReportReplacementEmailList extends ComplexType implements Comple
      */
     public function getEmailAddress()
     {
-        return ($this->emailAddress) ? $this->emailAddress->getValue() : null;
+        return ($this->emailAddress)
+            ? $this->emailAddress->getElementValue()
+            : null;
     }
 }

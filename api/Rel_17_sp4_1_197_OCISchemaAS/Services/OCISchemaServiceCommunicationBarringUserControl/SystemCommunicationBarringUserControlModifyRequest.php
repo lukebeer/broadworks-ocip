@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemCommunicationBarringUserControlModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemCommunicationBarringUserControlModifyRequest';
+    public    $elementName = 'SystemCommunicationBarringUserControlModifyRequest';
     protected $enableLockout;
     protected $maxNumberOfFailedAttempts;
     protected $lockoutMinutes;
@@ -51,7 +51,7 @@ class SystemCommunicationBarringUserControlModifyRequest extends ComplexType imp
     public function setEnableLockout($enableLockout = null)
     {
         $this->enableLockout = new PrimitiveType($enableLockout);
-        $this->enableLockout->setName('enableLockout');
+        $this->enableLockout->setElementName('enableLockout');
         return $this;
     }
 
@@ -61,7 +61,9 @@ class SystemCommunicationBarringUserControlModifyRequest extends ComplexType imp
      */
     public function getEnableLockout()
     {
-        return ($this->enableLockout) ? $this->enableLockout->getValue() : null;
+        return ($this->enableLockout)
+            ? $this->enableLockout->getElementValue()
+            : null;
     }
 
     /**
@@ -72,7 +74,7 @@ class SystemCommunicationBarringUserControlModifyRequest extends ComplexType imp
         $this->maxNumberOfFailedAttempts = ($maxNumberOfFailedAttempts InstanceOf CommunicationBarringUserControlNumberOfAttempts)
              ? $maxNumberOfFailedAttempts
              : new CommunicationBarringUserControlNumberOfAttempts($maxNumberOfFailedAttempts);
-        $this->maxNumberOfFailedAttempts->setName('maxNumberOfFailedAttempts');
+        $this->maxNumberOfFailedAttempts->setElementName('maxNumberOfFailedAttempts');
         return $this;
     }
 
@@ -82,7 +84,9 @@ class SystemCommunicationBarringUserControlModifyRequest extends ComplexType imp
      */
     public function getMaxNumberOfFailedAttempts()
     {
-        return ($this->maxNumberOfFailedAttempts) ? $this->maxNumberOfFailedAttempts->getValue() : null;
+        return ($this->maxNumberOfFailedAttempts)
+            ? $this->maxNumberOfFailedAttempts->getElementValue()
+            : null;
     }
 
     /**
@@ -93,7 +97,7 @@ class SystemCommunicationBarringUserControlModifyRequest extends ComplexType imp
         $this->lockoutMinutes = ($lockoutMinutes InstanceOf CommunicationBarringUserControlLockoutMinutes)
              ? $lockoutMinutes
              : new CommunicationBarringUserControlLockoutMinutes($lockoutMinutes);
-        $this->lockoutMinutes->setName('lockoutMinutes');
+        $this->lockoutMinutes->setElementName('lockoutMinutes');
         return $this;
     }
 
@@ -103,6 +107,8 @@ class SystemCommunicationBarringUserControlModifyRequest extends ComplexType imp
      */
     public function getLockoutMinutes()
     {
-        return ($this->lockoutMinutes) ? $this->lockoutMinutes->getValue() : null;
+        return ($this->lockoutMinutes)
+            ? $this->lockoutMinutes->getElementValue()
+            : null;
     }
 }

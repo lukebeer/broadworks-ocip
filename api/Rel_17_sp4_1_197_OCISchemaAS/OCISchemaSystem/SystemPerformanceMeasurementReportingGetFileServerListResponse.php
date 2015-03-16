@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemPerformanceMeasurementReportingGetFileServerListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemPerformanceMeasurementReportingGetFileServerListResponse';
+    public    $elementName = 'SystemPerformanceMeasurementReportingGetFileServerListResponse';
     protected $fileServerTable;
 
     /**
@@ -37,7 +37,7 @@ class SystemPerformanceMeasurementReportingGetFileServerListResponse extends Com
     public function setFileServerTable(TableType $fileServerTable = null)
     {
         $this->fileServerTable = $fileServerTable;
-        $this->fileServerTable->setName('fileServerTable');
+        $this->fileServerTable->setElementName('fileServerTable');
         return $this;
     }
 

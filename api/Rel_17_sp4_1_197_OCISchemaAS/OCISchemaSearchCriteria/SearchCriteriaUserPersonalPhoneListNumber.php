@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SearchCriteriaUserPersonalPhoneListNumber extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SearchCriteriaUserPersonalPhoneListNumber';
+    public    $elementName = 'SearchCriteriaUserPersonalPhoneListNumber';
     protected $mode;
     protected $value;
     protected $isCaseInsensitive;
@@ -52,7 +52,7 @@ class SearchCriteriaUserPersonalPhoneListNumber extends ComplexType implements C
         $this->mode = ($mode InstanceOf SearchMode)
              ? $mode
              : new SearchMode($mode);
-        $this->mode->setName('mode');
+        $this->mode->setElementName('mode');
         return $this;
     }
 
@@ -62,7 +62,9 @@ class SearchCriteriaUserPersonalPhoneListNumber extends ComplexType implements C
      */
     public function getMode()
     {
-        return ($this->mode) ? $this->mode->getValue() : null;
+        return ($this->mode)
+            ? $this->mode->getElementValue()
+            : null;
     }
 
     /**
@@ -73,7 +75,7 @@ class SearchCriteriaUserPersonalPhoneListNumber extends ComplexType implements C
         $this->value = ($value InstanceOf OutgoingDN)
              ? $value
              : new OutgoingDN($value);
-        $this->value->setName('value');
+        $this->value->setElementName('value');
         return $this;
     }
 
@@ -83,7 +85,9 @@ class SearchCriteriaUserPersonalPhoneListNumber extends ComplexType implements C
      */
     public function getValue()
     {
-        return ($this->value) ? $this->value->getValue() : null;
+        return ($this->value)
+            ? $this->value->getElementValue()
+            : null;
     }
 
     /**
@@ -92,7 +96,7 @@ class SearchCriteriaUserPersonalPhoneListNumber extends ComplexType implements C
     public function setIsCaseInsensitive($isCaseInsensitive = null)
     {
         $this->isCaseInsensitive = new PrimitiveType($isCaseInsensitive);
-        $this->isCaseInsensitive->setName('isCaseInsensitive');
+        $this->isCaseInsensitive->setElementName('isCaseInsensitive');
         return $this;
     }
 
@@ -102,6 +106,8 @@ class SearchCriteriaUserPersonalPhoneListNumber extends ComplexType implements C
      */
     public function getIsCaseInsensitive()
     {
-        return ($this->isCaseInsensitive) ? $this->isCaseInsensitive->getValue() : null;
+        return ($this->isCaseInsensitive)
+            ? $this->isCaseInsensitive->getElementValue()
+            : null;
     }
 }

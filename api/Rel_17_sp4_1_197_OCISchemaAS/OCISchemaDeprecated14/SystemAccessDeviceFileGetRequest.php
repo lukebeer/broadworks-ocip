@@ -23,7 +23,7 @@ use Broadworks_OCIP\core\Client\Client;
 class SystemAccessDeviceFileGetRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\SystemAccessDeviceFileGetResponse';
-    public    $name = 'SystemAccessDeviceFileGetRequest';
+    public    $elementName = 'SystemAccessDeviceFileGetRequest';
     protected $deviceName;
     protected $fileType;
 
@@ -51,7 +51,7 @@ class SystemAccessDeviceFileGetRequest extends ComplexType implements ComplexInt
         $this->deviceName = ($deviceName InstanceOf AccessDeviceName)
              ? $deviceName
              : new AccessDeviceName($deviceName);
-        $this->deviceName->setName('deviceName');
+        $this->deviceName->setElementName('deviceName');
         return $this;
     }
 
@@ -61,7 +61,9 @@ class SystemAccessDeviceFileGetRequest extends ComplexType implements ComplexInt
      */
     public function getDeviceName()
     {
-        return ($this->deviceName) ? $this->deviceName->getValue() : null;
+        return ($this->deviceName)
+            ? $this->deviceName->getElementValue()
+            : null;
     }
 
     /**
@@ -72,7 +74,7 @@ class SystemAccessDeviceFileGetRequest extends ComplexType implements ComplexInt
         $this->fileType = ($fileType InstanceOf DeviceManagementFileType)
              ? $fileType
              : new DeviceManagementFileType($fileType);
-        $this->fileType->setName('fileType');
+        $this->fileType->setElementName('fileType');
         return $this;
     }
 
@@ -82,6 +84,8 @@ class SystemAccessDeviceFileGetRequest extends ComplexType implements ComplexInt
      */
     public function getFileType()
     {
-        return ($this->fileType) ? $this->fileType->getValue() : null;
+        return ($this->fileType)
+            ? $this->fileType->getElementValue()
+            : null;
     }
 }

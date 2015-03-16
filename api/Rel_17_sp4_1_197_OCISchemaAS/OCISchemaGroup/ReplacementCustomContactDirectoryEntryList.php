@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ReplacementCustomContactDirectoryEntryList extends ComplexType implements ComplexInterface
 {
-    public    $name = 'ReplacementCustomContactDirectoryEntryList';
+    public    $elementName = 'ReplacementCustomContactDirectoryEntryList';
     protected $entry;
 
     public function __construct(
@@ -43,7 +43,7 @@ class ReplacementCustomContactDirectoryEntryList extends ComplexType implements 
     public function setEntry($entry = null)
     {
         $this->entry = new SimpleContent($entry);
-        $this->entry->setName('entry');
+        $this->entry->setElementName('entry');
         return $this;
     }
 
@@ -53,6 +53,8 @@ class ReplacementCustomContactDirectoryEntryList extends ComplexType implements 
      */
     public function getEntry()
     {
-        return ($this->entry) ? $this->entry->getValue() : null;
+        return ($this->entry)
+            ? $this->entry->getElementValue()
+            : null;
     }
 }

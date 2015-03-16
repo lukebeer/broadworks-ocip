@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserChargeNumberGetResponse14sp9 extends ComplexType implements ComplexInterface
 {
-    public    $name = 'UserChargeNumberGetResponse14sp9';
+    public    $elementName = 'UserChargeNumberGetResponse14sp9';
     protected $phoneNumber;
     protected $useChargeNumberForEnhancedTranslations;
     protected $sendChargeNumberToNetwork;
@@ -41,7 +41,7 @@ class UserChargeNumberGetResponse14sp9 extends ComplexType implements ComplexInt
         $this->phoneNumber = ($phoneNumber InstanceOf DN)
              ? $phoneNumber
              : new DN($phoneNumber);
-        $this->phoneNumber->setName('phoneNumber');
+        $this->phoneNumber->setElementName('phoneNumber');
         return $this;
     }
 
@@ -51,7 +51,9 @@ class UserChargeNumberGetResponse14sp9 extends ComplexType implements ComplexInt
      */
     public function getPhoneNumber()
     {
-        return ($this->phoneNumber) ? $this->phoneNumber->getValue() : null;
+        return ($this->phoneNumber)
+            ? $this->phoneNumber->getElementValue()
+            : null;
     }
 
     /**
@@ -60,7 +62,7 @@ class UserChargeNumberGetResponse14sp9 extends ComplexType implements ComplexInt
     public function setUseChargeNumberForEnhancedTranslations($useChargeNumberForEnhancedTranslations = null)
     {
         $this->useChargeNumberForEnhancedTranslations = new PrimitiveType($useChargeNumberForEnhancedTranslations);
-        $this->useChargeNumberForEnhancedTranslations->setName('useChargeNumberForEnhancedTranslations');
+        $this->useChargeNumberForEnhancedTranslations->setElementName('useChargeNumberForEnhancedTranslations');
         return $this;
     }
 
@@ -70,7 +72,9 @@ class UserChargeNumberGetResponse14sp9 extends ComplexType implements ComplexInt
      */
     public function getUseChargeNumberForEnhancedTranslations()
     {
-        return ($this->useChargeNumberForEnhancedTranslations) ? $this->useChargeNumberForEnhancedTranslations->getValue() : null;
+        return ($this->useChargeNumberForEnhancedTranslations)
+            ? $this->useChargeNumberForEnhancedTranslations->getElementValue()
+            : null;
     }
 
     /**
@@ -79,7 +83,7 @@ class UserChargeNumberGetResponse14sp9 extends ComplexType implements ComplexInt
     public function setSendChargeNumberToNetwork($sendChargeNumberToNetwork = null)
     {
         $this->sendChargeNumberToNetwork = new PrimitiveType($sendChargeNumberToNetwork);
-        $this->sendChargeNumberToNetwork->setName('sendChargeNumberToNetwork');
+        $this->sendChargeNumberToNetwork->setElementName('sendChargeNumberToNetwork');
         return $this;
     }
 
@@ -89,6 +93,8 @@ class UserChargeNumberGetResponse14sp9 extends ComplexType implements ComplexInt
      */
     public function getSendChargeNumberToNetwork()
     {
-        return ($this->sendChargeNumberToNetwork) ? $this->sendChargeNumberToNetwork->getValue() : null;
+        return ($this->sendChargeNumberToNetwork)
+            ? $this->sendChargeNumberToNetwork->getElementValue()
+            : null;
     }
 }

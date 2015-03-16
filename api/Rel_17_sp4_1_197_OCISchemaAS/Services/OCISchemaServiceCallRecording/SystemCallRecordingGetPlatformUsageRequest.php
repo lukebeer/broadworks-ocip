@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
 class SystemCallRecordingGetPlatformUsageRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallRecording\SystemCallRecordingGetPlatformUsageResponse';
-    public    $name = 'SystemCallRecordingGetPlatformUsageRequest';
+    public    $elementName = 'SystemCallRecordingGetPlatformUsageRequest';
     protected $name;
 
     public function __construct(
@@ -46,7 +46,7 @@ class SystemCallRecordingGetPlatformUsageRequest extends ComplexType implements 
         $this->name = ($name InstanceOf CallRecordingPlatformName)
              ? $name
              : new CallRecordingPlatformName($name);
-        $this->name->setName('name');
+        $this->name->setElementName('name');
         return $this;
     }
 
@@ -56,6 +56,8 @@ class SystemCallRecordingGetPlatformUsageRequest extends ComplexType implements 
      */
     public function getName()
     {
-        return ($this->name) ? $this->name->getValue() : null;
+        return ($this->name)
+            ? $this->name->getElementValue()
+            : null;
     }
 }

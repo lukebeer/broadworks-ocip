@@ -24,7 +24,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserRoutePointCallDispositionCodeGetAvailableListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'UserRoutePointCallDispositionCodeGetAvailableListResponse';
+    public    $elementName = 'UserRoutePointCallDispositionCodeGetAvailableListResponse';
     protected $dispositionCodesTable;
 
     /**
@@ -41,7 +41,7 @@ class UserRoutePointCallDispositionCodeGetAvailableListResponse extends ComplexT
     public function setDispositionCodesTable(TableType $dispositionCodesTable = null)
     {
         $this->dispositionCodesTable = $dispositionCodesTable;
-        $this->dispositionCodesTable->setName('dispositionCodesTable');
+        $this->dispositionCodesTable->setElementName('dispositionCodesTable');
         return $this;
     }
 

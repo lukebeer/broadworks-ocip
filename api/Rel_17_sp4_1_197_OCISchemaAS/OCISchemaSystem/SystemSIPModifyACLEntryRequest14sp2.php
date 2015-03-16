@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemSIPModifyACLEntryRequest14sp2 extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemSIPModifyACLEntryRequest14sp2';
+    public    $elementName = 'SystemSIPModifyACLEntryRequest14sp2';
     protected $netAddress;
     protected $transportProtocol;
     protected $description;
@@ -53,7 +53,7 @@ class SystemSIPModifyACLEntryRequest14sp2 extends ComplexType implements Complex
         $this->netAddress = ($netAddress InstanceOf IPAddress)
              ? $netAddress
              : new IPAddress($netAddress);
-        $this->netAddress->setName('netAddress');
+        $this->netAddress->setElementName('netAddress');
         return $this;
     }
 
@@ -63,7 +63,9 @@ class SystemSIPModifyACLEntryRequest14sp2 extends ComplexType implements Complex
      */
     public function getNetAddress()
     {
-        return ($this->netAddress) ? $this->netAddress->getValue() : null;
+        return ($this->netAddress)
+            ? $this->netAddress->getElementValue()
+            : null;
     }
 
     /**
@@ -74,7 +76,7 @@ class SystemSIPModifyACLEntryRequest14sp2 extends ComplexType implements Complex
         $this->transportProtocol = ($transportProtocol InstanceOf SIPACLTransportProtocol)
              ? $transportProtocol
              : new SIPACLTransportProtocol($transportProtocol);
-        $this->transportProtocol->setName('transportProtocol');
+        $this->transportProtocol->setElementName('transportProtocol');
         return $this;
     }
 
@@ -84,7 +86,9 @@ class SystemSIPModifyACLEntryRequest14sp2 extends ComplexType implements Complex
      */
     public function getTransportProtocol()
     {
-        return ($this->transportProtocol) ? $this->transportProtocol->getValue() : null;
+        return ($this->transportProtocol)
+            ? $this->transportProtocol->getElementValue()
+            : null;
     }
 
     /**
@@ -95,7 +99,7 @@ class SystemSIPModifyACLEntryRequest14sp2 extends ComplexType implements Complex
         $this->description = ($description InstanceOf NetworkACLEntryDescription)
              ? $description
              : new NetworkACLEntryDescription($description);
-        $this->description->setName('description');
+        $this->description->setElementName('description');
         return $this;
     }
 
@@ -105,6 +109,8 @@ class SystemSIPModifyACLEntryRequest14sp2 extends ComplexType implements Complex
      */
     public function getDescription()
     {
-        return ($this->description) ? $this->description->getValue() : null;
+        return ($this->description)
+            ? $this->description->getElementValue()
+            : null;
     }
 }

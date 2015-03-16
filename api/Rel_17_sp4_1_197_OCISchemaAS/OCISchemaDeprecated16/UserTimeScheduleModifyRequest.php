@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserTimeScheduleModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'UserTimeScheduleModifyRequest';
+    public    $elementName = 'UserTimeScheduleModifyRequest';
     protected $userId;
     protected $timeScheduleName;
     protected $newTimeScheduleName;
@@ -113,7 +113,7 @@ class UserTimeScheduleModifyRequest extends ComplexType implements ComplexInterf
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
-        $this->userId->setName('userId');
+        $this->userId->setElementName('userId');
         return $this;
     }
 
@@ -123,7 +123,9 @@ class UserTimeScheduleModifyRequest extends ComplexType implements ComplexInterf
      */
     public function getUserId()
     {
-        return ($this->userId) ? $this->userId->getValue() : null;
+        return ($this->userId)
+            ? $this->userId->getElementValue()
+            : null;
     }
 
     /**
@@ -134,7 +136,7 @@ class UserTimeScheduleModifyRequest extends ComplexType implements ComplexInterf
         $this->timeScheduleName = ($timeScheduleName InstanceOf ScheduleName)
              ? $timeScheduleName
              : new ScheduleName($timeScheduleName);
-        $this->timeScheduleName->setName('timeScheduleName');
+        $this->timeScheduleName->setElementName('timeScheduleName');
         return $this;
     }
 
@@ -144,7 +146,9 @@ class UserTimeScheduleModifyRequest extends ComplexType implements ComplexInterf
      */
     public function getTimeScheduleName()
     {
-        return ($this->timeScheduleName) ? $this->timeScheduleName->getValue() : null;
+        return ($this->timeScheduleName)
+            ? $this->timeScheduleName->getElementValue()
+            : null;
     }
 
     /**
@@ -155,7 +159,7 @@ class UserTimeScheduleModifyRequest extends ComplexType implements ComplexInterf
         $this->newTimeScheduleName = ($newTimeScheduleName InstanceOf ScheduleName)
              ? $newTimeScheduleName
              : new ScheduleName($newTimeScheduleName);
-        $this->newTimeScheduleName->setName('newTimeScheduleName');
+        $this->newTimeScheduleName->setElementName('newTimeScheduleName');
         return $this;
     }
 
@@ -165,7 +169,9 @@ class UserTimeScheduleModifyRequest extends ComplexType implements ComplexInterf
      */
     public function getNewTimeScheduleName()
     {
-        return ($this->newTimeScheduleName) ? $this->newTimeScheduleName->getValue() : null;
+        return ($this->newTimeScheduleName)
+            ? $this->newTimeScheduleName->getElementValue()
+            : null;
     }
 
     /**
@@ -176,7 +182,7 @@ class UserTimeScheduleModifyRequest extends ComplexType implements ComplexInterf
         $this->timeInterval01 = ($timeInterval01 InstanceOf TimeInterval)
              ? $timeInterval01
              : new TimeInterval($timeInterval01);
-        $this->timeInterval01->setName('timeInterval01');
+        $this->timeInterval01->setElementName('timeInterval01');
         return $this;
     }
 
@@ -197,7 +203,7 @@ class UserTimeScheduleModifyRequest extends ComplexType implements ComplexInterf
         $this->timeInterval02 = ($timeInterval02 InstanceOf TimeInterval)
              ? $timeInterval02
              : new TimeInterval($timeInterval02);
-        $this->timeInterval02->setName('timeInterval02');
+        $this->timeInterval02->setElementName('timeInterval02');
         return $this;
     }
 
@@ -218,7 +224,7 @@ class UserTimeScheduleModifyRequest extends ComplexType implements ComplexInterf
         $this->timeInterval03 = ($timeInterval03 InstanceOf TimeInterval)
              ? $timeInterval03
              : new TimeInterval($timeInterval03);
-        $this->timeInterval03->setName('timeInterval03');
+        $this->timeInterval03->setElementName('timeInterval03');
         return $this;
     }
 
@@ -239,7 +245,7 @@ class UserTimeScheduleModifyRequest extends ComplexType implements ComplexInterf
         $this->timeInterval04 = ($timeInterval04 InstanceOf TimeInterval)
              ? $timeInterval04
              : new TimeInterval($timeInterval04);
-        $this->timeInterval04->setName('timeInterval04');
+        $this->timeInterval04->setElementName('timeInterval04');
         return $this;
     }
 
@@ -260,7 +266,7 @@ class UserTimeScheduleModifyRequest extends ComplexType implements ComplexInterf
         $this->timeInterval05 = ($timeInterval05 InstanceOf TimeInterval)
              ? $timeInterval05
              : new TimeInterval($timeInterval05);
-        $this->timeInterval05->setName('timeInterval05');
+        $this->timeInterval05->setElementName('timeInterval05');
         return $this;
     }
 
@@ -281,7 +287,7 @@ class UserTimeScheduleModifyRequest extends ComplexType implements ComplexInterf
         $this->timeInterval06 = ($timeInterval06 InstanceOf TimeInterval)
              ? $timeInterval06
              : new TimeInterval($timeInterval06);
-        $this->timeInterval06->setName('timeInterval06');
+        $this->timeInterval06->setElementName('timeInterval06');
         return $this;
     }
 
@@ -302,7 +308,7 @@ class UserTimeScheduleModifyRequest extends ComplexType implements ComplexInterf
         $this->timeInterval07 = ($timeInterval07 InstanceOf TimeInterval)
              ? $timeInterval07
              : new TimeInterval($timeInterval07);
-        $this->timeInterval07->setName('timeInterval07');
+        $this->timeInterval07->setElementName('timeInterval07');
         return $this;
     }
 
@@ -323,7 +329,7 @@ class UserTimeScheduleModifyRequest extends ComplexType implements ComplexInterf
         $this->timeInterval08 = ($timeInterval08 InstanceOf TimeInterval)
              ? $timeInterval08
              : new TimeInterval($timeInterval08);
-        $this->timeInterval08->setName('timeInterval08');
+        $this->timeInterval08->setElementName('timeInterval08');
         return $this;
     }
 
@@ -344,7 +350,7 @@ class UserTimeScheduleModifyRequest extends ComplexType implements ComplexInterf
         $this->timeInterval09 = ($timeInterval09 InstanceOf TimeInterval)
              ? $timeInterval09
              : new TimeInterval($timeInterval09);
-        $this->timeInterval09->setName('timeInterval09');
+        $this->timeInterval09->setElementName('timeInterval09');
         return $this;
     }
 
@@ -365,7 +371,7 @@ class UserTimeScheduleModifyRequest extends ComplexType implements ComplexInterf
         $this->timeInterval10 = ($timeInterval10 InstanceOf TimeInterval)
              ? $timeInterval10
              : new TimeInterval($timeInterval10);
-        $this->timeInterval10->setName('timeInterval10');
+        $this->timeInterval10->setElementName('timeInterval10');
         return $this;
     }
 
@@ -386,7 +392,7 @@ class UserTimeScheduleModifyRequest extends ComplexType implements ComplexInterf
         $this->timeInterval11 = ($timeInterval11 InstanceOf TimeInterval)
              ? $timeInterval11
              : new TimeInterval($timeInterval11);
-        $this->timeInterval11->setName('timeInterval11');
+        $this->timeInterval11->setElementName('timeInterval11');
         return $this;
     }
 
@@ -407,7 +413,7 @@ class UserTimeScheduleModifyRequest extends ComplexType implements ComplexInterf
         $this->timeInterval12 = ($timeInterval12 InstanceOf TimeInterval)
              ? $timeInterval12
              : new TimeInterval($timeInterval12);
-        $this->timeInterval12->setName('timeInterval12');
+        $this->timeInterval12->setElementName('timeInterval12');
         return $this;
     }
 
@@ -428,7 +434,7 @@ class UserTimeScheduleModifyRequest extends ComplexType implements ComplexInterf
         $this->timeInterval13 = ($timeInterval13 InstanceOf TimeInterval)
              ? $timeInterval13
              : new TimeInterval($timeInterval13);
-        $this->timeInterval13->setName('timeInterval13');
+        $this->timeInterval13->setElementName('timeInterval13');
         return $this;
     }
 
@@ -449,7 +455,7 @@ class UserTimeScheduleModifyRequest extends ComplexType implements ComplexInterf
         $this->timeInterval14 = ($timeInterval14 InstanceOf TimeInterval)
              ? $timeInterval14
              : new TimeInterval($timeInterval14);
-        $this->timeInterval14->setName('timeInterval14');
+        $this->timeInterval14->setElementName('timeInterval14');
         return $this;
     }
 
@@ -470,7 +476,7 @@ class UserTimeScheduleModifyRequest extends ComplexType implements ComplexInterf
         $this->timeInterval15 = ($timeInterval15 InstanceOf TimeInterval)
              ? $timeInterval15
              : new TimeInterval($timeInterval15);
-        $this->timeInterval15->setName('timeInterval15');
+        $this->timeInterval15->setElementName('timeInterval15');
         return $this;
     }
 
@@ -491,7 +497,7 @@ class UserTimeScheduleModifyRequest extends ComplexType implements ComplexInterf
         $this->timeInterval16 = ($timeInterval16 InstanceOf TimeInterval)
              ? $timeInterval16
              : new TimeInterval($timeInterval16);
-        $this->timeInterval16->setName('timeInterval16');
+        $this->timeInterval16->setElementName('timeInterval16');
         return $this;
     }
 
@@ -512,7 +518,7 @@ class UserTimeScheduleModifyRequest extends ComplexType implements ComplexInterf
         $this->timeInterval17 = ($timeInterval17 InstanceOf TimeInterval)
              ? $timeInterval17
              : new TimeInterval($timeInterval17);
-        $this->timeInterval17->setName('timeInterval17');
+        $this->timeInterval17->setElementName('timeInterval17');
         return $this;
     }
 
@@ -533,7 +539,7 @@ class UserTimeScheduleModifyRequest extends ComplexType implements ComplexInterf
         $this->timeInterval18 = ($timeInterval18 InstanceOf TimeInterval)
              ? $timeInterval18
              : new TimeInterval($timeInterval18);
-        $this->timeInterval18->setName('timeInterval18');
+        $this->timeInterval18->setElementName('timeInterval18');
         return $this;
     }
 
@@ -554,7 +560,7 @@ class UserTimeScheduleModifyRequest extends ComplexType implements ComplexInterf
         $this->timeInterval19 = ($timeInterval19 InstanceOf TimeInterval)
              ? $timeInterval19
              : new TimeInterval($timeInterval19);
-        $this->timeInterval19->setName('timeInterval19');
+        $this->timeInterval19->setElementName('timeInterval19');
         return $this;
     }
 
@@ -575,7 +581,7 @@ class UserTimeScheduleModifyRequest extends ComplexType implements ComplexInterf
         $this->timeInterval20 = ($timeInterval20 InstanceOf TimeInterval)
              ? $timeInterval20
              : new TimeInterval($timeInterval20);
-        $this->timeInterval20->setName('timeInterval20');
+        $this->timeInterval20->setElementName('timeInterval20');
         return $this;
     }
 

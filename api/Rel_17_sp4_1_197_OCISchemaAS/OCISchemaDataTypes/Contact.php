@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class Contact extends ComplexType implements ComplexInterface
 {
-    public    $name = 'Contact';
+    public    $elementName = 'Contact';
     protected $contactName;
     protected $contactNumber;
     protected $contactEmail;
@@ -52,7 +52,7 @@ class Contact extends ComplexType implements ComplexInterface
         $this->contactName = new SimpleContent($contactName);
         $this->contactName->addRestriction(new MinLength("1"));
         $this->contactName->addRestriction(new MaxLength("30"));
-        $this->contactName->setName('contactName');
+        $this->contactName->setElementName('contactName');
         return $this;
     }
 
@@ -62,7 +62,9 @@ class Contact extends ComplexType implements ComplexInterface
      */
     public function getContactName()
     {
-        return ($this->contactName) ? $this->contactName->getValue() : null;
+        return ($this->contactName)
+            ? $this->contactName->getElementValue()
+            : null;
     }
 
     /**
@@ -73,7 +75,7 @@ class Contact extends ComplexType implements ComplexInterface
         $this->contactNumber = new SimpleContent($contactNumber);
         $this->contactNumber->addRestriction(new MinLength("1"));
         $this->contactNumber->addRestriction(new MaxLength("30"));
-        $this->contactNumber->setName('contactNumber');
+        $this->contactNumber->setElementName('contactNumber');
         return $this;
     }
 
@@ -83,7 +85,9 @@ class Contact extends ComplexType implements ComplexInterface
      */
     public function getContactNumber()
     {
-        return ($this->contactNumber) ? $this->contactNumber->getValue() : null;
+        return ($this->contactNumber)
+            ? $this->contactNumber->getElementValue()
+            : null;
     }
 
     /**
@@ -92,7 +96,7 @@ class Contact extends ComplexType implements ComplexInterface
     public function setContactEmail($contactEmail = null)
     {
         $this->contactEmail = new SimpleContent($contactEmail);
-        $this->contactEmail->setName('contactEmail');
+        $this->contactEmail->setElementName('contactEmail');
         return $this;
     }
 
@@ -102,6 +106,8 @@ class Contact extends ComplexType implements ComplexInterface
      */
     public function getContactEmail()
     {
-        return ($this->contactEmail) ? $this->contactEmail->getValue() : null;
+        return ($this->contactEmail)
+            ? $this->contactEmail->getElementValue()
+            : null;
     }
 }

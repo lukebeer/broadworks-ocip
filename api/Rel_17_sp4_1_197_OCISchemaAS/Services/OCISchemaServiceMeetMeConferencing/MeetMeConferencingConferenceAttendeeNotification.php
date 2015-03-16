@@ -16,12 +16,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\Enumeration;
  */
 class MeetMeConferencingConferenceAttendeeNotification extends SimpleType
 {
-    public $name = "MeetMeConferencingConferenceAttendeeNotification";
-    protected $value;
-
+    public $elementName = "MeetMeConferencingConferenceAttendeeNotification";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new Enumeration([
             'Play Tone',
             'Play Recorded Name',

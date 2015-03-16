@@ -19,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserBargeInExemptGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'UserBargeInExemptGetResponse';
+    public    $elementName = 'UserBargeInExemptGetResponse';
     protected $isActive;
 
     /**
@@ -36,7 +36,7 @@ class UserBargeInExemptGetResponse extends ComplexType implements ComplexInterfa
     public function setIsActive($isActive = null)
     {
         $this->isActive = new PrimitiveType($isActive);
-        $this->isActive->setName('isActive');
+        $this->isActive->setElementName('isActive');
         return $this;
     }
 
@@ -46,6 +46,8 @@ class UserBargeInExemptGetResponse extends ComplexType implements ComplexInterfa
      */
     public function getIsActive()
     {
-        return ($this->isActive) ? $this->isActive->getValue() : null;
+        return ($this->isActive)
+            ? $this->isActive->getElementValue()
+            : null;
     }
 }

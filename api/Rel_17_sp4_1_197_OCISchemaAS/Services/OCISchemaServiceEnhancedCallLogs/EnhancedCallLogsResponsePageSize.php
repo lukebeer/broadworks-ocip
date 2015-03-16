@@ -17,12 +17,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\MaxInclusive;
  */
 class EnhancedCallLogsResponsePageSize extends SimpleType
 {
-    public $name = "EnhancedCallLogsResponsePageSize";
-    protected $value;
-
+    public $elementName = "EnhancedCallLogsResponsePageSize";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new MinInclusive("1"));
         $this->addRestriction(new MaxInclusive("1000"));
     }

@@ -19,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class AutoAttendantKeyConfigurationEntry extends ComplexType implements ComplexInterface
 {
-    public    $name = 'AutoAttendantKeyConfigurationEntry';
+    public    $elementName = 'AutoAttendantKeyConfigurationEntry';
     protected $description;
     protected $action;
     protected $phoneNumber;
@@ -48,7 +48,7 @@ class AutoAttendantKeyConfigurationEntry extends ComplexType implements ComplexI
     public function setDescription($description = null)
     {
         $this->description = new SimpleContent($description);
-        $this->description->setName('description');
+        $this->description->setElementName('description');
         return $this;
     }
 
@@ -58,7 +58,9 @@ class AutoAttendantKeyConfigurationEntry extends ComplexType implements ComplexI
      */
     public function getDescription()
     {
-        return ($this->description) ? $this->description->getValue() : null;
+        return ($this->description)
+            ? $this->description->getElementValue()
+            : null;
     }
 
     /**
@@ -67,7 +69,7 @@ class AutoAttendantKeyConfigurationEntry extends ComplexType implements ComplexI
     public function setAction($action = null)
     {
         $this->action = new SimpleContent($action);
-        $this->action->setName('action');
+        $this->action->setElementName('action');
         return $this;
     }
 
@@ -77,7 +79,9 @@ class AutoAttendantKeyConfigurationEntry extends ComplexType implements ComplexI
      */
     public function getAction()
     {
-        return ($this->action) ? $this->action->getValue() : null;
+        return ($this->action)
+            ? $this->action->getElementValue()
+            : null;
     }
 
     /**
@@ -86,7 +90,7 @@ class AutoAttendantKeyConfigurationEntry extends ComplexType implements ComplexI
     public function setPhoneNumber($phoneNumber = null)
     {
         $this->phoneNumber = new SimpleContent($phoneNumber);
-        $this->phoneNumber->setName('phoneNumber');
+        $this->phoneNumber->setElementName('phoneNumber');
         return $this;
     }
 
@@ -96,6 +100,8 @@ class AutoAttendantKeyConfigurationEntry extends ComplexType implements ComplexI
      */
     public function getPhoneNumber()
     {
-        return ($this->phoneNumber) ? $this->phoneNumber->getValue() : null;
+        return ($this->phoneNumber)
+            ? $this->phoneNumber->getElementValue()
+            : null;
     }
 }

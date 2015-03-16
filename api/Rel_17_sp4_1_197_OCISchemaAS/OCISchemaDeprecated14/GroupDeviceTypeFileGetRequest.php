@@ -24,7 +24,7 @@ use Broadworks_OCIP\core\Client\Client;
 class GroupDeviceTypeFileGetRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\GroupDeviceTypeFileGetResponse';
-    public    $name = 'GroupDeviceTypeFileGetRequest';
+    public    $elementName = 'GroupDeviceTypeFileGetRequest';
     protected $serviceProviderId;
     protected $groupId;
     protected $deviceType;
@@ -58,7 +58,7 @@ class GroupDeviceTypeFileGetRequest extends ComplexType implements ComplexInterf
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
-        $this->serviceProviderId->setName('serviceProviderId');
+        $this->serviceProviderId->setElementName('serviceProviderId');
         return $this;
     }
 
@@ -68,7 +68,9 @@ class GroupDeviceTypeFileGetRequest extends ComplexType implements ComplexInterf
      */
     public function getServiceProviderId()
     {
-        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
+        return ($this->serviceProviderId)
+            ? $this->serviceProviderId->getElementValue()
+            : null;
     }
 
     /**
@@ -79,7 +81,7 @@ class GroupDeviceTypeFileGetRequest extends ComplexType implements ComplexInterf
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
-        $this->groupId->setName('groupId');
+        $this->groupId->setElementName('groupId');
         return $this;
     }
 
@@ -89,7 +91,9 @@ class GroupDeviceTypeFileGetRequest extends ComplexType implements ComplexInterf
      */
     public function getGroupId()
     {
-        return ($this->groupId) ? $this->groupId->getValue() : null;
+        return ($this->groupId)
+            ? $this->groupId->getElementValue()
+            : null;
     }
 
     /**
@@ -100,7 +104,7 @@ class GroupDeviceTypeFileGetRequest extends ComplexType implements ComplexInterf
         $this->deviceType = ($deviceType InstanceOf AccessDeviceType)
              ? $deviceType
              : new AccessDeviceType($deviceType);
-        $this->deviceType->setName('deviceType');
+        $this->deviceType->setElementName('deviceType');
         return $this;
     }
 
@@ -110,7 +114,9 @@ class GroupDeviceTypeFileGetRequest extends ComplexType implements ComplexInterf
      */
     public function getDeviceType()
     {
-        return ($this->deviceType) ? $this->deviceType->getValue() : null;
+        return ($this->deviceType)
+            ? $this->deviceType->getElementValue()
+            : null;
     }
 
     /**
@@ -121,7 +127,7 @@ class GroupDeviceTypeFileGetRequest extends ComplexType implements ComplexInterf
         $this->fileType = ($fileType InstanceOf DeviceManagementFileType)
              ? $fileType
              : new DeviceManagementFileType($fileType);
-        $this->fileType->setName('fileType');
+        $this->fileType->setElementName('fileType');
         return $this;
     }
 
@@ -131,6 +137,8 @@ class GroupDeviceTypeFileGetRequest extends ComplexType implements ComplexInterf
      */
     public function getFileType()
     {
-        return ($this->fileType) ? $this->fileType->getValue() : null;
+        return ($this->fileType)
+            ? $this->fileType->getElementValue()
+            : null;
     }
 }

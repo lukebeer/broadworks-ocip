@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserSimultaneousRingPersonalGetResponse14sp4 extends ComplexType implements ComplexInterface
 {
-    public    $name = 'UserSimultaneousRingPersonalGetResponse14sp4';
+    public    $elementName = 'UserSimultaneousRingPersonalGetResponse14sp4';
     protected $isActive;
     protected $incomingCalls;
     protected $phoneNumberTable;
@@ -41,7 +41,7 @@ class UserSimultaneousRingPersonalGetResponse14sp4 extends ComplexType implement
     public function setIsActive($isActive = null)
     {
         $this->isActive = new PrimitiveType($isActive);
-        $this->isActive->setName('isActive');
+        $this->isActive->setElementName('isActive');
         return $this;
     }
 
@@ -51,7 +51,9 @@ class UserSimultaneousRingPersonalGetResponse14sp4 extends ComplexType implement
      */
     public function getIsActive()
     {
-        return ($this->isActive) ? $this->isActive->getValue() : null;
+        return ($this->isActive)
+            ? $this->isActive->getElementValue()
+            : null;
     }
 
     /**
@@ -62,7 +64,7 @@ class UserSimultaneousRingPersonalGetResponse14sp4 extends ComplexType implement
         $this->incomingCalls = ($incomingCalls InstanceOf SimultaneousRingSelection)
              ? $incomingCalls
              : new SimultaneousRingSelection($incomingCalls);
-        $this->incomingCalls->setName('incomingCalls');
+        $this->incomingCalls->setElementName('incomingCalls');
         return $this;
     }
 
@@ -72,7 +74,9 @@ class UserSimultaneousRingPersonalGetResponse14sp4 extends ComplexType implement
      */
     public function getIncomingCalls()
     {
-        return ($this->incomingCalls) ? $this->incomingCalls->getValue() : null;
+        return ($this->incomingCalls)
+            ? $this->incomingCalls->getElementValue()
+            : null;
     }
 
     /**
@@ -81,7 +85,7 @@ class UserSimultaneousRingPersonalGetResponse14sp4 extends ComplexType implement
     public function setPhoneNumberTable(TableType $phoneNumberTable = null)
     {
         $this->phoneNumberTable = $phoneNumberTable;
-        $this->phoneNumberTable->setName('phoneNumberTable');
+        $this->phoneNumberTable->setElementName('phoneNumberTable');
         return $this;
     }
 

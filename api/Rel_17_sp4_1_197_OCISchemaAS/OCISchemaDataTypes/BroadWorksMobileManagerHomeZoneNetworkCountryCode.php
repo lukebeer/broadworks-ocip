@@ -18,12 +18,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\MaxLength;
  */
 class BroadWorksMobileManagerHomeZoneNetworkCountryCode extends SimpleType
 {
-    public $name = "BroadWorksMobileManagerHomeZoneNetworkCountryCode";
-    protected $value;
-
+    public $elementName = "BroadWorksMobileManagerHomeZoneNetworkCountryCode";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new MinLength("1"));
         $this->addRestriction(new MaxLength("3"));
     }

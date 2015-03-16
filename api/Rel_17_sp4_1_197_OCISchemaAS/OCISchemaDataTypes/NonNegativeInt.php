@@ -16,12 +16,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\MinInclusive;
  */
 class NonNegativeInt extends SimpleType
 {
-    public $name = "NonNegativeInt";
-    protected $value;
-
+    public $elementName = "NonNegativeInt";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new MinInclusive("0"));
     }
 }

@@ -19,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class OutgoingCallingPlanDigitPatternRedirectingDepartmentPermissions extends ComplexType implements ComplexInterface
 {
-    public    $name = 'OutgoingCallingPlanDigitPatternRedirectingDepartmentPermissions';
+    public    $elementName = 'OutgoingCallingPlanDigitPatternRedirectingDepartmentPermissions';
     protected $departmentKey;
     protected $departmentName;
     protected $digitPatternPermissions;
@@ -48,7 +48,7 @@ class OutgoingCallingPlanDigitPatternRedirectingDepartmentPermissions extends Co
     public function setDepartmentKey($departmentKey = null)
     {
         $this->departmentKey = new SimpleContent($departmentKey);
-        $this->departmentKey->setName('departmentKey');
+        $this->departmentKey->setElementName('departmentKey');
         return $this;
     }
 
@@ -58,7 +58,9 @@ class OutgoingCallingPlanDigitPatternRedirectingDepartmentPermissions extends Co
      */
     public function getDepartmentKey()
     {
-        return ($this->departmentKey) ? $this->departmentKey->getValue() : null;
+        return ($this->departmentKey)
+            ? $this->departmentKey->getElementValue()
+            : null;
     }
 
     /**
@@ -67,7 +69,7 @@ class OutgoingCallingPlanDigitPatternRedirectingDepartmentPermissions extends Co
     public function setDepartmentName($departmentName = null)
     {
         $this->departmentName = new SimpleContent($departmentName);
-        $this->departmentName->setName('departmentName');
+        $this->departmentName->setElementName('departmentName');
         return $this;
     }
 
@@ -77,7 +79,9 @@ class OutgoingCallingPlanDigitPatternRedirectingDepartmentPermissions extends Co
      */
     public function getDepartmentName()
     {
-        return ($this->departmentName) ? $this->departmentName->getValue() : null;
+        return ($this->departmentName)
+            ? $this->departmentName->getElementValue()
+            : null;
     }
 
     /**
@@ -86,7 +90,7 @@ class OutgoingCallingPlanDigitPatternRedirectingDepartmentPermissions extends Co
     public function setDigitPatternPermissions($digitPatternPermissions = null)
     {
         $this->digitPatternPermissions = new SimpleContent($digitPatternPermissions);
-        $this->digitPatternPermissions->setName('digitPatternPermissions');
+        $this->digitPatternPermissions->setElementName('digitPatternPermissions');
         return $this;
     }
 
@@ -96,6 +100,8 @@ class OutgoingCallingPlanDigitPatternRedirectingDepartmentPermissions extends Co
      */
     public function getDigitPatternPermissions()
     {
-        return ($this->digitPatternPermissions) ? $this->digitPatternPermissions->getValue() : null;
+        return ($this->digitPatternPermissions)
+            ? $this->digitPatternPermissions->getElementValue()
+            : null;
     }
 }

@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class DeviceManagementPutFileRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'DeviceManagementPutFileRequest';
+    public    $elementName = 'DeviceManagementPutFileRequest';
     protected $deviceAccessURI;
     protected $ipAddress;
 
@@ -48,7 +48,7 @@ class DeviceManagementPutFileRequest extends ComplexType implements ComplexInter
         $this->deviceAccessURI = ($deviceAccessURI InstanceOf DeviceManagementAccessURI)
              ? $deviceAccessURI
              : new DeviceManagementAccessURI($deviceAccessURI);
-        $this->deviceAccessURI->setName('deviceAccessURI');
+        $this->deviceAccessURI->setElementName('deviceAccessURI');
         return $this;
     }
 
@@ -58,7 +58,9 @@ class DeviceManagementPutFileRequest extends ComplexType implements ComplexInter
      */
     public function getDeviceAccessURI()
     {
-        return ($this->deviceAccessURI) ? $this->deviceAccessURI->getValue() : null;
+        return ($this->deviceAccessURI)
+            ? $this->deviceAccessURI->getElementValue()
+            : null;
     }
 
     /**
@@ -69,7 +71,7 @@ class DeviceManagementPutFileRequest extends ComplexType implements ComplexInter
         $this->ipAddress = ($ipAddress InstanceOf NetAddress)
              ? $ipAddress
              : new NetAddress($ipAddress);
-        $this->ipAddress->setName('ipAddress');
+        $this->ipAddress->setElementName('ipAddress');
         return $this;
     }
 
@@ -79,6 +81,8 @@ class DeviceManagementPutFileRequest extends ComplexType implements ComplexInter
      */
     public function getIpAddress()
     {
-        return ($this->ipAddress) ? $this->ipAddress->getValue() : null;
+        return ($this->ipAddress)
+            ? $this->ipAddress->getElementValue()
+            : null;
     }
 }

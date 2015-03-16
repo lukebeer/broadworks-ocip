@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemNetworkClassOfServiceGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemNetworkClassOfServiceGetListResponse';
+    public    $elementName = 'SystemNetworkClassOfServiceGetListResponse';
     protected $networkClassOfServiceTable;
 
     /**
@@ -38,7 +38,7 @@ class SystemNetworkClassOfServiceGetListResponse extends ComplexType implements 
     public function setNetworkClassOfServiceTable(TableType $networkClassOfServiceTable = null)
     {
         $this->networkClassOfServiceTable = $networkClassOfServiceTable;
-        $this->networkClassOfServiceTable->setName('networkClassOfServiceTable');
+        $this->networkClassOfServiceTable->setElementName('networkClassOfServiceTable');
         return $this;
     }
 

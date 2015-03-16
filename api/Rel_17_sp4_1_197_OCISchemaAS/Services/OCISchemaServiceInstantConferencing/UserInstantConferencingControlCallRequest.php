@@ -27,7 +27,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserInstantConferencingControlCallRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'UserInstantConferencingControlCallRequest';
+    public    $elementName = 'UserInstantConferencingControlCallRequest';
     protected $userId;
     protected $conferenceKey;
     protected $conferenceCallId;
@@ -70,7 +70,7 @@ class UserInstantConferencingControlCallRequest extends ComplexType implements C
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
-        $this->userId->setName('userId');
+        $this->userId->setElementName('userId');
         return $this;
     }
 
@@ -80,7 +80,9 @@ class UserInstantConferencingControlCallRequest extends ComplexType implements C
      */
     public function getUserId()
     {
-        return ($this->userId) ? $this->userId->getValue() : null;
+        return ($this->userId)
+            ? $this->userId->getElementValue()
+            : null;
     }
 
     /**
@@ -91,7 +93,7 @@ class UserInstantConferencingControlCallRequest extends ComplexType implements C
         $this->conferenceKey = ($conferenceKey InstanceOf InstantConferencingConferenceKey)
              ? $conferenceKey
              : new InstantConferencingConferenceKey($conferenceKey);
-        $this->conferenceKey->setName('conferenceKey');
+        $this->conferenceKey->setElementName('conferenceKey');
         return $this;
     }
 
@@ -112,7 +114,7 @@ class UserInstantConferencingControlCallRequest extends ComplexType implements C
         $this->conferenceCallId = ($conferenceCallId InstanceOf InstantConferencingCallId)
              ? $conferenceCallId
              : new InstantConferencingCallId($conferenceCallId);
-        $this->conferenceCallId->setName('conferenceCallId');
+        $this->conferenceCallId->setElementName('conferenceCallId');
         return $this;
     }
 
@@ -122,7 +124,9 @@ class UserInstantConferencingControlCallRequest extends ComplexType implements C
      */
     public function getConferenceCallId()
     {
-        return ($this->conferenceCallId) ? $this->conferenceCallId->getValue() : null;
+        return ($this->conferenceCallId)
+            ? $this->conferenceCallId->getElementValue()
+            : null;
     }
 
     /**
@@ -133,7 +137,7 @@ class UserInstantConferencingControlCallRequest extends ComplexType implements C
         $this->action = ($action InstanceOf InstantConferencingCallControlAction)
              ? $action
              : new InstantConferencingCallControlAction($action);
-        $this->action->setName('action');
+        $this->action->setElementName('action');
         return $this;
     }
 
@@ -143,7 +147,9 @@ class UserInstantConferencingControlCallRequest extends ComplexType implements C
      */
     public function getAction()
     {
-        return ($this->action) ? $this->action->getValue() : null;
+        return ($this->action)
+            ? $this->action->getElementValue()
+            : null;
     }
 
     /**
@@ -154,7 +160,7 @@ class UserInstantConferencingControlCallRequest extends ComplexType implements C
         $this->phoneNumber = ($phoneNumber InstanceOf OutgoingDNorSIPURI)
              ? $phoneNumber
              : new OutgoingDNorSIPURI($phoneNumber);
-        $this->phoneNumber->setName('phoneNumber');
+        $this->phoneNumber->setElementName('phoneNumber');
         return $this;
     }
 
@@ -164,7 +170,9 @@ class UserInstantConferencingControlCallRequest extends ComplexType implements C
      */
     public function getPhoneNumber()
     {
-        return ($this->phoneNumber) ? $this->phoneNumber->getValue() : null;
+        return ($this->phoneNumber)
+            ? $this->phoneNumber->getElementValue()
+            : null;
     }
 
     /**
@@ -175,7 +183,7 @@ class UserInstantConferencingControlCallRequest extends ComplexType implements C
         $this->userName = ($userName InstanceOf InstantConferencingParticipantName)
              ? $userName
              : new InstantConferencingParticipantName($userName);
-        $this->userName->setName('userName');
+        $this->userName->setElementName('userName');
         return $this;
     }
 
@@ -185,7 +193,9 @@ class UserInstantConferencingControlCallRequest extends ComplexType implements C
      */
     public function getUserName()
     {
-        return ($this->userName) ? $this->userName->getValue() : null;
+        return ($this->userName)
+            ? $this->userName->getElementValue()
+            : null;
     }
 
     /**
@@ -196,7 +206,7 @@ class UserInstantConferencingControlCallRequest extends ComplexType implements C
         $this->legId = ($legId InstanceOf InstantConferencingLegId)
              ? $legId
              : new InstantConferencingLegId($legId);
-        $this->legId->setName('legId');
+        $this->legId->setElementName('legId');
         return $this;
     }
 
@@ -206,6 +216,8 @@ class UserInstantConferencingControlCallRequest extends ComplexType implements C
      */
     public function getLegId()
     {
-        return ($this->legId) ? $this->legId->getValue() : null;
+        return ($this->legId)
+            ? $this->legId->getElementValue()
+            : null;
     }
 }

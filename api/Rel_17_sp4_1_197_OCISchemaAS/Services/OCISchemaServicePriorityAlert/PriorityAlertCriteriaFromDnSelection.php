@@ -16,12 +16,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\Enumeration;
  */
 class PriorityAlertCriteriaFromDnSelection extends SimpleType
 {
-    public $name = "PriorityAlertCriteriaFromDnSelection";
-    protected $value;
-
+    public $elementName = "PriorityAlertCriteriaFromDnSelection";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new Enumeration([
             'Any External',
             'Specified Only'

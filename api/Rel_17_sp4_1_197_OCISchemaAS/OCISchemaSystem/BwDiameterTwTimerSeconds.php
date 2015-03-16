@@ -17,12 +17,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\MaxInclusive;
  */
 class BwDiameterTwTimerSeconds extends SimpleType
 {
-    public $name = "BwDiameterTwTimerSeconds";
-    protected $value;
-
+    public $elementName = "BwDiameterTwTimerSeconds";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new MinInclusive("6"));
         $this->addRestriction(new MaxInclusive("60"));
     }

@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemSMDIParametersGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemSMDIParametersGetResponse';
+    public    $elementName = 'SystemSMDIParametersGetResponse';
     protected $enableSMDI;
     protected $listeningPort;
     protected $maxConnections;
@@ -41,7 +41,7 @@ class SystemSMDIParametersGetResponse extends ComplexType implements ComplexInte
     public function setEnableSMDI($enableSMDI = null)
     {
         $this->enableSMDI = new PrimitiveType($enableSMDI);
-        $this->enableSMDI->setName('enableSMDI');
+        $this->enableSMDI->setElementName('enableSMDI');
         return $this;
     }
 
@@ -51,7 +51,9 @@ class SystemSMDIParametersGetResponse extends ComplexType implements ComplexInte
      */
     public function getEnableSMDI()
     {
-        return ($this->enableSMDI) ? $this->enableSMDI->getValue() : null;
+        return ($this->enableSMDI)
+            ? $this->enableSMDI->getElementValue()
+            : null;
     }
 
     /**
@@ -62,7 +64,7 @@ class SystemSMDIParametersGetResponse extends ComplexType implements ComplexInte
         $this->listeningPort = ($listeningPort InstanceOf Port1025)
              ? $listeningPort
              : new Port1025($listeningPort);
-        $this->listeningPort->setName('listeningPort');
+        $this->listeningPort->setElementName('listeningPort');
         return $this;
     }
 
@@ -72,7 +74,9 @@ class SystemSMDIParametersGetResponse extends ComplexType implements ComplexInte
      */
     public function getListeningPort()
     {
-        return ($this->listeningPort) ? $this->listeningPort->getValue() : null;
+        return ($this->listeningPort)
+            ? $this->listeningPort->getElementValue()
+            : null;
     }
 
     /**
@@ -83,7 +87,7 @@ class SystemSMDIParametersGetResponse extends ComplexType implements ComplexInte
         $this->maxConnections = ($maxConnections InstanceOf SMDIMaxConnections)
              ? $maxConnections
              : new SMDIMaxConnections($maxConnections);
-        $this->maxConnections->setName('maxConnections');
+        $this->maxConnections->setElementName('maxConnections');
         return $this;
     }
 
@@ -93,6 +97,8 @@ class SystemSMDIParametersGetResponse extends ComplexType implements ComplexInte
      */
     public function getMaxConnections()
     {
-        return ($this->maxConnections) ? $this->maxConnections->getValue() : null;
+        return ($this->maxConnections)
+            ? $this->maxConnections->getElementValue()
+            : null;
     }
 }

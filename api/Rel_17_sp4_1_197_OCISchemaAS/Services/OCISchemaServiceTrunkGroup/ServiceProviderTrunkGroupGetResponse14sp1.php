@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderTrunkGroupGetResponse14sp1 extends ComplexType implements ComplexInterface
 {
-    public    $name = 'ServiceProviderTrunkGroupGetResponse14sp1';
+    public    $elementName = 'ServiceProviderTrunkGroupGetResponse14sp1';
     protected $maxActiveCalls;
     protected $burstingMaxActiveCalls;
 
@@ -40,7 +40,7 @@ class ServiceProviderTrunkGroupGetResponse14sp1 extends ComplexType implements C
         $this->maxActiveCalls = ($maxActiveCalls InstanceOf UnboundedNonNegativeInt)
              ? $maxActiveCalls
              : new UnboundedNonNegativeInt($maxActiveCalls);
-        $this->maxActiveCalls->setName('maxActiveCalls');
+        $this->maxActiveCalls->setElementName('maxActiveCalls');
         return $this;
     }
 
@@ -61,7 +61,7 @@ class ServiceProviderTrunkGroupGetResponse14sp1 extends ComplexType implements C
         $this->burstingMaxActiveCalls = ($burstingMaxActiveCalls InstanceOf UnboundedNonNegativeInt)
              ? $burstingMaxActiveCalls
              : new UnboundedNonNegativeInt($burstingMaxActiveCalls);
-        $this->burstingMaxActiveCalls->setName('burstingMaxActiveCalls');
+        $this->burstingMaxActiveCalls->setElementName('burstingMaxActiveCalls');
         return $this;
     }
 

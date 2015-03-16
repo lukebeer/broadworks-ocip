@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupCallCenterGetInstanceQueueStatusResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'GroupCallCenterGetInstanceQueueStatusResponse';
+    public    $elementName = 'GroupCallCenterGetInstanceQueueStatusResponse';
     protected $numberOfCallsQueuedNow;
     protected $agentsCurrentlyStaffed;
 
@@ -38,7 +38,7 @@ class GroupCallCenterGetInstanceQueueStatusResponse extends ComplexType implemen
     public function setNumberOfCallsQueuedNow($numberOfCallsQueuedNow = null)
     {
         $this->numberOfCallsQueuedNow = new PrimitiveType($numberOfCallsQueuedNow);
-        $this->numberOfCallsQueuedNow->setName('numberOfCallsQueuedNow');
+        $this->numberOfCallsQueuedNow->setElementName('numberOfCallsQueuedNow');
         return $this;
     }
 
@@ -48,7 +48,9 @@ class GroupCallCenterGetInstanceQueueStatusResponse extends ComplexType implemen
      */
     public function getNumberOfCallsQueuedNow()
     {
-        return ($this->numberOfCallsQueuedNow) ? $this->numberOfCallsQueuedNow->getValue() : null;
+        return ($this->numberOfCallsQueuedNow)
+            ? $this->numberOfCallsQueuedNow->getElementValue()
+            : null;
     }
 
     /**
@@ -57,7 +59,7 @@ class GroupCallCenterGetInstanceQueueStatusResponse extends ComplexType implemen
     public function setAgentsCurrentlyStaffed(TableType $agentsCurrentlyStaffed = null)
     {
         $this->agentsCurrentlyStaffed = $agentsCurrentlyStaffed;
-        $this->agentsCurrentlyStaffed->setName('agentsCurrentlyStaffed');
+        $this->agentsCurrentlyStaffed->setElementName('agentsCurrentlyStaffed');
         return $this;
     }
 
@@ -67,6 +69,8 @@ class GroupCallCenterGetInstanceQueueStatusResponse extends ComplexType implemen
      */
     public function getAgentsCurrentlyStaffed()
     {
-        return ($this->agentsCurrentlyStaffed) ? $this->agentsCurrentlyStaffed->getValue() : null;
+        return ($this->agentsCurrentlyStaffed)
+            ? $this->agentsCurrentlyStaffed->getElementValue()
+            : null;
     }
 }

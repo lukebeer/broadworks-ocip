@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserSequentialRingGetCriteriaResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'UserSequentialRingGetCriteriaResponse';
+    public    $elementName = 'UserSequentialRingGetCriteriaResponse';
     protected $timeSchedule;
     protected $fromDnCriteria;
 
@@ -40,7 +40,7 @@ class UserSequentialRingGetCriteriaResponse extends ComplexType implements Compl
         $this->timeSchedule = ($timeSchedule InstanceOf TimeSchedule)
              ? $timeSchedule
              : new TimeSchedule($timeSchedule);
-        $this->timeSchedule->setName('timeSchedule');
+        $this->timeSchedule->setElementName('timeSchedule');
         return $this;
     }
 
@@ -61,7 +61,7 @@ class UserSequentialRingGetCriteriaResponse extends ComplexType implements Compl
         $this->fromDnCriteria = ($fromDnCriteria InstanceOf CriteriaFromDn)
              ? $fromDnCriteria
              : new CriteriaFromDn($fromDnCriteria);
-        $this->fromDnCriteria->setName('fromDnCriteria');
+        $this->fromDnCriteria->setElementName('fromDnCriteria');
         return $this;
     }
 

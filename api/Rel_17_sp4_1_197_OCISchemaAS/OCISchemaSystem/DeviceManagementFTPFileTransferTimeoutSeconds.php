@@ -17,12 +17,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\MaxInclusive;
  */
 class DeviceManagementFTPFileTransferTimeoutSeconds extends SimpleType
 {
-    public $name = "DeviceManagementFTPFileTransferTimeoutSeconds";
-    protected $value;
-
+    public $elementName = "DeviceManagementFTPFileTransferTimeoutSeconds";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new MinInclusive("1"));
         $this->addRestriction(new MaxInclusive("600"));
     }

@@ -19,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserVoicePortalCallingGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'UserVoicePortalCallingGetResponse';
+    public    $elementName = 'UserVoicePortalCallingGetResponse';
     protected $isActive;
 
     /**
@@ -36,7 +36,7 @@ class UserVoicePortalCallingGetResponse extends ComplexType implements ComplexIn
     public function setIsActive($isActive = null)
     {
         $this->isActive = new PrimitiveType($isActive);
-        $this->isActive->setName('isActive');
+        $this->isActive->setElementName('isActive');
         return $this;
     }
 
@@ -46,6 +46,8 @@ class UserVoicePortalCallingGetResponse extends ComplexType implements ComplexIn
      */
     public function getIsActive()
     {
-        return ($this->isActive) ? $this->isActive->getValue() : null;
+        return ($this->isActive)
+            ? $this->isActive->getElementValue()
+            : null;
     }
 }

@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemSMDIMessageDeskDeleteServerRouteRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemSMDIMessageDeskDeleteServerRouteRequest';
+    public    $elementName = 'SystemSMDIMessageDeskDeleteServerRouteRequest';
     protected $routeDestination;
 
     public function __construct(
@@ -45,7 +45,7 @@ class SystemSMDIMessageDeskDeleteServerRouteRequest extends ComplexType implemen
         $this->routeDestination = ($routeDestination InstanceOf SMDIServerRouteDestination)
              ? $routeDestination
              : new SMDIServerRouteDestination($routeDestination);
-        $this->routeDestination->setName('routeDestination');
+        $this->routeDestination->setElementName('routeDestination');
         return $this;
     }
 
@@ -55,6 +55,8 @@ class SystemSMDIMessageDeskDeleteServerRouteRequest extends ComplexType implemen
      */
     public function getRouteDestination()
     {
-        return ($this->routeDestination) ? $this->routeDestination->getValue() : null;
+        return ($this->routeDestination)
+            ? $this->routeDestination->getElementValue()
+            : null;
     }
 }

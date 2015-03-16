@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
 class UserAnonymousCallRejectionGetRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceAnonymousCallRejection\UserAnonymousCallRejectionGetResponse';
-    public    $name = 'UserAnonymousCallRejectionGetRequest';
+    public    $elementName = 'UserAnonymousCallRejectionGetRequest';
     protected $userId;
 
     public function __construct(
@@ -47,7 +47,7 @@ class UserAnonymousCallRejectionGetRequest extends ComplexType implements Comple
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
-        $this->userId->setName('userId');
+        $this->userId->setElementName('userId');
         return $this;
     }
 
@@ -57,6 +57,8 @@ class UserAnonymousCallRejectionGetRequest extends ComplexType implements Comple
      */
     public function getUserId()
     {
-        return ($this->userId) ? $this->userId->getValue() : null;
+        return ($this->userId)
+            ? $this->userId->getElementValue()
+            : null;
     }
 }

@@ -16,12 +16,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\Enumeration;
  */
 class OutgoingCallingPlanOriginatingPermission extends SimpleType
 {
-    public $name = "OutgoingCallingPlanOriginatingPermission";
-    protected $value;
-
+    public $elementName = "OutgoingCallingPlanOriginatingPermission";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new Enumeration([
             'Disallow',
             'Allow',

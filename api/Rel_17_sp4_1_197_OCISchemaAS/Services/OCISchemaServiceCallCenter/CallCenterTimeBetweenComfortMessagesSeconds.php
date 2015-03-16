@@ -17,12 +17,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\MaxInclusive;
  */
 class CallCenterTimeBetweenComfortMessagesSeconds extends SimpleType
 {
-    public $name = "CallCenterTimeBetweenComfortMessagesSeconds";
-    protected $value;
-
+    public $elementName = "CallCenterTimeBetweenComfortMessagesSeconds";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new MinInclusive("10"));
         $this->addRestriction(new MaxInclusive("600"));
     }

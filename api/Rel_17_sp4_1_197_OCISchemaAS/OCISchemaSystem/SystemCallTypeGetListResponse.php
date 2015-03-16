@@ -19,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemCallTypeGetListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemCallTypeGetListResponse';
+    public    $elementName = 'SystemCallTypeGetListResponse';
     protected $callType;
 
     /**
@@ -38,7 +38,7 @@ class SystemCallTypeGetListResponse extends ComplexType implements ComplexInterf
         $this->callType = ($callType InstanceOf SystemCallType)
              ? $callType
              : new SystemCallType($callType);
-        $this->callType->setName('callType');
+        $this->callType->setElementName('callType');
         return $this;
     }
 
@@ -48,6 +48,8 @@ class SystemCallTypeGetListResponse extends ComplexType implements ComplexInterf
      */
     public function getCallType()
     {
-        return ($this->callType) ? $this->callType->getValue() : null;
+        return ($this->callType)
+            ? $this->callType->getElementValue()
+            : null;
     }
 }

@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserCallWaitingGetResponse17sp4 extends ComplexType implements ComplexInterface
 {
-    public    $name = 'UserCallWaitingGetResponse17sp4';
+    public    $elementName = 'UserCallWaitingGetResponse17sp4';
     protected $isActive;
     protected $disableCallingLineIdDelivery;
 
@@ -40,7 +40,7 @@ class UserCallWaitingGetResponse17sp4 extends ComplexType implements ComplexInte
     public function setIsActive($isActive = null)
     {
         $this->isActive = new PrimitiveType($isActive);
-        $this->isActive->setName('isActive');
+        $this->isActive->setElementName('isActive');
         return $this;
     }
 
@@ -50,7 +50,9 @@ class UserCallWaitingGetResponse17sp4 extends ComplexType implements ComplexInte
      */
     public function getIsActive()
     {
-        return ($this->isActive) ? $this->isActive->getValue() : null;
+        return ($this->isActive)
+            ? $this->isActive->getElementValue()
+            : null;
     }
 
     /**
@@ -59,7 +61,7 @@ class UserCallWaitingGetResponse17sp4 extends ComplexType implements ComplexInte
     public function setDisableCallingLineIdDelivery($disableCallingLineIdDelivery = null)
     {
         $this->disableCallingLineIdDelivery = new PrimitiveType($disableCallingLineIdDelivery);
-        $this->disableCallingLineIdDelivery->setName('disableCallingLineIdDelivery');
+        $this->disableCallingLineIdDelivery->setElementName('disableCallingLineIdDelivery');
         return $this;
     }
 
@@ -69,6 +71,8 @@ class UserCallWaitingGetResponse17sp4 extends ComplexType implements ComplexInte
      */
     public function getDisableCallingLineIdDelivery()
     {
-        return ($this->disableCallingLineIdDelivery) ? $this->disableCallingLineIdDelivery->getValue() : null;
+        return ($this->disableCallingLineIdDelivery)
+            ? $this->disableCallingLineIdDelivery->getElementValue()
+            : null;
     }
 }

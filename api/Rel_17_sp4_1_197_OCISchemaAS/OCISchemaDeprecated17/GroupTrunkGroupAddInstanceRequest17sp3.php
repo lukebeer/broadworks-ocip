@@ -55,7 +55,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupTrunkGroupAddInstanceRequest17sp3 extends ComplexType implements ComplexInterface
 {
-    public    $name = 'GroupTrunkGroupAddInstanceRequest17sp3';
+    public    $elementName = 'GroupTrunkGroupAddInstanceRequest17sp3';
     protected $serviceProviderId;
     protected $groupId;
     protected $name;
@@ -227,7 +227,7 @@ class GroupTrunkGroupAddInstanceRequest17sp3 extends ComplexType implements Comp
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
-        $this->serviceProviderId->setName('serviceProviderId');
+        $this->serviceProviderId->setElementName('serviceProviderId');
         return $this;
     }
 
@@ -237,7 +237,9 @@ class GroupTrunkGroupAddInstanceRequest17sp3 extends ComplexType implements Comp
      */
     public function getServiceProviderId()
     {
-        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
+        return ($this->serviceProviderId)
+            ? $this->serviceProviderId->getElementValue()
+            : null;
     }
 
     /**
@@ -248,7 +250,7 @@ class GroupTrunkGroupAddInstanceRequest17sp3 extends ComplexType implements Comp
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
-        $this->groupId->setName('groupId');
+        $this->groupId->setElementName('groupId');
         return $this;
     }
 
@@ -258,7 +260,9 @@ class GroupTrunkGroupAddInstanceRequest17sp3 extends ComplexType implements Comp
      */
     public function getGroupId()
     {
-        return ($this->groupId) ? $this->groupId->getValue() : null;
+        return ($this->groupId)
+            ? $this->groupId->getElementValue()
+            : null;
     }
 
     /**
@@ -269,7 +273,7 @@ class GroupTrunkGroupAddInstanceRequest17sp3 extends ComplexType implements Comp
         $this->name = ($name InstanceOf TrunkGroupName)
              ? $name
              : new TrunkGroupName($name);
-        $this->name->setName('name');
+        $this->name->setElementName('name');
         return $this;
     }
 
@@ -279,7 +283,9 @@ class GroupTrunkGroupAddInstanceRequest17sp3 extends ComplexType implements Comp
      */
     public function getName()
     {
-        return ($this->name) ? $this->name->getValue() : null;
+        return ($this->name)
+            ? $this->name->getElementValue()
+            : null;
     }
 
     /**
@@ -290,7 +296,7 @@ class GroupTrunkGroupAddInstanceRequest17sp3 extends ComplexType implements Comp
         $this->pilotUser = ($pilotUser InstanceOf TrunkGroupPilotUser)
              ? $pilotUser
              : new TrunkGroupPilotUser($pilotUser);
-        $this->pilotUser->setName('pilotUser');
+        $this->pilotUser->setElementName('pilotUser');
         return $this;
     }
 
@@ -311,7 +317,7 @@ class GroupTrunkGroupAddInstanceRequest17sp3 extends ComplexType implements Comp
         $this->department = ($department InstanceOf DepartmentKey)
              ? $department
              : new DepartmentKey($department);
-        $this->department->setName('department');
+        $this->department->setElementName('department');
         return $this;
     }
 
@@ -332,7 +338,7 @@ class GroupTrunkGroupAddInstanceRequest17sp3 extends ComplexType implements Comp
         $this->accessDevice = ($accessDevice InstanceOf AccessDevice)
              ? $accessDevice
              : new AccessDevice($accessDevice);
-        $this->accessDevice->setName('accessDevice');
+        $this->accessDevice->setElementName('accessDevice');
         return $this;
     }
 
@@ -353,7 +359,7 @@ class GroupTrunkGroupAddInstanceRequest17sp3 extends ComplexType implements Comp
         $this->maxActiveCalls = ($maxActiveCalls InstanceOf MaxActiveCalls)
              ? $maxActiveCalls
              : new MaxActiveCalls($maxActiveCalls);
-        $this->maxActiveCalls->setName('maxActiveCalls');
+        $this->maxActiveCalls->setElementName('maxActiveCalls');
         return $this;
     }
 
@@ -363,7 +369,9 @@ class GroupTrunkGroupAddInstanceRequest17sp3 extends ComplexType implements Comp
      */
     public function getMaxActiveCalls()
     {
-        return ($this->maxActiveCalls) ? $this->maxActiveCalls->getValue() : null;
+        return ($this->maxActiveCalls)
+            ? $this->maxActiveCalls->getElementValue()
+            : null;
     }
 
     /**
@@ -374,7 +382,7 @@ class GroupTrunkGroupAddInstanceRequest17sp3 extends ComplexType implements Comp
         $this->maxIncomingCalls = ($maxIncomingCalls InstanceOf MaxIncomingCalls)
              ? $maxIncomingCalls
              : new MaxIncomingCalls($maxIncomingCalls);
-        $this->maxIncomingCalls->setName('maxIncomingCalls');
+        $this->maxIncomingCalls->setElementName('maxIncomingCalls');
         return $this;
     }
 
@@ -384,7 +392,9 @@ class GroupTrunkGroupAddInstanceRequest17sp3 extends ComplexType implements Comp
      */
     public function getMaxIncomingCalls()
     {
-        return ($this->maxIncomingCalls) ? $this->maxIncomingCalls->getValue() : null;
+        return ($this->maxIncomingCalls)
+            ? $this->maxIncomingCalls->getElementValue()
+            : null;
     }
 
     /**
@@ -395,7 +405,7 @@ class GroupTrunkGroupAddInstanceRequest17sp3 extends ComplexType implements Comp
         $this->maxOutgoingCalls = ($maxOutgoingCalls InstanceOf MaxOutgoingCalls)
              ? $maxOutgoingCalls
              : new MaxOutgoingCalls($maxOutgoingCalls);
-        $this->maxOutgoingCalls->setName('maxOutgoingCalls');
+        $this->maxOutgoingCalls->setElementName('maxOutgoingCalls');
         return $this;
     }
 
@@ -405,7 +415,9 @@ class GroupTrunkGroupAddInstanceRequest17sp3 extends ComplexType implements Comp
      */
     public function getMaxOutgoingCalls()
     {
-        return ($this->maxOutgoingCalls) ? $this->maxOutgoingCalls->getValue() : null;
+        return ($this->maxOutgoingCalls)
+            ? $this->maxOutgoingCalls->getElementValue()
+            : null;
     }
 
     /**
@@ -414,7 +426,7 @@ class GroupTrunkGroupAddInstanceRequest17sp3 extends ComplexType implements Comp
     public function setEnableBursting($enableBursting = null)
     {
         $this->enableBursting = new PrimitiveType($enableBursting);
-        $this->enableBursting->setName('enableBursting');
+        $this->enableBursting->setElementName('enableBursting');
         return $this;
     }
 
@@ -424,7 +436,9 @@ class GroupTrunkGroupAddInstanceRequest17sp3 extends ComplexType implements Comp
      */
     public function getEnableBursting()
     {
-        return ($this->enableBursting) ? $this->enableBursting->getValue() : null;
+        return ($this->enableBursting)
+            ? $this->enableBursting->getElementValue()
+            : null;
     }
 
     /**
@@ -435,7 +449,7 @@ class GroupTrunkGroupAddInstanceRequest17sp3 extends ComplexType implements Comp
         $this->burstingMaxActiveCalls = ($burstingMaxActiveCalls InstanceOf BurstingMaxActiveCalls)
              ? $burstingMaxActiveCalls
              : new BurstingMaxActiveCalls($burstingMaxActiveCalls);
-        $this->burstingMaxActiveCalls->setName('burstingMaxActiveCalls');
+        $this->burstingMaxActiveCalls->setElementName('burstingMaxActiveCalls');
         return $this;
     }
 
@@ -445,7 +459,9 @@ class GroupTrunkGroupAddInstanceRequest17sp3 extends ComplexType implements Comp
      */
     public function getBurstingMaxActiveCalls()
     {
-        return ($this->burstingMaxActiveCalls) ? $this->burstingMaxActiveCalls->getValue() : null;
+        return ($this->burstingMaxActiveCalls)
+            ? $this->burstingMaxActiveCalls->getElementValue()
+            : null;
     }
 
     /**
@@ -456,7 +472,7 @@ class GroupTrunkGroupAddInstanceRequest17sp3 extends ComplexType implements Comp
         $this->burstingMaxIncomingCalls = ($burstingMaxIncomingCalls InstanceOf BurstingMaxIncomingCalls)
              ? $burstingMaxIncomingCalls
              : new BurstingMaxIncomingCalls($burstingMaxIncomingCalls);
-        $this->burstingMaxIncomingCalls->setName('burstingMaxIncomingCalls');
+        $this->burstingMaxIncomingCalls->setElementName('burstingMaxIncomingCalls');
         return $this;
     }
 
@@ -466,7 +482,9 @@ class GroupTrunkGroupAddInstanceRequest17sp3 extends ComplexType implements Comp
      */
     public function getBurstingMaxIncomingCalls()
     {
-        return ($this->burstingMaxIncomingCalls) ? $this->burstingMaxIncomingCalls->getValue() : null;
+        return ($this->burstingMaxIncomingCalls)
+            ? $this->burstingMaxIncomingCalls->getElementValue()
+            : null;
     }
 
     /**
@@ -477,7 +495,7 @@ class GroupTrunkGroupAddInstanceRequest17sp3 extends ComplexType implements Comp
         $this->burstingMaxOutgoingCalls = ($burstingMaxOutgoingCalls InstanceOf BurstingMaxOutgoingCalls)
              ? $burstingMaxOutgoingCalls
              : new BurstingMaxOutgoingCalls($burstingMaxOutgoingCalls);
-        $this->burstingMaxOutgoingCalls->setName('burstingMaxOutgoingCalls');
+        $this->burstingMaxOutgoingCalls->setElementName('burstingMaxOutgoingCalls');
         return $this;
     }
 
@@ -487,7 +505,9 @@ class GroupTrunkGroupAddInstanceRequest17sp3 extends ComplexType implements Comp
      */
     public function getBurstingMaxOutgoingCalls()
     {
-        return ($this->burstingMaxOutgoingCalls) ? $this->burstingMaxOutgoingCalls->getValue() : null;
+        return ($this->burstingMaxOutgoingCalls)
+            ? $this->burstingMaxOutgoingCalls->getElementValue()
+            : null;
     }
 
     /**
@@ -498,7 +518,7 @@ class GroupTrunkGroupAddInstanceRequest17sp3 extends ComplexType implements Comp
         $this->capacityExceededAction = ($capacityExceededAction InstanceOf TrunkGroupCapacityExceededAction)
              ? $capacityExceededAction
              : new TrunkGroupCapacityExceededAction($capacityExceededAction);
-        $this->capacityExceededAction->setName('capacityExceededAction');
+        $this->capacityExceededAction->setElementName('capacityExceededAction');
         return $this;
     }
 
@@ -508,7 +528,9 @@ class GroupTrunkGroupAddInstanceRequest17sp3 extends ComplexType implements Comp
      */
     public function getCapacityExceededAction()
     {
-        return ($this->capacityExceededAction) ? $this->capacityExceededAction->getValue() : null;
+        return ($this->capacityExceededAction)
+            ? $this->capacityExceededAction->getElementValue()
+            : null;
     }
 
     /**
@@ -519,7 +541,7 @@ class GroupTrunkGroupAddInstanceRequest17sp3 extends ComplexType implements Comp
         $this->capacityExceededForwardAddress = ($capacityExceededForwardAddress InstanceOf OutgoingDNorSIPURI)
              ? $capacityExceededForwardAddress
              : new OutgoingDNorSIPURI($capacityExceededForwardAddress);
-        $this->capacityExceededForwardAddress->setName('capacityExceededForwardAddress');
+        $this->capacityExceededForwardAddress->setElementName('capacityExceededForwardAddress');
         return $this;
     }
 
@@ -529,7 +551,9 @@ class GroupTrunkGroupAddInstanceRequest17sp3 extends ComplexType implements Comp
      */
     public function getCapacityExceededForwardAddress()
     {
-        return ($this->capacityExceededForwardAddress) ? $this->capacityExceededForwardAddress->getValue() : null;
+        return ($this->capacityExceededForwardAddress)
+            ? $this->capacityExceededForwardAddress->getElementValue()
+            : null;
     }
 
     /**
@@ -540,7 +564,7 @@ class GroupTrunkGroupAddInstanceRequest17sp3 extends ComplexType implements Comp
         $this->capacityExceededRerouteTrunkGroupKey = ($capacityExceededRerouteTrunkGroupKey InstanceOf TrunkGroupKey)
              ? $capacityExceededRerouteTrunkGroupKey
              : new TrunkGroupKey($capacityExceededRerouteTrunkGroupKey);
-        $this->capacityExceededRerouteTrunkGroupKey->setName('capacityExceededRerouteTrunkGroupKey');
+        $this->capacityExceededRerouteTrunkGroupKey->setElementName('capacityExceededRerouteTrunkGroupKey');
         return $this;
     }
 
@@ -561,7 +585,7 @@ class GroupTrunkGroupAddInstanceRequest17sp3 extends ComplexType implements Comp
         $this->capacityExceededTrapInitialCalls = ($capacityExceededTrapInitialCalls InstanceOf TrapInitialThreshold)
              ? $capacityExceededTrapInitialCalls
              : new TrapInitialThreshold($capacityExceededTrapInitialCalls);
-        $this->capacityExceededTrapInitialCalls->setName('capacityExceededTrapInitialCalls');
+        $this->capacityExceededTrapInitialCalls->setElementName('capacityExceededTrapInitialCalls');
         return $this;
     }
 
@@ -571,7 +595,9 @@ class GroupTrunkGroupAddInstanceRequest17sp3 extends ComplexType implements Comp
      */
     public function getCapacityExceededTrapInitialCalls()
     {
-        return ($this->capacityExceededTrapInitialCalls) ? $this->capacityExceededTrapInitialCalls->getValue() : null;
+        return ($this->capacityExceededTrapInitialCalls)
+            ? $this->capacityExceededTrapInitialCalls->getElementValue()
+            : null;
     }
 
     /**
@@ -582,7 +608,7 @@ class GroupTrunkGroupAddInstanceRequest17sp3 extends ComplexType implements Comp
         $this->capacityExceededTrapOffsetCalls = ($capacityExceededTrapOffsetCalls InstanceOf TrapOffsetThreshold)
              ? $capacityExceededTrapOffsetCalls
              : new TrapOffsetThreshold($capacityExceededTrapOffsetCalls);
-        $this->capacityExceededTrapOffsetCalls->setName('capacityExceededTrapOffsetCalls');
+        $this->capacityExceededTrapOffsetCalls->setElementName('capacityExceededTrapOffsetCalls');
         return $this;
     }
 
@@ -592,7 +618,9 @@ class GroupTrunkGroupAddInstanceRequest17sp3 extends ComplexType implements Comp
      */
     public function getCapacityExceededTrapOffsetCalls()
     {
-        return ($this->capacityExceededTrapOffsetCalls) ? $this->capacityExceededTrapOffsetCalls->getValue() : null;
+        return ($this->capacityExceededTrapOffsetCalls)
+            ? $this->capacityExceededTrapOffsetCalls->getElementValue()
+            : null;
     }
 
     /**
@@ -603,7 +631,7 @@ class GroupTrunkGroupAddInstanceRequest17sp3 extends ComplexType implements Comp
         $this->unreachableDestinationAction = ($unreachableDestinationAction InstanceOf TrunkGroupUnreachableDestinationAction)
              ? $unreachableDestinationAction
              : new TrunkGroupUnreachableDestinationAction($unreachableDestinationAction);
-        $this->unreachableDestinationAction->setName('unreachableDestinationAction');
+        $this->unreachableDestinationAction->setElementName('unreachableDestinationAction');
         return $this;
     }
 
@@ -613,7 +641,9 @@ class GroupTrunkGroupAddInstanceRequest17sp3 extends ComplexType implements Comp
      */
     public function getUnreachableDestinationAction()
     {
-        return ($this->unreachableDestinationAction) ? $this->unreachableDestinationAction->getValue() : null;
+        return ($this->unreachableDestinationAction)
+            ? $this->unreachableDestinationAction->getElementValue()
+            : null;
     }
 
     /**
@@ -624,7 +654,7 @@ class GroupTrunkGroupAddInstanceRequest17sp3 extends ComplexType implements Comp
         $this->unreachableDestinationForwardAddress = ($unreachableDestinationForwardAddress InstanceOf OutgoingDNorSIPURI)
              ? $unreachableDestinationForwardAddress
              : new OutgoingDNorSIPURI($unreachableDestinationForwardAddress);
-        $this->unreachableDestinationForwardAddress->setName('unreachableDestinationForwardAddress');
+        $this->unreachableDestinationForwardAddress->setElementName('unreachableDestinationForwardAddress');
         return $this;
     }
 
@@ -634,7 +664,9 @@ class GroupTrunkGroupAddInstanceRequest17sp3 extends ComplexType implements Comp
      */
     public function getUnreachableDestinationForwardAddress()
     {
-        return ($this->unreachableDestinationForwardAddress) ? $this->unreachableDestinationForwardAddress->getValue() : null;
+        return ($this->unreachableDestinationForwardAddress)
+            ? $this->unreachableDestinationForwardAddress->getElementValue()
+            : null;
     }
 
     /**
@@ -645,7 +677,7 @@ class GroupTrunkGroupAddInstanceRequest17sp3 extends ComplexType implements Comp
         $this->unreachableDestinationRerouteTrunkGroupKey = ($unreachableDestinationRerouteTrunkGroupKey InstanceOf TrunkGroupKey)
              ? $unreachableDestinationRerouteTrunkGroupKey
              : new TrunkGroupKey($unreachableDestinationRerouteTrunkGroupKey);
-        $this->unreachableDestinationRerouteTrunkGroupKey->setName('unreachableDestinationRerouteTrunkGroupKey');
+        $this->unreachableDestinationRerouteTrunkGroupKey->setElementName('unreachableDestinationRerouteTrunkGroupKey');
         return $this;
     }
 
@@ -666,7 +698,7 @@ class GroupTrunkGroupAddInstanceRequest17sp3 extends ComplexType implements Comp
         $this->invitationTimeout = ($invitationTimeout InstanceOf TrunkGroupInvitationTimeoutSeconds)
              ? $invitationTimeout
              : new TrunkGroupInvitationTimeoutSeconds($invitationTimeout);
-        $this->invitationTimeout->setName('invitationTimeout');
+        $this->invitationTimeout->setElementName('invitationTimeout');
         return $this;
     }
 
@@ -676,7 +708,9 @@ class GroupTrunkGroupAddInstanceRequest17sp3 extends ComplexType implements Comp
      */
     public function getInvitationTimeout()
     {
-        return ($this->invitationTimeout) ? $this->invitationTimeout->getValue() : null;
+        return ($this->invitationTimeout)
+            ? $this->invitationTimeout->getElementValue()
+            : null;
     }
 
     /**
@@ -685,7 +719,7 @@ class GroupTrunkGroupAddInstanceRequest17sp3 extends ComplexType implements Comp
     public function setRequireAuthentication($requireAuthentication = null)
     {
         $this->requireAuthentication = new PrimitiveType($requireAuthentication);
-        $this->requireAuthentication->setName('requireAuthentication');
+        $this->requireAuthentication->setElementName('requireAuthentication');
         return $this;
     }
 
@@ -695,7 +729,9 @@ class GroupTrunkGroupAddInstanceRequest17sp3 extends ComplexType implements Comp
      */
     public function getRequireAuthentication()
     {
-        return ($this->requireAuthentication) ? $this->requireAuthentication->getValue() : null;
+        return ($this->requireAuthentication)
+            ? $this->requireAuthentication->getElementValue()
+            : null;
     }
 
     /**
@@ -706,7 +742,7 @@ class GroupTrunkGroupAddInstanceRequest17sp3 extends ComplexType implements Comp
         $this->sipAuthenticationUserName = ($sipAuthenticationUserName InstanceOf SIPAuthenticationUserName)
              ? $sipAuthenticationUserName
              : new SIPAuthenticationUserName($sipAuthenticationUserName);
-        $this->sipAuthenticationUserName->setName('sipAuthenticationUserName');
+        $this->sipAuthenticationUserName->setElementName('sipAuthenticationUserName');
         return $this;
     }
 
@@ -716,7 +752,9 @@ class GroupTrunkGroupAddInstanceRequest17sp3 extends ComplexType implements Comp
      */
     public function getSipAuthenticationUserName()
     {
-        return ($this->sipAuthenticationUserName) ? $this->sipAuthenticationUserName->getValue() : null;
+        return ($this->sipAuthenticationUserName)
+            ? $this->sipAuthenticationUserName->getElementValue()
+            : null;
     }
 
     /**
@@ -727,7 +765,7 @@ class GroupTrunkGroupAddInstanceRequest17sp3 extends ComplexType implements Comp
         $this->sipAuthenticationPassword = ($sipAuthenticationPassword InstanceOf Password)
              ? $sipAuthenticationPassword
              : new Password($sipAuthenticationPassword);
-        $this->sipAuthenticationPassword->setName('sipAuthenticationPassword');
+        $this->sipAuthenticationPassword->setElementName('sipAuthenticationPassword');
         return $this;
     }
 
@@ -737,7 +775,9 @@ class GroupTrunkGroupAddInstanceRequest17sp3 extends ComplexType implements Comp
      */
     public function getSipAuthenticationPassword()
     {
-        return ($this->sipAuthenticationPassword) ? $this->sipAuthenticationPassword->getValue() : null;
+        return ($this->sipAuthenticationPassword)
+            ? $this->sipAuthenticationPassword->getElementValue()
+            : null;
     }
 
     /**
@@ -748,7 +788,7 @@ class GroupTrunkGroupAddInstanceRequest17sp3 extends ComplexType implements Comp
         $this->hostedUserId = ($hostedUserId InstanceOf UserId)
              ? $hostedUserId
              : new UserId($hostedUserId);
-        $this->hostedUserId->setName('hostedUserId');
+        $this->hostedUserId->setElementName('hostedUserId');
         return $this;
     }
 
@@ -758,7 +798,9 @@ class GroupTrunkGroupAddInstanceRequest17sp3 extends ComplexType implements Comp
      */
     public function getHostedUserId()
     {
-        return ($this->hostedUserId) ? $this->hostedUserId->getValue() : null;
+        return ($this->hostedUserId)
+            ? $this->hostedUserId->getElementValue()
+            : null;
     }
 
     /**
@@ -769,7 +811,7 @@ class GroupTrunkGroupAddInstanceRequest17sp3 extends ComplexType implements Comp
         $this->trunkGroupIdentity = ($trunkGroupIdentity InstanceOf SIPURI)
              ? $trunkGroupIdentity
              : new SIPURI($trunkGroupIdentity);
-        $this->trunkGroupIdentity->setName('trunkGroupIdentity');
+        $this->trunkGroupIdentity->setElementName('trunkGroupIdentity');
         return $this;
     }
 
@@ -779,7 +821,9 @@ class GroupTrunkGroupAddInstanceRequest17sp3 extends ComplexType implements Comp
      */
     public function getTrunkGroupIdentity()
     {
-        return ($this->trunkGroupIdentity) ? $this->trunkGroupIdentity->getValue() : null;
+        return ($this->trunkGroupIdentity)
+            ? $this->trunkGroupIdentity->getElementValue()
+            : null;
     }
 
     /**
@@ -790,7 +834,7 @@ class GroupTrunkGroupAddInstanceRequest17sp3 extends ComplexType implements Comp
         $this->otgDtgIdentity = ($otgDtgIdentity InstanceOf OtgDtgIdentity)
              ? $otgDtgIdentity
              : new OtgDtgIdentity($otgDtgIdentity);
-        $this->otgDtgIdentity->setName('otgDtgIdentity');
+        $this->otgDtgIdentity->setElementName('otgDtgIdentity');
         return $this;
     }
 
@@ -800,7 +844,9 @@ class GroupTrunkGroupAddInstanceRequest17sp3 extends ComplexType implements Comp
      */
     public function getOtgDtgIdentity()
     {
-        return ($this->otgDtgIdentity) ? $this->otgDtgIdentity->getValue() : null;
+        return ($this->otgDtgIdentity)
+            ? $this->otgDtgIdentity->getElementValue()
+            : null;
     }
 
     /**
@@ -809,7 +855,7 @@ class GroupTrunkGroupAddInstanceRequest17sp3 extends ComplexType implements Comp
     public function setIncludeTrunkGroupIdentity($includeTrunkGroupIdentity = null)
     {
         $this->includeTrunkGroupIdentity = new PrimitiveType($includeTrunkGroupIdentity);
-        $this->includeTrunkGroupIdentity->setName('includeTrunkGroupIdentity');
+        $this->includeTrunkGroupIdentity->setElementName('includeTrunkGroupIdentity');
         return $this;
     }
 
@@ -819,7 +865,9 @@ class GroupTrunkGroupAddInstanceRequest17sp3 extends ComplexType implements Comp
      */
     public function getIncludeTrunkGroupIdentity()
     {
-        return ($this->includeTrunkGroupIdentity) ? $this->includeTrunkGroupIdentity->getValue() : null;
+        return ($this->includeTrunkGroupIdentity)
+            ? $this->includeTrunkGroupIdentity->getElementValue()
+            : null;
     }
 
     /**
@@ -828,7 +876,7 @@ class GroupTrunkGroupAddInstanceRequest17sp3 extends ComplexType implements Comp
     public function setIncludeDtgIdentity($includeDtgIdentity = null)
     {
         $this->includeDtgIdentity = new PrimitiveType($includeDtgIdentity);
-        $this->includeDtgIdentity->setName('includeDtgIdentity');
+        $this->includeDtgIdentity->setElementName('includeDtgIdentity');
         return $this;
     }
 
@@ -838,7 +886,9 @@ class GroupTrunkGroupAddInstanceRequest17sp3 extends ComplexType implements Comp
      */
     public function getIncludeDtgIdentity()
     {
-        return ($this->includeDtgIdentity) ? $this->includeDtgIdentity->getValue() : null;
+        return ($this->includeDtgIdentity)
+            ? $this->includeDtgIdentity->getElementValue()
+            : null;
     }
 
     /**
@@ -847,7 +897,7 @@ class GroupTrunkGroupAddInstanceRequest17sp3 extends ComplexType implements Comp
     public function setEnableNetworkAddressIdentity($enableNetworkAddressIdentity = null)
     {
         $this->enableNetworkAddressIdentity = new PrimitiveType($enableNetworkAddressIdentity);
-        $this->enableNetworkAddressIdentity->setName('enableNetworkAddressIdentity');
+        $this->enableNetworkAddressIdentity->setElementName('enableNetworkAddressIdentity');
         return $this;
     }
 
@@ -857,7 +907,9 @@ class GroupTrunkGroupAddInstanceRequest17sp3 extends ComplexType implements Comp
      */
     public function getEnableNetworkAddressIdentity()
     {
-        return ($this->enableNetworkAddressIdentity) ? $this->enableNetworkAddressIdentity->getValue() : null;
+        return ($this->enableNetworkAddressIdentity)
+            ? $this->enableNetworkAddressIdentity->getElementValue()
+            : null;
     }
 
     /**
@@ -866,7 +918,7 @@ class GroupTrunkGroupAddInstanceRequest17sp3 extends ComplexType implements Comp
     public function setAllowUnscreenedCalls($allowUnscreenedCalls = null)
     {
         $this->allowUnscreenedCalls = new PrimitiveType($allowUnscreenedCalls);
-        $this->allowUnscreenedCalls->setName('allowUnscreenedCalls');
+        $this->allowUnscreenedCalls->setElementName('allowUnscreenedCalls');
         return $this;
     }
 
@@ -876,7 +928,9 @@ class GroupTrunkGroupAddInstanceRequest17sp3 extends ComplexType implements Comp
      */
     public function getAllowUnscreenedCalls()
     {
-        return ($this->allowUnscreenedCalls) ? $this->allowUnscreenedCalls->getValue() : null;
+        return ($this->allowUnscreenedCalls)
+            ? $this->allowUnscreenedCalls->getElementValue()
+            : null;
     }
 
     /**
@@ -885,7 +939,7 @@ class GroupTrunkGroupAddInstanceRequest17sp3 extends ComplexType implements Comp
     public function setAllowUnscreenedEmergencyCalls($allowUnscreenedEmergencyCalls = null)
     {
         $this->allowUnscreenedEmergencyCalls = new PrimitiveType($allowUnscreenedEmergencyCalls);
-        $this->allowUnscreenedEmergencyCalls->setName('allowUnscreenedEmergencyCalls');
+        $this->allowUnscreenedEmergencyCalls->setElementName('allowUnscreenedEmergencyCalls');
         return $this;
     }
 
@@ -895,7 +949,9 @@ class GroupTrunkGroupAddInstanceRequest17sp3 extends ComplexType implements Comp
      */
     public function getAllowUnscreenedEmergencyCalls()
     {
-        return ($this->allowUnscreenedEmergencyCalls) ? $this->allowUnscreenedEmergencyCalls->getValue() : null;
+        return ($this->allowUnscreenedEmergencyCalls)
+            ? $this->allowUnscreenedEmergencyCalls->getElementValue()
+            : null;
     }
 
     /**
@@ -906,7 +962,7 @@ class GroupTrunkGroupAddInstanceRequest17sp3 extends ComplexType implements Comp
         $this->pilotUserCallingLineIdentityPolicy = ($pilotUserCallingLineIdentityPolicy InstanceOf TrunkGroupPilotUserCallingLineIdentityUsagePolicy)
              ? $pilotUserCallingLineIdentityPolicy
              : new TrunkGroupPilotUserCallingLineIdentityUsagePolicy($pilotUserCallingLineIdentityPolicy);
-        $this->pilotUserCallingLineIdentityPolicy->setName('pilotUserCallingLineIdentityPolicy');
+        $this->pilotUserCallingLineIdentityPolicy->setElementName('pilotUserCallingLineIdentityPolicy');
         return $this;
     }
 
@@ -916,7 +972,9 @@ class GroupTrunkGroupAddInstanceRequest17sp3 extends ComplexType implements Comp
      */
     public function getPilotUserCallingLineIdentityPolicy()
     {
-        return ($this->pilotUserCallingLineIdentityPolicy) ? $this->pilotUserCallingLineIdentityPolicy->getValue() : null;
+        return ($this->pilotUserCallingLineIdentityPolicy)
+            ? $this->pilotUserCallingLineIdentityPolicy->getElementValue()
+            : null;
     }
 
     /**
@@ -927,7 +985,7 @@ class GroupTrunkGroupAddInstanceRequest17sp3 extends ComplexType implements Comp
         $this->pilotUserChargeNumberPolicy = ($pilotUserChargeNumberPolicy InstanceOf TrunkGroupPilotUserChargeNumberUsagePolicy)
              ? $pilotUserChargeNumberPolicy
              : new TrunkGroupPilotUserChargeNumberUsagePolicy($pilotUserChargeNumberPolicy);
-        $this->pilotUserChargeNumberPolicy->setName('pilotUserChargeNumberPolicy');
+        $this->pilotUserChargeNumberPolicy->setElementName('pilotUserChargeNumberPolicy');
         return $this;
     }
 
@@ -937,7 +995,9 @@ class GroupTrunkGroupAddInstanceRequest17sp3 extends ComplexType implements Comp
      */
     public function getPilotUserChargeNumberPolicy()
     {
-        return ($this->pilotUserChargeNumberPolicy) ? $this->pilotUserChargeNumberPolicy->getValue() : null;
+        return ($this->pilotUserChargeNumberPolicy)
+            ? $this->pilotUserChargeNumberPolicy->getElementValue()
+            : null;
     }
 
     /**
@@ -948,7 +1008,7 @@ class GroupTrunkGroupAddInstanceRequest17sp3 extends ComplexType implements Comp
         $this->callForwardingAlwaysAction = ($callForwardingAlwaysAction InstanceOf TrunkGroupCallForwardingAlwaysAction)
              ? $callForwardingAlwaysAction
              : new TrunkGroupCallForwardingAlwaysAction($callForwardingAlwaysAction);
-        $this->callForwardingAlwaysAction->setName('callForwardingAlwaysAction');
+        $this->callForwardingAlwaysAction->setElementName('callForwardingAlwaysAction');
         return $this;
     }
 
@@ -958,7 +1018,9 @@ class GroupTrunkGroupAddInstanceRequest17sp3 extends ComplexType implements Comp
      */
     public function getCallForwardingAlwaysAction()
     {
-        return ($this->callForwardingAlwaysAction) ? $this->callForwardingAlwaysAction->getValue() : null;
+        return ($this->callForwardingAlwaysAction)
+            ? $this->callForwardingAlwaysAction->getElementValue()
+            : null;
     }
 
     /**
@@ -969,7 +1031,7 @@ class GroupTrunkGroupAddInstanceRequest17sp3 extends ComplexType implements Comp
         $this->callForwardingAlwaysForwardAddress = ($callForwardingAlwaysForwardAddress InstanceOf OutgoingDNorSIPURI)
              ? $callForwardingAlwaysForwardAddress
              : new OutgoingDNorSIPURI($callForwardingAlwaysForwardAddress);
-        $this->callForwardingAlwaysForwardAddress->setName('callForwardingAlwaysForwardAddress');
+        $this->callForwardingAlwaysForwardAddress->setElementName('callForwardingAlwaysForwardAddress');
         return $this;
     }
 
@@ -979,7 +1041,9 @@ class GroupTrunkGroupAddInstanceRequest17sp3 extends ComplexType implements Comp
      */
     public function getCallForwardingAlwaysForwardAddress()
     {
-        return ($this->callForwardingAlwaysForwardAddress) ? $this->callForwardingAlwaysForwardAddress->getValue() : null;
+        return ($this->callForwardingAlwaysForwardAddress)
+            ? $this->callForwardingAlwaysForwardAddress->getElementValue()
+            : null;
     }
 
     /**
@@ -990,7 +1054,7 @@ class GroupTrunkGroupAddInstanceRequest17sp3 extends ComplexType implements Comp
         $this->callForwardingAlwaysRerouteTrunkGroupKey = ($callForwardingAlwaysRerouteTrunkGroupKey InstanceOf TrunkGroupKey)
              ? $callForwardingAlwaysRerouteTrunkGroupKey
              : new TrunkGroupKey($callForwardingAlwaysRerouteTrunkGroupKey);
-        $this->callForwardingAlwaysRerouteTrunkGroupKey->setName('callForwardingAlwaysRerouteTrunkGroupKey');
+        $this->callForwardingAlwaysRerouteTrunkGroupKey->setElementName('callForwardingAlwaysRerouteTrunkGroupKey');
         return $this;
     }
 
@@ -1011,7 +1075,7 @@ class GroupTrunkGroupAddInstanceRequest17sp3 extends ComplexType implements Comp
         $this->peeringDomain = ($peeringDomain InstanceOf DomainName)
              ? $peeringDomain
              : new DomainName($peeringDomain);
-        $this->peeringDomain->setName('peeringDomain');
+        $this->peeringDomain->setElementName('peeringDomain');
         return $this;
     }
 
@@ -1021,7 +1085,9 @@ class GroupTrunkGroupAddInstanceRequest17sp3 extends ComplexType implements Comp
      */
     public function getPeeringDomain()
     {
-        return ($this->peeringDomain) ? $this->peeringDomain->getValue() : null;
+        return ($this->peeringDomain)
+            ? $this->peeringDomain->getElementValue()
+            : null;
     }
 
     /**
@@ -1030,7 +1096,7 @@ class GroupTrunkGroupAddInstanceRequest17sp3 extends ComplexType implements Comp
     public function setRouteToPeeringDomain($routeToPeeringDomain = null)
     {
         $this->routeToPeeringDomain = new PrimitiveType($routeToPeeringDomain);
-        $this->routeToPeeringDomain->setName('routeToPeeringDomain');
+        $this->routeToPeeringDomain->setElementName('routeToPeeringDomain');
         return $this;
     }
 
@@ -1040,7 +1106,9 @@ class GroupTrunkGroupAddInstanceRequest17sp3 extends ComplexType implements Comp
      */
     public function getRouteToPeeringDomain()
     {
-        return ($this->routeToPeeringDomain) ? $this->routeToPeeringDomain->getValue() : null;
+        return ($this->routeToPeeringDomain)
+            ? $this->routeToPeeringDomain->getElementValue()
+            : null;
     }
 
     /**
@@ -1049,7 +1117,7 @@ class GroupTrunkGroupAddInstanceRequest17sp3 extends ComplexType implements Comp
     public function setPrefixEnabled($prefixEnabled = null)
     {
         $this->prefixEnabled = new PrimitiveType($prefixEnabled);
-        $this->prefixEnabled->setName('prefixEnabled');
+        $this->prefixEnabled->setElementName('prefixEnabled');
         return $this;
     }
 
@@ -1059,7 +1127,9 @@ class GroupTrunkGroupAddInstanceRequest17sp3 extends ComplexType implements Comp
      */
     public function getPrefixEnabled()
     {
-        return ($this->prefixEnabled) ? $this->prefixEnabled->getValue() : null;
+        return ($this->prefixEnabled)
+            ? $this->prefixEnabled->getElementValue()
+            : null;
     }
 
     /**
@@ -1070,7 +1140,7 @@ class GroupTrunkGroupAddInstanceRequest17sp3 extends ComplexType implements Comp
         $this->prefix = ($prefix InstanceOf TrunkGroupPrefix)
              ? $prefix
              : new TrunkGroupPrefix($prefix);
-        $this->prefix->setName('prefix');
+        $this->prefix->setElementName('prefix');
         return $this;
     }
 
@@ -1080,7 +1150,9 @@ class GroupTrunkGroupAddInstanceRequest17sp3 extends ComplexType implements Comp
      */
     public function getPrefix()
     {
-        return ($this->prefix) ? $this->prefix->getValue() : null;
+        return ($this->prefix)
+            ? $this->prefix->getElementValue()
+            : null;
     }
 
     /**
@@ -1089,7 +1161,7 @@ class GroupTrunkGroupAddInstanceRequest17sp3 extends ComplexType implements Comp
     public function setStatefulReroutingEnabled($statefulReroutingEnabled = null)
     {
         $this->statefulReroutingEnabled = new PrimitiveType($statefulReroutingEnabled);
-        $this->statefulReroutingEnabled->setName('statefulReroutingEnabled');
+        $this->statefulReroutingEnabled->setElementName('statefulReroutingEnabled');
         return $this;
     }
 
@@ -1099,7 +1171,9 @@ class GroupTrunkGroupAddInstanceRequest17sp3 extends ComplexType implements Comp
      */
     public function getStatefulReroutingEnabled()
     {
-        return ($this->statefulReroutingEnabled) ? $this->statefulReroutingEnabled->getValue() : null;
+        return ($this->statefulReroutingEnabled)
+            ? $this->statefulReroutingEnabled->getElementValue()
+            : null;
     }
 
     /**
@@ -1108,7 +1182,7 @@ class GroupTrunkGroupAddInstanceRequest17sp3 extends ComplexType implements Comp
     public function setSendContinuousOptionsMessage($sendContinuousOptionsMessage = null)
     {
         $this->sendContinuousOptionsMessage = new PrimitiveType($sendContinuousOptionsMessage);
-        $this->sendContinuousOptionsMessage->setName('sendContinuousOptionsMessage');
+        $this->sendContinuousOptionsMessage->setElementName('sendContinuousOptionsMessage');
         return $this;
     }
 
@@ -1118,7 +1192,9 @@ class GroupTrunkGroupAddInstanceRequest17sp3 extends ComplexType implements Comp
      */
     public function getSendContinuousOptionsMessage()
     {
-        return ($this->sendContinuousOptionsMessage) ? $this->sendContinuousOptionsMessage->getValue() : null;
+        return ($this->sendContinuousOptionsMessage)
+            ? $this->sendContinuousOptionsMessage->getElementValue()
+            : null;
     }
 
     /**
@@ -1129,7 +1205,7 @@ class GroupTrunkGroupAddInstanceRequest17sp3 extends ComplexType implements Comp
         $this->continuousOptionsSendingIntervalSeconds = ($continuousOptionsSendingIntervalSeconds InstanceOf TrunkGroupContinuousOptionsSendingIntervalSeconds)
              ? $continuousOptionsSendingIntervalSeconds
              : new TrunkGroupContinuousOptionsSendingIntervalSeconds($continuousOptionsSendingIntervalSeconds);
-        $this->continuousOptionsSendingIntervalSeconds->setName('continuousOptionsSendingIntervalSeconds');
+        $this->continuousOptionsSendingIntervalSeconds->setElementName('continuousOptionsSendingIntervalSeconds');
         return $this;
     }
 
@@ -1139,7 +1215,9 @@ class GroupTrunkGroupAddInstanceRequest17sp3 extends ComplexType implements Comp
      */
     public function getContinuousOptionsSendingIntervalSeconds()
     {
-        return ($this->continuousOptionsSendingIntervalSeconds) ? $this->continuousOptionsSendingIntervalSeconds->getValue() : null;
+        return ($this->continuousOptionsSendingIntervalSeconds)
+            ? $this->continuousOptionsSendingIntervalSeconds->getElementValue()
+            : null;
     }
 
     /**
@@ -1150,7 +1228,7 @@ class GroupTrunkGroupAddInstanceRequest17sp3 extends ComplexType implements Comp
         $this->failureOptionsSendingIntervalSeconds = ($failureOptionsSendingIntervalSeconds InstanceOf TrunkGroupFailureOptionsSendingIntervalSeconds)
              ? $failureOptionsSendingIntervalSeconds
              : new TrunkGroupFailureOptionsSendingIntervalSeconds($failureOptionsSendingIntervalSeconds);
-        $this->failureOptionsSendingIntervalSeconds->setName('failureOptionsSendingIntervalSeconds');
+        $this->failureOptionsSendingIntervalSeconds->setElementName('failureOptionsSendingIntervalSeconds');
         return $this;
     }
 
@@ -1160,7 +1238,9 @@ class GroupTrunkGroupAddInstanceRequest17sp3 extends ComplexType implements Comp
      */
     public function getFailureOptionsSendingIntervalSeconds()
     {
-        return ($this->failureOptionsSendingIntervalSeconds) ? $this->failureOptionsSendingIntervalSeconds->getValue() : null;
+        return ($this->failureOptionsSendingIntervalSeconds)
+            ? $this->failureOptionsSendingIntervalSeconds->getElementValue()
+            : null;
     }
 
     /**
@@ -1171,7 +1251,7 @@ class GroupTrunkGroupAddInstanceRequest17sp3 extends ComplexType implements Comp
         $this->failureThresholdCounter = ($failureThresholdCounter InstanceOf TrunkGroupThresholdCounter)
              ? $failureThresholdCounter
              : new TrunkGroupThresholdCounter($failureThresholdCounter);
-        $this->failureThresholdCounter->setName('failureThresholdCounter');
+        $this->failureThresholdCounter->setElementName('failureThresholdCounter');
         return $this;
     }
 
@@ -1181,7 +1261,9 @@ class GroupTrunkGroupAddInstanceRequest17sp3 extends ComplexType implements Comp
      */
     public function getFailureThresholdCounter()
     {
-        return ($this->failureThresholdCounter) ? $this->failureThresholdCounter->getValue() : null;
+        return ($this->failureThresholdCounter)
+            ? $this->failureThresholdCounter->getElementValue()
+            : null;
     }
 
     /**
@@ -1192,7 +1274,7 @@ class GroupTrunkGroupAddInstanceRequest17sp3 extends ComplexType implements Comp
         $this->successThresholdCounter = ($successThresholdCounter InstanceOf TrunkGroupThresholdCounter)
              ? $successThresholdCounter
              : new TrunkGroupThresholdCounter($successThresholdCounter);
-        $this->successThresholdCounter->setName('successThresholdCounter');
+        $this->successThresholdCounter->setElementName('successThresholdCounter');
         return $this;
     }
 
@@ -1202,7 +1284,9 @@ class GroupTrunkGroupAddInstanceRequest17sp3 extends ComplexType implements Comp
      */
     public function getSuccessThresholdCounter()
     {
-        return ($this->successThresholdCounter) ? $this->successThresholdCounter->getValue() : null;
+        return ($this->successThresholdCounter)
+            ? $this->successThresholdCounter->getElementValue()
+            : null;
     }
 
     /**
@@ -1213,7 +1297,7 @@ class GroupTrunkGroupAddInstanceRequest17sp3 extends ComplexType implements Comp
         $this->inviteFailureThresholdCounter = ($inviteFailureThresholdCounter InstanceOf TrunkGroupThresholdCounter)
              ? $inviteFailureThresholdCounter
              : new TrunkGroupThresholdCounter($inviteFailureThresholdCounter);
-        $this->inviteFailureThresholdCounter->setName('inviteFailureThresholdCounter');
+        $this->inviteFailureThresholdCounter->setElementName('inviteFailureThresholdCounter');
         return $this;
     }
 
@@ -1223,7 +1307,9 @@ class GroupTrunkGroupAddInstanceRequest17sp3 extends ComplexType implements Comp
      */
     public function getInviteFailureThresholdCounter()
     {
-        return ($this->inviteFailureThresholdCounter) ? $this->inviteFailureThresholdCounter->getValue() : null;
+        return ($this->inviteFailureThresholdCounter)
+            ? $this->inviteFailureThresholdCounter->getElementValue()
+            : null;
     }
 
     /**
@@ -1234,7 +1320,7 @@ class GroupTrunkGroupAddInstanceRequest17sp3 extends ComplexType implements Comp
         $this->inviteFailureThresholdWindowSeconds = ($inviteFailureThresholdWindowSeconds InstanceOf TrunkGroupFailureThresholdWindowSeconds)
              ? $inviteFailureThresholdWindowSeconds
              : new TrunkGroupFailureThresholdWindowSeconds($inviteFailureThresholdWindowSeconds);
-        $this->inviteFailureThresholdWindowSeconds->setName('inviteFailureThresholdWindowSeconds');
+        $this->inviteFailureThresholdWindowSeconds->setElementName('inviteFailureThresholdWindowSeconds');
         return $this;
     }
 
@@ -1244,6 +1330,8 @@ class GroupTrunkGroupAddInstanceRequest17sp3 extends ComplexType implements Comp
      */
     public function getInviteFailureThresholdWindowSeconds()
     {
-        return ($this->inviteFailureThresholdWindowSeconds) ? $this->inviteFailureThresholdWindowSeconds->getValue() : null;
+        return ($this->inviteFailureThresholdWindowSeconds)
+            ? $this->inviteFailureThresholdWindowSeconds->getElementValue()
+            : null;
     }
 }

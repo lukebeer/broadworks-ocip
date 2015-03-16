@@ -16,12 +16,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\Enumeration;
  */
 class HotelingHostAccessLevel extends SimpleType
 {
-    public $name = "HotelingHostAccessLevel";
-    protected $value;
-
+    public $elementName = "HotelingHostAccessLevel";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new Enumeration([
             'Enterprise',
             'Group'

@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ReplacementCommunicationBarringAlternateCallIndicatorList extends ComplexType implements ComplexInterface
 {
-    public    $name = 'ReplacementCommunicationBarringAlternateCallIndicatorList';
+    public    $elementName = 'ReplacementCommunicationBarringAlternateCallIndicatorList';
     protected $alternateCallIndicator;
 
     public function __construct(
@@ -44,7 +44,7 @@ class ReplacementCommunicationBarringAlternateCallIndicatorList extends ComplexT
     public function setAlternateCallIndicator($alternateCallIndicator = null)
     {
         $this->alternateCallIndicator = new SimpleContent($alternateCallIndicator);
-        $this->alternateCallIndicator->setName('alternateCallIndicator');
+        $this->alternateCallIndicator->setElementName('alternateCallIndicator');
         return $this;
     }
 
@@ -54,6 +54,8 @@ class ReplacementCommunicationBarringAlternateCallIndicatorList extends ComplexT
      */
     public function getAlternateCallIndicator()
     {
-        return ($this->alternateCallIndicator) ? $this->alternateCallIndicator->getValue() : null;
+        return ($this->alternateCallIndicator)
+            ? $this->alternateCallIndicator->getElementValue()
+            : null;
     }
 }

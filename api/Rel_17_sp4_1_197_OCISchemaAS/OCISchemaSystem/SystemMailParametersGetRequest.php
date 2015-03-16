@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
 class SystemMailParametersGetRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemMailParametersGetResponse';
-    public    $name = 'SystemMailParametersGetRequest';
+    public    $elementName = 'SystemMailParametersGetRequest';
 
     public function __construct(    ) {
     }

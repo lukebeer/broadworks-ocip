@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupCallCenterGetAnnouncementResponse14sp6 extends ComplexType implements ComplexInterface
 {
-    public    $name = 'GroupCallCenterGetAnnouncementResponse14sp6';
+    public    $elementName = 'GroupCallCenterGetAnnouncementResponse14sp6';
     protected $entranceMessageSelection;
     protected $entranceMessageAudioFileDescription;
     protected $entranceMessageVideoFileDescription;
@@ -49,7 +49,7 @@ class GroupCallCenterGetAnnouncementResponse14sp6 extends ComplexType implements
         $this->entranceMessageSelection = ($entranceMessageSelection InstanceOf CallCenterAnnouncementSelection)
              ? $entranceMessageSelection
              : new CallCenterAnnouncementSelection($entranceMessageSelection);
-        $this->entranceMessageSelection->setName('entranceMessageSelection');
+        $this->entranceMessageSelection->setElementName('entranceMessageSelection');
         return $this;
     }
 
@@ -59,7 +59,9 @@ class GroupCallCenterGetAnnouncementResponse14sp6 extends ComplexType implements
      */
     public function getEntranceMessageSelection()
     {
-        return ($this->entranceMessageSelection) ? $this->entranceMessageSelection->getValue() : null;
+        return ($this->entranceMessageSelection)
+            ? $this->entranceMessageSelection->getElementValue()
+            : null;
     }
 
     /**
@@ -70,7 +72,7 @@ class GroupCallCenterGetAnnouncementResponse14sp6 extends ComplexType implements
         $this->entranceMessageAudioFileDescription = ($entranceMessageAudioFileDescription InstanceOf FileDescription)
              ? $entranceMessageAudioFileDescription
              : new FileDescription($entranceMessageAudioFileDescription);
-        $this->entranceMessageAudioFileDescription->setName('entranceMessageAudioFileDescription');
+        $this->entranceMessageAudioFileDescription->setElementName('entranceMessageAudioFileDescription');
         return $this;
     }
 
@@ -80,7 +82,9 @@ class GroupCallCenterGetAnnouncementResponse14sp6 extends ComplexType implements
      */
     public function getEntranceMessageAudioFileDescription()
     {
-        return ($this->entranceMessageAudioFileDescription) ? $this->entranceMessageAudioFileDescription->getValue() : null;
+        return ($this->entranceMessageAudioFileDescription)
+            ? $this->entranceMessageAudioFileDescription->getElementValue()
+            : null;
     }
 
     /**
@@ -91,7 +95,7 @@ class GroupCallCenterGetAnnouncementResponse14sp6 extends ComplexType implements
         $this->entranceMessageVideoFileDescription = ($entranceMessageVideoFileDescription InstanceOf FileDescription)
              ? $entranceMessageVideoFileDescription
              : new FileDescription($entranceMessageVideoFileDescription);
-        $this->entranceMessageVideoFileDescription->setName('entranceMessageVideoFileDescription');
+        $this->entranceMessageVideoFileDescription->setElementName('entranceMessageVideoFileDescription');
         return $this;
     }
 
@@ -101,7 +105,9 @@ class GroupCallCenterGetAnnouncementResponse14sp6 extends ComplexType implements
      */
     public function getEntranceMessageVideoFileDescription()
     {
-        return ($this->entranceMessageVideoFileDescription) ? $this->entranceMessageVideoFileDescription->getValue() : null;
+        return ($this->entranceMessageVideoFileDescription)
+            ? $this->entranceMessageVideoFileDescription->getElementValue()
+            : null;
     }
 
     /**
@@ -112,7 +118,7 @@ class GroupCallCenterGetAnnouncementResponse14sp6 extends ComplexType implements
         $this->periodicComfortMessageSelection = ($periodicComfortMessageSelection InstanceOf CallCenterAnnouncementSelection)
              ? $periodicComfortMessageSelection
              : new CallCenterAnnouncementSelection($periodicComfortMessageSelection);
-        $this->periodicComfortMessageSelection->setName('periodicComfortMessageSelection');
+        $this->periodicComfortMessageSelection->setElementName('periodicComfortMessageSelection');
         return $this;
     }
 
@@ -122,7 +128,9 @@ class GroupCallCenterGetAnnouncementResponse14sp6 extends ComplexType implements
      */
     public function getPeriodicComfortMessageSelection()
     {
-        return ($this->periodicComfortMessageSelection) ? $this->periodicComfortMessageSelection->getValue() : null;
+        return ($this->periodicComfortMessageSelection)
+            ? $this->periodicComfortMessageSelection->getElementValue()
+            : null;
     }
 
     /**
@@ -133,7 +141,7 @@ class GroupCallCenterGetAnnouncementResponse14sp6 extends ComplexType implements
         $this->periodicComfortMessageAudioFileDescription = ($periodicComfortMessageAudioFileDescription InstanceOf FileDescription)
              ? $periodicComfortMessageAudioFileDescription
              : new FileDescription($periodicComfortMessageAudioFileDescription);
-        $this->periodicComfortMessageAudioFileDescription->setName('periodicComfortMessageAudioFileDescription');
+        $this->periodicComfortMessageAudioFileDescription->setElementName('periodicComfortMessageAudioFileDescription');
         return $this;
     }
 
@@ -143,7 +151,9 @@ class GroupCallCenterGetAnnouncementResponse14sp6 extends ComplexType implements
      */
     public function getPeriodicComfortMessageAudioFileDescription()
     {
-        return ($this->periodicComfortMessageAudioFileDescription) ? $this->periodicComfortMessageAudioFileDescription->getValue() : null;
+        return ($this->periodicComfortMessageAudioFileDescription)
+            ? $this->periodicComfortMessageAudioFileDescription->getElementValue()
+            : null;
     }
 
     /**
@@ -154,7 +164,7 @@ class GroupCallCenterGetAnnouncementResponse14sp6 extends ComplexType implements
         $this->periodicComfortMessageVideoFileDescription = ($periodicComfortMessageVideoFileDescription InstanceOf FileDescription)
              ? $periodicComfortMessageVideoFileDescription
              : new FileDescription($periodicComfortMessageVideoFileDescription);
-        $this->periodicComfortMessageVideoFileDescription->setName('periodicComfortMessageVideoFileDescription');
+        $this->periodicComfortMessageVideoFileDescription->setElementName('periodicComfortMessageVideoFileDescription');
         return $this;
     }
 
@@ -164,7 +174,9 @@ class GroupCallCenterGetAnnouncementResponse14sp6 extends ComplexType implements
      */
     public function getPeriodicComfortMessageVideoFileDescription()
     {
-        return ($this->periodicComfortMessageVideoFileDescription) ? $this->periodicComfortMessageVideoFileDescription->getValue() : null;
+        return ($this->periodicComfortMessageVideoFileDescription)
+            ? $this->periodicComfortMessageVideoFileDescription->getElementValue()
+            : null;
     }
 
     /**
@@ -175,7 +187,7 @@ class GroupCallCenterGetAnnouncementResponse14sp6 extends ComplexType implements
         $this->onHoldSource = ($onHoldSource InstanceOf CallCenterMusicOnHoldSourceRead)
              ? $onHoldSource
              : new CallCenterMusicOnHoldSourceRead($onHoldSource);
-        $this->onHoldSource->setName('onHoldSource');
+        $this->onHoldSource->setElementName('onHoldSource');
         return $this;
     }
 
@@ -194,7 +206,7 @@ class GroupCallCenterGetAnnouncementResponse14sp6 extends ComplexType implements
     public function setOnHoldUseAlternateSourceForInternalCalls($onHoldUseAlternateSourceForInternalCalls = null)
     {
         $this->onHoldUseAlternateSourceForInternalCalls = new PrimitiveType($onHoldUseAlternateSourceForInternalCalls);
-        $this->onHoldUseAlternateSourceForInternalCalls->setName('onHoldUseAlternateSourceForInternalCalls');
+        $this->onHoldUseAlternateSourceForInternalCalls->setElementName('onHoldUseAlternateSourceForInternalCalls');
         return $this;
     }
 
@@ -204,7 +216,9 @@ class GroupCallCenterGetAnnouncementResponse14sp6 extends ComplexType implements
      */
     public function getOnHoldUseAlternateSourceForInternalCalls()
     {
-        return ($this->onHoldUseAlternateSourceForInternalCalls) ? $this->onHoldUseAlternateSourceForInternalCalls->getValue() : null;
+        return ($this->onHoldUseAlternateSourceForInternalCalls)
+            ? $this->onHoldUseAlternateSourceForInternalCalls->getElementValue()
+            : null;
     }
 
     /**
@@ -215,7 +229,7 @@ class GroupCallCenterGetAnnouncementResponse14sp6 extends ComplexType implements
         $this->onHoldInternalSource = ($onHoldInternalSource InstanceOf CallCenterMusicOnHoldSourceRead)
              ? $onHoldInternalSource
              : new CallCenterMusicOnHoldSourceRead($onHoldInternalSource);
-        $this->onHoldInternalSource->setName('onHoldInternalSource');
+        $this->onHoldInternalSource->setElementName('onHoldInternalSource');
         return $this;
     }
 

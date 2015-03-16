@@ -26,7 +26,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderAdminAddRequest14 extends ComplexType implements ComplexInterface
 {
-    public    $name = 'ServiceProviderAdminAddRequest14';
+    public    $elementName = 'ServiceProviderAdminAddRequest14';
     protected $serviceProviderId;
     protected $userId;
     protected $firstName;
@@ -69,7 +69,7 @@ class ServiceProviderAdminAddRequest14 extends ComplexType implements ComplexInt
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
-        $this->serviceProviderId->setName('serviceProviderId');
+        $this->serviceProviderId->setElementName('serviceProviderId');
         return $this;
     }
 
@@ -79,7 +79,9 @@ class ServiceProviderAdminAddRequest14 extends ComplexType implements ComplexInt
      */
     public function getServiceProviderId()
     {
-        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
+        return ($this->serviceProviderId)
+            ? $this->serviceProviderId->getElementValue()
+            : null;
     }
 
     /**
@@ -90,7 +92,7 @@ class ServiceProviderAdminAddRequest14 extends ComplexType implements ComplexInt
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
-        $this->userId->setName('userId');
+        $this->userId->setElementName('userId');
         return $this;
     }
 
@@ -100,7 +102,9 @@ class ServiceProviderAdminAddRequest14 extends ComplexType implements ComplexInt
      */
     public function getUserId()
     {
-        return ($this->userId) ? $this->userId->getValue() : null;
+        return ($this->userId)
+            ? $this->userId->getElementValue()
+            : null;
     }
 
     /**
@@ -111,7 +115,7 @@ class ServiceProviderAdminAddRequest14 extends ComplexType implements ComplexInt
         $this->firstName = ($firstName InstanceOf FirstName)
              ? $firstName
              : new FirstName($firstName);
-        $this->firstName->setName('firstName');
+        $this->firstName->setElementName('firstName');
         return $this;
     }
 
@@ -121,7 +125,9 @@ class ServiceProviderAdminAddRequest14 extends ComplexType implements ComplexInt
      */
     public function getFirstName()
     {
-        return ($this->firstName) ? $this->firstName->getValue() : null;
+        return ($this->firstName)
+            ? $this->firstName->getElementValue()
+            : null;
     }
 
     /**
@@ -132,7 +138,7 @@ class ServiceProviderAdminAddRequest14 extends ComplexType implements ComplexInt
         $this->lastName = ($lastName InstanceOf LastName)
              ? $lastName
              : new LastName($lastName);
-        $this->lastName->setName('lastName');
+        $this->lastName->setElementName('lastName');
         return $this;
     }
 
@@ -142,7 +148,9 @@ class ServiceProviderAdminAddRequest14 extends ComplexType implements ComplexInt
      */
     public function getLastName()
     {
-        return ($this->lastName) ? $this->lastName->getValue() : null;
+        return ($this->lastName)
+            ? $this->lastName->getElementValue()
+            : null;
     }
 
     /**
@@ -153,7 +161,7 @@ class ServiceProviderAdminAddRequest14 extends ComplexType implements ComplexInt
         $this->password = ($password InstanceOf Password)
              ? $password
              : new Password($password);
-        $this->password->setName('password');
+        $this->password->setElementName('password');
         return $this;
     }
 
@@ -163,7 +171,9 @@ class ServiceProviderAdminAddRequest14 extends ComplexType implements ComplexInt
      */
     public function getPassword()
     {
-        return ($this->password) ? $this->password->getValue() : null;
+        return ($this->password)
+            ? $this->password->getElementValue()
+            : null;
     }
 
     /**
@@ -174,7 +184,7 @@ class ServiceProviderAdminAddRequest14 extends ComplexType implements ComplexInt
         $this->language = ($language InstanceOf Language)
              ? $language
              : new Language($language);
-        $this->language->setName('language');
+        $this->language->setElementName('language');
         return $this;
     }
 
@@ -184,7 +194,9 @@ class ServiceProviderAdminAddRequest14 extends ComplexType implements ComplexInt
      */
     public function getLanguage()
     {
-        return ($this->language) ? $this->language->getValue() : null;
+        return ($this->language)
+            ? $this->language->getElementValue()
+            : null;
     }
 
     /**
@@ -195,7 +207,7 @@ class ServiceProviderAdminAddRequest14 extends ComplexType implements ComplexInt
         $this->administratorType = ($administratorType InstanceOf ServiceProviderAdminType)
              ? $administratorType
              : new ServiceProviderAdminType($administratorType);
-        $this->administratorType->setName('administratorType');
+        $this->administratorType->setElementName('administratorType');
         return $this;
     }
 
@@ -205,6 +217,8 @@ class ServiceProviderAdminAddRequest14 extends ComplexType implements ComplexInt
      */
     public function getAdministratorType()
     {
-        return ($this->administratorType) ? $this->administratorType->getValue() : null;
+        return ($this->administratorType)
+            ? $this->administratorType->getElementValue()
+            : null;
     }
 }

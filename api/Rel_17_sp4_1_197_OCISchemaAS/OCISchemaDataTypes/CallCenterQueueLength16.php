@@ -17,12 +17,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\MaxInclusive;
  */
 class CallCenterQueueLength16 extends SimpleType
 {
-    public $name = "CallCenterQueueLength16";
-    protected $value;
-
+    public $elementName = "CallCenterQueueLength16";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new MinInclusive("0"));
         $this->addRestriction(new MaxInclusive("525"));
     }

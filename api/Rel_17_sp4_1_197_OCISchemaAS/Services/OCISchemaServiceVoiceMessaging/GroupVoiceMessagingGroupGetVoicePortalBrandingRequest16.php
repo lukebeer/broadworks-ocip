@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
 class GroupVoiceMessagingGroupGetVoicePortalBrandingRequest16 extends ComplexType implements ComplexInterface
 {
     public    $responseType      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceVoiceMessaging\GroupVoiceMessagingGroupGetVoicePortalBrandingResponse16';
-    public    $name = 'GroupVoiceMessagingGroupGetVoicePortalBrandingRequest16';
+    public    $elementName = 'GroupVoiceMessagingGroupGetVoicePortalBrandingRequest16';
     protected $serviceProviderId;
     protected $groupId;
 
@@ -50,7 +50,7 @@ class GroupVoiceMessagingGroupGetVoicePortalBrandingRequest16 extends ComplexTyp
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
-        $this->serviceProviderId->setName('serviceProviderId');
+        $this->serviceProviderId->setElementName('serviceProviderId');
         return $this;
     }
 
@@ -60,7 +60,9 @@ class GroupVoiceMessagingGroupGetVoicePortalBrandingRequest16 extends ComplexTyp
      */
     public function getServiceProviderId()
     {
-        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
+        return ($this->serviceProviderId)
+            ? $this->serviceProviderId->getElementValue()
+            : null;
     }
 
     /**
@@ -71,7 +73,7 @@ class GroupVoiceMessagingGroupGetVoicePortalBrandingRequest16 extends ComplexTyp
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
-        $this->groupId->setName('groupId');
+        $this->groupId->setElementName('groupId');
         return $this;
     }
 
@@ -81,6 +83,8 @@ class GroupVoiceMessagingGroupGetVoicePortalBrandingRequest16 extends ComplexTyp
      */
     public function getGroupId()
     {
-        return ($this->groupId) ? $this->groupId->getValue() : null;
+        return ($this->groupId)
+            ? $this->groupId->getElementValue()
+            : null;
     }
 }

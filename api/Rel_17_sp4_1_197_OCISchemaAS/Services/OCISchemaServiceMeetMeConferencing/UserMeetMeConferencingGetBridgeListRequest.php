@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
 class UserMeetMeConferencingGetBridgeListRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceMeetMeConferencing\UserMeetMeConferencingGetBridgeListResponse';
-    public    $name = 'UserMeetMeConferencingGetBridgeListRequest';
+    public    $elementName = 'UserMeetMeConferencingGetBridgeListRequest';
     protected $userId;
 
     public function __construct(
@@ -46,7 +46,7 @@ class UserMeetMeConferencingGetBridgeListRequest extends ComplexType implements 
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
-        $this->userId->setName('userId');
+        $this->userId->setElementName('userId');
         return $this;
     }
 
@@ -56,6 +56,8 @@ class UserMeetMeConferencingGetBridgeListRequest extends ComplexType implements 
      */
     public function getUserId()
     {
-        return ($this->userId) ? $this->userId->getValue() : null;
+        return ($this->userId)
+            ? $this->userId->getElementValue()
+            : null;
     }
 }

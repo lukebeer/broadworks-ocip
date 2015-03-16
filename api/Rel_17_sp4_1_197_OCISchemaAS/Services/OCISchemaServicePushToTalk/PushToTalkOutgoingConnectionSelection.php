@@ -16,12 +16,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\Enumeration;
  */
 class PushToTalkOutgoingConnectionSelection extends SimpleType
 {
-    public $name = "PushToTalkOutgoingConnectionSelection";
-    protected $value;
-
+    public $elementName = "PushToTalkOutgoingConnectionSelection";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new Enumeration([
             'One Way',
             'Two Way'

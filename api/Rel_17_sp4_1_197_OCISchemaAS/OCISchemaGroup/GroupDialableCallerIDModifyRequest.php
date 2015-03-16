@@ -24,7 +24,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupDialableCallerIDModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'GroupDialableCallerIDModifyRequest';
+    public    $elementName = 'GroupDialableCallerIDModifyRequest';
     protected $serviceProviderId;
     protected $groupId;
     protected $useGroupCriteria;
@@ -61,7 +61,7 @@ class GroupDialableCallerIDModifyRequest extends ComplexType implements ComplexI
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
-        $this->serviceProviderId->setName('serviceProviderId');
+        $this->serviceProviderId->setElementName('serviceProviderId');
         return $this;
     }
 
@@ -71,7 +71,9 @@ class GroupDialableCallerIDModifyRequest extends ComplexType implements ComplexI
      */
     public function getServiceProviderId()
     {
-        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
+        return ($this->serviceProviderId)
+            ? $this->serviceProviderId->getElementValue()
+            : null;
     }
 
     /**
@@ -82,7 +84,7 @@ class GroupDialableCallerIDModifyRequest extends ComplexType implements ComplexI
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
-        $this->groupId->setName('groupId');
+        $this->groupId->setElementName('groupId');
         return $this;
     }
 
@@ -92,7 +94,9 @@ class GroupDialableCallerIDModifyRequest extends ComplexType implements ComplexI
      */
     public function getGroupId()
     {
-        return ($this->groupId) ? $this->groupId->getValue() : null;
+        return ($this->groupId)
+            ? $this->groupId->getElementValue()
+            : null;
     }
 
     /**
@@ -101,7 +105,7 @@ class GroupDialableCallerIDModifyRequest extends ComplexType implements ComplexI
     public function setUseGroupCriteria($useGroupCriteria = null)
     {
         $this->useGroupCriteria = new PrimitiveType($useGroupCriteria);
-        $this->useGroupCriteria->setName('useGroupCriteria');
+        $this->useGroupCriteria->setElementName('useGroupCriteria');
         return $this;
     }
 
@@ -111,7 +115,9 @@ class GroupDialableCallerIDModifyRequest extends ComplexType implements ComplexI
      */
     public function getUseGroupCriteria()
     {
-        return ($this->useGroupCriteria) ? $this->useGroupCriteria->getValue() : null;
+        return ($this->useGroupCriteria)
+            ? $this->useGroupCriteria->getElementValue()
+            : null;
     }
 
     /**
@@ -122,7 +128,7 @@ class GroupDialableCallerIDModifyRequest extends ComplexType implements ComplexI
         $this->nsScreeningFailurePolicy = ($nsScreeningFailurePolicy InstanceOf NsScreeningFailurePolicy)
              ? $nsScreeningFailurePolicy
              : new NsScreeningFailurePolicy($nsScreeningFailurePolicy);
-        $this->nsScreeningFailurePolicy->setName('nsScreeningFailurePolicy');
+        $this->nsScreeningFailurePolicy->setElementName('nsScreeningFailurePolicy');
         return $this;
     }
 
@@ -132,7 +138,9 @@ class GroupDialableCallerIDModifyRequest extends ComplexType implements ComplexI
      */
     public function getNsScreeningFailurePolicy()
     {
-        return ($this->nsScreeningFailurePolicy) ? $this->nsScreeningFailurePolicy->getValue() : null;
+        return ($this->nsScreeningFailurePolicy)
+            ? $this->nsScreeningFailurePolicy->getElementValue()
+            : null;
     }
 
     /**
@@ -143,7 +151,7 @@ class GroupDialableCallerIDModifyRequest extends ComplexType implements ComplexI
         $this->criteriaPriorityOrder = ($criteriaPriorityOrder InstanceOf DialableCallerIDCriteriaPriorityOrder)
              ? $criteriaPriorityOrder
              : new DialableCallerIDCriteriaPriorityOrder($criteriaPriorityOrder);
-        $this->criteriaPriorityOrder->setName('criteriaPriorityOrder');
+        $this->criteriaPriorityOrder->setElementName('criteriaPriorityOrder');
         return $this;
     }
 

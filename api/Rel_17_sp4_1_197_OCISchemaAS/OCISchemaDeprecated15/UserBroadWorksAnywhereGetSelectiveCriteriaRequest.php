@@ -23,7 +23,7 @@ use Broadworks_OCIP\core\Client\Client;
 class UserBroadWorksAnywhereGetSelectiveCriteriaRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15\UserBroadWorksAnywhereGetSelectiveCriteriaResponse';
-    public    $name = 'UserBroadWorksAnywhereGetSelectiveCriteriaRequest';
+    public    $elementName = 'UserBroadWorksAnywhereGetSelectiveCriteriaRequest';
     protected $userId;
     protected $phoneNumber;
     protected $criteriaName;
@@ -54,7 +54,7 @@ class UserBroadWorksAnywhereGetSelectiveCriteriaRequest extends ComplexType impl
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
-        $this->userId->setName('userId');
+        $this->userId->setElementName('userId');
         return $this;
     }
 
@@ -64,7 +64,9 @@ class UserBroadWorksAnywhereGetSelectiveCriteriaRequest extends ComplexType impl
      */
     public function getUserId()
     {
-        return ($this->userId) ? $this->userId->getValue() : null;
+        return ($this->userId)
+            ? $this->userId->getElementValue()
+            : null;
     }
 
     /**
@@ -75,7 +77,7 @@ class UserBroadWorksAnywhereGetSelectiveCriteriaRequest extends ComplexType impl
         $this->phoneNumber = ($phoneNumber InstanceOf DN)
              ? $phoneNumber
              : new DN($phoneNumber);
-        $this->phoneNumber->setName('phoneNumber');
+        $this->phoneNumber->setElementName('phoneNumber');
         return $this;
     }
 
@@ -85,7 +87,9 @@ class UserBroadWorksAnywhereGetSelectiveCriteriaRequest extends ComplexType impl
      */
     public function getPhoneNumber()
     {
-        return ($this->phoneNumber) ? $this->phoneNumber->getValue() : null;
+        return ($this->phoneNumber)
+            ? $this->phoneNumber->getElementValue()
+            : null;
     }
 
     /**
@@ -96,7 +100,7 @@ class UserBroadWorksAnywhereGetSelectiveCriteriaRequest extends ComplexType impl
         $this->criteriaName = ($criteriaName InstanceOf CriteriaName)
              ? $criteriaName
              : new CriteriaName($criteriaName);
-        $this->criteriaName->setName('criteriaName');
+        $this->criteriaName->setElementName('criteriaName');
         return $this;
     }
 
@@ -106,6 +110,8 @@ class UserBroadWorksAnywhereGetSelectiveCriteriaRequest extends ComplexType impl
      */
     public function getCriteriaName()
     {
-        return ($this->criteriaName) ? $this->criteriaName->getValue() : null;
+        return ($this->criteriaName)
+            ? $this->criteriaName->getElementValue()
+            : null;
     }
 }

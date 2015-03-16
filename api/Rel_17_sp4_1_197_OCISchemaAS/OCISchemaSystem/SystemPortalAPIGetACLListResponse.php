@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemPortalAPIGetACLListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemPortalAPIGetACLListResponse';
+    public    $elementName = 'SystemPortalAPIGetACLListResponse';
     protected $aclTable;
 
     /**
@@ -38,7 +38,7 @@ class SystemPortalAPIGetACLListResponse extends ComplexType implements ComplexIn
     public function setAclTable(TableType $aclTable = null)
     {
         $this->aclTable = $aclTable;
-        $this->aclTable->setName('aclTable');
+        $this->aclTable->setElementName('aclTable');
         return $this;
     }
 

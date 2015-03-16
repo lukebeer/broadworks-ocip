@@ -19,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemBCCTGetOCIInterfaceAddressListResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemBCCTGetOCIInterfaceAddressListResponse';
+    public    $elementName = 'SystemBCCTGetOCIInterfaceAddressListResponse';
     protected $interfaceNetAddress;
 
     /**
@@ -38,7 +38,7 @@ class SystemBCCTGetOCIInterfaceAddressListResponse extends ComplexType implement
         $this->interfaceNetAddress = ($interfaceNetAddress InstanceOf NetAddress)
              ? $interfaceNetAddress
              : new NetAddress($interfaceNetAddress);
-        $this->interfaceNetAddress->setName('interfaceNetAddress');
+        $this->interfaceNetAddress->setElementName('interfaceNetAddress');
         return $this;
     }
 
@@ -48,6 +48,8 @@ class SystemBCCTGetOCIInterfaceAddressListResponse extends ComplexType implement
      */
     public function getInterfaceNetAddress()
     {
-        return ($this->interfaceNetAddress) ? $this->interfaceNetAddress->getValue() : null;
+        return ($this->interfaceNetAddress)
+            ? $this->interfaceNetAddress->getElementValue()
+            : null;
     }
 }

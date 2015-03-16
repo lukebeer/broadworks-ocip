@@ -19,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemProvisioningValidationGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemProvisioningValidationGetResponse';
+    public    $elementName = 'SystemProvisioningValidationGetResponse';
     protected $isActive;
 
     /**
@@ -36,7 +36,7 @@ class SystemProvisioningValidationGetResponse extends ComplexType implements Com
     public function setIsActive($isActive = null)
     {
         $this->isActive = new PrimitiveType($isActive);
-        $this->isActive->setName('isActive');
+        $this->isActive->setElementName('isActive');
         return $this;
     }
 
@@ -46,6 +46,8 @@ class SystemProvisioningValidationGetResponse extends ComplexType implements Com
      */
     public function getIsActive()
     {
-        return ($this->isActive) ? $this->isActive->getValue() : null;
+        return ($this->isActive)
+            ? $this->isActive->getElementValue()
+            : null;
     }
 }

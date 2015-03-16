@@ -16,12 +16,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\Enumeration;
  */
 class PresentationIndicator extends SimpleType
 {
-    public $name = "PresentationIndicator";
-    protected $value;
-
+    public $elementName = "PresentationIndicator";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new Enumeration([
             'Anonymous',
             'Anonymous Name',

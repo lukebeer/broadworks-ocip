@@ -17,12 +17,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\Pattern;
  */
 class DigitStarPound extends SimpleType
 {
-    public $name = "DigitStarPound";
-    protected $value;
-
+    public $elementName = "DigitStarPound";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new Length("1"));
         $this->addRestriction(new Pattern("\*|#"));
     }

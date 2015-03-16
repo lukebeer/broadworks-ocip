@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserScheduleDeleteEventListRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'UserScheduleDeleteEventListRequest';
+    public    $elementName = 'UserScheduleDeleteEventListRequest';
     protected $userId;
     protected $scheduleKey;
     protected $eventName;
@@ -53,7 +53,7 @@ class UserScheduleDeleteEventListRequest extends ComplexType implements ComplexI
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
-        $this->userId->setName('userId');
+        $this->userId->setElementName('userId');
         return $this;
     }
 
@@ -63,7 +63,9 @@ class UserScheduleDeleteEventListRequest extends ComplexType implements ComplexI
      */
     public function getUserId()
     {
-        return ($this->userId) ? $this->userId->getValue() : null;
+        return ($this->userId)
+            ? $this->userId->getElementValue()
+            : null;
     }
 
     /**
@@ -74,7 +76,7 @@ class UserScheduleDeleteEventListRequest extends ComplexType implements ComplexI
         $this->scheduleKey = ($scheduleKey InstanceOf ScheduleKey)
              ? $scheduleKey
              : new ScheduleKey($scheduleKey);
-        $this->scheduleKey->setName('scheduleKey');
+        $this->scheduleKey->setElementName('scheduleKey');
         return $this;
     }
 
@@ -95,7 +97,7 @@ class UserScheduleDeleteEventListRequest extends ComplexType implements ComplexI
         $this->eventName = ($eventName InstanceOf EventName)
              ? $eventName
              : new EventName($eventName);
-        $this->eventName->setName('eventName');
+        $this->eventName->setElementName('eventName');
         return $this;
     }
 
@@ -105,6 +107,8 @@ class UserScheduleDeleteEventListRequest extends ComplexType implements ComplexI
      */
     public function getEventName()
     {
-        return ($this->eventName) ? $this->eventName->getValue() : null;
+        return ($this->eventName)
+            ? $this->eventName->getElementValue()
+            : null;
     }
 }

@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
 class UserSpeedDial100GetRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceSpeedDial100\UserSpeedDial100GetResponse';
-    public    $name = 'UserSpeedDial100GetRequest';
+    public    $elementName = 'UserSpeedDial100GetRequest';
     protected $userId;
     protected $speedCode;
 
@@ -50,7 +50,7 @@ class UserSpeedDial100GetRequest extends ComplexType implements ComplexInterface
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
-        $this->userId->setName('userId');
+        $this->userId->setElementName('userId');
         return $this;
     }
 
@@ -60,7 +60,9 @@ class UserSpeedDial100GetRequest extends ComplexType implements ComplexInterface
      */
     public function getUserId()
     {
-        return ($this->userId) ? $this->userId->getValue() : null;
+        return ($this->userId)
+            ? $this->userId->getElementValue()
+            : null;
     }
 
     /**
@@ -71,7 +73,7 @@ class UserSpeedDial100GetRequest extends ComplexType implements ComplexInterface
         $this->speedCode = ($speedCode InstanceOf SpeedDial100Code)
              ? $speedCode
              : new SpeedDial100Code($speedCode);
-        $this->speedCode->setName('speedCode');
+        $this->speedCode->setElementName('speedCode');
         return $this;
     }
 
@@ -81,6 +83,8 @@ class UserSpeedDial100GetRequest extends ComplexType implements ComplexInterface
      */
     public function getSpeedCode()
     {
-        return ($this->speedCode) ? $this->speedCode->getValue() : null;
+        return ($this->speedCode)
+            ? $this->speedCode->getElementValue()
+            : null;
     }
 }

@@ -35,7 +35,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupCallCenterAddInstanceRequest17 extends ComplexType implements ComplexInterface
 {
-    public    $name = 'GroupCallCenterAddInstanceRequest17';
+    public    $elementName = 'GroupCallCenterAddInstanceRequest17';
     protected $serviceProviderId;
     protected $groupId;
     protected $serviceUserId;
@@ -132,7 +132,7 @@ class GroupCallCenterAddInstanceRequest17 extends ComplexType implements Complex
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
-        $this->serviceProviderId->setName('serviceProviderId');
+        $this->serviceProviderId->setElementName('serviceProviderId');
         return $this;
     }
 
@@ -142,7 +142,9 @@ class GroupCallCenterAddInstanceRequest17 extends ComplexType implements Complex
      */
     public function getServiceProviderId()
     {
-        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
+        return ($this->serviceProviderId)
+            ? $this->serviceProviderId->getElementValue()
+            : null;
     }
 
     /**
@@ -153,7 +155,7 @@ class GroupCallCenterAddInstanceRequest17 extends ComplexType implements Complex
         $this->groupId = ($groupId InstanceOf GroupId)
              ? $groupId
              : new GroupId($groupId);
-        $this->groupId->setName('groupId');
+        $this->groupId->setElementName('groupId');
         return $this;
     }
 
@@ -163,7 +165,9 @@ class GroupCallCenterAddInstanceRequest17 extends ComplexType implements Complex
      */
     public function getGroupId()
     {
-        return ($this->groupId) ? $this->groupId->getValue() : null;
+        return ($this->groupId)
+            ? $this->groupId->getElementValue()
+            : null;
     }
 
     /**
@@ -174,7 +178,7 @@ class GroupCallCenterAddInstanceRequest17 extends ComplexType implements Complex
         $this->serviceUserId = ($serviceUserId InstanceOf UserId)
              ? $serviceUserId
              : new UserId($serviceUserId);
-        $this->serviceUserId->setName('serviceUserId');
+        $this->serviceUserId->setElementName('serviceUserId');
         return $this;
     }
 
@@ -184,7 +188,9 @@ class GroupCallCenterAddInstanceRequest17 extends ComplexType implements Complex
      */
     public function getServiceUserId()
     {
-        return ($this->serviceUserId) ? $this->serviceUserId->getValue() : null;
+        return ($this->serviceUserId)
+            ? $this->serviceUserId->getElementValue()
+            : null;
     }
 
     /**
@@ -195,7 +201,7 @@ class GroupCallCenterAddInstanceRequest17 extends ComplexType implements Complex
         $this->serviceInstanceProfile = ($serviceInstanceProfile InstanceOf ServiceInstanceAddProfileCallCenter)
              ? $serviceInstanceProfile
              : new ServiceInstanceAddProfileCallCenter($serviceInstanceProfile);
-        $this->serviceInstanceProfile->setName('serviceInstanceProfile');
+        $this->serviceInstanceProfile->setElementName('serviceInstanceProfile');
         return $this;
     }
 
@@ -216,7 +222,7 @@ class GroupCallCenterAddInstanceRequest17 extends ComplexType implements Complex
         $this->type = ($type InstanceOf CallCenterType)
              ? $type
              : new CallCenterType($type);
-        $this->type->setName('type');
+        $this->type->setElementName('type');
         return $this;
     }
 
@@ -226,7 +232,9 @@ class GroupCallCenterAddInstanceRequest17 extends ComplexType implements Complex
      */
     public function getType()
     {
-        return ($this->type) ? $this->type->getValue() : null;
+        return ($this->type)
+            ? $this->type->getElementValue()
+            : null;
     }
 
     /**
@@ -237,7 +245,7 @@ class GroupCallCenterAddInstanceRequest17 extends ComplexType implements Complex
         $this->policy = ($policy InstanceOf HuntPolicy)
              ? $policy
              : new HuntPolicy($policy);
-        $this->policy->setName('policy');
+        $this->policy->setElementName('policy');
         return $this;
     }
 
@@ -247,7 +255,9 @@ class GroupCallCenterAddInstanceRequest17 extends ComplexType implements Complex
      */
     public function getPolicy()
     {
-        return ($this->policy) ? $this->policy->getValue() : null;
+        return ($this->policy)
+            ? $this->policy->getElementValue()
+            : null;
     }
 
     /**
@@ -256,7 +266,7 @@ class GroupCallCenterAddInstanceRequest17 extends ComplexType implements Complex
     public function setEnableVideo($enableVideo = null)
     {
         $this->enableVideo = new PrimitiveType($enableVideo);
-        $this->enableVideo->setName('enableVideo');
+        $this->enableVideo->setElementName('enableVideo');
         return $this;
     }
 
@@ -266,7 +276,9 @@ class GroupCallCenterAddInstanceRequest17 extends ComplexType implements Complex
      */
     public function getEnableVideo()
     {
-        return ($this->enableVideo) ? $this->enableVideo->getValue() : null;
+        return ($this->enableVideo)
+            ? $this->enableVideo->getElementValue()
+            : null;
     }
 
     /**
@@ -277,7 +289,7 @@ class GroupCallCenterAddInstanceRequest17 extends ComplexType implements Complex
         $this->queueLength = ($queueLength InstanceOf CallCenterQueueLength16)
              ? $queueLength
              : new CallCenterQueueLength16($queueLength);
-        $this->queueLength->setName('queueLength');
+        $this->queueLength->setElementName('queueLength');
         return $this;
     }
 
@@ -287,7 +299,9 @@ class GroupCallCenterAddInstanceRequest17 extends ComplexType implements Complex
      */
     public function getQueueLength()
     {
-        return ($this->queueLength) ? $this->queueLength->getValue() : null;
+        return ($this->queueLength)
+            ? $this->queueLength->getElementValue()
+            : null;
     }
 
     /**
@@ -298,7 +312,7 @@ class GroupCallCenterAddInstanceRequest17 extends ComplexType implements Complex
         $this->reportingServerName = ($reportingServerName InstanceOf CallCenterReportingServerName)
              ? $reportingServerName
              : new CallCenterReportingServerName($reportingServerName);
-        $this->reportingServerName->setName('reportingServerName');
+        $this->reportingServerName->setElementName('reportingServerName');
         return $this;
     }
 
@@ -308,7 +322,9 @@ class GroupCallCenterAddInstanceRequest17 extends ComplexType implements Complex
      */
     public function getReportingServerName()
     {
-        return ($this->reportingServerName) ? $this->reportingServerName->getValue() : null;
+        return ($this->reportingServerName)
+            ? $this->reportingServerName->getElementValue()
+            : null;
     }
 
     /**
@@ -317,7 +333,7 @@ class GroupCallCenterAddInstanceRequest17 extends ComplexType implements Complex
     public function setAllowCallerToDialEscapeDigit($allowCallerToDialEscapeDigit = null)
     {
         $this->allowCallerToDialEscapeDigit = new PrimitiveType($allowCallerToDialEscapeDigit);
-        $this->allowCallerToDialEscapeDigit->setName('allowCallerToDialEscapeDigit');
+        $this->allowCallerToDialEscapeDigit->setElementName('allowCallerToDialEscapeDigit');
         return $this;
     }
 
@@ -327,7 +343,9 @@ class GroupCallCenterAddInstanceRequest17 extends ComplexType implements Complex
      */
     public function getAllowCallerToDialEscapeDigit()
     {
-        return ($this->allowCallerToDialEscapeDigit) ? $this->allowCallerToDialEscapeDigit->getValue() : null;
+        return ($this->allowCallerToDialEscapeDigit)
+            ? $this->allowCallerToDialEscapeDigit->getElementValue()
+            : null;
     }
 
     /**
@@ -338,7 +356,7 @@ class GroupCallCenterAddInstanceRequest17 extends ComplexType implements Complex
         $this->escapeDigit = ($escapeDigit InstanceOf DtmfDigit)
              ? $escapeDigit
              : new DtmfDigit($escapeDigit);
-        $this->escapeDigit->setName('escapeDigit');
+        $this->escapeDigit->setElementName('escapeDigit');
         return $this;
     }
 
@@ -348,7 +366,9 @@ class GroupCallCenterAddInstanceRequest17 extends ComplexType implements Complex
      */
     public function getEscapeDigit()
     {
-        return ($this->escapeDigit) ? $this->escapeDigit->getValue() : null;
+        return ($this->escapeDigit)
+            ? $this->escapeDigit->getElementValue()
+            : null;
     }
 
     /**
@@ -357,7 +377,7 @@ class GroupCallCenterAddInstanceRequest17 extends ComplexType implements Complex
     public function setResetCallStatisticsUponEntryInQueue($resetCallStatisticsUponEntryInQueue = null)
     {
         $this->resetCallStatisticsUponEntryInQueue = new PrimitiveType($resetCallStatisticsUponEntryInQueue);
-        $this->resetCallStatisticsUponEntryInQueue->setName('resetCallStatisticsUponEntryInQueue');
+        $this->resetCallStatisticsUponEntryInQueue->setElementName('resetCallStatisticsUponEntryInQueue');
         return $this;
     }
 
@@ -367,7 +387,9 @@ class GroupCallCenterAddInstanceRequest17 extends ComplexType implements Complex
      */
     public function getResetCallStatisticsUponEntryInQueue()
     {
-        return ($this->resetCallStatisticsUponEntryInQueue) ? $this->resetCallStatisticsUponEntryInQueue->getValue() : null;
+        return ($this->resetCallStatisticsUponEntryInQueue)
+            ? $this->resetCallStatisticsUponEntryInQueue->getElementValue()
+            : null;
     }
 
     /**
@@ -376,7 +398,7 @@ class GroupCallCenterAddInstanceRequest17 extends ComplexType implements Complex
     public function setAllowAgentLogoff($allowAgentLogoff = null)
     {
         $this->allowAgentLogoff = new PrimitiveType($allowAgentLogoff);
-        $this->allowAgentLogoff->setName('allowAgentLogoff');
+        $this->allowAgentLogoff->setElementName('allowAgentLogoff');
         return $this;
     }
 
@@ -386,7 +408,9 @@ class GroupCallCenterAddInstanceRequest17 extends ComplexType implements Complex
      */
     public function getAllowAgentLogoff()
     {
-        return ($this->allowAgentLogoff) ? $this->allowAgentLogoff->getValue() : null;
+        return ($this->allowAgentLogoff)
+            ? $this->allowAgentLogoff->getElementValue()
+            : null;
     }
 
     /**
@@ -395,7 +419,7 @@ class GroupCallCenterAddInstanceRequest17 extends ComplexType implements Complex
     public function setAllowCallWaitingForAgents($allowCallWaitingForAgents = null)
     {
         $this->allowCallWaitingForAgents = new PrimitiveType($allowCallWaitingForAgents);
-        $this->allowCallWaitingForAgents->setName('allowCallWaitingForAgents');
+        $this->allowCallWaitingForAgents->setElementName('allowCallWaitingForAgents');
         return $this;
     }
 
@@ -405,7 +429,9 @@ class GroupCallCenterAddInstanceRequest17 extends ComplexType implements Complex
      */
     public function getAllowCallWaitingForAgents()
     {
-        return ($this->allowCallWaitingForAgents) ? $this->allowCallWaitingForAgents->getValue() : null;
+        return ($this->allowCallWaitingForAgents)
+            ? $this->allowCallWaitingForAgents->getElementValue()
+            : null;
     }
 
     /**
@@ -414,7 +440,7 @@ class GroupCallCenterAddInstanceRequest17 extends ComplexType implements Complex
     public function setAllowCallsToAgentsInWrapUp($allowCallsToAgentsInWrapUp = null)
     {
         $this->allowCallsToAgentsInWrapUp = new PrimitiveType($allowCallsToAgentsInWrapUp);
-        $this->allowCallsToAgentsInWrapUp->setName('allowCallsToAgentsInWrapUp');
+        $this->allowCallsToAgentsInWrapUp->setElementName('allowCallsToAgentsInWrapUp');
         return $this;
     }
 
@@ -424,7 +450,9 @@ class GroupCallCenterAddInstanceRequest17 extends ComplexType implements Complex
      */
     public function getAllowCallsToAgentsInWrapUp()
     {
-        return ($this->allowCallsToAgentsInWrapUp) ? $this->allowCallsToAgentsInWrapUp->getValue() : null;
+        return ($this->allowCallsToAgentsInWrapUp)
+            ? $this->allowCallsToAgentsInWrapUp->getElementValue()
+            : null;
     }
 
     /**
@@ -433,7 +461,7 @@ class GroupCallCenterAddInstanceRequest17 extends ComplexType implements Complex
     public function setOverrideAgentWrapUpTime($overrideAgentWrapUpTime = null)
     {
         $this->overrideAgentWrapUpTime = new PrimitiveType($overrideAgentWrapUpTime);
-        $this->overrideAgentWrapUpTime->setName('overrideAgentWrapUpTime');
+        $this->overrideAgentWrapUpTime->setElementName('overrideAgentWrapUpTime');
         return $this;
     }
 
@@ -443,7 +471,9 @@ class GroupCallCenterAddInstanceRequest17 extends ComplexType implements Complex
      */
     public function getOverrideAgentWrapUpTime()
     {
-        return ($this->overrideAgentWrapUpTime) ? $this->overrideAgentWrapUpTime->getValue() : null;
+        return ($this->overrideAgentWrapUpTime)
+            ? $this->overrideAgentWrapUpTime->getElementValue()
+            : null;
     }
 
     /**
@@ -454,7 +484,7 @@ class GroupCallCenterAddInstanceRequest17 extends ComplexType implements Complex
         $this->wrapUpSeconds = ($wrapUpSeconds InstanceOf CallCenterWrapUpSeconds)
              ? $wrapUpSeconds
              : new CallCenterWrapUpSeconds($wrapUpSeconds);
-        $this->wrapUpSeconds->setName('wrapUpSeconds');
+        $this->wrapUpSeconds->setElementName('wrapUpSeconds');
         return $this;
     }
 
@@ -464,7 +494,9 @@ class GroupCallCenterAddInstanceRequest17 extends ComplexType implements Complex
      */
     public function getWrapUpSeconds()
     {
-        return ($this->wrapUpSeconds) ? $this->wrapUpSeconds->getValue() : null;
+        return ($this->wrapUpSeconds)
+            ? $this->wrapUpSeconds->getElementValue()
+            : null;
     }
 
     /**
@@ -473,7 +505,7 @@ class GroupCallCenterAddInstanceRequest17 extends ComplexType implements Complex
     public function setForceDeliveryOfCalls($forceDeliveryOfCalls = null)
     {
         $this->forceDeliveryOfCalls = new PrimitiveType($forceDeliveryOfCalls);
-        $this->forceDeliveryOfCalls->setName('forceDeliveryOfCalls');
+        $this->forceDeliveryOfCalls->setElementName('forceDeliveryOfCalls');
         return $this;
     }
 
@@ -483,7 +515,9 @@ class GroupCallCenterAddInstanceRequest17 extends ComplexType implements Complex
      */
     public function getForceDeliveryOfCalls()
     {
-        return ($this->forceDeliveryOfCalls) ? $this->forceDeliveryOfCalls->getValue() : null;
+        return ($this->forceDeliveryOfCalls)
+            ? $this->forceDeliveryOfCalls->getElementValue()
+            : null;
     }
 
     /**
@@ -494,7 +528,7 @@ class GroupCallCenterAddInstanceRequest17 extends ComplexType implements Complex
         $this->forceDeliveryWaitTimeSeconds = ($forceDeliveryWaitTimeSeconds InstanceOf CallCenterForceDeliveryWaitTimeSeconds)
              ? $forceDeliveryWaitTimeSeconds
              : new CallCenterForceDeliveryWaitTimeSeconds($forceDeliveryWaitTimeSeconds);
-        $this->forceDeliveryWaitTimeSeconds->setName('forceDeliveryWaitTimeSeconds');
+        $this->forceDeliveryWaitTimeSeconds->setElementName('forceDeliveryWaitTimeSeconds');
         return $this;
     }
 
@@ -504,7 +538,9 @@ class GroupCallCenterAddInstanceRequest17 extends ComplexType implements Complex
      */
     public function getForceDeliveryWaitTimeSeconds()
     {
-        return ($this->forceDeliveryWaitTimeSeconds) ? $this->forceDeliveryWaitTimeSeconds->getValue() : null;
+        return ($this->forceDeliveryWaitTimeSeconds)
+            ? $this->forceDeliveryWaitTimeSeconds->getElementValue()
+            : null;
     }
 
     /**
@@ -513,7 +549,7 @@ class GroupCallCenterAddInstanceRequest17 extends ComplexType implements Complex
     public function setEnableAutomaticStateChangeForAgents($enableAutomaticStateChangeForAgents = null)
     {
         $this->enableAutomaticStateChangeForAgents = new PrimitiveType($enableAutomaticStateChangeForAgents);
-        $this->enableAutomaticStateChangeForAgents->setName('enableAutomaticStateChangeForAgents');
+        $this->enableAutomaticStateChangeForAgents->setElementName('enableAutomaticStateChangeForAgents');
         return $this;
     }
 
@@ -523,7 +559,9 @@ class GroupCallCenterAddInstanceRequest17 extends ComplexType implements Complex
      */
     public function getEnableAutomaticStateChangeForAgents()
     {
-        return ($this->enableAutomaticStateChangeForAgents) ? $this->enableAutomaticStateChangeForAgents->getValue() : null;
+        return ($this->enableAutomaticStateChangeForAgents)
+            ? $this->enableAutomaticStateChangeForAgents->getElementValue()
+            : null;
     }
 
     /**
@@ -534,7 +572,7 @@ class GroupCallCenterAddInstanceRequest17 extends ComplexType implements Complex
         $this->agentStateAfterCall = ($agentStateAfterCall InstanceOf AgentACDAutomaticState)
              ? $agentStateAfterCall
              : new AgentACDAutomaticState($agentStateAfterCall);
-        $this->agentStateAfterCall->setName('agentStateAfterCall');
+        $this->agentStateAfterCall->setElementName('agentStateAfterCall');
         return $this;
     }
 
@@ -544,7 +582,9 @@ class GroupCallCenterAddInstanceRequest17 extends ComplexType implements Complex
      */
     public function getAgentStateAfterCall()
     {
-        return ($this->agentStateAfterCall) ? $this->agentStateAfterCall->getValue() : null;
+        return ($this->agentStateAfterCall)
+            ? $this->agentStateAfterCall->getElementValue()
+            : null;
     }
 
     /**
@@ -555,7 +595,7 @@ class GroupCallCenterAddInstanceRequest17 extends ComplexType implements Complex
         $this->agentUnavailableCode = ($agentUnavailableCode InstanceOf CallCenterAgentUnavailableCode)
              ? $agentUnavailableCode
              : new CallCenterAgentUnavailableCode($agentUnavailableCode);
-        $this->agentUnavailableCode->setName('agentUnavailableCode');
+        $this->agentUnavailableCode->setElementName('agentUnavailableCode');
         return $this;
     }
 
@@ -565,7 +605,9 @@ class GroupCallCenterAddInstanceRequest17 extends ComplexType implements Complex
      */
     public function getAgentUnavailableCode()
     {
-        return ($this->agentUnavailableCode) ? $this->agentUnavailableCode->getValue() : null;
+        return ($this->agentUnavailableCode)
+            ? $this->agentUnavailableCode->getElementValue()
+            : null;
     }
 
     /**
@@ -576,7 +618,7 @@ class GroupCallCenterAddInstanceRequest17 extends ComplexType implements Complex
         $this->externalPreferredAudioCodec = ($externalPreferredAudioCodec InstanceOf AudioFileCodec)
              ? $externalPreferredAudioCodec
              : new AudioFileCodec($externalPreferredAudioCodec);
-        $this->externalPreferredAudioCodec->setName('externalPreferredAudioCodec');
+        $this->externalPreferredAudioCodec->setElementName('externalPreferredAudioCodec');
         return $this;
     }
 
@@ -586,7 +628,9 @@ class GroupCallCenterAddInstanceRequest17 extends ComplexType implements Complex
      */
     public function getExternalPreferredAudioCodec()
     {
-        return ($this->externalPreferredAudioCodec) ? $this->externalPreferredAudioCodec->getValue() : null;
+        return ($this->externalPreferredAudioCodec)
+            ? $this->externalPreferredAudioCodec->getElementValue()
+            : null;
     }
 
     /**
@@ -597,7 +641,7 @@ class GroupCallCenterAddInstanceRequest17 extends ComplexType implements Complex
         $this->internalPreferredAudioCodec = ($internalPreferredAudioCodec InstanceOf AudioFileCodec)
              ? $internalPreferredAudioCodec
              : new AudioFileCodec($internalPreferredAudioCodec);
-        $this->internalPreferredAudioCodec->setName('internalPreferredAudioCodec');
+        $this->internalPreferredAudioCodec->setElementName('internalPreferredAudioCodec');
         return $this;
     }
 
@@ -607,7 +651,9 @@ class GroupCallCenterAddInstanceRequest17 extends ComplexType implements Complex
      */
     public function getInternalPreferredAudioCodec()
     {
-        return ($this->internalPreferredAudioCodec) ? $this->internalPreferredAudioCodec->getValue() : null;
+        return ($this->internalPreferredAudioCodec)
+            ? $this->internalPreferredAudioCodec->getElementValue()
+            : null;
     }
 
     /**
@@ -616,7 +662,7 @@ class GroupCallCenterAddInstanceRequest17 extends ComplexType implements Complex
     public function setPlayRingingWhenOfferingCall($playRingingWhenOfferingCall = null)
     {
         $this->playRingingWhenOfferingCall = new PrimitiveType($playRingingWhenOfferingCall);
-        $this->playRingingWhenOfferingCall->setName('playRingingWhenOfferingCall');
+        $this->playRingingWhenOfferingCall->setElementName('playRingingWhenOfferingCall');
         return $this;
     }
 
@@ -626,6 +672,8 @@ class GroupCallCenterAddInstanceRequest17 extends ComplexType implements Complex
      */
     public function getPlayRingingWhenOfferingCall()
     {
-        return ($this->playRingingWhenOfferingCall) ? $this->playRingingWhenOfferingCall->getValue() : null;
+        return ($this->playRingingWhenOfferingCall)
+            ? $this->playRingingWhenOfferingCall->getElementValue()
+            : null;
     }
 }

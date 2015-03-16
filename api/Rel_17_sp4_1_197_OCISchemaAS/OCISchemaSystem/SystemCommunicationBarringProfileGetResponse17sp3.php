@@ -36,7 +36,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemCommunicationBarringProfileGetResponse17sp3 extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemCommunicationBarringProfileGetResponse17sp3';
+    public    $elementName = 'SystemCommunicationBarringProfileGetResponse17sp3';
     protected $description;
     protected $originatingDefaultAction;
     protected $originatingDefaultTreatmentId;
@@ -69,7 +69,7 @@ class SystemCommunicationBarringProfileGetResponse17sp3 extends ComplexType impl
         $this->description = ($description InstanceOf CommunicationBarringProfileDescription)
              ? $description
              : new CommunicationBarringProfileDescription($description);
-        $this->description->setName('description');
+        $this->description->setElementName('description');
         return $this;
     }
 
@@ -79,7 +79,9 @@ class SystemCommunicationBarringProfileGetResponse17sp3 extends ComplexType impl
      */
     public function getDescription()
     {
-        return ($this->description) ? $this->description->getValue() : null;
+        return ($this->description)
+            ? $this->description->getElementValue()
+            : null;
     }
 
     /**
@@ -90,7 +92,7 @@ class SystemCommunicationBarringProfileGetResponse17sp3 extends ComplexType impl
         $this->originatingDefaultAction = ($originatingDefaultAction InstanceOf CommunicationBarringOriginatingAction)
              ? $originatingDefaultAction
              : new CommunicationBarringOriginatingAction($originatingDefaultAction);
-        $this->originatingDefaultAction->setName('originatingDefaultAction');
+        $this->originatingDefaultAction->setElementName('originatingDefaultAction');
         return $this;
     }
 
@@ -100,7 +102,9 @@ class SystemCommunicationBarringProfileGetResponse17sp3 extends ComplexType impl
      */
     public function getOriginatingDefaultAction()
     {
-        return ($this->originatingDefaultAction) ? $this->originatingDefaultAction->getValue() : null;
+        return ($this->originatingDefaultAction)
+            ? $this->originatingDefaultAction->getElementValue()
+            : null;
     }
 
     /**
@@ -111,7 +115,7 @@ class SystemCommunicationBarringProfileGetResponse17sp3 extends ComplexType impl
         $this->originatingDefaultTreatmentId = ($originatingDefaultTreatmentId InstanceOf TreatmentId)
              ? $originatingDefaultTreatmentId
              : new TreatmentId($originatingDefaultTreatmentId);
-        $this->originatingDefaultTreatmentId->setName('originatingDefaultTreatmentId');
+        $this->originatingDefaultTreatmentId->setElementName('originatingDefaultTreatmentId');
         return $this;
     }
 
@@ -121,7 +125,9 @@ class SystemCommunicationBarringProfileGetResponse17sp3 extends ComplexType impl
      */
     public function getOriginatingDefaultTreatmentId()
     {
-        return ($this->originatingDefaultTreatmentId) ? $this->originatingDefaultTreatmentId->getValue() : null;
+        return ($this->originatingDefaultTreatmentId)
+            ? $this->originatingDefaultTreatmentId->getElementValue()
+            : null;
     }
 
     /**
@@ -132,7 +138,7 @@ class SystemCommunicationBarringProfileGetResponse17sp3 extends ComplexType impl
         $this->originatingDefaultTransferNumber = ($originatingDefaultTransferNumber InstanceOf OutgoingDN)
              ? $originatingDefaultTransferNumber
              : new OutgoingDN($originatingDefaultTransferNumber);
-        $this->originatingDefaultTransferNumber->setName('originatingDefaultTransferNumber');
+        $this->originatingDefaultTransferNumber->setElementName('originatingDefaultTransferNumber');
         return $this;
     }
 
@@ -142,7 +148,9 @@ class SystemCommunicationBarringProfileGetResponse17sp3 extends ComplexType impl
      */
     public function getOriginatingDefaultTransferNumber()
     {
-        return ($this->originatingDefaultTransferNumber) ? $this->originatingDefaultTransferNumber->getValue() : null;
+        return ($this->originatingDefaultTransferNumber)
+            ? $this->originatingDefaultTransferNumber->getElementValue()
+            : null;
     }
 
     /**
@@ -153,7 +161,7 @@ class SystemCommunicationBarringProfileGetResponse17sp3 extends ComplexType impl
         $this->originatingDefaultCallTimeout = ($originatingDefaultCallTimeout InstanceOf CommunicationBarringTimeoutSeconds)
              ? $originatingDefaultCallTimeout
              : new CommunicationBarringTimeoutSeconds($originatingDefaultCallTimeout);
-        $this->originatingDefaultCallTimeout->setName('originatingDefaultCallTimeout');
+        $this->originatingDefaultCallTimeout->setElementName('originatingDefaultCallTimeout');
         return $this;
     }
 
@@ -163,7 +171,9 @@ class SystemCommunicationBarringProfileGetResponse17sp3 extends ComplexType impl
      */
     public function getOriginatingDefaultCallTimeout()
     {
-        return ($this->originatingDefaultCallTimeout) ? $this->originatingDefaultCallTimeout->getValue() : null;
+        return ($this->originatingDefaultCallTimeout)
+            ? $this->originatingDefaultCallTimeout->getElementValue()
+            : null;
     }
 
     /**
@@ -174,7 +184,7 @@ class SystemCommunicationBarringProfileGetResponse17sp3 extends ComplexType impl
         $this->originatingRule = ($originatingRule InstanceOf CommunicationBarringOriginatingRule)
              ? $originatingRule
              : new CommunicationBarringOriginatingRule($originatingRule);
-        $this->originatingRule->setName('originatingRule');
+        $this->originatingRule->setElementName('originatingRule');
         return $this;
     }
 
@@ -195,7 +205,7 @@ class SystemCommunicationBarringProfileGetResponse17sp3 extends ComplexType impl
         $this->redirectingDefaultAction = ($redirectingDefaultAction InstanceOf CommunicationBarringRedirectingAction)
              ? $redirectingDefaultAction
              : new CommunicationBarringRedirectingAction($redirectingDefaultAction);
-        $this->redirectingDefaultAction->setName('redirectingDefaultAction');
+        $this->redirectingDefaultAction->setElementName('redirectingDefaultAction');
         return $this;
     }
 
@@ -205,7 +215,9 @@ class SystemCommunicationBarringProfileGetResponse17sp3 extends ComplexType impl
      */
     public function getRedirectingDefaultAction()
     {
-        return ($this->redirectingDefaultAction) ? $this->redirectingDefaultAction->getValue() : null;
+        return ($this->redirectingDefaultAction)
+            ? $this->redirectingDefaultAction->getElementValue()
+            : null;
     }
 
     /**
@@ -216,7 +228,7 @@ class SystemCommunicationBarringProfileGetResponse17sp3 extends ComplexType impl
         $this->redirectingDefaultCallTimeout = ($redirectingDefaultCallTimeout InstanceOf CommunicationBarringTimeoutSeconds)
              ? $redirectingDefaultCallTimeout
              : new CommunicationBarringTimeoutSeconds($redirectingDefaultCallTimeout);
-        $this->redirectingDefaultCallTimeout->setName('redirectingDefaultCallTimeout');
+        $this->redirectingDefaultCallTimeout->setElementName('redirectingDefaultCallTimeout');
         return $this;
     }
 
@@ -226,7 +238,9 @@ class SystemCommunicationBarringProfileGetResponse17sp3 extends ComplexType impl
      */
     public function getRedirectingDefaultCallTimeout()
     {
-        return ($this->redirectingDefaultCallTimeout) ? $this->redirectingDefaultCallTimeout->getValue() : null;
+        return ($this->redirectingDefaultCallTimeout)
+            ? $this->redirectingDefaultCallTimeout->getElementValue()
+            : null;
     }
 
     /**
@@ -237,7 +251,7 @@ class SystemCommunicationBarringProfileGetResponse17sp3 extends ComplexType impl
         $this->redirectingRule = ($redirectingRule InstanceOf CommunicationBarringRedirectingRule)
              ? $redirectingRule
              : new CommunicationBarringRedirectingRule($redirectingRule);
-        $this->redirectingRule->setName('redirectingRule');
+        $this->redirectingRule->setElementName('redirectingRule');
         return $this;
     }
 
@@ -258,7 +272,7 @@ class SystemCommunicationBarringProfileGetResponse17sp3 extends ComplexType impl
         $this->incomingDefaultAction = ($incomingDefaultAction InstanceOf CommunicationBarringIncomingAction)
              ? $incomingDefaultAction
              : new CommunicationBarringIncomingAction($incomingDefaultAction);
-        $this->incomingDefaultAction->setName('incomingDefaultAction');
+        $this->incomingDefaultAction->setElementName('incomingDefaultAction');
         return $this;
     }
 
@@ -268,7 +282,9 @@ class SystemCommunicationBarringProfileGetResponse17sp3 extends ComplexType impl
      */
     public function getIncomingDefaultAction()
     {
-        return ($this->incomingDefaultAction) ? $this->incomingDefaultAction->getValue() : null;
+        return ($this->incomingDefaultAction)
+            ? $this->incomingDefaultAction->getElementValue()
+            : null;
     }
 
     /**
@@ -279,7 +295,7 @@ class SystemCommunicationBarringProfileGetResponse17sp3 extends ComplexType impl
         $this->incomingDefaultCallTimeout = ($incomingDefaultCallTimeout InstanceOf CommunicationBarringTimeoutSeconds)
              ? $incomingDefaultCallTimeout
              : new CommunicationBarringTimeoutSeconds($incomingDefaultCallTimeout);
-        $this->incomingDefaultCallTimeout->setName('incomingDefaultCallTimeout');
+        $this->incomingDefaultCallTimeout->setElementName('incomingDefaultCallTimeout');
         return $this;
     }
 
@@ -289,7 +305,9 @@ class SystemCommunicationBarringProfileGetResponse17sp3 extends ComplexType impl
      */
     public function getIncomingDefaultCallTimeout()
     {
-        return ($this->incomingDefaultCallTimeout) ? $this->incomingDefaultCallTimeout->getValue() : null;
+        return ($this->incomingDefaultCallTimeout)
+            ? $this->incomingDefaultCallTimeout->getElementValue()
+            : null;
     }
 
     /**
@@ -300,7 +318,7 @@ class SystemCommunicationBarringProfileGetResponse17sp3 extends ComplexType impl
         $this->incomingRule = ($incomingRule InstanceOf CommunicationBarringIncomingRule)
              ? $incomingRule
              : new CommunicationBarringIncomingRule($incomingRule);
-        $this->incomingRule->setName('incomingRule');
+        $this->incomingRule->setElementName('incomingRule');
         return $this;
     }
 
@@ -321,7 +339,7 @@ class SystemCommunicationBarringProfileGetResponse17sp3 extends ComplexType impl
         $this->callMeNowDefaultAction = ($callMeNowDefaultAction InstanceOf CommunicationBarringCallMeNowAction)
              ? $callMeNowDefaultAction
              : new CommunicationBarringCallMeNowAction($callMeNowDefaultAction);
-        $this->callMeNowDefaultAction->setName('callMeNowDefaultAction');
+        $this->callMeNowDefaultAction->setElementName('callMeNowDefaultAction');
         return $this;
     }
 
@@ -331,7 +349,9 @@ class SystemCommunicationBarringProfileGetResponse17sp3 extends ComplexType impl
      */
     public function getCallMeNowDefaultAction()
     {
-        return ($this->callMeNowDefaultAction) ? $this->callMeNowDefaultAction->getValue() : null;
+        return ($this->callMeNowDefaultAction)
+            ? $this->callMeNowDefaultAction->getElementValue()
+            : null;
     }
 
     /**
@@ -342,7 +362,7 @@ class SystemCommunicationBarringProfileGetResponse17sp3 extends ComplexType impl
         $this->callMeNowDefaultCallTimeout = ($callMeNowDefaultCallTimeout InstanceOf CommunicationBarringTimeoutSeconds)
              ? $callMeNowDefaultCallTimeout
              : new CommunicationBarringTimeoutSeconds($callMeNowDefaultCallTimeout);
-        $this->callMeNowDefaultCallTimeout->setName('callMeNowDefaultCallTimeout');
+        $this->callMeNowDefaultCallTimeout->setElementName('callMeNowDefaultCallTimeout');
         return $this;
     }
 
@@ -352,7 +372,9 @@ class SystemCommunicationBarringProfileGetResponse17sp3 extends ComplexType impl
      */
     public function getCallMeNowDefaultCallTimeout()
     {
-        return ($this->callMeNowDefaultCallTimeout) ? $this->callMeNowDefaultCallTimeout->getValue() : null;
+        return ($this->callMeNowDefaultCallTimeout)
+            ? $this->callMeNowDefaultCallTimeout->getElementValue()
+            : null;
     }
 
     /**
@@ -363,7 +385,7 @@ class SystemCommunicationBarringProfileGetResponse17sp3 extends ComplexType impl
         $this->callMeNowRule = ($callMeNowRule InstanceOf CommunicationBarringCallMeNowRule)
              ? $callMeNowRule
              : new CommunicationBarringCallMeNowRule($callMeNowRule);
-        $this->callMeNowRule->setName('callMeNowRule');
+        $this->callMeNowRule->setElementName('callMeNowRule');
         return $this;
     }
 

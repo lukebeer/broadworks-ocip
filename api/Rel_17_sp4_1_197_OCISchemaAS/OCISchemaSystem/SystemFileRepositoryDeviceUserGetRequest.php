@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
 class SystemFileRepositoryDeviceUserGetRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType       = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemFileRepositoryDeviceUserGetResponse';
-    public    $name = 'SystemFileRepositoryDeviceUserGetRequest';
+    public    $elementName = 'SystemFileRepositoryDeviceUserGetRequest';
     protected $fileRepositoryName;
     protected $userName;
 
@@ -50,7 +50,7 @@ class SystemFileRepositoryDeviceUserGetRequest extends ComplexType implements Co
         $this->fileRepositoryName = ($fileRepositoryName InstanceOf FileRepositoryName)
              ? $fileRepositoryName
              : new FileRepositoryName($fileRepositoryName);
-        $this->fileRepositoryName->setName('fileRepositoryName');
+        $this->fileRepositoryName->setElementName('fileRepositoryName');
         return $this;
     }
 
@@ -60,7 +60,9 @@ class SystemFileRepositoryDeviceUserGetRequest extends ComplexType implements Co
      */
     public function getFileRepositoryName()
     {
-        return ($this->fileRepositoryName) ? $this->fileRepositoryName->getValue() : null;
+        return ($this->fileRepositoryName)
+            ? $this->fileRepositoryName->getElementValue()
+            : null;
     }
 
     /**
@@ -71,7 +73,7 @@ class SystemFileRepositoryDeviceUserGetRequest extends ComplexType implements Co
         $this->userName = ($userName InstanceOf FileRepositoryUserName)
              ? $userName
              : new FileRepositoryUserName($userName);
-        $this->userName->setName('userName');
+        $this->userName->setElementName('userName');
         return $this;
     }
 
@@ -81,6 +83,8 @@ class SystemFileRepositoryDeviceUserGetRequest extends ComplexType implements Co
      */
     public function getUserName()
     {
-        return ($this->userName) ? $this->userName->getValue() : null;
+        return ($this->userName)
+            ? $this->userName->getElementValue()
+            : null;
     }
 }

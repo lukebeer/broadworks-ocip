@@ -16,12 +16,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\Enumeration;
  */
 class AutomaticCallbackReleaseCause extends SimpleType
 {
-    public $name = "AutomaticCallbackReleaseCause";
-    protected $value;
-
+    public $elementName = "AutomaticCallbackReleaseCause";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new Enumeration([
             'Busy',
             'Forbidden',

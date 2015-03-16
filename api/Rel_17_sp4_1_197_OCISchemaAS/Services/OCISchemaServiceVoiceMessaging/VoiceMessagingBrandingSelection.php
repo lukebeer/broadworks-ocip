@@ -16,12 +16,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\Enumeration;
  */
 class VoiceMessagingBrandingSelection extends SimpleType
 {
-    public $name = "VoiceMessagingBrandingSelection";
-    protected $value;
-
+    public $elementName = "VoiceMessagingBrandingSelection";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new Enumeration([
             'Default',
             'Branded'

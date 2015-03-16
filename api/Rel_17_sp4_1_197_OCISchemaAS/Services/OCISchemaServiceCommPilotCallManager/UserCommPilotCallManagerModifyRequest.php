@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserCommPilotCallManagerModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'UserCommPilotCallManagerModifyRequest';
+    public    $elementName = 'UserCommPilotCallManagerModifyRequest';
     protected $userId;
     protected $launchOnLogin;
 
@@ -49,7 +49,7 @@ class UserCommPilotCallManagerModifyRequest extends ComplexType implements Compl
         $this->userId = ($userId InstanceOf UserId)
              ? $userId
              : new UserId($userId);
-        $this->userId->setName('userId');
+        $this->userId->setElementName('userId');
         return $this;
     }
 
@@ -59,7 +59,9 @@ class UserCommPilotCallManagerModifyRequest extends ComplexType implements Compl
      */
     public function getUserId()
     {
-        return ($this->userId) ? $this->userId->getValue() : null;
+        return ($this->userId)
+            ? $this->userId->getElementValue()
+            : null;
     }
 
     /**
@@ -68,7 +70,7 @@ class UserCommPilotCallManagerModifyRequest extends ComplexType implements Compl
     public function setLaunchOnLogin($launchOnLogin = null)
     {
         $this->launchOnLogin = new PrimitiveType($launchOnLogin);
-        $this->launchOnLogin->setName('launchOnLogin');
+        $this->launchOnLogin->setElementName('launchOnLogin');
         return $this;
     }
 
@@ -78,6 +80,8 @@ class UserCommPilotCallManagerModifyRequest extends ComplexType implements Compl
      */
     public function getLaunchOnLogin()
     {
-        return ($this->launchOnLogin) ? $this->launchOnLogin->getValue() : null;
+        return ($this->launchOnLogin)
+            ? $this->launchOnLogin->getElementValue()
+            : null;
     }
 }

@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemAccountingAddRadiusServerRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemAccountingAddRadiusServerRequest';
+    public    $elementName = 'SystemAccountingAddRadiusServerRequest';
     protected $netAddress;
     protected $port;
     protected $description;
@@ -53,7 +53,7 @@ class SystemAccountingAddRadiusServerRequest extends ComplexType implements Comp
         $this->netAddress = ($netAddress InstanceOf NetAddress)
              ? $netAddress
              : new NetAddress($netAddress);
-        $this->netAddress->setName('netAddress');
+        $this->netAddress->setElementName('netAddress');
         return $this;
     }
 
@@ -63,7 +63,9 @@ class SystemAccountingAddRadiusServerRequest extends ComplexType implements Comp
      */
     public function getNetAddress()
     {
-        return ($this->netAddress) ? $this->netAddress->getValue() : null;
+        return ($this->netAddress)
+            ? $this->netAddress->getElementValue()
+            : null;
     }
 
     /**
@@ -74,7 +76,7 @@ class SystemAccountingAddRadiusServerRequest extends ComplexType implements Comp
         $this->port = ($port InstanceOf Port1025)
              ? $port
              : new Port1025($port);
-        $this->port->setName('port');
+        $this->port->setElementName('port');
         return $this;
     }
 
@@ -84,7 +86,9 @@ class SystemAccountingAddRadiusServerRequest extends ComplexType implements Comp
      */
     public function getPort()
     {
-        return ($this->port) ? $this->port->getValue() : null;
+        return ($this->port)
+            ? $this->port->getElementValue()
+            : null;
     }
 
     /**
@@ -95,7 +99,7 @@ class SystemAccountingAddRadiusServerRequest extends ComplexType implements Comp
         $this->description = ($description InstanceOf RadiusServerDescription)
              ? $description
              : new RadiusServerDescription($description);
-        $this->description->setName('description');
+        $this->description->setElementName('description');
         return $this;
     }
 
@@ -105,6 +109,8 @@ class SystemAccountingAddRadiusServerRequest extends ComplexType implements Comp
      */
     public function getDescription()
     {
-        return ($this->description) ? $this->description->getValue() : null;
+        return ($this->description)
+            ? $this->description->getElementValue()
+            : null;
     }
 }

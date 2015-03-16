@@ -16,12 +16,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\Enumeration;
  */
 class AccessDeviceLevel extends SimpleType
 {
-    public $name = "AccessDeviceLevel";
-    protected $value;
-
+    public $elementName = "AccessDeviceLevel";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new Enumeration([
             'System',
             'Service Provider',

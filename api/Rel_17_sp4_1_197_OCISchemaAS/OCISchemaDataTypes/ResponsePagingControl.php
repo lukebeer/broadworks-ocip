@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ResponsePagingControl extends ComplexType implements ComplexInterface
 {
-    public    $name = 'ResponsePagingControl';
+    public    $elementName = 'ResponsePagingControl';
     protected $responseStartIndex;
     protected $responsePageSize;
 
@@ -39,7 +39,7 @@ class ResponsePagingControl extends ComplexType implements ComplexInterface
     public function setResponseStartIndex($responseStartIndex = null)
     {
         $this->responseStartIndex = new SimpleContent($responseStartIndex);
-        $this->responseStartIndex->setName('responseStartIndex');
+        $this->responseStartIndex->setElementName('responseStartIndex');
         return $this;
     }
 
@@ -49,7 +49,9 @@ class ResponsePagingControl extends ComplexType implements ComplexInterface
      */
     public function getResponseStartIndex()
     {
-        return ($this->responseStartIndex) ? $this->responseStartIndex->getValue() : null;
+        return ($this->responseStartIndex)
+            ? $this->responseStartIndex->getElementValue()
+            : null;
     }
 
     /**
@@ -58,7 +60,7 @@ class ResponsePagingControl extends ComplexType implements ComplexInterface
     public function setResponsePageSize($responsePageSize = null)
     {
         $this->responsePageSize = new SimpleContent($responsePageSize);
-        $this->responsePageSize->setName('responsePageSize');
+        $this->responsePageSize->setElementName('responsePageSize');
         return $this;
     }
 
@@ -68,6 +70,8 @@ class ResponsePagingControl extends ComplexType implements ComplexInterface
      */
     public function getResponsePageSize()
     {
-        return ($this->responsePageSize) ? $this->responsePageSize->getValue() : null;
+        return ($this->responsePageSize)
+            ? $this->responsePageSize->getElementValue()
+            : null;
     }
 }

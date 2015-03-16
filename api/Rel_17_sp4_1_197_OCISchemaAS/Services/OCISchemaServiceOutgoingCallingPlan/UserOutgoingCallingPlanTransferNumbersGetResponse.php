@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserOutgoingCallingPlanTransferNumbersGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'UserOutgoingCallingPlanTransferNumbersGetResponse';
+    public    $elementName = 'UserOutgoingCallingPlanTransferNumbersGetResponse';
     protected $useCustomSettings;
     protected $userNumbers;
 
@@ -38,7 +38,7 @@ class UserOutgoingCallingPlanTransferNumbersGetResponse extends ComplexType impl
     public function setUseCustomSettings($useCustomSettings = null)
     {
         $this->useCustomSettings = new PrimitiveType($useCustomSettings);
-        $this->useCustomSettings->setName('useCustomSettings');
+        $this->useCustomSettings->setElementName('useCustomSettings');
         return $this;
     }
 
@@ -48,7 +48,9 @@ class UserOutgoingCallingPlanTransferNumbersGetResponse extends ComplexType impl
      */
     public function getUseCustomSettings()
     {
-        return ($this->useCustomSettings) ? $this->useCustomSettings->getValue() : null;
+        return ($this->useCustomSettings)
+            ? $this->useCustomSettings->getElementValue()
+            : null;
     }
 
     /**
@@ -59,7 +61,7 @@ class UserOutgoingCallingPlanTransferNumbersGetResponse extends ComplexType impl
         $this->userNumbers = ($userNumbers InstanceOf OutgoingCallingPlanTransferNumbers)
              ? $userNumbers
              : new OutgoingCallingPlanTransferNumbers($userNumbers);
-        $this->userNumbers->setName('userNumbers');
+        $this->userNumbers->setElementName('userNumbers');
         return $this;
     }
 

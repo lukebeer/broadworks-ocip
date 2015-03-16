@@ -16,12 +16,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\Enumeration;
  */
 class CommPilotExpressRedirectionAction extends SimpleType
 {
-    public $name = "CommPilotExpressRedirectionAction";
-    protected $value;
-
+    public $elementName = "CommPilotExpressRedirectionAction";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new Enumeration([
             'Transfer To Voice Mail',
             'Forward'

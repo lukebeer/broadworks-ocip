@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemCPEConfigSetConfigFileRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'SystemCPEConfigSetConfigFileRequest';
+    public    $elementName = 'SystemCPEConfigSetConfigFileRequest';
     protected $deviceType;
     protected $configFile;
 
@@ -48,7 +48,7 @@ class SystemCPEConfigSetConfigFileRequest extends ComplexType implements Complex
         $this->deviceType = ($deviceType InstanceOf AccessDeviceType)
              ? $deviceType
              : new AccessDeviceType($deviceType);
-        $this->deviceType->setName('deviceType');
+        $this->deviceType->setElementName('deviceType');
         return $this;
     }
 
@@ -58,7 +58,9 @@ class SystemCPEConfigSetConfigFileRequest extends ComplexType implements Complex
      */
     public function getDeviceType()
     {
-        return ($this->deviceType) ? $this->deviceType->getValue() : null;
+        return ($this->deviceType)
+            ? $this->deviceType->getElementValue()
+            : null;
     }
 
     /**
@@ -69,7 +71,7 @@ class SystemCPEConfigSetConfigFileRequest extends ComplexType implements Complex
         $this->configFile = ($configFile InstanceOf AccessDeviceEnhancedConfigurationFileName)
              ? $configFile
              : new AccessDeviceEnhancedConfigurationFileName($configFile);
-        $this->configFile->setName('configFile');
+        $this->configFile->setElementName('configFile');
         return $this;
     }
 
@@ -79,6 +81,8 @@ class SystemCPEConfigSetConfigFileRequest extends ComplexType implements Complex
      */
     public function getConfigFile()
     {
-        return ($this->configFile) ? $this->configFile->getValue() : null;
+        return ($this->configFile)
+            ? $this->configFile->getElementValue()
+            : null;
     }
 }

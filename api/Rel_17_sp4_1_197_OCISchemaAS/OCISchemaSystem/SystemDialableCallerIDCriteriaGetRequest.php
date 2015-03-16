@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
 class SystemDialableCallerIDCriteriaGetRequest extends ComplexType implements ComplexInterface
 {
     public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemDialableCallerIDCriteriaGetResponse';
-    public    $name = 'SystemDialableCallerIDCriteriaGetRequest';
+    public    $elementName = 'SystemDialableCallerIDCriteriaGetRequest';
     protected $name;
 
     public function __construct(
@@ -47,7 +47,7 @@ class SystemDialableCallerIDCriteriaGetRequest extends ComplexType implements Co
         $this->name = ($name InstanceOf DialableCallerIDCriteriaName)
              ? $name
              : new DialableCallerIDCriteriaName($name);
-        $this->name->setName('name');
+        $this->name->setElementName('name');
         return $this;
     }
 
@@ -57,6 +57,8 @@ class SystemDialableCallerIDCriteriaGetRequest extends ComplexType implements Co
      */
     public function getName()
     {
-        return ($this->name) ? $this->name->getValue() : null;
+        return ($this->name)
+            ? $this->name->getElementValue()
+            : null;
     }
 }

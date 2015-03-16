@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupCallingLineIdGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'GroupCallingLineIdGetResponse';
+    public    $elementName = 'GroupCallingLineIdGetResponse';
     protected $useGroupNumber;
     protected $useGroupName;
     protected $callingLineIdPhoneNumber;
@@ -42,7 +42,7 @@ class GroupCallingLineIdGetResponse extends ComplexType implements ComplexInterf
     public function setUseGroupNumber($useGroupNumber = null)
     {
         $this->useGroupNumber = new PrimitiveType($useGroupNumber);
-        $this->useGroupNumber->setName('useGroupNumber');
+        $this->useGroupNumber->setElementName('useGroupNumber');
         return $this;
     }
 
@@ -52,7 +52,9 @@ class GroupCallingLineIdGetResponse extends ComplexType implements ComplexInterf
      */
     public function getUseGroupNumber()
     {
-        return ($this->useGroupNumber) ? $this->useGroupNumber->getValue() : null;
+        return ($this->useGroupNumber)
+            ? $this->useGroupNumber->getElementValue()
+            : null;
     }
 
     /**
@@ -61,7 +63,7 @@ class GroupCallingLineIdGetResponse extends ComplexType implements ComplexInterf
     public function setUseGroupName($useGroupName = null)
     {
         $this->useGroupName = new PrimitiveType($useGroupName);
-        $this->useGroupName->setName('useGroupName');
+        $this->useGroupName->setElementName('useGroupName');
         return $this;
     }
 
@@ -71,7 +73,9 @@ class GroupCallingLineIdGetResponse extends ComplexType implements ComplexInterf
      */
     public function getUseGroupName()
     {
-        return ($this->useGroupName) ? $this->useGroupName->getValue() : null;
+        return ($this->useGroupName)
+            ? $this->useGroupName->getElementValue()
+            : null;
     }
 
     /**
@@ -82,7 +86,7 @@ class GroupCallingLineIdGetResponse extends ComplexType implements ComplexInterf
         $this->callingLineIdPhoneNumber = ($callingLineIdPhoneNumber InstanceOf DN)
              ? $callingLineIdPhoneNumber
              : new DN($callingLineIdPhoneNumber);
-        $this->callingLineIdPhoneNumber->setName('callingLineIdPhoneNumber');
+        $this->callingLineIdPhoneNumber->setElementName('callingLineIdPhoneNumber');
         return $this;
     }
 
@@ -92,7 +96,9 @@ class GroupCallingLineIdGetResponse extends ComplexType implements ComplexInterf
      */
     public function getCallingLineIdPhoneNumber()
     {
-        return ($this->callingLineIdPhoneNumber) ? $this->callingLineIdPhoneNumber->getValue() : null;
+        return ($this->callingLineIdPhoneNumber)
+            ? $this->callingLineIdPhoneNumber->getElementValue()
+            : null;
     }
 
     /**
@@ -103,7 +109,7 @@ class GroupCallingLineIdGetResponse extends ComplexType implements ComplexInterf
         $this->callingLineIdName = ($callingLineIdName InstanceOf GroupCallingLineIdName)
              ? $callingLineIdName
              : new GroupCallingLineIdName($callingLineIdName);
-        $this->callingLineIdName->setName('callingLineIdName');
+        $this->callingLineIdName->setElementName('callingLineIdName');
         return $this;
     }
 
@@ -113,6 +119,8 @@ class GroupCallingLineIdGetResponse extends ComplexType implements ComplexInterf
      */
     public function getCallingLineIdName()
     {
-        return ($this->callingLineIdName) ? $this->callingLineIdName->getValue() : null;
+        return ($this->callingLineIdName)
+            ? $this->callingLineIdName->getElementValue()
+            : null;
     }
 }

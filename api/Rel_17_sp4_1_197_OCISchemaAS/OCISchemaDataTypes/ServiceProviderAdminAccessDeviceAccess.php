@@ -16,12 +16,9 @@ use Broadworks_OCIP\core\Builder\Restrictions\Enumeration;
  */
 class ServiceProviderAdminAccessDeviceAccess extends SimpleType
 {
-    public $name = "ServiceProviderAdminAccessDeviceAccess";
-    protected $value;
-
+    public $elementName = "ServiceProviderAdminAccessDeviceAccess";
     public function __construct($value) {
-        $this->value    = $value;
-        $this->dataType = "";
+        $this->setElementValue($value);
         $this->addRestriction(new Enumeration([
             'Full',
             'Associate User With Device',

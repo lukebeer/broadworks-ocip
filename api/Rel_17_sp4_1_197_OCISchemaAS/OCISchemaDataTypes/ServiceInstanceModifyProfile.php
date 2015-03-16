@@ -19,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceInstanceModifyProfile extends ComplexType implements ComplexInterface
 {
-    public    $name = 'ServiceInstanceModifyProfile';
+    public    $elementName = 'ServiceInstanceModifyProfile';
     protected $name;
     protected $callingLineIdLastName;
     protected $callingLineIdFirstName;
@@ -78,7 +78,7 @@ class ServiceInstanceModifyProfile extends ComplexType implements ComplexInterfa
     public function setName($name = null)
     {
         $this->name = new SimpleContent($name);
-        $this->name->setName('name');
+        $this->name->setElementName('name');
         return $this;
     }
 
@@ -88,7 +88,9 @@ class ServiceInstanceModifyProfile extends ComplexType implements ComplexInterfa
      */
     public function getName()
     {
-        return ($this->name) ? $this->name->getValue() : null;
+        return ($this->name)
+            ? $this->name->getElementValue()
+            : null;
     }
 
     /**
@@ -97,7 +99,7 @@ class ServiceInstanceModifyProfile extends ComplexType implements ComplexInterfa
     public function setCallingLineIdLastName($callingLineIdLastName = null)
     {
         $this->callingLineIdLastName = new SimpleContent($callingLineIdLastName);
-        $this->callingLineIdLastName->setName('callingLineIdLastName');
+        $this->callingLineIdLastName->setElementName('callingLineIdLastName');
         return $this;
     }
 
@@ -107,7 +109,9 @@ class ServiceInstanceModifyProfile extends ComplexType implements ComplexInterfa
      */
     public function getCallingLineIdLastName()
     {
-        return ($this->callingLineIdLastName) ? $this->callingLineIdLastName->getValue() : null;
+        return ($this->callingLineIdLastName)
+            ? $this->callingLineIdLastName->getElementValue()
+            : null;
     }
 
     /**
@@ -116,7 +120,7 @@ class ServiceInstanceModifyProfile extends ComplexType implements ComplexInterfa
     public function setCallingLineIdFirstName($callingLineIdFirstName = null)
     {
         $this->callingLineIdFirstName = new SimpleContent($callingLineIdFirstName);
-        $this->callingLineIdFirstName->setName('callingLineIdFirstName');
+        $this->callingLineIdFirstName->setElementName('callingLineIdFirstName');
         return $this;
     }
 
@@ -126,7 +130,9 @@ class ServiceInstanceModifyProfile extends ComplexType implements ComplexInterfa
      */
     public function getCallingLineIdFirstName()
     {
-        return ($this->callingLineIdFirstName) ? $this->callingLineIdFirstName->getValue() : null;
+        return ($this->callingLineIdFirstName)
+            ? $this->callingLineIdFirstName->getElementValue()
+            : null;
     }
 
     /**
@@ -135,7 +141,7 @@ class ServiceInstanceModifyProfile extends ComplexType implements ComplexInterfa
     public function setHiraganaLastName($hiraganaLastName = null)
     {
         $this->hiraganaLastName = new SimpleContent($hiraganaLastName);
-        $this->hiraganaLastName->setName('hiraganaLastName');
+        $this->hiraganaLastName->setElementName('hiraganaLastName');
         return $this;
     }
 
@@ -145,7 +151,9 @@ class ServiceInstanceModifyProfile extends ComplexType implements ComplexInterfa
      */
     public function getHiraganaLastName()
     {
-        return ($this->hiraganaLastName) ? $this->hiraganaLastName->getValue() : null;
+        return ($this->hiraganaLastName)
+            ? $this->hiraganaLastName->getElementValue()
+            : null;
     }
 
     /**
@@ -154,7 +162,7 @@ class ServiceInstanceModifyProfile extends ComplexType implements ComplexInterfa
     public function setHiraganaFirstName($hiraganaFirstName = null)
     {
         $this->hiraganaFirstName = new SimpleContent($hiraganaFirstName);
-        $this->hiraganaFirstName->setName('hiraganaFirstName');
+        $this->hiraganaFirstName->setElementName('hiraganaFirstName');
         return $this;
     }
 
@@ -164,7 +172,9 @@ class ServiceInstanceModifyProfile extends ComplexType implements ComplexInterfa
      */
     public function getHiraganaFirstName()
     {
-        return ($this->hiraganaFirstName) ? $this->hiraganaFirstName->getValue() : null;
+        return ($this->hiraganaFirstName)
+            ? $this->hiraganaFirstName->getElementValue()
+            : null;
     }
 
     /**
@@ -173,7 +183,7 @@ class ServiceInstanceModifyProfile extends ComplexType implements ComplexInterfa
     public function setPhoneNumber($phoneNumber = null)
     {
         $this->phoneNumber = new SimpleContent($phoneNumber);
-        $this->phoneNumber->setName('phoneNumber');
+        $this->phoneNumber->setElementName('phoneNumber');
         return $this;
     }
 
@@ -183,7 +193,9 @@ class ServiceInstanceModifyProfile extends ComplexType implements ComplexInterfa
      */
     public function getPhoneNumber()
     {
-        return ($this->phoneNumber) ? $this->phoneNumber->getValue() : null;
+        return ($this->phoneNumber)
+            ? $this->phoneNumber->getElementValue()
+            : null;
     }
 
     /**
@@ -192,7 +204,7 @@ class ServiceInstanceModifyProfile extends ComplexType implements ComplexInterfa
     public function setExtension($extension = null)
     {
         $this->extension = new SimpleContent($extension);
-        $this->extension->setName('extension');
+        $this->extension->setElementName('extension');
         return $this;
     }
 
@@ -202,7 +214,9 @@ class ServiceInstanceModifyProfile extends ComplexType implements ComplexInterfa
      */
     public function getExtension()
     {
-        return ($this->extension) ? $this->extension->getValue() : null;
+        return ($this->extension)
+            ? $this->extension->getElementValue()
+            : null;
     }
 
     /**
@@ -211,7 +225,7 @@ class ServiceInstanceModifyProfile extends ComplexType implements ComplexInterfa
     public function setPassword($password = null)
     {
         $this->password = new SimpleContent($password);
-        $this->password->setName('password');
+        $this->password->setElementName('password');
         return $this;
     }
 
@@ -221,7 +235,9 @@ class ServiceInstanceModifyProfile extends ComplexType implements ComplexInterfa
      */
     public function getPassword()
     {
-        return ($this->password) ? $this->password->getValue() : null;
+        return ($this->password)
+            ? $this->password->getElementValue()
+            : null;
     }
 
     /**
@@ -230,7 +246,7 @@ class ServiceInstanceModifyProfile extends ComplexType implements ComplexInterfa
     public function setDepartment($department = null)
     {
         $this->department = new SimpleContent($department);
-        $this->department->setName('department');
+        $this->department->setElementName('department');
         return $this;
     }
 
@@ -240,7 +256,9 @@ class ServiceInstanceModifyProfile extends ComplexType implements ComplexInterfa
      */
     public function getDepartment()
     {
-        return ($this->department) ? $this->department->getValue() : null;
+        return ($this->department)
+            ? $this->department->getElementValue()
+            : null;
     }
 
     /**
@@ -249,7 +267,7 @@ class ServiceInstanceModifyProfile extends ComplexType implements ComplexInterfa
     public function setLanguage($language = null)
     {
         $this->language = new SimpleContent($language);
-        $this->language->setName('language');
+        $this->language->setElementName('language');
         return $this;
     }
 
@@ -259,7 +277,9 @@ class ServiceInstanceModifyProfile extends ComplexType implements ComplexInterfa
      */
     public function getLanguage()
     {
-        return ($this->language) ? $this->language->getValue() : null;
+        return ($this->language)
+            ? $this->language->getElementValue()
+            : null;
     }
 
     /**
@@ -268,7 +288,7 @@ class ServiceInstanceModifyProfile extends ComplexType implements ComplexInterfa
     public function setTimeZone($timeZone = null)
     {
         $this->timeZone = new SimpleContent($timeZone);
-        $this->timeZone->setName('timeZone');
+        $this->timeZone->setElementName('timeZone');
         return $this;
     }
 
@@ -278,7 +298,9 @@ class ServiceInstanceModifyProfile extends ComplexType implements ComplexInterfa
      */
     public function getTimeZone()
     {
-        return ($this->timeZone) ? $this->timeZone->getValue() : null;
+        return ($this->timeZone)
+            ? $this->timeZone->getElementValue()
+            : null;
     }
 
     /**
@@ -287,7 +309,7 @@ class ServiceInstanceModifyProfile extends ComplexType implements ComplexInterfa
     public function setSipAliasList($sipAliasList = null)
     {
         $this->sipAliasList = new SimpleContent($sipAliasList);
-        $this->sipAliasList->setName('sipAliasList');
+        $this->sipAliasList->setElementName('sipAliasList');
         return $this;
     }
 
@@ -297,7 +319,9 @@ class ServiceInstanceModifyProfile extends ComplexType implements ComplexInterfa
      */
     public function getSipAliasList()
     {
-        return ($this->sipAliasList) ? $this->sipAliasList->getValue() : null;
+        return ($this->sipAliasList)
+            ? $this->sipAliasList->getElementValue()
+            : null;
     }
 
     /**
@@ -306,7 +330,7 @@ class ServiceInstanceModifyProfile extends ComplexType implements ComplexInterfa
     public function setPublicUserIdentity($publicUserIdentity = null)
     {
         $this->publicUserIdentity = new SimpleContent($publicUserIdentity);
-        $this->publicUserIdentity->setName('publicUserIdentity');
+        $this->publicUserIdentity->setElementName('publicUserIdentity');
         return $this;
     }
 
@@ -316,6 +340,8 @@ class ServiceInstanceModifyProfile extends ComplexType implements ComplexInterfa
      */
     public function getPublicUserIdentity()
     {
-        return ($this->publicUserIdentity) ? $this->publicUserIdentity->getValue() : null;
+        return ($this->publicUserIdentity)
+            ? $this->publicUserIdentity->getElementValue()
+            : null;
     }
 }

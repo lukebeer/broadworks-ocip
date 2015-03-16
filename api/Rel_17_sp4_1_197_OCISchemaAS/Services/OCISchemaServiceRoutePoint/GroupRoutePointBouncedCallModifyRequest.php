@@ -23,7 +23,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupRoutePointBouncedCallModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'GroupRoutePointBouncedCallModifyRequest';
+    public    $elementName = 'GroupRoutePointBouncedCallModifyRequest';
     protected $serviceUserId;
     protected $isActive;
     protected $numberOfRingsBeforeBouncingCall;
@@ -63,7 +63,7 @@ class GroupRoutePointBouncedCallModifyRequest extends ComplexType implements Com
         $this->serviceUserId = ($serviceUserId InstanceOf UserId)
              ? $serviceUserId
              : new UserId($serviceUserId);
-        $this->serviceUserId->setName('serviceUserId');
+        $this->serviceUserId->setElementName('serviceUserId');
         return $this;
     }
 
@@ -73,7 +73,9 @@ class GroupRoutePointBouncedCallModifyRequest extends ComplexType implements Com
      */
     public function getServiceUserId()
     {
-        return ($this->serviceUserId) ? $this->serviceUserId->getValue() : null;
+        return ($this->serviceUserId)
+            ? $this->serviceUserId->getElementValue()
+            : null;
     }
 
     /**
@@ -82,7 +84,7 @@ class GroupRoutePointBouncedCallModifyRequest extends ComplexType implements Com
     public function setIsActive($isActive = null)
     {
         $this->isActive = new PrimitiveType($isActive);
-        $this->isActive->setName('isActive');
+        $this->isActive->setElementName('isActive');
         return $this;
     }
 
@@ -92,7 +94,9 @@ class GroupRoutePointBouncedCallModifyRequest extends ComplexType implements Com
      */
     public function getIsActive()
     {
-        return ($this->isActive) ? $this->isActive->getValue() : null;
+        return ($this->isActive)
+            ? $this->isActive->getElementValue()
+            : null;
     }
 
     /**
@@ -103,7 +107,7 @@ class GroupRoutePointBouncedCallModifyRequest extends ComplexType implements Com
         $this->numberOfRingsBeforeBouncingCall = ($numberOfRingsBeforeBouncingCall InstanceOf HuntNoAnswerRings)
              ? $numberOfRingsBeforeBouncingCall
              : new HuntNoAnswerRings($numberOfRingsBeforeBouncingCall);
-        $this->numberOfRingsBeforeBouncingCall->setName('numberOfRingsBeforeBouncingCall');
+        $this->numberOfRingsBeforeBouncingCall->setElementName('numberOfRingsBeforeBouncingCall');
         return $this;
     }
 
@@ -113,7 +117,9 @@ class GroupRoutePointBouncedCallModifyRequest extends ComplexType implements Com
      */
     public function getNumberOfRingsBeforeBouncingCall()
     {
-        return ($this->numberOfRingsBeforeBouncingCall) ? $this->numberOfRingsBeforeBouncingCall->getValue() : null;
+        return ($this->numberOfRingsBeforeBouncingCall)
+            ? $this->numberOfRingsBeforeBouncingCall->getElementValue()
+            : null;
     }
 
     /**
@@ -122,7 +128,7 @@ class GroupRoutePointBouncedCallModifyRequest extends ComplexType implements Com
     public function setEnableTransfer($enableTransfer = null)
     {
         $this->enableTransfer = new PrimitiveType($enableTransfer);
-        $this->enableTransfer->setName('enableTransfer');
+        $this->enableTransfer->setElementName('enableTransfer');
         return $this;
     }
 
@@ -132,7 +138,9 @@ class GroupRoutePointBouncedCallModifyRequest extends ComplexType implements Com
      */
     public function getEnableTransfer()
     {
-        return ($this->enableTransfer) ? $this->enableTransfer->getValue() : null;
+        return ($this->enableTransfer)
+            ? $this->enableTransfer->getElementValue()
+            : null;
     }
 
     /**
@@ -143,7 +151,7 @@ class GroupRoutePointBouncedCallModifyRequest extends ComplexType implements Com
         $this->transferPhoneNumber = ($transferPhoneNumber InstanceOf OutgoingDNorSIPURI)
              ? $transferPhoneNumber
              : new OutgoingDNorSIPURI($transferPhoneNumber);
-        $this->transferPhoneNumber->setName('transferPhoneNumber');
+        $this->transferPhoneNumber->setElementName('transferPhoneNumber');
         return $this;
     }
 
@@ -153,7 +161,9 @@ class GroupRoutePointBouncedCallModifyRequest extends ComplexType implements Com
      */
     public function getTransferPhoneNumber()
     {
-        return ($this->transferPhoneNumber) ? $this->transferPhoneNumber->getValue() : null;
+        return ($this->transferPhoneNumber)
+            ? $this->transferPhoneNumber->getElementValue()
+            : null;
     }
 
     /**
@@ -162,7 +172,7 @@ class GroupRoutePointBouncedCallModifyRequest extends ComplexType implements Com
     public function setBounceCallWhenAgentUnavailable($bounceCallWhenAgentUnavailable = null)
     {
         $this->bounceCallWhenAgentUnavailable = new PrimitiveType($bounceCallWhenAgentUnavailable);
-        $this->bounceCallWhenAgentUnavailable->setName('bounceCallWhenAgentUnavailable');
+        $this->bounceCallWhenAgentUnavailable->setElementName('bounceCallWhenAgentUnavailable');
         return $this;
     }
 
@@ -172,6 +182,8 @@ class GroupRoutePointBouncedCallModifyRequest extends ComplexType implements Com
      */
     public function getBounceCallWhenAgentUnavailable()
     {
-        return ($this->bounceCallWhenAgentUnavailable) ? $this->bounceCallWhenAgentUnavailable->getValue() : null;
+        return ($this->bounceCallWhenAgentUnavailable)
+            ? $this->bounceCallWhenAgentUnavailable->getElementValue()
+            : null;
     }
 }

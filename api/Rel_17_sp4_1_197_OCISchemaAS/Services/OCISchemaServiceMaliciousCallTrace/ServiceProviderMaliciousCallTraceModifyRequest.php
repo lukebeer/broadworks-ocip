@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderMaliciousCallTraceModifyRequest extends ComplexType implements ComplexInterface
 {
-    public    $name = 'ServiceProviderMaliciousCallTraceModifyRequest';
+    public    $elementName = 'ServiceProviderMaliciousCallTraceModifyRequest';
     protected $serviceProviderId;
     protected $useSystemPlayMCTWarningAnnouncement;
     protected $playMCTWarningAnnouncement;
@@ -52,7 +52,7 @@ class ServiceProviderMaliciousCallTraceModifyRequest extends ComplexType impleme
         $this->serviceProviderId = ($serviceProviderId InstanceOf ServiceProviderId)
              ? $serviceProviderId
              : new ServiceProviderId($serviceProviderId);
-        $this->serviceProviderId->setName('serviceProviderId');
+        $this->serviceProviderId->setElementName('serviceProviderId');
         return $this;
     }
 
@@ -62,7 +62,9 @@ class ServiceProviderMaliciousCallTraceModifyRequest extends ComplexType impleme
      */
     public function getServiceProviderId()
     {
-        return ($this->serviceProviderId) ? $this->serviceProviderId->getValue() : null;
+        return ($this->serviceProviderId)
+            ? $this->serviceProviderId->getElementValue()
+            : null;
     }
 
     /**
@@ -71,7 +73,7 @@ class ServiceProviderMaliciousCallTraceModifyRequest extends ComplexType impleme
     public function setUseSystemPlayMCTWarningAnnouncement($useSystemPlayMCTWarningAnnouncement = null)
     {
         $this->useSystemPlayMCTWarningAnnouncement = new PrimitiveType($useSystemPlayMCTWarningAnnouncement);
-        $this->useSystemPlayMCTWarningAnnouncement->setName('useSystemPlayMCTWarningAnnouncement');
+        $this->useSystemPlayMCTWarningAnnouncement->setElementName('useSystemPlayMCTWarningAnnouncement');
         return $this;
     }
 
@@ -81,7 +83,9 @@ class ServiceProviderMaliciousCallTraceModifyRequest extends ComplexType impleme
      */
     public function getUseSystemPlayMCTWarningAnnouncement()
     {
-        return ($this->useSystemPlayMCTWarningAnnouncement) ? $this->useSystemPlayMCTWarningAnnouncement->getValue() : null;
+        return ($this->useSystemPlayMCTWarningAnnouncement)
+            ? $this->useSystemPlayMCTWarningAnnouncement->getElementValue()
+            : null;
     }
 
     /**
@@ -90,7 +94,7 @@ class ServiceProviderMaliciousCallTraceModifyRequest extends ComplexType impleme
     public function setPlayMCTWarningAnnouncement($playMCTWarningAnnouncement = null)
     {
         $this->playMCTWarningAnnouncement = new PrimitiveType($playMCTWarningAnnouncement);
-        $this->playMCTWarningAnnouncement->setName('playMCTWarningAnnouncement');
+        $this->playMCTWarningAnnouncement->setElementName('playMCTWarningAnnouncement');
         return $this;
     }
 
@@ -100,6 +104,8 @@ class ServiceProviderMaliciousCallTraceModifyRequest extends ComplexType impleme
      */
     public function getPlayMCTWarningAnnouncement()
     {
-        return ($this->playMCTWarningAnnouncement) ? $this->playMCTWarningAnnouncement->getValue() : null;
+        return ($this->playMCTWarningAnnouncement)
+            ? $this->playMCTWarningAnnouncement->getElementValue()
+            : null;
     }
 }

@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
 class GroupTrunkGroupGetInstanceRequest14sp4 extends ComplexType implements ComplexInterface
 {
     public    $responseType  = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\GroupTrunkGroupGetInstanceResponse14sp4';
-    public    $name = 'GroupTrunkGroupGetInstanceRequest14sp4';
+    public    $elementName = 'GroupTrunkGroupGetInstanceRequest14sp4';
     protected $trunkGroupKey;
 
     public function __construct(
@@ -46,7 +46,7 @@ class GroupTrunkGroupGetInstanceRequest14sp4 extends ComplexType implements Comp
         $this->trunkGroupKey = ($trunkGroupKey InstanceOf TrunkGroupKey)
              ? $trunkGroupKey
              : new TrunkGroupKey($trunkGroupKey);
-        $this->trunkGroupKey->setName('trunkGroupKey');
+        $this->trunkGroupKey->setElementName('trunkGroupKey');
         return $this;
     }
 

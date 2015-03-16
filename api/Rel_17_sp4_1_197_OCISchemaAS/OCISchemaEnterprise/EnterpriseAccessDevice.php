@@ -19,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class EnterpriseAccessDevice extends ComplexType implements ComplexInterface
 {
-    public    $name = 'EnterpriseAccessDevice';
+    public    $elementName = 'EnterpriseAccessDevice';
     protected $accessDevice;
     protected $groupId;
 
@@ -45,7 +45,7 @@ class EnterpriseAccessDevice extends ComplexType implements ComplexInterface
     public function setAccessDevice($accessDevice = null)
     {
         $this->accessDevice = new SimpleContent($accessDevice);
-        $this->accessDevice->setName('accessDevice');
+        $this->accessDevice->setElementName('accessDevice');
         return $this;
     }
 
@@ -55,7 +55,9 @@ class EnterpriseAccessDevice extends ComplexType implements ComplexInterface
      */
     public function getAccessDevice()
     {
-        return ($this->accessDevice) ? $this->accessDevice->getValue() : null;
+        return ($this->accessDevice)
+            ? $this->accessDevice->getElementValue()
+            : null;
     }
 
     /**
@@ -64,7 +66,7 @@ class EnterpriseAccessDevice extends ComplexType implements ComplexInterface
     public function setGroupId($groupId = null)
     {
         $this->groupId = new SimpleContent($groupId);
-        $this->groupId->setName('groupId');
+        $this->groupId->setElementName('groupId');
         return $this;
     }
 
@@ -74,6 +76,8 @@ class EnterpriseAccessDevice extends ComplexType implements ComplexInterface
      */
     public function getGroupId()
     {
-        return ($this->groupId) ? $this->groupId->getValue() : null;
+        return ($this->groupId)
+            ? $this->groupId->getElementValue()
+            : null;
     }
 }

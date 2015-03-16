@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserSimultaneousRingPersonalGetResponse extends ComplexType implements ComplexInterface
 {
-    public    $name = 'UserSimultaneousRingPersonalGetResponse';
+    public    $elementName = 'UserSimultaneousRingPersonalGetResponse';
     protected $isActive;
     protected $incomingCalls;
     protected $simRingPhoneNumber;
@@ -41,7 +41,7 @@ class UserSimultaneousRingPersonalGetResponse extends ComplexType implements Com
     public function setIsActive($isActive = null)
     {
         $this->isActive = new PrimitiveType($isActive);
-        $this->isActive->setName('isActive');
+        $this->isActive->setElementName('isActive');
         return $this;
     }
 
@@ -51,7 +51,9 @@ class UserSimultaneousRingPersonalGetResponse extends ComplexType implements Com
      */
     public function getIsActive()
     {
-        return ($this->isActive) ? $this->isActive->getValue() : null;
+        return ($this->isActive)
+            ? $this->isActive->getElementValue()
+            : null;
     }
 
     /**
@@ -62,7 +64,7 @@ class UserSimultaneousRingPersonalGetResponse extends ComplexType implements Com
         $this->incomingCalls = ($incomingCalls InstanceOf SimultaneousRingSelection)
              ? $incomingCalls
              : new SimultaneousRingSelection($incomingCalls);
-        $this->incomingCalls->setName('incomingCalls');
+        $this->incomingCalls->setElementName('incomingCalls');
         return $this;
     }
 
@@ -72,7 +74,9 @@ class UserSimultaneousRingPersonalGetResponse extends ComplexType implements Com
      */
     public function getIncomingCalls()
     {
-        return ($this->incomingCalls) ? $this->incomingCalls->getValue() : null;
+        return ($this->incomingCalls)
+            ? $this->incomingCalls->getElementValue()
+            : null;
     }
 
     /**
@@ -83,7 +87,7 @@ class UserSimultaneousRingPersonalGetResponse extends ComplexType implements Com
         $this->simRingPhoneNumber = ($simRingPhoneNumber InstanceOf OutgoingDNorSIPURI)
              ? $simRingPhoneNumber
              : new OutgoingDNorSIPURI($simRingPhoneNumber);
-        $this->simRingPhoneNumber->setName('simRingPhoneNumber');
+        $this->simRingPhoneNumber->setElementName('simRingPhoneNumber');
         return $this;
     }
 
@@ -93,6 +97,8 @@ class UserSimultaneousRingPersonalGetResponse extends ComplexType implements Com
      */
     public function getSimRingPhoneNumber()
     {
-        return ($this->simRingPhoneNumber) ? $this->simRingPhoneNumber->getValue() : null;
+        return ($this->simRingPhoneNumber)
+            ? $this->simRingPhoneNumber->getElementValue()
+            : null;
     }
 }
