@@ -48,12 +48,12 @@ class GroupEnhancedCallLogsGetListRequest extends ComplexType implements Complex
          $serviceProviderId = '',
          $groupId = '',
          $callLogType = null,
-         EnhancedCallLogsTimeRange $dateTimeRange = '',
-         EnhancedCallLogsNumberFilter $numberFilter = null,
-         EnhancedCallLogsRedirectedNumberFilter $redirectedNumberFilter = null,
-         EnhancedCallLogsAccountAuthorizationCodeFilter $accountAuthorizationCodeFilter = null,
+         $dateTimeRange = '',
+         $numberFilter = null,
+         $redirectedNumberFilter = null,
+         $accountAuthorizationCodeFilter = null,
          $subscriberType = null,
-         EnhancedCallLogsResponsePagingControl $responsePagingControl = null
+         $responsePagingControl = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setGroupId($groupId);

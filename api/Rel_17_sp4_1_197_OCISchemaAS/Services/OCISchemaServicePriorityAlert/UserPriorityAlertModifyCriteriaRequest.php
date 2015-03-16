@@ -38,9 +38,9 @@ class UserPriorityAlertModifyCriteriaRequest extends ComplexType implements Comp
          $userId = '',
          $criteriaName = '',
          $newCriteriaName = null,
-         TimeSchedule $timeSchedule = null,
-         PriorityAlertCriteriaFromDnModify $fromDnCriteria = null,
-         HolidaySchedule $holidaySchedule = null,
+         $timeSchedule = null,
+         $fromDnCriteria = null,
+         $holidaySchedule = null,
          $blacklisted = null
     ) {
         $this->setUserId($userId);

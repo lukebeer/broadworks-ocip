@@ -32,7 +32,7 @@ class GroupOutgoingCallingPlanDepartmentAuthorizationCodeDeleteListRequest exten
     public function __construct(
          $serviceProviderId = '',
          $groupId = '',
-         DepartmentKey $departmentKey = null,
+         $departmentKey = null,
          $code = ''
     ) {
         $this->setServiceProviderId($serviceProviderId);

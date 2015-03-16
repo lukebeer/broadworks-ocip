@@ -33,7 +33,7 @@ class GroupSessionAdmissionControlGroupAddDeviceListRequest extends ComplexType 
          $serviceProviderId = '',
          $groupId = '',
          $name = '',
-         AccessDevice $devices = null
+         $devices = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setGroupId($groupId);

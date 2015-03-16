@@ -52,7 +52,7 @@ class GroupHuntGroupAddInstanceRequest17sp3 extends ComplexType implements Compl
          $serviceProviderId = '',
          $groupId = '',
          $serviceUserId = '',
-         ServiceInstanceAddProfile $serviceInstanceProfile = '',
+         $serviceInstanceProfile = '',
          $policy = '',
          $huntAfterNoAnswer = '',
          $noAnswerNumberOfRings = '',

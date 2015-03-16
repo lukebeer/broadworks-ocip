@@ -43,12 +43,12 @@ class UserSequentialRingModifyRequest extends ComplexType implements ComplexInte
          $baseLocationNumberOfRings = null,
          $continueIfBaseLocationIsBusy = null,
          $callerMayStopSearch = null,
-         SequentialRingLocationModify $Location01 = null,
-         SequentialRingLocationModify $Location02 = null,
-         SequentialRingLocationModify $Location03 = null,
-         SequentialRingLocationModify $Location04 = null,
-         SequentialRingLocationModify $Location05 = null,
-         CriteriaActivation $criteriaActivation = null
+         $Location01 = null,
+         $Location02 = null,
+         $Location03 = null,
+         $Location04 = null,
+         $Location05 = null,
+         $criteriaActivation = null
     ) {
         $this->setUserId($userId);
         $this->setRingBaseLocationFirst($ringBaseLocationFirst);

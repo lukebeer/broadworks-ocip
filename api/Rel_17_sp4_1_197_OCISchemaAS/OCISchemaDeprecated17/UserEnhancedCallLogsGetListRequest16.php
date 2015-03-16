@@ -33,7 +33,7 @@ class UserEnhancedCallLogsGetListRequest16 extends ComplexType implements Comple
     public function __construct(
          $userId = '',
          $callLogType = null,
-         ResponsePagingControl $responsePagingControl = null
+         $responsePagingControl = null
     ) {
         $this->setUserId($userId);
         $this->setCallLogType($callLogType);

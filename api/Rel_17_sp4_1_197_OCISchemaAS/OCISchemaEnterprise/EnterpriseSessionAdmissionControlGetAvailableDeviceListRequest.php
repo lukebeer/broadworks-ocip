@@ -41,12 +41,12 @@ class EnterpriseSessionAdmissionControlGetAvailableDeviceListRequest extends Com
     public function __construct(
          $serviceProviderId = '',
          $responseSizeLimit = null,
-         SearchCriteriaDeviceName $searchCriteriaDeviceName = null,
-         SearchCriteriaDeviceMACAddress $searchCriteriaDeviceMACAddress = null,
-         SearchCriteriaDeviceNetAddress $searchCriteriaDeviceNetAddress = null,
-         SearchCriteriaGroupId $searchCriteriaGroupId = null,
-         SearchCriteriaExactDeviceType $searchCriteriaExactDeviceType = null,
-         SearchCriteriaExactDeviceLevel $searchCriteriaExactDeviceLevel = null
+         $searchCriteriaDeviceName = null,
+         $searchCriteriaDeviceMACAddress = null,
+         $searchCriteriaDeviceNetAddress = null,
+         $searchCriteriaGroupId = null,
+         $searchCriteriaExactDeviceType = null,
+         $searchCriteriaExactDeviceLevel = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setResponseSizeLimit($responseSizeLimit);

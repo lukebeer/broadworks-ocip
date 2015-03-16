@@ -41,11 +41,11 @@ class UserGetListInServiceProviderRequest extends ComplexType implements Complex
     public function __construct(
          $serviceProviderId = '',
          $responseSizeLimit = null,
-         SearchCriteriaUserLastName $searchCriteriaUserLastName = null,
-         SearchCriteriaUserFirstName $searchCriteriaUserFirstName = null,
-         SearchCriteriaDn $searchCriteriaDn = null,
-         SearchCriteriaEmailAddress $searchCriteriaEmailAddress = null,
-         SearchCriteriaExactUserInTrunkGroup $searchCriteriaExactUserInTrunkGroup = null
+         $searchCriteriaUserLastName = null,
+         $searchCriteriaUserFirstName = null,
+         $searchCriteriaDn = null,
+         $searchCriteriaEmailAddress = null,
+         $searchCriteriaExactUserInTrunkGroup = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setResponseSizeLimit($responseSizeLimit);

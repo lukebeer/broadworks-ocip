@@ -39,12 +39,12 @@ class SystemAccessDeviceGetAllRequest extends ComplexType implements ComplexInte
 
     public function __construct(
          $responseSizeLimit = null,
-         SearchCriteriaDeviceName $searchCriteriaDeviceName = null,
-         SearchCriteriaDeviceMACAddress $searchCriteriaDeviceMACAddress = null,
-         SearchCriteriaDeviceNetAddress $searchCriteriaDeviceNetAddress = null,
-         SearchCriteriaGroupId $searchCriteriaGroupId = null,
-         SearchCriteriaExactDeviceType $searchCriteriaExactDeviceType = null,
-         SearchCriteriaExactDeviceServiceProvider $searchCriteriaExactDeviceServiceProvider = null
+         $searchCriteriaDeviceName = null,
+         $searchCriteriaDeviceMACAddress = null,
+         $searchCriteriaDeviceNetAddress = null,
+         $searchCriteriaGroupId = null,
+         $searchCriteriaExactDeviceType = null,
+         $searchCriteriaExactDeviceServiceProvider = null
     ) {
         $this->setResponseSizeLimit($responseSizeLimit);
         $this->setSearchCriteriaDeviceName($searchCriteriaDeviceName);

@@ -53,8 +53,8 @@ class GroupModifyRequest extends ComplexType implements ComplexInterface
          $callingLineIdPhoneNumber = null,
          $timeZone = null,
          $locationDialingCode = null,
-         Contact $contact = null,
-         StreetAddress $address = null
+         $contact = null,
+         $address = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setGroupId($groupId);

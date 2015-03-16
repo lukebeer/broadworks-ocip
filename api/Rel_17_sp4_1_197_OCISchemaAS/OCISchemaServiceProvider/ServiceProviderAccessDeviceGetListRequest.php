@@ -37,10 +37,10 @@ class ServiceProviderAccessDeviceGetListRequest extends ComplexType implements C
     public function __construct(
          $serviceProviderId = '',
          $responseSizeLimit = null,
-         SearchCriteriaDeviceName $searchCriteriaDeviceName = null,
-         SearchCriteriaDeviceMACAddress $searchCriteriaDeviceMACAddress = null,
-         SearchCriteriaDeviceNetAddress $searchCriteriaDeviceNetAddress = null,
-         SearchCriteriaExactDeviceType $searchCriteriaExactDeviceType = null
+         $searchCriteriaDeviceName = null,
+         $searchCriteriaDeviceMACAddress = null,
+         $searchCriteriaDeviceNetAddress = null,
+         $searchCriteriaExactDeviceType = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setResponseSizeLimit($responseSizeLimit);

@@ -69,16 +69,16 @@ class ServiceProviderCommunicationBarringProfileModifyRequest extends ComplexTyp
          $originatingDefaultTreatmentId = null,
          $originatingDefaultTransferNumber = null,
          $originatingDefaultCallTimeout = null,
-         ServiceProviderReplacementCommunicationBarringHierarchicalOriginatingRuleList $originatingRule = null,
+         $originatingRule = null,
          $redirectingDefaultAction = null,
          $redirectingDefaultCallTimeout = null,
-         ServiceProviderReplacementCommunicationBarringHierarchicalRedirectingRuleList $redirectingRule = null,
+         $redirectingRule = null,
          $callMeNowDefaultAction = null,
          $callMeNowDefaultCallTimeout = null,
-         ServiceProviderReplacementCommunicationBarringHierarchicalCallMeNowRuleList $callMeNowRule = null,
+         $callMeNowRule = null,
          $incomingDefaultAction = null,
          $incomingDefaultCallTimeout = null,
-         ReplacementCommunicationBarringIncomingRuleList $incomingRule = null,
+         $incomingRule = null,
          $becomeDefault = null
     ) {
         $this->setServiceProviderId($serviceProviderId);

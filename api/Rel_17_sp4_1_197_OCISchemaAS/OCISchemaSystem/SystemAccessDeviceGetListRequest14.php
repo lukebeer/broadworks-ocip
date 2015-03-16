@@ -36,10 +36,10 @@ class SystemAccessDeviceGetListRequest14 extends ComplexType implements ComplexI
 
     public function __construct(
          $responseSizeLimit = null,
-         SearchCriteriaDeviceName $searchCriteriaDeviceName = null,
-         SearchCriteriaDeviceMACAddress $searchCriteriaDeviceMACAddress = null,
-         SearchCriteriaDeviceNetAddress $searchCriteriaDeviceNetAddress = null,
-         SearchCriteriaExactDeviceType $searchCriteriaExactDeviceType = null
+         $searchCriteriaDeviceName = null,
+         $searchCriteriaDeviceMACAddress = null,
+         $searchCriteriaDeviceNetAddress = null,
+         $searchCriteriaExactDeviceType = null
     ) {
         $this->setResponseSizeLimit($responseSizeLimit);
         $this->setSearchCriteriaDeviceName($searchCriteriaDeviceName);

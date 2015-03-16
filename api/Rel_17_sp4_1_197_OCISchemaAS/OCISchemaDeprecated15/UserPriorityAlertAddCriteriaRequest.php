@@ -32,8 +32,8 @@ class UserPriorityAlertAddCriteriaRequest extends ComplexType implements Complex
     public function __construct(
          $userId = '',
          $criteriaName = '',
-         TimeSchedule $timeSchedule = null,
-         PriorityAlertCriteriaFromDn $fromDnCriteria = ''
+         $timeSchedule = null,
+         $fromDnCriteria = ''
     ) {
         $this->setUserId($userId);
         $this->setCriteriaName($criteriaName);

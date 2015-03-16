@@ -54,14 +54,14 @@ class GroupCallCenterNightServiceModifyRequest extends ComplexType implements Co
          $transferPhoneNumber = null,
          $playAnnouncementBeforeAction = null,
          $audioMessageSelection = null,
-         ExtendedMediaFileResource $audioFile = null,
+         $audioFile = null,
          $videoMessageSelection = null,
-         ExtendedMediaFileResource $videoFile = null,
+         $videoFile = null,
          $manualAnnouncementMode = null,
          $manualAudioMessageSelection = null,
-         ExtendedMediaFileResource $manualAudioFile = null,
+         $manualAudioFile = null,
          $manualVideoMessageSelection = null,
-         ExtendedMediaFileResource $manualVideoFile = null
+         $manualVideoFile = null
     ) {
         $this->setServiceUserId($serviceUserId);
         $this->setAction($action);

@@ -39,7 +39,7 @@ class GroupDeviceTypeFileModifyRequest extends ComplexType implements ComplexInt
          $deviceType = '',
          $fileType = '',
          $fileSource = null,
-         FileResource $uploadFile = null
+         $uploadFile = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setGroupId($groupId);

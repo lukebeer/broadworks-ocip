@@ -34,8 +34,8 @@ class UserSimultaneousRingPersonalModifyRequest17 extends ComplexType implements
          $userId = '',
          $isActive = null,
          $doNotRingIfOnCall = null,
-         SimultaneousRingReplacementNumberList $simultaneousRingNumberList = null,
-         CriteriaActivation $criteriaActivation = null
+         $simultaneousRingNumberList = null,
+         $criteriaActivation = null
     ) {
         $this->setUserId($userId);
         $this->setIsActive($isActive);

@@ -32,9 +32,9 @@ class ServiceProviderVoiceMessagingGroupModifyVoicePortalBrandingRequest16 exten
     public function __construct(
          $serviceProviderId = '',
          $voicePortalGreetingSelection = null,
-         LabeledMediaFileResource $voicePortalGreetingFile = null,
+         $voicePortalGreetingFile = null,
          $voiceMessagingGreetingSelection = null,
-         LabeledMediaFileResource $voiceMessagingGreetingFile = null
+         $voiceMessagingGreetingFile = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setVoicePortalGreetingSelection($voicePortalGreetingSelection);

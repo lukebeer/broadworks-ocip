@@ -26,7 +26,7 @@ class ServiceProviderFeatureAccessCodeModifyListRequest extends ComplexType impl
 
     public function __construct(
          $serviceProviderId = '',
-         FeatureAccessCodeEntry $featureAccessCode = null
+         $featureAccessCode = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setFeatureAccessCode($featureAccessCode);

@@ -38,9 +38,9 @@ class UserSelectiveCallRejectionModifyCriteriaRequest16 extends ComplexType impl
          $userId = '',
          $criteriaName = '',
          $newCriteriaName = null,
-         TimeSchedule $timeSchedule = null,
-         SelectiveCallRejectionCriteriaCallTypeModify $fromDnCriteria = null,
-         HolidaySchedule $holidaySchedule = null,
+         $timeSchedule = null,
+         $fromDnCriteria = null,
+         $holidaySchedule = null,
          $blacklisted = null
     ) {
         $this->setUserId($userId);

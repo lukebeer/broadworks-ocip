@@ -29,7 +29,7 @@ class UserInstantConferencingGetStandAloneConferenceRecordingRequest extends Com
 
     public function __construct(
          $conferenceOwnerUserId = '',
-         InstantConferencingRecordingKey $recordingKey = ''
+         $recordingKey = ''
     ) {
         $this->setConferenceOwnerUserId($conferenceOwnerUserId);
         $this->setRecordingKey($recordingKey);

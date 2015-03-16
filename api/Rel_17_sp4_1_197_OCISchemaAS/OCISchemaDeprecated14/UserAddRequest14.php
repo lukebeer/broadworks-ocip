@@ -84,7 +84,7 @@ class UserAddRequest14 extends ComplexType implements ComplexInterface
          $extension = null,
          $callingLineIdPhoneNumber = null,
          $password = null,
-         DepartmentKey $department = null,
+         $department = null,
          $language = null,
          $timeZone = null,
          $alias = null,
@@ -94,7 +94,7 @@ class UserAddRequest14 extends ComplexType implements ComplexInterface
          $emailAddress = null,
          $yahooId = null,
          $addressLocation = null,
-         StreetAddress $address = null
+         $address = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setGroupId($groupId);

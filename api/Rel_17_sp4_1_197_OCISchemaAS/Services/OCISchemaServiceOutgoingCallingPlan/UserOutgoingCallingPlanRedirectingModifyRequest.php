@@ -30,7 +30,7 @@ class UserOutgoingCallingPlanRedirectingModifyRequest extends ComplexType implem
     public function __construct(
          $userId = '',
          $useCustomSettings = null,
-         OutgoingCallingPlanRedirectingPermissionsModify $userPermissions = null
+         $userPermissions = null
     ) {
         $this->setUserId($userId);
         $this->setUseCustomSettings($useCustomSettings);

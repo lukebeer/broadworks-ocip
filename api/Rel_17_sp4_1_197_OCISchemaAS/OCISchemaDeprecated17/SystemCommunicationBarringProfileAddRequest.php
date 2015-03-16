@@ -47,10 +47,10 @@ class SystemCommunicationBarringProfileAddRequest extends ComplexType implements
          $originatingDefaultTreatmentId = null,
          $originatingDefaultTransferNumber = null,
          $originatingDefaultCallTimeout = null,
-         CommunicationBarringOriginatingRule $originatingRule = null,
+         $originatingRule = null,
          $redirectingDefaultAction = '',
          $redirectingDefaultCallTimeout = null,
-         CommunicationBarringRedirectingRule $redirectingRule = null
+         $redirectingRule = null
     ) {
         $this->setName($name);
         $this->setDescription($description);

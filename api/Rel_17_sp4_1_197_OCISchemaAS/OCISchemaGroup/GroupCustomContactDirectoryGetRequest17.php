@@ -56,11 +56,11 @@ class GroupCustomContactDirectoryGetRequest17 extends ComplexType implements Com
          $name = '',
          $responseSizeLimit = null,
          $searchCriteriaModeOr = null,
-         SearchCriteriaUserLastName $searchCriteriaUserLastName = null,
-         SearchCriteriaUserFirstName $searchCriteriaUserFirstName = null,
-         SearchCriteriaDn $searchCriteriaDn = null,
-         SearchCriteriaExtension $searchCriteriaExtension = null,
-         SearchCriteriaMobilePhoneNumber $searchCriteriaMobilePhoneNumber = null
+         $searchCriteriaUserLastName = null,
+         $searchCriteriaUserFirstName = null,
+         $searchCriteriaDn = null,
+         $searchCriteriaExtension = null,
+         $searchCriteriaMobilePhoneNumber = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setGroupId($groupId);

@@ -27,7 +27,7 @@ class UserMeetMeConferencingDeleteConferenceListRequest extends ComplexType impl
 
     public function __construct(
          $userId = '',
-         MeetMeConferencingConferenceKey $conferenceKey = null
+         $conferenceKey = null
     ) {
         $this->setUserId($userId);
         $this->setConferenceKey($conferenceKey);

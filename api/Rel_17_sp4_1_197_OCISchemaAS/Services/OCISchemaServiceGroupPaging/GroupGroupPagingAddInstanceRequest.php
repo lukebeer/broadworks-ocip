@@ -40,7 +40,7 @@ class GroupGroupPagingAddInstanceRequest extends ComplexType implements ComplexI
          $serviceProviderId = '',
          $groupId = '',
          $serviceUserId = '',
-         ServiceInstanceAddProfile $serviceInstanceProfile = '',
+         $serviceInstanceProfile = '',
          $confirmationToneTimeoutSeconds = '',
          $deliverOriginatorCLIDInstead = '',
          $originatorCLIDPrefix = null

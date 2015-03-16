@@ -34,7 +34,7 @@ class SystemOfficeZoneModifyRequest extends ComplexType implements ComplexInterf
          $officeZoneName = '',
          $newOfficeZoneName = null,
          $description = null,
-         ReplacementZoneList $replacementZoneList = null,
+         $replacementZoneList = null,
          $primaryZoneName = null
     ) {
         $this->setOfficeZoneName($officeZoneName);

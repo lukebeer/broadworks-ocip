@@ -54,24 +54,24 @@ class GroupCallCenterNightServiceModifyRequest17sp1 extends ComplexType implemen
     public function __construct(
          $serviceUserId = '',
          $action = null,
-         TimeSchedule $businessHours = null,
+         $businessHours = null,
          $forceNightService = null,
          $allowManualOverrideViaFAC = null,
          $transferPhoneNumber = null,
          $playAnnouncementBeforeAction = null,
          $audioMessageSelection = null,
-         CallCenterAnnouncementURLListModify $audioUrlList = null,
-         CallCenterAnnouncementFileListModify $audioFileList = null,
+         $audioUrlList = null,
+         $audioFileList = null,
          $videoMessageSelection = null,
-         CallCenterAnnouncementURLListModify $videoUrlList = null,
-         CallCenterAnnouncementFileListModify $videoFileList = null,
+         $videoUrlList = null,
+         $videoFileList = null,
          $manualAnnouncementMode = null,
          $manualAudioMessageSelection = null,
-         CallCenterAnnouncementURLListModify $manualAudioUrlList = null,
-         CallCenterAnnouncementFileListModify $manualAudioFileList = null,
+         $manualAudioUrlList = null,
+         $manualAudioFileList = null,
          $manualVideoMessageSelection = null,
-         CallCenterAnnouncementURLListModify $manualVideoUrlList = null,
-         CallCenterAnnouncementFileListModify $manualVideoFileList = null
+         $manualVideoUrlList = null,
+         $manualVideoFileList = null
     ) {
         $this->setServiceUserId($serviceUserId);
         $this->setAction($action);

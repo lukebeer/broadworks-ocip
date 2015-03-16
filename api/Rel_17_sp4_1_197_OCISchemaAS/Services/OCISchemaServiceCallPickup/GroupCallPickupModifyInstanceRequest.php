@@ -35,7 +35,7 @@ class GroupCallPickupModifyInstanceRequest extends ComplexType implements Comple
          $groupId = '',
          $name = '',
          $newName = null,
-         ReplacementUserIdList $userIdList = null
+         $userIdList = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setGroupId($groupId);

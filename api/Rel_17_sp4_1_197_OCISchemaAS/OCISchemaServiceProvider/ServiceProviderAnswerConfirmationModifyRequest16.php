@@ -32,7 +32,7 @@ class ServiceProviderAnswerConfirmationModifyRequest16 extends ComplexType imple
     public function __construct(
          $serviceProviderId = '',
          $announcementMessageSelection = null,
-         LabeledMediaFileResource $confirmationMessageAudioFile = null,
+         $confirmationMessageAudioFile = null,
          $confirmationTimoutSeconds = null
     ) {
         $this->setServiceProviderId($serviceProviderId);

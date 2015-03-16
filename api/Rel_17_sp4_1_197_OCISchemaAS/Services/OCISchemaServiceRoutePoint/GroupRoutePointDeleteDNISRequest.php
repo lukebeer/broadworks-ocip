@@ -24,7 +24,7 @@ class GroupRoutePointDeleteDNISRequest extends ComplexType implements ComplexInt
     protected $dnisKey;
 
     public function __construct(
-         DNISKey $dnisKey = ''
+         $dnisKey = ''
     ) {
         $this->setDnisKey($dnisKey);
     }

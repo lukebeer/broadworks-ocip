@@ -44,15 +44,15 @@ class GroupRoutePointHolidayServiceModifyRequest17sp1 extends ComplexType implem
     public function __construct(
          $serviceUserId = '',
          $action = null,
-         HolidaySchedule $holidaySchedule = null,
+         $holidaySchedule = null,
          $transferPhoneNumber = null,
          $playAnnouncementBeforeAction = null,
          $audioMessageSelection = null,
-         CallCenterAnnouncementURLListModify $audioUrlList = null,
-         CallCenterAnnouncementFileListModify $audioFileList = null,
+         $audioUrlList = null,
+         $audioFileList = null,
          $videoMessageSelection = null,
-         CallCenterAnnouncementURLListModify $videoUrlList = null,
-         CallCenterAnnouncementFileListModify $videoFileList = null
+         $videoUrlList = null,
+         $videoFileList = null
     ) {
         $this->setServiceUserId($serviceUserId);
         $this->setAction($action);

@@ -31,7 +31,7 @@ class SystemZoneLocationBasedPhysicalLocationGetListRequest extends ComplexType 
     public function __construct(
          $zoneName = '',
          $responseSizeLimit = null,
-         SearchCriteriaPhysicalLocation $searchCriteriaPhysicalLocation = null
+         $searchCriteriaPhysicalLocation = null
     ) {
         $this->setZoneName($zoneName);
         $this->setResponseSizeLimit($responseSizeLimit);

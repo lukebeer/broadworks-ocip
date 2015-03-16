@@ -49,19 +49,19 @@ class GroupCallCenterModifyAnnouncementRequest16 extends ComplexType implements 
          $playEntranceMessage = null,
          $mandatoryEntranceMessage = null,
          $entranceAudioMessageSelection = null,
-         ExtendedMediaFileResource $entranceMessageAudioFile = null,
+         $entranceMessageAudioFile = null,
          $entranceVideoMessageSelection = null,
-         ExtendedMediaFileResource $entranceMessageVideoFile = null,
+         $entranceMessageVideoFile = null,
          $playPeriodicComfortMessage = null,
          $timeBetweenComfortMessagesSeconds = null,
          $periodicComfortAudioMessageSelection = null,
-         ExtendedMediaFileResource $periodicComfortMessageAudioFile = null,
+         $periodicComfortMessageAudioFile = null,
          $periodicComfortVideoMessageSelection = null,
-         ExtendedMediaFileResource $periodicComfortMessageVideoFile = null,
+         $periodicComfortMessageVideoFile = null,
          $enableMediaOnHoldForQueuedCalls = null,
-         CallCenterMediaOnHoldSourceModify16 $mediaOnHoldSource = null,
+         $mediaOnHoldSource = null,
          $mediaOnHoldUseAlternateSourceForInternalCalls = null,
-         CallCenterMediaOnHoldSourceModify16 $mediaOnHoldInternalSource = null
+         $mediaOnHoldInternalSource = null
     ) {
         $this->setServiceUserId($serviceUserId);
         $this->setPlayEntranceMessage($playEntranceMessage);

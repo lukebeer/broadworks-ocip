@@ -31,7 +31,7 @@ class GroupScheduleGetEventListRequest extends ComplexType implements ComplexInt
     public function __construct(
          $serviceProviderId = '',
          $groupId = '',
-         ScheduleKey $scheduleKey = ''
+         $scheduleKey = ''
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setGroupId($groupId);

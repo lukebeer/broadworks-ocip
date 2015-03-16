@@ -32,8 +32,8 @@ class UserCallNotifyAddCriteriaRequest extends ComplexType implements ComplexInt
     public function __construct(
          $userId = '',
          $criteriaName = '',
-         TimeSchedule $timeSchedule = null,
-         CriteriaFromDn $fromDnCriteria = ''
+         $timeSchedule = null,
+         $fromDnCriteria = ''
     ) {
         $this->setUserId($userId);
         $this->setCriteriaName($criteriaName);

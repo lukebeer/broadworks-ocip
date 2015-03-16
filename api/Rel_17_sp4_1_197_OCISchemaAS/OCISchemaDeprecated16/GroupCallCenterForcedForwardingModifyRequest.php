@@ -42,9 +42,9 @@ class GroupCallCenterForcedForwardingModifyRequest extends ComplexType implement
          $allowEnableViaFAC = null,
          $playAnnouncementBeforeForwarding = null,
          $audioMessageSelection = null,
-         ExtendedMediaFileResource $audioFile = null,
+         $audioFile = null,
          $videoMessageSelection = null,
-         ExtendedMediaFileResource $videoFile = null
+         $videoFile = null
     ) {
         $this->setServiceUserId($serviceUserId);
         $this->setIsActive($isActive);

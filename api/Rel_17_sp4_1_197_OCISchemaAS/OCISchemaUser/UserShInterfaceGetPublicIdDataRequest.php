@@ -26,7 +26,7 @@ class UserShInterfaceGetPublicIdDataRequest extends ComplexType implements Compl
     protected $publicUserIdentity;
 
     public function __construct(
-         PublicUserIdentity $publicUserIdentity = ''
+         $publicUserIdentity = ''
     ) {
         $this->setPublicUserIdentity($publicUserIdentity);
     }

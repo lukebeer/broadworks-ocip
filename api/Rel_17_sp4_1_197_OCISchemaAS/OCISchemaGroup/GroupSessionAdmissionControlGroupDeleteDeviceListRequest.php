@@ -33,7 +33,7 @@ class GroupSessionAdmissionControlGroupDeleteDeviceListRequest extends ComplexTy
          $serviceProviderId = '',
          $groupId = '',
          $name = '',
-         AccessDevice $devices = null
+         $devices = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setGroupId($groupId);

@@ -27,7 +27,7 @@ class GroupTrunkGroupUserCreationTaskGetRequest14sp4 extends ComplexType impleme
     protected $taskName;
 
     public function __construct(
-         TrunkGroupKey $trunkGroupKey = '',
+         $trunkGroupKey = '',
          $taskName = ''
     ) {
         $this->setTrunkGroupKey($trunkGroupKey);

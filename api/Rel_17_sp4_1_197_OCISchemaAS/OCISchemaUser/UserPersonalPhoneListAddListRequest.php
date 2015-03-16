@@ -27,7 +27,7 @@ class UserPersonalPhoneListAddListRequest extends ComplexType implements Complex
 
     public function __construct(
          $userId = '',
-         PhoneListEntry $entry = ''
+         $entry = ''
     ) {
         $this->setUserId($userId);
         $this->setEntry($entry);

@@ -37,7 +37,7 @@ class UserPrivacyModifyRequest extends ComplexType implements ComplexInterface
          $enableAutoAttendantExtensionDialingPrivacy = null,
          $enableAutoAttendantNameDialingPrivacy = null,
          $enablePhoneStatusPrivacy = null,
-         ReplacementUserIdList $permittedMonitorUserIdList = null
+         $permittedMonitorUserIdList = null
     ) {
         $this->setUserId($userId);
         $this->setEnableDirectoryPrivacy($enableDirectoryPrivacy);

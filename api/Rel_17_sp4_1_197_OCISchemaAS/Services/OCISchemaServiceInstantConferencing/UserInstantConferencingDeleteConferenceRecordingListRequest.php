@@ -27,7 +27,7 @@ class UserInstantConferencingDeleteConferenceRecordingListRequest extends Comple
 
     public function __construct(
          $userId = '',
-         InstantConferencingRecordingKey $recordingKey = null
+         $recordingKey = null
     ) {
         $this->setUserId($userId);
         $this->setRecordingKey($recordingKey);

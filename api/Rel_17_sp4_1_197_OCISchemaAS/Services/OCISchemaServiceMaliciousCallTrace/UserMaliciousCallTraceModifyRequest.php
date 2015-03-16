@@ -35,7 +35,7 @@ class UserMaliciousCallTraceModifyRequest extends ComplexType implements Complex
          $isActive = null,
          $traceTypeSelection = null,
          $traceForTimePeriod = null,
-         MaliciousCallTraceTimePeriod $traceTimePeriod = null
+         $traceTimePeriod = null
     ) {
         $this->setUserId($userId);
         $this->setIsActive($isActive);

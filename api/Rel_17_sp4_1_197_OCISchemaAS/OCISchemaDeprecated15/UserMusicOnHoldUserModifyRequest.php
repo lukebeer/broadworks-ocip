@@ -32,9 +32,9 @@ class UserMusicOnHoldUserModifyRequest extends ComplexType implements ComplexInt
 
     public function __construct(
          $userId = '',
-         MusicOnHoldUserSourceModify $source = null,
+         $source = null,
          $useAlternateSourceForInternalCalls = null,
-         MusicOnHoldUserSourceModify $internalSource = null
+         $internalSource = null
     ) {
         $this->setUserId($userId);
         $this->setSource($source);

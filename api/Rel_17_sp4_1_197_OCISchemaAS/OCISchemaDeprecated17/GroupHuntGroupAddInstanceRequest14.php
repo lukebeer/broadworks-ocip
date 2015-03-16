@@ -47,7 +47,7 @@ class GroupHuntGroupAddInstanceRequest14 extends ComplexType implements ComplexI
          $serviceProviderId = '',
          $groupId = '',
          $serviceUserId = '',
-         ServiceInstanceAddProfile $serviceInstanceProfile = '',
+         $serviceInstanceProfile = '',
          $policy = '',
          $huntAfterNoAnswer = '',
          $noAnswerNumberOfRings = '',

@@ -30,9 +30,9 @@ class UserAccessDeviceFileModifyRequest extends ComplexType implements ComplexIn
 
     public function __construct(
          $userId = '',
-         AccessDevice $accessDevice = '',
+         $accessDevice = '',
          $fileFormat = '',
-         FileResource $uploadFile = ''
+         $uploadFile = ''
     ) {
         $this->setUserId($userId);
         $this->setAccessDevice($accessDevice);

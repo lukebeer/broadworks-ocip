@@ -44,11 +44,11 @@ class GroupEnterpriseTrunkGetAvailableUserListRequest extends ComplexType implem
          $serviceProviderId = '',
          $groupId = '',
          $responseSizeLimit = null,
-         SearchCriteriaUserLastName $searchCriteriaUserLastName = null,
-         SearchCriteriaUserFirstName $searchCriteriaUserFirstName = null,
-         SearchCriteriaDn $searchCriteriaDn = null,
-         SearchCriteriaUserId $searchCriteriaUserId = null,
-         SearchCriteriaAlternateTrunkIdentity $searchCriteriaAlternateTrunkIdentity = null
+         $searchCriteriaUserLastName = null,
+         $searchCriteriaUserFirstName = null,
+         $searchCriteriaDn = null,
+         $searchCriteriaUserId = null,
+         $searchCriteriaAlternateTrunkIdentity = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setGroupId($groupId);

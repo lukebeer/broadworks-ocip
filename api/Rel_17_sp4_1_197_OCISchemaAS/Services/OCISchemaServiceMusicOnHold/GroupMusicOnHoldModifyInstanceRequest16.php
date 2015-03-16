@@ -38,13 +38,13 @@ class GroupMusicOnHoldModifyInstanceRequest16 extends ComplexType implements Com
     public function __construct(
          $serviceProviderId = '',
          $groupId = '',
-         DepartmentKey $department = null,
+         $department = null,
          $isActiveDuringCallHold = null,
          $isActiveDuringCallPark = null,
          $isActiveDuringBusyCampOn = null,
-         MusicOnHoldSourceModify16 $source = null,
+         $source = null,
          $useAlternateSourceForInternalCalls = null,
-         MusicOnHoldSourceModify16 $internalSource = null
+         $internalSource = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setGroupId($groupId);

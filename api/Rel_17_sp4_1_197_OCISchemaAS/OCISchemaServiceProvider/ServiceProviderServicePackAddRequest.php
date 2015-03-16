@@ -38,7 +38,7 @@ class ServiceProviderServicePackAddRequest extends ComplexType implements Comple
          $servicePackName = '',
          $servicePackDescription = null,
          $isAvailableForUse = '',
-         UnboundedPositiveInt $servicePackQuantity = '',
+         $servicePackQuantity = '',
          $serviceName = null
     ) {
         $this->setServiceProviderId($serviceProviderId);

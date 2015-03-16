@@ -35,9 +35,9 @@ class EnterpriseCallCenterCurrentAndPastAgentGetListRequest extends ComplexType 
     public function __construct(
          $serviceProviderId = '',
          $responseSizeLimit = null,
-         SearchCriteriaUserLastName $searchCriteriaUserLastName = null,
-         SearchCriteriaUserFirstName $searchCriteriaUserFirstName = null,
-         SearchCriteriaExactUserGroup $searchCriteriaExactUserGroup = null
+         $searchCriteriaUserLastName = null,
+         $searchCriteriaUserFirstName = null,
+         $searchCriteriaExactUserGroup = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setResponseSizeLimit($responseSizeLimit);

@@ -66,7 +66,7 @@ class SystemSIPDeviceTypeAddRequest17sp4 extends ComplexType implements ComplexI
 
     public function __construct(
          $deviceType = '',
-         UnboundedPositiveInt $numberOfPorts = '',
+         $numberOfPorts = '',
          $profile = '',
          $registrationCapable = '',
          $isConferenceDevice = '',
@@ -82,7 +82,7 @@ class SystemSIPDeviceTypeAddRequest17sp4 extends ComplexType implements ComplexI
          $isVideoCapable = '',
          $PBXIntegration = '',
          $staticRegistrationCapable = '',
-         CPEDeviceOptions16sp1 $cpeDeviceOptions = null,
+         $cpeDeviceOptions = null,
          $earlyMediaSupport = '',
          $authenticateRefer = '',
          $autoConfigSoftClient = '',

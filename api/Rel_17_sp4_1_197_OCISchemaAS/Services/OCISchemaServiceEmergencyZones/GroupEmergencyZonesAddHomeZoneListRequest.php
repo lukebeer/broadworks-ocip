@@ -33,7 +33,7 @@ class GroupEmergencyZonesAddHomeZoneListRequest extends ComplexType implements C
          $serviceProviderId = '',
          $groupId = '',
          $homeZoneIpAddress = null,
-         IPAddressRange $homeZoneIpAddressRange = null
+         $homeZoneIpAddressRange = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setGroupId($groupId);

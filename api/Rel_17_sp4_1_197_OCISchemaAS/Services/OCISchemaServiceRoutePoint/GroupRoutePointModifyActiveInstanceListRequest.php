@@ -24,7 +24,7 @@ class GroupRoutePointModifyActiveInstanceListRequest extends ComplexType impleme
     protected $serviceActivation;
 
     public function __construct(
-         ServiceActivation $serviceActivation = null
+         $serviceActivation = null
     ) {
         $this->setServiceActivation($serviceActivation);
     }

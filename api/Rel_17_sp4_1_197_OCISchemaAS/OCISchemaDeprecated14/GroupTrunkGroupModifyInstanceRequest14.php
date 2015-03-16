@@ -66,8 +66,8 @@ class GroupTrunkGroupModifyInstanceRequest14 extends ComplexType implements Comp
 
     public function __construct(
          $serviceUserId = '',
-         ServiceInstanceModifyProfileTrunkGroup $serviceInstanceProfile = null,
-         AccessDeviceEndpointModify $accessDeviceEndpoint = null,
+         $serviceInstanceProfile = null,
+         $accessDeviceEndpoint = null,
          $maxActiveCalls = null,
          $maxIncomingCalls = null,
          $maxOutgoingCalls = null,

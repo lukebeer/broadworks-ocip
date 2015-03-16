@@ -24,7 +24,7 @@ class SystemInterceptUserAddDnListRequest extends ComplexType implements Complex
     protected $interceptDNList;
 
     public function __construct(
-         InterceptDNListEntry $interceptDNList = null
+         $interceptDNList = null
     ) {
         $this->setInterceptDNList($interceptDNList);
     }

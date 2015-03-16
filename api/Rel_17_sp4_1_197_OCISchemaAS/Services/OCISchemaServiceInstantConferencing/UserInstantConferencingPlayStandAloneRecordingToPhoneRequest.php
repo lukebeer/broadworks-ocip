@@ -29,7 +29,7 @@ class UserInstantConferencingPlayStandAloneRecordingToPhoneRequest extends Compl
 
     public function __construct(
          $conferenceOwnerUserId = '',
-         InstantConferencingRecordingKey $recordingKey = '',
+         $recordingKey = '',
          $playBackPhoneNumber = ''
     ) {
         $this->setConferenceOwnerUserId($conferenceOwnerUserId);

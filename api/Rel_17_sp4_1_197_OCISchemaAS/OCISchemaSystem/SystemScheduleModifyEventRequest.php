@@ -31,12 +31,12 @@ class SystemScheduleModifyEventRequest extends ComplexType implements ComplexInt
     protected $recurrence;
 
     public function __construct(
-         ScheduleKey $scheduleKey = '',
+         $scheduleKey = '',
          $eventName = '',
          $newEventName = null,
          $startDate = null,
          $endDate = null,
-         Recurrence $recurrence = null
+         $recurrence = null
     ) {
         $this->setScheduleKey($scheduleKey);
         $this->setEventName($eventName);

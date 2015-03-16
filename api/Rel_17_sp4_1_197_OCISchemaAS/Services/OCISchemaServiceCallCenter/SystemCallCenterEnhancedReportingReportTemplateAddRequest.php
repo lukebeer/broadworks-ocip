@@ -54,7 +54,7 @@ class SystemCallCenterEnhancedReportingReportTemplateAddRequest extends ComplexT
          $description = null,
          $dataTemplate = '',
          $filterNumber = null,
-         LabeledFileResource $xsltTemplate = '',
+         $xsltTemplate = '',
          $scope = '',
          $isEnabled = '',
          $isRealtimeReport = null,

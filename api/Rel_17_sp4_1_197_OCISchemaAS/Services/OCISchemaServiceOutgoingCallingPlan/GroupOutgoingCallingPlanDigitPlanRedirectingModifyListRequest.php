@@ -32,8 +32,8 @@ class GroupOutgoingCallingPlanDigitPlanRedirectingModifyListRequest extends Comp
     public function __construct(
          $serviceProviderId = '',
          $groupId = '',
-         OutgoingCallingPlanDigitPatternRedirectingPermissions $groupPermissions = null,
-         OutgoingCallingPlanDigitPatternRedirectingDepartmentPermissionsModify $departmentPermissions = null
+         $groupPermissions = null,
+         $departmentPermissions = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setGroupId($groupId);

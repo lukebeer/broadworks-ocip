@@ -46,18 +46,18 @@ class UserCustomRingbackUserAddCriteriaRequest16 extends ComplexType implements 
     public function __construct(
          $userId = '',
          $criteriaName = '',
-         TimeSchedule $timeSchedule = null,
-         HolidaySchedule $holidaySchedule = null,
+         $timeSchedule = null,
+         $holidaySchedule = null,
          $blacklisted = '',
-         CriteriaFromDn $fromDnCriteria = '',
+         $fromDnCriteria = '',
          $audioSelection = '',
-         ExtendedMediaFileResource $audioFile = null,
+         $audioFile = null,
          $videoSelection = '',
-         ExtendedMediaFileResource $videoFile = null,
+         $videoFile = null,
          $callWaitingAudioSelection = null,
-         ExtendedMediaFileResource $callWaitingAudioFile = null,
+         $callWaitingAudioFile = null,
          $callWaitingVideoSelection = null,
-         ExtendedMediaFileResource $callWaitingVideoFile = null
+         $callWaitingVideoFile = null
     ) {
         $this->setUserId($userId);
         $this->setCriteriaName($criteriaName);

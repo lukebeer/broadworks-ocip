@@ -38,7 +38,7 @@ class SystemInstantConferencingModifyDeviceRequest14 extends ComplexType impleme
          $clusterNetAddress = null,
          $signalingPort = null,
          $description = null,
-         InstantConferencingIntegratedDeviceModify $integrated = null,
+         $integrated = null,
          $transportProtocol = null
     ) {
         $this->setDeviceName($deviceName);

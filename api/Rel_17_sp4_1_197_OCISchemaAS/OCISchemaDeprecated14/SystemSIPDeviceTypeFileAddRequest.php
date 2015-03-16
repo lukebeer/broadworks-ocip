@@ -50,7 +50,7 @@ class SystemSIPDeviceTypeFileAddRequest extends ComplexType implements ComplexIn
          $fileCategory = '',
          $allowFileCustomization = '',
          $fileSource = '',
-         FileResource $uploadFile = null,
+         $uploadFile = null,
          $useHttpDigestAuthentication = '',
          $macBasedFileAuthentication = '',
          $userNamePasswordFileAuthentication = '',

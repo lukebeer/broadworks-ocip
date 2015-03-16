@@ -27,7 +27,7 @@ class UserOutgoingCallingPlanAuthorizationCodeAddListRequest extends ComplexType
 
     public function __construct(
          $userId = '',
-         OutgoingCallingPlanAuthorizationCodeEntry $codeEntry = ''
+         $codeEntry = ''
     ) {
         $this->setUserId($userId);
         $this->setCodeEntry($codeEntry);

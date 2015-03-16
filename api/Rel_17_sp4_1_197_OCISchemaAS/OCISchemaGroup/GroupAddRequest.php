@@ -50,8 +50,8 @@ class GroupAddRequest extends ComplexType implements ComplexInterface
          $callingLineIdName = null,
          $timeZone = null,
          $locationDialingCode = null,
-         Contact $contact = null,
-         StreetAddress $address = null
+         $contact = null,
+         $address = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setGroupId($groupId);

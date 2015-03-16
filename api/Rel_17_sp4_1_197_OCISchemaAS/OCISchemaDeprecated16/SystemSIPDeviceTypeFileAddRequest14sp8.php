@@ -46,7 +46,7 @@ class SystemSIPDeviceTypeFileAddRequest14sp8 extends ComplexType implements Comp
          $fileCategory = '',
          $allowFileCustomization = '',
          $fileSource = '',
-         FileResource $uploadFile = null,
+         $uploadFile = null,
          $useHttpDigestAuthentication = '',
          $macBasedFileAuthentication = '',
          $userNamePasswordFileAuthentication = '',

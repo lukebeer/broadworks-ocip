@@ -37,12 +37,12 @@ class GroupScheduleModifyEventRequest extends ComplexType implements ComplexInte
     public function __construct(
          $serviceProviderId = '',
          $groupId = '',
-         ScheduleKey $scheduleKey = '',
+         $scheduleKey = '',
          $eventName = '',
          $newEventName = null,
          $startDate = null,
          $endDate = null,
-         Recurrence $recurrence = null
+         $recurrence = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setGroupId($groupId);

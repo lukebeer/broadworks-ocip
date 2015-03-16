@@ -38,10 +38,10 @@ class GroupCallCenterGetAgentListRequest extends ComplexType implements ComplexI
     public function __construct(
          $serviceUserId = '',
          $responseSizeLimit = null,
-         SearchCriteriaUserLastName $searchCriteriaUserLastName = null,
-         SearchCriteriaUserFirstName $searchCriteriaUserFirstName = null,
-         SearchCriteriaExactUserDepartment $searchCriteriaExactUserDepartment = null,
-         SearchCriteriaExactUserGroup $searchCriteriaExactUserGroup = null
+         $searchCriteriaUserLastName = null,
+         $searchCriteriaUserFirstName = null,
+         $searchCriteriaExactUserDepartment = null,
+         $searchCriteriaExactUserGroup = null
     ) {
         $this->setServiceUserId($serviceUserId);
         $this->setResponseSizeLimit($responseSizeLimit);

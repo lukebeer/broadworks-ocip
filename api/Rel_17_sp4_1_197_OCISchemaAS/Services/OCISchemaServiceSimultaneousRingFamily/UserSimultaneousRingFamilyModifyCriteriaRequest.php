@@ -38,10 +38,10 @@ class UserSimultaneousRingFamilyModifyCriteriaRequest extends ComplexType implem
          $userId = '',
          $criteriaName = '',
          $newCriteriaName = null,
-         TimeSchedule $timeSchedule = null,
-         HolidaySchedule $holidaySchedule = null,
+         $timeSchedule = null,
+         $holidaySchedule = null,
          $blacklisted = null,
-         CriteriaFromDnModify $fromDnCriteria = null
+         $fromDnCriteria = null
     ) {
         $this->setUserId($userId);
         $this->setCriteriaName($criteriaName);

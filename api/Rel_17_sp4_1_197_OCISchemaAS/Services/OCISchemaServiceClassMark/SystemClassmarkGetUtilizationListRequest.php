@@ -39,11 +39,11 @@ class SystemClassmarkGetUtilizationListRequest extends ComplexType implements Co
     public function __construct(
          $classmark = '',
          $responseSizeLimit = null,
-         SearchCriteriaGroupId $searchCriteriaGroupId = null,
-         SearchCriteriaExactServiceProvider $searchCriteriaExactServiceProviderId = null,
-         SearchCriteriaUserFirstName $searchCriteriaUserFirstName = null,
-         SearchCriteriaUserLastName $searchCriteriaUserLastName = null,
-         SearchCriteriaDn $searchCriteriaDn = null
+         $searchCriteriaGroupId = null,
+         $searchCriteriaExactServiceProviderId = null,
+         $searchCriteriaUserFirstName = null,
+         $searchCriteriaUserLastName = null,
+         $searchCriteriaDn = null
     ) {
         $this->setClassmark($classmark);
         $this->setResponseSizeLimit($responseSizeLimit);

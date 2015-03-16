@@ -58,13 +58,13 @@ class ServiceProviderCommunicationBarringProfileAddRequest extends ComplexType i
          $originatingDefaultTreatmentId = null,
          $originatingDefaultTransferNumber = null,
          $originatingDefaultCallTimeout = null,
-         ServiceProviderCommunicationBarringHierarchicalOriginatingRule $originatingRule = null,
+         $originatingRule = null,
          $redirectingDefaultAction = '',
          $redirectingDefaultCallTimeout = null,
-         ServiceProviderCommunicationBarringHierarchicalRedirectingRule $redirectingRule = null,
+         $redirectingRule = null,
          $incomingDefaultAction = '',
          $incomingDefaultCallTimeout = null,
-         CommunicationBarringIncomingRule $incomingRule = null,
+         $incomingRule = null,
          $becomeDefault = ''
     ) {
         $this->setServiceProviderId($serviceProviderId);

@@ -41,9 +41,9 @@ class UserBroadWorksAnywhereModifySelectiveCriteriaRequest extends ComplexType i
          $phoneNumber = '',
          $criteriaName = '',
          $newCriteriaName = null,
-         TimeSchedule $timeSchedule = null,
-         CriteriaFromDnModify $fromDnCriteria = null,
-         HolidaySchedule $holidaySchedule = null,
+         $timeSchedule = null,
+         $fromDnCriteria = null,
+         $holidaySchedule = null,
          $blacklisted = null
     ) {
         $this->setUserId($userId);

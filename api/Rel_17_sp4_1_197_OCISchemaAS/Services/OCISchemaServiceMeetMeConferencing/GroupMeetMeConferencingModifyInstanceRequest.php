@@ -37,12 +37,12 @@ class GroupMeetMeConferencingModifyInstanceRequest extends ComplexType implement
 
     public function __construct(
          $serviceUserId = '',
-         ServiceInstanceModifyProfile $serviceInstanceProfile = null,
-         MeetMeConferencingConferencePorts $allocatedPorts = null,
+         $serviceInstanceProfile = null,
+         $allocatedPorts = null,
          $networkClassOfService = null,
          $allowIndividualOutDial = null,
          $operatorNumber = null,
-         ReplacementUserIdList $conferenceHostUserIdList = null
+         $conferenceHostUserIdList = null
     ) {
         $this->setServiceUserId($serviceUserId);
         $this->setServiceInstanceProfile($serviceInstanceProfile);

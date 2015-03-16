@@ -36,7 +36,7 @@ class GroupDnDeactivateListRequest extends ComplexType implements ComplexInterfa
          $serviceProviderId = '',
          $groupId = '',
          $phoneNumber = null,
-         DNRange $dnRange = null
+         $dnRange = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setGroupId($groupId);

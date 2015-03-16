@@ -64,15 +64,15 @@ class UserPhoneDirectoryGetListRequest extends ComplexType implements ComplexInt
          $includeCommonPhoneList = '',
          $responseSizeLimit = null,
          $searchCriteriaModeOr = null,
-         SearchCriteriaUserLastName $searchCriteriaUserLastName = null,
-         SearchCriteriaUserFirstName $searchCriteriaUserFirstName = null,
-         SearchCriteriaDn $searchCriteriaDn = null,
-         SearchCriteriaExtension $searchCriteriaExtension = null,
-         SearchCriteriaMobilePhoneNumber $searchCriteriaMobilePhoneNumber = null,
-         SearchCriteriaEmailAddress $searchCriteriaEmailAddress = null,
-         SearchCriteriaExactUserDepartment $searchCriteriaExactUserDepartment = null,
-         SearchCriteriaExactUserGroup $searchCriteriaExactUserGroup = null,
-         SearchCriteriaExactCustomContactDirectory $searchCriteriaExactCustomContactDirectory = null
+         $searchCriteriaUserLastName = null,
+         $searchCriteriaUserFirstName = null,
+         $searchCriteriaDn = null,
+         $searchCriteriaExtension = null,
+         $searchCriteriaMobilePhoneNumber = null,
+         $searchCriteriaEmailAddress = null,
+         $searchCriteriaExactUserDepartment = null,
+         $searchCriteriaExactUserGroup = null,
+         $searchCriteriaExactCustomContactDirectory = null
     ) {
         $this->setUserId($userId);
         $this->setIncludeCommonPhoneList($includeCommonPhoneList);

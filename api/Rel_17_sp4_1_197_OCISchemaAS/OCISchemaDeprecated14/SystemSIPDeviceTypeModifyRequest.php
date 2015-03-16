@@ -63,7 +63,7 @@ class SystemSIPDeviceTypeModifyRequest extends ComplexType implements ComplexInt
          $PBXIntegration = null,
          $useBusinessTrunkingContact = null,
          $staticRegistrationCapable = null,
-         CPEDeviceModifyOptions $cpeDeviceOptions = null,
+         $cpeDeviceOptions = null,
          $earlyMediaSupport = null
     ) {
         $this->setDeviceType($deviceType);

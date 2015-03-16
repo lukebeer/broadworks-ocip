@@ -30,7 +30,7 @@ class GroupAccountAuthorizationCodesAddListRequest extends ComplexType implement
     public function __construct(
          $serviceProviderId = '',
          $groupId = '',
-         AccountAuthorizationCodeEntry $codeEntry = ''
+         $codeEntry = ''
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setGroupId($groupId);

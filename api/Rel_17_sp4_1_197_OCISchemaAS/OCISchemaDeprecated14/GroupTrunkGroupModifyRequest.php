@@ -31,8 +31,8 @@ class GroupTrunkGroupModifyRequest extends ComplexType implements ComplexInterfa
     public function __construct(
          $serviceProviderId = '',
          $groupId = '',
-         UnboundedNonNegativeInt $maxActiveCalls = null,
-         UnboundedNonNegativeInt $burstingMaxActiveCalls = null
+         $maxActiveCalls = null,
+         $burstingMaxActiveCalls = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setGroupId($groupId);

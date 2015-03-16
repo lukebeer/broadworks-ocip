@@ -69,7 +69,7 @@ class SystemSIPDeviceTypeModifyRequest14sp2 extends ComplexType implements Compl
          $PBXIntegration = null,
          $useBusinessTrunkingContact = null,
          $staticRegistrationCapable = null,
-         CPEDeviceModifyOptions $cpeDeviceOptions = null,
+         $cpeDeviceOptions = null,
          $earlyMediaSupport = null,
          $authenticateRefer = null,
          $autoConfigSoftClient = null,

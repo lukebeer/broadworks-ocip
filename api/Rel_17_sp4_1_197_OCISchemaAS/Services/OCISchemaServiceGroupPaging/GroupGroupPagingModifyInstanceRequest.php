@@ -33,7 +33,7 @@ class GroupGroupPagingModifyInstanceRequest extends ComplexType implements Compl
 
     public function __construct(
          $serviceUserId = '',
-         ServiceInstanceModifyProfile $serviceInstanceProfile = null,
+         $serviceInstanceProfile = null,
          $confirmationToneTimeoutSeconds = null,
          $deliverOriginatorCLIDInstead = null,
          $originatorCLIDPrefix = null

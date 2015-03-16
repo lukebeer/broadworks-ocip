@@ -26,7 +26,7 @@ class SystemScheduleModifyRequest extends ComplexType implements ComplexInterfac
     protected $newScheduleName;
 
     public function __construct(
-         ScheduleKey $scheduleKey = '',
+         $scheduleKey = '',
          $newScheduleName = null
     ) {
         $this->setScheduleKey($scheduleKey);

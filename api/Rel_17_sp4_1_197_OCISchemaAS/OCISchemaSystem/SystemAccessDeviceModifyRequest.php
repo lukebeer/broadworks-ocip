@@ -72,7 +72,7 @@ class SystemAccessDeviceModifyRequest extends ComplexType implements ComplexInte
          $mobilityManagerDefaultOriginatingServiceKey = null,
          $mobilityManagerDefaultTerminatingServiceKey = null,
          $useCustomUserNamePassword = null,
-         DeviceManagementUserNamePassword16 $accessDeviceCredentials = null
+         $accessDeviceCredentials = null
     ) {
         $this->setDeviceName($deviceName);
         $this->setProtocol($protocol);

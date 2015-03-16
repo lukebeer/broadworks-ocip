@@ -39,16 +39,16 @@ class UserAlternateNumbersModifyRequest extends ComplexType implements ComplexIn
     public function __construct(
          $userId = '',
          $distinctiveRing = null,
-         AlternateNumberEntry17 $alternateEntry01 = null,
-         AlternateNumberEntry17 $alternateEntry02 = null,
-         AlternateNumberEntry17 $alternateEntry03 = null,
-         AlternateNumberEntry17 $alternateEntry04 = null,
-         AlternateNumberEntry17 $alternateEntry05 = null,
-         AlternateNumberEntry17 $alternateEntry06 = null,
-         AlternateNumberEntry17 $alternateEntry07 = null,
-         AlternateNumberEntry17 $alternateEntry08 = null,
-         AlternateNumberEntry17 $alternateEntry09 = null,
-         AlternateNumberEntry17 $alternateEntry10 = null
+         $alternateEntry01 = null,
+         $alternateEntry02 = null,
+         $alternateEntry03 = null,
+         $alternateEntry04 = null,
+         $alternateEntry05 = null,
+         $alternateEntry06 = null,
+         $alternateEntry07 = null,
+         $alternateEntry08 = null,
+         $alternateEntry09 = null,
+         $alternateEntry10 = null
     ) {
         $this->setUserId($userId);
         $this->setDistinctiveRing($distinctiveRing);

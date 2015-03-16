@@ -37,14 +37,14 @@ class GroupCallCenterModifyAnnouncementRequest extends ComplexType implements Co
     public function __construct(
          $serviceUserId = '',
          $entranceMessageSelection = null,
-         LabeledFileResource $entranceMessageAudioFile = null,
-         LabeledFileResource $entranceMessageVideoFile = null,
+         $entranceMessageAudioFile = null,
+         $entranceMessageVideoFile = null,
          $periodicComfortMessageSelection = null,
-         LabeledFileResource $periodicComfortMessageAudioFile = null,
-         LabeledFileResource $periodicComfortMessageVideoFile = null,
+         $periodicComfortMessageAudioFile = null,
+         $periodicComfortMessageVideoFile = null,
          $onHoldMessageSelection = null,
-         LabeledFileResource $onHoldMessageAudioFile = null,
-         LabeledFileResource $onHoldMessageVideoFile = null
+         $onHoldMessageAudioFile = null,
+         $onHoldMessageVideoFile = null
     ) {
         $this->setServiceUserId($serviceUserId);
         $this->setEntranceMessageSelection($entranceMessageSelection);

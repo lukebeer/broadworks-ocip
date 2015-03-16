@@ -40,15 +40,15 @@ class GroupAutoAttendantModifyInstanceRequest16 extends ComplexType implements C
 
     public function __construct(
          $serviceUserId = '',
-         ServiceInstanceModifyProfile $serviceInstanceProfile = null,
+         $serviceInstanceProfile = null,
          $enableVideo = null,
          $businessHours = null,
          $holidayScheduleName = null,
          $extensionDialingScope = null,
          $nameDialingScope = null,
          $nameDialingEntries = null,
-         AutoAttendantModifyMenu16 $businessHoursMenu = null,
-         AutoAttendantModifyMenu16 $afterHoursMenu = null
+         $businessHoursMenu = null,
+         $afterHoursMenu = null
     ) {
         $this->setServiceUserId($serviceUserId);
         $this->setServiceInstanceProfile($serviceInstanceProfile);

@@ -28,8 +28,8 @@ class ServiceProviderTrunkGroupModifyRequest extends ComplexType implements Comp
 
     public function __construct(
          $serviceProviderId = '',
-         UnboundedNonNegativeInt $maxActiveCalls = null,
-         UnboundedNonNegativeInt $burstingMaxActiveCalls = null
+         $maxActiveCalls = null,
+         $burstingMaxActiveCalls = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setMaxActiveCalls($maxActiveCalls);

@@ -48,15 +48,15 @@ class GroupAutoAttendantAddInstanceRequest14 extends ComplexType implements Comp
          $serviceProviderId = '',
          $groupId = '',
          $serviceUserId = '',
-         ServiceInstanceAddProfile $serviceInstanceProfile = '',
+         $serviceInstanceProfile = '',
          $enableVideo = '',
          $businessHours = null,
          $holidayScheduleName = null,
          $extensionDialingScope = '',
          $nameDialingScope = '',
          $nameDialingEntries = '',
-         AutoAttendantAddMenu $businessHoursMenu = null,
-         AutoAttendantAddMenu $afterHoursMenu = null
+         $businessHoursMenu = null,
+         $afterHoursMenu = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setGroupId($groupId);

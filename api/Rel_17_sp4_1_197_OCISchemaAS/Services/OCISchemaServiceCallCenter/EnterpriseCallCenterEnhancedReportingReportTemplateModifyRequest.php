@@ -44,12 +44,12 @@ class EnterpriseCallCenterEnhancedReportingReportTemplateModifyRequest extends C
          $name = '',
          $newName = null,
          $description = null,
-         LabeledFileResource $xsltTemplate = null,
+         $xsltTemplate = null,
          $scope = null,
          $isEnabled = null,
          $isRealtimeReport = null,
          $filterNumber = null,
-         CallCenterReportDataTemplateQueryFilterValueReplacementList $filterValue = null
+         $filterValue = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setName($name);

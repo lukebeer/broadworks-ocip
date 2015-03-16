@@ -32,8 +32,8 @@ class GroupOutgoingCallingPlanRedirectedModifyListRequest extends ComplexType im
     public function __construct(
          $serviceProviderId = '',
          $groupId = '',
-         OutgoingCallingPlanRedirectedPermissionsModify $groupPermissions = null,
-         OutgoingCallingPlanRedirectedDepartmentPermissionsModify $departmentPermissions = null
+         $groupPermissions = null,
+         $departmentPermissions = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setGroupId($groupId);

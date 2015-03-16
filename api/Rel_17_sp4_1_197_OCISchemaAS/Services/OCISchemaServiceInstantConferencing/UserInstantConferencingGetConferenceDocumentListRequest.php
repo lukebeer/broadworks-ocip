@@ -29,7 +29,7 @@ class UserInstantConferencingGetConferenceDocumentListRequest extends ComplexTyp
 
     public function __construct(
          $userId = '',
-         InstantConferencingConferenceKey $conferenceKey = ''
+         $conferenceKey = ''
     ) {
         $this->setUserId($userId);
         $this->setConferenceKey($conferenceKey);

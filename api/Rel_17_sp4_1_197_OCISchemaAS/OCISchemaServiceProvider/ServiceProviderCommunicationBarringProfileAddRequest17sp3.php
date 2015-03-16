@@ -67,16 +67,16 @@ class ServiceProviderCommunicationBarringProfileAddRequest17sp3 extends ComplexT
          $originatingDefaultTreatmentId = null,
          $originatingDefaultTransferNumber = null,
          $originatingDefaultCallTimeout = null,
-         ServiceProviderCommunicationBarringHierarchicalOriginatingRule $originatingRule = null,
+         $originatingRule = null,
          $redirectingDefaultAction = '',
          $redirectingDefaultCallTimeout = null,
-         ServiceProviderCommunicationBarringHierarchicalRedirectingRule $redirectingRule = null,
+         $redirectingRule = null,
          $callMeNowDefaultAction = '',
          $callMeNowDefaultCallTimeout = null,
-         ServiceProviderCommunicationBarringHierarchicalCallMeNowRule $callMeNowRule = null,
+         $callMeNowRule = null,
          $incomingDefaultAction = '',
          $incomingDefaultCallTimeout = null,
-         CommunicationBarringIncomingRule $incomingRule = null,
+         $incomingRule = null,
          $becomeDefault = ''
     ) {
         $this->setServiceProviderId($serviceProviderId);

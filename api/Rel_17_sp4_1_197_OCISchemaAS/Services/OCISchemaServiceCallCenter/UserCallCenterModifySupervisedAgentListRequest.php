@@ -29,7 +29,7 @@ class UserCallCenterModifySupervisedAgentListRequest extends ComplexType impleme
     public function __construct(
          $supervisorUserId = '',
          $serviceUserId = '',
-         ReplacementUserIdList $agentUserIdList = null
+         $agentUserIdList = null
     ) {
         $this->setSupervisorUserId($supervisorUserId);
         $this->setServiceUserId($serviceUserId);

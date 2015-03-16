@@ -32,8 +32,8 @@ class GroupOutgoingCallingPlanDigitPlanCallMeNowModifyListRequest extends Comple
     public function __construct(
          $serviceProviderId = '',
          $groupId = '',
-         OutgoingCallingPlanDigitPatternCallMeNowPermissions $groupPermissions = null,
-         OutgoingCallingPlanDigitPatternCallMeNowDepartmentPermissionsModify $departmentPermissions = null
+         $groupPermissions = null,
+         $departmentPermissions = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setGroupId($groupId);

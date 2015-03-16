@@ -30,7 +30,7 @@ class GroupCommonPhoneListAddListRequest extends ComplexType implements ComplexI
     public function __construct(
          $serviceProviderId = '',
          $groupId = '',
-         PhoneListEntry $entry = ''
+         $entry = ''
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setGroupId($groupId);

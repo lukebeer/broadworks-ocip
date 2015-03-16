@@ -57,18 +57,18 @@ class GroupRoutePointNightServiceModifyRequest extends ComplexType implements Co
          $transferPhoneNumber = null,
          $playAnnouncementBeforeAction = null,
          $audioMessageSelection = null,
-         CallCenterAnnouncementURLListModify $audioUrlList = null,
-         CallCenterAnnouncementFileListModify $audioFileList = null,
+         $audioUrlList = null,
+         $audioFileList = null,
          $videoMessageSelection = null,
-         CallCenterAnnouncementURLListModify $videoUrlList = null,
-         CallCenterAnnouncementFileListModify $videoFileList = null,
+         $videoUrlList = null,
+         $videoFileList = null,
          $manualAnnouncementMode = null,
          $manualAudioMessageSelection = null,
-         CallCenterAnnouncementURLListModify $manualAudioUrlList = null,
-         CallCenterAnnouncementFileListModify $manualAudioFileList = null,
+         $manualAudioUrlList = null,
+         $manualAudioFileList = null,
          $manualVideoMessageSelection = null,
-         CallCenterAnnouncementURLListModify $manualVideoUrlList = null,
-         CallCenterAnnouncementFileListModify $manualVideoFileList = null
+         $manualVideoUrlList = null,
+         $manualVideoFileList = null
     ) {
         $this->setServiceUserId($serviceUserId);
         $this->setAction($action);

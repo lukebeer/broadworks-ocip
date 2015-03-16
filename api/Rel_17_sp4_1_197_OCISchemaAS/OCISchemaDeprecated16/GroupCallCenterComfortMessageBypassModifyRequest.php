@@ -43,9 +43,9 @@ class GroupCallCenterComfortMessageBypassModifyRequest extends ComplexType imple
          $playAnnouncementAfterRinging = null,
          $ringTimeBeforePlayingAnnouncementSeconds = null,
          $audioMessageSelection = null,
-         ExtendedMediaFileResource $audioFile = null,
+         $audioFile = null,
          $videoMessageSelection = null,
-         ExtendedMediaFileResource $videoFile = null
+         $videoFile = null
     ) {
         $this->setServiceUserId($serviceUserId);
         $this->setIsActive($isActive);

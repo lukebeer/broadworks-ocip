@@ -47,11 +47,11 @@ class GroupVirtualOnNetEnterpriseExtensionsGetUserListRequest extends ComplexTyp
          $serviceProviderId = '',
          $groupId = '',
          $responseSizeLimit = null,
-         SearchCriteriaUserLastName $searchCriteriaUserLastName = null,
-         SearchCriteriaUserFirstName $searchCriteriaUserFirstName = null,
-         SearchCriteriaDn $searchCriteriaDn = null,
-         SearchCriteriaExtension $searchCriteriaExtension = null,
-         SearchCriteriaExactVirtualOnNetCallTypeName $searchCriteriaExactVirtualOnNetCallTypeName = null
+         $searchCriteriaUserLastName = null,
+         $searchCriteriaUserFirstName = null,
+         $searchCriteriaDn = null,
+         $searchCriteriaExtension = null,
+         $searchCriteriaExactVirtualOnNetCallTypeName = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setGroupId($groupId);

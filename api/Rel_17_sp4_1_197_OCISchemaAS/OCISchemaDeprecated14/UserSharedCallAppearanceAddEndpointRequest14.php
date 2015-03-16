@@ -27,7 +27,7 @@ class UserSharedCallAppearanceAddEndpointRequest14 extends ComplexType implement
 
     public function __construct(
          $userId = '',
-         AccessDeviceEndpointAdd $accessDeviceEndpoint = ''
+         $accessDeviceEndpoint = ''
     ) {
         $this->setUserId($userId);
         $this->setAccessDeviceEndpoint($accessDeviceEndpoint);

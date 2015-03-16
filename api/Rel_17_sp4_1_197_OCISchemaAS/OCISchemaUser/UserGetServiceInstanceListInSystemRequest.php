@@ -42,13 +42,13 @@ class UserGetServiceInstanceListInSystemRequest extends ComplexType implements C
 
     public function __construct(
          $responseSizeLimit = null,
-         SearchCriteriaExactServiceType $searchCriteriaExactServiceType = null,
-         SearchCriteriaUserId $searchCriteriaUserId = null,
-         SearchCriteriaUserLastName $searchCriteriaUserLastName = null,
-         SearchCriteriaDn $searchCriteriaDn = null,
-         SearchCriteriaExtension $searchCriteriaExtension = null,
-         SearchCriteriaGroupId $searchCriteriaGroupId = null,
-         SearchCriteriaExactServiceProvider $searchCriteriaExactServiceProvider = null
+         $searchCriteriaExactServiceType = null,
+         $searchCriteriaUserId = null,
+         $searchCriteriaUserLastName = null,
+         $searchCriteriaDn = null,
+         $searchCriteriaExtension = null,
+         $searchCriteriaGroupId = null,
+         $searchCriteriaExactServiceProvider = null
     ) {
         $this->setResponseSizeLimit($responseSizeLimit);
         $this->setSearchCriteriaExactServiceType($searchCriteriaExactServiceType);

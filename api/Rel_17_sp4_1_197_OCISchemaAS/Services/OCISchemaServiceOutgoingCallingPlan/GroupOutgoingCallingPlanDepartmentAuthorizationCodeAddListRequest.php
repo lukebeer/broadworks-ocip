@@ -33,8 +33,8 @@ class GroupOutgoingCallingPlanDepartmentAuthorizationCodeAddListRequest extends 
     public function __construct(
          $serviceProviderId = '',
          $groupId = '',
-         DepartmentKey $departmentKey = null,
-         OutgoingCallingPlanAuthorizationCodeEntry $codeEntry = ''
+         $departmentKey = null,
+         $codeEntry = ''
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setGroupId($groupId);

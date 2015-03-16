@@ -44,9 +44,9 @@ class GroupCallCenterHolidayServiceModifyRequest extends ComplexType implements 
          $transferPhoneNumber = null,
          $playAnnouncementBeforeAction = null,
          $audioMessageSelection = null,
-         ExtendedMediaFileResource $audioFile = null,
+         $audioFile = null,
          $videoMessageSelection = null,
-         ExtendedMediaFileResource $videoFile = null
+         $videoFile = null
     ) {
         $this->setServiceUserId($serviceUserId);
         $this->setAction($action);

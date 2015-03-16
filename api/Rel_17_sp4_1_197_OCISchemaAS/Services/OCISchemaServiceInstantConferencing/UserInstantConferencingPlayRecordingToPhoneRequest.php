@@ -29,7 +29,7 @@ class UserInstantConferencingPlayRecordingToPhoneRequest extends ComplexType imp
 
     public function __construct(
          $userId = '',
-         InstantConferencingRecordingKey $recordingKey = '',
+         $recordingKey = '',
          $playBackPhoneNumber = ''
     ) {
         $this->setUserId($userId);

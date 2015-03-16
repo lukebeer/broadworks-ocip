@@ -41,8 +41,8 @@ class SystemGetRegistrationContactListRequest extends ComplexType implements Com
          $deviceLevel = null,
          $deviceName = null,
          $deviceType = null,
-         SearchCriteriaRegistrationURI $searchCriteriaRegistrationURI = null,
-         SearchCriteriaSIPContact $searchCriteriaSIPContact = null,
+         $searchCriteriaRegistrationURI = null,
+         $searchCriteriaSIPContact = null,
          $endpointType = null,
          $expired = null
     ) {

@@ -40,7 +40,7 @@ class GroupInstantGroupCallAddInstanceRequest14 extends ComplexType implements C
          $serviceProviderId = '',
          $groupId = '',
          $serviceUserId = '',
-         ServiceInstanceAddProfile $serviceInstanceProfile = '',
+         $serviceInstanceProfile = '',
          $destinationPhoneNumber = null,
          $isAnswerTimeoutEnabled = '',
          $answerTimeoutMinutes = null

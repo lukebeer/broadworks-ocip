@@ -38,9 +38,9 @@ class GroupCallCenterEnhancedReportingScheduledReportGetCompletedListRequest ext
          $serviceProviderId = '',
          $groupId = '',
          $responseSizeLimit = null,
-         SearchCriteriaCallCenterScheduledReportName $searchCriteriaCallCenterScheduledReportName = null,
-         SearchCriteriaExactCallCenterScheduledReportCreatedBySupervisor $searchCriteriaExactCallCenterScheduledReportCreatedBySupervisor = null,
-         SearchCriteriaExactCallCenterReportTemplateKey $searchCriteriaExactCallCenterReportTemplateKey = null
+         $searchCriteriaCallCenterScheduledReportName = null,
+         $searchCriteriaExactCallCenterScheduledReportCreatedBySupervisor = null,
+         $searchCriteriaExactCallCenterReportTemplateKey = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setGroupId($groupId);

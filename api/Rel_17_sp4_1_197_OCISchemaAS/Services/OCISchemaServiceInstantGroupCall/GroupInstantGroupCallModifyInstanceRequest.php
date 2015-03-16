@@ -33,8 +33,8 @@ class GroupInstantGroupCallModifyInstanceRequest extends ComplexType implements 
 
     public function __construct(
          $serviceUserId = '',
-         ServiceInstanceModifyProfile $serviceInstanceProfile = null,
-         ReplacementOutgoingDNorSIPURIList $destinationPhoneNumberList = null,
+         $serviceInstanceProfile = null,
+         $destinationPhoneNumberList = null,
          $isAnswerTimeoutEnabled = null,
          $answerTimeoutMinutes = null
     ) {

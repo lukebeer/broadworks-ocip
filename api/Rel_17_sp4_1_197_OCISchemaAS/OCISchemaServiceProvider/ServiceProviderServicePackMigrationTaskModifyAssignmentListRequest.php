@@ -33,8 +33,8 @@ class ServiceProviderServicePackMigrationTaskModifyAssignmentListRequest extends
     public function __construct(
          $serviceProviderId = '',
          $taskName = '',
-         ReplacementUserServiceList $userServiceNameList = null,
-         ReplacementServicePackNameList $servicePackNameList = null
+         $userServiceNameList = null,
+         $servicePackNameList = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setTaskName($taskName);

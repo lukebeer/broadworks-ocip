@@ -82,10 +82,10 @@ class UserModifyRequest14sp9 extends ComplexType implements ComplexInterface
          $callingLineIdPhoneNumber = null,
          $oldPassword = null,
          $newPassword = null,
-         DepartmentKey $department = null,
+         $department = null,
          $language = null,
          $timeZone = null,
-         ReplacementSIPAliasList $sipAliasList = null,
+         $sipAliasList = null,
          $endpoint = null,
          $title = null,
          $pagerPhoneNumber = null,
@@ -93,7 +93,7 @@ class UserModifyRequest14sp9 extends ComplexType implements ComplexInterface
          $emailAddress = null,
          $yahooId = null,
          $addressLocation = null,
-         StreetAddress $address = null,
+         $address = null,
          $networkClassOfService = null
     ) {
         $this->setUserId($userId);

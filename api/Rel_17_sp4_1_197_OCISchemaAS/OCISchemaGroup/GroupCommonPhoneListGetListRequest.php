@@ -46,8 +46,8 @@ class GroupCommonPhoneListGetListRequest extends ComplexType implements ComplexI
          $groupId = '',
          $responseSizeLimit = null,
          $searchCriteriaModeOr = null,
-         SearchCriteriaGroupCommonPhoneListName $searchCriteriaGroupCommonPhoneListName = null,
-         SearchCriteriaGroupCommonPhoneListNumber $searchCriteriaGroupCommonPhoneListNumber = null
+         $searchCriteriaGroupCommonPhoneListName = null,
+         $searchCriteriaGroupCommonPhoneListNumber = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setGroupId($groupId);

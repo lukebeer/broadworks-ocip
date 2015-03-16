@@ -30,7 +30,7 @@ class UserInstantConferencingGetConferenceRecordingListRequest extends ComplexTy
 
     public function __construct(
          $userId = '',
-         InstantConferencingConferenceKey $conferenceKey = null
+         $conferenceKey = null
     ) {
         $this->setUserId($userId);
         $this->setConferenceKey($conferenceKey);

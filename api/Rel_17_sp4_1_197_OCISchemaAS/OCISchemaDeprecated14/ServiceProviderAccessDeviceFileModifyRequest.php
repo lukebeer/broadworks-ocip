@@ -37,7 +37,7 @@ class ServiceProviderAccessDeviceFileModifyRequest extends ComplexType implement
          $deviceName = '',
          $fileType = '',
          $fileSource = null,
-         FileResource $uploadFile = null
+         $uploadFile = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setDeviceName($deviceName);

@@ -38,9 +38,9 @@ class EnterprisePreAlertingAnnouncementModifyRequest extends ComplexType impleme
          $announcementInterruption = null,
          $interruptionDigitSequence = null,
          $audioSelection = null,
-         ExtendedMediaFileResource $audioFile = null,
+         $audioFile = null,
          $videoSelection = null,
-         ExtendedMediaFileResource $videoFile = null
+         $videoFile = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setAnnouncementInterruption($announcementInterruption);

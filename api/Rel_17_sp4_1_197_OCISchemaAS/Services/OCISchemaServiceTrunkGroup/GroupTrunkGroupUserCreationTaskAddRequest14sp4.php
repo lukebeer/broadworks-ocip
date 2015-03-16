@@ -42,7 +42,7 @@ class GroupTrunkGroupUserCreationTaskAddRequest14sp4 extends ComplexType impleme
     protected $userService;
 
     public function __construct(
-         TrunkGroupKey $trunkGroupKey = '',
+         $trunkGroupKey = '',
          $taskName = '',
          $userIdFormat = '',
          $userIdDomain = '',

@@ -45,16 +45,16 @@ class UserCustomRingbackUserModifyCriteriaRequest extends ComplexType implements
          $userId = '',
          $criteriaName = '',
          $newCriteriaName = null,
-         TimeSchedule $timeSchedule = null,
-         CriteriaFromDnModify $fromDnCriteria = null,
+         $timeSchedule = null,
+         $fromDnCriteria = null,
          $audioSelection = null,
-         ExtendedFileResource $audioFile = null,
+         $audioFile = null,
          $videoSelection = null,
-         ExtendedFileResource $videoFile = null,
+         $videoFile = null,
          $callWaitingAudioSelection = null,
-         ExtendedFileResource $callWaitingAudioFile = null,
+         $callWaitingAudioFile = null,
          $callWaitingVideoSelection = null,
-         ExtendedFileResource $callWaitingVideoFile = null
+         $callWaitingVideoFile = null
     ) {
         $this->setUserId($userId);
         $this->setCriteriaName($criteriaName);

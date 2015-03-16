@@ -29,7 +29,7 @@ class UserAccessDeviceFileGetRequest extends ComplexType implements ComplexInter
 
     public function __construct(
          $userId = '',
-         AccessDevice $accessDevice = '',
+         $accessDevice = '',
          $fileFormat = ''
     ) {
         $this->setUserId($userId);

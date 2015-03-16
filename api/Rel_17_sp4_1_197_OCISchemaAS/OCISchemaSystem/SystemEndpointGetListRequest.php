@@ -54,20 +54,20 @@ class SystemEndpointGetListRequest extends ComplexType implements ComplexInterfa
 
     public function __construct(
          $responseSizeLimit = null,
-         SearchCriteriaServiceProviderId $searchCriteriaServiceProviderId = null,
-         SearchCriteriaExactOrganizationType $searchCriteriaExactOrganizationType = null,
-         SearchCriteriaGroupId $searchCriteriaGroupId = null,
-         SearchCriteriaLinePortUserPart $searchCriteriaLinePortUserPart = null,
-         SearchCriteriaLinePortDomain $searchCriteriaLinePortDomain = null,
-         SearchCriteriaUserLastName $searchCriteriaUserLastName = null,
-         SearchCriteriaUserFirstName $searchCriteriaUserFirstName = null,
-         SearchCriteriaUserId $searchCriteriaUserId = null,
-         SearchCriteriaDn $searchCriteriaDn = null,
-         SearchCriteriaExtension $searchCriteriaExtension = null,
-         SearchCriteriaDeviceType $searchCriteriaDeviceType = null,
-         SearchCriteriaDeviceName $searchCriteriaDeviceName = null,
-         SearchCriteriaDeviceMACAddress $searchCriteriaDeviceMACAddress = null,
-         SearchCriteriaDeviceNetAddress $searchCriteriaDeviceNetAddress = null
+         $searchCriteriaServiceProviderId = null,
+         $searchCriteriaExactOrganizationType = null,
+         $searchCriteriaGroupId = null,
+         $searchCriteriaLinePortUserPart = null,
+         $searchCriteriaLinePortDomain = null,
+         $searchCriteriaUserLastName = null,
+         $searchCriteriaUserFirstName = null,
+         $searchCriteriaUserId = null,
+         $searchCriteriaDn = null,
+         $searchCriteriaExtension = null,
+         $searchCriteriaDeviceType = null,
+         $searchCriteriaDeviceName = null,
+         $searchCriteriaDeviceMACAddress = null,
+         $searchCriteriaDeviceNetAddress = null
     ) {
         $this->setResponseSizeLimit($responseSizeLimit);
         $this->setSearchCriteriaServiceProviderId($searchCriteriaServiceProviderId);

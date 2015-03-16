@@ -36,11 +36,11 @@ class GroupScheduleAddEventRequest extends ComplexType implements ComplexInterfa
     public function __construct(
          $serviceProviderId = '',
          $groupId = '',
-         ScheduleKey $scheduleKey = '',
+         $scheduleKey = '',
          $eventName = '',
          $startDate = '',
          $endDate = '',
-         Recurrence $recurrence = null
+         $recurrence = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setGroupId($groupId);

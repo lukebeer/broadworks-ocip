@@ -46,9 +46,9 @@ class GroupCallCenterOverflowModifyRequest extends ComplexType implements Comple
          $timeoutSeconds = null,
          $playAnnouncementBeforeOverflowProcessing = null,
          $audioMessageSelection = null,
-         ExtendedMediaFileResource $audioFile = null,
+         $audioFile = null,
          $videoMessageSelection = null,
-         ExtendedMediaFileResource $videoFile = null
+         $videoFile = null
     ) {
         $this->setServiceUserId($serviceUserId);
         $this->setAction($action);

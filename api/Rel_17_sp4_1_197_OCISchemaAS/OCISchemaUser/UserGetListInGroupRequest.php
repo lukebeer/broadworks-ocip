@@ -46,12 +46,12 @@ class UserGetListInGroupRequest extends ComplexType implements ComplexInterface
          $serviceProviderId = '',
          $GroupId = '',
          $responseSizeLimit = null,
-         SearchCriteriaUserLastName $searchCriteriaUserLastName = null,
-         SearchCriteriaUserFirstName $searchCriteriaUserFirstName = null,
-         SearchCriteriaDn $searchCriteriaDn = null,
-         SearchCriteriaEmailAddress $searchCriteriaEmailAddress = null,
-         SearchCriteriaExactUserDepartment $searchCriteriaExactUserDepartment = null,
-         SearchCriteriaExactUserInTrunkGroup $searchCriteriaExactUserInTrunkGroup = null
+         $searchCriteriaUserLastName = null,
+         $searchCriteriaUserFirstName = null,
+         $searchCriteriaDn = null,
+         $searchCriteriaEmailAddress = null,
+         $searchCriteriaExactUserDepartment = null,
+         $searchCriteriaExactUserInTrunkGroup = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setGroupId($GroupId);

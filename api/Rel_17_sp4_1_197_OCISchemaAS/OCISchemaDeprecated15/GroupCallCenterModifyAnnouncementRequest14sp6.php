@@ -41,14 +41,14 @@ class GroupCallCenterModifyAnnouncementRequest14sp6 extends ComplexType implemen
     public function __construct(
          $serviceUserId = '',
          $entranceMessageSelection = null,
-         LabeledFileResource $entranceMessageAudioFile = null,
-         LabeledFileResource $entranceMessageVideoFile = null,
+         $entranceMessageAudioFile = null,
+         $entranceMessageVideoFile = null,
          $periodicComfortMessageSelection = null,
-         LabeledFileResource $periodicComfortMessageAudioFile = null,
-         LabeledFileResource $periodicComfortMessageVideoFile = null,
-         CallCenterMusicOnHoldSourceModify $onHoldSource = null,
+         $periodicComfortMessageAudioFile = null,
+         $periodicComfortMessageVideoFile = null,
+         $onHoldSource = null,
          $onHoldUseAlternateSourceForInternalCalls = null,
-         CallCenterMusicOnHoldSourceModify $onHoldInternalSource = null
+         $onHoldInternalSource = null
     ) {
         $this->setServiceUserId($serviceUserId);
         $this->setEntranceMessageSelection($entranceMessageSelection);

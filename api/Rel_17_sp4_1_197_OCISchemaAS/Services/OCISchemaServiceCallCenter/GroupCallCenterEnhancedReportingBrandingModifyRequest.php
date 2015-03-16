@@ -33,7 +33,7 @@ class GroupCallCenterEnhancedReportingBrandingModifyRequest extends ComplexType 
          $serviceProviderId = '',
          $groupId = '',
          $brandingChoice = null,
-         LabeledFileResource $brandingFile = null
+         $brandingFile = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setGroupId($groupId);

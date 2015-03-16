@@ -47,13 +47,13 @@ class GroupMeetMeConferencingGetAvailableUserListRequest extends ComplexType imp
          $serviceProviderId = '',
          $groupId = '',
          $responseSizeLimit = null,
-         SearchCriteriaUserLastName $searchCriteriaUserLastName = null,
-         SearchCriteriaUserFirstName $searchCriteriaUserFirstName = null,
-         SearchCriteriaUserId $searchCriteriaUserId = null,
-         SearchCriteriaExactUserDepartment $searchCriteriaExactUserDepartment = null,
-         SearchCriteriaExactUserGroup $searchCriteriaExactUserGroup = null,
-         SearchCriteriaDn $searchCriteriaDn = null,
-         SearchCriteriaExtension $searchCriteriaExtension = null
+         $searchCriteriaUserLastName = null,
+         $searchCriteriaUserFirstName = null,
+         $searchCriteriaUserId = null,
+         $searchCriteriaExactUserDepartment = null,
+         $searchCriteriaExactUserGroup = null,
+         $searchCriteriaDn = null,
+         $searchCriteriaExtension = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setGroupId($groupId);

@@ -31,7 +31,7 @@ class ServiceProviderDnDeleteListRequest extends ComplexType implements ComplexI
     public function __construct(
          $serviceProviderId = '',
          $phoneNumber = null,
-         DNRange $dnRange = null
+         $dnRange = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setPhoneNumber($phoneNumber);

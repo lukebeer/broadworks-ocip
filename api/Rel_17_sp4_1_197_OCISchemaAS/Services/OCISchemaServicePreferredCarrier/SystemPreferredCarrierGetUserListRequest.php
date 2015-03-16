@@ -39,10 +39,10 @@ class SystemPreferredCarrierGetUserListRequest extends ComplexType implements Co
     public function __construct(
          $carrier = '',
          $responseSizeLimit = null,
-         SearchCriteriaUserLastName $searchCriteriaUserLastName = null,
-         SearchCriteriaUserFirstName $searchCriteriaUserFirstName = null,
-         SearchCriteriaDn $searchCriteriaDn = null,
-         SearchCriteriaEmailAddress $searchCriteriaEmailAddress = null
+         $searchCriteriaUserLastName = null,
+         $searchCriteriaUserFirstName = null,
+         $searchCriteriaDn = null,
+         $searchCriteriaEmailAddress = null
     ) {
         $this->setCarrier($carrier);
         $this->setResponseSizeLimit($responseSizeLimit);

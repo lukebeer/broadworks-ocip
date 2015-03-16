@@ -60,7 +60,7 @@ class GroupRoutePointAddInstanceRequest extends ComplexType implements ComplexIn
          $serviceProviderId = '',
          $groupId = '',
          $serviceUserId = '',
-         ServiceInstanceAddProfileCallCenter $serviceInstanceProfile = '',
+         $serviceInstanceProfile = '',
          $networkClassOfService = null,
          $externalPreferredAudioCodec = '',
          $internalPreferredAudioCodec = '',

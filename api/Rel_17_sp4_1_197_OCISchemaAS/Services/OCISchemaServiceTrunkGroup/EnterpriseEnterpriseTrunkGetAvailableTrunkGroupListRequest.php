@@ -34,8 +34,8 @@ class EnterpriseEnterpriseTrunkGetAvailableTrunkGroupListRequest extends Complex
     public function __construct(
          $serviceProviderId = '',
          $responseSizeLimit = null,
-         SearchCriteriaTrunkGroupName $searchCriteriaTrunkGroupName = null,
-         SearchCriteriaGroupId $searchCriteriaGroupId = null
+         $searchCriteriaTrunkGroupName = null,
+         $searchCriteriaGroupId = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setResponseSizeLimit($responseSizeLimit);

@@ -23,7 +23,7 @@ class SearchCriteriaExactDnDepartment extends ComplexType implements ComplexInte
     protected $departmentKey;
 
     public function __construct(
-         DepartmentKey $departmentKey = ''
+         $departmentKey = ''
     ) {
         $this->setDepartmentKey($departmentKey);
     }

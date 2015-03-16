@@ -34,9 +34,9 @@ class GroupGetListInSystemRequest extends ComplexType implements ComplexInterfac
 
     public function __construct(
          $responseSizeLimit = null,
-         SearchCriteriaGroupId $searchCriteriaGroupId = null,
-         SearchCriteriaGroupName $searchCriteriaGroupName = null,
-         SearchCriteriaExactServiceProvider $searchCriteriaExactServiceProvider = null
+         $searchCriteriaGroupId = null,
+         $searchCriteriaGroupName = null,
+         $searchCriteriaExactServiceProvider = null
     ) {
         $this->setResponseSizeLimit($responseSizeLimit);
         $this->setSearchCriteriaGroupId($searchCriteriaGroupId);

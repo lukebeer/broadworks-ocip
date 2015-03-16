@@ -35,9 +35,9 @@ class UserHotelingGuestGetAvailableUserListRequest extends ComplexType implement
     public function __construct(
          $userId = '',
          $responseSizeLimit = null,
-         SearchCriteriaUserLastName $searchCriteriaUserLastName = null,
-         SearchCriteriaUserFirstName $searchCriteriaUserFirstName = null,
-         SearchCriteriaExactUserDepartment $searchCriteriaExactUserDepartment = null
+         $searchCriteriaUserLastName = null,
+         $searchCriteriaUserFirstName = null,
+         $searchCriteriaExactUserDepartment = null
     ) {
         $this->setUserId($userId);
         $this->setResponseSizeLimit($responseSizeLimit);

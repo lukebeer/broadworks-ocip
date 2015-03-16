@@ -40,8 +40,8 @@ class GroupAccountAuthorizationCodesModifyRequest extends ComplexType implements
          $codeType = null,
          $numberOfDigits = null,
          $allowLocalAndTollFreeCalls = null,
-         ReplacementUserIdList $mandatoryUsageUserIdList = null,
-         ReplacementUserIdList $optionalUsageUserIdList = null
+         $mandatoryUsageUserIdList = null,
+         $optionalUsageUserIdList = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setGroupId($groupId);

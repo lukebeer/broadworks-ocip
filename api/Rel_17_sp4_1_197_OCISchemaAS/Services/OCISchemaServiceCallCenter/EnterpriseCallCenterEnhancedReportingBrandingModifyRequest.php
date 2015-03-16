@@ -30,7 +30,7 @@ class EnterpriseCallCenterEnhancedReportingBrandingModifyRequest extends Complex
     public function __construct(
          $serviceProviderId = '',
          $brandingChoice = null,
-         LabeledFileResource $brandingFile = null
+         $brandingFile = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setBrandingChoice($brandingChoice);

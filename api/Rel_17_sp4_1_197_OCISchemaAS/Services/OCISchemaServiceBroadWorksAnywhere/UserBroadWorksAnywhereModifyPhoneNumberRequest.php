@@ -47,7 +47,7 @@ class UserBroadWorksAnywhereModifyPhoneNumberRequest extends ComplexType impleme
          $broadworksCallControl = null,
          $useDiversionInhibitor = null,
          $answerConfirmationRequired = null,
-         CriteriaActivation $criteriaActivation = null
+         $criteriaActivation = null
     ) {
         $this->setUserId($userId);
         $this->setPhoneNumber($phoneNumber);

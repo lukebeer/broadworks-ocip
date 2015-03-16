@@ -35,7 +35,7 @@ class UserCallForwardingSelectiveModifyRequest extends ComplexType implements Co
          $isActive = null,
          $defaultForwardToPhoneNumber = null,
          $playRingReminder = null,
-         CriteriaActivation $criteriaActivation = null
+         $criteriaActivation = null
     ) {
         $this->setUserId($userId);
         $this->setIsActive($isActive);

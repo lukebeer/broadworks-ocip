@@ -33,7 +33,7 @@ class UserVoiceMessagingUserModifyDistributionListRequest extends ComplexType im
          $userId = '',
          $listId = '',
          $description = null,
-         ReplacementOutgoingDNorSIPURIList $phoneNumberList = null
+         $phoneNumberList = null
     ) {
         $this->setUserId($userId);
         $this->setListId($listId);

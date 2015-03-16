@@ -38,11 +38,11 @@ class UserCallForwardingSelectiveAddCriteriaRequest16 extends ComplexType implem
     public function __construct(
          $userId = '',
          $criteriaName = '',
-         TimeSchedule $timeSchedule = null,
-         HolidaySchedule $holidaySchedule = null,
+         $timeSchedule = null,
+         $holidaySchedule = null,
          $forwardToNumberSelection = null,
          $forwardToPhoneNumber = null,
-         CriteriaFromDn $fromDnCriteria = ''
+         $fromDnCriteria = ''
     ) {
         $this->setUserId($userId);
         $this->setCriteriaName($criteriaName);

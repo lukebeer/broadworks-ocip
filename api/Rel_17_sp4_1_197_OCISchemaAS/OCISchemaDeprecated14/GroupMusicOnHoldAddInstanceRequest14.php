@@ -41,13 +41,13 @@ class GroupMusicOnHoldAddInstanceRequest14 extends ComplexType implements Comple
     public function __construct(
          $serviceProviderId = '',
          $groupId = '',
-         DepartmentKey $department = '',
+         $department = '',
          $isActiveDuringCallHold = '',
          $isActiveDuringCallPark = '',
          $messageSelection = '',
-         AccessDeviceEndpointAdd $accessDeviceEndpoint = null,
-         LabeledFileResource $audioFile = null,
-         LabeledFileResource $videoFile = null
+         $accessDeviceEndpoint = null,
+         $audioFile = null,
+         $videoFile = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setGroupId($groupId);

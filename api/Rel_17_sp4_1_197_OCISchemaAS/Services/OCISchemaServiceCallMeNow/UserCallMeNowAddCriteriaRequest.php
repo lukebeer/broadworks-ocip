@@ -36,10 +36,10 @@ class UserCallMeNowAddCriteriaRequest extends ComplexType implements ComplexInte
     public function __construct(
          $userId = '',
          $criteriaName = '',
-         TimeSchedule $timeSchedule = null,
-         HolidaySchedule $holidaySchedule = null,
+         $timeSchedule = null,
+         $holidaySchedule = null,
          $rejectCall = '',
-         CallMeNowToDnCriteria $toDnCriteria = ''
+         $toDnCriteria = ''
     ) {
         $this->setUserId($userId);
         $this->setCriteriaName($criteriaName);

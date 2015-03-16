@@ -66,7 +66,7 @@ class GroupCallCenterAddInstanceRequest17 extends ComplexType implements Complex
          $serviceProviderId = '',
          $groupId = '',
          $serviceUserId = '',
-         ServiceInstanceAddProfileCallCenter $serviceInstanceProfile = '',
+         $serviceInstanceProfile = '',
          $type = '',
          $policy = '',
          $enableVideo = '',

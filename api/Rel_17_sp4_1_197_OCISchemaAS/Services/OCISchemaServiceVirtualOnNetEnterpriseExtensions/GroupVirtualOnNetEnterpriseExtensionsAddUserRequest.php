@@ -34,8 +34,8 @@ class GroupVirtualOnNetEnterpriseExtensionsAddUserRequest extends ComplexType im
     public function __construct(
          $serviceProviderId = '',
          $groupId = '',
-         VirtualOnNetUser $virtualOnNetUser = null,
-         VirtualOnNetUserRange $virtualOnNetUserRange = null
+         $virtualOnNetUser = null,
+         $virtualOnNetUserRange = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setGroupId($groupId);

@@ -31,7 +31,7 @@ class UserInstantConferencingGetConferenceCallRequest extends ComplexType implem
 
     public function __construct(
          $userId = '',
-         InstantConferencingConferenceKey $conferenceKey = '',
+         $conferenceKey = '',
          $conferenceCallId = ''
     ) {
         $this->setUserId($userId);

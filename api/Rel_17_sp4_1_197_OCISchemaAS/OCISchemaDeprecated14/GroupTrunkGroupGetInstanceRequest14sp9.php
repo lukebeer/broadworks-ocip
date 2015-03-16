@@ -27,7 +27,7 @@ class GroupTrunkGroupGetInstanceRequest14sp9 extends ComplexType implements Comp
     protected $trunkGroupKey;
 
     public function __construct(
-         TrunkGroupKey $trunkGroupKey = ''
+         $trunkGroupKey = ''
     ) {
         $this->setTrunkGroupKey($trunkGroupKey);
     }

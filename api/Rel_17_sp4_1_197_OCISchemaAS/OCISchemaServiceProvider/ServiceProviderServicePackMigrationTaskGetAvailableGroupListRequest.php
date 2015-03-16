@@ -34,8 +34,8 @@ class ServiceProviderServicePackMigrationTaskGetAvailableGroupListRequest extend
     public function __construct(
          $serviceProviderId = '',
          $responseSizeLimit = null,
-         SearchCriteriaGroupId $searchCriteriaGroupId = null,
-         SearchCriteriaGroupName $searchCriteriaGroupName = null
+         $searchCriteriaGroupId = null,
+         $searchCriteriaGroupName = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setResponseSizeLimit($responseSizeLimit);

@@ -44,7 +44,7 @@ class GroupCallParkModifyInstanceRequest extends ComplexType implements ComplexI
          $groupId = '',
          $name = '',
          $newName = null,
-         ReplacementUserIdList $userIdList = null,
+         $userIdList = null,
          $recallAlternateUserId = null,
          $recallTo = null
     ) {

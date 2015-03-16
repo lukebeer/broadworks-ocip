@@ -57,13 +57,13 @@ class SystemCommunicationBarringProfileAddRequest17sp1 extends ComplexType imple
          $originatingDefaultTreatmentId = null,
          $originatingDefaultTransferNumber = null,
          $originatingDefaultCallTimeout = null,
-         CommunicationBarringOriginatingRule $originatingRule = null,
+         $originatingRule = null,
          $redirectingDefaultAction = '',
          $redirectingDefaultCallTimeout = null,
-         CommunicationBarringRedirectingRule $redirectingRule = null,
+         $redirectingRule = null,
          $incomingDefaultAction = '',
          $incomingDefaultCallTimeout = null,
-         CommunicationBarringIncomingRule $incomingRule = null
+         $incomingRule = null
     ) {
         $this->setName($name);
         $this->setDescription($description);

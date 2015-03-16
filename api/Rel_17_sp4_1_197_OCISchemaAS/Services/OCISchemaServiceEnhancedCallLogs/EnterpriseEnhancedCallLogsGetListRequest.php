@@ -45,12 +45,12 @@ class EnterpriseEnhancedCallLogsGetListRequest extends ComplexType implements Co
     public function __construct(
          $serviceProviderId = '',
          $callLogType = null,
-         EnhancedCallLogsTimeRange $dateTimeRange = '',
-         EnhancedCallLogsNumberFilter $numberFilter = null,
-         EnhancedCallLogsRedirectedNumberFilter $redirectedNumberFilter = null,
-         EnhancedCallLogsAccountAuthorizationCodeFilter $accountAuthorizationCodeFilter = null,
+         $dateTimeRange = '',
+         $numberFilter = null,
+         $redirectedNumberFilter = null,
+         $accountAuthorizationCodeFilter = null,
          $subscriberType = null,
-         EnhancedCallLogsResponsePagingControl $responsePagingControl = null
+         $responsePagingControl = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setCallLogType($callLogType);

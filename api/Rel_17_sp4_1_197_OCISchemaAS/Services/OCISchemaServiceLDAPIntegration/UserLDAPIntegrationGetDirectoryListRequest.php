@@ -31,7 +31,7 @@ class UserLDAPIntegrationGetDirectoryListRequest extends ComplexType implements 
     public function __construct(
          $userId = '',
          $searchKey = null,
-         LDAPPage $page = null
+         $page = null
     ) {
         $this->setUserId($userId);
         $this->setSearchKey($searchKey);

@@ -27,7 +27,7 @@ class UserOCICallControlApplicationModifyRequest extends ComplexType implements 
 
     public function __construct(
          $userId = '',
-         ReplacementOCICallControlApplicationIdList $applicationIdList = null
+         $applicationIdList = null
     ) {
         $this->setUserId($userId);
         $this->setApplicationIdList($applicationIdList);

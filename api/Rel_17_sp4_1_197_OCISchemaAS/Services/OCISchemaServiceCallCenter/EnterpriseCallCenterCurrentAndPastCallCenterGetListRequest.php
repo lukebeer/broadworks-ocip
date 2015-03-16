@@ -36,8 +36,8 @@ class EnterpriseCallCenterCurrentAndPastCallCenterGetListRequest extends Complex
          $serviceProviderId = '',
          $isPremiumOnly = null,
          $responseSizeLimit = null,
-         SearchCriteriaExactUserGroup $searchCriteriaExactUserGroup = null,
-         SearchCriteriaCallCenterName $searchCriteriaCallCenterName = null
+         $searchCriteriaExactUserGroup = null,
+         $searchCriteriaCallCenterName = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setIsPremiumOnly($isPremiumOnly);

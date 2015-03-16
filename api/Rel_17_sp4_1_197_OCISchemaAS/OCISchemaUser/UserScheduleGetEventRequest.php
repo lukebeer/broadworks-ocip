@@ -30,7 +30,7 @@ class UserScheduleGetEventRequest extends ComplexType implements ComplexInterfac
 
     public function __construct(
          $userId = '',
-         ScheduleKey $scheduleKey = '',
+         $scheduleKey = '',
          $eventName = ''
     ) {
         $this->setUserId($userId);

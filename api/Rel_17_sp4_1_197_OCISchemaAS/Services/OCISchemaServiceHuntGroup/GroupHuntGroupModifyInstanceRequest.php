@@ -53,14 +53,14 @@ class GroupHuntGroupModifyInstanceRequest extends ComplexType implements Complex
 
     public function __construct(
          $serviceUserId = '',
-         ServiceInstanceModifyProfile $serviceInstanceProfile = null,
+         $serviceInstanceProfile = null,
          $policy = null,
          $huntAfterNoAnswer = null,
          $noAnswerNumberOfRings = null,
          $forwardAfterTimeout = null,
          $forwardTimeoutSeconds = null,
          $forwardToPhoneNumber = null,
-         ReplacementUserIdList $agentUserIdList = null,
+         $agentUserIdList = null,
          $allowCallWaitingForAgents = null,
          $useSystemHuntGroupCLIDSetting = null,
          $includeHuntGroupNameInCLID = null,

@@ -51,14 +51,14 @@ class GroupAccessDeviceGetUserListRequest extends ComplexType implements Complex
          $groupId = '',
          $deviceName = '',
          $responseSizeLimit = null,
-         SearchCriteriaLinePortUserPart $searchCriteriaLinePortUserPart = null,
-         SearchCriteriaLinePortDomain $searchCriteriaLinePortDomain = null,
-         SearchCriteriaUserLastName $searchCriteriaUserLastName = null,
-         SearchCriteriaUserFirstName $searchCriteriaUserFirstName = null,
-         SearchCriteriaDn $searchCriteriaDn = null,
-         SearchCriteriaUserId $searchCriteriaUserId = null,
-         SearchCriteriaExactEndpointType $searchCriteriaExactEndpointType = null,
-         SearchCriteriaExactUserType $searchCriteriaExactUserType = null
+         $searchCriteriaLinePortUserPart = null,
+         $searchCriteriaLinePortDomain = null,
+         $searchCriteriaUserLastName = null,
+         $searchCriteriaUserFirstName = null,
+         $searchCriteriaDn = null,
+         $searchCriteriaUserId = null,
+         $searchCriteriaExactEndpointType = null,
+         $searchCriteriaExactUserType = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setGroupId($groupId);

@@ -26,7 +26,7 @@ class GroupTrunkGroupUserCreationTaskDeleteRequest14sp4 extends ComplexType impl
     protected $taskName;
 
     public function __construct(
-         TrunkGroupKey $trunkGroupKey = '',
+         $trunkGroupKey = '',
          $taskName = ''
     ) {
         $this->setTrunkGroupKey($trunkGroupKey);

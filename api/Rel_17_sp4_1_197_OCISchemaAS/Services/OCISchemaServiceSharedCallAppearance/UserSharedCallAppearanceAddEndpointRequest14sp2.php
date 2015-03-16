@@ -31,7 +31,7 @@ class UserSharedCallAppearanceAddEndpointRequest14sp2 extends ComplexType implem
 
     public function __construct(
          $userId = '',
-         AccessDeviceEndpointAdd $accessDeviceEndpoint = '',
+         $accessDeviceEndpoint = '',
          $isActive = '',
          $allowOrigination = '',
          $allowTermination = ''

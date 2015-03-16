@@ -30,7 +30,7 @@ class UserVoiceMessagingUserModifyOutgoingSMDIMWIRequest extends ComplexType imp
     public function __construct(
          $userId = '',
          $isActive = null,
-         ReplacementOutgoingDNList $outgoingSMDIMWIPhoneNumberList = null
+         $outgoingSMDIMWIPhoneNumberList = null
     ) {
         $this->setUserId($userId);
         $this->setIsActive($isActive);

@@ -23,7 +23,7 @@ class SearchCriteriaExactUserDepartment extends ComplexType implements ComplexIn
     protected $departmentKey;
 
     public function __construct(
-         DepartmentKey $departmentKey = ''
+         $departmentKey = ''
     ) {
         $this->setDepartmentKey($departmentKey);
     }

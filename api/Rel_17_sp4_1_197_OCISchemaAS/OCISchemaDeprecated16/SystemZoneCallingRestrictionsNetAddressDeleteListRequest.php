@@ -30,7 +30,7 @@ class SystemZoneCallingRestrictionsNetAddressDeleteListRequest extends ComplexTy
     public function __construct(
          $zoneName = '',
          $netAddress = null,
-         IPAddressRange $netAddressRange = null
+         $netAddressRange = null
     ) {
         $this->setZoneName($zoneName);
         $this->setNetAddress($netAddress);

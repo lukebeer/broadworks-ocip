@@ -24,7 +24,7 @@ class SystemLogConfigModifyRequest extends ComplexType implements ComplexInterfa
     protected $configFile;
 
     public function __construct(
-         FileResource $configFile = null
+         $configFile = null
     ) {
         $this->setConfigFile($configFile);
     }

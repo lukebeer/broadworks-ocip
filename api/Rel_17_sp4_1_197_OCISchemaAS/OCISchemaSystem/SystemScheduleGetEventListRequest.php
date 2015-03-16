@@ -25,7 +25,7 @@ class SystemScheduleGetEventListRequest extends ComplexType implements ComplexIn
     protected $scheduleKey;
 
     public function __construct(
-         ScheduleKey $scheduleKey = ''
+         $scheduleKey = ''
     ) {
         $this->setScheduleKey($scheduleKey);
     }

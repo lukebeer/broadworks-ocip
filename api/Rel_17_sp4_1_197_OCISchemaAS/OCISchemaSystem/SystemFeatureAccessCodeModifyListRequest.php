@@ -24,7 +24,7 @@ class SystemFeatureAccessCodeModifyListRequest extends ComplexType implements Co
     protected $featureAccessCode;
 
     public function __construct(
-         FeatureAccessCodeEntry $featureAccessCode = null
+         $featureAccessCode = null
     ) {
         $this->setFeatureAccessCode($featureAccessCode);
     }

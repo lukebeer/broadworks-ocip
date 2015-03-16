@@ -29,7 +29,7 @@ class UserCallCenterModifyAvailabilityListRequest extends ComplexType implements
 
     public function __construct(
          $userId = '',
-         CallCenterAgentAvailability $callCenterAvailability = null
+         $callCenterAvailability = null
     ) {
         $this->setUserId($userId);
         $this->setCallCenterAvailability($callCenterAvailability);

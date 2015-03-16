@@ -32,7 +32,7 @@ class UserBusyLampFieldModifyRequest extends ComplexType implements ComplexInter
     public function __construct(
          $userId = '',
          $listURI = null,
-         ReplacementUserIdList $monitoredUserIdList = null,
+         $monitoredUserIdList = null,
          $enableCallParkNotification = null
     ) {
         $this->setUserId($userId);

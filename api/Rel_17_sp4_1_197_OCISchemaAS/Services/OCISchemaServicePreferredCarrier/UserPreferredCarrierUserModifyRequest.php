@@ -29,9 +29,9 @@ class UserPreferredCarrierUserModifyRequest extends ComplexType implements Compl
 
     public function __construct(
          $userId = '',
-         UserPreferredCarrierNameModify $intraLataCarrier = null,
-         UserPreferredCarrierNameModify $interLataCarrier = null,
-         UserPreferredCarrierNameModify $internationalCarrier = null
+         $intraLataCarrier = null,
+         $interLataCarrier = null,
+         $internationalCarrier = null
     ) {
         $this->setUserId($userId);
         $this->setIntraLataCarrier($intraLataCarrier);

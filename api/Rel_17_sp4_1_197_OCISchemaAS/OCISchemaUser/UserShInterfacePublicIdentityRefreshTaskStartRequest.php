@@ -24,7 +24,7 @@ class UserShInterfacePublicIdentityRefreshTaskStartRequest extends ComplexType i
     protected $publicUserIdentity;
 
     public function __construct(
-         PublicUserIdentity $publicUserIdentity = ''
+         $publicUserIdentity = ''
     ) {
         $this->setPublicUserIdentity($publicUserIdentity);
     }

@@ -34,7 +34,7 @@ class GroupBroadWorksAnywhereModifyInstanceRequest extends ComplexType implement
 
     public function __construct(
          $serviceUserId = '',
-         ServiceInstanceModifyProfile $serviceInstanceProfile = null,
+         $serviceInstanceProfile = null,
          $broadWorksAnywhereScope = null,
          $promptForCLID = null,
          $silentPromptMode = null,

@@ -27,7 +27,7 @@ class UserBroadWorksReceptionistEnterpriseModifyRequest extends ComplexType impl
 
     public function __construct(
          $userId = '',
-         ReplacementUserIdList $monitoredUserIdList = null
+         $monitoredUserIdList = null
     ) {
         $this->setUserId($userId);
         $this->setMonitoredUserIdList($monitoredUserIdList);

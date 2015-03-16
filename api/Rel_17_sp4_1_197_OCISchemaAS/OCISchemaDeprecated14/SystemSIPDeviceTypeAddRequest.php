@@ -47,7 +47,7 @@ class SystemSIPDeviceTypeAddRequest extends ComplexType implements ComplexInterf
 
     public function __construct(
          $deviceType = '',
-         UnboundedPositiveInt $numberOfPorts = '',
+         $numberOfPorts = '',
          $profile = '',
          $registrationCapable = '',
          $isConferenceDevice = '',
@@ -64,7 +64,7 @@ class SystemSIPDeviceTypeAddRequest extends ComplexType implements ComplexInterf
          $PBXIntegration = '',
          $useBusinessTrunkingContact = '',
          $staticRegistrationCapable = '',
-         CPEDeviceOptions $cpeDeviceOptions = null
+         $cpeDeviceOptions = null
     ) {
         $this->setDeviceType($deviceType);
         $this->setNumberOfPorts($numberOfPorts);

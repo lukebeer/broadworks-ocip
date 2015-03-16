@@ -61,7 +61,7 @@ class GroupCallCenterAddInstanceRequest14sp3 extends ComplexType implements Comp
          $serviceProviderId = '',
          $groupId = '',
          $serviceUserId = '',
-         ServiceInstanceAddProfileCallCenter $serviceInstanceProfile = '',
+         $serviceInstanceProfile = '',
          $policy = '',
          $huntAfterNoAnswer = '',
          $noAnswerNumberOfRings = '',

@@ -38,9 +38,9 @@ class GroupCallCenterStrandedCallModifyRequest extends ComplexType implements Co
          $action = null,
          $transferPhoneNumber = null,
          $audioMessageSelection = null,
-         ExtendedMediaFileResource $audioFile = null,
+         $audioFile = null,
          $videoMessageSelection = null,
-         ExtendedMediaFileResource $videoFile = null
+         $videoFile = null
     ) {
         $this->setServiceUserId($serviceUserId);
         $this->setAction($action);

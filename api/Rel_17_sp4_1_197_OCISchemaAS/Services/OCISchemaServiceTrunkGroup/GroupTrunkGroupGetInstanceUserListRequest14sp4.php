@@ -35,12 +35,12 @@ class GroupTrunkGroupGetInstanceUserListRequest14sp4 extends ComplexType impleme
     protected $searchCriteriaExactUserDepartment;
 
     public function __construct(
-         TrunkGroupKey $trunkGroupKey = '',
+         $trunkGroupKey = '',
          $responseSizeLimit = null,
-         SearchCriteriaUserLastName $searchCriteriaUserLastName = null,
-         SearchCriteriaUserFirstName $searchCriteriaUserFirstName = null,
-         SearchCriteriaDn $searchCriteriaDn = null,
-         SearchCriteriaExactUserDepartment $searchCriteriaExactUserDepartment = null
+         $searchCriteriaUserLastName = null,
+         $searchCriteriaUserFirstName = null,
+         $searchCriteriaDn = null,
+         $searchCriteriaExactUserDepartment = null
     ) {
         $this->setTrunkGroupKey($trunkGroupKey);
         $this->setResponseSizeLimit($responseSizeLimit);

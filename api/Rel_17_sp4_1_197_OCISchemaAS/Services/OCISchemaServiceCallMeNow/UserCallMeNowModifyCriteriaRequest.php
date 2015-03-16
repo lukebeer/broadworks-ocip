@@ -38,10 +38,10 @@ class UserCallMeNowModifyCriteriaRequest extends ComplexType implements ComplexI
          $userId = '',
          $criteriaName = '',
          $newCriteriaName = null,
-         TimeSchedule $timeSchedule = null,
-         HolidaySchedule $holidaySchedule = null,
+         $timeSchedule = null,
+         $holidaySchedule = null,
          $rejectCall = null,
-         CallMeNowToDnCriteriaModify $toDnCriteria = null
+         $toDnCriteria = null
     ) {
         $this->setUserId($userId);
         $this->setCriteriaName($criteriaName);

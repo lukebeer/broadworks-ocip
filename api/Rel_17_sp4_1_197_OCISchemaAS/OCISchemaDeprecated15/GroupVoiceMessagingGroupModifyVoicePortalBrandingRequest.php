@@ -36,9 +36,9 @@ class GroupVoiceMessagingGroupModifyVoicePortalBrandingRequest extends ComplexTy
          $serviceProviderId = '',
          $groupId = '',
          $voicePortalGreetingSelection = null,
-         LabeledFileResource $voicePortalGreetingFile = null,
+         $voicePortalGreetingFile = null,
          $voiceMessagingGreetingSelection = null,
-         LabeledFileResource $voiceMessagingGreetingFile = null
+         $voiceMessagingGreetingFile = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setGroupId($groupId);

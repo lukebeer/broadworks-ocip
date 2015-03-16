@@ -36,7 +36,7 @@ class GroupRoutePointExternalSystemGetAssignedRoutePointListRequest extends Comp
          $groupId = '',
          $externalSystem = '',
          $responseSizeLimit = null,
-         SearchCriteriaRoutePointName $searchCriteriaRoutePointName = null
+         $searchCriteriaRoutePointName = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setGroupId($groupId);

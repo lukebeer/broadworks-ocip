@@ -37,10 +37,10 @@ class UserPushToTalkGetAvailableUserListRequest extends ComplexType implements C
     public function __construct(
          $userId = '',
          $responseSizeLimit = null,
-         SearchCriteriaUserLastName $searchCriteriaUserLastName = null,
-         SearchCriteriaUserFirstName $searchCriteriaUserFirstName = null,
-         SearchCriteriaExactUserDepartment $searchCriteriaExactUserDepartment = null,
-         SearchCriteriaExactUserGroup $searchCriteriaExactUserGroup = null
+         $searchCriteriaUserLastName = null,
+         $searchCriteriaUserFirstName = null,
+         $searchCriteriaExactUserDepartment = null,
+         $searchCriteriaExactUserGroup = null
     ) {
         $this->setUserId($userId);
         $this->setResponseSizeLimit($responseSizeLimit);

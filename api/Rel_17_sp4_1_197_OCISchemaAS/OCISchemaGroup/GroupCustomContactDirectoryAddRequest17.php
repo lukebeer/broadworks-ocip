@@ -33,7 +33,7 @@ class GroupCustomContactDirectoryAddRequest17 extends ComplexType implements Com
          $serviceProviderId = '',
          $groupId = '',
          $name = '',
-         CustomContactDirectoryEntry $entry = null
+         $entry = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setGroupId($groupId);

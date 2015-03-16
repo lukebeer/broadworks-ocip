@@ -28,7 +28,7 @@ class UserInstantConferencingModifyConferencePresentationPasswordRequest extends
 
     public function __construct(
          $userId = '',
-         InstantConferencingConferenceKey $conferenceKey = '',
+         $conferenceKey = '',
          $presentationPassword = null
     ) {
         $this->setUserId($userId);

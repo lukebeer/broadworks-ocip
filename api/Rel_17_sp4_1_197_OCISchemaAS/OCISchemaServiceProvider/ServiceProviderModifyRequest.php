@@ -40,8 +40,8 @@ class ServiceProviderModifyRequest extends ComplexType implements ComplexInterfa
          $defaultDomain = null,
          $serviceProviderName = null,
          $supportEmail = null,
-         Contact $contact = null,
-         StreetAddress $address = null,
+         $contact = null,
+         $address = null,
          $useServiceProviderLanguages = null
     ) {
         $this->setServiceProviderId($serviceProviderId);

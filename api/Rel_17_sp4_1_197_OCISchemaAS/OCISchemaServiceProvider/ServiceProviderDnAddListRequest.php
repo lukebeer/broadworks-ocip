@@ -31,7 +31,7 @@ class ServiceProviderDnAddListRequest extends ComplexType implements ComplexInte
     public function __construct(
          $serviceProviderId = '',
          $phoneNumber = null,
-         DNRange $dnRange = null
+         $dnRange = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setPhoneNumber($phoneNumber);

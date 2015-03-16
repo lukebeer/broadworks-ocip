@@ -63,16 +63,16 @@ class GroupPhoneDirectoryGetListRequest extends ComplexType implements ComplexIn
          $groupId = '',
          $isExtendedInfoRequested = '',
          $responseSizeLimit = null,
-         SearchCriteriaUserLastName $searchCriteriaUserLastName = null,
-         SearchCriteriaUserFirstName $searchCriteriaUserFirstName = null,
-         SearchCriteriaDn $searchCriteriaDn = null,
-         SearchCriteriaGroupLocationCode $searchCriteriaGroupLocationCode = null,
-         SearchCriteriaExtension $searchCriteriaExtension = null,
-         SearchCriteriaMobilePhoneNumber $searchCriteriaMobilePhoneNumber = null,
-         SearchCriteriaEmailAddress $searchCriteriaEmailAddress = null,
-         SearchCriteriaYahooId $searchCriteriaYahooId = null,
-         SearchCriteriaExactUserGroup $searchCriteriaExactUserGroup = null,
-         SearchCriteriaExactUserDepartment $searchCriteriaExactUserDepartment = null
+         $searchCriteriaUserLastName = null,
+         $searchCriteriaUserFirstName = null,
+         $searchCriteriaDn = null,
+         $searchCriteriaGroupLocationCode = null,
+         $searchCriteriaExtension = null,
+         $searchCriteriaMobilePhoneNumber = null,
+         $searchCriteriaEmailAddress = null,
+         $searchCriteriaYahooId = null,
+         $searchCriteriaExactUserGroup = null,
+         $searchCriteriaExactUserDepartment = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setGroupId($groupId);

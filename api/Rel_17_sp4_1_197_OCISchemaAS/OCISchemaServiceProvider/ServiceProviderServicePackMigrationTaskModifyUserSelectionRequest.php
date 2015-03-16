@@ -36,8 +36,8 @@ class ServiceProviderServicePackMigrationTaskModifyUserSelectionRequest extends 
          $serviceProviderId = '',
          $taskName = '',
          $userSelectionType = null,
-         ReplacementUserServiceList $userServiceNameList = null,
-         ReplacementServicePackNameList $servicePackNameList = null
+         $userServiceNameList = null,
+         $servicePackNameList = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setTaskName($taskName);

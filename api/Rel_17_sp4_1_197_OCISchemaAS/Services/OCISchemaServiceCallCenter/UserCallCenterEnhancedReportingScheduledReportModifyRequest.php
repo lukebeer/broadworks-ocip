@@ -63,22 +63,22 @@ class UserCallCenterEnhancedReportingScheduledReportModifyRequest extends Comple
          $name = '',
          $newName = null,
          $description = null,
-         CallCenterReportSchedule $schedule = null,
+         $schedule = null,
          $samplingPeriod = null,
          $startDayOfWeek = null,
          $reportTimeZone = null,
          $reportDateFormat = null,
          $reportTimeFormat = null,
-         CallCenterReportInterval $reportInterval = null,
+         $reportInterval = null,
          $reportFormat = null,
-         CallCenterScheduledReportAgentSelection $agent = null,
+         $agent = null,
          $callCompletionThresholdSeconds = null,
          $shortDurationThresholdSeconds = null,
-         CallCenterReportServiceLevelThresholdReplacementList $serviceLevelThresholdSeconds = null,
-         CallCenterScheduledReportServiceLevelInclusionsModify $serviceLevelInclusions = null,
+         $serviceLevelThresholdSeconds = null,
+         $serviceLevelInclusions = null,
          $serviceLevelObjectivePercentage = null,
-         CallCenterReportAbandonedCallThresholdReplacementList $abandonedCallThresholdSeconds = null,
-         CallCenterReportReplacementEmailList $emailAddress = null
+         $abandonedCallThresholdSeconds = null,
+         $emailAddress = null
     ) {
         $this->setSupervisorUserId($supervisorUserId);
         $this->setName($name);

@@ -27,7 +27,7 @@ class UserMeetMeConferencingDeleteConferenceRecordingListRequest extends Complex
 
     public function __construct(
          $userId = '',
-         MeetMeConferencingConferenceRecordingKey $recordingKey = null
+         $recordingKey = null
     ) {
         $this->setUserId($userId);
         $this->setRecordingKey($recordingKey);

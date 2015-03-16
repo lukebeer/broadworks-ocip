@@ -46,11 +46,11 @@ class GroupCallCenterComfortMessageBypassModifyRequest17 extends ComplexType imp
          $playAnnouncementAfterRinging = null,
          $ringTimeBeforePlayingAnnouncementSeconds = null,
          $audioMessageSelection = null,
-         CallCenterAnnouncementURLListModify $audioUrlList = null,
-         CallCenterAnnouncementFileListModify $audioFileList = null,
+         $audioUrlList = null,
+         $audioFileList = null,
          $videoMessageSelection = null,
-         CallCenterAnnouncementURLListModify $videoUrlList = null,
-         CallCenterAnnouncementFileListModify $videoFileList = null
+         $videoUrlList = null,
+         $videoFileList = null
     ) {
         $this->setServiceUserId($serviceUserId);
         $this->setIsActive($isActive);

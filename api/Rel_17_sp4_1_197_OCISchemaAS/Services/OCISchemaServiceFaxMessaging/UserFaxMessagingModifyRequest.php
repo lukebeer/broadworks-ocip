@@ -36,7 +36,7 @@ class UserFaxMessagingModifyRequest extends ComplexType implements ComplexInterf
          $isActive = null,
          $phoneNumber = null,
          $extension = null,
-         ReplacementSIPAliasList $sipAliasList = null
+         $sipAliasList = null
     ) {
         $this->setUserId($userId);
         $this->setIsActive($isActive);

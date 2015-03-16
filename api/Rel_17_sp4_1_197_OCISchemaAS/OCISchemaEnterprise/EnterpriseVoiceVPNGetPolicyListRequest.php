@@ -35,8 +35,8 @@ class EnterpriseVoiceVPNGetPolicyListRequest extends ComplexType implements Comp
     public function __construct(
          $serviceProviderId = '',
          $responseSizeLimit = null,
-         SearchCriteriaGroupLocationCode $searchCriteriaGroupLocationCode = null,
-         SearchCriteriaExactPolicySelection $searchCriteriaExactPolicySelection = null
+         $searchCriteriaGroupLocationCode = null,
+         $searchCriteriaExactPolicySelection = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setResponseSizeLimit($responseSizeLimit);

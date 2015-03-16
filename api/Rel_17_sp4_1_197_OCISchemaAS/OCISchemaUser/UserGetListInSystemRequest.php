@@ -44,14 +44,14 @@ class UserGetListInSystemRequest extends ComplexType implements ComplexInterface
 
     public function __construct(
          $responseSizeLimit = null,
-         SearchCriteriaUserLastName $searchCriteriaUserLastName = null,
-         SearchCriteriaUserFirstName $searchCriteriaUserFirstName = null,
-         SearchCriteriaDn $searchCriteriaDn = null,
-         SearchCriteriaEmailAddress $searchCriteriaEmailAddress = null,
-         SearchCriteriaGroupId $searchCriteriaGroupId = null,
-         SearchCriteriaExactServiceProvider $searchCriteriaExactServiceProvider = null,
-         SearchCriteriaExactUserInTrunkGroup $searchCriteriaExactUserInTrunkGroup = null,
-         SearchCriteriaExactUserNetworkClassOfService $searchCriteriaExactUserNetworkClassOfService = null
+         $searchCriteriaUserLastName = null,
+         $searchCriteriaUserFirstName = null,
+         $searchCriteriaDn = null,
+         $searchCriteriaEmailAddress = null,
+         $searchCriteriaGroupId = null,
+         $searchCriteriaExactServiceProvider = null,
+         $searchCriteriaExactUserInTrunkGroup = null,
+         $searchCriteriaExactUserNetworkClassOfService = null
     ) {
         $this->setResponseSizeLimit($responseSizeLimit);
         $this->setSearchCriteriaUserLastName($searchCriteriaUserLastName);

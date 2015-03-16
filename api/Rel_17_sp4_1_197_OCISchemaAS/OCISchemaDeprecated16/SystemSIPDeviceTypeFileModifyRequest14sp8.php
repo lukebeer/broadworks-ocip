@@ -41,7 +41,7 @@ class SystemSIPDeviceTypeFileModifyRequest14sp8 extends ComplexType implements C
          $fileFormat = '',
          $allowFileCustomization = null,
          $fileSource = null,
-         FileResource $uploadFile = null,
+         $uploadFile = null,
          $useHttpDigestAuthentication = null,
          $macBasedFileAuthentication = null,
          $userNamePasswordFileAuthentication = null,

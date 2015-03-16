@@ -30,7 +30,7 @@ class UserInstantConferencingModifyConferenceRecordingSlideShowPasswordRequest e
 
     public function __construct(
          $userId = '',
-         InstantConferencingRecordingKey $recordingKey = '',
+         $recordingKey = '',
          $recordingCallId = '',
          $slideShowPassword = null
     ) {

@@ -27,7 +27,7 @@ class GroupDirectoryNumberHuntingModifyRequest extends ComplexType implements Co
 
     public function __construct(
          $serviceUserId = '',
-         ReplacementUserIdList $agentUserIdList = null
+         $agentUserIdList = null
     ) {
         $this->setServiceUserId($serviceUserId);
         $this->setAgentUserIdList($agentUserIdList);

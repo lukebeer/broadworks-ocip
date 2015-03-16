@@ -39,7 +39,7 @@ class GroupRoutePointGetInstanceListRequest extends ComplexType implements Compl
          $groupId = '',
          $groupDepartmentName = null,
          $responseSizeLimit = null,
-         SearchCriteriaRoutePointName $searchCriteriaRoutePointName = null
+         $searchCriteriaRoutePointName = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setGroupId($groupId);

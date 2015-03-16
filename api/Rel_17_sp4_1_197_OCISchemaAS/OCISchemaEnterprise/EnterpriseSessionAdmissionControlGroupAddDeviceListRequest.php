@@ -30,7 +30,7 @@ class EnterpriseSessionAdmissionControlGroupAddDeviceListRequest extends Complex
     public function __construct(
          $serviceProviderId = '',
          $name = '',
-         EnterpriseAccessDevice $devices = null
+         $devices = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setName($name);

@@ -43,12 +43,12 @@ class EnterpriseEnterpriseTrunkGetAvailableUserListRequest extends ComplexType i
     public function __construct(
          $serviceProviderId = '',
          $responseSizeLimit = null,
-         SearchCriteriaUserLastName $searchCriteriaUserLastName = null,
-         SearchCriteriaUserFirstName $searchCriteriaUserFirstName = null,
-         SearchCriteriaDn $searchCriteriaDn = null,
-         SearchCriteriaUserId $searchCriteriaUserId = null,
-         SearchCriteriaGroupId $searchCriteriaGroupId = null,
-         SearchCriteriaAlternateTrunkIdentity $searchCriteriaAlternateTrunkIdentity = null
+         $searchCriteriaUserLastName = null,
+         $searchCriteriaUserFirstName = null,
+         $searchCriteriaDn = null,
+         $searchCriteriaUserId = null,
+         $searchCriteriaGroupId = null,
+         $searchCriteriaAlternateTrunkIdentity = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setResponseSizeLimit($responseSizeLimit);

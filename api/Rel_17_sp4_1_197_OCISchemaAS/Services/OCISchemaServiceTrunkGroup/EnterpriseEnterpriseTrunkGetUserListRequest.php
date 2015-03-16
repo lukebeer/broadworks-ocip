@@ -46,12 +46,12 @@ class EnterpriseEnterpriseTrunkGetUserListRequest extends ComplexType implements
          $serviceProviderId = '',
          $enterpriseTrunkName = '',
          $responseSizeLimit = null,
-         SearchCriteriaUserLastName $searchCriteriaUserLastName = null,
-         SearchCriteriaUserFirstName $searchCriteriaUserFirstName = null,
-         SearchCriteriaDn $searchCriteriaDn = null,
-         SearchCriteriaUserId $searchCriteriaUserId = null,
-         SearchCriteriaGroupId $searchCriteriaGroupId = null,
-         SearchCriteriaAlternateTrunkIdentity $searchCriteriaAlternateTrunkIdentity = null
+         $searchCriteriaUserLastName = null,
+         $searchCriteriaUserFirstName = null,
+         $searchCriteriaDn = null,
+         $searchCriteriaUserId = null,
+         $searchCriteriaGroupId = null,
+         $searchCriteriaAlternateTrunkIdentity = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setEnterpriseTrunkName($enterpriseTrunkName);

@@ -36,9 +36,9 @@ class UserSelectiveCallRejectionAddCriteriaRequest16 extends ComplexType impleme
     public function __construct(
          $userId = '',
          $criteriaName = '',
-         TimeSchedule $timeSchedule = null,
-         SelectiveCallRejectionCriteriaCallType $fromDnCriteria = '',
-         HolidaySchedule $holidaySchedule = null,
+         $timeSchedule = null,
+         $fromDnCriteria = '',
+         $holidaySchedule = null,
          $blacklisted = ''
     ) {
         $this->setUserId($userId);

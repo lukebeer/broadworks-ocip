@@ -31,7 +31,7 @@ class UserSharedCallAppearanceModifyEndpointRequest extends ComplexType implemen
 
     public function __construct(
          $userId = '',
-         AccessDeviceEndpointKey $accessDeviceEndpoint = '',
+         $accessDeviceEndpoint = '',
          $isActive = null,
          $allowOrigination = null,
          $allowTermination = null

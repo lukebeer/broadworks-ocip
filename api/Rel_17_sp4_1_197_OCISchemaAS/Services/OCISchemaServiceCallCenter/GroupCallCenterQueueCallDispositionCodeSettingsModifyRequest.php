@@ -36,8 +36,8 @@ class GroupCallCenterQueueCallDispositionCodeSettingsModifyRequest extends Compl
          $enableCallDispositionCodes = null,
          $includeOrganizationCodes = null,
          $forceUseOfCallDispositionCodes = null,
-         CallDispositionCodeWithLevel $defaultCallDispositionCode = null,
-         CallDispositionCodeActivation $callDispositionCodeActivation = null
+         $defaultCallDispositionCode = null,
+         $callDispositionCodeActivation = null
     ) {
         $this->setServiceUserId($serviceUserId);
         $this->setEnableCallDispositionCodes($enableCallDispositionCodes);

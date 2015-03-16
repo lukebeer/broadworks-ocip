@@ -37,7 +37,7 @@ class GroupRoutePointAddDNISRequest extends ComplexType implements ComplexInterf
     protected $allowOutgoingACDCall;
 
     public function __construct(
-         DNISKey $dnisKey = '',
+         $dnisKey = '',
          $dnisPhoneNumber = null,
          $extension = null,
          $useCustomCLIDSettings = '',

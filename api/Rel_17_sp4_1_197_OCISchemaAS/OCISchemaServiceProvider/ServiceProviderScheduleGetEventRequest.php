@@ -30,7 +30,7 @@ class ServiceProviderScheduleGetEventRequest extends ComplexType implements Comp
 
     public function __construct(
          $serviceProviderId = '',
-         ScheduleKey $scheduleKey = '',
+         $scheduleKey = '',
          $eventName = ''
     ) {
         $this->setServiceProviderId($serviceProviderId);

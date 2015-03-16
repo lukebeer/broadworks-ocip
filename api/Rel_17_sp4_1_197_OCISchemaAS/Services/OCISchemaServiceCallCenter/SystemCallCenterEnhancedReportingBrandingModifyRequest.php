@@ -27,7 +27,7 @@ class SystemCallCenterEnhancedReportingBrandingModifyRequest extends ComplexType
 
     public function __construct(
          $brandingChoice = null,
-         LabeledFileResource $customBrandingFile = null
+         $customBrandingFile = null
     ) {
         $this->setBrandingChoice($brandingChoice);
         $this->setCustomBrandingFile($customBrandingFile);

@@ -27,7 +27,7 @@ class UserScheduleDeleteListRequest extends ComplexType implements ComplexInterf
 
     public function __construct(
          $userId = '',
-         ScheduleKey $scheduleKey = ''
+         $scheduleKey = ''
     ) {
         $this->setUserId($userId);
         $this->setScheduleKey($scheduleKey);

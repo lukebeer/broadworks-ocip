@@ -75,7 +75,7 @@ class GroupAccessDeviceModifyRequest14 extends ComplexType implements ComplexInt
          $serialNumber = null,
          $description = null,
          $configurationMode = null,
-         FileResource $configurationFile = null,
+         $configurationFile = null,
          $physicalLocation = null,
          $transportProtocol = null,
          $mobilityManagerProvisioningURL = null,
@@ -84,7 +84,7 @@ class GroupAccessDeviceModifyRequest14 extends ComplexType implements ComplexInt
          $mobilityManagerDefaultOriginatingServiceKey = null,
          $mobilityManagerDefaultTerminatingServiceKey = null,
          $useCustomUserNamePassword = null,
-         DeviceManagementUserNamePassword16 $accessDeviceCredentials = null
+         $accessDeviceCredentials = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setGroupId($groupId);

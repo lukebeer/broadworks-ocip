@@ -36,8 +36,8 @@ class GroupCallCenterCurrentAndPastAgentGetListRequest extends ComplexType imple
          $serviceProviderId = '',
          $groupId = '',
          $responseSizeLimit = null,
-         SearchCriteriaUserLastName $searchCriteriaUserLastName = null,
-         SearchCriteriaUserFirstName $searchCriteriaUserFirstName = null
+         $searchCriteriaUserLastName = null,
+         $searchCriteriaUserFirstName = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setGroupId($groupId);

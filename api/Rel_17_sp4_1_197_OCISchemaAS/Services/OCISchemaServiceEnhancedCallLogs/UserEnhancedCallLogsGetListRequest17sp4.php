@@ -48,12 +48,12 @@ class UserEnhancedCallLogsGetListRequest17sp4 extends ComplexType implements Com
     public function __construct(
          $userId = '',
          $callLogType = null,
-         EnhancedCallLogsTimeRange $dateTimeRange = '',
-         EnhancedCallLogsNumberFilter $numberFilter = null,
-         EnhancedCallLogsRedirectedNumberFilter $redirectedNumberFilter = null,
-         EnhancedCallLogsAccountAuthorizationCodeFilter $accountAuthorizationCodeFilter = null,
+         $dateTimeRange = '',
+         $numberFilter = null,
+         $redirectedNumberFilter = null,
+         $accountAuthorizationCodeFilter = null,
          $subscriberType = null,
-         ResponsePagingControl $responsePagingControl = null
+         $responsePagingControl = null
     ) {
         $this->setUserId($userId);
         $this->setCallLogType($callLogType);

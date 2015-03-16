@@ -86,11 +86,11 @@ class GroupTrunkGroupModifyInstanceRequest14sp4 extends ComplexType implements C
     protected $callForwardingAlwaysRerouteTrunkGroupKey;
 
     public function __construct(
-         TrunkGroupKey $trunkGroupKey = '',
+         $trunkGroupKey = '',
          $newName = null,
          $pilotUserId = null,
-         DepartmentKey $department = null,
-         AccessDevice $accessDevice = null,
+         $department = null,
+         $accessDevice = null,
          $maxActiveCalls = null,
          $maxIncomingCalls = null,
          $maxOutgoingCalls = null,
@@ -100,19 +100,19 @@ class GroupTrunkGroupModifyInstanceRequest14sp4 extends ComplexType implements C
          $burstingMaxOutgoingCalls = null,
          $capacityExceededAction = null,
          $capacityExceededForwardAddress = null,
-         TrunkGroupKey $capacityExceededRerouteTrunkGroupKey = null,
+         $capacityExceededRerouteTrunkGroupKey = null,
          $capacityExceededTrapInitialCalls = null,
          $capacityExceededTrapOffsetCalls = null,
          $unreachableDestinationAction = null,
          $unreachableDestinationForwardAddress = null,
-         TrunkGroupKey $unreachableDestinationRerouteTrunkGroupKey = null,
+         $unreachableDestinationRerouteTrunkGroupKey = null,
          $unreachableDestinationTrapInitialCalls = null,
          $unreachableDestinationTrapOffsetCalls = null,
          $invitationTimeout = null,
          $requireAuthentication = null,
          $sipAuthenticationUserName = null,
          $sipAuthenticationPassword = null,
-         ReplacementUserIdList $hostedUserIdList = null,
+         $hostedUserIdList = null,
          $trunkGroupIdentity = null,
          $otgDtgIdentity = null,
          $includeTrunkGroupIdentity = null,
@@ -124,7 +124,7 @@ class GroupTrunkGroupModifyInstanceRequest14sp4 extends ComplexType implements C
          $usePilotUserChargeNumber = null,
          $callForwardingAlwaysAction = null,
          $callForwardingAlwaysForwardAddress = null,
-         TrunkGroupKey $callForwardingAlwaysRerouteTrunkGroupKey = null
+         $callForwardingAlwaysRerouteTrunkGroupKey = null
     ) {
         $this->setTrunkGroupKey($trunkGroupKey);
         $this->setNewName($newName);

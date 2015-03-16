@@ -37,10 +37,10 @@ class UserCommPilotExpressModifyRequest extends ComplexType implements ComplexIn
     public function __construct(
          $userId = '',
          $profile = null,
-         CommPilotExpressAvailableInOfficeModify $availableInOffice = null,
-         CommPilotExpressAvailableOutOfOfficeModify $availableOutOfOffice = null,
-         CommPilotExpressBusyModify $busy = null,
-         CommPilotExpressUnavailableModify $unavailable = null
+         $availableInOffice = null,
+         $availableOutOfOffice = null,
+         $busy = null,
+         $unavailable = null
     ) {
         $this->setUserId($userId);
         $this->setProfile($profile);

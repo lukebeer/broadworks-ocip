@@ -32,8 +32,8 @@ class GroupOutgoingCallingPlanPinholeDigitPlanCallMeNowModifyListRequest extends
     public function __construct(
          $serviceProviderId = '',
          $groupId = '',
-         OutgoingPinholeDigitPlanDigitPatternCallMeNowPermissions $groupPermissions = null,
-         OutgoingPinholeDigitPlanDigitPatternCallMeNowDepartmentPermissionsModify $departmentPermissions = null
+         $groupPermissions = null,
+         $departmentPermissions = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setGroupId($groupId);

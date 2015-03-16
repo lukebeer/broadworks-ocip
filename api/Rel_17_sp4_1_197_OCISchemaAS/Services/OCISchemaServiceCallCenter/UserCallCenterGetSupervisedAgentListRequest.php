@@ -50,10 +50,10 @@ class UserCallCenterGetSupervisedAgentListRequest extends ComplexType implements
          $serviceUserId = '',
          $responseSizeLimit = null,
          $searchCriteriaModeOr = null,
-         SearchCriteriaUserLastName $searchCriteriaUserLastName = null,
-         SearchCriteriaUserFirstName $searchCriteriaUserFirstName = null,
-         SearchCriteriaDn $searchCriteriaDn = null,
-         SearchCriteriaExtension $searchCriteriaExtension = null
+         $searchCriteriaUserLastName = null,
+         $searchCriteriaUserFirstName = null,
+         $searchCriteriaDn = null,
+         $searchCriteriaExtension = null
     ) {
         $this->setSupervisorUserId($supervisorUserId);
         $this->setServiceUserId($serviceUserId);

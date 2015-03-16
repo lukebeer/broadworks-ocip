@@ -28,7 +28,7 @@ class UserShInterfaceModifyRequest extends ComplexType implements ComplexInterfa
     protected $IMSUserState;
 
     public function __construct(
-         PublicUserIdentity $publicUserIdentity = '',
+         $publicUserIdentity = '',
          $SCSCFName = null,
          $IMSUserState = null
     ) {

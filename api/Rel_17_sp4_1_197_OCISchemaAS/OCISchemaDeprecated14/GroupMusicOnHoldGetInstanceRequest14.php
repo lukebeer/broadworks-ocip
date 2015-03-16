@@ -32,7 +32,7 @@ class GroupMusicOnHoldGetInstanceRequest14 extends ComplexType implements Comple
     public function __construct(
          $serviceProviderId = '',
          $groupId = '',
-         DepartmentKey $department = null
+         $department = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setGroupId($groupId);

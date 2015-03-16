@@ -37,10 +37,10 @@ class UserPreAlertingAnnouncementModifyRequest extends ComplexType implements Co
          $userId = '',
          $isActive = null,
          $audioSelection = null,
-         ExtendedMediaFileResource $audioFile = null,
+         $audioFile = null,
          $videoSelection = null,
-         ExtendedMediaFileResource $videoFile = null,
-         CriteriaActivation $criteriaActivation = null
+         $videoFile = null,
+         $criteriaActivation = null
     ) {
         $this->setUserId($userId);
         $this->setIsActive($isActive);

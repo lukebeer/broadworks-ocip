@@ -50,7 +50,7 @@ class EnterpriseSessionAdmissionControlGroupModifyRequest extends ComplexType im
          $reservedUserTerminatingSessions = null,
          $becomeDefaultGroup = null,
          $countIntraSACGroupSessions = null,
-         ReplacementEnterpriseDeviceList $deviceList = null
+         $deviceList = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setName($name);

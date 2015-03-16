@@ -27,7 +27,7 @@ class GroupCallCenterModifyInstanceWeightedCallDistributionRequest extends Compl
 
     public function __construct(
          $serviceUserId = '',
-         HuntAgentWeight $agentWeight = null
+         $agentWeight = null
     ) {
         $this->setServiceUserId($serviceUserId);
         $this->setAgentWeight($agentWeight);

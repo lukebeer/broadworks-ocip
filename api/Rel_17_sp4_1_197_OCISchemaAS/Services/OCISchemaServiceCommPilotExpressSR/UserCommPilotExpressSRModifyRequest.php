@@ -36,10 +36,10 @@ class UserCommPilotExpressSRModifyRequest extends ComplexType implements Complex
     public function __construct(
          $userId = '',
          $profile = null,
-         CommPilotExpressSRAvailableInOfficeModify $availableInOffice = null,
-         CommPilotExpressSRAvailableOutOfOfficeModify $availableOutOfOffice = null,
-         CommPilotExpressSRBusyModify $busy = null,
-         CommPilotExpressSRUnavailableModify $unavailable = null
+         $availableInOffice = null,
+         $availableOutOfOffice = null,
+         $busy = null,
+         $unavailable = null
     ) {
         $this->setUserId($userId);
         $this->setProfile($profile);

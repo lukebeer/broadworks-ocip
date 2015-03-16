@@ -25,7 +25,7 @@ class GroupRoutePointGetDNISAgentListRequest extends ComplexType implements Comp
     protected $dnisKey;
 
     public function __construct(
-         DNISKey $dnisKey = ''
+         $dnisKey = ''
     ) {
         $this->setDnisKey($dnisKey);
     }

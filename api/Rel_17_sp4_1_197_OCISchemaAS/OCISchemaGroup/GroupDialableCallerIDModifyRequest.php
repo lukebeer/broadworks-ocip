@@ -36,7 +36,7 @@ class GroupDialableCallerIDModifyRequest extends ComplexType implements ComplexI
          $groupId = '',
          $useGroupCriteria = null,
          $nsScreeningFailurePolicy = null,
-         DialableCallerIDCriteriaPriorityOrder $criteriaPriorityOrder = null
+         $criteriaPriorityOrder = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setGroupId($groupId);

@@ -27,7 +27,7 @@ class UserPriorityAlertModifyActiveCriteriaListRequest extends ComplexType imple
 
     public function __construct(
          $userId = '',
-         CriteriaActivation $criteriaActivation = null
+         $criteriaActivation = null
     ) {
         $this->setUserId($userId);
         $this->setCriteriaActivation($criteriaActivation);

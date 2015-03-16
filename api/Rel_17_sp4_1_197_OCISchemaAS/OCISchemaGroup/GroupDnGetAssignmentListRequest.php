@@ -44,11 +44,11 @@ class GroupDnGetAssignmentListRequest extends ComplexType implements ComplexInte
          $serviceProviderId = '',
          $groupId = '',
          $responseSizeLimit = null,
-         SearchCriteriaDn $searchCriteriaDn = null,
-         SearchCriteriaUserFirstName $searchCriteriaUserFirstName = null,
-         SearchCriteriaUserLastName $searchCriteriaUserLastName = null,
-         SearchCriteriaExactDnDepartment $searchCriteriaExactDnDepartment = null,
-         SearchCriteriaExactDnActivation $searchCriteriaExactDnActivation = null
+         $searchCriteriaDn = null,
+         $searchCriteriaUserFirstName = null,
+         $searchCriteriaUserLastName = null,
+         $searchCriteriaExactDnDepartment = null,
+         $searchCriteriaExactDnActivation = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setGroupId($groupId);

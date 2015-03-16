@@ -32,7 +32,7 @@ class UserInstantConferencingDeleteConferenceDocumentListRequest extends Complex
 
     public function __construct(
          $userId = '',
-         InstantConferencingConferenceKey $conferenceKey = '',
+         $conferenceKey = '',
          $conferenceCallId = '',
          $documentId = null
     ) {

@@ -31,7 +31,7 @@ class GroupMusicOnHoldGetInstanceRequest14sp4 extends ComplexType implements Com
     public function __construct(
          $serviceProviderId = '',
          $groupId = '',
-         DepartmentKey $department = null
+         $department = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setGroupId($groupId);

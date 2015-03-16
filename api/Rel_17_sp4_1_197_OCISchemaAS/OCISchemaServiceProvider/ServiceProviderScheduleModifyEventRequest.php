@@ -34,12 +34,12 @@ class ServiceProviderScheduleModifyEventRequest extends ComplexType implements C
 
     public function __construct(
          $serviceProviderId = '',
-         ScheduleKey $scheduleKey = '',
+         $scheduleKey = '',
          $eventName = '',
          $newEventName = null,
          $startDate = null,
          $endDate = null,
-         Recurrence $recurrence = null
+         $recurrence = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setScheduleKey($scheduleKey);

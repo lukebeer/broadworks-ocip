@@ -37,10 +37,10 @@ class GroupTrunkGroupGetInstanceUserListRequest extends ComplexType implements C
     public function __construct(
          $serviceUserId = '',
          $responseSizeLimit = null,
-         SearchCriteriaUserLastName $searchCriteriaUserLastName = null,
-         SearchCriteriaUserFirstName $searchCriteriaUserFirstName = null,
-         SearchCriteriaDn $searchCriteriaDn = null,
-         SearchCriteriaExactUserDepartment $searchCriteriaExactUserDepartment = null
+         $searchCriteriaUserLastName = null,
+         $searchCriteriaUserFirstName = null,
+         $searchCriteriaDn = null,
+         $searchCriteriaExactUserDepartment = null
     ) {
         $this->setServiceUserId($serviceUserId);
         $this->setResponseSizeLimit($responseSizeLimit);

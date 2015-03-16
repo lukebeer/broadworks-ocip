@@ -31,8 +31,8 @@ class UserInstantConferencingAddConferenceDocumentRequest extends ComplexType im
 
     public function __construct(
          $userId = '',
-         InstantConferencingConferenceKey $conferenceKey = '',
-         LabeledFileResource $documentFile = '',
+         $conferenceKey = '',
+         $documentFile = '',
          $encryptionPassword = null
     ) {
         $this->setUserId($userId);

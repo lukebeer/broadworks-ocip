@@ -31,7 +31,7 @@ class SystemCommunicationBarringDigitPatternCriteriaGetPatternListRequest extend
     public function __construct(
          $name = '',
          $responseSizeLimit = null,
-         SearchCriteriaDigitPattern $searchCriteriaDigitPattern = null
+         $searchCriteriaDigitPattern = null
     ) {
         $this->setName($name);
         $this->setResponseSizeLimit($responseSizeLimit);

@@ -50,15 +50,15 @@ class ServiceProviderAccessDeviceGetUserListRequest extends ComplexType implemen
          $serviceProviderId = '',
          $deviceName = '',
          $responseSizeLimit = null,
-         SearchCriteriaLinePortUserPart $searchCriteriaLinePortUserPart = null,
-         SearchCriteriaLinePortDomain $searchCriteriaLinePortDomain = null,
-         SearchCriteriaUserLastName $searchCriteriaUserLastName = null,
-         SearchCriteriaUserFirstName $searchCriteriaUserFirstName = null,
-         SearchCriteriaDn $searchCriteriaDn = null,
-         SearchCriteriaUserId $searchCriteriaUserId = null,
-         SearchCriteriaGroupId $searchCriteriaGroupId = null,
-         SearchCriteriaExactEndpointType $searchCriteriaExactEndpointType = null,
-         SearchCriteriaExactUserType $searchCriteriaExactUserType = null
+         $searchCriteriaLinePortUserPart = null,
+         $searchCriteriaLinePortDomain = null,
+         $searchCriteriaUserLastName = null,
+         $searchCriteriaUserFirstName = null,
+         $searchCriteriaDn = null,
+         $searchCriteriaUserId = null,
+         $searchCriteriaGroupId = null,
+         $searchCriteriaExactEndpointType = null,
+         $searchCriteriaExactUserType = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setDeviceName($deviceName);

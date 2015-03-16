@@ -30,7 +30,7 @@ class UserOutgoingCallingPlanDigitPlanCallMeNowModifyRequest extends ComplexType
     public function __construct(
          $userId = '',
          $useCustomSettings = null,
-         OutgoingCallingPlanDigitPatternCallMeNowPermissions $userPermissions = null
+         $userPermissions = null
     ) {
         $this->setUserId($userId);
         $this->setUseCustomSettings($useCustomSettings);

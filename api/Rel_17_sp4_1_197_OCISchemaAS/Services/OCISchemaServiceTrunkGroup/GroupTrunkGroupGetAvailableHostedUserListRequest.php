@@ -33,11 +33,11 @@ class GroupTrunkGroupGetAvailableHostedUserListRequest extends ComplexType imple
     protected $searchCriteriaExactUserDepartment;
 
     public function __construct(
-         TrunkGroupKey $trunkGroupKey = '',
+         $trunkGroupKey = '',
          $responseSizeLimit = null,
-         SearchCriteriaUserLastName $searchCriteriaUserLastName = null,
-         SearchCriteriaUserFirstName $searchCriteriaUserFirstName = null,
-         SearchCriteriaExactUserDepartment $searchCriteriaExactUserDepartment = null
+         $searchCriteriaUserLastName = null,
+         $searchCriteriaUserFirstName = null,
+         $searchCriteriaExactUserDepartment = null
     ) {
         $this->setTrunkGroupKey($trunkGroupKey);
         $this->setResponseSizeLimit($responseSizeLimit);

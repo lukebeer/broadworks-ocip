@@ -31,7 +31,7 @@ class UserInstantConferencingGetStandAloneConferenceCallRequest extends ComplexT
 
     public function __construct(
          $conferenceOwnerUserId = '',
-         InstantConferencingConferenceKey $conferenceKey = '',
+         $conferenceKey = '',
          $conferenceCallId = ''
     ) {
         $this->setConferenceOwnerUserId($conferenceOwnerUserId);

@@ -33,7 +33,7 @@ class SystemAccessDeviceFileModifyRequest14sp8 extends ComplexType implements Co
          $deviceName = '',
          $fileFormat = '',
          $fileSource = null,
-         FileResource $uploadFile = null
+         $uploadFile = null
     ) {
         $this->setDeviceName($deviceName);
         $this->setFileFormat($fileFormat);

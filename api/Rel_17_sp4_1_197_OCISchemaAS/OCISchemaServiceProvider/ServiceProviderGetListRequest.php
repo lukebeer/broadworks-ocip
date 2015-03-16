@@ -35,8 +35,8 @@ class ServiceProviderGetListRequest extends ComplexType implements ComplexInterf
     public function __construct(
          $isEnterprise = null,
          $responseSizeLimit = null,
-         SearchCriteriaServiceProviderId $searchCriteriaServiceProviderId = null,
-         SearchCriteriaServiceProviderName $searchCriteriaServiceProviderName = null
+         $searchCriteriaServiceProviderId = null,
+         $searchCriteriaServiceProviderName = null
     ) {
         $this->setIsEnterprise($isEnterprise);
         $this->setResponseSizeLimit($responseSizeLimit);

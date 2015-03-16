@@ -33,7 +33,7 @@ class ServiceProviderDialableCallerIDModifyRequest extends ComplexType implement
          $serviceProviderId = '',
          $useServiceProviderCriteria = null,
          $nsScreeningFailurePolicy = null,
-         DialableCallerIDCriteriaPriorityOrder $criteriaPriorityOrder = null
+         $criteriaPriorityOrder = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setUseServiceProviderCriteria($useServiceProviderCriteria);

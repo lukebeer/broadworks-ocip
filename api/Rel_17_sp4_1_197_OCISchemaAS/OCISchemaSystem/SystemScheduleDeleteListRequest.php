@@ -24,7 +24,7 @@ class SystemScheduleDeleteListRequest extends ComplexType implements ComplexInte
     protected $scheduleKey;
 
     public function __construct(
-         ScheduleKey $scheduleKey = ''
+         $scheduleKey = ''
     ) {
         $this->setScheduleKey($scheduleKey);
     }

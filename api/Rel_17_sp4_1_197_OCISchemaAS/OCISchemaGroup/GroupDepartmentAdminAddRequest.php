@@ -34,7 +34,7 @@ class GroupDepartmentAdminAddRequest extends ComplexType implements ComplexInter
     protected $language;
 
     public function __construct(
-         GroupDepartmentKey $departmentKey = '',
+         $departmentKey = '',
          $userId = '',
          $firstName = null,
          $lastName = null,

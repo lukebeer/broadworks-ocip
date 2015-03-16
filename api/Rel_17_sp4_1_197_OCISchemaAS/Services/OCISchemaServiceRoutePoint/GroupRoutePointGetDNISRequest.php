@@ -25,7 +25,7 @@ class GroupRoutePointGetDNISRequest extends ComplexType implements ComplexInterf
     protected $dnisKey;
 
     public function __construct(
-         DNISKey $dnisKey = ''
+         $dnisKey = ''
     ) {
         $this->setDnisKey($dnisKey);
     }

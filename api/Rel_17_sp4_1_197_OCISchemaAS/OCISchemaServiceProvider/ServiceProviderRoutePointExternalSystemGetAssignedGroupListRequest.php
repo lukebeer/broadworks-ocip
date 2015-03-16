@@ -37,8 +37,8 @@ class ServiceProviderRoutePointExternalSystemGetAssignedGroupListRequest extends
          $serviceProviderId = '',
          $externalSystem = '',
          $responseSizeLimit = null,
-         SearchCriteriaGroupId $searchCriteriaGroupId = null,
-         SearchCriteriaGroupName $searchCriteriaGroupName = null
+         $searchCriteriaGroupId = null,
+         $searchCriteriaGroupName = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setExternalSystem($externalSystem);

@@ -36,7 +36,7 @@ class GroupEnterpriseTrunkGetAvailableTrunkGroupListRequest extends ComplexType 
          $serviceProviderId = '',
          $groupId = '',
          $responseSizeLimit = null,
-         SearchCriteriaTrunkGroupName $searchCriteriaTrunkGroupName = null
+         $searchCriteriaTrunkGroupName = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setGroupId($groupId);

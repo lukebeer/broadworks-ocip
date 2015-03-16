@@ -91,9 +91,9 @@ class GroupTrunkGroupAddInstanceRequest14sp9 extends ComplexType implements Comp
          $serviceProviderId = '',
          $groupId = '',
          $name = '',
-         TrunkGroupPilotUser $pilotUser = null,
-         DepartmentKey $department = null,
-         AccessDevice $accessDevice = null,
+         $pilotUser = null,
+         $department = null,
+         $accessDevice = null,
          $maxActiveCalls = '',
          $maxIncomingCalls = null,
          $maxOutgoingCalls = null,
@@ -103,12 +103,12 @@ class GroupTrunkGroupAddInstanceRequest14sp9 extends ComplexType implements Comp
          $burstingMaxOutgoingCalls = null,
          $capacityExceededAction = null,
          $capacityExceededForwardAddress = null,
-         TrunkGroupKey $capacityExceededRerouteTrunkGroupKey = null,
+         $capacityExceededRerouteTrunkGroupKey = null,
          $capacityExceededTrapInitialCalls = '',
          $capacityExceededTrapOffsetCalls = '',
          $unreachableDestinationAction = null,
          $unreachableDestinationForwardAddress = null,
-         TrunkGroupKey $unreachableDestinationRerouteTrunkGroupKey = null,
+         $unreachableDestinationRerouteTrunkGroupKey = null,
          $unreachableDestinationTrapInitialCalls = '',
          $unreachableDestinationTrapOffsetCalls = '',
          $invitationTimeout = '',
@@ -127,7 +127,7 @@ class GroupTrunkGroupAddInstanceRequest14sp9 extends ComplexType implements Comp
          $usePilotUserChargeNumber = '',
          $callForwardingAlwaysAction = null,
          $callForwardingAlwaysForwardAddress = null,
-         TrunkGroupKey $callForwardingAlwaysRerouteTrunkGroupKey = null
+         $callForwardingAlwaysRerouteTrunkGroupKey = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setGroupId($groupId);

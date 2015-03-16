@@ -57,7 +57,7 @@ class EnterpriseCallCenterEnhancedReportingReportTemplateAddRequest extends Comp
          $description = null,
          $dataTemplate = '',
          $filterNumber = null,
-         LabeledFileResource $xsltTemplate = '',
+         $xsltTemplate = '',
          $scope = '',
          $isEnabled = '',
          $isRealtimeReport = null,

@@ -41,7 +41,7 @@ class UserMeetMeConferencingModifyConferenceRequest extends ComplexType implemen
 
     public function __construct(
          $userId = '',
-         MeetMeConferencingConferenceKey $conferenceKey = '',
+         $conferenceKey = '',
          $title = null,
          $estimatedParticipants = null,
          $accountCode = null,
@@ -49,7 +49,7 @@ class UserMeetMeConferencingModifyConferenceRequest extends ComplexType implemen
          $endConferenceOnModeratorExit = null,
          $moderatorRequired = null,
          $attendeeNotification = null,
-         MeetMeConferencingConferenceSchedule $conferenceSchedule = null
+         $conferenceSchedule = null
     ) {
         $this->setUserId($userId);
         $this->setConferenceKey($conferenceKey);

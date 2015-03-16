@@ -33,7 +33,7 @@ class UserCallMeNowModifyRequest extends ComplexType implements ComplexInterface
          $userId = '',
          $isActive = null,
          $answerConfirmation = null,
-         CriteriaActivation $criteriaActivation = null
+         $criteriaActivation = null
     ) {
         $this->setUserId($userId);
         $this->setIsActive($isActive);

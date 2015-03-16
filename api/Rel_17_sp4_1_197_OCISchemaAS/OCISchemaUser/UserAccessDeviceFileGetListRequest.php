@@ -27,7 +27,7 @@ class UserAccessDeviceFileGetListRequest extends ComplexType implements ComplexI
 
     public function __construct(
          $userId = '',
-         AccessDevice $accessDevice = ''
+         $accessDevice = ''
     ) {
         $this->setUserId($userId);
         $this->setAccessDevice($accessDevice);

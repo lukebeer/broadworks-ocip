@@ -36,9 +36,9 @@ class SystemPreferredCarrierGetGroupListRequest extends ComplexType implements C
     public function __construct(
          $carrier = '',
          $responseSizeLimit = null,
-         SearchCriteriaGroupId $searchCriteriaGroupId = null,
-         SearchCriteriaGroupName $searchCriteriaGroupName = null,
-         SearchCriteriaExactServiceProvider $searchCriteriaExactServiceProvider = null
+         $searchCriteriaGroupId = null,
+         $searchCriteriaGroupName = null,
+         $searchCriteriaExactServiceProvider = null
     ) {
         $this->setCarrier($carrier);
         $this->setResponseSizeLimit($responseSizeLimit);

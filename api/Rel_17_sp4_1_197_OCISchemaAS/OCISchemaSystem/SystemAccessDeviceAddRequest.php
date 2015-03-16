@@ -75,7 +75,7 @@ class SystemAccessDeviceAddRequest extends ComplexType implements ComplexInterfa
          $mobilityManagerDefaultOriginatingServiceKey = null,
          $mobilityManagerDefaultTerminatingServiceKey = null,
          $useCustomUserNamePassword = null,
-         DeviceManagementUserNamePassword16 $accessDeviceCredentials = null
+         $accessDeviceCredentials = null
     ) {
         $this->setDeviceName($deviceName);
         $this->setDeviceType($deviceType);

@@ -30,7 +30,7 @@ class UserOutgoingCallingPlanCallMeNowModifyRequest extends ComplexType implemen
     public function __construct(
          $userId = '',
          $useCustomSettings = null,
-         OutgoingCallingPlanCallMeNowPermissionsModify $userPermissions = null
+         $userPermissions = null
     ) {
         $this->setUserId($userId);
         $this->setUseCustomSettings($useCustomSettings);

@@ -29,7 +29,7 @@ class UserScheduleModifyRequest extends ComplexType implements ComplexInterface
 
     public function __construct(
          $userId = '',
-         ScheduleKey $scheduleKey = '',
+         $scheduleKey = '',
          $newScheduleName = null
     ) {
         $this->setUserId($userId);

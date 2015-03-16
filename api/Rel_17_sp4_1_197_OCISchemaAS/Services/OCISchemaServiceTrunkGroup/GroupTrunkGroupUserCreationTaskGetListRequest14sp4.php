@@ -25,7 +25,7 @@ class GroupTrunkGroupUserCreationTaskGetListRequest14sp4 extends ComplexType imp
     protected $trunkGroupKey;
 
     public function __construct(
-         TrunkGroupKey $trunkGroupKey = ''
+         $trunkGroupKey = ''
     ) {
         $this->setTrunkGroupKey($trunkGroupKey);
     }

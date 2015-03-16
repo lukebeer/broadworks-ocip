@@ -35,8 +35,8 @@ class UserBroadWorksAnywhereAddSelectiveCriteriaRequest extends ComplexType impl
          $userId = '',
          $phoneNumber = '',
          $criteriaName = '',
-         TimeSchedule $timeSchedule = null,
-         CriteriaFromDn $fromDnCriteria = ''
+         $timeSchedule = null,
+         $fromDnCriteria = ''
     ) {
         $this->setUserId($userId);
         $this->setPhoneNumber($phoneNumber);

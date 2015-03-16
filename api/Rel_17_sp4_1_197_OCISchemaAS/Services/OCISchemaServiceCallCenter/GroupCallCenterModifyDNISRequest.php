@@ -41,7 +41,7 @@ class GroupCallCenterModifyDNISRequest extends ComplexType implements ComplexInt
     protected $allowOutgoingACDCall;
 
     public function __construct(
-         DNISKey $dnisKey = '',
+         $dnisKey = '',
          $newDNISName = null,
          $dnisPhoneNumber = null,
          $extension = null,

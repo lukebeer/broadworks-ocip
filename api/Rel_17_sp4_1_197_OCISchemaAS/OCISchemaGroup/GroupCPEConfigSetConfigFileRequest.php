@@ -32,7 +32,7 @@ class GroupCPEConfigSetConfigFileRequest extends ComplexType implements ComplexI
          $serviceProviderId = '',
          $groupId = '',
          $deviceType = '',
-         FileResource $configFile = ''
+         $configFile = ''
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setGroupId($groupId);

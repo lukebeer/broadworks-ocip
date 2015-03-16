@@ -28,7 +28,7 @@ class SystemRoamingNetworkGetListRequest extends ComplexType implements ComplexI
 
     public function __construct(
          $responseSizeLimit = null,
-         SearchCriteriaRoamingMscAddress $searchCriteriaRoamingMscAddress = null
+         $searchCriteriaRoamingMscAddress = null
     ) {
         $this->setResponseSizeLimit($responseSizeLimit);
         $this->setSearchCriteriaRoamingMscAddress($searchCriteriaRoamingMscAddress);

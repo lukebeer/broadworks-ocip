@@ -34,7 +34,7 @@ class UserSimultaneousRingPersonalModifyRequest extends ComplexType implements C
          $userId = '',
          $isActive = null,
          $incomingCalls = null,
-         ReplacementOutgoingDNorSIPURIList $simRingPhoneNumberList = null
+         $simRingPhoneNumberList = null
     ) {
         $this->setUserId($userId);
         $this->setIsActive($isActive);

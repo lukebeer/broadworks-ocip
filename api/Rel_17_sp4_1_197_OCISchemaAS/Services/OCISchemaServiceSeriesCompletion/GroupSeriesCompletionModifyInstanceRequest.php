@@ -35,7 +35,7 @@ class GroupSeriesCompletionModifyInstanceRequest extends ComplexType implements 
          $groupId = '',
          $name = '',
          $newName = null,
-         ReplacementUserIdList $userIdList = null
+         $userIdList = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setGroupId($groupId);

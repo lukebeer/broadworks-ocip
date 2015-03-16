@@ -35,9 +35,9 @@ class GroupDnListAssignDepartmentRequest extends ComplexType implements ComplexI
     public function __construct(
          $serviceProviderId = '',
          $groupId = '',
-         DepartmentKey $departmentKey = null,
+         $departmentKey = null,
          $phoneNumber = null,
-         DNRange $dnRange = null
+         $dnRange = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setGroupId($groupId);

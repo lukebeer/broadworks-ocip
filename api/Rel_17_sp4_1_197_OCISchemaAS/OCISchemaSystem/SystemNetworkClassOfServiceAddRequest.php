@@ -41,16 +41,16 @@ class SystemNetworkClassOfServiceAddRequest extends ComplexType implements Compl
     public function __construct(
          $name = '',
          $description = null,
-         NetworkClassOfServiceCommunicationBarringProfile $communicationBarringProfile0 = null,
-         NetworkClassOfServiceCommunicationBarringProfile $communicationBarringProfile1 = null,
-         NetworkClassOfServiceCommunicationBarringProfile $communicationBarringProfile2 = null,
-         NetworkClassOfServiceCommunicationBarringProfile $communicationBarringProfile3 = null,
-         NetworkClassOfServiceCommunicationBarringProfile $communicationBarringProfile4 = null,
-         NetworkClassOfServiceCommunicationBarringProfile $communicationBarringProfile5 = null,
-         NetworkClassOfServiceCommunicationBarringProfile $communicationBarringProfile6 = null,
-         NetworkClassOfServiceCommunicationBarringProfile $communicationBarringProfile7 = null,
-         NetworkClassOfServiceCommunicationBarringProfile $communicationBarringProfile8 = null,
-         NetworkClassOfServiceCommunicationBarringProfile $communicationBarringProfile9 = null,
+         $communicationBarringProfile0 = null,
+         $communicationBarringProfile1 = null,
+         $communicationBarringProfile2 = null,
+         $communicationBarringProfile3 = null,
+         $communicationBarringProfile4 = null,
+         $communicationBarringProfile5 = null,
+         $communicationBarringProfile6 = null,
+         $communicationBarringProfile7 = null,
+         $communicationBarringProfile8 = null,
+         $communicationBarringProfile9 = null,
          $networkTranslationIndex = null
     ) {
         $this->setName($name);

@@ -42,7 +42,7 @@ class SystemSIPDeviceTypeFileModifyRequest extends ComplexType implements Comple
          $fileType = '',
          $allowFileCustomization = null,
          $fileSource = null,
-         FileResource $uploadFile = null,
+         $uploadFile = null,
          $useHttpDigestAuthentication = null,
          $macBasedFileAuthentication = null,
          $userNamePasswordFileAuthentication = null,

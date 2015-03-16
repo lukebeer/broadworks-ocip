@@ -45,7 +45,7 @@ class GroupCallCapacityManagementModifyInstanceRequest extends ComplexType imple
          $maxIncomingActiveCallsAllowed = null,
          $maxOutgoingActiveCallsAllowed = null,
          $becomeDefaultGroupForNewUsers = null,
-         ReplacementUserIdList $userIdList = null
+         $userIdList = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setGroupId($groupId);

@@ -38,9 +38,9 @@ class UserSequentialRingModifyCriteriaRequest extends ComplexType implements Com
          $userId = '',
          $criteriaName = '',
          $newCriteriaName = null,
-         TimeSchedule $timeSchedule = null,
-         CriteriaFromDnModify $fromDnCriteria = null,
-         HolidaySchedule $holidaySchedule = null,
+         $timeSchedule = null,
+         $fromDnCriteria = null,
+         $holidaySchedule = null,
          $blacklisted = null
     ) {
         $this->setUserId($userId);

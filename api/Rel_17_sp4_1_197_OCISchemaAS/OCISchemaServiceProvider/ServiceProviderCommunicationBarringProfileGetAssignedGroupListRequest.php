@@ -37,8 +37,8 @@ class ServiceProviderCommunicationBarringProfileGetAssignedGroupListRequest exte
          $serviceProviderId = '',
          $profile = '',
          $responseSizeLimit = null,
-         SearchCriteriaGroupId $searchCriteriaGroupId = null,
-         SearchCriteriaGroupName $searchCriteriaGroupName = null
+         $searchCriteriaGroupId = null,
+         $searchCriteriaGroupName = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setProfile($profile);

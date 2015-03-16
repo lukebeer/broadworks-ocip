@@ -33,7 +33,7 @@ class GroupScheduleGetEventRequest extends ComplexType implements ComplexInterfa
     public function __construct(
          $serviceProviderId = '',
          $groupId = '',
-         ScheduleKey $scheduleKey = '',
+         $scheduleKey = '',
          $eventName = ''
     ) {
         $this->setServiceProviderId($serviceProviderId);

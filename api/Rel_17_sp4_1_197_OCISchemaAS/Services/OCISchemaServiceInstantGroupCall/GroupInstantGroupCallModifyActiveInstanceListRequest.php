@@ -24,7 +24,7 @@ class GroupInstantGroupCallModifyActiveInstanceListRequest extends ComplexType i
     protected $serviceActivation;
 
     public function __construct(
-         ServiceActivation $serviceActivation = null
+         $serviceActivation = null
     ) {
         $this->setServiceActivation($serviceActivation);
     }

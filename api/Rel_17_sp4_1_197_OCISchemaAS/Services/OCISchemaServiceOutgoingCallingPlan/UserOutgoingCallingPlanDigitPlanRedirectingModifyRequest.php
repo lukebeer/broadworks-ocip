@@ -30,7 +30,7 @@ class UserOutgoingCallingPlanDigitPlanRedirectingModifyRequest extends ComplexTy
     public function __construct(
          $userId = '',
          $useCustomSettings = null,
-         OutgoingCallingPlanDigitPatternRedirectingPermissions $userPermissions = null
+         $userPermissions = null
     ) {
         $this->setUserId($userId);
         $this->setUseCustomSettings($useCustomSettings);

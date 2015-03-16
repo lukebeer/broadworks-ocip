@@ -30,7 +30,7 @@ class GroupMeetMeConferencingModifyRequest extends ComplexType implements Comple
     public function __construct(
          $serviceProviderId = '',
          $groupId = '',
-         MeetMeConferencingConferencePorts $allocatedPorts = null
+         $allocatedPorts = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setGroupId($groupId);

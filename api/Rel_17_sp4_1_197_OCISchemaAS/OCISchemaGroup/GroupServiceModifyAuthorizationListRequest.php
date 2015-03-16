@@ -35,9 +35,9 @@ class GroupServiceModifyAuthorizationListRequest extends ComplexType implements 
     public function __construct(
          $serviceProviderId = '',
          $groupId = '',
-         ServicePackAuthorization $servicePackAuthorization = null,
-         GroupServiceAuthorization $groupServiceAuthorization = null,
-         UserServiceAuthorization $userServiceAuthorization = null
+         $servicePackAuthorization = null,
+         $groupServiceAuthorization = null,
+         $userServiceAuthorization = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setGroupId($groupId);

@@ -42,13 +42,13 @@ class GroupInstantConferencingModifyInstanceRequest extends ComplexType implemen
 
     public function __construct(
          $serviceUserId = '',
-         ServiceInstanceModifyProfile $serviceInstanceProfile = null,
+         $serviceInstanceProfile = null,
          $conferenceBridgeLinePort = null,
-         InstantConferencingAllocatedPorts $allocatedPorts = null,
+         $allocatedPorts = null,
          $serviceProfileAppliedOnOutcall = null,
          $allowOutdialInInvitation = null,
          $allowDocumentDownload = null,
-         ReplacementUserIdList $bridgeAdministratorUserIdList = null,
+         $bridgeAdministratorUserIdList = null,
          $networkClassOfService = null
     ) {
         $this->setServiceUserId($serviceUserId);

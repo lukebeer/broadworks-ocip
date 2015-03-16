@@ -150,11 +150,11 @@ class BuildAPI {
                     $pad = "        ";
                     foreach ($elements as $item) {
                         $code .= "\n$pad ";
-                        if (array_key_exists('type', $item)) {
-                            if ($this->checkComplexType($item['type'])) {
-                                $code .= TypeMap::type($item['type']) . " ";
-                            }
-                        }
+//                        if (array_key_exists('type', $item)) {
+//                              if ($this->checkComplexType($item['type'])) {
+//                                $code .= TypeMap::type($item['type']) . " ";
+//                            }
+//                        }
                         $code .= '$' . $item['name'];
                         $code .= ((array_key_exists('minOccurs', $item['attributes']) || (strripos($name, 'Response')))) ? " = null," : " = '',";
                     }

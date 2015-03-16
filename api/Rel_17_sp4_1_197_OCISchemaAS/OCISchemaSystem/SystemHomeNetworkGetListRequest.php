@@ -28,7 +28,7 @@ class SystemHomeNetworkGetListRequest extends ComplexType implements ComplexInte
 
     public function __construct(
          $responseSizeLimit = null,
-         SearchCriteriaHomeMscAddress $searchCriteriaHomeMscAddress = null
+         $searchCriteriaHomeMscAddress = null
     ) {
         $this->setResponseSizeLimit($responseSizeLimit);
         $this->setSearchCriteriaHomeMscAddress($searchCriteriaHomeMscAddress);

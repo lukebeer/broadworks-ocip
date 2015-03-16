@@ -33,7 +33,7 @@ class GroupEmergencyZonesDeleteHomeZoneListRequest extends ComplexType implement
          $serviceProviderId = '',
          $groupId = '',
          $homeZoneIpAddress = null,
-         IPAddressRange $homeZoneIpAddressRange = null
+         $homeZoneIpAddressRange = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setGroupId($groupId);

@@ -32,9 +32,9 @@ class GroupPreferredCarrierGroupModifyRequest extends ComplexType implements Com
     public function __construct(
          $serviceProviderId = '',
          $groupId = '',
-         GroupPreferredCarrierNameModify $intraLataCarrier = null,
-         GroupPreferredCarrierNameModify $interLataCarrier = null,
-         GroupPreferredCarrierNameModify $internationalCarrier = null
+         $intraLataCarrier = null,
+         $interLataCarrier = null,
+         $internationalCarrier = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setGroupId($groupId);

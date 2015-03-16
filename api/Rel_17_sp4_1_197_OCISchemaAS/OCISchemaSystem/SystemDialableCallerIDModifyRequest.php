@@ -24,7 +24,7 @@ class SystemDialableCallerIDModifyRequest extends ComplexType implements Complex
     protected $criteriaPriorityOrder;
 
     public function __construct(
-         DialableCallerIDCriteriaPriorityOrder $criteriaPriorityOrder = null
+         $criteriaPriorityOrder = null
     ) {
         $this->setCriteriaPriorityOrder($criteriaPriorityOrder);
     }

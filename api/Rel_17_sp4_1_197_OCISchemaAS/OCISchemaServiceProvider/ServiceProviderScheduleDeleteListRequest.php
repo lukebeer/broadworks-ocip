@@ -27,7 +27,7 @@ class ServiceProviderScheduleDeleteListRequest extends ComplexType implements Co
 
     public function __construct(
          $serviceProviderId = '',
-         ScheduleKey $scheduleKey = ''
+         $scheduleKey = ''
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setScheduleKey($scheduleKey);

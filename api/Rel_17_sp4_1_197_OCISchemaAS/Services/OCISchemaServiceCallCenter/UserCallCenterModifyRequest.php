@@ -59,8 +59,8 @@ class UserCallCenterModifyRequest extends ComplexType implements ComplexInterfac
          $forceAgentUnavailableOnBouncedCallLimit = null,
          $numberConsecutiveBouncedCallsToForceAgentUnavailable = null,
          $makeOutgoingCallsAsCallCenter = null,
-         DNISKey $outgoingCallDNIS = null,
-         CallCenterAgentAvailability $callCenterAvailability = null
+         $outgoingCallDNIS = null,
+         $callCenterAvailability = null
     ) {
         $this->setUserId($userId);
         $this->setAgentACDState($agentACDState);

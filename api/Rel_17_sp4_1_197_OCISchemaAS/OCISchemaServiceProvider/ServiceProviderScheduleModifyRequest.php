@@ -29,7 +29,7 @@ class ServiceProviderScheduleModifyRequest extends ComplexType implements Comple
 
     public function __construct(
          $serviceProviderId = '',
-         ScheduleKey $scheduleKey = '',
+         $scheduleKey = '',
          $newScheduleName = null
     ) {
         $this->setServiceProviderId($serviceProviderId);

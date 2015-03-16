@@ -38,7 +38,7 @@ class UserInstantConferencingControlCallRequest extends ComplexType implements C
 
     public function __construct(
          $userId = '',
-         InstantConferencingConferenceKey $conferenceKey = '',
+         $conferenceKey = '',
          $conferenceCallId = '',
          $action = '',
          $phoneNumber = null,

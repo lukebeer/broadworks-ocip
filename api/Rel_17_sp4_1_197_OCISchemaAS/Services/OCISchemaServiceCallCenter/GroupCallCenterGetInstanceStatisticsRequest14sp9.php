@@ -28,7 +28,7 @@ class GroupCallCenterGetInstanceStatisticsRequest14sp9 extends ComplexType imple
 
     public function __construct(
          $serviceUserId = '',
-         CallCenterStatisticsRange $statisticsRange = ''
+         $statisticsRange = ''
     ) {
         $this->setServiceUserId($serviceUserId);
         $this->setStatisticsRange($statisticsRange);

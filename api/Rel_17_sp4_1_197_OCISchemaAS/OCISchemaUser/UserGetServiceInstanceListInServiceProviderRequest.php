@@ -45,13 +45,13 @@ class UserGetServiceInstanceListInServiceProviderRequest extends ComplexType imp
     public function __construct(
          $serviceProviderId = '',
          $responseSizeLimit = null,
-         SearchCriteriaGroupId $SearchCriteriaGroupId = null,
-         SearchCriteriaExactServiceType $SearchCriteriaExactServiceType = null,
-         SearchCriteriaUserId $searchCriteriaUserId = null,
-         SearchCriteriaUserLastName $searchCriteriaUserLastName = null,
-         SearchCriteriaDn $searchCriteriaDn = null,
-         SearchCriteriaExtension $searchCriteriaExtension = null,
-         SearchCriteriaExactUserDepartment $searchCriteriaExactUserDepartment = null
+         $SearchCriteriaGroupId = null,
+         $SearchCriteriaExactServiceType = null,
+         $searchCriteriaUserId = null,
+         $searchCriteriaUserLastName = null,
+         $searchCriteriaDn = null,
+         $searchCriteriaExtension = null,
+         $searchCriteriaExactUserDepartment = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setResponseSizeLimit($responseSizeLimit);

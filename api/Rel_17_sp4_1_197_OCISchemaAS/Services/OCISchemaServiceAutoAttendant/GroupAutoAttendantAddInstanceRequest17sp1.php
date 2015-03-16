@@ -49,15 +49,15 @@ class GroupAutoAttendantAddInstanceRequest17sp1 extends ComplexType implements C
          $serviceProviderId = '',
          $groupId = '',
          $serviceUserId = '',
-         ServiceInstanceAddProfile $serviceInstanceProfile = '',
+         $serviceInstanceProfile = '',
          $enableVideo = '',
-         TimeSchedule $businessHours = null,
-         HolidaySchedule $holidaySchedule = null,
+         $businessHours = null,
+         $holidaySchedule = null,
          $extensionDialingScope = '',
          $nameDialingScope = '',
          $nameDialingEntries = '',
-         AutoAttendantAddMenu16 $businessHoursMenu = null,
-         AutoAttendantAddMenu16 $afterHoursMenu = null
+         $businessHoursMenu = null,
+         $afterHoursMenu = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setGroupId($groupId);

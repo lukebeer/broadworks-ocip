@@ -33,7 +33,7 @@ class SystemZoneAddRequest extends ComplexType implements ComplexInterface
     public function __construct(
          $zoneName = '',
          $netAddress = null,
-         IPAddressRange $netAddressRange = null,
+         $netAddressRange = null,
          $locationBasedPhysicalLocation = null,
          $callingZonePhysicalLocation = null
     ) {

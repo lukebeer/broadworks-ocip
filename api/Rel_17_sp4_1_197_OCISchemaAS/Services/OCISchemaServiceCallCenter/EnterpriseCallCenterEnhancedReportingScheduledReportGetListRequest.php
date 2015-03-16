@@ -35,9 +35,9 @@ class EnterpriseCallCenterEnhancedReportingScheduledReportGetListRequest extends
     public function __construct(
          $serviceProviderId = '',
          $responseSizeLimit = null,
-         SearchCriteriaCallCenterScheduledReportName $searchCriteriaCallCenterScheduledReportName = null,
-         SearchCriteriaExactCallCenterScheduledReportCreatedBySupervisor $searchCriteriaExactCallCenterScheduledReportCreatedBySupervisor = null,
-         SearchCriteriaExactCallCenterReportTemplateKey $searchCriteriaExactCallCenterReportTemplateKey = null
+         $searchCriteriaCallCenterScheduledReportName = null,
+         $searchCriteriaExactCallCenterScheduledReportCreatedBySupervisor = null,
+         $searchCriteriaExactCallCenterReportTemplateKey = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setResponseSizeLimit($responseSizeLimit);

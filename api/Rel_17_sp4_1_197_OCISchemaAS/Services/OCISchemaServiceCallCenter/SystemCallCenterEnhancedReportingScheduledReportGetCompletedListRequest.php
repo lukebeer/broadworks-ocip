@@ -36,11 +36,11 @@ class SystemCallCenterEnhancedReportingScheduledReportGetCompletedListRequest ex
 
     public function __construct(
          $responseSizeLimit = null,
-         SearchCriteriaCallCenterScheduledReportName $searchCriteriaCallCenterScheduledReportName = null,
-         SearchCriteriaGroupId $searchCriteriaGroupId = null,
-         SearchCriteriaExactCallCenterScheduledReportServiceProvider $searchCriteriaExactCallCenterScheduledReportServiceProvider = null,
-         SearchCriteriaExactCallCenterScheduledReportCreatedBySupervisor $searchCriteriaExactCallCenterScheduledReportCreatedBySupervisor = null,
-         SearchCriteriaCallCenterReportTemplateName $searchCriteriaCallCenterReportTemplateName = null
+         $searchCriteriaCallCenterScheduledReportName = null,
+         $searchCriteriaGroupId = null,
+         $searchCriteriaExactCallCenterScheduledReportServiceProvider = null,
+         $searchCriteriaExactCallCenterScheduledReportCreatedBySupervisor = null,
+         $searchCriteriaCallCenterReportTemplateName = null
     ) {
         $this->setResponseSizeLimit($responseSizeLimit);
         $this->setSearchCriteriaCallCenterScheduledReportName($searchCriteriaCallCenterScheduledReportName);

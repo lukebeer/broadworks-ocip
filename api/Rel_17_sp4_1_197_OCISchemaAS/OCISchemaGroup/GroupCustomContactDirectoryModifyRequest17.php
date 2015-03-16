@@ -35,7 +35,7 @@ class GroupCustomContactDirectoryModifyRequest17 extends ComplexType implements 
          $groupId = '',
          $name = '',
          $newName = null,
-         ReplacementCustomContactDirectoryEntryList $entryList = null
+         $entryList = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setGroupId($groupId);

@@ -33,7 +33,7 @@ class UserPolycomPhoneServicesModifyRequest extends ComplexType implements Compl
 
     public function __construct(
          $userId = '',
-         AccessDevice $accessDevice = '',
+         $accessDevice = '',
          $integratePhoneDirectoryWithBroadWorks = null,
          $includeUserPersonalPhoneListInDirectory = null,
          $includeGroupCustomContactDirectoryInDirectory = null,

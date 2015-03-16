@@ -43,14 +43,14 @@ class UserVoiceMessagingUserModifyGreetingRequest extends ComplexType implements
     public function __construct(
          $userId = '',
          $busyAnnouncementSelection = null,
-         LabeledFileResource $busyPersonalAudioFile = null,
-         LabeledFileResource $busyPersonalVideoFile = null,
+         $busyPersonalAudioFile = null,
+         $busyPersonalVideoFile = null,
          $noAnswerAnnouncementSelection = null,
-         LabeledFileResource $noAnswerPersonalAudioFile = null,
-         LabeledFileResource $noAnswerPersonalVideoFile = null,
-         VoiceMessagingAlternateNoAnswerGreetingModify $noAnswerAlternateGreeting01 = null,
-         VoiceMessagingAlternateNoAnswerGreetingModify $noAnswerAlternateGreeting02 = null,
-         VoiceMessagingAlternateNoAnswerGreetingModify $noAnswerAlternateGreeting03 = null,
+         $noAnswerPersonalAudioFile = null,
+         $noAnswerPersonalVideoFile = null,
+         $noAnswerAlternateGreeting01 = null,
+         $noAnswerAlternateGreeting02 = null,
+         $noAnswerAlternateGreeting03 = null,
          $noAnswerNumberOfRings = null
     ) {
         $this->setUserId($userId);

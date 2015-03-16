@@ -67,16 +67,16 @@ class SystemCommunicationBarringProfileModifyRequest extends ComplexType impleme
          $originatingDefaultTreatmentId = null,
          $originatingDefaultTransferNumber = null,
          $originatingDefaultCallTimeout = null,
-         ReplacementCommunicationBarringOriginatingRuleList $originatingRule = null,
+         $originatingRule = null,
          $redirectingDefaultAction = null,
          $redirectingDefaultCallTimeout = null,
-         ReplacementCommunicationBarringRedirectingRuleList $redirectingRule = null,
+         $redirectingRule = null,
          $incomingDefaultAction = null,
          $incomingDefaultCallTimeout = null,
-         ReplacementCommunicationBarringIncomingRuleList $incomingRule = null,
+         $incomingRule = null,
          $callMeNowDefaultAction = null,
          $callMeNowDefaultCallTimeout = null,
-         ReplacementCommunicationBarringCallMeNowRuleList $callMeNowRule = null
+         $callMeNowRule = null
     ) {
         $this->setName($name);
         $this->setNewName($newName);

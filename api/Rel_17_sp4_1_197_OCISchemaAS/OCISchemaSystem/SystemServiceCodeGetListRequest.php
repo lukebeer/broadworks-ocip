@@ -32,8 +32,8 @@ class SystemServiceCodeGetListRequest extends ComplexType implements ComplexInte
 
     public function __construct(
          $responseSizeLimit = null,
-         SearchCriteriaServiceCode $searchCriteriaServiceCode = null,
-         SearchCriteriaServiceCodeDescription $searchCriteriaServiceCodeDescription = null
+         $searchCriteriaServiceCode = null,
+         $searchCriteriaServiceCodeDescription = null
     ) {
         $this->setResponseSizeLimit($responseSizeLimit);
         $this->setSearchCriteriaServiceCode($searchCriteriaServiceCode);

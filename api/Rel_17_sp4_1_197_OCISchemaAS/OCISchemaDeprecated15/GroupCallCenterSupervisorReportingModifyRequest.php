@@ -33,7 +33,7 @@ class GroupCallCenterSupervisorReportingModifyRequest extends ComplexType implem
     public function __construct(
          $serviceUserId = '',
          $reportingServerName = null,
-         ReplacementUserIdList $supervisorUserIdList = null
+         $supervisorUserIdList = null
     ) {
         $this->setServiceUserId($serviceUserId);
         $this->setReportingServerName($reportingServerName);

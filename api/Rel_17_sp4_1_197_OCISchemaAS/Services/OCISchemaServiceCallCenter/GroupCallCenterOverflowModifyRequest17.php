@@ -49,11 +49,11 @@ class GroupCallCenterOverflowModifyRequest17 extends ComplexType implements Comp
          $timeoutSeconds = null,
          $playAnnouncementBeforeOverflowProcessing = null,
          $audioMessageSelection = null,
-         CallCenterAnnouncementURLListModify $audioUrlList = null,
-         CallCenterAnnouncementFileListModify $audioFileList = null,
+         $audioUrlList = null,
+         $audioFileList = null,
          $videoMessageSelection = null,
-         CallCenterAnnouncementURLListModify $videoUrlList = null,
-         CallCenterAnnouncementFileListModify $videoFileList = null
+         $videoUrlList = null,
+         $videoFileList = null
     ) {
         $this->setServiceUserId($serviceUserId);
         $this->setAction($action);

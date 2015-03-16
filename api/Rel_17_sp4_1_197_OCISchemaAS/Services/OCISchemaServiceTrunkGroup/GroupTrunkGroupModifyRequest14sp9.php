@@ -33,7 +33,7 @@ class GroupTrunkGroupModifyRequest14sp9 extends ComplexType implements ComplexIn
          $serviceProviderId = '',
          $groupId = '',
          $maxActiveCalls = null,
-         UnboundedNonNegativeInt $burstingMaxActiveCalls = null
+         $burstingMaxActiveCalls = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setGroupId($groupId);

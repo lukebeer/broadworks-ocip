@@ -42,14 +42,14 @@ class UserVoiceMessagingUserModifyGreetingRequest16 extends ComplexType implemen
     public function __construct(
          $userId = '',
          $busyAnnouncementSelection = null,
-         LabeledMediaFileResource $busyPersonalAudioFile = null,
-         LabeledMediaFileResource $busyPersonalVideoFile = null,
+         $busyPersonalAudioFile = null,
+         $busyPersonalVideoFile = null,
          $noAnswerAnnouncementSelection = null,
-         LabeledMediaFileResource $noAnswerPersonalAudioFile = null,
-         LabeledMediaFileResource $noAnswerPersonalVideoFile = null,
-         VoiceMessagingAlternateNoAnswerGreetingModify16 $noAnswerAlternateGreeting01 = null,
-         VoiceMessagingAlternateNoAnswerGreetingModify16 $noAnswerAlternateGreeting02 = null,
-         VoiceMessagingAlternateNoAnswerGreetingModify16 $noAnswerAlternateGreeting03 = null,
+         $noAnswerPersonalAudioFile = null,
+         $noAnswerPersonalVideoFile = null,
+         $noAnswerAlternateGreeting01 = null,
+         $noAnswerAlternateGreeting02 = null,
+         $noAnswerAlternateGreeting03 = null,
          $noAnswerNumberOfRings = null
     ) {
         $this->setUserId($userId);

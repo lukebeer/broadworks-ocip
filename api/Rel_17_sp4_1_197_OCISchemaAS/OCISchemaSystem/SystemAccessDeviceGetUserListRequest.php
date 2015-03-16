@@ -49,16 +49,16 @@ class SystemAccessDeviceGetUserListRequest extends ComplexType implements Comple
     public function __construct(
          $deviceName = '',
          $responseSizeLimit = null,
-         SearchCriteriaLinePortUserPart $searchCriteriaLinePortUserPart = null,
-         SearchCriteriaLinePortDomain $searchCriteriaLinePortDomain = null,
-         SearchCriteriaUserLastName $searchCriteriaUserLastName = null,
-         SearchCriteriaUserFirstName $searchCriteriaUserFirstName = null,
-         SearchCriteriaDn $searchCriteriaDn = null,
-         SearchCriteriaUserId $searchCriteriaUserId = null,
-         SearchCriteriaGroupId $searchCriteriaGroupId = null,
-         SearchCriteriaExactServiceProvider $searchCriteriaExactServiceProvider = null,
-         SearchCriteriaExactEndpointType $searchCriteriaExactEndpointType = null,
-         SearchCriteriaExactUserType $searchCriteriaExactUserType = null
+         $searchCriteriaLinePortUserPart = null,
+         $searchCriteriaLinePortDomain = null,
+         $searchCriteriaUserLastName = null,
+         $searchCriteriaUserFirstName = null,
+         $searchCriteriaDn = null,
+         $searchCriteriaUserId = null,
+         $searchCriteriaGroupId = null,
+         $searchCriteriaExactServiceProvider = null,
+         $searchCriteriaExactEndpointType = null,
+         $searchCriteriaExactUserType = null
     ) {
         $this->setDeviceName($deviceName);
         $this->setResponseSizeLimit($responseSizeLimit);

@@ -24,7 +24,7 @@ class GroupHuntGroupModifyActiveInstanceListRequest extends ComplexType implemen
     protected $serviceActivation;
 
     public function __construct(
-         ServiceActivation $serviceActivation = null
+         $serviceActivation = null
     ) {
         $this->setServiceActivation($serviceActivation);
     }

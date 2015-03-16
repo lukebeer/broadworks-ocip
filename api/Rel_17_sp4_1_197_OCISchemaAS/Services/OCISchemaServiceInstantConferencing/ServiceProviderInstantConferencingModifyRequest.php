@@ -27,7 +27,7 @@ class ServiceProviderInstantConferencingModifyRequest extends ComplexType implem
 
     public function __construct(
          $serviceProviderId = '',
-         UnboundedNonNegativeInt $portsAllocatedToServiceProvider = null
+         $portsAllocatedToServiceProvider = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setPortsAllocatedToServiceProvider($portsAllocatedToServiceProvider);

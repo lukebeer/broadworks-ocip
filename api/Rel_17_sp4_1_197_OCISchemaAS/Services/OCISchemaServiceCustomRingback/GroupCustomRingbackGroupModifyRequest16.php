@@ -38,9 +38,9 @@ class GroupCustomRingbackGroupModifyRequest16 extends ComplexType implements Com
          $groupId = '',
          $isActive = null,
          $audioSelection = null,
-         ExtendedMediaFileResource $audioFile = null,
+         $audioFile = null,
          $videoSelection = null,
-         ExtendedMediaFileResource $videoFile = null
+         $videoFile = null
     ) {
         $this->setServiceProviderId($serviceProviderId);
         $this->setGroupId($groupId);

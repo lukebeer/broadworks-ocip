@@ -32,7 +32,7 @@ class SystemZoneCallingRestrictionsNetAddressGetListRequest extends ComplexType 
     public function __construct(
          $zoneName = '',
          $responseSizeLimit = null,
-         SearchCriteriaZoneIPAddress $searchCriteriaZoneIPAddress = null
+         $searchCriteriaZoneIPAddress = null
     ) {
         $this->setZoneName($zoneName);
         $this->setResponseSizeLimit($responseSizeLimit);
