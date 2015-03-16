@@ -156,15 +156,16 @@ class UserHotelingGuestGetResponse14 extends ComplexType implements ComplexInter
     /**
      * 
      */
-    public function setHostAssociationDateTime(xs:dateTime $hostAssociationDateTime = null)
+    public function setHostAssociationDateTime($hostAssociationDateTime = null)
     {
+        $this->hostAssociationDateTime = new PrimitiveType($hostAssociationDateTime);
         $this->hostAssociationDateTime->setElementName('hostAssociationDateTime');
         return $this;
     }
 
     /**
      * 
-     * @return xs:dateTime $hostAssociationDateTime
+     * @return string $hostAssociationDateTime
      */
     public function getHostAssociationDateTime()
     {

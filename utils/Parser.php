@@ -18,6 +18,11 @@ abstract class TypeMap {
             case 'xs:string':
             case 'xs:token':
             case 'xs:int':
+            case 'xs:time':
+            case 'xs:date':
+            case 'xs:dateTime':
+            case 'xs:duration':
+            case 'xs:base64Binary':
                 return "";
             case 'core:OCITable':
                 return 'TableType';
@@ -35,6 +40,11 @@ abstract class TypeMap {
             case 'xs:string':
             case 'xs:token':
             case 'xs:int':
+            case 'xs:time':
+            case 'xs:date':
+            case 'xs:dateTime':
+            case 'xs:duration':
+            case 'xs:base64Binary':
                 return true;
             default:
                 return false;
@@ -49,6 +59,11 @@ abstract class TypeMap {
             case 'xs:NMTOKEN':
             case 'xs:string':
             case 'xs:token':
+            case 'xs:time':
+            case 'xs:date':
+            case 'xs:dateTime':
+            case 'xs:base64Binary':
+            case 'xs:duration':
                 return ' string ';
             case 'xs:int':
                 return ' int ';

@@ -98,15 +98,16 @@ class SystemLicensingGetResponse14sp3 extends ComplexType implements ComplexInte
     /**
      * 
      */
-    public function setExpirationDate(xs:dateTime $expirationDate = null)
+    public function setExpirationDate($expirationDate = null)
     {
+        $this->expirationDate = new PrimitiveType($expirationDate);
         $this->expirationDate->setElementName('expirationDate');
         return $this;
     }
 
     /**
      * 
-     * @return xs:dateTime $expirationDate
+     * @return string $expirationDate
      */
     public function getExpirationDate()
     {

@@ -147,15 +147,16 @@ class UserInstantConferencingGetStandAloneConferenceRecordingResponse extends Co
     /**
      * 
      */
-    public function setStartDateTime(xs:dateTime $startDateTime = null)
+    public function setStartDateTime($startDateTime = null)
     {
+        $this->startDateTime = new PrimitiveType($startDateTime);
         $this->startDateTime->setElementName('startDateTime');
         return $this;
     }
 
     /**
      * 
-     * @return xs:dateTime $startDateTime
+     * @return string $startDateTime
      */
     public function getStartDateTime()
     {
@@ -167,15 +168,16 @@ class UserInstantConferencingGetStandAloneConferenceRecordingResponse extends Co
     /**
      * 
      */
-    public function setDuration(xs:duration $duration = null)
+    public function setDuration($duration = null)
     {
+        $this->duration = new PrimitiveType($duration);
         $this->duration->setElementName('duration');
         return $this;
     }
 
     /**
      * 
-     * @return xs:duration $duration
+     * @return string $duration
      */
     public function getDuration()
     {

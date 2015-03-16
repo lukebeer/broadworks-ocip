@@ -88,15 +88,16 @@ class ServiceProviderServicePackMigrationTaskGetResponse14sp4 extends ComplexTyp
     /**
      * 
      */
-    public function setStartTimestamp(xs:dateTime $startTimestamp = null)
+    public function setStartTimestamp($startTimestamp = null)
     {
+        $this->startTimestamp = new PrimitiveType($startTimestamp);
         $this->startTimestamp->setElementName('startTimestamp');
         return $this;
     }
 
     /**
      * 
-     * @return xs:dateTime $startTimestamp
+     * @return string $startTimestamp
      */
     public function getStartTimestamp()
     {

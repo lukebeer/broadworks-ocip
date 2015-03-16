@@ -80,15 +80,16 @@ class GroupServiceScriptsGroupGetResponse extends ComplexType implements Complex
     /**
      * 
      */
-    public function setScriptContent(xs:base64Binary $scriptContent = null)
+    public function setScriptContent($scriptContent = null)
     {
+        $this->scriptContent = new PrimitiveType($scriptContent);
         $this->scriptContent->setElementName('scriptContent');
         return $this;
     }
 
     /**
      * 
-     * @return xs:base64Binary $scriptContent
+     * @return string $scriptContent
      */
     public function getScriptContent()
     {

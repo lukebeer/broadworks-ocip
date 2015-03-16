@@ -12,6 +12,7 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Schedule
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Recurrence;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\EventName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -152,15 +153,16 @@ class GroupScheduleAddEventRequest extends ComplexType implements ComplexInterfa
     /**
      * 
      */
-    public function setStartDate(xs:date $startDate = null)
+    public function setStartDate($startDate = null)
     {
+        $this->startDate = new PrimitiveType($startDate);
         $this->startDate->setElementName('startDate');
         return $this;
     }
 
     /**
      * 
-     * @return xs:date $startDate
+     * @return string $startDate
      */
     public function getStartDate()
     {
@@ -172,15 +174,16 @@ class GroupScheduleAddEventRequest extends ComplexType implements ComplexInterfa
     /**
      * 
      */
-    public function setEndDate(xs:date $endDate = null)
+    public function setEndDate($endDate = null)
     {
+        $this->endDate = new PrimitiveType($endDate);
         $this->endDate->setElementName('endDate');
         return $this;
     }
 
     /**
      * 
-     * @return xs:date $endDate
+     * @return string $endDate
      */
     public function getEndDate()
     {

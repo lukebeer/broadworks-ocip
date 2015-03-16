@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceServiceScripts; 
 
-
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -33,15 +33,16 @@ class UserServiceScriptsUserGetLogResponse extends ComplexType implements Comple
     /**
      * 
      */
-    public function setLogContent(xs:base64Binary $logContent = null)
+    public function setLogContent($logContent = null)
     {
+        $this->logContent = new PrimitiveType($logContent);
         $this->logContent->setElementName('logContent');
         return $this;
     }
 
     /**
      * 
-     * @return xs:base64Binary $logContent
+     * @return string $logContent
      */
     public function getLogContent()
     {

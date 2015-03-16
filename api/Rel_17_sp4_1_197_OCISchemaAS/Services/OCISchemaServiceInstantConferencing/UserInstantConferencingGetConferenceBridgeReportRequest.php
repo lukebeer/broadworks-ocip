@@ -10,6 +10,7 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaSer
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing\InstantConferencingBillingCode;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\EmailAddress;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -104,15 +105,16 @@ class UserInstantConferencingGetConferenceBridgeReportRequest extends ComplexTyp
     /**
      * 
      */
-    public function setReportStartDate(xs:date $reportStartDate = null)
+    public function setReportStartDate($reportStartDate = null)
     {
+        $this->reportStartDate = new PrimitiveType($reportStartDate);
         $this->reportStartDate->setElementName('reportStartDate');
         return $this;
     }
 
     /**
      * 
-     * @return xs:date $reportStartDate
+     * @return string $reportStartDate
      */
     public function getReportStartDate()
     {
@@ -124,15 +126,16 @@ class UserInstantConferencingGetConferenceBridgeReportRequest extends ComplexTyp
     /**
      * 
      */
-    public function setReportEndDate(xs:date $reportEndDate = null)
+    public function setReportEndDate($reportEndDate = null)
     {
+        $this->reportEndDate = new PrimitiveType($reportEndDate);
         $this->reportEndDate->setElementName('reportEndDate');
         return $this;
     }
 
     /**
      * 
-     * @return xs:date $reportEndDate
+     * @return string $reportEndDate
      */
     public function getReportEndDate()
     {

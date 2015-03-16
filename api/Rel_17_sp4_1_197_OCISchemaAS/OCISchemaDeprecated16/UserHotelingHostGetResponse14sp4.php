@@ -252,15 +252,16 @@ class UserHotelingHostGetResponse14sp4 extends ComplexType implements ComplexInt
     /**
      * 
      */
-    public function setGuestAssociationDateTime(xs:dateTime $guestAssociationDateTime = null)
+    public function setGuestAssociationDateTime($guestAssociationDateTime = null)
     {
+        $this->guestAssociationDateTime = new PrimitiveType($guestAssociationDateTime);
         $this->guestAssociationDateTime->setElementName('guestAssociationDateTime');
         return $this;
     }
 
     /**
      * 
-     * @return xs:dateTime $guestAssociationDateTime
+     * @return string $guestAssociationDateTime
      */
     public function getGuestAssociationDateTime()
     {

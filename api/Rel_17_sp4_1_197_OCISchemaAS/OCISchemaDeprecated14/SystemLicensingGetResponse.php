@@ -11,6 +11,7 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\GroupUserLi
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\LicenseStrictness;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\ServerHostId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\LicenseName;
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\TableType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
@@ -90,15 +91,16 @@ class SystemLicensingGetResponse extends ComplexType implements ComplexInterface
     /**
      * 
      */
-    public function setExpirationDate(xs:dateTime $expirationDate = null)
+    public function setExpirationDate($expirationDate = null)
     {
+        $this->expirationDate = new PrimitiveType($expirationDate);
         $this->expirationDate->setElementName('expirationDate');
         return $this;
     }
 
     /**
      * 
-     * @return xs:dateTime $expirationDate
+     * @return string $expirationDate
      */
     public function getExpirationDate()
     {

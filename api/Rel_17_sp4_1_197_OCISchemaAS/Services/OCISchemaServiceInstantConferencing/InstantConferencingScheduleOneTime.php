@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing; 
 
-
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -42,15 +42,16 @@ class InstantConferencingScheduleOneTime extends ComplexType implements ComplexI
     /**
      * 
      */
-    public function setStartTime(xs:time $startTime = null)
+    public function setStartTime($startTime = null)
     {
+        $this->startTime = new PrimitiveType($startTime);
         $this->startTime->setElementName('startTime');
         return $this;
     }
 
     /**
      * 
-     * @return xs:time $startTime
+     * @return string $startTime
      */
     public function getStartTime()
     {
@@ -62,15 +63,16 @@ class InstantConferencingScheduleOneTime extends ComplexType implements ComplexI
     /**
      * 
      */
-    public function setDuration(xs:duration $duration = null)
+    public function setDuration($duration = null)
     {
+        $this->duration = new PrimitiveType($duration);
         $this->duration->setElementName('duration');
         return $this;
     }
 
     /**
      * 
-     * @return xs:duration $duration
+     * @return string $duration
      */
     public function getDuration()
     {

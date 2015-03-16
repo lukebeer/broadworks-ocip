@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
-
+use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -33,15 +33,16 @@ class SystemFileGetContentResponse extends ComplexType implements ComplexInterfa
     /**
      * 
      */
-    public function setFileContent(xs:base64Binary $fileContent = null)
+    public function setFileContent($fileContent = null)
     {
+        $this->fileContent = new PrimitiveType($fileContent);
         $this->fileContent->setElementName('fileContent');
         return $this;
     }
 
     /**
      * 
-     * @return xs:base64Binary $fileContent
+     * @return string $fileContent
      */
     public function getFileContent()
     {
