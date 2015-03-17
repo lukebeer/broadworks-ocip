@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Client - Broadworks OCIP PHP Framework</title>
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/highlight.css">
+
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script>
+  <script src="../../js/theme.js"></script>
+
+  <style>
+    body {font-size: 90%;}
+    pre, code {font-size: 100%;}
+    h3, h4, h5, h6 {color: #2980b9; font-weight: 300}
+  </style> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> Broadworks OCIP PHP Framework</a>
+        
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+      <ul class="current">
+    
+        
+            <li class="toctree-l1 ">
+                <a class="" href="../../features">Features</a>
+            </li>
+        
+
+    
+        
+        <span>Core</span>
+            
+                <li class="toctree-l1 ">
+                    <a class="" href="../builder">Builder</a>
+                    
+                </li>
+            
+                <li class="toctree-l1 current">
+                    <a class="current" href=".">Client</a>
+                    
+                        <ul>
+                        
+                            <li class="toctree-l2"><a href="#broadworks_ocipcoreclientclient">Broadworks_OCIP\core\Client\Client</a></li>
+                            
+                                <li><a class="toctree-l3" href="#client-init">Client init</a></li>
+                            
+                                <li><a class="toctree-l3" href="#client-basic-structure">Client basic structure</a></li>
+                            
+                        
+                        </ul>
+                    
+                </li>
+            
+                <li class="toctree-l1 ">
+                    <a class="" href="../coreFactory">coreFactory</a>
+                    
+                </li>
+            
+                <li class="toctree-l1 ">
+                    <a class="" href="../errorControl">errorControl</a>
+                    
+                </li>
+            
+                <li class="toctree-l1 ">
+                    <a class="" href="../response">Response</a>
+                    
+                </li>
+            
+                <li class="toctree-l1 ">
+                    <a class="" href="../session">Session</a>
+                    
+                </li>
+            
+                <li class="toctree-l1 ">
+                    <a class="" href="../xml_serializer">Xml serializer</a>
+                    
+                </li>
+            
+        
+
+    
+        
+        <span>Examples</span>
+            
+                <li class="toctree-l1 ">
+                    <a class="" href="../../examples/basic-usage">Basic usage</a>
+                    
+                </li>
+            
+                <li class="toctree-l1 ">
+                    <a class="" href="../../examples/example_call_forward">Example call forward</a>
+                    
+                </li>
+            
+                <li class="toctree-l1 ">
+                    <a class="" href="../../examples/example_move_user">Example move user</a>
+                    
+                </li>
+            
+        
+
+    
+        
+        <span>Files</span>
+            
+                <li class="toctree-l1 ">
+                    <a class="" href="../../files/layout">Layout</a>
+                    
+                </li>
+            
+        
+
+    
+        
+        <span>Restrictions</span>
+            
+                <li class="toctree-l1 ">
+                    <a class="" href="../../restrictions/intro-to-restrictions">Intro to restrictions</a>
+                    
+                </li>
+            
+        
+
+    
+        
+        <span>Types</span>
+            
+                <li class="toctree-l1 ">
+                    <a class="" href="../../types/complex_type">Complex type</a>
+                    
+                </li>
+            
+                <li class="toctree-l1 ">
+                    <a class="" href="../../types/primitive_type">Primitive type</a>
+                    
+                </li>
+            
+                <li class="toctree-l1 ">
+                    <a class="" href="../../types/simple-content_type">Simple content type</a>
+                    
+                </li>
+            
+                <li class="toctree-l1 ">
+                    <a class="" href="../../types/simple_type">Simple type</a>
+                    
+                </li>
+            
+                <li class="toctree-l1 ">
+                    <a class="" href="../../types/table_type">Table type</a>
+                    
+                </li>
+            
+        
+
+    
+</ul>
+
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="icon icon-reorder"></i>
+        <a href="../.."></a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    <li>Client</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="https://github.com/LukeBeer/Broadworks_OCIP" class="icon icon-github"> Edit on GitHub</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              <h2 id="broadworks_ocipcoreclientclient">Broadworks_OCIP\core\Client\Client</h2>
+<p>The Client is the main class a user would interact with. It's the controller used to manage and construct the other core components.
+The Client is used for logging in, sending requests and fetching responses aside many other features that will be demonstraighted throughout this guide.</p>
+<h4 id="client-init">Client init</h4>
+<pre><code class="php">&lt;?php
+require_once 'Broadworks_OCIP/common.php';
+
+use Broadworks_OCIP\core\Client\Transport\TCPTransport;
+use Broadworks_OCIP\core\Client\Client;
+use Broadworks_OCIP\CoreFactory;
+
+
+$transport = new TCPTransport('ocip.example.com');
+$client    = new Client($transport);
+
+/* Or use CoreFactory to do the same thing in a single line */
+$lazyClient = CoreFactory::getTCPClient('ocip.example.com');
+
+print_r($client);
+</code></pre>
+
+<h4 id="client-basic-structure">Client basic structure</h4>
+<pre><code>Broadworks_OCIP\core\Client\Client Object
+(
+    [ociBuilder] =&gt; Broadworks_OCIP\core\Builder\Builder Object
+        (
+            [session] =&gt; Broadworks_OCIP\core\Session\Session Object
+                (
+                    [url:Broadworks_OCIP\core\Session\Session:private] =&gt; 
+                    [userId:Broadworks_OCIP\core\Session\Session:private] =&gt; 
+                    [pass:Broadworks_OCIP\core\Session\Session:private] =&gt; 
+                    [sessionId:Broadworks_OCIP\core\Session\Session:private] =&gt; 583420997019857152
+                    [nonce:Broadworks_OCIP\core\Session\Session:private] =&gt; 
+                    [cookie:Broadworks_OCIP\core\Session\Session:private] =&gt; 
+                    [loggedIn:Broadworks_OCIP\core\Session\Session:private] =&gt; 
+                    [transport:Broadworks_OCIP\core\Session\Session:private] =&gt; TCP
+                    [clearpass:Broadworks_OCIP\core\Session\Session:private] =&gt; 
+                )
+
+        )
+
+    [session:Broadworks_OCIP\core\Client\Client:private] =&gt; Broadworks_OCIP\core\Session\Session Object
+        (
+            [url:Broadworks_OCIP\core\Session\Session:private] =&gt; 
+            [userId:Broadworks_OCIP\core\Session\Session:private] =&gt; 
+            [pass:Broadworks_OCIP\core\Session\Session:private] =&gt; 
+            [sessionId:Broadworks_OCIP\core\Session\Session:private] =&gt; 583420997019857152
+            [nonce:Broadworks_OCIP\core\Session\Session:private] =&gt; 
+            [cookie:Broadworks_OCIP\core\Session\Session:private] =&gt; 
+            [loggedIn:Broadworks_OCIP\core\Session\Session:private] =&gt; 
+            [transport:Broadworks_OCIP\core\Session\Session:private] =&gt; TCP
+            [clearpass:Broadworks_OCIP\core\Session\Session:private] =&gt; 
+        )
+
+    [timeout:Broadworks_OCIP\core\Client\Client:private] =&gt; 4
+    [autoLogout:Broadworks_OCIP\core\Client\Client:private] =&gt; 1
+    [requestMsg:Broadworks_OCIP\core\Client\Client:private] =&gt; 
+    [responseType:Broadworks_OCIP\core\Client\Client:private] =&gt; 
+    [appendToResponse:Broadworks_OCIP\core\Client\Client:private] =&gt; Array
+        (
+        )
+
+    [transport] =&gt; Broadworks_OCIP\core\Client\Transport\TCPTransport Object
+        (
+            [response] =&gt; 
+            [session:protected] =&gt; Broadworks_OCIP\core\Session\Session Object
+                (
+                    [url:Broadworks_OCIP\core\Session\Session:private] =&gt; 
+                    [userId:Broadworks_OCIP\core\Session\Session:private] =&gt; 
+                    [pass:Broadworks_OCIP\core\Session\Session:private] =&gt; 
+                    [sessionId:Broadworks_OCIP\core\Session\Session:private] =&gt; 583420997019857152
+                    [nonce:Broadworks_OCIP\core\Session\Session:private] =&gt; 
+                    [cookie:Broadworks_OCIP\core\Session\Session:private] =&gt; 
+                    [loggedIn:Broadworks_OCIP\core\Session\Session:private] =&gt; 
+                    [transport:Broadworks_OCIP\core\Session\Session:private] =&gt; TCP
+                    [clearpass:Broadworks_OCIP\core\Session\Session:private] =&gt; 
+                )
+
+            [socket:Broadworks_OCIP\core\Client\Transport\TCPTransport:private] =&gt; Resource id #22
+            [pending:Broadworks_OCIP\core\Client\Transport\TCPTransport:private] =&gt; 
+        )
+
+    [errorControl] =&gt; Broadworks_OCIP\core\Logging\ErrorControl Object
+        (
+            [errors:protected] =&gt; 
+            [lastError:protected] =&gt; 
+        )
+
+)
+</code></pre>
+
+
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../coreFactory" class="btn btn-neutral float-right" title="coreFactory"/>Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../builder" class="btn btn-neutral" title="Builder"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+    <!-- Copyright etc -->
+    </p>
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+<div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        
+            <a class="icon icon-github" style="float: left; color: #fcfcfc"> GitHub</a>
+        
+      <span><a href="../builder" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      <span style="margin-left: 15px"><a href="../coreFactory" style="color: #fcfcfc">Next &raquo;</a></span>
+    </span>
+</div>
+</body>
+</html>

@@ -11,14 +11,14 @@
   
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
-  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
-  <link rel="stylesheet" href="../css/highlight.css">
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/highlight.css">
 
   <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
   <script src="//cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
-  <script type="text/javascript" src="../js/highlight.pack.js"></script>
-  <script src="../js/theme.js"></script>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script>
+  <script src="../../js/theme.js"></script>
 
   <style>
     body {font-size: 90%;}
@@ -34,7 +34,7 @@
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
       <div class="wy-side-nav-search">
-        <a href=".." class="icon icon-home"> Broadworks OCIP PHP Framework</a>
+        <a href="../.." class="icon icon-home"> Broadworks OCIP PHP Framework</a>
         
       </div>
 
@@ -43,36 +43,133 @@
     
         
             <li class="toctree-l1 ">
-                <a class="" href="../basic-usage">Basic usage</a>
+                <a class="" href="../../features">Features</a>
             </li>
         
 
     
         
-            <li class="toctree-l1 current">
-                <a class="current" href=".">Example call forward</a>
-            </li>
+        <span>Core</span>
+            
+                <li class="toctree-l1 ">
+                    <a class="" href="../../core/builder">Builder</a>
+                    
+                </li>
+            
+                <li class="toctree-l1 ">
+                    <a class="" href="../../core/client">Client</a>
+                    
+                </li>
+            
+                <li class="toctree-l1 ">
+                    <a class="" href="../../core/coreFactory">coreFactory</a>
+                    
+                </li>
+            
+                <li class="toctree-l1 ">
+                    <a class="" href="../../core/errorControl">errorControl</a>
+                    
+                </li>
+            
+                <li class="toctree-l1 ">
+                    <a class="" href="../../core/response">Response</a>
+                    
+                </li>
+            
+                <li class="toctree-l1 ">
+                    <a class="" href="../../core/session">Session</a>
+                    
+                </li>
+            
+                <li class="toctree-l1 ">
+                    <a class="" href="../../core/xml_serializer">Xml serializer</a>
+                    
+                </li>
+            
         
 
     
         
-            <li class="toctree-l1 ">
-                <a class="" href="../example_move_user">Example move user</a>
-            </li>
+        <span>Examples</span>
+            
+                <li class="toctree-l1 ">
+                    <a class="" href="../basic-usage">Basic usage</a>
+                    
+                </li>
+            
+                <li class="toctree-l1 current">
+                    <a class="current" href=".">Example call forward</a>
+                    
+                        <ul>
+                        
+                            <li class="toctree-l2"><a href="#disable-call-forward-always-for-all-users-in-a-group">Disable Call Forward Always for all users in a group</a></li>
+                            
+                        
+                            <li class="toctree-l2"><a href="#get-call-forwarding-always-for-all-group-users-as-table">Get Call Forwarding Always for all group users as table</a></li>
+                            
+                        
+                        </ul>
+                    
+                </li>
+            
+                <li class="toctree-l1 ">
+                    <a class="" href="../example_move_user">Example move user</a>
+                    
+                </li>
+            
         
 
     
         
-            <li class="toctree-l1 ">
-                <a class="" href="../features">Features</a>
-            </li>
+        <span>Files</span>
+            
+                <li class="toctree-l1 ">
+                    <a class="" href="../../files/layout">Layout</a>
+                    
+                </li>
+            
         
 
     
         
-            <li class="toctree-l1 ">
-                <a class="" href="../layout">Layout</a>
-            </li>
+        <span>Restrictions</span>
+            
+                <li class="toctree-l1 ">
+                    <a class="" href="../../restrictions/intro-to-restrictions">Intro to restrictions</a>
+                    
+                </li>
+            
+        
+
+    
+        
+        <span>Types</span>
+            
+                <li class="toctree-l1 ">
+                    <a class="" href="../../types/complex_type">Complex type</a>
+                    
+                </li>
+            
+                <li class="toctree-l1 ">
+                    <a class="" href="../../types/primitive_type">Primitive type</a>
+                    
+                </li>
+            
+                <li class="toctree-l1 ">
+                    <a class="" href="../../types/simple-content_type">Simple content type</a>
+                    
+                </li>
+            
+                <li class="toctree-l1 ">
+                    <a class="" href="../../types/simple_type">Simple type</a>
+                    
+                </li>
+            
+                <li class="toctree-l1 ">
+                    <a class="" href="../../types/table_type">Table type</a>
+                    
+                </li>
+            
         
 
     
@@ -87,7 +184,7 @@
       
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         <i data-toggle="wy-nav-top" class="icon icon-reorder"></i>
-        <a href=".."></a>
+        <a href="../.."></a>
       </nav>
 
       
@@ -95,7 +192,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
-    <li><a href="..">Docs</a> &raquo;</li>
+    <li><a href="../..">Docs</a> &raquo;</li>
     <li>Example call forward</li>
       <li class="wy-breadcrumbs-aside">
         
