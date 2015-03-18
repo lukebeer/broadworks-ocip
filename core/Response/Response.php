@@ -105,7 +105,7 @@ class Response
         switch ($outputType) {
             case ResponseOutput::STD:
                 $serializer = new XMLSerializer();
-                $object = $serializer->serialize($responseType, $cmdResponse);
+                $object = $serializer->serialize($responseType, utf8_encode($cmdResponse));
                 $this->response = $object;
                 break;
             case ResponseOutput::XML:
