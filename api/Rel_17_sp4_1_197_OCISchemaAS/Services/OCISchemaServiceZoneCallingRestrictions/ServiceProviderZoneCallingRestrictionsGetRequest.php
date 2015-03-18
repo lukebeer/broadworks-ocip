@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderZoneCallingRestrictionsGetRequest extends ComplexType implements ComplexInterface
 {
-    public    $responseType      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceZoneCallingRestrictions\ServiceProviderZoneCallingRestrictionsGetResponse';
+    public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceZoneCallingRestrictions\ServiceProviderZoneCallingRestrictionsGetResponse';
     public    $elementName = 'ServiceProviderZoneCallingRestrictionsGetRequest';
     protected $serviceProviderId;
 

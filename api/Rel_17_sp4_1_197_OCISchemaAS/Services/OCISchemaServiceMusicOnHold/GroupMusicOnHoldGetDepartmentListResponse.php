@@ -8,6 +8,7 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceMusicOnHold; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DepartmentFullPathName;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DepartmentKey;
 use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;

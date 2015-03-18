@@ -27,7 +27,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemAccessDeviceGetAllRequest extends ComplexType implements ComplexInterface
 {
-    public    $responseType                             = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemAccessDeviceGetAllResponse';
+    public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemAccessDeviceGetAllResponse';
     public    $elementName = 'SystemAccessDeviceGetAllRequest';
     protected $responseSizeLimit;
     protected $searchCriteriaDeviceName;

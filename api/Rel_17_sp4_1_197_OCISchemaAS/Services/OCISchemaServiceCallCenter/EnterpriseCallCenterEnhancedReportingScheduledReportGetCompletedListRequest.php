@@ -24,7 +24,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class EnterpriseCallCenterEnhancedReportingScheduledReportGetCompletedListRequest extends ComplexType implements ComplexInterface
 {
-    public    $responseType                                                    = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\EnterpriseCallCenterEnhancedReportingScheduledReportGetCompletedListResponse';
+    public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\EnterpriseCallCenterEnhancedReportingScheduledReportGetCompletedListResponse';
     public    $elementName = 'EnterpriseCallCenterEnhancedReportingScheduledReportGetCompletedListRequest';
     protected $serviceProviderId;
     protected $responseSizeLimit;

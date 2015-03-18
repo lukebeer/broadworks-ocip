@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupBroadWorksMobileManagerGetDomainListRequest extends ComplexType implements ComplexInterface
 {
-    public    $responseType      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupBroadWorksMobileManagerGetDomainListResponse';
+    public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupBroadWorksMobileManagerGetDomainListResponse';
     public    $elementName = 'GroupBroadWorksMobileManagerGetDomainListRequest';
     protected $serviceProviderId;
     protected $groupId;

@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15; 
 
-
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15\CallingPartyCategorySelection;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;

@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserSharedCallAppearanceGetEndpointRequest extends ComplexType implements ComplexInterface
 {
-    public    $responseType         = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceSharedCallAppearance\UserSharedCallAppearanceGetEndpointResponse';
+    public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceSharedCallAppearance\UserSharedCallAppearanceGetEndpointResponse';
     public    $elementName = 'UserSharedCallAppearanceGetEndpointRequest';
     protected $userId;
     protected $accessDeviceEndpoint;

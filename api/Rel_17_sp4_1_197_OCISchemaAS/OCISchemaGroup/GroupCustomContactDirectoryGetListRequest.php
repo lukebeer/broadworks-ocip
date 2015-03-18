@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupCustomContactDirectoryGetListRequest extends ComplexType implements ComplexInterface
 {
-    public    $responseType      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupCustomContactDirectoryGetListResponse';
+    public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupCustomContactDirectoryGetListResponse';
     public    $elementName = 'GroupCustomContactDirectoryGetListRequest';
     protected $serviceProviderId;
     protected $groupId;

@@ -103,6 +103,10 @@ class BuildAPI {
     }
 
 
+    /**
+     * @param $file
+     * @return bool
+     */
     public function buildComplexTypes($file) {
         $xml = file_get_contents($file);
         $xml = simplexml_load_string($xml, 'SimpleXMLElement', 0, "xs", true);
@@ -152,7 +156,7 @@ class BuildAPI {
                 }
                 if ($this->checkComplexType($responseName)) {
                     if (preg_match("/request/i", $uname)) {
-                        $code .= str_pad("    public    \$responseType", $maxlen+15, ' ') . " = '$this->base_namespace\\$this->schema_out\\{$this->namespaces[$responseName]}\\$responseName';\n";
+                        $code .= "    public    \$responseType = '{$this->base_namespace}\\{$this->schema_out}\\{$this->namespaces[$responseName]}\\$responseName';\n";
                     }
                 }
                 $code .= "    public    \$elementName = '$name';\n";
@@ -181,7 +185,7 @@ class BuildAPI {
                     //$code .= str_pad('        $this->set'.$item['name'], $maxlen+15, ' ');
                     //$code .= " = ";
                     if (array_key_exists('type', $item)) {
-                        if ((array_key_exists($item['type'], $this->namespaces) && (!preg_match("/{$item['name']}/i", $uname)))) {
+                        if ((array_key_exists($item['type'], $this->namespaces) && (!preg_match("/^{$item['name']}$/i", $uname)))) {
                             $types[] = "use $this->base_namespace\\$this->schema_out\\" . ucfirst($this->namespaces[$item['type']]) . "\\" . $item['type'] . ";";
                         }
                     }

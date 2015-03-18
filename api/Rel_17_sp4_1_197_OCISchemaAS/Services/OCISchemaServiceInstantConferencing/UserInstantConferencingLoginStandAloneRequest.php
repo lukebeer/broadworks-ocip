@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserInstantConferencingLoginStandAloneRequest extends ComplexType implements ComplexInterface
 {
-    public    $responseType          = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing\UserInstantConferencingLoginStandAloneResponse';
+    public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing\UserInstantConferencingLoginStandAloneResponse';
     public    $elementName = 'UserInstantConferencingLoginStandAloneRequest';
     protected $bridgeServiceUserId;
     protected $conferenceOwnerUserId;

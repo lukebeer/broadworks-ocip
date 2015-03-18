@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderEnhancedCallLogsGetRequest17sp4 extends ComplexType implements ComplexInterface
 {
-    public    $responseType      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceEnhancedCallLogs\ServiceProviderEnhancedCallLogsGetResponse17sp4';
+    public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceEnhancedCallLogs\ServiceProviderEnhancedCallLogsGetResponse17sp4';
     public    $elementName = 'ServiceProviderEnhancedCallLogsGetRequest17sp4';
     protected $serviceProviderId;
 

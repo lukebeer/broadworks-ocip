@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupCallCenterGetAnnouncementRequest17 extends ComplexType implements ComplexInterface
 {
-    public    $responseType  = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\GroupCallCenterGetAnnouncementResponse17';
+    public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\GroupCallCenterGetAnnouncementResponse17';
     public    $elementName = 'GroupCallCenterGetAnnouncementRequest17';
     protected $serviceUserId;
 

@@ -24,7 +24,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupCallCenterCurrentAndPastAgentGetListRequest extends ComplexType implements ComplexInterface
 {
-    public    $responseType                = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\GroupCallCenterCurrentAndPastAgentGetListResponse';
+    public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\GroupCallCenterCurrentAndPastAgentGetListResponse';
     public    $elementName = 'GroupCallCenterCurrentAndPastAgentGetListRequest';
     protected $serviceProviderId;
     protected $groupId;

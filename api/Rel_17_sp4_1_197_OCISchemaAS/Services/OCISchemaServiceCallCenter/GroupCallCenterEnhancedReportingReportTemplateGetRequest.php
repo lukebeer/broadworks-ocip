@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupCallCenterEnhancedReportingReportTemplateGetRequest extends ComplexType implements ComplexInterface
 {
-    public    $responseType      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\GroupCallCenterEnhancedReportingReportTemplateGetResponse';
+    public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\GroupCallCenterEnhancedReportingReportTemplateGetResponse';
     public    $elementName = 'GroupCallCenterEnhancedReportingReportTemplateGetRequest';
     protected $serviceProviderId;
     protected $groupId;

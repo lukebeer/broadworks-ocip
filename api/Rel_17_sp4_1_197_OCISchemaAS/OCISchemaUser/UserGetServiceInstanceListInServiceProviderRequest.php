@@ -30,7 +30,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserGetServiceInstanceListInServiceProviderRequest extends ComplexType implements ComplexInterface
 {
-    public    $responseType                      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser\UserGetServiceInstanceListInServiceProviderResponse';
+    public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser\UserGetServiceInstanceListInServiceProviderResponse';
     public    $elementName = 'UserGetServiceInstanceListInServiceProviderRequest';
     protected $serviceProviderId;
     protected $responseSizeLimit;

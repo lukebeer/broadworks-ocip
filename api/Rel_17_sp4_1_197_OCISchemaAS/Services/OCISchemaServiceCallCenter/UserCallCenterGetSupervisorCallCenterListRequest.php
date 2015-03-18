@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserCallCenterGetSupervisorCallCenterListRequest extends ComplexType implements ComplexInterface
 {
-    public    $responseType     = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\UserCallCenterGetSupervisorCallCenterListResponse';
+    public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\UserCallCenterGetSupervisorCallCenterListResponse';
     public    $elementName = 'UserCallCenterGetSupervisorCallCenterListRequest';
     protected $supervisorUserId;
 

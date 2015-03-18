@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserInstantConferencingGetAvailableBridgeDelegatesListRequest extends ComplexType implements ComplexInterface
 {
-    public    $responseType        = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing\UserInstantConferencingGetAvailableBridgeDelegatesListResponse';
+    public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing\UserInstantConferencingGetAvailableBridgeDelegatesListResponse';
     public    $elementName = 'UserInstantConferencingGetAvailableBridgeDelegatesListRequest';
     protected $userId;
     protected $bridgeServiceUserId;

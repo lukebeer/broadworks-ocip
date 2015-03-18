@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class EnterpriseSessionAdmissionControlGroupGetListRequest extends ComplexType implements ComplexInterface
 {
-    public    $responseType      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaEnterprise\EnterpriseSessionAdmissionControlGroupGetListResponse';
+    public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaEnterprise\EnterpriseSessionAdmissionControlGroupGetListResponse';
     public    $elementName = 'EnterpriseSessionAdmissionControlGroupGetListRequest';
     protected $serviceProviderId;
 

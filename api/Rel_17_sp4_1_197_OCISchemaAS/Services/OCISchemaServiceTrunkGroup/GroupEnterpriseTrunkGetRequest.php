@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupEnterpriseTrunkGetRequest extends ComplexType implements ComplexInterface
 {
-    public    $responseType        = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceTrunkGroup\GroupEnterpriseTrunkGetResponse';
+    public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceTrunkGroup\GroupEnterpriseTrunkGetResponse';
     public    $elementName = 'GroupEnterpriseTrunkGetRequest';
     protected $serviceProviderId;
     protected $groupId;

@@ -29,7 +29,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupDnGetAssignmentListRequest extends ComplexType implements ComplexInterface
 {
-    public    $responseType                    = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupDnGetAssignmentListResponse';
+    public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupDnGetAssignmentListResponse';
     public    $elementName = 'GroupDnGetAssignmentListRequest';
     protected $serviceProviderId;
     protected $groupId;

@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupVoiceMessagingGroupGetVoicePortalBrandingRequest16 extends ComplexType implements ComplexInterface
 {
-    public    $responseType      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceVoiceMessaging\GroupVoiceMessagingGroupGetVoicePortalBrandingResponse16';
+    public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceVoiceMessaging\GroupVoiceMessagingGroupGetVoicePortalBrandingResponse16';
     public    $elementName = 'GroupVoiceMessagingGroupGetVoicePortalBrandingRequest16';
     protected $serviceProviderId;
     protected $groupId;

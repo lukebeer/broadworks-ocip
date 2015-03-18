@@ -23,7 +23,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserInstantConferencingGetConferenceRequest extends ComplexType implements ComplexInterface
 {
-    public    $responseType  = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\UserInstantConferencingGetConferenceResponse';
+    public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\UserInstantConferencingGetConferenceResponse';
     public    $elementName = 'UserInstantConferencingGetConferenceRequest';
     protected $userId;
     protected $conferenceKey;

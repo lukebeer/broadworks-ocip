@@ -45,7 +45,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserPhoneDirectoryGetPagedListRequest extends ComplexType implements ComplexInterface
 {
-    public    $responseType                      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser\UserPhoneDirectoryGetPagedListResponse';
+    public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser\UserPhoneDirectoryGetPagedListResponse';
     public    $elementName = 'UserPhoneDirectoryGetPagedListRequest';
     protected $userId;
     protected $isEnterpriseInfoRequested;

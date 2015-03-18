@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderDigitCollectionGetRequest13mp4 extends ComplexType implements ComplexInterface
 {
-    public    $responseType      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderDigitCollectionGetResponse13mp4';
+    public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderDigitCollectionGetResponse13mp4';
     public    $elementName = 'ServiceProviderDigitCollectionGetRequest13mp4';
     protected $serviceProviderId;
 

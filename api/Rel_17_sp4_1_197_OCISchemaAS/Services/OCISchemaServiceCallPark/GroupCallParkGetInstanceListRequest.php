@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupCallParkGetInstanceListRequest extends ComplexType implements ComplexInterface
 {
-    public    $responseType      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallPark\GroupCallParkGetInstanceListResponse';
+    public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallPark\GroupCallParkGetInstanceListResponse';
     public    $elementName = 'GroupCallParkGetInstanceListRequest';
     protected $serviceProviderId;
     protected $groupId;

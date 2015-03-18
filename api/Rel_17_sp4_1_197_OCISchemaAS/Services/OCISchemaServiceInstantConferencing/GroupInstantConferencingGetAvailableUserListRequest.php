@@ -27,7 +27,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupInstantConferencingGetAvailableUserListRequest extends ComplexType implements ComplexInterface
 {
-    public    $responseType                      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing\GroupInstantConferencingGetAvailableUserListResponse';
+    public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing\GroupInstantConferencingGetAvailableUserListResponse';
     public    $elementName = 'GroupInstantConferencingGetAvailableUserListRequest';
     protected $serviceProviderId;
     protected $groupId;

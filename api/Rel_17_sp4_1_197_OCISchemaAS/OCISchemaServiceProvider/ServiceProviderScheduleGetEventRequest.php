@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderScheduleGetEventRequest extends ComplexType implements ComplexInterface
 {
-    public    $responseType      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderScheduleGetEventResponse';
+    public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderScheduleGetEventResponse';
     public    $elementName = 'ServiceProviderScheduleGetEventRequest';
     protected $serviceProviderId;
     protected $scheduleKey;

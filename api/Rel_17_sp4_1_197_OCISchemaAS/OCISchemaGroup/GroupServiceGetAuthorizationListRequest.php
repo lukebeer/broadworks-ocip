@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupServiceGetAuthorizationListRequest extends ComplexType implements ComplexInterface
 {
-    public    $responseType      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupServiceGetAuthorizationListResponse';
+    public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupServiceGetAuthorizationListResponse';
     public    $elementName = 'GroupServiceGetAuthorizationListRequest';
     protected $serviceProviderId;
     protected $groupId;

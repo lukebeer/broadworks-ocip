@@ -19,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemOfficeZoneGetAssignedServiceProviderListRequest extends ComplexType implements ComplexInterface
 {
-    public    $responseType   = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemOfficeZoneGetAssignedServiceProviderListResponse';
+    public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemOfficeZoneGetAssignedServiceProviderListResponse';
     public    $elementName = 'SystemOfficeZoneGetAssignedServiceProviderListRequest';
     protected $officeZoneName;
 

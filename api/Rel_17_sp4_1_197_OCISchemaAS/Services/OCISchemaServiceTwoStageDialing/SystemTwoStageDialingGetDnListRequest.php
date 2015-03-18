@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemTwoStageDialingGetDnListRequest extends ComplexType implements ComplexInterface
 {
-    public    $responseType                  = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceTwoStageDialing\SystemTwoStageDialingGetDnListResponse';
+    public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceTwoStageDialing\SystemTwoStageDialingGetDnListResponse';
     public    $elementName = 'SystemTwoStageDialingGetDnListRequest';
     protected $responseSizeLimit;
     protected $searchCriteriaSystemServiceDn;

@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupCallCenterOverflowGetRequest17 extends ComplexType implements ComplexInterface
 {
-    public    $responseType  = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\GroupCallCenterOverflowGetResponse17';
+    public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\GroupCallCenterOverflowGetResponse17';
     public    $elementName = 'GroupCallCenterOverflowGetRequest17';
     protected $serviceUserId;
 

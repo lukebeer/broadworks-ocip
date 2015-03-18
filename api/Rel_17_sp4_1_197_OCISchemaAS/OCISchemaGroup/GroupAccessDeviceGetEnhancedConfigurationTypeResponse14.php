@@ -8,6 +8,7 @@
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup; 
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AccessDeviceEnhancedConfigurationFileName;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\AccessDeviceEnhancedConfigurationType14;
 use Broadworks_OCIP\core\Builder\Types\PrimitiveType;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;

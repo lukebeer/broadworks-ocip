@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupPreAlertingAnnouncementGetRequest extends ComplexType implements ComplexInterface
 {
-    public    $responseType      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServicePreAlertingAnnouncement\GroupPreAlertingAnnouncementGetResponse';
+    public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServicePreAlertingAnnouncement\GroupPreAlertingAnnouncementGetResponse';
     public    $elementName = 'GroupPreAlertingAnnouncementGetRequest';
     protected $serviceProviderId;
     protected $groupId;

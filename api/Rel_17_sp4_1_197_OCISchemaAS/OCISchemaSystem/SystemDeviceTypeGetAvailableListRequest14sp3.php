@@ -23,7 +23,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemDeviceTypeGetAvailableListRequest14sp3 extends ComplexType implements ComplexInterface
 {
-    public    $responseType          = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemDeviceTypeGetAvailableListResponse14sp3';
+    public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemDeviceTypeGetAvailableListResponse14sp3';
     public    $elementName = 'SystemDeviceTypeGetAvailableListRequest14sp3';
     protected $allowConference;
     protected $allowMusicOnHold;

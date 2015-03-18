@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderPreferredCarrierGetAvailableCountryCodeListRequest extends ComplexType implements ComplexInterface
 {
-    public    $responseType      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServicePreferredCarrier\ServiceProviderPreferredCarrierGetAvailableCountryCodeListResponse';
+    public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServicePreferredCarrier\ServiceProviderPreferredCarrierGetAvailableCountryCodeListResponse';
     public    $elementName = 'ServiceProviderPreferredCarrierGetAvailableCountryCodeListRequest';
     protected $serviceProviderId;
 

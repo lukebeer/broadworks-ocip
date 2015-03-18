@@ -32,7 +32,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupCommonPhoneListGetListRequest extends ComplexType implements ComplexInterface
 {
-    public    $responseType                             = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupCommonPhoneListGetListResponse';
+    public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupCommonPhoneListGetListResponse';
     public    $elementName = 'GroupCommonPhoneListGetListRequest';
     protected $serviceProviderId;
     protected $groupId;

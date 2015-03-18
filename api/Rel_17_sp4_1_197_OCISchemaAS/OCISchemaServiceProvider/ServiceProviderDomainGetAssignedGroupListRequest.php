@@ -11,6 +11,7 @@ use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\Sea
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaGroupId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\ResponseSizeLimit;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\NetAddress;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -25,7 +26,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderDomainGetAssignedGroupListRequest extends ComplexType implements ComplexInterface
 {
-    public    $responseType            = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderDomainGetAssignedGroupListResponse';
+    public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderDomainGetAssignedGroupListResponse';
     public    $elementName = 'ServiceProviderDomainGetAssignedGroupListRequest';
     protected $serviceProviderId;
     protected $domain;

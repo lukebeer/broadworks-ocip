@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderCommunicationBarringCriteriaGetAssignedListRequest extends ComplexType implements ComplexInterface
 {
-    public    $responseType      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderCommunicationBarringCriteriaGetAssignedListResponse';
+    public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderCommunicationBarringCriteriaGetAssignedListResponse';
     public    $elementName = 'ServiceProviderCommunicationBarringCriteriaGetAssignedListRequest';
     protected $serviceProviderId;
 

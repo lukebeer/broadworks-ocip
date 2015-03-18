@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemHolidayScheduleGetRequest extends ComplexType implements ComplexInterface
 {
-    public    $responseType        = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\SystemHolidayScheduleGetResponse';
+    public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\SystemHolidayScheduleGetResponse';
     public    $elementName = 'SystemHolidayScheduleGetRequest';
     protected $holidayScheduleName;
 

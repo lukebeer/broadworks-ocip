@@ -9,6 +9,7 @@ namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvi
 
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaGroupName;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\SearchCriteriaGroupId;
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\RoutePointExternalSystem;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSearchCriteria\ResponseSizeLimit;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
@@ -25,7 +26,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderRoutePointExternalSystemGetAssignedGroupListRequest extends ComplexType implements ComplexInterface
 {
-    public    $responseType            = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderRoutePointExternalSystemGetAssignedGroupListResponse';
+    public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderRoutePointExternalSystemGetAssignedGroupListResponse';
     public    $elementName = 'ServiceProviderRoutePointExternalSystemGetAssignedGroupListRequest';
     protected $serviceProviderId;
     protected $externalSystem;

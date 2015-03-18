@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderCallProcessingGetPolicyRequest17sp4 extends ComplexType implements ComplexInterface
 {
-    public    $responseType      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderCallProcessingGetPolicyResponse17sp4';
+    public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderCallProcessingGetPolicyResponse17sp4';
     public    $elementName = 'ServiceProviderCallProcessingGetPolicyRequest17sp4';
     protected $serviceProviderId;
 

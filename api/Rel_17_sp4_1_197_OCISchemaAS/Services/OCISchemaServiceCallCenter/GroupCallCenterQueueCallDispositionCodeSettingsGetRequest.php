@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupCallCenterQueueCallDispositionCodeSettingsGetRequest extends ComplexType implements ComplexInterface
 {
-    public    $responseType  = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\GroupCallCenterQueueCallDispositionCodeSettingsGetResponse';
+    public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\GroupCallCenterQueueCallDispositionCodeSettingsGetResponse';
     public    $elementName = 'GroupCallCenterQueueCallDispositionCodeSettingsGetRequest';
     protected $serviceUserId;
 

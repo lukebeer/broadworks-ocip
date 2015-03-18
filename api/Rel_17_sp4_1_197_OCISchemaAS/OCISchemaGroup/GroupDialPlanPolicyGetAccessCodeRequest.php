@@ -7,6 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup; 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DialPlanAccessCode;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
@@ -21,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupDialPlanPolicyGetAccessCodeRequest extends ComplexType implements ComplexInterface
 {
-    public    $responseType      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupDialPlanPolicyGetAccessCodeResponse';
+    public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupDialPlanPolicyGetAccessCodeResponse';
     public    $elementName = 'GroupDialPlanPolicyGetAccessCodeRequest';
     protected $serviceProviderId;
     protected $groupId;

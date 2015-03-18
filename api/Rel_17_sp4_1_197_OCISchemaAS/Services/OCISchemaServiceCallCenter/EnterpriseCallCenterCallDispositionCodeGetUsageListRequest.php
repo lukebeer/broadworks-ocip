@@ -7,6 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter; 
 
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\CallDispositionCode;
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
@@ -20,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class EnterpriseCallCenterCallDispositionCodeGetUsageListRequest extends ComplexType implements ComplexInterface
 {
-    public    $responseType      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\EnterpriseCallCenterCallDispositionCodeGetUsageListResponse';
+    public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\EnterpriseCallCenterCallDispositionCodeGetUsageListResponse';
     public    $elementName = 'EnterpriseCallCenterCallDispositionCodeGetUsageListRequest';
     protected $serviceProviderId;
     protected $code;

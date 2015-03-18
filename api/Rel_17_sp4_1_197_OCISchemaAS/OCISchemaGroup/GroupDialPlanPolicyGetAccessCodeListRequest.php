@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupDialPlanPolicyGetAccessCodeListRequest extends ComplexType implements ComplexInterface
 {
-    public    $responseType      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupDialPlanPolicyGetAccessCodeListResponse';
+    public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupDialPlanPolicyGetAccessCodeListResponse';
     public    $elementName = 'GroupDialPlanPolicyGetAccessCodeListRequest';
     protected $serviceProviderId;
     protected $groupId;

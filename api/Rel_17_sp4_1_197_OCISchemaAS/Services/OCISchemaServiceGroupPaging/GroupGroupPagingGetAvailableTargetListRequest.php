@@ -26,7 +26,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupGroupPagingGetAvailableTargetListRequest extends ComplexType implements ComplexInterface
 {
-    public    $responseType                      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceGroupPaging\GroupGroupPagingGetAvailableTargetListResponse';
+    public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceGroupPaging\GroupGroupPagingGetAvailableTargetListResponse';
     public    $elementName = 'GroupGroupPagingGetAvailableTargetListRequest';
     protected $serviceUserId;
     protected $responseSizeLimit;

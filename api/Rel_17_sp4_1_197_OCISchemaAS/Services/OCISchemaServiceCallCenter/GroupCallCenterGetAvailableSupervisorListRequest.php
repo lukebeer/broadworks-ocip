@@ -27,7 +27,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupCallCenterGetAvailableSupervisorListRequest extends ComplexType implements ComplexInterface
 {
-    public    $responseType                      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\GroupCallCenterGetAvailableSupervisorListResponse';
+    public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\GroupCallCenterGetAvailableSupervisorListResponse';
     public    $elementName = 'GroupCallCenterGetAvailableSupervisorListRequest';
     protected $serviceProviderId;
     protected $groupId;

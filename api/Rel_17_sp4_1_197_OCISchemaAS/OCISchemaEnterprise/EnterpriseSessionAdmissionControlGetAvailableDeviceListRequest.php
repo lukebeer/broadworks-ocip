@@ -27,7 +27,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class EnterpriseSessionAdmissionControlGetAvailableDeviceListRequest extends ComplexType implements ComplexInterface
 {
-    public    $responseType                   = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaEnterprise\EnterpriseSessionAdmissionControlGetAvailableDeviceListResponse';
+    public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaEnterprise\EnterpriseSessionAdmissionControlGetAvailableDeviceListResponse';
     public    $elementName = 'EnterpriseSessionAdmissionControlGetAvailableDeviceListRequest';
     protected $serviceProviderId;
     protected $responseSizeLimit;

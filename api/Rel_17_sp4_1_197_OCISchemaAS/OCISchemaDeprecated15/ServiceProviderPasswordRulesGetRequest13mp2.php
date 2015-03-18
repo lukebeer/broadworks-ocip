@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderPasswordRulesGetRequest13mp2 extends ComplexType implements ComplexInterface
 {
-    public    $responseType      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15\ServiceProviderPasswordRulesGetResponse13mp2';
+    public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15\ServiceProviderPasswordRulesGetResponse13mp2';
     public    $elementName = 'ServiceProviderPasswordRulesGetRequest13mp2';
     protected $serviceProviderId;
 

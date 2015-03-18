@@ -23,7 +23,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class EnterpriseDepartmentGetAvailableParentListRequest extends ComplexType implements ComplexInterface
 {
-    public    $responseType   = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaEnterprise\EnterpriseDepartmentGetAvailableParentListResponse';
+    public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaEnterprise\EnterpriseDepartmentGetAvailableParentListResponse';
     public    $elementName = 'EnterpriseDepartmentGetAvailableParentListRequest';
     protected $enterpriseId;
     protected $departmentName;

@@ -40,7 +40,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupCallProcessingGetPolicyRequest15sp2 extends ComplexType implements ComplexInterface
 {
-    public    $responseType      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15\GroupCallProcessingGetPolicyResponse15sp2';
+    public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated15\GroupCallProcessingGetPolicyResponse15sp2';
     public    $elementName = 'GroupCallProcessingGetPolicyRequest15sp2';
     protected $serviceProviderId;
     protected $groupId;

@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserMeetMeConferencingGetConferenceRequest extends ComplexType implements ComplexInterface
 {
-    public    $responseType  = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceMeetMeConferencing\UserMeetMeConferencingGetConferenceResponse';
+    public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceMeetMeConferencing\UserMeetMeConferencingGetConferenceResponse';
     public    $elementName = 'UserMeetMeConferencingGetConferenceRequest';
     protected $userId;
     protected $conferenceKey;

@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserInstantConferencingGetStandAloneConferenceRecordingRequest extends ComplexType implements ComplexInterface
 {
-    public    $responseType          = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing\UserInstantConferencingGetStandAloneConferenceRecordingResponse';
+    public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing\UserInstantConferencingGetStandAloneConferenceRecordingResponse';
     public    $elementName = 'UserInstantConferencingGetStandAloneConferenceRecordingRequest';
     protected $conferenceOwnerUserId;
     protected $recordingKey;

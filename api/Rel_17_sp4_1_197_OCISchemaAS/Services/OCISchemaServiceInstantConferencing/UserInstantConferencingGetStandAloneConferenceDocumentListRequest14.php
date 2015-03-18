@@ -23,7 +23,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserInstantConferencingGetStandAloneConferenceDocumentListRequest14 extends ComplexType implements ComplexInterface
 {
-    public    $responseType          = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing\UserInstantConferencingGetStandAloneConferenceDocumentListResponse14';
+    public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInstantConferencing\UserInstantConferencingGetStandAloneConferenceDocumentListResponse14';
     public    $elementName = 'UserInstantConferencingGetStandAloneConferenceDocumentListRequest14';
     protected $conferenceOwnerUserId;
     protected $conferenceKey;

@@ -26,7 +26,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupAccessDeviceGetListRequest extends ComplexType implements ComplexInterface
 {
-    public    $responseType                   = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupAccessDeviceGetListResponse';
+    public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupAccessDeviceGetListResponse';
     public    $elementName = 'GroupAccessDeviceGetListRequest';
     protected $serviceProviderId;
     protected $groupId;

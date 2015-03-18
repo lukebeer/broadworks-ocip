@@ -25,7 +25,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserBusyLampFieldGetAvailableUserListRequest extends ComplexType implements ComplexInterface
 {
-    public    $responseType                      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceBusyLampField\UserBusyLampFieldGetAvailableUserListResponse';
+    public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceBusyLampField\UserBusyLampFieldGetAvailableUserListResponse';
     public    $elementName = 'UserBusyLampFieldGetAvailableUserListRequest';
     protected $userId;
     protected $responseSizeLimit;

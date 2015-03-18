@@ -25,7 +25,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserBroadWorksReceptionistSmallBusinessGetAvailableUserListRequest extends ComplexType implements ComplexInterface
 {
-    public    $responseType                      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceReceptionistSmallBusiness\UserBroadWorksReceptionistSmallBusinessGetAvailableUserListResponse';
+    public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceReceptionistSmallBusiness\UserBroadWorksReceptionistSmallBusinessGetAvailableUserListResponse';
     public    $elementName = 'UserBroadWorksReceptionistSmallBusinessGetAvailableUserListRequest';
     protected $userId;
     protected $responseSizeLimit;

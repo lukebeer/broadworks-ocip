@@ -32,7 +32,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupEnhancedCallLogsGetListRequest extends ComplexType implements ComplexInterface
 {
-    public    $responseType                   = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceEnhancedCallLogs\GroupEnhancedCallLogsGetListResponse';
+    public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceEnhancedCallLogs\GroupEnhancedCallLogsGetListResponse';
     public    $elementName = 'GroupEnhancedCallLogsGetListRequest';
     protected $serviceProviderId;
     protected $groupId;

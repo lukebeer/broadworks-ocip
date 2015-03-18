@@ -19,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class PrimaryInfoGetRequest extends ComplexType implements ComplexInterface
 {
-    public    $responseType           = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaLogin\PrimaryInfoGetResponse';
+    public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaLogin\PrimaryInfoGetResponse';
     public    $elementName = 'PrimaryInfoGetRequest';
     protected $isPrivate;
     protected $isAddressInfoRequested;

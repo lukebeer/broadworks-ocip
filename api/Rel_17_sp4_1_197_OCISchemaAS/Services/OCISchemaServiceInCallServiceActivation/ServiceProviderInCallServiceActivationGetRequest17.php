@@ -19,7 +19,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderInCallServiceActivationGetRequest17 extends ComplexType implements ComplexInterface
 {
-    public    $responseType      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInCallServiceActivation\ServiceProviderInCallServiceActivationGetResponse17';
+    public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceInCallServiceActivation\ServiceProviderInCallServiceActivationGetResponse17';
     public    $elementName = 'ServiceProviderInCallServiceActivationGetRequest17';
     protected $serviceProviderId;
 

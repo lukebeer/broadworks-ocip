@@ -32,7 +32,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupVirtualOnNetEnterpriseExtensionsGetUserListRequest extends ComplexType implements ComplexInterface
 {
-    public    $responseType                                = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceVirtualOnNetEnterpriseExtensions\GroupVirtualOnNetEnterpriseExtensionsGetUserListResponse';
+    public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceVirtualOnNetEnterpriseExtensions\GroupVirtualOnNetEnterpriseExtensionsGetUserListResponse';
     public    $elementName = 'GroupVirtualOnNetEnterpriseExtensionsGetUserListRequest';
     protected $serviceProviderId;
     protected $groupId;

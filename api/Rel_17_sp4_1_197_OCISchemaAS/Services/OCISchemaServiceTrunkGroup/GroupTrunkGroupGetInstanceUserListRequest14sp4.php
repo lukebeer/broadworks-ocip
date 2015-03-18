@@ -25,7 +25,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupTrunkGroupGetInstanceUserListRequest14sp4 extends ComplexType implements ComplexInterface
 {
-    public    $responseType                      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceTrunkGroup\GroupTrunkGroupGetInstanceUserListResponse14sp4';
+    public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceTrunkGroup\GroupTrunkGroupGetInstanceUserListResponse14sp4';
     public    $elementName = 'GroupTrunkGroupGetInstanceUserListRequest14sp4';
     protected $trunkGroupKey;
     protected $responseSizeLimit;

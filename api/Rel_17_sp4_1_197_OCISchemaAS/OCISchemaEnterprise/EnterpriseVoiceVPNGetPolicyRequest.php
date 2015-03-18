@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class EnterpriseVoiceVPNGetPolicyRequest extends ComplexType implements ComplexInterface
 {
-    public    $responseType        = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaEnterprise\EnterpriseVoiceVPNGetPolicyResponse';
+    public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaEnterprise\EnterpriseVoiceVPNGetPolicyResponse';
     public    $elementName = 'EnterpriseVoiceVPNGetPolicyRequest';
     protected $serviceProviderId;
     protected $locationDialingCode;

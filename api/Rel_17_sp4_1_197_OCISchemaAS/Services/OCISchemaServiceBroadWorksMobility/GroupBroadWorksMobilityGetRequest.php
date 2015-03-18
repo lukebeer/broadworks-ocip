@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupBroadWorksMobilityGetRequest extends ComplexType implements ComplexInterface
 {
-    public    $responseType      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceBroadWorksMobility\GroupBroadWorksMobilityGetResponse';
+    public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceBroadWorksMobility\GroupBroadWorksMobilityGetResponse';
     public    $elementName = 'GroupBroadWorksMobilityGetRequest';
     protected $serviceProviderId;
     protected $groupId;

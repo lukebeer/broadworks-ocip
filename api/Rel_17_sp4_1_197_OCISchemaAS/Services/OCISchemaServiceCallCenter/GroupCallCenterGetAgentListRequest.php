@@ -26,7 +26,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupCallCenterGetAgentListRequest extends ComplexType implements ComplexInterface
 {
-    public    $responseType                      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\GroupCallCenterGetAgentListResponse';
+    public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\GroupCallCenterGetAgentListResponse';
     public    $elementName = 'GroupCallCenterGetAgentListRequest';
     protected $serviceUserId;
     protected $responseSizeLimit;

@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class EnterpriseVoiceVPNGetRequest14sp3 extends ComplexType implements ComplexInterface
 {
-    public    $responseType      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaEnterprise\EnterpriseVoiceVPNGetResponse14sp3';
+    public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaEnterprise\EnterpriseVoiceVPNGetResponse14sp3';
     public    $elementName = 'EnterpriseVoiceVPNGetRequest14sp3';
     protected $serviceProviderId;
 

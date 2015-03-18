@@ -23,7 +23,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupDirectoryNumberHuntingGetRequest extends ComplexType implements ComplexInterface
 {
-    public    $responseType  = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceDirectoryNumberHunting\GroupDirectoryNumberHuntingGetResponse';
+    public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceDirectoryNumberHunting\GroupDirectoryNumberHuntingGetResponse';
     public    $elementName = 'GroupDirectoryNumberHuntingGetRequest';
     protected $serviceUserId;
 

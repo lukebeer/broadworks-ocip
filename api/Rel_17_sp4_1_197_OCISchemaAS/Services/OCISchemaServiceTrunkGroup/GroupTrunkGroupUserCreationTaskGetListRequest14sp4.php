@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupTrunkGroupUserCreationTaskGetListRequest14sp4 extends ComplexType implements ComplexInterface
 {
-    public    $responseType  = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceTrunkGroup\GroupTrunkGroupUserCreationTaskGetListResponse14sp4';
+    public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceTrunkGroup\GroupTrunkGroupUserCreationTaskGetListResponse14sp4';
     public    $elementName = 'GroupTrunkGroupUserCreationTaskGetListRequest14sp4';
     protected $trunkGroupKey;
 

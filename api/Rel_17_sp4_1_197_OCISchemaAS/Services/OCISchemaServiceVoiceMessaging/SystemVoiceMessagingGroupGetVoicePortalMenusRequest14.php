@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemVoiceMessagingGroupGetVoicePortalMenusRequest14 extends ComplexType implements ComplexInterface
 {
-    public    $responseType       = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceVoiceMessaging\SystemVoiceMessagingGroupGetVoicePortalMenusResponse14';
+    public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceVoiceMessaging\SystemVoiceMessagingGroupGetVoicePortalMenusResponse14';
     public    $elementName = 'SystemVoiceMessagingGroupGetVoicePortalMenusRequest14';
     protected $getDefaultMenuKeys;
 

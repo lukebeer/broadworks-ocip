@@ -24,7 +24,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserHotelingGuestGetAvailableUserListRequest extends ComplexType implements ComplexInterface
 {
-    public    $responseType                      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceHotelingGuest\UserHotelingGuestGetAvailableUserListResponse';
+    public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceHotelingGuest\UserHotelingGuestGetAvailableUserListResponse';
     public    $elementName = 'UserHotelingGuestGetAvailableUserListRequest';
     protected $userId;
     protected $responseSizeLimit;

@@ -30,7 +30,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserGetListInSystemRequest extends ComplexType implements ComplexInterface
 {
-    public    $responseType                                 = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser\UserGetListInSystemResponse';
+    public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser\UserGetListInSystemResponse';
     public    $elementName = 'UserGetListInSystemRequest';
     protected $responseSizeLimit;
     protected $searchCriteriaUserLastName;

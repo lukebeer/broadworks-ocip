@@ -25,7 +25,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupDepartmentGetAvailableParentListRequest extends ComplexType implements ComplexInterface
 {
-    public    $responseType      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupDepartmentGetAvailableParentListResponse';
+    public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupDepartmentGetAvailableParentListResponse';
     public    $elementName = 'GroupDepartmentGetAvailableParentListRequest';
     protected $serviceProviderId;
     protected $groupId;

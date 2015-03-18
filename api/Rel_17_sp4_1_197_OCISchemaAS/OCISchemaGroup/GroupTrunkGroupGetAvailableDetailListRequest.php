@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupTrunkGroupGetAvailableDetailListRequest extends ComplexType implements ComplexInterface
 {
-    public    $responseType      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupTrunkGroupGetAvailableDetailListResponse';
+    public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupTrunkGroupGetAvailableDetailListResponse';
     public    $elementName = 'GroupTrunkGroupGetAvailableDetailListRequest';
     protected $serviceProviderId;
     protected $groupId;

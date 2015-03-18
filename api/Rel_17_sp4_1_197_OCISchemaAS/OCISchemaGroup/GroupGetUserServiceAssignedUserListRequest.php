@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupGetUserServiceAssignedUserListRequest extends ComplexType implements ComplexInterface
 {
-    public    $responseType      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupGetUserServiceAssignedUserListResponse';
+    public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupGetUserServiceAssignedUserListResponse';
     public    $elementName = 'GroupGetUserServiceAssignedUserListRequest';
     protected $serviceProviderId;
     protected $groupId;

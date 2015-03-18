@@ -25,7 +25,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupDepartmentGetListRequest extends ComplexType implements ComplexInterface
 {
-    public    $responseType                 = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupDepartmentGetListResponse';
+    public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupDepartmentGetListResponse';
     public    $elementName = 'GroupDepartmentGetListRequest';
     protected $serviceProviderId;
     protected $groupId;

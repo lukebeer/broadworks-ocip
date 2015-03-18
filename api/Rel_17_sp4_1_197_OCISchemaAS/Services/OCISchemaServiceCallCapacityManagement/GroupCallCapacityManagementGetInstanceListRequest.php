@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupCallCapacityManagementGetInstanceListRequest extends ComplexType implements ComplexInterface
 {
-    public    $responseType      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCapacityManagement\GroupCallCapacityManagementGetInstanceListResponse';
+    public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCapacityManagement\GroupCallCapacityManagementGetInstanceListResponse';
     public    $elementName = 'GroupCallCapacityManagementGetInstanceListRequest';
     protected $serviceProviderId;
     protected $groupId;

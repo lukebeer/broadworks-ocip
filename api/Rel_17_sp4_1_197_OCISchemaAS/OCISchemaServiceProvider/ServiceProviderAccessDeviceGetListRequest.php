@@ -25,7 +25,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class ServiceProviderAccessDeviceGetListRequest extends ComplexType implements ComplexInterface
 {
-    public    $responseType                   = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderAccessDeviceGetListResponse';
+    public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaServiceProvider\ServiceProviderAccessDeviceGetListResponse';
     public    $elementName = 'ServiceProviderAccessDeviceGetListRequest';
     protected $serviceProviderId;
     protected $responseSizeLimit;

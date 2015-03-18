@@ -27,7 +27,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupSessionAdmissionControlGetAvailableDeviceListRequest extends ComplexType implements ComplexInterface
 {
-    public    $responseType                   = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupSessionAdmissionControlGetAvailableDeviceListResponse';
+    public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupSessionAdmissionControlGetAvailableDeviceListResponse';
     public    $elementName = 'GroupSessionAdmissionControlGetAvailableDeviceListRequest';
     protected $serviceProviderId;
     protected $groupId;

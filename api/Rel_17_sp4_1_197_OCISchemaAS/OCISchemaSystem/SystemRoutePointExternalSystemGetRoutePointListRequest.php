@@ -7,7 +7,7 @@
 
 namespace Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
 
-
+use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\RoutePointExternalSystem;
 use Broadworks_OCIP\core\Builder\Types\ComplexInterface;
 use Broadworks_OCIP\core\Builder\Types\ComplexType;
 use Broadworks_OCIP\core\Response\ResponseOutput;
@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemRoutePointExternalSystemGetRoutePointListRequest extends ComplexType implements ComplexInterface
 {
-    public    $responseType             = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemRoutePointExternalSystemGetRoutePointListResponse';
+    public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemRoutePointExternalSystemGetRoutePointListResponse';
     public    $elementName = 'SystemRoutePointExternalSystemGetRoutePointListRequest';
     protected $routePointExternalSystem;
 

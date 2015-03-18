@@ -36,7 +36,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupCallProcessingGetPolicyRequest17 extends ComplexType implements ComplexInterface
 {
-    public    $responseType      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated17\GroupCallProcessingGetPolicyResponse17';
+    public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated17\GroupCallProcessingGetPolicyResponse17';
     public    $elementName = 'GroupCallProcessingGetPolicyRequest17';
     protected $serviceProviderId;
     protected $groupId;

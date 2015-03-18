@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemBroadWorksMobilityGetIMRNListRequest extends ComplexType implements ComplexInterface
 {
-    public    $responseType       = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceBroadWorksMobility\SystemBroadWorksMobilityGetIMRNListResponse';
+    public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceBroadWorksMobility\SystemBroadWorksMobilityGetIMRNListResponse';
     public    $elementName = 'SystemBroadWorksMobilityGetIMRNListRequest';
     protected $searchCriteriaIMRN;
 

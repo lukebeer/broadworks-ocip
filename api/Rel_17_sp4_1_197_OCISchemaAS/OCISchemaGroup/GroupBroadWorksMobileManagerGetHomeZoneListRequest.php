@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupBroadWorksMobileManagerGetHomeZoneListRequest extends ComplexType implements ComplexInterface
 {
-    public    $responseType      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupBroadWorksMobileManagerGetHomeZoneListResponse';
+    public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupBroadWorksMobileManagerGetHomeZoneListResponse';
     public    $elementName = 'GroupBroadWorksMobileManagerGetHomeZoneListRequest';
     protected $serviceProviderId;
     protected $groupId;

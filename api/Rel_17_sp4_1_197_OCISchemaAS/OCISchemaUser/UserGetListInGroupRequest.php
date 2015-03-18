@@ -30,7 +30,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserGetListInGroupRequest extends ComplexType implements ComplexInterface
 {
-    public    $responseType                        = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser\UserGetListInGroupResponse';
+    public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser\UserGetListInGroupResponse';
     public    $elementName = 'UserGetListInGroupRequest';
     protected $serviceProviderId;
     protected $GroupId;

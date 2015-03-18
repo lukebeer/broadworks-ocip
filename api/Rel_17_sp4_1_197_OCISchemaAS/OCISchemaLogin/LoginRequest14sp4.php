@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class LoginRequest14sp4 extends ComplexType implements ComplexInterface
 {
-    public    $responseType      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaLogin\LoginResponse14sp4';
+    public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaLogin\LoginResponse14sp4';
     public    $elementName = 'LoginRequest14sp4';
     protected $userId;
     protected $signedPassword;

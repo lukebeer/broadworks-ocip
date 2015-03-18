@@ -24,7 +24,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class EnterpriseCallCenterCurrentAndPastAgentGetListRequest extends ComplexType implements ComplexInterface
 {
-    public    $responseType                 = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\EnterpriseCallCenterCurrentAndPastAgentGetListResponse';
+    public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\EnterpriseCallCenterCurrentAndPastAgentGetListResponse';
     public    $elementName = 'EnterpriseCallCenterCurrentAndPastAgentGetListRequest';
     protected $serviceProviderId;
     protected $responseSizeLimit;

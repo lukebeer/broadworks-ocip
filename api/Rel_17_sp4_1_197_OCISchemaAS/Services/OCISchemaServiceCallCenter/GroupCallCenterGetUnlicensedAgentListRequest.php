@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupCallCenterGetUnlicensedAgentListRequest extends ComplexType implements ComplexInterface
 {
-    public    $responseType   = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\GroupCallCenterGetUnlicensedAgentListResponse';
+    public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\GroupCallCenterGetUnlicensedAgentListResponse';
     public    $elementName = 'GroupCallCenterGetUnlicensedAgentListRequest';
     protected $serviceUserId;
     protected $callCenterType;

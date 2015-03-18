@@ -24,7 +24,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class SystemServiceCodeGetListRequest extends ComplexType implements ComplexInterface
 {
-    public    $responseType                         = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemServiceCodeGetListResponse';
+    public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem\SystemServiceCodeGetListResponse';
     public    $elementName = 'SystemServiceCodeGetListRequest';
     protected $responseSizeLimit;
     protected $searchCriteriaServiceCode;

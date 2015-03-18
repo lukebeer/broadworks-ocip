@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupCallPickupGetInstanceRequest extends ComplexType implements ComplexInterface
 {
-    public    $responseType      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallPickup\GroupCallPickupGetInstanceResponse';
+    public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallPickup\GroupCallPickupGetInstanceResponse';
     public    $elementName = 'GroupCallPickupGetInstanceRequest';
     protected $serviceProviderId;
     protected $groupId;

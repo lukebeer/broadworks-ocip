@@ -26,7 +26,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserEnhancedCallLogsGetListRequest extends ComplexType implements ComplexInterface
 {
-    public    $responseType   = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\UserEnhancedCallLogsGetListResponse';
+    public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\UserEnhancedCallLogsGetListResponse';
     public    $elementName = 'UserEnhancedCallLogsGetListRequest';
     protected $userId;
     protected $callLogType;

@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupInterceptGroupGetRequest16sp1 extends ComplexType implements ComplexInterface
 {
-    public    $responseType      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceIntercept\GroupInterceptGroupGetResponse16sp1';
+    public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceIntercept\GroupInterceptGroupGetResponse16sp1';
     public    $elementName = 'GroupInterceptGroupGetRequest16sp1';
     protected $serviceProviderId;
     protected $groupId;

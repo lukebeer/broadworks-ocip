@@ -37,7 +37,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class EnterprisePhoneDirectoryGetListRequest extends ComplexType implements ComplexInterface
 {
-    public    $responseType                      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\EnterprisePhoneDirectoryGetListResponse';
+    public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\EnterprisePhoneDirectoryGetListResponse';
     public    $elementName = 'EnterprisePhoneDirectoryGetListRequest';
     protected $enterpriseId;
     protected $isExtendedInfoRequested;

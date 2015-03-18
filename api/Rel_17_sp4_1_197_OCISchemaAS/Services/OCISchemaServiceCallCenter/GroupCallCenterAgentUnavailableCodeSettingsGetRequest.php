@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupCallCenterAgentUnavailableCodeSettingsGetRequest extends ComplexType implements ComplexInterface
 {
-    public    $responseType      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\GroupCallCenterAgentUnavailableCodeSettingsGetResponse';
+    public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallCenter\GroupCallCenterAgentUnavailableCodeSettingsGetResponse';
     public    $elementName = 'GroupCallCenterAgentUnavailableCodeSettingsGetRequest';
     protected $serviceProviderId;
     protected $groupId;

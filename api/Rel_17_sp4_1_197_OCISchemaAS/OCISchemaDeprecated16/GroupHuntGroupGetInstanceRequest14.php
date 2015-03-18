@@ -20,7 +20,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupHuntGroupGetInstanceRequest14 extends ComplexType implements ComplexInterface
 {
-    public    $responseType  = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\GroupHuntGroupGetInstanceResponse14';
+    public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated16\GroupHuntGroupGetInstanceResponse14';
     public    $elementName = 'GroupHuntGroupGetInstanceRequest14';
     protected $serviceUserId;
 

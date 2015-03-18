@@ -23,7 +23,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupBroadWorksAnywhereGetInstanceListRequest extends ComplexType implements ComplexInterface
 {
-    public    $responseType        = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceBroadWorksAnywhere\GroupBroadWorksAnywhereGetInstanceListResponse';
+    public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceBroadWorksAnywhere\GroupBroadWorksAnywhereGetInstanceListResponse';
     public    $elementName = 'GroupBroadWorksAnywhereGetInstanceListRequest';
     protected $serviceProviderId;
     protected $groupId;

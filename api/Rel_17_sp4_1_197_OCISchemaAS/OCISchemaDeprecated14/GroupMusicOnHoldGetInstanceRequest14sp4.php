@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupMusicOnHoldGetInstanceRequest14sp4 extends ComplexType implements ComplexInterface
 {
-    public    $responseType      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\GroupMusicOnHoldGetInstanceResponse14sp4';
+    public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDeprecated14\GroupMusicOnHoldGetInstanceResponse14sp4';
     public    $elementName = 'GroupMusicOnHoldGetInstanceRequest14sp4';
     protected $serviceProviderId;
     protected $groupId;

@@ -21,7 +21,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupCallPickupGetInstanceListRequest extends ComplexType implements ComplexInterface
 {
-    public    $responseType      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallPickup\GroupCallPickupGetInstanceListResponse';
+    public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallPickup\GroupCallPickupGetInstanceListResponse';
     public    $elementName = 'GroupCallPickupGetInstanceListRequest';
     protected $serviceProviderId;
     protected $groupId;

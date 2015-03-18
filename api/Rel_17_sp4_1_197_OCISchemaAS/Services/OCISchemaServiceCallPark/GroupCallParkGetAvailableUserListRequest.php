@@ -28,7 +28,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupCallParkGetAvailableUserListRequest extends ComplexType implements ComplexInterface
 {
-    public    $responseType                      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallPark\GroupCallParkGetAvailableUserListResponse';
+    public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallPark\GroupCallParkGetAvailableUserListResponse';
     public    $elementName = 'GroupCallParkGetAvailableUserListRequest';
     protected $serviceProviderId;
     protected $groupId;

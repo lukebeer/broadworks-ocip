@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupFileRepositoryDeviceUserGetListRequest extends ComplexType implements ComplexInterface
 {
-    public    $responseType       = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupFileRepositoryDeviceUserGetListResponse';
+    public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaGroup\GroupFileRepositoryDeviceUserGetListResponse';
     public    $elementName = 'GroupFileRepositoryDeviceUserGetListRequest';
     protected $serviceProviderId;
     protected $groupId;

@@ -27,7 +27,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class UserPrivacyGetAvailableMonitorsUserListRequest extends ComplexType implements ComplexInterface
 {
-    public    $responseType                      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServicePrivacy\UserPrivacyGetAvailableMonitorsUserListResponse';
+    public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServicePrivacy\UserPrivacyGetAvailableMonitorsUserListResponse';
     public    $elementName = 'UserPrivacyGetAvailableMonitorsUserListRequest';
     protected $userId;
     protected $responseSizeLimit;

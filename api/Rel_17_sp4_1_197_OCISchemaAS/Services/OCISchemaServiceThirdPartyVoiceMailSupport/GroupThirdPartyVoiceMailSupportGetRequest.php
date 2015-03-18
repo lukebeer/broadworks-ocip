@@ -22,7 +22,7 @@ use Broadworks_OCIP\core\Client\Client;
  */
 class GroupThirdPartyVoiceMailSupportGetRequest extends ComplexType implements ComplexInterface
 {
-    public    $responseType      = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceThirdPartyVoiceMailSupport\GroupThirdPartyVoiceMailSupportGetResponse';
+    public    $responseType = 'Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceThirdPartyVoiceMailSupport\GroupThirdPartyVoiceMailSupportGetResponse';
     public    $elementName = 'GroupThirdPartyVoiceMailSupportGetRequest';
     protected $serviceProviderId;
     protected $groupId;
