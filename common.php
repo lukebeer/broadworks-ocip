@@ -8,8 +8,8 @@
 namespace Broadworks_OCIP;
 require_once 'corefactory.php';
 
-define('OCI_PATH', realpath(dirname(__FILE__)));
-set_include_path(get_include_path() . PATH_SEPARATOR . __DIR__);
+define('OCI_PATH', dirname(__DIR__));
+set_include_path(get_include_path() . PATH_SEPARATOR . __DIR__ . PATH_SEPARATOR . OCI_PATH);
 spl_autoload_register(function ($c) {
     require_once preg_replace('#\\\|_(?!.*\\\)#', '/', $c) . '.php';
 });
