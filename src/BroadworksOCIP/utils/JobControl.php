@@ -22,7 +22,7 @@ class OCIPJobControl extends OCIClient {
         parent::__construct($host, false);
         if ($session) {
             $this->setSession($session);
-            $this->ociBuilder = CoreFactory::getOCIBuilder($this->getSessionId());
+            $this->ociBuilder = Factory::getOCIBuilder($this->getSessionId());
             $this->send(OCISchemaLogin::VerifySessionIsValidRequest());
             if (!$this->getResponse()) {
                 die($this->errorControl->getLastError());

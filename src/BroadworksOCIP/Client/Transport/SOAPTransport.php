@@ -13,7 +13,7 @@ namespace BroadworksOCIP\Client\Transport;
 use BroadworksOCIP\Response\Response;
 use BroadworksOCIP\Response\ResponseOutput;
 use BroadworksOCIP\Session\Session;
-use BroadworksOCIP\CoreFactory;
+use BroadworksOCIP\Factory;
 
 require_once 'HTTP/Request2.php';
 
@@ -43,7 +43,7 @@ class SOAPTransport implements TransportInterface
      */
     public function __construct($url, $timeout = 10, $autoLogout = true, $followRedirects = true, $proxy = null)
     {
-        $this->errorControl = &CoreFactory::getErrorControl();
+        $this->errorControl = &Factory::getErrorControl();
         $this->url = $url;
         $this->autoLogout = $autoLogout;
         $this->followRedirects = $followRedirects;

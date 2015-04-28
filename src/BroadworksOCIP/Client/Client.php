@@ -19,7 +19,7 @@ use BroadworksOCIP\Console\CommandGenerator;
 use BroadworksOCIP\Console\Console;
 use BroadworksOCIP\Output\OutputInterface;
 use BroadworksOCIP\Response\ResponseOutput;
-use BroadworksOCIP\CoreFactory;
+use BroadworksOCIP\Factory;
 use Illuminate\Support\Facades\Auth;
 
 
@@ -48,9 +48,9 @@ class Client
     public function __construct(TransportInterface &$transport)
     {
         $this->transport = &$transport;
-        $this->session = CoreFactory::getSession();
-        $this->ociBuilder = CoreFactory::getBuilder($this->session);
-        $this->errorControl = CoreFactory::getErrorControl();
+        $this->session = Factory::getSession();
+        $this->ociBuilder = Factory::getBuilder($this->session);
+        $this->errorControl = Factory::getErrorControl();
         $this->transport->updateSession($this->session);
     }
 
@@ -178,7 +178,7 @@ class Client
     public function setSession($session)
     {
         $this->session = $session;
-        $this->ociBuilder = CoreFactory::getBuilder($this->session->getSessionId());
+        $this->ociBuilder = Factory::getBuilder($this->session->getSessionId());
         return $session;
     }
 

@@ -17,11 +17,11 @@ use BroadworksOCIP\Session\Session;
 
 
 /**
- * Class CoreFactory - CoreFactory for object retrieval.
+ * Class Factory - Factory for object retrieval.
  *
  * @package BroadworksOCIP
  */
-class CoreFactory
+class Factory
 {
     public static function &getErrorControl()
     {
