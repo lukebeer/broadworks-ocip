@@ -1,0 +1,222 @@
+<?php
+/**
+ * This file is part of http://github.com/LukeBeer/BroadworksOCIP
+ * 
+ * (c) 2013-2015 Luke Berezynskyj <eat.lemons@gmail.com>
+ */
+
+namespace BroadworksOCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaSystem; 
+
+use BroadworksOCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SystemAdminType;
+use BroadworksOCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\FirstName;
+use BroadworksOCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Language;
+use BroadworksOCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Password;
+use BroadworksOCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\LastName;
+use BroadworksOCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\UserId;
+use BroadworksOCIP\Builder\Types\PrimitiveType;
+use BroadworksOCIP\Builder\Types\ComplexInterface;
+use BroadworksOCIP\Builder\Types\ComplexType;
+use BroadworksOCIP\Response\ResponseOutput;
+use BroadworksOCIP\Client\Client;
+
+
+/**
+ * Add a system or provisioning administrator.
+ *         The response is either a SuccessResponse or an ErrorResponse.
+ */
+class SystemAdminAddRequest extends ComplexType implements ComplexInterface
+{
+    public    $elementName = 'SystemAdminAddRequest';
+    protected $userId;
+    protected $firstName;
+    protected $lastName;
+    protected $password;
+    protected $language;
+    protected $adminType;
+    protected $readOnly;
+
+    public function __construct(
+         $userId = '',
+         $firstName = null,
+         $lastName = null,
+         $password = '',
+         $language = null,
+         $adminType = '',
+         $readOnly = ''
+    ) {
+        $this->setUserId($userId);
+        $this->setFirstName($firstName);
+        $this->setLastName($lastName);
+        $this->setPassword($password);
+        $this->setLanguage($language);
+        $this->setAdminType($adminType);
+        $this->setReadOnly($readOnly);
+    }
+
+    /**
+     * @return mixed $response
+     */
+    public function get(Client $client, $responseOutput = ResponseOutput::STD)
+    {
+        return $this->send($client, $responseOutput);
+    }
+
+    /**
+     * 
+     */
+    public function setUserId($userId = null)
+    {
+        $this->userId = ($userId InstanceOf UserId)
+             ? $userId
+             : new UserId($userId);
+        $this->userId->setElementName('userId');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return UserId $userId
+     */
+    public function getUserId()
+    {
+        return ($this->userId)
+            ? $this->userId->getElementValue()
+            : null;
+    }
+
+    /**
+     * 
+     */
+    public function setFirstName($firstName = null)
+    {
+        $this->firstName = ($firstName InstanceOf FirstName)
+             ? $firstName
+             : new FirstName($firstName);
+        $this->firstName->setElementName('firstName');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return FirstName $firstName
+     */
+    public function getFirstName()
+    {
+        return ($this->firstName)
+            ? $this->firstName->getElementValue()
+            : null;
+    }
+
+    /**
+     * 
+     */
+    public function setLastName($lastName = null)
+    {
+        $this->lastName = ($lastName InstanceOf LastName)
+             ? $lastName
+             : new LastName($lastName);
+        $this->lastName->setElementName('lastName');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return LastName $lastName
+     */
+    public function getLastName()
+    {
+        return ($this->lastName)
+            ? $this->lastName->getElementValue()
+            : null;
+    }
+
+    /**
+     * 
+     */
+    public function setPassword($password = null)
+    {
+        $this->password = ($password InstanceOf Password)
+             ? $password
+             : new Password($password);
+        $this->password->setElementName('password');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return Password $password
+     */
+    public function getPassword()
+    {
+        return ($this->password)
+            ? $this->password->getElementValue()
+            : null;
+    }
+
+    /**
+     * 
+     */
+    public function setLanguage($language = null)
+    {
+        $this->language = ($language InstanceOf Language)
+             ? $language
+             : new Language($language);
+        $this->language->setElementName('language');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return Language $language
+     */
+    public function getLanguage()
+    {
+        return ($this->language)
+            ? $this->language->getElementValue()
+            : null;
+    }
+
+    /**
+     * 
+     */
+    public function setAdminType($adminType = null)
+    {
+        $this->adminType = ($adminType InstanceOf SystemAdminType)
+             ? $adminType
+             : new SystemAdminType($adminType);
+        $this->adminType->setElementName('adminType');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return SystemAdminType $adminType
+     */
+    public function getAdminType()
+    {
+        return ($this->adminType)
+            ? $this->adminType->getElementValue()
+            : null;
+    }
+
+    /**
+     * 
+     */
+    public function setReadOnly($readOnly = null)
+    {
+        $this->readOnly = new PrimitiveType($readOnly);
+        $this->readOnly->setElementName('readOnly');
+        return $this;
+    }
+
+    /**
+     * 
+     * @return boolean $readOnly
+     */
+    public function getReadOnly()
+    {
+        return ($this->readOnly)
+            ? $this->readOnly->getElementValue()
+            : null;
+    }
+}

@@ -1,0 +1,33 @@
+{
+    "name": "lukebeer/broadworks-ocip",
+    "description": "PHP ORM-like framework for the Broadworks OCIP API",
+    "type": "vcs",
+    "license": "proprietary",
+    "authors": [
+        {
+            "name": "Luke Berezynskyj",
+            "email": "eat.lemons@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "BroadworksOCIP\\": "src/BroadworksOCIP/"
+        },
+        "classmap": ["src/"]
+    },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url":  "git@github.com:lukebeer/broadworks-ocip.git"
+        },
+        {
+            "type": "pear",
+            "url":  "http://pear2.php.net"
+        }
+    ],
+    "suggest": {
+        "pear/HTTP_Request2": "2.2.1",
+        "symfony/console": ">=2.7"
+    },
+    "minimum-stability": "dev"
+}
