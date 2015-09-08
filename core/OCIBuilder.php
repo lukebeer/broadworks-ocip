@@ -40,6 +40,9 @@ class OCIBuilder {
     }
 
     private function buildElement($key, $value) {
+        if (is_array($key)) {
+            return '<'.$key['key'].' xsi:type="'$key['type'].'">'.$value.'</$key>';
+        }
         $return = ($value === OCIDataTypes::XSI_NIL)
             ? "<$key ".OCIDataTypes::XSI_NIL.'="true"/>'
             : "<$key>$value</$key>";
