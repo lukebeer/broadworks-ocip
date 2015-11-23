@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Broadworks OCIP PHP Framework</title>
+  
+
+  <link rel="shortcut icon" href="favicon.ico">
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="./css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="./css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="./css/highlight.css">
+
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "None";
+  </script>
+  
+  <script src="./js/jquery-2.1.1.min.js"></script>
+  <script src="./js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="./js/highlight.pack.js"></script>
+  <script src="./js/theme.js"></script> 
+
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="." class="icon icon-home"> Broadworks OCIP PHP Framework</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="./search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        <ul class="current">
+          
+            <li>
+    <li class="toctree-l1 current">
+        <a class="current" href=".">Home</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#broadworks-ocip-php-docs-amp109amp97amp105amp108amp64amp108amp117amp107amp101amp46amp98amp101amp101amp114">Broadworks OCIP PHP docs - &#109;&#97;&#105;&#108;&#64;&#108;&#117;&#107;&#101;&#46;&#98;&#101;&#101;&#114;</a></li>
+                
+                    <li><a class="toctree-l4" href="#nutshell">Nutshell</a></li>
+                
+            
+            </ul>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="features/">Features</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Core</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="core/builder/">Builder</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="core/client/">Client</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="core/coreFactory/">coreFactory</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="core/errorControl/">errorControl</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="core/response/">Response</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="core/session/">Session</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="core/xml_serializer/">Xml serializer</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Examples</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="examples/basic-usage/">Basic usage</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="examples/example_call_forward/">Example call forward</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="examples/example_move_user/">Example move user</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Files</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="files/layout/">Layout</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Restrictions</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="restrictions/intro-to-restrictions/">Intro to restrictions</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Types</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="types/complex_type/">Complex type</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="types/primitive_type/">Primitive type</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="types/simple-content_type/">Simple content type</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="types/simple_type/">Simple type</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="types/table_type/">Table type</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href=".">Broadworks OCIP PHP Framework</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Home</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        
+          <a href="https://github.com/lukebeer/broadworksocip" class="icon icon-github"> Edit on GitHub</a>
+        
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="broadworks-ocip-php-docs-amp109amp97amp105amp108amp64amp108amp117amp107amp101amp46amp98amp101amp101amp114">Broadworks OCIP PHP docs - <a href="./&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#109;&#97;&#105;&#108;&#64;&#108;&#117;&#107;&#101;&#46;&#98;&#101;&#101;&#114;">&#109;&#97;&#105;&#108;&#64;&#108;&#117;&#107;&#101;&#46;&#98;&#101;&#101;&#114;</a></h1>
+<blockquote>
+<p><em>Easy to use, robust framework for rapid Broadworks OCI development</em></p>
+</blockquote>
+<h2 id="nutshell">Nutshell</h2>
+<ul>
+<li>Requests and Response objects extend abstract base class 'ComplexType'</li>
+<li>'ComplexType' objects are built up of child elements as described in the schema</li>
+<li>Child elements can be either ComplexType|SimpleType|SimpleContent|TableType|PrimitiveType</li>
+<li>SimpleTypes may contain Restriction objects for input validation such as maxLength of minLength</li>
+<li>Communication with Broadworks uses HTTP SOAP or TCP Stream with an instance of a Transport object</li>
+<li>Automatic ComplexType conversion (userGetResponse17sp4 --&gt; userAddRequest17sp4)</li>
+<li>Client is the main controller for the whole framework to interact with the API</li>
+<li>Designed and commented for auto completion in IDEs, no need for manually trawling the schemas</li>
+</ul>
+<hr />
+<h3 id="example-disable-cfa-for-all-users-in-a-group">Example: Disable CFA for all users in a group</h3>
+<p><img alt="Screenshot" src="./img/cfa-allingroup.gif" /></p>
+<pre><code>├── Builder
+│   ├── Builder.php
+│   ├── Restrictions
+│   │   ├── Comment.php
+│   │   ├── Enumeration.php
+│   │   ├── Length.php
+│   │   ├── MaxExclusive.php
+│   │   ├── MaxInclusive.php
+│   │   ├── MaxLength.php
+│   │   ├── MinExclusive.php
+│   │   ├── MinInclusive.php
+│   │   ├── MinLength.php
+│   │   ├── Pattern.php
+│   │   ├── RestrictionInterface.php
+│   │   └── Restriction.php
+│   └── Types
+│       ├── ComplexInterface.php
+│       ├── ComplexType.php
+│       ├── PrimitiveType.php
+│       ├── SimpleContent.php
+│       ├── SimpleInterface.php
+│       ├── SimpleType.php
+│       ├── TableType.php
+│       ├── TypeCheck.php
+│       ├── TypeMap.php
+│       └── TypeTrait.php
+├── Client
+│   ├── AsyncClient.php
+│   ├── Client.php
+│   └── Transport
+│       ├── AsyncTransport.php
+│       ├── SOAPTransport.php
+│       ├── TCPTransport.php
+│       └── TransportInterface.php
+├── Console
+│   ├── CommandGenerator.php
+│   └── Console.php
+├── Events
+│   └── Logger.php
+├── Factory.php
+├── Listeners
+│   └── Connection.php
+├── Logging
+│   └── ErrorControl.php
+├── Output
+│   ├── ConsoleOutput.php
+│   ├── JSONOutput.php
+│   └── OutputInterface.php
+├── Response
+│   ├── ResponseOutput.php
+│   └── Response.php
+├── Serializer
+│   ├── SerializerInterface.php
+│   └── XMLSerializer.php
+├── Session
+│   └── Session.php
+└── utils
+    ├── JobControl.php
+    └── Parser.php
+
+14 directories, 45 files
+</code></pre>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="features/" class="btn btn-neutral float-right" title="Features"/>Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+      <p>Luke Berezynskyj Copywrite &#8734;</p>
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+<div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a class="icon icon-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+      
+        <span style="margin-left: 15px"><a href="features/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+
+</body>
+</html>
+
+<!--
+MkDocs version : 0.14.0
+Build Date UTC : 2015-11-23 15:00:41.390731
+-->

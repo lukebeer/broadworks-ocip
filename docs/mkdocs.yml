@@ -1,0 +1,7 @@
+site_name: Broadworks OCIP PHP Framework
+theme: readthedocs
+repo_url: https://github.com/lukebeer/broadworksocip
+site_description: PHP Framework for the Broadworks Provisioning API.
+site_author: Luke Beer
+site_favicon: favicon.ico
+copyright: Luke Berezynskyj Copywrite &#8734; 
