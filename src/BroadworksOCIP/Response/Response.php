@@ -45,7 +45,7 @@ class Response
         if (preg_match('/ErrorResponse/', $this->response)) {
             $this->ErrorResponse();
         }
-        if (preg_match('/<command .*>(.*)<\/command>/', $this->response, $cmdResponse)) {
+        if (preg_match('/<command (?:echo|xsi).*>(.*)<\/command>/', $this->response, $cmdResponse)) {
             $this->Response($cmdResponse[0], $responseType, $outputType, $appends);
         }
     }
