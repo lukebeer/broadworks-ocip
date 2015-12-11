@@ -131,15 +131,12 @@ class TCPTransport implements TransportInterface
      */
     public function getResponse($responseType = false, $outputType = ResponseOutput::STD, array $appends = [])
     {
-        $data = '';
+        $this->response = '';
         if ($this->pending) {
-            while ($data .= fgets($this->socket, 4096)) {
-                if (strpos($data, '</BroadsoftDocument>')) {
-                    $this->response = $data;
-                    $this->pending = false;
-                    break;
-                }
+            while (!strpos($this->response, PHP_EOL)) {
+                $this->response .= fgets($this->socket, 4096);
             }
+            $this->pending = false;
         }
         $response = new Response($this->response, $responseType, $outputType, $appends);
         return $response->getResponse();
