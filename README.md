@@ -1,37 +1,15 @@
-Broadworks OCIP PHP Framework
-===================
+# Broadworks OCI-P PHP Framework
 
-#### Repo now private, contact me: mail@luke.beer
-#### More docs: https://luke.beer/docs
+## PHP Framework for the Broadworks OCI Provisioning API
 
-##### Assists rapid development of Broadworks applications, integrations and provisioning tasks
-###### Common bulk changes are few lines & minuets work
-``` php
-use BroadworksOCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser\UserGetListInServiceProviderRequest;
-use BroadworksOCIP\api\Rel_17_sp4_1_197_OCISchemaAS\Services\OCISchemaServiceCallForwardingAlways;
-$userListRequest = new UserGetListInServiceProviderRequest('exampleServiceProviderId');
-foreach ($res->get($client)->getUserTable()->getColumn(0) as $user) {
-    $callFwdRequest = new OCISchemaServiceCallForwardingAlways\UserCallForwardingAlwaysModifyRequest($user);
-    $callFwdRequest->setForwardToPhoneNumber(false);
-    $result = ($callFwdRequest->get($client));
-}
-```
+Countless hours spent on this rather than on my (ex)missus means rent/bills are now double, donations welcome :)
+- https://luke.beer
+- bitcoin:1kNfDVdH9JxSL9e882Fk9Lo5r4EKZ1FZZ
+- paypal:eat.lemons@gmail.com
 
-* Friendlier alternitive to WSDL/SOAP
-* Type hinting everywhere provides IDE auto completion on all data types
-* Requests and Response objects extend abstract base class 'ComplexType'
-* 'ComplexType' objects are built up of child elements as described in the schema
-* Child elements can be either ComplexType|SimpleType|SimpleContent|TableType|PrimitiveType
-* SimpleTypes may contain Restriction objects for input validation such as maxLength of minLength
-* Communication with Broadworks uses HTTP SOAP or TCP Stream with an instance of a Transport object
-* Automatic ComplexType conversion (userGetResponse17sp4 --> userAddRequest17sp4)
-* Client is the main controller for the whole framework to interact with the API
-* Build apps without the frequent distraction of referring to the OCI schema
 
-----------
+## Features
 
-Features
--------------
 
 #### <i class="icon-file"></i> SOAP or TCP Stream transport
 It's now possible to choose between SOAP over HTTPS or a TCP stream (default) for interaction with the Broadworks API. Basic benchmarks suggest 15/requests/second with SOAP and 150/requests/second for TCP Stream. UserGetRequest17sp4 was used for the benchmark.
@@ -40,31 +18,43 @@ It's now possible to choose between SOAP over HTTPS or a TCP stream (default) fo
 #### <i class="icon-folder-open"></i> Session management
 Sessions can be exported out of and into the Client, this was added to allow Broadworks OCI-P scripts triggered by methods such as cronjobs to execute using external session data. Porting Sessions are a secure way to execute commands as the user that requested it as the password is not stored, cookies/sessionId are used for authentication.
 
+
 #### <i class="icon-pencil"></i> IDE Autocompletion
 
-All elements of the framework have been built with IDE autocompletion in mind so there isn't a need to remember the details of a data type.
-
-![Screenshot](https://luke.beer/docs/img/autocomplete-1.png)
-
-![Screenshot](https://luke.beer/docs/img/autocomplete-2.png)
+All elements of the framework have been built with IDE autocompletion in mind so there isn't a need to remember the details of a data type, below is an example of disabling CallForwardingAlways for all users within a group.
+![](http://lukebeer.github.io/broadworks-ocip/img/cfa-allingroup.gif)
 
 #### <i class="icon-refresh"></i>Interactive console
-An interacting CLI is built in that requires zero programming knowledge. The user navigates through the schema in the same way you would directories and files on a linux file system. Commands can be executed in the CLI with results printed to screen. Tab autocompletion works.
+An interacting CLI is built in that requires zero programming knowledge. The user navigates through the schema in the same way you would directories and files on a linux file system. Commands can be executed in the CLI with results printed to screen. Tab autocompletion works - (broken in latest release)
 
 
 #### <i class="icon-hdd"></i> Data export
 
 Objects support serialisation to allow saving of messages in plain-text format that can be unserialised back into data types the framework can understand then replayed back into Broadworks for example
 
+
+
 ----------
+- Friendlier alternative to writing XML directly
+- PHP classes generated from XSD schema files
+- SOAP transport support, good for unreliable connections
+- TCP stream transport support provides minimal overhead & maximum throughput 
+- SimpleTypes may contain Restriction objects for input validation such as maxLength of minLength
+- Automatic mapping of data types (userGetResponse17sp4 --> userAddRequest17sp4)
+- Blood, sweat and tears from countless hours of my time when I should of been at the pub
 
+-------
+## Installation
 
-Basic Usage
--------------------
+```
+$ composer require lukebeer/broadworks-ocip:dev-master
+```
+-----
+## Basic usage
 
 ``` php
 <?php
-require_once 'Broadworks_OCIP/common.php';
+require_once 'vendor/autoload.php';
 
 // Use the ComplexType required for this example.
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser\UserServiceGetAssignmentListRequest;
@@ -79,791 +69,341 @@ $response = $request->get($client);
 
 // This response type returns a TableType object, getValue() renders a table.
 echo $response->getServicePacksAssignmentTable()->getValue();
+?>
 
 /* Spits out:
-+--------------------------------------+----------+------------------------------------------+
-| Service Pack Name                    | Assigned | Description                              |
-+--------------------------------------+----------+------------------------------------------+
-| N-IPVC-854-Softphone-Rental          | false    | Softphone Rental (Android)               |
-| N-IPVC-100-Office-User               | false    | Office User V2.2                         |
-| N-IPVC-856-Call-Control              | false    | Call-Control                             |
-| N-IPVC-857-Softphone-Rental          | true     | Softphone Rental (Windows Desktop)       |
-| N-IPVC-852-Softphone-Rental          | false    | Softphone Rental (iPhone)                |
-| N-IPVC-103-Mobile-Worker-OLD         | true     |                                          |
-| N-IPVC-105-Hot-Desk-Phone-OLD        | false    |                                          |
-| N-IPVC-106-Meeting-Room-Phone-OLD    | false    |                                          |
-| N-IPVC-100-Office-User-OLD           | false    |                                          |
-| N-IPVC-102-Receptionist-Software-OLD | false    |                                          |
-| N-IPVC-109-CC-Agent                  | false    |                                          |
-| N-IPVC-101-Office-Lite-User-OLD      | false    |                                          |
-+--------------------------------------+----------+------------------------------------------+
++--------------------------------------------------+----------+
+| Service Name                                     | Assigned |
++--------------------------------------------------+----------+
+| Anonymous Call Rejection                         | true     |
+| Authentication                                   | true     |
+| Call Forwarding Always                           | true     |
+| Call Forwarding Busy                             | true     |
+| Call Forwarding No Answer                        | true     |
+| Call Notify                                      | false    |
+| Calling Line ID Delivery Blocking                | true     |
+| CommPilot Express                                | true     |
+| CommPilot Call Manager                           | true     |
+| Do Not Disturb                                   | true     |
+| Intercept User                                   | true     |
+| Last Number Redial                               | true     |
+| Sequential Ring                                  | true     |
++--------------------------------------------------+----------+
 */
-?>
 ```
+-----
+## Main response types
 
+### ComplexType
 
-## BroadworksOCIP\Response\Response
+ComplexTypes such as UserGetRequest17sp4 are types that may contain a mixture of element types including ComplexTypes.
+Think of them as XML with nested children.
 
-The Response class is constructed with response XML from Broadworks then analyised.
-Errors go in the ErrorController and false is returned, SuccessResponse (no payload) returns true and responses with XML payload get passed into the Serializer. A ResponseType parameter can be passed into getResponse by the code to return a non-standard response type.
-
-This is used for returning a UserAddRequest17sp4 instead of the default UserGetResponse17sp4 when a UserGetRequest17sp4 has been sent.
-
-
-#### UserGetRequest17sp4 to UserGetResponse17sp4 example
+If one of the elements to be set is a ComplexType, the ComplexType needs creating before being set in the parent object.
+For example, StreetAddress is a ComplexType:
 ``` php
 <?php
-use BroadworksOCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser\UserGetRequest17sp4;
-use BroadworksOCIPFactory;
 
+$address = new StreetAddress();
+$address->setAddressLine1('1337 Street');
+$address->setCountry('England');
 
-$client = BroadworksOCIPFactory::getTCPClient(OCIP_HOST);;
-$client->login(OCIP_USER, OCIP_PASS);
-$client->send(new UserGetRequest17sp4('user@example.com'));
-print_r($client->getResponse());
+$request = new UserAddRequest17sp4();
+$request->setStreetAddress($address);
 ```
 
-#### UserGetResponse17sp4 example structure
+#### ComplexType StreetAddress structure
 ```
-BroadworksOCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser\UserGetResponse17sp4 Object
+Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\StreetAddress Object
 (
-    [elementName] => UserGetResponse17sp4
-    [serviceProviderId:protected] => BroadworksOCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\ServiceProviderId Object
+    [elementName] => StreetAddress
+    [addressLine1:protected] => Broadworks_OCIP\core\Builder\Types\SimpleContent Object
         (
-            [elementName] => serviceProviderId
-            [annontation:protected] =>
-            [attributes:protected] =>
+            [annontation:protected] => 
+            [attributes:protected] => 
             [restrictions:protected] => Array
                 (
-                    [0] => BroadworksOCIP\Builder\Restrictions\MinLength Object
+                    [0] => Broadworks_OCIP\core\Builder\Restrictions\MinLength Object
                         (
                             [value:protected] => 1
-                            [detail:protected] =>
+                            [detail:protected] => 
                         )
 
-                    [1] => BroadworksOCIP\Builder\Restrictions\MaxLength Object
-                        (
-                            [value:protected] => 30
-                            [detail:protected] =>
-                        )
-
-                )
-
-            [errors:protected] =>
-            [elementValue:protected] => Some-Enterprise-Id
-        )
-
-    [groupId:protected] => BroadworksOCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\GroupId Object
-        (
-            [elementName] => groupId
-            [annontation:protected] =>
-            [attributes:protected] =>
-            [restrictions:protected] => Array
-                (
-                    [0] => BroadworksOCIP\Builder\Restrictions\MinLength Object
-                        (
-                            [value:protected] => 1
-                            [detail:protected] =>
-                        )
-
-                    [1] => BroadworksOCIP\Builder\Restrictions\MaxLength Object
-                        (
-                            [value:protected] => 30
-                            [detail:protected] =>
-                        )
-
-                )
-
-            [errors:protected] =>
-            [elementValue:protected] => Some-Group-Id
-        )
-
-    [lastName:protected] => BroadworksOCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\LastName Object
-        (
-            [elementName] => lastName
-            [annontation:protected] =>
-            [attributes:protected] =>
-            [restrictions:protected] => Array
-                (
-                    [0] => BroadworksOCIP\Builder\Restrictions\MinLength Object
-                        (
-                            [value:protected] => 1
-                            [detail:protected] =>
-                        )
-
-                    [1] => BroadworksOCIP\Builder\Restrictions\MaxLength Object
-                        (
-                            [value:protected] => 30
-                            [detail:protected] =>
-                        )
-
-                )
-
-            [errors:protected] =>
-            [elementValue:protected] => Bloggs
-        )
-
-    [firstName:protected] => BroadworksOCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\FirstName Object
-        (
-            [elementName] => firstName
-            [annontation:protected] =>
-            [attributes:protected] =>
-            [restrictions:protected] => Array
-                (
-                    [0] => BroadworksOCIP\Builder\Restrictions\MinLength Object
-                        (
-                            [value:protected] => 1
-                            [detail:protected] =>
-                        )
-
-                    [1] => BroadworksOCIP\Builder\Restrictions\MaxLength Object
-                        (
-                            [value:protected] => 30
-                            [detail:protected] =>
-                        )
-
-                )
-
-            [errors:protected] =>
-            [elementValue:protected] => Joe
-        )
-
-    [callingLineIdLastName:protected] => BroadworksOCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallingLineIdLastName Object
-        (
-            [elementName] => callingLineIdLastName
-            [annontation:protected] =>
-            [attributes:protected] =>
-            [restrictions:protected] => Array
-                (
-                    [0] => BroadworksOCIP\Builder\Restrictions\MinLength Object
-                        (
-                            [value:protected] => 1
-                            [detail:protected] =>
-                        )
-
-                    [1] => BroadworksOCIP\Builder\Restrictions\MaxLength Object
-                        (
-                            [value:protected] => 30
-                            [detail:protected] =>
-                        )
-
-                )
-
-            [errors:protected] =>
-            [elementValue:protected] => Bloggs
-        )
-
-    [callingLineIdFirstName:protected] => BroadworksOCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CallingLineIdFirstName Object
-        (
-            [elementName] => callingLineIdFirstName
-            [annontation:protected] =>
-            [attributes:protected] =>
-            [restrictions:protected] => Array
-                (
-                    [0] => BroadworksOCIP\Builder\Restrictions\MinLength Object
-                        (
-                            [value:protected] => 1
-                            [detail:protected] =>
-                        )
-
-                    [1] => BroadworksOCIP\Builder\Restrictions\MaxLength Object
-                        (
-                            [value:protected] => 30
-                            [detail:protected] =>
-                        )
-
-                )
-
-            [errors:protected] =>
-            [elementValue:protected] => Joe
-        )
-
-    [hiraganaLastName:protected] => BroadworksOCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\HiraganaLastName Object
-        (
-            [elementName] => hiraganaLastName
-            [annontation:protected] =>
-            [attributes:protected] =>
-            [restrictions:protected] => Array
-                (
-                    [0] => BroadworksOCIP\Builder\Restrictions\MinLength Object
-                        (
-                            [value:protected] => 1
-                            [detail:protected] =>
-                        )
-
-                    [1] => BroadworksOCIP\Builder\Restrictions\MaxLength Object
-                        (
-                            [value:protected] => 30
-                            [detail:protected] =>
-                        )
-
-                )
-
-            [errors:protected] =>
-            [elementValue:protected] => Bloggs
-        )
-
-    [hiraganaFirstName:protected] => BroadworksOCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\HiraganaFirstName Object
-        (
-            [elementName] => hiraganaFirstName
-            [annontation:protected] =>
-            [attributes:protected] =>
-            [restrictions:protected] => Array
-                (
-                    [0] => BroadworksOCIP\Builder\Restrictions\MinLength Object
-                        (
-                            [value:protected] => 1
-                            [detail:protected] =>
-                        )
-
-                    [1] => BroadworksOCIP\Builder\Restrictions\MaxLength Object
-                        (
-                            [value:protected] => 30
-                            [detail:protected] =>
-                        )
-
-                )
-
-            [errors:protected] =>
-            [elementValue:protected] => Joe
-        )
-
-    [phoneNumber:protected] => BroadworksOCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DN Object
-        (
-            [elementName] => phoneNumber
-            [annontation:protected] =>
-            [attributes:protected] =>
-            [restrictions:protected] => Array
-                (
-                    [0] => BroadworksOCIP\Builder\Restrictions\MinLength Object
-                        (
-                            [value:protected] => 1
-                            [detail:protected] =>
-                        )
-
-                    [1] => BroadworksOCIP\Builder\Restrictions\MaxLength Object
-                        (
-                            [value:protected] => 23
-                            [detail:protected] =>
-                        )
-
-                )
-
-            [errors:protected] =>
-            [elementValue:protected] => 01189123123
-        )
-
-    [extension:protected] => BroadworksOCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Extension17 Object
-        (
-            [elementName] => extension
-            [annontation:protected] =>
-            [attributes:protected] =>
-            [restrictions:protected] => Array
-                (
-                    [0] => BroadworksOCIP\Builder\Restrictions\MinLength Object
-                        (
-                            [value:protected] => 2
-                            [detail:protected] =>
-                        )
-
-                    [1] => BroadworksOCIP\Builder\Restrictions\MaxLength Object
-                        (
-                            [value:protected] => 20
-                            [detail:protected] =>
-                        )
-
-                )
-
-            [errors:protected] =>
-            [elementValue:protected] => 1337
-        )
-
-    [callingLineIdPhoneNumber:protected] => BroadworksOCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\DN Object
-        (
-            [elementName] => callingLineIdPhoneNumber
-            [annontation:protected] =>
-            [attributes:protected] =>
-            [restrictions:protected] => Array
-                (
-                    [0] => BroadworksOCIP\Builder\Restrictions\MinLength Object
-                        (
-                            [value:protected] => 1
-                            [detail:protected] =>
-                        )
-
-                    [1] => BroadworksOCIP\Builder\Restrictions\MaxLength Object
-                        (
-                            [value:protected] => 23
-                            [detail:protected] =>
-                        )
-
-                )
-
-            [errors:protected] =>
-            [elementValue:protected] => 01189123123
-        )
-
-    [department:protected] =>
-    [departmentFullPath:protected] =>
-    [language:protected] => BroadworksOCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Language Object
-        (
-            [elementName] => language
-            [annontation:protected] =>
-            [attributes:protected] =>
-            [restrictions:protected] => Array
-                (
-                    [0] => BroadworksOCIP\Builder\Restrictions\MinLength Object
-                        (
-                            [value:protected] => 1
-                            [detail:protected] =>
-                        )
-
-                    [1] => BroadworksOCIP\Builder\Restrictions\MaxLength Object
-                        (
-                            [value:protected] => 40
-                            [detail:protected] =>
-                        )
-
-                )
-
-            [errors:protected] =>
-            [elementValue:protected] => British
-        )
-
-    [timeZone:protected] => BroadworksOCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\TimeZone Object
-        (
-            [elementName] => timeZone
-            [annontation:protected] =>
-            [attributes:protected] =>
-            [restrictions:protected] => Array
-                (
-                    [0] => BroadworksOCIP\Builder\Restrictions\MinLength Object
-                        (
-                            [value:protected] => 1
-                            [detail:protected] =>
-                        )
-
-                    [1] => BroadworksOCIP\Builder\Restrictions\MaxLength Object
-                        (
-                            [value:protected] => 127
-                            [detail:protected] =>
-                        )
-
-                )
-
-            [errors:protected] =>
-            [elementValue:protected] => Europe/London
-        )
-
-    [timeZoneDisplayName:protected] => BroadworksOCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\TimeZoneDisplayName Object
-        (
-            [elementName] => timeZoneDisplayName
-            [annontation:protected] =>
-            [attributes:protected] =>
-            [restrictions:protected] => Array
-                (
-                    [0] => BroadworksOCIP\Builder\Restrictions\MinLength Object
-                        (
-                            [value:protected] => 1
-                            [detail:protected] =>
-                        )
-
-                    [1] => BroadworksOCIP\Builder\Restrictions\MaxLength Object
-                        (
-                            [value:protected] => 127
-                            [detail:protected] =>
-                        )
-
-                )
-
-            [errors:protected] =>
-            [elementValue:protected] => (GMT) Europe/London
-        )
-
-    [defaultAlias:protected] => BroadworksOCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SIPURI Object
-        (
-            [elementName] => defaultAlias
-            [annontation:protected] =>
-            [attributes:protected] =>
-            [restrictions:protected] => Array
-                (
-                    [0] => BroadworksOCIP\Builder\Restrictions\MinLength Object
-                        (
-                            [value:protected] => 1
-                            [detail:protected] =>
-                        )
-
-                    [1] => BroadworksOCIP\Builder\Restrictions\MaxLength Object
-                        (
-                            [value:protected] => 161
-                            [detail:protected] =>
-                        )
-
-                )
-
-            [errors:protected] =>
-            [elementValue:protected] => user@example.com
-        )
-
-    [alias:protected] => BroadworksOCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\SIPURI Object
-        (
-            [elementName] => alias
-            [annontation:protected] =>
-            [attributes:protected] =>
-            [restrictions:protected] => Array
-                (
-                    [0] => BroadworksOCIP\Builder\Restrictions\MinLength Object
-                        (
-                            [value:protected] => 1
-                            [detail:protected] =>
-                        )
-
-                    [1] => BroadworksOCIP\Builder\Restrictions\MaxLength Object
-                        (
-                            [value:protected] => 161
-                            [detail:protected] =>
-                        )
-
-                )
-
-            [errors:protected] =>
-            [elementValue:protected] => 01423201720@bsas.example.com
-        )
-
-    [title:protected] => BroadworksOCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\Title Object
-        (
-            [elementName] => title
-            [annontation:protected] =>
-            [attributes:protected] =>
-            [restrictions:protected] => Array
-                (
-                    [0] => BroadworksOCIP\Builder\Restrictions\MinLength Object
-                        (
-                            [value:protected] => 1
-                            [detail:protected] =>
-                        )
-
-                    [1] => BroadworksOCIP\Builder\Restrictions\MaxLength Object
-                        (
-                            [value:protected] => 50
-                            [detail:protected] =>
-                        )
-
-                )
-
-            [errors:protected] =>
-            [elementValue:protected] => Mr
-        )
-
-    [pagerPhoneNumber:protected] =>
-    [mobilePhoneNumber:protected] => BroadworksOCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\OutgoingDN Object
-        (
-            [elementName] => mobilePhoneNumber
-            [annontation:protected] =>
-            [attributes:protected] =>
-            [restrictions:protected] => Array
-                (
-                    [0] => BroadworksOCIP\Builder\Restrictions\MinLength Object
-                        (
-                            [value:protected] => 1
-                            [detail:protected] =>
-                        )
-
-                    [1] => BroadworksOCIP\Builder\Restrictions\MaxLength Object
-                        (
-                            [value:protected] => 30
-                            [detail:protected] =>
-                        )
-
-                )
-
-            [errors:protected] =>
-            [elementValue:protected] => 07712345123
-        )
-
-    [emailAddress:protected] => BroadworksOCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\EmailAddress Object
-        (
-            [elementName] => emailAddress
-            [annontation:protected] =>
-            [attributes:protected] =>
-            [restrictions:protected] => Array
-                (
-                    [0] => BroadworksOCIP\Builder\Restrictions\MinLength Object
-                        (
-                            [value:protected] => 1
-                            [detail:protected] =>
-                        )
-
-                    [1] => BroadworksOCIP\Builder\Restrictions\MaxLength Object
+                    [1] => Broadworks_OCIP\core\Builder\Restrictions\MaxLength Object
                         (
                             [value:protected] => 80
-                            [detail:protected] =>
+                            [detail:protected] => 
                         )
 
                 )
 
-            [errors:protected] =>
-            [elementValue:protected] => user@example.com
+            [errors:protected] => 
+            [elementValue:protected] => 1337 Street
+            [elementName:protected] => addressLine1
         )
 
-    [yahooId:protected] =>
-    [addressLocation:protected] =>
-    [address:protected] => BroadworksOCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\StreetAddress Object
+    [addressLine2:protected] => Broadworks_OCIP\core\Builder\Types\SimpleContent Object
         (
-            [elementName] => address
-            [addressLine1:protected] => BroadworksOCIP\Builder\Types\SimpleContent Object
-                (
-                    [annontation:protected] =>
-                    [attributes:protected] =>
-                    [restrictions:protected] => Array
-                        (
-                            [0] => BroadworksOCIP\Builder\Restrictions\MinLength Object
-                                (
-                                    [value:protected] => 1
-                                    [detail:protected] =>
-                                )
-
-                            [1] => BroadworksOCIP\Builder\Restrictions\MaxLength Object
-                                (
-                                    [value:protected] => 80
-                                    [detail:protected] =>
-                                )
-
-                        )
-
-                    [errors:protected] =>
-                    [elementValue:protected] => 1337 Street
-                    [elementName:protected] => addressLine1
-                )
-
-            [addressLine2:protected] => BroadworksOCIP\Builder\Types\SimpleContent Object
-                (
-                    [annontation:protected] =>
-                    [attributes:protected] =>
-                    [restrictions:protected] => Array
-                        (
-                            [0] => BroadworksOCIP\Builder\Restrictions\MinLength Object
-                                (
-                                    [value:protected] => 1
-                                    [detail:protected] =>
-                                )
-
-                            [1] => BroadworksOCIP\Builder\Restrictions\MaxLength Object
-                                (
-                                    [value:protected] => 80
-                                    [detail:protected] =>
-                                )
-
-                        )
-
-                    [errors:protected] =>
-                    [elementValue:protected] =>
-                    [elementName:protected] => addressLine2
-                )
-
-            [city:protected] => BroadworksOCIP\Builder\Types\SimpleContent Object
-                (
-                    [annontation:protected] =>
-                    [attributes:protected] =>
-                    [restrictions:protected] => Array
-                        (
-                            [0] => BroadworksOCIP\Builder\Restrictions\MinLength Object
-                                (
-                                    [value:protected] => 1
-                                    [detail:protected] =>
-                                )
-
-                            [1] => BroadworksOCIP\Builder\Restrictions\MaxLength Object
-                                (
-                                    [value:protected] => 50
-                                    [detail:protected] =>
-                                )
-
-                        )
-
-                    [errors:protected] =>
-                    [elementValue:protected] => Reading
-                    [elementName:protected] => city
-                )
-
-            [stateOrProvince:protected] => BroadworksOCIP\Builder\Types\SimpleContent Object
-                (
-                    [annontation:protected] =>
-                    [attributes:protected] =>
-                    [restrictions:protected] => Array
-                        (
-                            [0] => BroadworksOCIP\Builder\Restrictions\MinLength Object
-                                (
-                                    [value:protected] => 1
-                                    [detail:protected] =>
-                                )
-
-                            [1] => BroadworksOCIP\Builder\Restrictions\MaxLength Object
-                                (
-                                    [value:protected] => 50
-                                    [detail:protected] =>
-                                )
-
-                        )
-
-                    [errors:protected] =>
-                    [elementValue:protected] =>
-                    [elementName:protected] => stateOrProvince
-                )
-
-            [stateOrProvinceDisplayName:protected] => BroadworksOCIP\Builder\Types\SimpleContent Object
-                (
-                    [annontation:protected] =>
-                    [attributes:protected] =>
-                    [restrictions:protected] => Array
-                        (
-                            [0] => BroadworksOCIP\Builder\Restrictions\MinLength Object
-                                (
-                                    [value:protected] => 1
-                                    [detail:protected] =>
-                                )
-
-                            [1] => BroadworksOCIP\Builder\Restrictions\MaxLength Object
-                                (
-                                    [value:protected] => 50
-                                    [detail:protected] =>
-                                )
-
-                        )
-
-                    [errors:protected] =>
-                    [elementValue:protected] =>
-                    [elementName:protected] => stateOrProvinceDisplayName
-                )
-
-            [zipOrPostalCode:protected] => BroadworksOCIP\Builder\Types\SimpleContent Object
-                (
-                    [annontation:protected] =>
-                    [attributes:protected] =>
-                    [restrictions:protected] => Array
-                        (
-                            [0] => BroadworksOCIP\Builder\Restrictions\MinLength Object
-                                (
-                                    [value:protected] => 1
-                                    [detail:protected] =>
-                                )
-
-                            [1] => BroadworksOCIP\Builder\Restrictions\MaxLength Object
-                                (
-                                    [value:protected] => 50
-                                    [detail:protected] =>
-                                )
-
-                        )
-
-                    [errors:protected] =>
-                    [elementValue:protected] => RG1 000
-                    [elementName:protected] => zipOrPostalCode
-                )
-
-            [country:protected] => BroadworksOCIP\Builder\Types\SimpleContent Object
-                (
-                    [annontation:protected] =>
-                    [attributes:protected] =>
-                    [restrictions:protected] => Array
-                        (
-                            [0] => BroadworksOCIP\Builder\Restrictions\MinLength Object
-                                (
-                                    [value:protected] => 1
-                                    [detail:protected] =>
-                                )
-
-                            [1] => BroadworksOCIP\Builder\Restrictions\MaxLength Object
-                                (
-                                    [value:protected] => 50
-                                    [detail:protected] =>
-                                )
-
-                        )
-
-                    [errors:protected] =>
-                    [elementValue:protected] => Berkshire
-                    [elementName:protected] => country
-                )
-
-            [elements:protected] => Array
-                (
-                )
-
-            [responseType:protected] =>
-            [errors:protected] =>
-            [params:protected] => Array
-                (
-                )
-
-            [args:protected] =>
-            [elementValue:protected] =>
-        )
-
-    [countryCode:protected] => BroadworksOCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\CountryCode Object
-        (
-            [elementName] => countryCode
-            [annontation:protected] =>
-            [attributes:protected] =>
+            [annontation:protected] => 
+            [attributes:protected] => 
             [restrictions:protected] => Array
                 (
-                    [0] => BroadworksOCIP\Builder\Restrictions\MaxLength Object
-                        (
-                            [value:protected] => 3
-                            [detail:protected] =>
-                        )
-
-                    [1] => BroadworksOCIP\Builder\Restrictions\Pattern Object
-                        (
-                            [value:protected] => [0-9]|[1-9][0-9]{1,2}
-                            [detail:protected] =>
-                        )
-
-                )
-
-            [errors:protected] =>
-            [elementValue:protected] => 44
-        )
-
-    [nationalPrefix:protected] => BroadworksOCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\NationalPrefix Object
-        (
-            [elementName] => nationalPrefix
-            [annontation:protected] =>
-            [attributes:protected] =>
-            [restrictions:protected] => Array
-                (
-                    [0] => BroadworksOCIP\Builder\Restrictions\MinLength Object
+                    [0] => Broadworks_OCIP\core\Builder\Restrictions\MinLength Object
                         (
                             [value:protected] => 1
-                            [detail:protected] =>
+                            [detail:protected] => 
                         )
 
-                    [1] => BroadworksOCIP\Builder\Restrictions\MaxLength Object
+                    [1] => Broadworks_OCIP\core\Builder\Restrictions\MaxLength Object
                         (
-                            [value:protected] => 2
-                            [detail:protected] =>
+                            [value:protected] => 80
+                            [detail:protected] => 
                         )
 
                 )
 
-            [errors:protected] =>
-            [elementValue:protected] => 0
+            [errors:protected] => 
+            [elementValue:protected] => 
+            [elementName:protected] => addressLine2
         )
 
-    [networkClassOfService:protected] =>
-    [officeZoneName:protected] =>
-    [primaryZoneName:protected] =>
+    [city:protected] => Broadworks_OCIP\core\Builder\Types\SimpleContent Object
+        (
+            [annontation:protected] => 
+            [attributes:protected] => 
+            [restrictions:protected] => Array
+                (
+                    [0] => Broadworks_OCIP\core\Builder\Restrictions\MinLength Object
+                        (
+                            [value:protected] => 1
+                            [detail:protected] => 
+                        )
+
+                    [1] => Broadworks_OCIP\core\Builder\Restrictions\MaxLength Object
+                        (
+                            [value:protected] => 50
+                            [detail:protected] => 
+                        )
+
+                )
+
+            [errors:protected] => 
+            [elementValue:protected] => 
+            [elementName:protected] => city
+        )
+
+    [stateOrProvince:protected] => Broadworks_OCIP\core\Builder\Types\SimpleContent Object
+        (
+            [annontation:protected] => 
+            [attributes:protected] => 
+            [restrictions:protected] => Array
+                (
+                    [0] => Broadworks_OCIP\core\Builder\Restrictions\MinLength Object
+                        (
+                            [value:protected] => 1
+                            [detail:protected] => 
+                        )
+
+                    [1] => Broadworks_OCIP\core\Builder\Restrictions\MaxLength Object
+                        (
+                            [value:protected] => 50
+                            [detail:protected] => 
+                        )
+
+                )
+
+            [errors:protected] => 
+            [elementValue:protected] => 
+            [elementName:protected] => stateOrProvince
+        )
+
+    [stateOrProvinceDisplayName:protected] => Broadworks_OCIP\core\Builder\Types\SimpleContent Object
+        (
+            [annontation:protected] => 
+            [attributes:protected] => 
+            [restrictions:protected] => Array
+                (
+                    [0] => Broadworks_OCIP\core\Builder\Restrictions\MinLength Object
+                        (
+                            [value:protected] => 1
+                            [detail:protected] => 
+                        )
+
+                    [1] => Broadworks_OCIP\core\Builder\Restrictions\MaxLength Object
+                        (
+                            [value:protected] => 50
+                            [detail:protected] => 
+                        )
+
+                )
+
+            [errors:protected] => 
+            [elementValue:protected] => 
+            [elementName:protected] => stateOrProvinceDisplayName
+        )
+
+    [zipOrPostalCode:protected] => Broadworks_OCIP\core\Builder\Types\SimpleContent Object
+        (
+            [annontation:protected] => 
+            [attributes:protected] => 
+            [restrictions:protected] => Array
+                (
+                    [0] => Broadworks_OCIP\core\Builder\Restrictions\MinLength Object
+                        (
+                            [value:protected] => 1
+                            [detail:protected] => 
+                        )
+
+                    [1] => Broadworks_OCIP\core\Builder\Restrictions\MaxLength Object
+                        (
+                            [value:protected] => 50
+                            [detail:protected] => 
+                        )
+
+                )
+
+            [errors:protected] => 
+            [elementValue:protected] => 
+            [elementName:protected] => zipOrPostalCode
+        )
+
+    [country:protected] => Broadworks_OCIP\core\Builder\Types\SimpleContent Object
+        (
+            [annontation:protected] => 
+            [attributes:protected] => 
+            [restrictions:protected] => Array
+                (
+                    [0] => Broadworks_OCIP\core\Builder\Restrictions\MinLength Object
+                        (
+                            [value:protected] => 1
+                            [detail:protected] => 
+                        )
+
+                    [1] => Broadworks_OCIP\core\Builder\Restrictions\MaxLength Object
+                        (
+                            [value:protected] => 50
+                            [detail:protected] => 
+                        )
+
+                )
+
+            [errors:protected] => 
+            [elementValue:protected] => Enngland
+            [elementName:protected] => country
+        )
+
     [elements:protected] => Array
         (
         )
 
-    [responseType:protected] =>
-    [errors:protected] =>
+    [responseType:protected] => 
+    [errors:protected] => 
     [params:protected] => Array
         (
         )
 
-    [args:protected] =>
-    [elementValue:protected] =>
+    [args:protected] => 
+    [elementValue:protected] => 
 )
+
+```
+
+### TableType
+
+TableTypes are used for handling OCITable data. A single dimension array is passed in for column headings and data is
+ set by using addRow or addRows with single or multi dimension arrays.
+ 
+It's possible to render a pretty ascii table with `echo $table->getValue()` with the data and also search with 
+`$table->findRow('something')`
+
+If only a single column is required, method `$table->getColumn($id)` will return a specific column of data from all 
+rows in the dataset. One value can be used for keys and another for values.
+
+``` php
+<?php
+$data = $table->getColummn(0, 3);
+$newTable = new TableType(['User Id', 'Phone Number');
+$newTable->addRows($data);
+echo $newTable->getValue();
+```
+Returns:
+```
++------------------------+---------------+
+| User Id                | Phone Number  |
++------------------------+---------------+
+| user-1@example.com     | 01234123456   |
+| user-2@example.com     | 01234123456   |
+| user-3@example.com     | 01234123456   |
+| user-4@example.com     | 01234123456   |
+| user-5@example.com     | 01234123456   |
+| user-6@example.com     | 01234123456   |
++------------------------+---------------+
+```
+-----
+
+## Contributing
+
+#### Bug Reports & Feature Requests
+
+Please use the [issue tracker](https://github.com/lukebeer/broadworks-ocip/issues) to report any bugs or file feature requests.
+
+#### Developing
+
+PRs are welcome. To begin developing, do this:
+
+```bash
+$ curl -X POST -u "GITHUB_USERNAME:GITHUB_PASSWORD"  https://api.github.com/repos/lukebeer/broadworks-ocip/forks && history -c
+$ git clone github:GITHUB_USERNAME/broadworks-ocip &&
+$ cd broadworks-ocip
+```
+-------
+## Project layout
+```
+ Builder
+  Builder.php                # Takes a ComplexType and converts to XML or XML string then wraps it in an envelope ready for shipping.
+  Restrictions
+   Enumeration.php           # Defines a list of acceptable values.
+   Length.php                # Specifies the exact number of characters or list items allowed. Must be equal to or greater than zero.
+   MaxExclusive.php          # Specifies the upper bounds for numeric values (the value must be less than this value).
+   MaxInclusive.php          # Specifies the upper bounds for numeric values (the value must be less than or equal to this value).
+   MaxLength.php             # Specifies the maximum number of characters or list items allowed. Must be equal to or greater than zero.
+   MinExclusive.php          # Specifies the lower bounds for numeric values (the value must be greater than this value).
+   MinInclusive.php          # Specifies the lower bounds for numeric values (the value must be greater than or equal to this value).
+   MinLength.php             # Specifies the minimum number of characters or list items allowed. Must be equal to or greater than zero.
+   Pattern.php               # Defines the exact sequence of characters that are acceptable.
+   Restriction.php           # Abstract base class all restrictions must extend.
+   RestrictionInterface.php  # Interface all Restrictins must implement.
+  Types
+   ComplexInterface.php      # Interface all ComplexTypes must implement.
+   ComplexType.php           # Defines a complex type element.
+   PrimitiveType.php         # Primitive type such as bool/int/string.
+   SimpleContent.php         # Contains extensions or restrictions on a text-only complex type or on a simple type as content and contains no elements.
+   SimpleInterface.php       # Interface all SimpleTypes must implement.
+   SimpleType.php            # Defines a simple type and specifies the constraints and information about the values of attributes or text-only elements.
+   TableType.php             # Used for OCITable responses only, never in requests.
+   TypeCheck.php             # Not implemented yet.
+   TypeMap.php               # Converts xs types to PHP types.
+   TypeTrait.php             # Common trait all types have.
+ Client
+  Client.php                 # Main controller for the whole framework exposing methods for requests and responses.
+  Transport
+   SOAPTransport.php         # Communicates with Broadworks via http(s), this is the slowest but most robust transport type.
+   TCPTransport.php          # Communicates with Broadworks via a TCPStream on port 2208, this is the fastest transport type.
+   TransportInterface.php    # Interface all Transport types must implement.
+ Console
+  Console.php                # Generates an array of commands for the interactive console.
+ Logging
+  ErrorControl.php           # Crappy logging object, needs nuking and starting again.
+ Output
+  ConsoleOutput.php          # Output type for the interactive console.
+  JSONOutput.php             # Generates and echos JSON.
+  OutputInterface.php        # Output interface all Outputs must implement.
+ Response
+  Response.php               # Takes XML input and returns response object specified or false if error.
+  ResponseOutput.php         # Convenience class for selecting response output format.
+ Serializer
+  SerializerInterface.php    # Interface all Serializers must implement.
+  XMLSerializer.php          # Converts XML into the requested object type automatically, very much the brain of this.
+ Session
+  Session.php                # Portable Session object used to store details of the current authenticated session.
 ```
