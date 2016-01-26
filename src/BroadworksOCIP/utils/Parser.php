@@ -418,12 +418,3 @@ class BuildAPI {
         }
     }
 }
-
-#$gen = new BuildAPI('/Users/luke/Development/php/', 'Rel_17.sp4_1.197_OCISchemaAS', '/Users/luke/Development/php/BroadworksOCIP/api/');
-$gen = new BuildAPI('/Users/luke/Development/php/', 'SmartRecord', '/Users/luke/Development/php/SmartRecord/api/', null);
-$gen->generate();
-
-//$gen->buildSimpleTypes('OCISchemaDataTypes.xsd');
-//$gen->buildComplexTypes('OCISchemaDataTypes.xsd', 'OCISchemaDataTypes.xsd');
-//$gen->buildComplexTypes('OCISchemaUser.xsd', );
-
