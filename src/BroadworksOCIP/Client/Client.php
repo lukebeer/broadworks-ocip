@@ -219,7 +219,7 @@ class Client
      */
     public function console(OutputInterface $outputInterface)
     {
-        $commandGenerator = new CommandGenerator(OCI_PATH . '/api/Rel_17_sp4_1_197_OCISchemaAS');
+        $commandGenerator = new CommandGenerator(dirname(__DIR__).'/api/Rel_17_sp4_1_197_OCISchemaAS');
         $console = new Console($commandGenerator->getCommands(), $outputInterface, $this);
         $console->init();
     }
