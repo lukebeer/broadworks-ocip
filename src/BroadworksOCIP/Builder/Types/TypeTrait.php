@@ -18,6 +18,8 @@ trait TypeTrait
 {
     protected $elementValue;
     protected $elementName;
+    protected $selfClosed;
+    protected $attributes;
 
     /**
      * @return string
@@ -58,6 +60,42 @@ trait TypeTrait
     public function setElementName($elementName = null)
     {
         $this->elementName = $elementName;
+        return $this;
+    }
+
+    /**
+     * @param $selfClosed
+     */
+    public function getSelfClosed()
+    {
+        return $this->selfClosed;
+    }
+
+    /**
+     * @param $selfClosed
+     */
+    public function setSelfClosed($selfClosed = true)
+    {
+        $this->selfClosed = $selfClosed;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getAttributes()
+    {
+        return ($this->attributes) ? $this->attributes : [];
+    }
+
+    /**
+     * @param $name
+     */
+    public function setAttribute($attributeName = null, $attributeValue = null)
+    {
+        if ($attributeName) {
+            $this->attributes[$attributeName] = $attributeValue;
+        }
         return $this;
     }
 }

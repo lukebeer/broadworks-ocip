@@ -94,6 +94,7 @@ class Builder
     public static function buildComplex(ComplexType $complex)
     {
         $oci = '';
+        $attributes = self::buildAttributes($complex->getAttributes());
         foreach ($complex->getElements() as $element) {
             if ($element InstanceOf ComplexType) {
                 $oci .= self::buildComplex($element);
@@ -105,7 +106,12 @@ class Builder
                 $oci .= self::buildSimple($element);
             }
         }
-        return ($oci) ? "<{$complex->getElementName()}>$oci</{$complex->getElementName()}>" : '';
+        if ($complex->getSelfClosed()) {
+            return "<{$complex->getElementName()} $attributes/>";
+        }
+        return ($oci)
+            ? "<{$complex->getElementName()} $attributes>$oci</{$complex->getElementName()}>"
+            : '';
     }
 
     /**
@@ -116,7 +122,38 @@ class Builder
      */
     public static function buildSimple(SimpleType $simple)
     {
-        if (empty($simple->getElementValue())) return '';
-        return "<{$simple->getElementName()}>{$simple->getElementValue()}</{$simple->getElementName()}>";
+        $attributes = self::buildAttributes($simple->getAttributes());
+        if ($simple->getSelfClosed()) {
+            return "<{$simple->getElementName()} $attributes/>";
+        }
+        return (empty($simple->getElementValue()))
+            ? ''
+            : "<{$simple->getElementName()} $attributes>{$simple->getElementValue()}</{$simple->getElementName()}>";
+    }
+
+    /**
+     * Generates attributes
+     *
+     * @param array $attributes
+     * @return string
+     */
+    public static function buildAttributes(array $attributes)
+    {
+        $attribute = '';
+        foreach ($attributes as $key => $value) {
+            $attribute .= $key;
+            switch (strtolower(gettype($value))) {
+                case "boolean":
+                     $attribute .= ($value) ? '="true"' : '="false"';
+                    break;
+                case "null":
+                    break;
+                default:
+                    $attribute .= '="' . $value . '"';
+                    break;
+            }
+            $attribute .= " ";
+        }
+        return $attribute;
     }
 }
