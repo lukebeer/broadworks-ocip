@@ -38,7 +38,7 @@ Objects support serialisation to allow saving of messages in plain-text format t
 - Friendlier alternative to writing XML directly
 - PHP classes generated from XSD schema files
 - SOAP transport support, good for unreliable connections
-- TCP stream transport support provides minimal overhead & maximum throughput 
+- TCP stream transport support provides minimal overhead & maximum throughput
 - SimpleTypes may contain Restriction objects for input validation such as maxLength of minLength
 - Automatic mapping of data types (userGetResponse17sp4 --> userAddRequest17sp4)
 - Blood, sweat and tears from countless hours of my time when I should of been at the pub
@@ -60,7 +60,7 @@ require_once 'vendor/autoload.php';
 use Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaUser\UserServiceGetAssignmentListRequest;
 
 // Create a Client and login. CoreFactory also has getSOAPClient()
-$client = Broadworks_OCIP\CoreFactory::getTCPClient('ocip.example.com');
+$client = BroadworksOCIP\Factory::getTCPClient('ocip.example.com');
 $client->login('user', 'pass');
 
 // Generate a request, send and assign the response to $response
@@ -119,175 +119,175 @@ Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\StreetAddres
     [elementName] => StreetAddress
     [addressLine1:protected] => Broadworks_OCIP\core\Builder\Types\SimpleContent Object
         (
-            [annontation:protected] => 
-            [attributes:protected] => 
+            [annontation:protected] =>
+            [attributes:protected] =>
             [restrictions:protected] => Array
                 (
                     [0] => Broadworks_OCIP\core\Builder\Restrictions\MinLength Object
                         (
                             [value:protected] => 1
-                            [detail:protected] => 
+                            [detail:protected] =>
                         )
 
                     [1] => Broadworks_OCIP\core\Builder\Restrictions\MaxLength Object
                         (
                             [value:protected] => 80
-                            [detail:protected] => 
+                            [detail:protected] =>
                         )
 
                 )
 
-            [errors:protected] => 
+            [errors:protected] =>
             [elementValue:protected] => 1337 Street
             [elementName:protected] => addressLine1
         )
 
     [addressLine2:protected] => Broadworks_OCIP\core\Builder\Types\SimpleContent Object
         (
-            [annontation:protected] => 
-            [attributes:protected] => 
+            [annontation:protected] =>
+            [attributes:protected] =>
             [restrictions:protected] => Array
                 (
                     [0] => Broadworks_OCIP\core\Builder\Restrictions\MinLength Object
                         (
                             [value:protected] => 1
-                            [detail:protected] => 
+                            [detail:protected] =>
                         )
 
                     [1] => Broadworks_OCIP\core\Builder\Restrictions\MaxLength Object
                         (
                             [value:protected] => 80
-                            [detail:protected] => 
+                            [detail:protected] =>
                         )
 
                 )
 
-            [errors:protected] => 
-            [elementValue:protected] => 
+            [errors:protected] =>
+            [elementValue:protected] =>
             [elementName:protected] => addressLine2
         )
 
     [city:protected] => Broadworks_OCIP\core\Builder\Types\SimpleContent Object
         (
-            [annontation:protected] => 
-            [attributes:protected] => 
+            [annontation:protected] =>
+            [attributes:protected] =>
             [restrictions:protected] => Array
                 (
                     [0] => Broadworks_OCIP\core\Builder\Restrictions\MinLength Object
                         (
                             [value:protected] => 1
-                            [detail:protected] => 
+                            [detail:protected] =>
                         )
 
                     [1] => Broadworks_OCIP\core\Builder\Restrictions\MaxLength Object
                         (
                             [value:protected] => 50
-                            [detail:protected] => 
+                            [detail:protected] =>
                         )
 
                 )
 
-            [errors:protected] => 
-            [elementValue:protected] => 
+            [errors:protected] =>
+            [elementValue:protected] =>
             [elementName:protected] => city
         )
 
     [stateOrProvince:protected] => Broadworks_OCIP\core\Builder\Types\SimpleContent Object
         (
-            [annontation:protected] => 
-            [attributes:protected] => 
+            [annontation:protected] =>
+            [attributes:protected] =>
             [restrictions:protected] => Array
                 (
                     [0] => Broadworks_OCIP\core\Builder\Restrictions\MinLength Object
                         (
                             [value:protected] => 1
-                            [detail:protected] => 
+                            [detail:protected] =>
                         )
 
                     [1] => Broadworks_OCIP\core\Builder\Restrictions\MaxLength Object
                         (
                             [value:protected] => 50
-                            [detail:protected] => 
+                            [detail:protected] =>
                         )
 
                 )
 
-            [errors:protected] => 
-            [elementValue:protected] => 
+            [errors:protected] =>
+            [elementValue:protected] =>
             [elementName:protected] => stateOrProvince
         )
 
     [stateOrProvinceDisplayName:protected] => Broadworks_OCIP\core\Builder\Types\SimpleContent Object
         (
-            [annontation:protected] => 
-            [attributes:protected] => 
+            [annontation:protected] =>
+            [attributes:protected] =>
             [restrictions:protected] => Array
                 (
                     [0] => Broadworks_OCIP\core\Builder\Restrictions\MinLength Object
                         (
                             [value:protected] => 1
-                            [detail:protected] => 
+                            [detail:protected] =>
                         )
 
                     [1] => Broadworks_OCIP\core\Builder\Restrictions\MaxLength Object
                         (
                             [value:protected] => 50
-                            [detail:protected] => 
+                            [detail:protected] =>
                         )
 
                 )
 
-            [errors:protected] => 
-            [elementValue:protected] => 
+            [errors:protected] =>
+            [elementValue:protected] =>
             [elementName:protected] => stateOrProvinceDisplayName
         )
 
     [zipOrPostalCode:protected] => Broadworks_OCIP\core\Builder\Types\SimpleContent Object
         (
-            [annontation:protected] => 
-            [attributes:protected] => 
+            [annontation:protected] =>
+            [attributes:protected] =>
             [restrictions:protected] => Array
                 (
                     [0] => Broadworks_OCIP\core\Builder\Restrictions\MinLength Object
                         (
                             [value:protected] => 1
-                            [detail:protected] => 
+                            [detail:protected] =>
                         )
 
                     [1] => Broadworks_OCIP\core\Builder\Restrictions\MaxLength Object
                         (
                             [value:protected] => 50
-                            [detail:protected] => 
+                            [detail:protected] =>
                         )
 
                 )
 
-            [errors:protected] => 
-            [elementValue:protected] => 
+            [errors:protected] =>
+            [elementValue:protected] =>
             [elementName:protected] => zipOrPostalCode
         )
 
     [country:protected] => Broadworks_OCIP\core\Builder\Types\SimpleContent Object
         (
-            [annontation:protected] => 
-            [attributes:protected] => 
+            [annontation:protected] =>
+            [attributes:protected] =>
             [restrictions:protected] => Array
                 (
                     [0] => Broadworks_OCIP\core\Builder\Restrictions\MinLength Object
                         (
                             [value:protected] => 1
-                            [detail:protected] => 
+                            [detail:protected] =>
                         )
 
                     [1] => Broadworks_OCIP\core\Builder\Restrictions\MaxLength Object
                         (
                             [value:protected] => 50
-                            [detail:protected] => 
+                            [detail:protected] =>
                         )
 
                 )
 
-            [errors:protected] => 
+            [errors:protected] =>
             [elementValue:protected] => Enngland
             [elementName:protected] => country
         )
@@ -296,14 +296,14 @@ Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\StreetAddres
         (
         )
 
-    [responseType:protected] => 
-    [errors:protected] => 
+    [responseType:protected] =>
+    [errors:protected] =>
     [params:protected] => Array
         (
         )
 
-    [args:protected] => 
-    [elementValue:protected] => 
+    [args:protected] =>
+    [elementValue:protected] =>
 )
 
 ```
@@ -312,11 +312,11 @@ Broadworks_OCIP\api\Rel_17_sp4_1_197_OCISchemaAS\OCISchemaDataTypes\StreetAddres
 
 TableTypes are used for handling OCITable data. A single dimension array is passed in for column headings and data is
  set by using addRow or addRows with single or multi dimension arrays.
- 
-It's possible to render a pretty ascii table with `echo $table->getValue()` with the data and also search with 
+
+It's possible to render a pretty ascii table with `echo $table->getValue()` with the data and also search with
 `$table->findRow('something')`
 
-If only a single column is required, method `$table->getColumn($id)` will return a specific column of data from all 
+If only a single column is required, method `$table->getColumn($id)` will return a specific column of data from all
 rows in the dataset. One value can be used for keys and another for values.
 
 ``` php
