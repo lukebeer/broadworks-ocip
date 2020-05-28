@@ -1,15 +1,7 @@
 # Broadworks OCI-P PHP Framework
 
-## PHP Framework for the Broadworks OCI Provisioning API
-
-Countless hours spent on this rather than on my (ex)missus means rent/bills are now double, donations welcome :)
-- https://luke.beer
-- bitcoin:1kNfDVdH9JxSL9e882Fk9Lo5r4EKZ1FZZ
-- paypal:eat.lemons@gmail.com
-
 
 ## Features
-
 
 #### <i class="icon-file"></i> SOAP or TCP Stream transport
 It's now possible to choose between SOAP over HTTPS or a TCP stream (default) for interaction with the Broadworks API. Basic benchmarks suggest 15/requests/second with SOAP and 150/requests/second for TCP Stream. UserGetRequest17sp4 was used for the benchmark.
