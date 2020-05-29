@@ -37,10 +37,15 @@ Objects support serialisation to allow saving of messages in plain-text format t
 
 -------
 ## Installation
+###### Use this for master branch
+```
+$ composer require lukebeer/broadworks-ocip
+```
+###### Use this for the development branch with untested fixes
+```
+$ composer require lukebeer/broadworks-ocip:development
+```
 
-```
-$ composer require lukebeer/broadworks-ocip:dev-master
-```
 -----
 ## Basic usage
 
