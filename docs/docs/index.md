@@ -1,4 +1,4 @@
-# Broadworks OCIP PHP docs - <mail@luke.beer> 
+# Broadworks OCIP PHP docs
 
 > *Easy to use, robust framework for rapid Broadworks OCI development*
 
