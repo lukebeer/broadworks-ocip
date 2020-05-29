@@ -1,5 +1,6 @@
 {
     "name": "lukebeer/broadworks-ocip",
+    "type": "library",
     "description": "PHP ORM-like framework for the Broadworks OCIP API",
     "keywords": [
         "broadworks-oci",
@@ -32,10 +33,6 @@
     },
     "repositories": [
         {
-            "type": "vcs",
-            "url": "git@github.com:lukebeer/broadworks-ocip.git"
-        },
-        {
             "type": "pear",
             "url": "https://pear2.php.net"
         }
@@ -43,5 +40,12 @@
     "config": {
         "sort-packages": true,
         "platform-check": false
+    },
+    "minimum-stability": "dev",
+    "extra": {
+        "branch-alias": {
+            "dev-master": "v3.0.2"
+        }
     }
 }
+
