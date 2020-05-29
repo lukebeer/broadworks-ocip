@@ -10,6 +10,10 @@
 
 namespace BroadworksOCIP\Builder\Types;
 
+use Console_Table;
+use SimpleXMLElement;
+
+require_once 'Console/Table.php';
 
 /**
  * Class TableType - Used for OCITable responses only, never in requests.
@@ -30,7 +34,7 @@ class TableType
      * @param $name
      * @param null $simpleXmlElement
      */
-    public function __construct($name, \SimpleXMLElement $simpleXmlElement = null)
+    public function __construct($name, SimpleXMLElement $simpleXmlElement = null)
     {
         $this->setElementName($name);
         if ($simpleXmlElement) {
@@ -113,8 +117,7 @@ class TableType
      */
     public function getValue()
     {
-        require_once 'Console/Table.php';
-        $tbl = new \Console_Table();
+        $tbl = new Console_Table();
         $tbl->setHeaders($this->getColHeadings());
         $tbl->addData($this->getAllRows());
         return $tbl->getTable();
@@ -136,7 +139,7 @@ class TableType
      * @param array $colHeadings
      * @return TableType $this
      */
-    public function setColHeadings(Array $colHeadings)
+    public function setColHeadings(array $colHeadings)
     {
         $this->colHeadings = $colHeadings;
         return $this;
