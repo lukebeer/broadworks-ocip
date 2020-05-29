@@ -33,6 +33,5 @@
     },
     "suggest": {
         "symfony/console": ">=2.7"
-    },
-    "minimum-stability": "stable"
+    }
 }
