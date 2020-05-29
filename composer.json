@@ -28,14 +28,6 @@
     "autoload": {
         "psr-4": {
             "BroadworksOCIP\\": "src/BroadworksOCIP/"
-        },
-        "classmap": [
-            "src/"
-        ]
-    },
-    "extra": {
-        "branch-alias": {
-            "dev-master": "master"
         }
     },
     "repositories": [
@@ -51,6 +43,5 @@
     "config": {
         "sort-packages": true,
         "platform-check": false
-    },
-    "lock": false
+    }
 }
