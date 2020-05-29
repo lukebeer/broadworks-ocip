@@ -41,7 +41,6 @@
         "sort-packages": true,
         "platform-check": false
     },
-    "minimum-stability": "dev",
     "extra": {
         "branch-alias": {
             "dev-master": "v3.0.2"
