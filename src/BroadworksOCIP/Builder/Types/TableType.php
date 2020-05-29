@@ -13,7 +13,6 @@ namespace BroadworksOCIP\Builder\Types;
 use Console_Table;
 use SimpleXMLElement;
 
-require_once 'Console/Table.php';
 
 /**
  * Class TableType - Used for OCITable responses only, never in requests.

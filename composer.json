@@ -24,7 +24,7 @@
         },
         {
             "type": "pear",
-            "url": "http://pear2.php.net"
+            "url": "https://pear2.php.net"
         }
     ],
     "require-dev": {
